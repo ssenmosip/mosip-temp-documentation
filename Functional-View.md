@@ -1,1 +1,0 @@
-The below diagram gives the functional view of MOSIP with its modules and components
