@@ -1,0 +1,1 @@
+MOSIP is an open source software platform to create digital identities for individuals. This platform addresses the end to end workflow of capturing the Identity attributes of an Individual (demographics & biometrics), ensuring uniqueness of the identity and authentication of Identity against the captured details.
