@@ -30,6 +30,7 @@ d. the reference values may be duplicate, but refer to a single parent.
 
 **3. typed metadata.**
 these are fields with different data type. For example string,integer and date. Default data type for these fields would be string.
+
 **4. Document type metadata.**
 We may treat separately as document functionality needs to be handled accordingly.
 
