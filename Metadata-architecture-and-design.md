@@ -9,5 +9,5 @@ Following things would be configured through metadata.
 1. Business flows.
 2. Enabling and disabling of major components.
 3. Business rules
-4. UI rendering 
+4. UI rendering
 
