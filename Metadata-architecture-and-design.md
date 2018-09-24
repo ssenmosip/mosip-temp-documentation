@@ -13,4 +13,31 @@ Following things would be configured through metadata.
 
 We would separate UI rendering to UI part.
 Where different UI rendering principles could be applied.
-One of them could be templating.
+One of them could be template.
+
+Following are identified metadata.
+
+**1. composite metadata.**
+This would be group consists of multiple fields and internally may be group of fields. For pre registartion, pre registration form is an example.
+
+**2. hierarchy metadata.**
+This is common metadata where elements are present in a hierarchical order.  As s design principle, following practices should be followed.
+a. a hierarchy would be fully referenced. Otherwise could result in resolving duplicate names.
+b. there would be a single root.
+c. the names of the labels should be unique.
+d. the reference values may be duplicate, but refer to a single parent.
+
+**2. typed metadata.**
+these are fields with different data type. For example string,integer and date. Default data type for these fields would be string.
+
+
+
+Open point:
+
+@rudratripathy@mindtree.com
+Should we create a form data?
+
+
+
+
+
