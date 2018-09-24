@@ -21,6 +21,7 @@ Following are identified metadata.
 
 **1. composite metadata.**
 This would be group consists of multiple fields and internally may be group of fields. For pre registartion, pre registration form is an example.
+
 **2. hierarchy metadata.**
 This is common metadata where elements are present in a hierarchical order.  As s design principle, following practices should be followed.
 a. a hierarchy would be fully referenced. Otherwise could result in resolving duplicate names.
