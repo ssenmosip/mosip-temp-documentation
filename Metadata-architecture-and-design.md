@@ -11,3 +11,6 @@ Following things would be configured through metadata.
 3. Business rules
 4. UI rendering
 
+We would separate UI rendering to UI part.
+Where different UI rendering principles could be applied.
+One of them could be templating.
