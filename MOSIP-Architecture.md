@@ -18,6 +18,5 @@ MOSIP is built on the following architecture principles
 
 # MOSIP Functional View
 
-# MOSIP - Modules & Components
 
-# MOSIP Logical Architecture
+# MOSIP Logical View
