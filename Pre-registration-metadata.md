@@ -17,6 +17,12 @@ Configuration of elements specific to pre registration would be done through dif
 This elements are defined in id issuance
 
 <Preregistration>
-<name>
+
+<name type="meta">
 <Gender>
-</Preregistration>
+<Address>
+<documment>
+    <document-type/>
+<document>
+<registration-center/>
+ </Preregistration>
