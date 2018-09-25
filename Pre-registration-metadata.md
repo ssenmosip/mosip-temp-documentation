@@ -16,4 +16,7 @@ This is the core business process flow for pre registration and should not be ch
 Configuration of elements specific to pre registration would be done through different XML.
 This elements are defined in id issuance
 
-
+<Preregistration>
+<name>
+<Gender>
+</Preregistration>
