@@ -18,5 +18,5 @@ MOSIP is an open source software platform to create digital identities for indiv
 # MOSIP Functional View
 
 # MOSIP - Modules & Components
-![](D:\MOSIP\Architecture\MOSIP_modules_components_v1)
+
 # MOSIP Logical Architecture
