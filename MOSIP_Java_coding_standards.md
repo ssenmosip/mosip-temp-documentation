@@ -1,0 +1,134 @@
+# 1	Introduction
+## 1.1	Context
+MOSIP is developed as an open source framework project. The code developed complied to the Java standards and best practices. 
+## 1.2	Purpose of this document
+This document gives various RESTful webservice standards which have to be followed during the MOSIP development. 
+## 1.3	Scope of this document
+This document covers the coding standards, which are followed by the RESTful webservice developers.
+# 2	URL structure
+
+## 2.1	General structure
+The syntax of the URL of the RESTful webservice should be as follows, 
+https://<IP_ADDRESS>:<PORT>/<VERSION>/<MODULE_NAME>/<RESOURCE_NAME>/<PARAMETERS_AND_VALUES_IF_ANY>
+For example, 
+https://mosip.com/v2/pre-enrolment/inviduals/ID/23442 
+The URL is the sentence, the resources are nouns and the HTTP methods are verbs. 
+The URL, before the parameters, should contain only spinal case ( - ). The URL, before the parameters, should not contain snake case ( _ ) or camel case. 
+NOTE: The parameters can contain snake case or camel case. 
+
+# 3	Resources - Use nouns and not verbs
+
+Use only nouns and do not use verbs for the resources.  
+Resource	GET
+read	POST
+create	PUT
+update	DELETE
+delete
+/preenrolments	Returns list of pre enrolments	Creates a new pre enrolment	Bulk updates	Delete all preenrolments
+/preenrolments/123	Returns a particular pre enrolment	Method not allowed (405)	Updates a specific car	Deletes a specific car
+
+Following should be avoided, 
+/getAllPreenrolments
+/createNewEnrolment
+/deleteAllPreenrolments
+# 4	Resources – Usage of plurals in nouns
+
+Use the plural nouns in the resource names if there is CRUD operations. For example, 
+https://mosip.com/v2/pre-enrolment/individuals		 Prefer 
+https://mosip.com/v2/pre-enrolment/individual		 Avoid
+In other cases, use singulars in the nouns. For example, 
+https://mosip.com/v2/OTP
+# 5	Resources – actions in the URL
+The actions are added in the URL, wherever applicable. For example, 
+https://mosip.com/v2/OTP/sendOTP
+# 6	Appropriate usage of the HTTP methods
+Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource. 
+# 7	HTTP Status codes
+Use the following HTTP status codes are used to convey the result of the Restful service calls. For example, following should be avoided. 
+HTTP Status code returned: 200
+HTTP Response text: “The requested resource is not found”
+All the HTTP status codes can be used. Some of the HTTP status codes are as follows, 
+## 7.1	2xx Category (Success category)
+The 2xx category conveys the service successfully received the request and processed successfully. 
+### 7.1.1	200 Ok
+This is the standard success response for the HTTP methods GET, PUT and POST. 
+### 7.1.2	201 Created
+This is the standard success response for the creation of items. 
+## 7.2	4xx Category (Client errors)
+The 4xx category represents the error category, which are caused by the caller. This status code is applicable for all methods. 
+### 7.2.1	400 Bad request
+When a caller calls the service with some bad request, this HTTP status code is returned. The error can be of malformed URL syntax or the size of the request may be too large etc., 
+### 7.2.2	405 Method not allowed
+When a specific method is not allowed in the resource, this HTTP status code is returned. For example, the DELETE might not be applicable in a resource and if caller request to delete some item, 405 status code is returned. 
+# 8	Identifying a resource
+When the caller want to identify the resource, the path param is used. For example, 
+https://mosip.com/v2/pre-enrolment/individuals/id1234
+
+# 9	Filtering
+The filter has to be applied via the URL parameters. For example,
+https://mosip.com/v2/pre-enrolment/individuals/id1234?city=someCityName&pincode=473822  
+
+# 10	Sorting
+In case if the results have to be sorted, it can be mentioned in the URL parameter named sort. For example, 
+https://mosip.com/v2/pre-enrolment/individuals/1234?sort=firstName 
+# 11	Pagination
+In case of pagination, the page number can be mentioned in the parameter by the name “page”. For example, 
+https://mosip.com/v2/pre-enrolment/individuals/1234?page=15
+
+# 12	Always use SSL
+Always use SSL for the services. No services should be exposed without SSL. 
+
+# 13	Versioning
+Always version the service. The version have to be mentioned in the URL of the service after the hostname (and port number, if any). For example,   
+https://mosip.com/v2/pre-enrolment/individuals/1234
+
+# 14	Design first approach
+Always go with the design first approach. First, define the Swagger specification and publish to the Swagger UI after getting it reviewed. The coding should be started after the design is completed and the specification is completed in Swagger. 
+# 15	Response format
+Following are the response formats used in the platform, 
+1.	JSON
+Always the response JSON should be surrounded with envelope ( { } ). For example,	
+
+{
+	“name” : ”Scott Blogger”,
+	“mobile” : “3298-34523457”
+}
+# 16	Error message
+Following error message format is used in case of error response, 
+
+{
+	[
+		{
+			"error_code":"DD_23234",
+			"error_description":"",
+		}, 
+		{
+			"error_code":"DD_08735",
+			"error_description":"",
+		},
+		.
+		.
+		.
+}
+
+Even in case of one error, surround with an envelope and place the error in an array. 
+
+# References
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
+
+https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
+
+https://restfulapi.net/resource-naming/ 
+
+# Contact
+
+Shravan Poorigali (shravan.poorigali@mindtree.com)
+
+Karthik Ramanan (Karthik.Ramanan@mindtree.com)
+
+Rudra Prasad Tripathy (Rudra.Tripathy@mindtree.com)
+
+John David (John.Panneerselvam@mindtree.com)
+
