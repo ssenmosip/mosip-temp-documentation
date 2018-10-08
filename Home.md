@@ -2,3 +2,5 @@ MOSIP is a modular and open source identity platform that helps user organizatio
 
 # Functional View
 ![Functional view](_images/arch_diagrams/MOSIP_functional_view.png)
+
+![Module view](_images/arch_diagrams/MOSIP_modules_components.png)
