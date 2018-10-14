@@ -1,1 +1,1 @@
-MOSIP ID definition
+Definition of an ID Object i.e., the attributes of an ID are country specific and MOSIP cannot define them.To achieve this, MOSIP will have a provision for a country to define their own ID Object schema and provide it as an input to MOSIP. All operations related to ID will have a place holder to receive the ID Object as per the schema, validate it as per the schema and store it AS IS.
