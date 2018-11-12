@@ -14,5 +14,5 @@
   * [OTP Manager](https://github.com/mosip/mosip/wiki/OTP-Manager)
   * [Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)
   * [Registration Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
-
+* [Developer Documentation](https://github.com/mosip/mosip/wiki/Developer-Documentation)
  
