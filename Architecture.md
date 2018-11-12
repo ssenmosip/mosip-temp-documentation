@@ -4,13 +4,13 @@ MOSIP is an open source software platform to create digital identities for indiv
 
 [Architecture Principles](https://github.com/mosip/mosip/wiki/Architecture#architecture-principles)
 
-[Functional view](https://github.com/mosip/mosip/wiki/1.-Architecture#functional-view)
+[Functional view](https://github.com/mosip/mosip/wiki/Architecture#functional-view)
 
-[Logical view](https://github.com/mosip/mosip/wiki/1.-Architecture#logical-view)
+[Logical view](https://github.com/mosip/mosip/wiki/Architecture#logical-view)
 
-[Process view](https://github.com/mosip/mosip/wiki/1.-Architecture#process-view)
+[Process view](https://github.com/mosip/mosip/wiki/Architecture#process-view)
 
-[Data view](https://github.com/mosip/mosip/wiki/1.-Architecture#data-view)
+[Data view](https://github.com/mosip/mosip/wiki/Architecture#data-view)
 # Architecture Principles
 MOSIP is built on the following architecture principles
 
