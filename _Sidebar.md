@@ -9,5 +9,6 @@
   * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs)
   * [ID Repository](https://github.com/mosip/mosip/wiki/ID-Repository-API)
   * [ABIS APIs](https://github.com/mosip/mosip/wiki/ABIS-APIs)
+  * [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs)
 
  
