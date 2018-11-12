@@ -1,8 +1,8 @@
 This section details about the service APIs in the Registration-Processor modules
 
-[2.9.1 Packet receiver API](https://github.com/mosip/mosip/wiki/2.9-Registration-Processor-APIs#291-packet-receiver)
+[2.9.1 Packet receiver API](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs#291-packet-receiver)
 
-[2.9.2 Registration status API](https://github.com/mosip/mosip/wiki/2.9-Registration-Processor-APIs#292-registration-status)
+[2.9.2 Registration status API](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs#292-registration-status)
 
 # 2.9.1 Packet Receiver API
 ## 2.9.1.1 Packet-receiver service
