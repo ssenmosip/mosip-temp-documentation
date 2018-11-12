@@ -1,30 +1,30 @@
 This section details about the service APIs in the Pre-Registration modules
 
-[2.7.1 Login API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#271-login-api)
+[2.7.1 Login API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#271-login-api)
 
-[2.7.2 Login OTP Validation API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#272-login-otp-validation-api)
+[2.7.2 Login OTP Validation API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#272-login-otp-validation-api)
 
-[2.7.3 User ID Updation API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#273-user-id-updation-api)
+[2.7.3 User ID Updation API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#273-user-id-updation-api)
 
-[2.7.4 Create Pre-Registration API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#274-create-pre-registration-api)
+[2.7.4 Create Pre-Registration API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#274-create-pre-registration-api)
 
-[2.7.5 Reterive all Pre-Registration API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#275-reterive-all-pre-registration-api)
+[2.7.5 Reterive all Pre-Registration API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#275-reterive-all-pre-registration-api)
 
-[2.7.6 Reterive all Pre-Registration status API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#276-reterive-all-pre-registration-status-api)
+[2.7.6 Reterive all Pre-Registration status API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#276-reterive-all-pre-registration-status-api)
 
-[2.7.7 Discard Pre-Registration API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#277-discard-pre-registration-api)
+[2.7.7 Discard Pre-Registration API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#277-discard-pre-registration-api)
 
-[2.7.8 Document Upload API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#278-document-upload-api)
+[2.7.8 Document Upload API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#278-document-upload-api)
 
-[2.7.9 Get Document API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#279-get-document-api)
+[2.7.9 Get Document API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#279-get-document-api)
 
-[2.7.10 Get All Document API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#2710-get-all-document-api)
+[2.7.10 Get All Document API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2710-get-all-document-api)
 
-[2.7.11 Delete Document API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#2711-delete-document-api)
+[2.7.11 Delete Document API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2711-delete-document-api)
 
-[2.7.12 Delete All Document  API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#2712-delete-all-document-api)
+[2.7.12 Delete All Document  API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2712-delete-all-document-api)
 
-[2.7.13 Copy Document API](https://github.com/mosip/mosip/wiki/2.7-Pre-Registration-APIs#2713-delete-all-document-api)
+[2.7.13 Copy Document API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2713-delete-all-document-api)
 
 
 ## 2.7.1. Login API
