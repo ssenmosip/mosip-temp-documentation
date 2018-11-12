@@ -2,7 +2,7 @@ MOSIP is an open source software platform to create digital identities for indiv
 
 ![Functional view](_images/arch_diagrams/MOSIP_functional_view.png)
 
-[Architecture Principles](https://github.com/mosip/mosip/wiki/1.-Architecture#architecture-principles)
+[Architecture Principles](https://github.com/mosip/mosip/wiki/Architecture#architecture-principles)
 
 [Functional view](https://github.com/mosip/mosip/wiki/1.-Architecture#functional-view)
 
