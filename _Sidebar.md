@@ -1,11 +1,7 @@
-# Wiki Index
-As defined by the architecture team can go here. Currently WIP. See sample below
-## Requirements
-* List
-* Of
-* Req Docs
-## Design
+## MOSIP Overview
+* [Overview](https://github.com/mosip/mosip/wiki)
+* [Architecture](https://github.com/mosip/mosip/wiki/1.-Architecture)
+## APIs
 * [List](list) 
 * Of 
 * Design Docs 
-## API's
