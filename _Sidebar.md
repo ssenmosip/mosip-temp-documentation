@@ -6,4 +6,8 @@
   * [MOSIP ABIS Middleware](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
 * [MOSIP APIs](https://github.com/mosip/mosip/wiki/API-Specifications)
+  * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs)
+  * [ID Repository](https://github.com/mosip/mosip/wiki/ID-Repository-API)
+  * [ABIS APIs](https://github.com/mosip/mosip/wiki/ABIS-APIs)
+
  
