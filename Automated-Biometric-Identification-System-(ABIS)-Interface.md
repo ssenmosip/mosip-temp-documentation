@@ -114,4 +114,4 @@ If a system owner decides to have only multiple entries per registration, the wo
 
 The following page details the API's that an ABIS system must support 
 
-https://github.com/mosip/mosip/wiki/2.3-ABIS-APIs
+https://github.com/mosip/mosip/wiki/ABIS-APIs
