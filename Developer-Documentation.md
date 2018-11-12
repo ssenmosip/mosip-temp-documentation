@@ -1,10 +1,10 @@
 Place holder to create documentation for use by developers. This will include guidelines, installation instructions, configuration etc...
 
 Documentation List:
-1. [MOSIP Configuration Server](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
+- [MOSIP Configuration Server](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
 
-2. [MOSIP REST API Guidelines](https://github.com/mosip/mosip/wiki/MOSIP-REST-API-guidelines)
+- [MOSIP REST API Guidelines](https://github.com/mosip/mosip/wiki/MOSIP-REST-API-guidelines)
 
-3. [MOSIP Java Coding Standards](https://github.com/mosip/mosip/wiki/MOSIP-Java-coding-standards)
+- [MOSIP Java Coding Standards](https://github.com/mosip/mosip/wiki/MOSIP-Java-coding-standards)
 
-4. [Eclipse Markdown Editor](https://github.com/mosip/mosip/wiki/Eclipse-Markdown-Editor)
+- [Eclipse Markdown Editor](https://github.com/mosip/mosip/wiki/Eclipse-Markdown-Editor)
