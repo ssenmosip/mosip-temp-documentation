@@ -189,8 +189,10 @@ Status Code : 500(Error)
 {
 	"id": "mosip.identity.kyc",
 	"ver": "1.0",
-	"consentRequired": true,
-	"ePrintRequired": true,
+	"consentReq": true,
+	"ePrintReq": true,
+        "secLangReq" : true,
+        "eKycAuthType" : "",
 	"authRequest": {// no PPI, only encoding required
 		"idvId": "1234567890",
 		"idvIdType": "V",
