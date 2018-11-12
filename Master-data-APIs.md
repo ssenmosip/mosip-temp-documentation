@@ -1,38 +1,38 @@
 This section details about the service APIs in the Master data modules
 
-[2.3.1 Holiday Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#231-holiday-master-api)
+[2.3.1 Holiday Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#231-holiday-master-api)
 
-[2.3.2 Blacklisted words Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#232-blacklisted-words-master-api)
+[2.3.2 Blacklisted words Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#232-blacklisted-words-master-api)
 
-[2.3.3 Documents Category Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#233-documents-category-master-api)
+[2.3.3 Documents Category Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#233-documents-category-master-api)
 
-[2.3.4 Document formats Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#234-document-formats-master-api)
+[2.3.4 Document formats Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#234-document-formats-master-api)
 
-[2.3.5 Machines Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#235-machines-master-api)
+[2.3.5 Machines Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#235-machines-master-api)
 
-[2.3.6 Devices Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#236-devices-master-api)
+[2.3.6 Devices Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#236-devices-master-api)
 
-[2.3.7 Languages Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#237-languages-master-api)
+[2.3.7 Languages Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#237-languages-master-api)
 
-[2.3.8 Gender Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#238-gender-master-api)
+[2.3.8 Gender Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#238-gender-master-api)
 
-[2.3.9 Titles Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#239-titles-master-api)
+[2.3.9 Titles Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#239-titles-master-api)
 
-[2.3.10 Biometric Types Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2310-biometric-types-master-api)
+[2.3.10 Biometric Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2310-biometric-types-master-api)
 
-[2.3.11 ID Types Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2311-id-types-master-api)
+[2.3.11 ID Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2311-id-types-master-api)
 
-[2.3.12 Application Types Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2312-application-types-master-api)
+[2.3.12 Application Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2312-application-types-master-api)
 
-[2.3.13 Registration Centers Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2313-registration-centers-master-api)
+[2.3.13 Registration Centers Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2313-registration-centers-master-api)
 
-[2.3.14 Biometrics Attributes Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2314-biometric-attributes-master-api)
+[2.3.14 Biometrics Attributes Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2314-biometric-attributes-master-api)
 
-[2.3.15 Locations Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2315-locations-master-api)
+[2.3.15 Locations Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2315-locations-master-api)
 
-[2.3.16 Packet rejection reasons Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2316-packet-rejection-reasons-master-api)
+[2.3.16 Packet rejection reasons Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2316-packet-rejection-reasons-master-api)
 
-[2.3.17 Packet on hold reasons Master API](https://github.com/mosip/mosip/wiki/2.4-Master-data-APIs#2317-packet-on-hold-reasons-master-api)
+[2.3.17 Packet on hold reasons Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2317-packet-on-hold-reasons-master-api)
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
 Master data is required across the platform. 
