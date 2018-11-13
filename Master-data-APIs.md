@@ -2827,6 +2827,68 @@ Description: Unauthorized
 
 Description: Not Found
 
+
+# 2.3.13.10 Registration Centers Master-get registration center based on hierarchy level, text value and language code
+This service will return a list of enrollment center details based on hierarchy level, text value and language code
+
+### Resource URL
+### `GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+hierarchylevel|Yes|The hierarchy level for which the list of enrollment centers are needed| | 
+textvalue|Yes|This is a free text. The search will happen with the combination of heirarchy level, language code and this free text. The enrollment centers which satisfy these 3 criteria will be returned| | 
+languagecode|Yes|The enrollment center description will be returned in this language code | | 
+
+
+### Example Response
+```JSON
+{
+  "registrationcenter": [
+	{
+		"registrationcenterid":"string",
+		"registrationcentername":"string",
+		"longitude":"string",
+		"latitude":"string",
+		"isactive":"boolean",
+		"centertype":"string",
+		"address":"string",
+		"workinghours":"string",
+		"contactnumber":"string",
+		"pincode":"string",
+		"locationcode":"string",
+		"stateon":"date",
+		"languagecode":"string"
+	}
+  ]
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+
+
 # 2.3.14 Biometric attributes Master API
 # 2.3.14.1 Biometric attributes Master-create service
 
