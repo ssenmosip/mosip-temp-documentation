@@ -90,8 +90,8 @@ This is a stable branch. Only the tested code should be pushed to this branch.
 
 While naming the feature branches, make sure to follow the standard.
 
-1. The naming convention for the feature branch is as follows, D
-  1. DEV\_\&lt;_sprint number_\&gt;\_\&lt;_developer name_\&gt;\_\&lt;JIRA id\&gt;
+The naming convention for the feature branch is as follows, 
+  1. DEV\_&lt;_sprint number_&gt;_&lt;_developer name_&gt;_&lt;JIRA id&gt;
   2. For example, _DEV\_SPRINT3\_URVIL\_MOS-424_
 
 ### 7.2 House keeping
