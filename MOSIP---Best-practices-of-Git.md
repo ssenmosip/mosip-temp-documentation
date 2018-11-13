@@ -128,7 +128,7 @@ Following are the roles and permissions given in Git,
     2. Can _push_ his newly created feature branches to the Git.
 
 
-# 2. Contact
+## 10. Contact
 
 Shravan Poorigali ([shravan.poorigali@mindtree.com](mailto:shravan.poorigali@mindtree.com))
 
