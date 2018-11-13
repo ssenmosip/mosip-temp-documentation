@@ -5,7 +5,7 @@ MOSIP as a platform will have multiple applications running and each application
 ### MOSIP platform config
 MOSIP platform config is the file a system owner will create that controls which features are available and which ones are not. For example, in Pre-Registration module, a system owner may not wish to have booking feature and would like the users to just pre-register by giving demo details, then come to a registration center, take a token and wait in queue for registration.
 
-<<TBD>>
+<< TBD >>
 
 ### MOSIP Config server
 MOSIP will have a centralized config server where all the configuration elements will go including the platform config and ID Object schema. MOSIP will use spring cloud config to implement the config server. All the config files will be version controlled in git and the config server will fetch the config values from a git url. Different sets of configurations can be created based on the environment. One set for Pre-Prod and one for Prod etc. so that system administrators need not change the values on the same set of files.
