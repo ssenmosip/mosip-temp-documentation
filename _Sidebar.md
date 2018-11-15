@@ -15,4 +15,5 @@
   * [Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)
   * [Registration Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
 * [Developer Documentation](https://github.com/mosip/mosip/wiki/Developer-Documentation)
+* [Tester Documentation](https://github.com/mosip/mosip/wiki/Tester-Documentation)
 * [Contribute to MOSIP](https://github.com/mosip/mosip/wiki/Contribute-to-MOSIP) 
