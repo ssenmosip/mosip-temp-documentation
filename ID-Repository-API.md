@@ -35,10 +35,9 @@ request | yes | JSON body as per the ID object schema | |
 	"id": "mosip.id.create",
 	"ver" : "1.0",
 	"timestamp" : "",
-	"registration-id" : "",
+	"registrationId" : "",
 	"request" : {
 		//JSON object as per the ID Object Schema defined by the system owner
-		{
 	"identity": {
 		"firstName": [
 			{
@@ -304,9 +303,7 @@ request | yes | JSON body as per the ID object schema | |
 				"value": "hashed_fileName.png"
 			}
 		]
-	}
-}
-		
+	}		
 	}
 }
 ```
@@ -317,22 +314,22 @@ request | yes | JSON body as per the ID object schema | |
 	"id" : "mosip.id.create",
 	"ver" : "1.0",
 	"timestamp" : "",
-	"registration-id" : "",
+	"registrationId" : "",
+	"uin" : "",
 	"status" : "",
-	"errmsg" : "",
-	"errcode" : "",
+	"err" : [],
 	"response" : {
-		"entity" : "http://mosip.io/identity/7867780967875678"
+		"entity" : "http://mosip.io/identity/uin/7867780967875678"
 	}	
 }
 ```
 
-**2. Read**
+**2. Read By UIN**
 
 This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `GET /identity/7867780967875678`
+### `GET /identity/uin/7867780967875678`
 
 ### Resource details
 
@@ -347,23 +344,50 @@ Requires Authentication | Yes
 	"id" : "mosip.id.read",
 	"ver" : "1.0",
 	"timestamp" : "",
-	"err": "",
-        "status": "SUCCCESSFUL",
-        "errmsg": "",
-	"responseCode" : "OK",
+	"err": [],
 	"uin" : "7867780967875678",
+        "status": "REGISTERED",
 	"response" : {
 		//JSON object as per the ID Object Schema defined by the system owner
 	}	
 }
 ```
 
-**3. Update**
+**3. Read By RegId**
+
+This operation will retrieve an ID record from the ID repository for a given Registration ID
+
+### Resource URL
+### `GET /identity/regid/7867780967875678`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+**Example response**
+```
+{
+	"id" : "mosip.id.read",
+	"ver" : "1.0",
+	"timestamp" : "",
+	"err": [],
+	"uin" : "7867780967875678",
+        "status": "REGISTERED",
+	"response" : {
+		//JSON object as per the ID Object Schema defined by the system owner
+	}	
+}
+```
+
+**4. Update**
 
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/7867780967875678`
+### `PATCH /identity/uin/7867780967875678`
 
 ### Resource details
 
@@ -381,7 +405,6 @@ Requires Authentication | Yes
 	"uin" : "7867780967875678",
 	"request" : {
 		//JSON object as per the ID Object Schema defined by the system owner
-		{
 	"identity": {		
 		"addressLine1": [
 			{
@@ -467,8 +490,7 @@ Requires Authentication | Yes
 				"value": "Tanger-Tétouan-Al Hoceima"
 			}
 		]
-	}
-}	
+	}	
 }
 }
 ```
@@ -481,10 +503,9 @@ Requires Authentication | Yes
 	"timestamp" : "",
 	"uin" : "7867780967875678",
 	"status" : "",
-	"errmsg" : "",
-	"errcode" : "",
+	"err" : [],
 	"response" : {
-		"entity" : "http://mosip.io/identity/7867780967875678"
+		"entity" : "http://mosip.io/identity/uin/7867780967875678"
 	}	
 }
 ```
