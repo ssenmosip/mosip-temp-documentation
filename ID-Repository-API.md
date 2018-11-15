@@ -402,7 +402,6 @@ Requires Authentication | Yes
 	"id" : "mosip.id.update",
 	"ver" : "1.0",
 	"timestamp" : "",	
-	"uin" : "7867780967875678",
 	"request" : {
 		//JSON object as per the ID Object Schema defined by the system owner
 	"identity": {		
