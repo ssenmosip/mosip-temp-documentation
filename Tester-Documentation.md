@@ -69,12 +69,7 @@ This type of testing is done to validate if it accepts only valid inputs and all
 ## 2.5 Construct test scenarios
 By clubbing, multiple methods/operations create End-to-End regression scenarios.
 
-***
-
-
-
-
-																																																						Operations
+Example: Simulate Input Data -> Trigger OTP -> Generate OTP -> Get OTP -> Authenticate OTP
 										
 ## 2.6 Exceptional behavior checking
 	
@@ -91,6 +86,8 @@ The data created/Updated/Deleted should be validated against DB entry with JDBC 
 
 Input data should be handled as master json file and then it is parsed across the soapui project to refer input elements.
 Groovy scripting is used to generate data dynamically (Ex: email address).
+
+All input json files are saved in git and accessed accordingly.
 
 ## 3.2 Use realistic data 
 
@@ -122,14 +119,9 @@ Get the clarity of feature under scope of testing. Testing the features which ar
 
 
 
+Doc_Version: 1.0
 
-Point of Contact
+Point of Contact/Author: jyoti.kori@mindtree.com
 
-Name of doc	Date	Version	Created by	Reviewed by
-Soapui_testing_bestPractices	15/11/2018	1.0	Jyoti.kori@mindtree.com	Avinash.Chandrashekar@mindtree.com
+Reviewed by:     	Avinash.Chandrashekar@mindtree.com
 
-
-
-
-***
-> > `__![web_service test scenarios](C:\Users\M1013977\Desktop\web_service.png)__`
