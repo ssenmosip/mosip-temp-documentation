@@ -20,7 +20,9 @@ Test Suites are as below:
     Kernel
 
 Note: As Registration module doe not have any Restful apis, not considered for automation.
+
 **Test Case**
+
 Naming convention followed as:
 
 ModuleName SprintCycle_Type of Test_Fetaure_JIRA ID_Description
@@ -66,6 +68,8 @@ This type of testing is done to validate if it accepts only valid inputs and all
 
 ## 2.5 Construct test scenarios
 By clubbing, multiple methods/operations create End-to-End regression scenarios.
+
+***
 
 
 
@@ -126,3 +130,6 @@ Soapui_testing_bestPractices	15/11/2018	1.0	Jyoti.kori@mindtree.com	Avinash.Chan
 
 
 
+
+***
+> > `__![web_service test scenarios](C:\Users\M1013977\Desktop\web_service.png)__`
