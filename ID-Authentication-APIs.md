@@ -82,10 +82,12 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
 			}
 		],
         "pinInfo" : 
-		{
+               [
+		    {
 			"value" : "123456",
 			"type" : "OTP"
-		},
+		    }
+               ],
         "request" : 
 	{
 		//JSON request as per the id object schema defined by the country
