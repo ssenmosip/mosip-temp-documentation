@@ -17,16 +17,22 @@ Test Suites are as below:
     Reg-Proc
     IDA
     Kernel
+
 Note: As Registration module doe not have any Restful apis, not considered for automation.
-Test Case
+**Test Case**
 Naming convention followed as:
+
 ModuleName SprintCycle_Type of Test_Fetaure_JIRA ID_Description
-ModuleName:
-Pre-Registration - 1
-Reg-Proc -2
-IDA -3
-Kernel -4
+
+**ModuleName:**
+
+   Pre-Registration - 1
+   Reg-Proc -2
+   IDA -3
+   Kernel -4
+
 Sprint Cycle: 1 , 2 ,3 etc
+
 Type of Test as below
    1 – Sanity
    2 – Progression
