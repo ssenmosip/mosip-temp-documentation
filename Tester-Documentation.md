@@ -28,10 +28,11 @@ IDA -3
 Kernel -4
 Sprint Cycle: 1 , 2 ,3 etc
 Type of Test as below
-•	1 – Sanity
-•	2 – Progression
-•	3- Regression
-•	4- Progression and Regression both
+   1 – Sanity
+   2 – Progression
+   3- Regression
+   4- Progression and Regression both
+
 JIRA ID – Relevant story under test
 Description: Test Scenario explanation
 Ex: 14_3_OTP_MOS-27_Verify OTP triggered successfully
