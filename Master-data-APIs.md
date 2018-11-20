@@ -3731,3 +3731,163 @@ Description: Unauthorized
 
 Description: Not Found
 
+# 2.3.18 Holiday Master API
+
+# 2.3.18.1 Documents Type Master-create service
+
+This service will create the list of Documents types which are used in the MOSIP platform. There is another service to map the document category and document type.
+
+### Resource URL
+### `POST /documenttype`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of document type| | 
+name|Yes|Name of the document type| | 
+descr|Yes|Description of the document type| | 
+lang_code|Yes|Language code of the document type| | 
+
+### Example Request
+```JSON
+{
+  "documenttypes": [
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
+	]
+}
+```
+### Example Response
+```JSON
+{
+  "successfully_created_documenttypes": [
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
+	]
+}
+```
+
+# 2.3.18.2 Documents Type Master-update service
+
+This service will update the list of Documents types which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT /documenttype`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of document type| | 
+name|Yes|Name of the document type| | 
+descr|Yes|Description of the document type| | 
+lang_code|Yes|Language code of the document type| | 
+
+### Example Request
+```JSON
+{
+  "documenttypes": [
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
+	]
+}
+```
+### Example Response
+```JSON
+{
+  "successfully_updated_documenttypes": [
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
+	]
+}
+```
+
+# 2.3.18.3 Documents Category-delete service
+Master data is required across the platform. 
+
+This service will deletes a list of Document Categories from the Documents Category master module. 
+
+### Resource URL
+### `DELETE /documenttypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the document type| | 
+
+
+### Example Request
+```JSON
+{
+  "documentcodes": ["PSPRT","DRVNGLCNC","RNTLAGRMNT","POB"]
+}
+```
+### Example Response
+```JSON
+{
+  "successfully_deleted_documentcodes": ["PSPRT","DRVNGLCNC","RNTLAGRMNT","POB"]
+}
+```
+
+# 2.3.18.4 Document Types Master-get service
+
+This service will provides the service for the List of documents types. 
+
+### Resource URL
+### `GET /documentcategorytypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+```JSON
+-NA-
+```
+### Example Response
+```JSON
+{
+  "documenttypes": [
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
+	]
+}
+```
