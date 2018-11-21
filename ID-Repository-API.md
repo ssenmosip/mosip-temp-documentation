@@ -319,17 +319,17 @@ request | yes | JSON body as per the ID object schema | |
 	"status" : "",
 	"err" : [],
 	"response" : {
-		"entity" : "http://mosip.io/identity/uin/7867780967875678"
+		"entity" : "http://mosip.io/identity7867780967875678"
 	}	
 }
 ```
 
-**2. Read By UIN**
+**2. Read **
 
 This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `GET /identity/uin/7867780967875678`
+### `GET /identity/7867780967875678`
 
 ### Resource details
 
@@ -353,41 +353,12 @@ Requires Authentication | Yes
 }
 ```
 
-**3. Read By RegId**
-
-This operation will retrieve an ID record from the ID repository for a given Registration ID
-
-### Resource URL
-### `GET /identity/regid/7867780967875678`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-**Example response**
-```
-{
-	"id" : "mosip.id.read",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"err": [],
-	"uin" : "7867780967875678",
-        "status": "REGISTERED",
-	"response" : {
-		//JSON object as per the ID Object Schema defined by the system owner
-	}	
-}
-```
-
-**4. Update**
+**3. Update**
 
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/uin/7867780967875678`
+### `PATCH /identity/7867780967875678`
 
 ### Resource details
 
@@ -504,7 +475,7 @@ Requires Authentication | Yes
 	"status" : "",
 	"err" : [],
 	"response" : {
-		"entity" : "http://mosip.io/identity/uin/7867780967875678"
+		"entity" : "http://mosip.io/identity/7867780967875678"
 	}	
 }
 ```
