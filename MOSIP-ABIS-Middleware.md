@@ -8,3 +8,6 @@ MOSIP ABIS middleware will have the following components
 - ABIS response handler
 
 ![MOSIP ABIS Middleware](_images/arch_diagrams/MOSIP_ABIS_middleware.png)
+
+## MOSIP ABIS Middleware API's
+MOSIP ABIS Middleware will support a MATCH interface. This interface accepts the biometrics data of an individual, inserts the data into 1 or more ABIS's based on the routing policy then issues an identify request to the ABIS's. Response from all the ABIS's is evaluated and a response is sent back to the requesting party.
