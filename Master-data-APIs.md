@@ -66,22 +66,14 @@ holidayName|Yes|Name of the holiday| |
 	"id": "mosip.holiday.create",
 	"ver" : "1.0",
 	"timestamp" : "",
-	"request" : { "holidayList":[
-		  { "holidayDate": "string", "holidayName": "string", "languagecode": "string" },
-		  { "holidayDate": "string", "holidayName": "string", "languagecode": "string" },
-		  { "holidayDate": "string", "holidayName": "string", "languagecode": "string" }
-		]
+	"request" : { 
+		  "holiday":{ "holidayDate": "string", "holidayName": "string", "languagecode": "string" }
 	}
 }  
 ```
 ### Example Response
 ```JSON
-{ "successfully_created_holidayList":[
-	  { "holidayID": "string" },
-	  { "holidayID": "string" },
-	  { "holidayID": "string" }
-  ]
-}
+  { "holidayID": "string" }
 ```
 ### Response codes
 202
@@ -155,13 +147,13 @@ Description: Unauthorized
 Description: Not Found
 
 
-## 2.3.1.3 Holiday Master-get by id and language code service
+## 2.3.1.3 Holiday Master-get by language code service
 
 This service will provides the service for the List of holidays based on the holiday ID
 It will also ensure audit data stored is archived based on the defined archival policy.
 
 ### Resource URL
-### `GET /holidays/{holidayid}/{languagecode}`
+### `GET /holidays/{languagecode}`
 
 ### Resource details
 
@@ -173,10 +165,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-holidayid|Yes|Id of the holiday| | id123
 languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
-
-
 
 ### Example Response
 ```JSON
