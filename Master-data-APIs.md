@@ -3266,28 +3266,16 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "locations": [
-		{
-			"code":"string",
-			"name":"string",
-			"hierarchylevel":"number",
-			"hierarchylevelname":"string",
-			"parentloccode":"",
-			"langcode":"string",
-			"isactive":"boolean",
-			"languagecode":"string"
-		},
-		{
-			"code":"string",
-			"name":"string",
-			"hierarchylevel":"number",
-			"hierarchylevelname":"string",
-			"parentloccode":"",
-			"langcode":"string",
-			"isactive":"boolean",
-			"languagecode":"string"
-		}
-	]
+    "locationHierarchyResponseDto": [
+        {
+            "locationHierarchylevel": number,
+            "locationHierarchyName": "string"
+        },
+        {
+           "locationHierarchylevel": number,
+           "locationHierarchyName": "string"
+        }
+    ]
 }
 ```
 200
