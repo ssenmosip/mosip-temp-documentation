@@ -20,5 +20,5 @@ To name an object within the DB, the following common standards are followed
 * Object name length to be less than 30 chars
 * Lower case object names separated by underscore (_)
 * Only defined abbreviations are used
-* No prefix or suffix to the table names: Since most of the objects of MOSIP is created on their own databases, we will not have any prefix or suffix of the application / module name or abbreviation to the table or object name.
+* **No prefix or suffix to the table names:** Since most of the objects of MOSIP is created on their own databases, we will not have any prefix or suffix of the application / module name or abbreviation to the table or object name.
 * Each table is defined an alias, this alias is used in constraints and index names
