@@ -11,11 +11,11 @@ Since most of the objects of MOSIP is created on their own databases, we will no
 
 # 1. Common Naming Standards
 
-Naming of the objects within the DB, the following common standards are applied
+To name an object within the DB, the following common standards are followed
 
 * Singular Names to the entities
 * Object name length to be less than 30 chars
 * Lower case object names separated by underscore (_)
 * Only defined abbreviations are used
 * No prefix or suffix to the table names
-* Each table is defined an alias, this alias is used in referenced tables, constraints and index names.
+* Each table is defined an alias, this alias is used in constraints and index names
