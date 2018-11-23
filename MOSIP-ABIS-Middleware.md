@@ -15,5 +15,5 @@ MOSIP ABIS Middleware will support a MATCH interface. This interface accepts the
 
 ### MATCH (A 1:n match of fingerprint or Iris data)
 
-## ABIS performance evaluator <<TBD in v2 of MOSIP>>
+## ABIS performance evaluator (TBD in v2 of MOSIP)
 This component will evaluate the performance of an ABIS over a period of time based on the responses received for MATCH request. 
