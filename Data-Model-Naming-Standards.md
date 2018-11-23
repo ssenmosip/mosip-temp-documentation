@@ -10,9 +10,7 @@ The purpose of this document is to propose a simple and consistent naming mechan
 
 Of course, there can be no one absolute convention that will solve all naming problems and have universal appeal.  The conventions offered in this document are merely one way of naming things that are followed in MOSIP project.
 
-
-
-# DB Object Naming Standards
+# Common Naming Standards
 
 To name an object within the DB, the following common standards are followed
 
@@ -29,3 +27,21 @@ To name an object within the DB, the following common standards are followed
 The database names will follow the below naming convention
 **mosip_**<abbreviated value of the application/module name>
 
+
+# Schema Naming Standards
+Schema name is named after the DB name, by default, without mosip_. If there are more than one schemas in a DB, then a proper single word name is assigned, either full word or an abbreviated word.
+
+# Table Naming Standards
+
+The table name can have one or two words that describe the contents of the table separated by underscore (_). If there are more words then those can be abbreviated based on the standards. Making sure the table name length is less than 30.
+ 
+The description should always be in singular (for example, REGISTRATION, REG_TRANSACTION) since they are easier to use and are shorter.  Storing the name in plural could be cumbersome, especially in the case of tables used to resolve many-to-many relationships as these could have two plurals in the name.
+
+Table names should NOT denote whether the underlying object is a table or a view because this could change during the application cycle (for example, a join view may be converted to a pre-populated table for performance reasons or a table may be converted to a view to show some extra computed columns).  
+
+An alias for each table is defined, this alias can be used in various other places like reference keys, indexes, constraints, etc.
+
+# Index Naming Standards
+
+Indexes are named as <table_name alias>_<col abbreviation>_idx_<n>
+Here n is a number of 2 digits like 01, 02,... and column abbreviation is optional
