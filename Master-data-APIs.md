@@ -2361,14 +2361,7 @@ locationcode|Yes|Code of the location of the registration center| |
 ### Example Response
 ```JSON
 {
-  "registrationcenters": [
-	{
-		"registrationcenterid":"string"
-	},
-	{
-		"registrationcenterid":"string"
-	}
-  ]
+	"registrationcenterid":"string"
 }
 ```
 ### Response codes
