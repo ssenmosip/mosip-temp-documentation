@@ -3159,7 +3159,7 @@ isactive|Yes|Is this location active| |
 	"ver" : "1.0",
 	"timestamp" : "",
 	"request" : {
-	  "locations": [
+	  "locations": 
 			{
 				"code":"string",
 				"name":"string",
@@ -3170,16 +3170,13 @@ isactive|Yes|Is this location active| |
 				"isactive":"boolean",
 				"languagecode":"string"
 			}
-	  ]
 	}
 }
 ```
 ### Example Response
 ```JSON
 {
-  "successfully_created_locations": [
-			"locationcode":"string"
-  ]
+	"locationcode":"string"
 }
 ```
 ### Response codes
