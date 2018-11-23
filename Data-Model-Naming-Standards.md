@@ -9,7 +9,7 @@ Since most of the objects of MOSIP is created on their own databases, we will no
    WIP
 -->
 
-#Common Naming Standards
+# 1. Common Naming Standards
 
 Naming of the objects within the DB, the following common standards are applied
 
