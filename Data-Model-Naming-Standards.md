@@ -17,7 +17,7 @@ Of course, there can be no one absolute convention that will solve all naming pr
 To name an object within the DB, the following common standards are followed
 
 * **Singular Names to the entities**
-* **Object name length to be less than 30 chars: ** To be compliant with other databases, the maximum length of the object name is restricted to 30 characters.
+* **Object name length to be less than 30 chars:** To be compliant with other databases, the maximum length of the object name is restricted to 30 characters.
 * **Lower case object names separated by underscore (_)**
 * **Only defined abbreviations are used**
 * **No prefix or suffix to the table names:** Since most of the objects of MOSIP is created on their own databases, we will not have any prefix or suffix of the application / module name or abbreviation to the table or object name.
