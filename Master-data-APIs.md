@@ -3977,3 +3977,182 @@ Name | Required | Description | Default Value | Example
 	]
 }
 ```
+
+# 2.3.19 Machine Types Master API
+# 2.3.19.1 Machines Types Master-create service
+
+This service will create the list of Machine types which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /machinetypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machinetypecode|Yes|Code of the machine type| | 
+machinename|Yes|Name of the machine type| | 
+description|Yes|Description of the machine type| | 
+languagecode|Yes|Language code of the machine type| | 
+isactive|Yes|Is the machine type active?| | 
+
+### Example Request
+```JSON
+{
+	"id": "mosip.machinetype.create",
+	"ver" : "1.0",
+	"timestamp" : "",
+	"request" : {
+	  "machinetype": { 
+					"machinetypecode":"string",
+					"machinename":"string",	
+					"description":"string",
+					"languagecode":"boolean",
+					"isactive":"string" 					
+			}
+	}
+}
+```
+### Example Response
+```JSON
+{
+  "machinetypecode": ""
+}
+```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+# 2.3.19.2 Machine types Master-get service
+
+This service will provides the service to fetch the complete List of machine types with the machine details. 
+
+### Resource URL
+### `GET /machinetypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Response
+```JSON
+{
+  "machinetypes": [
+				{ 
+					"machinetypecode":"string",
+					"machinename":"string",	
+					"description":"string",
+					"languagecode":"boolean",
+					"isactive":"string" 
+				}, 
+				{ 
+					"machinetypecode":"string",
+					"machinename":"string",	
+					"description":"string",
+					"languagecode":"boolean",
+					"isactive":"string" 
+				}
+			]
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+
+# 2.3.19.3 Machine types Master-get machines based on language
+
+This service will provides the service to fetch the List of machines with the machine details based on the language code.
+
+### Resource URL
+### `GET /machinetypes/{languagecode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Response
+```JSON
+{
+  "machines": [
+				{ 
+					"machinetypecode":"string",
+					"machinename":"string",	
+					"description":"string",
+					"languagecode":"boolean",
+					"isactive":"string" 
+				}, 
+				{ 
+					"machinetypecode":"string",
+					"machinename":"string",	
+					"description":"string",
+					"languagecode":"boolean",
+					"isactive":"string" 
+				}
+			]
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
