@@ -36,6 +36,8 @@ This section details about the service APIs in the Master data modules
 
 [2.3.18 Documents Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2318-documents-types-api)
 
+[2.3.19 Machine Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2319-machine-types-master-api)
+
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
 Master data is required across the platform. 
