@@ -4,7 +4,9 @@ The purpose of this document is to propose a simple and consistent naming mechan
 Of course, there can be no one absolute convention that will solve all naming problems and have universal appeal.  The conventions offered in this document are merely one way of naming things that appears to work.  The reader is free to modify these to suit individual project needs.
 
 Since most of the objects of MOSIP is created on their own databases, we will not have any prefix or suffix of the application / module name or abbreviation to the table or object name.
-
+<!—
+   WIP
+-->
 #Common Naming Standards
 Naming of the objects within the DB, the following common standards are applied
 * Singular Names to the entities
