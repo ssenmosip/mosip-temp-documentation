@@ -2303,8 +2303,19 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 registrationcentername|Yes|Name of the registration center| | 
+centertypecode|Yes|Code of the center type| | 
+addressline1|No|Line 1 of the address| | 
+addressline2|No|Line 2 of the address| | 
+addressline3|No|Line 3 of the address| | 
 longitude|Yes|Longitude of the registration center| | 
 latitude|Yes|Latitude of the registration center| | 
+contactphone|Yes|Contact phone number of the registration center| | 
+numberofkiosks|Yes|Number of Kiosks in the registration center| | 
+workinghours|Yes|Working hours of the registration center| | 
+perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
+officestarttime|Yes|Office start time of the registration center| | 
+officeendtime|Yes|Office end time of the registration center| | 
+holidaylocationcode|Yes|Holiday location of the registration center| | 
 isactive|Yes|Is the registration center active| | 
 centertype|Yes|Type of the registration center| | 
 address|Yes|Address of the registration center| | 
@@ -2320,20 +2331,30 @@ locationcode|Yes|Code of the location of the registration center| |
 	"ver" : "1.0",
 	"timestamp" : "",
 	"request" : {
-	  "registrationcenters": [
+	  "registrationcenter": 
 		{
-			"registrationcentername":"string",
-			"longitude":"string",
-			"latitude":"string",
-			"isactive":"boolean",
-			"centertype":"string",
-			"address":"string",
-			"workinghours":"string",
-			"contactnumber":"string",
-			"pincode":"string",
-			"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 		}
-	  ]
 	}
 }
 ```
@@ -2393,34 +2414,50 @@ Name | Required | Description | Default Value | Example
 {
   "registrationcenters": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	},
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	}
   ]
 }
@@ -2468,34 +2505,50 @@ Name | Required | Description | Default Value | Example
 {
   "registrationcenters": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	},
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	}
   ]
 }
@@ -2541,18 +2594,27 @@ year|Yes|The year for which the list of holidays is listed| |
 {
   "registrationcenter": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
+		"registrationcentername":"",
+		"centertypecode":"",
+		"addressline1":"",
+		"addressline2":"",
+		"addressline3 ":"",
+		"longitude ":"",
+		"latitude":"",
+		"contactphone":"",
+		"numberofkiosks":"",
+		"workinghours":"",
+		"perkioskprocesstime":"",
+		"officestarttime":"",
+		"officeendtime":"",
+		"holidaylocationcode":"",
+		"isactive":"",
+		"centertype":"",
+		"address":"",
+		"workinghours":"",
+		"contactnumber":"",
+		"pincode":"",
+		"locationcode":"",
 		"holidays": [
 			"holiday" : {
 				"holidayID": "string",
@@ -2609,19 +2671,27 @@ locationcode|Yes|The location code for which the list of enrollment centers are 
 {
   "registrationcenter": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	}
   ]
 }
@@ -2669,19 +2739,27 @@ proximitydistance|Yes|The proximity diameter in meter| |
 {
   "registrationcenter": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	}
   ]
 }
@@ -2727,34 +2805,50 @@ Name | Required | Description | Default Value | Example
 {
   "registrationcenters": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	},
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	}
   ]
 }
@@ -2857,19 +2951,27 @@ languagecode|Yes|The enrollment center description will be returned in this lang
 {
   "registrationcenter": [
 	{
-		"registrationcenterid":"string",
-		"registrationcentername":"string",
-		"longitude":"string",
-		"latitude":"string",
-		"isactive":"boolean",
-		"centertype":"string",
-		"address":"string",
-		"workinghours":"string",
-		"contactnumber":"string",
-		"pincode":"string",
-		"locationcode":"string",
-		"stateon":"date",
-		"languagecode":"string"
+			"registrationcentername":"",
+			"centertypecode":"",
+			"addressline1":"",
+			"addressline2":"",
+			"addressline3 ":"",
+			"longitude ":"",
+			"latitude":"",
+			"contactphone":"",
+			"numberofkiosks":"",
+			"workinghours":"",
+			"perkioskprocesstime":"",
+			"officestarttime":"",
+			"officeendtime":"",
+			"holidaylocationcode":"",
+			"isactive":"",
+			"centertype":"",
+			"address":"",
+			"workinghours":"",
+			"contactnumber":"",
+			"pincode":"",
+			"locationcode":""
 	}
   ]
 }
