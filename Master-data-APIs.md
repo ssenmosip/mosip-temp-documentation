@@ -750,44 +750,19 @@ isactive|Yes|Is the machine active?| |
 	"ver" : "1.0",
 	"timestamp" : "",
 	"request" : {
-	  "machines": [
-			{ 
-				"machine": [
-					{"machinename":"string"},
-					{"macid":"string"},	
-					{"serialnumber":"string"},
-					{"isactive":"boolean"},
-					{"languagecode":"string" }					
-				]
-			}, 
-			{ 
-				"machine": [
-					{"machinename":"string"},
-					{"macid":"string"},	
-					{"serialnumber":"string"},
-					{"isactive":"boolean"}
-					{"languagecode":"string" }
-				]
-			}
-	  ]
+	  "machine":  
+			"machinename":"string",
+			"macid":"string",	
+			"serialnumber":"string",
+			"isactive":"boolean",
+			"languagecode":"string" 
 	}
 }
 ```
 ### Example Response
 ```JSON
 {
-  "successfully_created_machines": [
-		{ 
-			"machine": [
-				{"machineid":"string"}
-			]
-		}, 
-		{ 
-			"machine": [
-				{"machineid":"string"}
-			]
-		}
-  ]
+  "machineid":"string"
 }
 ```
 ### Response codes
@@ -832,24 +807,20 @@ Name | Required | Description | Default Value | Example
 {
   "machines": [
 				{ 
-					"machine": [
-						{"machineid":"string"},
-						{"machinename":"string"},
-						{"macid":"string"},	
-						{"serialnumber":"string"},
-						{"isactive":"boolean"}
-						{"languagecode":"string"}
-				]
+						"machineid":"string",
+						"machinename":"string",
+						"macid":"string",	
+						"serialnumber":"string",
+						"isactive":"boolean",
+						"languagecode":"string"
 				}, 
 				{ 
-					"machine": [
-						{"machineid":"string"},
-						{"machinename":"string"},
-						{"macid":"string"},	
-						{"serialnumber":"string"},
-						{"isactive":"boolean"}
-						{ "languagecode":"string" }
-					]
+						"machineid":"string",
+						"machinename":"string",
+						"macid":"string",	
+						"serialnumber":"string",
+						"isactive":"boolean",
+						 "languagecode":"string" 
 				}
 			]
 }
@@ -871,13 +842,13 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.5.3 Machines Master-get machines based on language and id service
+# 2.3.5.3 Machines Master-get machines based on language service
 Master data is required across the platform. 
 
-This service will provides the service to fetch the List of machines with the machine details based on the language and the machine id.
+This service will provides the service to fetch the List of machines with the machine details based on the language.
 
 ### Resource URL
-### `GET /machines/{id}/{languagecode}`
+### `GET /machines/{languagecode}`
 
 ### Resource details
 
@@ -897,24 +868,20 @@ Name | Required | Description | Default Value | Example
 {
   "machines": [
 				{ 
-					"machine": [
-						{"machineid":"string"},
-						{"machinename":"string"},
-						{"macid":"string"},	
-						{"serialnumber":"string"},
-						{"isactive":"boolean"}
-						{"languagecode":"string"}
-				]
+						"machineid":"string",
+						"machinename":"string",
+						"macid":"string",	
+						"serialnumber":"string",
+						"isactive":"boolean",
+						"languagecode":"string"
 				}, 
 				{ 
-					"machine": [
-						{"machineid":"string"},
-						{"machinename":"string"},
-						{"macid":"string"},	
-						{"serialnumber":"string"},
-						{"isactive":"boolean"}
-						{ "languagecode":"string" }
-					]
+						"machineid":"string",
+						"machinename":"string",
+						"macid":"string",	
+						"serialnumber":"string",
+						"isactive":"boolean",
+						"languagecode":"string" 
 				}
 			]
 }
@@ -962,24 +929,20 @@ Name | Required | Description | Default Value | Example
 {
   "machines": [
 				{ 
-					"machine": [
-						{"machineid":"string"},
-						{"machinename":"string"},
-						{"macid":"string"},	
-						{"serialnumber":"string"},
-						{"isactive":"boolean"}
-						{"languagecode":"string"}
-				]
+						"machineid":"string",
+						"machinename":"string",
+						"macid":"string",	
+						"serialnumber":"string",
+						"isactive":"boolean",
+						"languagecode":"string"
 				}, 
 				{ 
-					"machine": [
-						{"machineid":"string"},
-						{"machinename":"string"},
-						{"macid":"string"},	
-						{"serialnumber":"string"},
-						{"isactive":"boolean"}
-						{"languagecode":"string"}
-					]
+						"machineid":"string",
+						"machinename":"string",
+						"macid":"string",	
+						"serialnumber":"string",
+						"isactive":"boolean",
+						"languagecode":"string"
 				}
 			]
 }
