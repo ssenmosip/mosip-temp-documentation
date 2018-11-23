@@ -93,69 +93,37 @@ PostgreSQL has an inbuilt support to domains (standard datatypes) which other co
 
 The following acronyms are used in the data model
 
-|Abbreviation|Description|
-|---------------------|----------------------|
-|ack|Acknowledgement|
-|active|Active|
-|addr|Address|
-|autn|Authentication|
-|bio|Biometric|
-|cd|Code|
-|cr|Created|
-|del|Deleted|
-|demo|Demographic|
-|descr|Description|
-|dob|Date of Birth|
-|dt|Date|
-|dtime|Date Time|
-|dtimes|Date Timestamp|
-|expiry|Expiry|
-|fk|Foreign Key|
-|ibio|Indivisual Biometric|
-|id|Identifier|
-|ida|Identity and authentication|
-|idem|Indivisual Demographic|
-|idsvr|ID Issuance Server|
-|idsw|ID Issuance Software|
-|Idx|Index|
-|ins|Insert|
-|ip|IP Address|
-|lang|Language |
-|last|Last|
-|lh|Left Hand|
-|lst|List|
-|mref|Master Reference|
-|msg|Message|
-|mstr|Master|
-|ntv |Native|
-|nxt|Next|
-|otp|One Time Password|
-|parent|Parent|
-|pct|Percentage|
-|pk|Primary Key|
-|pkt|Packet|
-|preid|Pre ID Issuance|
-|prev|Previous|
-|pwd|Password|
-|rcvd|Received|
-|regn|Registration|
-|remark|Remarks|
-|rh|Right Hand|
-|seq|Sequence |
-|status|Status|
-|tkn|Token|
-|total|Total|
-|trn|Transaction |
-|ttyp|Transaction Type|
-|typ|Type|
-|uin|Unique Identification Number|
-|upd|Update|
-|usrl|User Login|
-|vid|Virtual ID|
-|wfl|Workflow|
-|audit|Audit|
-|dtimesz|Date Timestamp with Time Zone.|
-|kernel|Kernel|
-|reg|Registration|
-|regprc|Registration Processor|
-|prereg|Pre Registration|
+|Abbreviation|Description||Abbreviation|Description|
+|----------------------|----------------------|---|----------------------|----------------------|
+|ack|Acknowledgement||active|Active|
+|addr|Address||autn|Authentication|
+|bio|Biometric||cd|Code|
+|cr|Created||del|Deleted|
+|demo|Demographic||descr|Description|
+|dob|Date of Birth||dt|Date|
+|dtime|Date Time||dtimes|Date Timestamp|
+|expiry|Expiry||fk|Foreign Key|
+|ibio|Indivisual Biometric||id|Identifier|
+|ida|Identity and authentication||idem|Indivisual Demographic|
+|idsvr|ID Issuance Server||idsw|ID Issuance Software|
+|Idx|Index||ins|Insert|
+|ip|IP Address||lang|Language |
+|last|Last||lh|Left Hand|
+|lst|List||mref|Master Reference|
+|msg|Message||mstr|Master|
+|ntv |Native||nxt|Next|
+|otp|One Time Password||parent|Parent|
+|pct|Percentage||pk|Primary Key|
+|pkt|Packet||preid|Pre ID Issuance|
+|prev|Previous||pwd|Password|
+|rcvd|Received||regn|Registration|
+|remark|Remarks||rh|Right Hand|
+|seq|Sequence ||status|Status|
+|tkn|Token||total|Total|
+|trn|Transaction ||ttyp|Transaction Type|
+|typ|Type||uin|Unique Identification Number|
+|upd|Update||usrl|User Login|
+|vid|Virtual ID||wfl|Workflow|
+|audit|Audit||dtimesz|Date Timestamp with Time Zone.|
+|kernel|Kernel||reg|Registration|
+|regprc|Registration Processor||prereg|Pre Registration|
