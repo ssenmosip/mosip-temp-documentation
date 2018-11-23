@@ -17,3 +17,4 @@
 * [Developer Documentation](https://github.com/mosip/mosip/wiki/Developer-Documentation)
 * [Tester Documentation](https://github.com/mosip/mosip/wiki/Tester-Documentation)
 * [Contribute to MOSIP](https://github.com/mosip/mosip/wiki/Contribute-to-MOSIP) 
+* [Database naming standards](https://github.com/mosip/mosip/wiki/Database-naming-standards)
