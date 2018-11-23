@@ -43,20 +43,17 @@ An alias for each table is defined, this alias can be used in various other plac
 
 # Index Naming Standards
 
-Indexes are named as <table_name alias>_<col abbreviation>_idx_<n>
+Indexes are named as <table_name alias>_<col abbreviation>_idx_< n >
 Here n is a number of 2 digits like 01, 02,... and column abbreviation is optional
 
 # Key Naming Standards (Primary, Unique, Foreign Keys)
 
 **Primary Key:**
-
 Each table should have a primary key, the key should be named as “pk_<table_alias>_<column_name>”. If it is a composite key, then in place of column name any meaning full name can be provided. PK should be defined on business key, in case for some reason a business key fields cannot be used to define a PK then add a surrogate key to the table.
 
 **Unique Key:**
-
 If a surrogate is used as PK then create a unique key, on fields that uniquely defines a business key. The naming of the unique key should be “uk_<table_alias>_<column_names>”.
 
 
 **Foreign Key:**
-
 Any references from a table with the master / other tables, the creating a foreign key is mandatory. This helps maintain referential integrity. Foreign key can be named as FK_<referring table alias>_<referred table alias>
