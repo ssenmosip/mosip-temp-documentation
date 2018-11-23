@@ -43,7 +43,7 @@ An alias for each table is defined, this alias can be used in various other plac
 
 # Index Naming Standards
 
-Indexes are named as <table_name alias>_<col abbreviation>_idx_< n >
+Indexes are named as <table_name alias>_< col abbreviation >_idx_< n >
 Here n is a number of 2 digits like 01, 02,... and column abbreviation is optional
 
 # Key Naming Standards (Primary, Unique, Foreign Keys)
