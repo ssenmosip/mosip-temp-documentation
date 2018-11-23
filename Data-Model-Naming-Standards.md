@@ -57,3 +57,34 @@ If a surrogate is used as PK then create a unique key, on fields that uniquely d
 
 **Foreign Key:**
 Any references from a table with the master / other tables, the creating a foreign key is mandatory. This helps maintain referential integrity. Foreign key can be named as FK_<referring table alias>_<referred table alias>
+
+# Datatype Domains
+
+PostgreSQL has an inbuilt support to domains (standard datatypes) which other commercial / open source databases doesn’t support. So, in MOSIP we are not defining any domains. But to standardize the datatypes implementation we have defined the following common datatypes used across mosip system. The datatype sizes are defined to consider multi language storage support, which may vary based on the implementation
+
+|Attribute |Attribute Description|Type|Size|
+|------------ |--------------------------------|------------------------|----------------|
+|vid|Virtual ID|character varying|28|
+|uin|Unique Identification Number|character varying|28|
+|enrl_id|Enrolment ID|character varying|28|
+|_code|Code|character varying|64|
+|_descr|Description|character varying|256|
+|_type|Type|character varying|128|
+|_name|Name|character varying|128|
+|_id|Identification Code / Number|character varying|36|
+|_addr_line|address line|character varying|256|
+|_loc_line|location line|character varying|128|
+|country|country|character varying|64|
+|pin|pin|character varying|16|
+|_comment / _remarks| Comments / remarks captured as part of a transaction|character varying|1024|
+|count | |smallint| |
+|_by| |character varying|32|
+|ref_id|Reference id |character varying|64|
+|ref_id_type|Reference ID Type|character varying|64|
+|is_active | |boolean| |
+|cr_by | |character varying|32|
+|cr_dtimes | |timestamp| |
+|upd_by  | |character varying|32|
+|upd_dtimes | |timestamp| |
+|is_deleted | |boolean| |
+|del_dtimes | |timestamp||
