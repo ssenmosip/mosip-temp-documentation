@@ -12,7 +12,7 @@ Of course, there can be no one absolute convention that will solve all naming pr
 
 
 
-# 1. Common Naming Standards
+# DB Object Naming Standards
 
 To name an object within the DB, the following common standards are followed
 
