@@ -3266,7 +3266,7 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-    "locationHierarchyResponseDto": [
+    "locations": [
         {
             "locationHierarchylevel": number,
             "locationHierarchyName": "string"
