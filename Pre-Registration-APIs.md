@@ -34,6 +34,14 @@ This section details about the service APIs in the Pre-Registration modules
 
 [2.7.17 Reverse Data-Sync Store Pre-Registartion Ids API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2717-Reverse-Data-Sync-Store-Pre-Registartion-Ids-api)
 
+[2.7.18 Booking Registration Center API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2718-Booking-Registration-Center-api)
+
+[2.7.19 Cancel Booking API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2719-cancel-booking-api)
+
+[2.7.20 Re-Booking API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2720-re-booking-api)
+
+[2.7.21 Registration Center Availability API](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#2721-registration-center-availability-api)
+
 
 ## 2.7.1. Login API
 This service details Login Request to be used by Pre-Registration portal to authenticate an user by providing his/her mobile number or email address. 
@@ -1829,6 +1837,286 @@ Requires Authentication | Yes
 			{
 				"code":"PRG-REVESE-DATA-SYNC-001",
 				"message": "Failed to store Pre-Reg Ids"
+			}
+		],
+		"resTime": "2018-10-17T13:40:19.590+0000"
+}
+```
+
+## 2.7.18 Booking Registration Center API
+This service enables by Pre-Registration to book an registration center, request to book an appointment with a selected registration center and time slot. After successful booking update the status code **Booked** in main table.
+
+### Resource URL - `POST /pre-registration/book/`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Sample Request
+```JSON
+{
+		"id": "mosip.pre-registration.booking.book",
+		"ver" : "1.0",
+		"reqTime" : "2018-10-17T07:22:57.086+0000",
+		"request" :
+		{
+			"pre_registration_id":"59276903416082",
+			"registration_center_id":"99276903416082",
+			"date_time":"2018-12-17T07:22:57.086+0000",
+			"time-slot":"03:20"
+		}
+}
+```
+### Sample Response
+#### Success Response :
+```JSON
+{
+		"status" : true,
+		"err": [],
+		"resTime": "2018-10-17T13:40:19.590+0000",
+		"response":
+		{
+			"Transaction-Id":"212132432",
+			"message": "Appoinment sucessfully booked"
+		}
+}
+```
+
+#### Failure Response:
+```JSON
+{
+		"status" : false,
+		"err": [
+			{
+				"code":"PRG_PAM_RCI-001",
+				"message": "User has not been selected any time slot"
+			}
+		],
+		"resTime": "2018-10-17T13:40:19.590+0000"
+}
+```
+
+#### Failure Response:
+```JSON
+{
+		"status" : false,
+		"err": [
+			{
+				"code":"PRG_PAM_RCI-002",
+				"message": "Appointment time slot is already booked"
+			}
+		],
+		"resTime": "2018-10-17T13:40:19.590+0000"
+}
+```
+## 2.7.19 Cancel Booking API
+This service enables by Pre-Registration to cancel an appointment booking, request to cancel an booked appointment with a selected registration center and time slot. After successful canceling an booking update the status code **Canceled** in main table.
+
+### Resource URL - `PUT /pre-registration/book/`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Sample Request
+```JSON
+{
+		"id": "mosip.pre-registration.booking.cancel",
+		"ver" : "1.0",
+		"reqTime" : "2018-10-19T07:22:57.086+0000",
+		"request" :
+		{
+			"pre_registration_id":"59276903416082",
+			"registration_center_id":"99276903416082",
+			"date_time":"2018-12-17T07:22:57.086+0000",
+			"time-slot":"03:20"
+		}
+}
+```
+### Sample Response
+#### Success Response :
+```JSON
+{
+		"status" : true,
+		"err": [],
+		"resTime": "2018-10-19T13:40:19.590+0000",
+		"response":
+		{
+			"Transaction-Id":"214345432",
+			"message": "Appoinment sucessfully canceled"
+		}
+}
+```
+
+#### Failure Response:
+```JSON
+{
+		"status" : false,
+		"err": [
+			{
+				"code":"PRG_PAM_RCI-003",
+				"message": "Appointment time slot is already canceled"
+			}
+		],
+		"resTime": "2018-10-17T13:40:19.590+0000"
+}
+```
+
+#### Failure Response:
+```JSON
+{
+		"status" : false,
+		"err": [
+			{
+				"code":"PRG_PAM_RCI-004",
+				"message": "Appointment can not be canceled"
+			}
+		],
+		"resTime": "2018-10-17T13:40:19.590+0000"
+}
+```
+## 2.7.20 Re-Booking API
+This service enables by Pre-Registration to re-book an appointment, request to re-book an appointment with a newly selected registration center and time slot. After successful re-booking, update the status code **Re-Booked** in main table.
+
+### Resource URL - `PUT /pre-registration/book/rebooking`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Sample Request
+```JSON
+{
+		"id": "mosip.pre-registration.booking.cancel",
+		"ver" : "1.0",
+		"reqTime" : "2018-10-20T07:22:57.086+0000",
+		"request" :
+		{
+			"pre_registration_id":"59276903416082",
+			"registration_center_id":"99276903416082",
+			"date_time":"2018-12-17T07:22:57.086+0000",
+			"time-slot":"03:20"
+		}
+}
+```
+### Sample Response
+#### Success Response :
+```JSON
+{
+		"status" : true,
+		"err": [],
+		"resTime": "2018-10-19T13:40:19.590+0000",
+		"response":
+		{
+			"Transaction-Id":"444345432",
+			"message": "Appoinment sucessfully re-booked"
+		}
+}
+```
+
+#### Failure Response:
+```JSON
+{
+		"status" : false,
+		"err": [
+			{
+				"code":"PRG_PAM_RCI-005",
+				"message": "Appointment Rebooking cannot be done"
+			}
+		],
+		"resTime": "2018-10-17T13:40:19.590+0000"
+}
+```
+
+## 2.7.21 Registration Center Availability API
+This service enables by Pre-Registration to get the registration center availability and time slots, request to get the availability of selected registration center and date.
+
+### Resource URL - `GET /pre-registration/book/`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Sample Request
+```JSON
+{
+		"id": "mosip.pre-registration.booking.cancel",
+		"ver" : "1.0",
+		"reqTime" : "2018-10-20T07:22:57.086+0000",
+		"request" :
+		{
+			"registration_center_id":"99276903416082",
+			"date_time":"2018-12-17"
+		}
+}
+```
+### Sample Response
+#### Success Response :
+```JSON
+{
+		"status" : true,
+		"err": [],
+		"resTime": "2018-10-19T13:40:19.590+0000",
+		"response":
+		{
+			"transaction-Id":"444345432",
+			"registration_center_id":"99276903416082",
+			"registration-center-details":[
+				{
+					"rc_date":"2018-12-17"
+					"time-slots":[
+						"9_00-9_20":"4",
+						"9_20-9_40":"0",
+						"9_40-10_00":"3",
+						"10_00-10_20":"4",
+						"10_20-10_40":"2",
+						"10_40-11_00":"0",
+							..............
+						"5_00-5_20":"1",
+						"5_20-5_40":"0",
+						"5_40-6_00":"2",
+					]
+				},
+				{
+					"rc_date":"2018-12-18"
+					"time-slots":[
+						"9_00-9_20":"4",
+						"9_20-9_40":"0",
+						"9_40-10_00":"3",
+						"10_00-10_20":"4",
+						"10_20-10_40":"2",
+						"10_40-11_00":"0",
+							..............
+						"5_00-5_20":"1",
+						"5_20-5_40":"0",
+						"5_40-6_00":"2",
+					]
+				}
+			]
+		}
+}
+```
+
+#### Failure Response:
+```JSON
+{
+		"status" : false,
+		"err": [
+			{
+				"code":"PRG_PAM_RCI-006",
+				"message": "Registration Center data not found"
 			}
 		],
 		"resTime": "2018-10-17T13:40:19.590+0000"
