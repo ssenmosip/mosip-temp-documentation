@@ -16,7 +16,11 @@ As a principle, MOSIP will not use any mechanism in-built in a database for encr
 ![Db encryption/decryption flow](_images/arch_diagrams/DB_encryption.png)
 
 ### Key management
-TBD
+- MOSIP will use both symmetric and asymmetric keys for data encryption
+- Symmetric key must not be stored AS IS anywhere in MOSIP
+- Symmetric is always encrypted using a public key. The respective private key must always be stored in a HSM device
+- Decrypting the encrypted symmetric key must always happen inside the HSM device
+- HSM device will only store master keys for each application/module and must be rotated periodically
 
 ### Authentication
 In MOSIP Authentication largely falls into the below categories
