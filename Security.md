@@ -1,1 +1,1 @@
-This is a place holder for all security related topics
+Multiple aspects of security like confidentiality, privacy, integrity of data are key in ensuring an Individual's identity is not compromised.
