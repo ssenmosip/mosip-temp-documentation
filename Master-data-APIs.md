@@ -3213,11 +3213,13 @@ Name | Required | Description | Default Value | Example
     "locations": [
         {
             "locationHierarchylevel": number,
-            "locationHierarchyName": "string"
+            "locationHierarchyName": "string",
+            "isActive":true
         },
         {
            "locationHierarchylevel": number,
-           "locationHierarchyName": "string"
+           "locationHierarchyName": "string",
+           "isActive":true
         }
     ]
 }
