@@ -3193,7 +3193,7 @@ This service will provides the service for the List of Locations.
 
 
 ### Resource URL
-### `GET /locations`
+### `GET /locations/{langcode}`
 
 ### Resource details
 
