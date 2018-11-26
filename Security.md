@@ -23,7 +23,7 @@ As a principle, MOSIP will not use any mechanism in-built in a database for encr
 - HSM device will only store master keys for each application/module and must be rotated periodically
 - In case an application needs a large set of public/private key pairs (in case of Registration client where each client needs a key pair), the key pairs are maintained in a DB table with the private key being encrypted using the public key of the key pair assigned to the application in the HSM. This avoids performance impact of storing large key sets in HSM
 
-![Encryption](_images/arch_diagrams/Key Manager.png)
+![Encryption](_images/arch_diagrams/encryption.png)
 
 ![Decryption](_images/arch_diagrams/decryption.png)
 
