@@ -4,9 +4,13 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 - An Individual's Identity data at is always encrypted to ensure confidentiality of data
 - Access controls must be implemented on all API's to ensure data privacy (who can see what)
 
-### Data encryption
+### Database encryption
+As a principle, MOSIP will not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB.
 
-Database encryption
+- All data will be encrypted using a symmetric key algorithm. MOSIP will support AES 256 algorithm by default.
+- Each record will be encrypted using its own symmetric key and same key will not be used to encrypt multiple records
+- The symmetric key itself is encrypted using a master public key. The corresponding private must be managed in a HSM
+- The encrypted symmetric key is appended to the data itself and not stored separately
 
 
 ### Key management
