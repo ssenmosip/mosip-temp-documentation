@@ -12,6 +12,7 @@ As a principle, MOSIP will not use any mechanism in-built in a database for encr
 - The symmetric key itself is encrypted using a master public key. The corresponding private must be managed in a HSM
 - The encrypted symmetric key is appended to the data itself and not stored separately
 
+![Db encryption/decryption flow](_images/arch_diagrams/DB_encryption.png)
 
 ### Key management
 
