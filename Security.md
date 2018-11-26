@@ -29,12 +29,12 @@ As a principle, MOSIP will not use any mechanism in-built in a database for encr
 ### Data Decryption
 ![Decryption](_images/arch_diagrams/decryption.png)
 
-# Authentication
+# Authentication (TBD)
 In MOSIP Authentication largely falls into the below categories
 - Authentication via web channel (for Pre-Registration web app, Admin web app and Resident services portal)
 - Authentication via local system i.e., offline authentication (for Registration client)
 
-# Authorization
+# Authorization(TBD)
 In MOSIP Authorization falls into the below categories
 - Authorization of API's accessed via web channel
 - Authorization to access specific data (will be implemented in v2)
