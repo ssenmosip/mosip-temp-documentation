@@ -6,4 +6,12 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 ### Data encryption and Key management
 
-### Authentication and Authorization of API's
+### Authentication
+In MOSIP Authentication largely falls into the below categories
+- Authentication via web channel (for Pre-Registration web app, Admin web app and Resident services portal)
+- Authentication via local system i.e., offline authentication (for Registration client)
+
+### Authorization
+In MOSIP Authorization falls into the below categories
+- Authorization of API's accessed via web channel
+- Authorization to access specific data (will be implemented in v2)
