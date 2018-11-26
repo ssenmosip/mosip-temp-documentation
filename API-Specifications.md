@@ -17,6 +17,9 @@ AM: Put auth list here
 ## Registration-Processor
 * [Registration-Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) 
 
+## Registration
+* [Registration APIs](https://github.com/mosip/mosip/wiki/Registration-APIs) 
+
 # ABIS APIs
 
 https://github.com/mosip/mosip/wiki/ABIS-APIs
