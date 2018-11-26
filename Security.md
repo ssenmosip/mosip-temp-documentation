@@ -21,6 +21,7 @@ As a principle, MOSIP will not use any mechanism in-built in a database for encr
 - Symmetric is always encrypted using a public key. The respective private key must always be stored in a HSM device
 - Decrypting the encrypted symmetric key must always happen inside the HSM device
 - HSM device will only store master keys for each application/module and must be rotated periodically
+- In case an application needs a large set of public/private key pairs (in case of Registration client where each client needs a key pair), the key pairs are maintained in a DB table with the private key being encrypted using the public key of the key pair assigned to the application in the HSM. This avoids performance impact of storing large key sets in HSM
 
 ### Authentication
 In MOSIP Authentication largely falls into the below categories
