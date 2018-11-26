@@ -5,9 +5,8 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 - Access controls must be implemented on all API's to ensure data privacy (who can see what)
 
 ### Data encryption
-- In MOSIP data in-flight and data at rest must be encrypted
-- All communication between client and server is via SSL
-- All sensitive data must be encrypted and stored in DB
+
+Database encryption
 
 
 ### Key management
