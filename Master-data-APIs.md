@@ -1896,12 +1896,16 @@ languagecode|Yes|Language of the id type| |
 	"timestamp": "",
 	"request": {
 		"idtypes": [{
-				"idtype": "string",
-				"languagecode": "string"
+				"code": "string",
+				"name":"string",
+				"descr":"string",
+				"langCode": "string"
 			},
 			{
-				"idtype": "string",
-				"languagecode": "string"
+				"code": "string",
+				"name":"string",
+				"descr":"string",
+				"langCode": "string"
 			}
 		]
 	}
@@ -1910,14 +1914,14 @@ languagecode|Yes|Language of the id type| |
 ### Example Response
 ```JSON
 {
-	"idtypes": [
+	"results": [
                 {
-			"idtype": "string",
-			"languagecode": "string"
+			"code": "string",
+			"langCode": "string"
 		},
 		{
-			"idtype": "string",
-			"languagecode": "string"
+			"code": "string",
+			"langCode": "string"
 		}
 	]
 }
@@ -1969,12 +1973,12 @@ descr|Yes|Name of the language| |
 	"idtypes": [{
 			"code": "string",
 			"descr": "string",
-			"languagecode": "string"
+			"langCode": "string"
 		},
 		{
 			"code": "string",
 			"descr": "string",
-			"languagecode": "string"
+			"langCode": "string"
 		}
 	]
 }
@@ -2026,12 +2030,12 @@ descr|Yes|Name of the language| |
 	"idtypes": [{
 			"code": "string",
 			"descr": "string",
-			"languagecode": "string"
+			"langCode": "string"
 		},
 		{
 			"code": "string",
 			"descr": "string",
-			"languagecode": "string"
+			"langCode": "string"
 		}
 	]
 }
