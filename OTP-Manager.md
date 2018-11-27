@@ -60,10 +60,7 @@ otp|Yes|OTP| | 123456
 
 ### Example Request
 ```JSON
-{
-   "key": "9820173642",
-   "otp": "123456"
-}
+http://localhost:8085/otp/validate?key=9820173642&otp=123456
 ```
 ### Example Response
 ```JSON
