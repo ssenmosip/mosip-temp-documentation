@@ -24,3 +24,7 @@ Only 6 month of audit data can be maintained in audit table and rest of the data
 
 UIN data will be sharded and stored in different databases, which will provide horizontal scalability.
 
+# Indexing Strategy
+
+All the tables will have a primary key and a primary index created. Also, the foreign keys that are created will also have an index. Apart from that, based on the need necessary indexes would be created.
+**<To be elaborated further based on the data read strategy>**
