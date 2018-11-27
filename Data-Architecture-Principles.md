@@ -32,6 +32,22 @@ To handle vendor neutrality and open source, the following consideration are fol
     - Bytea/blob
     - Boolean
 
+# Adaptability
+<TBD>
+
+# Security
+<TBD>
+
+# Multi party
+<TBD>
+
+# Authorization
+<TBD>
+
+# Authentication
+<TBD>
+
+
 # Multi-Language
 
 MOSIP platform is being built for multiple countries, there is a need to support multiple languages. So as per the requirements, MOSIP will support 3 languages as configured by the country level administrator.
@@ -45,6 +61,13 @@ Multi language support is needed for the following datasets.
 
 From database side, the data will support **UTF-8 Unicode character set** to store data entered in multiple languages. 
 There will not be any in-built support to translate data at database level. Any translation or transliteration will be handled at API or UI layer.
+
+# High Availability
+<TBD>
+
+# Auditability
+<TBD>
+
 
 # High Performance
 
