@@ -1,10 +1,8 @@
 # **Architecture**
 
-### This application provides the feature to capture the Biometric and Demographic detail of every individuals at country level. 
+This application provides the feature to capture the Biometric and Demographic detail of every individuals at country level. 
 
 ![Component view](https://github.com/mosip/mosip/blob/DEV/design/_images/MOSIP_RegistrationClient_Component_Architecture.png)
-
-### Diagram represents the high level component architecture of Registration client application. 
 
 * It is a thick client application.
 * It interacts with pre-registration application to download the appointment packets.
