@@ -34,23 +34,23 @@ To handle vendor neutrality and open source, the following consideration are fol
 
 # Adaptability
 
-<TBD>
+TBD
 
 # Security
 
-<TBD>
+TBD
 
 # Multi party
 
-<TBD>
+TBD
 
 # Authorization
 
-<TBD>
+TBD
 
 # Authentication
 
-<TBD>
+TBD
 
 
 # Multi-Language
@@ -69,11 +69,11 @@ There will not be any in-built support to translate data at database level. Any 
 
 # High Availability
 
-<TBD>
+TBD
 
 # Auditability
 
-<TBD>
+TBD
 
 
 # High Performance
