@@ -23,7 +23,7 @@ To handle vendor neutrality and open source, the following consideration are fol
 
 * Metadata approach to handle complex and flexible data structures
 
-* Only following datatypes are being used
++ Only following datatypes are being used
 - Character varying
 - Timestamp
 - Date
