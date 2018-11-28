@@ -7,7 +7,7 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 # Database encryption
 As a principle, MOSIP will not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB.
 
-- All data will be encrypted using a symmetric key algorithm. MOSIP will support AES 256 algorithm by default
+- All data will be encrypted using a symmetric key algorithm. MOSIP will support AES 256 algorithm by default. However, the specific algorithm to be used is configurable.
 - Each record will be encrypted using its own symmetric key and same key will not be used to encrypt multiple records
 - The symmetric key itself is encrypted using a master public key. The corresponding private must be managed in a HSM
 - HSM will store an asymmetric key pair for each application/service and will be rotated periodically as per configuration
