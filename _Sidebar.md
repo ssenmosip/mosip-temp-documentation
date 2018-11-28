@@ -4,6 +4,7 @@
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
   * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client-Application-Guide)
+  * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)
   * [MOSIP ABIS Middleware](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
   * [Security](https://github.com/mosip/mosip/wiki/Security)
