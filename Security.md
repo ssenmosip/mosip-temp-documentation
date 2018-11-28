@@ -16,7 +16,7 @@ As a principle, MOSIP will not use any mechanism in-built in a database for encr
 ![Db encryption/decryption flow](_images/arch_diagrams/DB_encryption.png)
 
 ### Data format in DB
-![Data format](_images/arch_diagrams/Encrypted Data Format.png)
+![Data format](_images/arch_diagrams/Encrypted_Data_Format.png)
 
 # Key management, Data Encryption & Decryption
 - MOSIP will use both symmetric and asymmetric keys for data encryption
