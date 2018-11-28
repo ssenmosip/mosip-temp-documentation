@@ -1,1 +1,1 @@
-Place holder for Registration processor architecture
+Registration Processor takes the data (demographic & biometric) provided by an individual, processes the data to ensure quality and uniqueness before providing a UIN. 
