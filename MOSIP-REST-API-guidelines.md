@@ -101,20 +101,20 @@ Always the response JSON should be surrounded with envelope ( { } ). For example
 # 16	Error message
 Following error message format is used in case of error response, 
 
+```
 {
-	[
-		{
-			"error_code":"DD_23234",
-			"error_description":"",
-		}, 
-		{
-			"error_code":"DD_08735",
-			"error_description":"",
-		},
-		.
-		.
-		.
+  "errors": [
+    {
+      "errorCode": "KER-APP-XXX",
+      "errorMessage": "Error occurred while fetching Device Specification"
+    },
+    {
+      "errorCode": "KER-MSD-XXX",
+      "errorMessage": "Invalid Date Format"
+    }
+  ]
 }
+```
 
 Even in case of one error, surround with an envelope and place the error in an array. 
 
