@@ -2,9 +2,35 @@
 This page and its sub-pages will have the API specifications of various features of MOSIP
 
 ## Kernel
-AM: Put Kernel list here
-* Kernel API 1
-* Kernel API 2
+### KeypolicySync Master-get service
+
+This service will provides the public key of the Enrolment client. 
+
+#### Resource URL
+#### `GET /keypolicysync`
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machineid|Yes|Id of the machine| | 
+requestdate|Yes|Date in ISO format| | 
+
+#### Example Request
+-NA-
+
+#### Example Response
+```JSON
+{
+  "publickey": base_64_encoded
+}
+```
 
 ## Authentication
 AM: Put auth list here
