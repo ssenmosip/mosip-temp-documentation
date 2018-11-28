@@ -81,6 +81,18 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
 				"matchingThreshold" : 60
 			}
 		],
+        "bioInfo" : 
+		[
+			{ 
+				"bioType" : "fgrMin",
+                                "deviceInfo" : 
+                                 {
+                                           "deviceId" : "",  
+                                           "make" : "", 
+                                           "model" : ""
+                                 }
+			}
+		],
         "pinInfo" : 
                [
 		    {
