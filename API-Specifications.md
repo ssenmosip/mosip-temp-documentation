@@ -1,8 +1,8 @@
 # MOSIP API List
 This page and its sub-pages will have the API specifications of various features of MOSIP
 
-## Kernel
-### Public key-get service
+## 1. Kernel
+### 1.1 Public key-get service
 
 This service will provides the public key of the Enrolment client. 
 
@@ -34,7 +34,7 @@ timeStamp |Yes|Date-time without time-zone in ISO-8601| 2007-12-03T10:15:30
   "keyGenerationTime": "keyGenerationTime"
 }
 ```
-### Sync Master data-get service
+### 1.2 Sync Master data-get service
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. In case, other modules calls this service, the machineid will be empty. The machineid will be used to get the location and based on the location, the holiday list will be retrieved. If the requestdate is not passed, all the master data will be returned. If the requestdate is passed, all the data will be returned for which the created or updated date is greater than equal request date. 
 
@@ -490,18 +490,18 @@ requestdate|No|Date in ISO format| |
    ]
 }
 ```
-## Authentication
+## 2. Authentication
 AM: Put auth list here
 * Auth API 1
 * Auth API 2
 
-## Pre-Registration
+## 3. Pre-Registration
 * [Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)
 
-## Registration-Processor
+## 4. Registration-Processor
 * [Registration-Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) 
 
-## Registration
+## 5. Registration
 * [Registration APIs](https://github.com/mosip/mosip/wiki/Registration-APIs) 
 
 # ABIS APIs
