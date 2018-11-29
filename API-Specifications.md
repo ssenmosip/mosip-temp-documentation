@@ -2,12 +2,12 @@
 This page and its sub-pages will have the API specifications of various features of MOSIP
 
 ## Kernel
-### KeypolicySync Master-get service
+### Public key-get service
 
 This service will provides the public key of the Enrolment client. 
 
 #### Resource URL
-#### `GET /keypolicysync`
+#### `GET /publickey`
 
 #### Resource details
 
