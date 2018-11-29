@@ -29,9 +29,9 @@ timeStamp |Yes|Date-time without time-zone in ISO-8601| 2007-12-03T10:15:30
 #### Example Response
 ```JSON
 {
-  "publicKey": "publicKey",
-  "keyExpiryTime": "keyExpiryTime",
-  "keyGenerationTime": "keyGenerationTime"
+  "publicKey": "Base64 encoded public Key",
+  "keyExpiryTime": "Key Expiry Time in ISO-8601",
+  "keyGenerationTime": "Key Generation Time in ISO-8601"
 }
 ```
 ### 1.2 Sync Master data-get service
