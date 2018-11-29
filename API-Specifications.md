@@ -19,16 +19,19 @@ Requires Authentication | Yes
 #### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-machineid|Yes|Id of the machine| | 
-requestdate|Yes|Date in ISO format| | 
+applicationId |Yes|Id of the application| | REGISTRATION,IDA
+referenceId|Yes|Id of the Machine/TSP| | 
+requestdate|Yes|A date-time without a time-zone in the ISO-8601| | 2007-12-03T10:15:30
 
 #### Example Request
--NA-
+/publickey/REGISTRATION?referenceId=1001&timeStamp=2018-11-29T12%3A00
 
 #### Example Response
 ```JSON
 {
-  "publickey": base_64_encoded
+  "publicKey": "publicKey",
+  "keyExpiryTime": "keyExpiryTime",
+  "keyGenerationTime": "keyGenerationTime"
 }
 ```
 
