@@ -490,6 +490,130 @@ requestdate|No|Date in ISO format| |
    ]
 }
 ```
+
+### 1.3 Global config details-get service
+
+This service will return back the global configuration data of the MOSIP platform. 
+
+#### Resource URL
+#### `GET /globalconfigs`
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+#### Example Request
+-NA-
+
+#### Example Response
+```JSON
+{
+		"archivalPolicy":"arc_policy_2",
+		"otpTimeOutInMinutes":2,
+		"numberOfWrongAttemptsForOtp":5,
+		"accountFreezeTimeoutInHours":10, 
+		"uinLength":24,
+		"vidLength":32,
+		"pridLength":32,
+		"tokenIdLength":23,
+		"tspIdLength":24,
+		"registrationCenterId":"KDUE83CJ3",
+		"machineId":"MCBD3UI3",
+		"mobilenumberlength":10,
+		"restrictedNumbers":[
+			"8732","321","65"
+		]
+}
+```
+### 1.4 Enrolment client Config details-get service
+
+This service will return back the global configuration data of the MOSIP platform. 
+
+#### Resource URL
+#### `GET /enrolmentclientconfigs`
+
+This service will return back the configuration data Enrolment Client module of the MOSIP platform. 
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+#### Example Request
+-NA-
+
+#### Example Response
+```JSON
+{
+		"loginMode":"bootable dongle",
+		"languages":{
+			"primary":"arabic",
+			"secondary":"french"
+		},
+		"fingerprintQualityThreshold":120,
+		"fingerprintRetryAttempts":234,
+		"irisQualityThreshold":25,
+		"irisRetryAttempts":10,
+		"faceQualityThreshold":25,
+		"faceRetry":12,
+		"supervisorVerificationRequiredForExceptions":true,
+		"operatorRegSubmissionMode":"fingerprint",
+		"supervisorAuthMode":"IRIS",
+		"emailNotificationTemplateOtp":"Hello $user, the OTP is $otp",
+		"smsNotificationTemplateOtp":"OTP for your request is $otp",
+		"emailNotificationTemplateNewReg":"",
+		"smsNotificationTemplateNewReg":"",
+		"emailNotificationTemplateRegCorrection":"",
+		"smsNotificationTemplateRegCorrection":"",
+		"emailNotificationTemplateUpdateUIN":"",
+		"smsNotificationTemplateUpdateUIN":"",
+		"emailNotificationTemplateLostUIN":"",
+		"smsNotificationTemplateLostUIN":"",
+		"passwordExpiryDuration":"",
+		"keyValidityPeriodRegPack":"",
+		"keyValidityPeriodPreRegPack":"",
+		"retentionPeriodAudit":"",
+		"automatedSyncFrequency": {
+			"masterDataServerToClient":"",
+			"clientConfigServerToClient":"",
+			"regIdsClientToServer":"",
+			"regPacketStatusServerToClient":"",
+			"loginCredentialsSync":"",
+			"policySyncServerToClient":"",
+			"clientStateServerToClient":"",
+			"userRoleRightsServerToClient":"",
+		},
+		"automaticSyncFreqServerToClient":"",
+		"blockRegistrationIfNotSynced":10,
+		"maxDurationRegPermittedWithoutMasterdataSyncInDays":"",
+		"maxDurationWithoutMasterdataSyncInDays":7,
+		"modeOfNotifyingIndividual":
+		"noOfFingerprintAuthToOnboardUser":10,
+		"noOfIrisAuthToOnboardUser":10,
+		"PROCESS_WORKFLOW_CONFIG":"TODO",
+		"gpsDistanceRadiusInMeters":3,
+		"officerAuthType":"password",
+		"supervisorAuthType":"password",
+		"defaultDOB":"1-Jan",
+		"maxDocSizeInMB":150
+}
+```
+
 ## 2. Authentication
 AM: Put auth list here
 * Auth API 1
