@@ -4113,3 +4113,209 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+# 2.3.20 Machine Specifications
+
+# 2.3.20.1 Machine Specification Master-create service
+
+This service will create a Machine Specification which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /machinespecifications`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|ID of the Machine Specification| | 
+name|Yes|Name of the machine Specification| | 
+brand|Yes|Brand of the machine specification| | 
+model|Yes|Model of the machine specification| | 
+mtyp_code|Yes|Machine type code of the machine specification| | 
+min_driver_ver|Yes|Minimum driver version required for the machine specification| | 
+descr|Yes|Description of the machine specification| | 
+lang_code|Yes|Language of the machine specification| | 
+is_active|Yes|Is the Machine Specification active| | 
+
+### Example Request
+```JSON
+{
+	"id":"KJDS9",
+	"name":"Laptop",
+	"brand":"Hewlett Packard",
+	"model":"L34-324",
+	"mtyp_code":"GEW8",
+	"min_driver_ver":"1.4",
+	"descr":"This is a medium configuration",
+	"lang_code":"eng",
+	"is_active":true
+}
+```
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"lang_code":"eng"
+}
+```
+
+# 2.3.20.2 Machine Specifications Master-update service
+
+This service will update a Machine Specification which are used in the MOSIP platform. 
+
+
+### Resource URL
+### `PUT /machinespecifications`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|ID of the Machine Specification| | 
+lang_code|Yes|Language code of the Machine Specification| | 
+
+### Example Request
+```JSON
+{
+	"id":"KJDS9",
+	"lang_code":"eng"
+}
+```
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"lang_code":"eng"
+}
+```
+
+
+# 2.3.20.3 Machine Specifications-delete service
+
+This service deletes a Machine Specification from the Machine Specifications master module. 
+
+### Resource URL
+### `DELETE /machinespecifications`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|ID of the Machine Specification| | 
+lang_code|Yes|Language code of the Machine Specification| | 
+
+
+### Example Request
+```JSON
+{
+	"id":"KJDS9",
+	"lang_code":"eng"
+}
+```
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"lang_code":"eng"
+}
+```
+
+# 2.3.20.4 Machine Specifications Master-get service
+
+This service will provides the list of all Machine Specifications in all languages. 
+
+
+### Resource URL
+### `GET /machinespecifications`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"name":"Laptop",
+	"brand":"Hewlett Packard",
+	"model":"L34-324",
+	"mtyp_code":"GEW8",
+	"min_driver_ver":"1.4",
+	"descr":"This is a medium configuration",
+	"lang_code":"eng",
+	"is_active":true
+}
+```
+
+
+# 2.3.20.5 Machine Specifications Master-get based on language service
+
+This service will provides the list of all Machine Specifications in a specific language. 
+
+
+### Resource URL
+### `GET /machinespecifications/{lang_code}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"name":"Laptop",
+	"brand":"Hewlett Packard",
+	"model":"L34-324",
+	"mtyp_code":"GEW8",
+	"min_driver_ver":"1.4",
+	"descr":"This is a medium configuration",
+	"lang_code":"eng",
+	"is_active":true
+}
+```
+
