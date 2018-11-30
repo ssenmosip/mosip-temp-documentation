@@ -535,15 +535,15 @@ Name | Required | Description | Default Value | Example
 		]
 }
 ```
-### 1.4 Enrolment Client config
-#### 1.4.1 Enrolment client Config details-get service
+### 1.4 Registration Center config
+#### 1.4.1 Registration Center Config details-get service
 
 This service will return back the global configuration data of the MOSIP platform. 
 
 ##### Resource URL
-##### `GET /enrolmentclientconfigs`
+##### `GET /registrationcenterconfig/{registrationcenterid}`
 
-This service will return back the configuration data Enrolment Client module of the MOSIP platform. 
+This service will return back the configuration data specific to a registration center. 
 
 ##### Resource details
 
@@ -608,7 +608,12 @@ Name | Required | Description | Default Value | Example
 		"modeOfNotifyingIndividual":"mobile",
 		"noOfFingerprintAuthToOnboardUser":10,
 		"noOfIrisAuthToOnboardUser":10,
-		"PROCESS_WORKFLOW_CONFIG":"TODO",
+		"multifactorauthentication":true,
+		"loginsequence":{
+                     "1":"OTP",
+                     "2":"Password",
+                     "3":"Fingerprint"
+                 },
 		"gpsDistanceRadiusInMeters":3,
 		"officerAuthType":"password",
 		"supervisorAuthType":"password",
