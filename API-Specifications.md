@@ -493,7 +493,7 @@ requestdate|No|Date in ISO format| |
 }
 ```
 ### 1.3 Global config
-#### 1.3 Global config details-get service
+#### 1.3.1 Global config details-get service
 
 This service will return back the global configuration data of the MOSIP platform. 
 
@@ -536,7 +536,7 @@ Name | Required | Description | Default Value | Example
 }
 ```
 ### 1.4 Enrolment Client config
-#### 1.4 Enrolment client Config details-get service
+#### 1.4.1 Enrolment client Config details-get service
 
 This service will return back the global configuration data of the MOSIP platform. 
 
@@ -616,6 +616,45 @@ Name | Required | Description | Default Value | Example
 		"maxDocSizeInMB":150
 }
 ```
+
+### 1.5 Machine Types
+
+#### 1.5.1 Machine Types Master-get service
+
+This service will provides the list of all machine types in all languages. 
+
+
+##### Resource URL
+##### `GET /machinetypes`
+
+##### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+##### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+##### Example Request
+```JSON
+-NA-
+```
+
+##### Example Response
+```JSON
+{
+	"code":"KJDS9",
+	"name":"Laptop",
+	"descr":"This is the Level-2 high performance laptop",
+	"lang_code":"eng",
+	"is_active":true
+}
+```
+
 
 ## 2. Authentication
 AM: Put auth list here
