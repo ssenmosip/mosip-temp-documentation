@@ -38,7 +38,7 @@ This section details about the service APIs in the Master data modules
 
 [2.3.19 Machine Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2319-machine-types-master-api)
 
-[2.3.20 Machine Specifications Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2320-machine-specifications
+[2.3.20 Machine Specifications Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2320-machine-specifications)
 
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
