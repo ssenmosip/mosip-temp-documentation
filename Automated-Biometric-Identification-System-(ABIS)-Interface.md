@@ -15,9 +15,15 @@ This document will provide the specification an ABIS provider must implement to 
 
 Biometric data sent to ABIS will follow the below standards.
 - CBEFF: ISO/IEC 19785-3
-- Fingerprints: ISO/IEC 19794-2, ISO/IEC 19794-4
-- IRIS: ISO/IEC 19794-6
-- Face: ISO/IEC 19794-5
+- Fingerprints
+  * Finger Print Minutiae Record (FMR) - ISO/IEC 19794-2
+  * Finger Print Image Record (FIR) - ISO/IEC 19794-4
+
+- IRIS
+  * Iris Image Record (IIR) - ISO/IEC 19794-6
+
+- Face
+  * Face Image Data (FID) - ISO/IEC 19794-5
 
 ABIS should support the following types of biometric images
 - Unsegmented fingerprint images (4-4-2), or 
