@@ -33,6 +33,8 @@ ABIS should support the following types of biometric images
 - IRIS images (Left, and Right)
 - Face photograph
 
+All Biometric data MUST packaged in CBEFF format. Inside the CBEFF package, the respective biometric data must follow the respective ISO standard.
+
 ABIS should support the following requests
 
 Management | Registration
