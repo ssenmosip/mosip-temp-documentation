@@ -15,11 +15,16 @@ MOSIP will use both image and minutiae of Finger Print.
  * Storage - JPEG2000 or PNG
 
 ### Authentication (only minutiae based authentication is available in version 1)
+
+
+## Finger Print Minutiae Record (FMR)
+
+### Registration (Only FIR is captured during registration)
+
+### Authentication 
  * Minutiae specification - ISO/IEC 19794 - 2
  * Record format - ???
  * Number of fingers - 1
  * Quality - NIST Fingerprint Quality (NFIQ) value of 1, 2 and 3 is acceptable
  * Transmission format - minutiae
  * Storage - minutiae
-
-
