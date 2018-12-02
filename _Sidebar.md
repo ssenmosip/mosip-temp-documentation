@@ -7,6 +7,7 @@
   * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)
   * [MOSIP ABIS Middleware](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
+  * [MOSIP Biometrics Spec](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Specifications)
   * [Security](https://github.com/mosip/mosip/wiki/Security)
 * [MOSIP APIs](https://github.com/mosip/mosip/wiki/API-Specifications)
   * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs)
