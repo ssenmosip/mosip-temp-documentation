@@ -267,7 +267,7 @@ request | yes | JSON body as per the ID object schema | |
 				"value": "hashed_fileName.png"
 			}
 		],
-		"leftSlap": [
+		"leftThumb": [
 			{
 				"language": "ar",
 				"label": "البيومترية المسح الضوئي 1",
@@ -279,7 +279,7 @@ request | yes | JSON body as per the ID object schema | |
 				"value": "hashed_fileName.png"
 			}
 		],
-		"rightSlap": [
+		"rightThumb": [
 			{
 				"language": "ar",
 				"label": "البيومترية المسح الضوئي 2",
@@ -291,7 +291,7 @@ request | yes | JSON body as per the ID object schema | |
 				"value": "hashed_fileName.png"
 			}
 		],
-		"thumbs": [
+		"rightIndex": [
 			{
 				"language": "ar",
 				"label": "البيومترية المسح الضوئي 3",
