@@ -48,3 +48,18 @@ MOSIP will use Iris images only for registration and authentication
  * Number of fingers - 1 or 2
  * Transmission format - JPEG2000 (lossless)
  * Storage - JPEG2000 or PNG
+
+# Face
+MOSIP will use face image for registration (Face authentication will come in a future release of MOSIP)
+
+## Face Image Data (FID)
+
+### Registration
+ * Image specification - ISO/IEC 19794 - 5
+ * Image record format - CBEFF ISO 19795 - 1
+ * Image details - Full frontal image, +/- 5 degrees rotation, 24 bit RGB, white background, 35 mm width, 45 mm height
+ * Format - JPEG2000 or PNG (lossless) 
+ * Transmission format - JPEG2000
+ * Storage - JPEG2000 or PNG
+
+### Authentication (Future version)
