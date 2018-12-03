@@ -61,6 +61,13 @@ Decision: Spring boot is being removed.
 Decision: Update packets can be introduced by any stage.
 * [Ramesh] What is data enrichment? Can ID Document data be filled in only by Registration client (Packet Receiver Service essentially)? Can other steps in the registration processor flow add / modify / enhance / enrich this data? Current thought process as Shravan expressed is that the packet is read only and does not change. The only mechanism to change data is through a correction packet which has to be sent to the Packet Receiver. Other than this mechanism the data (not just the packet) remains immutable across processor steps. I feel that this might restrict data enrichment steps in the processor. Accommodating changes is possible, but would require design tweaks. Questions asked in the previous points would arise. Ramesh to send out a clarification email to tech board for deciding on support for such data enrichment. Case in point can be CNIE that might return fingerprint minutiae for a given CNIE number, and this gets added to the ID Document.
 Decision: Data enrichment is allowed. All data enrichment will be done using update packets.
+* [Shravan]Parallelism in orchestration vs Handling that in code in a VertX Stage
+Decision: We will address this during ABIS middleware design.
+* [Ramesh]Lock-In to VertX - I hear that VertX is polyglot and node/python/other languages can be used to create stages on VertX. I will circle back on this with some reading of my own.
+* [Shravan]EventBus interfacing uses TCP and not HTTP. Is this a problem? - Let us run this by Pramod once. If there is some mechanism, with an adapter if need be, that helps stages use HTTP as opposed to TCP, this opens up a lot more choices to the SI. Can we figure something out on this?
+Ramesh Thoughts: Apache camel can orchestrate using EventBus or REST API. Can we have a reference implementation for the HTTP micro service for one stage?
+* Are there too many toolkits in play and overlap of responsibilities?
+Decision: Camel, VertX, Docker, Kubernetes will be used. VertX will have clustering turned off. Kubernetes will handle scaling and HA. Sprint Boot is eliminated.
 
 ## ID Authentication
 
