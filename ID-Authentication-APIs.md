@@ -2,10 +2,9 @@ This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Auth Request
 This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service - 
-1. OTP
-2. Demo
-3. Static Pin
-4. Bio - Fingerprint, IRIS and Face
+1. Pin based - OTP and sPin
+2. Demo based - PersonalIdentity, Address, FullAddress
+3. Bio based - Fingerprint, IRIS and Face
 
 ### Resource URL
 ### `POST identity/auth`
@@ -54,95 +53,88 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
 ### Sample Request
 ```JSON
 {
-        "id" : "mosip.identity.auth",
-	"ver" : "1.0",	
-	"idvId" : "1234567890",
-	"idvIdType" : "V",
-	"authType" : 
-		{
-			"demo" : true,
-			"pin" : true,
-			"bio" : false
-		},
-	"txnID" : "txn12345",
-        "tspID" : "tsp54321",
-	"reqTime" : "2018-10-17T07:22:57.086+05:30",
-	"demoInfo" : 
-		[
-			{ 
-				"authType" : "fullAddress",
-                                "language" : "fr",
-				"matchingStrategy" : "P",
-				"matchingThreshold" : 60
-			}
-		],
-        "bioInfo" : 
-		[
-			{ 
-				"authType" : "fgrMin",
-                                "deviceInfo" : 
-                                 {
-                                           "deviceId" : "",  
-                                           "make" : "", 
-                                           "model" : ""
-                                 }
-			}
-		],
-        "pinInfo" : 
-               [
-		       {
-			         "value" : "123456",
-			         "authType" : "otp"
-		       }
-               ],
-        "request" : 
-	{
-		//JSON request as per the id object schema defined by the country
-		"identity": {
-			"name": [
-				{
-					"language": "ar",
-					"value": "ابراهيم"
-				},
-				{
-					"language": "fr",
-					"value": "Ibrahim"
-				}
-			],
-			"addressLine1": [
-				{
-					"language": "ar",
-					"value": "عنوان العينة سطر 1"
-				},
-				{
-					"language": "fr",
-					"value": "exemple d'adresse ligne 1"
-				}
-			],
-			"fullAddress": [
-				{
-					"language": "ar",
-					"value": "فاس-الدار البيضاء"
-				},
-				{
-					"language": "fr",
-					"value": "Casablanca"
-				}
-			],
-			"leftEye": [
-				{
-					"value": "encoded_left_eye_image"
-				}
-			],
-			"rightIndex": [
-				{
-					"value": "encoded_right_index_image"
-				}
-			]
-		}		
-	}
+  "id": "mosip.identity.auth",
+  "ver": "1.0",
+  "idvId": "1234567890",
+  "idvIdType": "V",
+  "authType": {
+    "demo": true,
+    "pin": true,
+    "bio": false
+  },
+  "txnID": "txn12345",
+  "tspID": "tsp54321",
+  "reqTime": "2018-10-17T07:22:57.086+05:30",
+  "demoInfo": [
+    {
+      "authType": "fullAddress",
+      "language": "fr",
+      "matchingStrategy": "P",
+      "matchingThreshold": 60
+    }
+  ],
+  "bioInfo": [
+    {
+      "authType": "fgrMin",
+      "deviceInfo": {
+        "deviceId": "",
+        "make": "",
+        "model": ""
+      }
+    }
+  ],
+  "pinInfo": [
+    {
+      "value": "123456",
+      "authType": "otp"
+    }
+  ],
+  "request": {
+//JSON request as per the id object schema defined by the country
+    "identity": {
+      "name": [
+        {
+          "language": "ar",
+          "value": "ابراهيم"
+        },
+        {
+          "language": "fr",
+          "value": "Ibrahim"
+        }
+      ],
+      "addressLine1": [
+        {
+          "language": "ar",
+          "value": "عنوان العينة سطر 1"
+        },
+        {
+          "language": "fr",
+          "value": "exemple d'adresse ligne 1"
+        }
+      ],
+      "fullAddress": [
+        {
+          "language": "ar",
+          "value": "فاس-الدار البيضاء"
+        },
+        {
+          "language": "fr",
+          "value": "Casablanca"
+        }
+      ],
+      "leftEye": [
+        {
+          "value": "encoded_left_eye_image"
+        }
+      ],
+      "rightIndex": [
+        {
+          "value": "encoded_right_index_image"
+        }
+      ]
+    }
+  }
 }
-
 ```
 ### Sample Response
 #### Success Response :
