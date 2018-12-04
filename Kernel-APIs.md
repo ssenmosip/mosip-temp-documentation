@@ -31,7 +31,7 @@ timeStamp |Yes|Date-time without time-zone in ISO-8601| 2007-12-03T10:15:30
   "keyGenerationTime": "Key Generation Time in ISO-8601"
 }
 ```
-# 2 Sync Master
+# 2 Sync Master data
 ## 2.1 Sync Master data-get service
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. In case, other modules calls this service, the machineid will be empty. The machineid will be used to get the location and based on the location, the holiday list will be retrieved. If the requestdate is not passed, all the master data will be returned. If the requestdate is passed, all the data will be returned for which the created or updated date is greater than equal request date. 
