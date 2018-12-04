@@ -60,19 +60,14 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
 	"idvIdType" : "V",
 	"authType" : 
 		{
-			"address" : false,
-			"fullAddress" : true,
-			"personalIdentity" : false,
-			"otp" : false,
-			"pin" : false,
+			"demo" : true,
+			"pin" : true,
 			"bio" : false
 		},
-	"muaCode" : "tspLevel1ID",
 	"txnID" : "txn12345",
-	"reqTime" : "2018-10-17T07:22:57.086+0000",
-	"reqHmac" : "<SHA of request element>",
-	"key" : "<encrypted_encoded_session_key>",
-	"matchInfo" : 
+        "tspID" : "tsp54321",
+	"reqTime" : "2018-10-17T07:22:57.086+05:30",
+	"demoInfo" : 
 		[
 			{ 
 				"authType" : "fullAddress",
@@ -84,7 +79,7 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
         "bioInfo" : 
 		[
 			{ 
-				"bioType" : "fgrMin",
+				"authType" : "fgrMin",
                                 "deviceInfo" : 
                                  {
                                            "deviceId" : "",  
@@ -95,10 +90,10 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
 		],
         "pinInfo" : 
                [
-		    {
-			"value" : "123456",
-			"type" : "OTP"
-		    }
+		       {
+			         "value" : "123456",
+			         "authType" : "otp"
+		       }
                ],
         "request" : 
 	{
@@ -165,7 +160,7 @@ Status Code : 200(OK)
             "idvIdType": "V",
 	    "reqTime": "2018-10-17T07:22:57.086+0000",
 	    "ver": "1.0",
-	    "matchInfo":
+	    "demoInfo":
 	    [
 	    	{
 	        	"authType": "fullAddress",
@@ -211,18 +206,14 @@ Status Code : 500(Error)
 		"idvId": "1234567890",
 		"idvIdType": "V",
 		"authType": {
-			"address": true,
-			"fullAddress": true,
-			"personalIdentity": true,
-			"otp": true,
+			"demo": true,
 			"pin": false,
 			"bio": false
 		},
-		"muaCode": "tspLevel1ID",
 		"txnID": "txn12345",
-		"reqTime": "2018-10-17T07:22:57.086+0000",
-		"key": "<encrypted_encoded_session_key>",
-		"matchInfo": [
+                "tspID" : "tsp54321",
+		"reqTime": "2018-10-17T07:22:57.086+05:30",
+		"demoInfo": [
 			{
 				"authType": "fullAddress",
 				"language": "fr",
@@ -230,10 +221,13 @@ Status Code : 500(Error)
 				"matchingThreshold": 60
 			}
 		],
-		"pinInfo": {
-			"value": "123456",
-			"type": "OTP"
-		},
+		"pinInfo": 
+                [                        
+                       {
+			        "value": "123456",
+			        "type": "otp"
+		        }
+                 ],
 		"request": {//encoded and encrypted using mua public key
 			"identity": {
 				"name": [
@@ -293,7 +287,7 @@ Status Code : 200(OK)
 				"idvIdType": "V",
 				"reqTime": "2018-10-17T07:22:57.086+0000",
 				"ver": "1.0",
-				"matchInfo": [
+				"demoInfo": [
 					{
 						"authType": "fullAddress",
 						"language": "fr",
@@ -457,7 +451,7 @@ txnID|Y|Request Transaction ID| | abc123abc
   "ver": "1.0",
   "idvId": "1234567890",
   "idvIdType": "D",
-  "muaCode": "tspLevel1ID",
+  "tspID": "tspLevel1ID",
   "reqTime": "2018-10-12T09:45:49.565Z",
   "txnID": "txn12345"
 }
