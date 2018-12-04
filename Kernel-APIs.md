@@ -1,29 +1,29 @@
-### 1.1. Public key
-#### 1.1.1 Public key-get service
+# 1. Public key
+## 1.1 Public key-get service
 
 This service will provides the public key of the Enrolment client. 
 
-##### Resource URL
-##### `GET /publickey`
+### Resource URL
+### `GET /publickey`
 
-##### Resource details
+### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-##### Parameters
+### Parameters
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
 referenceId|Yes|Id of the Machine/TSP|
 timeStamp |Yes|Date-time without time-zone in ISO-8601| 2007-12-03T10:15:30
 
-##### Example Request
+### Example Request
 /publickey/REGISTRATION?referenceId=1001&timeStamp=2018-11-29T12%3A00
 
-##### Example Response
+### Example Response
 ```JSON
 {
   "publicKey": "Base64 encoded public Key",
@@ -31,31 +31,31 @@ timeStamp |Yes|Date-time without time-zone in ISO-8601| 2007-12-03T10:15:30
   "keyGenerationTime": "Key Generation Time in ISO-8601"
 }
 ```
-### 1.2 Sync Master
-#### 1.2.1 Sync Master data-get service
+# 2 Sync Master
+## 2.1 Sync Master data-get service
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. In case, other modules calls this service, the machineid will be empty. The machineid will be used to get the location and based on the location, the holiday list will be retrieved. If the requestdate is not passed, all the master data will be returned. If the requestdate is passed, all the data will be returned for which the created or updated date is greater than equal request date. 
 
-##### Resource URL
-##### `GET /syncmasterdata`
+### Resource URL
+### `GET /syncmasterdata`
 
-##### Resource details
+### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-##### Parameters
+### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 machineid|No|Id of the machine| | 
 requestdate|No|Date in ISO format| | 
 
-##### Example Request
+### Example Request
 -NA-
 
-##### Example Response
+### Example Response
 ```JSON
 {
    "holidays":[
@@ -488,30 +488,30 @@ requestdate|No|Date in ISO format| |
    ]
 }
 ```
-### 1.3 Global config
-#### 1.3.1 Global config details-get service
+# 3 Global config
+## 3.1 Global config details-get service
 
 This service will return back the global configuration data of the MOSIP platform. 
 
-##### Resource URL
-##### `GET /globalconfigs`
+### Resource URL
+### `GET /globalconfigs`
 
-##### Resource details
+### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-##### Parameters
+### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-##### Example Request
+### Example Request
 -NA-
 
-##### Example Response
+### Example Response
 ```JSON
 {
 		"archivalPolicy":"arc_policy_2",
@@ -531,32 +531,32 @@ Name | Required | Description | Default Value | Example
 		]
 }
 ```
-### 1.4 Registration Center config
-#### 1.4.1 Registration Center Config details-get service
+# 4 Registration Center config
+## 4.1 Registration Center Config details-get service
 
 This service will return back the global configuration data of the MOSIP platform. 
 
-##### Resource URL
-##### `GET /registrationcenterconfig/{registrationcenterid}`
+### Resource URL
+### `GET /registrationcenterconfig/{registrationcenterid}`
 
 This service will return back the configuration data specific to a registration center. 
 
-##### Resource details
+### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-##### Parameters
+### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-##### Example Request
+### Example Request
 -NA-
 
-##### Example Response
+### Example Response
 ```JSON
 {
 		"loginMode":"bootable dongle",
