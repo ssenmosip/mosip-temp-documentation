@@ -10,6 +10,7 @@
   * [MOSIP Biometrics Spec](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Specifications)
   * [Security](https://github.com/mosip/mosip/wiki/Security)
 * [MOSIP APIs](https://github.com/mosip/mosip/wiki/API-Specifications)
+  * [Kernel](https://github.com/mosip/mosip/wiki/Kernel-APIs)
   * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs)
   * [ID Repository](https://github.com/mosip/mosip/wiki/ID-Repository-API)
   * [ABIS APIs](https://github.com/mosip/mosip/wiki/ABIS-APIs)
