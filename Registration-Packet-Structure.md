@@ -9,7 +9,7 @@ The detailed technical process for Registration packet creation is
 provided below:
 
 **Packet Structure**
-	![Packet Design view](_images/packet_creation_overview.png)
+	![Packet Design view](_images/registration/packet_creation_overview.png)
 
 -   Create date wise folder, if not exists. \[Sample: 12-SEP-2018 \]
 
@@ -22,10 +22,10 @@ provided below:
     
     **Biometric File :**
 
-    ![BioMetric Files](_images/bioMetric_folder.png)
+    ![BioMetric Files](_images/registration/bioMetric_folder.png)
 
    **Demographic :**
-   ![Demographic Files](_images/demographic_folder.png)
+   ![Demographic Files](_images/registration/demographic_folder.png)
 
 Folder level Data: 
 
