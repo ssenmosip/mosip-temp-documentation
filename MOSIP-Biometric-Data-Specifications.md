@@ -1,4 +1,6 @@
-Biometrics (Fingerprint, Iris and Face) will be a key component in MOSIP to identify and provide a unique identity to an Individual. The page details out the specifications for Biometrics data during data acquisition and verification.
+Multi modal biometrics (Fingerprint, Iris, Face...) will be a key component in MOSIP to identify and provide a unique identity to an Individual. The page details out the specifications for Biometrics data during data acquisition and verification.
+
+MOSIP will use CBEFF ISO 19795 - 1 format to store and transfer biometrics data.
 
 # Finger Print
 MOSIP will use both image and minutiae of Finger Print. 
@@ -6,8 +8,7 @@ MOSIP will use both image and minutiae of Finger Print.
 ## Finger Print Image Record (FIR)
 
 ### Registration
- * Image specification - ISO/IEC 19794 - 4
- * Image record format - CBEFF ISO 19795 - 1
+ * Image specification - ISO/IEC 19794 - 4 
  * Number of Fingers - maximum 10; minimum - 1
  * Format - JPEG2000 (lossless)
  * Quality - NIST Fingerprint Quality (NFIQ) value of 1, 2 and 3 is acceptable
@@ -36,8 +37,7 @@ MOSIP will use Iris images only for registration and authentication
 
 ### Registration
  * Image specification - ISO/IEC 19794 - 6
- * Image record format - CBEFF ISO 19795 - 1
- * Number of eyes - 2
+  * Number of eyes - 2
  * Format - JPEG2000 (lossless) 
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
@@ -56,7 +56,6 @@ MOSIP will use face image for registration (Face authentication will come in a f
 
 ### Registration
  * Image specification - ISO/IEC 19794 - 5
- * Image record format - CBEFF ISO 19795 - 1
  * Image details - Full frontal image, +/- 5 degrees rotation, 24 bit RGB, white background, 35 mm width, 45 mm height
  * Format - JPEG2000 or PNG (lossless) 
  * Transmission format - JPEG2000
