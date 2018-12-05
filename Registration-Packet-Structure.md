@@ -21,8 +21,7 @@ provided below:
     -   HOF
     
     **Biometric File :**
-
-    ![BioMetric Files](_images/registration/bioMetric_folder.png)
+    ![BioMetric Files](_images/registration/biometric_folder.png)
 
    **Demographic :**
    ![Demographic Files](_images/registration/demographic_folder.png)
