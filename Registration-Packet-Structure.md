@@ -24,28 +24,28 @@ provided below:
     -   HOF
     
     **Biometric File :**
+    
     ![BioMetric Files](_images/registration/biometric_folder.png)
 
-   **Demographic :**
-   ![Demographic Files](_images/registration/demographic_folder.png)
+    **Demographic :**
+    
+    ![Demographic Files](_images/registration/demographic_folder.png)
 
-Folder level Data: 
+**Folder level Data:** 
 
 1.  **Biometric**
 
-	a.  Applicant
-
-    -   LetThumb.jpg
-    -   RightThumb.jpg
-    -   LeftPalm.jpg
-    -   RightPalm.jpg
-    -   LeftEye.jpg
-    -   RightEye.jpg
+	a.  Applicant {contains bio images only}
+	    -   LetThumb.jpg
+	    -   RightThumb.jpg
+	    -   LeftPalm.jpg
+	    -   RightPalm.jpg
+	    -   LeftEye.jpg
+	    -   RightEye.jpg
 
 2.  **Demographic**
 
     a.  Applicant
-
         -   ProofOfIdentity.pdf
         -   ProofOfResidenty.pdf
         -   ProofOfAddress1.pdf
@@ -58,22 +58,18 @@ Folder level Data:
 	
 3.  **RegistrationID.txt**
 4.  **HMAC File.txt**
-5.  **Packet\_MetaInfo.json
-6.  **Registration Officer Bio Image\[JPEG\]**
-7.  **Registration Supervisor Bio Image\[JPEG\]**
-
--   Hash :
 
     -   Generate the Hash for the Biometric, Demographic and RID of
         Resident Information.
-
-    -   Use the HMAC generation from Java 8 \[MD5 Hashing -- SHA256\]
-
--   Store the generated Hash in a file and append to the created Zip
-    object.
+	-   Store the generated Hash in a file and append to the created Zip
+	    object.
+    
+5.  **Packet\_MetaInfo.json**
+6.  **Registration Officer Bio Image\[JPEG\]**
+7.  **Registration Supervisor Bio Image\[JPEG\]**
 
 -   Capture the Registration Officer/Supervisor Authentication finger
-    image from the respective DTO object and append to the Zip object.
+    image and append to the Zip object.
 
 -   Create the Packet Info JSON file, which contains the **Meta data**
     information about packet and appended to the existing Zip object.
