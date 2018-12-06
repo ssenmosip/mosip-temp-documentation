@@ -11,11 +11,14 @@ provided below:
 **Packet Structure**
 	![Packet Design view](_images/registration/packet_creation_overview.png)
 
--   Create date wise folder, if not exists. \[Sample: 12-SEP-2018 \]
+-   Create the Registration packet in the below format. 
+	![Packet Design view](_images/packet_zip_format.png)
 
+-   Folder structure inside the packet zip. 
+	![Inside Packet Design view](_images/packet_struct_inside_zip.png)
+	
 -   Biometric and Demographic folders should have the below sub folder
     structure.
-
     -   Applicant
     -   Introducer
     -   HOF
@@ -30,35 +33,28 @@ Folder level Data:
 
 1.  **Biometric**
 
-a.  Applicant
+	a.  Applicant
 
-    -   LetThumb.jpg/png
-    -   RightThumb.jpg/png
-    -   LeftPalm.jpg/png
-    -   RightPalm.jpg/png
-    -   LeftEye.jpg/png
-    -   RightEye.jpg/png
-
-b.  HOF
-
-    -   **HOF LeftThumb.jpg/png**
-
-c.  Introducer
-
-    -   **LeftThumb.jpg/png**
+    -   LetThumb.jpg
+    -   RightThumb.jpg
+    -   LeftPalm.jpg
+    -   RightPalm.jpg
+    -   LeftEye.jpg
+    -   RightEye.jpg
 
 2.  **Demographic**
 
     a.  Applicant
 
-        -   ProofOfIdentity.docx
-        -   ProofOfResidenty.docx
-        -   ProofOfAddress.docx
-        -   ApplicantPhoto.jpg/png
-        -   ExceptionPhoto.jpg/png \[If Exceptional cases\]
+        -   ProofOfIdentity.pdf
+        -   ProofOfResidenty.pdf
+        -   ProofOfAddress1.pdf
+        -   ApplicantPhoto.jpg
+        -   ExceptionPhoto.jpg \[If Exceptional cases\]
         -   Registration Acknowledgement.jpg
 
-    b.  Demographic\_info.json  - Follwed the Mosip ID spec and generated this Json structure. It contains the entire text data captured in the UI application. 
+    b.  Demographic\_info.json  
+        - Follwed the Mosip ID spec and generated this Json structure. It contains the entire text data captured in the UI application. 
 	
 3.  **RegistrationID.txt**
 4.  **HMAC File.txt**
@@ -66,10 +62,9 @@ c.  Introducer
 6.  **Registration Officer Bio Image\[JPEG\]**
 7.  **Registration Supervisor Bio Image\[JPEG\]**
 
-
 -   Hash :
 
-    -   Generate the Hash for the Biometric, Demographic and EID of
+    -   Generate the Hash for the Biometric, Demographic and RID of
         Resident Information.
 
     -   Use the HMAC generation from Java 8 \[MD5 Hashing -- SHA256\]
@@ -85,7 +80,7 @@ c.  Introducer
 
 -   Session Key Encryption:
 
-    -   Session key generation is \[MAC of machine + EO Id + Timestamp\]
+    -   Session key generation is \[MAC of machine + RO Id + Timestamp\]
         should not exceed 32 characters.
 
     -   Pass the created Zip object \[in-memory\] through the AES-256
@@ -106,15 +101,11 @@ c.  Introducer
 -   Append the RSA Public key Encrypted Session Key, Key Separator to
     the AES encrypted bytes.
 
--   Save the encrypted data as a ZIP in local file system under the
-    defined location in configuration file.
-
 -   Append the EO and machine information as a META-INFO JSON file and
     create another ZIP out of it. \[Packet Zip + META-INFO JSON\]
 
--   The final zip name should be as enrollemntid+CurrentTimestamp \[28
-    digit\].
+-   Save the encrypted data as a ZIP in local file system under the
+    defined location in configuration file.
 
--   Timestamp format is \[DDMMYYYYHHMMSSS\]
 
 
