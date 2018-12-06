@@ -12,10 +12,10 @@ provided below:
 	![Packet Design view](_images/registration/packet_creation_overview.png)
 
 -   Create the Registration packet in the below format. 
-	![Packet Design view](_images/packet_zip_format.png)
+	![Packet Design view](_images/registration/packet_zip_format.png)
 
 -   Folder structure inside the packet zip. 
-	![Inside Packet Design view](_images/packet_struct_inside_zip.png)
+	![Inside Packet Design view](_images/registration/packet_struct_inside_zip.png)
 	
 -   Biometric and Demographic folders should have the below sub folder
     structure.
