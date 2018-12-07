@@ -74,6 +74,7 @@ MOSIP will use both image and minutiae of Finger Print.
 
 ### Registration
  * Image specification - ISO/IEC 19794 - 4 
+ * File format - ???
  * Number of Fingers - maximum 10; minimum - 1
  * Format - JPEG2000 (lossless)
  * Quality - NIST Fingerprint Quality (NFIQ) value of 1, 2 and 3 is acceptable
@@ -102,7 +103,8 @@ MOSIP will use Iris images only for registration and authentication
 
 ### Registration
  * Image specification - ISO/IEC 19794 - 6
-  * Number of eyes - 2
+ * File format - ???
+ * Number of eyes - 2
  * Format - JPEG2000 (lossless) 
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
