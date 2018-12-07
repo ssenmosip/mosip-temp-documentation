@@ -24,4 +24,3 @@
 * [Developer Documentation](https://github.com/mosip/mosip/wiki/Developer-Documentation)
 * [Tester Documentation](https://github.com/mosip/mosip/wiki/Tester-Documentation)
 * [Contribute to MOSIP](https://github.com/mosip/mosip/wiki/Contribute-to-MOSIP) 
-* [Data Model Naming Standards](https://github.com/mosip/mosip/wiki/Data-Model-Naming-Standards)
