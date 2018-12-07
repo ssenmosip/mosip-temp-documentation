@@ -1,7 +1,8 @@
-This document describes the Packet structure created at Registration client application post capturing of
-individual's data. 
+This document describes the following aspects
+- Registration packet structure
+- Packet encryption procedure
 
-**Packet Structure**
+**Registration Packet Structure**
 	![Packet Design view](_images/registration/packet_creation_overview.png)
 
 -   Create the Registration packet in the below format. 
@@ -66,6 +67,8 @@ individual's data.
 
 -   Create the Packet Info JSON file, which contains the **Meta data**
     information about packet and appended to the existing Zip object.
+
+**Packet encryption procedure**
 
 -   Session Key Encryption:
 
