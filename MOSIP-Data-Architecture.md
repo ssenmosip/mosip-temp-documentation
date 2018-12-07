@@ -109,7 +109,8 @@ The description of the databases created in MOSIP are listed below
 
 # Data Model Naming Standards
 
+[Naming Standards](https://github.com/mosip/mosip/wiki/Data-Model-Naming-Standards)
 
-# Data Model Standards
+# Data Model
 
-- [MOSIP Configuration Server](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
+[Data Model](https://github.com/mosip/mosip/wiki/MOSIP-Data-Model)
