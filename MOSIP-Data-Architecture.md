@@ -1,25 +1,15 @@
 # Data Architecture Principles
 
-Below principles are followed in designing the data base of MOSIP
-
-* All personally identifiable information like name, age, gender, address etc will be stored in an encrypted form
-* The primary key for a record will be a random number and never generated based on the record data
-* Select queries by Admin or any other user directly on the database is prohibited. Only application user will be able to do a select query
-* Database specific features like triggers, DB functions like sequence generators etc will not be used in MOSIP. This avoids vendor lock-in
-
-## Open Source and Vendor Neutral
-
-To handle vendor neutrality and open source, the following consideration are followed while designing the data model and the database design.
-
-+ No business logic is applied at database level: Database will be used only to store and retrieve data. There is no business logic applied at database level other than Primary / Unique key, Not null and foreign keys. Foreign keys are applied within the same database, if a table is referenced in another database then no FK is applied. 
-
-+ No specific database features used: Features that are common across databases which are compliant with open source standards are applied. 
-
-+ All DDL, DML and DQL statements will follow ANSI standards
-
-+ Metadata approach to handle complex and flexible data structures
-
-+ Only following datatypes are being used
+* All personally identifiable information like name, age, gender, address etc and other sensitive information must be stored in an encrypted form
+* All personally identifiable information must be signed and stored along with the encrypted data
+* Database code must not have any business logic. For example stored procedures must not be used.
+* No business logic applied at database level other than Primary / Unique key, Not null and foreign keys must be present in the database code. Foreign keys are applied within the same database, if a table is referenced in another database then no FK is applied. 
+* Database specific features like triggers, DB functions like sequence generators etc must not be used in MOSIP. This avoids vendor lock-in
+* Keys (primary, foreign...) must be a random number and not be generated based on the record data. This improves privacy
+* Direct queries on the database by a human must not be made. Database administrators must ensure this control during setup.
+* All DDL, DML and DQL statements must follow ANSI standards
+* Database must be setup in UTF-8 file format to support multiple languages
+* Only following datatypes must be used
     - Character varying
     - Timestamp
     - Date
@@ -27,6 +17,10 @@ To handle vendor neutrality and open source, the following consideration are fol
     - Number
     - Bytea/blob
     - Boolean
+
+# Logical view of MOSIP data system
+
+![MOSIP Data Architecture](https://github.com/mosip/mosip/blob/DEV_database_sprint6/database-scripts/DataArchitecture/MOSIP_DataArchitecture.jpg)
 
 ## Security
 
@@ -65,11 +59,6 @@ To support high performance, following database design features are to be consid
 * No referential integrity is applied on tables across databases
 * Partitioning: Partitioning design to be discussed as PostgreSQL has certain limitation / different way of implementation that requires specific database features to be applied. To be discussed further to finalize the implementation of this feature.
 
-# Data Architecture
-
-Below diagram provides the data architecture of MOSIP system
-
-![MOSIP Data Architecture](https://github.com/mosip/mosip/blob/DEV_database_sprint6/database-scripts/DataArchitecture/MOSIP_DataArchitecture.jpg)
 
 Below is the list of databases in MOSIP
 
