@@ -28,23 +28,23 @@ individual's data.
 
 1.  **Biometric**
 
-	a.  Applicant {contains bio images only}
-	    -   LetThumb.jpg
-	    -   RightThumb.jpg
-	    -   LeftPalm.jpg
-	    -   RightPalm.jpg
-	    -   LeftEye.jpg
-	    -   RightEye.jpg
+	- Applicant {contains bio images only}
+	    * LeftThumb.jpg
+	    * RightThumb.jpg
+	    * LeftPalm.jpg
+	    * RightPalm.jpg
+	    * LeftEye.jpg
+	    * RightEye.jpg
 
 2.  **Demographic**
 
-    a.  Applicant
-        -   ProofOfIdentity.pdf
-        -   ProofOfResidenty.pdf
-        -   ProofOfAddress1.pdf
-        -   ApplicantPhoto.jpg
-        -   ExceptionPhoto.jpg \[If Exceptional cases\]
-        -   Registration Acknowledgement.jpg
+    - Applicant
+        * ProofOfIdentity.pdf
+        *  ProofOfResidenty.pdf
+        *  ProofOfAddress1.pdf
+        *  ApplicantPhoto.jpg
+        *  ExceptionPhoto.jpg \[If Exceptional cases\]
+        *  Registration Acknowledgement.jpg
 
     b.  Demographic\_info.json  
         - Follwed the Mosip ID spec and generated this Json structure. It contains the entire text data captured in the UI application. 
