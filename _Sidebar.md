@@ -2,6 +2,7 @@
 * [Overview](https://github.com/mosip/mosip/wiki)
 * [Architecture](https://github.com/mosip/mosip/wiki/Architecture)
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
+  * [Data Architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
   * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client-Application-Guide)
   * [Registration Packet Structure](https://github.com/mosip/mosip/wiki/Registration-Packet-Structure)
