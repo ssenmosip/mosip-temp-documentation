@@ -1,17 +1,11 @@
 # Data Architecture Principles
 
-This section covers high-level data architecture principles of MOSIP.
+Below principles are followed in designing the data base of MOSIP
 
-* Open source and Vendor Neutral
-* Adaptability
-* Security
-* Multi party
-* Authorization
-* Authentication
-* Multi language support
-* Performance and scalability
-* High Availability
-* Auditability
+* All personally identifiable information like name, age, gender, address etc will be stored in an encrypted form
+* The primary key for a record will be a random number and never generated based on the record data
+* Select queries by Admin or any other user directly on the database is prohibited. Only application user will be able to do a select query
+* Database specific features like triggers, DB functions like sequence generators etc will not be used in MOSIP. This avoids vendor lock-in
 
 ## Open Source and Vendor Neutral
 
@@ -34,26 +28,9 @@ To handle vendor neutrality and open source, the following consideration are fol
     - Bytea/blob
     - Boolean
 
-## Adaptability
-
-TBD
-
 ## Security
 
 TBD
-
-## Multi party
-
-TBD
-
-## Authorization
-
-TBD
-
-## Authentication
-
-TBD
-
 
 ## Multi-Language
 
@@ -94,7 +71,7 @@ Below diagram provides the data architecture of MOSIP system
 
 ![MOSIP Data Architecture](https://github.com/mosip/mosip/blob/DEV_database_sprint6/database-scripts/DataArchitecture/MOSIP_DataArchitecture.jpg)
 
-The description of the databases created in MOSIP are listed below
+Below is the list of databases in MOSIP
 
 |Sl No|Database Name|Description|
 |---------|---------|------------|
