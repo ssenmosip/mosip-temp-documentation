@@ -1,6 +1,6 @@
 Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP will 
 
-- Use biometric information (finger print and Iris only) of an individual
+- Use multi modal biometric information of an individual
 - Leverage Automated Biometric Identification System (ABIS)
 - Design for integrating with multiple ABIS providers and take the best result
 - Not use ABIS for authentication (deduplication only)
