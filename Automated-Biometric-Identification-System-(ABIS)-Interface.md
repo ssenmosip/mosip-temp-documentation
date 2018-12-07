@@ -12,8 +12,9 @@ This document will provide the specification an ABIS provider must implement to 
 
 - MOSIP will interact with ABIS only via message queues
 - JSON format will be used to for all control messages like INSERT, IDENTIFY etc... to interact with ABIS
-- CBEFF XML format will be used to send biometrics data (Please refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric- 
-  Data-Specifications#cbeff-xml-format-sample for sample cbeff data) to ABIS
+- CBEFF XML format will be used to send biometrics data to ABIS
+  (Please refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications#cbeff-xml-format-sample for sample 
+  cbeff data)
 - Inside the CBEFF XML individual biometrics data must be in respective ISO format
 
 Biometric data sent to ABIS will follow the below standards.
