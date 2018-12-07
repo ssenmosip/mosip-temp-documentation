@@ -2,11 +2,12 @@
 
 * All personally identifiable information like name, age, gender, address etc and other sensitive information must be stored in an encrypted form
 * All personally identifiable information must be signed and stored along with the encrypted data
-* Database code must not have any business logic. For example stored procedures must not be used.
-* No business logic applied at database level other than Primary / Unique key, Not null and foreign keys must be present in the database code. Foreign keys are applied within the same database, if a table is referenced in another database then no FK is applied. 
+* Database code must not have any business logic. For example stored procedures must not be used
+* Documents and images must not be stored in a database table. They must be stored in a file system
+* No business logic applied at database level other than Primary / Unique key, Not null and foreign keys must be present in the database code. Foreign keys are applied within the same database, if a table is referenced in another database then no FK is applied
 * Database specific features like triggers, DB functions like sequence generators etc must not be used in MOSIP. This avoids vendor lock-in
 * Keys (primary, foreign...) must be a random number and not be generated based on the record data. This improves privacy
-* Direct queries on the database by a human must not be made. Database administrators must ensure this control during setup.
+* Direct queries on the database by a human must not be made. Database administrators must ensure this control during setup
 * All DDL, DML and DQL statements must follow ANSI standards
 * Database must be setup in UTF-8 file format to support multiple languages
 * Only following datatypes must be used
