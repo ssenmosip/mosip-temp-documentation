@@ -1,4 +1,4 @@
-# MOSIP Data Architecture Principles
+# Data Architecture Principles
 
 This section covers high-level data architecture principles of MOSIP.
 
@@ -88,7 +88,7 @@ To support high performance, following database design features are to be consid
 * No referential integrity is applied on tables across databases
 * Partitioning: Partitioning design to be discussed as PostgreSQL has certain limitation / different way of implementation that requires specific database features to be applied. To be discussed further to finalize the implementation of this feature.
 
-# MOSIP Data Architecture standards
+# Data Architecture
 
 Below diagram provides the data architecture of MOSIP system
 
