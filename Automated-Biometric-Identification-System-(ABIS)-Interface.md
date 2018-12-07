@@ -19,7 +19,8 @@ This document will provide the specification an ABIS provider must implement to 
 
 Biometric data sent to ABIS will follow the below standards.
 
-- CBEFF: ISO/IEC 19785-3
+- CBEFF: ISO/IEC 19785-3 (Please refer to https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications for 
+  details)
 - Fingerprints
   * Finger Print Minutiae Record (FMR) - ISO/IEC 19794-2
   * Finger Print Image Record (FIR) - ISO/IEC 19794-4
