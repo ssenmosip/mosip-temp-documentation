@@ -1,12 +1,5 @@
-**Design - Registration Packet Structure**
-
-This document illustrates the Packet structure created at Registration client application post capturing of
+This document describes the Packet structure created at Registration client application post capturing of
 individual's data. 
-
-**Solution**
-
-The detailed technical process for Registration packet creation is
-provided below:
 
 **Packet Structure**
 	![Packet Design view](_images/registration/packet_creation_overview.png)
