@@ -107,3 +107,9 @@ The description of the databases created in MOSIP are listed below
 |7|mosip_ida|ID Authorization related requests, transactions and mapping related data like virtual ids, tokens, etc. will be stored in this database|
 |8|mosip_audit|Audit related logs and the data is stored in this database|
 
+# Data Model Naming Standards
+
+
+# Data Model Standards
+
+- [MOSIP Configuration Server](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
