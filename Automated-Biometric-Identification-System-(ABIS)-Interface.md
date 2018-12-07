@@ -11,9 +11,11 @@ This document will provide the specification an ABIS provider must implement to 
 ![](_images/arch_diagrams/ABIS_middleware.png)
 
 - MOSIP will interact with ABIS only via message queues
-- JSON format will be used to interact with ABIS
+- JSON format will be used to for all control messages like INSERT, IDENTIFY etc... to interact with ABIS
+- CBEFF XML format will be used to send biometrics data (Please refer for sample cbeff data)
 
 Biometric data sent to ABIS will follow the below standards.
+
 - CBEFF: ISO/IEC 19785-3
 - Fingerprints
   * Finger Print Minutiae Record (FMR) - ISO/IEC 19794-2
