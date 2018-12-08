@@ -5,7 +5,7 @@
   * [Data Architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
   * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client-Application-Guide)
-  * [Registration Packet Structure](https://github.com/mosip/mosip/wiki/Registration-Packet-Structure)
+  * [Registration Packet Structure](https://github.com/mosip/mosip/wiki/Registration-Packet)
   * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)
   * [MOSIP ABIS Middleware](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
