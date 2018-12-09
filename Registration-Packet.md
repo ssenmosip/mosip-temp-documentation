@@ -28,7 +28,7 @@ This document describes the following aspects
     **Demographic File:**
     
     ![Demographic Folder](_images/registration/demographic_folder.png)
-
+    ![Packet Creation](_images/registration/packet-creation-flow.png)
 
 **Folder level Data:** 
 
