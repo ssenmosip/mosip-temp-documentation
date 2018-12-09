@@ -77,7 +77,7 @@ This document describes the following aspects
 
 **Packet encryption procedure**
 
-    ![Packet Creation](_images/registration/packet-creation-flow.png)
+    ![Demographic Folder](_images/registration/demographic_folder.png)
 
 -   Session Key Encryption:
 
