@@ -29,19 +29,19 @@ This document describes the following aspects
     **Demographic File:**
     
     ![Demographic Folder](_images/registration/demographic_folder.png)
-	
-	This folder contains the Applicant document image and demographic data.
 
-    a. Applicant
-        *  ProofOfIdentity.jpg
-        *  ProofOfResidenty.jpg
-        *  ProofOfAddress1.jpg
-        *  ApplicantPhoto.jpg
-        *  ExceptionPhoto.jpg \[If Exceptional cases\]
-        *  Registration Acknowledgement.jpg
+    This folder contains the Applicant document image and demographic data.
 
-    b.  Demographic\_info.json  
-        - Follwed the Mosip ID spec and generated this Json structure. It contains the entire text data captured in the UI application. 
+     a. Applicant  
+        - ProofOfIdentity.jpg  
+        - ProofOfResidenty.jpg  
+        - ProofOfAddress1.jpg  
+        - ApplicantPhoto.jpg  
+        - ExceptionPhoto.jpg \[If Exceptional cases\]  
+        - Registration Acknowledgement.jpg  
+        
+     b.  Demographic\_info.json  
+        - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **RegistrationID.txt**
 -   It contains the generated Registration id which is having the length of 28 digit.
@@ -67,10 +67,9 @@ This document describes the following aspects
     information about packet and appended to the existing Zip object.
 
 **Packet encryption procedure**
+    The below diagram depicts the packet creation flow along with the encryption process.
 
-	Packet Creation flow:
-    ![Packet Creation](_images/registration/packet-creation-flow.png)
-
+![Packet Creation Flow](_images/registration/packet-creation-flow.png)
 -   Session Key Encryption:
 
     -   Session key generation is \[MAC of machine + RO Id + Timestamp\]
