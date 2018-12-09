@@ -21,29 +21,18 @@ This document describes the following aspects
     ![BioMetric Folder](_images/registration/biometric_folder.png)
 
 	Each folder contains the respective biometric detail in CBEFF XML format.
-		
+			
 	Files inside Applicant folder.
 	![BioMetric Applicant Folder](_images/registration/packet_applicant_bio.png)
+	    * File contains the applicant IRIS, Finger Print and Face bio in XML format.
 
     **Demographic File:**
     
     ![Demographic Folder](_images/registration/demographic_folder.png)
+	
+	This folder contains the Applicant document image and demographic data.
 
-**Folder level Data:** 
-
-1.  **Biometric**
-
-	- Applicant {contains bio images only}
-	    * LeftThumb.jpg
-	    * RightThumb.jpg
-	    * LeftPalm.jpg
-	    * RightPalm.jpg
-	    * LeftEye.jpg
-	    * RightEye.jpg
-
-2.  **Demographic**
-
-    - Applicant
+    a. Applicant
         *  ProofOfIdentity.jpg
         *  ProofOfResidenty.jpg
         *  ProofOfAddress1.jpg
@@ -59,15 +48,17 @@ This document describes the following aspects
     [Eg: 0001782130002201811011002010]
 
 4.  **packet_data_hash.txt**
-
     -   Generate the Hash for the Biometric, Demographic and RID of
         Resident Information.
 	-   Store the generated Hash in a file and append to the created Zip
 	    object.
     
 5.  **Packet\_MetaInfo.json**
-6.  **Registration Officer Bio Image\[JPEG\]**
-7.  **Registration Supervisor Bio Image\[JPEG\]**
+
+6.  **Registration Officer authentication Bio**
+    -   Officer bio should be captured in standard CBEFF xml format.
+7.  **Registration Supervisor authentication Bio**
+    -   Supervisor bio should be captured in standard CBEFF xml format.
 
 -   Capture the Registration Officer/Supervisor Authentication finger
     image and append to the Zip object.
