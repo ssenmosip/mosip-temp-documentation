@@ -51,7 +51,23 @@ This document describes the following aspects
 	    object.
     
 5.  **Packet\_MetaInfo.json**
-
+    -   Biometric image 
+        "leftEye" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "LeftEye",
+          "type" : "iris",
+          "qualityScore" : 79.0,
+          "numRetry" : 2,
+          "forceCaptured" : false
+        }
+    -   Exceptional Biometric detail
+    -   Geo Location detail
+    -   Applicant Type [New/ UIN Update/ Lost UIN]
+    -   Pre Registration Id
+    -   osiData
+    -   HashSequence
+    -   Jar checkSum.
 6.  **Registration Officer authentication Bio**
     -   Officer bio should be captured in standard CBEFF xml format.
 7.  **Registration Supervisor authentication Bio**
