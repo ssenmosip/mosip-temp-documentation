@@ -5,31 +5,30 @@ This document describes the following aspects
 **Registration Packet Structure**
 	![Packet Design view](_images/registration/packet_creation_overview.png)
 
--   Create the Registration packet in the below format. 
+   Create the Registration packet in the below format. 
 	![Packet Design view](_images/registration/packet_zip_format.png)
 
--   Folder structure inside the packet zip. 
+1.  **Folder structure inside the packet zip.**
 	![Inside Packet Design view](_images/registration/packet_struct_inside_zip.png)
 	
--   Biometric and Demographic folders should have the below sub folder structure.
+2.  **Biometric and Demographic folders should have the below sub folder structure.**
     -   Applicant
     -   Introducer
     -   HOF
     
-    **Biometric File :**
+    **Biometric Folder:**
     
-    ![BioMetric Folder](_images/registration/biometric_folder.png)
-
-	Each folder contains the respective biometric detail in CBEFF XML format.
+    Each folder contains the respective biometric detail in CBEFF XML format.
 			
 	Files inside Applicant folder.
 	![BioMetric Applicant Folder](_images/registration/packet_applicant_bio.png)
-	    * File contains the applicant IRIS, Finger Print and Face bio in XML format.
 
-    **Demographic File:**
+    It contains the applicant IRIS, Finger Print and Face bio in XML format.
+
+    **Demographic Folder:**
     
     This folder contains the Applicant document image and demographic data.
-
+     
      a. Applicant  
         - ProofOfIdentity.jpg  
         - ProofOfResidenty.jpg  
@@ -42,8 +41,8 @@ This document describes the following aspects
         - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **RegistrationID.txt**
--   It contains the generated Registration id which is having the length of 28 digit.
-    [Eg: 0001782130002201811011002010]
+    -   It contains the generated Registration id which is having the length of 28 digit.
+        [Eg: 0001782130002201811011002010]
 
 4.  **packet_data_hash.txt**
     -   Generate the Hash for the Biometric, Demographic and RID of
@@ -65,9 +64,10 @@ This document describes the following aspects
     information about packet and appended to the existing Zip object.
 
 **Packet Encryption Procedure**
-        The below diagram depicts the packet creation flow along with the encryption process.
 
-	![Packet Creation Flow](_images/registration/packet-creation-flow.png)
+  The below diagram depicts the packet creation flow along with the encryption process.
+    
+![Packet Creation Flow](_images/registration/packet-creation-flow.png)
 
 -   Session Key Encryption:
 
