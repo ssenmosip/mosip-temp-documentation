@@ -1,3 +1,8 @@
+
+The below diagram depicts the packet creation flow along with the encryption process.
+
+![Packet Creation Flow](_images/registration/packet-creation-flow.png)  
+ 
 This document describes the following aspects
 - Registration packet structure
 - Packet encryption procedure
@@ -18,7 +23,7 @@ This document describes the following aspects
     
     **Biometric Folder:**
     
-    Each folder contains the respective biometric detail in CBEFF XML format.
+    Each folder contains the respective biometric detail in [CBEFF XML](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
     It contains the applicant's IRIS, Finger Print and Face bio in XML format.
 
     **Demographic Folder:**
@@ -26,9 +31,9 @@ This document describes the following aspects
     This folder contains the Applicant document image and demographic data.
      
      a. Applicant  
-        - ProofOfIdentity.jpg  
-        - ProofOfResidenty.jpg  
-        - ProofOfAddress1.jpg  
+        - POI_drivinglicense.jpg  
+        - POR_passport.jpg  
+        - POA_passport.jpg  
         - ApplicantPhoto.jpg  
         - ExceptionPhoto.jpg \[If Exceptional cases\]  
         - Registration Acknowledgement.jpg  
@@ -36,7 +41,7 @@ This document describes the following aspects
      b.  Demographic\_info.json  
         - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
-3.  **RegistrationID.txt**
+3.  **registration_id.txt**
     -   It contains the generated Registration id which is having the length of 28 digit.
         [Eg: 0001782130002201811011002010]
 
@@ -46,7 +51,7 @@ This document describes the following aspects
 	-   Store the generated Hash in a file and append to the created Zip
 	    object.
     
-5.  **Packet\_MetaInfo.json**  
+5.  **packet_meta_info.json**  
     It contains the following attributes.
     -   Biometric image detail  
         "leftEye" : {
@@ -65,10 +70,10 @@ This document describes the following aspects
     -   osiData {Operator and Supervisor authentication info.}
     -   HashSequence {It provides the hash created sequence}
 
-6.  **Registration Officer authentication Bio**
-    -   Officer bio should be captured in standard CBEFF xml format.
-7.  **Registration Supervisor authentication Bio**
-    -   Supervisor bio should be captured in standard CBEFF xml format.
+6.  **Registration Officer authentication Bio [officer_bio_cbeff.xml]**
+    -   Officer bio should be captured in standard [CBEFF xml](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
+7.  **Registration Supervisor authentication Bio [supervisor_bio_cbeff.xml]**
+    -   Supervisor bio should be captured in standard [CBEFF xml](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
 
 -   Capture the Registration Officer/Supervisor Authentication finger
     image and append to the Zip object.
@@ -77,11 +82,7 @@ This document describes the following aspects
     information about packet and appended to the existing Zip object.
 
 **Packet Encryption Procedure**
-
-  The below diagram depicts the packet creation flow along with the encryption process.
     
-![Packet Creation Flow](_images/registration/packet-creation-flow.png)
-
 -   Session Key Encryption:
 
     -   Session key generation is \[MAC of machine + RO Id + Timestamp\]
