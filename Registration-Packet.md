@@ -28,8 +28,6 @@ This document describes the following aspects
 
     **Demographic File:**
     
-    ![Demographic Folder](_images/registration/demographic_folder.png)
-
     This folder contains the Applicant document image and demographic data.
 
      a. Applicant  
@@ -67,9 +65,8 @@ This document describes the following aspects
     information about packet and appended to the existing Zip object.
 
 **Packet encryption procedure**
-    The below diagram depicts the packet creation flow along with the encryption process.  
+	![Packet Creation Flow](_images/registration/packet-creation-flow.png)
 
-![Packet Creation Flow](_images/registration/packet-creation-flow.png)  
 -   Session Key Encryption:
 
     -   Session key generation is \[MAC of machine + RO Id + Timestamp\]
