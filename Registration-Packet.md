@@ -11,19 +11,24 @@ This document describes the following aspects
 -   Folder structure inside the packet zip. 
 	![Inside Packet Design view](_images/registration/packet_struct_inside_zip.png)
 	
--   Biometric and Demographic folders should have the below sub folder
-    structure.
+-   Biometric and Demographic folders should have the below sub folder structure.
     -   Applicant
     -   Introducer
     -   HOF
     
     **Biometric File :**
     
-    ![BioMetric Files](_images/registration/biometric_folder.png)
+    ![BioMetric Folder](_images/registration/biometric_folder.png)
 
-    **Demographic :**
+	Each folder contains the respective biometric detail in CBEFF XML format.
+		
+	Files inside Applicant folder.
+	![BioMetric Applicant Folder](_images/registration/packet_applicant_bio.png)
+
+    **Demographic File:**
     
-    ![Demographic Files](_images/registration/demographic_folder.png)
+    ![Demographic Folder](_images/registration/demographic_folder.png)
+
 
 **Folder level Data:** 
 
@@ -40,7 +45,7 @@ This document describes the following aspects
 2.  **Demographic**
 
     - Applicant
-        * ProofOfIdentity.pdf
+        *  ProofOfIdentity.pdf
         *  ProofOfResidenty.pdf
         *  ProofOfAddress1.pdf
         *  ApplicantPhoto.jpg
@@ -51,7 +56,9 @@ This document describes the following aspects
         - Follwed the Mosip ID spec and generated this Json structure. It contains the entire text data captured in the UI application. 
 	
 3.  **RegistrationID.txt**
-4.  **HMAC File.txt**
+-   It contains the generated Registration id which is having the length of 28 digit.
+
+4.  **packet_data_hash.txt**
 
     -   Generate the Hash for the Biometric, Demographic and RID of
         Resident Information.
@@ -69,6 +76,8 @@ This document describes the following aspects
     information about packet and appended to the existing Zip object.
 
 **Packet encryption procedure**
+
+    ![Packet Creation](_images/registration/packet-creation-flow.png)
 
 -   Session Key Encryption:
 
@@ -98,6 +107,4 @@ This document describes the following aspects
 
 -   Save the encrypted data as a ZIP in local file system under the
     defined location in configuration file.
-
-
 
