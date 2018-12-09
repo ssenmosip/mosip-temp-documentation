@@ -44,9 +44,9 @@ This document describes the following aspects
 2.  **Demographic**
 
     - Applicant
-        *  ProofOfIdentity.pdf
-        *  ProofOfResidenty.pdf
-        *  ProofOfAddress1.pdf
+        *  ProofOfIdentity.jpg
+        *  ProofOfResidenty.jpg
+        *  ProofOfAddress1.jpg
         *  ApplicantPhoto.jpg
         *  ExceptionPhoto.jpg \[If Exceptional cases\]
         *  Registration Acknowledgement.jpg
@@ -56,6 +56,7 @@ This document describes the following aspects
 	
 3.  **RegistrationID.txt**
 -   It contains the generated Registration id which is having the length of 28 digit.
+    [Eg: 0001782130002201811011002010]
 
 4.  **packet_data_hash.txt**
 
@@ -76,6 +77,7 @@ This document describes the following aspects
 
 **Packet encryption procedure**
 
+	Packet Creation flow:
     ![Packet Creation](_images/registration/packet-creation-flow.png)
 
 -   Session Key Encryption:
