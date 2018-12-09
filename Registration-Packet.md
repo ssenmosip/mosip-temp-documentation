@@ -19,11 +19,7 @@ This document describes the following aspects
     **Biometric Folder:**
     
     Each folder contains the respective biometric detail in CBEFF XML format.
-			
-	Files inside Applicant folder.
-	![BioMetric Applicant Folder](_images/registration/packet_applicant_bio.png)
-
-    It contains the applicant IRIS, Finger Print and Face bio in XML format.
+    It contains the applicant's IRIS, Finger Print and Face bio in XML format.
 
     **Demographic Folder:**
     
@@ -50,8 +46,9 @@ This document describes the following aspects
 	-   Store the generated Hash in a file and append to the created Zip
 	    object.
     
-5.  **Packet\_MetaInfo.json**
-    -   Biometric image 
+5.  **Packet\_MetaInfo.json**  
+    It contains the following attributes.
+    -   Biometric image detail  
         "leftEye" : {
           "language" : "en",
           "label" : "label",
@@ -65,9 +62,9 @@ This document describes the following aspects
     -   Geo Location detail
     -   Applicant Type [New/ UIN Update/ Lost UIN]
     -   Pre Registration Id
-    -   osiData
-    -   HashSequence
-    -   Jar checkSum.
+    -   osiData {Operator and Supervisor authentication info.}
+    -   HashSequence {It provides the hash created sequence}
+
 6.  **Registration Officer authentication Bio**
     -   Officer bio should be captured in standard CBEFF xml format.
 7.  **Registration Supervisor authentication Bio**
