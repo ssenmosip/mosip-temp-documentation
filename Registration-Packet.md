@@ -64,7 +64,9 @@ This document describes the following aspects
 -   Create the Packet Info JSON file, which contains the **Meta data**
     information about packet and appended to the existing Zip object.
 
-**Packet encryption procedure**
+**Packet Encryption Procedure**
+        The below diagram depicts the packet creation flow along with the encryption process.
+
 	![Packet Creation Flow](_images/registration/packet-creation-flow.png)
 
 -   Session Key Encryption:
