@@ -53,7 +53,12 @@ This document describes the following aspects
     
 5.  **packet_meta_info.json**  
     It contains the following attributes.
-    -   Biometric image detail  
+
+***
+```{
+  "identity" : {
+    "biometric" : {
+      "applicant" : {
         "leftEye" : {
           "language" : "en",
           "label" : "label",
@@ -62,7 +67,225 @@ This document describes the following aspects
           "qualityScore" : 79.0,
           "numRetry" : 2,
           "forceCaptured" : false
+        },
+        "rightEye" : null,
+        "leftSlap" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "LeftPalm",
+          "type" : "fingerprint",
+          "qualityScore" : 80.0,
+          "numRetry" : 3,
+          "forceCaptured" : false
+        },
+        "rightSlap" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "RightPalm",
+          "type" : "fingerprint",
+          "qualityScore" : 95.0,
+          "numRetry" : 2,
+          "forceCaptured" : false
+        },
+        "thumbs" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "BothThumbs",
+          "type" : "fingerprint",
+          "qualityScore" : 85.0,
+          "numRetry" : 0,
+          "forceCaptured" : false
         }
+      },
+      "introducer" : {
+        "introducerFingerprint" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "introducerLeftThumb",
+          "type" : "fingerprint",
+          "qualityScore" : 0.0,
+          "numRetry" : 0,
+          "forceCaptured" : false
+        },
+        "introducerIris" : null,
+        "introducerImage" : null
+      }
+    },
+    "exceptionBiometrics" : [ {
+      "language" : "en",
+      "type" : "fingerprint",
+      "missingBiometric" : "LeftThumb",
+      "exceptionDescription" : "Due to accident",
+      "exceptionType" : "Permananent"
+    }, {
+      "language" : "en",
+      "type" : "fingerprint",
+      "missingBiometric" : "LeftForefinger",
+      "exceptionDescription" : "Due to accident",
+      "exceptionType" : "Permananent"
+    }, {
+      "language" : "en",
+      "type" : "iris",
+      "missingBiometric" : "RightEye",
+      "exceptionDescription" : "By birth",
+      "exceptionType" : "Permananent"
+    } ],
+    "applicantPhotograph" : {
+      "language" : "en",
+      "label" : "label",
+      "photographName" : "ApplicantPhoto",
+      "numRetry" : 1,
+      "qualityScore" : 89.0
+    },
+    "exceptionPhotograph" : null,
+    "documents" : [ {
+      "documentName" : "ProofOfIdentity",
+      "documentCategory" : "PoI",
+      "documentOwner" : "Self",
+      "documentType" : "PAN"
+    }, {
+      "documentName" : "ProofOfAddress",
+      "documentCategory" : "PoA",
+      "documentOwner" : "hof",
+      "documentType" : "passport"
+    }, {
+      "documentName" : "RegistrationAcknowledgement",
+      "documentCategory" : "RegistrationAcknowledgement",
+      "documentOwner" : "Self",
+      "documentType" : "RegistrationAcknowledgement"
+    } ],
+    "metaData" : [ {
+      "label" : "geoLocLatitude",
+      "value" : "13.0049"
+    }, {
+      "label" : "geoLoclongitude",
+      "value" : "80.24492"
+    }, {
+      "label" : "registrationType",
+      "value" : "Document Based"
+    }, {
+      "label" : "applicantType",
+      "value" : "New Registration"
+    }, {
+      "label" : "preRegistrationId",
+      "value" : ""
+    }, {
+      "label" : "registrationId",
+      "value" : "2018782130000103122018160555"
+    }, {
+      "label" : "registrationIdHash",
+      "value" : "417381058E49BE48572E3783454BEE0E751436A2FC8FBAA9E35244EB14FC58C8"
+    }, {
+      "label" : "machineId",
+      "value" : null
+    }, {
+      "label" : "centerId",
+      "value" : null
+    }, {
+      "label" : "uin",
+      "value" : null
+    }, {
+      "label" : "previousRID",
+      "value" : null
+    }, {
+      "label" : "introducerType",
+      "value" : "Parent"
+    }, {
+      "label" : "introducerRID",
+      "value" : null
+    }, {
+      "label" : "introducerRIDHash",
+      "value" : null
+    }, {
+      "label" : "introducerUIN",
+      "value" : "93939939"
+    }, {
+      "label" : "introducerUINHash",
+      "value" : "EE4A62BFD09A1F35084EBE5E4FBBE08432929FC7100D5772B2B1D3C37010F63B"
+    }, {
+      "label" : "officerFingerprintType",
+      "value" : "LeftThumb"
+    }, {
+      "label" : "officerIrisType",
+      "value" : null
+    }, {
+      "label" : "supervisorFingerprintType",
+      "value" : "LeftThumb"
+    }, {
+      "label" : "supervisorIrisType",
+      "value" : null
+    }, {
+      "label" : "introducerFingerprintType",
+      "value" : "LeftThumb"
+    }, {
+      "label" : "introducerIrisType",
+      "value" : null
+    }, {
+      "label" : "creationDate",
+      "value" : "2018-12-03T16:06:05.033"
+    }, {
+      "label" : "isVerified",
+      "value" : "false"
+    } ],
+    "osiData" : [ {
+      "label" : "officerId",
+      "value" : "mosip"
+    }, {
+      "label" : "officerFingerprintImage",
+      "value" : "operatorLeftThumb"
+    }, {
+      "label" : "officerIrisImage",
+      "value" : null
+    }, {
+      "label" : "supervisorId",
+      "value" : null
+    }, {
+      "label" : "supervisorFingerprintImage",
+      "value" : "supervisorLeftThumb"
+    }, {
+      "label" : "supervisorIrisImage",
+      "value" : null
+    }, {
+      "label" : "supervisorPassword",
+      "value" : null
+    }, {
+      "label" : "officerPassword",
+      "value" : null
+    }, {
+      "label" : "supervisorPIN",
+      "value" : null
+    }, {
+      "label" : "officerPIN",
+      "value" : null
+    }, {
+      "label" : "supervisorAuthenticationImage",
+      "value" : null
+    }, {
+      "label" : "officerAuthenticationImage",
+      "value" : null
+    } ],
+    "hashSequence" : [ {
+      "label" : "applicantBiometricSequence",
+      "value" : [ "BothThumbs", "LeftPalm", "RightPalm", "LeftEye" ]
+    }, {
+      "label" : "introducerBiometricSequence",
+      "value" : [ "introducerLeftThumb" ]
+    }, {
+      "label" : "applicantDemographicSequence",
+      "value" : [ "DemographicInfo", "ProofOfIdentity", "ProofOfAddress", "ApplicantPhoto", "RegistrationAcknowledgement" ]
+    } ],
+    "checkSum" : [ {
+      "label" : "registration-service.jar",
+      "value" : "65gfhab67586cjhsabcjk78"
+    }, {
+      "label" : "registration-ui.jar",
+      "value" : "uygdfajkdjkHHD56TJHASDJKA"
+    } ]
+  }
+}
+```
+
+    -   Biometric image detail  
     -   Exceptional Biometric detail
     -   Geo Location detail
     -   Applicant Type [New/ UIN Update/ Lost UIN]
@@ -82,6 +305,8 @@ This document describes the following aspects
     information about packet and appended to the existing Zip object.
 
 **Packet Encryption Procedure**
+
+Before writing the packet into the local disk, the zipped content should be encrypted using Session and RSA public key [center specific] to secure the data. The same data can only be decrypted at server end where the private key is available. 
     
 -   Session Key Encryption:
 
@@ -112,3 +337,5 @@ This document describes the following aspects
 -   Save the encrypted data as a ZIP in local file system under the
     defined location in configuration file.
 
+
+***
