@@ -36,7 +36,7 @@ This document describes the following aspects
         - POB_date_Of_birth.jpg  
         - ApplicantPhoto.jpg  
         - ExceptionPhoto.jpg \[If Exceptional cases\]  
-        - Registration Acknowledgement.jpg  
+        
         
      **b.  Demographic\_info.json**  
         - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
@@ -61,8 +61,6 @@ This document describes the following aspects
     "biometric" : {
       "applicant" : {
         "leftEye" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "LeftEye",
           "type" : "iris",
           "qualityScore" : 79.0,
@@ -71,8 +69,6 @@ This document describes the following aspects
         },
         "rightEye" : null,
         "leftIndex" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "LeftIndex",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
@@ -80,8 +76,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"leftMiddle" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "LeftMiddle",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
@@ -89,8 +83,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"leftRing" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "LeftRing",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
@@ -98,8 +90,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"leftLittle" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "LeftLitle",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
@@ -107,8 +97,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"leftThumb" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "LeftThumb",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
@@ -116,8 +104,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
         "rightIndex" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "RightIndex",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
@@ -125,8 +111,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"rightMiddle" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "RightMiddle",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
@@ -134,8 +118,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"rightRing" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "RightRing",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
@@ -143,8 +125,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
 	"rightLittle" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "RightLittle",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
@@ -152,8 +132,6 @@ This document describes the following aspects
           "forceCaptured" : false
         },
         "rightThumb" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "rightThumb",
           "type" : "fingerprint",
           "qualityScore" : 85.0,
@@ -163,8 +141,6 @@ This document describes the following aspects
       },
       "introducer" : {
         "introducerFingerprint" : {
-          "language" : "en",
-          "label" : "label",
           "imageName" : "introducerLeftThumb",
           "type" : "fingerprint",
           "qualityScore" : 0.0,
@@ -176,27 +152,22 @@ This document describes the following aspects
       }
     },
     "exceptionBiometrics" : [ {
-      "language" : "en",
       "type" : "fingerprint",
       "missingBiometric" : "LeftThumb",
       "exceptionDescription" : "Due to accident",
       "exceptionType" : "Permananent"
     }, {
-      "language" : "en",
       "type" : "fingerprint",
       "missingBiometric" : "LeftForefinger",
       "exceptionDescription" : "Due to accident",
       "exceptionType" : "Permananent"
     }, {
-      "language" : "en",
       "type" : "iris",
       "missingBiometric" : "RightEye",
       "exceptionDescription" : "By birth",
       "exceptionType" : "Permananent"
     } ],
     "applicantPhotograph" : {
-      "language" : "en",
-      "label" : "label",
       "photographName" : "ApplicantPhoto",
       "numRetry" : 1,
       "qualityScore" : 89.0
@@ -213,10 +184,10 @@ This document describes the following aspects
       "documentOwner" : "hof",
       "documentType" : "passport"
     }, {
-      "documentName" : "RegistrationAcknowledgement",
-      "documentCategory" : "RegistrationAcknowledgement",
+      "documentName" : "ProofOfBirth",
+      "documentCategory" :"PoB",
       "documentOwner" : "Self",
-      "documentType" : "RegistrationAcknowledgement"
+      "documentType" : "dateOfBirth"
     } ],
     "metaData" : [ {
       "label" : "geoLocLatitude",
@@ -322,10 +293,10 @@ This document describes the following aspects
       "label" : "officerPIN",
       "value" : null
     }, {
-      "label" : "supervisorAuthenticationImage",
+      "label" : "supervisorfaceImage",
       "value" : null
     }, {
-      "label" : "officerAuthenticationImage",
+      "label" : "officerFaceImage",
       "value" : null
     } ],
     "hashSequence" : [ {
