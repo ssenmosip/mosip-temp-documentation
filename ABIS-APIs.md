@@ -12,7 +12,7 @@ Return Value | Response | None | None | Integer
 failureReason | Response | None | None | Integer
 scaledScore | Score of the match against the population | None | None | Integer
 targetFPIR | FPIR score as per the formula | None | None | Integer
-maxResults | maximum number of results returned for IDENTIFY operation | None | None | Integer
+maxResults | maximum number of results returned for IDENTIFY operation | 30 | 30 | Integer
 
 ### Standard return codes
 0 | not used
@@ -28,6 +28,7 @@ Code | Reason
 3 | Unexpected error - Unable to access biometric data
 4 | Unable to serve the request
 
+All the below operations send biometric data in CBEFF format. (Please refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications#cbeff-xml-format-sample for sample cbeff data)
 ### INSERT (insert biometric data of an Individual)
 ```
 //Request
@@ -74,9 +75,7 @@ Code | Reason
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"referenceId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"referenceURL" : "https://mosip.io/biometric/45678",
-        "biometricType" : "FIR",
-	"maxResults" : "5",
+	"maxResults" : "30",
 	"targetFPIR" : "30",
 	"gallery" : {
 		"url" : "",
@@ -92,10 +91,9 @@ Code | Reason
 	"id" : "Identify",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
-	"returnValue" : "",
+	"returnValue" : "1",
 	"candidateList" : {
 		"count" : "",
-		"hasMore" "",
 		"candidates" : [
 			{
 				"referenceId" : "",
@@ -114,21 +112,20 @@ Code | Reason
 	"id" : "Identify",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
-	"returnValue" : "",
+	"returnValue" : "2",
 	"failureReason" : ""
 }
 ```
 
 ### Behavior of IDENTIFY
  - IDENTIFY request MUST provide a 1:n comparison
- - The input set for comparison can be provided by referenceID or referenceURL. Only one of the two can be given as input 
-   and not both
+ - The input set for comparison can be provided by referenceID
  - The collection against which the input set has to be matched is specified by galleryURL or set of referenceID's. Either 
    URL or reference ID's can be provided, but not both. If referenceId is provided, atleast one referenceID must be 
    provided in the input. The provided referenceID's must be present in the reference database.
  - maxResults specify how many results can be returned
  - IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR
- - This request should not match against referenceID or referenceURL that is not in the reference database
+ - This request should not match against referenceID that is not in the reference database
 
 ### VERIFY
 ```
@@ -140,7 +137,7 @@ Code | Reason
 	"timestamp" : "1539777717",	
 	"referenceURL" : "https://mosip.io/biometric/45678",
 	
-	"maxResults" : "5",
+	"maxResults" : "30",
 	"targetFMR" : "30",
 	
 	"biometrics" : [
@@ -255,56 +252,6 @@ Code | Reason
 
 ### Behavior of PING
 A PING request should respond with a response on the liveness of the ABIS system
-
-### SHUTDOWN
-```
-//Request
-{
-	"id" : "Shutdown",
-	"ver" : "1.0",
-	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"timestamp" : "1539777717"
-}
-
-//Success response
-{
-	"id" : "Shutdown",
-	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"timestamp" : "1539777717",
-	"returnValue" : "",
-	"failureReason" : "",
-	"JobsCount" : ""
-}
-```
-
-### Behavior of SHUTDOWN
-- When a SHUTDOWN request is sent to an ABIS it SHOULD stop accepting requests
-- All requests received prior to SHUTDOWN must be processed
-
-### CLEAR
-```
-//Request
-{
-	"id" : "Clear",
-	"ver" : "1.0",
-	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"timestamp" : "1539777717"
-}
-
-//Success response
-{
-	"id" : "Clear",
-	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"timestamp" : "1539777717",
-	"returnValue" : "",
-	"failureReason" : ""	
-}
-```
-
-### Behavior of CLEAR
-- When CLEAR request is received, ABIS MUST stop all processing
-- When CLEAR request is received, ABIS MUST process pending requests
-- When CLEAR request is received, ABIS must delete all entries from the reference database
 
 ### Pending Jobs
 ```
