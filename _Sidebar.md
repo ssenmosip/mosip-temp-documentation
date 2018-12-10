@@ -3,6 +3,7 @@
 * Architecture
   * [Principles](https://github.com/mosip/mosip/wiki/Architecture)
   * [Logical architecture](https://github.com/mosip/mosip/wiki/Architecture)
+  * [Technology stack](https://github.com/mosip/mosip/wiki/Architecture)
   * [Data architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
 * Design
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  
