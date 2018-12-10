@@ -72,10 +72,17 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"parentOrGuardianRIDOrUIN": {
 					"type": "number"
 				},
-				"proofOfAddress": {
+				"individualProofOfAddress": {
 					"$ref": "#/definitions/documentType"
 				},
-				"biometrics": {
+                                ,
+				"parentOrGuardianProofOfAddress": {
+					"$ref": "#/definitions/documentType"
+				},
+				"individualBiometrics": {
+					"$ref": "#/definitions/biometricsType"
+				},
+                                "parentOrGuardianBiometrics": {
 					"$ref": "#/definitions/biometricsType"
 				}
 			}
@@ -367,13 +374,22 @@ Below is a sample JSON as per the schema defined above
 		
 		"parentOrGuardianRIDOrUIN": "212124324784912",
 		
-		"proofOfAddress": {
+		"individualProofOfAddress": {
 			"format": "pdf",
 			"category": "drivingLicense",
 			"value": "fileReferenceID"
 		},
-		
-		"biometrics": {
+		"parentOrGuardianProofOfAddress": {
+			"format": "pdf",
+			"category": "passport",
+			"value": "fileReferenceID"
+		},
+		"individualBiometrics": {
+			"format": "cbeff",
+			"version": 1.0,
+			"value": "fileReferenceID"
+		},
+                "parentOrGuardianBiometrics": {
 			"format": "cbeff",
 			"version": 1.0,
 			"value": "fileReferenceID"
