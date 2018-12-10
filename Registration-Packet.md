@@ -19,7 +19,7 @@ This document describes the following aspects
 2.  **Biometric and Demographic folders should have the below sub folder structure.**
     -   Applicant
     -   Introducer
-    -   HOF
+   * Introducer [Either HOF/Parent/Introducer  data will be captured for the packet]
     
     **Biometric Folder:**
     
@@ -32,8 +32,9 @@ This document describes the following aspects
      
      a. Applicant  
         - POI_drivinglicense.jpg  
-        - POR_passport.jpg  
-        - POA_passport.jpg  
+        - POR_Relation.jpg  
+        - POA_passport.jpg
+        - POB_date_Of_birth.jpg
         - ApplicantPhoto.jpg  
         - ExceptionPhoto.jpg \[If Exceptional cases\]  
         - Registration Acknowledgement.jpg  
@@ -42,8 +43,9 @@ This document describes the following aspects
         - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **registration_id.txt**
-    -   It contains the generated Registration id which is having the length of 28 digit.
-        [Eg: 0001782130002201811011002010]
+    -   It contains the generated Registration id which is having the length of 29 digit.
+        [Eg: 0001782130002201811011002010] 
+        [Eg: Center ID + Machine ID + Packet Random Seq Number + Timestamp[14]]
 
 4.  **packet_data_hash.txt**
     -   Generate the Hash for the Biometric, Demographic and RID of
@@ -69,28 +71,91 @@ This document describes the following aspects
           "forceCaptured" : false
         },
         "rightEye" : null,
-        "leftSlap" : {
+        "leftIndex" : {
           "language" : "en",
           "label" : "label",
-          "imageName" : "LeftPalm",
+          "imageName" : "LeftIndex",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
           "numRetry" : 3,
           "forceCaptured" : false
         },
-        "rightSlap" : {
+	"leftMiddle" : {
           "language" : "en",
           "label" : "label",
-          "imageName" : "RightPalm",
+          "imageName" : "LeftMiddle",
+          "type" : "fingerprint",
+          "qualityScore" : 80.0,
+          "numRetry" : 3,
+          "forceCaptured" : false
+        },
+	"leftRing" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "LeftRing",
+          "type" : "fingerprint",
+          "qualityScore" : 80.0,
+          "numRetry" : 3,
+          "forceCaptured" : false
+        },
+	"leftLittle" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "LeftLitle",
+          "type" : "fingerprint",
+          "qualityScore" : 80.0,
+          "numRetry" : 3,
+          "forceCaptured" : false
+        },
+	"leftThumb" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "LeftThumb",
+          "type" : "fingerprint",
+          "qualityScore" : 80.0,
+          "numRetry" : 3,
+          "forceCaptured" : false
+        },
+        "rightIndex" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "RightIndex",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
           "numRetry" : 2,
           "forceCaptured" : false
         },
-        "thumbs" : {
+	"rightMiddle" : {
           "language" : "en",
           "label" : "label",
-          "imageName" : "BothThumbs",
+          "imageName" : "RightMiddle",
+          "type" : "fingerprint",
+          "qualityScore" : 95.0,
+          "numRetry" : 2,
+          "forceCaptured" : false
+        },
+	"rightRing" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "RightRing",
+          "type" : "fingerprint",
+          "qualityScore" : 95.0,
+          "numRetry" : 2,
+          "forceCaptured" : false
+        },
+	"rightLittle" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "RightLittle",
+          "type" : "fingerprint",
+          "qualityScore" : 95.0,
+          "numRetry" : 2,
+          "forceCaptured" : false
+        },
+        "rightThumb" : {
+          "language" : "en",
+          "label" : "label",
+          "imageName" : "rightThumb",
           "type" : "fingerprint",
           "qualityScore" : 85.0,
           "numRetry" : 0,
