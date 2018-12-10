@@ -1,5 +1,5 @@
 ## MOSIP Wiki
-* [Overview](https://github.com/mosip/mosip/wiki)
+* [MOSIP Overview](https://github.com/mosip/mosip/wiki)
 * [Architecture](https://github.com/mosip/mosip/wiki/Architecture)
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
   * [Data Architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
