@@ -1,12 +1,14 @@
 ## MOSIP Wiki
 * [MOSIP Overview](https://github.com/mosip/mosip/wiki)
 * Architecture
-  * [Overview](https://github.com/mosip/mosip/wiki/Architecture)
-  * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
-  * [Data Architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
+  * [Principles](https://github.com/mosip/mosip/wiki/Architecture)
+  * [Logical architecture](https://github.com/mosip/mosip/wiki/Architecture)
+  * [Data architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
+* Design
+  * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
-  * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client-Application-Guide)
   * [Registration Packet Structure](https://github.com/mosip/mosip/wiki/Registration-Packet)
+  * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client-Application-Guide)  
   * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)
   * [MOSIP ABIS Middleware](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
