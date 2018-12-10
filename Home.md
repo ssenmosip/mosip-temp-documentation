@@ -4,7 +4,8 @@ MOSIP provides the following basic features
 - acquire an Individual's identity data
 - process the identity data to establish uniqueness
 - generate a Unique Identity Number
-- authenticate the Individual where required to provide access to a government service
+- verify/authenticate an Individual's identity where required to provide access to services (for example, opening a bank 
+  account; providing healthcare insurance; provide government subsidized food etc.)
 
 The key objectives of the platform are to
 - provide the basic framework to create a fully functional identity system
