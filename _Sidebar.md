@@ -14,7 +14,7 @@
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
   * [MOSIP Biometric Data Spec](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications)
   * [Security](https://github.com/mosip/mosip/wiki/Security)
-* [MOSIP APIs](https://github.com/mosip/mosip/wiki/API-Specifications)
+* MOSIP APIs
   * [Kernel](https://github.com/mosip/mosip/wiki/Kernel-APIs)
   * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs)
   * [ID Repository](https://github.com/mosip/mosip/wiki/ID-Repository-API)
