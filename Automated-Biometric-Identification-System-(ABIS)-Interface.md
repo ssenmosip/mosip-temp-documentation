@@ -1,8 +1,8 @@
 Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP will 
 
 - Use multi modal biometric information of an individual
-- Leverage Automated Biometric Identification System (ABIS)
-- Design for integrating with multiple ABIS providers and take the best result
+- Leverage Automated Biometric Identification System (ABIS) to de-duplicate Individual's biometric data
+- Design for integrating with multiple ABIS providers to leverage expertise of different ABIS providers
 - Not use ABIS for authentication (deduplication only)
 
 This document will provide the specification an ABIS provider must implement to meet MOSIP's requirements.
