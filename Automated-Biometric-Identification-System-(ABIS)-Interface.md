@@ -11,7 +11,7 @@ This document will provide the specification an ABIS provider must implement to 
 ![](_images/arch_diagrams/ABIS_middleware.png)
 
 - MOSIP will interact with ABIS only via message queues
-- JSON format will be used to for all control messages like INSERT, IDENTIFY etc... to interact with ABIS
+- JSON format will be used for all control messages like INSERT, IDENTIFY etc... to interact with ABIS
 - CBEFF XML format will be used to send biometrics data to ABIS
   (Please refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications#cbeff-xml-format-sample for sample 
   cbeff data)
@@ -44,12 +44,12 @@ ABIS should support the following requests
 
 Management | Registration
 -----------|-------------
-Shutdown   | Insert
-Clear      | Identify
-Ping       | Delete
-GetPendingRequests | Ping
-GetReferenceCounts
-Configure
+Ping   | Insert
+GetPendingRequests      | Identify
+GetReferenceCounts      | Delete
+Configure| Ping
+
+
 
 ## Key terminologies
 ### ABIS
@@ -64,22 +64,8 @@ The database maintained with the ABIS system which stores the biometrics data of
 ### Gallery
 A subset of the population in the Reference Database used as a target to search for a specific entry. ABIS should have a provision to take an Identify or Verify request with a target gallery parameter
 
-### Master Database
+### ID Repository
 The database within MOSIP which contains the ID details (demographic & biometric) of an Individual. This database is not related to Reference Database.
-
-### TargetFMR
-FMR is False Match Rate. This is the rate at which non-matched Verification requests return a match request (a false positive). An ABIS should be able to send the FMR as defined below. This metric will be used if ABIS does verification also.
-FMR is an integer which should be calculated as per this formula
-```
-round (-10 * log10 (target FMR))
-```
-The acceptable values are
-
-Target False Match Rate | score
-------------------------|------
-1 in 1,000              | 30
-1 in 10,000             | 40
-1 in 100,000            | 50
 
 ### TargetFPIR
 FPIR is False Positive Identification Rate. This metric tells how many false positive identification an ABIS achieved. An ABIS should be able to send the FMR as defined below.
