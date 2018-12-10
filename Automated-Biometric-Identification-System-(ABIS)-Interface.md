@@ -81,33 +81,6 @@ Target FPIR | score
 1 in 10,000             | 40
 1 in 100,000            | 50
 
-## Possible strategies for Biometric data management in ABIS
-A system owner of MOSIP can choose the strategy to store biometrics data in ABIS. Based on the strategy, they have to modify MOSIP ABIS middleware.
-
-### One entry per registered resident
-If a system owner decides to have only one entry per registration, the workflow will look as below
-1. Registration
-  - Each Registration request on MOSIP will result in a INSERT request on ABIS
-  - On IDENTIFY request, if a duplicate is detected then the entry will be deleted (DELETE)
-
-2. Re-registration
-  - On Re-Registration in MOSIP, an INSERT request is issued to ABIS followed by DELETE on the old record
-
-### One entry per registration request
-If a system owner decides to have only multiple entries per registration, the workflow will look as below
-1. Registration
-  - Each Registration request on MOSIP will result in a INSERT request on ABIS
-  - On IDENTIFY request, if a duplicate is detected then the new entry will be associated with the existing UIN
-
-2. Re-registration
-  - On Re-Registration in MOSIP, an INSERT request is issued to ABIS followed by association with the existing UIN
-
-
-## Possible strategies for deduplication in case of multiple ABIS systems
-- MOSIP can be configured to send an INSERT request to one or all the ABIS systems
-- MOSIP can be configured to send IDENTIFY request to only 1 ABIS system
-- MOSIP can be configured to send IDENTIFY request to all the ABIS systems, and choose the best result based on the scores. This helps to calibrate ABIS for better performance. For this to happen, INSERT request must be sent to all ABIS systems
-
 
 ## API's to interact with an ABIS system
 
