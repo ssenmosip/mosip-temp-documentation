@@ -18,8 +18,7 @@ This document describes the following aspects
 	
 2.  **Biometric and Demographic folders should have the below sub folder structure.**
     -   Applicant
-    -   Introducer
-   * Introducer [Either HOF/Parent/Introducer  data will be captured for the packet]
+    -   Introducer [Either HOF/Parent/Introducer  data will be captured for the packet]
     
     **Biometric Folder:**
     
@@ -30,21 +29,21 @@ This document describes the following aspects
     
     This folder contains the Applicant document image and demographic data.
      
-     a. Applicant  
+     **a. Applicant**  
         - POI_drivinglicense.jpg  
         - POR_Relation.jpg  
-        - POA_passport.jpg
-        - POB_date_Of_birth.jpg
+        - POA_passport.jpg  
+        - POB_date_Of_birth.jpg  
         - ApplicantPhoto.jpg  
         - ExceptionPhoto.jpg \[If Exceptional cases\]  
         - Registration Acknowledgement.jpg  
         
-     b.  Demographic\_info.json  
+     **b.  Demographic\_info.json**  
         - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **registration_id.txt**
-    -   It contains the generated Registration id which is having the length of 29 digit.
-        [Eg: 0001782130002201811011002010] 
+    -   It contains the generated Registration id which is having the length of 29 digit.  
+        [Eg: 0001782130002201811011002010]  
         [Eg: Center ID + Machine ID + Packet Random Seq Number + Timestamp[14]]
 
 4.  **packet_data_hash.txt**
