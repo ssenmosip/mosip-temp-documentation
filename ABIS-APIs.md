@@ -4,8 +4,8 @@ An ABIS system that integrates with MOSIP should support the following operation
 
 Name | Description | Restrictions | Default Value | Example
 -----|----------|-------------|--------------|---------------
-requestID | ID that is associated with each request sent to ABIS | ABIS should not use this ID in any other context outside the request | | 01234567-89AB-CDEF-0123-456789ABCDEF (36 character ASCII string)
-referenceID |  Id of a single registration record. Registration record is maintained in MOSIP. This ID is the mapping between MOSIP and ABIS | None | | 01234567-89AB-CDEF-0123-456789ABCDEF (36 character ASCII string)
+requestID | ID that is associated with each request sent to ABIS | ABIS should not use this ID in any other context outside the request | | 80bd41f8-31b2-46ac-ac9c-3534fc1b220e (UUID)
+referenceID |  Id of a single registration record. Registration record is maintained in MOSIP. This ID is the mapping between MOSIP and ABIS | None | | 80bd41f8-31b2-46ac-ac9c-3534fc1b220e (UUID)
 referenceURL | URL to the biometrics data stored in MOSIP. This URL will have read only access | None | | 
 biometricType | Type of biometric data sent in the request | FMR/FIR/IIR | |
 Return Value | Response | None | None | Integer
@@ -25,12 +25,8 @@ Code | Reason
 -----| ------
 1 | Internal error - Unknown
 2 | Aborted
-3 | Invalid request (JSON error)
-4 | Invalid request (parameter value invalid)
-5 | Invalid request (referenceID already in use)
-6 | Invalid request (referenceID not in use)
-7 | Unexpected error - Unable to access biometric data
-8 | Unable to serve the request
+3 | Unexpected error - Unable to access biometric data
+4 | Unable to serve the request
 
 ### INSERT (insert biometric data of an Individual)
 ```
@@ -41,18 +37,8 @@ Code | Reason
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"referenceId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"referenceURL" : "https://mosip.io/biometric/45678",
-        "biometricType" : "FIR",  
-	"attributes" : [
-		{
-			"name" : "YearOfCapture",
-			"value" : "2019"
-		},
-		{
-			"name" : "PlaceOfCapture",
-			"value" : "New Town"
-		}
-	]	
+	"referenceURL" : "https://mosip.io/biometric/45678"
+        	
 }
 
 //Success response
@@ -60,7 +46,7 @@ Code | Reason
 	"id" : "Insert",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
-	"returnValue" : ""
+	"returnValue" : "1"
 }
 
 //Failure response
@@ -68,7 +54,7 @@ Code | Reason
 	"id" : "Insert",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
-	"returnValue" : "",
+	"returnValue" : "2",
 	"failureReason" : ""
 }
 ```
