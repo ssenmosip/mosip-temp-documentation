@@ -84,10 +84,10 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"proofOfRelationship": {
 					"$ref": "#/definitions/documentType"
 				},
-				"biometrics": {
+				"individualBiometrics": {
 					"$ref": "#/definitions/biometricsType"
 				},
-                "parentOrGuardianBiometrics": {
+                                "parentOrGuardianBiometrics": {
 					"$ref": "#/definitions/biometricsType"
 				}
 			}
@@ -211,6 +211,203 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 
 Below is a sample JSON as per the schema defined above
 ```
+{
+	"identity": {
+	
+		"IDSchemaVersion": "1.0",
+		
+		"UIN": "6789 5645 3456",
+		
+		"firstName": {
+			"label": "First Name",
+			"values": [
+				{
+					"language": "ar",
+					"value": "ابراهيم"
+				},
+				{
+					"language": "fr",
+					"value": "Ibrahim"
+				}
+			]
+		},
+		
+		"middleName": {
+			"label": "Middle Name",
+			"values": [
+				{
+					"language": "ar",
+					"value": "بن"
+				},
+				{
+					"language": "fr",
+					"value": "Ibn"
+				}
+			]
+		},
+		
+		"lastName": {
+			"label": "Last Name",
+			"values": [
+				{
+					"language": "ar",
+					"value": "علي"
+				},
+				{
+					"language": "fr",
+					"value": "Ali"
+				}
+			]
+		},
+		
+		"dateOfBirth": {
+			"label": "Date Of Birth",
+			"value": "1955/04/15"
+		},
+		
+		"gender": {
+			"label": "Gender",
+			"values": [
+				{
+					"language": "ar",
+					"value": "الذكر"
+				},
+				{
+					"language": "fr",
+					"value": "mâle"
+				}
+			]
+		},
+		
+		"addressLine1": {
+			"label": "Address Line 1",
+			"values": [
+				{
+					"language": "ar",
+					"value": "عنوان العينة سطر 1"
+				},
+				{
+					"language": "fr",
+					"value": "exemple d'adresse ligne 1"
+				}
+			]
+		},
+		
+		"addressLine2": {
+			"label": "Address Line 2",
+			"values": [
+				{
+					"language": "ar",
+					"value": "عنوان العينة سطر 2"
+				},
+				{
+					"language": "fr",
+					"value": "exemple d'adresse ligne 2"
+				}
+			]
+		},
+		
+		"region": {
+			"label": "Region",
+			"values": [
+				{
+					"language": "ar",
+					"value": "طنجة - تطوان - الحسيمة"
+				},
+				{
+					"language": "fr",
+					"value": "Tanger-Tétouan-Al Hoceima"
+				}
+			]
+		},
+		
+		"province": {
+			"label": "Province",
+			"values": [
+				{
+					"language": "ar",
+					"value": "فاس-مكناس"
+				},
+				{
+					"language": "fr",
+					"value": "Fès-Meknès"
+				}
+			]
+		},
+		
+		"city": {
+			"label": "City",
+			"values": [
+				{
+					"language": "ar",
+					"label": "مدينة",
+					"value": "فاس-الدار البيضاء"
+				},
+				{
+					"language": "fr",
+					"label": "ville",
+					"value": "Casablanca"
+				}
+			]
+		},
+		"postalCode" : "570004",
+		
+		"phone": {
+			"label": "Land Line",
+			"value": "9878967890"
+		},
+		
+		"email": {
+			"label": "Business Email",
+			"value": "abc@xyz.com"
+		},
+		
+		"CNIENumber": "6789545678909",
+		
+		"parentOrGuardianName": {
+			"label": "Parent/Guardian",
+			"values": [
+				{
+					"language": "ar",
+					"value": "سلمى"
+				},
+				{
+					"language": "fr",
+					"value": "salma"
+				}
+			]
+		},
+		
+		"parentOrGuardianRIDOrUIN": "212124324784912",
+		
+		"proofOfAddress": {
+			"format": "pdf",
+			"category": "drivingLicense",
+			"value": "fileReferenceID"
+		},
+		"proofOfIdentity": {
+			"format": "pdf",
+			"category": "passport",
+			"value": "fileReferenceID"
+		},
+		,
+		"proofOfRelationship": {
+			"format": "pdf",
+			"category": "passport",
+			"value": "fileReferenceID"
+		},
+		"individualBiometrics": {
+			"format": "cbeff",
+			"version": 1.0,
+			"value": "fileReferenceID"
+		},
+        "parentOrGuardianBiometrics": {
+			"format": "cbeff",
+			"version": 1.0,
+			"value": "fileReferenceID"
+		}
+	}
+}
 
 ```
 All operations related to ID will have a place holder to receive the ID Object as per the schema, validate it as per the schema and store it AS IS. For example, when an Individual creates a Pre-Registration, the API for Pre-Registration will look as below
