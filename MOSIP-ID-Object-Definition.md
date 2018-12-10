@@ -1,7 +1,9 @@
 ID definition is the key to use MOSIP. ID definition describes the attributes a country or entity will capture from an Individual. Since, MOSIP is a generic Identity platform the attributes of an ID cannot be predefined by MOSIP. One country may capture 5 attributes and another 10 attributes. So, to accommodate this flexibility MOSIP provides a feature where a country defines an ID object definition schema. This will be the first step in using MOSIP. Once an ID object schema is defined, all applications built on top of MOSIP platform to capture data MUST conform to the ID object schema.
 
+* As a rule of thumb, only attributes related to an individual (demographic and biometric), his/her parent/guardian attributes (demographic and biometric) should be captured in the ID object
+* All other data captured in the field like operator/supervisor data should not be part of the ID object
 * Schema can use predefined JSON data types to define attributes
-* Schema can also created User Defined Types (UDTs) to specify the format of data to be captured. For example, biometrics data should always be in CBEFF ISO 19795 - 1 format. This helps in specifying the format of the data that is captured
+* Schema can also create User Defined Types (UDTs) to specify the format of data to be captured. For example, biometrics data should always be in CBEFF ISO 19795 - 1 format. This helps in specifying the format of the data that is captured
 * MOSIP will provide in-built validators for certain data types like CBEFF which can be used for data validation
 
 Below is a sample ID object definition schema and a sample of a JSON object based on the schema.
