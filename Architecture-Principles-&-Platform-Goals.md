@@ -13,3 +13,10 @@ MOSIP is built on the following architecture principles
 * MOSIP must support i18n capability
 * All modules of MOSIP should be resilient such that the solution as a whole is fault tolerant
 * The key sub-systems of MOSIP should be designed for extensibility. For example, if an external system has to be integrated for fingerprint data, it should be easy to do so
+
+# Platform Goals
+The primary goals of MOSIP are
+
+## Configurability
+
+## Extensibility
