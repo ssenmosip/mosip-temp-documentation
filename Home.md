@@ -10,9 +10,7 @@ MOSIP provides the following basic features
 
 The key objectives of the platform are to
 * provide the basic framework to create a fully functional identity system
-* provide the flexibility for a country to choose the modules of the basic framework as per their requirements
-* provide the flexibility for a country to choose the identity attributes to be acquired as per the countries legal 
-  framework
+* provide the flexibility for a country to choose the features from the basic framework as per their requirements
 * maintain privacy, security and confidentiality of an Individual's data
 * provide a scalable and accessible solution to cater to a wide range of population (a few thousands to tens of millions)
 
