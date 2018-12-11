@@ -15,8 +15,11 @@ MOSIP is built on the following architecture principles
 * The key sub-systems of MOSIP should be designed for extensibility. For example, if an external system has to be integrated for fingerprint data, it should be easy to do so
 
 # Platform Goals
-The primary goals of MOSIP are
+The primary goals of MOSIP platform are
 
 ## Configurability
+MOSIP should be flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
+* Country should be able to choose the features required. For example
+* Country should be able to configure the attributes of an ID Object
 
 ## Extensibility
