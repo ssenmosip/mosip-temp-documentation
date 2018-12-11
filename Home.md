@@ -53,7 +53,7 @@ Registration Client
 ![RegistrationClient](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration_New_Correction_Update_Lost.jpg)
 
 Registration Processor
-https://github.com/mosip/mosip/blob/master/requirements/Registration%20Processor_Process%20Flow_New%20Registration.pdf
+![Registration Processor](https://github.com/mosip/mosip/blob/master/requirements/Registration%20Processor_Process%20Flow_New%20Registration.pdf)
 
 ID-Authentication
 https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow_01_v1.17_ID-Authentication_Pre-Authentication.jpg
