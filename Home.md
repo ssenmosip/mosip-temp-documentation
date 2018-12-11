@@ -46,11 +46,11 @@ MOSIP will provide basic system reports to get a view of the system performance.
 # Process view
 Pre-registration
 
-https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.15_Pre-registration.jpg
+![Pre-Registration](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.15_Pre-registration.jpg)
 
 Registration Client
-https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration%20Preparation.jpg
-https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration_New_Correction_Update_Lost.jpg
+![RegistrationClient](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration%20Preparation.jpg)
+![RegistrationClient](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration_New_Correction_Update_Lost.jpg)
 
 Registration Processor
 
