@@ -19,7 +19,9 @@ The primary goals of MOSIP platform are
 
 ## Configurability
 MOSIP should be flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
-* Country should be able to choose the features required. For example
+* Country should be able to choose the features required. For example, it must be possible for a country to turn off Finger Print capture
 * Country should be able to configure the attributes of an ID Object
 
 ## Extensibility
+MOSIP should be flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
+* Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
