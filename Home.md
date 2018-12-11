@@ -44,4 +44,17 @@ MOSIP will provide basic system reports to get a view of the system performance.
 ![Functional view](_images/arch_diagrams/MOSIP_functional_view.png)
 
 # Process view
-TBD... All basic process view images go in here
+Pre-registration
+
+https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.15_Pre-registration.jpg
+
+Registration Client
+https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration%20Preparation.jpg
+https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration_New_Correction_Update_Lost.jpg
+
+Registration Processor
+
+
+ID-Authentication
+
+
