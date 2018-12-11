@@ -27,3 +27,5 @@ MOSIP should be flexible to extend functionality on top of the basic platform. S
 * Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
 
 ## Modularity
+All components in MOSIP should be modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
+* UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
