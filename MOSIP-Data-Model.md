@@ -25,6 +25,6 @@ TBD
 
 # Physical Data Model
 
-https://github.com/mosip/mosip/tree/DEV_database_sprint5/database-scripts/data_model 
+https://github.com/mosip/mosip/tree/DEV_database_sprint6/database-scripts/data_model 
 
 
