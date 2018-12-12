@@ -1135,7 +1135,7 @@ Description: Not Found
 # 2.3.7 Languages Master API
 # 2.3.7.1 Languages Master-create service
 
-This service will create the list of Languages which are used in the MOSIP platform. 
+This service will create a Language which is used in the MOSIP platform. 
 
 ### Resource URL
 ### `POST /languages`
@@ -1175,9 +1175,9 @@ languagename|Yes|Name of the language| |
 }
 ```
 ### Response codes
-202
+201
 
-Description: Accepted
+Description: Created
 
 400
 
@@ -1242,6 +1242,111 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+# 2.3.7.3 Languages Master-update service
+
+This service will update a Language which is used in the MOSIP platform. 
+
+### Resource URL
+### `POST /languages`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+languagecode|Yes|Code of the language| | 
+languagename|Yes|Name of the language| | 
+
+### Example Request
+```JSON
+{
+	"id": "mosip.language.create",
+	"ver": "1.0",
+	"timestamp": "",
+	"request": {
+		"code": "string",
+		"name": "string"
+		"family": "string",
+		"native_name": "string",
+		"is_active": boolean
+	}
+}
+```
+### Example Response
+```JSON
+{
+	"code": "string"
+}
+```
+### Response codes
+200
+
+Description: Ok
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+# 2.3.7.4 Languages Master-delete service
+
+This service will delete a Language which is used in the MOSIP platform. 
+
+### Resource URL
+### `POST /languages/{code}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the language| | 
+
+
+### Example Request
+-NA-
+```
+### Example Response
+```JSON
+{
+	"code": "string"
+}
+```
+### Response codes
+200
+
+Description: Ok
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
 
 # 2.3.8 Gender Master API
 # 2.3.8.1 Gender Master-create service
