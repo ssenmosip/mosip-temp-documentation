@@ -3,7 +3,7 @@
 * Architecture
   * [Principles & Goals](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
   * [Logical view](https://github.com/mosip/mosip/wiki/Architecture)
-  * [Process view](https://github.com/mosip/mosip/wiki/Architecture)
+  * [Process view](https://github.com/mosip/mosip/wiki/Process-view)
   * [Technology stack](https://github.com/mosip/mosip/wiki/Architecture)
   * [Data architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
 * Design
