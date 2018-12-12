@@ -1,7 +1,7 @@
 # Process view
 Pre-registration
 
-![Pre-Registration](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.15_Pre-registration.jpg)
+![Pre-Registration](_images/processViews/Pre-registration.jpg)
 
 Registration Client
 ![RegistrationClient](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration%20Preparation.jpg)
