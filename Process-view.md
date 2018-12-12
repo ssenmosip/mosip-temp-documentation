@@ -1,17 +1,17 @@
 # Process view
-Pre-registration
+## Pre-registration
 
 ![Pre-Registration](_images/processViews/Pre-registration.jpg)
 
-Registration Client
+## Registration Client
 ![RegistrationClient](_images/processViews/Registration-Preparation.jpg)
 
 ![RegistrationClient](_images/processViews/Registration_New_Correction_Update_Lost.jpg)
 
-Registration Processor
+## Registration Processor
 TBD
 
-ID-Authentication
+## ID-Authentication
 ![Pre-Authentication](_images/processViews/ID-Authentication_Pre-Authentication.jpg)
 
 ![Demo-Authentication](_images/processViews/ID-Authentication_DemographicAuth.jpg)
