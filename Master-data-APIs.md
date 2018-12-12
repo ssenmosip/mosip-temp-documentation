@@ -1506,48 +1506,28 @@ titletype|Yes|Name of the title| |
 ```JSON
 {
 	"id": "mosip.title.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "titles": [
-			{ 
-				"title": {
-					"titletype":"string",
-					"languagecode":"string"
-				]
-			}, 
-			{ 
-				"title": {
-					"titletype":"string",
-					"languagecode":"string"
-				]
-			}
-	  ]
+	"ver": "1.0",
+	"timestamp": "",
+	"request": {
+		"code": "string",
+		"name": "string",
+		"descr": "string",
+		"lang_code": "string",
+		"is_active": "boolean"
 	}
 }
 ```
 ### Example Response
 ```JSON
 {
-	  "titles": [
-			{ 
-				"title": {
-					"titletype":"string",
-					"languagecode":"string"
-				]
-			}, 
-			{ 
-				"title": {
-					"titletype":"string",
-					"languagecode":"string"
-				]
-			}
+	"code": "string",
+	"lang_code": "string"
 }
 ```
 ### Response codes
-202
+201
 
-Description: Accepted
+Description: Created
 
 400
 
