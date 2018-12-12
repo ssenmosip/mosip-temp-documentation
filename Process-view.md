@@ -9,7 +9,7 @@
 ![RegistrationClient](_images/processViews/Registration_New_Correction_Update_Lost.jpg)
 
 ## Registration Processor
-TBD
+![Registration Processor](_images/processViews/Registration_ Processor_New_Registration.jpg)
 
 ## ID-Authentication
 ![Pre-Authentication](_images/processViews/ID-Authentication_Pre-Authentication.jpg)
