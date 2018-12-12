@@ -4,10 +4,12 @@ Pre-registration
 ![Pre-Registration](_images/processViews/Pre-registration.jpg)
 
 Registration Client
-![RegistrationClient](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration%20Preparation.jpg)
-![RegistrationClient](https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow%201.14_Registration_New_Correction_Update_Lost.jpg)
+![RegistrationClient](_images/processViews/Registration-Preparation.jpg)
+
+![RegistrationClient](_images/processViews/Registration_New_Correction_Update_Lost.jpg)
 
 Registration Processor
+TBD
 
 ID-Authentication
 https://github.com/mosip/mosip/blob/master/requirements/MOSIP_Process%20Flow_01_v1.17_ID-Authentication_Pre-Authentication.jpg
