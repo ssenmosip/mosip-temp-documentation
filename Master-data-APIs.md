@@ -1157,41 +1157,21 @@ languagename|Yes|Name of the language| |
 ```JSON
 {
 	"id": "mosip.language.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "languages": [
-			{ 
-				"language": [
-					{"languagecode":"string"},
-					{"languagename":"string"}
-				]
-			}, 
-			{ 
-				"language": [
-					{"languagecode":"string"},
-					{"languagename":"string"}
-				]
-			}
-	  ]
+	"ver": "1.0",
+	"timestamp": "",
+	"request": {
+		"code": "string",
+		"name": "string"
+		"family": "string",
+		"native_name": "string",
+		"is_active": boolean
 	}
 }
 ```
 ### Example Response
 ```JSON
 {
-  "successfully_created_languages": [
-		{ 
-			"language": [
-				{"languageid":"string"}
-			]
-		}, 
-		{ 
-			"language": [
-				{"languageid":"string"}
-			]
-		}
-  ]
+	"code": "string"
 }
 ```
 ### Response codes
@@ -1215,8 +1195,6 @@ Description: Forbidden
 
 This service will provides the service for the List of languages. 
 
-
-
 ### Resource URL
 ### `GET /languages`
 
@@ -1235,35 +1213,18 @@ languagename|Yes|Name of the language| |
 
 
 ### Example Request
-```JSON
-{
-	"id": "mosip.language.get",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-		{"languagecode":"string"},
-		{"languagename":"string"}
-	}
-}
-```
+-NA-
 
 ### Example Response
 ```JSON
 {
-  "languages": [
-				{ 
-					"language": [
-						{"languagecode":"string"},
-						{"languagename":"string"}
-					]
-				}, 
-				{ 
-					"language": [
-						{"languagecode":"string"},
-						{"languagename":"string"}
-					]
-				}
-			]
+	"languages": [{
+		"code": "string",
+		"name": "string",
+		"family": "string",
+		"native_name": "string",
+		"is_active": "boolean"
+	}]
 }
 ```
 200
