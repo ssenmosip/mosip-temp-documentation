@@ -338,3 +338,87 @@ Description: Could update decision
 500
 
 Description: Internal server error
+
+## 2.9.3.3 manual-adjudication-applicant-biometric service
+The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
+
+### Resource URL
+### `POST /registration-processor/manual-adjudication/applicantBiometric`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+FileRequestDto|Yes|Dto containing registration id and file name| |
+
+### Example Request
+```JSON
+{
+  "fileName": "APPLICANTPHOTO",
+  "regId": "27847657360002520181208123456"
+}
+```
+### Example Response
+byte array of applicant demographic information.
+
+### Response codes
+200
+
+Description: Successfully retrieved applicant demographic
+
+400
+
+Description: Could not find information from packet store
+
+500
+
+Description: Internal server error
+
+## 2.9.3.4 manual-adjudication-applicant-demographic service
+The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.
+
+### Resource URL
+### `POST /registration-processor/manual-adjudication/applicantDemographic`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+FileRequestDto|Yes|Dto containing registration id and file name| |
+
+### Example Request
+```JSON
+{
+  "fileName": "DEMOGRAPHICINFO",
+  "regId": "27847657360002520181208123456"
+}
+```
+### Example Response
+byte array of applicant biometric.
+
+### Response codes
+200
+
+Description: Successfully retrieved applicant biometric
+
+400
+
+Description: Could not find information from packet store
+
+500
+
+Description: Internal server error
