@@ -4,6 +4,8 @@ This section details about the service APIs in the Registration-Processor module
 
 [2.9.2 Registration status API](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs#292-registration-status)
 
+[2.9.3 Manual Adjudication API](https://github.com/mosip/mosip/wiki/Manual-Adjudication-APIs#293-manual-adjudication)
+
 # 2.9.1 Packet Receiver API
 ## 2.9.1.1 Packet-receiver service
 This service receives the registration packet and puts it to landing zone.
@@ -233,3 +235,106 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+# 2.9.3 Manual Adjudication API
+## 2.9.3.1 manual-adjudication-assignment service
+This service is used to assign one single unassigned applicant record to the input user.
+
+### Resource URL
+### `POST /registration-processor/manual-adjudication/assignment`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+String|Yes|The user id| |
+
+### Example Request
+```JSON
+{
+  "userId": "mono29"
+}
+```
+### Example Response
+```JSON
+{
+  "regId": "27847657360002520181208123456",
+  "mvUsrId": "mono29",
+  "statusCode": "ASSIGNED",
+  "matchedRefId": "27847657360002520181208123456",
+  "matchedRefType": "UIN"
+}
+```
+
+### Response codes
+200
+
+Description: Successfully assigned applicant to manual adjudicator
+
+400
+
+Description: Could not assign
+
+500
+
+Description: Internal server error
+
+## 2.9.3.1 manual-adjudication-decision service
+This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
+
+### Resource URL
+### `POST /registration-processor/manual-adjudication/decision`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
+
+### Example Request
+```JSON
+{
+  "matchedRefId": "27847657360002520181208123456",
+  "matchedRefType": "UIN",
+  "mvUsrId": "mono",
+  "regId": "27847657360002520181208123456",
+  "statusCode": "APPROVED"
+}
+```
+### Example Response
+```JSON
+{
+  "regId": "27847657360002520181208123456",
+  "mvUsrId": "mono29",
+  "statusCode": "ASSIGNED",
+  "matchedRefId": "27847657360002520181208123456",
+  "matchedRefType": "UIN"
+}
+```
+
+### Response codes
+200
+
+Description: Successfully Updated decision
+
+400
+
+Description: Could update decision
+
+500
+
+Description: Internal server error
