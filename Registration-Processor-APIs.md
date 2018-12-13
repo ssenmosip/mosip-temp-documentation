@@ -286,7 +286,7 @@ Description: Could not assign
 
 Description: Internal server error
 
-## 2.9.3.1 manual-adjudication-decision service
+## 2.9.3.2 manual-adjudication-decision service
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
 
 ### Resource URL
@@ -308,8 +308,8 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 ### Example Request
 ```JSON
 {
-  "matchedRefId": "27847657360002520181208123456",
-  "matchedRefType": "UIN",
+  "matchedRefId": "27847657360002520181208123987",
+  "matchedRefType": "RID",
   "mvUsrId": "mono",
   "regId": "27847657360002520181208123456",
   "statusCode": "APPROVED"
@@ -319,10 +319,10 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 ```JSON
 {
   "regId": "27847657360002520181208123456",
-  "mvUsrId": "mono29",
-  "statusCode": "ASSIGNED",
-  "matchedRefId": "27847657360002520181208123456",
-  "matchedRefType": "UIN"
+  "mvUsrId": "mono",
+  "statusCode": "APPROVED",
+  "matchedRefId": "27847657360002520181208123987",
+  "matchedRefType": "RID"
 }
 ```
 
