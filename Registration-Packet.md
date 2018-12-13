@@ -42,7 +42,7 @@ This document describes the following aspects
         - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **registration_id.txt**
-    -   It contains the generated Registration id which is having the length of 29 digit.  
+    -   It contains the generated Registration id which is having the length of 28 digit.  
         [Eg: 0001782130002201811011002010]  
         [Eg: Center ID + Machine ID + Packet Random Seq Number + Timestamp[14]]
 
