@@ -9,7 +9,7 @@
 * Keys (surrogate keys) must be a random number and not be generated based on the record data. This improves privacy
 * Direct queries on the database by a human must not be made. Database administrators must ensure this control during setup
 * All DDL, DML and DQL statements must follow ANSI standards
-* Database must be setup in UTF-8 file format to support multiple languages
+* Database must be setup in UTF-8*** file format to support multiple languages
 * Only following datatypes must be used
     - Character varying
     - Timestamp
