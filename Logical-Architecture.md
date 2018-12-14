@@ -22,4 +22,4 @@ All components in MOSIP should be modular and their features exposed via interfa
 * UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
 * The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
 
-![Logical Architecture](_images/arch_diagrams/MOSIP_logical_architecture_v0.1)
+![Logical Architecture](_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png)
