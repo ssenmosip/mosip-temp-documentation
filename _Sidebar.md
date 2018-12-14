@@ -1,7 +1,7 @@
 ## MOSIP Wiki
 * [Overview](https://github.com/mosip/mosip/wiki)
 * Architecture
-  * [Principles & Goals](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
+  * [Principles](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
   * [Logical view](https://github.com/mosip/mosip/wiki/Logical-Architecture)
   * [Process view](https://github.com/mosip/mosip/wiki/Process-view)
   * [Technology stack](https://github.com/mosip/mosip/wiki/Architecture)
