@@ -40,16 +40,3 @@ MOSIP will provide basic system reports to get a view of the system performance.
 - Number of rejects/accepts
 
 ![Functional view](_images/arch_diagrams/MOSIP_functional_view.png)
-
-![Functional Scope Map](_images/scope_map/Slide2.JPG)
-
-![Functional Scope Map](_images/scope_map/Slide3.JPG)
-
-![Functional Scope Map](_images/scope_map/Slide4.JPG)
-
-![Functional Scope Map](_images/scope_map/Slide5.JPG)
-
-![Functional Scope Map](_images/scope_map/Slide6.JPG)
-
-![Functional Scope Map](_images/scope_map/Slide7.JPG)
-
