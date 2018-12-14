@@ -6,6 +6,7 @@ Operating System | Red Hat | 7.5 | |
 Programming language | Java | 1.8 | GNU V2 | 
 Application development framework | Spring family | various versions | 
 Thick client framework | JavaFX | 9 | GPL V2 with linking exception |
+Web application framework | Angular | 5 | MIT | 
 SEDA framework | vert.x | 3.5.1 | Apache License 2.0 |
 Database for server | PostgreSQL | 10.5 | PostgreSQL license | Permissive open source similar to BSD or MIT
 Database for client | DerbyDB | 10.4 | Apache License 2.0 | 
