@@ -1,0 +1,14 @@
+This page lists all the technologies used in building MOSIP
+
+Category | Tool/Technology | Version | License | Remarks
+---------|-----------------|---------|---------|---------
+Operating System | Red Hat | 7.5 | |
+Programming language | Java | 1.8 | GNU V2 | 
+Application development framework | Spring family | various versions | 
+Thick client framework | JavaFX | 9 | GPL V2 with linking exception |
+SEDA framework | vert.x | 3.5.1 | Apache License 2.0 |
+Database for server | PostgreSQL | 10.5 | PostgreSQL license | Permissive open source similar to BSD or MIT
+Database for client | DerbyDB | 10.4 | Apache License 2.0 | 
+File system storage | CEPH | 13.2.0 | LGPL 2.1 | 
+Build tool | Apache Maven | 3.53 | Apache License 2.0 | 
+Containerization | Docker | 18.03.x CE | Apache License 2.0 | 
