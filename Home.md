@@ -41,4 +41,4 @@ MOSIP will provide basic system reports to get a view of the system performance.
 
 ![Functional view](_images/arch_diagrams/MOSIP_functional_view.png)
 
-![Functional Scope Map](_images/scope_map/Slide2.jpg)
+![Functional Scope Map](_images/scope_map/Slide2.JPG)
