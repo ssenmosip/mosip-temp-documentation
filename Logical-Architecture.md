@@ -39,4 +39,9 @@ This will help achieve modularity, better maintainability and scalability.
 
 This will help achieve extensibility and scale out stages independently.
 
+## Thick client architecture for Registration client
+* Client must run on a desktop/laptop in offline mode also
+* Client must integrate with devices in a secure manner
+
+
 ![Logical Architecture](_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png)
