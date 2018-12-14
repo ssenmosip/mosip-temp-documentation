@@ -22,4 +22,21 @@ All components in MOSIP should be modular and their features exposed via interfa
 * UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
 * The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
 
+# Solution Principles
+MOSIP will adopt the following Architecture patterns & principles to achieve the stated design considerations
+
+## Microservice based architecture for all platform services
+* Services must be stateless to scale out horizontally
+* Services must be idempotent
+* Services must have well defined interfaces
+
+This will help achieve modularity, better maintainability and scalability.
+
+## Staged Event Driven Architecture (SEDA) for processing Registration data
+* Each processing step must be a stage
+* Stages must be connected with event bus
+* Process flow must be configured outside code
+
+This will help achieve extensibility and scale out stages independently.
+
 ![Logical Architecture](_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png)
