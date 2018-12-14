@@ -2,9 +2,9 @@
 * [Overview](https://github.com/mosip/mosip/wiki)
 * Architecture
   * [Principles](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
-  * [Logical view](https://github.com/mosip/mosip/wiki/Logical-Architecture)
-  * [Process view](https://github.com/mosip/mosip/wiki/Process-view)
+  * [Logical view](https://github.com/mosip/mosip/wiki/Logical-Architecture)  
   * [Technology stack](https://github.com/mosip/mosip/wiki/Architecture)
+  * [Process view](https://github.com/mosip/mosip/wiki/Process-view)
   * [Data architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
 * Design
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  
