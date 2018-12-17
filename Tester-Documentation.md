@@ -6,10 +6,19 @@ Test automation is the key to the success of comprehensive test coverage and tes
 <!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
 
 ## 1.2 Scope
+1. Test Coverage
+* * a. Test Automation - tools, approach, test code configuration management process, regular usage
+* * b. Device integration
+* * c. End to end or System testing
+2. Data Coverage
+a. Data utility tools - approach, usage
+3. Test Management Tools
+4. Defect Management & Lifecycle
 
-This document covers the automation testing standards, for the RESTful webservice testers.
+# 
+<!---This document covers the automation testing standards, for the RESTful webservice testers.--->
 
-# 2 Structuring Tests
+# 2 Structuring Tests for API testing
 ## 2.1 Naming Convention
 
 Project Name as Mosip
