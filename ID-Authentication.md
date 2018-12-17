@@ -9,4 +9,4 @@ Please refer to https://github.com/mosip/mosip/wiki/Process-view#id-authenticati
 
 ## Architecturally Significant Use Cases
 
-
+## Logical View
