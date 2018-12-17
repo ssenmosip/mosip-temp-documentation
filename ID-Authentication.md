@@ -18,7 +18,7 @@ Any entity wishing to provide service to an Individual can make an authenticatio
 An entity that captures data from a biometric device must conform to standards to ensure interoperability. Please refer to the following link for the standards https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications
 
 
-### Authenticate an Individual based on his basic identity data (Demographic & Biometric) captured via MOSIP
+### Authenticate an Individual based on his basic identity data captured via MOSIP
 MOSIP should be able to authenticate an individual based on the data captured during registration. MOSIP must support authentication on the following
  * Demographic data
    - Name (exact match)
