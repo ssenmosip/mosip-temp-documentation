@@ -8,5 +8,16 @@ Following are the pre-requisites for an entity to do authentication of an indivi
 Please refer to https://github.com/mosip/mosip/wiki/Process-view#id-authentication for the process flow of ID Authentication
 
 ## Architecturally Significant Use Cases
+### Authenticate an Individual in a secure and trusted way
+
+### Authenticate an Individual based on his basic identity data (Demographic & Biometric) captured via MOSIP
+
+### Authenticate an Individual based on a second factor in addition to basic identity data
+
+### Authentication API must have High Availability (HA) to ensure smooth service
+
+### Authentication API must be scalable to cater to the growing population of a country
+
+### Authentication API must protect an Individual's identity from request-replay attacks
 
 ## Logical View
