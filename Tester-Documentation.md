@@ -1,11 +1,12 @@
-**# **MOSIP - SOAPUI testing best practices****
+**# **MOSIP - Test Strategy (Work in progress copy)****
 # 1 Introduction
 ## 1.1 Context
-MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.
+Test automation is the key to the success of comprehensive test coverage and test data. Here we will talk about utilities for test data generation, tools for test automation and test strategy in general.
 
-## 1.2 Purpose of this document
-This document gives various RESTful soapui api data driven automation testing standards which have to be followed during the MOSIP testing.
-## 1.3 Scope of this document
+<!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
+
+## 1.2 Scope
+
 This document covers the automation testing standards, for the RESTful webservice testers.
 
 # 2 Structuring Tests
