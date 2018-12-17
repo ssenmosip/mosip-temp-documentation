@@ -7,15 +7,28 @@ Test automation is the key to the success of comprehensive test coverage and tes
 
 ## 1.2 Scope
 1. Test Coverage
-* * a. Test Automation - tools, approach, test code configuration management process, regular usage
-* * b. Device integration
-* * c. End to end or System testing
+* a. Test Automation - tools, approach, test code configuration management process, regular usage
+* b. Device integration
+* c. End to end or System testing
 2. Data Coverage
 a. Data utility tools - approach, usage
 3. Test Management Tools
 4. Defect Management & Lifecycle
 
-# 
+# Data Coverage
+The approach includes creating generic data generation utilities for specific purposes in testing 
+There are 5 data generation utilities with the following purposes 
+1. for testing Pre-Reg and Reg Client UIs
+2. for testing Pre-Reg APIs
+3. for testing Kernal APIs
+4. for testing Reg-Proc APIs
+5. for testing IDA APIs
+
+Manual test team uses the utility for testing UI and Rest API testing
+Automation test team uses them for API and E2E scenario test automation
+
+The utility generates varied combinations of data dynamically and it is different for each run of the utility there by generating random but specific combinations othat can be used:
+
 <!---This document covers the automation testing standards, for the RESTful webservice testers.--->
 
 # 2 Structuring Tests for API testing
