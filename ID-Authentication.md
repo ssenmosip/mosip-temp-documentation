@@ -1,4 +1,5 @@
-An entity wishing to validate the identity of an Individual must use MOSIP's ID Authentication API. MOSIP will support the following types of authentication
+MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. ID Authentication is the primary mode for entities to validate an Individual before providing any service.
+
 
 * Basic authentication where an entity can send an Individual's demographic and/or biometric details to be validated
 
