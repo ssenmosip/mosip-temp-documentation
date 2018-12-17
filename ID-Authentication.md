@@ -9,8 +9,14 @@ Please refer to https://github.com/mosip/mosip/wiki/Process-view#id-authenticati
 
 ## Architecturally Significant Use Cases
 ### Authenticate an Individual in a secure and trusted way
+Any entity wishing to provide service to an Individual can make an authentication request over the Internet. Since, authentication request will contain an individual's identity data, the data must be
+ - Cryptographically encrypted to ensure that data is not seen by others
+ - MOSIP should allow only trusted parties to make authentication request
+ - MOSIP should verify the integrity of the message sent to avoid man-in-the-middle attacks
 
 ### Capture of biometrics data must be in a standard way
+An entity that captures data from a biometric device must conform to standards to ensure interoperability. Please refer to the following link for the standards https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications
+
 
 ### Authenticate an Individual based on his basic identity data (Demographic & Biometric) captured via MOSIP
 
