@@ -1,4 +1,4 @@
-This section contains detailed information for data model design standards, guidelines and principles for global master reference, conceptual, logical and physical model design standards been followed in MOSIP project.
+This section contains information on data model design standards, guidelines and principles for global master reference data, conceptual, logical and physical model design standards followed in MOSIP project.
 
 # Data Model Standards
 
