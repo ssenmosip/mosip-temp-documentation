@@ -10,6 +10,8 @@ Please refer to https://github.com/mosip/mosip/wiki/Process-view#id-authenticati
 ## Architecturally Significant Use Cases
 ### Authenticate an Individual in a secure and trusted way
 
+### Capture of biometrics data must be in a standard way
+
 ### Authenticate an Individual based on his basic identity data (Demographic & Biometric) captured via MOSIP
 
 ### Authenticate an Individual based on a second factor in addition to basic identity data
