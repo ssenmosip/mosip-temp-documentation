@@ -33,6 +33,9 @@ MOSIP should be able to authenticate an individual based on the data captured du
 Authentication will always be an AND condition on all the data sent by the client.
 
 ### Authenticate an Individual based on a second factor in addition to basic identity data
+To enhance security and ensure that the its the same individual who intends to authenticate his/her data a second factor of authentication will be supported by MOSIP. It must support the following second factors
+* TOTP based authentication
+* Challenge response
 
 ### Authentication API must have High Availability (HA) to ensure smooth service
 
