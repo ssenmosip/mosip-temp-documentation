@@ -66,13 +66,11 @@ Below is a sample of CBEFF XML for all fingers, iris and face.
 </bir>
 
 ```
+# Data standards for Registration
 
 # Finger Print
-MOSIP will use both image and minutiae of Finger Print. 
 
 ## Finger Print Image Record (FIR)
-
-### Registration
  * Image specification - ISO/IEC 19794 - 4 
  * File format - ???
  * Number of Fingers - maximum 10; minimum - 1
@@ -81,27 +79,13 @@ MOSIP will use both image and minutiae of Finger Print.
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
 
-### Authentication (only minutiae based authentication is available in version 1)
-
-
 ## Finger Print Minutiae Record (FMR)
-
-### Registration (Only FIR is captured during registration)
-
-### Authentication 
- * Minutiae specification - ISO/IEC 19794 - 2
- * Record format - ???
- * Number of fingers - 1
- * Quality - NIST Fingerprint Quality (NFIQ) value of 1, 2 and 3 is acceptable
- * Transmission format - minutiae
- * Storage - minutiae
+Only FIR is captured during registration
 
 # IRIS
-MOSIP will use Iris images only for registration and authentication
+MOSIP will use Iris images only for registration
 
 ## IRIS Image Record (IIR)
-
-### Registration
  * Image specification - ISO/IEC 19794 - 6
  * File format - ???
  * Number of eyes - 2
@@ -109,23 +93,37 @@ MOSIP will use Iris images only for registration and authentication
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
 
-### Authentication 
- * Image specification - ISO/IEC 19794 - 6
- * Record format - ???
- * Number of fingers - 1 or 2
- * Transmission format - JPEG2000 (lossless)
- * Storage - JPEG2000 or PNG
-
 # Face
-MOSIP will use face image for registration (Face authentication will come in a future release of MOSIP)
+MOSIP will use face image for registration
 
 ## Face Image Data (FID)
-
-### Registration
  * Image specification - ISO/IEC 19794 - 5
  * Image details - Full frontal image, +/- 5 degrees rotation, 24 bit RGB, white background, 35 mm width, 45 mm height
  * Format - JPEG2000 or PNG (lossless) 
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
 
-### Authentication (Future version)
+# Data standards for Authentication
+# Finger Print
+Only minutiae based authentication is available in version 1
+
+## Finger Print Minutiae Record (FMR)
+ * Minutiae specification - ISO/IEC 19794 - 2
+ * Record format - ???
+ * Number of fingers - 1 or 2
+ * Quality - NIST Fingerprint Quality (NFIQ) value of 1, 2 and 3 is acceptable
+ * Transmission format - minutiae
+ * Storage - minutiae
+
+# IRIS
+MOSIP will use Iris images only authentication
+
+## IRIS Image Record (IIR)
+ * Image specification - ISO/IEC 19794 - 6
+ * Record format - ???
+ * Number of eyes - 1 or 2
+ * Transmission format - JPEG2000 (lossless)
+ * Storage - JPEG2000 or PNG
+
+# Face
+Face authentication will come in a future release of MOSIP
