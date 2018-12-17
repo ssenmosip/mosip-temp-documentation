@@ -16,7 +16,7 @@ a. Data utility tools - approach, usage
 4. Defect Management & Lifecycle
 
 # Data Coverage
-The approach includes creating generic data generation utilities for specific purposes in testing 
+The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
 1. for testing Pre-Reg and Reg Client UIs
 2. for testing Pre-Reg APIs
@@ -24,10 +24,25 @@ There are 5 data generation utilities with the following purposes
 4. for testing Reg-Proc APIs
 5. for testing IDA APIs
 
-Manual test team uses the utility for testing UI and Rest API testing
-Automation test team uses them for API and E2E scenario test automation
+The utilities are flexible and easy to use
+* Manual test team uses the utility for testing UI and Rest API testing
+Manual Testing team can run the test data util jar in local machine and generate test data any time.
 
-The utility generates varied combinations of data dynamically and it is different for each run of the utility there by generating random but specific combinations othat can be used:
+* Automation test team uses them for test automation of API and E2E scenario 
+The test data util is integrated with the automation code to generate data at run time and carry out the automation tests.
+
+Design
+The utility is designed to take input data from a configuration file generates varied combinations of data dynamically and it is different for each run of the utility there by generating random but specific combinations that can be used.
+
+Test Data Util uses 2 files as input:
+Config property file - where user can configure below things:
+ - number of test data output jsons need to be generated
+ - fields for which the test data is required
+ - output json file name to be generated
+ - valid/invalid data to be generated for each field
+
+Master yml file - is basically a dictionary that contains all valid and invalid data for each field as separate tags.
+Test data util when run picks the random data from respective tags in master yml file based on the configuration provided by the user in config property file.
 
 <!---This document covers the automation testing standards, for the RESTful webservice testers.--->
 
