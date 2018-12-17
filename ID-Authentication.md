@@ -19,6 +19,18 @@ An entity that captures data from a biometric device must conform to standards t
 
 
 ### Authenticate an Individual based on his basic identity data (Demographic & Biometric) captured via MOSIP
+MOSIP should be able to authenticate an individual based on the data captured during registration. MOSIP must support authentication on the following
+ * Demographic data
+   - Name (exact match)
+   - Date Of Birth (exact match)
+   - Gender (exact match)
+   - Address (exact match)
+ * Biometrics
+   - Finger print (minutiae only for version 1)
+   - Iris (image)
+   - Face (future version)
+
+Authentication will always be an AND condition on all the data sent by the client.
 
 ### Authenticate an Individual based on a second factor in addition to basic identity data
 
