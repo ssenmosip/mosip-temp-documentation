@@ -7,10 +7,3 @@ Following are the pre-requisites for an entity to do authentication of an indivi
 ## Architecturally Significant Use Cases
 
 
-
-* Basic authentication where an entity can send an Individual's demographic and/or biometric details to be validated
-
-* The following authentications on top of the basic authentication
-  - TOTP based authentication
-  - Challenge Response authentication
-
