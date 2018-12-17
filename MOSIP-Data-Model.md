@@ -6,7 +6,6 @@ Note: Each of the below points to be expanded according to the MOSIP implementat
 * Meaningful Naming: DB objects that are being created will have a meaningful naming.
 * PK, UK, FK, Not Null constraints
 * Flexible model
-* Most of the data is encrypted
 * No business logic, no defaults, no use of sequences, identify fields at database level
 * No DB triggers, avoid DB functions, procedures. If needed, It should be ANSI compliant
 * SQL used in application should be ANSI Compliant 
