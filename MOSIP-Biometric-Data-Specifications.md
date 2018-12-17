@@ -68,9 +68,9 @@ Below is a sample of CBEFF XML for all fingers, iris and face.
 ```
 # Data standards for Registration
 
-# Finger Print
+## Finger Print
 
-## Finger Print Image Record (FIR)
+### Finger Print Image Record (FIR)
  * Image specification - ISO/IEC 19794 - 4 
  * File format - ???
  * Number of Fingers - maximum 10; minimum - 1
@@ -79,13 +79,13 @@ Below is a sample of CBEFF XML for all fingers, iris and face.
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
 
-## Finger Print Minutiae Record (FMR)
+### Finger Print Minutiae Record (FMR)
 Only FIR is captured during registration
 
-# IRIS
+## IRIS
 MOSIP will use Iris images only for registration
 
-## IRIS Image Record (IIR)
+### IRIS Image Record (IIR)
  * Image specification - ISO/IEC 19794 - 6
  * File format - ???
  * Number of eyes - 2
@@ -93,10 +93,10 @@ MOSIP will use Iris images only for registration
  * Transmission format - JPEG2000
  * Storage - JPEG2000 or PNG
 
-# Face
+## Face
 MOSIP will use face image for registration
 
-## Face Image Data (FID)
+### Face Image Data (FID)
  * Image specification - ISO/IEC 19794 - 5
  * Image details - Full frontal image, +/- 5 degrees rotation, 24 bit RGB, white background, 35 mm width, 45 mm height
  * Format - JPEG2000 or PNG (lossless) 
@@ -104,10 +104,10 @@ MOSIP will use face image for registration
  * Storage - JPEG2000 or PNG
 
 # Data standards for Authentication
-# Finger Print
+## Finger Print
 Only minutiae based authentication is available in version 1
 
-## Finger Print Minutiae Record (FMR)
+### Finger Print Minutiae Record (FMR)
  * Minutiae specification - ISO/IEC 19794 - 2
  * Record format - ???
  * Number of fingers - 1 or 2
@@ -115,15 +115,15 @@ Only minutiae based authentication is available in version 1
  * Transmission format - minutiae
  * Storage - minutiae
 
-# IRIS
+## IRIS
 MOSIP will use Iris images only authentication
 
-## IRIS Image Record (IIR)
+### IRIS Image Record (IIR)
  * Image specification - ISO/IEC 19794 - 6
  * Record format - ???
  * Number of eyes - 1 or 2
  * Transmission format - JPEG2000 (lossless)
  * Storage - JPEG2000 or PNG
 
-# Face
+## Face
 Face authentication will come in a future release of MOSIP
