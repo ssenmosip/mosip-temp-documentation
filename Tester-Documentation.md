@@ -31,7 +31,7 @@ Manual Testing team can run the test data util jar in local machine and generate
 * Automation test team uses them for test automation of API and E2E scenario 
 The test data util is integrated with the automation code to generate data at run time and carry out the automation tests.
 
-Design
+Design: 
 The utility is designed to take input data from a configuration file generates varied combinations of data dynamically and it is different for each run of the utility there by generating random but specific combinations that can be used.
 
 Test Data Util uses 2 files as input:
