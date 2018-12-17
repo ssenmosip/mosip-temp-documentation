@@ -70,7 +70,7 @@ Below is the list of databases in MOSIP
 |4|mosip_prereg|Pre-registration database to store the data that is captured as part of pre-registration process|
 |5|mosip_reg|Registration client database to capture registration related data. The needed data from MOSIP system will be synched with this database.|
 |6|mosip_regprc|The data related to Registration process flows and transaction will be maintained in this database. This database also maintains data that is needed to perform deduplication.|
-|7|mosip_ida|ID Authorization related requests, transactions and mapping related data like virtual ids, tokens, etc. will be stored in this database|
+|7|mosip_ida|ID Authentication related requests, transactions and mapping related data like virtual ids, tokens, etc. will be stored in this database|
 |8|mosip_audit|Audit related logs and the data is stored in this database|
 
 # Data Model Naming Standards
