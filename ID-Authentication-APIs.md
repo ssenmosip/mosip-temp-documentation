@@ -440,12 +440,17 @@ txnID|Y|Request Transaction ID| | abc123abc
 ```JSON
 {
   "id": "mosip.identity.otp",
-  "ver": "1.0",
-  "idvId": "1234567890",
-  "idvIdType": "D",
-  "tspID": "tspLevel1ID",
-  "reqTime": "2018-10-12T09:45:49.565Z",
-  "txnID": "txn12345"
+  "version": "1.0",
+  "tspID": "tsp54321",
+  "licenseKey": "<licenseKey>",
+  "transactionID": "txn12345",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "request": {
+    "identity": {
+      "UIN": "678956453456",
+      "VID": "678956453456"
+    }
+  }
 }
 
 ```
@@ -454,10 +459,14 @@ txnID|Y|Request Transaction ID| | abc123abc
 Status Code : 200 (OK)
 ```JSON
 {
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  "transactionID": "txn12345",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
   "status": true,
-  "err" : [],
-  "resTime": "2018-10-12T09:45:49.580Z",
-  "txnID": "txn12345"
+  "err": [
+    
+  ]
 }
 ```
 
@@ -465,15 +474,17 @@ Status Code : 200 (OK)
 Status Code : 500 (Error)
 ```JSON
 {
-  "status": false,
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  "transactionID": "txn12345",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
+  "status": "N",
   "err": [
     {
       "code": "IDA-OTA-006",
       "message": "OTP is Invalid"
     }
-  ],
-  "resTime": "2018-10-12T09:45:49.580+0000",
-  "txnID": "txn12345"
+  ]
 }
 ```
 
