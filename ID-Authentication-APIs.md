@@ -2,7 +2,7 @@ This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Auth Request
 This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service - 
-1. OTP based
+1. OTP based - TOTP
 2. Pin based - Static Pin
 3. Demo based - PersonalIdentity, Address, FullAddress
 4. Bio based - Fingerprint, IRIS and Face
@@ -21,35 +21,28 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | | mosip.identity.auth
-ver|Y |API version| | 1.0
-idvId|Y|Individual's UIN/VID| |1234567890 
-idvIdType|Y|Individual's ID Type| D| D
-authType|Y|Individual Authentication Types supported| | pi
-authType: personalIdentity| Y | Personal Identity Authentication Type| false| true
-authType: address| Y | Address Authentication Type |false| false  
-authType: fullAddress| Y  | Full Address Authentication Type | false| false
-authType: bio| Y | Bio-metric Authentication Type | false|false
-authType: otp| Y | OTP Authentication Type | false|false
-authType: pin| Y | Pin Authentication Type |false |false
-muaCode|Y|TSP User Agency code| |tspLevel1ID 
-reqTime|Y|Time when Request was captured| | 2018-10-04T05:57:20.929+0000
-txnID|Y|Request Transaction ID| | txn12345
-reqHmac|Y|SHA of request element| | 
-matchInfo|N|Match Info for pi and fad authentication types| | 
-matchInfo: authType|N|Authentication type| | fad
-matchInfo: matchingStrategy|N|Matching Strategy | E | P
-matchInfo: matchingThreshold|N|Matching Threshold| 60 | 80   
-pinInfo|N|Pin Info for pin and otp authentication types| | 
-pinInfo: type|N|Static Pin or Dynamic Pin - otp| | 
-pinInfo: value|N|Value of static pin or otp | | 
-request| Y | ID request to be authenticated | | 
-request: identity: name|N| name attribute of ID Object| | 
-request: identity: dateOfBirth|N| dob attribute of ID Object| | 
-request: identity: gender|N| gender attribute of ID Object| | 
-request: identity: addressLine1|N| addressLine1 attribute of ID Object| |  
-request: identity: fullAddress|N| fullAddress attribute of ID Object| | 
-request: identity: leftEye|N| leftEye attribute of ID Object| |
-request: identity: rightThumb|N| rightThumb attribute of ID Object| |
+version|Y |API version| | 1.0
+tspID|Y|TSP ID| |tsp5432111
+licenseKey|Y|TSP's License Key| | 
+transactionID|Y|Request Transaction ID| | pi
+requestTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
+requestedAuth| Y | Individual Authentication Types supported| | 
+requestedAuth: demo| Y | demographic Authentication Type | false| false
+requestedAuth: bio| Y | Bio-metric Authentication Type | false|false
+requestedAuth: otp| Y | OTP Authentication Type | false|false
+requestedAuth: pin| Y | Pin Authentication Type |false |false
+bioMetadata|N|Additional information on Biometric Auth| |
+bioMetadata: bioType|Y|Type of Biometric Auth requested| | FTD
+bioMetadata: deviceInfo|Y|Device Information used for Biometric Auth requested| |
+request| Y | Auth request attributes to be used for authenticating Individual | | 
+request: identity: UIN|N| UIN attribute of Individual's Identity| | 
+request: identity: VID|N| VIDattribute of Individual's Identity| | 
+request: identity: name|N| name attribute of Individual's Identity| | 
+request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
+request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
+request: identity: biometricData|N| biometric attributes of Individual's Identity| |
+request: otherFactors: totp|N| TOTP to used for authenticating Individual| | 
+request: otherFactors: spin|N| Static PIN to used for authenticating Individual| |
 
 ### Sample Request
 ```JSON
