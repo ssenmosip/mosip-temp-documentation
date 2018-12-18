@@ -435,6 +435,7 @@ transactionID|Y|Request Transaction ID| |abc123abc
 requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
 request: identity : UIN|Y|Individual's UIN| | 678956453456
 request: identity : VID|Y|Individual's VID| | 678956453456
+request: channel: email|N|Communication channel to send OTP|false| true
 
 
 ### Sample Request
@@ -450,6 +451,10 @@ request: identity : VID|Y|Individual's VID| | 678956453456
     "identity": {
       "UIN": "678956453456",
       "VID": "678956453456"
+    },
+    "channel": {
+      "email": true,
+      "mobile": false
     }
   }
 }
