@@ -469,8 +469,13 @@ Status Code : 200 (OK)
   "version": "1.0",
   "transactionID": "txn12345",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
-  "status": "Y",
-  "err": []
+  "err": [
+    
+  ],
+  "response": {
+    "maskedMobile": "XXXXXXX123",
+    "maskedEmail": "abXXXXXXXXXcd@xyz.com"
+  }
 }
 ```
 
@@ -482,7 +487,6 @@ Status Code : 500 (Error)
   "version": "1.0",
   "transactionID": "txn12345",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
-  "status": "N",
   "err": [
     {
       "code": "IDA-OTA-006",
