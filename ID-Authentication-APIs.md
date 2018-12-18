@@ -428,12 +428,13 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Y|API Id| |mosip.identity.otp
-ver|Y|API version| | 1.0
-idvId|Y|Individual's UIN or VID| |12341234
-idvIdType|Y|Individual ID Type|D| V
-muaCode|Y|User Agency code| |123123123 
-reqTime|Y|Time when Request was captured| |2018-10-04T05:57:20.929Z
-txnID|Y|Request Transaction ID| | abc123abc
+version|Y|API version| | 1.0
+tspID|Y|TSP ID| |tsp1234567
+licenseKey|Y|Licence Key of TSP|| 
+transactionID|Y|Request Transaction ID| |abc123abc
+requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
+request: identity : UIN|Y|Individual's UIN| | 678956453456
+request: identity : VID|Y|Individual's VID| | 678956453456
 
 
 ### Sample Request
@@ -464,9 +465,7 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
   "status": "Y",
-  "err": [
-    
-  ]
+  "err": []
 }
 ```
 
