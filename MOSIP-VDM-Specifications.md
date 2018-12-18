@@ -10,7 +10,7 @@ to capture the biometric data and manipulate on the same.
    - Device specific code and integration with device should be available with in this scope.
    - Any security related to the device can be implemented at single stage rather doing at application end.
    - VDM upgrade or SDK upgrade shouldn't impact the application code.
-   - VDM should be provided along with the GUI to register the running devices port.
+   - VDM should be provided along with the GUI to register the running devices port .
    
 
 * VDM - The Vendor Device Manager, provided by the device vendor, which manages the device, and allows for biometric data capture   
