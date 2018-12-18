@@ -13,58 +13,122 @@ Please refer to http://docs.oasis-open.org/bias/soap-profile/v1.0/errata02/os/cb
 Below is a sample of CBEFF XML for all fingers, iris and face.
 
 ```
-<?xml version='1.0' encoding="utf-8"?>
-<bir xmlns="urn:oid:1.1.19785.0.257.1.7.0">
-	<version major="1" minor="0" />
-	<cbeff-version major="2" minor="0" />
-	<bir-info integrity="false" />
-	<bir>     <!-- left iris -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="9" type="iris"
-			subtype="left" creation-date="20100308T113005Z" />
-		<bdb> SUlSADEwMQA...=     </bdb>
-	</bir>
-	<bir>     <!-- right iris -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="9" type="iris"
-			subtype="right" creation-date="20100308T113025Z" />
-		<bdb> SUlSADEwMQA...=     </bdb>
-	</bir>
-	<bir>     <!-- first attempt of the right slap -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="7" type="finger"
-			subtype="right pointer finger middle-finger ringfinger little-finger"
-			creation-date="20100308T113115Z" />
-		<bdb> RklSADEwMQA...=     </bdb>
-	</bir>
-	<bir>      <!-- second attempt of the right slap -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="7" type="finger"
-			subtype="right pointer-finger middle-finger ringfinger little-finger"
-			creation-date="20100308T113145Z" />
-		<bdb> RklSADEwMQA...=     </bdb>
-	</bir>
-	<bir>     <!-- two thumbs -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="7" type="finger"
-			subtype="left right thumb" creation-date="20100308T113235Z" />
-		<bdb> RklSADEwMQA...=     </bdb>
-	</bir>
-	<bir>     <!-- left slap -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="7" type="finger"
-			subtype="left pointer-finger middle-finger ringfinger little-finger"
-			creation-date="20100308T113355Z" />
-		<bdb> RklSADEwMQA...=     </bdb>
-	</bir>
-	<bir>     <!-- face -->
-		<bir-info integrity="false" />
-		<bdb-info format-owner="257" format-type="8" type="face"
-			creation-date="20100308T113145Z" />
-		<bdb> RkFDADEwMQA...=     </bdb>
-	</bir>
-</bir>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<BIR xmlns="http://docs.oasis-open.org/bias/ns/biaspatronformat-1.0/">
+    <Version>
+        <Major>2</Major>
+        <Minor>1</Minor>
+    </Version>
+    <CBEFFVersion>
+        <Major>2</Major>
+        <Minor>1</Minor>
+    </CBEFFVersion>
+    <BIRInfo>
+        <Integrity>false</Integrity>
+    </BIRInfo>
+    <BIR>
+	   <!-- face -->
+        <BIRInfo>
+            <Integrity>false</Integrity>
+        </BIRInfo>
+        <BDBInfo>
+            <FormatOwner>257</FormatOwner>
+            <FormatType>8</FormatType>
+            <CreationDate>2018-12-18T12:18:35.662+05:30</CreationDate>
+            <Type>Face</Type>
+            <Subtype></Subtype>
+            <Level>Intermediate</Level>
+            <Purpose>Enroll</Purpose>
+            <Quality>90</Quality>
+        </BDBInfo>
+        <BDB>RmFjZQ...==</BDB>
+    </BIR>
+    <BIR>
+	   <!-- left slap -->
+        <BIRInfo>
+            <Integrity>false</Integrity>
+        </BIRInfo>
+        <BDBInfo>
+            <FormatOwner>257</FormatOwner>
+            <FormatType>7</FormatType>
+            <CreationDate>2018-12-18T12:18:35.667+05:30</CreationDate>
+            <Type>Finger</Type>
+            <Subtype>Left IndexFinger MiddleFinger RingFinger LittleFinger</Subtype>
+            <Level>Raw</Level>
+            <Purpose>Enroll</Purpose>
+            <Quality>80</Quality>
+        </BDBInfo>
+        <BDB>UmlnH5...=</BDB>
+    </BIR>
+    <BIR>
+	  <!-- right slap -->
+        <BIRInfo>
+            <Integrity>false</Integrity>
+        </BIRInfo>
+        <BDBInfo>
+            <FormatOwner>257</FormatOwner>
+            <FormatType>7</FormatType>
+            <CreationDate>2018-12-18T12:18:35.667+05:30</CreationDate>
+            <Type>Finger</Type>
+            <Subtype>Right IndexFinger MiddleFinger RingFinger LittleFinger</Subtype>
+            <Level>Raw</Level>
+            <Purpose>Enroll</Purpose>
+            <Quality>80</Quality>
+        </BDBInfo>
+        <BDB>TGVdCB...=</BDB>
+    </BIR>
+    <BIR>
+	   <!-- two thumbs -->
+        <BIRInfo>
+            <Integrity>false</Integrity>
+        </BIRInfo>
+        <BDBInfo>
+            <FormatOwner>257</FormatOwner>
+            <FormatType>7</FormatType>
+            <CreationDate>2018-12-18T12:18:35.667+05:30</CreationDate>
+            <Type>Finger</Type>
+            <Subtype>Left Right Thumb</Subtype>
+            <Level>Raw</Level>
+            <Purpose>Enroll</Purpose>
+            <Quality>80</Quality>
+        </BDBInfo>
+        <BDB>GVmdAC...=</BDB>
+    </BIR>
+    <BIR>
+	  <!-- right iris -->
+        <BIRInfo>
+            <Integrity>false</Integrity>
+        </BIRInfo>
+        <BDBInfo>
+            <FormatOwner>257</FormatOwner>
+            <FormatType>9</FormatType>
+            <CreationDate>2018-12-18T12:18:35.667+05:30</CreationDate>
+            <Type>Iris</Type>
+            <Subtype>Right</Subtype>
+            <Level>Raw</Level>
+            <Purpose>Enroll</Purpose>
+            <Quality>80</Quality>
+        </BDBInfo>
+        <BDB>UmlnaH...=</BDB>
+    </BIR>
+    <BIR>
+	   <!-- left iris -->
+        <BIRInfo>
+            <Integrity>false</Integrity>
+        </BIRInfo>
+        <BDBInfo>
+            <FormatOwner>257</FormatOwner>
+            <FormatType>9</FormatType>
+            <CreationDate>2018-12-18T12:18:35.668+05:30</CreationDate>
+            <Type>Iris</Type>
+            <Subtype>Left</Subtype>
+            <Level>Raw</Level>
+            <Purpose>Enroll</Purpose>
+            <Quality>80</Quality>
+        </BDBInfo>
+        <BDB>TGVmdS...=</BDB>
+    </BIR>
+</BIR>
 ```
 # Data standards for Registration
 
