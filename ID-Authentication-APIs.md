@@ -2,9 +2,10 @@ This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Auth Request
 This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service - 
-1. Pin based - OTP and sPin
-2. Demo based - PersonalIdentity, Address, FullAddress
-3. Bio based - Fingerprint, IRIS and Face
+1. OTP based - TOTP
+2. Pin based - Static Pin
+3. Demo based - PersonalIdentity, Address, FullAddress
+4. Bio based - Fingerprint, IRIS and Face
 
 ### Resource URL
 ### `POST identity/auth`
@@ -20,62 +21,57 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | | mosip.identity.auth
-ver|Y |API version| | 1.0
-idvId|Y|Individual's UIN/VID| |1234567890 
-idvIdType|Y|Individual's ID Type| D| D
-authType|Y|Individual Authentication Types supported| | pi
-authType: personalIdentity| Y | Personal Identity Authentication Type| false| true
-authType: address| Y | Address Authentication Type |false| false  
-authType: fullAddress| Y  | Full Address Authentication Type | false| false
-authType: bio| Y | Bio-metric Authentication Type | false|false
-authType: otp| Y | OTP Authentication Type | false|false
-authType: pin| Y | Pin Authentication Type |false |false
-muaCode|Y|TSP User Agency code| |tspLevel1ID 
-reqTime|Y|Time when Request was captured| | 2018-10-04T05:57:20.929+0000
-txnID|Y|Request Transaction ID| | txn12345
-reqHmac|Y|SHA of request element| | 
-matchInfo|N|Match Info for pi and fad authentication types| | 
-matchInfo: authType|N|Authentication type| | fad
-matchInfo: matchingStrategy|N|Matching Strategy | E | P
-matchInfo: matchingThreshold|N|Matching Threshold| 60 | 80   
-pinInfo|N|Pin Info for pin and otp authentication types| | 
-pinInfo: type|N|Static Pin or Dynamic Pin - otp| | 
-pinInfo: value|N|Value of static pin or otp | | 
-request| Y | ID request to be authenticated | | 
-request: identity: name|N| name attribute of ID Object| | 
-request: identity: dateOfBirth|N| dob attribute of ID Object| | 
-request: identity: gender|N| gender attribute of ID Object| | 
-request: identity: addressLine1|N| addressLine1 attribute of ID Object| |  
-request: identity: fullAddress|N| fullAddress attribute of ID Object| | 
-request: identity: leftEye|N| leftEye attribute of ID Object| |
-request: identity: rightThumb|N| rightThumb attribute of ID Object| |
+version|Y |API version| | 1.0
+tspID|Y|TSP ID| |tsp5432111
+licenseKey|Y|TSP's License Key| | 
+transactionID|Y|Request Transaction ID| | pi
+requestTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
+requestedAuth| Y | Individual Authentication Types supported| | 
+requestedAuth: demo| Y | demographic Authentication Type | false| false
+requestedAuth: bio| Y | Bio-metric Authentication Type | false|false
+requestedAuth: otp| Y | OTP Authentication Type | false|false
+requestedAuth: pin| Y | Pin Authentication Type |false |false
+bioMetadata|N|Additional information on Biometric Auth| |
+bioMetadata: bioType|Y|Type of Biometric Auth requested| | FTD
+bioMetadata: deviceInfo|Y|Device Information used for Biometric Auth requested| |
+request| Y | Auth request attributes to be used for authenticating Individual | | 
+request: identity: UIN|N| UIN attribute of Individual's Identity| | 
+request: identity: VID|N| VIDattribute of Individual's Identity| | 
+request: identity: name|N| name attribute of Individual's Identity| | 
+request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
+request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
+request: identity: biometricData|N| biometric attributes of Individual's Identity| |
+request: otherFactors: totp|N| TOTP to used for authenticating Individual| | 
+request: otherFactors: spin|N| Static PIN to used for authenticating Individual| |
 
 ### Sample Request
 ```JSON
 {
+//API Metadata
   "id": "mosip.identity.auth",
-  "ver": "1.0",
-  "idvId": "1234567890",
-  "idvIdType": "V",
-  "authType": {
+  "version": "1.0",
+//Request Metadata
+  "tspID": "tsp54321",
+  "licenseKey": "<licenseKey>",
+  "transactionID": "txn1234567",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "requestedAuth": {
     "demo": true,
     "pin": true,
-    "bio": false
+    "bio": false,
+    "otp": true
   },
-  "txnID": "txn12345",
-  "tspID": "tsp54321",
-  "reqTime": "2018-10-17T07:22:57.086+05:30",
-  "demoInfo": [
+  "bioMetadata": [
     {
-      "authType": "fullAddress",
-      "language": "fr",
-      "matchingStrategy": "P",
-      "matchingThreshold": 60
-    }
-  ],
-  "bioInfo": [
+      "bioType": "FTD",
+      "deviceInfo": {
+        "deviceId": "",
+        "make": "",
+        "model": ""
+      }
+    },
     {
-      "authType": "fgrMin",
+      "bioType": "IID",
       "deviceInfo": {
         "deviceId": "",
         "make": "",
@@ -83,15 +79,12 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
       }
     }
   ],
-  "pinInfo": [
-    {
-      "value": "123456",
-      "authType": "otp"
-    }
-  ],
+// auth request
   "request": {
-//JSON request as per the id object schema defined by the country
-    "identity": {
+// This element will be encrypted and encoded
+   "identity": {
+      "UIN": "6789 5645 3456",
+      "VID": "6789 5645 3456",
       "name": [
         {
           "language": "ar",
@@ -122,16 +115,28 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
           "value": "Casablanca"
         }
       ],
-      "leftEye": [
+      "biometricData": [
         {
-          "value": "encoded_left_eye_image"
-        }
-      ],
-      "rightIndex": [
+          "type": "FINGER",
+          "subType": "UNKNOWN",
+          "value": "<base64 encoded value>"
+        },
         {
-          "value": "encoded_right_index_image"
+          "type": "FINGER",
+          "subType": "RIGTHT_POINTER",
+          "value": "<base64 encoded value>"
+        },
+        {
+          "type": "IRIS",
+          "subType": "RIGHT",
+          "value": "<base64 encoded value>"
         }
       ]
+    },
+    "otherFactors": {
+      //better name for this
+      "totp": "123456",
+      "spin": "987654"
     }
   }
 }
@@ -143,26 +148,17 @@ Status Code : 200(OK)
 
 ```JSON
 {
-	"status" : true,
-	"err": [],
-	"txnID": "txn12345",
-	"resTime": "2018-10-17T13:40:19.590+0000",
-	"info": 
-	{
-            "idvIdType": "V",
-	    "reqTime": "2018-10-17T07:22:57.086+0000",
-	    "ver": "1.0",
-	    "demoInfo":
-	    [
-	    	{
-	        	"authType": "fullAddress",
-                        "language" : "fr",
-	        	"mathingStrategy": "P",
-	        	"matchingThreshold": 60
-	       	}
-	    ],
-           "usageData": "0xaf100000af100000"
-	  }
+  //APIMetadata
+  "id": "mosip.identity.auth",
+  "version": "1.0",
+  //ResponseMetadata
+  "transactionID": "txn12345",
+  "staticToken": "<static_token>",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
+  //Response
+  "status": "Y",
+  "err": []
 }
 ```
 #### Fail Response:
@@ -171,15 +167,22 @@ Status Code : 500(Error)
 
 ```JSON
 {
-	"status" : false,
-	"err": [
-           {
-              "code": "IDA-MLC-002",
-              "message": "Invalid UIN"
-           }
-        ],
-	"txnID": "txn12345",
-	"resTime": "2018-10-17T13:45:19.590Z",
+  //APIMetadata
+  "id": "mosip.identity.auth",
+  "version": "1.0",
+  //ResponseMetadata
+  "transactionID": "txn12345",
+  "staticToken": "<static_token>",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
+  //Response
+  "status": "N",
+  "err": [
+    {
+      "code": "IDA-MLC-002",
+      "message": "Invalid UIN"
+    }
+  ]
 }
 ```
 
@@ -428,24 +431,35 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Y|API Id| |mosip.identity.otp
-ver|Y|API version| | 1.0
-idvId|Y|Individual's UIN or VID| |12341234
-idvIdType|Y|Individual ID Type|D| V
-muaCode|Y|User Agency code| |123123123 
-reqTime|Y|Time when Request was captured| |2018-10-04T05:57:20.929Z
-txnID|Y|Request Transaction ID| | abc123abc
+version|Y|API version| | 1.0
+tspID|Y|TSP ID| |tsp1234567
+licenseKey|Y|Licence Key of TSP|| 
+transactionID|Y|Request Transaction ID| |abc123abc
+requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
+request: identity : UIN|Y|Individual's UIN| | 678956453456
+request: identity : VID|Y|Individual's VID| | 678956453456
+request: channel: email|N|Communication channel to send OTP|false| true
 
 
 ### Sample Request
 ```JSON
 {
   "id": "mosip.identity.otp",
-  "ver": "1.0",
-  "idvId": "1234567890",
-  "idvIdType": "D",
-  "tspID": "tspLevel1ID",
-  "reqTime": "2018-10-12T09:45:49.565Z",
-  "txnID": "txn12345"
+  "version": "1.0",
+  "tspID": "tsp54321",
+  "licenseKey": "<licenseKey>",
+  "transactionID": "txn12345",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "request": {
+    "identity": {
+      "UIN": "678956453456",
+      "VID": "678956453456"
+    },
+    "channel": {
+      "email": true,
+      "mobile": false
+    }
+  }
 }
 
 ```
@@ -454,10 +468,17 @@ txnID|Y|Request Transaction ID| | abc123abc
 Status Code : 200 (OK)
 ```JSON
 {
-  "status": true,
-  "err" : [],
-  "resTime": "2018-10-12T09:45:49.580Z",
-  "txnID": "txn12345"
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  "transactionID": "txn12345",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
+  "err": [
+    
+  ],
+  "response": {
+    "maskedMobile": "XXXXXXX123",
+    "maskedEmail": "abXXXXXXXXXcd@xyz.com"
+  }
 }
 ```
 
@@ -465,15 +486,16 @@ Status Code : 200 (OK)
 Status Code : 500 (Error)
 ```JSON
 {
-  "status": false,
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  "transactionID": "txn12345",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
   "err": [
     {
       "code": "IDA-OTA-006",
       "message": "OTP is Invalid"
     }
-  ],
-  "resTime": "2018-10-12T09:45:49.580+0000",
-  "txnID": "txn12345"
+  ]
 }
 ```
 
