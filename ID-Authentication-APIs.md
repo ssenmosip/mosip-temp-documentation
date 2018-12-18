@@ -54,41 +54,44 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
 ### Sample Request
 ```JSON
 {
+//API Metadata
   "id": "mosip.identity.auth",
   "version": "1.0",
-"tspID": "tsp54321",
-"licenseKey": "<licenseKey>",
-				"transactionID": "txn12345",
-				"requestTime": "2018-10-17T07:22:57.086+05:30",
-				"requestedAuth": {
-					"demo": true,
-					"pin": true,
-					"bio": false,
-					"otp": true
-				},  
+//Request Metadata
+  "tspID": "tsp54321",
+  "licenseKey": "<licenseKey>",
+  "transactionID": "txn1234567",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "requestedAuth": {
+    "demo": true,
+    "pin": true,
+    "bio": false,
+    "otp": true
+  },
   "bioMetadata": [
-					{
-					  "bioType": "FMR",
-					  "deviceInfo": {
-						"deviceId": "",
-						"make": "",
-						"model": ""
-					  }
-					},
-					{
-					  "bioType": "IIR",
-					  "deviceInfo": {
-						"deviceId": "",
-						"make": "",
-						"model": ""
-					  }
-					}
-				  ],
+    {
+      "bioType": "FTD",
+      "deviceInfo": {
+        "deviceId": "",
+        "make": "",
+        "model": ""
+      }
+    },
+    {
+      "bioType": "IID",
+      "deviceInfo": {
+        "deviceId": "",
+        "make": "",
+        "model": ""
+      }
+    }
+  ],
+// auth request
   "request": {
-//JSON request as per the id object schema defined by the country
-    "identity": {
-"UIN": "6789 5645 3456",
-"VID": "6789 5645 3456",
+// This element will be encrypted and encoded
+   "identity": {
+      "UIN": "6789 5645 3456",
+      "VID": "6789 5645 3456",
       "name": [
         {
           "language": "ar",
@@ -119,36 +122,29 @@ request: identity: rightThumb|N| rightThumb attribute of ID Object| |
           "value": "Casablanca"
         }
       ],
-      "biometricData": 
-						[
-							{
-								"type" : "finger",
-								"subType" : "UNKNOWN",
-								"value" : "<base64 encoded value>"
-							},
-							{
-								"type" : "FINGER",
-								"subType" : "RIGTHT_POINTER",
-								"value" : "<base64 encoded value>"
-							},
-							{
-								"type" : "IRIS",
-								"subType" : "RIGTHT",
-								"value" : "<base64 encoded value>"
-							}
-						]
+      "biometricData": [
+        {
+          "type": "FINGER",
+          "subType": "UNKNOWN",
+          "value": "<base64 encoded value>"
+        },
+        {
+          "type": "FINGER",
+          "subType": "RIGTHT_POINTER",
+          "value": "<base64 encoded value>"
+        },
+        {
+          "type": "IRIS",
+          "subType": "RIGHT",
+          "value": "<base64 encoded value>"
+        }
+      ]
     },
-"factor": { //better name for this
-						"totp" : {
-							"value" : "12345"
-						},
-						"spin" : {
-							"value" : "12345"
-						},
-						"challengeResponse" : {
-							"value" : ""
-						}
-					}
+    "otherFactors": {
+      //better name for this
+      "totp": "123456",
+      "spin": "987654"
+    }
   }
 }
 ```
@@ -159,26 +155,17 @@ Status Code : 200(OK)
 
 ```JSON
 {
-	"status" : true,
-	"err": [],
-	"txnID": "txn12345",
-	"resTime": "2018-10-17T13:40:19.590+0000",
-	"info": 
-	{
-            "idvIdType": "V",
-	    "reqTime": "2018-10-17T07:22:57.086+0000",
-	    "ver": "1.0",
-	    "demoInfo":
-	    [
-	    	{
-	        	"authType": "fullAddress",
-                        "language" : "fr",
-	        	"mathingStrategy": "P",
-	        	"matchingThreshold": 60
-	       	}
-	    ],
-           "usageData": "0xaf100000af100000"
-	  }
+  //APIMetadata
+  "id": "mosip.identity.auth",
+  "version": "1.0",
+  //ResponseMetadata
+  "transactionID": "txn12345",
+  "staticToken": "<static_token>",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
+  //Response
+  "status": "Y",
+  "err": []
 }
 ```
 #### Fail Response:
@@ -187,15 +174,22 @@ Status Code : 500(Error)
 
 ```JSON
 {
-	"status" : false,
-	"err": [
-           {
-              "code": "IDA-MLC-002",
-              "message": "Invalid UIN"
-           }
-        ],
-	"txnID": "txn12345",
-	"resTime": "2018-10-17T13:45:19.590Z",
+  //APIMetadata
+  "id": "mosip.identity.auth",
+  "version": "1.0",
+  //ResponseMetadata
+  "transactionID": "txn12345",
+  "staticToken": "<static_token>",
+  "requestTime": "2018-10-17T07:22:57.086+05:30",
+  "responseTime": "2018-10-17T07:23:19.590+05:30",
+  //Response
+  "status": "N",
+  "err": [
+    {
+      "code": "IDA-MLC-002",
+      "message": "Invalid UIN"
+    }
+  ]
 }
 ```
 
