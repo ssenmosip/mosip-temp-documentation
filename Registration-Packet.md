@@ -51,8 +51,12 @@ This document describes the following aspects
         Resident Information.
 	-   Store the generated Hash in a file and append to the created Zip
 	    object.
+
+5.  **packet_osi_hash.txt**
+    -   Generate Hash for the Biometric of Officer and Supervisor who provided authentication to the registration.
+	-   Store the generated Hash in a file and append to the created Zip object.
     
-5.  **packet_meta_info.json**  
+6.  **packet_meta_info.json**  
     It contains the following attributes.
 
 ***
@@ -326,9 +330,9 @@ This document describes the following aspects
     -   Applicant Type [New/ UIN Update/ Lost UIN]
     -   Pre Registration Id
     -   osiData {Operator and Supervisor authentication info.}
-    -   HashSequence {It provides the hash created sequence}
+    -   HashSequence for both applicant and OSI detail.{It provides the hash created sequence}
 
-6.  **Registration Officer authentication Bio [officer_bio_cbeff.xml]**
+7.  **Registration Officer authentication Bio [officer_bio_cbeff.xml]**
     -   Officer bio should be captured in standard [CBEFF xml](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
 7.  **Registration Supervisor authentication Bio [supervisor_bio_cbeff.xml]**
     -   Supervisor bio should be captured in standard [CBEFF xml](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
