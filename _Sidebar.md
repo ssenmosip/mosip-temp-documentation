@@ -9,9 +9,13 @@
 * Design
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
-  * [Registration Packet Structure](https://github.com/mosip/mosip/wiki/Registration-Packet)
   * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client)  
-  * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)
+  * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)  
+  * [Pre-Registration](https://github.com/mosip/mosip/wiki/Pre-Registration)  
+  * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication)
+  * [Kernel](https://github.com/mosip/mosip/wiki/Kernel) 
+  * [Registration Packet Structure](https://github.com/mosip/mosip/wiki/Registration-Packet)
+  
   * [MOSIP ABIS Middleware](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
   * [MOSIP Biometric Data Spec](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications)
