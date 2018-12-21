@@ -2122,3 +2122,46 @@ Requires Authentication | Yes
 		"resTime": "2018-10-17T13:40:19.590+0000"
 }
 ```
+
+
+## Review Notes: [Rudra, Ravi, Anadi, Ramesh] on 21-Dec-2018
+## Pre-registration Design
+* Grammar and typo checks needed on github page
+* Should APIs include an API Id, version field in the request? These are already part of the urls
+* API Response should clearly specify which API it is and what is the version
+* Err, response should be the last parameters in the API response
+
+## 2.7.1 Login API
+* This is actually an OTP request API
+* How do we access the swagger configurations?
+* Login API is marked as GET
+* API url conventions are not consistent with the approach used in identity auth module
+
+## 2.7.2 Login OTP Validation API
+* This is the actual Auth API.
+* OTP_VALIDATION_SUCESSFUL spelling is wrong. Need to see actual constants being returned by APIs
+
+## 2.7.3 User ID Updation API
+* How do I specify both email and phone number? Is it a one or the other restriction?
+
+## 2.7.4 Create re-registration API
+* Call it as Add Applicant or application
+* label keys are not required in request json
+* Why are we sending the statusCode?
+* Label is not necessary in response
+* How does the request information correlate with the id fields defined by a country? How will it impact if it is changed?
+
+## 2.7.5 Retrieve all pre-registration API
+* Success response status is false. It should be true
+
+## 2.7.6 Retrieve Pre-registration status API
+* application/status is not noun/verb
+* Do we need this api? There are only user name and appointment time fields missing from retrieve api entities
+
+## 2.7.7 Discard Pre-Registration API
+* deletedby field - what is the expected value here?
+
+## 2.7.8 Document Upload API
+* Why does request have a status code
+* Why is pre-regid in the request json? Should it be a url parameter?
+* The response json has a message key rather than a response key. Not consistent with other APIs
