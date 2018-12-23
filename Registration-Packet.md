@@ -65,6 +65,8 @@ This document describes the following aspects
     "biometric" : {
       "applicant" : {
         "leftEye" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "LeftEye",
           "type" : "iris",
           "qualityScore" : 79.0,
@@ -73,34 +75,44 @@ This document describes the following aspects
         },
         "rightEye" : null,
         "leftIndex" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "LeftIndex",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
           "numRetry" : 3,
           "forceCaptured" : false
         },
-	"leftMiddle" : {
+		"leftMiddle" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "LeftMiddle",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
           "numRetry" : 3,
           "forceCaptured" : false
         },
-	"leftRing" : {
+		"leftRing" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "LeftRing",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
           "numRetry" : 3,
           "forceCaptured" : false
         },
-	"leftLittle" : {
+		"leftLittle" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "LeftLitle",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
           "numRetry" : 3,
           "forceCaptured" : false
         },
-	"leftThumb" : {
+		"leftThumb" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "LeftThumb",
           "type" : "fingerprint",
           "qualityScore" : 80.0,
@@ -108,27 +120,35 @@ This document describes the following aspects
           "forceCaptured" : false
         },
         "rightIndex" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "RightIndex",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
           "numRetry" : 2,
           "forceCaptured" : false
         },
-	"rightMiddle" : {
+		"rightMiddle" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "RightMiddle",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
           "numRetry" : 2,
           "forceCaptured" : false
         },
-	"rightRing" : {
+		"rightRing" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "RightRing",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
           "numRetry" : 2,
           "forceCaptured" : false
         },
-	"rightLittle" : {
+		"rightLittle" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "RightLittle",
           "type" : "fingerprint",
           "qualityScore" : 95.0,
@@ -136,6 +156,8 @@ This document describes the following aspects
           "forceCaptured" : false
         },
         "rightThumb" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "rightThumb",
           "type" : "fingerprint",
           "qualityScore" : 85.0,
@@ -145,6 +167,8 @@ This document describes the following aspects
       },
       "introducer" : {
         "introducerFingerprint" : {
+          "language" : "en",
+          "label" : "label",
           "imageName" : "introducerLeftThumb",
           "type" : "fingerprint",
           "qualityScore" : 0.0,
@@ -156,27 +180,38 @@ This document describes the following aspects
       }
     },
     "exceptionBiometrics" : [ {
+      "language" : "en",
       "type" : "fingerprint",
       "missingBiometric" : "LeftThumb",
       "exceptionDescription" : "Due to accident",
       "exceptionType" : "Permananent"
     }, {
+      "language" : "en",
       "type" : "fingerprint",
       "missingBiometric" : "LeftForefinger",
       "exceptionDescription" : "Due to accident",
       "exceptionType" : "Permananent"
     }, {
+      "language" : "en",
       "type" : "iris",
       "missingBiometric" : "RightEye",
       "exceptionDescription" : "By birth",
       "exceptionType" : "Permananent"
     } ],
     "applicantPhotograph" : {
+      "language" : "en",
+      "label" : "label",
       "photographName" : "ApplicantPhoto",
       "numRetry" : 1,
       "qualityScore" : 89.0
     },
-    "exceptionPhotograph" : null,
+    "exceptionPhotograph" : {
+      "language" : "en",
+      "label" : "label",
+      "photographName" : "ExceptionPhoto",
+      "numRetry" : 0,
+      "qualityScore" : 0.0
+    },
     "documents" : [ {
       "documentName" : "ProofOfIdentity",
       "documentCategory" : "PoI",
@@ -188,10 +223,10 @@ This document describes the following aspects
       "documentOwner" : "hof",
       "documentType" : "passport"
     }, {
-      "documentName" : "ProofOfBirth",
-      "documentCategory" :"PoB",
+      "documentName" : "RegistrationAcknowledgement",
+      "documentCategory" : "RegistrationAcknowledgement",
       "documentOwner" : "Self",
-      "documentType" : "dateOfBirth"
+      "documentType" : "RegistrationAcknowledgement"
     } ],
     "metaData" : [ {
       "label" : "geoLocLatitude",
@@ -201,25 +236,31 @@ This document describes the following aspects
       "value" : "80.24492"
     }, {
       "label" : "registrationType",
-      "value" : "Document Based"
+      "value" : "Child"
     }, {
       "label" : "applicantType",
-      "value" : "New Registration"
+      "value" : "New"
     }, {
       "label" : "preRegistrationId",
-      "value" : ""
+      "value" : "PEN1345T"
     }, {
       "label" : "registrationId",
-      "value" : "2018782130000103122018160555"
-    }, {
-      "label" : "registrationIdHash",
-      "value" : "417381058E49BE48572E3783454BEE0E751436A2FC8FBAA9E35244EB14FC58C8"
+      "value" : "2018782130000121112018103016"
     }, {
       "label" : "machineId",
-      "value" : null
-    }, {
+      "value" : "yyeqy26356"
+    },
+	{
+      "label" : "dongleId",
+      "value" : "yyeqy26356"
+    },
+	{
+      "label" : "macID",
+      "value" : "8F-23-12-45-FG-56"
+    },
+	{
       "label" : "centerId",
-      "value" : null
+      "value" : "12245"
     }, {
       "label" : "uin",
       "value" : null
@@ -231,53 +272,41 @@ This document describes the following aspects
       "value" : "Parent"
     }, {
       "label" : "introducerRID",
-      "value" : null
-    }, {
-      "label" : "introducerRIDHash",
-      "value" : null
+      "value" : "2018234500321157812"
     }, {
       "label" : "introducerUIN",
-      "value" : "93939939"
-    }, {
-      "label" : "introducerUINHash",
-      "value" : "EE4A62BFD09A1F35084EBE5E4FBBE08432929FC7100D5772B2B1D3C37010F63B"
+      "value" : null
     }, {
       "label" : "officerFingerprintType",
-      "value" : "LeftThumb"
+      "value" : "leftThumb"
     }, {
       "label" : "officerIrisType",
       "value" : null
     }, {
       "label" : "supervisorFingerprintType",
-      "value" : "LeftThumb"
+      "value" : "leftThumb"
     }, {
       "label" : "supervisorIrisType",
       "value" : null
     }, {
       "label" : "introducerFingerprintType",
-      "value" : "LeftThumb"
+      "value" : "leftThumb"
     }, {
       "label" : "introducerIrisType",
       "value" : null
-    }, {
-      "label" : "creationDate",
-      "value" : "2018-12-03T16:06:05.033"
-    }, {
-      "label" : "isVerified",
-      "value" : "false"
-    } ],
+    }],
     "osiData" : [ {
       "label" : "officerId",
-      "value" : "mosip"
+      "value" : "op0r0s12"
     }, {
       "label" : "officerFingerprintImage",
-      "value" : "operatorLeftThumb"
+      "value" : "officerLeftThumb"
     }, {
       "label" : "officerIrisImage",
       "value" : null
     }, {
       "label" : "supervisorId",
-      "value" : null
+      "value" : "s9ju2jhu"
     }, {
       "label" : "supervisorFingerprintImage",
       "value" : "supervisorLeftThumb"
@@ -297,22 +326,58 @@ This document describes the following aspects
       "label" : "officerPIN",
       "value" : null
     }, {
-      "label" : "supervisorfaceImage",
+      "label" : "supervisorFaceImage",
       "value" : null
-    }, {
+    }, 
+	{
       "label" : "officerFaceImage",
       "value" : null
-    } ],
-    "hashSequence" : [ {
+    }, 
+	{
+      "label" : "officerOTPAuthentication",
+      "value" : true/false
+    },
+	{
+      "label" : "supervisiorOTPAuthentication",
+      "value" : true/false
+    }
+	],
+    "hashSequence1" : [ {
       "label" : "applicantBiometricSequence",
-      "value" : [ "BothThumbs", "LeftPalm", "RightPalm", "LeftEye" ]
+      "value" : [ "applicant_bio_CBEFF.xml" ]
     }, {
       "label" : "introducerBiometricSequence",
-      "value" : [ "introducerLeftThumb" ]
+      "value" : [ "introducer_bio_CBEFF.xml" ]
     }, {
       "label" : "applicantDemographicSequence",
-      "value" : [ "DemographicInfo", "ProofOfIdentity", "ProofOfAddress", "ApplicantPhoto", "RegistrationAcknowledgement" ]
+      "value" : [ "DemographicInfo", "ProofOfIdentity", "ProofOfAddress", "ApplicantPhoto", "ExceptionPhoto", "ProofOfBirth", "ProofOfRelation" ]
     } ],
+	"hashSequence2" : [ {
+      "label" : "otherFiles",
+      "value" : [ "officerCBEFF", "supervisiorCBEFF", "PacketMetaInfo", "Audit"]
+    } ],
+	"capturedRegiseredDevices" : [ {
+      "label" : "fingerprint",
+      "value" : "123455YRHTIFHKJI8U90U2334"
+    },
+	"label" : "iris",
+      "value" : "123455YRHTIFHKJI8U90U5476"
+    },
+	"label" : "photo",
+      "value" : "123455YRHTIFHKJI8U90U4648"
+    }	
+	],
+	"capturedNonRegisteredDevices" : [ {
+      "label" : "GPS",
+      "value" : "123455YRHTIFHKJI8U90U2334"
+    },
+	"label" : "scanner",
+      "value" : "123455YRHTIFHKJI8U90U5476"
+    },
+	"label" : "printer",
+      "value" : "123455YRHTIFHKJI8U90U6786"
+    }	
+	],
     "checkSum" : [ {
       "label" : "registration-service.jar",
       "value" : "65gfhab67586cjhsabcjk78"
