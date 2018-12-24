@@ -4010,24 +4010,23 @@ isactive|Yes|Is the machine type active?| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.machinetype.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "machinetype": { 
-					"machinetypecode":"string",
-					"machinename":"string",	
-					"description":"string",
-					"languagecode":"boolean",
-					"isactive":"string" 					
-			}
-	}
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:27:49.183Z",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "machinetypecode": ""
+  "code": "string",
+  "langCode": "string"
 }
 ```
 ### Response codes
