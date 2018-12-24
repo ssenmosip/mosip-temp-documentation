@@ -737,23 +737,26 @@ isactive|Yes|Is the machine active?| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.machine.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "machine":  
-			"machinename":"string",
-			"macid":"string",	
-			"serialnumber":"string",
-			"isactive":"boolean",
-			"languagecode":"string" 
-	}
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:52:46.758Z",
+  "request": {
+    "id": "string",
+    "ipAddress": "string",
+    "isActive": true,
+    "langCode": "string",
+    "macAddress": "string",
+    "machineSpecId": "string",
+    "name": "string",
+    "serialNum": "string",
+    "validityDateTime": "2018-12-24T05:52:46.758Z"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "machineid":"string"
+  "id": "string"
 }
 ```
 ### Response codes
