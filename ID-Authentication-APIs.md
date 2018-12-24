@@ -59,7 +59,8 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
     "demo": true,
     "pin": true,
     "bio": false,
-    "otp": true
+    "otp": false,
+    "kyc": true,
   },
   "bioMetadata": [
     {
@@ -79,6 +80,11 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
       }
     }
   ],
+  "kycMetadata": {
+ 	"consentRequired": true,
+	"ePrintRequired": true,
+	"secLangRequired" : true
+  }
 // auth request
   "request": {
 // This element will be encrypted and encoded
@@ -88,7 +94,7 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
       "name": [
         {
           "language": "ar",
-          "value": "ابراهيم"
+          "value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ…"
         },
         {
           "language": "fr",
@@ -98,7 +104,7 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
       "addressLine1": [
         {
           "language": "ar",
-          "value": "عنوان العينة سطر 1"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
         },
         {
           "language": "fr",
@@ -108,7 +114,7 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
       "fullAddress": [
         {
           "language": "ar",
-          "value": "فاس-الدار البيضاء"
+          "value": "Ù�Ø§Ø³-Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
         },
         {
           "language": "fr",
@@ -158,9 +164,111 @@ Status Code : 200(OK)
   "responseTime": "2018-10-17T07:23:19.590+05:30",
   //Response
   "status": "Y",
-  "err": []
+  "err": [],
+  "kycResponse": {// encoded encrypted using KUA's public key
+    "ttl": "time_to_live_for_KYC_Info",
+    "identity": {
+      "name": [
+        {
+          "language": "ar",
+          "value": "ابراهيم"
+        },
+        {
+          "language": "fr",
+          "value": "Ibrahim"
+        }
+      ],
+      "dateOfBirth": [
+        {
+          "language": "ar",
+          "value": "16/04/1955"
+        }
+      ],
+      "age": [
+        {
+          "language": "ar",
+          "value": "30"
+        }
+      ],
+      "gender": [
+        {
+          "language": "ar",
+          "value": "الذكر"
+        }
+      ],
+      "phoneNumber": [
+        {
+          "language": "ar",
+          "value": "+212-5398-12345"
+        }
+      ],
+      "emailId": [
+        {
+          "language": "ar",
+          "value": "sample@samplamail.com"
+        }
+      ],
+      "addressLine1": [
+        {
+          "language": "ar",
+          "value": "عنوان العينة سطر 1"
+        },
+        {
+          "language": "fr",
+          "value": "exemple d'adresse ligne 1"
+        }
+      ],
+      "addressLine2": [
+        {
+          "language": "ar",
+          "value": "عنوان العينة سطر 2"
+        },
+        {
+          "language": "fr",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "ar",
+          "value": "عنوان العينة سطر 3"
+        },
+        {
+          "language": "fr",
+          "value": "exemple d'adresse ligne 3"
+        }
+      ],
+      "location1": [
+        {
+          "language": "ar",
+          "value": "طنجة - تطوان - الحسيمة"
+        },
+        {
+          "language": "fr",
+          "value": "Tanger-Tétouan-Al Hoceima"
+        }
+      ],
+      "pinCode": [
+        {
+          "language": "ar",
+          "value": "85000"
+        },
+        {
+          "language": "fr",
+          "value": "85000"
+        }
+      ],
+      "photo": [
+        {
+          "value": "encoded_face_image_byte_array"
+        }
+      ]
+    },
+    "ePrint": "encoded printable pdf format of MOSIP card"
+  }
 }
 ```
+
 #### Fail Response:
 
 Status Code : 500(Error)
@@ -186,236 +294,7 @@ Status Code : 500(Error)
 }
 ```
 
-## 2. eKYC Service
-
-### Sample Request
-```JSON
-{
-	"id": "mosip.identity.kyc",
-	"ver": "1.0",
-	"consentReq": true,
-	"ePrintReq": true,
-        "secLangReq" : true,
-        "eKycAuthType" : "",
-	"authRequest": {// no PPI, only encoding required
-		"idvId": "1234567890",
-		"idvIdType": "V",
-		"authType": {
-			"demo": true,
-			"pin": false,
-			"bio": false
-		},
-		"txnID": "txn12345",
-                "tspID" : "tsp54321",
-		"reqTime": "2018-10-17T07:22:57.086+05:30",
-		"demoInfo": [
-			{
-				"authType": "fullAddress",
-				"language": "fr",
-				"matchingStrategy": "P",
-				"matchingThreshold": 60
-			}
-		],
-		"pinInfo": 
-                [                        
-                       {
-			        "value": "123456",
-			        "type": "otp"
-		        }
-                 ],
-		"request": {//encoded and encrypted using mua public key
-			"identity": {
-				"name": [
-					{
-						"language": "ar",
-						"value": "ابراهيم"
-					},
-					{
-						"language": "fr",
-						"value": "Ibrahim"
-					}
-				],
-				"addressLine1": [
-					{
-						"language": "ar",
-						"value": "عنوان العينة سطر 1"
-					},
-					{
-						"language": "fr",
-						"value": "exemple d'adresse ligne 1"
-					}
-				],
-				"fullAddress": [
-					{
-						"language": "ar",
-						"value": "فاس-الدار البيضاء"
-					},
-					{
-						"language": "fr",
-						"value": "Casablanca"
-					}
-				]
-			}
-		}
-	}
-}
-```
-
-### Sample Response
-#### Success Response :
-
-Status Code : 200(OK)
-```JSON
-{
-	"status": true,//status of auth + kyc
-	"err": [],
-	"txnID": "txn12345",
-	"resTime": "2018-10-17T13:40:19.590+0000",
-	"ttl" : "time_to_live_for_KYC_Info",
-	"response": { // encoded encrypted using KUA's public key
-		"auth": { //No PII to encrypt this separately, only encoding
-			"status": true,
-			"err": [],
-			"txnID": "txn12345",
-			"resTime": "2018-10-17T13:40:19.590+0000",
-			"info": {
-				"idvIdType": "V",
-				"reqTime": "2018-10-17T07:22:57.086+0000",
-				"ver": "1.0",
-				"demoInfo": [
-					{
-						"authType": "fullAddress",
-						"language": "fr",
-						"mathingStrategy": "P",
-						"matchingThreshold": 60
-					}
-				],
-				"usageData": "0xaf100000af100000"
-			}
-		},
-		"kyc": { // encodes KYC details
-			"identity": {
-				"name": [
-					{
-						"language": "ar",
-						"value": "ابراهيم"
-					},
-					{
-						"language": "fr",
-						"value": "Ibrahim"
-					}
-				],
-				"dateOfBirth": [
-					{
-						"language": "ar",
-						"value": "16/04/1955"
-					}
-				],
-				"age": [
-					{
-						"language": "ar",
-						"value": "30"
-					}
-				],
-				"gender": [
-					{
-						"language": "ar",
-						"value": "الذكر"
-					}
-				],
-				"phoneNumber": [
-					{
-						"language": "ar",
-						"value": "+212-5398-12345"
-					}
-				],
-				"emailId": [
-					{
-						"language": "ar",
-						"value": "sample@samplamail.com"
-					}
-				],
-				"addressLine1": [
-					{
-						"language": "ar",
-						"value": "عنوان العينة سطر 1"
-					},
-					{
-						"language": "fr",
-						"value": "exemple d'adresse ligne 1"
-					}
-				],
-				"addressLine2": [
-					{
-						"language": "ar",
-						"value": "عنوان العينة سطر 2"
-					},
-					{
-						"language": "fr",
-						"value": "exemple d'adresse ligne 2"
-					}
-				],
-				"addressLine3": [
-					{
-						"language": "ar",
-						"value": "عنوان العينة سطر 3"
-					},
-					{
-						"language": "fr",
-						"value": "exemple d'adresse ligne 3"
-					}
-				],
-				"location": [
-					{
-						"language": "ar",
-						"value": "طنجة - تطوان - الحسيمة"
-					},
-					{
-						"language": "fr",
-						"value": "Tanger-Tétouan-Al Hoceima"
-					}
-				],
-				"pinCode": [
-					{
-						"language": "ar",
-						"value": "85000"
-					},
-					{
-						"language": "fr",
-						"value": "85000"
-					}
-				],
-				"photo": [
-					{
-						"value": "encoded_face_image_byte_array"
-					}
-				]
-			},
-			"ePrint": "encoded printable pdf format of MOSIP card"
-		}
-	}
-}
-```
-
-#### Fail Response:
-
-Status Code : 500(Error)
-
-```JSON
-{
-	"status" : false,
-	"err": [
-           {
-              "code": "IDA-MLC-002",
-              "message": "Invalid UIN"
-           }
-        ],
-	"txnID": "txn12345",
-	"resTime": "2018-10-17T13:45:19.590Z",
-}
-```
-
-## 3. OTP Request
+## 2. OTP Request
 This service enables TSP to request for an OTP for an Individual. The OTP will be send via message or email to the Individual. This OTP should then be used to authenticate an Individual using Auth service.
 
 ### Resource URL - `POST identity/otp`
