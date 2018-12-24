@@ -1951,39 +1951,23 @@ languagecode|Yes|Language of the id type| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.idtype.create",
-	"ver": "1.0",
-	"timestamp": "",
-	"request": {
-		"idtypes": [{
-				"code": "string",
-				"name":"string",
-				"descr":"string",
-				"langCode": "string"
-			},
-			{
-				"code": "string",
-				"name":"string",
-				"descr":"string",
-				"langCode": "string"
-			}
-		]
-	}
+  "id": "string",
+  "request": {
+    "code": "string",
+    "descr": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  },
+  "timestamp": "2018-12-24T06:24:48.149Z",
+  "ver": "string"
 }
 ```
 ### Example Response
 ```JSON
 {
-	"results": [
-                {
-			"code": "string",
-			"langCode": "string"
-		},
-		{
-			"code": "string",
-			"langCode": "string"
-		}
-	]
+  "code": "string",
+  "langCode": "string"
 }
 ```
 ### Response codes
