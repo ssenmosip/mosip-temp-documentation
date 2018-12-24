@@ -4282,15 +4282,8 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Yes|ID of the Machine Specification| | 
-lang_code|Yes|Language code of the Machine Specification| | 
 
 
-### Example Request
-```JSON
-{
-	"id":"KJDS9"
-}
-```
 ### Example Response
 ```JSON
 {
