@@ -4193,22 +4193,26 @@ is_active|Yes|Is the Machine Specification active| |
 ### Example Request
 ```JSON
 {
-	"id":"KJDS9",
-	"name":"Laptop",
-	"brand":"Hewlett Packard",
-	"model":"L34-324",
-	"mtyp_code":"GEW8",
-	"min_driver_ver":"1.4",
-	"descr":"This is a medium configuration",
-	"lang_code":"eng",
-	"is_active":true
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:33:45.899Z",
+  "request": {
+    "brand": "string",
+    "description": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "machineTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
+    "name": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string"
 }
 ```
 
