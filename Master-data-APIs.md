@@ -860,30 +860,36 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
--NA-
+languagecode| Yes | MAchine Languge Code|
 
 
 ### Example Response
 ```JSON
 {
   "machines": [
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}, 
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string" 
-				}
-			]
+    {
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:58:03.286Z"
+    },
+{
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:58:03.286Z"
+    }
+  ]
 }
 ```
 200
