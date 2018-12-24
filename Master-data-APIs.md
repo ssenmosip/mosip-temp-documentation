@@ -800,23 +800,29 @@ Name | Required | Description | Default Value | Example
 ```JSON
 {
   "machines": [
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}, 
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						 "languagecode":"string" 
-				}
-			]
+    {
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:54:42.097Z"
+    },
+  {
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:54:42.097Z"
+    }
+  ]
 }
 ```
 200
