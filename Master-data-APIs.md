@@ -860,7 +860,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-languagecode| Yes | MAchine Languge Code|
+languagecode| Yes | Machine Languge Code|
 
 
 ### Example Response
@@ -927,30 +927,27 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
--NA-
-
+ID|Yes|Machine History Id|
+languagecode|Yes|Language code for the Machine|
+eff_dtimes|Yes |Effective Date and Time of the Machine|
 
 ### Example Response
 ```JSON
 {
-  "machines": [
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}, 
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}
-			]
+  "machineHistoryDetails": [
+    {
+      "effectDateTime": "2018-12-24T06:05:26.304Z",
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T06:05:26.304Z"
+    }
+  ]
 }
 ```
 200
