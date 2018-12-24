@@ -4269,7 +4269,7 @@ lang_code|Yes|Language code of the Machine Specification| |
 This service deletes a Machine Specification from the Machine Specifications master module. 
 
 ### Resource URL
-### `DELETE /machinespecifications`
+### `DELETE /machinespecifications/{id}`
 
 ### Resource details
 
@@ -4288,15 +4288,13 @@ lang_code|Yes|Language code of the Machine Specification| |
 ### Example Request
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+	"id":"KJDS9"
 }
 ```
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string"
 }
 ```
 
