@@ -4240,15 +4240,26 @@ lang_code|Yes|Language code of the Machine Specification| |
 ### Example Request
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:36:25.656Z",
+  "request": {
+    "brand": "string",
+    "description": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "machineTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
+    "name": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string"
 }
 ```
 
