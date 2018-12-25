@@ -46,9 +46,9 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
 ### Sample Request
 ```JSON
 {
-//API Metadata
+  // API Metadata
   "id": "mosip.identity.auth",
-//Request Metadata
+  // Request Metadata
   "tspID": "tsp54321",
   "licenseKey": "<licenseKey>",
   "transactionID": "txn1234567",
@@ -83,9 +83,9 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
 	"ePrintRequired": true,
 	"secLangRequired" : true
   }
-// auth request
+  // Auth Request
   "request": {
-// This element will be encrypted and encoded
+	// This element should be encrypted and encoded by TSP using Public Key
    "identity": {
       "UIN": "6789 5645 3456",
       "VID": "6789 5645 3456",
@@ -154,18 +154,18 @@ Status Code : 200(OK)
 
 ```JSON
 {
-  //APIMetadata
+  // API Metadata
   "id": "mosip.identity.auth",
   "version": "1.0",
-  //ResponseMetadata
+  // Response Metadata
   "transactionID": "txn12345",
   "staticToken": "<static_token>",
   "requestTime": "2018-10-17T07:22:57.086+05:30",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
-  //Response
+  // Auth Response
   "status": "Y",
   "err": [],
-  "response": {// encoded encrypted using KUA's public key
+  "response": {// encoded encrypted KYC info using TSP's public key
     "ttl": "time_to_live_for_KYC_Info",
     "identity": {
       "name": [
@@ -275,15 +275,15 @@ Status Code : 500(Error)
 
 ```JSON
 {
-  //APIMetadata
+  // API Metadata
   "id": "mosip.identity.auth",
   "version": "1.0",
-  //ResponseMetadata
+  // Response Metadata
   "transactionID": "txn12345",
   "staticToken": "<static_token>",
   "requestTime": "2018-10-17T07:22:57.086+05:30",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
-  //Response
+  // Auth Response
   "status": "N",
   "err": [
     {
@@ -322,11 +322,14 @@ request: channel: email|N|Communication channel to send OTP|false| true
 ### Sample Request
 ```JSON
 {
+  // API Metadata
   "id": "mosip.identity.otp",
+  // Request Metadata
   "tspID": "tsp54321",
   "licenseKey": "<licenseKey>",
   "transactionID": "txn12345",
   "requestTime": "2018-10-17T07:22:57.086+05:30",
+  // OTP Request
   "request": {
     "identity": {
       "UIN": "678956453456",
@@ -345,13 +348,14 @@ request: channel: email|N|Communication channel to send OTP|false| true
 Status Code : 200 (OK)
 ```JSON
 {
+  // API Metadata
   "id": "mosip.identity.otp",
   "version": "1.0",
+  // Response Metadata
   "transactionID": "txn12345",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
-  "err": [
-    
-  ],
+  // OTP Response
+  "err": [],
   "response": {
     "maskedMobile": "XXXXXXX123",
     "maskedEmail": "abXXXXXXXXXcd@xyz.com"
@@ -363,10 +367,13 @@ Status Code : 200 (OK)
 Status Code : 500 (Error)
 ```JSON
 {
+  // API Metadata
   "id": "mosip.identity.otp",
   "version": "1.0",
+  // Response Metadata
   "transactionID": "txn12345",
   "responseTime": "2018-10-17T07:23:19.590+05:30",
+  // OTP Response
   "err": [
     {
       "code": "IDA-OTA-006",
