@@ -8,7 +8,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 4. Bio based - Fingerprint, IRIS and Face
 
 ### Resource URL
-### `POST identity/auth`
+### `POST identity/auth/v1.0`
 
 ### Resource details
 
@@ -21,7 +21,6 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | | mosip.identity.auth
-version|Y |API version| | 1.0
 tspID|Y|TSP ID| |tsp5432111
 licenseKey|Y|TSP's License Key| | 
 transactionID|Y|Request Transaction ID| | pi
@@ -49,7 +48,6 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
 {
 //API Metadata
   "id": "mosip.identity.auth",
-  "version": "1.0",
 //Request Metadata
   "tspID": "tsp54321",
   "licenseKey": "<licenseKey>",
@@ -142,7 +140,9 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
     "otherFactors": {
       //better name for this
       "totp": "123456",
-      "spin": "987654"
+      "spin": "987654",
+      "challengeResponse": "12341234",
+      "rsaKey": "<rsa-pub-key>"
     }
   }
 }
@@ -165,7 +165,7 @@ Status Code : 200(OK)
   //Response
   "status": "Y",
   "err": [],
-  "kycResponse": {// encoded encrypted using KUA's public key
+  "response": {// encoded encrypted using KUA's public key
     "ttl": "time_to_live_for_KYC_Info",
     "identity": {
       "name": [
@@ -297,7 +297,7 @@ Status Code : 500(Error)
 ## 2. OTP Request
 This service enables TSP to request for an OTP for an Individual. The OTP will be send via message or email to the Individual. This OTP should then be used to authenticate an Individual using Auth service.
 
-### Resource URL - `POST identity/otp`
+### Resource URL - `POST identity/otp/v1.0`
 
 ### Resource details
 
@@ -310,7 +310,6 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Y|API Id| |mosip.identity.otp
-version|Y|API version| | 1.0
 tspID|Y|TSP ID| |tsp1234567
 licenseKey|Y|Licence Key of TSP|| 
 transactionID|Y|Request Transaction ID| |abc123abc
@@ -324,7 +323,6 @@ request: channel: email|N|Communication channel to send OTP|false| true
 ```JSON
 {
   "id": "mosip.identity.otp",
-  "version": "1.0",
   "tspID": "tsp54321",
   "licenseKey": "<licenseKey>",
   "transactionID": "txn12345",
