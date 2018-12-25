@@ -737,23 +737,26 @@ isactive|Yes|Is the machine active?| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.machine.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "machine":  
-			"machinename":"string",
-			"macid":"string",	
-			"serialnumber":"string",
-			"isactive":"boolean",
-			"languagecode":"string" 
-	}
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:52:46.758Z",
+  "request": {
+    "id": "string",
+    "ipAddress": "string",
+    "isActive": true,
+    "langCode": "string",
+    "macAddress": "string",
+    "machineSpecId": "string",
+    "name": "string",
+    "serialNum": "string",
+    "validityDateTime": "2018-12-24T05:52:46.758Z"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "machineid":"string"
+  "id": "string"
 }
 ```
 ### Response codes
@@ -797,23 +800,29 @@ Name | Required | Description | Default Value | Example
 ```JSON
 {
   "machines": [
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}, 
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						 "languagecode":"string" 
-				}
-			]
+    {
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:54:42.097Z"
+    },
+  {
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:54:42.097Z"
+    }
+  ]
 }
 ```
 200
@@ -851,30 +860,36 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
--NA-
+languagecode| Yes | Machine Languge Code|
 
 
 ### Example Response
 ```JSON
 {
   "machines": [
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}, 
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string" 
-				}
-			]
+    {
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:58:03.286Z"
+    },
+{
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T05:58:03.286Z"
+    }
+  ]
 }
 ```
 200
@@ -912,30 +927,27 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
--NA-
-
+ID|Yes|Machine History Id|
+languagecode|Yes|Language code for the Machine|
+eff_dtimes|Yes |Effective Date and Time of the Machine|
 
 ### Example Response
 ```JSON
 {
-  "machines": [
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}, 
-				{ 
-						"machineid":"string",
-						"machinename":"string",
-						"macid":"string",	
-						"serialnumber":"string",
-						"isactive":"boolean",
-						"languagecode":"string"
-				}
-			]
+  "machineHistoryDetails": [
+    {
+      "effectDateTime": "2018-12-24T06:05:26.304Z",
+      "id": "string",
+      "ipAddress": "string",
+      "isActive": true,
+      "langCode": "string",
+      "macAddress": "string",
+      "machineSpecId": "string",
+      "name": "string",
+      "serialNum": "string",
+      "validityDateTime": "2018-12-24T06:05:26.304Z"
+    }
+  ]
 }
 ```
 200
@@ -1939,39 +1951,23 @@ languagecode|Yes|Language of the id type| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.idtype.create",
-	"ver": "1.0",
-	"timestamp": "",
-	"request": {
-		"idtypes": [{
-				"code": "string",
-				"name":"string",
-				"descr":"string",
-				"langCode": "string"
-			},
-			{
-				"code": "string",
-				"name":"string",
-				"descr":"string",
-				"langCode": "string"
-			}
-		]
-	}
+  "id": "string",
+  "request": {
+    "code": "string",
+    "descr": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  },
+  "timestamp": "2018-12-24T06:24:48.149Z",
+  "ver": "string"
 }
 ```
 ### Example Response
 ```JSON
 {
-	"results": [
-                {
-			"code": "string",
-			"langCode": "string"
-		},
-		{
-			"code": "string",
-			"langCode": "string"
-		}
-	]
+  "code": "string",
+  "langCode": "string"
 }
 ```
 ### Response codes
@@ -4010,24 +4006,23 @@ isactive|Yes|Is the machine type active?| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.machinetype.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "machinetype": { 
-					"machinetypecode":"string",
-					"machinename":"string",	
-					"description":"string",
-					"languagecode":"boolean",
-					"isactive":"string" 					
-			}
-	}
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:27:49.183Z",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "machinetypecode": ""
+  "code": "string",
+  "langCode": "string"
 }
 ```
 ### Response codes
@@ -4194,22 +4189,26 @@ is_active|Yes|Is the Machine Specification active| |
 ### Example Request
 ```JSON
 {
-	"id":"KJDS9",
-	"name":"Laptop",
-	"brand":"Hewlett Packard",
-	"model":"L34-324",
-	"mtyp_code":"GEW8",
-	"min_driver_ver":"1.4",
-	"descr":"This is a medium configuration",
-	"lang_code":"eng",
-	"is_active":true
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:33:45.899Z",
+  "request": {
+    "brand": "string",
+    "description": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "machineTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
+    "name": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string"
 }
 ```
 
@@ -4237,15 +4236,26 @@ lang_code|Yes|Language code of the Machine Specification| |
 ### Example Request
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:36:25.656Z",
+  "request": {
+    "brand": "string",
+    "description": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "machineTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
+    "name": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string"
 }
 ```
 
@@ -4255,7 +4265,7 @@ lang_code|Yes|Language code of the Machine Specification| |
 This service deletes a Machine Specification from the Machine Specifications master module. 
 
 ### Resource URL
-### `DELETE /machinespecifications`
+### `DELETE /machinespecifications/{id}`
 
 ### Resource details
 
@@ -4268,21 +4278,12 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Yes|ID of the Machine Specification| | 
-lang_code|Yes|Language code of the Machine Specification| | 
 
 
-### Example Request
-```JSON
-{
-	"id":"KJDS9",
-	"lang_code":"eng"
-}
-```
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"lang_code":"eng"
+  "id": "string"
 }
 ```
 

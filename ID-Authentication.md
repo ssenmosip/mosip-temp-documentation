@@ -49,4 +49,5 @@ To ensure that the request is coming from a registered TSP and has not been modi
 ### Authentication API must be audited for reporting and fraud management checks
 To analyze and generate authentication patterns, all authentication requests should be audited. These reports can then be used to determine any frauds suring authentication process.
 
-## Logical View
+## Logical View    
+![ID Authentication Logical view](_images/arch_diagrams/MOSIP_IDA_Logical_View_v0.2.png)
