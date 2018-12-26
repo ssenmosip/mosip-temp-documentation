@@ -158,23 +158,35 @@ Get the clarity of feature under scope of testing. Testing the features which ar
 # 6. Registration Client Approach
 
 Framework followed is POM(Page Object Model)
+
 Maintaining Locators
+
 Each screen/object is maintained as Page; all the locators of a respective screen is saved under this Page. Any changes are to be updated/maintained at only one place at Page level.
+
 Locators: Each object/element is to be located using unique ID locators. If cannot find any unique ID locators, request Dev team to provide the same instead of going ahead and implementing from qa side at target folder level.
+
 Code for test cases/scripts:
 Maintain test cases at Object/Page level. Test scripts to be built using re-usable library functions built as part of testing framework development.
-Input Test Data:
+
+## Input Test Data:
+
 Test Data is kept outside the framework logic. All test inputs are provided wither by Data Util or Dev’s code on input file creation. We should get Demographic data as input jsons and using mappers to de-parameterize the fields under test.
 To work with Data Util team on the agreed upon contract to be followed in naming/path to populate the inputs/how to call the utils etc for both Demographic and Biometric data.
-Folder Structure: We should follow unique folder structure for the packets, which are used for inputs and outputs as well; these packets will be in turn used as inputs by Reg-Proc client and hence can reuse them.
+
+## Folder Structure: 
+
+We should follow unique folder structure for the packets, which are used for inputs and outputs as well; these packets will be in turn used as inputs by Reg-Proc client and hence can reuse them.
+
 Health Checks
 Need to come up with Health check tests for:
 1.	All Interfaces (Integration Points)
 2.	All Connectivity points
+
 Exception Handling
 Tests should be robust enough to handle error scenarios like
 1.	Exception while capturing images
 2.	Exception while processing data
+
 
 
 
