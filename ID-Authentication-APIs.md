@@ -33,6 +33,10 @@ requestedAuth: pin| Y | Pin Authentication Type |false |false
 bioMetadata|N|Additional information on Biometric Auth| |
 bioMetadata: bioType|Y|Type of Biometric Auth requested| | FTD
 bioMetadata: deviceInfo|Y|Device Information used for Biometric Auth requested| |
+kycMetadata: consentRequired| Y |Consent of Individual to retrieve KYC details| |
+kycMetadata: ePrintRequired| N |Printable format of KYC details required in response| |
+kycMetadata: secLangRequired| N |KYC Details required in secondary language in response| |
+sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
 request| Y | Auth request attributes to be used for authenticating Individual | | 
 request: identity: UIN|N| UIN attribute of Individual's Identity| | 
 request: identity: VID|N| VIDattribute of Individual's Identity| | 
@@ -58,7 +62,7 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
     "pin": true,
     "bio": false,
     "otp": false,
-    "kyc": true,
+    "kyc": true
   },
   "bioMetadata": [
     {
@@ -83,6 +87,7 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
 	"ePrintRequired": true,
 	"secLangRequired" : true
   }
+  "sessionKey": "<encrypted and encoded session key>",
   // Auth Request
   "request": {
 	// This element should be encrypted and encoded by TSP using Public Key
