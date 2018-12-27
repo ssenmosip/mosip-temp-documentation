@@ -1366,7 +1366,7 @@ Description: Forbidden
 This service will create the list of Gender which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /genders`
+### `POST /gendertypes`
 
 ### Resource details
 
@@ -1383,42 +1383,22 @@ gendertype|Yes|Name of the gender| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.gender.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "genders": [
-			{ 
-				"gender": [
-					{"gendertype":"string"},
-					{"languagecode":"string"}					
-				]
-			}, 
-			{ 
-				"gender": [
-					{"gendertype":"string"},
-					{"languagecode":"string"}
-				]
-			}
-	  ]
-	}
+  "id": "string",
+  "request": {
+    "code": "GC002",
+    "genderName": "Male",
+    "isActive": true,
+    "langCode": "ENG"
+  },
+  "timestamp": "2018-12-27T09:29:01.351Z",
+  "ver": "string"
 }
 ```
 ### Example Response
 ```JSON
 {
-  "successfully_created_genders": [
-		{ 
-			"gender": [
-				{"genderid":"string"}
-			]
-		}, 
-		{ 
-			"gender": [
-				{"genderid":"string"}
-			]
-		}
-  ]
+  "code": "GC002",
+  "langCode": "ENG"
 }
 ```
 ### Response codes
@@ -1446,7 +1426,7 @@ This service will provides the service for the List of Genders.
 
 
 ### Resource URL
-### `GET /genders`
+### `GET /gendertypes`
 
 ### Resource details
 
@@ -1465,22 +1445,20 @@ gendertype|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
-  "genders": [
-				{ 
-					"gender": [
-						{"genderid":"string"},
-						{"gendertype":"string"},
-						{"languagecode":"string"}
-					]
-				}, 
-				{ 
-					"gender": [
-						{"genderid":"string"},
-						{"gendertype":"string"}
-						{"languagecode":"string"}
-					]
-				}
-			]
+  "genderType": [
+    {
+      "code": "GC001",
+      "genderName": "Female",
+      "langCode": "eu",
+      "isActive": true
+    },
+    {
+      "code": "GC002",
+      "genderName": "Male",
+      "langCode": "ENG",
+      "isActive": true
+    }
+  ]
 }
 ```
 200
@@ -1500,13 +1478,13 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.8.5 Genders Master-get based on id and language service
+# 2.3.8.5 Genders Master-get based on language service
 
 This service will provides the service for the List of Genders. 
 
 
 ### Resource URL
-### `GET /genders/{id}/{languagecode}`
+### `GET /gendertypes/{languagecode}`
 
 ### Resource details
 
@@ -1525,22 +1503,14 @@ gendertype|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
-  "genders": [
-				{ 
-					"gender": [
-						{"genderid":"string"},
-						{"gendertype":"string"},
-						{"languagecode":"string"}
-					]
-				}, 
-				{ 
-					"gender": [
-						{"genderid":"string"},
-						{"gendertype":"string"}
-						{"languagecode":"string"}
-					]
-				}
-			]
+  "genderType": [
+    {
+      "code": "GC002",
+      "genderName": "Male",
+      "langCode": "ENG",
+      "isActive": true
+    }
+  ]
 }
 ```
 200
@@ -1566,7 +1536,7 @@ Master data is required across the platform.
 This service will create the list of Title which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /titles`
+### `POST /title`
 
 ### Resource details
 
@@ -1583,23 +1553,23 @@ titletype|Yes|Name of the title| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.title.create",
-	"ver": "1.0",
-	"timestamp": "",
-	"request": {
-		"code": "string",
-		"name": "string",
-		"descr": "string",
-		"lang_code": "string",
-		"is_active": "boolean"
-	}
+  "id": "string",
+  "request": {
+    "code": "cvf",
+    "isActive": true,
+    "langCode": "ghf",
+    "titleDescription": "string",
+    "titleName": "string"
+  },
+  "timestamp": "2018-12-27T09:38:58.574Z",
+  "ver": "string"
 }
 ```
 ### Example Response
 ```JSON
 {
-	"code": "string",
-	"lang_code": "string"
+  "code": "cvf",
+  "langCode": "ghf"
 }
 ```
 ### Response codes
@@ -1627,7 +1597,7 @@ This service will provides the service for the List of Titles.
 
 
 ### Resource URL
-### `GET /titles`
+### `GET /title`
 
 ### Resource details
 
@@ -1646,22 +1616,43 @@ titletype|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
-  "titles": [
-				{ 
-					"title": [
-						{"titleid":"string"},
-						{"titletype":"string"},
-						{"languagecode":"string"}
-					]
-				}, 
-				{ 
-					"title": [
-						{"titleid":"string"},
-						{"titletype":"string"},
-						{"languagecode":"string"}
-					]
-				}
-			]
+  "titleList": [
+    {
+      "code": "43",
+      "titleName": "string",
+      "titleDescription": "string",
+      "isActive": true,
+      "langCode": "ENG"
+    },
+    {
+      "code": "1",
+      "titleName": "mosip@#$",
+      "titleDescription": "MOSIP@@",
+      "isActive": true,
+      "langCode": "ENG"
+    },
+    {
+      "code": "234",
+      "titleName": "string123",
+      "titleDescription": "string123",
+      "isActive": true,
+      "langCode": "ENG"
+    },
+    {
+      "code": "12345",
+      "titleName": "string",
+      "titleDescription": "string",
+      "isActive": true,
+      "langCode": "GER"
+    },
+    {
+      "code": "cvf",
+      "titleName": "string",
+      "titleDescription": "string",
+      "isActive": true,
+      "langCode": "ghf"
+    }
+  ]
 }
 ```
 200
@@ -1681,7 +1672,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.9.3 Titles Master-get based on id and language service
+# 2.3.9.3 Titles Master-get based on language service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Titles. 
@@ -1689,7 +1680,7 @@ This service will provides the service for the List of Titles.
 
 
 ### Resource URL
-### `GET /titles/{id}/{languagecode}`
+### `GET /title/{languagecode}`
 
 ### Resource details
 
@@ -1708,22 +1699,15 @@ titletype|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
-  "titles": [
-				{ 
-					"title": [
-						{"titleid":"string"},
-						{"titletype":"string"},
-						{"languagecode":"string"}
-					]
-				}, 
-				{ 
-					"title": [
-						{"titleid":"string"},
-						{"titletype":"string"},
-						{"languagecode":"string"}
-					]
-				}
-			]
+  "titleList": [
+    {
+      "code": "xcv",
+      "titleName": "string",
+      "titleDescription": "string",
+      "isActive": true,
+      "langCode": "qwe"
+    }
+  ]
 }
 ```
 200
