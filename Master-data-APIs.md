@@ -2340,7 +2340,8 @@ locationcode|Yes|Code of the location of the registration center| |
   },
   "timestamp": "2018-12-27T18:14:54.063Z",
   "ver": "string"
-}```
+}
+```
 ### Example Response
 ```JSON
 {
