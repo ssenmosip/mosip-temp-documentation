@@ -18,28 +18,51 @@ The architectural constraints for the overall MOSIP kernel are also applicable f
 Kernel components provide defined functional API for use by higher-level services. Kernel components may also expose REST API wherever needed. Following are the various components in the Kernel module. 
 
 Audit Manager
+
 Exception Manager
+
 Log Manager
+
 Data Access Manager
+
 Data Validator
+
 Context Manager
+
 Cache Manager
+
 Encryption/Decryption Manager
+
 Authentication
+
 Key Management
+
 Virus Manager
+
 UIN Generator
+
 OTP Manager
+
 Config Manager
+
 Data Sync Manager
+
 ID Manager
+
 Master Data Manager
+
 Doc Quality Checker
+
 FTP Manager
+
 Language Manager
+
 Data Mapper
+
 Template Manager
+
 Notification Manager
+
 PDF Generator
 
 ## Logical view
