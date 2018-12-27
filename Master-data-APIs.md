@@ -2313,44 +2313,49 @@ locationcode|Yes|Code of the location of the registration center| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.registrationcenter.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "registrationcenter": 
-		{
-			"registrationcentername":"",
-			"centertypecode":"",
-			"addressline1":"",
-			"addressline2":"",
-			"addressline3 ":"",
-			"longitude ":"",
-			"latitude":"",
-			"contactphone":"",
-			"numberofkiosks":"",
-			"workinghours":"",
-			"perkioskprocesstime":"",
-			"officestarttime":"",
-			"officeendtime":"",
-			"holidaylocationcode":"",
-			"isactive":"",
-			"centertype":"",
-			"address":"",
-			"workinghours":"",
-			"contactnumber":"",
-			"pincode":"",
-			"locationcode":""
-		}
-	}
-}
-```
+  "id": "string",
+  "request": {
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "addressLine3": "string",
+    "centerEndTime": "HH:mm:ss",
+    "centerStartTime": "HH:mm:ss",
+    "centerTypeCode": "string",
+    "contactPerson": "string",
+    "contactPhone": "string",
+    "holidayLocationCode": "string",
+    "id": "string",
+    "isActive": true,
+    "languageCode": "string",
+    "latitude": "string",
+    "locationCode": "string",
+    "longitude": "string",
+    "lunchEndTime": "HH:mm:ss",
+    "lunchStartTime": "HH:mm:ss",
+    "name": "string",
+    "numberOfKiosks": 0,
+    "perKioskProcessTime": "HH:mm:ss",
+    "timeZone": "string",
+    "workingHours": "string"
+  },
+  "timestamp": "2018-12-27T18:14:54.063Z",
+  "ver": "string"
+}```
 ### Example Response
 ```JSON
 {
-	"registrationcenterid":"string"
+	"id":"string"
 }
 ```
 ### Response codes
+200
+
+Description: OK
+
+201
+
+Description: Created
+
 202
 
 Description: Accepted
@@ -2630,7 +2635,7 @@ Description: Not Found
 This service will return a list of enrollment center details based on the location code 
 
 ### Resource URL
-### `GET /getlocspecificregistrationcenters/{languagecode}/{locationcode}`
+### `GET /getlocspecificregistrationcenters/{langcode}/{locationcode}`
 
 ### Resource details
 
@@ -2648,36 +2653,37 @@ locationcode|Yes|The location code for which the list of enrollment centers are 
 ### Example Response
 ```JSON
 {
-  "registrationcenter": [
-	{
-			"registrationcentername":"",
-			"centertypecode":"",
-			"addressline1":"",
-			"addressline2":"",
-			"addressline3 ":"",
-			"longitude ":"",
-			"latitude":"",
-			"contactphone":"",
-			"numberofkiosks":"",
-			"workinghours":"",
-			"perkioskprocesstime":"",
-			"officestarttime":"",
-			"officeendtime":"",
-			"holidaylocationcode":"",
-			"isactive":"",
-			"centertype":"",
-			"address":"",
-			"workinghours":"",
-			"contactnumber":"",
-			"pincode":"",
-			"locationcode":""
-	}
+  "registrationCenters": [
+    {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "addressLine3": "string",
+      "centerEndTime": "HH:mm:ss",
+      "centerStartTime": "HH:mm:ss",
+      "centerTypeCode": "string",
+      "contactPerson": "string",
+      "contactPhone": "string",
+      "holidayLocationCode": "string",
+      "id": "string",
+      "isActive": true,
+      "languageCode": "string",
+      "latitude": "string",
+      "locationCode": "string",
+      "longitude": "string",
+      "lunchEndTime": "HH:mm:ss",
+      "lunchStartTime": "HH:mm:ss",
+      "name": "string",
+      "numberOfKiosks": 0,
+      "perKioskProcessTime": "HH:mm:ss",
+      "timeZone": "string",
+      "workingHours": "string"
+    }
   ]
 }
 ```
 200
 
-Description: Success
+Description: OK
 
 400
 
