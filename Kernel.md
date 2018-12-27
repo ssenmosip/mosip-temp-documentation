@@ -66,3 +66,4 @@ Notification Manager
 PDF Generator
 
 ## Logical view
+![Kernel Components](https://github.com/mosip/mosip/blob/master/design/_images/KernelComponents.png)
