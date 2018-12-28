@@ -3383,11 +3383,12 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 code|Yes|Code of the location| | 
 name|Yes|Name of the location| | 
-hierarchylevel|Yes|Heirarchy level of the location| | 
-hierarchylevelname|Yes|Hierarchy level name of the location| | 
-parentloccode|Yes|Parent location code of the location| | 
-langcode|Yes|Language Code of the location| | 
-isactive|Yes|Is this location active| | 
+hierarchyLevel|Yes|Heirarchy level of the location| | 
+hierarchyName|Yes|Hierarchy level name of the location| | 
+parentLocCode|Yes|Parent location code of the location| | 
+langCode|Yes|Language Code of the location| | 
+isActive|Yes|Is this location active| | 
+
 
 ### Example Request
 ```JSON
@@ -3417,6 +3418,9 @@ isactive|Yes|Is this location active| |
 }
 ```
 ### Response codes
+201
+Description: Created
+
 202
 
 Description: Accepted
@@ -3488,6 +3492,10 @@ Description: Unauthorized
 
 Description: Not Found
 
+500
+
+Description: Internal Server Error
+
 
 # 2.3.15.3 Locations Master-get service
 Master data is required across the platform. 
@@ -3518,22 +3526,22 @@ Name | Required | Description | Default Value | Example
 		{
 			"code":"string",
 			"name":"string",
-			"hierarchylevel":"number",
-			"hierarchylevelname":"string",
-			"parentloccode":"",
-			"langcode":"string",
-			"isactive":"boolean",
-			"languagecode":"string"
+			"hierarchyLevel":"number",
+			"hierarchyLevelName":"string",
+			"parentLocCode":"",
+			"langCode":"string",
+			"isActive":"boolean",
+			
 		},
 		{
 			"code":"string",
 			"name":"string",
-			"hierarchylevel":"number",
-			"hierarchylevelname":"string",
-			"parentloccode":"",
-			"langcode":"string",
-			"isactive":"boolean",
-			"languagecode":"string"
+			"hierarchyLevel":"number",
+			"hierarchyLevelName":"string",
+			"parentLocCode":"",
+			"langCode":"string",
+			"isActive":"boolean",
+			
 		}
 	]
 }
