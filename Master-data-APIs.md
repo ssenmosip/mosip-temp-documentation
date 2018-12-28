@@ -42,8 +42,6 @@ This section details about the service APIs in the Master data modules
 
 [2.3.21 Registration Center-User-Machine Mapping API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2321-registration-center-user-machine-mapping-specifications)
 
-[2.3.22 Registration Center-User-Machine Mapping History API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2322-registration-center-user-machine-mapping-history-specifications)
-
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
 Master data is required across the platform. 
@@ -4562,4 +4560,57 @@ Name | Required | Description | Default Value | Example
 	"is_active":true
 }
 ```
+# 2.3.1 Holiday Master API
+## 2.3.1.1 Holiday Master-create service
+Master data is required across the platform. 
+
+This service will create the holiday in the Holiday Master module. 
+
+### Resource URL
+### `POST /holidays`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+holidayDate|Yes|Holiday date in UTC standard ISO8601 format| | 2028-10-04T05:57:20.929Z
+holidayName|Yes|Name of the holiday| | 
+
+### Example Request
+```JSON
+{
+	"id": "mosip.holiday.create",
+	"ver" : "1.0",
+	"timestamp" : "",
+	"request" : { 
+		  "holiday":{ "holidayDate": "string", "holidayName": "string", "languagecode": "string" }
+	}
+}  
+```
+### Example Response
+```JSON
+  { "holidayID": "string" }
+```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
 
