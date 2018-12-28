@@ -3392,28 +3392,28 @@ isactive|Yes|Is this location active| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.location.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-	  "locations": 
-			{
-				"code":"string",
-				"name":"string",
-				"hierarchylevel":"number",
-				"hierarchylevelname":"string",
-				"parentloccode":"",
-				"langcode":"string",
-				"isactive":"boolean",
-				"languagecode":"string"
-			}
-	}
+	"id": "string",
+	"ver" : "string",
+	"timestamp" : "2018-12-28T10:56:55.972Z",
+	"request": {
+                      "code": "string",
+                      "hierarchyLevel": 0,
+                      "hierarchyName": "string",
+                      "isActive": true,
+                      "langCode": "string",
+                      "name": "string",
+                      "parentLocCode": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-	"locationcode":"string"
+	
+  "code": "string",
+  "isActive": true,
+  "parentLocCode": "string"
+
 }
 ```
 ### Response codes
