@@ -419,39 +419,34 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-documentcategories|Yes|List of document categories| | 
+documentcategories|Yes|Document categories| | 
 
 ### Example Request
 ```JSON
 {
-	"id": "mosip.documentcategories.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" :{
-	  "documentcategories": [
-			{ "documentscategory":"POA", "languagecode":"string" },
-			{ "documentscategory":""POI", "languagecode":"string" },
-			{ "documentscategory":""POR", "languagecode":"string" },
-			{ "documentscategory":""POB", "languagecode":"string" }
-		]
-	}
+  "id": "mosip.documentcategories.create",
+  "ver": "1.0",
+  "timestamp": "2018-12-28T10:56:55.972Z",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  },
 }
 ```
 ### Example Response
 ```JSON
 {
-  "successfully_created_documentcategories": [
-				{ "categoryid":"id" },
-				{ "categoryid":"id" },
-				{ "categoryid":"id" },
-				{ "categoryid":"id" }
-		]
+  "code": "string",
+  "langCode": "string"
 }
 ```
 ### Response codes
-202
+201
 
-Description: Accepted
+Description: Created
 
 400
 
@@ -464,6 +459,7 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
 
 # 2.3.3.2 Documents Category Master-get service
 
