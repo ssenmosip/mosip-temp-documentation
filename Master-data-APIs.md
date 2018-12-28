@@ -4768,13 +4768,13 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
-## 2.3.22.2 Registration Center Machine Mapping Master-deleteservice
+## 2.3.22.2 Registration Center Machine Mapping Master-delete service
 
 This service will provides the service for delete mapping of  Center-Machine. 
 
 
 ### Resource URL
-### `GET /registrationcentermachine/{regCenterId}/{machineId}`
+### `DELETE/registrationcentermachine/{regCenterId}/{machineId}`
 
 ### Resource details
 
@@ -4884,7 +4884,7 @@ This service will provides the service for delete mapping of  Device-Machine.
 
 
 ### Resource URL
-### `GET /registrationcenterdevice/{regCenterId}/{deviceId}`
+### `DELETE/registrationcenterdevice/{regCenterId}/{deviceId}`
 
 ### Resource details
 
