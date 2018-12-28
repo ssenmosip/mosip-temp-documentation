@@ -2501,8 +2501,7 @@ addressline2|No|Line 2 of the address| |
 addressline3|No|Line 3 of the address| | 
 longitude|Yes|Longitude of the registration center| | 
 latitude|Yes|Latitude of the registration center| | 
-contactphone|Yes|Contact phone number of the registration center| | 
-numberofkiosks|Yes|Number of Kiosks in the registration center| | 
+contactphone|Yes|Contact phone number of the registration center| |  
 workinghours|Yes|Working hours of the registration center| | 
 perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
 officestarttime|Yes|Office start time of the registration center| | 
