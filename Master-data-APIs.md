@@ -1483,7 +1483,7 @@ Description: Forbidden
 This service will delete Gender which are used in the MOSIP platform. 
 
 ### Resource URL
-### `DELETE/gendertypes`
+### `DELETE/gendertypes/{code}`
 
 ### Resource details
 
