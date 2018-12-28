@@ -1828,6 +1828,104 @@ Description: Unauthorized
 
 Description: Not Found
 
+# 2.3.9.4 Titles Master-put based on language service
+Master data is required across the platform. 
+
+This service will provides the service for updating a particular title. 
+
+
+
+### Resource URL
+### `PUT /title`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the title| | 
+titleName|Yes|Name of the title| | 
+isActive|Yes|Name of the title| |
+langCode|Yes|Name of the title| |
+titleDescription|Yes|Name of the title| |
+
+
+### Example Response
+```JSON
+{
+  "code": "xcv",
+  "langCode": "qwe"
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+# 2.3.9.5 Titles Master-delete based on language service
+Master data is required across the platform. 
+
+This service will provides the service for deleting a particular title. 
+
+
+
+### Resource URL
+### `DELETE /title/{code}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the title| | 
+
+
+### Example Response
+```JSON
+{
+  "code": "xcv"
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+
+
+
 # 2.3.10 Biometric types Master API
 # 2.3.10.1 Biometric types Master-create service
 Master data is required across the platform. 
