@@ -4588,7 +4588,7 @@ Description: Forbidden
 
 # 2.3.21 Registration Center User Machine Mapping API
 
-## 2.3.20.1 Registration Center-User-Machine Mapping Master-create service
+## 2.3.21.1 Registration Center-User-Machine Mapping Master-create service
 
 This service will create a Registration Center-User-Machine Mapping which are used in the MOSIP platform. 
 
@@ -4648,6 +4648,60 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+## 2.3.21.2 Registration Center-User-Machine Mapping Master-create service
+
+This service will provides the service for the Center-User-Machine with their history. 
+
+
+### Resource URL
+### `GET /getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+ID|Yes|Machine History Id|
+effdtimes|Yes|Effective Date and Time of the Machine|
+registrationcenterid|Yes|Registration Center Id|
+machineid|Yes|Machine Id |
+userid|Yes|User Id|
+
+### Example Response
+```JSON
+{
+  "registrationCenters": [
+    {
+      "cntrId": "RC001",
+      "effectivetimes": "2018-12-28T10:14:49.849Z",
+      "isActive": true,
+      "machineId": "MC001",
+      "usrId": "QC001"
+    }
+  ]
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
 
 # 2.3.22 Registration Center Machine API
 ## 2.3.22.1 Registration Center Machine-create service
