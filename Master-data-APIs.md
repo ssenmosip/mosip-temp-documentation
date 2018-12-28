@@ -4694,9 +4694,9 @@ regCenterId|Yes|Available registration center| |
   }
 ```
 ### Response codes
-202
+201
 
-Description: Accepted
+Description: Created
 
 400
 
@@ -4709,6 +4709,12 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+500
+
+Description: Internal Server Error 
+
+
 # 2.3.23 Registration Center Device API
 ## 2.3.22.1 Registration Center Device-create service
 Master data is required across the platform. 
@@ -4754,9 +4760,9 @@ regCenterId|Yes|Available registration center| |
   }
 ```
 ### Response codes
-202
+201
 
-Description: Accepted
+Description: Created
 
 400
 
@@ -4770,7 +4776,9 @@ Description: Unauthorized
 
 Description: Forbidden
 
+500
 
+Description: Internal Server Error 
 
 # 2.3.24 Registration Center Machine Device API
 ## 2.3.24.1 Registration Center Machine Device-create service
@@ -4820,9 +4828,9 @@ deviceId|Yes|Available device id| |
   }
 ```
 ### Response codes
-202
+201
 
-Description: Accepted
+Description: Created
 
 400
 
@@ -4835,4 +4843,9 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+500
+
+Description: Internal Server Error 
+
 
