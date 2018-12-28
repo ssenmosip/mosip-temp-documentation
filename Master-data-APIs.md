@@ -1278,7 +1278,7 @@ languagename|Yes|Name of the language| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.language.create",
+	"id": "mosip.language.update",
 	"ver": "1.0",
 	"timestamp": "",
 	"request": {
