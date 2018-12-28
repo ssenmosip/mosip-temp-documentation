@@ -4768,6 +4768,50 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
+## 2.3.22.2 Registration Center Machine Mapping Master-deleteservice
+
+This service will provides the service for delete mapping of  Center-Machine. 
+
+
+### Resource URL
+### `GET /registrationcentermachine/{regCenterId}/{machineId}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+regCenterId|Yes|Registration Center Id|
+machineId|Yes|Machine Id |
+
+
+### Example Response
+```JSON
+{
+  "machineId": "MC001",
+  "regCenterId": "RC001"
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
 
 # 2.3.23 Registration Center Device API
 ## 2.3.22.1 Registration Center Device-create service
@@ -4833,6 +4877,51 @@ Description: Forbidden
 500
 
 Description: Internal Server Error 
+
+## 2.3.23.2 Registration Center Device Mapping Master-delete service
+
+This service will provides the service for delete mapping of  Device-Machine. 
+
+
+### Resource URL
+### `GET /registrationcenterdevice/{regCenterId}/{deviceId}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+regCenterId|Yes|Registration Center Id|
+deviceId|Yes|Device Id |
+
+
+### Example Response
+```JSON
+{
+  "deviceId": "DV001",
+  "regCenterId": "RC001"
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
 
 # 2.3.24 Registration Center Machine Device API
 ## 2.3.24.1 Registration Center Machine Device-create service
