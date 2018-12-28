@@ -42,6 +42,14 @@ This section details about the service APIs in the Master data modules
 
 [2.3.21 Registration Center User Machine Mapping API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2321-registration-center-user-machine-mapping-api)
 
+[2.3.22 Registration Center Machine API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2322-registration-center-machine)
+
+[2.3.23 Registration Center Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2323-registration-center-device)
+
+[2.3.24 Registration Center Machine Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2324-registration-center-machine-device)
+
+
+
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
 Master data is required across the platform. 
@@ -4640,3 +4648,191 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+# 2.3.22 Registration Center Machine API
+## 2.3.22.1 Registration Center Machine-create service
+Master data is required across the platform. 
+
+This service will create the mapping of registration canter and machine in the RegistrationCenterMachine Master module. 
+
+### Resource URL
+### `POST /registrationcentermachine`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machineId|Yes|Available machine id| | 
+regCenterId|Yes|Available registration center| | 
+
+### Example Request
+```JSON  
+{
+  "id": "mosip.registrationCenterMachine.create",
+  "ver": "1.0",
+  "timestamp": "2018-12-28T09:26:22.886Z",
+  "request": {
+    "isActive": true,
+    "machineId": "string",
+    "regCenterId": "string"
+  }
+}
+
+
+```
+### Example Response
+```JSON
+  {
+  "machineId": "string",
+  "regCenterId": "string"
+  }
+```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+# 2.3.23 Registration Center Device API
+## 2.3.22.1 Registration Center Device-create service
+Master data is required across the platform. 
+
+This service will create the mapping of registration canter and device in the RegistrationCenterDevice Master module. 
+
+### Resource URL
+### `POST /registrationcenterdevice`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+deviceId|Yes|Available device id| | 
+regCenterId|Yes|Available registration center| | 
+
+### Example Request
+```JSON  
+{
+  "id": "mosip.registrationCenterDevice.create",
+  "ver": "1.0",
+  "timestamp": "2018-12-28T09:26:22.886Z",
+  "request": {
+    "isActive": true,
+    "deviceId": "string",
+    "regCenterId": "string"
+  }
+}
+
+
+```
+### Example Response
+```JSON
+  {
+  "deviceId": "string",
+  "regCenterId": "string"
+  }
+```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+
+# 2.3.24 Registration Center Machine Device API
+## 2.3.24.1 Registration Center Machine Device-create service
+Master data is required across the platform. 
+
+This service will create the mapping of registration canter, machine and device in the RegistrationCenterMachineDevice Master module. 
+
+### Resource URL
+### `POST /registrationcentermachinedevice`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machineId|Yes|Available machine id| | 
+regCenterId|Yes|Available registration center| | 
+deviceId|Yes|Available device id| | 
+
+### Example Request
+```JSON  
+{
+  "id": "mosip.registrationCenterMachineDevice.create",
+  "ver": "1.0",
+  "timestamp": "2018-12-28T09:26:22.886Z",
+  "request": {
+    "deviceId": "string",
+    "isActive": true,
+    "machineId": "string",
+    "regCenterId": "string"
+  }
+}
+
+
+```
+### Example Response
+```JSON
+  {
+   "deviceId": "string",
+   "machineId": "string",
+   "regCenterId": "string"
+  }
+```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
