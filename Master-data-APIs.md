@@ -4560,43 +4560,7 @@ Name | Required | Description | Default Value | Example
 	"is_active":true
 }
 ```
-# 2.3.1 Holiday Master API
-## 2.3.1.1 Holiday Master-create service
-Master data is required across the platform. 
 
-This service will create the holiday in the Holiday Master module. 
-
-### Resource URL
-### `POST /holidays`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-holidayDate|Yes|Holiday date in UTC standard ISO8601 format| | 2028-10-04T05:57:20.929Z
-holidayName|Yes|Name of the holiday| | 
-
-### Example Request
-```JSON
-{
-	"id": "mosip.holiday.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : { 
-		  "holiday":{ "holidayDate": "string", "holidayName": "string", "languagecode": "string" }
-	}
-}  
-```
-### Example Response
-```JSON
-  { "holidayID": "string" }
-```
 ### Response codes
 202
 
@@ -4614,3 +4578,65 @@ Description: Unauthorized
 
 Description: Forbidden
 
+# 2.3.21 Registration Center-User-Machine Mapping API
+
+# 2.3.20.1 Registration Center-User-Machine Mapping Master-create service
+
+This service will create a Registration Center-User-Machine Mapping which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /registrationmachineusermappings`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+cntrId|Yes|Registration Center Id for request| | 
+machineId|Yes|Machine Id for request| | 
+usrId|Yes|User Id for request| | 
+isActive|Yes|Mapping is active or not| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "request": {
+    "cntrId": "RC001",
+    "isActive": true,
+    "machineId": "MC001",
+    "usrId": "QC001"
+  },
+  "timestamp": "2018-12-28T09:21:27.472Z",
+  "ver": "string"
+}
+```
+### Example Response
+```JSON
+{
+  "cntrId": "RC001",
+  "machineId": "MC001",
+  "usrId": "QC001"
+}
+```
+### Response codes
+201
+
+Description: Created
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
