@@ -42,11 +42,11 @@ This section details about the service APIs in the Master data modules
 
 [2.3.21 Registration Center User Machine Mapping API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2321-registration-center-user-machine-mapping-api)
 
-[2.3.22 Registration Center Machine API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2322-registration-center-machine)
+[2.3.22 Registration Center Machine API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2322-registration-center-machine-api)
 
-[2.3.23 Registration Center Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2323-registration-center-device)
+[2.3.23 Registration Center Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2323-registration-center-device-api)
 
-[2.3.24 Registration Center Machine Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2324-registration-center-machine-device)
+[2.3.24 Registration Center Machine Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2324-registration-center-machine-device-api)
 
 
 
