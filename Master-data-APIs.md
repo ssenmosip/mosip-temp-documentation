@@ -419,7 +419,11 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-documentcategories|Yes|Document categories| | 
+code|Yes|Document category code| |
+description|optional|document description||
+isActive|Yes|is active or not||
+langCode|Yes|language code||
+name|Yes|Document category name|| 
 
 ### Example Request
 ```JSON
