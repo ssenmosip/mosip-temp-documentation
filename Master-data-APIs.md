@@ -4580,7 +4580,7 @@ Description: Forbidden
 
 # 2.3.21 Registration Center-User-Machine Mapping API
 
-# 2.3.20.1 Registration Center-User-Machine Mapping Master-create service
+## 2.3.20.1 Registration Center-User-Machine Mapping Master-create service
 
 This service will create a Registration Center-User-Machine Mapping which are used in the MOSIP platform. 
 
