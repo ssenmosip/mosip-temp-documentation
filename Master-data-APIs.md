@@ -1418,6 +1418,108 @@ Description: Unauthorized
 
 Description: Forbidden
 
+# 2.3.8.2 Gender Master-update service
+
+This service will update Gender which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT/gendertypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of gender type| | 
+genderName|Yes|Name of gender type| | 
+isActive|Yes|is active or not| | 
+code|Yes|language code of gender| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "request": {
+    "code": "GC001",
+    "genderName": "Male",
+    "isActive": true,
+    "langCode": "ENG"
+  },
+  "timestamp": "2018-12-28T08:33:56.217Z",
+  "ver": "string"
+}
+```
+### Example Response
+```JSON
+{
+  "code": "GC001",
+  "langCode": "ENG"
+}
+```
+### Response codes
+200
+
+Description: OK
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+# 2.3.8.3 Gender Master-delete service
+
+This service will delete Gender which are used in the MOSIP platform. 
+
+### Resource URL
+### `DELETE/gendertypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of gender type| |  
+
+### Example Response
+```JSON
+{
+  "code": "GC001",
+}
+```
+### Response codes
+200
+
+Description: OK
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
 # 2.3.8.4 Genders Master-get service
 Master data is required across the platform. 
 
