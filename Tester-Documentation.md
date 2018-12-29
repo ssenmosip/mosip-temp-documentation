@@ -188,6 +188,76 @@ Tests should be robust enough to handle error scenarios like
 2.	Exception while processing data
 
 
+# 7. RESTful API Automation – Rest Assured Approach
+
+Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:
+
+*      IO Rest Assured DSL
+* 	TestNG
+* 	Java/J2EE
+* 	Eclipse Editor
+
+The framework consists majorly 3 Elements/parts as below:
+	
+*      Test Case Configurator
+* 	Test Data Util
+* 	Test Execution and Assert
+* 	Results
+
+## Test Case Configurator
+
+	This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
+The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
+
+## Test Data Util
+
+Test Data Util forms unique request and response jsons based on the config file received.
+
+### Request:
+
+Based on the valid/Invalid combination of api attributes, the templatized request.json is de-parameterized with randomized generation of input data and placed in folder named with test case name. 
+
+### Resposne:
+
+Based on the type of de-parameterized request, response is mapped with statically saved expected response.json files and saved under the same folder where request was been saved.
+
+### Folder Structure:
+
+Each test scenario/tes case/data combination is written to separate folder and named with test case name. Based on the api’s attribute combination from config file, the folders are populated.
+
+### Test Execution and Assert
+
+Execution:
+IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.
+
+Assert:
+All the foldeers under specific api is traversed through to run each request and compared the actual and expected response sent by Data Util.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared.
+
+### Results:
+
+Result is captured in output.json file where each test case is mapped with unique JIRA ID. This info intern is used to write to Zephyr. After each automation run, Test Cycle will be created and can see detailed report in Zephyr.
+
+## Contract to be followed with Test Data Util:
+
+1.	Based on the templatized request, the api attributes have to be parameterized. If any of the attribute is not tokenized (data is already provided) then retain original value else de-parameterize using randomly generated input data(based on valid/invalid config parameters). This is to avoid parameterization of static data.
+
+2.	Folder Naming Convention
+
+If all attributes in the config file is valid then folder name to be followed as “testcase_smoke” (There will be only one valid scenario for each api)
+
+If any of the attribute is invalid then folder name to be followed as “Invalid_+”name of the invalid attribute”. It is assumed, each time only one attribute will be invalid, if found more than one attribute as invalid then can suffix that name with prior one (Ex: “Invalid_+”name of the invalid attribute1 + name of the invalid attribute2”)
+
+3.	As part of Integration scenario, have to generate request json consuming specific parameters from output of another api.
+
+4.	Few of the input data has to be dynamically generated at the time of de-parameterizing  request.json files 
+Examples: 
+
+Datetimestamp lesser/greater than 20 min than current time (requirement from IDA, Kernel modules) 
+Adding logic to encode/encrypt specific demographic/biometric data
+
+5.	Handling Biometric Data
+
+Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
 
 
