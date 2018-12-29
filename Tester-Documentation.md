@@ -192,17 +192,17 @@ Tests should be robust enough to handle error scenarios like
 
 Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:
 
-*      IO Rest Assured DSL
-* 	TestNG
-* 	Java/J2EE
-* 	Eclipse Editor
+    IO Rest Assured DSL
+    TestNG
+    Java/J2EE
+    Eclipse Editor
 
 The framework consists majorly 3 Elements/parts as below:
 	
-*      Test Case Configurator
-* 	Test Data Util
-* 	Test Execution and Assert
-* 	Results
+      Test Case Configurator
+      Test Data Util
+      Test Execution and Assert
+      Results
 
 ## Test Case Configurator
 
