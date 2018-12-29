@@ -206,7 +206,7 @@ The framework consists majorly 3 Elements/parts as below:
 
 ## Test Case Configurator
 
-	This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
+This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
 The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
 
 ## Test Data Util
