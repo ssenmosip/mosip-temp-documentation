@@ -29,13 +29,13 @@ to capture the biometric data and manipulate on the same.
    receive the command from application. There is a separate socket should be opened to receive the Video streams and Biometric samples. 
       
    It provides following functionality, which will be triggered from the application based on the user actions. 
-   1. Subscribe 
-   2. Un-subscribe 
-   3. Start Capture 
-   4. Stop Capture 
-   5. Force Capture 
-   6. Get Frame 
-   7. Get Sample 
+    1. Subscribe 
+    2. Un-subscribe 
+    3. Start Capture 
+    4. Stop Capture 
+    5. Force Capture 
+    6. Get Frame 
+    7. Get Sample 
 
    The following notifications are provided by the VDM to the application when the respective operations are completed. 
    1. Capture Complete 
