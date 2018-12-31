@@ -373,19 +373,22 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
 ### Example Request
 ```JSON
 {
-	"id": "mosip.blacklistedwords.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-		"blacklistedwords": ["asdf","lkjh","qwer"],
-		"languagecode": "string"
-	}
+  "id": "string",
+  "request": {
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "word": "string"
+  },
+  "timestamp": "2018-12-31T09:08:34.463Z",
+  "ver": "string"
 }
 ```
 ### Example Response
 ```JSON
 {
-  "successfully_created_words": ["asdf","lkjh","qwer"]
+  "langCode": "string",
+  "word": "string"
 }
 ```
 ### Response codes
