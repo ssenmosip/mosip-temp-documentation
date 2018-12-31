@@ -3,8 +3,7 @@
 This document provides the detail of VDM spec to be adhere by the vendor to adopt their devices to the MOSIP platform 
 to capture the biometric data and manipulate on the same. 
 
-
-![VDM Spec view](https://github.com/mosip/mosip/blob/DEV/design/_images/registration/vdm-spec-design.png)
+![VDM Spec view](_images/registration/vdm-spec-design.png)
 
 * Following points has been considered while designing the VDM spec:
    - Vendor should follow this spec and create the device specific VDM service to integrate with the application.
