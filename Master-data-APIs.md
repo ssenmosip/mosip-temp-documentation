@@ -1333,6 +1333,55 @@ Description: When Device is not found
 
 Description: While updating device any error occurred
 
+# 2.3.6.5 Devices Master-delete devices based on id service
+
+This service will delete the devices. 
+
+### Resource URL
+### `DELETE /v1.0/devices/{id}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+deviceId|Yes|The device Id| | 
+
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+200
+
+Description: When Device deleted successfully
+
+204
+
+Description: No Content
+
+401
+
+Description: Unauthorized
+
+403
+	
+Description: Forbidden
+
+404
+
+Description: When Device not found
+
+500
+
+Description: Error occurred while deleting Device
+
 # 2.3.7 Languages Master API
 # 2.3.7.1 Languages Master-create service
 
