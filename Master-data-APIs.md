@@ -401,6 +401,110 @@ Description: Unauthorized
 
 Description: Not Found
 
+# 2.3.2.4 Blacklisted Master-update blacklisted word service
+
+This service will provides the service to update blacklistedwords. 
+
+### Resource URL
+### `PUT /blacklistedwords`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+word |YES|Blacklisted word| |abc|
+description|YES|Description of the blacklisted word|||
+langCode|YES|Language Code of the blacklisted word|||
+isActive|YES|Blacklisted word is active|||
+ 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-31T10:01:24.578Z",
+  "request": {
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "word": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "langCode": "string",
+  "word": "string"
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+# 2.3.2.35 Blacklisted Master-delete blacklisted word service
+
+This service will provides the service to delete blacklistedwords. 
+
+### Resource URL
+### `DELETE /blacklistedwords/{word}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+word |YES|Blacklisted word| |abc||
+ 
+
+### Example Request
+```JSON
+NA
+```
+### Example Response
+```
+word(String)
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
 # 2.3.3 Documents Category Master API
 # 2.3.3.1 Documents Category Master-create service
 
@@ -1153,6 +1257,130 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+# 2.3.6.4 Devices Master-update devices
+
+This service will update existing device. 
+
+
+### Resource URL
+### `PUT /v1.0/devices`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-31T05:47:36.645Z",
+  "request": {
+    "deviceSpecId": "string",
+    "id": "string",
+    "ipAddress": "string",
+    "isActive": true,
+    "langCode": "string",
+    "macAddress": "string",
+    "name": "string",
+    "serialNum": "string",
+    "validityDateTime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+### Response codes
+200
+
+Description: When Device updated successfully
+
+201
+
+Description: Created
+
+400
+
+Description: When Request body passed is null or invalid
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+404
+
+Description: When Device is not found
+
+500
+
+Description: While updating device any error occurred
+
+# 2.3.6.5 Devices Master-delete devices based on id service
+
+This service will delete the devices. 
+
+### Resource URL
+### `DELETE /v1.0/devices/{id}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+deviceId|Yes|The device Id| | 
+
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+200
+
+Description: When Device deleted successfully
+
+204
+
+Description: No Content
+
+401
+
+Description: Unauthorized
+
+403
+	
+Description: Forbidden
+
+404
+
+Description: When Device not found
+
+500
+
+Description: Error occurred while deleting Device
 
 # 2.3.7 Languages Master API
 # 2.3.7.1 Languages Master-create service
