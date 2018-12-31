@@ -3791,6 +3791,73 @@ Description: Unauthorized
 Description: Not Found
 
 
+# 2.3.15.3 Locations Master-get service
+Master data is required across the platform. 
+
+This service will provides the service for the List of Locations. 
+
+
+
+### Resource URL
+### `GET /locations/immediatechildren/{locationcode}/{languagecode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Response
+```JSON
+{
+  "locations": [
+		{
+			"code":"string",
+			"name":"string",
+			"hierarchyLevel":"number",
+			"hierarchyLevelName":"string",
+			"parentLocCode":"",
+			"langCode":"string",
+			"isActive":"boolean",
+			
+		},
+		{
+			"code":"string",
+			"name":"string",
+			"hierarchyLevel":"number",
+			"hierarchyLevelName":"string",
+			"parentLocCode":"",
+			"langCode":"string",
+			"isActive":"boolean",
+			
+		}
+	]
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+
+
 # 2.3.16 Packet Rejection Reasons Master API
 # 2.3.16.1 Packet Rejection Reasons Master-create service
 
