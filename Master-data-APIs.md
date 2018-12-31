@@ -211,141 +211,6 @@ Description: Unauthorized
 
 Description: Not Found
 
-## 2.3.1.4 Holiday Master-update holiday service
-
-This service will provides the service for holiday to be updated.
-
-### Resource URL
-### `PUT /holidays`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-id|Yes|Id of the holiday| | 
-holidayDate|Yes|Holiday date in UTC standard ISO8601 format| | 2028-10-04
-holidayName|Yes|Name of the holiday| | 
-holidayDesc|Yes|Holiday Description | | 
-locationCode|Yes|Name of the holiday| | 
-isActive|Yes|Holiday isActive| | 
-LangCode|Yes|LanguageCode| | 
-newHolidayDate||Holiday date in UTC standard ISO8601 format| | 2028-10-04
-newHolidayName||Name of the holiday| | 
-newHolidayDesc||Holiday description| | 
-
-
-### Example Request
-```JSON
-{
-  "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-31T08:31:20.013Z",
-  "request": {
-    "id": 0,
-    "locationCode": "string",
-    "holidayDate": "string",
-    "holidayName": "string",
-    "holidayDesc": "string",
-    "langCode": "string",
-    "isActive": true,
-    "newHolidayName": "string",
-    "newHolidayDate": "string",
-    "newHolidayDesc": "string"
-  }
-}  
-```
-### Example Response
-```JSON
-  {
-  "holidayDate": "string",
-  "holidayName": "string",
-  "langCode": "string",
-  "locationCode": "string"
-}
-```
-### Response codes
-200
-
-Description: Accepted
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
-
-## 2.3.1.5 Holiday Master-delete holiday service
-
-This service will provides the service for holiday to be deleted.
-
-### Resource URL
-### `DELETE /holidays`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-holidayDate|Yes|Holiday date in UTC standard ISO8601 format| | 2028-10-04
-holidayName|Yes|Name of the holiday| | 
-locationCode|Yes|Name of the holiday| |
-
-
-### Example Request
-```JSON
-{
-  "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-31T08:31:20.013Z",
-  "request": {
-    "holidayDate": "string",
-    "holidayName": "string",
-    "locationCode": "string"
-  }
-}  
-```
-### Example Response
-```JSON
-  {
-  "holidayDate": "string",
-  "holidayName": "string",
-  "langCode": "string"
-}
-```
-### Response codes
-200
-
-Description: Accepted
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
-
 # 2.3.2 Blacklisted words Master API
 
 # 2.3.2.1 Blacklisted words Master-create service
@@ -373,22 +238,19 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
 ### Example Request
 ```JSON
 {
-  "id": "string",
-  "request": {
-    "description": "string",
-    "isActive": true,
-    "langCode": "string",
-    "word": "string"
-  },
-  "timestamp": "2018-12-31T09:08:34.463Z",
-  "ver": "string"
+	"id": "mosip.blacklistedwords.create",
+	"ver" : "1.0",
+	"timestamp" : "",
+	"request" : {
+		"blacklistedwords": ["asdf","lkjh","qwer"],
+		"languagecode": "string"
+	}
 }
 ```
 ### Example Response
 ```JSON
 {
-  "langCode": "string",
-  "word": "string"
+  "successfully_created_words": ["asdf","lkjh","qwer"]
 }
 ```
 ### Response codes
@@ -1291,6 +1153,81 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+# 2.3.6.4 Devices Master-update devices
+
+This service will update existing device. 
+
+
+### Resource URL
+### `PUT /v1.0/devices`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-31T05:47:36.645Z",
+  "request": {
+    "deviceSpecId": "string",
+    "id": "string",
+    "ipAddress": "string",
+    "isActive": true,
+    "langCode": "string",
+    "macAddress": "string",
+    "name": "string",
+    "serialNum": "string",
+    "validityDateTime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+### Response codes
+200
+
+Description: When Device updated successfully
+
+201
+
+Description: Created
+
+400
+
+Description: When Request body passed is null or invalid
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+404
+
+Description: When Device is not found
+
+500
+
+Description: While updating device any error occurred
 
 # 2.3.7 Languages Master API
 # 2.3.7.1 Languages Master-create service
