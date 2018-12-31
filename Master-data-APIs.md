@@ -401,6 +401,110 @@ Description: Unauthorized
 
 Description: Not Found
 
+# 2.3.2.4 Blacklisted Master-update blacklisted word service
+
+This service will provides the service to update blacklistedwords. 
+
+### Resource URL
+### `PUT /blacklistedwords`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+word |YES|Blacklisted word| |abc|
+description|YES|Description of the blacklisted word|||
+langCode|YES|Language Code of the blacklisted word|||
+isActive|YES|Blacklisted word is active|||
+ 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-31T10:01:24.578Z",
+  "request": {
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "word": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "langCode": "string",
+  "word": "string"
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+# 2.3.2.35 Blacklisted Master-delete blacklisted word service
+
+This service will provides the service to delete blacklistedwords. 
+
+### Resource URL
+### `DELETE /blacklistedwords/{word}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+word |YES|Blacklisted word| |abc||
+ 
+
+### Example Request
+```JSON
+NA
+```
+### Example Response
+```
+word(String)
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
 # 2.3.3 Documents Category Master API
 # 2.3.3.1 Documents Category Master-create service
 
