@@ -1,7 +1,6 @@
 Kernel is on which MOSIP services are built. Kernel is a platform to build higher-level services as well as a secure sandbox within which the higher-level service functions. 
 
-## Architectural Considerations
-### Architecturally significant requirements
+## Architecturally significant requirements
 Kernel as a distinct module is not brought out in the system requirements. The need for Kernel is identified during the architecture process. Hence, there are no ASRs specific to Kernel that are derived from system requirements. Kernel components contributes towards achieving the overall system requirements and hence the high-level ASRs are applicable to Kernel as well.
 
 ### Architectural Constraints
