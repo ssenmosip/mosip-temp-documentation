@@ -528,7 +528,10 @@ Name | Required | Description | Default Value | Example
 		"mobilenumberlength":10,
 		"restrictedNumbers":[
 			"8732","321","65"
-		]
+		],
+                "languagesSupported":[
+                        "eng","ara","fra"
+                ]
 }
 ```
 # 4 Registration Center config
