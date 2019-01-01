@@ -1,9 +1,9 @@
 # Guidelines to use the Auth Adapter
 
-* [Libraries Injection](#Libraries%20Injection)
-* [Request mapping method returns ResponseEntity](#Request%20mapping%20method%20returns%20ResponseEntity)
-* [Authorize endpoints](#Authorize%20endpoints)
-* [Micro service to Micro service communication](#Micro%20service%20to%20Micro%20service%20communication)
+* [Libraries Injection](#Libraries-Injection)
+* [Request mapping method returns ResponseEntity](#Request-mapping-method-returns-ResponseEntity)
+* [Authorize endpoints](#Authorize-endpoints)
+* [Micro service to Micro service communication](#Micro-service-to-Micro-service-communication)
 
 ## Libraries Injection
 Follow the below instructions to make your project ready for Authentication and Authorization.
