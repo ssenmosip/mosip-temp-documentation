@@ -37,7 +37,7 @@ Inclusions:
 AuthFilter is bound with AuthenticationManager to attempt authentication.
 
 Attempt Authentication tasks:
-* Receives **Authorization** Header from request headers.
+* Receives **"Authorization"** Header from request headers.
 * Use the assigned Authentication manager to authenticate with the token.
 
 ### AuthHeadersFilter
