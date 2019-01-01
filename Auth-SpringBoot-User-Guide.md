@@ -1,4 +1,6 @@
-# Guidelines to use the Auth Adapter
+# Auth Adapter usage Guidelines
+
+This document explains how to use the Auth Adapter in a Spring Boot application in the follwing four sections.
 
 * [Libraries Injection](#Libraries-Injection)
 * [Request mapping method returns ResponseEntity](#Request-mapping-method-returns-ResponseEntity)
