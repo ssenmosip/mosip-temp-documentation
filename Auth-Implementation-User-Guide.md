@@ -31,19 +31,19 @@ As of now copy paste it from the Github
 ## Request mapping method returns ResponseEntity
 Once the request processing is done, do not directly return the response instead use the ResponseEntity as shown below.
 ```
-    @RequestMapping(value = "/api/restaurant/{id}", method = RequestMethod.GET)
-    public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Integer id) throws Exception {
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.set("Authorization", authHeadersFilter.getToken());
-        ResponseEntity responseEntity = new ResponseEntity(restaurantsService.getRestaurantById(id), httpHeaders, HttpStatus.OK);
-        return responseEntity;
-    }
+@RequestMapping(value = "/api/restaurant/{id}", method = RequestMethod.GET)
+public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Integer id) throws Exception {
+    HttpHeaders httpHeaders = new HttpHeaders();
+    httpHeaders.set("Authorization", authHeadersFilter.getToken());
+    ResponseEntity responseEntity = new ResponseEntity(restaurantsService.getRestaurantById(id), httpHeaders, HttpStatus.OK);
+    return responseEntity;
+}
 ```
 
 The authHeadersFilter used above will be autowired in the RestController as shown below.
 ```
-    @Autowired
-    AuthHeadersFilter authHeadersFilter;
+@Autowired
+AuthHeadersFilter authHeadersFilter;
 ```
 
 ## Authorize endpoints
@@ -58,13 +58,13 @@ To make any kind of HTTP or HTTPS calls to a mosip's micro service that also inj
 
 * Intially autowire the RestTemplate in the class where you are going to make an API call.
 ```
-    @Autowired
-    private RestTemplate restTemplate;
+@Autowired
+private RestTemplate restTemplate;
 ```
 * Now make the call using the autowired restTemplate. See the sample below:
 ```
-    final String uri = "http://localhost:3001/api/location";
-    LocationDao response = restTemplate.getForObject(uri, LocationDao.class);
+final String uri = "http://localhost:3001/api/location";
+LocationDao response = restTemplate.getForObject(uri, LocationDao.class);
 ```
 
 **Note:** Do not create a new instance of the RestTemplate instead use the autowired one.
