@@ -1,13 +1,13 @@
 # Auth Adapter usage Guidelines
 
-This document explains how to use the Auth Adapter in a Spring Boot application in the follwing four sections.
+This document lists out the instructions on how to use the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) in a Spring Boot application.
 
-* [Libraries Injection](#Libraries-Injection)
-* [Request mapping method returns ResponseEntity](#Request-mapping-method-returns-ResponseEntity)
-* [Authorize endpoints](#Authorize-endpoints)
-* [Micro service to Micro service communication](#Micro-service-to-Micro-service-communication)
+* Step 1: [Inject required libraries](#Inject-required-libraries)
+* Step 2: [Attach annotations to authorize endpoints](#Attach-annotations-to-authorize-endpoints)
+* Step 3: [Attach auth token to the response servlet](#Attach-auth-token-to-the-response-servlet)
+* Step 4: [Use restTemplate for Http calls](#Use-restTemplate-for-Http-calls)
 
-## Libraries Injection
+## Inject required libraries
 Follow the below instructions to make your project ready for Authentication and Authorization.
 
 ### Add below mentioned spring security libraries in to your pom.xml
@@ -30,8 +30,27 @@ To be updated
 As of now copy paste it from the Github
 ```
 
-## Request mapping method returns ResponseEntity
-Once the request processing is done, do not directly return the response instead use the ResponseEntity as shown below.
+## Attach annotations to authorize endpoints
+To restrict access to your endpoints, you need to add the **@PreAuthorize** annotation.
+Look at the below example for reference.
+```
+@PreAuthorize("hasAnyRole('DIVISION_ADMIN', 'SUPERVISOR', 'AGENT')")
+@RequestMapping(value = "/api/restaurants", method = RequestMethod.GET)
+```
+There are few more methods available apart from hasAnyRole like hasRole. Look in to the [@PreAuthorize](https://docs.spring.io/spring-security/site/docs/3.0.x/reference/el-access.html) documentation for more details.
+
+**Note:** Now we support ony hasRole and hasAnyRole methods.
+
+## Attach auth token to the response servlet
+To attach auth token we first need to autowire AuthHeadersFilter into your RestController as shown below.
+
+```
+@Autowired
+AuthHeadersFilter authHeadersFilter;
+```
+
+Now in your Controller method use ResponseEntity to attach headers and return a response as shown below.
+
 ```
 @RequestMapping(value = "/api/restaurant/{id}", method = RequestMethod.GET)
 public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Integer id) throws Exception {
@@ -42,28 +61,18 @@ public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Integer 
 }
 ```
 
-The authHeadersFilter used above will be autowired in the RestController as shown below.
-```
-@Autowired
-AuthHeadersFilter authHeadersFilter;
-```
-
-## Authorize endpoints
-All you need to do to protect your endpoint's is add the **@PreAuthorize** annotation above your RequestMapping as shown below:
-```
-@PreAuthorize("hasAnyRole('DIVISION_ADMIN', 'SUPERVISOR', 'AGENT')")
-@RequestMapping(value = "/api/restaurants", method = RequestMethod.GET)
-```
-
-## Micro service to Micro service communication
-To make any kind of HTTP or HTTPS calls to a mosip's micro service that also injected the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter), use the standard RestTemplate capabilities as mentioned below.
+## Use restTemplate for Http calls
+To make any kind of HTTP or HTTPS calls to a mosip's micro service that also injected the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter), use the standard RestTemplate capabilities as shown below.
 
 * Intially autowire the RestTemplate in the class where you are going to make an API call.
+
 ```
 @Autowired
 private RestTemplate restTemplate;
 ```
-* Now make the call using the autowired restTemplate. See the sample below:
+
+* Now make the call using the autowired restTemplate as shown in the sample below:
+
 ```
 final String uri = "http://localhost:3001/api/location";
 LocationDao response = restTemplate.getForObject(uri, LocationDao.class);
