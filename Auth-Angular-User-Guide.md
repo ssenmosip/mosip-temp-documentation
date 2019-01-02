@@ -2,9 +2,6 @@
 
 Guidelines to implement Authorization and Authentication techniques in the Angular application are detailed in this document.
 
-* [Http Interceptor](#Http-Interceptor)
-* [Roles Directive](#Roles-Directive)
-
 Before going in to the components let us discuss the following flows of Authorization and Authentication.
 
 ### Authentication flow:
