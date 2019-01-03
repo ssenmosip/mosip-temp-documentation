@@ -119,7 +119,7 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 							},
 							"value": {
 								"type": "string",
-								"pattern": "[(?i)a-z]{2}$"
+								"pattern": "^[(?i)a-z]{2}$"
 							}
 						}
 					}
