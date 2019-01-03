@@ -529,9 +529,20 @@ Name | Required | Description | Default Value | Example
 		"restrictedNumbers":[
 			"8732","321","65"
 		],
-                "languagesSupported":[
-                        "eng","ara","fra"
-                ]
+		"languagesSupported":[
+			{
+				"language":"eng",
+				"primary":true
+			},
+			{
+				"language":"ara",
+				"primary":false
+			},
+			{
+				"language":"fra",
+				"primary":false
+			}
+		]
 }
 ```
 # 4 Registration Center config
