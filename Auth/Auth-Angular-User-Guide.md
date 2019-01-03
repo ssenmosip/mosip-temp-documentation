@@ -1,5 +1,3 @@
-# Auth User Guidelines
-
 Guidelines to implement Authorization and Authentication techniques in the Angular application are detailed in this document.
 
 Before going in to the components let us discuss the following flows of Authorization and Authentication.
