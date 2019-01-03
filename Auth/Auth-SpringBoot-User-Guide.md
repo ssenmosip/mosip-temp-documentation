@@ -1,5 +1,3 @@
-# Auth Adapter usage Guidelines
-
 This document lists out the instructions on how to use the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) in a Spring Boot application.
 
 * Step 1: [Inject required libraries](#Inject-required-libraries)
