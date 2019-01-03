@@ -118,7 +118,8 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 								"type": "string"
 							},
 							"value": {
-								"type": "string"
+								"type": "string",
+								"pattern": "[(?i)a-z]{2}$"
 							}
 						}
 					}
@@ -225,7 +226,7 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "ابراهيم"
+					"value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ…"
 				},
 				{
 					"language": "fr",
@@ -239,7 +240,7 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "بن"
+					"value": "Ø¨Ù†"
 				},
 				{
 					"language": "fr",
@@ -253,7 +254,7 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "علي"
+					"value": "Ø¹Ù„ÙŠ"
 				},
 				{
 					"language": "fr",
@@ -272,11 +273,11 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "الذكر"
+					"value": "Ø§Ù„Ø°ÙƒØ±"
 				},
 				{
 					"language": "fr",
-					"value": "mâle"
+					"value": "mÃ¢le"
 				}
 			]
 		},
@@ -286,7 +287,7 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "عنوان العينة سطر 1"
+					"value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
 				},
 				{
 					"language": "fr",
@@ -300,7 +301,7 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "عنوان العينة سطر 2"
+					"value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
 				},
 				{
 					"language": "fr",
@@ -314,11 +315,11 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "طنجة - تطوان - الحسيمة"
+					"value": "Ø·Ù†Ø¬Ø© - ØªØ·ÙˆØ§Ù† - Ø§Ù„Ø­Ø³ÙŠÙ…Ø©"
 				},
 				{
 					"language": "fr",
-					"value": "Tanger-Tétouan-Al Hoceima"
+					"value": "Tanger-TÃ©touan-Al Hoceima"
 				}
 			]
 		},
@@ -328,11 +329,11 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "فاس-مكناس"
+					"value": "Ù�Ø§Ø³-Ù…ÙƒÙ†Ø§Ø³"
 				},
 				{
 					"language": "fr",
-					"value": "Fès-Meknès"
+					"value": "FÃ¨s-MeknÃ¨s"
 				}
 			]
 		},
@@ -342,8 +343,8 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"label": "مدينة",
-					"value": "فاس-الدار البيضاء"
+					"label": "Ù…Ø¯ÙŠÙ†Ø©",
+					"value": "Ù�Ø§Ø³-Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
 				},
 				{
 					"language": "fr",
@@ -371,7 +372,7 @@ Below is a sample JSON as per the schema defined above
 			"values": [
 				{
 					"language": "ar",
-					"value": "سلمى"
+					"value": "Ø³Ù„Ù…Ù‰"
 				},
 				{
 					"language": "fr",
