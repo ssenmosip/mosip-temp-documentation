@@ -10,3 +10,5 @@ Documentation List:
 - [MOSIP Best practices of Git](https://github.com/mosip/mosip/wiki/MOSIP---Best-practices-of-Git)
 
 - [Eclipse Markdown Editor](https://github.com/mosip/mosip/wiki/Eclipse-Markdown-Editor)
+
+- [Auth Implementation](https://github.com/mosip/mosip/wiki/Auth-Implementation)
