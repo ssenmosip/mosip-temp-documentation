@@ -1,4 +1,3 @@
-## AuthAdapter
 Auth adapter is a package that needs to be injected into Mosip's applications exposing REST API's inorder to secure them.
 
 ![Auth Adapter Flow](_images/arch_diagrams/auth/auth_adapter_flow.png)
