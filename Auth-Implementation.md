@@ -1,5 +1,3 @@
-## Auth Implementation
-
 Please find below the sequence diagrams for auth flows.
 
 **Login flow:**
