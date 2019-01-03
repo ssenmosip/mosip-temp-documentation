@@ -1,6 +1,8 @@
 ## AuthAdapter
 Auth adapter is a package that needs to be injected into Mosip's applications exposing REST API's inorder to secure them.
 
+![Auth Adapter Flow](_images/arch_diagrams/auth/auth_adapter_flow.png)
+
 Auth Adapter includes following class definitions:
 1. [SecurityConfig](#SecurityConfig)
 2. [AuthFilter](#AuthFilter)
@@ -12,7 +14,6 @@ Auth Adapter includes following class definitions:
 8. [AuthUserDetails](#AuthUserDetails)
 9. [ClientInterceptor](#ClientInterceptor)
 10. [MosipUser](#MosipUser)
-
 
 ### SecurityConfig
 Holds the main configuration for authentication and authorization using spring security.
