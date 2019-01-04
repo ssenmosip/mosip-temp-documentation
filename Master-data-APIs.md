@@ -5728,13 +5728,13 @@ dtyp_code|Yes|device type code of the Device specification| |
 ```
 
 
-# 2.3.26.5 Machine Specifications Master-get based on language service
+# 2.3.26.5 Device Specifications Master-get based on language service
 
-This service will provides the list of all Machine Specifications in a specific language. 
+This service will provides the list of all Device Specifications in a specific language. 
 
 
 ### Resource URL
-### `GET /deivcespecifications/{lang_code}`
+### `GET /devicespecifications/{lang_code}`
 
 ### Resource details
 
@@ -5756,15 +5756,19 @@ lang_code|Yes|Language code of the Device Specification| |
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"name":"Laptop",
-	"brand":"Hewlett Packard",
-	"model":"L34-324",
-	"dtyp_code":"GEW8",
-	"min_driver_ver":"1.4",
-	"descr":"This is a medium configuration",
-	"lang_code":"eng",
-	"is_active":true
+  "devicespecifications": [
+    {
+      "brand": "string",
+      "description": "string",
+      "deviceTypeCode": "string",
+      "id": "string",
+      "isActive": true,
+      "langCode": "string",
+      "minDriverversion": "string",
+      "model": "string",
+      "name": "string"
+    }
+  ]
 }
 ```
 
