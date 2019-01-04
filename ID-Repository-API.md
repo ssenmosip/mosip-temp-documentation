@@ -234,7 +234,7 @@ request | yes | JSON body as per the ID object schema | |
   "version": "1.0",
   "timestamp": "2018-12-11T06:13:05.218",
   "uin": "568469473107",
-  "status": "REGISTERED",
+  "status": "ACTIVATED",
   "err": [],
   "response": {
     "entity": "http://mosip.io/identity/568469473107"
@@ -265,7 +265,7 @@ Requires Authentication | Yes
   "timestamp": "",
   "err": [],
   "uin": "2018-12-11T06:13:05.218",
-  "status": "REGISTERED",
+  "status": "ACTIVATED",
   "response": {
     //JSON object as per the IDObject Schema defined by the system owner
     "identity": {
