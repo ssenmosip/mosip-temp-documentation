@@ -48,7 +48,7 @@ This section details about the service APIs in the Master data modules
 
 [2.3.24 Registration Center Machine Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2324-registration-center-machine-device-api)
 
-[2.3.25 Devices Master Type API](https://github.com/mosip/mosip/wiki/Master-data-APIs#236-devices-Type-master-api)
+[2.3.25 Devices Master Type API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2325-devices-Type-master-api)
 
 
 # 2.3.1 Holiday Master API
