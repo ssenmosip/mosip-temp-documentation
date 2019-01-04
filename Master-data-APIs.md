@@ -4611,13 +4611,13 @@ lang_code|Yes|Language code of the document type| |
 }
 ```
 
-# 2.3.18.3 Documents Category-delete service
-Master data is required across the platform. 
+# 2.3.18.3 Documents Types Master-get service
 
-This service will deletes a list of Document Categories from the Documents Category master module. 
+This service will provides the service for the valid doucment type avialbale for specific Document Category code
+
 
 ### Resource URL
-### `DELETE /documenttypes`
+### `GET /documenttypes/{documentcategorycode}/{langcode}`
 
 ### Resource details
 
@@ -4629,21 +4629,41 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-code|Yes|Code of the document type| | 
 
+documentcategorycode |Yes| Code of document category | |
+langcode | Yes | language code | |
 
-### Example Request
-```JSON
-{
-  "documentcodes": ["PSPRT","DRVNGLCNC","RNTLAGRMNT","POB"]
-}
-```
 ### Example Response
 ```JSON
 {
-  "successfully_deleted_documentcodes": ["PSPRT","DRVNGLCNC","RNTLAGRMNT","POB"]
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  }
 }
 ```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
 
 # 2.3.18.4 Document Types Master-get service
 
