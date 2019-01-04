@@ -42,6 +42,55 @@ A well-established identity management system can help countries to verify their
 
 	Make it harder for criminal to use false or multiple/duplicate/ghost identities
 
+**How-Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)**
+
+MOSIP (Modular Open Source Identity Platform) helps governmen
+ts of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
+
+Fig: 1 MOSIP basic features
+
+Fig: 2 Key objectives of the platform
+
+3.	MOSIP FUNCTIONAL OVERVIEW
+
+MOSIP has the following functional modules.
+Figure
+
+Fig 3: MOSIP functional overview
+
+4.	MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
+MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
+
+Fig: 4 MOSIP Architectural patterns and principles
+
+Fig 5: MOSIP Thick client architecture
+
+5.**	MOSIP PLATFORM FEATURES**
+
+
+**Key Design Considerations**
+This sections lists out some of the Key design considerations for MOSIP
+
+**Ecosystem approach**
+Device vendors and ABIS providers are key to process an individual's data and prove uniqueness. MOSIP can integrate with devices and ABIS that conform to the standards to achieve the stated goals. On the other side, MOSIP also caters to a diverse set of institutions wanting to authenticate an Individual against the data stored in MOSIP. So, key parameters are-All public/external facing interfaces of MOSIP standards set for interoperability
+
+**A Highly configurable open source design approach**
+MOSIP is highly flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
+•	Country can to choose the features required. For example, it must be possible for a country to turn off Finger Print capture and turn on Face recognition or Vice versa as the need be
+•	Country can configure the attributes of an ID Object
+•	Country can define the length of the UIN number
+
+**Extensibility**
+
+MOSIP is flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
+•	A country can introduce a new step in processing data
+•	Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
+
+**Modularity**
+
+All components in MOSIP are modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
+•	UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
+•	The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
 
 
 
