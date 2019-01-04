@@ -48,6 +48,7 @@ This section details about the service APIs in the Master data modules
 
 [2.3.24 Registration Center Machine Device API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2324-registration-center-machine-device-api)
 
+[2.3.25 Devices Type API](https://github.com/mosip/mosip/wiki/Master-data-APIs#236-devices-Type-api)
 
 
 # 2.3.1 Holiday Master API
@@ -5360,4 +5361,66 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
+# 2.3.25 Device Types Master API
+# 2.3.19.1 Device Types Master-create service
+
+This service will create the list of Device types which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /devicetypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+devicetypecode|Yes|Code of the device type| | 
+devicename|Yes|Name of the machine type| | 
+description|Yes|Description of the device type| | 
+languagecode|Yes|Language code of the device type| | 
+isactive|Yes|Is the device type active?| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:27:49.183Z",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "code": "string",
+  "langCode": "string"
+}
+```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
 
