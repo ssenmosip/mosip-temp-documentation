@@ -5362,7 +5362,7 @@ Description: Forbidden
 Description: Internal Server Error 
 
 # 2.3.25 Device Types Master API
-# 2.3.19.1 Device Types Master-create service
+## 2.3.25.1 Device Types Master-create service
 
 This service will create the list of Device types which are used in the MOSIP platform. 
 
@@ -5380,7 +5380,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 devicetypecode|Yes|Code of the device type| | 
-devicename|Yes|Name of the machine type| | 
+devicename|Yes|Name of the device type| | 
 description|Yes|Description of the device type| | 
 languagecode|Yes|Language code of the device type| | 
 isactive|Yes|Is the device type active?| | 
