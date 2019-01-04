@@ -10,7 +10,7 @@ This API will support the following features
 This operation will create a new ID record in the ID repository
 
 ### Resource URL
-### `POST /identity`
+### `POST /identity/v1.0/568469473107`
 
 ### Resource details
 
@@ -32,304 +32,222 @@ request | yes | JSON body as per the ID object schema | |
 
 ```
 {
-	"id": "mosip.id.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"registrationId" : "",
-	"request" : {
-		//JSON object as per the ID Object Schema defined by the system owner
-	"identity": {
-		"firstName": [
-			{
-				"language": "ar",
-				"label": "الاسم الاول",
-				"value": "ابراهيم"
-			},
-			{
-				"language": "fr",
-				"label": "Prénom",
-				"value": "Ibrahim"
-			}
-		],
-		"middleName": [
-			{
-				"language": "ar",
-				"label": "الاسم الأوسط",
-				"value": "بن"
-			},
-			{
-				"language": "fr",
-				"label": "deuxième nom",
-				"value": "Ibn"
-			}
-		],
-		"lastName": [
-			{
-				"language": "ar",
-				"label": "الكنية",
-				"value": "علي"
-			},
-			{
-				"language": "fr",
-				"label": "nom de famille",
-				"value": "Ali"
-			}
-		],
-		"dateOfBirth": [
-			{
-				"language": "ar",
-				"label": "تاريخ الولادة",
-				"value": "16/04/1955"
-			},
-			{
-				"language": "fr",
-				"label": "date de naissance",
-				"value": "16/04/1955"
-			}
-		],
-		"gender": [
-			{
-				"language": "ar",
-				"label": "جنس",
-				"value": "الذكر"
-			},
-			{
-				"language": "fr",
-				"label": "le sexe",
-				"value": "mâle"
-			}
-		],
-		"addressLine1": [
-			{
-				"language": "ar",
-				"label": "العنوان السطر 1",
-				"value": "عنوان العينة سطر 1"
-			},
-			{
-				"language": "fr",
-				"label": "Adresse 1",
-				"value": "exemple d'adresse ligne 1"
-			}
-		],
-		"addressLine2": [
-			{
-				"language": "ar",
-				"label": "العنوان السطر 2",
-				"value": "عنوان العينة سطر 2"
-			},
-			{
-				"language": "fr",
-				"label": "Adresse 2",
-				"value": "exemple d'adresse ligne 2"
-			}
-		],
-		"addressLine3": [
-			{
-				"language": "ar",
-				"label": "العنوان السطر 3",
-				"value": "عنوان العينة سطر 3"
-			},
-			{
-				"language": "fr",
-				"label": "Adresse 3",
-				"value": "exemple d'adresse ligne 3"
-			}
-		],
-		"region": [
-			{
-				"language": "ar",
-				"label": "رمنطقة",
-				"value": "طنجة - تطوان - الحسيمة"
-			},
-			{
-				"language": "fr",
-				"label": "Région",
-				"value": "Tanger-Tétouan-Al Hoceima"
-			}
-		],
-		"province": [
-			{
-				"language": "ar",
-				"label": "المحافظة",
-				"value": "فاس-مكناس"
-			},
-			{
-				"language": "fr",
-				"label": "province",
-				"value": "Fès-Meknès"
-			}
-		],
-		"city": [
-			{
-				"language": "ar",
-				"label": "مدينة",
-				"value": "فاس-الدار البيضاء"
-			},
-			{
-				"language": "fr",
-				"label": "ville",
-				"value": "Casablanca"
-			}
-		],
-		"localAdministrativeAuthority": [
-			{
-				"language": "ar",
-				"label": "الهيئة الإدارية المحلية",
-				"value": "طنجة - تطوان - الحسيمة"
-			},
-			{
-				"language": "fr",
-				"label": "Autorité administrative locale",
-				"value": "Tanger-Tétouan-Al Hoceima"
-			}
-		],
-		"mobileNumber": [
-			{
-				"language": "ar",
-				"label": "رقم الهاتف المحمول",
-				"value": "+212-5398-12345"
-			},
-			{
-				"language": "fr",
-				"label": "numéro de portable",
-				"value": "+212-5398-12345"
-			}
-		],
-		"emailId": [
-			{
-				"language": "ar",
-				"label": "عنوان الايميل",
-				"value": "sample@samplamail.com"
-			},
-			{
-				"language": "fr",
-				"label": "identifiant email",
-				"value": "sample@samplamail.com"
-			}
-		],
-		"CNEOrPINNumber": [
-			{
-				"language": "ar",
-				"label": "رقم CNE / PIN",
-				"value": "AB453625"
-			},
-			{
-				"language": "fr",
-				"label": "Numéro CNE / PIN",
-				"value": "AB453625"
-			}
-		],
-		"parentOrGuardianName": [
-			{
-				"language": "ar",
-				"label": "اسم ولي الأمر / الوصي",
-				"value": "سلمى"
-			},
-			{
-				"language": "fr",
-				"label": "Nom du parent / tuteur",
-				"value": "salma"
-			}
-		],
-		"parentOrGuardianRIDOrUIN": [
-			{
-				"language": "ar",
-				"label": "الوالد / الوصي RID / UIN",
-				"value": "123456789123"
-			},
-			{
-				"language": "fr",
-				"label": "parent / tuteur RID / UIN",
-				"value": "123456789123"
-			}
-		],
-		"leftEye": [
-			{
-				"language": "ar",
-				"label": "العين اليسرى",
-				"value": "hashed_fileName.png"
-			},
-			{
-				"language": "fr",
-				"label": "oeil gauche",
-				"value": "hashed_fileName.png"
-			}
-		],
-		"rightEye": [
-			{
-				"language": "ar",
-				"label": "العين اليمنى",
-				"value": "hashed_fileName.png"
-			},
-			{
-				"language": "fr",
-				"label": "l'œil droit",
-				"value": "hashed_fileName.png"
-			}
-		],
-		"leftThumb": [
-			{
-				"language": "ar",
-				"label": "البيومترية المسح الضوئي 1",
-				"value": "hashed_fileName.png"
-			},
-			{
-				"language": "fr",
-				"label": "analyse biométrique 1",
-				"value": "hashed_fileName.png"
-			}
-		],
-		"rightThumb": [
-			{
-				"language": "ar",
-				"label": "البيومترية المسح الضوئي 2",
-				"value": "hashed_fileName.png"
-			},
-			{
-				"language": "fr",
-				"label": "analyse biométrique 2",
-				"value": "hashed_fileName.png"
-			}
-		],
-		"rightIndex": [
-			{
-				"language": "ar",
-				"label": "البيومترية المسح الضوئي 3",
-				"value": "hashed_fileName.png"
-			},
-			{
-				"language": "fr",
-				"label": "analyse biométrique 3",
-				"value": "hashed_fileName.png"
-			}
-		]
-	}		
-	}
+  "id": "mosip.id.create",
+  "version": "1.0",
+  "timestamp": "2018-12-11T06:12:25.288",
+  "registrationId": "12342343200065201812120100555",
+  "request": {
+    "identity": {
+      "firstName": {
+        "label": "First Name",
+        "values": [
+          {
+            "language": "ar",
+            "value": "ابراهيم"
+          },
+          {
+            "language": "fr",
+            "value": "Ibrahim"
+          }
+        ]
+      },
+      "middleName": {
+        "label": "Middle Name",
+        "values": [
+          {
+            "language": "ar",
+            "value": "بن"
+          },
+          {
+            "language": "fr",
+            "value": "Ibn"
+          }
+        ]
+      },
+      "lastName": {
+        "label": "Last Name",
+        "values": [
+          {
+            "language": "ar",
+            "value": "علي"
+          },
+          {
+            "language": "fr",
+            "value": "Ali"
+          }
+        ]
+      },
+      "dateOfBirth": {
+        "label": "Date Of Birth",
+        "value": "1955/04/15"
+      },
+      "gender": {
+        "label": "Gender",
+        "values": [
+          {
+            "language": "ar",
+            "value": "الذكر"
+          },
+          {
+            "language": "fr",
+            "value": "mâle"
+          }
+        ]
+      },
+      "addressLine1": {
+        "label": "Address Line 1",
+        "values": [
+          {
+            "language": "ar",
+            "value": "عنوان العينة سطر 1"
+          },
+          {
+            "language": "fr",
+            "value": "exemple d'adresse ligne 1"
+          }
+        ]
+      },
+      "addressLine2": {
+        "label": "Address Line 2",
+        "values": [
+          {
+            "language": "ar",
+            "value": "عنوان العينة سطر 2"
+          },
+          {
+            "language": "fr",
+            "value": "exemple d'adresse ligne 2"
+          }
+        ]
+      },
+      "addressLine3": {
+        "label": "Address Line 3",
+        "values": [
+          {
+            "language": "ar",
+            "value": "عنوان العينة سطر3"
+          },
+          {
+            "language": "fr",
+            "value": "exemple d'adresse ligne 3"
+          }
+        ]
+      },
+      "region": {
+        "label": "Region",
+        "values": [
+          {
+            "language": "ar",
+            "value": "طنجة - تطوان - الحسيمة"
+          },
+          {
+            "language": "fr",
+            "value": "Tanger-Tétouan-Al Hoceima"
+          }
+        ]
+      },
+      "province": {
+        "label": "Province",
+        "values": [
+          {
+            "language": "ar",
+            "value": "فاس-مكناس"
+          },
+          {
+            "language": "fr",
+            "value": "Fès-Meknès"
+          }
+        ]
+      },
+      "city": {
+        "label": "City",
+        "values": [
+          {
+            "language": "ar",
+            "value": "الدار البيضاء"
+          },
+          {
+            "language": "fr",
+            "value": "Casablanca"
+          }
+        ]
+      },
+      "postalCode": "570004",
+      "phone": {
+        "label": "Land Line",
+        "value": "+212-5398-12345"
+      },
+      "email": {
+        "label": "Business Email",
+        "value": "sample@samplamail.com"
+      },
+      "CNIENumber": "6789545678909",
+      "parentOrGuardianName": {
+        "label": "Parent/Guardian",
+        "values": [
+          {
+            "language": "ar",
+            "value": "سلمى"
+          },
+          {
+            "language": "fr",
+            "value": "salma"
+          }
+        ]
+      },
+      "parentOrGuardianRIDOrUIN": "212124324784912",
+      "proofOfAddress": {
+        "format": "pdf",
+        "category": "drivingLicense",
+        "value": "<Base 64 encoded byte[] of PoA document>"
+      },
+      "proofOfIdentity": {
+        "format": "txt",
+        "category": "passport",
+        "value": "<Base 64 encoded byte[] of PoI document>"
+      },
+      "proofOfRelationship": {
+        "format": "pdf",
+        "category": "passport",
+        "value": "<Base 64 encoded byte[] of PoR document>"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1.0,
+        "value": "<Base 64 encoded byte[] of CBEFF document>"
+      },
+      "parentOrGuardianBiometrics": {
+        "format": "cbeff",
+        "version": 1.0,
+        "value": "<Base 64 encoded byte[] of CBEFF document>"
+      }
+    }
+  }
 }
 ```
 
-**Example response**
+**Example response**    
+
 ```
 {
-	"id" : "mosip.id.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"registrationId" : "",
-	"uin" : "",
-	"status" : "",
-	"err" : [],
-	"response" : {
-		"entity" : "http://mosip.io/identity7867780967875678"
-	}	
+  "id": "mosip.id.create",
+  "version": "1.0",
+  "timestamp": "2018-12-11T06:13:05.218",
+  "uin": "568469473107",
+  "status": "REGISTERED",
+  "err": [],
+  "response": {
+    "entity": "http://mosip.io/identity/568469473107"
+  }
 }
 ```
 
 **2. Read **
 
-This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number)
+This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/doc
 
 ### Resource URL
-### `GET /identity/7867780967875678`
+### `GET /identity/v1.0/568469473107?type=bio&subtype=FMR,IIR`
 
 ### Resource details
 
@@ -338,18 +256,184 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-**Example response**
+**Example response**     
+
 ```
 {
-	"id" : "mosip.id.read",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"err": [],
-	"uin" : "7867780967875678",
-        "status": "REGISTERED",
-	"response" : {
-		//JSON object as per the ID Object Schema defined by the system owner
-	}	
+  "id": "mosip.id.read",
+  "ver": "1.0",
+  "timestamp": "",
+  "err": [],
+  "uin": "2018-12-11T06:13:05.218",
+  "status": "REGISTERED",
+  "response": {
+    //JSON object as per the IDObject Schema defined by the system owner
+    "identity": {
+      "firstName": {
+        "label": "First Name",
+        "values": [
+          {
+            "language": "ar",
+            "value": "ابراهيم"
+          },
+          {
+            "language": "fr",
+            "value": "Ibrahim"
+          }
+        ]
+      },
+      "middleName": {
+        "label": "Middle Name",
+        "values": [
+          {
+            "language": "ar",
+            "value": "بن"
+          },
+          {
+            "language": "fr",
+            "value": "Ibn"
+          }
+        ]
+      },
+      "lastName": {
+        "label": "Last Name",
+        "values": [
+          {
+            "language": "ar",
+            "value": "علي"
+          },
+          {
+            "language": "fr",
+            "value": "Ali"
+          }
+        ]
+      },
+      "dateOfBirth": {
+        "label": "Date Of Birth",
+        "value": "1955/04/15"
+      },
+      "gender": {
+        "label": "Gender",
+        "values": [
+          {
+            "language": "ar",
+            "value": "الذكر"
+          },
+          {
+            "language": "fr",
+            "value": "mâle"
+          }
+        ]
+      },
+      "addressLine1": {
+        "label": "Address Line 1",
+        "values": [
+          {
+            "language": "ar",
+            "value": "عنوان العينة سطر 1"
+          },
+          {
+            "language": "fr",
+            "value": "exemple d'adresse ligne 1"
+          }
+        ]
+      },
+      "addressLine2": {
+        "label": "Address Line 2",
+        "values": [
+          {
+            "language": "ar",
+            "value": "عنوان العينة سطر 2"
+          },
+          {
+            "language": "fr",
+            "value": "exemple d'adresse ligne 2"
+          }
+        ]
+      },
+      "addressLine3": {
+        "label": "Address Line 3",
+        "values": [
+          {
+            "language": "ar",
+            "value": "عنوان العينة سطر3"
+          },
+          {
+            "language": "fr",
+            "value": "exemple d'adresse ligne 3"
+          }
+        ]
+      },
+      "region": {
+        "label": "Region",
+        "values": [
+          {
+            "language": "ar",
+            "value": "طنجة - تطوان - الحسيمة"
+          },
+          {
+            "language": "fr",
+            "value": "Tanger-Tétouan-Al Hoceima"
+          }
+        ]
+      },
+      "province": {
+        "label": "Province",
+        "values": [
+          {
+            "language": "ar",
+            "value": "فاس-مكناس"
+          },
+          {
+            "language": "fr",
+            "value": "Fès-Meknès"
+          }
+        ]
+      },
+      "city": {
+        "label": "City",
+        "values": [
+          {
+            "language": "ar",
+            "value": "الدار البيضاء"
+          },
+          {
+            "language": "fr",
+            "value": "Casablanca"
+          }
+        ]
+      },
+      "postalCode": "570004",
+      "phone": {
+        "label": "Land Line",
+        "value": "+212-5398-12345"
+      },
+      "email": {
+        "label": "Business Email",
+        "value": "sample@samplamail.com"
+      },
+      "CNIENumber": "6789545678909",
+      "parentOrGuardianName": {
+        "label": "Parent/Guardian",
+        "values": [
+          {
+            "language": "ar",
+            "value": "سلمى"
+          },
+          {
+            "language": "fr",
+            "value": "salma"
+          }
+        ]
+      },
+      "parentOrGuardianRIDOrUIN": "212124324784912",
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1.0,
+        "value": "<Base 64 encoded byte[] of CBEFF document>"
+      }
+    }
+  }
 }
 ```
 
@@ -358,7 +442,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/7867780967875678`
+### `PATCH /identity/568469473107?type=bio`
 
 ### Resource details
 
@@ -367,105 +451,34 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-**Example Request**
+**Example Request**     
+
 ```
 {
-	"id" : "mosip.id.update",
-	"ver" : "1.0",
-	"timestamp" : "",	
-	"request" : {
-		//JSON object as per the ID Object Schema defined by the system owner
-	"identity": {		
-		"addressLine1": [
-			{
-				"language": "ar",
-				"label": "العنوان السطر 1",
-				"value": "عنوان العينة سطر 1"
-			},
-			{
-				"language": "fr",
-				"label": "Adresse 1",
-				"value": "exemple d'adresse ligne 1"
-			}
-		],
-		"addressLine2": [
-			{
-				"language": "ar",
-				"label": "العنوان السطر 2",
-				"value": "عنوان العينة سطر 2"
-			},
-			{
-				"language": "fr",
-				"label": "Adresse 2",
-				"value": "exemple d'adresse ligne 2"
-			}
-		],
-		"addressLine3": [
-			{
-				"language": "ar",
-				"label": "العنوان السطر 3",
-				"value": "عنوان العينة سطر 3"
-			},
-			{
-				"language": "fr",
-				"label": "Adresse 3",
-				"value": "exemple d'adresse ligne 3"
-			}
-		],
-		"region": [
-			{
-				"language": "ar",
-				"label": "رمنطقة",
-				"value": "طنجة - تطوان - الحسيمة"
-			},
-			{
-				"language": "fr",
-				"label": "Région",
-				"value": "Tanger-Tétouan-Al Hoceima"
-			}
-		],
-		"province": [
-			{
-				"language": "ar",
-				"label": "المحافظة",
-				"value": "فاس-مكناس"
-			},
-			{
-				"language": "fr",
-				"label": "province",
-				"value": "Fès-Meknès"
-			}
-		],
-		"city": [
-			{
-				"language": "ar",
-				"label": "مدينة",
-				"value": "فاس-الدار البيضاء"
-			},
-			{
-				"language": "fr",
-				"label": "ville",
-				"value": "Casablanca"
-			}
-		],
-		"localAdministrativeAuthority": [
-			{
-				"language": "ar",
-				"label": "الهيئة الإدارية المحلية",
-				"value": "طنجة - تطوان - الحسيمة"
-			},
-			{
-				"language": "fr",
-				"label": "Autorité administrative locale",
-				"value": "Tanger-Tétouan-Al Hoceima"
-			}
-		]
-	}	
-}
+  "id": "mosip.id.update",
+  "version": "1.0",
+  "timestamp": "2018-12-11T06:12:25.288",
+  "registrationId": "12342343200065201812120100556",
+  "status": "DEACTIVATED",
+  "request": {
+    //JSON object as per the ID Object Schema defined by the system owner
+    "identity": {
+      "email": {
+        "label": "Business Email",
+        "value": "sample123@email.com"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1.0,
+        "value": "<Base 64 encoded byte[] of CBEFF document>"
+      }
+    }
+  }
 }
 ```
 
-**Example response**
+**Example response**    
+
 ```
 {
 	"id" : "mosip.id.update",
@@ -475,7 +488,7 @@ Requires Authentication | Yes
 	"status" : "",
 	"err" : [],
 	"response" : {
-		"entity" : "http://mosip.io/identity/7867780967875678"
+		"entity" : "http://mosip.io/identity/568469473107"
 	}	
 }
 ```
