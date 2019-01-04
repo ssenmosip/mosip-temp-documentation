@@ -52,6 +52,8 @@ This section details about the service APIs in the Master data modules
 
 [2.3.26 Device Specifications Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2326-device-specifications)
 
+[2.3.28 Template Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2328-template-types-api)
+
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
 Master data is required across the platform. 
