@@ -5789,3 +5789,184 @@ Description: Unauthorized
 
 Description: Forbidden
 
+# 2.3.27 Template API
+
+# 2.3.27.1 Template Master-create service
+
+This service will create the list of Template  which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /temlates
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of temlate | | 
+descr|Yes|Description of the temlate | | 
+lang_code|Yes|Language code of the temlate | | 
+isActive |Yes|is active or not| |
+moduleId |Yes| Id of modul | |
+templateTypeCode |Yes| Id of template type | |
+fileFormatCode | Yes | Code of file formate| |
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "description": "string",
+    "fileFormatCode": "string",
+    "fileText": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "model": "string",
+    "moduleId": "string",
+    "moduleName": "string",
+    "name": "string",
+    "templateTypeCode": "string"
+  }
+}
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+# 2.3.27.2 Template  Master-update service
+
+This service will update the list of Template  which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT /templates`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of temlate | | 
+lang_code|Yes|Language code of the temlate | | 
+isActive |Yes|is active or not| |
+moduleId |Yes| Id of modul | |
+templateTypeCode |Yes| Id of template type | |
+fileFormatCode | Yes | Code of file formate| |
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "description": "string",
+    "fileFormatCode": "string",
+    "fileText": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "model": "string",
+    "moduleId": "string",
+    "moduleName": "string",
+    "name": "string",
+    "templateTypeCode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+
+# 2.3.27.3 Template delete service
+Master data is required across the platform. 
+
+This service will deletes a list of Template from the Template master module. 
+
+### Resource URL
+### `DELETE /templates/{id}
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of the Template| 
+
+
+
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+# 2.3.28 Template Types API
+
+# 2.3.28.1 Template Type Master-create service
+
+This service will create the list of Template types which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /temlateypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of temlate type| | 
+descr|Yes|Description of the temlate type| | 
+lang_code|Yes|Language code of the temlate type| | 
+isActive |Yes|is active or not| |
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "code": "string",
+  "langCode": "string"
+}
+```
+
