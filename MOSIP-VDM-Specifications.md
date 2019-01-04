@@ -51,9 +51,9 @@ to capture the biometric data and manipulate on the same.
    6. Device Shutdown
    
    **Sequence of process**
-   1. VDM senses that a device under itís control is connected to the system. 
+   1. VDM senses that a device under it‚Äôs control is connected to the system. 
    2. VDM creates a Device Arrival event and sends it to the DM through socket and port. 
-   3. The event contains information about the device, and itís capabilities. 
+   3. The event contains information about the device, and it‚Äôs capabilities. 
    4. It accepts the request from application through the port and communicate with the device through the respective driver. 
    5. Send response back to the application based on the request. 
    
@@ -82,7 +82,7 @@ VDMs must connect to this port once, and communicate over this open connection.
 
 ### Device Management 
 
-    1. When the VDM senses that a device under itís control is connected to the system, it 
+    1. When the VDM senses that a device under it‚Äôs control is connected to the system, it 
        creates a Device Arrival event and sends it to the DM
     2. The DM must acknowledge the receipt of this event, forward it to all applications, and 
        maintain a copy of this event (for all applications that may connect in the future). 
@@ -116,54 +116,56 @@ ASN1 BER. See http://en.wikipedia.org/wiki/Asn1
 **Connect :**
     On establishing connection with the DM, the application, and VDMs must ensure that
 they are connecting with a DM, and exchange certain configuration information. 
-
-<DeviceManagerEventRequest requestId=îî version=îî>
-	<Connect apiVersion=îî>
-		<VDM vendor=îî vdmName=îî vdmVersion=îî/>
-		<APP vendor=îî appName=îî appVersion=îî/>
+***
+```
+<DeviceManagerEventRequest requestId=‚Äù‚Äù version=‚Äù‚Äù>
+	<Connect apiVersion=‚Äù‚Äù>
+		<VDM vendor=‚Äù‚Äù vdmName=‚Äù‚Äù vdmVersion=‚Äù‚Äù/>
+		<APP vendor=‚Äù‚Äù appName=‚Äù‚Äù appVersion=‚Äù‚Äù/>
 	</Connect>
 </DeviceManagerEventRequest>
 
-<DeviceManagerEventResponse requestId=îî>
-	<Return value=îî/>
-	<ConnectResponse apiVersion=îî vendor=îî dmName=îî
-	dmVersion=îî heartBeat=îî/>
+<DeviceManagerEventResponse requestId=‚Äù‚Äù>
+	<Return value=‚Äù‚Äù/>
+	<ConnectResponse apiVersion=‚Äù‚Äù vendor=‚Äù‚Äù dmName=‚Äù‚Äù
+	dmVersion=‚Äù‚Äù heartBeat=‚Äù‚Äù/>
 </DeviceManagerEventResponse>
-
+```
 
 **Device Arrival :**
 
 The event notifies the device manager, and the application about a device arrival. The
 VDM originates this event, and sends it to the DM, which in turn forwards it to the
 Application.
-
-<DeviceManagerEventRequest requestId=îî>
-	<Arrival vdmName=îî deviceURI=îî modality=îFingerprint Slap î
-		deviceMake=îManufacturer Name î deviceModel=îDEVICE MODEL NAME /
-		IDENTIFIER î hardwareRev=î1.0.0î firmwareRev=î1.0.1î
-		serialNumber=îABC1234567î>
-		<Capabilities detection=îTrueî video=îTrueî
-			autoCapture=îTrueî disableAutoCapture=îTrueî userFeedback=îTrueî
-			graphicalFeedback=îFalseî>
+```
+<DeviceManagerEventRequest requestId=‚Äù‚Äù>
+	<Arrival vdmName=‚Äù‚Äù deviceURI=‚Äù‚Äù modality=‚ÄùFingerprint Slap ‚Äù
+		deviceMake=‚ÄùManufacturer Name ‚Äù deviceModel=‚ÄùDEVICE MODEL NAME /
+		IDENTIFIER ‚Äù hardwareRev=‚Äù1.0.0‚Äù firmwareRev=‚Äù1.0.1‚Äù
+		serialNumber=‚ÄùABC1234567‚Äù>
+		<Capabilities detection=‚ÄùTrue‚Äù video=‚ÄùTrue‚Äù
+			autoCapture=‚ÄùTrue‚Äù disableAutoCapture=‚ÄùTrue‚Äù userFeedback=‚ÄùTrue‚Äù
+			graphicalFeedback=‚ÄùFalse‚Äù>
 			<VideoFormats>
-				<VideoFormat videoFormatId=î1î modality=îFingerprint
-					Slap î>
-					<FrameType biometricPosition=îAnyî size=î800,750î
-						pixelFormat=îGray8î pixelResolution=î250ppiî />
+				<VideoFormat videoFormatId=‚Äù1‚Äù modality=‚ÄùFingerprint
+					Slap ‚Äù>
+					<FrameType biometricPosition=‚ÄùAny‚Äù size=‚Äù800,750‚Äù
+						pixelFormat=‚ÄùGray8‚Äù pixelResolution=‚Äù250ppi‚Äù />
 				</VideoFormat>
 			</VideoFormats>
 			<SampleFormats>
-				<SampleFormat formatId=î1î format=îISO IEC 1 views=î1î
-					size=î1600,1500î pixelResolution=î500ppiî />
+				<SampleFormat formatId=‚Äù1‚Äù format=‚ÄùISO IEC 1 views=‚Äù1‚Äù
+					size=‚Äù1600,1500‚Äù pixelResolution=‚Äù500ppi‚Äù />
 			</SampleFormats>
 		</Capabilities>
 	</Arrival>
 </DeviceManagerEventRequest>
-
-<DeviceManagerEventResponse requestId=îî>
-	<Return value=î1î failureReason=î0î />
+```
+```
+<DeviceManagerEventResponse requestId=‚Äù‚Äù>
+	<Return value=‚Äù1‚Äù failureReason=‚Äù0‚Äù />
 </DeviceManagerEventResponse>
-
+```
  **TBD - to be expanded**
 
 **Device Removal :**
@@ -171,28 +173,29 @@ Application.
 The event notifies the device manager, and the application about a device removal. The
 VDM originates this event, and sends it to the DM, which in turn forwards it to the
 Application.
-
-<DeviceManagerEventRequest requestId=îî>
-	<Removal deviceURI=îî />
+```
+<DeviceManagerEventRequest requestId=‚Äù‚Äù>
+	<Removal deviceURI=‚Äù‚Äù />
 </DeviceManagerEventRequest>
 
-<DeviceManagerEventResponse requestId=îî>
-	<Return value=îî failureReason=î0î/>
+<DeviceManagerEventResponse requestId=‚Äù‚Äù>
+	<Return value=‚Äù‚Äù failureReason=‚Äù0‚Äù/>
 </DeviceManagerEventResponse>
-
+```
 The device component of the removed device should be listening on the deviceURI until
 the response is received. After the response is received it can close all sockets of this
 device that not closed already by the application.
 
 **Ping :**
 This is used as a heartbeat event, to notify the DM that a VDM, is still alive.
-<DeviceManagerEventRequest requestId=îî>
-	<Ping vdmName=îî/>
+```
+<DeviceManagerEventRequest requestId=‚Äù‚Äù>
+	<Ping vdmName=‚Äù‚Äù/>
 </DeviceManagerEventRequest>
-<DeviceManagerEventResponse requestId=îî>
-	<Return value=îî failureReason=îî/>
+<DeviceManagerEventResponse requestId=‚Äù‚Äù>
+	<Return value=‚Äù‚Äù failureReason=‚Äù‚Äù/>
 </DeviceManagerEventResponse>
-
+```
 The only failure condition is if the device was previously removed, or never registered.
 
 **VDM Events :**
@@ -208,55 +211,57 @@ send device removal event.
 **Start Capture :**
 Starts the capture process, also subscribes to Capture Complete and optionally User
 Feedback events.
-
-<DeviceCommandRequest requestId=îî>
-	<StartCapture biometricPosition=îRight Thumb î
-		allowManualCapture=îTrueî [ videoFormatId=î1î] sampleFormatId=î1î>
+```
+<DeviceCommandRequest requestId=‚Äù‚Äù>
+	<StartCapture biometricPosition=‚ÄùRight Thumb ‚Äù
+		allowManualCapture=‚ÄùTrue‚Äù [ videoFormatId=‚Äù1‚Äù] sampleFormatId=‚Äù1‚Äù>
 		[
 		<MissingBiometrics>
-			<MissingBiometric biometricPosition=îLeft Middle î />
+			<MissingBiometric biometricPosition=‚ÄùLeft Middle ‚Äù />
 			<MissingBiometrics>]
 	</StartCapture>
 </DeviceCommandRequest>
-<DeviceCommandResponse requestId=îî>
-	<Return value=îî failureReason=îî />
+<DeviceCommandResponse requestId=‚Äù‚Äù>
+	<Return value=‚Äù‚Äù failureReason=‚Äù‚Äù />
 	[
-	<Video videoURI=îî />
+	<Video videoURI=‚Äù‚Äù />
 	]
 </DeviceCommandResponse>
-
-Expected behaviour: starts the capture process. Any capture related event can be sent
+```
+**Expected behaviour:** starts the capture process. Any capture related event can be sent
 only after the response to the start capture event. MissingBiometrics is optional.
 Attribute sampleFormatId is indicating the requested output sample format. Optional
 attribute videoFormatId is indicating that the video stream is requested, and the desired
 video format referred by videoFormatId in the Device Arrival VDM event in
-ìCapabilities/videoFormats/videoFormatî.
+‚ÄúCapabilities/videoFormats/videoFormat‚Äù.
 
 
-3.3.3 Force Capture
+**Force Capture :**
 Forces manual capture. Should not be issued when the capture is not started.
-<DeviceCommandRequest requestId=îî>
+```
+<DeviceCommandRequest requestId=‚Äù‚Äù>
 <ForceCapture/>
 </DeviceCommandRequest>
-<DeviceCommandResponse requestId=îî>
-<Return value=î1î failureReason=î0î/>
+<DeviceCommandResponse requestId=‚Äù‚Äù>
+<Return value=‚Äù1‚Äù failureReason=‚Äù0‚Äù/>
 </DeviceCommandResponse>
+```
 Expected behaviour: force manual capture, whether the automatic capture is on or off.
 The capture complete event is sent right after the response to this event. If the capture 
 complete event comes before the response, it means the event resulted from the
 automatic capture.
 
 
-3.3.4 Stop Capture
-Stops (cancels) current capture
+**Stop Capture :**
 
-<DeviceCommandRequest requestId=îî>
+```
+<DeviceCommandRequest requestId=‚Äù‚Äù>
 	<StopCapture/>
 </DeviceCommandRequest>
-<DeviceCommandResponse requestId=îî>
-	<Return value=î1î failureReason=î0î/>
+<DeviceCommandResponse requestId=‚Äù‚Äù>
+	<Return value=‚Äù1‚Äù failureReason=‚Äù0‚Äù/>
 </DeviceCommandResponse>
-
+```
 Expected behaviour: stops capture process. No capture complete event should come
 after the response to Stop Capture.
 
