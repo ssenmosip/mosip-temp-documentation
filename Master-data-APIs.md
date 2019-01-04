@@ -3778,6 +3778,7 @@ isActive|Yes|Is this location active| |
 ```
 ### Response codes
 201
+
 Description: Created
 
 202
@@ -3797,8 +3798,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.15 Locations Master API
-# 2.3.15.1 Locations Master-update service
+# 2.3.15.2 Locations Master-update service
 
 ### Resource URL
 ### `PUT /locations`
@@ -3866,8 +3866,8 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.15 Locations Master API
-# 2.3.15.1 Locations Master-delete service
+
+# 2.3.15.3 Locations Master-delete service
 
 ### Resource URL
 ### `DELETE /locations/{locationcode}`
@@ -3912,7 +3912,7 @@ Description: Forbidden
 
 
 
-# 2.3.15.2 Locations Master-get service
+# 2.3.15.4 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -3973,7 +3973,7 @@ Description: Internal Server Error
 
 
 
-# 2.3.15.3 Locations Master-get service
+# 2.3.15.5 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -4039,7 +4039,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.15.3 Locations Master-get service
+# 2.3.15.6 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -4106,7 +4106,7 @@ Description: Not Found
 
 
 
-# 2.3.15.3 Locations Master-get service
+# 2.3.15.7 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations based on the location hierarchy name. 
