@@ -1082,6 +1082,55 @@ Description: Unauthorized
 
 Description: Not Found
 
+# 2.3.6.5 Machine Master-delete machines based on id service
+
+This service will delete the machines. 
+
+### Resource URL
+### `DELETE /v1.0/machines/{id}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machineId|Yes|The machineId| | 
+
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+200
+
+Description: When Machine deleted successfully
+
+204
+
+Description: No Content
+
+401
+
+Description: Unauthorized
+
+403
+	
+Description: Forbidden
+
+404
+
+Description: When machine not found
+
+500
+
+Description: Error occurred while deleting Machine
+
 # 2.3.6 Devices Master API
 # 2.3.6.1 Devices Master-create service
 
@@ -5293,6 +5342,7 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
 
 # 2.3.24 Registration Center Machine Device API
 ## 2.3.24.1 Registration Center Machine Device-create service
