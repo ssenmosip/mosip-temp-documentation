@@ -1131,6 +1131,82 @@ Description: When machine not found
 
 Description: Error occurred while deleting Machine
 
+# 2.3.6.4 Machine Master-update machines
+
+This service will update existing machines. 
+
+
+### Resource URL
+### `PUT /v1.0/machines`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-31T05:47:36.645Z",
+  "request": {
+    "machineSpecId": "string",
+    "id": "string",
+    "ipAddress": "string",
+    "isActive": true,
+    "langCode": "string",
+    "macAddress": "string",
+    "name": "string",
+    "serialNum": "string",
+    "validityDateTime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+### Response codes
+200
+
+Description: When machine updated successfully
+
+201
+
+Description: Created
+
+400
+
+Description: When Request body passed is null or invalid
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+404
+
+Description: When Machine is not found
+
+500
+
+Description: While updating machine any error occurred
+
+
 # 2.3.6 Devices Master API
 # 2.3.6.1 Devices Master-create service
 
