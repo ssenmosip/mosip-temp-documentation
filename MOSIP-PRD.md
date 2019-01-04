@@ -53,8 +53,8 @@ Fig: 2 Key objectives of the platform
 
 3.	MOSIP FUNCTIONAL OVERVIEW
 
-MOSIP has the following functional modules.
-Figure
+https://github.com/mosip/mosip/wiki
+
 
 Fig 3: MOSIP functional overview
 
