@@ -233,7 +233,6 @@ request | yes | JSON body as per the ID object schema | |
   "id": "mosip.id.create",
   "version": "1.0",
   "timestamp": "2018-12-11T06:13:05.218",
-  "uin": "568469473107",
   "status": "ACTIVATED",
   "err": [],
   "response": {
@@ -241,6 +240,7 @@ request | yes | JSON body as per the ID object schema | |
   }
 }
 ```
+
 
 **2. Read **
 
@@ -484,8 +484,7 @@ Requires Authentication | Yes
 	"id" : "mosip.id.update",
 	"ver" : "1.0",
 	"timestamp" : "",
-	"uin" : "7867780967875678",
-	"status" : "",
+	"status" : "DEACTIVATED",
 	"err" : [],
 	"response" : {
 		"entity" : "http://mosip.io/identity/568469473107"
