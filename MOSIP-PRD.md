@@ -60,6 +60,8 @@ Fig 3: MOSIP functional overview
 
 4.	MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
 MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
+https://github.com/mosip/mosip/wiki/Logical-Architecture
+
 
 Fig: 4 MOSIP Architectural patterns and principles
 
