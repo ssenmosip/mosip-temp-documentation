@@ -130,6 +130,7 @@ they are connecting with a DM, and exchange certain configuration information.
 	dmVersion=”” heartBeat=””/>
 </DeviceManagerEventResponse>
 
+
 **Device Arrival :**
 
 The event notifies the device manager, and the application about a device arrival. The
