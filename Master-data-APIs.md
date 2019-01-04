@@ -5683,7 +5683,7 @@ id|Yes|ID of the Device Specification| |
 
 # 2.3.26.4 Device Specifications Master-get service
 
-This service will provides the list of all Device Specifications in all languages. 
+This service will provides the list of all Device Specifications for specified language code and device type code . 
 
 
 ### Resource URL
@@ -5710,16 +5710,21 @@ dtyp_code|Yes|device type code of the Device specification| |
 ### Example Response
 ```JSON
 {
-	"id":"KJDS9",
-	"name":"Laptop",
-	"brand":"Hewlett Packard",
-	"model":"L34-324",
-	"mtyp_code":"GEW8",
-	"min_driver_ver":"1.4",
-	"descr":"This is a medium configuration",
-	"lang_code":"eng",
-	"is_active":true
+  "devicespecifications": [
+    {
+      "brand": "string",
+      "description": "string",
+      "deviceTypeCode": "string",
+      "id": "string",
+      "isActive": true,
+      "langCode": "string",
+      "minDriverversion": "string",
+      "model": "string",
+      "name": "string"
+    }
+  ]
 }
+
 ```
 
 
