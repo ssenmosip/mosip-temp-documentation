@@ -52,6 +52,10 @@ This section details about the service APIs in the Master data modules
 
 [2.3.26 Device Specifications Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2326-device-specifications)
 
+[2.3.27 Template Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2327-template-api)
+
+[2.3.28 Template Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2328-template-types-api)
+
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
 Master data is required across the platform. 
@@ -4607,13 +4611,13 @@ lang_code|Yes|Language code of the document type| |
 }
 ```
 
-# 2.3.18.3 Documents Category-delete service
-Master data is required across the platform. 
+# 2.3.18.3 Documents Types Master-get service
 
-This service will deletes a list of Document Categories from the Documents Category master module. 
+This service will provides the service for the valid doucment type avialbale for specific Document Category code
+
 
 ### Resource URL
-### `DELETE /documenttypes`
+### `GET /documenttypes/{documentcategorycode}/{langcode}`
 
 ### Resource details
 
@@ -4625,21 +4629,41 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-code|Yes|Code of the document type| | 
 
+documentcategorycode |Yes| Code of document category | |
+langcode | Yes | language code | |
 
-### Example Request
-```JSON
-{
-  "documentcodes": ["PSPRT","DRVNGLCNC","RNTLAGRMNT","POB"]
-}
-```
 ### Example Response
 ```JSON
 {
-  "successfully_deleted_documentcodes": ["PSPRT","DRVNGLCNC","RNTLAGRMNT","POB"]
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string",
+    "name": "string"
+  }
 }
 ```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
 
 # 2.3.18.4 Document Types Master-get service
 
@@ -5788,4 +5812,185 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+# 2.3.27 Template API
+
+# 2.3.27.1 Template Master-create service
+
+This service will create the list of Template  which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /temlates
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of temlate | | 
+descr|Yes|Description of the temlate | | 
+lang_code|Yes|Language code of the temlate | | 
+isActive |Yes|is active or not| |
+moduleId |Yes| Id of modul | |
+templateTypeCode |Yes| Id of template type | |
+fileFormatCode | Yes | Code of file formate| |
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "description": "string",
+    "fileFormatCode": "string",
+    "fileText": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "model": "string",
+    "moduleId": "string",
+    "moduleName": "string",
+    "name": "string",
+    "templateTypeCode": "string"
+  }
+}
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+# 2.3.27.2 Template  Master-update service
+
+This service will update the list of Template  which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT /templates`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of temlate | | 
+lang_code|Yes|Language code of the temlate | | 
+isActive |Yes|is active or not| |
+moduleId |Yes| Id of modul | |
+templateTypeCode |Yes| Id of template type | |
+fileFormatCode | Yes | Code of file formate| |
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "description": "string",
+    "fileFormatCode": "string",
+    "fileText": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "model": "string",
+    "moduleId": "string",
+    "moduleName": "string",
+    "name": "string",
+    "templateTypeCode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+
+# 2.3.27.3 Template delete service
+Master data is required across the platform. 
+
+This service will deletes a list of Template from the Template master module. 
+
+### Resource URL
+### `DELETE /templates/{id}
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|id of the Template| 
+
+
+
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+# 2.3.28 Template Types API
+
+# 2.3.28.1 Template Type Master-create service
+
+This service will create the list of Template types which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /temlateypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of temlate type| | 
+descr|Yes|Description of the temlate type| | 
+lang_code|Yes|Language code of the temlate type| | 
+isActive |Yes|is active or not| |
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "code": "string",
+    "description": "string",
+    "isActive": true,
+    "langCode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "code": "string",
+  "langCode": "string"
+}
+```
 
