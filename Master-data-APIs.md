@@ -1082,7 +1082,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.6.5 Machine Master-delete machines based on id service
+# 2.3.5.5 Machine Master-delete machines based on id service
 
 This service will delete the machines. 
 
