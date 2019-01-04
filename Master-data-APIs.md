@@ -5425,9 +5425,9 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.20 Device Specifications
+# 2.3.26 Device Specifications
 
-# 2.3.20.1 Device  Specification Master-create service
+# 2.3.26.1 Device  Specification Master-create service
 
 This service will create a Device Specification which are used in the MOSIP platform. 
 
@@ -5480,7 +5480,7 @@ is_active|Yes|Is the Device Specification active| |
 }
 ```
 
-# 2.3.20.2 Device Specifications Master-update service
+# 2.3.26.2 Device Specifications Master-update service
 
 This service will update a Device Specification which are used in the MOSIP platform. 
 
@@ -5528,7 +5528,7 @@ lang_code|Yes|Language code of the Device Specification| |
 ```
 
 
-# 2.3.20.3 Device Specifications-delete service
+# 2.3.26.3 Device Specifications-delete service
 
 This service deletes a Device Specification from the Device Specifications master module. 
 
@@ -5555,7 +5555,7 @@ id|Yes|ID of the Device Specification| |
 }
 ```
 
-# 2.3.20.4 Device Specifications Master-get service
+# 2.3.26.4 Device Specifications Master-get service
 
 This service will provides the list of all Device Specifications in all languages. 
 
@@ -5597,7 +5597,7 @@ dtyp_code|Yes|device type code of the Device specification| |
 ```
 
 
-# 2.3.20.5 Machine Specifications Master-get based on language service
+# 2.3.26.5 Machine Specifications Master-get based on language service
 
 This service will provides the list of all Machine Specifications in a specific language. 
 
