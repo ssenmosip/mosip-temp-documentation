@@ -50,6 +50,7 @@ This section details about the service APIs in the Master data modules
 
 [2.3.25 Devices Master Type API](https://github.com/mosip/mosip/wiki/Master-data-APIs#23251-device-types-master-create-service)
 
+[2.3.26 Device Specifications Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2326-device-specifications)
 
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
@@ -5407,6 +5408,235 @@ isactive|Yes|Is the device type active?| |
   "langCode": "string"
 }
 ```
+### Response codes
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+# 2.3.20 Device Specifications
+
+# 2.3.20.1 Device  Specification Master-create service
+
+This service will create a Device Specification which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /devicespecifications`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|ID of the Device Specification| | 
+name|Yes|Name of the Device Specification| | 
+brand|Yes|Brand of the Device specification| | 
+model|Yes|Model of the Device specification| | 
+dtyp_code|Yes|device type code of the Device specification| | 
+min_driver_ver|Yes|Minimum driver version required for the Device specification| | 
+descr|Yes|Description of the Device specification| | 
+lang_code|Yes|Language of the Device specification| | 
+is_active|Yes|Is the Device Specification active| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:33:45.899Z",
+  "request": {
+    "brand": "string",
+    "description": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "DeviceTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
+    "name": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+
+# 2.3.20.2 Device Specifications Master-update service
+
+This service will update a Device Specification which are used in the MOSIP platform. 
+
+
+### Resource URL
+### `PUT /devicespecifications`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|ID of the Device Specification| | 
+lang_code|Yes|Language code of the Device Specification| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "ver": "string",
+  "timestamp": "2018-12-24T05:36:25.656Z",
+  "request": {
+    "brand": "string",
+    "description": "string",
+    "id": "string",
+    "isActive": true,
+    "langCode": "string",
+    "deviceTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
+    "name": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+
+
+# 2.3.20.3 Device Specifications-delete service
+
+This service deletes a Device Specification from the Device Specifications master module. 
+
+### Resource URL
+### `DELETE /devicespecifications/{id}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id|Yes|ID of the Device Specification| | 
+
+
+### Example Response
+```JSON
+{
+  "id": "string"
+}
+```
+
+# 2.3.20.4 Device Specifications Master-get service
+
+This service will provides the list of all Device Specifications in all languages. 
+
+
+### Resource URL
+### `GET /devicespecifications/{langcode}/{devicetypecode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+lang_code|Yes|Language code of the Device Specification| |
+dtyp_code|Yes|device type code of the Device specification| | 
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"name":"Laptop",
+	"brand":"Hewlett Packard",
+	"model":"L34-324",
+	"mtyp_code":"GEW8",
+	"min_driver_ver":"1.4",
+	"descr":"This is a medium configuration",
+	"lang_code":"eng",
+	"is_active":true
+}
+```
+
+
+# 2.3.20.5 Machine Specifications Master-get based on language service
+
+This service will provides the list of all Machine Specifications in a specific language. 
+
+
+### Resource URL
+### `GET /deivcespecifications/{lang_code}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+lang_code|Yes|Language code of the Device Specification| |
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Response
+```JSON
+{
+	"id":"KJDS9",
+	"name":"Laptop",
+	"brand":"Hewlett Packard",
+	"model":"L34-324",
+	"dtyp_code":"GEW8",
+	"min_driver_ver":"1.4",
+	"descr":"This is a medium configuration",
+	"lang_code":"eng",
+	"is_active":true
+}
+```
+
 ### Response codes
 202
 
