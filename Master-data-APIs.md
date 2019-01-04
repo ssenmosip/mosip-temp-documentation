@@ -3796,6 +3796,77 @@ Description: Unauthorized
 
 Description: Forbidden
 
+
+# 2.3.15 Locations Master API
+# 2.3.15.1 Locations Master-update service
+
+### Resource URL
+### `PUT /locations`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the location| | 
+name|Yes|Name of the location| | 
+hierarchyLevel|Yes|Heirarchy level of the location| | 
+hierarchyName|Yes|Hierarchy level name of the location| | 
+parentLocCode|Yes|Parent location code of the location| | 
+langCode|Yes|Language Code of the location| | 
+isActive|Yes|Is this location active| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"ver" : "string",
+	"timestamp" : "2018-12-28T10:56:55.972Z",
+	"request": {
+                      "code": "string",
+                      "hierarchyLevel": 0,
+                      "hierarchyName": "string",
+                      "isActive": true,
+                      "langCode": "string",
+                      "name": "string",
+                      "parentLocCode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "code": "string",
+  "langCode:"string""
+
+}
+```
+### Response codes
+
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+
 # 2.3.15.2 Locations Master-get service
 Master data is required across the platform. 
 
