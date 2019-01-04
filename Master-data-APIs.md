@@ -3843,8 +3843,53 @@ isActive|Yes|Is this location active| |
 ```JSON
 {
   "code": "string",
-  "langCode:"string""
+  "langCode:"string"
 
+}
+```
+### Response codes
+
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+# 2.3.15 Locations Master API
+# 2.3.15.1 Locations Master-delete service
+
+### Resource URL
+### `DELETE /locations/{locationcode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Response
+```JSON
+{
+   "code": "string"
 }
 ```
 ### Response codes
@@ -3926,50 +3971,6 @@ Description: Not Found
 
 Description: Internal Server Error
 
-
-# 2.3.15 Locations Master API
-# 2.3.15.1 Locations Master-create service
-
-### Resource URL
-### `DELETE/locations/{locationcode}`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-
-### Example Response
-```JSON
-{
-   "code": "string",
-}
-```
-### Response codes
-
-202
-
-Description: Accepted
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
 
 
 # 2.3.15.3 Locations Master-get service
