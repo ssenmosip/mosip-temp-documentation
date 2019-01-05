@@ -5629,6 +5629,57 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
+
+## 2.3.24.2 Registration Center Machine Device-delete service
+Master data is required across the platform. 
+
+This service will delete the mapping of registration canter, machine and device in the RegistrationCenter-Machine-Device Master module. 
+
+### Resource URL
+### `DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+NA
+
+
+```
+### Example Response
+```JSON
+  {
+   "deviceId": "string",
+   "machineId": "string",
+   "regCenterId": "string"
+  }
+```
+### Response codes
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+500
+
+Description: Internal Server Error 
+
+
+
 # 2.3.25 Device Types Master API
 ## 2.3.25.1 Device Types Master-create service
 
