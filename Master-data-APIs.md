@@ -5651,7 +5651,6 @@ Name | Required | Description | Default Value | Example
 NA
 
 
-```
 ### Example Response
 ```JSON
   {
