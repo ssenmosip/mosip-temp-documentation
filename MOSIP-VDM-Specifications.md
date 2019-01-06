@@ -138,17 +138,17 @@ they are connecting with a DM, and exchange certain configuration information.
     When: At required time can establish connection with DM.
     
 ```
-<DeviceManagerEventRequest requestId=â€�â€� version=â€�â€�>
-	<Connect apiVersion=â€�â€�>
-		<VDM vendor=â€�â€� vdmName=â€�â€� vdmVersion=â€�â€�/>
-		<APP vendor=â€�â€� appName=â€�â€� appVersion=â€�â€�/>
+<DeviceManagerEventRequest requestId="" version="">
+	<Connect apiVersion="">
+		<VDM vendor="" vdmName="" vdmVersion=""/>
+		<APP vendor="" appName="" appVersion=""/>
 	</Connect>
 </DeviceManagerEventRequest>
 
-<DeviceManagerEventResponse requestId=â€�â€�>
-	<Return value=â€�â€�/>
-	<ConnectResponse apiVersion=â€�â€� vendor=â€�â€� dmName=â€�â€�
-	dmVersion=â€�â€� heartBeat=â€�â€�/>
+<DeviceManagerEventResponse requestId="">
+	<Return value=""/>
+	<ConnectResponse apiVersion="" vendor="" dmName=""
+	dmVersion="" heartBeat=""/>
 </DeviceManagerEventResponse>
 ```
 In addition to exchanging the names of the vendors, version numbers of the API, and the
@@ -163,11 +163,11 @@ This is used as a heartbeat event, to notify the DM that a VDM, is still alive.
    When: To notify DM that a VDM is still alive.
    
 ```
-<DeviceManagerEventRequest requestId=â€�â€�>
-	<Ping vdmName=â€�â€�/>
+<DeviceManagerEventRequest requestId="">
+	<Ping vdmName=""/>
 </DeviceManagerEventRequest>
-<DeviceManagerEventResponse requestId=â€�â€�>
-	<Return value=â€�â€� failureReason=â€�â€�/>
+<DeviceManagerEventResponse requestId="">
+	<Return value="" failureReason=""/>
 </DeviceManagerEventResponse>
 ```
 The only failure condition is if the device was previously removed, or never registered.
@@ -182,32 +182,32 @@ the connections on the socket addressed by the deviceURI.
     When: The event notifies the DM, and that in turn forwards it to the application about a device arrival.
 
 ```
-<DeviceManagerEventRequest requestId=â€�â€�>
-	<Arrival vdmName=â€�â€� deviceURI=â€�â€� modality=â€�Fingerprint Slap â€�
-		deviceMake=â€�Manufacturer Name â€� deviceModel=â€�DEVICE MODEL NAME /
-		IDENTIFIER â€� hardwareRev=â€�1.0.0â€� firmwareRev=â€�1.0.1â€�
-		serialNumber=â€�ABC1234567â€�>
-		<Capabilities detection=â€�Trueâ€� video=â€�Trueâ€�
-			autoCapture=â€�Trueâ€� disableAutoCapture=â€�Trueâ€� userFeedback=â€�Trueâ€�
-			graphicalFeedback=â€�Falseâ€�>
+<DeviceManagerEventRequest requestId="">
+	<Arrival vdmName="" deviceURI="" modality="Fingerprint Slap "
+		deviceMake="Manufacturer Name " deviceModel="DEVICE MODEL NAME /
+		IDENTIFIER " hardwareRev="1.0.0" firmwareRev="1.0.1"
+		serialNumber="ABC1234567">
+		<Capabilities detection="True" video="True"
+			autoCapture="True" disableAutoCapture="True" userFeedback="True"
+			graphicalFeedback="False">
 			<VideoFormats>
-				<VideoFormat videoFormatId=â€�1â€� modality=â€�Fingerprint
-					Slap â€�>
-					<FrameType biometricPosition=â€�Anyâ€� size=â€�800,750â€�
-						pixelFormat=â€�Gray8â€� pixelResolution=â€�250ppiâ€� />
+				<VideoFormat videoFormatId="1" modality="Fingerprint
+					Slap ">
+					<FrameType biometricPosition="Any" size="800,750"
+						pixelFormat="Gray8" pixelResolution="250ppi" />
 				</VideoFormat>
 			</VideoFormats>
 			<SampleFormats>
-				<SampleFormat formatId=â€�1â€� format=â€�ISO IEC 1 views=â€�1â€�
-					size=â€�1600,1500â€� pixelResolution=â€�500ppiâ€� />
+				<SampleFormat formatId="1" format="ISO IEC 1 views="1"
+					size="1600,1500" pixelResolution="500ppi" />
 			</SampleFormats>
 		</Capabilities>
 	</Arrival>
 </DeviceManagerEventRequest>
 ```
 ```
-<DeviceManagerEventResponse requestId=â€�â€�>
-	<Return value=â€�1â€� failureReason=â€�0â€� />
+<DeviceManagerEventResponse requestId="">
+	<Return value="1" failureReason="0" />
 </DeviceManagerEventResponse>
 ```
    
@@ -224,12 +224,12 @@ Application.
     When: Event notification to the DM when the devices is disconnected.
 
 ```
-<DeviceManagerEventRequest requestId=â€�â€�>
-	<Removal deviceURI=â€�â€� />
+<DeviceManagerEventRequest requestId="">
+	<Removal deviceURI="" />
 </DeviceManagerEventRequest>
 
-<DeviceManagerEventResponse requestId=â€�â€�>
-	<Return value=â€�â€� failureReason=â€�0â€�/>
+<DeviceManagerEventResponse requestId="">
+	<Return value="" failureReason="0"/>
 </DeviceManagerEventResponse>
 ```
 The device component of the removed device should be listening on the deviceURI until
@@ -271,19 +271,19 @@ UserFeedback UserFeedback
 Starts the capture process, also subscribes to Capture Complete and optionally User
 Feedback events.
 ```
-<DeviceCommandRequest requestId=â€�â€�>
-	<StartCapture biometricPosition=â€�Right Thumb â€�
-		allowManualCapture=â€�Trueâ€� [ videoFormatId=â€�1â€�] sampleFormatId=â€�1â€�>
+<DeviceCommandRequest requestId="">
+	<StartCapture biometricPosition="Right Thumb "
+		allowManualCapture="True" [ videoFormatId="1"] sampleFormatId="1">
 		[
 		<MissingBiometrics>
-			<MissingBiometric biometricPosition=â€�Left Middle â€� />
+			<MissingBiometric biometricPosition="Left Middle " />
 			<MissingBiometrics>]
 	</StartCapture>
 </DeviceCommandRequest>
-<DeviceCommandResponse requestId=â€�â€�>
-	<Return value=â€�â€� failureReason=â€�â€� />
+<DeviceCommandResponse requestId="">
+	<Return value="" failureReason="" />
 	[
-	<Video videoURI=â€�â€� />
+	<Video videoURI="" />
 	]
 </DeviceCommandResponse>
 ```
@@ -292,17 +292,17 @@ only after the response to the start capture event. MissingBiometrics is optiona
 Attribute sampleFormatId is indicating the requested output sample format. Optional
 attribute videoFormatId is indicating that the video stream is requested, and the desired
 video format referred by videoFormatId in the Device Arrival VDM event in
-â€œCapabilities/videoFormats/videoFormatâ€�.
+â€œCapabilities/videoFormats/videoFormat".
 
 
 **Force Capture :**
 Forces manual capture. Should not be issued when the capture is not started.
 ```
-<DeviceCommandRequest requestId=â€�â€�>
+<DeviceCommandRequest requestId="">
 <ForceCapture/>
 </DeviceCommandRequest>
-<DeviceCommandResponse requestId=â€�â€�>
-<Return value=â€�1â€� failureReason=â€�0â€�/>
+<DeviceCommandResponse requestId="">
+<Return value="1" failureReason="0"/>
 </DeviceCommandResponse>
 ```
 Expected behaviour: force manual capture, whether the automatic capture is on or off.
@@ -319,11 +319,11 @@ automatic capture.
    When: To stop the current capture process.
 
 ```
-<DeviceCommandRequest requestId=â€�â€�>
+<DeviceCommandRequest requestId="">
 	<StopCapture/>
 </DeviceCommandRequest>
-<DeviceCommandResponse requestId=â€�â€�>
-	<Return value=â€�1â€� failureReason=â€�0â€�/>
+<DeviceCommandResponse requestId="">
+	<Return value="1" failureReason="0"/>
 </DeviceCommandResponse>
 ```
 
