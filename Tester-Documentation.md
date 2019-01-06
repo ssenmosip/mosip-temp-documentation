@@ -15,6 +15,11 @@ a. Data utility tools - approach, usage
 3. Test Management Tools
 4. Defect Management & Lifecycle
 
+## Test Approach
+A progressively evolving test approach will be followed for testing i.e. a bottom up approach for testing will be adopted, starting from individual API verification --> module level testing --> integration across modules, followed by --> End to end workflow testing
+
+
+
 # Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
