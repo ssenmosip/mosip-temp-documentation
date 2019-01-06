@@ -40,7 +40,7 @@ The MOSIP architecture mainly consists of the following functional blocks/module
 
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
-**<GITA - context setting and high level approach here>**
+**<GITA - context setting and high level approach continues here>**
 
 Reg Client Automation Approach
 
