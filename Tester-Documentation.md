@@ -16,7 +16,12 @@ a. Data utility tools - approach, usage
 4. Defect Management & Lifecycle
 
 ## Test Approach
-A progressively evolving test approach will be followed for testing i.e. a bottom up approach for testing will be adopted, starting from individual API verification --> module level testing --> integration across modules, followed by --> End to end workflow testing
+A progressively evolving test approach will be adopted i.e. a bottom up approach starting from individual API verification --> module level testing --> integration across modules --> End to end workflow testing
+
+### API Testing
+API testing will be done mainly via Test Automation. This will be done in 2 stages
+a. Soap UI automation - This will be mainly to catch up with backlog and disclose bugs soon
+b. API test framework development and test automation - This will be a more generic framework, which will be more modular and less cost of maintenance
 
 
 
