@@ -35,8 +35,8 @@ Tools/Technology Used: TestFX, Java, Maven, Junit 5, Eclipse, derby db
 Page Object Model
 The framework customized is Page Object Model (POM), each screen/Object view is treated as an individual page. Input Data, Page locators and test logic are segregated from each other. They are loosely connected to accommodate the future changes with lesser maintenance effort.
 The below diagram depicts the high level view.
-![](https://github.com/mosip/mosip/commit/fd53c0f8343d3d23fb01630b7655a28421e57a39)
-
+[[https://github.com/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG]]
+     
 # Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
