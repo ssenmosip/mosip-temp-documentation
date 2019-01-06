@@ -36,7 +36,46 @@ Page Object Model
 The framework customized is Page Object Model (POM), each screen/Object view is treated as an individual page. Input Data, Page locators and test logic are segregated from each other. They are loosely connected to accommodate the future changes with lesser maintenance effort.
 The below diagram depicts the high level view.
 [[https://github.com/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG]]
-     
+
+* Core framework – which holds common code for functions, Input Data, the controller script and generic services like logging, exception handling
+* Page Object – These are the pages, which hold info about the pages/object view relative to their locators, values and respective page assertions
+
+Following is the description of each package/module under the framework
+1. Input Data Handling
+DataUtil is the provider of Demographic and Biometric input provider. It generates multiple samples of simulated Biometric data for fingerprints, Iris and photo. The util in turn uses sample simulators to generate unique set of data dynamically at runtime.
+
+2. Base Package
+It holds the entire configuration to initialize and trigger the Runner class to start the execution. It instantiates stage robot elements of TestFX.
+
+3. Page Handling
+Each screen of JavaFX represents a Page and it is implemented using Enum classes of Java. Constants under the enum class (separate enum for each screen/page) holds locator, values and behavior/method to interact with the screen. It also encapsulates the assertion messages specifically for any behavior.
+Ex: LoginPage, RegistrationPage etc
+
+4. Test Scripts
+Test Scripts are implemented using TestFX and Java code. TestFX provides Robot api with rich collection of keyword mouse movement/interaction libraries. It also provides Hamcrest matchers to assert tests.
+Every script starts calling Datautil for input data based on the scenario. Relevant page/enum values are used to customize the behavior. Test is asserted for its result referring static data mainted under pages.
+
+5. Exception Handling
+Every behavior is associated with success and parallel failure scenario. All the failures are caught with systematic error handling using try/catch block and user will be prompted with meaningful messages on the action to be taken further. 
+Exceptions might also arrive at the integration (say SDK devices while capturing images), they are also handled based on the scope (Device or Enrollment Client). Device connectivity is checked at the code.
+
+6. Reporting and Screenshot
+All execution are captured in a report along with attached screenshot of failed test cases in case of failure. Report listener is added at test script level to get detailed logging and report on execution status. 
+
+**Test Scripts Types:**
+**Health Checks**
+Need to come up with Health check tests for:
+1.	All Interfaces (Integration Points)
+2.	All Connectivity points
+
+**Exception Handling**
+Tests should be robust enough to handle error scenarios like
+1.	Exception while capturing images
+2.	Exception while processing data
+
+**Functional Validation**
+Tests to validate the functionality of each screen either with Successful or Error scenario coverage
+
 # Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
