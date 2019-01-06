@@ -24,8 +24,11 @@ API testing will be done mainly via Test Automation. This will be done in 2 stag
 2. API test framework development and test automation - This will be a more generic framework, which will be more modular and less cost of maintenance
 
 ### 2.1.1 API Test Framework 
+**<JYOTI - Document the API generic framework design here>**
 
 ### 2.1.2 Module level testing
+**<GITA - context setting and high level approach here>**
+
 Reg Client Automation Approach
 
 Registration Client is thick Desktop application built using JavaFX accessible in Windows and Linux machines. The Enrollment Client expects inputs from user in the form of Demographic and Biometric and generates Registration ID by exposing several Java and Restful apis. 
