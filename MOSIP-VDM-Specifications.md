@@ -376,6 +376,7 @@ the same finger is not captured again immediately.
    From: .
    To: Application.
    when: Detects the device state changes.
+   
 
 ```
 <DeviceCommandRequest requestId="">
