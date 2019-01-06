@@ -1,3 +1,5 @@
+
+***
 **# **MOSIP - Test Strategy (Work in progress copy)****
 # 1 Introduction
 ## 1.1 Context
@@ -30,6 +32,14 @@ Data utility also handles the transliteration of input values.
 **<JYOTI - Document the API generic framework design here>**
 
 ### 2.1.2 Module level testing
+The MOSIP architecture mainly consists of the following functional blocks/modules
+* Pre-Registration - Web application that will be independently tested
+* Registration Client - A thick desktop client application that will be connected to scanner devices (finger print, iris), camera and printer
+* Registration Processor - A backend server application that processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
+* IDA (ID Authentication) - A backend authentication server that authenticates the resident based on biometric and demographic information
+
+MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
+
 **<GITA - context setting and high level approach here>**
 
 Reg Client Automation Approach
@@ -338,3 +348,5 @@ Point of Contact/Author: jyoti.kori@mindtree.com
 
 Reviewed by:     	Avinash.Chandrashekar@mindtree.com
 
+
+***
