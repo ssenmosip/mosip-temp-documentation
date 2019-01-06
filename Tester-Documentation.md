@@ -25,6 +25,18 @@ API testing will be done mainly via Test Automation. This will be done in 2 stag
 
 ### 2.1.1 API Test Framework 
 
+### 2.1.2 Module level testing
+Reg Client Automation Approach
+
+Registration Client is thick Desktop application built using JavaFX accessible in Windows and Linux machines. The Enrollment Client expects inputs from user in the form of Demographic and Biometric and generates Registration ID by exposing several Java and Restful apis. 
+Tools/Technology Used:
+	TestFX, Java, Maven, Junit 5, Eclipse, derby db
+
+Page Object Model
+The framework customized is Page Object Model (POM), each screen/Object view is treated as an individual page. Input Data, Page locators and test logic are segregated from each other. They are loosely connected to accommodate the future changes with lesser maintenance effort.
+The below diagram depicts the high level view.
+
+
 # Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
