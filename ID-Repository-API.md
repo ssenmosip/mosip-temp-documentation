@@ -3,11 +3,12 @@ Each ID generated for an Individual is uniquely identified by the UIN (Unique Id
 This API will support the following features
  - Creation of a ID record
  - Lookup of an ID record based on the UIN
+ - Updation of an ID record based on the UIN
  - Will not support search based on attributes of an ID
 
 **1. Create**
 
-This operation will create a new ID record in the ID repository
+This operation will create a new ID record in the ID repository and store corresponding demographic and biometric documents. 
 
 ### Resource URL
 ### `POST /identity/v1.0/568469473107`
@@ -199,29 +200,51 @@ request | yes | JSON body as per the ID object schema | |
       "proofOfAddress": {
         "format": "pdf",
         "category": "drivingLicense",
-        "value": "<Base 64 encoded byte[] of PoA document>"
+        "value": "PoA_drivingLicense"
       },
       "proofOfIdentity": {
         "format": "txt",
         "category": "passport",
-        "value": "<Base 64 encoded byte[] of PoI document>"
+        "value": "PoI_passport"
       },
       "proofOfRelationship": {
         "format": "pdf",
         "category": "passport",
-        "value": "<Base 64 encoded byte[] of PoR document>"
+        "value": "PoR_passport"
       },
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "<Base 64 encoded byte[] of CBEFF document>"
+        "value": "test_bio"
       },
       "parentOrGuardianBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "<Base 64 encoded byte[] of CBEFF document>"
+        "value": "test_parent_bio"
       }
-    }
+    },
+    "documents": [
+      {
+        "type": "proofOfAddress",
+        "value": "<Base 64 encoded byte array of PoA document>"
+      },
+      {
+        "type": "proofOfIdentity",
+        "value": "<Base 64 encoded byte array of PoI document>"
+      },
+      {
+        "type": "proofOfRelationship",
+        "value": "<Base 64 encoded byte array of PoR document>"
+      },
+      {
+        "type": "individualBiometrics",
+        "value": "<Base 64 encoded byte array of CBEFF document>"
+      },
+      {
+        "type": "parentOrGuardianBiometrics",
+        "value": "<Base 64 encoded byte array of CBEFF document>"
+      }
+    ]
   }
 }
 ```
@@ -244,10 +267,11 @@ request | yes | JSON body as per the ID object schema | |
 
 **2. Read **
 
-This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/doc
+This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/doc. 
+If no identity type is provided, stored identity will be returned as a default response. If any of the identity type bio and/or doc is present, their respective documents will be returned along with stored identity details.
 
 ### Resource URL
-### `GET /identity/v1.0/568469473107?type=bio&subtype=FMR,IIR`
+### `GET /identity/v1.0/568469473107?type=bio`
 
 ### Resource details
 
@@ -261,13 +285,12 @@ Requires Authentication | Yes
 ```
 {
   "id": "mosip.id.read",
-  "ver": "1.0",
-  "timestamp": "",
-  "err": [],
-  "uin": "2018-12-11T06:13:05.218",
+  "version": "1.0",
+  "timestamp": "2018-12-11T06:13:05.218",
   "status": "ACTIVATED",
+  "err": [],
   "response": {
-    //JSON object as per the IDObject Schema defined by the system owner
+    //JSON object as per the ID Object Schema defined by the system owner
     "identity": {
       "firstName": {
         "label": "First Name",
@@ -427,12 +450,38 @@ Requires Authentication | Yes
         ]
       },
       "parentOrGuardianRIDOrUIN": "212124324784912",
+      "proofOfAddress": {
+        "format": "pdf",
+        "category": "drivingLicense",
+        "value": "PoA_drivingLicense"
+      },
+      "proofOfIdentity": {
+        "format": "txt",
+        "category": "passport",
+        "value": "PoI_passport"
+      },
+      "proofOfRelationship": {
+        "format": "pdf",
+        "category": "passport",
+        "value": "PoR_passport"
+      },
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "<Base 64 encoded byte[] of CBEFF document>"
+        "value": "test_bio"
+      },
+      "parentOrGuardianBiometrics": {
+        "format": "cbeff",
+        "version": 1.0,
+        "value": "test_parent_bio"
       }
-    }
+    },
+    "documents": [
+      {
+        "type": "individualBiometrics",
+        "value": "<Base 64 encoded byte array of CBEFF document>"
+      }
+    ]
   }
 }
 ```
@@ -470,9 +519,15 @@ Requires Authentication | Yes
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "<Base 64 encoded byte[] of CBEFF document>"
+        "value": "updated_bio_doc"
       }
-    }
+    },
+    "documents": [
+      {
+        "type": "individualBiometrics",
+        "value": "<Base 64 encoded byte array of updated CBEFF document>"
+      }
+    ]
   }
 }
 ```
@@ -482,8 +537,8 @@ Requires Authentication | Yes
 ```
 {
 	"id" : "mosip.id.update",
-	"ver" : "1.0",
-	"timestamp" : "",
+	"version" : "1.0",
+	"timestamp" : "2018-12-11T06:13:05.218",
 	"status" : "DEACTIVATED",
 	"err" : [],
 	"response" : {

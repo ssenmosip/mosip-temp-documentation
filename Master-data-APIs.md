@@ -3778,6 +3778,7 @@ isActive|Yes|Is this location active| |
 ```
 ### Response codes
 201
+
 Description: Created
 
 202
@@ -3796,7 +3797,122 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.15.2 Locations Master-get service
+
+# 2.3.15.2 Locations Master-update service
+
+### Resource URL
+### `PUT /locations`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the location| | 
+name|Yes|Name of the location| | 
+hierarchyLevel|Yes|Heirarchy level of the location| | 
+hierarchyName|Yes|Hierarchy level name of the location| | 
+parentLocCode|Yes|Parent location code of the location| | 
+langCode|Yes|Language Code of the location| | 
+isActive|Yes|Is this location active| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"ver" : "string",
+	"timestamp" : "2018-12-28T10:56:55.972Z",
+	"request": {
+                      "code": "string",
+                      "hierarchyLevel": 0,
+                      "hierarchyName": "string",
+                      "isActive": true,
+                      "langCode": "string",
+                      "name": "string",
+                      "parentLocCode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "code": "string",
+  "langCode:"string"
+
+}
+```
+### Response codes
+
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+
+# 2.3.15.3 Locations Master-delete service
+
+### Resource URL
+### `DELETE /locations/{locationcode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+
+### Example Response
+```JSON
+{
+   "code": "string"
+}
+```
+### Response codes
+
+202
+
+Description: Accepted
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+
+# 2.3.15.4 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -3856,7 +3972,8 @@ Description: Not Found
 Description: Internal Server Error
 
 
-# 2.3.15.3 Locations Master-get service
+
+# 2.3.15.5 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -3922,7 +4039,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.15.3 Locations Master-get service
+# 2.3.15.6 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -3989,7 +4106,7 @@ Description: Not Found
 
 
 
-# 2.3.15.3 Locations Master-get service
+# 2.3.15.7 Locations Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations based on the location hierarchy name. 
@@ -5511,6 +5628,56 @@ Description: Forbidden
 500
 
 Description: Internal Server Error 
+
+
+## 2.3.24.2 Registration Center Machine Device-delete service
+Master data is required across the platform. 
+
+This service will delete the mapping of registration canter, machine and device in the RegistrationCenter-Machine-Device Master module. 
+
+### Resource URL
+### `DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+NA
+
+
+### Example Response
+```JSON
+  {
+   "deviceId": "string",
+   "machineId": "string",
+   "regCenterId": "string"
+  }
+```
+### Response codes
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+500
+
+Description: Internal Server Error 
+
+
 
 # 2.3.25 Device Types Master API
 ## 2.3.25.1 Device Types Master-create service
