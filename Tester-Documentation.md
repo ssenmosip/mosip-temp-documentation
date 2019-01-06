@@ -19,11 +19,14 @@ a. Data utility tools - approach, usage
 A progressively evolving test approach will be adopted i.e. a bottom up approach starting from individual API verification --> module level testing --> integration across modules --> End to end workflow testing
 
 ## 2.1 API Testing
-API testing will be done mainly via Test Automation. This will be done in 2 stages
-1. Soap UI automation - This will be mainly to catch up with backlog and disclose bugs soon
-2. API test framework development and test automation - This will be a more generic framework, which will be more modular and less cost of maintenance
+API testing will be carried out in 2 stages, both via Test Automation.
+1. Soap UI automation - This approach is mainly to catch up with the backlog and disclose bugs soon, however this approach has disadvantages when the APIs undergo changes
+2. API test framework development and test automation - This will be a more generic framework, that is bothe modular and comes with less cost of maintenance
 
 ### 2.1.1 API Test Framework 
+In this approach the request and response APIs will be templatized. The input request API template will be parameterised via a data utility, which also prepares the expected response JSON file. The request is then posted to get the actual response. The actual and expected response JSONs are compared to verify the result. 
+Data utility also handles the transliteration of input values.
+
 **<JYOTI - Document the API generic framework design here>**
 
 ### 2.1.2 Module level testing
