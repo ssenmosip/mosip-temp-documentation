@@ -1,17 +1,22 @@
 # **Vendor Device Manager - Specification**
 
-This document provides the detail of VDM spec to be adhere by the vendor to adopt their devices to the MOSIP platform 
+This document provides the detail of VDM technical specification to be adhere by the vendor to adopt their devices to the MOSIP platform 
 to capture the biometric data and manipulate on the same. 
 
 ![VDM Spec view](_images/registration/vdm-spec-design.png)
 
 * Following points has been considered while designing the VDM spec:
-   - Vendor should follow this spec and create the device specific VDM service to integrate with the application.
-   - Device specific code and integration with device should be available with in this scope.
-   - Any security related to the device can be implemented at single stage rather doing at application end.
-   - VDM upgrade or SDK upgrade shouldn't impact the application code. 
+   - Vendor should follow this MOSIP specification standards and provide the device along with the VDM service to integrate from application.
+   - Any changes in the device state should notify the application.
+   - VDM upgrade or new vendor devices added shouldn't impact the application code. 
    - VDM should be provided along with the GUI to register and manage the running devices port .
+   - Any security related to the device can be implemented at single stage rather doing at application end.
    - VDM should have capabilities to integrate with multiple devices like : Finger Print, IRIS and Face Reader. 
+   - No vendor specific code will be written inside the application.
+   - All communication should happen through TCP/IP sockets to isolate the application from devices.
+   - The software from each vendor will be executed as separate process and that won't impact the application.
+   - VDM should be accessible from different platform and environment (Java, .Net).
+   - The communication between the services should happen by exchanging XML messages.
    
 * VDM - The Vendor Device Manager, provided by the device vendor, which manages the device, 
   and allows for biometric data capture.   
@@ -25,8 +30,10 @@ to capture the biometric data and manipulate on the same.
    
    - The DM port should be configured during initial setup of VDM.
    - Once the VDM has been started then communicate with the DM through TCP socket and port 
-   and register the VDM listening port.
+     and register the VDM listening port.
+   - VDM uses the DM Connect api to check the connectivity.
    - If VDM failed to connect to a particular port of DM then admin can modify the port using the respective GUI.
+   - If VDM success to connect then continue with the Device Arrival api.
    
    The communication with the VDM happens through the TCP socket and port from application. 
    The VDM should listen to a particular port to send and receive the command from application. 
@@ -56,9 +63,9 @@ to capture the biometric data and manipulate on the same.
    6. Device Shutdown
    
    **Sequence of process**
-   1. VDM senses that a device under itâ€™s control is connected to the system. 
+   1. VDM senses that a device under it's control is connected to the system. 
    2. VDM creates a Device Arrival event and sends it to the DM through socket and port. 
-   3. The event contains information about the device, and itâ€™s capabilities. 
+   3. The event contains information about the device, and it's capabilities. 
    4. It accepts the request from application through the port and communicate with the device through the respective driver. 
    5. Send response back to the application based on the request. 
    
@@ -72,7 +79,7 @@ to capture the biometric data and manipulate on the same.
 
    Multiple devices can be communicate with the DM and register with the respective available port for communication. 
 
-   - The DM service should Listen on a particular range of port **TBD** to receive the device arrival and removal events from the vendor-specific device manager (VDM). 
+   - The DM service should Listen on a particular range of port to receive the device arrival and removal events from the VDM. 
    - In case the provided ports are busy or occupied by some other service then should provide facility for an admin to modify the same.
    - It Maintain the list of the all the supported biometric devices available for the applications. 
    - It also Notify the applications about arrival and removal of the supported devices (Plug and Play - PNP). 
@@ -91,9 +98,15 @@ to capture the biometric data and manipulate on the same.
 The DM listens on a TCP/IP port (specified later in this document). Applications and the 
 VDMs must connect to this port once, and communicate over this open connection. 
 
+### Application  
+
+   When the application needs to work with the device, it opens the socket to the location
+pointed by the deviceURI in the Arrival event from the Device Manager. Only one application can open the device. The 
+device should reject the connections on the deviceURI, until the socket is closed. 
+
 ### Device Management 
 
-    1. When the VDM senses that a device under itâ€™s control is connected to the system, it 
+    1. When the VDM senses that a device under it's control is connected to the system, it 
        creates a Device Arrival event and sends it to the DM
     2. The DM must acknowledge the receipt of this event, forward it to all applications, and 
        maintain a copy of this event (for all applications that may connect in the future). 
@@ -104,7 +117,7 @@ VDMs must connect to this port once, and communicate over this open connection.
 ![Sequence process](_images/registration/vdm-spec-design-sequence.png)
 
 
-### API Methods
+### API Methods 
 
 There will be two types of API methods: commands and notification events. The
 command API methods are initiated by the Application, while the event API methods are
@@ -133,7 +146,7 @@ API message.
     On establishing connection with the DM, the application, and VDMs must ensure that
 they are connecting with a DM, and exchange certain configuration information. 
 
-    From: application, VDM
+    From: Application, VDM
     To: DM
     When: At required time can establish connection with DM.
     
@@ -157,7 +170,8 @@ time between pings (specified in seconds). Applications must provide a <APP> ele
 while VDMs must provide a <VDM> element.
 
 **Ping :**
-This is used as a heartbeat event, to notify the DM that a VDM, is still alive.
+This is used as a heartbeat event, to notify the DM that a VDM, is still alive. 
+
    From: VDM
    To: DM
    When: To notify DM that a VDM is still alive.
@@ -175,7 +189,7 @@ The only failure condition is if the device was previously removed, or never reg
 **Device Arrival :**
 
    The Device Arrival event should be sent from VDM to DM after the device component starts listening for 
-the connections on the socket addressed by the deviceURI.
+the connections on the socket addressed by the deviceURI. 
 
     From: VDM.
     To: DM.
@@ -211,13 +225,11 @@ the connections on the socket addressed by the deviceURI.
 </DeviceManagerEventResponse>
 ```
    
-
-
 **Device Removal :**
 
 The event notifies the device manager, and the application about a device removal. The
 VDM originates this event, and sends it to the DM, which in turn forwards it to the
-Application.
+Application. 
 
     From: VDM service.
     To: DM service.
@@ -237,9 +249,14 @@ the response is received. After the response is received it can close all socket
 device that not closed already by the application.
 
 **Subscribe :**
+
 Change the subscription to the device events: uses by the application to subscribe or
 unsubscribe to the specific categories of the device events. Some events will be fired
 only when capture is in progress.
+
+    From: Application.
+    To: VDM.
+    When: Subscription to the device event.
 
 ```
 <DeviceCommandRequest requestId="">
@@ -270,20 +287,22 @@ UserFeedback UserFeedback
 **Start Capture :**
 Starts the capture process, also subscribes to Capture Complete and optionally User
 Feedback events.
+
 ```
 <DeviceCommandRequest requestId="">
 	<StartCapture biometricPosition="Right Thumb "
 		allowManualCapture="True" [ videoFormatId="1"] sampleFormatId="1">
 		[
-		<MissingBiometrics>
-			<MissingBiometric biometricPosition="Left Middle " />
-			<MissingBiometrics>]
+			<MissingBiometrics>
+				<MissingBiometric biometricPosition="Left Middle " />
+			<MissingBiometrics>
+		]
 	</StartCapture>
 </DeviceCommandRequest>
 <DeviceCommandResponse requestId="">
 	<Return value="" failureReason="" />
 	[
-	<Video videoURI="" />
+		<Video videoURI="" />
 	]
 </DeviceCommandResponse>
 ```
@@ -291,12 +310,11 @@ Feedback events.
 only after the response to the start capture event. MissingBiometrics is optional.
 Attribute sampleFormatId is indicating the requested output sample format. Optional
 attribute videoFormatId is indicating that the video stream is requested, and the desired
-video format referred by videoFormatId in the Device Arrival VDM event in
-â€œCapabilities/videoFormats/videoFormat".
-
+video format referred by videoFormatId in the Device Arrival VDM event in Capabilities/videoFormats/videoFormat.
 
 **Force Capture :**
-Forces manual capture. Should not be issued when the capture is not started.
+Forces manual capture. Should not be issued when the capture is not started. 
+
 ```
 <DeviceCommandRequest requestId="">
 <ForceCapture/>
@@ -310,9 +328,8 @@ The capture complete event is sent right after the response to this event. If th
 complete event comes before the response, it means the event resulted from the
 automatic capture.
 
-
 **Stop Capture :**
- Stops capture process. No capture complete event should come after the response to Stop Capture.
+Stops capture process. No capture complete event should come after the response to Stop Capture. 
 
    From: application
    To: VDM
@@ -328,10 +345,9 @@ automatic capture.
 ```
 
 **Capture Complete :**
-   The event should be sent upon successful completion of the capture. 
-The biometric sample should be available until the response is received: as a 
-result the device may have to maintain multiple samples and make them available at the
-different URIs.
+   The event should be sent upon successful completion of the capture. The biometric 
+   sample should be available until the response is received: as a result the device may 
+   have to maintain multiple samples and make them available at the different URIs. 
 
    From:  VDM.
    To: Application.
@@ -372,7 +388,7 @@ the same finger is not captured again immediately.
 </DeviceCommandResponse>
 ```
 
-**User Feedback :**
+**User Feedback :** 
    From: .
    To: Application.
    when: Detects the device state changes.
@@ -392,8 +408,53 @@ the same finger is not captured again immediately.
 </DeviceCommandResponse>
 ```
 
+### Biometric Device Video Streaming and Sample API Methods
+
+The Video Stream will be retrieved using the binary protocol for sending video frames
+(with the actual image data represented in ISO 19794-x) over the socket referenced by
+videoURI using the pull model. The application will maintain pending Get Frame
+requests for all the time that it can keep-up with the visualization.
+The sample will be retrieved over the socket referenced by sampleURI, with the actual
+image data represented in ISO 19794-x.
+The requests and the responses are represented in ASN1 BER encoding. The rationale
+in choosing BER encoding is to transfer the binary data in the self-descriptive extensible
+data format with the reasonably low overhead.
+
+**Get Frame :**
+```
+	RequestMessage ::= SEQUENCE {
+		messageType MessageType ::= Request,
+		requestCode RequestCode ::= GetFrame,
+		requestId OCTET STRING
+	}
+	ResponseMessage ::= SEQUENCE {
+		messageType MessageType ::= Response,
+		requestId OCTET STRING,
+		return Return,
+		biometricSample BiometricSample OPTIONAL
+	}
+```
+
+**Get Sample :**
+```
+	RequestMessage ::= SEQUENCE {
+		messageType MessageType ::= Request,
+		requestCode RequestCode ::= GetSample,
+		requestId OCTET STRING
+	}
+	ResponseMessage ::= SEQUENCE {
+		messageType MessageType ::= Response,
+		requestId OCTET STRING,
+		return Return,
+		biometricSample BiometricSample
+		OPTIONAL
+	}
+```
+
 
 ### Notes and Clarrification 
+
+**Biometric Device Video Streaming and Sample API Methods**
 
 **Supporting IRIS Cameras :**
 ![VDM Spec - IRIS capture detail](_images/registration/vdm-spec-iris-table.png)
@@ -519,4 +580,4 @@ The following sampleFormats are supported.
 	
    Whenever the security feature is implemented, the required changes will be taken care at API end. 
 
-### Biometric Device Video Streaming and Sample API Methods
+
