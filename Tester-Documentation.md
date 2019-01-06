@@ -20,8 +20,8 @@ A progressively evolving test approach will be adopted i.e. a bottom up approach
 
 ### API Testing
 API testing will be done mainly via Test Automation. This will be done in 2 stages
-a. Soap UI automation - This will be mainly to catch up with backlog and disclose bugs soon
-b. API test framework development and test automation - This will be a more generic framework, which will be more modular and less cost of maintenance
+1. Soap UI automation - This will be mainly to catch up with backlog and disclose bugs soon
+2. API test framework development and test automation - This will be a more generic framework, which will be more modular and less cost of maintenance
 
 
 
@@ -56,7 +56,7 @@ Test data util when run picks the random data from respective tags in master yml
 
 <!---This document covers the automation testing standards, for the RESTful webservice testers.--->
 
-# 2 Structuring Tests for API testing
+# 2 [Soap UI automation](Structuring Tests for API testing)
 ## 2.1 Naming Convention
 
 Project Name as Mosip
