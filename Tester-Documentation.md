@@ -77,7 +77,8 @@ Tests should be robust enough to handle error scenarios like
 Tests to validate the functionality of each screen either with Successful or Error scenario coverage
 
 **Sample directory structure from the current framework**
-![this is the framework directory structure](https://github.com/mosip/mosip/blob/add180c7590ac0d97ae941008a22fc01e0a01de3/testing/automation/RegClientAutoFrmwrk-DirStr.JPG)
+![this is the framework directory structure]
+[[https://github.com/mosip/mosip/blob/add180c7590ac0d97ae941008a22fc01e0a01de3/testing/automation/RegClientAutoFrmwrk-DirStr.JPG]]
 # Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
