@@ -6,10 +6,19 @@ The scope of this document is to describe high level business objectives along w
 
 **Intended audience**
 
-The main intended audience for this document are the business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously. 
-Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements. 
-Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
+•	Internal audience: 
+
+o	Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
  
+o	Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
+ 
+•	External Audience:
+
+o	SIs (system integrators)
+
+o	Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document. 
+
+
 2.	**MOSIP -FOR IDENTITY MANAGEMENT**
 
 **What-is an identity management system**
@@ -29,6 +38,7 @@ As compared to manual, paper-based registers, advanced electronic capture and st
 A World Bank report quoted several projections showing that the number of “digital government/citizen transactions worldwide will grow to about $67 billion by 2020” (World Bank, 2015). As a result of linkages between national ID programs and financial services, these programs are also believe to have the potential to promote financial inclusion.
 
 **Why-an identity management system is needed**
+
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system
 
 
