@@ -352,9 +352,9 @@ automatic capture.
 **Stop Capture :**
 Stops capture process. No capture complete event should come after the response to Stop Capture. 
 
-   From: application
-   To: VDM
-   When: To stop the current capture process.
+    From: application
+    To: VDM
+    When: To stop the current capture process.
 
 ```
 <DeviceCommandRequest requestId="">
@@ -370,9 +370,9 @@ Stops capture process. No capture complete event should come after the response 
    sample should be available until the response is received: as a result the device may 
    have to maintain multiple samples and make them available at the different URIs. 
 
-   From:  VDM.
-   To: Application.
-   when: When capture event completed at VDM, it sends this request to application.
+    From:  VDM.
+    To: Application.
+    When: When capture event completed at VDM, it sends this request to application.
    
 ```
 <DeviceEventRequest requestId="">
