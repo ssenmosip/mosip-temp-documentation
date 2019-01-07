@@ -85,6 +85,11 @@ https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_l
 
 ## Key Design Considerations
 
+This sections lists out some of the Key design considerations for MOSIP
+
+https://github.com/mosip/mosip/wiki/Logical-Architecture
+
+
 ## Multi-modal Automated Biometric Identification System (ABIS) Interface
 
 https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/ABIS_middleware.png?token=ArzdLfhKOzK5iSgtRqbKnpAxQQoqQyIsks5cPDH_wA%3D%3D
@@ -92,9 +97,6 @@ https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/ABIS_mi
 ## Biometric Standards for inter-operability
 Refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications for more details
 
-This sections lists out some of the Key design considerations for MOSIP
-
-https://github.com/mosip/mosip/wiki/Logical-Architecture
 
 
 # 6.SECURITY
