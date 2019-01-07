@@ -80,35 +80,39 @@ Fig 5: MOSIP Thick client architecture
 
 https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D
 
-5.**	MOSIP PLATFORM FEATURES**
+# 5.MOSIP PLATFORM FEATURES
 
 
-**Key Design Considerations**
+## Key Design Considerations
+
 This sections lists out some of the Key design considerations for MOSIP
 
 https://github.com/mosip/mosip/wiki/Logical-Architecture
 
 
-**6.	SECURITY**
+# 6.SECURITY
 
 https://github.com/mosip/mosip/wiki/Security
 
-**7.	MOSIP-PRE-REGISTRATION**
+# 7.MOSIP-PRE-REGISTRATION
 
 https://github.com/mosip/mosip/wiki/Pre-Registration
-**8.	MOSIP RESIDENT SERVICES**
-**9.	MOSIP-REGISTRATION CLIENT**
+
+# 8.MOSIP RESIDENT SERVICES
+
+# 9.MOSIP-REGISTRATION CLIENT
 
 https://github.com/mosip/mosip/wiki/Registration-Client
 
-**10.	MOSIP –REGISTRATION PROCESSOR**
+# 10.MOSIP –REGISTRATION PROCESSOR
 
 https://github.com/mosip/mosip/wiki/Registration-Processor
-**11.	MOSIP-AUTHENTICATION**
+
+# 11.MOSIP-AUTHENTICATION
 
 https://github.com/mosip/mosip/wiki/ID-Authentication
 
-**12.	APIS-THE CRUX OF MOSIP**
+# 12.APIS-THE CRUX OF MOSIP
 
 https://github.com/mosip/mosip/wiki/Kernel-APIs
 * Kernel
@@ -121,14 +125,14 @@ https://github.com/mosip/mosip/wiki/Kernel-APIs
 * Pre-Registration APIs
 * Registration Processor APIs
 
-**13.	SUMMARY**
+# 13.SUMMARY
 
 The growing complexities on the government administrative process and need for social inclusion calls for an identity management system. Identity management system provide a unique identity to individuals. Recent advancements in technology has enable identity management systems to incorporate biometric data.MOSIP is a highly configurable, extensible and secure platform for identity management.
 
-**14.	APPENDICES**
-**15.	REFERENCES**
+# 14.APPENDICES
+# 15.REFERENCES
 
-International Journal of Innovative Research in Engineering & Management (IJIREM) ISSN: 2350-0557, Volume-3, Issue-1, January-2016
+* International Journal of Innovative Research in Engineering & Management (IJIREM) ISSN: 2350-0557, Volume-3, Issue-1, January-2016
 
-ITU-T Focus Group Digital Financial Services, Review of National Identity Programs
+* ITU-T Focus Group Digital Financial Services, Review of National Identity Programs
 
