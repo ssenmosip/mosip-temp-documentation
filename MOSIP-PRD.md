@@ -95,4 +95,16 @@ https://github.com/mosip/mosip/wiki/Registration-Processor
 
 https://github.com/mosip/mosip/wiki/ID-Authentication
 
+12.	APIS-THE CRUX OF MOSIP
+
+https://github.com/mosip/mosip/wiki/Kernel-APIs
+•	Kernel
+•	ID Authentication
+•	ID Repository
+•	ABIS APIs
+•	Master Data APIs
+•	Audit Manager
+•	OTP Manager
+•	Pre-Registration APIs
+•	Registration Processor APIs
 
