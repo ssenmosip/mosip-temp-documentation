@@ -108,7 +108,7 @@ Please refer https://github.com/mosip/mosip/wiki/Security for more details.
 
 ## Database encryption
 
-Fig:https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/DB_encryption.png?token=ArzdLejO2ylFZXOx0RCrKjGeV0TBtsPKks5cPDLnwA%3D%3D
+[Data encryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/DB_encryption.png?token=ArzdLejO2ylFZXOx0RCrKjGeV0TBtsPKks5cPDLnwA%3D%3D)
 
 ## Key management, Data Encryption & Decryption
 
