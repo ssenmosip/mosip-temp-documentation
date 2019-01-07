@@ -1,4 +1,4 @@
-# #  1.MOSIP-INTRODUCTION
+# 1. MOSIP-INTRODUCTION
 
 ## Scope
 
