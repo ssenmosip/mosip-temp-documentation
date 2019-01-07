@@ -1,33 +1,33 @@
-1.	******MOSIP-INTRODUCTION******
+#  1.MOSIP-INTRODUCTION
 
-**Scope**
+## Scope
 
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner. 
 
-**Intended audience**
+## Intended audience
 
-* Internal audience: 
+### Internal audience
 
-    * Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
+* Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
+
+* Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
  
-    * Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
- 
-* External Audience:
+### External Audience
 
-    * SIs (system integrators)
+* SIs (system integrator)
 
-    * Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document. 
+* Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document. 
 
 
-2.	**MOSIP -FOR IDENTITY MANAGEMENT**
+# 2. MOSIP -FOR IDENTITY MANAGEMENT
 
-**What-is an identity management system**
+## What-is an identity management system
 
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems .The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s .Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
 
 The complexity of government administration in “the modern world” is a major problem in developing countries. Often, individual government programs have their own database of beneficiaries that are not digitized and therefore cannot be easily merged. Delivering public services efficiently and providing financial inclusion to the poor in partnership with the private sector depends on accurate identification and authentication of citizens and residents. Hence Government programs must have the capacity to cross-reference databases and information.
 
-**Identity management systems in the digital era**
+## Identity management systems in the digital era
 
 Technological innovations have opened up new possibilities for governments to develop comprehensive identity management systems that link peoples’ identities through their entire life from birth certificate, civil registration, driver’s license, to marriage certificate, voter registration and national identity card. At the same time, governments in developing countries are expected to carry out many of the same functions that richer countries are capable of performing; these functions include providing universal access to healthcare and education, implementing know your customer (KYC) rules for financial institutions, and administering a wide variety of transfer programs.
 
@@ -37,24 +37,24 @@ As compared to manual, paper-based registers, advanced electronic capture and st
  
 A World Bank report quoted several projections showing that the number of “digital government/citizen transactions worldwide will grow to about $67 billion by 2020” (World Bank, 2015). As a result of linkages between national ID programs and financial services, these programs are also believe to have the potential to promote financial inclusion.
 
-**Why-an identity management system is needed**
+## Why-an identity management system is needed
 
 ![Indentity](_images/mosip_prd/Indentity.JPG)
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system
 
 
-	Provide a convenient and simplified process for enrollment into the national identity database for the issuance and use of the national identification number
+* Provide a convenient and simplified process for enrollment into the national identity database for the issuance and use of the national identification number
 
-	Help protect you from identity theft and fraud by providing a simple, reliable, sustainable and universally acceptable means of confirming your identity at all time 
+* Help protect you from identity theft and fraud by providing a simple, reliable, sustainable and universally acceptable means of confirming your identity at all time 
 
-	Make life easier by providing you with an easy and convenient means of providing your identity anywhere in the country and beyond
+* Make life easier by providing you with an easy and convenient means of providing your identity anywhere in the country and beyond
 
-	Help reform our political process by facilitating the work of the managers of electoral process
+* Help reform our political process by facilitating the work of the managers of electoral process
 
-	Make it harder for criminal to use false or multiple/duplicate/ghost identities
+* Make it harder for criminal to use false or multiple/duplicate/ghost identities
 
-**How-Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)**
+## Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
 
 MOSIP (Modular Open Source Identity Platform) helps governmen
 ts of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
@@ -115,15 +115,15 @@ https://github.com/mosip/mosip/wiki/ID-Authentication
 **12.	APIS-THE CRUX OF MOSIP**
 
 https://github.com/mosip/mosip/wiki/Kernel-APIs
-•	Kernel
-•	ID Authentication
-•	ID Repository
-•	ABIS APIs
-•	Master Data APIs
-•	Audit Manager
-•	OTP Manager
-•	Pre-Registration APIs
-•	Registration Processor APIs
+* Kernel
+* ID Authentication
+* ID Repository
+* ABIS APIs
+* Master Data APIs
+* Audit Manager
+* OTP Manager
+* Pre-Registration APIs
+* Registration Processor APIs
 
 **13.	SUMMARY**
 
