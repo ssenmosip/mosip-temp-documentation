@@ -73,59 +73,25 @@ Fig 5: MOSIP Thick client architecture
 **Key Design Considerations**
 This sections lists out some of the Key design considerations for MOSIP
 
-**Ecosystem approach**
-Device vendors and ABIS providers are key to process an individual's data and prove uniqueness. MOSIP can integrate with devices and ABIS that conform to the standards to achieve the stated goals. On the other side, MOSIP also caters to a diverse set of institutions wanting to authenticate an Individual against the data stored in MOSIP. So, key parameters are-All public/external facing interfaces of MOSIP standards set for interoperability
+https://github.com/mosip/mosip/wiki/Logical-Architecture
 
-**A Highly configurable open source design approach**
-MOSIP is highly flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
-•	Country can to choose the features required. For example, it must be possible for a country to turn off Finger Print capture and turn on Face recognition or Vice versa as the need be
-•	Country can configure the attributes of an ID Object
-•	Country can define the length of the UIN number
-
-**Extensibility**
-
-MOSIP is flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
-•	A country can introduce a new step in processing data
-•	Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
-
-**Modularity**
-
-All components in MOSIP are modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
-•	UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
-•	The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
-
-**Multi-modal Automated Biometric Identification System (ABIS) Interface**
-
-Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP 
-•	Uses multi modal biometric information of an individual
-•	Leverages Automated Biometric Identification System (ABIS) to de-duplicate Individual's biometric data
-•	Designed for integrating with multiple ABIS providers to leverage expertise of different ABIS providers
-•	Not use ABIS for authentication (deduplication only)
-Fig 5: ABIS interface configuration in MOSIP
-
-**Biometric Standards for inter-operability**
-
-Multi modal biometrics (Fingerprint, Iris, Face) is the key component in MOSIP to identify and provide a unique identity to an Individual. Hence MOSIP follows certain data standards during biometric data acquisition and verification
 
 **6.	SECURITY**
 
-Multiple aspects of security like confidentiality, privacy, integrity of data are key in ensuring an Individual's identity is not compromised. Below are the security design principles MOSIP follows
-•	Direct access to data stored in database is discouraged. Data can only be accessed via API's
-•	An Individual's Identity data at is always encrypted to ensure confidentiality of data
-•	Access controls is implemented on all API's to ensure data privacy  and who can see what
+https://github.com/mosip/mosip/wiki/Security
 
-**Database encryption**
+7.	MOSIP-PRE-REGISTRATION
 
-As a principle, MOSIP does not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB.
+https://github.com/mosip/mosip/wiki/Pre-Registration
+8.	MOSIP RESIDENT SERVICES
+9.	MOSIP-REGISTRATION CLIENT
 
-•	All the data is encrypted using a symmetric key algorithm. MOSIP supports AES 256 algorithm by default. However, the specific algorithm to be used is configurable
+https://github.com/mosip/mosip/wiki/Registration-Client
 
-•	Each record gets encrypted using its own symmetric key and same key will not be used to encrypt multiple records
+10.	MOSIP –REGISTRATION PROCESSOR
 
-•	The symmetric key itself is encrypted using a master public key. The corresponding private must be managed in a HSM
-•	HSM stores an asymmetric key pair for each application/service and can be rotated periodically as per configuration
+https://github.com/mosip/mosip/wiki/Registration-Processor
+11.	MOSIP-AUTHENTICATION
 
-•	The encrypted symmetric key is appended to the data itself and not stored separately
-
-
+https://github.com/mosip/mosip/wiki/ID-Authentication
 
