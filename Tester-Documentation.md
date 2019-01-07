@@ -3,7 +3,15 @@
 **# **MOSIP - Test Strategy (Work in progress copy)****
 # 1 Introduction
 ## 1.1 Context
-Test automation is the key to the success of comprehensive test coverage and test data. Here we will talk about utilities for test data generation, tools for test automation and test strategy in general.
+The MOSIP architecture mainly consists of the following functional blocks/modules
+* Pre-Registration - Web application that will be independently tested
+* Registration Client - A thick desktop client application that will be connected to scanner devices (finger print, iris), camera and printer
+* Registration Processor - A backend server application that processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
+* IDA (ID Authentication) - A backend authentication server that authenticates the resident based on biometric and demographic information
+
+Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
+
+In this document we will also talk about utilities for test data generation, tools for test automation and test strategy in general.
 
 <!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
 
@@ -99,12 +107,6 @@ Adding logic to encode/encrypt specific demographic/biometric data
 Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
 ### 2.1.2 Module level testing
-The MOSIP architecture mainly consists of the following functional blocks/modules
-* Pre-Registration - Web application that will be independently tested
-* Registration Client - A thick desktop client application that will be connected to scanner devices (finger print, iris), camera and printer
-* Registration Processor - A backend server application that processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
-* IDA (ID Authentication) - A backend authentication server that authenticates the resident based on biometric and demographic information
-
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
 **<GITA - context setting and high level approach continues here>**
