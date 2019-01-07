@@ -64,7 +64,6 @@ https://github.com/mosip/mosip/wiki
 
 Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D)
 
-https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D
 
 # 4.MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
 
@@ -76,9 +75,7 @@ Fig: 4 MOSIP Architectural patterns and principles
 
 ![MOSIP Architectural patterns and principles](_images/mosip_prd/principles.JPG)
 
-Fig 5: MOSIP Thick client architecture
-
-https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D
+Fig 5: [MOSIP Thick client architecture](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D)
 
 # 5.MOSIP PLATFORM FEATURES
 
