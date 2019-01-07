@@ -104,7 +104,7 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 * An Individual's Identity data at is always encrypted to ensure confidentiality of data
 * Access controls is implemented on all API's to ensure data privacy  and who can see what
 
-Please refer https://github.com/mosip/mosip/wiki/Security for more details.
+[Please refer](https://github.com/mosip/mosip/wiki/Security) for more details.
 
 ## Database encryption
 
