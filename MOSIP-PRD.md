@@ -44,16 +44,6 @@ A World Bank report quoted several projections showing that the number of “dig
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system
 
 
-* Provide a convenient and simplified process for enrollment into the national identity database for the issuance and use of the national identification number
-
-* Help protect you from identity theft and fraud by providing a simple, reliable, sustainable and universally acceptable means of confirming your identity at all time 
-
-* Make life easier by providing you with an easy and convenient means of providing your identity anywhere in the country and beyond
-
-* Help reform our political process by facilitating the work of the managers of electoral process
-
-* Make it harder for criminal to use false or multiple/duplicate/ghost identities
-
 ## Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
 
 MOSIP (Modular Open Source Identity Platform) helps governmen
