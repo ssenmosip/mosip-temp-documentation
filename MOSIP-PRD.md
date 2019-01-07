@@ -112,7 +112,7 @@ Please refer https://github.com/mosip/mosip/wiki/Security for more details.
 
 ## Key management, Data Encryption & Decryption
 
-Fig:https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D
+[Data encryption and decryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D)
 
 ## Authentication & Authorization (TBD)
 
