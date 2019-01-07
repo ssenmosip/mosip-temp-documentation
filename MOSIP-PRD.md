@@ -108,3 +108,14 @@ https://github.com/mosip/mosip/wiki/Kernel-APIs
 •	Pre-Registration APIs
 •	Registration Processor APIs
 
+13.	SUMMARY
+
+The growing complexities on the government administrative process and need for social inclusion calls for an identity management system. Identity management system provide a unique identity to individuals. Recent advancements in technology has enable identity management systems to incorporate biometric data.MOSIP is a highly configurable, extensible and secure platform for identity management.
+
+14.	APPENDICES
+15.	REFERENCES
+
+International Journal of Innovative Research in Engineering & Management (IJIREM) ISSN: 2350-0557, Volume-3, Issue-1, January-2016
+
+ITU-T Focus Group Digital Financial Services, Review of National Identity Programs
+
