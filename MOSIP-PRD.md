@@ -6,17 +6,17 @@ The scope of this document is to describe high level business objectives along w
 
 **Intended audience**
 
-•	Internal audience: 
+* Internal audience: 
 
-o	Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
+    * Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
  
-o	Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
+    * Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
  
-•	External Audience:
+* External Audience:
 
-o	SIs (system integrators)
+    * SIs (system integrators)
 
-o	Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document. 
+    * Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document. 
 
 
 2.	**MOSIP -FOR IDENTITY MANAGEMENT**
@@ -59,7 +59,11 @@ ts of countries to build a digital identity system. Using this, every Individual
 
 Fig: 1 MOSIP basic features
 
+![MOSIP basic features](_images/mosip_prd/mosip_basic_features.JPG)
+
 Fig: 2 Key objectives of the platform
+
+![Key objectives of the platform](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
 **3.	MOSIP FUNCTIONAL OVERVIEW**
 
