@@ -56,7 +56,7 @@ Test Data Util forms unique request and response jsons based on the config file 
 
 Based on the valid/Invalid combination of api attributes, the templatized request.json is de-parameterized with randomized generation of input data and placed in folder named with test case name. 
 
-### Resposne:
+### Response:
 
 Based on the type of de-parameterized request, response is mapped with statically saved expected response.json files and saved under the same folder where request was been saved.
 
@@ -132,7 +132,7 @@ It holds the entire configuration to initialize and trigger the Runner class to 
 
 3. Page Handling
 Each screen of JavaFX represents a Page and it is implemented using Enum classes of Java. Constants under the enum class (separate enum for each screen/page) holds locator, values and behavior/method to interact with the screen. It also encapsulates the assertion messages specifically for any behavior.
-Ex: LoginPage, RegistrationPage etc
+Ex: Login Page, Registration Page etc
 
 4. Test Scripts
 Test Scripts are implemented using TestFX and Java code. TestFX provides Robot api with rich collection of keyword mouse movement/interaction libraries. It also provides Hamcrest matchers to assert tests.
