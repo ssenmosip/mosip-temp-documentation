@@ -163,3 +163,4 @@ The growing complexities on the government administrative process and need for s
 
 * ITU-T Focus Group Digital Financial Services, Review of National Identity Programs
 
+# Comments and Revision logs
