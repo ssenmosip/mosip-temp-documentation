@@ -553,32 +553,32 @@ types, and representation.
 
 ### Biometric Modality Enumeration 
 The following strings are used to enumerate the Biometric Modalities in this API. 
-   • Face 
-   • Iris 
-   • Two Iris 
-   • FingerPrint 
-   • Fingerprint Slap 
+   - Face 
+   - Iris 
+   - Two Iris 
+   - FingerPrint 
+   - Fingerprint Slap 
 
 ### Biometric Position Enumeration 
 The following strings will be used for biometricPosition in the XML requests, events and responses.
-   • Unknown 
-   • Right Thumb 
-   • Right Index 
-   • Right Middle 
-   • Right Ring 
-   • Right Little 
-   • Left Thumb 
-   • Left Index 
-   • Left Middle 
-   • Left Ring 
-   • Left Little 
-   • Right Slap 
-   • Left Slap 
-   • Both Thumbs 
-   • Left Iris 
-   • Right Iris 
-   • Both Iris 
-   • Face 
+   - Unknown 
+   - Right Thumb 
+   - Right Index 
+   - Right Middle 
+   - Right Ring 
+   - Right Little 
+   - Left Thumb 
+   - Left Index 
+   - Left Middle 
+   - Left Ring 
+   - Left Little 
+   - Right Slap 
+   - Left Slap 
+   - Both Thumbs 
+   - Left Iris 
+   - Right Iris 
+   - Both Iris 
+   - Face 
 
 ### SampleFormat Enumeration
 
