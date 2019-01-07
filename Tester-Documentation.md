@@ -51,12 +51,12 @@ The framework consists majorly 3 Elements/parts as below:
       Test Execution and Assert
       Results
 
-## Test Case Configurator
+#### 2.1.1.1 Test Case Configurator
 
 This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
 The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
 
-## Test Data Util
+#### 2.1.1.2 Test Data Util
 
 Test Data Util forms unique request and response jsons based on the config file received.
 
@@ -72,7 +72,7 @@ Based on the type of de-parameterized request, response is mapped with staticall
 
 Each test scenario/tes case/data combination is written to separate folder and named with test case name. Based on the api’s attribute combination from config file, the folders are populated.
 
-### Test Execution and Assert
+#### 2.1.1.3 Test Execution and Assert
 
 Execution:
 IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.
@@ -80,7 +80,7 @@ IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. T
 Assert:
 All the foldeers under specific api is traversed through to run each request and compared the actual and expected response sent by Data Util.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared.
 
-### Results:
+#### 2.1.1.4 Results:
 
 Result is captured in output.json file where each test case is mapped with unique JIRA ID. This info intern is used to write to Zephyr. After each automation run, Test Cycle will be created and can see detailed report in Zephyr.
 
