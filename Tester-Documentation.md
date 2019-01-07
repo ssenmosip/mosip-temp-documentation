@@ -106,7 +106,7 @@ Adding logic to encode/encrypt specific demographic/biometric data
 
 Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
-### 2.1.2 Module level testing
+## 2.2 Module level testing
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
 **<GITA - context setting and high level approach continues here>**
