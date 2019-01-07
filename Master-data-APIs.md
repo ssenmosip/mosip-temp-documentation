@@ -4204,28 +4204,23 @@ langCode|Yes|language code of the reason category| |
 	"id": "String",
 	"ver" : "1.0",
 	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"request" : [
-			{
+	"request" : {
 				"code":"string",
 				"name":"string",
 				"description":"string",
 				"lang_code":"string",
                                 "isActive":true
-				
-			}
-		]	
-	
+		    }
 }
 ```
 ### Example Response
 ```JSON
 	
-		
-                     {
-				"code":"string",
-				"lang_code":"string", 
+    {
+	"code":"string",
+	"lang_code":"string" 
 				
-			}
+    }
 			
 	
 ```
@@ -4248,12 +4243,12 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.16.1 Packet Rejection Reason-category Master-create service
+# 2.3.16.2 Packet Rejection Reason-category Master-create service
 
 This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /packetrejectionreasons/reasoncategory`
+### `POST /packetrejectionreasons/reasonlist`
 
 ### Resource details
 
@@ -4298,7 +4293,8 @@ langCode|Yes|language code of the reason category| |
 		
    {
       "code":"string",
-      "lang_code":"string", 
+      "lang_code":"string",
+      "rsnCatCode":"string"
 				
    }
 			
