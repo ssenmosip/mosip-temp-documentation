@@ -104,7 +104,22 @@ VDMs must connect to this port once, and communicate over this open connection.
 pointed by the deviceURI in the Arrival event from the Device Manager. Only one application can open the device. The 
 device should reject the connections on the deviceURI, until the socket is closed. 
 
-### Device Management 
+
+### API Usage Workflows and Examples 
+
+This section will guide the user to understand about the Device discovery and bio-metric capturing workflow 
+process using the API methods.
+
+**Service(s) Startup Sequence :**
+
+   When DM and VDM Startup: 
+   	
+	![Service Startup Sequence process](_images/registration/vdm-spec-device-discovery-sequence.png)
+   
+   When application Startup: 
+   	 It is similar to VDM startup except the strategy of handling failure case.
+
+**Device Management (Arrival and Removal):**
 
     1. When the VDM senses that a device under it's control is connected to the system, it 
        creates a Device Arrival event and sends it to the DM
@@ -112,9 +127,14 @@ device should reject the connections on the deviceURI, until the socket is close
        maintain a copy of this event (for all applications that may connect in the future). 
     3. Application further uses this port number to communicate with the VDM service. 
     4. VDM further communicates with the Device through the respective driver.    
+
+	![Arrival and Removal Sequence process](_images/registration/vdm-spec-device-manage-sequence.png)
     
    **Sequence of process**
 ![Sequence process](_images/registration/vdm-spec-design-sequence.png)
+
+	
+**Bio-Metric Capture Sequence:**
 
 
 ### API Methods 
@@ -569,6 +589,7 @@ The following sampleFormats are supported.
 ### Actionable User Feedback
 
 ![VDM Spec - User Feedback](_images/registration/vdm-spec-user-feedback.png)
+
 
 
 ### Security Considerations 
