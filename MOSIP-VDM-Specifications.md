@@ -38,15 +38,15 @@ to capture the biometric data and manipulate on the same.
    The communication with the VDM happens through the TCP socket and port from application. 
    The VDM should listen to a particular port to send and receive the command from application. 
    There is a separate socket should be opened to receive the Video streams and Biometric samples. 
-      
-   It provides following functionality, which will be triggered from the application based on the user actions. 
-      1. Subscribe 
-      2. Un-subscribe 
-      3. Start Capture 
-      4. Stop Capture 
-      5. Force Capture 
-      6. Get Frame 
-      7. Get Sample 
+
+   It provides following functionality, which will be triggered from the application based on the user actions.  
+   1. Subscribe 
+   2. Un-subscribe 
+   3. Start Capture 
+   4. Stop Capture 
+   5. Force Capture 
+   6. Get Frame 
+   7. Get Sample 
 
    The following notifications are provided by the VDM to the application when the respective operations are completed. 
    1. Capture Complete 
@@ -62,11 +62,11 @@ to capture the biometric data and manipulate on the same.
    5. Device Startup
    6. Device Shutdown
    
-   **Sequence of process**
+   **VDM process**
    1. VDM senses that a device under it's control is connected to the system. 
-   2. VDM creates a Device Arrival event and sends it to the DM through socket and port. 
+   2. VDM creates a Device Arrival / Removal event and sends it to the DM through socket and port. 
    3. The event contains information about the device, and it's capabilities. 
-   4. It accepts the request from application through the port and communicate with the device through the respective driver. 
+   4. It also accepts the request from application through the port and communicate with the device through the respective driver. 
    5. Send response back to the application based on the request. 
    
 ### Device Manager - DM
@@ -114,9 +114,9 @@ process using the API methods.
 
    When DM and VDM Startup: 
    	
-	![Service Startup Sequence process](_images/registration/vdm-spec-device-discovery-sequence.png)
+![Service Startup Sequence process](_images/registration/vdm-spec-device-discovery-sequence.png)
    
-   When application Startup: 
+   When application Startup:  
    	 It is similar to VDM startup except the strategy of handling failure case.
 
 **Device Management (Arrival and Removal):**
@@ -128,13 +128,14 @@ process using the API methods.
     3. Application further uses this port number to communicate with the VDM service. 
     4. VDM further communicates with the Device through the respective driver.    
 
-	![Arrival and Removal Sequence process](_images/registration/vdm-spec-device-manage-sequence.png)
+![Arrival and Removal Sequence process](_images/registration/vdm-spec-device-manage-sequence.png)
     
    **Sequence of process**
-![Sequence process](_images/registration/vdm-spec-design-sequence.png)
+![Sequence process](_images/registration/vdm-spec-design-sequence.png) [**wrong - to be updated**]
 
 	
 **Bio-Metric Capture Sequence:**
+[TBD]
 
 
 ### API Methods 
@@ -192,9 +193,9 @@ while VDMs must provide a <VDM> element.
 **Ping :**
 This is used as a heartbeat event, to notify the DM that a VDM, is still alive. 
 
-   From: VDM
-   To: DM
-   When: To notify DM that a VDM is still alive.
+   From: VDM 
+   To: DM 
+   When: To notify DM that a VDM is still alive. 
    
 ```
 <DeviceManagerEventRequest requestId="">
@@ -337,10 +338,10 @@ Forces manual capture. Should not be issued when the capture is not started.
 
 ```
 <DeviceCommandRequest requestId="">
-<ForceCapture/>
+	<ForceCapture/>
 </DeviceCommandRequest>
 <DeviceCommandResponse requestId="">
-<Return value="1" failureReason="0"/>
+	<Return value="1" failureReason="0"/>
 </DeviceCommandResponse>
 ```
 Expected behaviour: force manual capture, whether the automatic capture is on or off.
@@ -552,32 +553,32 @@ types, and representation.
 
 ### Biometric Modality Enumeration 
 The following strings are used to enumerate the Biometric Modalities in this API. 
-• Face 
-• Iris 
-• Two Iris 
-• FingerPrint 
-• Fingerprint Slap 
+   • Face 
+   • Iris 
+   • Two Iris 
+   • FingerPrint 
+   • Fingerprint Slap 
 
 ### Biometric Position Enumeration 
 The following strings will be used for biometricPosition in the XML requests, events and responses.
-• Unknown
-• Right Thumb
-• Right Index
-• Right Middle
-• Right Ring
-• Right Little
-• Left Thumb
-• Left Index
-• Left Middle
-• Left Ring
-• Left Little
-• Right Slap
-• Left Slap
-• Both Thumbs
-• Left Iris
-• Right Iris
-• Both Iris
-• Face
+   • Unknown 
+   • Right Thumb 
+   • Right Index 
+   • Right Middle 
+   • Right Ring 
+   • Right Little 
+   • Left Thumb 
+   • Left Index 
+   • Left Middle 
+   • Left Ring 
+   • Left Little 
+   • Right Slap 
+   • Left Slap 
+   • Both Thumbs 
+   • Left Iris 
+   • Right Iris 
+   • Both Iris 
+   • Face 
 
 ### SampleFormat Enumeration
 
