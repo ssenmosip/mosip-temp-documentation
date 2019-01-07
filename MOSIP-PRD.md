@@ -39,6 +39,8 @@ A World Bank report quoted several projections showing that the number of “dig
 
 **Why-an identity management system is needed**
 
+![Indentity](_images/mosip_prd/Indentity.JPG)
+
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system
 
 
@@ -78,6 +80,7 @@ https://github.com/mosip/mosip/wiki/Logical-Architecture
 
 
 Fig: 4 MOSIP Architectural patterns and principles
+![MOSIP Architectural patterns and principles](_images/mosip_prd/principles.JPG)
 
 Fig 5: MOSIP Thick client architecture
 
