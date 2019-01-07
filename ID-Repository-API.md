@@ -267,8 +267,8 @@ request | yes | JSON body as per the ID object schema | |
 
 **2. Read **
 
-This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/doc. 
-If no identity type is provided, stored identity will be returned as a default response. If any of the identity type bio and/or doc is present, their respective documents will be returned along with stored identity details.
+This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
+If no identity type is provided, stored identity will be returned as a default response. If any of the identity type - bio and/or demo or all is present, their respective documents will be returned along with stored identity details.
 
 ### Resource URL
 ### `GET /identity/v1.0/568469473107?type=bio`
@@ -491,7 +491,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/568469473107?type=bio`
+### `PATCH /identity/568469473107`
 
 ### Resource details
 
