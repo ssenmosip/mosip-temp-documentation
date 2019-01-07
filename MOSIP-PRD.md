@@ -1,4 +1,4 @@
-1.	**MOSIP-INTRODUCTION**
+1.	******MOSIP-INTRODUCTION******
 
 **Scope**
 
@@ -51,14 +51,14 @@ Fig: 1 MOSIP basic features
 
 Fig: 2 Key objectives of the platform
 
-3.	MOSIP FUNCTIONAL OVERVIEW
+**3.	MOSIP FUNCTIONAL OVERVIEW**
 
 https://github.com/mosip/mosip/wiki
 
 
 Fig 3: MOSIP functional overview
 
-4.	MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
+**4**.	**MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES**
 MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
 https://github.com/mosip/mosip/wiki/Logical-Architecture
 
@@ -80,22 +80,22 @@ https://github.com/mosip/mosip/wiki/Logical-Architecture
 
 https://github.com/mosip/mosip/wiki/Security
 
-7.	MOSIP-PRE-REGISTRATION
+**7.	MOSIP-PRE-REGISTRATION**
 
 https://github.com/mosip/mosip/wiki/Pre-Registration
-8.	MOSIP RESIDENT SERVICES
-9.	MOSIP-REGISTRATION CLIENT
+**8.	MOSIP RESIDENT SERVICES**
+**9.	MOSIP-REGISTRATION CLIENT**
 
 https://github.com/mosip/mosip/wiki/Registration-Client
 
-10.	MOSIP –REGISTRATION PROCESSOR
+**10.	MOSIP –REGISTRATION PROCESSOR**
 
 https://github.com/mosip/mosip/wiki/Registration-Processor
-11.	MOSIP-AUTHENTICATION
+**11.	MOSIP-AUTHENTICATION**
 
 https://github.com/mosip/mosip/wiki/ID-Authentication
 
-12.	APIS-THE CRUX OF MOSIP
+**12.	APIS-THE CRUX OF MOSIP**
 
 https://github.com/mosip/mosip/wiki/Kernel-APIs
 •	Kernel
@@ -108,12 +108,12 @@ https://github.com/mosip/mosip/wiki/Kernel-APIs
 •	Pre-Registration APIs
 •	Registration Processor APIs
 
-13.	SUMMARY
+**13.	SUMMARY**
 
 The growing complexities on the government administrative process and need for social inclusion calls for an identity management system. Identity management system provide a unique identity to individuals. Recent advancements in technology has enable identity management systems to incorporate biometric data.MOSIP is a highly configurable, extensible and secure platform for identity management.
 
-14.	APPENDICES
-15.	REFERENCES
+**14.	APPENDICES**
+**15.	REFERENCES**
 
 International Journal of Innovative Research in Engineering & Management (IJIREM) ISSN: 2350-0557, Volume-3, Issue-1, January-2016
 
