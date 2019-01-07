@@ -4174,12 +4174,12 @@ Description: Not Found
 
 
 # 2.3.16 Packet Rejection Reasons Master API
-# 2.3.16.1 Packet Rejection Reasons Master-create service
+# 2.3.16.1 Packet Rejection Reason-category Master-create service
 
 This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /packetrejectionreasons`
+### `POST /packetrejectionreasons/reasoncategory`
 
 ### Resource details
 
@@ -4191,65 +4191,49 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-packetrejectionreasondesc|Yes|Name of the packet rejection reason| | 
+code|Yes|Code of the reason category| | 
+name|Yes|Name of the reason category| | 
+description|Yes|description for the reason category| | 
+isActive|Yes|whether the reason cateogry is in use| | 
+langCode|Yes|language code of the reason category| | 
+
 
 ### Example Request
 ```JSON
 {
-	"id": "mosip.packetrejectionreason.create",
+	"id": "String",
 	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
-		"reason_category" : [
+	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"request" : [
 			{
 				"code":"string",
 				"name":"string",
-				"desc":"string",
-				"lang_code":"string", 
-				"reason_lists" : [
-					{
-						"code":"string",
-						"name":"string",
-						"desc":"string",
-						"lang_code":"string"
-					},
-					{
-						"code":"string",
-						"name":"string",
-						"desc":"string",
-						"lang_code":"string"
-					}
-				]
+				"description":"string",
+				"lang_code":"string",
+                                "isActive":true
+				
 			}
 		]	
-	}
+	
 }
 ```
 ### Example Response
 ```JSON
-	{
-		"reason_category" : [
-			{
+	
+		
+                     {
 				"code":"string",
 				"lang_code":"string", 
-				"reason_lists" : [
-					{
-						"code":"string",
-						"lang_code":"string"
-					},
-					{
-						"code":"string",
-						"lang_code":"string"
-					}
-				]
+				
 			}
-		]	
-	}
+			
+	
 ```
 ### Response codes
-202
 
-Description: Accepted
+201
+
+Description : Created
 
 400
 
