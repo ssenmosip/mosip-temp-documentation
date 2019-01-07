@@ -84,7 +84,7 @@ Fig 5: [MOSIP Thick client architecture](https://raw.githubusercontent.com/wiki/
 
 This sections lists out some of the Key design considerations for MOSIP
 
-https://github.com/mosip/mosip/wiki/Logical-Architecture
+[Please refer](https://github.com/mosip/mosip/wiki/Logical-Architecture)
 
 
 ## Multi-modal Automated Biometric Identification System (ABIS) Interface
@@ -120,25 +120,25 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 # 7.MOSIP-PRE-REGISTRATION
 
-https://github.com/mosip/mosip/wiki/Pre-Registration
+[Please refer](https://github.com/mosip/mosip/wiki/Pre-Registration)
 
 # 8.MOSIP RESIDENT SERVICES
 
 # 9.MOSIP-REGISTRATION CLIENT
 
-https://github.com/mosip/mosip/wiki/Registration-Client
+[Please refer](https://github.com/mosip/mosip/wiki/Registration-Client)
 
 # 10.MOSIP –REGISTRATION PROCESSOR
 
-https://github.com/mosip/mosip/wiki/Registration-Processor
+[Please refer](https://github.com/mosip/mosip/wiki/Registration-Processor)
 
 # 11.MOSIP-AUTHENTICATION
 
-https://github.com/mosip/mosip/wiki/ID-Authentication
+[Please refer](https://github.com/mosip/mosip/wiki/ID-Authentication)
 
 # 12.APIS-THE CRUX OF MOSIP
 
-https://github.com/mosip/mosip/wiki/Kernel-APIs
+[Please refer](https://github.com/mosip/mosip/wiki/Kernel-APIs)
 * Kernel
 * ID Authentication
 * ID Repository
