@@ -116,7 +116,7 @@ Please refer https://github.com/mosip/mosip/wiki/Security for more details.
 
 ## Authentication & Authorization (TBD)
 
-https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D
+[ID authentication flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D)
 
 # 7.MOSIP-PRE-REGISTRATION
 
