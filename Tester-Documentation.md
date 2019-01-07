@@ -3,7 +3,15 @@
 **# **MOSIP - Test Strategy (Work in progress copy)****
 # 1 Introduction
 ## 1.1 Context
-Test automation is the key to the success of comprehensive test coverage and test data. Here we will talk about utilities for test data generation, tools for test automation and test strategy in general.
+The MOSIP architecture mainly consists of the following functional blocks/modules
+* Pre-Registration - Web application that will be independently tested
+* Registration Client - A thick desktop client application that will be connected to scanner devices (finger print, iris), camera and printer
+* Registration Processor - A backend server application that processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
+* IDA (ID Authentication) - A backend authentication server that authenticates the resident based on biometric and demographic information
+
+Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
+
+In this document we will also talk about utilities for test data generation, tools for test automation and test strategy in general.
 
 <!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
 
@@ -43,12 +51,12 @@ The framework consists majorly 3 Elements/parts as below:
       Test Execution and Assert
       Results
 
-## Test Case Configurator
+#### 2.1.1.1 Test Case Configurator
 
 This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
 The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
 
-## Test Data Util
+#### 2.1.1.2 Test Data Util
 
 Test Data Util forms unique request and response jsons based on the config file received.
 
@@ -64,7 +72,7 @@ Based on the type of de-parameterized request, response is mapped with staticall
 
 Each test scenario/tes case/data combination is written to separate folder and named with test case name. Based on the api’s attribute combination from config file, the folders are populated.
 
-### Test Execution and Assert
+#### 2.1.1.3 Test Execution and Assert
 
 Execution:
 IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.
@@ -72,7 +80,7 @@ IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. T
 Assert:
 All the foldeers under specific api is traversed through to run each request and compared the actual and expected response sent by Data Util.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared.
 
-### Results:
+#### 2.1.1.4 Results:
 
 Result is captured in output.json file where each test case is mapped with unique JIRA ID. This info intern is used to write to Zephyr. After each automation run, Test Cycle will be created and can see detailed report in Zephyr.
 
@@ -98,13 +106,7 @@ Adding logic to encode/encrypt specific demographic/biometric data
 
 Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
-### 2.1.2 Module level testing
-The MOSIP architecture mainly consists of the following functional blocks/modules
-* Pre-Registration - Web application that will be independently tested
-* Registration Client - A thick desktop client application that will be connected to scanner devices (finger print, iris), camera and printer
-* Registration Processor - A backend server application that processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
-* IDA (ID Authentication) - A backend authentication server that authenticates the resident based on biometric and demographic information
-
+## 2.2 Module level testing
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
 **<GITA - context setting and high level approach continues here>**
