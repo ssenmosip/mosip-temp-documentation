@@ -4247,6 +4247,82 @@ Description: Unauthorized
 
 Description: Forbidden
 
+
+# 2.3.16.1 Packet Rejection Reason-category Master-create service
+
+This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /packetrejectionreasons/reasoncategory`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the reason category| | 
+name|Yes|Name of the reason category| | 
+description|Yes|description for the reason category| |
+rsnCatCode|Yes|foreign key reference from reason category code| | 
+isActive|Yes|whether the reason cateogry is in use| | 
+langCode|Yes|language code of the reason category| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "String",
+	"ver" : "1.0",
+	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"request" : 
+			{
+				"code":"string",
+				"name":"string",
+				"description":"string",
+                                "rsnCatCode":"string",
+				"lang_code":"string",
+                                "isActive":true
+				
+			}
+			
+}
+```
+### Example Response
+```JSON
+	
+		
+   {
+      "code":"string",
+      "lang_code":"string", 
+				
+   }
+			
+	
+```
+### Response codes
+
+201
+
+Description : Created
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
 # 2.3.16.4 Packet Rejection Reasons Master-get service
 Master data is required across the platform. 
 
