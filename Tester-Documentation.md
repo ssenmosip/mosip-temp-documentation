@@ -23,13 +23,80 @@ A progressively evolving test approach will be adopted i.e. a bottom up approach
 ## 2.1 API Testing
 API testing will be carried out in 2 stages, both via Test Automation.
 1. Soap UI automation - This approach is mainly to catch up with the backlog and disclose bugs soon, however this approach has disadvantages when the APIs undergo changes
-2. API test framework development and test automation - This will be a more generic framework, that is bothe modular and comes with less cost of maintenance
+2. Restassured API test framework development and test automation - This will be a more generic framework, that is both modular and comes with less cost of maintenance
 
-### 2.1.1 API Test Framework 
+### 2.1.1 Restassured API Test Framework 
 In this approach the request and response APIs will be templatized. The input request API template will be parameterised via a data utility, which also prepares the expected response JSON file. The request is then posted to get the actual response. The actual and expected response JSONs are compared to verify the result. 
 Data utility also handles the transliteration of input values.
 
-**<JYOTI - Document the API generic framework design here>**
+Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:
+
+*     IO Rest Assured DSL
+*     TestNG
+*     Java/J2EE
+*     Eclipse Editor
+
+The framework consists majorly 3 Elements/parts as below:
+	
+      Test Case Configurator
+      Test Data Util
+      Test Execution and Assert
+      Results
+
+## Test Case Configurator
+
+This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
+The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
+
+## Test Data Util
+
+Test Data Util forms unique request and response jsons based on the config file received.
+
+### Request:
+
+Based on the valid/Invalid combination of api attributes, the templatized request.json is de-parameterized with randomized generation of input data and placed in folder named with test case name. 
+
+### Resposne:
+
+Based on the type of de-parameterized request, response is mapped with statically saved expected response.json files and saved under the same folder where request was been saved.
+
+### Folder Structure:
+
+Each test scenario/tes case/data combination is written to separate folder and named with test case name. Based on the api’s attribute combination from config file, the folders are populated.
+
+### Test Execution and Assert
+
+Execution:
+IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.
+
+Assert:
+All the foldeers under specific api is traversed through to run each request and compared the actual and expected response sent by Data Util.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared.
+
+### Results:
+
+Result is captured in output.json file where each test case is mapped with unique JIRA ID. This info intern is used to write to Zephyr. After each automation run, Test Cycle will be created and can see detailed report in Zephyr.
+
+## Contract to be followed with Test Data Util:
+
+1.	Based on the templatized request, the api attributes have to be parameterized. If any of the attribute is not tokenized (data is already provided) then retain original value else de-parameterize using randomly generated input data(based on valid/invalid config parameters). This is to avoid parameterization of static data.
+
+2.	Folder Naming Convention
+
+If all attributes in the config file is valid then folder name to be followed as “testcase_smoke” (There will be only one valid scenario for each api)
+
+If any of the attribute is invalid then folder name to be followed as “Invalid_+”name of the invalid attribute”. It is assumed, each time only one attribute will be invalid, if found more than one attribute as invalid then can suffix that name with prior one (Ex: “Invalid_+”name of the invalid attribute1 + name of the invalid attribute2”)
+
+3.	As part of Integration scenario, have to generate request json consuming specific parameters from output of another api.
+
+4.	Few of the input data has to be dynamically generated at the time of de-parameterizing  request.json files 
+Examples: 
+
+Datetimestamp lesser/greater than 20 min than current time (requirement from IDA, Kernel modules) 
+Adding logic to encode/encrypt specific demographic/biometric data
+
+5.	Handling Biometric Data
+
+Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
 ### 2.1.2 Module level testing
 The MOSIP architecture mainly consists of the following functional blocks/modules
@@ -236,117 +303,11 @@ Example: txn_id in the response should match with txn_id in request, which is dy
 
 Get the clarity of feature under scope of testing. Testing the features which are not under current scope and 3rd party operations should be avoided.  3rd party apis are tested only to check if it is prompting expected element/status. This strategy helps us to arrive with quality tests. 
 
-# 6. Registration Client Approach
-
-Framework followed is POM(Page Object Model)
-
-Maintaining Locators
-
-Each screen/object is maintained as Page; all the locators of a respective screen is saved under this Page. Any changes are to be updated/maintained at only one place at Page level.
-
-Locators: Each object/element is to be located using unique ID locators. If cannot find any unique ID locators, request Dev team to provide the same instead of going ahead and implementing from qa side at target folder level.
-
-Code for test cases/scripts:
-Maintain test cases at Object/Page level. Test scripts to be built using re-usable library functions built as part of testing framework development.
-
-## Input Test Data:
-
-Test Data is kept outside the framework logic. All test inputs are provided wither by Data Util or Dev’s code on input file creation. We should get Demographic data as input jsons and using mappers to de-parameterize the fields under test.
-To work with Data Util team on the agreed upon contract to be followed in naming/path to populate the inputs/how to call the utils etc for both Demographic and Biometric data.
-
-## Folder Structure: 
-
-We should follow unique folder structure for the packets, which are used for inputs and outputs as well; these packets will be in turn used as inputs by Reg-Proc client and hence can reuse them.
-
-Health Checks
-Need to come up with Health check tests for:
-1.	All Interfaces (Integration Points)
-2.	All Connectivity points
-
-Exception Handling
-Tests should be robust enough to handle error scenarios like
-1.	Exception while capturing images
-2.	Exception while processing data
-
-
-# 7. RESTful API Automation – Rest Assured Approach
-
-Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:
-
-    IO Rest Assured DSL
-    TestNG
-    Java/J2EE
-    Eclipse Editor
-
-The framework consists majorly 3 Elements/parts as below:
-	
-      Test Case Configurator
-      Test Data Util
-      Test Execution and Assert
-      Results
-
-## Test Case Configurator
-
-This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
-The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
-
-## Test Data Util
-
-Test Data Util forms unique request and response jsons based on the config file received.
-
-### Request:
-
-Based on the valid/Invalid combination of api attributes, the templatized request.json is de-parameterized with randomized generation of input data and placed in folder named with test case name. 
-
-### Resposne:
-
-Based on the type of de-parameterized request, response is mapped with statically saved expected response.json files and saved under the same folder where request was been saved.
-
-### Folder Structure:
-
-Each test scenario/tes case/data combination is written to separate folder and named with test case name. Based on the api’s attribute combination from config file, the folders are populated.
-
-### Test Execution and Assert
-
-Execution:
-IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.
-
-Assert:
-All the foldeers under specific api is traversed through to run each request and compared the actual and expected response sent by Data Util.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared.
-
-### Results:
-
-Result is captured in output.json file where each test case is mapped with unique JIRA ID. This info intern is used to write to Zephyr. After each automation run, Test Cycle will be created and can see detailed report in Zephyr.
-
-## Contract to be followed with Test Data Util:
-
-1.	Based on the templatized request, the api attributes have to be parameterized. If any of the attribute is not tokenized (data is already provided) then retain original value else de-parameterize using randomly generated input data(based on valid/invalid config parameters). This is to avoid parameterization of static data.
-
-2.	Folder Naming Convention
-
-If all attributes in the config file is valid then folder name to be followed as “testcase_smoke” (There will be only one valid scenario for each api)
-
-If any of the attribute is invalid then folder name to be followed as “Invalid_+”name of the invalid attribute”. It is assumed, each time only one attribute will be invalid, if found more than one attribute as invalid then can suffix that name with prior one (Ex: “Invalid_+”name of the invalid attribute1 + name of the invalid attribute2”)
-
-3.	As part of Integration scenario, have to generate request json consuming specific parameters from output of another api.
-
-4.	Few of the input data has to be dynamically generated at the time of de-parameterizing  request.json files 
-Examples: 
-
-Datetimestamp lesser/greater than 20 min than current time (requirement from IDA, Kernel modules) 
-Adding logic to encode/encrypt specific demographic/biometric data
-
-5.	Handling Biometric Data
-
-Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
-
-
-
 Doc_Version: 1.0
 
-Point of Contact/Author: jyoti.kori@mindtree.com
+Point of Contact/Author: jyoti.kori@mindtree.com, gita.phutane@mindtree.com
 
-Reviewed by:     	Avinash.Chandrashekar@mindtree.com
+Reviewed by:     	Avinash.Chandrashekar@mindtree.com, gita.phutane@mindtree.com
 
 
 ***
