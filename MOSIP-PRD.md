@@ -101,7 +101,25 @@ Refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications fo
 
 # 6.SECURITY
 
-https://github.com/mosip/mosip/wiki/Security
+Multiple aspects of security like confidentiality, privacy, integrity of data are key in ensuring an Individual's identity is not compromised. Below are the security design principles MOSIP follows
+
+* Direct access to data stored in database is discouraged. Data can only be accessed via API's
+* An Individual's Identity data at is always encrypted to ensure confidentiality of data
+* Access controls is implemented on all API's to ensure data privacy  and who can see what
+
+Please refer https://github.com/mosip/mosip/wiki/Security for more details.
+
+## Database encryption
+
+Fig:https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/DB_encryption.png?token=ArzdLejO2ylFZXOx0RCrKjGeV0TBtsPKks5cPDLnwA%3D%3D
+
+## Key management, Data Encryption & Decryption
+
+Fig:https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D
+
+## Authentication & Authorization (TBD)
+
+https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D
 
 # 7.MOSIP-PRE-REGISTRATION
 
