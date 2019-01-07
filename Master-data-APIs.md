@@ -4319,7 +4319,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.16.4 Packet Rejection Reasons Master-get service
+# 2.3.16.3 Packet Rejection Reasons Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Packet Rejection Reasons.
@@ -4339,30 +4339,34 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-packetrejectionreasonid|Yes|Code of the language| | 
-packetrejectionreasondesc|Yes|Name of the language| | 
+NA
 
 
 ### Example Response
 ```JSON
 {
-	"reason_category" : [
+	"reasonCategories" : [
 		{
 			"code":"string",
 			"name":"string",
 			"desc":"string",
 			"lang_code":"string", 
-			"reason_lists" : [
+                        "isActive":"string",
+			"reasonLists" : [
 				{
 					"code":"string",
 					"name":"string",
 					"desc":"string",
+                                        "rsnCatCode":"string",
+                                        "isActive":true,
 					"lang_code":"string"
 				},
 				{
 					"code":"string",
 					"name":"string",
 					"desc":"string",
+                                        "rsnCatCode":"string",
+                                        "isActive":true,
 					"lang_code":"string"
 				}
 			]
@@ -4387,7 +4391,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.16.5 Packet Rejection Reasons Master-get based on id and language service
+# 2.3.16.4 Packet Rejection Reasons Master-get based on id and language service
 
 This service will provides the service for the List of Packet Rejection Reasons. 
 
@@ -4405,29 +4409,33 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-packetrejectionreasonid|Yes|Code of the language| | 
-packetrejectionreasondesc|Yes|Name of the language| | 
+NA
 
 
 ### Example Response
 ```JSON
 {
-	"reason_category" : {
+	"reasonCategories" : {
 		"code":"string",
 		"name":"string",
 		"desc":"string",
 		"lang_code":"string", 
+                "isActive":true,
 		"reason_lists" : [
 			{
 				"code":"string",
 				"name":"string",
 				"desc":"string",
+                                "rsnCatCode":"string",
+                                "isActive":true,
 				"lang_code":"string"
 			},
 			{
 				"code":"string",
 				"name":"string",
 				"desc":"string",
+                                "rsnCatCode":"string",
+                                "isActive":true,
 				"lang_code":"string"
 			}
 		]
@@ -4451,7 +4459,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.16.6 Packet Rejection Reasons Master-get based on id, language and location code service
+# 2.3.16.5 Packet Rejection Reasons Master-get based on id, language and location code service
 
 This service will provides the service for the List of Packet Rejection Reasons based on id, language and location code. 
 
