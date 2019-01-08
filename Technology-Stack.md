@@ -14,5 +14,5 @@ Database for client | DerbyDB | 10.4 | Apache License 2.0 |
 File system storage | CEPH | 13.2.0 | LGPL 2.1 | 
 Build tool | Apache Maven | 3.53 | Apache License 2.0 | 
 Containerization | Docker | 18.03.x CE | Apache License 2.0 | 
----------|--------------|-------|--------|--------------
+---------TESTING TOOLS--------------
 TestFx | Reg-client-Automation | 4.0.15-alpha | Apache License 2.0|
