@@ -12,4 +12,5 @@ Link: [MOSIP BootCamp - Preview to Functional Demo - 31Dec18.docx](_files/MOSIP_
 
 ## Pre dry-run of MOSIP BootCamp - Functional Demo and Scope Finalization
 Attendees: Shrikant, Ramesh, Anadi, Krishnan, Romila, Sumeet, Geetanjali, Vivek and Resham
+
 Link: 
