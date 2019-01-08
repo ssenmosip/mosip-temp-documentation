@@ -19,4 +19,6 @@ Containerization | Docker | 18.03.x CE | Apache License 2.0 |
 ***
 
 ---------TESTING TOOLS--------------
+Category | Tool/Technology | Version | License | Remarks
+---------|-----------------|---------|---------|---------
 TestFx | Reg-client-Automation | 4.0.15-alpha | Apache License 2.0|
