@@ -206,7 +206,7 @@ they are connecting with a DM, and exchange certain configuration information.
 In addition to exchanging the names of the vendors, version numbers of the API, and the
 software, the DM responds with a heartbeat value, which is the maximum requested
 time between pings (specified in seconds). Applications must provide a <APP> element,
-while VDMs must provide a <VDM> element.
+while VDMs must provide a <VDM> element .
 
 **Ping :**
    This is used as a heartbeat event, to notify the DM that a VDM, is still alive.  
