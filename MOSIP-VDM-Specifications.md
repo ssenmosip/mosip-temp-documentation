@@ -209,8 +209,8 @@ time between pings (specified in seconds). Applications must provide a <APP> ele
 while VDMs must provide a <VDM> element.
 
 **Ping :**
-This is used as a heartbeat event, to notify the DM that a VDM, is still alive. 
-
+This is used as a heartbeat event, to notify the DM that a VDM, is still alive.  
+ 
    From: VDM 
    To: DM 
    When: To notify DM that a VDM is still alive. 
@@ -232,7 +232,8 @@ the connections on the socket addressed by the deviceURI.
 
     From: VDM.
     To: DM.
-    When: The event notifies the DM, and that in turn forwards it to the application about a device arrival.
+    When: The event notifies the DM, and that in turn forwards it to the 
+    application about a device arrival.
 
 ```
 <DeviceManagerEventRequest requestId="">
@@ -325,7 +326,12 @@ UserFeedback UserFeedback
 
 **Start Capture :**
 Starts the capture process, also subscribes to Capture Complete and optionally User
-Feedback events.
+Feedback events. 
+
+    From: Application. 
+    To: VDM. 
+    When: Used for auto capture.  
+ 
 
 ```
 <DeviceCommandRequest requestId="">
@@ -353,6 +359,11 @@ video format referred by videoFormatId in the Device Arrival VDM event in Capabi
 
 **Force Capture :**
 Forces manual capture. Should not be issued when the capture is not started. 
+ 
+    From: Application. 
+    To: VDM. 
+    When: Used for manual capture.  
+
 
 ```
 <DeviceCommandRequest requestId="">
@@ -369,8 +380,8 @@ automatic capture.
 
 **Stop Capture :**
 Stops capture process. No capture complete event should come after the response to Stop Capture. 
-
-    From: application
+ 
+    From: Application
     To: VDM
     When: To stop the current capture process.
 
@@ -428,9 +439,9 @@ the same finger is not captured again immediately.
 ```
 
 **User Feedback :** 
-   From: .
+   From: VDM.
    To: Application.
-   when: Detects the device state changes.
+   When: Notify the application to change position of the finger and other messages.
    
 
 ```
