@@ -131,13 +131,30 @@ process using the API methods.
 
 ![Arrival and Removal Sequence process](_images/registration/vdm-spec-device-manage-sequence.png)
     
-   **Sequence of process**
-![Sequence process](_images/registration/vdm-spec-design-sequence.png) [**wrong - to be updated**]
-
 	
 **Bio-Metric Capture Sequence:**
-[TBD]
 
+The biometric data captured cane be done in 2 ways. Auto capture and Force Capture. 
+
+   **Auto Capture :** 
+   
+   The Application subscribes to various events from the device, which allow it to provide 
+   a useful interface to the user. The application then sends a StartCapture event to the 
+   device, which provides a video stream, and subscribes the application to the 
+   CaptureComplete event. 
+   The application is expected (not required) to consume the video stream one frame at a 
+   time by sending GetFrame requests. Multiple GetFrame requests can be queued, and 
+   the device will respond to each request with a frame. Once capture is completed, the 
+   device sends a capture complete message to the application. The application must then 
+   use a GetSample request to get the biometric sample.  
+   	
+   **Force Capture :**  
+   If the device supports forced capture, the application may send a ForceCapture event to 
+   the device. The device must respond with a CaptureComplete event. Following this, the 
+   application must get the sample through a GetSample request. 
+   
+
+![Bio Capture Sequence process](_images/registration/vdm-spec-device-capture-sequence.png) 
 
 ### 5. API Methods 
 ***
