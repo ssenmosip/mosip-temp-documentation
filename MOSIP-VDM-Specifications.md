@@ -209,7 +209,7 @@ time between pings (specified in seconds). Applications must provide a <APP> ele
 while VDMs must provide a <VDM> element.
 
 **Ping :**
-This is used as a heartbeat event, to notify the DM that a VDM, is still alive.  
+   This is used as a heartbeat event, to notify the DM that a VDM, is still alive.  
  
    From: VDM 
    To: DM 
