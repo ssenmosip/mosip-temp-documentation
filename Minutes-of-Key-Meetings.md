@@ -5,17 +5,17 @@ Attendees: Sanjay Jain, Pramod Verma, Arun, Shrikant, Anadi, Shravan, Romila and
 
 Link:
 
-## Observations on MOSIP Technology Documents_PwC_GoM_Call_24Oct18
+## Observations on MOSIP Technology Documents - PwC/GoM Call - 24Oct18
 Attendees: Tech Board and GoM/PwC
 
 Link: 
 
-## Call between Sanjay and Nanawati _01Nov18.docx
+## Call between Sanjay and Nanawati - 01Nov18
 Attendees: Sanjay Jain, Nanawati/PwC
 
 Link: 
 
-## Meeting with Vivek Raghavan_01Dec18
+## Meeting with Vivek Raghavan - 01Dec18
 Attendees: Vivek Raghavan, Arun, Anadi, Shrikant, Shravan, Romila, Rounak and Resham
 
 Link:
