@@ -25,6 +25,7 @@ to capture the biometric data and manipulate on the same.
 * Application - The Application that needs to use the biometric devices for capture. 
 
 ### 1. Vendor Device Manager - VDM
+***
    The **vendor must provide this** as installer (and Uninstaller) to install and configure the VDM specific 
    to the requirement. During initial setup the required configuration to be completed using the respective GUI. 
    
@@ -70,7 +71,7 @@ to capture the biometric data and manipulate on the same.
    5. Send response back to the application based on the request. 
    
 ### 2. Device Manager - DM
-   
+*** 
    The **DM provided by MOSIP** is responsible for managing the list of all connected applications, VDMs, and 
    devices. Whenever a device arrives, it must register with the DM, and continue to send 
    a heartbeat event at regular intervals. Failure to send the heartbeat is treated as a 
@@ -99,14 +100,14 @@ The DM listens on a TCP/IP port (specified later in this document). Applications
 VDMs must connect to this port once, and communicate over this open connection. 
 
 ### 3. Application  
-
+***
    When the application needs to work with the device, it opens the socket to the location
 pointed by the deviceURI in the Arrival event from the Device Manager. Only one application can open the device. The 
 device should reject the connections on the deviceURI, until the socket is closed. 
 
 
 ### 4. API Usage Workflows and Examples 
-
+***
 This section will guide the user to understand about the Device discovery and bio-metric capturing workflow 
 process using the API methods.
 
@@ -139,7 +140,7 @@ process using the API methods.
 
 
 ### 5. API Methods 
-
+***
 There will be two types of API methods: commands and notification events. The
 command API methods are initiated by the Application, while the event API methods are
 initiated by the Biometric Capture Device.
@@ -430,7 +431,7 @@ the same finger is not captured again immediately.
 ```
 
 ### 6. Biometric Device Video Streaming and Sample API Methods
-
+***
 The Video Stream will be retrieved using the binary protocol for sending video frames
 (with the actual image data represented in ISO 19794-x) over the socket referenced by
 videoURI using the pull model. The application will maintain pending Get Frame
@@ -543,15 +544,18 @@ This information is provided in the Device Arrival event from the VDM.
 ```
 
 ### 8. Data Types and Representation 
+***
 The following table documents the various attributes specified in the XML, their data
 types, and representation.
 
 ![VDM Spec - Data type and rep](_images/registration/vdm-spec-data-type.png)
 
 ### 9. Return Codes 
+***
 ![VDM Spec - return code](_images/registration/vdm-spec-return-code.png)
 
 ### 10. Biometric Modality Enumeration 
+***
 The following strings are used to enumerate the Biometric Modalities in this API. 
    - Face 
    - Iris 
@@ -560,6 +564,7 @@ The following strings are used to enumerate the Biometric Modalities in this API
    - Fingerprint Slap 
 
 ### 11. Biometric Position Enumeration 
+***
 The following strings will be used for biometricPosition in the XML requests, events and responses.
    - Unknown 
    - Right Thumb 
@@ -581,18 +586,19 @@ The following strings will be used for biometricPosition in the XML requests, ev
    - Face 
 
 ### 13. SampleFormat Enumeration
-
+***
 The following sampleFormats are supported.
 • ISO IEC 19794-4 2005
 • ISO IEC 19794-5 2005
 • ISO IEC 19794-6 2005
 
 ### 14. Actionable User Feedback
-
+***
 ![VDM Spec - User Feedback](_images/registration/vdm-spec-user-feedback.png)
 
 
 ### 15. Security Considerations 
+***
    The MOSIP platform should have ability to validate that the data received at the client application is 
    indeed the same data captured by the device. The device should be able to sign the data using specific key 
    before transmitting to the client. The same data should be validated at application end using another key. 
