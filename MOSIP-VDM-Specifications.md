@@ -134,7 +134,7 @@ process using the API methods.
 	
 **Bio-Metric Capture Sequence:**
 
-The biometric data captured cane be done in 2 ways. Auto capture and Force Capture. 
+The biometric data captured cane be done in 2 ways. Auto capture and Force Capture . 
 
    **Auto Capture :** 
    
