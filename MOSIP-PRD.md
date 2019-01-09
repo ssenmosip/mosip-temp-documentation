@@ -96,7 +96,8 @@ This sections lists out some of the Key design considerations for MOSIP
 
 
 ## Multi-modal Automated Biometric Identification System (ABIS) Interface
-[Know more about ABIS interface](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) and (	https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
+
+[Know more about ABIS interface](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) 
 
 [MOSIP-ABIS middleware ](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
 
