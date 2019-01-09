@@ -173,9 +173,7 @@ The growing complexities on the government administrative process and need for s
 
 3) [RC] Section 12 - API Specs:
 - Except for below, rest of the APIs are external:
-> Kernel
-> ID Repository
-> Master Data APIs
+- Kernel, ID Repository and Master Data APIs
 - Refer WiKi for API content and API format: https://github.com/mosip/mosip/wiki/Kernel-APIs 
 
 
