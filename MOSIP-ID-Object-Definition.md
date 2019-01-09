@@ -220,37 +220,9 @@ Below is a sample JSON as per the schema defined above
 		"IDSchemaVersion": "1.0",
 		
 		"UIN": "6789 5645 3456",
-		
-		"firstName": {
-			"label": "First Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ…"
-				},
-				{
-					"language": "fr",
-					"value": "Ibrahim"
-				}
-			]
-		},
-		
-		"middleName": {
-			"label": "Middle Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø¨Ù†"
-				},
-				{
-					"language": "fr",
-					"value": "Ibn"
-				}
-			]
-		},
-		
-		"lastName": {
-			"label": "Last Name",
+						
+		"fullName": {
+			"label": "Full Name",
 			"values": [
 				{
 					"language": "ar",
