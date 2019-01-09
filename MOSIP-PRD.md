@@ -65,7 +65,9 @@ https://github.com/mosip/mosip/wiki
 Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D)
 
 
-# 4.MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
+# 4.MOSIP Technical overview
+
+## MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
 
 MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
 Please refer https://github.com/mosip/mosip/wiki/Logical-Architecture for more details
@@ -77,9 +79,13 @@ Fig: 4 MOSIP Architectural patterns and principles
 
 Fig 5: [MOSIP Thick client architecture](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D)
 
+## MOSIP Configuration and Launcher
+
+[Please Refer](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
+
 # 5.MOSIP PLATFORM FEATURES
 
-## MOSIP ID Object Definition Schema
+## MOSIP ID Object Definition
 [Please Refer](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
 
 ## Key Design Considerations
@@ -94,7 +100,7 @@ This sections lists out some of the Key design considerations for MOSIP
 [ABIS Interface](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/ABIS_middleware.png?token=ArzdLfhKOzK5iSgtRqbKnpAxQQoqQyIsks5cPDH_wA%3D%3D)
 
 ## Biometric Standards for inter-operability
-Refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications for more details
+[Please Refer](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
 
 
 
@@ -141,11 +147,9 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 # 12.APIS-THE CRUX OF MOSIP
 
 [Please refer](https://github.com/mosip/mosip/wiki/Kernel-APIs)
-* Kernel
+
 * ID Authentication
-* ID Repository
 * ABIS APIs
-* Master Data APIs
 * Audit Manager
 * OTP Manager
 * Pre-Registration APIs
