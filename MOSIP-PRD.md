@@ -102,11 +102,11 @@ This sections lists out some of the Key design considerations for MOSIP
 ### [MOSIP-ABIS middleware ](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
 
 ## Biometric Standards for inter-operability
-[Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
+### [MOSIP biometric data standards](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
 
 ## Device specifications
 
-### Vendor Device Specifications](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
+### [Vendor Device Specifications](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
 
 # 6.SECURITY
 
@@ -182,17 +182,41 @@ This service details the behavior of:
 * Reference Count Request
 
 ### OTP Manager API
+
+Format: JSON
+OTP manager includes APIs for
+ 
+* OTP genetaion 
+* OTP validation
+[Please refer wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
+
 ### Pre-Registration APIs
+
+Format: JSON
+
+This section [Refer wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
+
 ### Registration Processor APIs
+
+Format: JSON
+
+This API will support the following features
+* APIs for receiving packets
+* APIs for packet registration status
+* APIs for Manual Adjudication 
+[Refer wiki for more details](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
 
 ## Internal APIs
 This refers to APIs consumed by internal modules.Listed below are a few MOSIP internal APIs
-* Kernel
-APIs for key management
-APIs for master data management
-APIs for configuration management
-APIs for Audit and Log management
-* ID Repository
+
+### Kernel
+* APIs for key management
+* APIs for master data management
+* APIs for configuration management
+* APIs for Audit and Log management
+
+### ID Repository
+
 This is a central API which all other modules of MOSIP will use to retrieve an ID record.
 This API will support the following features
 
