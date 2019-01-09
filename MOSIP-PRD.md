@@ -106,10 +106,7 @@ This sections lists out some of the Key design considerations for MOSIP
 
 ## Device specifications
 
-### Vendor Device Specifications
-
-[Please refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
-
+### Vendor Device Specifications](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
 
 # 6.SECURITY
 
