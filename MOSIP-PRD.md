@@ -148,6 +148,8 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 # 12.APIS-THE CRUX OF MOSIP
 
+## External APIs
+
 [Please refer wiki](https://github.com/mosip/mosip/wiki/Kernel-APIs)
 
 * ID Authentication
@@ -156,6 +158,12 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 * OTP Manager
 * Pre-Registration APIs
 * Registration Processor APIs
+
+## Internal APIs
+
+* Kernel
+* ID Repository
+* Master Data APIs
 
 # 13.SUMMARY(WIP) 
 
