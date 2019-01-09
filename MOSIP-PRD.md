@@ -59,7 +59,7 @@ Fig: 2 Key objectives of the platform
 
 # 3. MOSIP FUNCTIONAL OVERVIEW
 
-https://github.com/mosip/mosip/wiki
+[Please Refer](https://github.com/mosip/mosip/wiki)
 
 
 Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D)
@@ -70,7 +70,7 @@ Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/
 ## MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
 
 MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
-Please refer https://github.com/mosip/mosip/wiki/Logical-Architecture for more details
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Logical-Architecture) for more details
 
 
 Fig: 4 MOSIP Architectural patterns and principles
