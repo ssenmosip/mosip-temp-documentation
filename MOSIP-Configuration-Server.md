@@ -27,6 +27,14 @@ We will be using MOSIP config server (Spring cloud configurration Server) to man
 			`<groupId>org.springframework.cloud</groupId>`<br/>
 			`<artifactId>spring-cloud-starter-config</artifactId>`<br/>
 		`</dependency>`<br/>
+
+  For actuators refresh endpoint (to refresh properties at runtime) we need actuator dependency in client
+
+`               <dependency>`<br/>
+			`<groupId>org.springframework.boot</groupId>`<br/>
+			`<artifactId>spring-boot-starter-actuator</artifactId>`<br/>
+			`<version>${spring.boot.version}</version>`<br/>
+		`</dependency>`<br/>
 2. There should be one **bootstrap.properties** file in the spring boot application under resources which will contain the details for MOSIP config server running. Inside the properties file following properties have to be mentioned:
 * **spring.cloud.config.uri** key with the value of URL of config server that will be provided.
 * **spring.cloud.config.label** which will define the branch in which we are working. Since we are working right now in DEV branch in git, its value will be DEV.

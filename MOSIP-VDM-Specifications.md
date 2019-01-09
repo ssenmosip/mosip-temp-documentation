@@ -24,7 +24,8 @@ to capture the biometric data and manipulate on the same.
   and manages connectivity to the VDM.
 * Application - The Application that needs to use the biometric devices for capture. 
 
-### Vendor Device Manager - VDM
+### 1. Vendor Device Manager - VDM
+***
    The **vendor must provide this** as installer (and Uninstaller) to install and configure the VDM specific 
    to the requirement. During initial setup the required configuration to be completed using the respective GUI. 
    
@@ -38,15 +39,15 @@ to capture the biometric data and manipulate on the same.
    The communication with the VDM happens through the TCP socket and port from application. 
    The VDM should listen to a particular port to send and receive the command from application. 
    There is a separate socket should be opened to receive the Video streams and Biometric samples. 
-      
-   It provides following functionality, which will be triggered from the application based on the user actions. 
-      1. Subscribe 
-      2. Un-subscribe 
-      3. Start Capture 
-      4. Stop Capture 
-      5. Force Capture 
-      6. Get Frame 
-      7. Get Sample 
+
+   It provides following functionality, which will be triggered from the application based on the user actions.  
+   1. Subscribe 
+   2. Un-subscribe 
+   3. Start Capture 
+   4. Stop Capture 
+   5. Force Capture 
+   6. Get Frame 
+   7. Get Sample 
 
    The following notifications are provided by the VDM to the application when the respective operations are completed. 
    1. Capture Complete 
@@ -62,15 +63,15 @@ to capture the biometric data and manipulate on the same.
    5. Device Startup
    6. Device Shutdown
    
-   **Sequence of process**
+   **VDM process**
    1. VDM senses that a device under it's control is connected to the system. 
-   2. VDM creates a Device Arrival event and sends it to the DM through socket and port. 
+   2. VDM creates a Device Arrival / Removal event and sends it to the DM through socket and port. 
    3. The event contains information about the device, and it's capabilities. 
-   4. It accepts the request from application through the port and communicate with the device through the respective driver. 
+   4. It also accepts the request from application through the port and communicate with the device through the respective driver. 
    5. Send response back to the application based on the request. 
    
-### Device Manager - DM
-   
+### 2. Device Manager - DM
+*** 
    The **DM provided by MOSIP** is responsible for managing the list of all connected applications, VDMs, and 
    devices. Whenever a device arrives, it must register with the DM, and continue to send 
    a heartbeat event at regular intervals. Failure to send the heartbeat is treated as a 
@@ -98,13 +99,28 @@ to capture the biometric data and manipulate on the same.
 The DM listens on a TCP/IP port (specified later in this document). Applications and the 
 VDMs must connect to this port once, and communicate over this open connection. 
 
-### Application  
-
+### 3. Application  
+***
    When the application needs to work with the device, it opens the socket to the location
 pointed by the deviceURI in the Arrival event from the Device Manager. Only one application can open the device. The 
 device should reject the connections on the deviceURI, until the socket is closed. 
 
-### Device Management 
+
+### 4. API Usage Workflows and Examples 
+***
+This section will guide the user to understand about the Device discovery and bio-metric capturing workflow 
+process using the API methods.
+
+**Service(s) Startup Sequence :**
+
+   When DM and VDM Startup: 
+   	
+![Service Startup Sequence process](_images/registration/vdm-spec-device-discovery-sequence.png)
+   
+   When application Startup:  
+   	 It is similar to VDM startup except the strategy of handling failure case.
+
+**Device Management (Arrival and Removal):**
 
     1. When the VDM senses that a device under it's control is connected to the system, it 
        creates a Device Arrival event and sends it to the DM
@@ -112,13 +128,36 @@ device should reject the connections on the deviceURI, until the socket is close
        maintain a copy of this event (for all applications that may connect in the future). 
     3. Application further uses this port number to communicate with the VDM service. 
     4. VDM further communicates with the Device through the respective driver.    
+
+![Arrival and Removal Sequence process](_images/registration/vdm-spec-device-manage-sequence.png)
     
-   **Sequence of process**
-![Sequence process](_images/registration/vdm-spec-design-sequence.png)
+	
+**Bio-Metric Capture Sequence:**
 
+The biometric data captured cane be done in 2 ways. Auto capture and Force Capture . 
 
-### API Methods 
+   **Auto Capture :** 
+   
+   The Application subscribes to various events from the device, which allow it to provide 
+   a useful interface to the user. The application then sends a StartCapture event to the 
+   device, which provides a video stream, and subscribes the application to the 
+   CaptureComplete event. 
+   The application is expected (not required) to consume the video stream one frame at a 
+   time by sending GetFrame requests. Multiple GetFrame requests can be queued, and 
+   the device will respond to each request with a frame. Once capture is completed, the 
+   device sends a capture complete message to the application. The application must then 
+   use a GetSample request to get the biometric sample.  
+   	
+   **Force Capture :**  
+   If the device supports forced capture, the application may send a ForceCapture event to 
+   the device. The device must respond with a CaptureComplete event. Following this, the 
+   application must get the sample through a GetSample request. 
+   
 
+![Bio Capture Sequence process](_images/registration/vdm-spec-device-capture-sequence.png) 
+
+### 5. API Methods 
+***
 There will be two types of API methods: commands and notification events. The
 command API methods are initiated by the Application, while the event API methods are
 initiated by the Biometric Capture Device.
@@ -167,14 +206,14 @@ they are connecting with a DM, and exchange certain configuration information.
 In addition to exchanging the names of the vendors, version numbers of the API, and the
 software, the DM responds with a heartbeat value, which is the maximum requested
 time between pings (specified in seconds). Applications must provide a <APP> element,
-while VDMs must provide a <VDM> element.
+while VDMs must provide a <VDM> element .
 
 **Ping :**
-This is used as a heartbeat event, to notify the DM that a VDM, is still alive. 
-
-   From: VDM
-   To: DM
-   When: To notify DM that a VDM is still alive.
+   This is used as a heartbeat event, to notify the DM that a VDM, is still alive.  
+ 
+   From: VDM 
+   To: DM 
+   When: To notify DM that a VDM is still alive. 
    
 ```
 <DeviceManagerEventRequest requestId="">
@@ -193,7 +232,8 @@ the connections on the socket addressed by the deviceURI.
 
     From: VDM.
     To: DM.
-    When: The event notifies the DM, and that in turn forwards it to the application about a device arrival.
+    When: The event notifies the DM, and that in turn forwards it to the 
+    application about a device arrival.
 
 ```
 <DeviceManagerEventRequest requestId="">
@@ -286,7 +326,12 @@ UserFeedback UserFeedback
 
 **Start Capture :**
 Starts the capture process, also subscribes to Capture Complete and optionally User
-Feedback events.
+Feedback events. 
+
+    From: Application. 
+    To: VDM. 
+    When: Used for auto capture.  
+ 
 
 ```
 <DeviceCommandRequest requestId="">
@@ -314,13 +359,18 @@ video format referred by videoFormatId in the Device Arrival VDM event in Capabi
 
 **Force Capture :**
 Forces manual capture. Should not be issued when the capture is not started. 
+ 
+    From: Application. 
+    To: VDM. 
+    When: Used for manual capture.  
+
 
 ```
 <DeviceCommandRequest requestId="">
-<ForceCapture/>
+	<ForceCapture/>
 </DeviceCommandRequest>
 <DeviceCommandResponse requestId="">
-<Return value="1" failureReason="0"/>
+	<Return value="1" failureReason="0"/>
 </DeviceCommandResponse>
 ```
 Expected behaviour: force manual capture, whether the automatic capture is on or off.
@@ -330,10 +380,10 @@ automatic capture.
 
 **Stop Capture :**
 Stops capture process. No capture complete event should come after the response to Stop Capture. 
-
-   From: application
-   To: VDM
-   When: To stop the current capture process.
+ 
+    From: Application
+    To: VDM
+    When: To stop the current capture process.
 
 ```
 <DeviceCommandRequest requestId="">
@@ -349,9 +399,9 @@ Stops capture process. No capture complete event should come after the response 
    sample should be available until the response is received: as a result the device may 
    have to maintain multiple samples and make them available at the different URIs. 
 
-   From:  VDM.
-   To: Application.
-   when: When capture event completed at VDM, it sends this request to application.
+    From:  VDM.
+    To: Application.
+    When: When capture event completed at VDM, it sends this request to application.
    
 ```
 <DeviceEventRequest requestId="">
@@ -389,9 +439,9 @@ the same finger is not captured again immediately.
 ```
 
 **User Feedback :** 
-   From: .
+   From: VDM.
    To: Application.
-   when: Detects the device state changes.
+   When: Notify the application to change position of the finger and other messages.
    
 
 ```
@@ -408,8 +458,8 @@ the same finger is not captured again immediately.
 </DeviceCommandResponse>
 ```
 
-### Biometric Device Video Streaming and Sample API Methods
-
+### 6. Biometric Device Video Streaming and Sample API Methods
+***
 The Video Stream will be retrieved using the binary protocol for sending video frames
 (with the actual image data represented in ISO 19794-x) over the socket referenced by
 videoURI using the pull model. The application will maintain pending Get Frame
@@ -452,7 +502,7 @@ data format with the reasonably low overhead.
 ```
 
 
-### Notes and Clarrification 
+### 7. Notes and Clarrification 
 
 **Biometric Device Video Streaming and Sample API Methods**
 
@@ -521,57 +571,62 @@ This information is provided in the Device Arrival event from the VDM.
 </DeviceManagerEventRequest> 
 ```
 
-### Data Types and Representation 
+### 8. Data Types and Representation 
+***
 The following table documents the various attributes specified in the XML, their data
 types, and representation.
 
 ![VDM Spec - Data type and rep](_images/registration/vdm-spec-data-type.png)
 
-### Return Codes 
+### 9. Return Codes 
+***
 ![VDM Spec - return code](_images/registration/vdm-spec-return-code.png)
 
-### Biometric Modality Enumeration 
+### 10. Biometric Modality Enumeration 
+***
 The following strings are used to enumerate the Biometric Modalities in this API. 
-• Face 
-• Iris 
-• Two Iris 
-• FingerPrint 
-• Fingerprint Slap 
+   - Face 
+   - Iris 
+   - Two Iris 
+   - FingerPrint 
+   - Fingerprint Slap 
 
-### Biometric Position Enumeration 
+### 11. Biometric Position Enumeration 
+***
 The following strings will be used for biometricPosition in the XML requests, events and responses.
-• Unknown
-• Right Thumb
-• Right Index
-• Right Middle
-• Right Ring
-• Right Little
-• Left Thumb
-• Left Index
-• Left Middle
-• Left Ring
-• Left Little
-• Right Slap
-• Left Slap
-• Both Thumbs
-• Left Iris
-• Right Iris
-• Both Iris
-• Face
+   - Unknown 
+   - Right Thumb 
+   - Right Index 
+   - Right Middle 
+   - Right Ring 
+   - Right Little 
+   - Left Thumb 
+   - Left Index 
+   - Left Middle 
+   - Left Ring 
+   - Left Little 
+   - Right Slap 
+   - Left Slap 
+   - Both Thumbs 
+   - Left Iris 
+   - Right Iris 
+   - Both Iris 
+   - Face 
 
-### SampleFormat Enumeration
-
+### 13. SampleFormat Enumeration
+***
 The following sampleFormats are supported.
 • ISO IEC 19794-4 2005
 • ISO IEC 19794-5 2005
 • ISO IEC 19794-6 2005
 
-### Actionable User Feedback
-
+### 14. Actionable User Feedback
+***
 ![VDM Spec - User Feedback](_images/registration/vdm-spec-user-feedback.png)
 
 
-### Security Considerations 
+### 15. Security Considerations 
+***
    The MOSIP platform should have ability to validate that the data received at the client application is 
    indeed the same data captured by the device. The device should be able to sign the data using specific key 
    before transmitting to the client. The same data should be validated at application end using another key. 

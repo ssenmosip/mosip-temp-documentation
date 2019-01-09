@@ -29,17 +29,14 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"UIN": {
 					"type": "number"
 				},
-				"firstName": {
+				"fullName": {
 					"$ref": "#/definitions/simpleType"
-				},
-				"middleName": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"lastName": {
-					"$ref": "#/definitions/simpleType"
-				},
+				},				
 				"dateOfBirth": {
 					"$ref": "#/definitions/dateOfBirthType"
+				},
+                                "age": {
+					"type": "number"
 				},
 				"gender": {
 					"$ref": "#/definitions/simpleType"
@@ -48,6 +45,9 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 					"$ref": "#/definitions/simpleType"
 				},
 				"addressLine2": {
+					"$ref": "#/definitions/simpleType"
+				},
+                                "addressLine3": {
 					"$ref": "#/definitions/simpleType"
 				},
 				"region": {
@@ -71,6 +71,9 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"CNIENumber": {
 					"type": "number"
 				},
+				"localAdministrativeAuthority": {
+					"$ref": "#/definitions/simpleType"
+				},
 				"parentOrGuardianName": {
 					"$ref": "#/definitions/simpleType"
 				},
@@ -84,6 +87,9 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 					"$ref": "#/definitions/documentType"
 				},
 				"proofOfRelationship": {
+					"$ref": "#/definitions/documentType"
+				},
+				"proofOfDateOfBirth": {
 					"$ref": "#/definitions/documentType"
 				},
 				"individualBiometrics": {
@@ -220,37 +226,9 @@ Below is a sample JSON as per the schema defined above
 		"IDSchemaVersion": "1.0",
 		
 		"UIN": "6789 5645 3456",
-		
-		"firstName": {
-			"label": "First Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ…"
-				},
-				{
-					"language": "fr",
-					"value": "Ibrahim"
-				}
-			]
-		},
-		
-		"middleName": {
-			"label": "Middle Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø¨Ù†"
-				},
-				{
-					"language": "fr",
-					"value": "Ibn"
-				}
-			]
-		},
-		
-		"lastName": {
-			"label": "Last Name",
+						
+		"fullName": {
+			"label": "Full Name",
 			"values": [
 				{
 					"language": "ar",
@@ -268,6 +246,8 @@ Below is a sample JSON as per the schema defined above
 			"value": "1955/04/15"
 		},
 		
+                "age" : "45",
+
 		"gender": {
 			"label": "Gender",
 			"values": [
@@ -310,6 +290,20 @@ Below is a sample JSON as per the schema defined above
 			]
 		},
 		
+		"addressLine3": {
+			"label": "Address Line 3",
+			"values": [
+				{
+					"language": "ar",
+					"value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
+				},
+				{
+					"language": "fr",
+					"value": "exemple d'adresse ligne 3"
+				}
+			]
+		},
+
 		"region": {
 			"label": "Region",
 			"values": [
@@ -353,6 +347,7 @@ Below is a sample JSON as per the schema defined above
 				}
 			]
 		},
+
 		"postalCode" : "570004",
 		
 		"phone": {
@@ -366,6 +361,20 @@ Below is a sample JSON as per the schema defined above
 		},
 		
 		"CNIENumber": "6789545678909",
+
+		"localAdministrativeAuthority": {
+			"label": "Local Administrative Authority",
+			"values": [
+				{
+					"language": "ar",
+					"value": "Ø³Ù„Ù…Ù‰"
+				},
+				{
+					"language": "fr",
+					"value": "salma"
+				}
+			]
+		},
 		
 		"parentOrGuardianName": {
 			"label": "Parent/Guardian",
@@ -393,18 +402,25 @@ Below is a sample JSON as per the schema defined above
 			"category": "passport",
 			"value": "fileReferenceID"
 		},
-		,
+		
 		"proofOfRelationship": {
 			"format": "pdf",
 			"category": "passport",
 			"value": "fileReferenceID"
 		},
+                
+                "proofOfDateOfBirth": {
+			"format": "pdf",
+			"category": "passport",
+			"value": "fileReferenceID"
+		},
+
 		"individualBiometrics": {
 			"format": "cbeff",
 			"version": 1.0,
 			"value": "fileReferenceID"
 		},
-        "parentOrGuardianBiometrics": {
+               "parentOrGuardianBiometrics": {
 			"format": "cbeff",
 			"version": 1.0,
 			"value": "fileReferenceID"
