@@ -20,4 +20,4 @@ junit-platform-launcher| Reg-client-Automation | 1.3.2 | EPL 2.0|
 extentreports| Reg-client-Automation | 2.41.2 | BSD 3-clause|
 junit-jupiter-engine| Reg-client-Automation | 5.0.0 | EPL 1.0|
 apiguardian-api| Reg-client-Automation|1.0.0| Apache 2.0| 
-Tool|Rest Assured|
+Tool|Rest Assured|||tool for Rest API test automation
