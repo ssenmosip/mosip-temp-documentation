@@ -153,22 +153,36 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 ## External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Kernel-APIs)
 
-* ID Authentication https://github.com/mosip/mosip/wiki/ID-Authentication-APIs
-Format jason
-This wiki page details the REST services exposed by ID Authentication.
-This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service -
+
+* ID Authentication APIs
+Format: JSON
+
+This section details the REST services exposed by ID Authentication. 
+[Please refer wiki] (https://github.com/mosip/mosip/wiki/ID-Authentication)
+This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
 
 OTP based - TOTP
 Pin based - Static Pin
 Demo based - PersonalIdentity, Address, FullAddress
 Bio based - Fingerprint, IRIS and Face
 
-1. Auth Request
+
 * ABIS APIs
-* Audit Manager
-* OTP Manager
+Format: JSON
+
+An ABIS system that integrates with MOSIP should support the operations listed in this section (WiKi Link). 
+All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
+
+This service details the behavior of:
+- Insert Request
+- Identify Request
+- Delete Request
+- Ping Request
+- Pending Jobs Request
+- Reference Count Request
+
+* OTP Manager API
 * Pre-Registration APIs
 * Registration Processor APIs
 
