@@ -14,11 +14,11 @@ Database for client | DerbyDB | 10.4 | Apache License 2.0 |
 File system storage | CEPH | 13.2.0 | LGPL 2.1 | 
 Build tool | Apache Maven | 3.53 | Apache License 2.0 | 
 Containerization | Docker | 18.03.x CE | Apache License 2.0 | 
-TestFx | Reg-client-Automation | 4.0.15-alpha | Apache License 2.0|
-awaitility| Reg-client-Automation | 3.0.0 | Apache License 2.0|
-junit-platform-launcher| Reg-client-Automation | 1.3.2 | EPL 2.0|
-extentreports| Reg-client-Automation | 2.41.2 | BSD 3-clause|
-junit-jupiter-engine| Reg-client-Automation | 5.0.0 | EPL 1.0|
-apiguardian-api| Reg-client-Automation|1.0.0| Apache 2.0| 
+Reg-client-Automation | TestFx | 4.0.15-alpha | Apache License 2.0|
+Reg-client-Automation | awaitility| 3.0.0 | Apache License 2.0|
+Reg-client-Automation | junit-platform-launcher|1.3.2 | EPL 2.0|
+Reg-client-Automation | extentreports | 2.41.2 | BSD 3-clause|
+Reg-client-Automation | junit-jupiter-engine| 5.0.0 | EPL 1.0|
+Reg-client-Automation | apiguardian-api| 1.0.0| Apache 2.0| 
 Tool|Rest Assured|3.0.7||tool for Rest API test automation
 Tool|TestNG|6.11||framework to run the test cases
