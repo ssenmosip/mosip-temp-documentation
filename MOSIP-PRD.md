@@ -79,6 +79,8 @@ Fig 5: [MOSIP Thick client architecture](https://raw.githubusercontent.com/wiki/
 
 # 5.MOSIP PLATFORM FEATURES
 
+## MOSIP ID Object Definition Schema
+[Please Refer](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
 
 ## Key Design Considerations
 
