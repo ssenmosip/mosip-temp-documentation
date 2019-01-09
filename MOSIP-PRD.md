@@ -97,14 +97,16 @@ This sections lists out some of the Key design considerations for MOSIP
 
 ## Multi-modal Automated Biometric Identification System (ABIS) Interface
 
-[Know more about ABIS interface](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) 
+### [Know more about ABIS interface](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) 
 
-[MOSIP-ABIS middleware ](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
+### [MOSIP-ABIS middleware ](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
 
 ## Biometric Standards for inter-operability
 [Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
 
-## Vendor Device specifications
+## Device specifications
+
+### Vendor Device Specifications
 
 [Please refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
 
@@ -154,37 +156,37 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 ## External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
 
+### ID Authentication APIs
 
-* ID Authentication APIs
 Format: JSON
 
 This section details the REST services exposed by ID Authentication. 
-[Please refer wiki] (https://github.com/mosip/mosip/wiki/ID-Authentication)
+[Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
 This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
 
-OTP based - TOTP
-Pin based - Static Pin
-Demo based - PersonalIdentity, Address, FullAddress
-Bio based - Fingerprint, IRIS and Face
+* OTP based - TOTP
+* Pin based - Static Pin
+* Demo based - PersonalIdentity, Address, FullAddress
+* Bio based - Fingerprint, IRIS and Face
 
+### ABIS APIs
 
-* ABIS APIs
 Format: JSON
 
-An ABIS system that integrates with MOSIP should support the operations listed in this section (WiKi Link). 
+An ABIS system that integrates with MOSIP should support the operations listed in this section [Refer wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). 
 All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
 
 This service details the behavior of:
-- Insert Request
-- Identify Request
-- Delete Request
-- Ping Request
-- Pending Jobs Request
-- Reference Count Request
+* Insert Request
+* Identify Request
+* Delete Request
+* Ping Request
+* Pending Jobs Request
+* Reference Count Request
 
-* OTP Manager API
-* Pre-Registration APIs
-* Registration Processor APIs
+### OTP Manager API
+### Pre-Registration APIs
+### Registration Processor APIs
 
 ## Internal APIs
 This refers to APIs consumed by internal modules.Listed below are a few MOSIP internal APIs
