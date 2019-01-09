@@ -104,6 +104,9 @@ This sections lists out some of the Key design considerations for MOSIP
 ## Biometric Standards for inter-operability
 [Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
 
+## Vendor Device specifications
+
+[Please refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
 
 
 # 6.SECURITY
