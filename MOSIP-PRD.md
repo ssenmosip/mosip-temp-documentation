@@ -161,3 +161,29 @@ The growing complexities on the government administrative process and need for s
 * ITU-T Focus Group Digital Financial Services, Review of National Identity Programs
 
 # Comments and Revision logs
+* [RC] ID Object Definition Schema
+- Recommend inclusion of this section
+- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition
+
+* [RC] MOSIP Configuration and Launcher
+- Recommend inclusion of this section (Includes Platform Config and Config Server related content)
+- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher
+
+* [RC] Section 12 - API Specs:
+- Except for below, rest of the APIs are external:
+> Kernel
+> ID Repository
+> Master Data APIs
+- Refer WiKi for API content and API format: https://github.com/mosip/mosip/wiki/Kernel-APIs 
+
+* [RC] MOSIP Biometrics Data Specifications (Registration Client and ID-Authentication)
+- Include a sub-section for "MOSIP Biometrics Data Specifications" or include a separate section by itself
+- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications
+
+* [RC] VDM Specs
+- Include a section and refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications
+
+* [RC] ABIS Middleware and ABIS Interface Spec
+- Include sections for the same and refer WiKi for content
+- https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware
+- https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface
