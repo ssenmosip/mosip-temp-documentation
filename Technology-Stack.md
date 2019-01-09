@@ -20,5 +20,6 @@ Reg-client-Automation | junit-platform-launcher|1.3.2 | EPL 2.0|
 Reg-client-Automation | extentreports | 2.41.2 | BSD 3-clause|
 Reg-client-Automation | junit-jupiter-engine| 5.0.0 | EPL 1.0|
 Reg-client-Automation | apiguardian-api| 1.0.0| Apache 2.0| 
-Tool|Rest Assured|3.0.7||tool for Rest API test automation
-Tool|TestNG|6.11||framework to run the test cases
+Rest API test automation |Rest Assured|3.0.7||
+Framework to run  test cases|TestNG|6.11||
+Test Management | Zephyr | Cloud Jira & Zephyr | Cloud Jira & Zephyr
