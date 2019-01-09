@@ -152,10 +152,20 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 # 12.APIS-THE CRUX OF MOSIP
 
 ## External APIs
-
+This sections details out the external APIs of MOSIP that interact with external entities.
 [Please refer wiki](https://github.com/mosip/mosip/wiki/Kernel-APIs)
 
-* ID Authentication
+* ID Authentication https://github.com/mosip/mosip/wiki/ID-Authentication-APIs
+Format jason
+This wiki page details the REST services exposed by ID Authentication.
+This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service -
+
+OTP based - TOTP
+Pin based - Static Pin
+Demo based - PersonalIdentity, Address, FullAddress
+Bio based - Fingerprint, IRIS and Face
+
+1. Auth Request
 * ABIS APIs
 * Audit Manager
 * OTP Manager
@@ -163,10 +173,21 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 * Registration Processor APIs
 
 ## Internal APIs
-
+This refers to APIs consumed by internal modules.Listed below are a few MOSIP internal APIs
 * Kernel
+APIs for key management
+APIs for master data management
+APIs for configuration management
+APIs for Audit and Log management
 * ID Repository
-* Master Data APIs
+This is a central API which all other modules of MOSIP will use to retrieve an ID record.
+This API will support the following features
+
+* Creation of a ID record
+* Lookup of an ID record based on the UIN
+* Updation of an ID record based on the UIN
+* Will not support search based on attributes of an ID
+
 
 # 13.SUMMARY(WIP) 
 
