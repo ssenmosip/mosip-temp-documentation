@@ -110,6 +110,8 @@ This sections lists out some of the Key design considerations for MOSIP
 
 # 6.SECURITY
 
+## MOSIP Security standards and principles
+
 Multiple aspects of security like confidentiality, privacy, integrity of data are key in ensuring an Individual's identity is not compromised. Below are the security design principles MOSIP follows
 
 * Direct access to data stored in database is discouraged. Data can only be accessed via API's
@@ -148,7 +150,7 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 [Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
 
-# 12.APIS-THE CRUX OF MOSIP
+# 12.APIs-THE CRUX OF MOSIP
 
 ## External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
@@ -184,9 +186,10 @@ This service details the behavior of:
 ### OTP Manager API
 
 Format: JSON
+
 OTP manager includes APIs for
  
-* OTP genetaion 
+* OTP generation 
 * OTP validation
 [Please refer wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
 
@@ -203,7 +206,7 @@ Format: JSON
 This API will support the following features
 * APIs for receiving packets
 * APIs for packet registration status
-* APIs for Manual Adjudication 
+* APIs for Manual Verification 
 [Refer wiki for more details](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
 
 ## Internal APIs
