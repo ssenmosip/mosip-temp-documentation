@@ -39,209 +39,165 @@ request | yes | JSON body as per the ID object schema | |
   "registrationId": "12342343200065201812120100555",
   "request": {
     "identity": {
-      "firstName": {
-        "label": "First Name",
-        "values": [
-          {
-            "language": "ar",
-            "value": "ابراهيم"
-          },
-          {
-            "language": "fr",
-            "value": "Ibrahim"
-          }
-        ]
-      },
-      "middleName": {
-        "label": "Middle Name",
-        "values": [
-          {
-            "language": "ar",
-            "value": "بن"
-          },
-          {
-            "language": "fr",
-            "value": "Ibn"
-          }
-        ]
-      },
-      "lastName": {
-        "label": "Last Name",
-        "values": [
-          {
-            "language": "ar",
-            "value": "علي"
-          },
-          {
-            "language": "fr",
-            "value": "Ali"
-          }
-        ]
-      },
-      "dateOfBirth": {
-        "label": "Date Of Birth",
-        "value": "1955/04/15"
-      },
-      "gender": {
-        "label": "Gender",
-        "values": [
-          {
-            "language": "ar",
-            "value": "الذكر"
-          },
-          {
-            "language": "fr",
-            "value": "mâle"
-          }
-        ]
-      },
-      "addressLine1": {
-        "label": "Address Line 1",
-        "values": [
-          {
-            "language": "ar",
-            "value": "عنوان العينة سطر 1"
-          },
-          {
-            "language": "fr",
-            "value": "exemple d'adresse ligne 1"
-          }
-        ]
-      },
-      "addressLine2": {
-        "label": "Address Line 2",
-        "values": [
-          {
-            "language": "ar",
-            "value": "عنوان العينة سطر 2"
-          },
-          {
-            "language": "fr",
-            "value": "exemple d'adresse ligne 2"
-          }
-        ]
-      },
-      "addressLine3": {
-        "label": "Address Line 3",
-        "values": [
-          {
-            "language": "ar",
-            "value": "عنوان العينة سطر3"
-          },
-          {
-            "language": "fr",
-            "value": "exemple d'adresse ligne 3"
-          }
-        ]
-      },
-      "region": {
-        "label": "Region",
-        "values": [
-          {
-            "language": "ar",
-            "value": "طنجة - تطوان - الحسيمة"
-          },
-          {
-            "language": "fr",
-            "value": "Tanger-Tétouan-Al Hoceima"
-          }
-        ]
-      },
-      "province": {
-        "label": "Province",
-        "values": [
-          {
-            "language": "ar",
-            "value": "فاس-مكناس"
-          },
-          {
-            "language": "fr",
-            "value": "Fès-Meknès"
-          }
-        ]
-      },
-      "city": {
-        "label": "City",
-        "values": [
-          {
-            "language": "ar",
-            "value": "الدار البيضاء"
-          },
-          {
-            "language": "fr",
-            "value": "Casablanca"
-          }
-        ]
-      },
+      "IDSchemaVersion": 1.0,
+      "UIN": 981576026435,
+      "fullName": [
+        {
+          "language": "ara",
+          "value": "ابراهيم بن علي"
+        },
+        {
+          "language": "fre",
+          "value": "Ibrahim Ibn Ali"
+        }
+      ],
+      "dateOfBirth": "1955/04/15",
+      "age": 45,
+      "gender": [
+        {
+          "language": "ara",
+          "value": "الذكر"
+        },
+        {
+          "language": "fre",
+          "value": "mâle"
+        }
+      ],
+      "addressLine1": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 1"
+        },
+        {
+          "language": "fre",
+          "value": "exemple d'adresse ligne 1"
+        }
+      ],
+      "addressLine2": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 2"
+        },
+        {
+          "language": "fre",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 2"
+        },
+        {
+          "language": "fre",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "region": [
+        {
+          "language": "ara",
+          "value": "طنجة - تطوان - الحسيمة"
+        },
+        {
+          "language": "fre",
+          "value": "Tanger-Tétouan-Al Hoceima"
+        }
+      ],
+      "province": [
+        {
+          "language": "ara",
+          "value": "فاس-مكناس"
+        },
+        {
+          "language": "fre",
+          "value": "Fès-Meknès"
+        }
+      ],
+      "city": [
+        {
+          "language": "ara",
+          "value": "الدار البيضاء"
+        },
+        {
+          "language": "fre",
+          "value": "Casablanca"
+        }
+      ],
       "postalCode": "570004",
-      "phone": {
-        "label": "Land Line",
-        "value": "+212-5398-12345"
-      },
-      "email": {
-        "label": "Business Email",
-        "value": "sample@samplamail.com"
-      },
-      "CNIENumber": "6789545678909",
-      "parentOrGuardianName": {
-        "label": "Parent/Guardian",
-        "values": [
-          {
-            "language": "ar",
-            "value": "سلمى"
-          },
-          {
-            "language": "fr",
-            "value": "salma"
-          }
-        ]
-      },
-      "parentOrGuardianRIDOrUIN": "212124324784912",
+      "phone": "9876543210",
+      "email": "abc@xyz.com",
+      "CNIENumber": 6789545678909,
+      "localAdministrativeAuthority": [
+        {
+          "language": "ara",
+          "value": "سلمى"
+        },
+        {
+          "language": "fre",
+          "value": "salma"
+        }
+      ],
+      "parentOrGuardianRIDOrUIN": 212124324784912,
+      "parentOrGuardianName": [
+        {
+          "language": "ara",
+          "value": "سلمى"
+        },
+        {
+          "language": "fre",
+          "value": "salma"
+        }
+      ],
       "proofOfAddress": {
         "format": "pdf",
-        "category": "drivingLicense",
-        "value": "PoA_drivingLicense"
+        "type": "drivingLicense",
+        "value": "fileReferenceID"
       },
       "proofOfIdentity": {
         "format": "txt",
-        "category": "passport",
-        "value": "PoI_passport"
+        "type": "passport",
+        "value": "fileReferenceID"
       },
       "proofOfRelationship": {
         "format": "pdf",
-        "category": "passport",
-        "value": "PoR_passport"
+        "type": "passport",
+        "value": "fileReferenceID"
+      },
+      "proofOfDateOfBirth": {
+        "format": "pdf",
+        "type": "passport",
+        "value": "fileReferenceID"
       },
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "test_bio"
+        "value": "fileReferenceID"
       },
       "parentOrGuardianBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "test_parent_bio"
+        "value": "fileReferenceID"
       }
     },
     "documents": [
       {
-        "type": "proofOfAddress",
+        "category": "proofOfAddress",
         "value": "<Base 64 encoded byte array of PoA document>"
       },
       {
-        "type": "proofOfIdentity",
+        "category": "proofOfIdentity",
         "value": "<Base 64 encoded byte array of PoI document>"
       },
       {
-        "type": "proofOfRelationship",
+        "category": "proofOfRelationship",
         "value": "<Base 64 encoded byte array of PoR document>"
       },
       {
-        "type": "individualBiometrics",
+        "category": "individualBiometrics",
         "value": "<Base 64 encoded byte array of CBEFF document>"
       },
       {
-        "type": "parentOrGuardianBiometrics",
+        "category": "parentOrGuardianBiometrics",
         "value": "<Base 64 encoded byte array of CBEFF document>"
       }
     ]
@@ -288,197 +244,155 @@ Requires Authentication | Yes
   "version": "1.0",
   "timestamp": "2018-12-11T06:13:05.218",
   "status": "ACTIVATED",
-  "err": [],
+  "err": [
+    
+  ],
   "response": {
-    //JSON object as per the ID Object Schema defined by the system owner
+    	//JSON object as per the ID Object Schema defined by the system owner
     "identity": {
-      "firstName": {
-        "label": "First Name",
-        "values": [
-          {
-            "language": "ar",
-            "value": "ابراهيم"
-          },
-          {
-            "language": "fr",
-            "value": "Ibrahim"
-          }
-        ]
-      },
-      "middleName": {
-        "label": "Middle Name",
-        "values": [
-          {
-            "language": "ar",
-            "value": "بن"
-          },
-          {
-            "language": "fr",
-            "value": "Ibn"
-          }
-        ]
-      },
-      "lastName": {
-        "label": "Last Name",
-        "values": [
-          {
-            "language": "ar",
-            "value": "علي"
-          },
-          {
-            "language": "fr",
-            "value": "Ali"
-          }
-        ]
-      },
-      "dateOfBirth": {
-        "label": "Date Of Birth",
-        "value": "1955/04/15"
-      },
-      "gender": {
-        "label": "Gender",
-        "values": [
-          {
-            "language": "ar",
-            "value": "الذكر"
-          },
-          {
-            "language": "fr",
-            "value": "mâle"
-          }
-        ]
-      },
-      "addressLine1": {
-        "label": "Address Line 1",
-        "values": [
-          {
-            "language": "ar",
-            "value": "عنوان العينة سطر 1"
-          },
-          {
-            "language": "fr",
-            "value": "exemple d'adresse ligne 1"
-          }
-        ]
-      },
-      "addressLine2": {
-        "label": "Address Line 2",
-        "values": [
-          {
-            "language": "ar",
-            "value": "عنوان العينة سطر 2"
-          },
-          {
-            "language": "fr",
-            "value": "exemple d'adresse ligne 2"
-          }
-        ]
-      },
-      "addressLine3": {
-        "label": "Address Line 3",
-        "values": [
-          {
-            "language": "ar",
-            "value": "عنوان العينة سطر3"
-          },
-          {
-            "language": "fr",
-            "value": "exemple d'adresse ligne 3"
-          }
-        ]
-      },
-      "region": {
-        "label": "Region",
-        "values": [
-          {
-            "language": "ar",
-            "value": "طنجة - تطوان - الحسيمة"
-          },
-          {
-            "language": "fr",
-            "value": "Tanger-Tétouan-Al Hoceima"
-          }
-        ]
-      },
-      "province": {
-        "label": "Province",
-        "values": [
-          {
-            "language": "ar",
-            "value": "فاس-مكناس"
-          },
-          {
-            "language": "fr",
-            "value": "Fès-Meknès"
-          }
-        ]
-      },
-      "city": {
-        "label": "City",
-        "values": [
-          {
-            "language": "ar",
-            "value": "الدار البيضاء"
-          },
-          {
-            "language": "fr",
-            "value": "Casablanca"
-          }
-        ]
-      },
+      "IDSchemaVersion": 1.0,
+      "UIN": 981576026435,
+      "fullName": [
+        {
+          "language": "ara",
+          "value": "ابراهيم بن علي"
+        },
+        {
+          "language": "fre",
+          "value": "Ibrahim Ibn Ali"
+        }
+      ],
+      "dateOfBirth": "1955/04/15",
+      "age": 45,
+      "gender": [
+        {
+          "language": "ara",
+          "value": "الذكر"
+        },
+        {
+          "language": "fre",
+          "value": "mâle"
+        }
+      ],
+      "addressLine1": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 1"
+        },
+        {
+          "language": "fre",
+          "value": "exemple d'adresse ligne 1"
+        }
+      ],
+      "addressLine2": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 2"
+        },
+        {
+          "language": "fre",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "addressLine3": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 2"
+        },
+        {
+          "language": "fre",
+          "value": "exemple d'adresse ligne 2"
+        }
+      ],
+      "region": [
+        {
+          "language": "ara",
+          "value": "طنجة - تطوان - الحسيمة"
+        },
+        {
+          "language": "fre",
+          "value": "Tanger-Tétouan-Al Hoceima"
+        }
+      ],
+      "province": [
+        {
+          "language": "ara",
+          "value": "فاس-مكناس"
+        },
+        {
+          "language": "fre",
+          "value": "Fès-Meknès"
+        }
+      ],
+      "city": [
+        {
+          "language": "ara",
+          "value": "الدار البيضاء"
+        },
+        {
+          "language": "fre",
+          "value": "Casablanca"
+        }
+      ],
       "postalCode": "570004",
-      "phone": {
-        "label": "Land Line",
-        "value": "+212-5398-12345"
-      },
-      "email": {
-        "label": "Business Email",
-        "value": "sample@samplamail.com"
-      },
-      "CNIENumber": "6789545678909",
-      "parentOrGuardianName": {
-        "label": "Parent/Guardian",
-        "values": [
-          {
-            "language": "ar",
-            "value": "سلمى"
-          },
-          {
-            "language": "fr",
-            "value": "salma"
-          }
-        ]
-      },
-      "parentOrGuardianRIDOrUIN": "212124324784912",
+      "phone": "9876543210",
+      "email": "abc@xyz.com",
+      "CNIENumber": 6789545678909,
+      "localAdministrativeAuthority": [
+        {
+          "language": "ara",
+          "value": "سلمى"
+        },
+        {
+          "language": "fre",
+          "value": "salma"
+        }
+      ],
+      "parentOrGuardianRIDOrUIN": 212124324784912,
+      "parentOrGuardianName": [
+        {
+          "language": "ara",
+          "value": "سلمى"
+        },
+        {
+          "language": "fre",
+          "value": "salma"
+        }
+      ],
       "proofOfAddress": {
         "format": "pdf",
-        "category": "drivingLicense",
-        "value": "PoA_drivingLicense"
+        "type": "drivingLicense",
+        "value": "fileReferenceID"
       },
       "proofOfIdentity": {
         "format": "txt",
-        "category": "passport",
-        "value": "PoI_passport"
+        "type": "passport",
+        "value": "fileReferenceID"
       },
       "proofOfRelationship": {
         "format": "pdf",
-        "category": "passport",
-        "value": "PoR_passport"
+        "type": "passport",
+        "value": "fileReferenceID"
+      },
+      "proofOfDateOfBirth": {
+        "format": "pdf",
+        "type": "passport",
+        "value": "fileReferenceID"
       },
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "test_bio"
+        "value": "fileReferenceID"
       },
       "parentOrGuardianBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "test_parent_bio"
+        "value": "fileReferenceID"
       }
     },
     "documents": [
       {
-        "type": "individualBiometrics",
+        "category": "individualBiometrics",
         "value": "<Base 64 encoded byte array of CBEFF document>"
       }
     ]
@@ -512,10 +426,7 @@ Requires Authentication | Yes
   "request": {
     //JSON object as per the ID Object Schema defined by the system owner
     "identity": {
-      "email": {
-        "label": "Business Email",
-        "value": "sample123@email.com"
-      },
+      "email": "sample123@email.com",
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
@@ -524,7 +435,7 @@ Requires Authentication | Yes
     },
     "documents": [
       {
-        "type": "individualBiometrics",
+        "category": "individualBiometrics",
         "value": "<Base 64 encoded byte array of updated CBEFF document>"
       }
     ]
