@@ -35,7 +35,7 @@ request | yes | JSON body as per the ID object schema | |
 {
   "id": "mosip.id.create",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:12:25.288",
+  "timestamp": "2018-12-11T06:12:25.288Z",
   "registrationId": "12342343200065201812120100555",
   "request": {
     "identity": {
@@ -211,9 +211,8 @@ request | yes | JSON body as per the ID object schema | |
 {
   "id": "mosip.id.create",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:13:05.218",
+  "timestamp": "2018-12-11T06:13:05.218Z",
   "status": "ACTIVATED",
-  "err": [],
   "response": {
     "entity": "http://mosip.io/identity/568469473107"
   }
@@ -242,11 +241,8 @@ Requires Authentication | Yes
 {
   "id": "mosip.id.read",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:13:05.218",
+  "timestamp": "2018-12-11T06:13:05.218Z",
   "status": "ACTIVATED",
-  "err": [
-    
-  ],
   "response": {
     	//JSON object as per the ID Object Schema defined by the system owner
     "identity": {
@@ -420,7 +416,7 @@ Requires Authentication | Yes
 {
   "id": "mosip.id.update",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:12:25.288",
+  "timestamp": "2018-12-11T06:12:25.288Z",
   "registrationId": "12342343200065201812120100556",
   "status": "DEACTIVATED",
   "request": {
@@ -449,9 +445,8 @@ Requires Authentication | Yes
 {
 	"id" : "mosip.id.update",
 	"version" : "1.0",
-	"timestamp" : "2018-12-11T06:13:05.218",
+	"timestamp" : "2018-12-11T06:13:05.218Z",
 	"status" : "DEACTIVATED",
-	"err" : [],
 	"response" : {
 		"entity" : "http://mosip.io/identity/568469473107"
 	}	
