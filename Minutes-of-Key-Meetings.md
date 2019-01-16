@@ -15,6 +15,12 @@ Attendees: Sanjay Jain, Nanawati/PwC
 
 Link: 
 
+## MoM Discussion with Pramod Verma Customer Meeting 21Nov18
+Attendees: Pramod Verma, Shrikant, Ramesh, Anadi, Shravan and Resham
+
+Link:
+
+
 ## Meeting with Vivek Raghavan - 01Dec18
 Attendees: Vivek Raghavan, Arun, Anadi, Shrikant, Shravan, Romila, Rounak and Resham
 
