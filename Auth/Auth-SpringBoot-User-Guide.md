@@ -6,32 +6,19 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 * Step 4: [Use restTemplate for Http calls](#Use-restTemplate-for-Http-calls)
 
 ## Inject required libraries
-Follow the below instructions to make your project ready for Authentication and Authorization.
-
-### Add below mentioned spring security libraries in to your pom.xml
-```
+Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as specified below
+```java
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
+	<groupId>io.mosip.kernel</groupId>
+	<artifactId>kernel-auth-adapter</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 </dependency>
-
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-test</artifactId>
-    <scope>test</scope>
-</dependency>
-```
-
-### Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as specified below
-```
-To be updated
-As of now copy paste it from the Github
 ```
 
 ## Attach annotations to authorize endpoints
 To restrict access to your endpoints, you need to add the **@PreAuthorize** annotation.
 Look at the below example for reference.
-```
+```java
 @PreAuthorize("hasAnyRole('DIVISION_ADMIN', 'SUPERVISOR', 'AGENT')")
 @RequestMapping(value = "/api/restaurants", method = RequestMethod.GET)
 ```
@@ -42,14 +29,14 @@ There are few more methods available apart from hasAnyRole like hasRole. Look in
 ## Attach auth token to the response servlet
 To attach auth token we first need to autowire AuthHeadersFilter into your RestController as shown below.
 
-```
+```java
 @Autowired
 AuthHeadersFilter authHeadersFilter;
 ```
 
 Now in your Controller method use ResponseEntity to attach headers and return a response as shown below.
 
-```
+```java
 @RequestMapping(value = "/api/restaurant/{id}", method = RequestMethod.GET)
 public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Integer id) throws Exception {
     HttpHeaders httpHeaders = new HttpHeaders();
@@ -64,14 +51,14 @@ To make any kind of HTTP or HTTPS calls to a mosip's micro service that also inj
 
 * Intially autowire the RestTemplate in the class where you are going to make an API call.
 
-```
+```java
 @Autowired
 private RestTemplate restTemplate;
 ```
 
 * Now make the call using the autowired restTemplate as shown in the sample below:
 
-```
+```java
 final String uri = "http://localhost:3001/api/location";
 LocationDao response = restTemplate.getForObject(uri, LocationDao.class);
 ```

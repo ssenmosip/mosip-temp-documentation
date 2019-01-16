@@ -29,17 +29,14 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"UIN": {
 					"type": "number"
 				},
-				"firstName": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"middleName": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"lastName": {
+				"fullName": {
 					"$ref": "#/definitions/simpleType"
 				},
 				"dateOfBirth": {
 					"$ref": "#/definitions/dateOfBirthType"
+				},
+				"age": {
+					"type": "number"
 				},
 				"gender": {
 					"$ref": "#/definitions/simpleType"
@@ -48,6 +45,9 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 					"$ref": "#/definitions/simpleType"
 				},
 				"addressLine2": {
+					"$ref": "#/definitions/simpleType"
+				},
+				"addressLine3": {
 					"$ref": "#/definitions/simpleType"
 				},
 				"region": {
@@ -60,7 +60,7 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 					"$ref": "#/definitions/simpleType"
 				},
 				"postalCode": {
-					"type": "number"
+					"$ref": "#/definitions/postalCodeType"
 				},
 				"phone": {
 					"$ref": "#/definitions/phoneType"
@@ -70,6 +70,9 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				},
 				"CNIENumber": {
 					"type": "number"
+				},
+				"localAdministrativeAuthority": {
+					"$ref": "#/definitions/simpleType"
 				},
 				"parentOrGuardianName": {
 					"$ref": "#/definitions/simpleType"
@@ -86,10 +89,13 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"proofOfRelationship": {
 					"$ref": "#/definitions/documentType"
 				},
+				"proofOfDateOfBirth": {
+					"$ref": "#/definitions/documentType"
+				},
 				"individualBiometrics": {
 					"$ref": "#/definitions/biometricsType"
 				},
-                                "parentOrGuardianBiometrics": {
+				"parentOrGuardianBiometrics": {
 					"$ref": "#/definitions/biometricsType"
 				}
 			}
@@ -97,87 +103,42 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 	},
 	"definitions": {
 		"simpleType": {
-			"type": "object",
-			"properties": {
-				"label": {
-					"type": "string"
-				},
-				"values": {
-					"type": "array",
-					"additionalItems": false,
-					"uniqueItems": true,
-					"items": {
-						"type": "object",
-						"required": [
-							"language",
-							"value"
-						],
-						"additionalProperties": false,
-						"properties": {
-							"language": {
-								"type": "string"
-							},
-							"value": {
-								"type": "string",
-								"pattern": "^[(?i)a-z]{2}$"
-							}
-						}
+			"type": "array",
+			"additionalItems": false,
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"required": [
+					"language",
+					"value"
+				],
+				"additionalProperties": false,
+				"properties": {
+					"language": {
+						"type": "string",
+						"pattern": "^[(?i)a-z]{3}$"
+					},
+					"value": {
+						"type": "string"
 					}
 				}
-			},
-			"required": [
-				"label",
-				"values"
-			]
+			}
 		},
 		"dateOfBirthType": {
-			"type": "object",
-			"properties": {
-				"label": {
-					"type": "string"
-				},
-				"value": {
-					"type": "string",
-					"pattern": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$"
-				}
-			},
-			"required": [
-				"label",
-				"value"
-			]
+			"type": "string",
+			"pattern": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$"
 		},
-		"phoneType": {
-			"type": "object",
-			"properties": {
-				"label": {
-					"type": "string"
-				},
-				"value": {
-					"type": "string",
-					"length": "10",
-					"pattern": "^([9]{1})([234789]{1})([0-9]{8})$"
-				}
-			},
-			"required": [
-				"label",
-				"value"
-			]
+		"phoneType": {		
+			"type": "string",
+			"pattern": "^([9]{1})([234789]{1})([0-9]{8})$"
+		},
+		"postalCodeType": {		
+			"type": "string",
+			"pattern": "^[(?i)A-Z0-9]{6}$"
 		},
 		"emailType": {
-			"type": "object",
-			"properties": {
-				"label": {
-					"type": "string"
-				},
-				"value": {
-					"type": "string",
-					"pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"
-				}
-			},
-			"required": [
-				"label",
-				"value"
-			]
+			"type": "string",
+			"pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"
 		},
 		"documentType": {
 			"type": "object",
@@ -185,7 +146,7 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"format": {
 					"type": "string"
 				},
-				"category": {
+				"type": {
 					"type": "string"
 				},
 				"fileReference": {
@@ -209,209 +170,154 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 		}
 	}
 }
-
 ```
 
-Below is a sample JSON as per the schema defined above
+Below is a sample JSON as per the schema defined above 
+
 ```
 {
-	"identity": {
-	
-		"IDSchemaVersion": "1.0",
-		
-		"UIN": "6789 5645 3456",
-		
-		"firstName": {
-			"label": "First Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ…"
-				},
-				{
-					"language": "fr",
-					"value": "Ibrahim"
-				}
-			]
-		},
-		
-		"middleName": {
-			"label": "Middle Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø¨Ù†"
-				},
-				{
-					"language": "fr",
-					"value": "Ibn"
-				}
-			]
-		},
-		
-		"lastName": {
-			"label": "Last Name",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø¹Ù„ÙŠ"
-				},
-				{
-					"language": "fr",
-					"value": "Ali"
-				}
-			]
-		},
-		
-		"dateOfBirth": {
-			"label": "Date Of Birth",
-			"value": "1955/04/15"
-		},
-		
-		"gender": {
-			"label": "Gender",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø§Ù„Ø°ÙƒØ±"
-				},
-				{
-					"language": "fr",
-					"value": "mÃ¢le"
-				}
-			]
-		},
-		
-		"addressLine1": {
-			"label": "Address Line 1",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
-				},
-				{
-					"language": "fr",
-					"value": "exemple d'adresse ligne 1"
-				}
-			]
-		},
-		
-		"addressLine2": {
-			"label": "Address Line 2",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
-				},
-				{
-					"language": "fr",
-					"value": "exemple d'adresse ligne 2"
-				}
-			]
-		},
-		
-		"region": {
-			"label": "Region",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø·Ù†Ø¬Ø© - ØªØ·ÙˆØ§Ù† - Ø§Ù„Ø­Ø³ÙŠÙ…Ø©"
-				},
-				{
-					"language": "fr",
-					"value": "Tanger-TÃ©touan-Al Hoceima"
-				}
-			]
-		},
-		
-		"province": {
-			"label": "Province",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ù�Ø§Ø³-Ù…ÙƒÙ†Ø§Ø³"
-				},
-				{
-					"language": "fr",
-					"value": "FÃ¨s-MeknÃ¨s"
-				}
-			]
-		},
-		
-		"city": {
-			"label": "City",
-			"values": [
-				{
-					"language": "ar",
-					"label": "Ù…Ø¯ÙŠÙ†Ø©",
-					"value": "Ù�Ø§Ø³-Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
-				},
-				{
-					"language": "fr",
-					"label": "ville",
-					"value": "Casablanca"
-				}
-			]
-		},
-		"postalCode" : "570004",
-		
-		"phone": {
-			"label": "Land Line",
-			"value": "9878967890"
-		},
-		
-		"email": {
-			"label": "Business Email",
-			"value": "abc@xyz.com"
-		},
-		
-		"CNIENumber": "6789545678909",
-		
-		"parentOrGuardianName": {
-			"label": "Parent/Guardian",
-			"values": [
-				{
-					"language": "ar",
-					"value": "Ø³Ù„Ù…Ù‰"
-				},
-				{
-					"language": "fr",
-					"value": "salma"
-				}
-			]
-		},
-		
-		"parentOrGuardianRIDOrUIN": "212124324784912",
-		
-		"proofOfAddress": {
-			"format": "pdf",
-			"category": "drivingLicense",
-			"value": "fileReferenceID"
-		},
-		"proofOfIdentity": {
-			"format": "pdf",
-			"category": "passport",
-			"value": "fileReferenceID"
-		},
-		,
-		"proofOfRelationship": {
-			"format": "pdf",
-			"category": "passport",
-			"value": "fileReferenceID"
-		},
-		"individualBiometrics": {
-			"format": "cbeff",
-			"version": 1.0,
-			"value": "fileReferenceID"
-		},
-        "parentOrGuardianBiometrics": {
-			"format": "cbeff",
-			"version": 1.0,
-			"value": "fileReferenceID"
-		}
-	}
+  "identity": {
+    "IDSchemaVersion": 1.0,
+    "UIN": 981576026435,
+    "fullName": [
+      {
+        "language": "ara",
+        "value": "ابراهيم بن علي"
+      },
+      {
+        "language": "fre",
+        "value": "Ibrahim Ibn Ali"
+      }
+    ],
+    "dateOfBirth": "1955/04/15",
+    "age": 45,
+    "gender": [
+      {
+        "language": "ara",
+        "value": "الذكر"
+      },
+      {
+        "language": "fre",
+        "value": "mâle"
+      }
+    ],
+    "addressLine1": [
+      {
+        "language": "ara",
+        "value": "عنوان العينة سطر 1"
+      },
+      {
+        "language": "fre",
+        "value": "exemple d'adresse ligne 1"
+      }
+    ],
+    "addressLine2": [
+      {
+        "language": "ara",
+        "value": "عنوان العينة سطر 2"
+      },
+      {
+        "language": "fre",
+        "value": "exemple d'adresse ligne 2"
+      }
+    ],
+    "addressLine3": [
+      {
+        "language": "ara",
+        "value": "عنوان العينة سطر 2"
+      },
+      {
+        "language": "fre",
+        "value": "exemple d'adresse ligne 2"
+      }
+    ],
+    "region": [
+      {
+        "language": "ara",
+        "value": "طنجة - تطوان - الحسيمة"
+      },
+      {
+        "language": "fre",
+        "value": "Tanger-Tétouan-Al Hoceima"
+      }
+    ],
+    "province": [
+      {
+        "language": "ara",
+        "value": "فاس-مكناس"
+      },
+      {
+        "language": "fre",
+        "value": "Fès-Meknès"
+      }
+    ],
+    "city": [
+      {
+        "language": "ara",
+        "value": "الدار البيضاء"
+      },
+      {
+        "language": "fre",
+        "value": "Casablanca"
+      }
+    ],
+    "postalCode": "570004",
+    "phone": "9876543210",
+    "email": "abc@xyz.com",
+    "CNIENumber": 6789545678909,
+    "localAdministrativeAuthority": [
+      {
+        "language": "ara",
+        "value": "سلمى"
+      },
+      {
+        "language": "fre",
+        "value": "salma"
+      }
+    ],
+    "parentOrGuardianRIDOrUIN": 212124324784912,
+    "parentOrGuardianName": [
+      {
+        "language": "ara",
+        "value": "سلمى"
+      },
+      {
+        "language": "fre",
+        "value": "salma"
+      }
+    ],
+    "proofOfAddress": {
+      "format": "pdf",
+      "type": "drivingLicense",
+      "value": "fileReferenceID"
+    },
+    "proofOfIdentity": {
+      "format": "txt",
+      "type": "passport",
+      "value": "fileReferenceID"
+    },
+    "proofOfRelationship": {
+      "format": "pdf",
+      "type": "passport",
+      "value": "fileReferenceID"
+    },
+    "proofOfDateOfBirth": {
+      "format": "pdf",
+      "type": "passport",
+      "value": "fileReferenceID"
+    },
+    "individualBiometrics": {
+      "format": "cbeff",
+      "version": 1.0,
+      "value": "fileReferenceID"
+    },
+    "parentOrGuardianBiometrics": {
+      "format": "cbeff",
+      "version": 1.0,
+      "value": "fileReferenceID"
+    }
+  }
 }
-
 ```
 All operations related to ID will have a place holder to receive the ID Object as per the schema, validate it as per the schema and store it AS IS. For example, when an Individual creates a Pre-Registration, the API for Pre-Registration will look as below
 
@@ -420,7 +326,7 @@ All operations related to ID will have a place holder to receive the ID Object a
 request body
 {
 	"id" : "mosip.pre-registration.create",
-	"ver" : "1.0",	
+	"version" : "1.0",	
 	"request" : 
 	{
 		//JSON request as per the id object schema defined by the country				

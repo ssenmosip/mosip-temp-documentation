@@ -4174,12 +4174,12 @@ Description: Not Found
 
 
 # 2.3.16 Packet Rejection Reasons Master API
-# 2.3.16.1 Packet Rejection Reasons Master-create service
+# 2.3.16.1 Packet Rejection Reason-category Master-create service
 
 This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /packetrejectionreasons`
+### `POST /packetrejectionreasons/reasoncategory`
 
 ### Resource details
 
@@ -4191,65 +4191,44 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-packetrejectionreasondesc|Yes|Name of the packet rejection reason| | 
+code|Yes|Code of the reason category| | 
+name|Yes|Name of the reason category| | 
+description|Yes|description for the reason category| | 
+isActive|Yes|whether the reason cateogry is in use| | 
+langCode|Yes|language code of the reason category| | 
+
 
 ### Example Request
 ```JSON
 {
-	"id": "mosip.packetrejectionreason.create",
+	"id": "String",
 	"ver" : "1.0",
-	"timestamp" : "",
+	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 	"request" : {
-		"reason_category" : [
-			{
 				"code":"string",
 				"name":"string",
-				"desc":"string",
-				"lang_code":"string", 
-				"reason_lists" : [
-					{
-						"code":"string",
-						"name":"string",
-						"desc":"string",
-						"lang_code":"string"
-					},
-					{
-						"code":"string",
-						"name":"string",
-						"desc":"string",
-						"lang_code":"string"
-					}
-				]
-			}
-		]	
-	}
+				"description":"string",
+				"lang_code":"string",
+                                "isActive":true
+		    }
 }
 ```
 ### Example Response
 ```JSON
-	{
-		"reason_category" : [
-			{
-				"code":"string",
-				"lang_code":"string", 
-				"reason_lists" : [
-					{
-						"code":"string",
-						"lang_code":"string"
-					},
-					{
-						"code":"string",
-						"lang_code":"string"
-					}
-				]
-			}
-		]	
-	}
+	
+    {
+	"code":"string",
+	"lang_code":"string" 
+				
+    }
+			
+	
 ```
 ### Response codes
-202
 
-Description: Accepted
+201
+
+Description : Created
 
 400
 
@@ -4263,7 +4242,84 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.16.4 Packet Rejection Reasons Master-get service
+
+# 2.3.16.2 Packet Rejection Reason-category Master-create service
+
+This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
+
+### Resource URL
+### `POST /packetrejectionreasons/reasonlist`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Code of the reason category| | 
+name|Yes|Name of the reason category| | 
+description|Yes|description for the reason category| |
+rsnCatCode|Yes|foreign key reference from reason category code| | 
+isActive|Yes|whether the reason cateogry is in use| | 
+langCode|Yes|language code of the reason category| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "String",
+	"ver" : "1.0",
+	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"request" : 
+			{
+				"code":"string",
+				"name":"string",
+				"description":"string",
+                                "rsnCatCode":"string",
+				"lang_code":"string",
+                                "isActive":true
+				
+			}
+			
+}
+```
+### Example Response
+```JSON
+	
+		
+   {
+      "code":"string",
+      "lang_code":"string",
+      "rsnCatCode":"string"
+				
+   }
+			
+	
+```
+### Response codes
+
+201
+
+Description : Created
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
+# 2.3.16.3 Packet Rejection Reasons Master-get service
 Master data is required across the platform. 
 
 This service will provides the service for the List of Packet Rejection Reasons.
@@ -4283,30 +4339,34 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-packetrejectionreasonid|Yes|Code of the language| | 
-packetrejectionreasondesc|Yes|Name of the language| | 
+NA
 
 
 ### Example Response
 ```JSON
 {
-	"reason_category" : [
+	"reasonCategories" : [
 		{
 			"code":"string",
 			"name":"string",
 			"desc":"string",
 			"lang_code":"string", 
-			"reason_lists" : [
+                        "isActive":"string",
+			"reasonLists" : [
 				{
 					"code":"string",
 					"name":"string",
 					"desc":"string",
+                                        "rsnCatCode":"string",
+                                        "isActive":true,
 					"lang_code":"string"
 				},
 				{
 					"code":"string",
 					"name":"string",
 					"desc":"string",
+                                        "rsnCatCode":"string",
+                                        "isActive":true,
 					"lang_code":"string"
 				}
 			]
@@ -4331,7 +4391,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.16.5 Packet Rejection Reasons Master-get based on id and language service
+# 2.3.16.4 Packet Rejection Reasons Master-get based on id and language service
 
 This service will provides the service for the List of Packet Rejection Reasons. 
 
@@ -4349,29 +4409,33 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-packetrejectionreasonid|Yes|Code of the language| | 
-packetrejectionreasondesc|Yes|Name of the language| | 
+NA
 
 
 ### Example Response
 ```JSON
 {
-	"reason_category" : {
+	"reasonCategories" : {
 		"code":"string",
 		"name":"string",
 		"desc":"string",
 		"lang_code":"string", 
+                "isActive":true,
 		"reason_lists" : [
 			{
 				"code":"string",
 				"name":"string",
 				"desc":"string",
+                                "rsnCatCode":"string",
+                                "isActive":true,
 				"lang_code":"string"
 			},
 			{
 				"code":"string",
 				"name":"string",
 				"desc":"string",
+                                "rsnCatCode":"string",
+                                "isActive":true,
 				"lang_code":"string"
 			}
 		]
@@ -4395,7 +4459,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.16.6 Packet Rejection Reasons Master-get based on id, language and location code service
+# 2.3.16.5 Packet Rejection Reasons Master-get based on id, language and location code service
 
 This service will provides the service for the List of Packet Rejection Reasons based on id, language and location code. 
 
@@ -5628,6 +5692,56 @@ Description: Forbidden
 500
 
 Description: Internal Server Error 
+
+
+## 2.3.24.2 Registration Center Machine Device-delete service
+Master data is required across the platform. 
+
+This service will delete the mapping of registration canter, machine and device in the RegistrationCenter-Machine-Device Master module. 
+
+### Resource URL
+### `DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+NA
+
+
+### Example Response
+```JSON
+  {
+   "deviceId": "string",
+   "machineId": "string",
+   "regCenterId": "string"
+  }
+```
+### Response codes
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+500
+
+Description: Internal Server Error 
+
+
 
 # 2.3.25 Device Types Master API
 ## 2.3.25.1 Device Types Master-create service

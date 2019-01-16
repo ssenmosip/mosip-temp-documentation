@@ -1,24 +1,33 @@
-1.	**MOSIP-INTRODUCTION**
+# 1. MOSIP-INTRODUCTION
 
-**Scope**
+## Scope
 
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner. 
 
-**Intended audience**
+## Intended audience
 
-The main intended audience for this document are the business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously. 
-Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements. 
-Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
+### Internal audience
+
+* Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
+
+* Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
  
-2.	**MOSIP -FOR IDENTITY MANAGEMENT**
+### External Audience
 
-**What-is an identity management system**
+* SIs (system integrator)
+
+* Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document. 
+
+
+# 2. MOSIP -FOR IDENTITY MANAGEMENT
+
+## What-is an identity management system
 
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems .The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s .Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
 
 The complexity of government administration in “the modern world” is a major problem in developing countries. Often, individual government programs have their own database of beneficiaries that are not digitized and therefore cannot be easily merged. Delivering public services efficiently and providing financial inclusion to the poor in partnership with the private sector depends on accurate identification and authentication of citizens and residents. Hence Government programs must have the capacity to cross-reference databases and information.
 
-**Identity management systems in the digital era**
+## Identity management systems in the digital era
 
 Technological innovations have opened up new possibilities for governments to develop comprehensive identity management systems that link peoples’ identities through their entire life from birth certificate, civil registration, driver’s license, to marriage certificate, voter registration and national identity card. At the same time, governments in developing countries are expected to carry out many of the same functions that richer countries are capable of performing; these functions include providing universal access to healthcare and education, implementing know your customer (KYC) rules for financial institutions, and administering a wide variety of transfer programs.
 
@@ -28,104 +37,236 @@ As compared to manual, paper-based registers, advanced electronic capture and st
  
 A World Bank report quoted several projections showing that the number of “digital government/citizen transactions worldwide will grow to about $67 billion by 2020” (World Bank, 2015). As a result of linkages between national ID programs and financial services, these programs are also believe to have the potential to promote financial inclusion.
 
-**Why-an identity management system is needed**
+## Why-an identity management system is needed
+
+![Indentity](_images/mosip_prd/Indentity.JPG)
+
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system
 
 
-	Provide a convenient and simplified process for enrollment into the national identity database for the issuance and use of the national identification number
-
-	Help protect you from identity theft and fraud by providing a simple, reliable, sustainable and universally acceptable means of confirming your identity at all time 
-
-	Make life easier by providing you with an easy and convenient means of providing your identity anywhere in the country and beyond
-
-	Help reform our political process by facilitating the work of the managers of electoral process
-
-	Make it harder for criminal to use false or multiple/duplicate/ghost identities
-
-**How-Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)**
+## Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
 
 MOSIP (Modular Open Source Identity Platform) helps governmen
 ts of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
 Fig: 1 MOSIP basic features
 
+![MOSIP basic features](_images/mosip_prd/mosip_basic_features.JPG)
+
 Fig: 2 Key objectives of the platform
 
-3.	MOSIP FUNCTIONAL OVERVIEW
+![Key objectives of the platform](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
-https://github.com/mosip/mosip/wiki
+# 3. MOSIP FUNCTIONAL OVERVIEW
+
+[Please Refer wiki](https://github.com/mosip/mosip/wiki)
 
 
-Fig 3: MOSIP functional overview
+Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D)
 
-4.	MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
+
+# 4.MOSIP Technical overview
+
+## MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
+
 MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
-https://github.com/mosip/mosip/wiki/Logical-Architecture
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Logical-Architecture) for more details
 
 
 Fig: 4 MOSIP Architectural patterns and principles
 
-Fig 5: MOSIP Thick client architecture
+![MOSIP Architectural patterns and principles](_images/mosip_prd/principles.JPG)
 
-5.**	MOSIP PLATFORM FEATURES**
+Fig 5: [MOSIP Thick client architecture](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D)
 
+## MOSIP Configuration and Launcher
 
-**Key Design Considerations**
+[Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
+
+# 5.MOSIP PLATFORM FEATURES
+
+## MOSIP ID Object Definition
+[Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
+
+## Key Design Considerations
+
 This sections lists out some of the Key design considerations for MOSIP
 
-**Ecosystem approach**
-Device vendors and ABIS providers are key to process an individual's data and prove uniqueness. MOSIP can integrate with devices and ABIS that conform to the standards to achieve the stated goals. On the other side, MOSIP also caters to a diverse set of institutions wanting to authenticate an Individual against the data stored in MOSIP. So, key parameters are-All public/external facing interfaces of MOSIP standards set for interoperability
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Logical-Architecture)
 
-**A Highly configurable open source design approach**
-MOSIP is highly flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
-•	Country can to choose the features required. For example, it must be possible for a country to turn off Finger Print capture and turn on Face recognition or Vice versa as the need be
-•	Country can configure the attributes of an ID Object
-•	Country can define the length of the UIN number
 
-**Extensibility**
+## Multi-modal Automated Biometric Identification System (ABIS) Interface
 
-MOSIP is flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
-•	A country can introduce a new step in processing data
-•	Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
+### [Know more about ABIS interface](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) 
 
-**Modularity**
+### [MOSIP-ABIS middleware ](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
 
-All components in MOSIP are modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
-•	UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
-•	The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
+## Biometric Standards for inter-operability
+### [MOSIP biometric data standards](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
 
-**Multi-modal Automated Biometric Identification System (ABIS) Interface**
+## Device specifications
 
-Providing unique identity for an individual is one of key features of MOSIP platform. To do this MOSIP 
-•	Uses multi modal biometric information of an individual
-•	Leverages Automated Biometric Identification System (ABIS) to de-duplicate Individual's biometric data
-•	Designed for integrating with multiple ABIS providers to leverage expertise of different ABIS providers
-•	Not use ABIS for authentication (deduplication only)
-Fig 5: ABIS interface configuration in MOSIP
+### [Vendor Device Specifications](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
 
-**Biometric Standards for inter-operability**
+# 6.SECURITY
 
-Multi modal biometrics (Fingerprint, Iris, Face) is the key component in MOSIP to identify and provide a unique identity to an Individual. Hence MOSIP follows certain data standards during biometric data acquisition and verification
-
-**6.	SECURITY**
+## MOSIP Security standards and principles
 
 Multiple aspects of security like confidentiality, privacy, integrity of data are key in ensuring an Individual's identity is not compromised. Below are the security design principles MOSIP follows
-•	Direct access to data stored in database is discouraged. Data can only be accessed via API's
-•	An Individual's Identity data at is always encrypted to ensure confidentiality of data
-•	Access controls is implemented on all API's to ensure data privacy  and who can see what
 
-**Database encryption**
+* Direct access to data stored in database is discouraged. Data can only be accessed via API's
+* An Individual's Identity data at is always encrypted to ensure confidentiality of data
+* Access controls is implemented on all API's to ensure data privacy  and who can see what
 
-As a principle, MOSIP does not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB.
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Security) for more details.
 
-•	All the data is encrypted using a symmetric key algorithm. MOSIP supports AES 256 algorithm by default. However, the specific algorithm to be used is configurable
+## Database encryption
 
-•	Each record gets encrypted using its own symmetric key and same key will not be used to encrypt multiple records
+[Data encryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/DB_encryption.png?token=ArzdLejO2ylFZXOx0RCrKjGeV0TBtsPKks5cPDLnwA%3D%3D)
 
-•	The symmetric key itself is encrypted using a master public key. The corresponding private must be managed in a HSM
-•	HSM stores an asymmetric key pair for each application/service and can be rotated periodically as per configuration
+## Key management, Data Encryption & Decryption
 
-•	The encrypted symmetric key is appended to the data itself and not stored separately
+[Data encryption and decryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D)
+
+## Authentication & Authorization (TBD)
+
+[ID authentication flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D)
+
+# 7.MOSIP-PRE-REGISTRATION
+
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Pre-Registration)
+
+# 8.MOSIP RESIDENT SERVICES
+
+# 9.MOSIP-REGISTRATION CLIENT
+
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Registration-Client)
+
+# 10.MOSIP –REGISTRATION PROCESSOR
+
+[Please refer wiki](https://github.com/mosip/mosip/wiki/Registration-Processor)
+
+# 11.MOSIP-AUTHENTICATION
+
+[Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
+
+# 12.APIs-THE CRUX OF MOSIP
+
+## External APIs
+This sections details out the external APIs of MOSIP that interact with external entities.
+
+### ID Authentication APIs
+
+Format: JSON
+
+This section details the REST services exposed by ID Authentication. 
+[Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
+This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
+
+* OTP based - TOTP
+* Pin based - Static Pin
+* Demo based - PersonalIdentity, Address, FullAddress
+* Bio based - Fingerprint, IRIS and Face
+
+### ABIS APIs
+
+Format: JSON
+
+An ABIS system that integrates with MOSIP should support the operations listed in this section [Refer wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). 
+All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
+
+This service details the behavior of:
+* Insert Request
+* Identify Request
+* Delete Request
+* Ping Request
+* Pending Jobs Request
+* Reference Count Request
+
+### OTP Manager API
+
+Format: JSON
+
+OTP manager includes APIs for
+ 
+* OTP generation 
+* OTP validation
+[Please refer wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
+
+### Pre-Registration APIs
+
+Format: JSON
+
+This section [Refer wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
+
+### Registration Processor APIs
+
+Format: JSON
+
+This API will support the following features
+* APIs for receiving packets
+* APIs for packet registration status
+* APIs for Manual Verification 
+[Refer wiki for more details](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
+
+## Internal APIs
+This refers to APIs consumed by internal modules.Listed below are a few MOSIP internal APIs
+
+### Kernel
+* APIs for key management
+* APIs for master data management
+* APIs for configuration management
+* APIs for Audit and Log management
+
+### ID Repository
+
+This is a central API which all other modules of MOSIP will use to retrieve an ID record.
+This API will support the following features
+
+* Creation of a ID record
+* Lookup of an ID record based on the UIN
+* Updation of an ID record based on the UIN
+* Will not support search based on attributes of an ID
 
 
+# 13.SUMMARY(WIP) 
 
+The growing complexities on the government administrative process and need for social inclusion calls for an identity management system. Identity management system provide a unique identity to individuals. Recent advancements in technology has enable identity management systems to incorporate biometric data.MOSIP is a highly configurable, extensible and secure platform for identity management.
+
+# 14.APPENDICES
+# 15.REFERENCES
+
+* International Journal of Innovative Research in Engineering & Management (IJIREM) ISSN: 2350-0557, Volume-3, Issue-1, January-2016
+
+* ITU-T Focus Group Digital Financial Services, Review of National Identity Programs
+
+# Comments and Revision logs
+1) [RC] ID Object Definition Schema-**covered under platform features**
+- Recommend inclusion of this section
+- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition
+
+
+2) [RC] MOSIP Configuration and Launcher-**Covered under MOSIP technical overview**
+- Recommend inclusion of this section (Includes Platform Config and Config Server related content)
+- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher
+
+
+3) [RC] Section 12 - API Specs:**Updated API list**
+- Except for below, rest of the APIs are external:
+- Kernel, ID Repository and Master Data APIs
+- Refer WiKi for API content and API format: https://github.com/mosip/mosip/wiki/Kernel-APIs 
+
+
+4) [RC] MOSIP Biometrics Data Specifications (Registration Client and ID-Authentication)**Covered under platform features** In the PDF version of PRD its provided as annexure
+- Include a sub-section for "MOSIP Biometrics Data Specifications" or include a separate section by itself
+- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications
+
+
+5) [RC] VDM Specs-**TBD**
+- Include a section and refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications
+
+
+6) [RC] ABIS Middleware and ABIS Interface **Spec Covered under platform features** In the PDF version of PRD its provided as annexure
+- Include sections for the same and refer WiKi for content
+- https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware
+- https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface
