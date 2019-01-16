@@ -97,10 +97,23 @@ export class RoleDirective {
 
 ```
 
-Now to implement a role based show/hide element all we need to do is add the appRole attribute to the HTML element as shown below:
+Now inject the above interceptor and directive in the app.module.ts as follows
+```
+@NgModule({
+  declarations: [ RoleDirective, ...],
+  imports: [...],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptService,
+    multi: true
+  }, ...],
+  bootstrap: [AppComponent]
+})
+```
+To activate/deactivate => show/hide element all we need to do is add the appRole attribute to the HTML element as shown below:
 ```
 <button class="btn btn-success" appRole="DIVISION_ADMIN,SUPERVISOR">Add</button>
 ```
-Now the add button above will only be visible for users with DIVISION_ADMIN or SUPERVISOR role.
+In the above sample, the add button will only be visible for users with DIVISION_ADMIN or SUPERVISOR role.
 
 **Note:** Above mentioned code snippets are not the final implementations. Based on the API spec's and few other factors the method implementations might change a bit. But the component structures remain the same.
