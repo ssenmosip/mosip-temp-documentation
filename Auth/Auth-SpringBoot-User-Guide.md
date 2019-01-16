@@ -6,7 +6,7 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 * Step 4: [Use restTemplate for Http calls](#Use-restTemplate-for-Http-calls)
 
 ## Inject required libraries
-Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as specified below
+Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as a maven dependency
 ```java
 <dependency>
 	<groupId>io.mosip.kernel</groupId>
@@ -14,7 +14,10 @@ Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module t
 	<version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
-
+Then add _**/api**_ as your base path in your properties file
+```properties
+server.servlet.path=/api/.......
+```
 ## Attach annotations to authorize endpoints
 To restrict access to your endpoints, you need to add the **@PreAuthorize** annotation.
 Look at the below example for reference.
