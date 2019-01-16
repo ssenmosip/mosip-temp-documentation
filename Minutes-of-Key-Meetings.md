@@ -13,7 +13,7 @@ Link: [Observations on MOSIP Technology Documents_PwC_GoM_Call_24Oct18.docx](_fi
 ## Call between Sanjay and Nanawati - 01Nov18
 Attendees: Sanjay Jain, Nanawati/PwC
 
-Link: [Call between Sanjay and Nanawati _01Nov18.docx](_files/Call_between_Sanjay_and_Nanawati _01Nov18.docx)
+Link: [Call between Sanjay and Nanawati _01Nov18.docx](_files/Call_between_Sanjay_and_Nanawati_01Nov18.docx)
 
 ## MoM Discussion with Pramod Verma Customer Meeting - 21Nov18
 Attendees: Pramod Verma, Shrikant, Ramesh, Anadi, Shravan and Resham
