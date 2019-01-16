@@ -1,11 +1,11 @@
 The minutes of key meetings have been placed below:
 
-# ## MOSIP Technical Review - Monday 8th Oct, 2018 2-4pm @ 4th flr Ekstep
+# MOSIP Technical Review - Monday 8th Oct, 2018 2-4pm @ 4th flr Ekstep
 Attendees: Sanjay Jain, Pramod Verma, Arun, Shrikant, Anadi, Shravan, Romila and Resham
 
 Link: [MOSIP Technical Review - Monday 8th Oct, 2018 2-4pm @ 4th flr Ekstep.docx](_files/MOSIP_Technical_Review-Monday_8thOct2018_2-4pm@4th_flr_Ekstep.docx)
 
-# ## Observations on MOSIP Technology Documents - PwC/GoM Call - 24Oct18
+# Observations on MOSIP Technology Documents - PwC/GoM Call - 24Oct18
 Attendees: Tech Board and GoM/PwC
 
 Link: [Observations on MOSIP Technology Documents_PwC_GoM_Call_24Oct18.docx](_files/Observations_on_MOSIP_Technology_Documents_PwC_GoM_Call_24Oct18.docx)
