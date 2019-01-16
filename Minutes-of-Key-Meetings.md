@@ -34,3 +34,13 @@ Link: [MOSIP BootCamp - Preview to Functional Demo - 31Dec18.docx](_files/MOSIP_
 Attendees: Shrikant, Ramesh, Anadi, Krishnan, Romila, Sumeet, Geetanjali, Vivek and Resham
 
 Link: 
+
+## Notes from MOSIP Technology Bootcamp - 10-11Jan'19
+Attendees: Sanjay Jain, Shrikant, Ramesh, Anadi, Krishnan, Arun Gurumurthy, Romila, Shravan, Gita, Resham, representatives of countries that are interested in adopting MOSIP and at various stages of engagement ( Morocco, Philippines, Ghana, Côte d'Ivoire)
+
+Link:
+
+## Notes from meeting with GoM-PwC-MOSIP Tech Board - 12Jan'19
+Attendees: Sanjay Jain, Shrikant, Ramesh, Anadi, Krishnan, Arun Gurumurthy, Romila, Shravan, Gita, Resham, Rudra, Sanjay Zende, Avinash, Monobikash, Jyoti, Suresh HP, Prashant Mehra, GoM team and PwC team
+
+Link: 
