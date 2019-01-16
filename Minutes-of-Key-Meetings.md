@@ -49,4 +49,4 @@ Link: [Notes from MOSIP Technology Bootcamp - 10-11Jan'19.docx](_files/Notes fro
 ## Notes from meeting with GoM-PwC-MOSIP Tech Board - 12Jan'19
 Attendees: Sanjay Jain, Shrikant, Ramesh, Anadi, Krishnan, Arun Gurumurthy, Romila, Shravan, Gita, Resham, Rudra, Sanjay Zende, Avinash, Monobikash, Jyoti, Suresh HP, Prashant Mehra, GoM team and PwC team
 
-Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board - 12Jan'19.docx](_files/Notes from meeting with GoM-PwC-MOSIP Tech Board - 12Jan'19.docx)
+Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board - 12Jan'19.docx](_files/Notes_from_meeting_with_GoM-PwC-MOSIP_Tech_Board-12Jan'19.docx)
