@@ -6,26 +6,13 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 * Step 4: [Use restTemplate for Http calls](#Use-restTemplate-for-Http-calls)
 
 ## Inject required libraries
-Follow the below instructions to make your project ready for Authentication and Authorization.
-
-### Add below mentioned spring security libraries in to your pom.xml
+Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as specified below
 ```
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
+	<groupId>io.mosip.kernel</groupId>
+	<artifactId>kernel-auth-adapter</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 </dependency>
-
-<dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-test</artifactId>
-    <scope>test</scope>
-</dependency>
-```
-
-### Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as specified below
-```
-To be updated
-As of now copy paste it from the Github
 ```
 
 ## Attach annotations to authorize endpoints
