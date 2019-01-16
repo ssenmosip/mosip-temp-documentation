@@ -26,7 +26,7 @@ Tasks to be implemented in a Client/UI Http interceptor are:
 
 Below code implements the requirements mentioned above:
 
-```
+```JS
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpResponse, HttpEvent, HttpEventType } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -67,7 +67,7 @@ export class InterceptService implements HttpInterceptor {
 Role of the Roles directive is to fetch roles from UserDetails stored in the session storage and verify if the user has required roles to perform some action or read some details and restrict access accordingly.
 
 Below code implements the requirements mentioned above:
-```
+```JS
 import { Directive, TemplateRef, ViewContainerRef, Input, ElementRef } from '@angular/core';
 
 @Directive({
@@ -98,7 +98,7 @@ export class RoleDirective {
 ```
 
 Now inject the above interceptor and directive in the app.module.ts as follows
-```
+```JS
 @NgModule({
   declarations: [ RoleDirective, ...],
   imports: [...],
@@ -111,7 +111,7 @@ Now inject the above interceptor and directive in the app.module.ts as follows
 })
 ```
 To activate/deactivate => show/hide element all we need to do is add the appRole attribute to the HTML element as shown below:
-```
+```HTML
 <button class="btn btn-success" appRole="DIVISION_ADMIN,SUPERVISOR">Add</button>
 ```
 In the above sample, the add button will only be visible for users with DIVISION_ADMIN or SUPERVISOR role.
