@@ -1,9 +1,12 @@
 This section details about the service APIs in the Pre-Registration modules
 
-#####[2.7.1 Demographic Service APIs]()
-#####[2.7.2 Document Service APIs]()
-#####[2.7.3 Data sync Service APIs]()
-#####[2.7.4 Booking Service APIs]()
+###### [2.7.1 Demographic Service APIs]()
+
+###### [2.7.2 Document Service APIs]()
+
+###### [2.7.3 Data sync Service APIs]()
+
+###### [2.7.4 Booking Service APIs]()
 
 ## 2.7.1 Demographic Service APIs
 This service details used by Pre-Registration portal to create the demographic form by providing his/her basic demographic details.
