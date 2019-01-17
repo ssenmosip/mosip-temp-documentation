@@ -69,7 +69,12 @@ to capture the biometric data and manipulate on the same.
    3. The event contains information about the device, and it's capabilities. 
    4. It also accepts the request from application through the port and communicate with the device through the respective driver. 
    5. Send response back to the application based on the request. 
-   
+ 
+   **VDM opens the below set of communication URI for each device.** 
+   deviceURI="localhost:1234" - Receive and send the communication command with application through this port. 
+   videoURI="localhost:1235"  - Live Video Stream of the bio-metric data transferred through this port to application. 
+   sampleURI="localhost:1236" - Captured bio-metric data rendered through this port to application. 
+     
 ### 2. Device Manager - DM
 *** 
    The **DM provided by MOSIP** is responsible for managing the list of all connected applications, VDMs, and 
@@ -94,8 +99,8 @@ to capture the biometric data and manipulate on the same.
    The DM provides applications with the following events.
    1. Device Arrival 
    2. Device Removal 
-
-
+ 
+ 
 The DM listens on a TCP/IP port (specified later in this document). Applications and the 
 VDMs must connect to this port once, and communicate over this open connection. 
 
@@ -105,6 +110,10 @@ VDMs must connect to this port once, and communicate over this open connection.
 pointed by the deviceURI in the Arrival event from the Device Manager. Only one application can open the device. The 
 device should reject the connections on the deviceURI, until the socket is closed. 
 
+   **Application communicate with a particular device through the following URI.** 
+   deviceURI="localhost:1234" 
+   videoURI="localhost:1235" 
+   sampleURI="localhost:1236" 
 
 ### 4. API Usage Workflows and Examples 
 ***
@@ -139,7 +148,7 @@ The biometric data captured cane be done in 2 ways. Auto capture and Force Captu
    **Auto Capture :** 
    
    The Application subscribes to various events from the device, which allow it to provide 
-   a useful interface to the user. The application then sends a StartCapture event to the 
+   a useful interface to the user. The application then sends a **StartCapture** event to the 
    device, which provides a video stream, and subscribes the application to the 
    CaptureComplete event. 
    The application is expected (not required) to consume the video stream one frame at a 
