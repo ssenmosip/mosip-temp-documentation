@@ -208,29 +208,29 @@ Requires Authentication | Yes
 
 
 ```JSON
-{
-  "err": null,
-  "status": true,
-  "resTime": "2019-01-16T07:35:21.841Z",
-  "response": [
-    {
-      "preId": "50490792462164",
-      "fullname": "Habiba",
-      "statusCode": "Pending_Appointment",
-      "appointmentDetails": null
-    },
-	 {
-      "preId": "65490792462164",
-      "fullname": "Imane",
-      "statusCode": "Booked",
-      "appointmentDetails": {
-		"registration_center_id": "RCG-RC-01",
-        "appointment_date": "2018-01-17",
-        "time_slot_from": "09:00:00",
-        "time_slot_to": "09:30:00"
-	  }
-    }
-  ]
+{  
+   "err":null,
+   "status":true,
+   "resTime":"2019-01-16T07:35:21.841Z",
+   "response":[  
+      {  
+         "preId":"50490792462164",
+         "fullname":"Habiba",
+         "statusCode":"Pending_Appointment",
+         "appointmentDetails":null
+      },
+      {  
+         "preId":"65490792462164",
+         "fullname":"Imane",
+         "statusCode":"Booked",
+         "appointmentDetails":{  
+            "registration_center_id":"RCG-RC-01",
+            "appointment_date":"2018-01-17",
+            "time_slot_from":"09:00:00",
+            "time_slot_to":"09:30:00"
+         }
+      }
+   ]
 }
 ```
 ##### Failure Response:
