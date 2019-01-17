@@ -352,9 +352,9 @@ Requires Authentication | Yes
 This service enables Pre-Registration portal to request for uploading the document for a perticular pre-registration.
 
 ### Host
-#####Integration - `http://integ.mosip.io`
-#####Development - `http://dev.mosip.io`
-#####Production -
+##### Integration - `http://integ.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
 
 #### HTTP Operation Allowed
 | Method | Allowed |
@@ -365,8 +365,8 @@ This service enables Pre-Registration portal to request for uploading the docume
 | DELETE | True |
 
 #### 2.7.2.1 POST Operation
-####Path -  ` /pre-registration/documents`
-####Summary
+#### Path -  ` /pre-registration/documents`
+#### Summary
 Upload document for a pre-registration Id.
 
 #### Parameters
@@ -392,9 +392,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Document uploaded successfully
+##### Success Response:
+###### Status code: '200'
+###### Description: Document uploaded successfully
 ```JSON
 {
   "err": null,
@@ -413,9 +413,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Id
 ```JSON
 {
   "err": {
@@ -428,9 +428,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Version
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Version
 ```JSON
 {
   "err": {
@@ -443,9 +443,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Date & Time
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
   "err": {
@@ -458,9 +458,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Body
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Body
 ```JSON
 {
   "err": {
@@ -472,9 +472,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: if the document size is more than the specified limit
+##### Failure Response:
+###### Status code: '200'
+###### Description: if the document size is more than the specified limit
 ```JSON
 {
   "err": {
@@ -486,9 +486,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid document format
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid document format
 ```JSON
 {
   "err": {
@@ -501,9 +501,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: When preregistration data is not found for the preregistration id in the DB
+##### Failure Response:
+###### Status code: '200'
+###### Description: When preregistration data is not found for the preregistration id in the DB
 ```JSON
 {
   "err": {
@@ -516,9 +516,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If preregistration id, status code, document category code or preregistration data is empty
+##### Failure Response:
+###### Status code: '200'
+###### Description: If preregistration id, status code, document category code or preregistration data is empty
 ```JSON
 {
   "err": {
@@ -531,9 +531,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If the document & document details are failed to store in the db
+##### Failure Response:
+###### Status code: '200'
+###### Description: If the document & document details are failed to store in the db
 ```JSON
 {
   "err": {
@@ -546,9 +546,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Document virus scan failed
+##### Failure Response:
+###### Status code: '200'
+###### Description: Document virus scan failed
 ```JSON
 {
   "err": {
@@ -561,9 +561,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Retreival of preregistration data failed
+##### Failure Response:
+###### Status code: '200'
+###### Description: Retreival of preregistration data failed
 ```JSON
 {
   "err": {
@@ -576,9 +576,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Copied document & the details are failed to store in the db
+##### Failure Response:
+###### Status code: '200'
+###### Description: Copied document & the details are failed to store in the db
 ```JSON
 {
   "err": {
@@ -591,8 +591,8 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.2.2 POST Operation
-####Path -  ` /pre-registration/copyDocuments`
-####Summary
+#### Path -  ` /pre-registration/copyDocuments`
+#### Summary
 This service enables Pre-Registration portal to request for copy the document from one pre-registration id to another.
 
 
@@ -610,9 +610,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Document successfully copied
+##### Success Response:
+###### Status code: '200'
+###### Description: Document successfully copied
 ```JSON
 {
   "err": null,
@@ -629,9 +629,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Document not found for the source pre-registration Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Document not found for the source pre-registration Id
 ```JSON
 {
   "err": {
@@ -644,9 +644,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Source preregistration id or Destination preregistration id is empty or invalid
+##### Failure Response:
+###### Status code: '200'
+###### Description: Source preregistration id or Destination preregistration id is empty or invalid
 ```JSON
 {
   "err": {
@@ -659,9 +659,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: ceph exception
+##### Failure Response:
+###### Status code: '200'
+###### Description: ceph exception
 ```JSON
 {
   "err": {
@@ -673,9 +673,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: if the copied document & document details are failed to store in the db
+##### Failure Response:
+###### Status code: '200'
+###### Description: if the copied document & document details are failed to store in the db
 ```JSON
 {
   "err": {
@@ -689,8 +689,8 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.2.3 GET Operation
-####Path -  ` /pre-registration/getDocument`
-####Summary
+#### Path -  ` /pre-registration/getDocument`
+#### Summary
 This service enables Pre-Registration portal request to retrieve all document associated with perticular pre-registration.
 
 #### Parameters
@@ -705,9 +705,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Documents retrieved successfully
+##### Success Response:
+###### Status code: '200'
+###### Description: Documents retrieved successfully
 ```JSON
 {
   "err": null,
@@ -745,9 +745,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty pre-registration Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
   "err": {
@@ -759,9 +759,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: If the document is not found in the db for the preregistration id
+##### Failure Response:
+###### Status code: '200'
+###### Description: If the document is not found in the db for the preregistration id
 ```JSON
 {
   "err": {
@@ -773,9 +773,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description:  ceph exception
+##### Failure Response:
+###### Status code: '200'
+###### Description:  ceph exception
 ```JSON
 {
   "err": {
@@ -789,8 +789,8 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.2.4 DELETE Operation
-####Path -  ` /pre-registration/deleteDocument`
-####Summary
+#### Path -  ` /pre-registration/deleteDocument`
+#### Summary
 This service enables Pre-Registration portal, request to delete the document for a particular document id.
 
 #### Parameters
@@ -805,9 +805,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Document successfully deleted
+##### Success Response:
+###### Status code: '200'
+###### Description: Document successfully deleted
 ```JSON
 {
   "err": null,
@@ -821,9 +821,9 @@ Requires Authentication | Yes
   ]
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: If the document is not found in the db for the preregistration id
+##### Failure Response:
+###### Status code: '200'
+###### Description: If the document is not found in the db for the preregistration id
 ```JSON
 {
   "err": {
@@ -835,9 +835,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: ceph exception
+##### Failure Response:
+###### Status code: '200'
+###### Description: ceph exception
 ```JSON
 {
   "err": {
@@ -850,8 +850,8 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.2.5 DELETE Operation
-####Path -  ` /pre-registration/deleteAllByPreRegId`
-####Summary
+#### Path -  ` /pre-registration/deleteAllByPreRegId`
+#### Summary
 This service enables Pre-Registration portal, request to delete all the document for a particular pre-registration id.
 
 #### Parameters
@@ -866,9 +866,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Documents successfully deleted
+##### Success Response:
+###### Status code: '200'
+###### Description: Documents successfully deleted
 ```JSON
 {
   "err": null,
@@ -882,9 +882,9 @@ Requires Authentication | Yes
   ]
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty pre-registration Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
   "err": {
@@ -896,9 +896,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: if the document & document details are failed to delete from the db
+##### Failure Response:
+###### Status code: '200'
+###### Description: if the document & document details are failed to delete from the db
 ```JSON
 {
   "err": {
@@ -910,9 +910,9 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#####Failure Response:
-######Status code: '200'
-######Description: ceph exception
+##### Failure Response:
+###### Status code: '200'
+###### Description: ceph exception
 ```JSON
 {
   "err": {
@@ -929,9 +929,9 @@ Requires Authentication | Yes
 This service enables Pre-Registration to a registration client , request to reterive all pre-registration ids based on registration client id, appointment date and an user type.
 
 ### Host
-#####Integration - `http://integ.mosip.io`
-#####Development - `http://dev.mosip.io`
-#####Production -
+##### Integration - `http://integ.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
 
 #### HTTP Operation Allowed
 | Method | Allowed |
@@ -942,8 +942,8 @@ This service enables Pre-Registration to a registration client , request to rete
 | DELETE | False |
 
 #### 2.7.3.1 POST Operation
-####Path -  ` pre-registration/data-sync/retrieveAllPreRegIds`
-####Summary
+#### Path -  ` pre-registration/data-sync/retrieveAllPreRegIds`
+#### Summary
 Retrieve all the pre-registration Ids by date range and registration center Id.
 
 #### Parameters
@@ -965,9 +965,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: All PreRegistrationIds fetched successfully
+##### Success Response:
+###### Status code: '200'
+###### Description: All PreRegistrationIds fetched successfully
 ```JSON
 {
   "err": null,
@@ -986,9 +986,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Id
 ```JSON
 {
   "err": {
@@ -1001,9 +1001,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Version
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Version
 ```JSON
 {
   "err": {
@@ -1016,9 +1016,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Date & Time
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
   "err": {
@@ -1031,9 +1031,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Body
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Body
 ```JSON
 {
   "err": {
@@ -1046,9 +1046,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Empty registration center Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Empty registration center Id
 ```JSON
 {
   "err": {
@@ -1061,9 +1061,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty from-date or to-date
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty from-date or to-date
 ```JSON
 {
   "err": {
@@ -1076,9 +1076,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Empty user id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Empty user id
 ```JSON
 {
   "err": {
@@ -1091,9 +1091,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If appointment is not booked under the registration center Id for the preregistration id
+##### Failure Response:
+###### Status code: '200'
+###### Description: If appointment is not booked under the registration center Id for the preregistration id
 ```JSON
 {
   "err": {
@@ -1106,9 +1106,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If retrieval of booking data fails
+##### Failure Response:
+###### Status code: '200'
+###### Description: If retrieval of booking data fails
 ```JSON
 {
   "err": {
@@ -1121,9 +1121,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If retrieval of preregistration data fails 
+##### Failure Response:
+###### Status code: '200'
+###### Description: If retrieval of preregistration data fails 
 ```JSON
 {
   "err": {
@@ -1136,9 +1136,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If no preregistration data created within the from date & to date
+##### Failure Response:
+###### Status code: '200'
+###### Description: If no preregistration data created within the from date & to date
 ```JSON
 {
   "err": {
@@ -1151,9 +1151,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If retrieval of preregistration data fails 
+##### Failure Response:
+###### Status code: '200'
+###### Description: If retrieval of preregistration data fails 
 ```JSON
 {
   "err": {
@@ -1166,9 +1166,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If writing and reading of files fail
+##### Failure Response:
+###### Status code: '200'
+###### Description: If writing and reading of files fail
 ```JSON
 {
   "err": {
@@ -1181,9 +1181,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: When demographic json file & documents are not zipped
+##### Failure Response:
+###### Status code: '200'
+###### Description: When demographic json file & documents are not zipped
 ```JSON
 {
   "err": {
@@ -1197,14 +1197,14 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.3.2 GET Operation
-####Path -  ` pre-registration/data-sync/datasync`
-####Summary
-This service enables Pre-Registration to a registration client , request to retrieve particular pre-registration data based on a pre registartion id.
+#### Path -  ` pre-registration/data-sync/datasync`
+#### Summary
+This service enables Pre-Registration to a registration client , request to retrieve particular pre-registration data based on a pre-registration id.
 
 #### Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-pre_registration_id |Yes|Pre registration id|86710482195706
+pre_registration_id |Yes|Pre Registration id|86710482195706
 
 #### Resource details
 Resource Details | Description
@@ -1213,9 +1213,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Data Sync records fetched
+##### Success Response:
+###### Status code: '200'
+###### Description: Data Sync records fetched
 ```JSON
 {
   "err": null,
@@ -1232,9 +1232,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If data does not exists for the preregistration id
+##### Failure Response:
+###### Status code: '200'
+###### Description: If data does not exists for the preregistration id
 ```JSON
 {
   "err": {
@@ -1247,9 +1247,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If document is not uploaded for the preregistration id
+##### Failure Response:
+###### Status code: '200'
+###### Description: If document is not uploaded for the preregistration id
 ```JSON
 {
   "err": {
@@ -1262,8 +1262,8 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.3.3 POST Operation
-####Path -  ` pre-registration/data-sync/reverseDataSync`
-####Summary
+#### Path -  ` pre-registration/data-sync/reverseDataSync`
+#### Summary
 This service enables Pre-Registration to a registration processor , request to reterive all processed pre-registration ids and store in pre-registration database and update the status code in main table.
 
 #### Parameters
@@ -1287,9 +1287,9 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Responses:
-#####Success Response:
-######Status code: '200'
-######Description: Consumed Pre-Registrations saved
+##### Success Response:
+###### Status code: '200'
+###### Description: Consumed Pre-Registrations saved
 ```JSON
 {
   "err": null,
@@ -1303,9 +1303,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Id
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Id
 ```JSON
 {
   "err": {
@@ -1318,9 +1318,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Version
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Version
 ```JSON
 {
   "err": {
@@ -1333,9 +1333,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Date & Time
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
   "err": {
@@ -1348,9 +1348,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: Invalid or empty Request Body
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty Request Body
 ```JSON
 {
   "err": {
@@ -1363,9 +1363,9 @@ Requires Authentication | Yes
 }
 ```
 
-#####Failure Response:
-######Status code: '200'
-######Description: If there are no preregistration ids passed in request body
+##### Failure Response:
+###### Status code: '200'
+###### Description: If there are no preregistration ids passed in request body
 ```JSON
 {
   "err": {
