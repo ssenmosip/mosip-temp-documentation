@@ -7,7 +7,7 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 
 ## Inject required libraries
 * Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as a maven dependency
-```java
+```xml
 <dependency>
 	<groupId>io.mosip.kernel</groupId>
 	<artifactId>kernel-auth-adapter</artifactId>
@@ -19,7 +19,7 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 server.servlet.path=/api/.......
 ```
 * Add ComponentScan annotation as shown below to your project. This is to create auth adapter bean.
-```
+```java
 @SpringBootApplication
 @ComponentScan(basePackages = "io.mosip.*")
 ```
