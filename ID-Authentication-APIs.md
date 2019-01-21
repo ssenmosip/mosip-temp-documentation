@@ -153,9 +153,8 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
 }
 ```
 ### Sample Response
-#### Success Response :
-
-Status Code : 200(OK)
+#### Success Scenario :
+Status Code : 200 (OK)
 
 ```JSON
 {
@@ -274,9 +273,8 @@ Status Code : 200(OK)
 }
 ```
 
-#### Fail Response:
-
-Status Code : 500(Error)
+#### Failed Response:
+Status Code : 200 (OK)
 
 ```JSON
 {
@@ -349,8 +347,9 @@ request: channel: email|N|Communication channel to send OTP|false| true
 
 ```
 ### Sample Response
-#### Success Response:
+#### Success Scenario:
 Status Code : 200 (OK)
+
 ```JSON
 {
   // API Metadata
@@ -368,8 +367,9 @@ Status Code : 200 (OK)
 }
 ```
 
-#### Failed Response :   
-Status Code : 500 (Error)
+#### Failed Scenario :   
+Status Code : 200 (OK)
+
 ```JSON
 {
   // API Metadata
@@ -408,7 +408,7 @@ version|Y|TSP ID| |tsp1234567
 requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
 request: identity : UIN|Y|Individual's UIN| | 678956453456
 request: identity : VID|Y|Individual's VID| | 678956453456
-request: staticPin|Y|Static Pin to be stored||
+request: staticPin|Y|Static Pin to be stored||123456
 
 
 ### Sample Request
@@ -429,7 +429,7 @@ request: staticPin|Y|Static Pin to be stored||
 
 ### Sample Response
 
-#### Success Response:
+#### Success Scenario:
 Status Code : 200 (OK)
 
 ```JSON
@@ -442,8 +442,8 @@ Status Code : 200 (OK)
 }
 ```
 
-#### Failed Response :   
-Status Code : 500 (Error)
+#### Failed Scenario :   
+Status Code : 200 (OK)
 
 ```JSON
 {
