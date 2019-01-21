@@ -6,24 +6,29 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 * Step 4: [Use restTemplate for Http calls](#Use-restTemplate-for-Http-calls)
 
 ## Inject required libraries
-Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as a maven dependency
+* Add the [AuthAdapter](https://github.com/mosip/mosip/wiki/Auth-Adapter) module to your project as a maven dependency
 ```java
 <dependency>
 	<groupId>io.mosip.kernel</groupId>
 	<artifactId>kernel-auth-adapter</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>Kernel Parent Version</version>
 </dependency>
 ```
-Then add _**/api**_ as your base path in your properties file
+* Add _**/api**_ as your base path in your properties file
 ```properties
 server.servlet.path=/api/.......
+```
+* Add ComponentScan annotation as shown below to your project. This is to create auth adapter bean.
+```
+@SpringBootApplication
+@ComponentScan(basePackages = "io.mosip.*")
 ```
 ## Attach annotations to authorize endpoints
 To restrict access to your endpoints, you need to add the **@PreAuthorize** annotation.
 Look at the below example for reference.
 ```java
 @PreAuthorize("hasAnyRole('DIVISION_ADMIN', 'SUPERVISOR', 'AGENT')")
-@RequestMapping(value = "/api/restaurants", method = RequestMethod.GET)
+@RequestMapping(value = "/api/reference", method = RequestMethod.GET)
 ```
 There are few more methods available apart from hasAnyRole like hasRole. Look in to the [@PreAuthorize](https://docs.spring.io/spring-security/site/docs/3.0.x/reference/el-access.html) documentation for more details.
 
@@ -40,12 +45,14 @@ AuthHeadersFilter authHeadersFilter;
 Now in your Controller method use ResponseEntity to attach headers and return a response as shown below.
 
 ```java
-@RequestMapping(value = "/api/restaurant/{id}", method = RequestMethod.GET)
-public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Integer id) throws Exception {
-    HttpHeaders httpHeaders = new HttpHeaders();
-    httpHeaders.set("Authorization", authHeadersFilter.getToken());
-    ResponseEntity responseEntity = new ResponseEntity(restaurantsService.getRestaurantById(id), httpHeaders, HttpStatus.OK);
-    return responseEntity;
+@PreAuthorize("hasAnyRole('DIVISION_ADMIN', 'SUPERVISOR', 'AGENT')")
+    @RequestMapping(value = "/api/reference", method = RequestMethod.GET)
+    public ResponseEntity<String> getReference() throws Exception {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("Authorization", authHeadersFilter.getToken());
+        ResponseEntity responseEntity = new ResponseEntity(referenceService.getReference(), httpHeaders, HttpStatus.OK);
+        return responseEntity;
+    }
 }
 ```
 
