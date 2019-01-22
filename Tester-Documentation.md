@@ -106,7 +106,40 @@ Adding logic to encode/encrypt specific demographic/biometric data
 
 Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
-## 2.2 Module level testing
+## 2.2 Api Testing Strategy
+
+Api Testign is broadly classified as Component and integration(Scenario) testing.
+
+### Component Tests
+Component tests are like unit tests for the API - It checks individual methods available in the API in isolation. We create these tests by making a test step for each method or resource that is available in the service contract. 
+The easiest way to create component tests is to consume the service contract and let it create the clients. We will then data-drive each individual test case with positive and negative data to validate that the responses that come back have the following characteristics:
+
+•	The request json payload is well-formed (schema validation)
+•	The response json payload is well-formed (schema validation)
+•	The response status is as expected (200 OK, SQL result set returned)
+•	The response error payloads contain the correct error messages and error codes
+•	Assertion - the individual elements in the response match our expectations (presence of specific element, data 
+     type of element etc).
+•	The service responds within an expected time frame 
+•	Validate how the system behaves when some request headers are missing, e.g., Content-Type, Authorization, etc.
+•	Checking what happens if provide query parameters for a method that should accept only form parameters in a body
+•	verifying whether a protected resource is not available over HTTP when it should be only on HTTPS
+•	Business logic testing. Say while Fetching application (PreId) presence of valid Preregistration ID is mandatory 
+       in the request.
+•	Positive and Negative testing. Making sure that if you make a bad request, it responds as expected.
+These individual API tests are the most important tests that we build because they will be leveraged in all of the subsequent testing techniques.  These tests simplify the process of approaching API testing.
+
+### Scenario Tests
+Under this type of testing, we assemble the individual component tests into a sequence, much like the example described as below.
+Ex: Create Application, Upload Document, Book appointment and Fetch Application data.
+There are two great techniques for obtaining the sequence:
+1.	Review the user story to identify the individual API calls that are being made.
+2.	Exercise the UI and capture the traffic being made to the underlying APIs.
+
+Scenario tests allow us to understand if defects might be introduced by combining different data points together.
+
+
+## 2.3 Module level testing
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
 # Registration Client Approach
