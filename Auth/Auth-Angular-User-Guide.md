@@ -1,8 +1,11 @@
+# Guidelines
+
 Guidelines to implement Authorization and Authentication techniques in the Angular application are detailed in this document.
 
 Before going in to the components let us discuss the following flows of Authorization and Authentication.
 
 ### Authentication flow:
+
 1. Initially a login request is made passing user credentials to a REST API as specified in the SPECS of that API.
 2. In the response of a successful authentication you will receive user details and an auth_token as the value of the header **"Authorization"**.
 3. Now the received auth token has to be stored and re-used. For example let us use sessionStorage to store the auth_token under the key "TOKEN".
@@ -10,11 +13,13 @@ Before going in to the components let us discuss the following flows of Authoriz
 5. If the response comes back with a new token which might be because of previous token getting expired or refresh token mechanisms that happen in the backend, we need to replace the old token with the new one in the session storage.
 
 ### Authorization flow:
+
 1. After successful login the user details are sent to the client(Angular application/ Browser).
 2. Now store the userDetails in the sessionStorage for example under the key "UserDetails".
 3. Now we need to hide some pages/components/user action elements etc. based on the roles that the user possess.
 
 ### Implementation of above flows:
+
 To implement the Authentication and Authorization flows mentioned above, all we need to do is implement an Interceptor and a Directive which were mentioned above and detailed below.
 
 ## Http Interceptor
@@ -64,9 +69,11 @@ export class InterceptService implements HttpInterceptor {
 ```
 
 ## Roles Directive
+
 Role of the Roles directive is to fetch roles from UserDetails stored in the session storage and verify if the user has required roles to perform some action or read some details and restrict access accordingly.
 
 Below code implements the requirements mentioned above:
+
 ```JS
 import { Directive, TemplateRef, ViewContainerRef, Input, ElementRef } from '@angular/core';
 
@@ -98,6 +105,7 @@ export class RoleDirective {
 ```
 
 Now inject the above interceptor and directive in the app.module.ts as follows
+
 ```JS
 @NgModule({
   declarations: [ RoleDirective, ...],
@@ -110,10 +118,13 @@ Now inject the above interceptor and directive in the app.module.ts as follows
   bootstrap: [AppComponent]
 })
 ```
+
 To activate/deactivate => show/hide element all we need to do is add the appRole attribute to the HTML element as shown below:
+
 ```HTML
 <button class="btn btn-success" appRole="DIVISION_ADMIN,SUPERVISOR">Add</button>
 ```
+
 In the above sample, the add button will only be visible for users with DIVISION_ADMIN or SUPERVISOR role.
 
 **Note:** Above mentioned code snippets are not the final implementations. Based on the API spec's and few other factors the method implementations might change a bit. But the component structures remain the same.

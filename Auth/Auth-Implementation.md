@@ -1,3 +1,5 @@
+# Auth Implementation flows
+
 Please find below the sequence diagrams for auth flows.
 
 **Login flow:**
@@ -12,7 +14,8 @@ Please find below the sequence diagrams for auth flows.
 
 ![Service to Service communication](_images/arch_diagrams/auth/service-service-communication.png)
 
-### Documentations for the Auth Implementations:
+## Documentations for the Auth Implementations:
+
 1. [Auth Adapter Documentation](https://github.com/mosip/mosip/wiki/Auth-Adapter)
 2. [Auth Angular User Guide](https://github.com/mosip/mosip/wiki/Auth-Angular-User-Guide)
 3. [Auth SpringBoot User Guide](https://github.com/mosip/mosip/wiki/Auth-SpringBoot-User-Guide)
