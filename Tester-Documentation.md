@@ -109,6 +109,8 @@ Util to generate packets is been shared by Reg client, by using this util input 
 ## 2.2 Module level testing
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
+# Registration Client Approach
+
 Please ensure the following prerequisites is available in the machine from where we are going to launch and test the application:
 1. Updated derby DB 
 2. Registration-UI jar
