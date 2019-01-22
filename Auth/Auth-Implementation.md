@@ -19,3 +19,4 @@ Please find below the sequence diagrams for auth flows.
 1. [Auth Adapter Documentation](https://github.com/mosip/mosip/wiki/Auth-Adapter)
 2. [Auth Angular User Guide](https://github.com/mosip/mosip/wiki/Auth-Angular-User-Guide)
 3. [Auth SpringBoot User Guide](https://github.com/mosip/mosip/wiki/Auth-SpringBoot-User-Guide)
+4. [ApacheDs Server installation and config](https://github.com/mosip/mosip/wiki/ApacheDs-Server-installation-and-config)
