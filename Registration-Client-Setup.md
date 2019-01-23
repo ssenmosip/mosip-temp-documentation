@@ -28,7 +28,7 @@ User should login to the Admin portal and Download this KIT and initiate the ins
      
     	 
    **Application Runtime:**
-![Reg Client Application Deployment](_images/registration/reg-client-app-runtime.png)   		 
+![Reg Client Application Deployment](_images/registration/reg-client-app-runtime.png)   	 
 	 
 **Installation at Desktop Machine:**
 ***
