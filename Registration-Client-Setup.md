@@ -30,6 +30,12 @@ User should login to the Admin portal and Download this KIT and initiate the ins
 ![Reg Client Application Deployment](_images/registration/reg-client-app-runtime.png)   	 
 
    The above diagram depicts the actual runtime of registration client application. 
+   
+   -Windows 10 Operating System. 
+   -VcXsrv Windows X Server [.exe] - [40 MB]  - to open the GUI component from docker container. 
+   -Java Runtime Environment - 1.8  
+   -Derby DB. [ Version - 13]  
+   -Docker Installation Pkg. [version - 18.*][600 MB]  
 	 
 **Installation at Desktop Machine:**
 ***
@@ -83,17 +89,14 @@ The Symmetric key would be generated on runtime and same will be used during the
 Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
 To generate the OAuth token the client secret key / login user id / password would be passed to the ‘Login’ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
 
-**Runtime Environment:** 
+
+**System Prerequisites:**
 *** 
-   •Windows 10 Operating System. 
-   •VcXsrv Windows X Server [.exe] - [40 MB]  - to open the GUI component from docker container. 
-   •Java Runtime Environment - 1.8  
-   •Derby DB. [ Version - 13]  
-   •Docker Installation Pkg. [version - 18.*][600 MB]  
+   •CPU - Dual Core Processor - 2GHZ  
+   •Ram – 8 GB  
+   •Local Storage Disk Space – 500 GB
+   •5 USB 2.0 ports or equivalent hub. 
    •Physical machine with TPM facility.  
-   •CPU - ??  
-   •Ram – 16 GB  
-   •Local Storage Disk Space – 1 TB 
  
 **Data Setup:** 
 ***
