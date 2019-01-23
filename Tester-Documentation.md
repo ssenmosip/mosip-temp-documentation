@@ -629,6 +629,22 @@ Registration processor takes input as packet , the validation of stages involves
 5.	DB status check for the packet processing across various stages in Registration Processor.
 6.	Application log - ensure no errors logged .
 
+## 6.8 Test Execution Process:
+QA Analyst is responsible for the sanity testing.  QA Analyst will be executing the sanity testing of the Registration Processor as specified below.  Test cases will be executed & Defects are logged in JIRA.  
+### 6.8.1 Entrance Criteria:
+1. Unit testing and Integration Testing are completed.
+2. Sanity test cases are identified.
+3. QA environment is available.
+### 6.8.2 Exit Criteria:
+1. All Sanity test cases are executed and results documented.
+2. Defects are documented and severity is designated. 
+
+## 6.9 Test Setup
+Below is the Block diagram / network diagram depicting all the connections and hardware devices.
+
+## 6.10 Hardware – Server configuration
+
+
 
 
 
