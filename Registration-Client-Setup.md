@@ -16,8 +16,7 @@ It also contains the DB key which is to be loaded into the TPM of client machine
 User should login to the Admin portal and Download this KIT and initiate the installation process.
 
    **Build Process:** 
-    The standard Jenkin build process would be followed to generate the Registration client docker image and the generated binary would be placed in to the 
-    MOISP JFrog repository. 
+    The standard Jenkin build process would be followed to generate the Registration client docker image and the generated docker image would be placed in to the MOISP Private repository. 
 
     The Docker image contains the Derby database jar, authentication setup script, initial table creation and few insert script.
     - Initial Script contains:
@@ -40,7 +39,8 @@ User should login to the Admin portal and Download this KIT and initiate the ins
 ![Reg Client Application Installation](_images/registration/reg-client-app-install-process.png)   		 
  
    Download the application setup KIT from MOISP admin portal. 
-   Double click on the provided .exe file to extract the package and install the Docker container in local machine in a particular folder. 
+   Double click on the provided .exe file to extract the package and install the Docker container in local machine in a 
+   particular folder.  
    **TBD -** List of values to be entered by the user during installation to be determined. 
    Once installation completed then click on the ‘RegClientStart.bat’ file to initialize the Docker container and pull the latest ‘MOSIPRegistrationClient’ image from Private Docker hub. 
    Generate and Load the DB key into the TPM [Trusted Platform Module]. {More research required in this area} 
