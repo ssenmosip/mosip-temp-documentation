@@ -234,7 +234,11 @@ This API will support the following features
 * Updation of an ID record based on the UIN
 * Will not support search based on attributes of an ID
 
-# 14.MOSIP PRODUCT DEMO 
+# 14.MOSIP Tool KIT
+
+## 14.1.DEPLOYMENT GUIDE
+## 14.2.PRODUCT DEMO
+## 14.3.SET UP GUIDE
 
 # 15.SUMMARY(WIP) 
 
