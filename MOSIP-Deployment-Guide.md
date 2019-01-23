@@ -33,8 +33,9 @@ Some screenshots to validate the steps.
 Installation of this product is supported on the following operation systems and versions:
 * Windows Server 
 ### 2.2.1	Roles, Features, and Packages
-The following SERVER ROLES must be ENABLED on the operating system prior to installation of the software:
+The following server roles must be enabled on the operating system prior to installation of the software:
 * XXXXXXX
+
 The following software packages must be installed on the operating system prior to installation of the software:
 * XXXXXXX 
 ### 2.2.2	Configuration
