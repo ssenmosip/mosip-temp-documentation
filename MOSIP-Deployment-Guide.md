@@ -14,4 +14,71 @@ It is intended that software support personnel can read this document and coordi
 ## 1.4 Technical project stakeholders 
 This table provides a list of all known stakeholders with an interest in the project.
 
+**Add table to validate the statement.**
+## 1.5 Definitions, acronyms and abbreviations
+
+**Add table to validate the statement.**
+# 2. Server Configurations
+## 2.1 Database Server
+Installation of this product is supported on the following operation systems and versions:
+* Windows Server 
+### 2.1.1	Roles, Features, and Packages
+The following software packages must be installed on the operating system prior to installation of the software:
+* XXXXXXX 
+### 2.1.2	Configuration
+Some screenshots to validate the steps.
+### 2.1.3	Configured Values
+**Add table to validate the statement**
+## 2.2	Web Application Server
+Installation of this product is supported on the following operation systems and versions:
+* Windows Server 
+### 2.2.1	Roles, Features, and Packages
+The following SERVER ROLES must be ENABLED on the operating system prior to installation of the software:
+* XXXXXXX
+The following software packages must be installed on the operating system prior to installation of the software:
+* XXXXXXX 
+### 2.2.2	Configuration
+Some screenshots to validate the steps.
+### 2.2.3	Configured Values
+**Optional table can be added to validate the statement**
+# 3.	Software Installation
+## 3.1	Database Server
+### 3.1.1	Prerequisites
+1. Step wise paragraph.
+1. Step wise paragraph.
+### 3.1.2	Installation Steps
+1. Step wise paragraph.
+1. Step wise paragraph.
+### 3.1.3	Configured Values
+**Optional table can be added to validate the statement**
+## 3.2	Web Application Server
+### 3.2.1	Prerequisites
+1. Step wise paragraph.
+1. Step wise paragraph.
+
+3.2.2	Installation Steps
+1.	Step wise paragraph.
+2.	Step wise paragraph.
+3.	Paragraph.
+3.2.3	Configured Values
+Optional table
+Information	Value
+Server Name	
+	
+	
+	
+	
+
+ 
+4.	Testing the Installation
+1.	Step wise paragraph.
+2.	Step wise paragraph.
+ 
+5.	Troubleshooting 
+1.	Step wise paragraph.
+2.	Step wise paragraph.
+6.	Uninstallation
+3.	Step wise paragraph.
+4.	Step wise paragraph.
+
 
