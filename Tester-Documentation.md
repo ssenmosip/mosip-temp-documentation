@@ -396,7 +396,30 @@ This testing ensures Registration Processor Module level operation performed cor
 ## 6.3 Reg Processor Workflow 
 Following are the high level positive and negative scenarios covering the below shown workflow diagram of the reg proc module
 
-
+Number | Test Scenarios | Category| 
+-----  | -----------------|-------------|
+1 | Verify Packet is Unique/Duplicate | 	Functionality | 
+2 | Verify Packet sync for which packet generated from Registration client | 	Functionality |
+3 | Verify whether Virus scan is success/Failure for RID Packet | 	Functionality |
+4 | Verify Packet Archival location | 	Functionality |
+5 | Verify Packet Decryption with the valid key store | 	Functionality |
+6 | Verify Packet Decryption with the invalid key store | 	Functionality |
+7 | Verify Packet Integrity with valid check sum value | 	Functionality |
+8 | Verify Packet Integrity with invalid check sum value | 	Functionality |
+9 | Verify structural validation with valid packet structure | 	Functionality |
+10 | Verify structural validation with invalid packet structure | 	Functionality |
+11 | Verify  Demographic Dedupe for valid Packet | 	Functionality |
+12 | Verify  Demographic Dedupe for Packet having exception in Demographic info | 	Functionality |
+13 | Verify   Biometric Dedupe for valid Packet | 	Functionality |
+14 | Verify  Biometric Dedupe for Packet having exception in biometric info | 	Functionality |
+15 | Verify Manual adjudication when demo dedup is Failure | 	Functionality |
+16 | Verify Email Notification | 	Functionality |
+17 | Verify UIN generation  | 	Functionality |
+18 | Verify Invalid Packet naming convention  | 	Functionality |
+19 | Verify Packet name exceeding less than 29 digits  | 	Functionality |
+20 | Verify Packet name exceeding more than 29 digits | 	Functionality |
+21 | Verify Invalid Fotrmat  | 	Functionality |
+22 | Verify SMS Notification  | 	Functionality |
 
 
 
