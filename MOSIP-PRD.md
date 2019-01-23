@@ -112,7 +112,7 @@ This sections lists out some of the Key design considerations for MOSIP
 
 ## 6.1.FUNCTIONAL REQUIREMENT SPECIFICATIONS
 
-## 6.2.NON FUNCTIONAL REQUIREMENT SPECIFICATIONS
+## 6.2.[NON FUNCTIONAL REQUIREMENT SPECIFICATIONS](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements)
 
 # 7.SECURITY
 
@@ -236,7 +236,7 @@ This API will support the following features
 
 # 14.MOSIP Tool KIT
 
-## 14.1.DEPLOYMENT GUIDE
+## 14.1.[DEPLOYMENT GUIDE](https://github.com/mosip/mosip/wiki/MOSIP-Deployment-Guide)
 ## 14.2.PRODUCT DEMO
 ## 14.3.SET UP GUIDE
 
