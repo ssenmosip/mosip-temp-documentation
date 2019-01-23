@@ -644,6 +644,10 @@ Below is the Block diagram / network diagram depicting all the connections and h
 
 ## 6.10 Hardware – Server configuration
 
+Item | Setup | 
+-----  | -----------------|
+Microsoft Azure | Azure Virtual Machine Application server | 
+Microsoft Azure | Azure DB Instance | 		
 
 
 
