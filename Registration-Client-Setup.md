@@ -5,10 +5,10 @@
 Registration client application will be delivered as a Docker image, which can be downloadable from Docker MOSIP private repository. 
 The generated image would be signed and same will be validated when it is installed at the desktop machine.
 
-   **Registration Client – Docker Image:**
+   **Registration Client – Docker Image:** 
 ![Reg Client Application Bundle](_images/registration/reg-client-app-bundle.png)   		 
 
-**Application Setup KIT:**
+**Application Setup KIT:** 
 ***
 The ‘Registration Client Setup KIT’ would be available at MOSIP server.
 This KIT will contain the runtime engine that is required for Registration client application to run.  
@@ -17,7 +17,7 @@ The Docker image would not be available as part of this KIT. It would be availab
 It also contains the DB key which is to be loaded into the TPM of client machine.
 User should login to the Admin portal and Download this KIT and initiate the installation process.
 
-   **Build Process:**
+   **Build Process:** 
     The standard Jenkin build process would be followed to generate the Registration client docker image and the generated binary would be placed in to the 
     MOISP JFrog repository. 
 
@@ -26,37 +26,33 @@ User should login to the Admin portal and Download this KIT and initiate the ins
       1. List of screens.
       2. Screen and role mapping. 
      
-    	 
-   **Application Runtime:**
+   **Application Runtime:** 
 ![Reg Client Application Deployment](_images/registration/reg-client-app-runtime.png)   	 
+
+   The above diagram depicts the actual runtime of registration client application. 
 	 
 **Installation at Desktop Machine:**
 ***
 ![Reg Client Application Installation](_images/registration/reg-client-app-install-process.png)   		 
  
-   Download the application setup KIT from MOISP admin portal.
-Double click on the provided .exe file to extract the package and install the Docker container in local machine in a particular folder.
-Once installation completed then click on the ‘RegClientStart.bat’ file to initialize the Docker container and pull the latest ‘MOSIPRegistrationClient’ image from Private Docker hub.
-Generate and Load the DB key into the TPM [Trusted Platform Module]. {More research required in this area}
+   Download the application setup KIT from MOISP admin portal. 
+   Double click on the provided .exe file to extract the package and install the Docker container in local machine in a particular folder. 
+   **TBD -** List of values to be entered by the user during installation to be determined. 
+   Once installation completed then click on the ‘RegClientStart.bat’ file to initialize the Docker container and pull the latest ‘MOSIPRegistrationClient’ image from Private Docker hub. 
+   Generate and Load the DB key into the TPM [Trusted Platform Module]. {More research required in this area} 
    
-   Then run the Docker container to launch the application.
-Once application launched then connect to the TPM and pull the required key to communicate with the DB.
-Check the data availability in the local DB, if no data available then initiate the ‘Sync [Master/ Configure/ User]’ process to download the machine [MAC ID] specific center level data from MOSIP server environment.
-Note: Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement. 
+   Then run the Docker container to launch the application. 
+   Once application launched then connect to the TPM and pull the required key to communicate with the DB. 
+   Check the data availability in the local DB, if no data available then initiate the ‘Sync [Master/ Configure/ User]’ process to download the machine [MAC ID] specific center level data from MOSIP server environment.
+   
+   Note: Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement. 
 
-
-   **Clarification:** 
-   1. Docker login credential?
-   2. Docker installation volume path.?
-   3. Auto update/ manual update?	
-   4. How to load key into TPM? The respective rotation policy.
 
 **Database:**
 ***
-	The Derby database will be used to store the local transaction information along with Master and configuration data.
-	The data stored into the database would be encrypted using a particular key [SHA256 - Symmetric key].
-	The key would be maintained in TPM and same will be used during communication with database from application.
-	<TODO>: Generation, Maintenance, Rolling methods.
+   -The Derby database will be used to store the local transaction information along with Master and configuration data.
+   -The data stored into the database would be encrypted using a particular key [SHA256 - Symmetric key].
+   -The key would be maintained in TPM and same will be used during communication with database from application.
 
 **Update:**
 ***
@@ -88,16 +84,16 @@ Whenever communication happening with online services the OAuth token need to be
 To generate the OAuth token the client secret key / login user id / password would be passed to the ‘Login’ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
 
 **Runtime Environment:** 
-***
+*** 
    •Windows 10 Operating System. 
-   •VcXsrv Windows X Server [.exe] - [40 MB]  - to open the GUI component from docker container.
+   •VcXsrv Windows X Server [.exe] - [40 MB]  - to open the GUI component from docker container. 
    •Java Runtime Environment - 1.8  
-   •Derby DB. [ Version - 13] 
-   •Docker Installation Pkg. [version - 18.*][600 MB] 
-   •Physical machine with TPM facility. 
-   •CPU - ?? 
-   •Ram – 16 GB 
-   •Local Storage Disk Space – 1 TB
+   •Derby DB. [ Version - 13]  
+   •Docker Installation Pkg. [version - 18.*][600 MB]  
+   •Physical machine with TPM facility.  
+   •CPU - ??  
+   •Ram – 16 GB  
+   •Local Storage Disk Space – 1 TB 
  
 **Data Setup:** 
 ***
@@ -134,10 +130,11 @@ Through sync process the data would be sync between local machine and server bas
    4.	Generated Registration and Pre-Registration packet.
 
    
-**Application users are classified as:** 
+**To Be Discussed:** 
 ***
-   •Registration Admin. 
-   •Registration Supervisor. 
-   •Registration officer. 
- 
+   1. Docker login credential during installation?
+   2. Docker installation volume path.?
+   3. Auto update/ manual update?	
+   4. How to load key into TPM? The respective rotation policy.
+   5. How to update the DB password/ encryption key?
    
