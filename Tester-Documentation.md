@@ -429,6 +429,30 @@ Number | Test Scenarios | Category|
 28 | verify packet-manager packet extension when empty | 	Configuration |
 29 | verify packet-manager encrypted packet location empty  | 	Configuration |
 
+## 6.4 Pre-requisite for Reg Proc testing
+1.	Create resident test packet from reg client
+2.	Ensure Reg Proc and all its associated job are up and running
+
+ | Jobs | 
+ | -----------------| 
+ | packet-receiver-stage-1.0.0-SNAPSHOT.jar |
+ | virus-scanner-stage-1.0.0-SNAPSHOT.jar |
+ | packet-uploader-stage-1.0.0-SNAPSHOT.jar |
+ | osi-validator-stage-1.0.0-SNAPSHOT.jar |
+ | demo-dedupe-stage-1.0.0-SNAPSHOT.jar |
+ | packet-bio-dedupe-api-1.0.0-SNAPSHOT.jar |
+ | registration-processor-abis-1.0.0-SNAPSHOT.jar |
+ | bio-dedupe-stage-1.0.0-SNAPSHOT.jar|
+ | ui-generator-stage-1.0.0-SNAPSHOT.jar |
+ | manual-verification-stage-1.0.0-SNAPSHOT.jar |
+ | packet-validator-stage-1.0.0-SNAPSHOT.jar |
+
+
+3.	Ensure DB is up and running fine. 
+4.	Ensure the required DB scripts (Master Data / Schema) are executed.
+5.	Required Privileges to DB for Testdata updates to create positive / negative flow.
+6.	Ensure all the depended services are deployed.
+
 
 
 
