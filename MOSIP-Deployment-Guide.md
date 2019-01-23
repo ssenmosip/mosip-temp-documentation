@@ -16,10 +16,15 @@ It is intended that software support personnel can read this document and coordi
 ## 1.4 Technical project stakeholders 
 This table provides a list of all known stakeholders with an interest in the project.
 
-**Add table to validate the statement.**
+|Name| E-mail address |Phone |Role|
+|------|-----|--|--|
+|XXXXXX|XXXXXX |XXXXXX| Lead Developer|
+|XXXXXX|XXXXXX |XXXXXX| Administrator|
 ## 1.5 Definitions, acronyms and abbreviations
 
-**Add table to validate the statement.**
+|Term| Definition |
+|------|-----|
+|MOSIP|Modular Open Source Identity Platform|
 # 2. Server Configurations
 ## 2.1 Database Server
 Installation of this product is supported on the following operation systems and versions:
@@ -30,7 +35,12 @@ The following software packages must be installed on the operating system prior 
 ### 2.1.2	Configuration
 Some screenshots to validate the steps.
 ### 2.1.3	Configured Values
-**Add table to validate the statement**
+|Information| Value|
+|------|-----|
+|Server Name |XXXXXX |
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
 ## 2.2	Web Application Server
 Installation of this product is supported on the following operation systems and versions:
 * Windows Server 
@@ -43,7 +53,12 @@ The following software packages must be installed on the operating system prior 
 ### 2.2.2	Configuration
 Some screenshots to validate the steps.
 ### 2.2.3	Configured Values
-**Optional table can be added to validate the statement**
+|Information| Value|
+|------|-----|
+|Server Name |XXXXXX |
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
 # 3.	Software Installation
 ## 3.1	Database Server
 ### 3.1.1	Prerequisites
@@ -53,7 +68,12 @@ Some screenshots to validate the steps.
 1. Step wise paragraph.
 1. Step wise paragraph.
 ### 3.1.3	Configured Values
-**Optional table can be added to validate the statement**
+|Information| Value|
+|------|-----|
+|Server Name |XXXXXX |
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
 ## 3.2	Web Application Server
 ### 3.2.1	Prerequisites
 1. Step wise paragraph.
@@ -62,7 +82,12 @@ Some screenshots to validate the steps.
 1. Step wise paragraph.
 1. Step wise paragraph.
 ### 3.2.3	Configured Values
-**Optional table can be added to validate the statement**
+|Information| Value|
+|------|-----|
+|Server Name |XXXXXX |
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
+|XXXXXX|XXXXXX|
 # 4.	Testing the Installation
 1. Step wise paragraph.
 1. Step wise paragraph.
@@ -72,5 +97,3 @@ Some screenshots to validate the steps.
 # 6.	Uninstallation
 1. Step wise paragraph.
 1. Step wise paragraph.
-
-
