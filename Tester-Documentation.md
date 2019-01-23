@@ -668,6 +668,13 @@ Microsoft| Windows 10 |
 ## 6.14 Test Tools (software)
 This section should contain a table that documents the testing tools that will be needed to plan, script, and perform functional testing. Tools are required for test scripting, test defect tracking, test results logging, performance testing, automated testing and test management. 
 
+Item | Area | 
+-----  | -----------------|
+Jira | Defect Tracking | 
+PostgreSQL | DB | 	
+Swager UI | API Manual Testing | 			
+
+
 
 
 
