@@ -10,6 +10,7 @@
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
   * [Registration Client](https://github.com/mosip/mosip/wiki/Registration-Client)
+  * [Registration Client Setup](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
   * [Registration Processor](https://github.com/mosip/mosip/wiki/Registration-Processor)
   * [Pre-Registration](https://github.com/mosip/mosip/wiki/Pre-Registration)
   * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication)
