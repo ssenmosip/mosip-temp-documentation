@@ -108,7 +108,13 @@ This sections lists out some of the Key design considerations for MOSIP
 
 ### [Vendor Device Specifications](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
 
-# 6.SECURITY
+# 6.MOSIP FUNCTIONAL AND NON FUNCTIONAL REQUIREMENT SPECIFICATIONS
+
+## FUNCTIONAL REQUIREMENT SPECIFICATIONS
+
+## NON FUNCTIONAL REQUIREMENT SPECIFICATIONS
+
+# 7.SECURITY
 
 ## MOSIP Security standards and principles
 
@@ -132,25 +138,25 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 [ID authentication flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D)
 
-# 7.MOSIP-PRE-REGISTRATION
+# 8.MOSIP-PRE-REGISTRATION
 
 [Please refer wiki](https://github.com/mosip/mosip/wiki/Pre-Registration)
 
-# 8.MOSIP RESIDENT SERVICES
+# 9.MOSIP RESIDENT SERVICES
 
-# 9.MOSIP-REGISTRATION CLIENT
+# 10.MOSIP-REGISTRATION CLIENT
 
 [Please refer wiki](https://github.com/mosip/mosip/wiki/Registration-Client)
 
-# 10.MOSIP –REGISTRATION PROCESSOR
+# 11.MOSIP –REGISTRATION PROCESSOR
 
 [Please refer wiki](https://github.com/mosip/mosip/wiki/Registration-Processor)
 
-# 11.MOSIP-AUTHENTICATION
+# 12.MOSIP-AUTHENTICATION
 
 [Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
 
-# 12.APIs-THE CRUX OF MOSIP
+# 13.APIs-THE CRUX OF MOSIP
 
 ## External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
@@ -228,13 +234,14 @@ This API will support the following features
 * Updation of an ID record based on the UIN
 * Will not support search based on attributes of an ID
 
+# 14.MOSIP product Demo 
 
-# 13.SUMMARY(WIP) 
+# 15.SUMMARY(WIP) 
 
 The growing complexities on the government administrative process and need for social inclusion calls for an identity management system. Identity management system provide a unique identity to individuals. Recent advancements in technology has enable identity management systems to incorporate biometric data.MOSIP is a highly configurable, extensible and secure platform for identity management.
 
-# 14.APPENDICES
-# 15.REFERENCES
+# 16.APPENDICES
+# 17.REFERENCES
 
 * International Journal of Innovative Research in Engineering & Management (IJIREM) ISSN: 2350-0557, Volume-3, Issue-1, January-2016
 
