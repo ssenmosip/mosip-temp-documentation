@@ -19,7 +19,7 @@ This service details used by Pre-Registration portal to create the demographic f
 | DELETE | True |
 
 #### Swagger API spec
-##### Path - `mosip/docs/design/pre-registration/Demographic-Service-API-Spec.yaml`
+##### Path - `mosip/docs/design/pre-registration/service/Demographic-Service-API-Spec.yaml`
 
 
 #### 2.7.1.1 POST Operation
@@ -31,32 +31,28 @@ Create new pre-registration by demographic details or update demographic details
 #### Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-id |Yes|Id of the application|mosip.pre-registration.demographic.create
-ver |Yes|version of the application|1.0
-reqTime |Yes|Request time of the application|2018-10-17T07:22:57.086Z
-request |Yes|Request for the application|
-request.preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
-request.createdBy |Yes|created user of the application|987654321
-request.createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.953Z
-request.updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign user id (example: 987654321)</li></ul>
-request.updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.953Z)</li></ul>
-request.langCode |Yes|primary language code| ENG
-request.demographicDetails |Yes|demographicDetails of the applicant|
-request.demographicDetails.identity |Yes|identity of the applicant|
-request.demographicDetails.identity.gender |Yes|gender of the applicant|
-request.demographicDetails.identity.city |Yes|city of the applicant|
-request.demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
-request.demographicDetails.identity.fullName |Yes|full name of the applicant|
-request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application|
-request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
-request.demographicDetails.identity.email |Yes|email Id of the applicant|
-request.demographicDetails.identity.province |Yes|province of the applicant|
-request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
-request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
-request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
-request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
-request.demographicDetails.identity.region |Yes|region of the applicant|
-request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
+preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
+createdBy |Yes|created user of the application|987654321
+createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492+0000
+updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign user id (example: 987654321)</li></ul>
+updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492+0000)</li></ul>
+langCode |Yes|primary language code| ENG
+demographicDetails |Yes|demographicDetails of the applicant|
+demographicDetails.identity |Yes|identity of the applicant|
+demographicDetails.identity.gender |Yes|gender of the applicant|
+demographicDetails.identity.city |Yes|city of the applicant|
+demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
+demographicDetails.identity.fullName |Yes|full name of the applicant|
+demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application|
+demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
+demographicDetails.identity.email |Yes|email Id of the applicant|
+demographicDetails.identity.province |Yes|province of the applicant|
+demographicDetails.identity.postalCode |Yes|postal code of the applicant|
+demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
+demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
+demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
+demographicDetails.identity.region |Yes|region of the applicant|
+demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
 
 #### Resource details
 Resource Details | Description
@@ -66,106 +62,101 @@ Requires Authentication | Yes
 
 #### Request:
 ```JSON
-{
-   "id":"mosip.pre-registration.demographic.create",
-   "ver":"1.0",
-   "reqTime":"2018-10-17T07:22:57.086Z",
-   "request":{
-      "preRegistrationId":"",
-      "createdBy":"9900806068",
-      "createdDateTime":"2019-01-08T17:05:48.953Z",
-      "updatedBy":"",
-      "updatedDateTime":""
-      "langCode":"ENG",
-      "demographicDetails":{
-         "identity":{
-            "dateOfBirth":"12/12/1992",
-            "gender":[
-               {
-                  "language":"ENG",
-                  "value":"Male"
-               },
-               {
-                  "language":"arb",
-                  "value":"إناثا"
-               }
-            ],
-            "addressLine1":[
-               {
-                  "language":"ENG",
-                  "value":"20 AVENUE HASSAN"
-               },
-               {
-                  "language":"arb",
-                  "value":"20 افينيو حسن"
-               }
-            ],
-            "addressLine2":[
-               {
-                  "language":"ENG",
-                  "value":""
-               },
-               {
-                  "language":"arb",
-                  "value":""
-               }
-            ],
-            "addressLine3":[
-               {
-                  "language":"ENG",
-                  "value":""
-               },
-               {
-                  "language":"arb",
-                  "value":""
-               }
-            ],
-            "region":[
-               {
-                  "language":"ENG",
-                  "value":"Beni Mellal-Khenifra"
-               },
-               {
-                  "language":"arb",
-                  "value":"بني ملال خنيفرة"
-               }
-            ],
-            "province":[
-               {
-                  "language":"ENG",
-                  "value":"Azilal"
-               },
-               {
-                  "language":"arb",
-                  "value":"أزيلال"
-               }
-            ],
-            "postalCode":"570004",
-            "localAdministrativeAuthority":[
-               {
-                  "language":"ENG",
-                  "value":"Afourar"
-               },
-               {
-                  "language":"arb",
-                  "value":"أفورار"
-               }
-            ],
-            "email":"sano@123",
-            "IDSchemaVersion":"1.0",
-            "fullName":[
-               {
-                  "language":"ENG",
-                  "value":"Sanober Noor"
-               },
-               {
-                  "language":"arb",
-                  "value":"سانوبر نور"
-               }
-            ],
-            "phone":"98876537672",
-            "CNIENumber":"6789545678909"
-         }
+{  
+   "preRegistrationId":"",
+   "createdBy":"9900806068",
+   "createdDateTime":"2019-01-08T17:05:48.492+0000",
+   "updatedBy":"",
+   "updatedDateTime":"",
+   "langCode":"ENG",
+   "demographicDetails":{  
+      "identity":{  
+         "dateOfBirth":"12/12/1992",
+         "gender":[  
+            {  
+               "language":"ENG",
+               "value":"Male"
+            },
+            {  
+               "language":"arb",
+               "value":"إناثا"
+            }
+         ],
+         "addressLine1":[  
+            {  
+               "language":"ENG",
+               "value":"20 AVENUE HASSAN"
+            },
+            {  
+               "language":"arb",
+               "value":"20 افينيو حسن"
+            }
+         ],
+         "addressLine2":[  
+            {  
+               "language":"ENG",
+               "value":""
+            },
+            {  
+               "language":"arb",
+               "value":""
+            }
+         ],
+         "addressLine3":[  
+            {  
+               "language":"ENG",
+               "value":""
+            },
+            {  
+               "language":"arb",
+               "value":""
+            }
+         ],
+         "region":[  
+            {  
+               "language":"ENG",
+               "value":"Beni Mellal-Khenifra"
+            },
+            {  
+               "language":"arb",
+               "value":"بني ملال خنيفرة"
+            }
+         ],
+         "province":[  
+            {  
+               "language":"ENG",
+               "value":"Azilal"
+            },
+            {  
+               "language":"arb",
+               "value":"أزيلال"
+            }
+         ],
+         "postalCode":"570004",
+         "localAdministrativeAuthority":[  
+            {  
+               "language":"ENG",
+               "value":"Afourar"
+            },
+            {  
+               "language":"arb",
+               "value":"أفورار"
+            }
+         ],
+         "email":"sano@gmail.com",
+         "IDSchemaVersion":"1.0",
+         "fullName":[  
+            {  
+               "language":"ENG",
+               "value":"Sanober Noor"
+            },
+            {  
+               "language":"arb",
+               "value":"سانوبر نور"
+            }
+         ],
+         "phone":"9887653767",
+         "CNIENumber":"6789545678909"
       }
    }
 }
@@ -176,129 +167,124 @@ Requires Authentication | Yes
 ###### Description: Demographic data successfully Created
 
 ```JSON
-{
-  "err": null,
-  "status": true,
-  "resTime": "2019-01-18T08:58:38.483Z",
-  "response": [
-    {
-      "preRegistrationId": "46532058236716",
-      "createdBy": "9900806068",
-      "createdDateTime": "2019-01-08T17:05:48.953Z",
-      "updatedBy": null,
-      "updatedDateTime": "2019-01-18T08:58:38.483Z",
-      "statusCode": "Pending_Appointment",
-      "langCode": "ENG",
-      "demographicDetails":{
-         "identity":{
-            "dateOfBirth":"12/12/1992",
-            "gender":[
-               {
-                  "language":"ENG",
-                  "value":"Male"
-               },
-               {
-                  "language":"arb",
-                  "value":"إناثا"
-               }
-            ],
-            "addressLine1":[
-               {
-                  "language":"ENG",
-                  "value":"20 AVENUE HASSAN"
-               },
-               {
-                  "language":"arb",
-                  "value":"20 افينيو حسن"
-               }
-            ],
-            "addressLine2":[
-               {
-                  "language":"ENG",
-                  "value":""
-               },
-               {
-                  "language":"arb",
-                  "value":""
-               }
-            ],
-            "addressLine3":[
-               {
-                  "language":"ENG",
-                  "value":""
-               },
-               {
-                  "language":"arb",
-                  "value":""
-               }
-            ],
-            "region":[
-               {
-                  "language":"ENG",
-                  "value":"Beni Mellal-Khenifra"
-               },
-               {
-                  "language":"arb",
-                  "value":"بني ملال خنيفرة"
-               }
-            ],
-            "province":[
-               {
-                  "language":"ENG",
-                  "value":"Azilal"
-               },
-               {
-                  "language":"arb",
-                  "value":"أزيلال"
-               }
-            ],
-            "postalCode":"570004",
-            "localAdministrativeAuthority":[
-               {
-                  "language":"ENG",
-                  "value":"Afourar"
-               },
-               {
-                  "language":"arb",
-                  "value":"أفورار"
-               }
-            ],
-            "email":"sano@123",
-            "IDSchemaVersion":"1.0",
-            "fullName":[
-               {
-                  "language":"ENG",
-                  "value":"Sanober Noor"
-               },
-               {
-                  "language":"arb",
-                  "value":"سانوبر نور"
-               }
-            ],
-            "phone":"98876537672",
-            "CNIENumber":"6789545678909"
+{  
+   "response":[  
+      {  
+         "preRegistrationId":"46532058236716",
+         "createdBy":"9900806068",
+         "createdDateTime":"2019-01-08T17:05:48.492+0000",
+         "updatedBy":null,
+         "updatedDateTime":"2019-01-18T08:58:38.492+0000",
+         "statusCode":"Pending_Appointment",
+         "langCode":"ENG",
+         "demographicDetails":{  
+            "identity":{  
+               "dateOfBirth":"12/12/1992",
+               "gender":[  
+                  {  
+                     "language":"ENG",
+                     "value":"Male"
+                  },
+                  {  
+                     "language":"arb",
+                     "value":"إناثا"
+                  }
+               ],
+               "addressLine1":[  
+                  {  
+                     "language":"ENG",
+                     "value":"20 AVENUE HASSAN"
+                  },
+                  {  
+                     "language":"arb",
+                     "value":"20 افينيو حسن"
+                  }
+               ],
+               "addressLine2":[  
+                  {  
+                     "language":"ENG",
+                     "value":""
+                  },
+                  {  
+                     "language":"arb",
+                     "value":""
+                  }
+               ],
+               "addressLine3":[  
+                  {  
+                     "language":"ENG",
+                     "value":""
+                  },
+                  {  
+                     "language":"arb",
+                     "value":""
+                  }
+               ],
+               "region":[  
+                  {  
+                     "language":"ENG",
+                     "value":"Beni Mellal-Khenifra"
+                  },
+                  {  
+                     "language":"arb",
+                     "value":"بني ملال خنيفرة"
+                  }
+               ],
+               "province":[  
+                  {  
+                     "language":"ENG",
+                     "value":"Azilal"
+                  },
+                  {  
+                     "language":"arb",
+                     "value":"أزيلال"
+                  }
+               ],
+               "postalCode":"570004",
+               "localAdministrativeAuthority":[  
+                  {  
+                     "language":"ENG",
+                     "value":"Afourar"
+                  },
+                  {  
+                     "language":"arb",
+                     "value":"أفورار"
+                  }
+               ],
+               "email":"sano@gmail.com",
+               "IDSchemaVersion":"1.0",
+               "fullName":[  
+                  {  
+                     "language":"ENG",
+                     "value":"Sanober Noor"
+                  },
+                  {  
+                     "language":"arb",
+                     "value":"سانوبر نور"
+                  }
+               ],
+               "phone":"9887653767",
+               "CNIENumber":"6789545678909"
+            }
          }
       }
-    }
-  ]
+   ]
 }
 ```
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
       
 ###### Failure Details:
 Code|Message|Description
 -----|----------|-------------
-PRG_CORE_REQ_001|INVALID_REQUEST_ID| Invalid or empty Request Id.
-PRG_CORE_REQ_002|INVALID_REQUEST_VERSION|Invalid or empty Request Version.
-PRG_CORE_REQ_003|INVALID_REQUEST_DATETIME|invalid or empty Request Date & Time.
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
-PRG_PAM_APP_001|PRG_PAM_APP_001 --> UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create a pre-registration.
-PRG_PAM_APP_012|PRG_PAM_APP_012 --> MISSING_REQUEST_PARAMETER|If created by/create date time/updated by/updated date time is empty while creating new pre-registration.
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION|Invalid pre-registration-id while updating the pre-registration.
-PRG_PAM_APP_008|PRG_PAM_APP_008 --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
+PRG_PAM_APP_001| PRG_PAM_APP_001 --> UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create a pre-registration.
+PRG_PAM_APP_012| PRG_PAM_APP_012 --> MISSING_REQUEST_PARAMETER|If created by/create date time/updated by/updated date time is empty while creating new pre-registration.
+PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID |Invalid pre-registration-id while updating the pre-registration.
+PRG_PAM_APP_006|PRG_PAM_APP_006 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id 
+PRG_PAM_APP_008| PRG_PAM_APP_008  --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
 
 #### 2.7.1.2 PUT Operation
 #### Path -  ` /pre-registration/applications`
@@ -324,21 +310,20 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
-  "status": "true",
-  "resTime": "2019-01-18T04:44:33.299+0000",
-  "response": "STATUS_UPDATED_SUCESSFULLY"
+  "response": [
+  "STATUS_UPDATED_SUCESSFULLY"
+  ]
 }
 ```
 
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
 ###### Failure Details:
 Code|Message|Description
 -----|----------|-------------
-PRG_PAM_APP_006|PRG_PAM_APP_006 --> INVALID_STATUS_CODE| Invalid or empty status code
+PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_STATUS_CODE| Invalid or empty status code
 PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID|Invalid or empty pre-registration id
 
 #### 2.7.1.3 DELETE Operation
@@ -364,9 +349,6 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
-  "status": true,
-  "resTime": "2019-01-18T10:27:15.196Z",
   "response": [
     {
       "pre_registration_id": "96157107249860",
@@ -380,7 +362,7 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
 ###### Failure Details:
 Code|Message|Description
 -----|----------|-------------
@@ -410,10 +392,7 @@ Requires Authentication | Yes
 ###### Description: All applications fetched successfully
 
 ```JSON
-{  
-   "err":null,
-   "status":true,
-   "resTime":"2019-01-16T07:35:21.841Z",
+{
    "response":[  
       {  
          "preId":"50490792462164",
@@ -439,7 +418,7 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
 
 ###### Failure Details:
 Code|Message|Description
@@ -469,9 +448,6 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
-  "status": true,
-  "resTime": "2019-01-16T07:47:51.918Z",
   "response": [
     {
       "statusCode": "Pending_Appointment",
@@ -483,7 +459,7 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
 ###### Failure Details:
 Code|Message|Description
 -----|----------|-------------
@@ -513,9 +489,6 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
-  "status": true,
-  "resTime": "2019-01-16T09:23:23.720Z",
   "response": [
     "91793240270548",
     "89470382513069",
@@ -527,13 +500,13 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
 
 ###### Failure Details:
 Code|Message|Description
 -----|----------|-------------
 PRG_CORE_REQ_003|PRG_CORE_REQ_003 --> INVALID_REQUEST_DATETIME_FORMAT -->  yyyy-MM-dd HH:mm:ss |Invalid requested date formats.
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> RECORD_NOT_FOUND_FOR_DATE_RANGE| no record found between date range.
+PRG_PAM_APP_010|PRG_PAM_APP_010 --> RECORD_NOT_FOUND_FOR_DATE_RANGE| no record found between date range.
 
 #### 2.7.1.7 GET Operation
 #### Path -  ` /pre-registration/applicationData`
@@ -558,9 +531,6 @@ Requires Authentication | Yes
 
 ```JSON
 {
-   "err":null,
-   "status":true,
-   "resTime":"2019-01-15T14:25:56.513Z",
    "response":[
       {
          "preRegistrationId":"20180396713560",
@@ -570,7 +540,7 @@ Requires Authentication | Yes
          "updatedDateTime":"2019-01-15T14:25:56.512Z",
          "statusCode":"Pending_Appointment",
          "langCode":"ENG",
-          "demographicDetails":{
+         "demographicDetails":{
          "identity":{
             "dateOfBirth":"12/12/1992",
             "gender":[
@@ -644,7 +614,7 @@ Requires Authentication | Yes
                   "value":"أفورار"
                }
             ],
-            "email":"sano@123",
+            "email":"sano@gmail.com",
             "IDSchemaVersion":"1.0",
             "fullName":[
                {
@@ -656,7 +626,7 @@ Requires Authentication | Yes
                   "value":"سانوبر نور"
                }
             ],
-            "phone":"98876537672",
+            "phone":"9887653767",
             "CNIENumber":"6789545678909"
          }
       }
@@ -667,10 +637,11 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Failure Status code: '200'
 ###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/Pre-Registration-error-response.json`
+###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
 ###### Failure Details:
 Code|Message|Description
 -----|----------|-------------
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA | Invalid or empty pre-registration id.
+PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID | Invalid or empty pre-registration id.
+PRG_PAM_APP_006|PRG_PAM_APP_006 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA | unable to fetch the details by pre-registration id.
 
 
