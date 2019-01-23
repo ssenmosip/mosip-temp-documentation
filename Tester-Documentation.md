@@ -389,6 +389,15 @@ Example: txn_id in the response should match with txn_id in request, which is dy
 Get the clarity of feature under scope of testing. Testing the features which are not under current scope and 3rd party operations should be avoided.  3rd party apis are tested only to check if it is prompting expected element/status. This strategy helps us to arrive with quality tests. 
 
 # 6 Test Strategy
+## 6.1 Registration Processor
+Registration Processor is the core part of MOSIP where the Authentication, Identity and Validation of resident’s enrolled data happens, and on a successful verification UIN will be generated and delivered to the residents. Functional verification and security aspects plays a critical role in evaluation of Registration Processor. Unlike the regular black box testing, this will be more of a Grey box testing that involves verification of the stages for the Registration Processor Module of the MOSIP Software.
+## 6.2 Module Level Testing
+This testing ensures Registration Processor Module level operation performed correctly (intended) without any issues. Example: Registration Processor starts with uploading packets leading to virus scan, then to Packet store and finally creating the UIN. 
+## 6.3 Reg Processor Workflow 
+Following are the high level positive and negative scenarios covering the below shown workflow diagram of the reg proc module
+
+
+
 
 
 Doc_Version: 1.0
