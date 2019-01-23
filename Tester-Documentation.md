@@ -420,6 +420,15 @@ Number | Test Scenarios | Category|
 20 | Verify Packet name exceeding more than 29 digits | 	Functionality |
 21 | Verify Invalid Fotrmat  | 	Functionality |
 22 | Verify SMS Notification  | 	Functionality |
+23 | Verify RegistrationProcessorIdentity json file   | 	Configuration |
+24 | Verify Camel route XML  | 	Configuration |
+25 | Verify bio-dedupe-service max result  | 	Configuration |
+26 | Verify packet-receiver max file size in mb | 	Configuration |
+26 | Verify bio-dedupe-service threshold  | 	Configuration |
+27 | verify packet-manager virus scan location when empty  | 	Configuration |
+28 | verify packet-manager packet extension when empty | 	Configuration |
+29 | verify packet-manager encrypted packet location empty  | 	Configuration |
+
 
 
 
