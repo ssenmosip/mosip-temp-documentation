@@ -1,16 +1,14 @@
-
-
 **Application Bundle:**
 ***
 Registration client application will be delivered as a Docker image, which can be downloadable from Docker MOSIP private repository. 
 The generated image would be signed and same will be validated when it is installed at the desktop machine.
  
-**Registration Client – Docker Image:** 
-![Reg Client Application Bundle](_images/registration/reg-client-app-bundle.png)   		 
-
+**Registration Client â€“ Docker Image:**  
+![Reg Client Application Bundle](_images/registration/reg-client-app-bundle.png) 
+ 
 **Application Setup KIT:** 
 ***
-The ‘Registration Client Setup KIT’ would be available at MOSIP server.
+The â€˜Registration Client Setup KITâ€™ would be available at MOSIP server.
 This KIT will contain the runtime engine that is required for Registration client application to run.  
 As Docker container is the runtime engine, the same would be embedded into this KIT.
 The Docker image would not be available as part of this KIT. It would be available in binary repository and same would be downloaded from client application through Docker command.
@@ -31,8 +29,8 @@ User should login to the Admin portal and Download this KIT and initiate the ins
 
    The above diagram depicts the actual runtime of registration client application. 
     
-   -Windows 10 Operating System. 
-   -VcXsrv Windows X Server [.exe] - [40 MB]  - to open the GUI component from docker container. 
+   -Windows 10 Operating System.  
+   -VcXsrv Windows X Server [.exe] - [40 MB] - to open the GUI component from docker container.  
    -Java Runtime Environment - 1.8  
    -Derby DB. [ Version - 13]  
    -Docker Installation Pkg. [version - 18.*][600 MB]  
@@ -44,12 +42,12 @@ User should login to the Admin portal and Download this KIT and initiate the ins
    Download the application setup KIT from MOISP admin portal. 
    Double click on the provided .exe file to extract the package and install the Docker container in local machine in a particular folder. 
    **TBD -** List of values to be entered by the user during installation to be determined. 
-   Once installation completed then click on the ‘RegClientStart.bat’ file to initialize the Docker container and pull the latest ‘MOSIPRegistrationClient’ image from Private Docker hub. 
+   Once installation completed then click on the â€˜RegClientStart.batâ€™ file to initialize the Docker container and pull the latest â€˜MOSIPRegistrationClientâ€™ image from Private Docker hub. 
    Generate and Load the DB key into the TPM [Trusted Platform Module]. {More research required in this area} 
    
    Then run the Docker container to launch the application. 
    Once application launched then connect to the TPM and pull the required key to communicate with the DB. 
-   Check the data availability in the local DB, if no data available then initiate the ‘Sync [Master/ Configure/ User]’ process to download the machine [MAC ID] specific center level data from MOSIP server environment.
+   Check the data availability in the local DB, if no data available then initiate the â€˜Sync [Master/ Configure/ User]â€™ process to download the machine [MAC ID] specific center level data from MOSIP server environment.
    
    Note: Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement. 
 
@@ -80,23 +78,23 @@ The Symmetric key would be generated on runtime and same will be used during the
 
    **Key management:**
    The key required for encryption / decryption at different process of an application would be maintained in database and TPM.
-   TPM  – it will hold the DB encryption and decryption key.
-   DB 	– it will hold the pre-registration symmetric key.
-        – it will also hold the Registration packet public key.
+   TPM  â€“ it will hold the DB encryption and decryption key.
+   DB 	â€“ it will hold the pre-registration symmetric key.
+        â€“ it will also hold the Registration packet public key.
  
    **REST Service integration Authentication:**
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
 Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
-To generate the OAuth token the client secret key / login user id / password would be passed to the ‘Login’ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
+To generate the OAuth token the client secret key / login user id / password would be passed to the â€˜Loginâ€™ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
 
 
 **System Prerequisites:**
 *** 
-   •CPU - Dual Core Processor - 2GHZ  
-   •Ram – 8 GB  
-   •Local Storage Disk Space – 500 GB 
-   •5 USB 2.0 ports or equivalent hub.  
-   •Physical machine with TPM facility.   
+   â€¢CPU - Dual Core Processor - 2GHZ  
+   â€¢Ram â€“ 8 GB  
+   â€¢Local Storage Disk Space â€“ 500 GB 
+   â€¢5 USB 2.0 ports or equivalent hub.  
+   â€¢Physical machine with TPM facility.   
  
 **Data Setup:** 
 ***
@@ -114,7 +112,7 @@ Through sync process the data would be sync between local machine and server bas
    7.	Registration Center Configuration. 
    8.	Machine Configuration. 
    9.	Center to Machine mapping. 
-   10.	Center – User mapping. 
+   10.	Center â€“ User mapping. 
 
    **User Mapping to the Local machine:** 
    User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id. 
