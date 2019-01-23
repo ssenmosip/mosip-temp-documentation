@@ -647,7 +647,26 @@ Below is the Block diagram / network diagram depicting all the connections and h
 Item | Setup | 
 -----  | -----------------|
 Microsoft Azure | Azure Virtual Machine Application server | 
-Microsoft Azure | Azure DB Instance | 		
+Microsoft Azure | Azure DB Instance | 	
+
+## 6.11 Hardware – Registration Client Machine
+Item | Configuration | 
+-----  | -----------------|
+Intel | Core i5 | 
+
+## 6.12 Software – Server 
+Item | Configuration | 
+-----  | -----------------|
+Microsoft Azure| apache-maven-3.5.4 maven | 
+Microsoft Azure | jdk1.8.0_181-amd64 | 	
+
+## 6.13 Software – Client 
+Item | Configuration | 
+-----  | -----------------|
+Microsoft| Windows 10 | 
+
+## 6.14 Test Tools (software)
+This section should contain a table that documents the testing tools that will be needed to plan, script, and perform functional testing. Tools are required for test scripting, test defect tracking, test results logging, performance testing, automated testing and test management. 
 
 
 
