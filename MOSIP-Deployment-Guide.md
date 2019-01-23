@@ -7,7 +7,9 @@ The purpose of this Deployment Guide is to describe the deployment of the produc
 ## 1.2 Revision history 
 The Revision history table shows the date, changes, and authors who have worked on this document.
 
-**Add table to validate the statement.**
+|Version/Change request number| Version date |Description of changes |Author|
+|------|-----|--|--|
+|XXXXXX|DD/MM/YYYY |First Draft| XXXXXXXX|
 ## 1.3 Targeted audience and reading suggestions
 This Deployment Guide is intended to be used by people who will be responsible for planning, performing, or maintaining the deployment, such as the Systems Administrator, Chief Information Officer (CIO), Analysts, or Developers. 
 It is intended that software support personnel can read this document and coordinate their efforts in the deployment of the application. 
