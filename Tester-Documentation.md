@@ -388,6 +388,9 @@ Example: txn_id in the response should match with txn_id in request, which is dy
 
 Get the clarity of feature under scope of testing. Testing the features which are not under current scope and 3rd party operations should be avoided.  3rd party apis are tested only to check if it is prompting expected element/status. This strategy helps us to arrive with quality tests. 
 
+# 6 Test Strategy
+
+
 Doc_Version: 1.0
 
 Point of Contact/Author: jyoti.kori@mindtree.com, gita.phutane@mindtree.com
