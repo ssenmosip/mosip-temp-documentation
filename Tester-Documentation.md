@@ -453,6 +453,173 @@ Number | Test Scenarios | Category|
 5.	Required Privileges to DB for Testdata updates to create positive / negative flow.
 6.	Ensure all the depended services are deployed.
 
+## 6.5 Test Step
+Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan initially and status will be updated in registration status table. Check the Enrolment status table for the packets for which are present in Virus Scan Folder. Scan the Virus Scan Folder for the list of Packets and Perform Virus Scan on the Packets using services from Core Kernel. In case of successful Virus Scan, moves packets to DFS.In case of Virus Scan failure, moves packets to Retry Folder. Updates the status of these packets in the Enrolment Status Table.
+Packets that successfully uploaded to file system and ready for decryption. Decrypt the encrypted zip file and receives a Zip file. Unpack the Zip file. Store the unpacked files in file system. Using  RSA PKI Algorithm we create Public keys/private Keys through which will do packet decryption. After Packet decryption, Packet will go and check Packet integrity HMAC Algorithm used to validate the (Check sum value) and structure.
+After successful packet structure validation, the packet Meta info is stored in DB. The user, machine and center information will be further validated at Master Data in DB to check if authorized person creates the packet.
+After successful Bio dedupe, the UIN Generator will be called to allocate an unique identification number to the applicant by using 'kernel-idgenerator-uin' Rest API to generate UIN. It will return the unique id which will be allotted to the applicant.it will call kernel-idrepo-service create API to add a new applicant to id repository. After successful response from the idrepo-service, store the uin information in registration processor db. Update individual_demo_dedupe table with uin information against the registration id.
+
+## 6.6 Test Data
+Registration processor takes input as packet , the validation of stages involves data carried inside the packet. To validate positive and negative conditions we need to create the different combination of packet as mentioned below.
+
+ | Packet with different Conditions | 
+ | -----------------| 
+| Registration Packet size  0 MB |
+| Registration Packet size < 5 MB  |
+| Registration Packet size >5 MB (Max size Config) |
+| Half info Packet / Missing info |
+| Existing RID in DB |
+| packet name with Valid Centre ID |
+| packet name with valid Machine ID |
+| packet name with valid Centre ID and valid Machine ID |
+| packet name with  Invalid Centre ID |
+| packet name with Invalid Machine ID |
+| packet name with Ivalid Centre ID and invalid Machine ID |
+| packet name with invalid Centre ID and invalid Machine ID |
+| packet name with invalid Centre ID and valid Machine ID |
+| packet name with Invalid Packet naming convention - Date |
+| packet name with Invalid Packet naming convention - Month |
+| packet name with Invalid Packet naming convention - Year |
+| packet name with Invalid Packet naming convention - Time (H) |
+| packet name with Invalid Packet naming convention - Time (M) |
+| Invalid Packet naming convention - Time (S) |
+| Valid Packet naming convention - Date |
+| Valid Packet naming convention - Month |
+| Valid Packet naming convention - Year |
+| Valid Packet naming convention - Time (H) |
+| Valid Packet naming convention - Time (M) |
+| Valid Packet naming convention - Time (S) |
+| Packet name combination - Text + Symbol |
+| Packet name combination - Text + Number |
+| Packet name combination - Symbol + Number |
+| Packet name combination - Invalid Date + Invalid Month |
+| Packet name combination - Invalid Date + Invalid Year |
+| Packet name combination - Invalid Date + Invalid Time (H) |
+| Packet name combination - Invalid Date + Invalid Time (M) |
+| Packet name combination - Invalid Date + Invalid Time (S) |
+| Packet name combination - Invalid Year + Invalid Month |
+| Packet name combination - Invalid Time (H)+ Invalid Month |
+| Packet name combination - Invalid Time (M)+ Invalid Month |
+| Packet name combination - Invalid Time (S)+ Invalid Month |
+| Packet name combination - Invalid Year + Invalid Time (H) |
+| Packet name combination - Invalid Year + Invalid Time (M) |
+| Packet name combination - Invalid Year + Invalid Time (S) |
+| Packet name exceeding less than 28 digits |
+| Packet name exceeding more than 28 digits |
+| Virus scan success |
+| Corrupted file - Virus scan failure |
+| Invaild Applicant - BothThumbs |
+| Invaild Applicant - Left Finger |
+| Invaild Applicant - Right Finger |
+| Invaild Applicant - Both Left and Right Eye |
+| Invaild Applicant - Left Eye |
+| Invaild Applicant - Right Eye |
+| Valid Applicant - BothThumbs |
+| Valid Applicant - Left Finger |
+| Valid Applicant - Right Finger |
+| Valid Applicant - Both Left and Right Eye |
+| Valid Applicant - Left Eye |
+| Valid Applicant - Right Eye |
+| Invaild Introducer - BothThumbs |
+| Invaild Introducer - Left Finger |
+| Invaild Introducer - Right Finger |
+| Invaild Introducer - Both Left and Right Eye |
+| Invaild Introducer - Left Eye |
+| Invaild Introducer - Right Eye |
+| Valid Introducer - BothThumbs |
+| Valid Introducer - Left Finger |
+| Valid Introducer - Right Finger |
+| Valid Introducer - Both Left and Right Eye |
+| Valid Introducer - Left Eye |
+| Valid Introducer - Right Eye |
+| Demographic  - Invalid ApplicantPhoto |
+| Demographic  - Invalid ExceptionPhoto |
+| Demographic  - Invalid ProofOfAddress |
+| Demographic  - Invalid ProofOfIdentity |
+| Demographic  - Invalid RegistrationAcknowledgement |
+| Demographic  - Valid ApplicantPhoto |
+| Demographic  - Valid ExceptionPhoto |
+| Demographic  - Valid ProofOfAddress |
+| Demographic  - Valid ProofOfIdentity |
+| Demographic  - Valid RegistrationAcknowledgement |
+| Valid DemographicInfo JSON file |
+| Invalid DemographicInfo JSON file |
+| Valid audit JSON file |
+| Invalid audit JSON file |
+| Valid PacketMetaInfo JSON file |
+| Invalid PacketMetaInfo  JSON file |
+| Valid EnrollmentOfficerBioImage  |
+| Invalid EnrollmentOfficerBioImage  |
+| Valid EnrollmentSupervisorBioImage |
+| Invalid EnrollmentSupervisorBioImage |
+| Valid HMACFile |
+| Invalid HMACFile |
+| Invalid EnrollmentOfficerBioImage and EnrollmentSupervisorBioImage  |
+| Invalid EnrollmentOfficerBioImage and HMACFile  |
+| Invalid EnrollmentOfficerBioImage and PacketMetaInfo JSON file |
+| Invalid EnrollmentOfficerBioImage and DemographicInfo JSON file |
+| Invalid EnrollmentSupervisorBioImage and HMACFile  |
+| Invalid EnrollmentSupervisorBioImage and PacketMetaInfo JSON file |
+| Invalid EnrollmentSupervisorBioImage and audit JSON file |
+| Invalid EnrollmentSupervisorBioImage and DemographicInfo JSON file |
+| Invalid HMACFile and PacketMetaInfo JSON file |
+| Invalid HMACFile and audit JSON file |
+| Invalid HMACFile and DemographicInfo JSON file |
+| Invalid PacketMetaInfo JSON file and audit JSON file |
+| Invalid PacketMetaInfo JSON file and DemographicInfo JSON file |
+| Invalid audit JSON file and EnrollmentOfficerBioImage  |
+| Invalid audit JSON file and DemographicInfo JSON file |
+| Unique Packet |
+| Duplicate Packet |
+| Duplicate request - Packet is up for retry- success |
+| Duplicate request - Packet is up for retry- Failure |
+| Packet integrity validation - successful |
+| Packet integrity validation - Failure |
+| Virus scan - successful |
+| Virus scan - Failure |
+| Decrypt packets - successful |
+| Decrypt packets - Failure |
+| Unpack packets - Success |
+| Unpack packets - Failure |
+| Metadata validation - success |
+| Metadata validation - failure |
+| File validation - Successful |
+| File validation - failure |
+| Insert packet data in DB - successful |
+| Insert packet data in DB - successful |
+| Data validation - success |
+| Data validation - failure |
+| Active officer Authentication Success Using finger |
+| Active officer Authentication Failure Using finger |
+| Active officer Authentication Success Using Iris |
+| Active officer Authentication Failure Using Iris |
+| Active officer Authentication Success Using pin |
+| Active officer Authentication Failure Using pin |
+| Active officer Authentication Success Using Password |
+| Active officer Authentication Failure Using Password |
+| supervisor Authentication Success Using finger |
+| supervisor Authentication Failure Using finger |
+| supervisor Authentication Success Using Iris |
+| supervisor Authentication Failure Using Iris |
+| supervisor Authentication Success Using pin |
+| supervisor Authentication Failure Using pin |
+| supervisor Authentication Success Using Password |
+| supervisor Authentication Failure Using Password |
+| Packet on hold by supervisor -> Yes |
+| Packet on hold by supervisor -> No |
+| On hold for manual Adjudication- Yes |
+| On hold for manual Adjudication- No |
+| Notify the Resident that Registration is under processing - Yes |
+| Notify the Resident that Registration is under processing - No |
+| Create a packet with unkown Operator ID  |
+| Create a packet with unknown supervisor ID not availabe |
+| Create a packet with unknown Machine |
+| Create a packet with unkown Center ID |
+| Create a packet for which opertor-center-machine-mapping-not availabe |
+| Create a packet for which supervisor-center-machine-mapping-not availabe |
+| Create a packet with Geo data not Availabe |
+| Create a packet with Office supervisor is missing  |
+| Create a packet  with unkown Geo data in master DB |
 
 
 
