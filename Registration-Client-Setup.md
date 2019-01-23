@@ -4,8 +4,8 @@
 ***
 Registration client application will be delivered as a Docker image, which can be downloadable from Docker MOSIP private repository. 
 The generated image would be signed and same will be validated when it is installed at the desktop machine.
-
-   **Registration Client – Docker Image:** 
+ 
+**Registration Client – Docker Image:** 
 ![Reg Client Application Bundle](_images/registration/reg-client-app-bundle.png)   		 
 
 **Application Setup KIT:** 
@@ -30,7 +30,7 @@ User should login to the Admin portal and Download this KIT and initiate the ins
 ![Reg Client Application Deployment](_images/registration/reg-client-app-runtime.png)   	 
 
    The above diagram depicts the actual runtime of registration client application. 
-   
+    
    -Windows 10 Operating System. 
    -VcXsrv Windows X Server [.exe] - [40 MB]  - to open the GUI component from docker container. 
    -Java Runtime Environment - 1.8  
@@ -56,9 +56,9 @@ User should login to the Admin portal and Download this KIT and initiate the ins
 
 **Database:**
 ***
-   -The Derby database will be used to store the local transaction information along with Master and configuration data.
-   -The data stored into the database would be encrypted using a particular key [SHA256 - Symmetric key].
-   -The key would be maintained in TPM and same will be used during communication with database from application.
+   -The Derby database will be used to store the local transaction information along with Master and configuration data. 
+   -The data stored into the database would be encrypted using a particular boot key password. 
+   -The key would be maintained in TPM and same will be used during communication with database from application. 
 
 **Update:**
 ***
@@ -94,9 +94,9 @@ To generate the OAuth token the client secret key / login user id / password wou
 *** 
    •CPU - Dual Core Processor - 2GHZ  
    •Ram – 8 GB  
-   •Local Storage Disk Space – 500 GB
-   •5 USB 2.0 ports or equivalent hub. 
-   •Physical machine with TPM facility.  
+   •Local Storage Disk Space – 500 GB 
+   •5 USB 2.0 ports or equivalent hub.  
+   •Physical machine with TPM facility.   
  
 **Data Setup:** 
 ***
