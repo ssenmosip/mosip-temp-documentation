@@ -37,14 +37,14 @@ As compared to manual, paper-based registers, advanced electronic capture and st
  
 A World Bank report quoted several projections showing that the number of “digital government/citizen transactions worldwide will grow to about $67 billion by 2020” (World Bank, 2015). As a result of linkages between national ID programs and financial services, these programs are also believe to have the potential to promote financial inclusion.
 
-## Why-an identity management system is needed
+## 2.3.Why-an identity management system is needed
 
 ![Indentity](_images/mosip_prd/Indentity.JPG)
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system
 
 
-## 2.2.3.Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
+## 2.4.Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
 
 MOSIP (Modular Open Source Identity Platform) helps governmen
 ts of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
