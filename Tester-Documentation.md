@@ -621,6 +621,15 @@ Registration processor takes input as packet , the validation of stages involves
 | Create a packet with Office supervisor is missing  |
 | Create a packet  with unkown Geo data in master DB |
 
+## 6.7 Output verification
+1.	Packet Handler request and response for JSON format/ structure/contents validation and verification according to the API specs.
+2.	Status and error code verification according to the API spec.
+3.	Biometric accuracy for Biometric dedupe
+4.	Audit log verification
+5.	DB status check for the packet processing across various stages in Registration Processor.
+6.	Application log - ensure no errors logged .
+
+
 
 
 Doc_Version: 1.0
