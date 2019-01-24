@@ -429,6 +429,8 @@ Number | Test Scenarios | Category|
 28 | verify packet-manager packet extension when empty | 	Configuration |
 29 | verify packet-manager encrypted packet location empty  | 	Configuration |
 
+[[https://github.com/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG]]
+
 ## 6.4 Pre-requisite for Reg Proc testing
 1.	Create resident test packet from reg client
 2.	Ensure Reg Proc and all its associated job are up and running
