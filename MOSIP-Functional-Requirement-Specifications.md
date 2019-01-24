@@ -25,3 +25,84 @@ Transliteration of the language as per the pre-configured secondary language for
 ### 5.1 Pre-Registration Data Sync
 1. Synchronizes the pre-registration data with the registration-client 
 1. Synchronizes status of pre-ID with registration processor
+# Registration
+## 1. Registration Client Setup
+### 1.1 Registration Client Installation
+Installing the registration-client on the machine 
+### 1.2 Registration Client Launch
+Helps in launching the registration-client
+## 2. System Health Checker
+### 2.1 Connectivity Checker
+Checks if the client machine is connected to the network
+## 3. Registration Officer Authentication
+### 3.1 Login
+Enables logging in to the client machine by pass word, OTP or biometrics
+### 3.2 Logout
+Logging out from the client application
+## 4. User Onboarding/Manager
+### 4.1 User Registration
+Enables mapping between the user and machine\dongle. Allows a user to onboard themselves on a machine
+## 5. Sync Handler
+### 5.1 Master Data Syncher
+Synchronizes master data between server to client
+### 5.2 Packet Syncher
+Send registration packet IDs from client to processor so that ensure data security
+### 5.3 Registration Packet Status Reader
+Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
+### 5.4 Registration Client Config Syncher
+Synchronizes config data between server to client
+### 5.5 User Role Setup Syncer
+Synchronizes user and role data between server to client
+### 5.6 Policy Syncher
+Synchronizes encryptions Keys between server to client
+### 5.7 Pre-registration Data Syncher
+Synchronizes pre-reg data between server to client
+### 5.8 Login Credentials Syncher
+Synchronizes login data (password) between server to client
+## 6. Registration Officer Authorization
+### 6.1 Registration Officer Authorization
+Determines the user roles and provide access based on the privileges
+## 7. Registration Application Manager - New
+### 7.1 Location Geotagging
+Captures the GPS co-ordinates of the client machine to ensure data integrity
+### 7.2 Individual Category Selection
+Helps to distinguish if an applicant is an adult or a child
+### 7.3 Demo Data Capture
+Captures the demographic data of the applicant
+### 7.4 Document Upload
+Enables scan and upload supporting doc such as POA and POI
+### 7.5 Fingerprint Capture
+Captures the finger print data and determines the quality of the data
+### 7.6 Iris Capture
+Captures the iris data and determines the quality of the data
+### 7.7 Face Capture
+Captures the face photograph 
+### 7.8 Biometric exception Capture
+1. Captures the exception photograph
+1. Marks the biometric exceptions
+### 7.9 Registration Checks
+1. Preview of the registration details
+1. Operator authentication for submitting the registration
+1. Supervisor authentication for submitting registration with exception
+1. End of day approval
+1. Re-registration
+### 7.10 Acknowledgement
+Renders the Acknowledgement page after successful registration and allows printing
+## 8. Language Manager
+### 8.1 Translation
+Translates the static messages as per the configures primary and secondary languages
+### 8.2 Transliteration
+Translates the user entered text  from  primary to secondary language
+## 9. System Health Checker
+### 9.1 Disk Space Checker
+Checks whether there is enough space in the client machine\dongle to store the registration packet
+
+
+
+
+
+
+
+
+
+
