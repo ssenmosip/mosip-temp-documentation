@@ -393,7 +393,7 @@ Get the clarity of feature under scope of testing. Testing the features which ar
 Registration Processor is the core part of MOSIP where the Identity and Validation of resident’s enrolled data happens, and on a successful verification UIN will be generated and delivered to the residents. Functional verification and security aspects plays a critical role in evaluation of Registration Processor. Unlike the regular black box testing, this will be more of a Grey box testing that involves verification of the stages for the Registration Processor Module of the MOSIP Software.
 ## 6.2 Module Level Testing
 This testing ensures Registration Processor Module level operation performed correctly (intended) without any issues. Example: Registration Processor starts with uploading packets leading to virus scan, then to Packet store and finally creating the UIN. 
-## 6.3 Reg Processor Workflow 
+## 6.3 Registration Processor Workflow 
 Following are the high level positive and negative scenarios covering the below shown workflow diagram of the reg proc module
 
 Number | Test Scenarios | Category| 
