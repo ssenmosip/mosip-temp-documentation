@@ -456,10 +456,28 @@ Number | Test Scenarios | Category|
 6.	Ensure all the depended services are deployed.
 
 ## 6.5 Test Step
-Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan initially and status will be updated in registration status table. Check the Enrolment status table for the packets for which are present in Virus Scan Folder. Scan the Virus Scan Folder for the list of Packets and Perform Virus Scan on the Packets using services from Core Kernel. In case of successful Virus Scan, moves packets to DFS.In case of Virus Scan failure, moves packets to Retry Folder. Updates the status of these packets in the Enrolment Status Table.
+Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan initially and status will be updated in registration status table. Check the Enrollment status table for the packets for which are present in Virus Scan Folder. Scan the Virus Scan Folder for the list of Packets and Perform Virus Scan on the Packets using services from Core Kernel. In case of successful Virus Scan, moves packets to DFS.In case of Virus Scan failure, moves packets to Retry Folder. Updates the status of these packets in the Enrollment Status Table.
 Packets that successfully uploaded to file system and ready for decryption. Decrypt the encrypted zip file and receives a Zip file. Unpack the Zip file. Store the unpacked files in file system. Using  RSA PKI Algorithm we create Public keys/private Keys through which will do packet decryption. After Packet decryption, Packet will go and check Packet integrity HMAC Algorithm used to validate the (Check sum value) and structure.
 After successful packet structure validation, the packet Meta info is stored in DB. The user, machine and center information will be further validated at Master Data in DB to check if authorized person creates the packet.
 After successful Bio dedupe, the UIN Generator will be called to allocate an unique identification number to the applicant by using 'kernel-idgenerator-uin' Rest API to generate UIN. It will return the unique id which will be allotted to the applicant.it will call kernel-idrepo-service create API to add a new applicant to id repository. After successful response from the idrepo-service, store the uin information in registration processor db. Update individual_demo_dedupe table with uin information against the registration id.
+
+### 6.3.1 OSI Validation
+Testing an OSI validation we populate the MASTER DB with User,machine,center details in a combination set with valid / Invalid Details. We create packets using Utils by passing valid/Invalid details of User/Machine/Center Details .The validation of OSI stage DB record for each condition will be verified.
+| Packet with different Conditions | 
+| -----------------| 
+| Create a packet with unknown Operator ID  |
+| Create a packet with unknown supervisor ID not available |
+| Create a packet with unknown Machine |
+| Create a packet with unknown Center ID |
+| Create a packet for which operator-center-machine-mapping-not available |
+| Create a packet for which supervisor-center-machine-mapping-not available |
+| Create a packet with Geo data not Available |
+| Create a packet with Office supervisor is missing  |
+| Create a packet  with unknown Geo data in master DB |
+
+### 6.3.2 Demo Dedupe:
+Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same set data while creating the packet to validate the condition.
+
 
 ## 6.6 Test Data
 Registration processor takes input as packet , the validation of stages involves data carried inside the packet. To validate positive and negative conditions we need to create the different combination of packet as mentioned below.
@@ -509,24 +527,24 @@ Registration processor takes input as packet , the validation of stages involves
 | Packet name exceeding more than 28 digits |
 | Virus scan success |
 | Corrupted file - Virus scan failure |
-| Invaild Applicant - BothThumbs |
-| Invaild Applicant - Left Finger |
-| Invaild Applicant - Right Finger |
-| Invaild Applicant - Both Left and Right Eye |
-| Invaild Applicant - Left Eye |
-| Invaild Applicant - Right Eye |
+| Invalid Applicant - BothThumbs |
+| Invalid Applicant - Left Finger |
+| Invalid Applicant - Right Finger |
+| Invalid Applicant - Both Left and Right Eye |
+| Invalid Applicant - Left Eye |
+| Invalid Applicant - Right Eye |
 | Valid Applicant - BothThumbs |
 | Valid Applicant - Left Finger |
 | Valid Applicant - Right Finger |
 | Valid Applicant - Both Left and Right Eye |
 | Valid Applicant - Left Eye |
 | Valid Applicant - Right Eye |
-| Invaild Introducer - BothThumbs |
-| Invaild Introducer - Left Finger |
-| Invaild Introducer - Right Finger |
-| Invaild Introducer - Both Left and Right Eye |
-| Invaild Introducer - Left Eye |
-| Invaild Introducer - Right Eye |
+| Invalid Introducer - BothThumbs |
+| Invalid Introducer - Left Finger |
+| Invalid Introducer - Right Finger |
+| Invalid Introducer - Both Left and Right Eye |
+| Invalid Introducer - Left Eye |
+| Invalid Introducer - Right Eye |
 | Valid Introducer - BothThumbs |
 | Valid Introducer - Left Finger |
 | Valid Introducer - Right Finger |
@@ -612,15 +630,15 @@ Registration processor takes input as packet , the validation of stages involves
 | On hold for manual Adjudication- No |
 | Notify the Resident that Registration is under processing - Yes |
 | Notify the Resident that Registration is under processing - No |
-| Create a packet with unkown Operator ID  |
-| Create a packet with unknown supervisor ID not availabe |
+| Create a packet with unknown Operator ID  |
+| Create a packet with unknown supervisor ID not available |
 | Create a packet with unknown Machine |
-| Create a packet with unkown Center ID |
-| Create a packet for which opertor-center-machine-mapping-not availabe |
-| Create a packet for which supervisor-center-machine-mapping-not availabe |
-| Create a packet with Geo data not Availabe |
+| Create a packet with unknown Center ID |
+| Create a packet for which operator-center-machine-mapping-not available |
+| Create a packet for which supervisor-center-machine-mapping-not available |
+| Create a packet with Geo data not Available |
 | Create a packet with Office supervisor is missing  |
-| Create a packet  with unkown Geo data in master DB |
+| Create a packet  with unknown Geo data in master DB |
 
 ## 6.7 Output verification
 1.	Packet Handler request and response for JSON format/ structure/contents validation and verification according to the API specs.
