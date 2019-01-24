@@ -25,7 +25,3 @@ Transliteration of the language as per the pre-configured secondary language for
 ## 5.1 Pre-Registration Data Sync
 1. synchronizes the pre-reg data with the reg -client 
 1. synchronizes status of pre-ID with reg processor
-
-
-
-
