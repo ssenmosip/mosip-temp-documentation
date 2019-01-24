@@ -54,4 +54,4 @@ Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board-12Jan'19.docx](_files/No
 11) ## MOSIP Full Demo_Pre-registration: Customer Meeting - 18Jan'19
 Attendees: Anadi, Ramesh, Krishnan, Arun, Shravan, Romila, Pre-ID Issuance Team, Rounak, Amandeep, Lalana, Rahul, Nasir, Swati, Ajay and Resham
 
-Link: 
+Link: [MoM - MOSIP Full Demo Pre-registration - Customer Meeting - 18Jan9.docx](_files/MoM_MOSIP_Full_Demo_Pre_registration_Customer_Meeting_18Jan9.docx)
