@@ -653,7 +653,7 @@ QA Analyst is responsible for the sanity testing.  QA Analyst will be executing 
 
 ## 6.9 Test Setup
 Below is the Block diagram / network diagram depicting all the connections and hardware devices.
-[[https://github.com/mosip/mosip-test/blob/master/rptopo.png]]
+<!---[[https://github.com/mosip/mosip-test/blob/master/rptopo.png]]--->
 
 ## 6.10 Hardware – Server configuration
 
