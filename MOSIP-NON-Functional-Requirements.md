@@ -17,3 +17,34 @@ Provide the following logging utility
 1. Each log can be genrated as a file/console
 1. Raise an alert in case of listed exceptions (File not found, No such file exists, to be identified)
 1. Links various logs associated to one applicant
+# Mosip-utils
+## Util
+MOSIP provides the following utilities
+1. String utility
+1. Calendar utility
+1. Math utility
+1. File utility
+1. Hash utility
+# Data Access Manager
+## Dataaccess-hibernate
+Provides a implementation for DAO (Data Access Manager) interface 
+# OTP Manager
+## Otpgenerator
+Generates OTP for unique key, the length and expiry of the OTP is configurable
+## Otpvalidator
+Validates the OTP against a unique key
+# Key Management
+## Key Generator
+1. Generate key pair for encryption and decryption 
+1. Store key pairs in DB 
+1. Update validity status of the Key-pair
+1. Audit with common attributes
+## Certificate Generator
+1. Generate certificate for new machines, devices and users through a batch job using a defined algorithm
+1. Store certificates in a password protected Key Store
+1. Update validity status of the Key-pair
+1. Audit with common attributes
+## Key Services
+Track usage and validity of Key-pair/Certificate
+
+
