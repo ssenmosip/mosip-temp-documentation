@@ -6,14 +6,19 @@ The generated image would be signed and same will be validated when it is instal
 **Registration Client – Docker Image:**  
 ![Reg Client Application Bundle](_images/registration/reg-client-app-bundle.png) 
  
+ - DerbyDB - This image contains the db, tables, few tables with values and authentication for the db.
+
 **Application Setup KIT:** 
 ***
 The ‘Registration Client Setup KIT’ would be available at MOSIP server.
 This KIT will contain the runtime engine that is required for Registration client application to run.  
 As Docker container is the runtime engine, the same would be embedded into this KIT.
-The Docker image would not be available as part of this KIT. It would be available in binary repository and same would be downloaded from client application through Docker command.
-It also contains the DB key which is to be loaded into the TPM of client machine.
+The Docker image would not be available as part of this KIT. It would be available in MOSIP Docker private repo and same would be downloaded from client application through Docker command.
+It also contains the DB key which will be loaded into the TPM of client machine.
 User should login to the Admin portal and Download this KIT and initiate the installation process.
+
+   **TBD** - In detail of Setup kit to be provided.
+   -VcXsrv Windows X Server
 
    **Build Process:**  
     The standard Jenkin build process would be followed to generate the Registration client docker image and the generated docker image would be placed in to the MOISP Private repository. 
@@ -138,4 +143,5 @@ Through sync process the data would be sync between local machine and server bas
    3. Auto update/ manual update?	
    4. How to load key into TPM? The respective rotation policy.
    5. How to update the DB password/ encryption key?
+   6. Shall we provide the Docker software as part of Initial KIT which is to be downloaded from MOSIP server?
    
