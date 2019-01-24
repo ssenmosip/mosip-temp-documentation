@@ -46,5 +46,26 @@ Validates the OTP against a unique key
 1. Audit with common attributes
 ## Key Services
 Track usage and validity of Key-pair/Certificate
+# Security
+## fileencryptor
+Encrypts the data packets to secure the data
+## filedecryptor
+Decrypts the data packets for further processing
+## Authentication
+Autenticates the the intenal and external communications across the platform
+## Authorization
+Authorizes the user as per the previleges
+# Data Mapper (mosip-beanmapper)
+## Data Mapper
+Facilitate data mapping between DTO (Data Transfer Object) and Entity
+# Data Validator 
+## Mobile validator
+Performs the pattern validation on the mobile number based on the configured length
+## Email validator
+Performs the pattern validation on email ID based on the configured parameters
+## Blacklisted Words Validator
+Performs a word to word validation against a configured list of blacklisted words
+
+
 
 
