@@ -51,7 +51,7 @@ Attendees: Sanjay Jain, Shrikant, Ramesh, Anadi, Krishnan, Arun Gurumurthy, Romi
 
 Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board-12Jan'19.docx](_files/Notes_from_meeting_with_GoM-PwC-MOSIP_Tech_Board-12Jan'19.docx)
 
-11) ## MoM: MOSIP Full Demo Pre-registration: Customer Meeting - 18Jan9
+11) ## MOSIP Full Demo Pre-registration: Customer Meeting - 18Jan9
 Attendees: Anadi, Ramesh, Krishnan, Arun, Shravan, Romila, Pre-ID Issuance Team, Rounak, Amandeep, Lalana, Rahul, Nasir, Swati, Ajay and Resham
 
 Link: 
