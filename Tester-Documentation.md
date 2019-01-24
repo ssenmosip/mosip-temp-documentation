@@ -468,7 +468,7 @@ Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all po
 ### 6.5.3 Configuration:
 Camel route xml is implemented in the private network where the stages are running on loosely coupled.By Modifying the route in-out of the vertx end point we validate the stages behaviors . 
 ### 6.5.4 Bio-Dedupe:
-We create packet with dummy tag as unique / duplicate in CBEF which passed on Mock ABIs service to validate the Bio-Dedupe.
+We create packet with dummy tag as unique / duplicate in CBEF which passed on Mock ABIS service to validate the Bio-Dedupe. Based on the tag ABIS decide the uniqueness of the packet .  
 
 
 ## 6.6 Test Data
