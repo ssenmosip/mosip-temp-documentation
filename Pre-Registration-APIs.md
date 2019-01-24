@@ -23,7 +23,7 @@ This service details used by Pre-Registration portal to create the demographic f
 
 
 #### 2.7.1.1 POST Operation
-#### Path -  ` /pre-registration/applications`
+#### Path -  `/pre-registration/applications`
 #### Summary
 Create new pre-registration by demographic details or update demographic details by providing pre-registration id.
 
@@ -287,7 +287,7 @@ PRG_PAM_APP_006|PRG_PAM_APP_006 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable 
 PRG_PAM_APP_008| PRG_PAM_APP_008  --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
 
 #### 2.7.1.2 PUT Operation
-#### Path -  ` /pre-registration/applications`
+#### Path -  `/pre-registration/applications`
 #### Summary
 Update the pre-registration status by providing pre-registration id and vaild status defined in pre-registration system in request parameter.
 
@@ -327,7 +327,7 @@ PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_STATUS_CODE| Invalid or empty status
 PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID|Invalid or empty pre-registration id
 
 #### 2.7.1.3 DELETE Operation
-#### Path -  ` /pre-registration/applications`
+#### Path -  `/pre-registration/applications`
 #### Summary 
 Discard the entire pre-registration details based pre-registration id provided in request parameter.
 
@@ -371,7 +371,7 @@ PRG_PAM_APP_003|PRG_PAM_APP_003 --> DELETE_OPERATION_NOT_ALLOWED| delete operati
 PRG_PAM_APP_004|PRG_PAM_APP_004 --> FAILED_TO_DELETE_THE_PRE_REGISTRATION_RECORD| failed to delete the pre-registration record.
 
 #### 2.7.1.4 GET Operation
-#### Path -  ` /pre-registration/applications`
+#### Path -  `/pre-registration/applications`
 #### Summary
 Retrieve All Pre-Registration id, Full name, Status and Appointment details by user id.
 
@@ -426,7 +426,7 @@ Code|Message|Description
 PRG_PAM_APP_005|PRG_PAM_APP_005 --> NO_RECORD_FOUND_FOR_USER_ID|Unable to fetch the pre-Registration demographic data
 
 #### 2.7.1.5 GET Operation
-#### Path -  ` /pre-registration/applicationStatus`
+#### Path -  `/pre-registration/applications/status`
 #### Summary
 Retrieve pre-registration application status by providing the pre-registration id in request parameter.
 
@@ -466,7 +466,7 @@ Code|Message|Description
 PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID|Invalid or empty pre-registration id.
 
 #### 2.7.1.6 GET Operation
-#### Path -  ` /pre-registration/applicationDataByDateTime`
+#### Path -  `/pre-registration/applications/byDateTime`
 #### Summary 
 Retrieve pre-registration ids between created from and to dates provided in request parameters.
 
@@ -509,7 +509,7 @@ PRG_CORE_REQ_003|PRG_CORE_REQ_003 --> INVALID_REQUEST_DATETIME_FORMAT -->  yyyy-
 PRG_PAM_APP_010|PRG_PAM_APP_010 --> RECORD_NOT_FOUND_FOR_DATE_RANGE| no record found between date range.
 
 #### 2.7.1.7 GET Operation
-#### Path -  ` /pre-registration/applicationData`
+#### Path -  `/pre-registration/applications/details`
 #### Summary
 Retrieve Pre-Registration demographic data by pre-Registration id provided in request parameter.
 
