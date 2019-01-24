@@ -590,8 +590,6 @@ Registration processor takes input as packet , the validation of stages involves
 | Virus scan - Failure |
 | Decrypt packets - successful |
 | Decrypt packets - Failure |
-| Unpack packets - Success |
-| Unpack packets - Failure |
 | Metadata validation - success |
 | Metadata validation - failure |
 | File validation - Successful |
