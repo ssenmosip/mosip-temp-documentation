@@ -385,24 +385,16 @@ request: channel: email|N|Communication channel to send OTP|false| true
 ### Sample Request
 ```JSON
 {
-  // API Metadata
-  "id": "mosip.identity.otp",
-  // Request Metadata
-  "tspID": "tsp54321",
-  "licenseKey": "<licenseKey>",
-  "transactionID": "txn12345",
-  "requestTime": "2018-10-17T07:22:57.086+05:30",
-  // OTP Request
-  "request": {
-    "identity": {
-      "UIN": "678956453456",
-      "VID": "678956453456"
-    },
-    "channel": {
-      "email": true,
-      "mobile": false
-    }
-  }
+ 	// API Metadata
+	"id": "mosip.identity.otp",
+	//Request Metadata
+	"tspID": "tsp54321",
+	"idvId": "426789089018",
+	"idvIdType": "D",
+	"muaCode": "1234567890",
+	"reqTime": "2019-01-24T14:33:19.931+05:30",
+	"txnID": "txn12345",
+	"ver": "1.0"
 }
 
 ```
