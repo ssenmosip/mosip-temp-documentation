@@ -426,8 +426,7 @@ Number | Test Scenarios | Category|
 26 | Verify packet-receiver max file size in mb | 	Configuration |
 26 | Verify bio-dedupe-service threshold  | 	Configuration |
 27 | verify packet-manager virus scan location when empty  | 	Configuration |
-28 | verify packet-manager packet extension when empty | 	Configuration |
-29 | verify packet-manager encrypted packet location empty  | 	Configuration |
+
 
 [[https://github.com/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG]]
 
