@@ -409,9 +409,9 @@ Number | Test Scenarios | Category|
 9 | Verify structural validation with valid packet structure | 	Functionality |
 10 | Verify structural validation with invalid packet structure | 	Functionality |
 11 | Verify  Demographic Dedupe for valid Packet | 	Functionality |
-12 | Verify  Demographic Dedupe for Packet having exception in Demographic info | 	Functionality |
+12 | Verify  Demographic Dedupe for Packet having Duplicate Demographic info | 	Functionality |
 13 | Verify   Biometric Dedupe for valid Packet | 	Functionality |
-14 | Verify  Biometric Dedupe for Packet having exception in biometric info | 	Functionality |
+14 | Verify  Biometric Dedupe for Packet having Duplicate in biometric info | 	Functionality |
 15 | Verify Manual adjudication when demo dedup is Failure | 	Functionality |
 16 | Verify Email Notification | 	Functionality |
 17 | Verify UIN generation  | 	Functionality |
