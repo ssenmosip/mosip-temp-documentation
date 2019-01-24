@@ -464,7 +464,10 @@ After successful Bio dedupe, the UIN Generator will be called to allocate an uni
 ### 6.5.1 OSI Validation
 Testing an OSI validation we populate the MASTER DB with User,machine,center details in a combination set with valid / Invalid Details. We create packets using Utils by passing valid/Invalid details of User/Machine/Center Details .The validation of OSI stage DB record for each condition will be verified.
 ### 6.5.2 Demo Dedupe:
-Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same set data while creating the packet to validate the condition.
+Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same of set data while creating the packet to validate the condition.
+### 6.5.3 Configuration:
+Camel route xml is implemented in the private network where the stages the running lossless coupled.By Modifying the route in-out of the vertx end point we validate the stages behaviors . 
+
 
 
 ## 6.6 Test Data
