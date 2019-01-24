@@ -77,7 +77,7 @@ Generates and validates PRID(Pre-Registration ID) as per defined logic
 ## 13.3 VID Generator
 Generates and validates VID(Virtual ID) as per defined logic
 ## 13.4 Token ID Generator
-Generates and validates token ID (Token ID) as per defined logic for TSPs(Third party service provider)
+Generates and validates token ID (Token ID) as per defined logic for TSPs (Third party service provider)
 ## 13.5 Static PIN Generator
 Generates and Validate static PIN for user authentication
 ## 13.6 Registration Center ID Generator
