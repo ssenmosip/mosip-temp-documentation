@@ -53,11 +53,11 @@ User should login to the Admin portal and Download this KIT and initiate the ins
 
 
 **Database:**
-***
-   -The Derby database will be used to store the local transaction information along with Master and configuration data. 
-   -The data stored into the database would be encrypted using a particular boot key password. 
-   -The key would be maintained in TPM and same will be used during communication with database from application. 
-
+*** 
+   -The Derby database will be used to store the local transaction information along with Master and configuration data.  
+   -The data stored into the database would be encrypted using a particular boot key password.  
+   -The key would be maintained in TPM and same will be used during communication with database from application.  
+ 
 **Update:**
 ***
    **Database update:** 
@@ -69,20 +69,20 @@ User should login to the Admin portal and Download this KIT and initiate the ins
     	
 **Security:** 
 ***
-   **Data Security:** 
-   While storing the data into the local database the data would be encrypted and same would be decrypted while retrieving the same from db. The key required for the database encryption/decryption would be stored into the TPM and same will be fetched when the application start up.
-The packet created during registration process and downloaded from pre-registration application would be encrypted using asymmetric and symmetric key. 
+   **Data Security:**  
+   While storing the data into the local database the data would be encrypted and same would be decrypted while retrieving the same from db. The key required for the database encryption/decryption would be stored into the TPM and same will be fetched when the application start up.  
+The packet created during registration process and downloaded from pre-registration application would be encrypted using asymmetric and symmetric key.   
 The asymmetric key received from MOSIP server will be used for encryption of registration packet and it can only be decrypted at server end only. At regular interval the encryption public key at Registration client would be updated.
-The Symmetric key would be generated on runtime and same will be used during the pre-registration packet decryption.
-	**<TODO>:** How to secure the Docker image?
+The Symmetric key would be generated on runtime and same will be used during the pre-registration packet decryption.  
+   **<TODO>:** How to secure the Docker image?
 
-   **Key management:**
+   **Key management:**  
    The key required for encryption / decryption at different process of an application would be maintained in database and TPM.
    TPM  – it will hold the DB encryption and decryption key.
    DB 	– it will hold the pre-registration symmetric key.
         – it will also hold the Registration packet public key.
  
-   **REST Service integration Authentication:**
+   **REST Service integration Authentication:**  
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
 Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
 To generate the OAuth token the client secret key / login user id / password would be passed to the ‘Login’ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
