@@ -119,4 +119,4 @@ Provides multi language support through transliteration for admin configured pri
 This utility enable QR code generation for Pre-reg, reg and UIN acknowledgement
 # FTP\packet uploader
 ## FTP - Upload packet
-Provides a upload portal for registarion client to upload packets for sending it to registration processor
+Provides a upload portal for registration client to upload packets for sending it to registration processor
