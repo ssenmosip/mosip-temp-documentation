@@ -15,7 +15,7 @@ The Docker image would not be available as part of this KIT. It would be availab
 It also contains the DB key which is to be loaded into the TPM of client machine.
 User should login to the Admin portal and Download this KIT and initiate the installation process.
 
-   **Build Process:** 
+   **Build Process:**  
     The standard Jenkin build process would be followed to generate the Registration client docker image and the generated docker image would be placed in to the MOISP Private repository. 
 
     The Docker image contains the Derby database jar, authentication setup script, initial table creation and few insert script.
@@ -60,10 +60,10 @@ User should login to the Admin portal and Download this KIT and initiate the ins
  
 **Update:**
 ***
-   **Database update:** 
+   **Database update:**  
    If database to be updated to the next version then update the same in the Docker image [JFROG repository] and that will get downloaded through the respective Docker pull statement. Docker pull only download the updated layer [not all layers]
    
-   **Application update:** 
+   **Application update:**  
    Through application the version of Docker Image between the local repository and remote repository will be validated. If there is any difference in the version, then prompt the user to complete the current process [Registration and pushing packet] and initiate the software update process.
    
     	
@@ -96,12 +96,12 @@ To generate the OAuth token the client secret key / login user id / password wou
    •5 USB 2.0 ports or equivalent hub.  
    •Physical machine with TPM facility.   
  
-**Data Setup:** 
+**Data Setup:**  
 ***
 In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be taken care at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine mac-id and center id.
 
-   **Admin Portal:** 
+   **Admin Portal:**  
    Configure the following Data with respect to Registration client at Admin portal.
    1.	User Profile Setup. 
    2.	User Authentication Setup. 
