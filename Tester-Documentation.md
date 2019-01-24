@@ -466,7 +466,6 @@ Registration processor takes input as packet , the validation of stages involves
 
  | Packet with different Conditions | 
  | -----------------| 
-| Registration Packet size  0 MB |
 | Registration Packet size < 5 MB  |
 | Registration Packet size >5 MB (Max size Config) |
 | Half info Packet / Missing info |
