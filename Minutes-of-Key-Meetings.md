@@ -50,3 +50,8 @@ Link: [Notes from MOSIP Technology Bootcamp - 10-11Jan'19.docx](_files/Notes_fro
 Attendees: Sanjay Jain, Shrikant, Ramesh, Anadi, Krishnan, Arun Gurumurthy, Romila, Shravan, Gita, Resham, Rudra, Sanjay Zende, Avinash, Monobikash, Jyoti, Suresh HP, Prashant Mehra, GoM team and PwC team
 
 Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board-12Jan'19.docx](_files/Notes_from_meeting_with_GoM-PwC-MOSIP_Tech_Board-12Jan'19.docx)
+
+11) ## MoM: MOSIP Full Demo Pre-registration: Customer Meeting - 18Jan9
+Attendees: Anadi, Ramesh, Krishnan, Arun, Shravan, Romila, Pre-ID Issuance Team, Rounak, Amandeep, Lalana, Rahul, Nasir, Swati, Ajay and Resham
+
+Link: 
