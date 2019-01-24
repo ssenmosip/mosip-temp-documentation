@@ -463,18 +463,6 @@ After successful Bio dedupe, the UIN Generator will be called to allocate an uni
 
 ### 6.3.1 OSI Validation
 Testing an OSI validation we populate the MASTER DB with User,machine,center details in a combination set with valid / Invalid Details. We create packets using Utils by passing valid/Invalid details of User/Machine/Center Details .The validation of OSI stage DB record for each condition will be verified.
-| Packet with different Conditions | 
-| -----------------| 
-| Create a packet with unknown Operator ID  |
-| Create a packet with unknown supervisor ID not available |
-| Create a packet with unknown Machine |
-| Create a packet with unknown Center ID |
-| Create a packet for which operator-center-machine-mapping-not available |
-| Create a packet for which supervisor-center-machine-mapping-not available |
-| Create a packet with Geo data not Available |
-| Create a packet with Office supervisor is missing  |
-| Create a packet  with unknown Geo data in master DB |
-
 ### 6.3.2 Demo Dedupe:
 Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same set data while creating the packet to validate the condition.
 
