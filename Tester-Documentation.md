@@ -456,8 +456,11 @@ Number | Test Scenarios | Category|
 6.	Ensure all the depended services are deployed.
 
 ## 6.5 Test Step
-Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan initially and status will be updated in registration status table. Check the Enrollment status table for the packets for which are present in Virus Scan Folder. Scan the Virus Scan Folder for the list of Packets and Perform Virus Scan on the Packets using services from Core Kernel. In case of successful Virus Scan, moves packets to DFS.In case of Virus Scan failure, moves packets to Retry Folder. Updates the status of these packets in the Enrollment Status Table.
-Packets that successfully uploaded to file system and ready for decryption. Decrypt the encrypted zip file and receives a Zip file. Unpack the Zip file. Store the unpacked files in file system. Using  RSA PKI Algorithm we create Public keys/private Keys through which will do packet decryption. After Packet decryption, Packet will go and check Packet integrity HMAC Algorithm used to validate the (Check sum value) and structure.
+Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan folder initially and status will be updated in registration status table. 
+
+In case of successful Virus Scan, packets move to DFS. In case of Virus Scan failure, packets move to Retry Folder. The statuses of these packets is in the Enrollment Status Table.
+
+Packets are successfully uploaded to file system and ready for decryption. Decrypt the encrypted zip file and receives a Zip file. Unpack the Zip file. Store the unpacked files in file system. Using  RSA PKI Algorithm we create Public keys/private Keys through which will do packet decryption. After Packet decryption, Packet will go and check Packet integrity HMAC Algorithm used to validate the (Check sum value) and structure.
 After successful packet structure validation, the packet Meta info is stored in DB. The user, machine and center information will be further validated at Master Data in DB to check if authorized person creates the packet.
 After successful Bio dedupe, the UIN Generator will be called to allocate an unique identification number to the applicant by using 'kernel-idgenerator-uin' Rest API to generate UIN. It will return the unique id which will be allotted to the applicant.it will call kernel-idrepo-service create API to add a new applicant to id repository. After successful response from the idrepo-service, store the uin information in registration processor db. Update individual_demo_dedupe table with uin information against the registration id.
 
