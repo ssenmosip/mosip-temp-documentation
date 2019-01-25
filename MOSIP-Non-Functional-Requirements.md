@@ -203,5 +203,8 @@ For example, “The system shall retain application information for 3 years”. 
 [Describe system conventions and standards followed.
 
 For example: Microsoft standards are followed for windows, Institute of Electrical and Electronics Engineers (IEEE) for data formats, etc.]
+
+
 **APPENDIX A - GLOSSARY**
+
 [Define terms, acronyms, and abbreviations used in the FRD.] 
