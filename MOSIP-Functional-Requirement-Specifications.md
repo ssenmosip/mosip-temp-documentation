@@ -28,100 +28,99 @@ Generates acknowledgement for successful pre-registration
 # Registration
 ## 1. Registration Client Setup
 ### 1.1 Registration Client Installation
-Installing the registration-client on the machine 
+Installs the registration-client on the machine 
 ### 1.2 Registration Client Launch
 Helps in launching the registration-client
-### 1.3 Registration Client s\w Update
+### 1.3 Registration Client Software Update
 Updates the client software 
 ## 2. System Health Checker
 ### 2.1 Connectivity Checker
 Checks if the client machine is connected to the network
 ### 2.2 Security Scan
-Virus scan of the data packets and the application s\w
+Virus scan of the data packets and the application software
 ### 2.3 Disk Space Checker
 Checks whether there is enough space in the client machine\dongle to store the registration packet
 ## 3. Registration Officer Authentication
 ### 3.1 Login
-Enables logging in to the client machine by pass word, OTP or biometrics
+Enables logging in to the client machine by password, OTP or biometrics
 ### 3.2 Logout
 Logging out from the client application
 ## 4. User Onboarding/Manager
 ### 4.1 User Registration
 Enables mapping between the user and machine\dongle. Allows a user to onboard themselves on a machine
-## 5. Sync Handler
-### 5.1 Master Data Syncher
-Synchronizes master data between server to client
-### 5.2 Packet Syncher
-Send registration packet IDs from client to processor so that ensure data security
-### 5.3 Registration Packet Status Reader
-Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
-### 5.4 Registration Client Config Syncher
-Synchronizes config data between server to client
-### 5.5 User Role Setup Syncer
-Synchronizes user and role data between server to client
-### 5.6 Policy Syncher
-Synchronizes encryptions Keys between server to client
-### 5.7 Pre-registration Data Syncher
-Synchronizes pre-reg data between server to client
-### 5.8 Login Credentials Syncher
-Synchronizes login data (password) between server to client
-### 5.9 Audit Log Syncher
-Synchronize the audit log from client to server
-## 6. Registration Officer Authorization
-### 6.1 Registration Officer Authorization
-Determines the user roles and provide access based on the privileges
-## 7. Registration Application Manager - New
-### 7.1 Location Geotagging
+## 5. Language Manager
+### 5.1 Translation
+Translates the static messages as per the configures primary and secondary languages
+### 5.2 Transliteration
+Translates the user entered text from primary to secondary language
+## 6. Registration Application Manager - New
+### 6.1 Location Geotagging
 Captures the GPS co-ordinates of the client machine to ensure data integrity
-### 7.2 Individual Category Selection
+### 6.2 Individual Category Selection
 Helps to distinguish if an applicant is an adult or a child
-### 7.3 Demo Data Capture
+### 6.3 Demo Data Capture
 Captures the demographic data of the applicant
-### 7.4 Document Upload
+### 6.4 Document Upload
 Enables scan and upload supporting doc such as POA and POI
-### 7.5 Fingerprint Capture
+### 6.5 Fingerprint Capture
 Captures the finger print data and determines the quality of the data
-### 7.6 Iris Capture
+### 6.6 Iris Capture
 Captures the iris data and determines the quality of the data
-### 7.7 Face Capture
+### 6.7 Face Capture
 Captures the face photograph 
-### 7.8 Biometric exception Capture
+### 6.8 Biometric Exception Capture
 1. Captures the exception photograph
 1. Marks the biometric exceptions
-### 7.9 Registration Checks
+### 6.9 Registration Checks
 1. Preview of the registration details
 1. Operator authentication for submitting the registration
 1. Supervisor authentication for submitting registration with exception
 1. End of day approval
 1. Re-registration
-### 7.10 Acknowledgement
-Renders the Acknowledgement page after successful registration and allows printing
-### 7.11 Notification
+### 6.10 Acknowledgement
+Renders the acknowledgement page after successful registration and allows printing
+### 6.11 Notification
 Renders email and SMS notification for various events such as successful registration
-## 8. Language Manager
-### 8.1 Translation
-Translates the static messages as per the configures primary and secondary languages
-### 8.2 Transliteration
-Translates the user entered text  from  primary to secondary language
-## 9. Registration Packet Manager
-### 9.1 Packet Creation
+## 7. Registration Officer Authorization
+Determines the user roles and provides access based on the privileges
+## 8. Registration Packet Manager
+### 8.1 Packet Creation
 Creates the encrypted data packets
-### 9.2 Packet Exporter
+### 8.2 Packet Exporter
 Allows sending packets to the processing server
 1. Using the upload feature of the client
 1. Copying packets to an external storage device
-## 10. Clean Up
-### 10.1 Data Clean Up
+## 9. Sync Handler
+### 9.1 Master Data Syncher
+Synchronizes master data between server to client
+### 9.2 Packet Syncher
+Send registration packet IDs from client to processor so that to ensure data security
+### 9.3 Registration Packet Status Reader
+Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
+### 9.4 Registration Client Configuration Syncher
+Synchronizes configuration data between server to client
+### 9.5 User Role Setup Syncer
+Synchronizes user and role data between server to client
+### 9.6 Policy Syncher
+Synchronizes encryptions Keys between server to client
+### 9.7 Pre-registration Data Syncher
+Synchronizes pre-registration data between server to client
+### 9.8 Login Credentials Syncher
+Synchronizes login data (password) between server to client
+### 9.9 Audit Log Syncher
+Synchronize the audit log from client to server
+## 10. Individual UIN - Update
+### 10.1 UIN Update
+Allows the UIN holder to update their data (A specific set of data as defined by the country)
+## 11. Reporting
+### 11.1 Registration Reports
+Generates reports on end of day process and re-registration
+## 12. Clean Up
+### 12.1 Data Clean Up
 Deletes the following data from the client machine after successful registration:
 1. Registration
 1. Pre-registration
 1. Audit
-## 11. Individual UIN - Update
-### 11.1 UIN Update
-Allows the UIN holder to update their data (A specific set of data as defined by the country)
-## 12. Reporting
-### 12.1 Registration Reports
-Generates Reports on end of day process and re-registration
 # Registration Processor
 ## 1. Minutiae Extractor
 ### 1.1 Minutiae Extraction Algorithm
