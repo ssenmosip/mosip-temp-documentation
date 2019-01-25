@@ -631,3 +631,32 @@ Name | Required | Description | Default Value | Example
 		"maxDocSizeInMB":150
 }
 ```
+# 5. UIN
+## 5.1 UIN-get service
+
+This service will provides a new UIN which can be used to associated with an individual. 
+
+### Resource URL
+### `GET /uin`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description |  Example
+-----|----------|-------------|--------
+-NA-
+
+### Example Request
+/uin
+
+### Example Response
+```JSON
+{
+  "uin": "659216209103"
+}
+```
