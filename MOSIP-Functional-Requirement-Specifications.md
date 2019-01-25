@@ -99,7 +99,7 @@ Send registration packet IDs from client to processor so that to ensure data sec
 Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
 ### 9.4 Registration Client Configuration Syncher
 Synchronizes configuration data between server to client
-### 9.5 User Role Setup Syncer
+### 9.5 User Role Setup Syncher
 Synchronizes user and role data between server to client
 ### 9.6 Policy Syncher
 Synchronizes encryptions Keys between server to client
@@ -142,7 +142,7 @@ It performs integrity validation (checksum) and file validation
 ### 3.2 Packet Data Extractor
 Extracts data from JSON object and store in DB 
 ### 3.3 OSI Data Validator
-Authenticate operator, supervisor and introducer information received in data packet and validate the meta data captured during packet creation
+Authenticate operator, supervisor and introducer information received in data packet and validate the metadata captured during packet creation
 ### 3.4 Demo de-dupe
 Demographic de-duplication of name, gender and DOB
 ### 3.5 Biometric Quality Checker
