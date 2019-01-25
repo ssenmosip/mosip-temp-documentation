@@ -404,18 +404,17 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  // API Metadata
-  "id": "mosip.identity.otp",
-  "version": "1.0",
-  // Response Metadata
-  "transactionID": "txn12345",
-  "responseTime": "2018-10-17T07:23:19.590+05:30",
-  // OTP Response
+ // Response Metadata
+  "status": "Y",
   "err": [],
-  "response": {
-    "maskedMobile": "XXXXXXX123",
-    "maskedEmail": "abXXXXXXXXXcd@xyz.com"
-  }
+  "txnID": "txn67890",
+  "resTime": "2019-01-25T12:10:07.899+05:30",
+  "info": {
+    "idType": "D",
+    "reqTime": "2019-01-24T17:19:17.078+05:30",
+    "usageData": "<usage and matched data on bits>"
+  },
+  "ver": "1.0"
 }
 ```
 
@@ -424,19 +423,17 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  // API Metadata
-  "id": "mosip.identity.otp",
-  "version": "1.0",
-  // Response Metadata
-  "transactionID": "txn12345",
-  "responseTime": "2018-10-17T07:23:19.590+05:30",
-  // OTP Response
+ // Response Metadata
+  "status": "N",
   "err": [
     {
-      "code": "IDA-OTA-006",
-      "message": "OTP is Invalid"
+      "errorCode": "IDA-OTA-006",
+      "errorMessage": "OTP is invalid"
     }
-  ]
+  ],
+  "txnID": "txn67890",
+  "resTime": "2019-01-25T12:11:11.416+05:30",
+  "ver": "1.0"
 }
 ```
 
