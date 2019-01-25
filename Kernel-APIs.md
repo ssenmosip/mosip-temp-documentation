@@ -636,8 +636,49 @@ Name | Required | Description |  Example
 }
 ```
 
-# 6. Email Notifier
-## 6.1 Email Notifier
+# 6. SMS Notifier
+## 6.1 SMS Notifier
+This service sends a SMS to the recepient mobile number. 
+
+The SMS service provider should be configured before the usage of this service. The SMS server details are maintained as part of the Config server. 
+
+
+### Resource URL
+### `POST /sms/send`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+message |Yes|Message in the SMS| | This is the sample SMS message
+number |Yes|Mobile number to which the SMS have to be sent| | 743764398
+
+
+### Example Request
+```Form Data
+{
+  "message": "string",
+  "number": "string"
+}
+```
+### Example Response
+```JSON
+{
+  "message": "string",
+  "status": "string"
+}
+```
+
+
+# 7. Email Notifier
+## 7.1 Email Notifier
 This service sends the email to the receiver. 
 
 The email service provider should be configured before the usage of this service. The SMTP server details are maintained as part of the Config server. 
