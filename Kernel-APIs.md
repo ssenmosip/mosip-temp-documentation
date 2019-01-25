@@ -523,26 +523,11 @@ Name | Required | Description | Default Value | Example
 		"pridLength":32,
 		"tokenIdLength":23,
 		"tspIdLength":24,
-		"registrationCenterId":"KDUE83CJ3",
-		"machineId":"MCBD3UI3",
 		"mobilenumberlength":10,
-		"restrictedNumbers":[
-			"8732","321","65"
-		],
-		"languagesSupported":[
-			{
-				"language":"eng",
-				"primary":true
-			},
-			{
-				"language":"ara",
-				"primary":false
-			},
-			{
-				"language":"fra",
-				"primary":false
-			}
-		]
+		"restrictedNumbers":"8732,321,65",
+		"languagesSupported":"eng,ara,fra",
+		"primaryLanguage":"ara",
+		"secondaryLanguage":"fra"
 }
 ```
 # 4 Registration Center config
@@ -574,10 +559,6 @@ Name | Required | Description | Default Value | Example
 ```JSON
 {
 		"loginMode":"bootable dongle",
-		"languages":{
-			"primary":"arabic",
-			"secondary":"french"
-		},
 		"fingerprintQualityThreshold":120,
 		"fingerprintRetryAttempts":234,
 		"irisQualityThreshold":25,
@@ -601,16 +582,14 @@ Name | Required | Description | Default Value | Example
 		"keyValidityPeriodRegPack":3,
 		"keyValidityPeriodPreRegPack":3,
 		"retentionPeriodAudit":3,
-		"automatedSyncFrequency": {
-			"masterDataServerToClient":3,
-			"clientConfigServerToClient":3,
-			"regIdsClientToServer":3,
-			"regPacketStatusServerToClient":3,
-			"loginCredentialsSync":3,
-			"policySyncServerToClient":3,
-			"clientStateServerToClient":3,
-			"userRoleRightsServerToClient":3,
-		},
+		"automatedSyncFrequency.masterDataServerToClient":3,
+		"automatedSyncFrequency.clientConfigServerToClient":3,
+		"automatedSyncFrequency.regIdsClientToServer":3,
+		"automatedSyncFrequency.regPacketStatusServerToClient":3,
+		"automatedSyncFrequency.loginCredentialsSync":3,
+		"automatedSyncFrequency.policySyncServerToClient":3,
+		"automatedSyncFrequency.clientStateServerToClient":3,
+		"automatedSyncFrequency.userRoleRightsServerToClient":3,
 		"automaticSyncFreqServerToClient":25,
 		"blockRegistrationIfNotSynced":10,
 		"maxDurationRegPermittedWithoutMasterdataSyncInDays":10,
@@ -619,11 +598,7 @@ Name | Required | Description | Default Value | Example
 		"noOfFingerprintAuthToOnboardUser":10,
 		"noOfIrisAuthToOnboardUser":10,
 		"multifactorauthentication":true,
-		"loginsequence":{
-                     "1":"OTP",
-                     "2":"Password",
-                     "3":"Fingerprint"
-                 },
+		"loginsequence":"OTP,Password,Fingerprint"
 		"gpsDistanceRadiusInMeters":3,
 		"officerAuthType":"password",
 		"supervisorAuthType":"password",
