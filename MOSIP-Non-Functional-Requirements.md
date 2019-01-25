@@ -121,7 +121,7 @@ This utility enable QR code generation for pre-registration, registration and UI
 ### 21.1 FTP - Upload Packet
 Provides an upload portal for registration client to upload packets for sending it to registration processor
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-## TBD-WIP sections 22-25
+# TBD-WIP sections 22-25
 ## 22. Interface Requirements
 [Describe the user interfaces that are to be implemented by the system.]
 ### 22.1 Hardware Interfaces
