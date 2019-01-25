@@ -635,3 +635,37 @@ Name | Required | Description |  Example
   "uin": "659216209103"
 }
 ```
+
+# 6. Email Notifier
+## 6.1 Email Notifier
+This service sends the email to the receiver. 
+
+The email service provider should be configured before the usage of this service. The SMTP server details are maintained as part of the Config server. 
+
+
+### Resource URL
+### `POST /email/send`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | Form Data
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+key |Yes|Key| | 9820173642
+
+### Example Request
+```Form Data
+curl -X POST "https://integ.mosip.io/emailnotifier/v1.0/email/send" -H "accept: */*" -H "Content-Type: multipart/form-data" -F "mailCc=john.panneerselvam@mindtree.com" -F "mailContent=Sample main content" -F "mailSubject=Sample mail subject" -F "mailTo=john.panneerselvam@mindtree.com"
+```
+### Example Response
+```JSON
+{
+  "status": "Email Request submitted"
+}
+```
