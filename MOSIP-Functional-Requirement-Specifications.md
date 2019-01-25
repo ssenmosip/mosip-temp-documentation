@@ -1,0 +1,175 @@
+# Pre-Registration
+## 1. Authentication
+### 1.1 Login
+Log in to the pre-registration system with mobile or email with OTP so that you can access the pre-registration system
+### 1.2 Logout
+Log out from the pre-registration system
+## 2. Language Data Manager
+### 2.1 Translation
+Translation of the language as per the pre-configured primary and secondary language of a country
+### 2.2 Transliteration
+Transliteration of the language as per the pre-configured secondary language for a country
+## 3. Pre-Registration Sync
+### 3.1 Pre-Registration Data Sync
+1. Synchronizes the pre-registration data with the registration-client 
+1. Synchronizes status of pre-ID with registration processor
+## 4. Appointment Scheduler
+### 4.1 RC Identifier
+Provides search facility for available registration centers so that applicant can book an appointment  
+### 4.2 Availability Checker  
+Getting availability of slots in the chosen registration center
+### 4.3 Appointment Booking  
+Booking\re-booking the selected slot in the chosen registration-center for registration
+## 5. Pre-Registration Application Manager
+### 5.1 Pre-Registration Application Manager
+Collects (create\modify\delete) demographic data and documents from the user\applicant
+### 5.2 Acknowledgement
+Generates acknowledgement for successful pre-registration
+# Registration
+## 1. Registration Client Setup
+### 1.1 Registration Client Installation
+Installing the registration-client on the machine 
+### 1.2 Registration Client Launch
+Helps in launching the registration-client
+### 1.3 Registration Client s\w Update
+Updates the client software 
+## 2. System Health Checker
+### 2.1 Connectivity Checker
+Checks if the client machine is connected to the network
+### 2.2 Security Scan
+Virus scan of the data packets and the application s\w
+### 2.3 Disk Space Checker
+Checks whether there is enough space in the client machine\dongle to store the registration packet
+## 3. Registration Officer Authentication
+### 3.1 Login
+Enables logging in to the client machine by pass word, OTP or biometrics
+### 3.2 Logout
+Logging out from the client application
+## 4. User Onboarding/Manager
+### 4.1 User Registration
+Enables mapping between the user and machine\dongle. Allows a user to onboard themselves on a machine
+## 5. Sync Handler
+### 5.1 Master Data Syncher
+Synchronizes master data between server to client
+### 5.2 Packet Syncher
+Send registration packet IDs from client to processor so that ensure data security
+### 5.3 Registration Packet Status Reader
+Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
+### 5.4 Registration Client Config Syncher
+Synchronizes config data between server to client
+### 5.5 User Role Setup Syncer
+Synchronizes user and role data between server to client
+### 5.6 Policy Syncher
+Synchronizes encryptions Keys between server to client
+### 5.7 Pre-registration Data Syncher
+Synchronizes pre-reg data between server to client
+### 5.8 Login Credentials Syncher
+Synchronizes login data (password) between server to client
+### 5.9 Audit Log Syncher
+Synchronize the audit log from client to server
+## 6. Registration Officer Authorization
+### 6.1 Registration Officer Authorization
+Determines the user roles and provide access based on the privileges
+## 7. Registration Application Manager - New
+### 7.1 Location Geotagging
+Captures the GPS co-ordinates of the client machine to ensure data integrity
+### 7.2 Individual Category Selection
+Helps to distinguish if an applicant is an adult or a child
+### 7.3 Demo Data Capture
+Captures the demographic data of the applicant
+### 7.4 Document Upload
+Enables scan and upload supporting doc such as POA and POI
+### 7.5 Fingerprint Capture
+Captures the finger print data and determines the quality of the data
+### 7.6 Iris Capture
+Captures the iris data and determines the quality of the data
+### 7.7 Face Capture
+Captures the face photograph 
+### 7.8 Biometric exception Capture
+1. Captures the exception photograph
+1. Marks the biometric exceptions
+### 7.9 Registration Checks
+1. Preview of the registration details
+1. Operator authentication for submitting the registration
+1. Supervisor authentication for submitting registration with exception
+1. End of day approval
+1. Re-registration
+### 7.10 Acknowledgement
+Renders the Acknowledgement page after successful registration and allows printing
+### 7.11 Notification
+Renders email and SMS notification for various events such as successful registration
+## 8. Language Manager
+### 8.1 Translation
+Translates the static messages as per the configures primary and secondary languages
+### 8.2 Transliteration
+Translates the user entered text  from  primary to secondary language
+## 9. Registration Packet Manager
+### 9.1 Packet Creation
+Creates the encrypted data packets
+### 9.2 Packet Exporter
+Allows sending packets to the processing server
+1. Using the upload feature of the client
+1. Copying packets to an external storage device
+## 10. Clean Up
+### 10.1 Data Clean Up
+Deletes the following data from the client machine after successful registration:
+1. Registration
+1. Pre-registration
+1. Audit
+## 11. Individual UIN - Update
+### 11.1 UIN Update
+Allows the UIN holder to update their data (A specific set of data as defined by the country)
+## 12. Reporting
+### 12.1 Registration Reports
+Generates Reports on end of day process and re-registration
+# Registration Processor
+## 1. Minutiae Extractor
+### 1.1 Minutiae Extraction Algorithm
+Extract Minutiae from finger print image to store in ID repository
+## 2. Notification Manager
+### 2.1 Notification-sms
+Send SMS notification for registration success and failure scenarios 
+### 2.2 Notification-email
+Send email notification for registration success and failure scenarios 
+## 3. Print
+### 3.1 Print Queue 
+Make the UIN data available for printing and postal services
+## 4. Registration Packet Handler
+### 4.1 Packet Mover
+To move packets from one folder location to another in reg-processor workflow
+### 4.2 Packet File Virus Scanner
+Performs virus scan of the encrypetd and de-crypted packet
+### 4.3 Packet Store
+A distributed file system to store decrypted data packets
+### 4.4 Archive Packets
+Makes the data packets available for archival
+### 4.5 Packet Decryptor
+Decrypts the data packets for further processing
+## 5. Registration Packet Processor
+### 5.1 Packet Structure Validator
+It performs integrity validation (Checksum) and file validation
+### 5.2 Packet Data Extractor
+Extracts data from json object and store in DB 
+### 5.3 OSI Data Validator
+Authenticate operator, supervisor and introducer information received in data packet and validate the meta data captured during packet creation
+### 5.4 Demo de-dupe
+Demographic de-duplication of name, gender and DOB
+### 5.5 Biometric  Quality Checker
+Checks the quality of biometric data against a configured standard
+### 5.6 Biometric De-dupe
+Biometric de-duplication of biometrics using ABIS
+## 6. Registration Status Service
+### 6.1 Registration Status Updater
+As the per the stage driven architecture this utility updates the status in the DB  for the data packet at every stage
+## 7. UIN Generator
+### 7.1 UIN Generator
+Generates UIN as per the defined logic
+### 7.2 UIN Acknowledgement Generator (Provided By Core Kernel)
+Generates a PDF acknowledgement of the UIN card
+## 8. UIN Lifecycle Manager
+### 8.1 UIN De-Activator
+De-activates a UIN
+### 8.2 UIN Re-Activate
+Re-activates a UIN
+### 8.3 UIN Updater
+Updates UIN data of an existing UIN

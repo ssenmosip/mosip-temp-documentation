@@ -5,38 +5,38 @@ Attendees: Sanjay Jain, Pramod Verma, Arun, Shrikant, Anadi, Shravan, Romila and
 
 Link: [MOSIP Technical Review - Monday 8th Oct, 2018 2-4pm @ 4th flr Ekstep.docx](_files/MOSIP_Technical_Review-Monday_8thOct2018_2-4pm@4th_flr_Ekstep.docx)
 
-2) ## Observations on MOSIP Technology Documents - PwC/GoM Call - 24Oct18
+2) ## Observations on MOSIP Technology Documents - PwC/GoM Call - 24Oct'18
 Attendees: Tech Board and GoM/PwC
 
 Link: [Observations on MOSIP Technology Documents_PwC_GoM_Call_24Oct18.docx](_files/Observations_on_MOSIP_Technology_Documents_PwC_GoM_Call_24Oct18.docx)
 
-3) ## Call between Sanjay and Nanawati - 01Nov18
+3) ## Call between Sanjay and Nanawati - 01Nov'18
 Attendees: Sanjay Jain, Nanawati/PwC
 
 Link: [Call between Sanjay and Nanawati _01Nov18.docx](_files/Call_between_Sanjay_and_Nanawati_01Nov18.docx)
 
-4) ## MoM Discussion with Pramod Verma Customer Meeting - 21Nov18
+4) ## MoM Discussion with Pramod Verma Customer Meeting - 21Nov'18
 Attendees: Pramod Verma, Shrikant, Ramesh, Anadi, Shravan and Resham
 
 Link: [MoM Discussion with Pramod Verma Customer Meeting 21Nov18.docx](_files/MoM_Discussion_with_Pramod_Verma_Customer_Meeting_21Nov18.docx)
 
 
-5) ## Meeting with Vivek Raghavan - 01Dec18
+5) ## Meeting with Vivek Raghavan - 01Dec'18
 Attendees: Vivek Raghavan, Arun, Anadi, Shrikant, Shravan, Romila, Rounak and Resham
 
 Link: [Meeting with Vivek Raghavan_01Dec18.docx](_files/Meeting_with_Vivek_Raghavan_01Dec18.docx)
 
-6) ## Conference Call with GoM - 12Dec18
+6) ## Conference Call with GoM - 12Dec'18
 Attendees: Shrikant, Ramesh, Shravan, Rounak, Lalana, Resham, PwC and GoM delegates
 
 Link: [Conference_Call_with_GoM-12Dec18.docx](_files/Conference_Call_with_GoM-12Dec18.docx)
 
-7) ## MOSIP BootCamp - Preview to Functional Demo - 31Dec18
+7) ## MOSIP BootCamp - Preview to Functional Demo - 31Dec'18
 Attendees: Shrikant, Ramesh, Krishnan, Sumeet, Ketan, Geetanjali, Vivek and Resham
 
 Link: [MOSIP BootCamp - Preview to Functional Demo - 31Dec18.docx](_files/MOSIP_BootCamp-Preview_to_Functional_Demo-31Dec18.docx)
 
-8) ## Pre dry-run of MOSIP BootCamp - Functional Demo and Scope Finalization - 04Jan19
+8) ## Pre dry-run of MOSIP BootCamp - Functional Demo and Scope Finalization - 04Jan'19
 Attendees: Shrikant, Ramesh, Anadi, Krishnan, Romila, Sumeet, Geetanjali, Vivek and Resham
 
 Link: [Pre dry-run of MOSIP BootCamp - Functional Demo and Scope Finalization_04Jan18.docx](_files/Pre_dry-run_of_MOSIP_BootCamp-Functional_Demo_and_Scope_Finalization_04Jan18.docx)
@@ -50,3 +50,8 @@ Link: [Notes from MOSIP Technology Bootcamp - 10-11Jan'19.docx](_files/Notes_fro
 Attendees: Sanjay Jain, Shrikant, Ramesh, Anadi, Krishnan, Arun Gurumurthy, Romila, Shravan, Gita, Resham, Rudra, Sanjay Zende, Avinash, Monobikash, Jyoti, Suresh HP, Prashant Mehra, GoM team and PwC team
 
 Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board-12Jan'19.docx](_files/Notes_from_meeting_with_GoM-PwC-MOSIP_Tech_Board-12Jan'19.docx)
+
+11) ## MOSIP Full Demo_Pre-registration: Customer Meeting - 18Jan'19
+Attendees: Anadi, Ramesh, Krishnan, Arun, Shravan, Romila, Pre-ID Issuance Team, Rounak, Amandeep, Lalana, Rahul, Nasir, Swati, Ajay and Resham
+
+Link: [MoM - MOSIP Full Demo Pre-registration - Customer Meeting - 18Jan9.docx](_files/MoM_MOSIP_Full_Demo_Pre_registration_Customer_Meeting_18Jan9.docx)

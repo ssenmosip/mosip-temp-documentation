@@ -106,8 +106,91 @@ Adding logic to encode/encrypt specific demographic/biometric data
 
 Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
 
-## 2.2 Module level testing
+## 2.2 Api Testing Strategy
+
+Api Testign is broadly classified as Component and integration(Scenario) testing.
+
+### Component Tests
+Component tests are like unit tests for the API - It checks individual methods available in the API in isolation. We create these tests by making a test step for each method or resource that is available in the service contract. 
+
+The easiest way to create component tests is to consume the service contract and let it create the clients. We will then data-drive each individual test case with positive and negative data to validate that the responses that come back have the following characteristics:
+
+* 	 The request json payload is well-formed (schema validation)
+* 	The response json payload is well-formed (schema validation)
+* 	The response status is as expected (200 OK, SQL result set returned)
+* 	The response error payloads contain the correct error messages and error codes
+* 	Assertion - the individual elements in the response match our expectations (presence of specific element, datatype 
+        of element etc).
+* 	The service responds within an expected time frame 
+* 	Validate how the system behaves when some request headers are missing, e.g., Content-Type, Authorization, etc.
+*	Checking what happens if provide query parameters for a method that should accept only form parameters in a body
+* 	verifying whether a protected resource is not available over HTTP when it should be only on HTTPS
+* 	Business logic testing. Say while Fetching application (PreId) presence of valid Preregistration ID is mandatory      
+       in the request.
+* 	Positive and Negative testing. Making sure that if you make a bad request, it responds as expected.
+
+These individual API tests are the most important tests that we build because they will be leveraged in all of the subsequent testing techniques.  These tests simplify the process of approaching API testing.
+
+### Scenario Tests
+Under this type of testing, we assemble the individual component tests into a sequence, much like the example described as below.
+Ex: Create Application, Upload Document, Book appointment and Fetch Application data.
+There are two great techniques for obtaining the sequence:
+1.	Review the user story to identify the individual API calls that are being made.
+2.	Exercise the UI and capture the traffic being made to the underlying APIs.
+
+Scenario tests allow us to understand if defects might be introduced by combining different data points together.
+
+
+## 2.3 Module level testing
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
+
+# Registration Client Approach
+
+Please ensure the following prerequisites is available in the machine from where we are going to launch and test the application:
+1. Updated derby DB 
+2. Registration-UI jar
+3. Java version (build 1.8.0_181-b13)
+
+First in order to launch the application, we must configure our machine to the center and it can be achieved by inserting a query in Derby DB where user will insert / update the MAC address of the particular machine from where user launches the application.
+
+# Login Functionality:
+To create a packet, the user must have a valid user name and password and more importantly on-boarded to the machine. The User can create one using insert query in "User details" table in Derby DB.Once logged in to the application, the user will be routed to "Home screen" where the user has option to start a New Registration, UIN Update and Lost UIN. If the credentials are not valid or the user is not on-boarded then the application will display appropriate error message and restricts the user to proceed further
+
+# Packet Creation:
+
+## a. Pre-Registration Sync:
+The resident's are allowed to provide their Demographic and basic proof documents via online. Upon completion of those information, they will be provided with a PRID. Post that the resident are supposed to make an appointment to the registration center and complete the registration. Once the PRID is generated, the pre-registration team will provide a service through which they will put all PRID available for the registration client and in turn RC team will get those in to their DB by Pre-Registration sync.
+
+## b. Demo Data Capture:
+Using New Registration tab on home screen, the user can either enter the resident's detail manually or the user can fetch the details using PRID(Pre-registration ID). When user fetches the details using PRID, the RC will check whether the information is available in DB and if not it will check online and based on availability it will display the details. If in case, the details are available in both places, then it will fetch it from online considering the online is the recent and updated one. All mandatory fields needs to be captured and the configured secondary language will display the same on the right hand side of the application. If user wants to transliterate the information, then using virtual keyboard the user can enter the data.
+
+## c. Document Upload
+Once demographic information are captured, the user has to upload the necessary documents through document upload screen and the document category will come from Master data. The user will not be allowed to upload more than one document type for a single category. The RC should not have an option to store or export it to external devices but must have access to view and delete it.
+
+## d. Biometric capture:
+Since due to non-availability of external devices, biometric details are stubbed while creating a packet. Biometric details like Fingerprint (4+4+2), IRIS (1+1) and Face photo. Except applicant photo, all other details are stubbed.Also the biometric details are placed as CBEFF file format in the packets.
+
+## e. Preview
+After user has captured all the information, the application will display the preview screen where the user and resident will re-verify for correctness of information. If something needs to be changed, using Edit option the user will change the value and complete the registration capture process
+
+## f. Registration Authentication
+The final step to create a packet is by authenticating it with RO credentials. The packets which have biometric exception information will need supervisor credentials for authenticating it. Upon successful authentication, the packet will get created and stored in the default configured path. 
+
+# EOD Process:
+In EOD process, the user can either approve a packet or reject with reasons. The list of reason to reject will come from master data and this can be achieved by sync job. Only supervisor will have access to EOD process. Once supervisor logged in and start to approve the packet. Before approving, all pending approval packets are available in "Pending approval" queue. Select a packet / group of packets and user can approve / reject based on necessity. 
+
+# Upload Packets:
+Click the upload button and all the internal approved packets will get uploaded and moved to the server. The UI will display the uploaded status whether it is uploaded successfully or not. 
+
+# Packet Validation:
+## a.	Basic Checks:
+1. Packet store folder and packet availability
+2. Acknowledgement
+3. Packet is encrypted or not
+
+## b.	Advanced checks: 
+1. Decrypt the packet using the utility and verify the packet structure like availability of Demo, Bio, HMAC, Documents uploaded, Exception info, Supervisor and RO info 
+
 
 **<GITA - context setting and high level approach continues here>**
 
@@ -304,6 +387,314 @@ Example: txn_id in the response should match with txn_id in request, which is dy
 # 5 Scope of apis
 
 Get the clarity of feature under scope of testing. Testing the features which are not under current scope and 3rd party operations should be avoided.  3rd party apis are tested only to check if it is prompting expected element/status. This strategy helps us to arrive with quality tests. 
+
+# 6 Test Strategy
+## 6.1 Registration Processor
+Registration Processor is the core part of MOSIP where the Identity and Validation of resident’s enrolled data happens, and on a successful verification UIN will be generated and delivered to the residents. Functional verification and security aspects plays a critical role in evaluation of Registration Processor. Unlike the regular black box testing, this will be more of a Grey box testing that involves verification of the stages for the Registration Processor Module of the MOSIP Software.
+## 6.2 Module Level Testing
+This testing ensures Registration Processor Module level operation performed correctly (intended) without any issues. Example: Registration Processor starts with uploading packets leading to virus scan, then to Packet store and finally creating the UIN. 
+## 6.3 Registration Processor Workflow 
+Following are the high level positive and negative scenarios covering the below shown workflow diagram of the reg proc module
+
+Number | Test Scenarios | Category| 
+-----  | -----------------|-------------|
+1 | Verify Packet is Unique/Duplicate | 	Functionality | 
+2 | Verify Packet sync for which packet generated from Registration client | 	Functionality |
+3 | Verify whether Virus scan is success/Failure for RID Packet | 	Functionality |
+4 | Verify Packet Archival location | 	Functionality |
+5 | Verify Packet Decryption with the valid key store | 	Functionality |
+6 | Verify Packet Decryption with the invalid key store | 	Functionality |
+7 | Verify Packet Integrity with valid check sum value | 	Functionality |
+8 | Verify Packet Integrity with invalid check sum value | 	Functionality |
+9 | Verify structural validation with valid packet structure | 	Functionality |
+10 | Verify structural validation with invalid packet structure | 	Functionality |
+11 | Verify  Demographic Dedupe for valid Packet | 	Functionality |
+12 | Verify  Demographic Dedupe for Packet having Duplicate Demographic info | 	Functionality |
+13 | Verify   Biometric Dedupe for valid Packet | 	Functionality |
+14 | Verify  Biometric Dedupe for Packet having Duplicate in biometric info | 	Functionality |
+15 | Verify Manual adjudication when demo dedup is Failure | 	Functionality |
+16 | Verify Email Notification | 	Functionality |
+17 | Verify UIN generation  | 	Functionality |
+18 | Verify Invalid Packet naming convention  | 	Functionality |
+19 | Verify Packet name exceeding less than 29 digits  | 	Functionality |
+20 | Verify Packet name exceeding more than 29 digits | 	Functionality |
+21 | Verify Invalid Fotrmat  | 	Functionality |
+22 | Verify SMS Notification  | 	Functionality |
+23 | Verify RegistrationProcessorIdentity json file   | 	Configuration |
+24 | Verify Camel route XML  | 	Configuration |
+25 | Verify bio-dedupe-service max result  | 	Configuration |
+26 | Verify packet-receiver max file size in mb | 	Configuration |
+26 | Verify bio-dedupe-service threshold  | 	Configuration |
+27 | verify packet-manager virus scan location when empty  | 	Configuration |
+
+
+[[https://github.com/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG]]
+
+## 6.4 Pre-requisite for Reg Proc testing
+1.	Create resident test packet from reg client
+2.	Ensure Reg Proc and all its associated job are up and running
+
+ | Jobs | 
+ | -----------------| 
+ | packet-receiver-stage-1.0.0-SNAPSHOT.jar |
+ | virus-scanner-stage-1.0.0-SNAPSHOT.jar |
+ | packet-uploader-stage-1.0.0-SNAPSHOT.jar |
+ | osi-validator-stage-1.0.0-SNAPSHOT.jar |
+ | demo-dedupe-stage-1.0.0-SNAPSHOT.jar |
+ | packet-bio-dedupe-api-1.0.0-SNAPSHOT.jar |
+ | registration-processor-abis-1.0.0-SNAPSHOT.jar |
+ | bio-dedupe-stage-1.0.0-SNAPSHOT.jar|
+ | ui-generator-stage-1.0.0-SNAPSHOT.jar |
+ | manual-verification-stage-1.0.0-SNAPSHOT.jar |
+ | packet-validator-stage-1.0.0-SNAPSHOT.jar |
+
+
+3.	Ensure DB is up and running fine. 
+4.	Ensure the required DB scripts (Master Data / Schema) are executed.
+5.	Required Privileges to DB for Testdata updates to create positive / negative flow.
+6.	Ensure all the depended services are deployed.
+
+## 6.5 Test Step
+Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan folder initially and status will be updated in registration status table. 
+
+In case of successful Virus Scan, packets move to DFS. In case of Virus Scan failure, packets move to Retry Folder. The statuses of these packets is in the Enrollment Status Table.
+
+Packets are successfully uploaded to file system and ready for decryption. Decrypt the encrypted zip file and receives a Zip file. Unpack the Zip file. Store the unpacked files in file system. Using  RSA PKI Algorithm we create Public keys/private Keys through which will do packet decryption. After Packet decryption, Packet will go and check Packet integrity HMAC Algorithm used to validate the (Check sum value) and structure.
+After successful packet structure validation, the packet Meta info is stored in DB. The user, machine and center information will be further validated at Master Data in DB to check if authorized person creates the packet.
+After successful Bio dedupe, the UIN Generator will be called to allocate an unique identification number to the applicant by using 'kernel-idgenerator-uin' Rest API to generate UIN. It will return the unique id which will be allotted to the applicant.it will call kernel-idrepo-service create API to add a new applicant to id repository. After successful response from the idrepo-service, store the uin information in registration processor db. Update individual_demo_dedupe table with uin information against the registration id.
+
+### 6.5.1 OSI Validation
+Testing an OSI validation we populate the MASTER DB with User,machine,center details in a combination set with valid / Invalid Details. We create packets using Utils by passing valid/Invalid details of User/Machine/Center Details .The validation of OSI stage DB record for each condition will be verified.
+### 6.5.2 Demo Dedupe:
+Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same of set data while creating the packet to validate the condition.
+### 6.5.3 Configuration:
+Camel route xml is implemented in the private network where the stages are running on loosely coupled.By Modifying the route in-out of the vertx end point we validate the stages behaviors . 
+### 6.5.4 Bio-Dedupe:
+We create packet with dummy tag as unique / duplicate in CBEF which passed on Mock ABIS service to validate the Bio-Dedupe. Based on the tag ABIS decide the uniqueness of the packet .  
+
+
+## 6.6 Test Data
+Registration processor takes input as packet , the validation of stages involves data carried inside the packet. To validate positive and negative conditions we need to create the different combination of packet as mentioned below.
+
+ | Packet with different Conditions | 
+ | -----------------| 
+| Registration Packet size < 5 MB  |
+| Registration Packet size >5 MB (Max size Config) |
+| Half info Packet / Missing info |
+| Existing RID in DB |
+| packet name with Valid Centre ID |
+| packet name with valid Machine ID |
+| packet name with valid Centre ID and valid Machine ID |
+| packet name with  Invalid Centre ID |
+| packet name with Invalid Machine ID |
+| packet name with Ivalid Centre ID and invalid Machine ID |
+| packet name with invalid Centre ID and invalid Machine ID |
+| packet name with invalid Centre ID and valid Machine ID |
+| packet name with Invalid Packet naming convention - Date |
+| packet name with Invalid Packet naming convention - Month |
+| packet name with Invalid Packet naming convention - Year |
+| packet name with Invalid Packet naming convention - Time (H) |
+| packet name with Invalid Packet naming convention - Time (M) |
+| Invalid Packet naming convention - Time (S) |
+| Valid Packet naming convention - Date |
+| Valid Packet naming convention - Month |
+| Valid Packet naming convention - Year |
+| Valid Packet naming convention - Time (H) |
+| Valid Packet naming convention - Time (M) |
+| Valid Packet naming convention - Time (S) |
+| Packet name combination - Text + Symbol |
+| Packet name combination - Text + Number |
+| Packet name combination - Symbol + Number |
+| Packet name combination - Invalid Date + Invalid Month |
+| Packet name combination - Invalid Date + Invalid Year |
+| Packet name combination - Invalid Date + Invalid Time (H) |
+| Packet name combination - Invalid Date + Invalid Time (M) |
+| Packet name combination - Invalid Date + Invalid Time (S) |
+| Packet name combination - Invalid Year + Invalid Month |
+| Packet name combination - Invalid Time (H)+ Invalid Month |
+| Packet name combination - Invalid Time (M)+ Invalid Month |
+| Packet name combination - Invalid Time (S)+ Invalid Month |
+| Packet name combination - Invalid Year + Invalid Time (H) |
+| Packet name combination - Invalid Year + Invalid Time (M) |
+| Packet name combination - Invalid Year + Invalid Time (S) |
+| Packet name exceeding less than 28 digits |
+| Packet name exceeding more than 28 digits |
+| Virus scan success |
+| Corrupted file - Virus scan failure |
+| Invalid Applicant - BothThumbs |
+| Invalid Applicant - Left Finger |
+| Invalid Applicant - Right Finger |
+| Invalid Applicant - Both Left and Right Eye |
+| Invalid Applicant - Left Eye |
+| Invalid Applicant - Right Eye |
+| Valid Applicant - BothThumbs |
+| Valid Applicant - Left Finger |
+| Valid Applicant - Right Finger |
+| Valid Applicant - Both Left and Right Eye |
+| Valid Applicant - Left Eye |
+| Valid Applicant - Right Eye |
+| Invalid Introducer - BothThumbs |
+| Invalid Introducer - Left Finger |
+| Invalid Introducer - Right Finger |
+| Invalid Introducer - Both Left and Right Eye |
+| Invalid Introducer - Left Eye |
+| Invalid Introducer - Right Eye |
+| Valid Introducer - BothThumbs |
+| Valid Introducer - Left Finger |
+| Valid Introducer - Right Finger |
+| Valid Introducer - Both Left and Right Eye |
+| Valid Introducer - Left Eye |
+| Valid Introducer - Right Eye |
+| Demographic  - Invalid ApplicantPhoto |
+| Demographic  - Invalid ExceptionPhoto |
+| Demographic  - Invalid ProofOfAddress |
+| Demographic  - Invalid ProofOfIdentity |
+| Demographic  - Invalid RegistrationAcknowledgement |
+| Demographic  - Valid ApplicantPhoto |
+| Demographic  - Valid ExceptionPhoto |
+| Demographic  - Valid ProofOfAddress |
+| Demographic  - Valid ProofOfIdentity |
+| Demographic  - Valid RegistrationAcknowledgement |
+| Valid DemographicInfo JSON file |
+| Invalid DemographicInfo JSON file |
+| Valid audit JSON file |
+| Invalid audit JSON file |
+| Valid PacketMetaInfo JSON file |
+| Invalid PacketMetaInfo  JSON file |
+| Valid EnrollmentOfficerBioImage  |
+| Invalid EnrollmentOfficerBioImage  |
+| Valid EnrollmentSupervisorBioImage |
+| Invalid EnrollmentSupervisorBioImage |
+| Valid HMACFile |
+| Invalid HMACFile |
+| Invalid EnrollmentOfficerBioImage and EnrollmentSupervisorBioImage  |
+| Invalid EnrollmentOfficerBioImage and HMACFile  |
+| Invalid EnrollmentOfficerBioImage and PacketMetaInfo JSON file |
+| Invalid EnrollmentOfficerBioImage and DemographicInfo JSON file |
+| Invalid EnrollmentSupervisorBioImage and HMACFile  |
+| Invalid EnrollmentSupervisorBioImage and PacketMetaInfo JSON file |
+| Invalid EnrollmentSupervisorBioImage and audit JSON file |
+| Invalid EnrollmentSupervisorBioImage and DemographicInfo JSON file |
+| Invalid HMACFile and PacketMetaInfo JSON file |
+| Invalid HMACFile and audit JSON file |
+| Invalid HMACFile and DemographicInfo JSON file |
+| Invalid PacketMetaInfo JSON file and audit JSON file |
+| Invalid PacketMetaInfo JSON file and DemographicInfo JSON file |
+| Invalid audit JSON file and EnrollmentOfficerBioImage  |
+| Invalid audit JSON file and DemographicInfo JSON file |
+| Unique Packet |
+| Duplicate Packet |
+| Duplicate request - Packet is up for retry- success |
+| Duplicate request - Packet is up for retry- Failure |
+| Packet integrity validation - successful |
+| Packet integrity validation - Failure |
+| Virus scan - successful |
+| Virus scan - Failure |
+| Decrypt packets - successful |
+| Decrypt packets - Failure |
+| Metadata validation - success |
+| Metadata validation - failure |
+| File validation - Successful |
+| File validation - failure |
+| Insert packet data in DB - successful |
+| Insert packet data in DB - successful |
+| Data validation - success |
+| Data validation - failure |
+| Active officer Authentication Success Using finger |
+| Active officer Authentication Failure Using finger |
+| Active officer Authentication Success Using Iris |
+| Active officer Authentication Failure Using Iris |
+| Active officer Authentication Success Using pin |
+| Active officer Authentication Failure Using pin |
+| Active officer Authentication Success Using Password |
+| Active officer Authentication Failure Using Password |
+| supervisor Authentication Success Using finger |
+| supervisor Authentication Failure Using finger |
+| supervisor Authentication Success Using Iris |
+| supervisor Authentication Failure Using Iris |
+| supervisor Authentication Success Using pin |
+| supervisor Authentication Failure Using pin |
+| supervisor Authentication Success Using Password |
+| supervisor Authentication Failure Using Password |
+| Packet on hold by supervisor -> Yes |
+| Packet on hold by supervisor -> No |
+| On hold for manual Adjudication- Yes |
+| On hold for manual Adjudication- No |
+| Notify the Resident that Registration is under processing - Yes |
+| Notify the Resident that Registration is under processing - No |
+| Create a packet with unknown Operator ID  |
+| Create a packet with unknown supervisor ID not available |
+| Create a packet with unknown Machine |
+| Create a packet with unknown Center ID |
+| Create a packet for which operator-center-machine-mapping-not available |
+| Create a packet for which supervisor-center-machine-mapping-not available |
+| Create a packet with Geo data not Available |
+| Create a packet with Office supervisor is missing  |
+| Create a packet  with unknown Geo data in master DB |
+
+## 6.7 Output verification
+1.	Packet Handler request and response for JSON format/ structure/contents validation and verification according to the API specs.
+2.	Status and error code verification according to the API spec.
+3.	Biometric accuracy for Biometric dedupe
+4.	Audit log verification
+5.	DB status check for the packet processing across various stages in Registration Processor.
+6.	Application log - ensure no errors logged .
+
+## 6.8 Test Execution Process:
+QA Analyst is responsible for the sanity testing.  QA Analyst will be executing the sanity testing of the Registration Processor as specified below.  Test cases will be executed & Defects are logged in JIRA.  
+### 6.8.1 Entrance Criteria:
+1. Unit testing and Integration Testing are completed.
+2. Sanity test cases are identified.
+3. QA environment is available.
+### 6.8.2 Exit Criteria:
+1. All Sanity test cases are executed and results documented.
+2. Defects are documented and severity is designated. 
+
+## 6.9 Test Setup
+Below is the Block diagram / network diagram depicting all the connections and hardware devices.
+<!---[[https://github.com/mosip/mosip-test/blob/master/rptopo.png]]--->
+
+## 6.10 Hardware – Server configuration
+
+Item | Setup | 
+-----  | -----------------|
+Microsoft Azure | Azure Virtual Machine Application server | 
+Microsoft Azure | Azure DB Instance | 	
+
+## 6.11 Hardware – Registration Client Machine
+Item | Configuration | 
+-----  | -----------------|
+Intel | Core i5 | 
+
+## 6.12 Software – Server 
+Item | Configuration | 
+-----  | -----------------|
+Microsoft Azure| apache-maven-3.5.4 maven | 
+Microsoft Azure | jdk1.8.0_181-amd64 | 	
+
+## 6.13 Software – Client 
+Item | Configuration | 
+-----  | -----------------|
+Microsoft| Windows 10 | 
+
+## 6.14 Test Tools (software)
+This section should contain a table that documents the testing tools that will be needed to plan, script, and perform functional testing. Tools are required for test scripting, test defect tracking, test results logging, performance testing, automated testing and test management. 
+
+Item | Area | 
+-----  | -----------------|
+Jira | Defect Tracking | 
+PostgreSQL | DB | 	
+Swager UI | API Manual Testing | 
+
+## 6.15 Integration Testing 
+The purpose of System Integration testing is to test a set of logically related components in a business like scenario. Integrating the Registration Processor with other modules in MOSIP for example Kernel for Cryptography , Registration packet from Registration client etc. To ensure Registration Processor able to work as intended.
+
+## 6.16 End to End Testing 
+The process of this to Test the MOSIP as a system like by considering the real deployment, we create test scenarios  which starts by Pre-registration demo data will consumed by Registration client and then create a packet to upload in registration processor. Registration Processor will do Virus Scan,Integrity check,structural validation,OSI Validation,Demo Dedupe and finally do bio Dedupe post successful of the before stages the UIN will be created . Our Test Scenarios will be cover with positive and negative on the end to end flow .			
+
+
+
+
 
 Doc_Version: 1.0
 

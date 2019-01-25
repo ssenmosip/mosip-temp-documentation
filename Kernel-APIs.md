@@ -757,13 +757,15 @@ This service will send request to SMS gateway.
 
 Resource Details | Description
 ------------ | -------------
+Request format | JSON
 Response format | JSON
 Requires Authentication | Yes
 
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
--NA-
+message |Yes|Message in the SMS| | This is the sample SMS message
+number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 
 ### Example Request
 
@@ -800,8 +802,18 @@ This service will send request to Email/SMTP Service.
 
 Resource Details | Description
 ------------ | -------------
+Request format | Form Data
 Response format | JSON
 Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+mailTo |Yes|Mail ID of the recepient| | mosip@mindtree.com
+mailCc |No|Mail ID of the recepient| | mosip@mindtree.com
+mailSubject |Yes|Mail ID of the recepient| | Sample mail subject
+mailContent |No|Mail ID of the recepient| | Sample mail content
+attachments |No|Mail ID of the recepient| | multipart/formdata
 
 
 ### Example Request
