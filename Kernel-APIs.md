@@ -657,7 +657,11 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-key |Yes|Key| | 9820173642
+mailTo |Yes|Mail ID of the recepient| | mosip@mindtree.com
+mailCc |No|Mail ID of the recepient| | mosip@mindtree.com
+mailSubject |Yes|Mail ID of the recepient| | Sample mail subject
+mailContent |No|Mail ID of the recepient| | Sample mail content
+attachments |No|Mail ID of the recepient| | multipart/formdata
 
 ### Example Request
 ```Form Data
