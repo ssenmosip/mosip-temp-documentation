@@ -31,9 +31,15 @@ Transliteration of the language as per the pre-configured secondary language for
 Installing the registration-client on the machine 
 ### 1.2 Registration Client Launch
 Helps in launching the registration-client
+### 1.3 Registration Client s\w Update
+Updates the client software 
 ## 2. System Health Checker
 ### 2.1 Connectivity Checker
 Checks if the client machine is connected to the network
+### 2.2 Security Scan
+Virus scan of the data packets and the application s\w
+### 2.3 Disk Space Checker
+Checks whether there is enough space in the client machine\dongle to store the registration packet
 ## 3. Registration Officer Authentication
 ### 3.1 Login
 Enables logging in to the client machine by pass word, OTP or biometrics
@@ -59,6 +65,8 @@ Synchronizes encryptions Keys between server to client
 Synchronizes pre-reg data between server to client
 ### 5.8 Login Credentials Syncher
 Synchronizes login data (password) between server to client
+### 5.9 Audit Log Syncher
+Synchronize the audit log from client to server
 ## 6. Registration Officer Authorization
 ### 6.1 Registration Officer Authorization
 Determines the user roles and provide access based on the privileges
@@ -88,15 +96,34 @@ Captures the face photograph
 1. Re-registration
 ### 7.10 Acknowledgement
 Renders the Acknowledgement page after successful registration and allows printing
+### 7.11 Notification
+Renders email and SMS notification for various events such as successful registration
 ## 8. Language Manager
 ### 8.1 Translation
 Translates the static messages as per the configures primary and secondary languages
 ### 8.2 Transliteration
 Translates the user entered text  from  primary to secondary language
-## 9. System Health Checker
-### 9.1 Disk Space Checker
-Checks whether there is enough space in the client machine\dongle to store the registration packet
 
+
+## 9. Registration Packet Manager
+### 9.1 Packet Creation
+Creates the encrypted data packets
+### 9.2 Packet Exporter
+Allows sending packets to the processing server
+1. Using the upload feature of the client
+1. Copying packets to an external storage device
+## 10. Clean Up
+### 10.1 Data Clean Up
+Deletes the following data from the client machine after successful registration:
+1. Registration
+1. Pre-registration
+1. Audit
+## 11. Individual UIN - Update
+### 11.1 UIN Update
+Allows the UIN holder to update their data (A specific set of data as defined by the country)
+## 12. Reporting
+### 12.1 Registration Reports
+Generates Reports on end of day process and re-registration
 
 
 
