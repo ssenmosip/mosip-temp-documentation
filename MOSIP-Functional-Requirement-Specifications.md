@@ -104,7 +104,7 @@ Synchronizes configuration data between server to client
 Synchronizes user and role data between server to client
 ### 9.6 Policy Syncher
 Synchronizes encryptions Keys between server to client
-### 9.7 Pre-registration Data Syncher
+### 9.7 Pre-Registration Data Syncher
 Synchronizes pre-registration data between server to client
 ### 9.8 Login Credentials Syncher
 Synchronizes login data (password) between server to client
@@ -144,11 +144,11 @@ It performs integrity validation (checksum) and file validation
 Extracts data from JSON object and store in DB 
 ### 3.3 OSI Data Validator
 Authenticate operator, supervisor and introducer information received in data packet and validate the metadata captured during packet creation
-### 3.4 Demo de-dupe
+### 3.4 Demo De-Dupe
 Demographic de-duplication of name, gender and DOB
 ### 3.5 Biometric Quality Checker
 Checks the quality of biometric data against a configured standard
-### 3.6 Biometric De-dupe
+### 3.6 Biometric De-Dupe
 Biometric de-duplication of biometrics using ABIS
 ## 4. UIN Generator
 ### 4.1 UIN Generator
@@ -158,7 +158,7 @@ Generates a PDF acknowledgement of the UIN card
 ## 5. Notification Manager
 ### 5.1 Notification-SMS
 Send SMS notification for registration success and failure scenarios 
-### 5.2 Notification-email
+### 5.2 Notification-Email
 Send email notification for registration success and failure scenarios 
 ## 6. Print
 ### 6.1 Print Queue 
