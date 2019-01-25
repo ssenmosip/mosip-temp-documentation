@@ -1,0 +1,388 @@
+version: 1
+
+#-------------------
+# organizational units
+#-------------------
+
+dn: c=morocco
+objectclass: extensibleObject
+objectclass: domain
+objectclass: top
+dc: morocco
+c: morocco
+
+dn: ou=division,c=morocco
+objectClass: organizationalUnit
+objectClass: top
+ou: division
+
+dn: ou=people,c=morocco
+objectClass: organizationalUnit
+objectClass: top
+ou: people
+
+dn: ou=roles,c=morocco
+objectClass: organizationalUnit
+objectClass: top
+ou: roles
+
+#-------------------
+# Admin User entry
+#-------------------
+
+dn: uid=admin,ou=people,c=morocco
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: uday
+sn: uday
+mail: admin@mosip.com
+mobile: 0987654321
+uid: admin
+userPassword: {CRYPT}$6$m2c4dJL/$//p7ZMn4p6rhb6LmJtB2FiksiocIL0M0VQS/6/BXpdTY8/Z07zXViSNdwdRwigLv/Kt9W6fIJPxegRMLDRDue.
+
+#-------------------
+# agents users entries
+#-------------------
+
+dn: uid=m1030380,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: uday
+sn: uday
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030380
+userPassword: {SHA}VTReilR8lJ2s06JrQ2LzgdvjWWI=
+
+dn: uid=m1030381,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: sabbu
+sn: sabbu
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030381
+userPassword: {SHA}fR8gqkggElUqH94lDZLrr2EH4zU=
+
+dn: uid=m1030382,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: kumar
+sn: kumar
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030382
+userPassword: {SHA}3UaWujcNe772RiFcfkNGHU6wokE=
+
+dn: uid=m1030383,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: diya
+sn: diya
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030383
+userPassword: {SHA}0xX1vkFhE2yG19g9aEopQPKkEEs=
+
+dn: uid=m1030390,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: ananthi
+sn: ananthi
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030390
+userPassword: {SHA}unzcjfcsaHImSU8bNvOeB1S2B94=
+
+dn: uid=m1030391,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: ponnusamy
+sn: ponnusamy
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030391
+userPassword: {SHA}hL1SiGtxQIR+xFsPwFVwnC/BZ6A=
+
+dn: uid=m1030392,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: vikram
+sn: vikram
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030392
+userPassword: {SHA}/7wgumggmqsBNjAJc3heelQhdvM=
+
+dn: uid=m1030393,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: vaibav
+sn: vaibav
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030393
+userPassword: {SHA}ORbICoiXt/5OVM7OOSGD4Gp83Ms=
+
+dn: uid=m1030394,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: aishwarya
+sn: aishwarya
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030394
+userPassword: {SHA}CqT9x5z2SQF3rfLWzLV0bdm+4IY=
+
+dn: uid=m1030395,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: amritha
+sn: amritha
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1030395
+userPassword: {SHA}DnEqnjfgJq6vaoW3jCGxAukA9aA=
+
+#-------------------
+# reg_users users entries
+#-------------------
+
+dn: uid=m1020210,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: ajit
+sn: ajit
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1020210
+userPassword: {SHA}zj85QcCaImpts5dUyc5OBOpeHic=
+
+dn: uid=m1020211,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: singh
+sn: singh
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1020211
+userPassword: {SHA}4LiSrKCxxZ5w9gt8Rv3A5pfmAwc=
+
+dn: uid=m1020212,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: raja
+sn: raja
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1020212
+userPassword: {SHA}2OMwB6SGNoEgkcX4GdxuXhZ3bps=
+
+dn: uid=m1020213,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: rani
+sn: rani
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1020213
+userPassword: {SHA}TpKvrvHt0C6BXtdaOCuNJvYUyIg=
+
+#-------------------
+# pre_reg_users users entries
+#-------------------
+
+dn: uid=m1040430,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: swati
+sn: swati
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1040430
+userPassword: {SHA}icW9MTwwuuhPBdjUe77i1mNw3pg=
+
+dn: uid=m1040431,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: raj
+sn: raj
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1040431
+userPassword: {SHA}qEbwo/izIzD1m2wfd7lAXzedqAo=
+
+dn: uid=m1040432,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: bharathi
+sn: bharathi
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1040432
+userPassword: {SHA}t+kjkTY/GHL1U6GYo+qk6WpITRA=
+
+dn: uid=m1040433,ou=people,c=morocco
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: top
+cn: vinod
+sn: vinod
+mail: asdfa@asdf.com
+mobile: 0987654321
+uid: m1040433
+userPassword: {SHA}oBwWfJ3wVFX8Z+08HuseK4FhAYM=
+
+#-------------------
+# division group entries
+#-------------------
+
+dn: cn=casablanca_settat,ou=division,c=morocco
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: casablanca_settat
+uniqueMember: cn=casablanca_settat_center1,ou=center,cn=casablanca_settat,ou=division,c=morocco
+uniqueMember: cn=casablanca_settat_center2,ou=center,cn=casablanca_settat,ou=division,c=morocco
+owner: uid=m1030381,ou=people,c=morocco
+
+dn: cn=oriental,ou=division,c=morocco
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: oriental
+uniqueMember: cn=oriental_center1,ou=center,cn=oriental,ou=division,c=morocco
+uniqueMember: cn=oriental_center2,ou=center,cn=oriental,ou=division,c=morocco
+owner: uid=m1030380,cn=oriental,ou=division,c=morocco
+
+#-------------------
+# centers group entries
+#-------------------
+
+dn: ou=center,cn=casablanca_settat,ou=division,c=morocco
+objectClass: organizationalUnit
+objectClass: top
+ou: center
+
+dn: ou=center,cn=oriental,ou=division,c=morocco
+objectClass: organizationalUnit
+objectClass: top
+ou: center
+
+dn: cn=casablanca_settat_center1,ou=center,cn=casablanca_settat,ou=division,c=morocco
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: casablanca_settat_center1
+uniqueMember: uid=m1030390,ou=people,c=morocco
+uniqueMember: uid=m1040430,ou=people,c=morocco
+uniqueMember: uid=m1020210,ou=people,c=morocco
+owner: uid=m1030390,ou=people,c=morocco
+
+dn: cn=casablanca_settat_center2,ou=center,cn=casablanca_settat,ou=division,c=morocco
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: casablanca_settat_center2
+uniqueMember: uid=m1020211,ou=people,c=morocco
+uniqueMember: uid=m1030391,ou=people,c=morocco
+uniqueMember: uid=m1040431,ou=people,c=morocco
+owner: uid=m1030391,ou=people,c=morocco
+
+dn: cn=oriental_center1,ou=center,cn=oriental,ou=division,c=morocco
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: oriental_center1
+uniqueMember: uid=m1020210,ou=people,c=morocco
+uniqueMember: uid=m1030390,ou=people,c=morocco
+uniqueMember: uid=m1040430,ou=people,c=morocco
+owner: uid=m1030390,ou=people,c=morocco
+
+dn: cn=oriental_center2,ou=center,cn=oriental,ou=division,c=morocco
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: oriental_center2
+uniqueMember: uid=m1020211,ou=people,c=morocco
+uniqueMember: uid=m1030391,ou=people,c=morocco
+uniqueMember: uid=m1040431,ou=people,c=morocco
+owner: uid=m1030391,ou=people,c=morocco
+
+#-------------------
+# roles occupant entries
+#-------------------
+
+dn: cn=DIVISION_ADMIN,ou=roles,c=morocco
+objectClass: organizationalRole
+objectClass: top
+cn: DIVISION_ADMIN
+roleOccupant: uid=m1030380,ou=people,c=morocco
+roleOccupant: uid=m1030381,ou=people,c=morocco
+roleOccupant: uid=m1030382,ou=people,c=morocco
+roleOccupant: uid=m1030383,ou=people,c=morocco
+
+dn: cn=SUPERVISOR,ou=roles,c=morocco
+objectClass: organizationalRole
+objectClass: top
+cn: SUPERVISOR
+roleOccupant: uid=m1030390,ou=people,c=morocco
+roleOccupant: uid=m1030391,ou=people,c=morocco
+
+dn: cn=AGENT,ou=roles,c=morocco
+objectClass: organizationalRole
+objectClass: top
+cn: AGENT
+roleOccupant: uid=m1030392,ou=people,c=morocco
+roleOccupant: uid=m1030393,ou=people,c=morocco
+roleOccupant: uid=m1030394,ou=people,c=morocco
+roleOccupant: uid=m1030395,ou=people,c=morocco
+
+dn: cn=REG_USER,ou=roles,c=morocco
+objectClass: organizationalRole
+objectClass: top
+cn: REG_USER
+roleOccupant: uid=m1020210,ou=people,c=morocco
+roleOccupant: uid=m1020211,ou=people,c=morocco
+roleOccupant: uid=m1020212,ou=people,c=morocco
+roleOccupant: uid=m1020213,ou=people,c=morocco
+
+dn: cn=PRE_REG_USER,ou=roles,c=morocco
+objectClass: organizationalRole
+objectClass: top
+cn: PRE_REG_USER
+roleOccupant: uid=m1040430,ou=people,c=morocco
+roleOccupant: uid=m1040431,ou=people,c=morocco
+roleOccupant: uid=m1040432,ou=people,c=morocco
+roleOccupant: uid=m1040433,ou=people,c=morocco

@@ -28,29 +28,29 @@ Use one of the three methods below to download the binary file of ApacheDs.
 
 2. Now you will see a Apache License agreement as shown in the screenshot below.
 
-    ![apacheds-installation-1](_images/arch_diagrams/auth/apacheds-installation-1.png)
+    ![apacheds-installation-1](_images/auth/apacheds-installation-1.png)
 
     Press Enter key to read through the license agreement untill you are prompted to agree with terms with yes as shown in the screen shot below.
 
-    ![apacheds-installation-2](_images/arch_diagrams/auth/apacheds-installation-2.png)
+    ![apacheds-installation-2](_images/auth/apacheds-installation-2.png)
 
 3. Once you accept the license terms, you are asked to enter the installation paths as shown below.
 
-    ![apacheds-installation-3](_images/arch_diagrams/auth/apacheds-installation-3.png)
+    ![apacheds-installation-3](_images/auth/apacheds-installation-3.png)
 
     **Note:** All the paths provided in the above screenshot are set to defaults in current implementation where as the instance name, user name and group name are provided as shown in the diagram.
 
 4. After providing all the paths, successful installation message is displayed as shown in the below screenshot.
 
-    ![apacheds-installation-4](_images/arch_diagrams/auth/apacheds-installation-4.png)
+    ![apacheds-installation-4](_images/auth/apacheds-installation-4.png)
 
-## Configuring ApacheDs
+## Configure ApacheDs
 
 Provide java bin path in the config file at <apacheds_installation>/conf/wrapper.conf
 
-![apacheds-installation-5](_images/arch_diagrams/auth/apacheds-installation-5.png)
+![apacheds-installation-5](_images/auth/apacheds-installation-5.png)
 
-![apacheds-installation-6](_images/arch_diagrams/auth/apacheds-installation-6.png)
+![apacheds-installation-6](_images/auth/apacheds-installation-6.png)
 
 ## Start, Stop and check status ApacheDs server
 
@@ -72,4 +72,4 @@ Provide java bin path in the config file at <apacheds_installation>/conf/wrapper
     ./apacheds-2.0.0.AM25-mosip stop
     ```
 
-![apacheds-installation-7](_images/arch_diagrams/auth/apacheds-installation-7.png)
+![apacheds-installation-7](_images/auth/apacheds-installation-7.png)
