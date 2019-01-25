@@ -99,7 +99,7 @@ Send registration packet IDs from client to processor so that to ensure data sec
 Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
 ### 9.4 Registration Client Configuration Syncher
 Synchronizes configuration data between server to client
-### 9.5 User Role Setup Syncer
+### 9.5 User Role Setup Syncher
 Synchronizes user and role data between server to client
 ### 9.6 Policy Syncher
 Synchronizes encryptions Keys between server to client
@@ -122,53 +122,53 @@ Deletes the following data from the client machine after successful registration
 1. Pre-registration
 1. Audit
 # Registration Processor
-## 1. Minutiae Extractor
-### 1.1 Minutiae Extraction Algorithm
-Extract Minutiae from finger print image to store in ID repository
-## 2. Notification Manager
-### 2.1 Notification-sms
-Send SMS notification for registration success and failure scenarios 
-### 2.2 Notification-email
-Send email notification for registration success and failure scenarios 
-## 3. Print
-### 3.1 Print Queue 
-Make the UIN data available for printing and postal services
-## 4. Registration Packet Handler
-### 4.1 Packet Mover
-To move packets from one folder location to another in reg-processor workflow
-### 4.2 Packet File Virus Scanner
-Performs virus scan of the encrypetd and de-crypted packet
-### 4.3 Packet Store
+## 1. Registration Packet Handler
+### 1.1 Packet Mover
+To move packets from one folder location to another in registration-processor workflow
+### 1.2 Packet File Virus Scanner
+Performs virus scan of the encrypted and decrypted packet
+### 1.3 Packet Store
 A distributed file system to store decrypted data packets
-### 4.4 Archive Packets
+### 1.4 Archive Packets
 Makes the data packets available for archival
-### 4.5 Packet Decryptor
+### 1.5 Packet Decryptor
 Decrypts the data packets for further processing
-## 5. Registration Packet Processor
-### 5.1 Packet Structure Validator
-It performs integrity validation (Checksum) and file validation
-### 5.2 Packet Data Extractor
-Extracts data from json object and store in DB 
-### 5.3 OSI Data Validator
-Authenticate operator, supervisor and introducer information received in data packet and validate the meta data captured during packet creation
-### 5.4 Demo de-dupe
+## 2. Registration Status Service
+### 2.1 Registration Status Updater
+As the per the stage driven architecture this utility updates the status in the DB for the data packet at every stage
+## 3. Registration Packet Processor
+### 3.1 Packet Structure Validator
+It performs integrity validation (checksum) and file validation
+### 3.2 Packet Data Extractor
+Extracts data from JSON object and store in DB 
+### 3.3 OSI Data Validator
+Authenticate operator, supervisor and introducer information received in data packet and validate the metadata captured during packet creation
+### 3.4 Demo de-dupe
 Demographic de-duplication of name, gender and DOB
-### 5.5 Biometric  Quality Checker
+### 3.5 Biometric Quality Checker
 Checks the quality of biometric data against a configured standard
-### 5.6 Biometric De-dupe
+### 3.6 Biometric De-dupe
 Biometric de-duplication of biometrics using ABIS
-## 6. Registration Status Service
-### 6.1 Registration Status Updater
-As the per the stage driven architecture this utility updates the status in the DB  for the data packet at every stage
-## 7. UIN Generator
-### 7.1 UIN Generator
+## 4. UIN Generator
+### 4.1 UIN Generator
 Generates UIN as per the defined logic
-### 7.2 UIN Acknowledgement Generator (Provided By Core Kernel)
+### 4.2 UIN Acknowledgement Generator (Provided By Core Kernel)
 Generates a PDF acknowledgement of the UIN card
-## 8. UIN Lifecycle Manager
-### 8.1 UIN De-Activator
+## 5. Notification Manager
+### 5.1 Notification-SMS
+Send SMS notification for registration success and failure scenarios 
+### 5.2 Notification-email
+Send email notification for registration success and failure scenarios 
+## 6. Print
+### 6.1 Print Queue 
+Make the UIN data available for printing and postal services
+## 7. UIN Lifecycle Manager
+### 7.1 UIN De-Activator
 De-activates a UIN
-### 8.2 UIN Re-Activate
+### 7.2 UIN Re-Activate
 Re-activates a UIN
-### 8.3 UIN Updater
+### 7.3 UIN Updater
 Updates UIN data of an existing UIN
+## 8. Minutiae Extractor
+### 8.1 Minutiae Extraction Algorithm
+Extract minutiae from finger print image to store in ID repository

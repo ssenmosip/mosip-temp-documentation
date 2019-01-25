@@ -27,8 +27,6 @@
   * [ID Repository](https://github.com/mosip/mosip/wiki/ID-Repository-API)
   * [ABIS APIs](https://github.com/mosip/mosip/wiki/ABIS-APIs)
   * [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs)
-  * [Audit Manager](https://github.com/mosip/mosip/wiki/Audit-Manager)
-  * [OTP Manager](https://github.com/mosip/mosip/wiki/OTP-Manager)
   * [Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)
   * [Registration Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
 * [Developer Documentation](https://github.com/mosip/mosip/wiki/Developer-Documentation)
