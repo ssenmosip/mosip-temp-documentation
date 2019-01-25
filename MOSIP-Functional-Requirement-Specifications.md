@@ -82,6 +82,7 @@ Renders the acknowledgement page after successful registration and allows printi
 ### 6.11 Notification
 Renders email and SMS notification for various events such as successful registration
 ## 7. Registration Officer Authorization
+### 7.1 Registration Officer Authorization
 Determines the user roles and provides access based on the privileges
 ## 8. Registration Packet Manager
 ### 8.1 Packet Creation
