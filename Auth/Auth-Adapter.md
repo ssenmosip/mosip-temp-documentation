@@ -17,7 +17,7 @@ Auth Adapter includes following class definitions:
 9. [ClientInterceptor](#ClientInterceptor)
 10. [MosipUser](#MosipUser)
 
-### SecurityConfig
+## SecurityConfig
 
 Holds the main configuration for authentication and authorization using spring security.
 
@@ -38,7 +38,7 @@ Inclusions:
   * RETURNS an instance of the RestTemplate.
 * Secures endpoints using antMatchers and adds filters in a sequence for execution.
 
-### AuthFilter
+## AuthFilter
 
 AuthFilter is bound with AuthenticationManager to attempt authentication.
 
@@ -47,7 +47,7 @@ Attempt Authentication tasks:
 * Receives **"Authorization"** Header from request headers.
 * Use the assigned Authentication manager to authenticate with the token.
 
-### AuthHeadersFilter
+## AuthHeadersFilter
 
 This filter is going to act as a CORS filter. It is assigned before [AuthFilter](#AuthFilter) in the filter chain.
 
@@ -58,7 +58,7 @@ Tasks:
 * Sets header to allow and expose **"Authorization"** header.
 * Sets the authToken back to null.
 
-### AuthProvider
+## AuthProvider
 
 Contacts auth server to verify token validity.
 
@@ -69,24 +69,24 @@ Tasks:
 * Updates token into [AuthHeadersFilter](#AuthHeadersFilter).
 * Bind [MosipUser](#MosipUser) instance details with the [AuthUserDetails](#AuthUserDetails) that extends Spring Security's UserDetails.
 
-### AuthSuccessHandler
+## AuthSuccessHandler
 
 Handles successful authentication. If any action needs to be done after successful authentication, this is where you have to do it.
 
-### AuthEntryPoint
+## AuthEntryPoint
 
 Captures and sends **"UnAuthorized"** error.
 
-### AuthToken
+## AuthToken
 
 * Used in [AuthProvider](#AuthProvider) for token details.
 * This extends **UsernamePasswordAuthenticationToken** class.
 
-### AuthUserDetails
+## AuthUserDetails
 
 Used by spring security to store user details like roles and use this across the application for Authorization purpose.
 
-### ClientInterceptor
+## ClientInterceptor
 
 It is used to intercept any http calls made using rest template from this application.
 
@@ -100,6 +100,6 @@ Tasks:
 * Intercept a request to add auth token to the **"Authorization"** header.
 * Intercept a response to modify the stored token with the **"Authorization"** header of the response.
 
-### MosipUser
+## MosipUser
 
 Mosip user is the standard spec that will be tuned based on the details stored in ldap for a user.
