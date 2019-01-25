@@ -103,8 +103,6 @@ Renders email and SMS notification for various events such as successful registr
 Translates the static messages as per the configures primary and secondary languages
 ### 8.2 Transliteration
 Translates the user entered text  from  primary to secondary language
-
-
 ## 9. Registration Packet Manager
 ### 9.1 Packet Creation
 Creates the encrypted data packets
@@ -124,12 +122,54 @@ Allows the UIN holder to update their data (A specific set of data as defined by
 ## 12. Reporting
 ### 12.1 Registration Reports
 Generates Reports on end of day process and re-registration
-
-
-
-
-
-
-
-
-
+# Registration Processor
+## 1. Minutiae Extractor
+### 1.1 Minutiae Extraction Algorithm
+Extract Minutiae from finger print image to store in ID repository
+## 2. Notification Manager
+### 2.1 Notification-sms
+Send SMS notification for registration success and failure scenarios 
+### 2.2 Notification-email
+Send email notification for registration success and failure scenarios 
+## 3. Print
+### 3.1 Print Queue 
+Make the UIN data available for printing and postal services
+## 4. Registration Packet Handler
+### 4.1 Packet Mover
+To move packets from one folder location to another in reg-processor workflow
+### 4.2 Packet File Virus Scanner
+Performs virus scan of the encrypetd and de-crypted packet
+### 4.3 Packet Store
+A distributed file system to store decrypted data packets
+### 4.4 Archive Packets
+Makes the data packets available for archival
+### 4.5 Packet Decryptor
+Decrypts the data packets for further processing
+## 5. Registration Packet Processor
+### 5.1 Packet Structure Validator
+It performs integrity validation (Checksum) and file validation
+### 5.2 Packet Data Extractor
+Extracts data from json object and store in DB 
+### 5.3 OSI Data Validator
+Authenticate operator, supervisor and introducer information received in data packet and validate the meta data captured during packet creation
+### 5.4 Demo de-dupe
+Demographic de-duplication of name, gender and DOB
+### 5.5 Biometric  Quality Checker
+Checks the quality of biometric data against a configured standard
+### 5.6 Biometric De-dupe
+Biometric de-duplication of biometrics using ABIS
+## 6. Registration Status Service
+### 6.1 Registration Status Updater
+As the per the stage driven architecture this utility updates the status in the DB  for the data packet at every stage
+## 7. UIN Generator
+### 7.1 UIN Generator
+Generates UIN as per the defined logic
+### 7.2 UIN Acknowledgement Generator (Provided By Core Kernel)
+Generates a PDF acknowledgement of the UIN card
+## 8. UIN Lifecycle Manager
+### 8.1 UIN De-Activator
+De-activates a UIN
+### 8.2 UIN Re-Activate
+Re-activates a UIN
+### 8.3 UIN Updater
+Updates UIN data of an existing UIN
