@@ -5442,16 +5442,16 @@ isActive|Yes|Mapping is active or not| |
 	  "isActive": true,
       "machineId": "111",
 	  "usrId": "qc002"
-    }	
+    },	
     {
       "cntrId": "R011",
       "isActive": true,
       "machineId": "111",
       "usrId": "qc022"
     }
-  ]
+  ],
   "timestamp": "2019-01-24T10:27:48.628Z",
-  "ver": "string",
+  "ver": "string"
 }
 ```
 ### Example Response
