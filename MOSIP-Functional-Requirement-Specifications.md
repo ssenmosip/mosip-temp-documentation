@@ -198,9 +198,3 @@ Provides E-KYC details of an individual to the UA post successful authentication
 ## 4. Integrated Individual Authentication 
 ### 4.1 Multiple Components
 Verifies the authenticity of an individual using multiple attributes provided  in the authentication request
-
-
-
-
-
-
