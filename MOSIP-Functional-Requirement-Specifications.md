@@ -173,3 +173,34 @@ Updates UIN data of an existing UIN
 ## 8. Minutiae Extractor
 ### 8.1 Minutiae Extraction Algorithm
 Extract minutiae from finger print image to store in ID repository
+# ID-Authentication
+## 1. TSP/UA Authentication
+### 1.1 TSP Authentication 
+Validates if the TSP and UA are authenticated sources to initiate the individual's authentication request
+### 1.2 Authentication Mode Verifier
+Verifies if the UA holds permission to initiate the mode of authentication in the authentication request
+## 2. TSP/UA Authorization 
+### 2.1 TSP Authorization
+Determines if the TSP and UA are authorised entities to initiate the individual's authentication request
+## 3. Individual  Authentication
+### 3.1 Biometric Authentication
+Verifies the authenticity of an individual using biometric attributes provided in the authentication request
+### 3.2 Demographic Authentication
+Verifies the authenticity of an individual using demographic attributes provided in the authentication request
+### 3.3 OTP Authentication
+1. Enables an individual to receive OTP
+1. Verifies the authenticity of an individual using OTP provided in the authentication request
+### 3.4 Static PIN Authentication
+1. Enables storage of static pin set by an individual in MOSIP Resident Services Portal
+1. Verifies the authenticity of an individual using static pin provided in the authentication request
+### 3.5 E-KYC Authentication Services   
+Provides E-KYC details of an individual to the UA post successful authentication of the individual
+## 4. Integrated Individual Authentication 
+### 4.1 Multiple Components
+Verifies the authenticity of an individual using multiple attributes provided  in the authentication request
+
+
+
+
+
+
