@@ -24,10 +24,12 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.id.create | 
-ver | yes | version of the API | | 1.0
+version | yes | version of the API | | 1.0
 timestamp | yes | timestamp of the request | | 1539936202
-registration-id | yes | registration id | | 
+registrationId | yes | registration id | | 
 request | yes | JSON body as per the ID object schema | | 
+request: identity | yes | JSON body as per the ID object schema | | 
+request: decouemnts | yes | Docuements that are to be uploaded for any ID attribute | | 
 
 **Example request**
 
@@ -44,7 +46,7 @@ request | yes | JSON body as per the ID object schema | |
       "fullName": [
         {
           "language": "ara",
-          "value": "ابراهيم بن علي"
+          "value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ… Ø¨Ù† Ø¹Ù„ÙŠ"
         },
         {
           "language": "fre",
@@ -56,17 +58,17 @@ request | yes | JSON body as per the ID object schema | |
       "gender": [
         {
           "language": "ara",
-          "value": "الذكر"
+          "value": "Ø§Ù„Ø°ÙƒØ±"
         },
         {
           "language": "fre",
-          "value": "mâle"
+          "value": "mÃ¢le"
         }
       ],
       "addressLine1": [
         {
           "language": "ara",
-          "value": "عنوان العينة سطر 1"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
         },
         {
           "language": "fre",
@@ -76,7 +78,7 @@ request | yes | JSON body as per the ID object schema | |
       "addressLine2": [
         {
           "language": "ara",
-          "value": "عنوان العينة سطر 2"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
         },
         {
           "language": "fre",
@@ -86,7 +88,7 @@ request | yes | JSON body as per the ID object schema | |
       "addressLine3": [
         {
           "language": "ara",
-          "value": "عنوان العينة سطر 2"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
         },
         {
           "language": "fre",
@@ -96,27 +98,27 @@ request | yes | JSON body as per the ID object schema | |
       "region": [
         {
           "language": "ara",
-          "value": "طنجة - تطوان - الحسيمة"
+          "value": "Ø·Ù†Ø¬Ø© - ØªØ·ÙˆØ§Ù† - Ø§Ù„Ø­Ø³ÙŠÙ…Ø©"
         },
         {
           "language": "fre",
-          "value": "Tanger-Tétouan-Al Hoceima"
+          "value": "Tanger-TÃ©touan-Al Hoceima"
         }
       ],
       "province": [
         {
           "language": "ara",
-          "value": "فاس-مكناس"
+          "value": "Ù�Ø§Ø³-Ù…ÙƒÙ†Ø§Ø³"
         },
         {
           "language": "fre",
-          "value": "Fès-Meknès"
+          "value": "FÃ¨s-MeknÃ¨s"
         }
       ],
       "city": [
         {
           "language": "ara",
-          "value": "الدار البيضاء"
+          "value": "Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
         },
         {
           "language": "fre",
@@ -130,7 +132,7 @@ request | yes | JSON body as per the ID object schema | |
       "localAdministrativeAuthority": [
         {
           "language": "ara",
-          "value": "سلمى"
+          "value": "Ø³Ù„Ù…Ù‰"
         },
         {
           "language": "fre",
@@ -141,7 +143,7 @@ request | yes | JSON body as per the ID object schema | |
       "parentOrGuardianName": [
         {
           "language": "ara",
-          "value": "سلمى"
+          "value": "Ø³Ù„Ù…Ù‰"
         },
         {
           "language": "fre",
@@ -251,7 +253,7 @@ Requires Authentication | Yes
       "fullName": [
         {
           "language": "ara",
-          "value": "ابراهيم بن علي"
+          "value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ… Ø¨Ù† Ø¹Ù„ÙŠ"
         },
         {
           "language": "fre",
@@ -263,17 +265,17 @@ Requires Authentication | Yes
       "gender": [
         {
           "language": "ara",
-          "value": "الذكر"
+          "value": "Ø§Ù„Ø°ÙƒØ±"
         },
         {
           "language": "fre",
-          "value": "mâle"
+          "value": "mÃ¢le"
         }
       ],
       "addressLine1": [
         {
           "language": "ara",
-          "value": "عنوان العينة سطر 1"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
         },
         {
           "language": "fre",
@@ -283,7 +285,7 @@ Requires Authentication | Yes
       "addressLine2": [
         {
           "language": "ara",
-          "value": "عنوان العينة سطر 2"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
         },
         {
           "language": "fre",
@@ -293,7 +295,7 @@ Requires Authentication | Yes
       "addressLine3": [
         {
           "language": "ara",
-          "value": "عنوان العينة سطر 2"
+          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
         },
         {
           "language": "fre",
@@ -303,27 +305,27 @@ Requires Authentication | Yes
       "region": [
         {
           "language": "ara",
-          "value": "طنجة - تطوان - الحسيمة"
+          "value": "Ø·Ù†Ø¬Ø© - ØªØ·ÙˆØ§Ù† - Ø§Ù„Ø­Ø³ÙŠÙ…Ø©"
         },
         {
           "language": "fre",
-          "value": "Tanger-Tétouan-Al Hoceima"
+          "value": "Tanger-TÃ©touan-Al Hoceima"
         }
       ],
       "province": [
         {
           "language": "ara",
-          "value": "فاس-مكناس"
+          "value": "Ù�Ø§Ø³-Ù…ÙƒÙ†Ø§Ø³"
         },
         {
           "language": "fre",
-          "value": "Fès-Meknès"
+          "value": "FÃ¨s-MeknÃ¨s"
         }
       ],
       "city": [
         {
           "language": "ara",
-          "value": "الدار البيضاء"
+          "value": "Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
         },
         {
           "language": "fre",
@@ -337,7 +339,7 @@ Requires Authentication | Yes
       "localAdministrativeAuthority": [
         {
           "language": "ara",
-          "value": "سلمى"
+          "value": "Ø³Ù„Ù…Ù‰"
         },
         {
           "language": "fre",
@@ -348,7 +350,7 @@ Requires Authentication | Yes
       "parentOrGuardianName": [
         {
           "language": "ara",
-          "value": "سلمى"
+          "value": "Ø³Ù„Ù…Ù‰"
         },
         {
           "language": "fre",
@@ -401,7 +403,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/568469473107`
+### `PATCH /identity/v1.0/568469473107`
 
 ### Resource details
 
@@ -409,6 +411,18 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | Id of the API | mosip.id.update | 
+version | Y | version of the API | | 1.0
+timestamp | Y | timestamp of the request | | 1539936202
+registrationId | Y | registration id | | 
+status | N | status of ID | | 
+request | N | JSON body as per the ID object schema | | 
+request: identity | N | JSON body as per the ID object schema | | 
+request: documents | N | Documents that are to be uploaded for any ID attribute | | 
 
 **Example Request**     
 
