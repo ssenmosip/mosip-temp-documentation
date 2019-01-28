@@ -165,7 +165,7 @@ A tabular representation of the estimated volumes in the overall project impleme
 **Table 3: _Enrolment Volume Estimates_**
 
 |**S. No.**| **Item**| **Volumes (in million)**|
-|:------:|-----|---|
+|:------:|-----|:------:|
 |**A.**| **Phase-I [Social Sector Beneficiaries in RAMED, DAAM and TAYSSIR]**|**8.00**|
 |1.|Stage-I (Rabat Prefecture)| 0.04|
 |2.|Stage-II (Kenitra Province)| 0.12|
@@ -177,6 +177,24 @@ A tabular representation of the estimated volumes in the overall project impleme
 |1.|New Born Enrolment (From 2021 to 2023)|1.28 |
 |2.|Demographic Updates (From 2020 to 2023)| 4.24|
 |3.|Biometric Updates (From 2020 to 2023)| 3.38|
+
+The table given above is an estimated of the enrolment and updated volumes under this program. The detailed explanation of the line items is provided below:
+1. The total population of Morocco as per the census data of 2014, stands at 33.77 million. The population at the end of year 2021 is estimated to be 36.31 million which is estimated to reach 39.33 million at the end of year 2030.
+1. In the first phase, the beneficiaries under RAMED, DAAM and TAYSSIR are planned to be covered. The approximate number of beneficiaries under these programs is 8 million. 
+1. For the purpose of enrolment of all the citizens and foreign Residents of Morocco, a figure of 95% of the total population is considered. It is estimated that 85% of the population will be enrolled in Phase-I and Phase-II of implementation. Considering this, the total enrolment volumes in Phase-II come out to be 22.86 million till July 2023. Thereafter, an additional 10% of the population i.e. nearly 3.63 million will be covered August 2023 onwards. 
+1. In addition to the enrolment volumes as mentioned above, the continuous enrolment of the annual increment in the population (new born children) will be carried out. Moreover, the updates in demographic information such as mobile number, address, email address, etc. will also be carried out. Similarly, the update in biometric information will be carried out at the age of 5 years, 15 years and on demand basis for other registered individuals.
+
+### 24. Estimated Authentication Volumes
+
+The estimated volume of authentication services are provided in this section. 
+
+In the Phase-I (between Aug’19 to Oct’21), there is expected to be a one-time usage of e-KYC for all the social sector beneficiaries i.e. 8 million. During this phase, nearly 100 million authentication transactions are estimated per annum. Thus, considering an average of 250 working days in a year, nearly 0.43 million authentication transactions are estimated per day. The authentication transactions are expected to originate from below mentioned schemes:
+
+1. In TAYSSIR, a total of 0.74 million beneficiaries are registered. The beneficiaries are school going children, and it is estimated that these children would authenticate and mark their attendance in school twice each week. These transactions are estimated to be over a period of 250 working days of a year. Thus, nearly 77 million authentication transactions are estimated annually under this program.
+1. RAMED is a health insurance scheme where government provides financial support to vulnerable people. It is estimated that the beneficiaries under the scheme will undertake at least three visits in the hospitals and their transactions would need to be authenticated. Thus, the total estimated authenticated transactions is 22.8 million per annum. 
+1. In the DAAM program, a total of nearly 0.077 million beneficiaries are registered. It is estimated that a beneficiary will undertake at least four authentication transactions in a year. Thus, the total estimated authentication transaction works out to 0.31 million per annum.
+
+
 
 
 
