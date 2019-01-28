@@ -1,4 +1,14 @@
-This section details about the service APIs in the Pre-Registration modules
+This section details about the service APIs in the Pre-Registration modules.
+
+Swagger link as below.
+
+
+1.      https://dev.mosip.io/demographic /swagger-ui.html#/
+2.      https://dev.mosip.io/document/swagger-ui.html#/
+3.      https://dev.mosip.io/booking /swagger-ui.html#/
+4.      https://dev.mosip.io/datasync/swagger-ui.html#/
+
+Right now specifications are under review.
 
 
 ## 2.7.1 Demographic Service APIs
