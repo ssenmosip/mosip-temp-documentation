@@ -182,7 +182,7 @@ Verifies if the UA holds permission to initiate the mode of authentication in th
 ## 2. TSP/UA Authorization 
 ### 2.1 TSP Authorization
 Determines if the TSP and UA are authorised entities to initiate the individual's authentication request
-## 3. Individual  Authentication
+## 3. Individual Authentication
 ### 3.1 Biometric Authentication
 Verifies the authenticity of an individual using biometric attributes provided in the authentication request
 ### 3.2 Demographic Authentication
@@ -197,4 +197,4 @@ Verifies the authenticity of an individual using demographic attributes provided
 Provides E-KYC details of an individual to the UA post successful authentication of the individual
 ## 4. Integrated Individual Authentication 
 ### 4.1 Multiple Components
-Verifies the authenticity of an individual using multiple attributes provided  in the authentication request
+Verifies the authenticity of an individual using multiple attributes provided in the authentication request
