@@ -222,7 +222,7 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
 ```
 
 
-**2. Read **
+**2. Read**    
 
 This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
 If no identity type is provided, stored identity will be returned as a default response. If any of the identity type - bio and/or demo or all is present, their respective documents will be returned along with stored identity details.
