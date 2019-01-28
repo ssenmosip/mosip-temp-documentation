@@ -21,31 +21,26 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | | mosip.identity.auth
-tspID|Y|TSP ID| |tsp5432111
-licenseKey|Y|TSP's License Key| | 
-transactionID|Y|Request Transaction ID| | pi
-requestTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
-requestedAuth| Y | Individual Authentication Types supported| | 
-requestedAuth: demo| Y | demographic Authentication Type | false| false
-requestedAuth: bio| Y | Bio-metric Authentication Type | false|false
-requestedAuth: otp| Y | OTP Authentication Type | false|false
-requestedAuth: pin| Y | Pin Authentication Type |false |false
-bioMetadata|N|Additional information on Biometric Auth| |
-bioMetadata: bioType|Y|Type of Biometric Auth requested| | FTD
-bioMetadata: deviceInfo|Y|Device Information used for Biometric Auth requested| |
-kycMetadata: consentRequired| Y |Consent of Individual to retrieve KYC details| |
-kycMetadata: ePrintRequired| N |Printable format of KYC details required in response| |
-kycMetadata: secLangRequired| N |KYC Details required in secondary language in response| |
-sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
+ver | Y | API version | | 1.0
+reqTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
+txnID | Y | Transaction ID of API | | 1234567890
+idvId | Y | Individual's UIN or VID | | 486493840596
+idvIdType | Y | Individual's ID Type | D | V
+tspID|Y|TSP ID| |TSP0000005
+authType| Y | Individual Authentication Types supported| | 
+authType: personalIdentity| Y | Demographic Authentication - Personal Identity | false| false
+authType: address| Y | Demographic Authentication - Address Line | false| false
+authType: bio| Y | Bio-metric Authentication Type | false|false
+authType: otp| Y | OTP Authentication Type | false|false
+authType: pin| Y | Pin Authentication Type |false |false
+key: sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
+key: publicKeyCert| Y | TSP Public Key Certificate used to Digitally Sign the request | | 
 request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: identity: UIN|N| UIN attribute of Individual's Identity| | 
-request: identity: VID|N| VIDattribute of Individual's Identity| | 
 request: identity: name|N| name attribute of Individual's Identity| | 
 request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
 request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-request: identity: biometricData|N| biometric attributes of Individual's Identity| |
-request: otherFactors: totp|N| TOTP to used for authenticating Individual| | 
-request: otherFactors: spin|N| Static PIN to used for authenticating Individual| |
+request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
+request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 
 ### Sample Request
 ```JSON
@@ -54,15 +49,14 @@ request: otherFactors: spin|N| Static PIN to used for authenticating Individual|
   "ver": "1.0",
   "reqTime": "2019-01-23T10:01:57.086+05:30",
   "txnID": "1234567890",
-  "muaCode": "1234567890",
   "idvId": "486493840596",
   "idvIdType": "D",
   "tspID": "TSP0000005",
   "authType": {
+  	 "personalIdentity": true,
     "address": false,
     "bio": false,
     "otp": false,
-    "personalIdentity": true,
     "pin": false
   },
   "key": {
@@ -148,32 +142,31 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id | Y | API Id | | mosip.identity.auth
-tspID|Y|TSP ID| |tsp5432111
-licenseKey|Y|TSP's License Key| | 
-transactionID|Y|Request Transaction ID| | pi
-requestTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
-requestedAuth| Y | Individual Authentication Types supported| | 
-requestedAuth: demo| Y | demographic Authentication Type | false| false
-requestedAuth: bio| Y | Bio-metric Authentication Type | false|false
-requestedAuth: otp| Y | OTP Authentication Type | false|false
-requestedAuth: pin| Y | Pin Authentication Type |false |false
-bioMetadata|N|Additional information on Biometric Auth| |
-bioMetadata: bioType|Y|Type of Biometric Auth requested| | FTD
-bioMetadata: deviceInfo|Y|Device Information used for Biometric Auth requested| |
-kycMetadata: consentRequired| Y |Consent of Individual to retrieve KYC details| |
-kycMetadata: ePrintRequired| N |Printable format of KYC details required in response| |
-kycMetadata: secLangRequired| N |KYC Details required in secondary language in response| |
-sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
-request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: identity: UIN|N| UIN attribute of Individual's Identity| | 
-request: identity: VID|N| VIDattribute of Individual's Identity| | 
-request: identity: name|N| name attribute of Individual's Identity| | 
-request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
-request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-request: identity: biometricData|N| biometric attributes of Individual's Identity| |
-request: otherFactors: totp|N| TOTP to used for authenticating Individual| | 
-request: otherFactors: spin|N| Static PIN to used for authenticating Individual| |
+id | Y | API Id | | mosip.identity.kyc
+ver | Y | API Version | | version of API
+consentReq|Y|Individual's consent|false|true
+ekycAuthType|Y|Auth type for requested KYC Auth| | O
+authRequest: id | Y | API Id | | mosip.identity.auth
+authRequest: ver | Y | API version | | 1.0
+authRequest: reqTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
+authRequest: txnID | Y | Transaction ID of API | | 1234567890
+authRequest: idvId | Y | Individual's UIN or VID | | 486493840596
+authRequest: idvIdType | Y | Individual's ID Type | D | V
+authRequest: spID|Y|TSP ID| |TSP0000005
+authRequest: authType| Y | Individual Authentication Types supported| | 
+authRequest: authType: personalIdentity| Y | Demographic Authentication - Personal Identity | false| false
+authRequest: authType: address| Y | Demographic Authentication - Address Line | false| false
+authRequest: authType: bio| Y | Bio-metric Authentication Type | false|false
+authRequest: authType: otp| Y | OTP Authentication Type | false|false
+authRequest: authType: pin| Y | Pin Authentication Type |false |false
+authRequest: key: sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
+authRequest: key: publicKeyCert| Y | TSP Public Key Certificate used to Digitally Sign the request | | 
+authRequest: request| Y | Auth request attributes to be used for authenticating Individual | | 
+authRequest: request: identity: name|N| name attribute of Individual's Identity| | 
+authRequest: request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
+authRequest: request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
+authRequest: request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
+authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 
 ### Sample Request
 ```JSON
@@ -373,28 +366,25 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Y|API Id| |mosip.identity.otp
+ver|Y|API Version| |1.0
 tspID|Y|TSP ID| |tsp1234567
-licenseKey|Y|Licence Key of TSP|| 
-transactionID|Y|Request Transaction ID| |abc123abc
-requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
-request: identity : UIN|Y|Individual's UIN| | 678956453456
-request: identity : VID|Y|Individual's VID| | 678956453456
-request: channel: email|N|Communication channel to send OTP|false| true
-
+idvId|Y|TSP ID| |tsp1234567
+idvIdType|Y|TSP ID| |tsp1234567
+reqTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
+txnID|Y|Request Transaction ID| |abc123abc
 
 ### Sample Request
 ```JSON
 {
  	// API Metadata
 	"id": "mosip.identity.otp",
+	"ver": "1.0",
 	//Request Metadata
 	"tspID": "tsp54321",
 	"idvId": "426789089018",
 	"idvIdType": "D",
-	"muaCode": "1234567890",
 	"reqTime": "2019-01-24T14:33:19.931+05:30",
-	"txnID": "txn12345",
-	"ver": "1.0"
+	"txnID": "txn12345"
 }
 
 ```
@@ -404,17 +394,16 @@ Status Code : 200 (OK)
 
 ```JSON
 {
- // Response Metadata
-  "status": "Y",
-  "err": [],
   "txnID": "txn67890",
   "resTime": "2019-01-25T12:10:07.899+05:30",
+  "ver": "1.0",
+  "status": "Y",
+  "err": [],
   "info": {
     "idType": "D",
     "reqTime": "2019-01-24T17:19:17.078+05:30",
     "usageData": "<usage and matched data on bits>"
-  },
-  "ver": "1.0"
+  }
 }
 ```
 
@@ -423,17 +412,16 @@ Status Code : 200 (OK)
 
 ```JSON
 {
- // Response Metadata
+  "ver": "1.0",
+  "txnID": "txn67890",
+  "resTime": "2019-01-25T12:11:11.416+05:30",
   "status": "N",
   "err": [
     {
       "errorCode": "IDA-OTA-006",
       "errorMessage": "OTP is invalid"
     }
-  ],
-  "txnID": "txn67890",
-  "resTime": "2019-01-25T12:11:11.416+05:30",
-  "ver": "1.0"
+  ]
 }
 ```
 
