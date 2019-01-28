@@ -1,3 +1,5 @@
+
+***
 ## 1. Audit Manager
 ### 1.1 Audit Manager
 1. Ability to store the audit logs
@@ -120,93 +122,65 @@ This utility enable QR code generation for pre-registration, registration and UI
 ## 21. FTP\Packet Uploader
 ### 21.1 FTP - Upload Packet
 Provides an upload portal for registration client to upload packets for sending it to registration processor
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# TBD-WIP sections 22-25
-## 22. Interface Requirements
-[Describe the user interfaces that are to be implemented by the system.]
-### 22.1 Hardware Interfaces
-[Define hardware interfaces supported by the system, including logical structure, physical addresses, and expected behavior.]
-### 22.2 Software Interfaces
-[Name the applications with which the subject application must interface.  State the following for each such application: name of application, external owner of application, interface details (only if determined by the other application).
+## 22. Demand Capacity and Performance
+The solution should have capacities to cater to the following workload while meeting the performance levels indicated below:
 
-It is acceptable to reference an interface control document for details of the interface interactions.]
-### 22.3 Communications Interfaces
-[Describe communications interfaces to other systems or devices, such as local area networks.]
-## 23. Data Conversion Requirements
-[Describe the requirements needed for conversion of legacy data into the system.]
-## 24. Hardware/Software Requirements
-[Provide a description of the hardware and software platforms needed to support the system.]
-## 25. Operational Requirements
-[Provide the operational requirements in this section.
+**Table 1: _Demand Capacity and Performance Requirements_**
 
-Do not state how these requirements will be satisfied.  For example, in the Reliability section, answer the question, “How reliable must the system be”? Do not state what steps will be taken to provide reliability.
+|**S. No**.| **Item**| **Description**|
+|:------:|-----|---|
+|1.|Biometric Gallery size| Scalable to peak capacity 40 million records|
+|2.|Biometric Gallery size (Phase-I)| At peak capacity nearly 8.00 million|
+|3.|Biometric Gallery size (Phase-II)| At peak capacity nearly 32.00 million|
+|4.|Peak Enrolment per day (Phase-I)| At peak capacity 30,000 enrolments per day|
+|5.|Peak Enrolment per day (Phase-II) |At peak capacity 50,000 enrolments per day |
+|6.|Peak Enrolment packet to be uploaded per day (incl. backlog) | At peak capacity 60,000 enrolments per day|
+|7.|Authentication Request (Phase-I)| At peak capacity 0.5 Million requests per day (12 hours)|
+|8.|e-KYC Request (Phase-I)| At peak capacity 0.5 Million requests per day (12 hours)|
+|9.|Authentication Request (Phase-II)| At peak capacity 1.8 Million requests per day (12 hours)|
+|10.|e-KYC Request (Phase-II)|At peak capacity 1.8 Million requests per day (12 hours) |
 
-Distinguish preferences from requirements.  Requirements are based on business needs, preferences are not.  If, for example, the user requires a special response but does not have a business-related reason for it, that requirement is a preference.
+The solution shall cater to at least the following indicative performance level: 
 
-Other applicable requirements on system attributes may be added to the list of subsections below.]
+**Table 2: _Demand Capacity and Performance Requirements_**
 
-Operational requirements describe how the system will run and communicate with operations personnel.
-### 25.1 Security and Privacy
-[Provide a list of the security requirements using the following criteria:
+|**S. No.**| **Item**| **Description**|
+|:------:|-----|---|
+|**A.**| **Response time**||
+|1.|Enrolment Request (at ABIS Level)| No daily backlog i.e. maximum of 24 hours at peak load|
+|2.|Enrolment Request (at MOSIP Level)| No daily backlog i.e. maximum of 24 hours at peak load|
+|3.|Authentication Request (SDK)| <= 0.5 seconds|
+|4.|Authentication Request (Overall)|>= 3 seconds |
+|**B.**|**Accuracy** | |
+|1.|De-duplication| FPIR <= 0.1% and FNIR <=1% |
+|2.|Authentication Services| FMR <= 0.001% and FNMR <= 0.05% |
+|**C.**|**Uptime and Availability**| |
+|1.|De-duplication|99.5 % uptime evaluated on monthly basis on 24*7 service window |
+|2.|Authentication Services| 99.99% uptime evaluated on monthly basis on 24*7 service window|
 
-State the consequences of the following breaches of security in the subject application:
-1. Loss or corruption of data
-1. Disclosure of secrets or sensitive information
-1. Disclosure of privileged/privacy information about individuals
-1. Corruption of software or introduction of malware, such as viruses
-### 25.2 Reliability
-[State the following in this section:
+### 23. Estimated Enrolment Volumes
 
-State the damage can result from failure of this system—indicate the criticality of the software, such as:
-1. Loss of human life
-1. Complete or partial loss of the ability to perform a mission-critical function
-1. Loss of revenue
-1. Loss of employee productivity
+A tabular representation of the estimated volumes in the overall project implementation is given below:
 
-What is the minimum acceptable level of reliability?
+**Table 3: _Enrolment Volume Estimates_**
 
-State required reliability:
-1. Mean-Time-Between-Failure is the number of time units the system is operable before the first failure occurs.
-1. Mean-Time-To-Failure is the number of time units before the system is operable divided by the number of failures during the time period.
-1. Mean-Time-To-Repair is the number of time units required to perform system repair divided by the number of repairs during the time period.]
-
-_Reliability is the probability that the system processes work correctly and completely without being aborted._
-### 25.3 Recoverability
-[Answer the following questions in this section:
-1. In the event the application is unavailable to users (down) because of a system failure, how soon after the failure is detected must function be restored?
-1. In the event the database is corrupted, to what level of currency must it be restored?  For example “The database must be capable of being restored to its condition of no more than 1 hour before the corruption occurred”.
-1. If the processing site (hardware, data, and onsite backup) is destroyed, how soon must the application be able to be restored?]
-
-_Recoverability is the ability to restore function and data in the event of a failure._
-### 25.4 System Availability
-[State the period during which the application must be available to users.  For example, _“The application must be available to users Monday through Friday between the hours of 6:30 a.m. and 5:30 p.m. EST_.  If the application must be available to users in more than one time zone, state the earliest start time and the latest stop time.  Consider daylight savings time, too.
-
-Include use peak times.  These are times when system unavailability is least acceptable.]
-
-_System availability is the time when the application must be available for use.  Required system availability is used in determining when maintenance may be performed._
-### 25.5 General Performance
-[Describe the requirements for the following:
-1. Response time for queries and updates
-1. Throughput
-1. Expected rate of user activity (for example, number of transactions per hour, day, or month, or cyclical periods)
-
-Specific performance requirements, related to a specific functional requirement, should be listed with that functional requirement.
-### 25.6 Capacity
-[List the required capacities and expected volumes of data in business terms.  Do not state capacities in terms of system memory requirements or disk space—if growth trends or projections are available, provide them]
-### 25.7 Data Retention
-[Describe the length of time various forms of data must be retained and the requirements for its destruction.
-
-For example, “The system shall retain application information for 3 years”.  Different forms of data include: system documentation, audit records, database records, and access records.]
-### 25.8 Error Handling
-[Describe system error handling.]
-### 25.9 Validation Rules
-[Describe System Validation Rules.]
-### 25.10 Conventions/Standards
-[Describe system conventions and standards followed.
-
-For example: Microsoft standards are followed for windows, Institute of Electrical and Electronics Engineers (IEEE) for data formats, etc.]
+|**S. No.**| **Item**| **Volumes (in million)**|
+|:------:|-----|---|
+|**A.**| **Phase-I [Social Sector Beneficiaries in RAMED, DAAM and TAYSSIR]**|**8.00**|
+|1.|Stage-I (Rabat Prefecture)| 0.04|
+|2.|Stage-II (Kenitra Province)| 0.12|
+|3.|Stage-III (Nationwide)| 7.84|
+|**B.**|**Phase-II [Other Beneficiaries and Targeted Population]** |**26.49** |
+|1.|Enrolment of 85% of Targeted Population [November 2021 to July 2023]| 22.86 |
+|2.|Additional enrolment of 10% of Targeted Population [August 2023 onwards]| 3.63 |
+|**C.**|**Continuous Enrollment (New Born) and Updates (Demo. and Bio.)**|**8.90** |
+|1.|New Born Enrolment (From 2021 to 2023)|1.28 |
+|2.|Demographic Updates (From 2020 to 2023)| 4.24|
+|3.|Biometric Updates (From 2020 to 2023)| 3.38|
 
 
-**APPENDIX A - GLOSSARY**
 
-[Define terms, acronyms, and abbreviations used in the FRD.] 
+
+
+
+
