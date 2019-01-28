@@ -6,7 +6,7 @@ This API will support the following features
  - Updation of an ID record based on the UIN
  - Will not support search based on attributes of an ID
 
-**1. Create**
+## 1. Create    
 
 This operation will create a new ID record in the ID repository and store corresponding demographic and biometric documents. 
 
@@ -221,8 +221,7 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
 }
 ```
 
-
-**2. Read**    
+## 2. Read         
 
 This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
 If no identity type is provided, stored identity will be returned as a default response. If any of the identity type - bio and/or demo or all is present, their respective documents will be returned along with stored identity details.
@@ -398,7 +397,7 @@ Requires Authentication | Yes
 }
 ```
 
-**3. Update**
+## 3. Update   
 
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
