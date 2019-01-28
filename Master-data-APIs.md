@@ -5999,7 +5999,6 @@ lang_code|Yes|Language code of the Device Specification| |
 }
 ```
 
-
 # 2.3.26.3 Device Specifications-delete service
 
 This service deletes a Device Specification from the Device Specifications master module. 
