@@ -5404,6 +5404,97 @@ Description: Unauthorized
 
 Description: Not Found
 
+## 2.3.21.3 Registration Center-User-Machine Mapping Master create or update service
+
+This service will create or update a Registration Center-User-Machine Mapping which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT /registrationmachineusermappings`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+cntrId|Yes|Registration Center Id for request| | 
+machineId|Yes|Machine Id for request| | 
+usrId|Yes|User Id for request| | 
+isActive|Yes|Mapping is active or not| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "request": [
+    {
+      "cntrId": "R011",
+      "isActive": true,
+      "machineId": "111",
+      "usrId": "qc001"
+    },
+    {
+      "cntrId": "R011",
+	  "isActive": true,
+      "machineId": "111",
+	  "usrId": "qc002"
+    }	
+    {
+      "cntrId": "R011",
+      "isActive": true,
+      "machineId": "111",
+      "usrId": "qc022"
+    }
+  ]
+  "timestamp": "2019-01-24T10:27:48.628Z",
+  "ver": "string",
+}
+```
+### Example Response
+```JSON
+{
+  "mapped": [
+    {
+      "cntrId": "R011",
+      "usrId": "qc001",
+      "machineId": "111"
+    },
+    {
+      "cntrId": "R011",
+      "usrId": "qc002",
+      "machineId": "111"
+    }
+  ],
+  "notmapped": [
+    {
+      "cntrId": "R011",
+      "usrId": "qc022",
+      "machineId": "111"
+    }
+  ]
+```
+### Response codes
+201
+
+Description: Created
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+
 # 2.3.22 Registration Center Machine API
 ## 2.3.22.1 Registration Center Machine-create service
 Master data is required across the platform. 
