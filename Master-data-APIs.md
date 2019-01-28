@@ -5439,9 +5439,9 @@ isActive|Yes|Mapping is active or not| |
     },
     {
       "cntrId": "R011",
-	  "isActive": true,
+      "isActive": true,
       "machineId": "111",
-	  "usrId": "qc002"
+      "usrId": "qc002"
     },	
     {
       "cntrId": "R011",
