@@ -257,17 +257,17 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Optimized Data Centre space utilization
 1. More compute and memory power per server 
 1. High compute and memory consuming workloads should use Blades 
-1.4.1.2. Usage Factors for Storage and Tape Library
-(i)	Host mount points for Blade servers
-(ii)	Provides support for storage array based replication to meet DR requirements 
-(iii)	Host IO intensive workloads like database, data analytics and data warehouse 
-(iv)	Provide a front-end, fast cache to a tape library infrastructure
-(v)	Shorten the backup window period 
-(vi)	Enables faster data restoration 
-(vii)	Provides data retention for longer duration
-(viii)	Provides cost effective way of retaining data for longer duration
-(ix)	Enables department to meet data compliance requirements
-1.4.2. Data Size
+#### 25.2. Usage Factors for Storage and Tape Library
+1. Host mount points for blade servers
+1. Provides support for storage array based replication to meet DR requirements 
+1. Host IO intensive workloads like database, data analytics and data warehouse 
+1. Provide a front-end, fast cache to a tape library infrastructure
+1. Shorten the backup window period 
+1. Enables faster data restoration 
+1. Provides data retention for longer duration
+1. Provides cost effective way of retaining data for longer duration
+1. Enables department to meet data compliance requirements
+#### 25.3. Data Size
 This section provides the details of the data size required to be handled in the RNP information system
 
 
