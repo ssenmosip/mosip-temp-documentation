@@ -293,6 +293,8 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 ||| Contact Centre Seats|11 (minimum) 
 ||| Waiting time|2 Minutes (maximum) 
 ||| Working Hours|8 hours per shift x 2 Shift 
+|6.|Helpdesk Personnel|5 (First Shift) + 5 (Second Shift) + 2 (Third Shift)|
+||
 
 
 
