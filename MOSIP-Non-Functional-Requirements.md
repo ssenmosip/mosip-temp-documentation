@@ -293,9 +293,22 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 ||| Contact Centre Seats|11 (minimum) 
 ||| Waiting time|2 Minutes (maximum) 
 ||| Working Hours|8 hours per shift x 2 Shift 
-|6.|Helpdesk Personnel|5 (First Shift) + 5 (Second Shift) + 2 (Third Shift)|
-||
-
+|6.| IT Helpdesk| Helpdesk Personnel|5 (First Shift) + 5 (Second Shift) + 2 (Third Shift)|
+||| Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
+|7.|  Network Operations Centre| Number of Users| 3 (First Shift) + 3 (Second Shift) + 1 (Third Shift) 
+||| Working Hours| 8 hours per shift x 3 Shifts
+|8.|Security Operations Centre|Number of Users|4 (First Shift) + 4 (Second Shift) + 2 (Third Shift) 
+|||Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
+|||Working Hours|8 hours per shift x 3 Shifts
+|9.|Administrators| DBA, Network Admin, Server Admin, Storage Admin, etc.| 13 (DC) + 4 (DR) 
+||| Working Hours| 8 hours per shift x 3 Shift
+|10.|Internet Subscriber| No. of Internet Users|22.5 million (September 2017)
+|||No. of Internet Users|16.9 million (September 2016)
+|||Annual growth rate| Annual growth of 33% (10 years)
+|11.|Estimated Users| No. of Internet Subscribers| 10% of Internet Subscribers
+|12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
+|13.| Permanent Service Centres|Citizen Service Centres |2000
+|14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
 
 
 
