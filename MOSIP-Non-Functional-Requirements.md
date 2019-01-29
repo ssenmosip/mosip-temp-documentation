@@ -326,10 +326,17 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 ||||10 Medium Report Type,
 ||||10 Simple Report Type
 |6.|Communication with External Systems|External interfaces that are likely to interact with the RNP System|Social Benefit Programs (RAMED, TAYSSIR, DAAM, etc.), Financial Switch for Social Benefit Disbursement, Validation with CNIE and Civil Registration, etc.
-|7.|RTO and RPO |For Pilot, the DC-DR will be in same city. Subsequently, the DC and DR will be more than 100 KMs apart| Refer Section 28.
+|7.|RTO and RPO |For Pilot, the DC-DR will be in same city. Subsequently, the DC and DR will be more than 100 KMs apart| Refer to Section 28.
 |8.|Online data retention| NID Data|Always
 |||Biometric Centre data| Always
 |9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
+### 28. RTO and RPO
+### <p align="center"> **Table 9: _RTO and RPO_**
+|**S. No.**|**Process**|**Criticality**|**RTO**| **RPO**|**Business Rationale for RPO and RTO**|
+|:----:|----|----|----|----|----|
+|1.|Enrolment|High|24 hours|~ZERO|**RTO**: Enrolment is an offline process and officers are required to upload packets once a day hence 24 hrs. is affordable 
+**RPO (Enrolment Databases)**: It is a business requirement that no data shall be lost in the ecosystem (IDMS and CSC)
+
 
 	
 
