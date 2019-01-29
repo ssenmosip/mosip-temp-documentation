@@ -224,13 +224,13 @@ After the end of Phase-I of the implementation, the authentication services and 
 |7.|Peak Enrolment batch process per hour (Phase-I)| 1500|
 |8.|Peak Enrolment batch process per hour (Phase-II)| 2500|
 |9.|Pre-enrolment during peak hour (Phase-I):|2,600 Users |
-||* 8 million enrolments in 2 years
-||* Peak hour will see double of average requests
-||* 90% of registration happens in 8 hour window 
+||(a) 8 million enrolments in 2 years
+||(b) Peak hour will see double of average requests
+||(c) 90% of registration happens in 8 hour window 
 |10.|Pre-enrolment during peak hour (Phase-II):| 6,750 Users|
-|| * 22.5 million enrolments in 2 years
-|| * Peak hour will see double of average requests
-|| * 90% of registration happens in 8 hour window
+|| (a) 22.5 million enrolments in 2 years
+|| (b) Peak hour will see double of average requests
+|| (c) 90% of registration happens in 8 hour window
 |**B.**|**Authentication and E-KYC**| |
 |1.|Number of authentication requests (At peak load during Phase-I)| 0.50 million per day|
 |2.|Number of e-KYC requests (At peak load during Phase-I)|0.10 million per day |
@@ -243,8 +243,8 @@ After the end of Phase-I of the implementation, the authentication services and 
 |4.|Number of Concurrent internet users|5,62,500|
 |5.|Average no. of hits by same users during the same login on web page|2|
 |6.|Web users during peak hour|100,969|
-|7.|Web users during peak hour| * 2.5% users/day| 
-||| * Peak hour will see double of average requests|  
+|7.|Web users during peak hour| (a) 2.5% users/day| 
+||| (b) Peak hour will see double of average requests|  
 |**D.**|**Miscellaneous**
 |1.|Number of sessions during peak load |36 million per annum|
 |2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
@@ -269,6 +269,23 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Enables department to meet data compliance requirements
 #### 25.3. Data Size
 This section provides the details of the data size required to be handled in the RNP information system
+
+### <p align="center"> **Table 6: _Data Size_**
+
+|**Parameter**|**Description**|**Sizing Estimations**|
+|----|----|:----:|
+Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
+Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
+e-KYC Packet|OTP, Iris or Facial|30 KB
+### 26. Estimation of Users 
+### <p align="center"> **Table 7: _Estimation of Users_**
+|**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
+|:----:|----|----|----|
+|1.||Total User|Total Number of Users|150 Users|
+|2.|Kit Operators|(a) Field Operators|2000 
+|||(b) Working Hours|8 hours x 22 working days per month
+
+
 
 
 
