@@ -198,6 +198,16 @@ The above information is summarized in the table given below:
 
 **Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
 
+|**S. No.**| **Parameter**| **Description**| **Sizing Estimations**
+|:------:|-----|---|:-----:|
+|**A.**|**Authentication**|
+|1.|Authentication Example 1| TAYSSIR Authentications in schools on a daily basis|77 million per annum [estimated as 0.74 million (per day) x 250 working days]|
+|2.|Authentication Example 2|RAMED Authentications at hospitals | 22.8 million per annum [estimated as 7.6 million x 3 authentications per beneficiary per year] |
+|3.|Authentication Example 3| DAAM Authentications|0.31 million per annum [estimated as 0.077 million beneficiaries x 4 times per year]|
+|**B.**|**KYC**| **One-Time**| ----- |
+|1.|Authentication Example 1| TAYSSIR Authentications in schools on a daily basis | 0.74 million|
+|2.|Authentication Example 2| RAMED Authentications at hospitals | 7.60 million|
+|3.|Authentication Example 3| DAAM Authentications | 0.077 million |
 
 
 
