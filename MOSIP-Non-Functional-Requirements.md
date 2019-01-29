@@ -198,8 +198,6 @@ In the Phase-I (between Aug’19 to Oct’21), there is expected to be a one-tim
 The above information is summarized in the table given below:
 
 ### <p align="center"> **Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
-
-
 |**S. No.**| **Parameter**| **Description**| **Sizing Estimations**
 |:------:|-----|---|:-----:|
 |**A.**|**Authentication**|
@@ -215,8 +213,6 @@ After the end of Phase-I of the implementation, the authentication services and 
 
 ### 25. Transaction Volumes
 ### <p align="center"> **Table 5: _Indicative Transaction Volumes_**
-
-
 |**S. No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|:---:|
 |**A.**|**Enrolments**| |
@@ -276,7 +272,6 @@ After the end of Phase-I of the implementation, the authentication services and 
 This section provides the details of the data size required to be handled in the RNP information system
 
 ### <p align="center"> **Table 6: _Data Size_**
-
 |**Parameter**|**Description**|**Sizing Estimations**|
 |----|----|:----:|
 Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
