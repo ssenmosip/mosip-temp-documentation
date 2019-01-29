@@ -284,6 +284,8 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |1.||Total User|Total Number of Users|150 Users|
 |2.|Kit Operators|(a) Field Operators|2000 
 |||(b) Working Hours|8 hours x 22 working days per month
+|3.|Verification|(a) CNIE Verification|10 per shift
+|||(b) Working Hours|8 hours per shift x 2 Shift
 
 
 
