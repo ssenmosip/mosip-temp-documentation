@@ -125,7 +125,8 @@ The solution should have capacities to cater to the following workload while mee
 
 ### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_**
 
-|**S. No**.| **Item**| **Description**|
+
+|**S. No.**| **Item**| **Description**|
 |:------:|-----|---|
 |1.|Biometric Gallery size| Scalable to peak capacity 40 million records|
 |2.|Biometric Gallery size (Phase-I)| At peak capacity nearly 8.00 million|
@@ -141,6 +142,7 @@ The solution should have capacities to cater to the following workload while mee
 The solution shall cater to at least the following indicative performance level: 
 
 ### <p align="center"> **Table 2: _Demand Capacity and Performance Requirements_**
+
 
 |**S. No.**| **Item**| **Description**|
 |:------:|-----|---|
@@ -161,6 +163,7 @@ The solution shall cater to at least the following indicative performance level:
 A tabular representation of the estimated volumes in the overall project implementation is given below:
 
 ### <p align="center"> **Table 3: _Enrolment Volume Estimates_**
+
 
 |**S. No.**| **Item**| **Volumes (in million)**|
 |:------:|-----|:------:|
@@ -196,6 +199,7 @@ The above information is summarized in the table given below:
 
 ### <p align="center"> **Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
 
+
 |**S. No.**| **Parameter**| **Description**| **Sizing Estimations**
 |:------:|-----|---|:-----:|
 |**A.**|**Authentication**|
@@ -211,6 +215,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 
 ### 25. Transaction Volumes
 ### <p align="center"> **Table 5: _Indicative Transaction Volumes_**
+
 
 |**S. No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|:---:|
@@ -282,17 +287,17 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
 |1.|Total User|Total Number of Users|150 Users|
-|2.|Kit Operators|(a) Field Operators|2000 
-|||(b) Working Hours|8 hours x 22 working days per month
-|3.|Verification|(a) CNIE Verification|10 per shift
-|||(b) Working Hours|8 hours per shift x 2 Shift
-|4.|Adjudicators|(a) Manual Adjudication|10 per shift |
-||| (b) Working Hours|8 hours per shift x 2 Shift|
-|5.|Contact Centre|(a) Helpdesk Personnel|10 x 2 Shift 
-|||(b) Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
-|||(c) Contact Centre Seats|11 (minimum) 
-|||(d) Waiting time|2 Minutes (maximum) 
-|||(e) Working Hours|8 hours per shift x 2 Shift 
+|2.|Kit Operators| Field Operators|2000 
+||| Working Hours|8 hours x 22 working days per month
+|3.|Verification| CNIE Verification|10 per shift
+|||Working Hours|8 hours per shift x 2 Shift
+|4.|Adjudicators| Manual Adjudication|10 per shift |
+|||  Working Hours|8 hours per shift x 2 Shift|
+|5.|Contact Centre| Helpdesk Personnel|10 x 2 Shift 
+||| Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
+||| Contact Centre Seats|11 (minimum) 
+||| Waiting time|2 Minutes (maximum) 
+||| Working Hours|8 hours per shift x 2 Shift 
 
 
 
