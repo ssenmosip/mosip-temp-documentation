@@ -281,12 +281,18 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 ### <p align="center"> **Table 7: _Estimation of Users_**
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
-|1.||Total User|Total Number of Users|150 Users|
+|1.|Total User|Total Number of Users|150 Users|
 |2.|Kit Operators|(a) Field Operators|2000 
 |||(b) Working Hours|8 hours x 22 working days per month
 |3.|Verification|(a) CNIE Verification|10 per shift
 |||(b) Working Hours|8 hours per shift x 2 Shift
-
+|4.|Adjudicators|(a) Manual Adjudication|10 per shift |
+||| (b) Working Hours|8 hours per shift x 2 Shift|
+|5.|Contact Centre|(a) Helpdesk Personnel|10 x 2 Shift 
+|||(b) Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
+|||(c) Contact Centre Seats|11 (minimum) 
+|||(d) Waiting time|2 Minutes (maximum) 
+|||(e) Working Hours|8 hours per shift x 2 Shift 
 
 
 
