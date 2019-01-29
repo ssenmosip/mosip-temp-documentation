@@ -194,6 +194,11 @@ In the Phase-I (between Aug’19 to Oct’21), there is expected to be a one-tim
 1. RAMED is a health insurance scheme where government provides financial support to vulnerable people. It is estimated that the beneficiaries under the scheme will undertake at least three visits in the hospitals and their transactions would need to be authenticated. Thus, the total estimated authenticated transactions is 22.8 million per annum. 
 1. In the DAAM program, a total of nearly 0.077 million beneficiaries are registered. It is estimated that a beneficiary will undertake at least four authentication transactions in a year. Thus, the total estimated authentication transaction works out to 0.31 million per annum.
 
+The above information is summarized in the table given below:
+
+**Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
+
+
 
 
 
