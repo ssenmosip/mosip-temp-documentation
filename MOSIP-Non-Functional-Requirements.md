@@ -209,6 +209,12 @@ The above information is summarized in the table given below:
 |2.|Authentication Example 2| RAMED Authentications at hospitals | 7.60 million|
 |3.|Authentication Example 3| DAAM Authentications | 0.077 million |
 
+After the end of Phase-I of the implementation, the authentication services and the corresponding authentication volumes would start growing. During peak usage under the Phase-II, it is estimated that 10% of the total population of Morocco would use authentication services on a daily basis. In other words, it is estimated that authentication transactions during Phase-II would be in the range of 3.6 million per day. Thus, the total volumes are estimated to be 650 Million transactions per annum during Phase-II. 
+
+### 24. Transaction Volumes
+**Table 5: _Indicative Transaction Volumes_**
+
+
 
 
 
