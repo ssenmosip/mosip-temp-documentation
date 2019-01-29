@@ -123,7 +123,7 @@ Provides an upload portal for registration client to upload packets for sending 
 ## 22. Demand Capacity and Performance
 The solution should have capacities to cater to the following workload while meeting the performance levels indicated below:
 
-**Table 1: _Demand Capacity and Performance Requirements_**
+### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_**
 
 |**S. No**.| **Item**| **Description**|
 |:------:|-----|---|
@@ -160,7 +160,7 @@ The solution shall cater to at least the following indicative performance level:
 
 A tabular representation of the estimated volumes in the overall project implementation is given below:
 
-**Table 3: _Enrolment Volume Estimates_**
+### <p align="center"> **Table 3: _Enrolment Volume Estimates_**
 
 |**S. No.**| **Item**| **Volumes (in million)**|
 |:------:|-----|:------:|
@@ -194,7 +194,7 @@ In the Phase-I (between Aug’19 to Oct’21), there is expected to be a one-tim
 
 The above information is summarized in the table given below:
 
-**Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
+### <p align="center"> **Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
 
 |**S. No.**| **Parameter**| **Description**| **Sizing Estimations**
 |:------:|-----|---|:-----:|
@@ -210,7 +210,7 @@ The above information is summarized in the table given below:
 After the end of Phase-I of the implementation, the authentication services and the corresponding authentication volumes would start growing. During peak usage under the Phase-II, it is estimated that 10% of the total population of Morocco would use authentication services on a daily basis. In other words, it is estimated that authentication transactions during Phase-II would be in the range of 3.6 million per day. Thus, the total volumes are estimated to be 650 Million transactions per annum during Phase-II. 
 
 ### 25. Transaction Volumes
-**Table 5: _Indicative Transaction Volumes_**
+### <p align="center"> **Table 5: _Indicative Transaction Volumes_**
 
 |**S. No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|:---:|
