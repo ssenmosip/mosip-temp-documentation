@@ -309,6 +309,34 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
 |13.| Permanent Service Centres|Citizen Service Centres |2000
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
+### 27. Technical Parameters
+### <p align="center"> **Table 8: _Technical Parameters_**
+|**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
+|:----:|----|----|----|
+|1.|Network Connectivity |Network Connectivity (DC-DR Replication Link)| Dual links of 1 Gbps capacity
+||*(For future usage the router sized for 2-5 Gbps is recommended)|Network Connectivity (DC-NDC-DR Replication Link)|Dual links of 150 Mbps capacity
+|||Network Connectivity (Internet) at the Data Centre|Initially 150 Mbps internet connectivity
+|||Network Connectivity (Data Validation) at the Data Centre| Initially 150 Mbps leased line
+|||Network Connectivity (TSPs) at the Data Centre|To be provisioned by respective TSP, based on their transaction projections
+|2.|CPU |Utilization upper limits|60% only for non-ABIS component
+|3.|Re-size/ headroom|Virtual Cores, Memory, and Storage Seamlessly|25% of the base capacity, only for non-ABIS components in permanent Data Centre
+|4.|Storage|Static & Transaction data|2,600 TB
+|5.|Reports|Total|25 types of reports
+|||Break-up|5 Complex Report Type,
+||||10 Medium Report Type,
+||||10 Simple Report Type
+|6.|Communication with External Systems|External interfaces that are likely to interact with the RNP System|Social Benefit Programs (RAMED, TAYSSIR, DAAM, etc.), Financial Switch for Social Benefit Disbursement, Validation with CNIE and Civil Registration, etc.
+|7.|RTO and RPO |For Pilot, the DC-DR will be in same city. Subsequently, the DC and DR will be more than 100 KMs apart| Refer Section 28.
+|8.|Online data retention| NID Data|Always
+|||Biometric Centre data| Always
+|9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
+
+	
+
+
+
+
+
 
 
 
