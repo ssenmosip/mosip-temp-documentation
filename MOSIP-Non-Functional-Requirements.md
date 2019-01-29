@@ -1,5 +1,3 @@
-
-***
 ## 1. Audit Manager
 ### 1.1 Audit Manager
 1. Ability to store the audit logs
@@ -142,7 +140,7 @@ The solution should have capacities to cater to the following workload while mee
 
 The solution shall cater to at least the following indicative performance level: 
 
-**Table 2: _Demand Capacity and Performance Requirements_**
+### <p align="center"> **Table 2: _Demand Capacity and Performance Requirements_**
 
 |**S. No.**| **Item**| **Description**|
 |:------:|-----|---|
@@ -173,7 +171,7 @@ A tabular representation of the estimated volumes in the overall project impleme
 |**B.**|**Phase-II [Other Beneficiaries and Targeted Population]** |**26.49** |
 |1.|Enrolment of 85% of Targeted Population [November 2021 to July 2023]| 22.86 |
 |2.|Additional enrolment of 10% of Targeted Population [August 2023 onwards]| 3.63 |
-|**C.**|**Continuous Enrollment (New Born) and Updates (Demo. and Bio.)**|**8.90** |
+|**C.**|**Continuous Enrolment (New Born) and Updates (Demo. and Bio.)**|**8.90** |
 |1.|New Born Enrolment (From 2021 to 2023)|1.28 |
 |2.|Demographic Updates (From 2020 to 2023)| 4.24|
 |3.|Biometric Updates (From 2020 to 2023)| 3.38|
@@ -204,15 +202,85 @@ The above information is summarized in the table given below:
 |1.|Authentication Example 1| TAYSSIR Authentications in schools on a daily basis|77 million per annum [estimated as 0.74 million (per day) x 250 working days]|
 |2.|Authentication Example 2|RAMED Authentications at hospitals | 22.8 million per annum [estimated as 7.6 million x 3 authentications per beneficiary per year] |
 |3.|Authentication Example 3| DAAM Authentications|0.31 million per annum [estimated as 0.077 million beneficiaries x 4 times per year]|
-|**B.**|**KYC**| **One-Time**| ----- |
+|**B.**|**KYC**| **One-Time**|
 |1.|Authentication Example 1| TAYSSIR Authentications in schools on a daily basis | 0.74 million|
 |2.|Authentication Example 2| RAMED Authentications at hospitals | 7.60 million|
 |3.|Authentication Example 3| DAAM Authentications | 0.077 million |
 
 After the end of Phase-I of the implementation, the authentication services and the corresponding authentication volumes would start growing. During peak usage under the Phase-II, it is estimated that 10% of the total population of Morocco would use authentication services on a daily basis. In other words, it is estimated that authentication transactions during Phase-II would be in the range of 3.6 million per day. Thus, the total volumes are estimated to be 650 Million transactions per annum during Phase-II. 
 
-### 24. Transaction Volumes
+### 25. Transaction Volumes
 **Table 5: _Indicative Transaction Volumes_**
+
+|**S. No.**| **Parameters**| **Indicative Units**|
+|:------:|-----|:---:|
+|**A.**|**Enrolments**| |
+|1.|Total number of enrolments till October 2021| 8.00 million|
+|2.|Total number of enrolments till July 2023| 30.48 Million|
+|3.|Size of Enrolment Packet| 3 MB|
+|4.|Peak enrolment per day (Phase-I)|30,000 |
+|5.|Peak enrolment per day (Phase-II)|50,000 |
+|6.|Peak Enrolment packet to be uploaded per day (incl. backlog)|60,000 |
+|7.|Peak Enrolment batch process per hour (Phase-I)| 1500|
+|8.|Peak Enrolment batch process per hour (Phase-II)| 2500|
+|9.|Pre-enrolment during peak hour (Phase-I):|2,600 Users |
+||* 8 million enrolments in 2 years
+||* Peak hour will see double of average requests
+||* 90% of registration happens in 8 hour window 
+|10.|Pre-enrolment during peak hour (Phase-II):| 6,750 Users|
+|| * 22.5 million enrolments in 2 years
+|| * Peak hour will see double of average requests
+|| * 90% of registration happens in 8 hour window
+|**B.**|**Authentication and E-KYC**| |
+|1.|Number of authentication requests (At peak load during Phase-I)| 0.50 million per day|
+|2.|Number of e-KYC requests (At peak load during Phase-I)|0.10 million per day |
+|3.|Number of authentication requests (At peak load during Phase-II)| 1.80 million per day|
+|4.|Number of e-KYC requests (At peak load during Phase-II)|1.80 million per day |
+|**C.**|**Internet Usage**
+|1.|Web page size|130Kb, 0.13Mb|
+|2.|Total number of web users in Morocco|22.5 Million|
+|3.|Concurrency percentage per hour|2.5%|
+|4.|Number of Concurrent internet users|5,62,500|
+|5.|Average no. of hits by same users during the same login on web page|2|
+|6.|Web users during peak hour|100,969|
+|7.|Web users during peak hour| * 2.5% users/day| 
+||| * Peak hour will see double of average requests|  
+|**D.**|**Miscellaneous**
+|1.|Number of sessions during peak load |36 million per annum|
+|2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
+|3.|Bandwidth at each center|2 MBPS|
+#### 25.1. Assumptions for Server Sizing
+1. All production and non-production servers will be hosted at common Data Centre
+1. Baring certain citizen facing applications, DC-DR will be in active passive configuration
+1. All servers will be based on x86 architecture
+1. Used for hosting high compute requirements with SAN
+1. Optimized Data Centre space utilization
+1. More compute and memory power per server 
+1. High compute and memory consuming workloads should use Blades 
+1.4.1.2. Usage Factors for Storage and Tape Library
+(i)	Host mount points for Blade servers
+(ii)	Provides support for storage array based replication to meet DR requirements 
+(iii)	Host IO intensive workloads like database, data analytics and data warehouse 
+(iv)	Provide a front-end, fast cache to a tape library infrastructure
+(v)	Shorten the backup window period 
+(vi)	Enables faster data restoration 
+(vii)	Provides data retention for longer duration
+(viii)	Provides cost effective way of retaining data for longer duration
+(ix)	Enables department to meet data compliance requirements
+1.4.2. Data Size
+This section provides the details of the data size required to be handled in the RNP information system
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
