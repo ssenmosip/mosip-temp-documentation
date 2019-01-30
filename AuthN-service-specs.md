@@ -30,10 +30,9 @@ password|Yes|Password of the user| |
 ```JSON
 {
   "userName": "m1030380",
-  "mobile": "0987654321",
-  "mail": "asdfa@asdf.com",
-  "role": "DIVISION_ADMIN",
-  "langCode": null
+  "mobilenumber": "0987654321",
+  "email": "asdfa@asdf.com",
+  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
 }
 
 ```
@@ -61,25 +60,24 @@ Name | Required | Description | Default Value | Example
 email|Yes|Email to which the OTP has to be sent| | 
 langCode|Yes|Language in which the OTP message will be sent. This is a ISO format| | 
 number|Yes|Phone number to which the OTP has to be sent| | 
-otpChannel|Yes|Channel of the OTP. | | Phone or Email
+otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| | soandso@mail.com or 9288987374
 
 ### Example Request
 ```JSON
 {
   "email": "string",
   "langCode": "string",
-  "mobilenumber": "string",
+  "mobilenumber": "number",
   "otpChannel": "string"
 }
 ```
 ### Example Response
 ```JSON
 {
-  "langCode": "string",
-  "mail": "string",
-  "mobile": "string",
-  "role": "string",
-  "userName": "string"
+  "userName": "m1030380",
+  "mobilenumber": "0987654321",
+  "email": "asdfa@asdf.com",
+  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
 }
 ```
 
@@ -116,11 +114,10 @@ key|Yes|The id of the channel to which the OTP has been sent| | 9288987374 or so
 ### Example Response
 ```JSON
 {
-  "langCode": "string",
-  "mail": "string",
-  "mobile": "string",
-  "role": "string",
-  "userName": "string"
+  "userName": "m1030380",
+  "mobilenumber": "0987654321",
+  "email": "asdfa@asdf.com",
+  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
 }
 ```
 
@@ -149,17 +146,15 @@ password|Yes|Password of the user| |
 email|Yes|Email to which the OTP has to be sent| | 
 langCode|Yes|Language in which the OTP message will be sent. This is a ISO format| | 
 number|Yes|Phone number to which the OTP has to be sent| | 
-otpChannel|Yes|Channel of the OTP. | | Phone or Email
+otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| | soandso@mail.com or 9288987374
 
 ### Example Request
 ```JSON
 {
-  "userName": "string",
-  "password": "string",
-  "email": "string",
-  "langCode": "string",
-  "mobilenumber": "string",
-  "otpChannel": "string"  
+  "userName": "m1030380",
+  "mobilenumber": "0987654321",
+  "email": "asdfa@asdf.com",
+  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
 }
 ```
 ### Example Response
@@ -198,12 +193,43 @@ AuthToken
 ### Example Response
 ```JSON
 {
-  "langCode": "string",
-  "mail": "string",
-  "mobile": "string",
-  "role": "string",
-  "userName": "string"
+  "userName": "m1030380",
+  "mobilenumber": "0987654321",
+  "email": "asdfa@asdf.com",
+  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
 }
 ```
 
 
+
+
+# 6. Logout
+
+This service will logout the user. 
+
+### Resource URL
+### `GET /logout`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+AuthToken|Yes|AuthToken passed in the request header| | 
+ 
+
+### Example Request
+```Request Header
+AuthToken
+```
+### Example Response
+```JSON
+{
+	"message":"User had been logged out successfully"
+}
+```
