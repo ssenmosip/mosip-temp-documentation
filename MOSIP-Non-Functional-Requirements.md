@@ -245,7 +245,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |5.|Average no. of hits by same users during the same login on web page|2|
 |6.|Web users during peak hour|100,969|
 |7.|Web users during peak hour| (a) 2.5% users/day| 
-||| (b) Peak hour will see double of average requests|  
+||| (b) Peak hour will see double of average requests|
 |**D.**|**Miscellaneous**
 |1.|Number of sessions during peak load |36 million per annum|
 |2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
@@ -287,7 +287,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |3.|Verification| CNIE Verification|10 per shift
 |||Working Hours|8 hours per shift x 2 Shift
 |4.|Adjudicators| Manual Adjudication|10 per shift |
-|||  Working Hours|8 hours per shift x 2 Shift|
+|||Working Hours|8 hours per shift x 2 Shift|
 |5.|Contact Centre| Helpdesk Personnel|10 x 2 Shift 
 ||| Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
 ||| Contact Centre Seats|11 (minimum) 
@@ -295,7 +295,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 ||| Working Hours|8 hours per shift x 2 Shift 
 |6.| IT Helpdesk| Helpdesk Personnel|5 (First Shift) + 5 (Second Shift) + 2 (Third Shift)|
 ||| Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
-|7.|  Network Operations Centre| Number of Users| 3 (First Shift) + 3 (Second Shift) + 1 (Third Shift) 
+|7.|Network Operations Centre| Number of Users| 3 (First Shift) + 3 (Second Shift) + 1 (Third Shift) 
 ||| Working Hours| 8 hours per shift x 3 Shifts
 |8.|Security Operations Centre|Number of Users|4 (First Shift) + 4 (Second Shift) + 2 (Third Shift) 
 |||Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
