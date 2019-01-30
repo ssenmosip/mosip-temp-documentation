@@ -158,7 +158,7 @@ The solution shall cater to at least the following indicative performance level:
 |1.|De-duplication|99.5 % uptime evaluated on monthly basis on 24*7 service window |
 |2.|Authentication Services| 99.99% uptime evaluated on monthly basis on 24*7 service window|
 
-### 23. Estimated Enrolment Volumes
+## 23. Estimated Enrolment Volumes
 
 A tabular representation of the estimated volumes in the overall project implementation is given below:
 
@@ -185,11 +185,11 @@ The table given above is an estimated of the enrolment and updated volumes under
 1. For the purpose of enrolment of all the citizens and foreign Residents of Morocco, a figure of 95% of the total population is considered. It is estimated that 85% of the population will be enrolled in Phase-I and Phase-II of implementation. Considering this, the total enrolment volumes in Phase-II come out to be 22.86 million till July 2023. Thereafter, an additional 10% of the population i.e. nearly 3.63 million will be covered August 2023 onwards. 
 1. In addition to the enrolment volumes as mentioned above, the continuous enrolment of the annual increment in the population (new born children) will be carried out. Moreover, the updates in demographic information such as mobile number, address, email address, etc. will also be carried out. Similarly, the update in biometric information will be carried out at the age of 5 years, 15 years and on demand basis for other registered individuals.
 
-### 24. Estimated Authentication Volumes
+## 24. Estimated Authentication Volumes
 
 The estimated volume of authentication services are provided in this section. 
 
-In the Phase-I (between Aug’19 to Oct’21), there is expected to be a one-time usage of e-KYC for all the social sector beneficiaries i.e. 8 million. During this phase, nearly 100 million authentication transactions are estimated per annum. Thus, considering an average of 250 working days in a year, nearly 0.43 million authentication transactions are estimated per day. The authentication transactions are expected to originate from below mentioned schemes:
+In the Phase-I (between Aug 2019 to Oct 2021), there is expected to be a one-time usage of e-KYC for all the social sector beneficiaries i.e. 8 million. During this phase, nearly 100 million authentication transactions are estimated per annum. Thus, considering an average of 250 working days in a year, nearly 0.43 million authentication transactions are estimated per day. The authentication transactions are expected to originate from below mentioned schemes:
 
 1. In TAYSSIR, a total of 0.74 million beneficiaries are registered. The beneficiaries are school going children, and it is estimated that these children would authenticate and mark their attendance in school twice each week. These transactions are estimated to be over a period of 250 working days of a year. Thus, nearly 77 million authentication transactions are estimated annually under this program.
 1. RAMED is a health insurance scheme where government provides financial support to vulnerable people. It is estimated that the beneficiaries under the scheme will undertake at least three visits in the hospitals and their transactions would need to be authenticated. Thus, the total estimated authenticated transactions is 22.8 million per annum. 
@@ -211,7 +211,7 @@ The above information is summarized in the table given below:
 
 After the end of Phase-I of the implementation, the authentication services and the corresponding authentication volumes would start growing. During peak usage under the Phase-II, it is estimated that 10% of the total population of Morocco would use authentication services on a daily basis. In other words, it is estimated that authentication transactions during Phase-II would be in the range of 3.6 million per day. Thus, the total volumes are estimated to be 650 Million transactions per annum during Phase-II. 
 
-### 25. Transaction Volumes
+## 25. Transaction Volumes
 ### <p align="center"> **Table 5: _Indicative Transaction Volumes_**
 |**S. No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|:---:|
@@ -250,7 +250,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |1.|Number of sessions during peak load |36 million per annum|
 |2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
 |3.|Bandwidth at each center|2 MBPS|
-#### 25.1. Assumptions for Server Sizing
+### 25.1. Assumptions for Server Sizing
 1. All production and non-production servers will be hosted at common Data Centre
 1. Baring certain citizen facing applications, DC-DR will be in active passive configuration
 1. All servers will be based on x86 architecture
@@ -258,7 +258,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Optimized Data Centre space utilization
 1. More compute and memory power per server 
 1. High compute and memory consuming workloads should use Blades 
-#### 25.2. Usage Factors for Storage and Tape Library
+### 25.2. Usage Factors for Storage and Tape Library
 1. Host mount points for blade servers
 1. Provides support for storage array based replication to meet DR requirements 
 1. Host IO intensive workloads like database, data analytics and data warehouse 
@@ -268,7 +268,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Provides data retention for longer duration
 1. Provides cost effective way of retaining data for longer duration
 1. Enables department to meet data compliance requirements
-#### 25.3. Data Size
+### 25.3. Data Size
 This section provides the details of the data size required to be handled in the RNP information system
 
 ### <p align="center"> **Table 6: _Data Size_**
@@ -277,7 +277,7 @@ This section provides the details of the data size required to be handled in the
 Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
 Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
 e-KYC Packet|OTP, Iris or Facial|30 KB
-### 26. Estimation of Users 
+## 26. Estimation of Users 
 ### <p align="center"> **Table 7: _Estimation of Users_**
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
@@ -309,7 +309,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
 |13.| Permanent Service Centres|Citizen Service Centres |2000
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
-### 27. Technical Parameters
+## 27. Technical Parameters
 ### <p align="center"> **Table 8: _Technical Parameters_**
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
@@ -330,7 +330,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |8.|Online data retention| NID Data|Always
 |||Biometric Centre data| Always
 |9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
-### 28. RTO and RPO
+## 28. RTO and RPO
 ### <p align="center"> **Table 9: _RTO and RPO_**
 |**S. No.**|**Process**|**Criticality**|**RTO**| **RPO**|**Business Rationale for RPO and RTO**|
 |:----:|----|----|----|----|----|
