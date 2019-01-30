@@ -15,8 +15,8 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-userName|Yes|User name of the user| | 
-password|Yes|Password of the user| | 
+userName|Yes|User name of the user| -NA- | -NA-
+password|Yes|Password of the user| -NA- | -NA-
 
 ### Example Request
 ```JSON
@@ -57,10 +57,10 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-email|Yes|Email to which the OTP has to be sent| | 
-langCode|Yes|Language in which the OTP message will be sent. This is a ISO format| | 
-number|Yes|Phone number to which the OTP has to be sent| | 
-otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| | soandso@mail.com or 9288987374
+email|Yes|Email to which the OTP has to be sent| -NA- | -NA-
+langCode|Yes|Language in which the OTP message will be sent. This is a ISO 639-2 format| -NA- | ara
+mobilenumber|Yes|Phone number to which the OTP has to be sent| -NA- | -NA- 
+otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| mobilenumber | email
 
 ### Example Request
 ```JSON
@@ -101,8 +101,8 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-otp|Yes|OTP which is sent to the user for authentication| | 645728
-key|Yes|The id of the channel to which the OTP has been sent| | 9288987374 or soandso@mail.com
+otp|Yes|OTP which is sent to the user for authentication| -NA- | 645728
+key|Yes|The id of the channel to which the OTP has been sent| -NA- | 9288987374 or soandso@mail.com
 
 ### Example Request
 ```JSON
@@ -141,12 +141,12 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-userName|Yes|Username of the user| | 
-password|Yes|Password of the user| | 
-email|Yes|Email to which the OTP has to be sent| | 
-langCode|Yes|Language in which the OTP message will be sent. This is a ISO format| | 
-number|Yes|Phone number to which the OTP has to be sent| | 
-otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| | soandso@mail.com or 9288987374
+userName|Yes|Username of the user| -NA- | -NA-
+password|Yes|Password of the user| -NA- | -NA-
+email|Yes|Email to which the OTP has to be sent| -NA- | -NA-
+langCode|Yes|Language in which the OTP message will be sent. This is a ISO 639-2 format| | 
+mobilenumber|Yes|Phone number to which the OTP has to be sent| -NA- | -NA- 
+otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| mobilenumber | email
 
 ### Example Request
 ```JSON
@@ -183,7 +183,7 @@ Requires Authentication | No
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-AuthToken|Yes|AuthToken passed in the request header| | 
+AuthToken|Yes|AuthToken passed in the request header| -NA- | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
  
 
 ### Example Request
@@ -220,7 +220,7 @@ Requires Authentication | No
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-AuthToken|Yes|AuthToken passed in the request header| | 
+AuthToken|Yes|AuthToken passed in the request header| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
  
 
 ### Example Request
