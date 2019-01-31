@@ -124,7 +124,7 @@ Deletes the following data from the client machine after successful registration
 1. Audit
 # Registration Processor
 ## 1. Registration Packet Handler
-### 1.1  Packets Receive
+### 1.1  Packets Receiver
 1. It receives the packet sent from the registration client
 1. Performs various sanity checks on the packet
 ### 1.2  Virus Scanner Stage
@@ -150,29 +150,22 @@ Demographic de-duplication of name, gender and DOB
 It is a dummy ABIS which provides the failure and successful scenarios using Dummy Tags
 ### 3.6 Manual Verification
 This is a pluggable stage where a manual verifier can verify the demographic and biometric data of an individual manually
-## 4. UIN Generator
-### 4.1 UIN Generator
-Generates UIN as per the defined logic
-### 4.2 UIN Acknowledgement Generator (Provided By Core Kernel)
-Generates a PDF acknowledgement of the UIN card
-## 5. Notification Manager
-### 5.1 Notification-SMS
-Send SMS notification for registration success and failure scenarios 
-### 5.2 Notification-Email
-Send email notification for registration success and failure scenarios 
-## 6. Print
-### 6.1 Print Queue 
-Make the UIN data available for printing and postal services
-## 7. UIN Lifecycle Manager
-### 7.1 UIN De-Activator
-De-activates a UIN
-### 7.2 UIN Re-Activate
-Re-activates a UIN
-### 7.3 UIN Updater
-Updates UIN data of an existing UIN
-## 8. Minutiae Extractor
-### 8.1 Minutiae Extraction Algorithm
-Extract minutiae from finger print image to store in ID repository
+## 4. UIN Generator 
+### 4.1 UIN Generator Stage
+1. Generates and allocates a UIN as per the defined logic
+1. Stores the persons biometric and demographic data in the identity repository
+1. Notifies the resident that UIN is generated through the configured channels (SMS, Email etc.)
+## 5. Print
+### 5.1 Print Queue Stage
+Make the UIN data and UIN card available for printing and postal services
+## 6. UIN Lifecycle Manager
+### 6.1 UIN Update Stage
+1. Updates the data (demographic\biometric) of the resident
+1. Updation of UIN status to re-activate
+1. Updation of UIN status to deactivate
+## 7. External System Integration
+### 7.1 External System Integration
+This stage interacts with various external systems such as CNIE and EC
 # ID-Authentication
 ## 1. TSP/UA Authentication
 ### 1.1 TSP Authentication 
