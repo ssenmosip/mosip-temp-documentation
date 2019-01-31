@@ -64,4 +64,4 @@ Link: [MoM - MOSIP Full Demo ID Authentication - Customer Meeting - 29Jan19.docx
 13) ## MOSIP Full Demo_Registration client: Customer Meeting - 28Jan'19
 Attendees: Anadi, Ramesh, Krishnan, Shrikant, Shravan, Romila, Gayathri, Karthik, Omsaieswar, Akshaya, Vivek, Ragavendran, Leona, Resham, Gita, Lalana, Nagashree, Lingam, Narender, Technoforte Team
 
-Link: [MoM - MOSIP Full Demo Registration client - Customer Meeting - 28Jan19.docx]   (_files/MoM_MOSIP_Full_Demo_Registration client_Customer_Meeting_28Jan19.docx)
+Link: [MoM - MOSIP Full Demo Registration client - Customer Meeting - 28Jan19.docx]   (_files/MoM_MOSIP_Full_Demo_Registration_client_Customer_Meeting_28Jan19.docx)
