@@ -307,7 +307,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |||Annual growth rate| Annual growth of 33% (10 years)
 |11.|Estimated Users| No. of Internet Subscribers| 10% of Internet Subscribers
 |12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
-|13.| Permanent Service Centres|Citizen Service Centres |2000
+|13.| Permanent Service Centers|Citizen Service Centers|2000
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
 ## 27. Technical Parameters
 ### <p align="center"> **Table 8: _Technical Parameters_**
@@ -336,14 +336,14 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |:----:|----|----|----|----|----|
 |1.|Enrolment|High|24 hours|~ZERO|**RTO**: Enrolment is an offline process and officers are required to upload packets once a day hence 24 hrs. is affordable 
 ||||||**RPO (Enrolment Databases)**: It is a business requirement that no data shall be lost in the ecosystem (IDMS and CSC)
-|2.|Authentication| High|~ZERO|~ZERO|**RTO**: Authentication is an online process and it is anticipated that majority of government and private organizations in Morocco will use this service to be able to provide further services. Hence RTO is 0
+|2.|Authentication| High|~ZERO|~ZERO|**RTO**: Authentication is an online process and it is anticipated that majority of government and private organizations in Morocco will use this service to be able to provide further services. Hence, RTO is 0
 ||||||**RPO (Authentication databases including logs)**: It is a business requirement that no authentication data shall be lost
 |3.|Critical Portals | High|~ZERO|~ZERO|**RTO**: These portals could be resident facing and any downtime could have major reputational impact
 ||||||**RPO (Logs databases and enrolment, Authentication databases)**: It is a business requirement that no data is lost from the logs database. Authentication and Enrolment databases also have ~ZERO RPOs
 |4.|CRM|High|~ZERO|~ZERO|**RTO**: CRM is a resident facing service and any downtime could have major reputational impact 
 ||||||**RPO (CRM database, call recordings etc.)**: It is a business requirement that no data is lost from the CRM databases and maintenance of the databases also may be necessary for compliance to legal requirements. 
-|5.|SOC|High|~ZERO|~ZERO|**RTO**: SOC is a very important security operation for IDMS. SOC should never be down as logs from various devices are collected by SOC tool and it is important that logs are always available for investigation purposes
-||||||**RPO (Logs file system, SOC configuration etc.)**: It is a business and legal requirement that logs are always available 
+|5.|SOC|High|~ZERO|~ZERO|**RTO**: SOC is a very important security operation for IDMS. SOC should never be down as logs from various devices are collected by SOC tool and it is important those logs are always available for investigation purposes
+||||||**RPO (Logs file system, SOC configuration etc.)**: It is a business and legal requirement those logs are always available 
 |6.|Email|High|~ZERO|~ZERO|**RTO**: Email is very critical service as lot of other services depend upon email such as email to residents when PIN generated or when resident authenticates 
 ||||||**RPO (Emails)**: Email is a very critical service and lot of internal and partner communications take place on email hence it is a critical service.
 |7.|Other Portals|Medium|~ZERO|~ZERO if data other than logs ~24 hrs if only logs|**RTO**: It is understood that these portals are not resident facing and criticality 
