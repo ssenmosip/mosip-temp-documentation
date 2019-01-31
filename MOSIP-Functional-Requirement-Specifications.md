@@ -1,7 +1,7 @@
 # Pre-Registration
 ## 1. Authentication
 ### 1.1 Login
-Log in to the pre-registration system with mobile or email with OTP so that you can access the pre-registration system
+Log in to the pre-registration system with a mobile or email with OTP so that you can access the pre-registration system
 ### 1.2 Logout
 Log out from the pre-registration system
 ## 2. Language Data Manager
@@ -23,8 +23,8 @@ Booking\re-booking the selected slot in the chosen registration-center for regis
 ## 5. Pre-Registration Application Manager
 ### 5.1 Pre-Registration Application Manager
 Collects (create\modify\delete) demographic data and documents from the user\applicant
-### 5.2 Acknowledgement
-Generates acknowledgement for successful pre-registration
+### 5.2 Acknowledgment
+Generates acknowledgment for successful pre-registration
 # Registration
 ## 1. Registration Client Setup
 ### 1.1 Registration Client Installation
@@ -42,7 +42,7 @@ Virus scan of the data packets and the application software
 Checks whether there is enough space in the client machine\dongle to store the registration packet
 ## 3. Registration Officer Authentication
 ### 3.1 Login
-Enables logging in to the client machine by password, OTP or biometrics
+Enables logging in to the client machine by a password, OTP or biometrics
 ### 3.2 Logout
 Logging out from the client application
 ## 4. User Onboarding/Manager
@@ -54,7 +54,7 @@ Translates the static messages as per the configures primary and secondary langu
 ### 5.2 Transliteration
 Translates the user entered text from primary to secondary language
 ## 6. Registration Application Manager - New
-### 6.1 Location Geotagging
+### 6.1 Location Geo tagging
 Captures the GPS coordinates of the client machine to ensure data integrity
 ### 6.2 Individual Category Selection
 Helps to distinguish if an applicant is an adult or a child
@@ -77,8 +77,8 @@ Captures the face photograph
 1. Supervisor authentication for submitting registration with exception
 1. End of day approval
 1. Re-registration
-### 6.10 Acknowledgement
-Renders the acknowledgement page after successful registration and allows printing
+### 6.10 Acknowledgment
+Renders the acknowledgment page after successful registration and allows printing
 ### 6.11 Notification
 Renders email and SMS notification for various events such as successful registration
 ## 7. Registration Officer Authorization
