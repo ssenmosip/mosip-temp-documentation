@@ -1,1 +1,0 @@
-Attendees:Anadi, Ramesh, Krishnan, Shrikant, Shravan, Romila, Gayathri, Karthik, Omsaieswar, Akshaya, Vivek, Ragavendran, Leona, Resham, Gita, Lalana, Nagashree, Lingam, Narender, Technoforte Team
