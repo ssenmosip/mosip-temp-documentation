@@ -6314,4 +6314,3 @@ isActive |Yes|is active or not| |
   "langCode": "string"
 }
 ```
-

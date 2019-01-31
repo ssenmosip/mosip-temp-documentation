@@ -134,9 +134,9 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 [Data encryption and decryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D)
 
-## 7.4.Authentication & Authorization (TBD)
+## 7.4.Authentication & Authorization 
 
-[ID authentication flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D)
+### [MOSIP Authentication Spec](https://github.com/mosip/mosip/wiki/AuthN-service-specs)
 
 # 8.MOSIP-PRE-REGISTRATION
 

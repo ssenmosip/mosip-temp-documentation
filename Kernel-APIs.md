@@ -1,7 +1,7 @@
 # 1. Key Manager
 ## 1.1 Public key-get service
 
-This service will provides the public key for the specific application. 
+This service will provide the public key for the specific application. 
 
 ### Resource URL
 ### `GET /publickey`
@@ -39,7 +39,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 This service will decrypt the encrypted symmetric key 
 
 ### Resource URL
-### `POST /keymanager/v1.0/symmetrickey`
+### `POST /decrypt`
 
 ### Resource details
 
@@ -56,15 +56,25 @@ referenceId|No|Id of the Machine/TSP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 ### Example Request
-/keymanager/v1.0/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
+
+/keymanager/v1.0/decrypt
+
+```
+{
+  "applicationId": "REGISTRATION",
+  "encryptedSymmetricKey": "encryptedSymmetricKey",
+  "referenceId": "REF01",
+  "timeStamp": "2018-12-10T06:12:52.994Z"
+}
+```
+
+
 
 ### Example Response
 ```JSON
 
 {
-  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
-  "issuedAt": "2018-01-01T10:00:00",
-  "expiryAt": "2018-12-10T06:12:51.994"
+  "symmetricKey": "decryptedSymmetricKey"
 }
 
 ```
@@ -647,7 +657,7 @@ Name | Required | Description | Default Value | Example
 
 ## 3.3 Registration Center Config details-get service
 
-This service will return back the global configuration data of the MOSIP platform. 
+This service will return back the registration configuration data of the MOSIP platform. 
 
 ### Resource URL
 ### `GET /registrationcenterconfig/{registrationcenterid}`
@@ -718,7 +728,7 @@ Name | Required | Description | Default Value | Example
 This service will return unused UIN from UIN pool 
 
 ### Resource URL
-### `GET /uingenerator/v1.0/uin`
+### `GET /uin`
  
 
 ### Resource details
@@ -734,7 +744,8 @@ Name | Required | Description | Default Value | Example
 -NA-
 
 ### Example Request
--NA-
+
+/uingenerator/v1.0/uin
 
 ### Example Response
 ```
@@ -915,7 +926,6 @@ otp|Yes|OTP| | 123456
   "message": "VALIDATION SUCCESSFUL"
 }
 ```
-
 
 
 
