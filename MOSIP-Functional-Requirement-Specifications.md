@@ -47,7 +47,7 @@ Enables logging in to the client machine by password, OTP or biometrics
 Logging out from the client application
 ## 4. User Onboarding/Manager
 ### 4.1 User Registration
-Enables mapping between the user and machine\dongle. Allows a user to onboard themselves on a machine
+Enables mapping between the user and machine\dongle. Allows a user to on-board themselves on a machine
 ## 5. Language Manager
 ### 5.1 Translation
 Translates the static messages as per the configures primary and secondary languages
@@ -55,7 +55,7 @@ Translates the static messages as per the configures primary and secondary langu
 Translates the user entered text from primary to secondary language
 ## 6. Registration Application Manager - New
 ### 6.1 Location Geotagging
-Captures the GPS co-ordinates of the client machine to ensure data integrity
+Captures the GPS coordinates of the client machine to ensure data integrity
 ### 6.2 Individual Category Selection
 Helps to distinguish if an applicant is an adult or a child
 ### 6.3 Demo Data Capture
@@ -63,7 +63,7 @@ Captures the demographic data of the applicant
 ### 6.4 Document Upload
 Enables scan and upload supporting doc such as POA and POI
 ### 6.5 Fingerprint Capture
-Captures the finger print data and determines the quality of the data
+Captures the fingerprint data and determines the quality of the data
 ### 6.6 Iris Capture
 Captures the iris data and determines the quality of the data
 ### 6.7 Face Capture
