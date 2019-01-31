@@ -136,7 +136,7 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 ## 7.4.Authentication & Authorization 
 
-[MOSIP Authentication Spec](https://github.com/mosip/mosip/wiki/AuthN-service-specs)
+### [MOSIP Authentication Spec](https://github.com/mosip/mosip/wiki/AuthN-service-specs)
 
 # 8.MOSIP-PRE-REGISTRATION
 
