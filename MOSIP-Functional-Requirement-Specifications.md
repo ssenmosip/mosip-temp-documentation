@@ -196,3 +196,5 @@ Verifies the authenticity of an individual using multiple attributes provided in
 # Reporting (TBD WIP)
 
 # Platform Level Features and Utilities
+## Utilities 
+## Features
