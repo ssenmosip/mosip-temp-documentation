@@ -25,7 +25,7 @@ MOSIP provides the following utilities
 1. Hash utility
 ## 5. Data Access Manager
 ### 5.1 Data Access-Hibernate
-Provides an implementation for DAO (Data Access Manager) interface 
+Provides an implementation for DAM (Data Access Manager) interface 
 ## 6. OTP Manager
 ### 6.1 OTP Generator
 Generates OTP for unique key, the length and expiry of the OTP is configurable
@@ -38,8 +38,8 @@ Validates the OTP against a unique key
 1. Update validity status of the key-pair
 1. Audit with common attributes
 ### 7.2 Certificate Generator
-1. Generate certificate for new machines, devices and users through a batch job using a defined algorithm
-1. Stores certificates in a password protected Key Store
+1. Generate a certificate for new machines, devices and users through a batch job using a defined algorithm
+1. Stores certificate in a password protected Key Store
 1. Update validity status of the Key-pair
 1. Audit with common attributes
 ### 7.3 Key Services
@@ -62,7 +62,7 @@ Performs the pattern validation on the mobile number based on the configured len
 ### 10.2 Email Validator
 Performs the pattern validation on email ID based on the configured parameters
 ### 10.3 Blacklisted Words Validator
-Performs a word to word validation against a configured list of blacklisted words
+Performs word to word validation against a configured list of blacklisted words
 ## 11. Master Data Manager
 ### 11.1 Master Data
 Performs CRUD (Create, Read, Update, Delete) operations on the master data
@@ -91,13 +91,13 @@ Generates and validates a TSP ID
 Performs virus scan on registration and pre-registration packet
 ## 15. Template Merger
 ### 15.1 Template Merger
-Merges an pre-configured template with dynamic values
+Merges a pre-configured template with dynamic values
 ## 16. PDF Generator
 ### 16.1 PDF Generator
-This utility enables PDF file creation of received content (e.g. acknowledge and notification templates)
+This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)
 ## 17. Notification Manager
 ### 17.1 Notification-SMS
-Provides an interface to send a SMS notification
+Provides an interface to send an SMS notification
 ### 17.2 Notification-Email
 Provides an interface to send an email notification
 ## 18. Sync Handler
@@ -111,12 +111,12 @@ Syncs the configurations stored in MOSIP configuration server with the locally s
 Syncs user role data between the MOSIP server and the client local database
 ## 19. Multi-Language Manager
 ### 19.1 Translation
-Provides multi language support through translation for admin configured primary and secondary languages for a country
+Provides multi language support through translation for an admin configured primary and secondary languages for a country
 ### 19.2 Transliteration
-Provides multi language support through transliteration for admin configured primary and secondary languages for a country
+Provides multi language support through transliteration for an admin configured primary and secondary languages for a country
 ## 20. QR Code Generator
 ### 20.1 QR Code Generator
-This utility enable QR code generation for pre-registration, registration and UIN acknowledgement
+This utility enable QR code generation for pre-registration, registration and UIN acknowledgment
 ## 21. FTP\Packet Uploader
 ### 21.1 FTP - Upload Packet
 Provides an upload portal for registration client to upload packets for sending it to registration processor
@@ -173,7 +173,7 @@ A tabular representation of the estimated volumes in the overall project impleme
 |3.|Stage-III (Nationwide)| 7.84|
 |**B.**|**Phase-II [Other Beneficiaries and Targeted Population]** |**26.49** |
 |1.|Enrolment of 85% of Targeted Population [November 2021 to July 2023]| 22.86 |
-|2.|Additional enrolment of 10% of Targeted Population [August 2023 onwards]| 3.63 |
+|2.|Additional enrolment of 10% of Targeted Population [August 2023 onward]| 3.63 |
 |**C.**|**Continuous Enrolment (New Born) and Updates (Demo. and Bio.)**|**8.90** |
 |1.|New Born Enrolment (From 2021 to 2023)|1.28 |
 |2.|Demographic Updates (From 2020 to 2023)| 4.24|
@@ -182,7 +182,7 @@ A tabular representation of the estimated volumes in the overall project impleme
 The table given above is an estimated of the enrolment and updated volumes under this program. The detailed explanation of the line items is provided below:
 1. The total population of Morocco as per the census data of 2014, stands at 33.77 million. The population at the end of year 2021 is estimated to be 36.31 million which is estimated to reach 39.33 million at the end of year 2030.
 1. In the first phase, the beneficiaries under RAMED, DAAM and TAYSSIR are planned to be covered. The approximate number of beneficiaries under these programs is 8 million. 
-1. For the purpose of enrolment of all the citizens and foreign Residents of Morocco, a figure of 95% of the total population is considered. It is estimated that 85% of the population will be enrolled in Phase-I and Phase-II of implementation. Considering this, the total enrolment volumes in Phase-II come out to be 22.86 million till July 2023. Thereafter, an additional 10% of the population i.e. nearly 3.63 million will be covered August 2023 onwards. 
+1. For the purpose of enrolment of all the citizens and foreign Residents of Morocco, a figure of 95% of the total population is considered. It is estimated that 85% of the population will be enrolled in Phase-I and Phase-II of implementation. Considering this, the total enrolment volumes in Phase-II come out to be 22.86 million till July 2023. Thereafter, an additional 10% of the population i.e. nearly 3.63 million will be covered August 2023 onward. 
 1. In addition to the enrolment volumes as mentioned above, the continuous enrolment of the annual increment in the population (new born children) will be carried out. Moreover, the updates in demographic information such as mobile number, address, email address, etc. will also be carried out. Similarly, the update in biometric information will be carried out at the age of 5 years, 15 years and on demand basis for other registered individuals.
 
 ## 24. Estimated Authentication Volumes
@@ -307,7 +307,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |||Annual growth rate| Annual growth of 33% (10 years)
 |11.|Estimated Users| No. of Internet Subscribers| 10% of Internet Subscribers
 |12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
-|13.| Permanent Service Centres|Citizen Service Centres |2000
+|13.| Permanent Service Centers|Citizen Service Centers|2000
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
 ## 27. Technical Parameters
 ### <p align="center"> **Table 8: _Technical Parameters_**
@@ -336,14 +336,14 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |:----:|----|----|----|----|----|
 |1.|Enrolment|High|24 hours|~ZERO|**RTO**: Enrolment is an offline process and officers are required to upload packets once a day hence 24 hrs. is affordable 
 ||||||**RPO (Enrolment Databases)**: It is a business requirement that no data shall be lost in the ecosystem (IDMS and CSC)
-|2.|Authentication| High|~ZERO|~ZERO|**RTO**: Authentication is an online process and it is anticipated that majority of government and private organizations in Morocco will use this service to be able to provide further services. Hence RTO is 0
+|2.|Authentication| High|~ZERO|~ZERO|**RTO**: Authentication is an online process and it is anticipated that majority of government and private organizations in Morocco will use this service to be able to provide further services. Hence, RTO is 0
 ||||||**RPO (Authentication databases including logs)**: It is a business requirement that no authentication data shall be lost
 |3.|Critical Portals | High|~ZERO|~ZERO|**RTO**: These portals could be resident facing and any downtime could have major reputational impact
 ||||||**RPO (Logs databases and enrolment, Authentication databases)**: It is a business requirement that no data is lost from the logs database. Authentication and Enrolment databases also have ~ZERO RPOs
 |4.|CRM|High|~ZERO|~ZERO|**RTO**: CRM is a resident facing service and any downtime could have major reputational impact 
 ||||||**RPO (CRM database, call recordings etc.)**: It is a business requirement that no data is lost from the CRM databases and maintenance of the databases also may be necessary for compliance to legal requirements. 
-|5.|SOC|High|~ZERO|~ZERO|**RTO**: SOC is a very important security operation for IDMS. SOC should never be down as logs from various devices are collected by SOC tool and it is important that logs are always available for investigation purposes
-||||||**RPO (Logs file system, SOC configuration etc.)**: It is a business and legal requirement that logs are always available 
+|5.|SOC|High|~ZERO|~ZERO|**RTO**: SOC is a very important security operation for IDMS. SOC should never be down as logs from various devices are collected by SOC tool and it is important those logs are always available for investigation purposes
+||||||**RPO (Logs file system, SOC configuration etc.)**: It is a business and legal requirement those logs are always available 
 |6.|Email|High|~ZERO|~ZERO|**RTO**: Email is very critical service as lot of other services depend upon email such as email to residents when PIN generated or when resident authenticates 
 ||||||**RPO (Emails)**: Email is a very critical service and lot of internal and partner communications take place on email hence it is a critical service.
 |7.|Other Portals|Medium|~ZERO|~ZERO if data other than logs ~24 hrs if only logs|**RTO**: It is understood that these portals are not resident facing and criticality 
