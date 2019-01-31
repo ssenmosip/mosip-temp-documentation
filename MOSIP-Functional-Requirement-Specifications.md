@@ -194,3 +194,5 @@ Verifies the authenticity of an individual using multiple attributes provided in
 # Admin Setup (TBD WIP)
 # Resident Services (TBD WIP) 
 # Reporting (TBD WIP)
+
+# Platform Level features and Utilities
