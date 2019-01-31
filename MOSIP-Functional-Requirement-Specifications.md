@@ -124,32 +124,32 @@ Deletes the following data from the client machine after successful registration
 1. Audit
 # Registration Processor
 ## 1. Registration Packet Handler
-### 1.1 Packet Mover
-To move packets from one folder location to another in registration-processor workflow
-### 1.2 Packet File Virus Scanner
-Performs virus scan of the encrypted and decrypted packet
-### 1.3 Packet Store
-A distributed file system to store decrypted data packets
-### 1.4 Archive Packets
+### 1.1  Packets Receive
+1. It receives the packet sent from the registration client
+1. Performs various sanity checks on the packet
+### 1.2  Virus Scanner Stage
+Performs virus scan of the encrypted and de-crypted packet and stores the packet in the file system as per configuration
+### 1.3 Archive Packets
 Makes the data packets available for archival
-### 1.5 Packet Decryptor
-Decrypts the data packets for further processing
 ## 2. Registration Status Service
-### 2.1 Registration Status Updater
-As the per the stage driven architecture this utility updates the status in the DB for the data packet at every stage
+### 2.1 Registration Status
+As the per the stage driven architecture, this utility updates the status in the DB for the data packet at every stage
 ## 3. Registration Packet Processor
-### 3.1 Packet Structure Validator
-It performs integrity validation (checksum) and file validation
-### 3.2 Packet Data Extractor
-Extracts data from JSON object and store in DB 
-### 3.3 OSI Data Validator
-Authenticate operator, supervisor and introducer information received in data packet and validate the metadata captured during packet creation
-### 3.4 Demo De-Dupe
+### 3.1 Packet Validator Stage
+It performs integrity validation (checksum) and file validation 
+### 3.2 OSI Validator Stage
+Authenticate operator, supervisor and introducer information received in data packet, and validate the metadata captured during packet creation
+### 3.3 Quality Check Stage
+1. Checks the quality of biometric data against a configured threshold
+1. Validates if photo, age and gender are in sync
+1. Validates the document with the data captured using OCR
+1. Performs fingerprint quality checks like a real finger or finger of the same person
+### 3.4 Demo De-Dupe Stage
 Demographic de-duplication of name, gender and DOB
-### 3.5 Biometric Quality Checker
-Checks the quality of biometric data against a configured standard
-### 3.6 Biometric De-Dupe
-Biometric de-duplication of biometrics using ABIS
+### 3.5 Biometric De-Dupe Dummy ABIS 
+It is a dummy ABIS which provides the failure and successful scenarios using Dummy Tags
+### 3.6 Manual Verification
+This is a pluggable stage where a manual verifier can verify the demographic and biometric data of an individual manually
 ## 4. UIN Generator
 ### 4.1 UIN Generator
 Generates UIN as per the defined logic
