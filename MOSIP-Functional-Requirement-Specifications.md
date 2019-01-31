@@ -195,4 +195,4 @@ Verifies the authenticity of an individual using multiple attributes provided in
 # Resident Services (TBD WIP) 
 # Reporting (TBD WIP)
 
-# Platform Level features and Utilities
+# Platform Level Features and Utilities
