@@ -93,21 +93,21 @@ Allows sending packets to the processing server
 1. Copying packets to an external storage device
 ## 9. Sync Handler
 ### 9.1 Master Data Syncher
-Synchronizes master data between server to client
+Synchronizes master data between a server to client
 ### 9.2 Packet Syncher
 Send registration packet IDs from client to processor so that to ensure data security
-### 9.3 Registration Packet Status Reader
+### 9.3 Registration Packet Status-Reader
 Read the status of the packets from processor into the client to ensure resend or deleting of packets as required
 ### 9.4 Registration Client Configuration Syncher
-Synchronizes configuration data between server to client
+Synchronizes configuration data between a server to client
 ### 9.5 User Role Setup Syncher
-Synchronizes user and role data between server to client
+Synchronizes user and role data between a server to client
 ### 9.6 Policy Syncher
-Synchronizes encryptions Keys between server to client
+Synchronizes encryptions Keys between a server to client
 ### 9.7 Pre-Registration Data Syncher
-Synchronizes pre-registration data between server to client
+Synchronizes pre-registration data between a server to client
 ### 9.8 Login Credentials Syncher
-Synchronizes login data (password) between server to client
+Synchronizes login data (password) between a server to client
 ### 9.9 Audit Log Syncher
 Synchronize the audit log from client to server
 ## 10. Individual UIN - Update
@@ -153,7 +153,7 @@ This is a pluggable stage where a manual verifier can verify the demographic and
 ## 4. UIN Generator 
 ### 4.1 UIN Generator Stage
 1. Generates and allocates a UIN as per the defined logic
-1. Stores the persons biometric and demographic data in the identity repository
+1. Stores the people biometric and demographic data in the identity repository
 1. Notifies the resident that UIN is generated through the configured channels (SMS, Email etc.)
 ## 5. Print
 ### 5.1 Print Queue Stage
