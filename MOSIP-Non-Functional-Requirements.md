@@ -345,9 +345,9 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |5.|SOC|High|~ZERO|~ZERO|**RTO**: SOC is a very important security operation for IDMS. SOC should never be down as logs from various devices are collected by SOC tool and it is important those logs are always available for investigation purposes
 ||||||**RPO (Logs file system, SOC configuration etc.)**: It is a business and legal requirement those logs are always available 
 |6.|Email|High|~ZERO|~ZERO|**RTO**: Email is very critical service as lot of other services depend upon email such as email to residents when PIN generated or when resident authenticates 
-||||||**RPO (Emails)**: Email is a very critical service and lot of internal and partner communications take place on email hence it is a critical service.
+||||||**RPO (Emails)**: Email is a very critical service and a lot of internal and partner communications take place on email hence it is a critical service.
 |7.|Other Portals|Medium|~ZERO|~ZERO if data other than logs ~24 hrs if only logs|**RTO**: It is understood that these portals are not resident facing and criticality 
 ||||||**RPO (Logs databases and enrolment, Authentication databases)**: It is a business requirement to ensure there is no data loss in case data other than logs is present.
 |8.|NOC|Medium|~ZERO|~24 hrs.|**RTO**: It is understood that NOC is an important process to monitor the availability of service
 ||||||**RPO (Ticketing database etc.)**: Ticketing database is not a critical database and hence loss of 24 hrs. of tickets can be afforded
-|9.|Office|Medium|24 - 48 hours|N/A (No data is stored)	
+|9.|Office|Medium|24-48 hours|N/A (No data is stored)	
