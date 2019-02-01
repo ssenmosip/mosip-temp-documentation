@@ -6,7 +6,7 @@ Log in to the pre-registration system with a mobile or email with OTP so that yo
 Log out from the pre-registration system
 ## 2. Language Data Manager
 ### 2.1 Translation
-Translation of the language as per the pre-configured primary and secondary language of a country
+Translation of the language as per the pre-configured primary and secondary language for a country
 ### 2.2 Transliteration
 Transliteration of the language as per the pre-configured secondary language for a country
 ## 3. Pre-Registration Sync
@@ -15,16 +15,18 @@ Transliteration of the language as per the pre-configured secondary language for
 1. Synchronizes status of pre-ID with registration processor
 ## 4. Appointment Scheduler
 ### 4.1 RC Identifier
-Provides search facility for available registration centers so that applicant can book an appointment  
+Provides search facility for available registration centers so that applicant can book an appointment 
 ### 4.2 Availability Checker  
 Getting availability of slots in the chosen registration center
 ### 4.3 Appointment Booking  
 Booking\re-booking the selected slot in the chosen registration-center for registration
 ## 5. Pre-Registration Application Manager
 ### 5.1 Pre-Registration Application Manager
-Collects (create\modify\delete) demographic data and documents from the user\applicant
+Collects (create\modify\delete) demographic data and documents (specific to the applicant type) from the user\applicant
 ### 5.2 Acknowledgment
-Generates acknowledgment for successful pre-registration
+Generates an acknowledgment (with QR Code) for successful pre-registration, which can then be printed or downloaded for future reference.
+### 5.3 PRID Generator
+Generates pre-registration ID
 # Registration
 ## 1. Registration Client Setup
 ### 1.1 Registration Client Installation
