@@ -221,7 +221,60 @@ MOSIP provides the following utilities
 Provides a interface for DAO (Data Access Manager) interface 
 
 ### Data Mapper
-Facilitate data mapping between DTO (Data Transfer Object) and Entity 
+Facilitate data mapping between DTO (Data Transfer Object) and Entity
+ 
+### Mobile validator
+Performs the pattern validation on the mobile number based on the configured length
+
+### Email validator
+Performs the pattern validation on email ID based on the configured parameters
+
+### Blacklisted Words Validator
+Performs a word to word validation against a configured list of blacklisted words
+
+### RID Generator
+Genetares and validates RID(Registration ID) as per defined logic
+
+### PRID Generator
+Genetares and validates PRID(Pre-Registration ID) as per defined logic
+
+### VID Generator
+Genetares and validates VID(Virtual ID) as per defined logic
+
+### Token ID Generator
+Genetares and validates token ID (Token ID) as per defined logic for TSPs(Third praty service provider)
+
+### Static PIN Generator
+Generates and Validate static PIN for user authentication
+
+### Registration Center ID Generator
+Generates a registration center ID
+
+### Machine ID generator
+Generates a machine ID of the client machine
+
+### TSP ID Generator
+Generates and validates a TSP ID
+
+### virusscanner-clamav
+Performs virus scan on registration and pre-registration packet
+
+### Template Merger
+Merges an pre-configured template with dynamic values
+
+### pdfgenerator
+This utility enables PDF file creation of received contente.g.acknoledge and notification templates
+
+### QR Code Generator
+This utility enable QR code generation for Pre-reg,reg and UIN acknoledgement
+
+### FTP - Upload packet
+Provides a upload portal for registarion client to upload packets for sending it to registration processor
+
+
+
+
+
 
 
 
