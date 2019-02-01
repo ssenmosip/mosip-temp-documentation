@@ -1,332 +1,38 @@
-# 1. Authentication - Username and password
+# 1. Authentication
 
-This service will authenticate an user by username and password combination.
+## 1.1 Send OTP
+
+This service sends an OTP to the user. The caller of this service have to send the channel in which the OTP will be sent. Based on the application ID, the corresponding channel's recepient address will be found out and the OTP is send accordingly. Note: At this point of time, no Auth Token will be generated. 
 
 ### Resource URL
-### `POST /authenticate/unpwd`
+### `POST /v1.0/authenticate/sendotp`
 
 ### Resource details
 
 Resource Details | Description
 ------------ | -------------
-Response format | JSON
+Response format | A JSON message will be returned. 
 Requires Authentication | no
 
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-userName|Yes|User name of the user| -NA- | -NA-
-password|Yes|Password of the user| -NA- | -NA-
+userid|Yes|This is the userid of the user. Based on the useridtype, this will vary.| -NA- | M392380
+otpchannel|Yes|This is the channel in which the OTP will be sent. It should be one of the {"EMAIL", "MOBILENUMBER"}| -NA- | MOBILENUMBER
+useridtype|Yes|This field is the user id type. It should be one the {"UIN", "USERID"}. Based on the combination of "appid" and "useridtype" the system identifies from which system to pickup the channel's recepient address| -NA- | USERID
+appid|Yes|This is the application ID of the caller of this service. It should be on of the {"PREREGISTRATION", "REGISTRATIONCLIENT", "REGISTRATIONPROCESSOR", "IDA"}| -NA- | PREREGISTRATION
 
 ### Example Request
 ```JSON
 {
-	"id": "string",
+	"id": "mosip.authentication.sendotp",
 	"timestamp": "2019-01-24T10:27:48.628Z",
-	"ver": "string",
+	"ver": "1.0",
 	"request": {
-		"userName": "string",
-		"password": "string"
-	}
-}
-```
-### Example Response
-```JSON
-{
-  "userName": "m1030380",
-  "mobilenumber": "0987654321",
-  "email": "asdfa@asdf.com",
-  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
-}
-
-```
-
-
-
-
-# 2. Authentication - Only OTP
-
-This service will authenticate an user only by the OTP method. 
-
-### Resource URL
-### `POST /authenticate/otp`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | no
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-email|Yes|Email to which the OTP has to be sent| -NA- | -NA-
-langCode|Yes|Language in which the OTP message will be sent. This is a ISO 639-2 format| -NA- | ara
-mobilenumber|Yes|Phone number to which the OTP has to be sent| -NA- | -NA- 
-otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| mobilenumber | email
-
-### Example Request
-```JSON
-{
-	"id": "string",
-	"timestamp": "2019-01-24T10:27:48.628Z",
-	"ver": "string",
-	"request": {
-		"email": "string",
-		"langCode": "string",
-		"mobilenumber": "number",
-		"otpChannel": "string"
-	}
-}
-```
-### Example Response
-```JSON
-{
-  "userName": "m1030380",
-  "mobilenumber": "0987654321",
-  "email": "asdfa@asdf.com",
-  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
-}
-```
-
-
-
-
-# 3. Verify OTP
-
-The above service will send the OTP to the user. This service validates the OTP which is sent by the user. 
-
-### Resource URL
-### `POST /authenticate/verify_otp`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | no
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-otp|Yes|OTP which is sent to the user for authentication| -NA- | 645728
-key|Yes|The id of the channel to which the OTP has been sent| -NA- | 9288987374 or soandso@mail.com
-
-### Example Request
-```JSON
-{
-	"id": "string",
-	"timestamp": "2019-01-24T10:27:48.628Z",
-	"ver": "string",
-	"request": {
-		"otp": "string",
-		"key": "string"
-	}
-}
-```
-### Example Response
-```JSON
-{
-  "userName": "m1030380",
-  "mobilenumber": "0987654321",
-  "email": "asdfa@asdf.com",
-  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
-}
-```
-
-
-
-
-# 4. Authentication - Username, password and OTP
-
-This service will authenticate an user by username and password combination along with OTP. Once the username and password is supplied, the authenticity of the credentials are checked first. And then the OTP will be sent to the registered mobile number and email ID. AuthToken will not be generated at this point. Once the OTP is verified, the AuthToken is generated and returned. 
-
-### Resource URL
-### `POST /authenticate/unpwdotp`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | No
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-userName|Yes|Username of the user| -NA- | -NA-
-password|Yes|Password of the user| -NA- | -NA-
-email|Yes|Email to which the OTP has to be sent| -NA- | -NA-
-langCode|Yes|Language in which the OTP message will be sent. This is a ISO 639-2 format| | 
-mobilenumber|Yes|Phone number to which the OTP has to be sent| -NA- | -NA- 
-otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| mobilenumber | email
-
-### Example Request
-```JSON
-{
-	"id": "string",
-	"timestamp": "2019-01-24T10:27:48.628Z",
-	"ver": "string",
-	"request": {
-
-{
-  "userName": "m1030380",
-  "mobilenumber": "0987654321",
-  "email": "asdfa@asdf.com",
-  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
-}
-}
-```
-### Example Response
-```JSON
-{
-	"message":"OTP has been sent successfully"
-}
-```
-
-
-
-# 5. Validate Token service
-
-This service will validate the token. 
-
-### Resource URL
-### `GET /validate_token`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | No
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-AuthToken|Yes|AuthToken passed in the request header| -NA- | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
- 
-
-### Example Request
-```Request Header
-AuthToken
-```
-### Example Response
-```JSON
-{
-  "userName": "m1030380",
-  "mobilenumber": "0987654321",
-  "email": "asdfa@asdf.com",
-  "roles": "DIVISION_ADMIN,SUPERVISOR,OPERATOR",
-}
-```
-
-
-
-
-# 6. Logout
-
-This service will logout the user. 
-
-### Resource URL
-### `GET /logout`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | No
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-AuthToken|Yes|AuthToken passed in the request header| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
- 
-
-### Example Request
-```Request Header
-AuthToken
-```
-### Example Response
-```JSON
-{
-	"message":"User had been logged out successfully"
-}
-```
-
-
-
-
-# 6. Logout
-
-This service will logout the user. 
-
-### Resource URL
-### `GET /logout`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | No
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-AuthToken|Yes|AuthToken passed in the request header| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
- 
-
-### Example Request
-```Request Header
-AuthToken
-```
-### Example Response
-```JSON
-{
-	"message":"User had been logged out successfully"
-}
-```
-
-
-
-
-# 7. Authenticate userid and OTP
-
-This service will authenticate the user by the userid and OTP combination. The userid should be an existing user in the system. This service will take the mobile number and email from the existing system. An OTP will be sent to his mobile number or phone number and further the user is authenticated by the OTP.  
-
-### Resource URL
-### `GET /authenticate/unotp`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | No
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-userid|Yes|This is the userid | -NA- | m103h802s
-email|Yes|Email to which the OTP has to be sent| -NA- | -NA-
-langCode|Yes|Language in which the OTP message will be sent. This is a ISO 639-2 format| -NA- | ara
-mobilenumber|Yes|Phone number to which the OTP has to be sent| -NA- | -NA- 
-otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber| mobilenumber | email 
-
-### Example Request
-```JSON
-{
-	"id": "string",
-	"timestamp": "2019-01-24T10:27:48.628Z",
-	"ver": "string",
-	"request": {
-		"userid": "string",
-		"email": "string",
-		"langCode": "string",
-		"mobilenumber": "number",
-		"otpChannel": "string"
+		"userid": "M392380",
+		"otpchannel": "MOBILENUMBER",
+		"useridtype": "USERID",
+		"appid": "REGISTRATIONCLIENT"
 	}
 }
 ```
@@ -335,4 +41,208 @@ otpChannel|Yes|Channel of the OTP. It should be either of email or mobilenumber|
 {
 	"message":"OTP had been sent successfully"
 }
+
+```
+
+## 1.2 Authenticate UserId and OTP
+
+This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header. 
+
+### Resource URL
+### `POST /v1.0/authenticate/authenticateUidOTP`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+userid|Yes|This is the userid of the user against which the OTP had been sent. Based on the useridtype, this will vary.| -NA- | M392380
+otp|Yes|This is OTP which is sent to the userid's preferred channel| -NA- | 6473
+
+
+### Example Request
+```JSON
+{
+	"id": "mosip.authentication.uidotp",
+	"timestamp": "2019-01-24T10:27:48.628Z",
+	"ver": "1.0",
+	"request": {
+		"userid": "M392380",
+		"otp": "6473"
+	}
+}
+```
+### Example Response
+```JSON
+Response Header:
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+JSON Response:
+{
+	"message":"OTP validation is successfull"
+}
+
+```
+
+## 1.3 Authenticate using username and password
+
+This service will authenticate the username and password. 
+
+### Resource URL
+### `POST /v1.0/authenticate/authenticateUnPwd`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+username|Yes|This is the username of the user. | -NA- | M392380
+password|Yes|This is the channel in which the OTP will be sent. It should be one of the {"EMAIL", "MOBILENUMBER"}| -NA- | MOBILENUMBER
+appid|Yes|This is the application ID of the caller of this service. It should be on of the {"PREREGISTRATION", "REGISTRATIONCLIENT", "REGISTRATIONPROCESSOR", "IDA"}| -NA- | PREREGISTRATION
+
+### Example Request
+```JSON
+{
+	"id": "mosip.authentication.sendotp",
+	"timestamp": "2019-01-24T10:27:48.628Z",
+	"ver": "1.0",
+	"request": {
+		"username": "M392380",
+		"password": "fdkj943lkj32k32ew$8Kf",
+		"appid": "REGISTRATIONCLIENT"
+	}
+}
+```
+### Example Response
+```
+Response Header:
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+JSON:
+{
+	"message":"Username and password combination had been validated successfully"
+}
+
+```
+
+# 2. Authorization
+
+## 2.1 Validate Token
+
+This service checks the validity of the Auth token.
+
+### Resource URL
+### `POST /v1.0/authorize/validateToken`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+AuthToken|Yes|AuthToken passed in the request header| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+### Example Request
+```
+Request Header:
+AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+```
+### Example Response
+```JSON
+{
+	"message":"Token had been validated successfully"
+}
+
+```
+
+# 3. OTP services
+
+## 3.1 Generate OTP
+
+The OTP Generator component will receive a request to generate OTP, validate if the OTP generation request is from an authorized source, call OTP generator API with the input parameters (Key), receive the OTP from the OTP generator API which is generated based on the OTP generation policy and respond to the source with the OTP.
+
+The OTP Generator can also reject a request from a blocked/frozen account and assign a validity to each OTP that is generated, based on the defined policy
+
+### Resource URL
+### `POST /v1.0/otp/generateOTP`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent as a JSON response. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Key|Yes|AuthToken passed in the request header| | 
+
+### Example Request
+```JSON
+{
+   "key": "9820173642"
+}
+```
+### Example Response
+```JSON
+{
+  "otp": "849004",
+  "status": "GENERATION_SUCCESSFUL"
+}
+
+```
+
+## 3.2 Validate OTP
+
+This component facilitates basic validation of an OTP.
+
+This includes: Receiving a request for OTP validation with required input parameters (Key), Validating the pattern of OTP generated based on defined policy, validating if the OTP is active/inactive and responding to the source with a response (Valid/Invalid)
+
+This component also facilitates deletion of every successfully validated OTP when consumed and freezing an account for exceeding the number of retries/wrong input of OTP.
+
+### Resource URL
+### `POST /v1.0/otp/validateOTP`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent as a JSON response. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Key|Yes|AuthToken passed in the request header| -NA- | 9820173642
+otp|Yes|OTP which was sent to the user| -NA- | 849004
+
+### Example Request
+```JSON
+{
+   "key": "9820173642", 
+   "otp":"849004"
+}
+```
+### Example Response
+```JSON
+{
+  "status": "success",
+  "message": "VALIDATION SUCCESSFUL"
+}
+
 ```
