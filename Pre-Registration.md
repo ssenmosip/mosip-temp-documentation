@@ -3,10 +3,7 @@
       * microservice based architecture
       * Data validation are done in UI.
       * User Interface is reference implementation and current one reflects the requirements of Morocco.
-      * Master data and services are considered as part of Pre registration foundation.
-      * 
- ##  2. Key NFR
-
+      * Master data and services are considered as part of Pre registration foundation. ##  2. Key NFR
  ##  2. design pattern 
   
 # 2. Architecture view
