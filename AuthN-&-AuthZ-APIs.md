@@ -49,7 +49,7 @@ appid|Yes|This is the application ID of the caller of this service. It should be
 This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header. 
 
 ### Resource URL
-### `POST /v1.0/authenticate/authenticateUidOTP`
+### `POST /v1.0/authenticate/useridOTP`
 
 ### Resource details
 
@@ -78,7 +78,7 @@ otp|Yes|This is OTP which is sent to the userid's preferred channel| -NA- | 6473
 }
 ```
 ### Example Response
-```JSON
+```
 Response Header:
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
 
@@ -94,7 +94,7 @@ JSON Response:
 This service will authenticate the username and password. 
 
 ### Resource URL
-### `POST /v1.0/authenticate/authenticateUnPwd`
+### `POST /v1.0/authenticate/useridPwd`
 
 ### Resource details
 
@@ -195,7 +195,12 @@ Key|Yes|AuthToken passed in the request header| |
 ### Example Request
 ```JSON
 {
-   "key": "9820173642"
+	"id": "mosip.otp.generateOTP",
+	"timestamp": "2019-01-24T10:27:48.628Z",
+	"ver": "1.0",
+	"request": {
+	   "key": "9820173642"
+	}
 }
 ```
 ### Example Response
@@ -234,8 +239,13 @@ otp|Yes|OTP which was sent to the user| -NA- | 849004
 ### Example Request
 ```JSON
 {
-   "key": "9820173642", 
-   "otp":"849004"
+	"id": "mosip.otp.validateOTP",
+	"timestamp": "2019-01-24T10:27:48.628Z",
+	"ver": "1.0",
+	"request": {
+		"key": "9820173642", 
+		"otp":"849004"
+	}
 }
 ```
 ### Example Response
