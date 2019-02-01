@@ -197,4 +197,36 @@ Verifies the authenticity of an individual using multiple attributes provided in
 
 # Platform Level Features and Utilities
 ## Utilities 
+### Exception Handler 
+* Ability to provide base exception framework
+* Framework to include base exception parameters (Message, throwable, cause)
+
+### Log Manager (mosip-logging)
+Provide the following logging utility
+* Generate logs for implentation events across the application
+* Stores the genrated logs in configured location
+* Each log can be genrated as a file/console
+* Raise an alert in case of listed exceptions (File not found, No such file exists, to be identified)
+* Links various logs associated to one applicant
+
+### mosip-utils
+MOSIP provides the following utilities
+* String utility
+* Calendar utility
+* Math utility
+* File utility
+* Hash utility
+
+### Data Access Manager(dataaccess-hibernate)
+Provides a interface for DAO (Data Access Manager) interface 
+
+### Data Mapper
+Facilitate data mapping between DTO (Data Transfer Object) and Entity 
+
+
+
+
+
+
+
 ## Features
