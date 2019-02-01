@@ -271,15 +271,21 @@ This utility enable QR code generation for Pre-reg,reg and UIN acknoledgement
 ### FTP - Upload packet
 Provides a upload portal for registarion client to upload packets for sending it to registration processor
 
-
-
-
-
-
-
-
-
-
-
-
 ## Features
+### Notification Manager-notification-sms
+Provides an interface to send a SMS notification
+
+### Notification Manager-notification-email
+Provides an interface to send a Email notification
+
+### Sync Handler-Master data
+Syncs master data between the MOSIP master data server and the client local database
+
+### Sync Handler-Public keys
+Syncs public keys between the MOSIP DB and clinet DB
+
+### Sync Handler-Configuration changes
+Syncs the cofigurations stored in  MOSIP config server with the locally stored configs of client
+
+### Sync Handler-List of Roles and users
+Syncs user role data between the MOSIP  server and the client local database
