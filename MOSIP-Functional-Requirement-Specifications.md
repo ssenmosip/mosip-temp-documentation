@@ -1,7 +1,7 @@
 # Pre-Registration
 ## 1. Authentication
 ### 1.1 Login
-Log in to the pre-registration system with a mobile or email with OTP so that you can access the pre-registration system
+Log in to the pre-registration system with a mobile or email with OTP so that you can get access to the pre-registration system
 ### 1.2 Logout
 Log out from the pre-registration system
 ## 2. Language Data Manager
