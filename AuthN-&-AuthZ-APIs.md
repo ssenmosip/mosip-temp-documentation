@@ -68,7 +68,7 @@ otp|Yes|This is OTP which is sent to the userid's preferred channel| -NA- | 6473
 ### Example Request
 ```JSON
 {
-	"id": "mosip.authentication.uidotp",
+	"id": "mosip.authentication.useridOTP",
 	"timestamp": "2019-01-24T10:27:48.628Z",
 	"ver": "1.0",
 	"request": {
@@ -113,7 +113,7 @@ appid|Yes|This is the application ID of the caller of this service. It should be
 ### Example Request
 ```JSON
 {
-	"id": "mosip.authentication.sendotp",
+	"id": "mosip.authentication.useridPwd",
 	"timestamp": "2019-01-24T10:27:48.628Z",
 	"ver": "1.0",
 	"request": {
@@ -131,6 +131,52 @@ AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhL
 JSON:
 {
 	"message":"Username and password combination had been validated successfully"
+}
+
+```
+
+## 1.4 Authenticate using clientid and secret key
+
+This service will authenticate the clientid and secret key. When an application try to call any service in the MOSIP system, the call have to be authenticated and authorized. For example, when Pre-registration application calls some master service, the call have to be authenticated first. This call can facilitate the call. 
+The clientid would have provided to the caller application before hand using another procedure. So, before making this call, the caller application have to have the clientid and the secret key.  
+
+### Resource URL
+### `POST /v1.0/authenticate/clientidsecretkey`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+clientid|Yes|This is the client id, provided to the caller application upfront. | -NA- | D72HJDF8
+secretkey|Yes|This is the secret key which was provided to the application corresponding to the clientid| -NA- | JSlj8p789sdfjhlsJKDHFS
+
+
+### Example Request
+```JSON
+{
+	"id": "mosip.authentication.clientidsecretkey",
+	"timestamp": "2019-01-24T10:27:48.628Z",
+	"ver": "1.0",
+	"request": {
+		"clientid": "D72HJDF8",
+		"secretkey": "JSlj8p789sdfjhlsJKDHFS"
+	}
+}
+```
+### Example Response
+```
+Response Header:
+AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+JSON:
+{
+	"message":"Clientid and Token combination had been validated successfully"
 }
 
 ```
