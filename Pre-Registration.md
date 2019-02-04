@@ -13,6 +13,10 @@
       
 # 2. Architecture view
      Following gives a high level architecture and design of pre registration.
+
+## Process view
+
+ Please refer to the detailed process flow @ https://github.com/mosip/mosip/wiki/Process-view#registration-client
 ## 1. Use case
 ![Use case diagram](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
     
