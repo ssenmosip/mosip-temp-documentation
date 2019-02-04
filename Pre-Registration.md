@@ -16,8 +16,8 @@
 
 ## Process view
 Below is the wiki link for pre registration
+
 [Process flow](#Pre-registration)
- Please refer to the detailed process flow @ https://github.com/mosip/mosip/wiki/Process-view#registration-client
 ## 1. Use case
 ![Use case diagram](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
     
