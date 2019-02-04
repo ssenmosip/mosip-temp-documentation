@@ -14,7 +14,7 @@
 # 2. Architecture view
      Following gives a high level architecture and design of pre registration.
 ## 1. Use case
-![use case diagram](         mosip/docs/design/pre-registration/_images/usecase_preregistration.jpg       )
+![Use case diagram](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
     
    ## 1.1 Fill up demographic details
             Actor- citizen
