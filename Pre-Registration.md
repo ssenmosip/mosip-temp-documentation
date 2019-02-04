@@ -26,6 +26,7 @@
         **post condition**
         Summary of the application created would be displayed in dashboard.
    
+## 1.2 Upload document
 
 ## 2. conceptual view
 Technical flow and logical component
