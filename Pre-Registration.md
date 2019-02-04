@@ -42,8 +42,8 @@
 ## 2. conceptual view
 Technical flow and logical component
 ![technical component and flow](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
-## 3. service view
-TBD- WOULD MERGE LOCAL BRANCH TO MASTER BY EOD.
+## 3. Deployment view
+![Logical deployment view](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
 ## 4. technical stack
 
 
