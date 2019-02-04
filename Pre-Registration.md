@@ -15,9 +15,9 @@
      Following gives a high level architecture and design of pre registration.
 
 ## Process view
-Below is the wiki link for pre registration
+Below is the wiki link for pre registration.
 
-[Process flow](#Pre-registration)
+[Process Flow](https://github.com/mosip/mosip/wiki/Process-view#Pre-registration)
 ## 1. Use case
 ![Use case diagram](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
     
