@@ -1,6 +1,6 @@
 # 1. MOSIP-INTRODUCTION
 
-* [Link](#11Intended-audience)
+* [Audience](#11Intended-audience)
   * [sub link](#111Internal-audience)
   * [sub link](#112External-Audience)
 ## Scope
