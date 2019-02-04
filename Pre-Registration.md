@@ -34,7 +34,7 @@
          scenario:
          * configured document category and type would be displayed and citizen would select.
          * citizen would upload documents.
-         * same information would be defined in right hand side as in secondary language.
+         * citizen could view the document uploaded.
         **post condition**
         Summary of the application created would be displayed in dashboard.
    
@@ -48,6 +48,18 @@
          * Would display list of registration centers.
         **post condition**
         Citizen could select one registration center for booking.
+
+## 1.4 Booking application
+
+ Actor- citizen
+        ** Pre condition **- User has selected the registration center.
+         scenario:
+         * Booking availability has been displayed for configured number of days.
+         * User selects the slot.
+         * User confirms booking.
+        **post condition**
+        User would get acknowledgement of the booking.
+
 
 ## 2. conceptual view
 Technical flow and logical component
