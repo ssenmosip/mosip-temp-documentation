@@ -74,6 +74,5 @@ Link: [MoM - MOSIP Full Demo Registration Processor - Customer Meeting - 24Jan19
 15) ## MOSIP Full Demo_Kernel: Customer Meeting - 31Jan'19
 Attendees: Ramesh, Krishnan, Technoforte Team, Shravan, Romila, John, Amandeep, Resham, Shwetha, Gita, Kernel Team
 
-Link: [MoM_MOSIP_Full_Demo_Kernel_Customer_Meeting_31Jan19.docx]
-(_files/MoM_MOSIP_Full_Demo_Kernel_Customer_Meeting_31Jan19.docx)
+Link: [MoM - MOSIP Full Demo Kernel - Customer Meeting - 31Jan19.docx](_files/MoM_MOSIP_Full_Demo_Kernel_Customer_Meeting_31Jan19.docx)
 
