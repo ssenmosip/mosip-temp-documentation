@@ -16,6 +16,16 @@
 ## 1. Use case
     
    ## 1.1 Fill up demographic details
+            Actor- citizen
+        ** Pre condition **- should be log in to system.
+         scenario:
+         * configured demographics data has been displayed.
+         * virtual keyboard would be available for the corresponding language.
+         * citizen fills up the details.
+         * same information would be defined in right hand side as in secondary language.
+        **post condition**
+        Summary of the application created would be displayed in dashboard.
+   
 
 ## 2. conceptual view
 Technical flow and logical component
