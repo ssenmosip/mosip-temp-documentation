@@ -4,7 +4,7 @@
 Pre registration is the module which is the web channel of the MOSIP. Following are few key architectural style followed like microservice based architecture, Data validation are done in UI, User Interface is reference implementation and current one reflects the requirements of Morocco, Master data and services are considered as part of Pre registration foundation. Following are few key design pattern aggregate service pastern, proxy design pattern and dependency injection
       
 # 2. Architecture view
-     Following gives a high level architecture and design of pre registration.
+
 
 ## Process view
 Below is the wiki link for pre registration.
