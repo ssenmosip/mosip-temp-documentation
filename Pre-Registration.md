@@ -28,6 +28,16 @@
    
 ## 1.2 Upload document
 
+     Actor- citizen
+        ** Pre condition **- Demographic details have been filled.
+         scenario:
+         * configured document category and type would be displayed and citizen would select.
+         * citizen would upload documents.
+         * same information would be defined in right hand side as in secondary language.
+        **post condition**
+        Summary of the application created would be displayed in dashboard.
+   
+
 ## 2. conceptual view
 Technical flow and logical component
 ![technical component and flow](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
