@@ -45,5 +45,11 @@ Technical flow and logical component
 ## 3. Deployment view
 ![Logical deployment view](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
 ## 4. technical stack
+For version, please refer architecture document.
+      spring boot latest
+       spring JPA
+       postgresql
+       spring core
+       angular latest
 
 
