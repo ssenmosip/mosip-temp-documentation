@@ -38,6 +38,16 @@
         **post condition**
         Summary of the application created would be displayed in dashboard.
    
+## 1.3 Search registration center
+
+ Actor- citizen
+        ** Pre condition **- Demographic details have been filled and documents have been uploaded.
+         scenario:
+         * configured search options should be visible.
+         * user would search for the registration center.
+         * Would display list of registration centers.
+        **post condition**
+        Citizen could select one registration center for booking.
 
 ## 2. conceptual view
 Technical flow and logical component
