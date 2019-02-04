@@ -21,6 +21,6 @@ Kernel addresses the security concerns by the platform such as Key Management, C
 
 ## Logical view
 
-![Logical Diagram](https://raw.githubusercontent.com/mosip/mosip/DEV/design/_images/Kernel_logical_diagram.jpg?token=ApNuIGgOX6yG_C0XsQbNBGtj-zvujMRGks5cNDoVwA%3D%3D&_sm_au_=iVVZ4T13q2QkJ56Q)
+![Logical Diagram](_images/arch_diagrams/MOSIP_Kernel_logical_diagram.jpg)
 
 
