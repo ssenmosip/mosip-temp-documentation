@@ -181,7 +181,7 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
     "registrationId": "2018701130000410092012345678",
     "statusComment": "string",
     "syncStatus": "PRE_SYNC",
-    "syncType": "NEW_REGISTRATION"
+    "syncType": "NEW"
   },
   {
     "langCode": "eng",
@@ -189,7 +189,7 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
     "registrationId": "2018701130000410092018110735",
     "statusComment": "string",
     "syncStatus": "PRE_SYNC",
-    "syncType": "NEW_REGISTRATION"
+    "syncType": "UPDATE"
   }
 ]
 ```
@@ -198,23 +198,15 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
 [
   {
     "registrationId": "2018701130000410092012345678",
-    "syncType": "NEW_REGISTRATION",
-    "parentRegistrationId": "",
-    "syncStatus": "PRE_SYNC",
-    "statusComment": "string",
-    "langCode": "eng",
-    "isActive": true,
-    "isDeleted": false
+    "status": "SUCCESS",
+    "message": "Registartion Id's are successfully synched in Sync table",
+    "parentRegistrationId": ""
   },
   {
     "registrationId": "2018701130000410092018110735",
-    "syncType": "NEW_REGISTRATION",
-    "parentRegistrationId": "",
-    "syncStatus": "PRE_SYNC",
-    "statusComment": "string",
-    "langCode": "eng",
-    "isActive": true,
-    "isDeleted": false
+    "status": "SUCCESS",
+    "message": "Registartion Id's are successfully synched in Sync table",
+    "parentRegistrationId": ""
   }
 ]
 ```
@@ -269,7 +261,8 @@ String|Yes|The user id| |
   "mvUsrId": "mono29",
   "statusCode": "ASSIGNED",
   "matchedRefId": "27847657360002520181208123456",
-  "matchedRefType": "UIN"
+  "matchedRefType": "UIN",
+  "reasonCode": null
 }
 ```
 
@@ -311,6 +304,7 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
   "matchedRefId": "27847657360002520181208123987",
   "matchedRefType": "RID",
   "mvUsrId": "mono",
+  "reasonCode": "Problem with biometrics",
   "regId": "27847657360002520181208123456",
   "statusCode": "APPROVED"
 }
@@ -322,7 +316,8 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
   "mvUsrId": "mono",
   "statusCode": "APPROVED",
   "matchedRefId": "27847657360002520181208123987",
-  "matchedRefType": "RID"
+  "matchedRefType": "RID",
+  "reasonCode": "Problem with biometrics"
 }
 ```
 
