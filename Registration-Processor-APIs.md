@@ -101,37 +101,11 @@ registrationIds|Yes|List of registration ids| |
 [
   {
     "registrationId": "2018701130000410092012345678",
-    "registrationType": "NEW",
-    "referenceRegistrationId": null,
-    "statusCode": "PACKET_UPLOADED_TO_LANDING_ZONE",
-    "langCode": "eng",
-    "statusComment": "Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status",
-    "latestRegistrationTransactionId": "c19f1768-2aa1-494d-8d27-acbdc8e1f68d",
-    "createdBy": "MOSIP_SYSTEM",
-    "createDateTime": "2018-11-02T22:58:08.263",
-    "updatedBy": null,
-    "updateDateTime": "2018-11-02T22:58:08.264",
-    "deletedDateTime": "2018-11-02T22:58:08.264",
-    "retryCount": null,
-    "active": true,
-    "deleted": false
+    "statusCode": "PROCESSING"
   },
   {
     "registrationId": "2018701130000410092018110735",
-    "registrationType": "NEW",
-    "referenceRegistrationId": null,
-    "statusCode": "PACKET_UPLOADED_TO_LANDING_ZONE",
-    "langCode": "eng",
-    "statusComment": "Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status",
-    "latestRegistrationTransactionId": "4c26f2cd-5b64-4587-93a9-ee2198afe1da",
-    "createdBy": "MOSIP_SYSTEM",
-    "createDateTime": "2018-11-02T22:58:53.256",
-    "updatedBy": null,
-    "updateDateTime": "2018-11-02T22:58:53.256",
-    "deletedDateTime": "2018-11-02T22:58:53.256",
-    "retryCount": null,
-    "active": true,
-    "deleted": false
+    "statusCode": "PROCESSED"
   }
 ]
 ```
