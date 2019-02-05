@@ -1,21 +1,24 @@
+* [1. MOSIP-INTRODUCTION](#1MOSIP-INTRODUCTION)
+  * [1.1 Scope](#11Scope)
+  * [1.2 Intended audience](#1.2Intended-audience)
+    * [1.2.1 Internal audience](#121Internal-audience)
+    * [1.2.2 External Audience](#122External-Audience)
+
 # 1. MOSIP-INTRODUCTION
 
-* [Intended audience](#11Intended-audience)
-  * [Internal audience](#111Internal-audience)
-  * [External Audience](#112External-Audience)
-## Scope
+## 1.1 Scope
 
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner. 
 
-## 1.1.Intended audience
+## 1.2.Intended audience
 
-### 1.1.1.Internal audience
+### 1.2.1.Internal audience
 
 * Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
 
 * Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
  
-### 1.1.2.External Audience
+### 1.2.2.External Audience
 
 * SIs (system integrator)
 
