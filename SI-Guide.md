@@ -32,7 +32,7 @@
 ### 1.1	Scope
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner.
 ### 1.2	Intended Audience
-#### 1.2.1	Internal audience
+#### 1.2.1	Internal Audience
 1. Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
 1. Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
 
@@ -40,15 +40,15 @@ The scope of this document is to describe high level business objectives along w
 1. SIs (System Integrator).
 1. Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
 ## 2.	MOSIP -FOR IDENTITY MANAGEMENT
-### 2.1	What-is an identity management system
+### 2.1	What-is an Identity Management System
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems .The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s .Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
 
 The complexity of government administration in “the modern world” is a major problem in developing countries. Often, individual government programs have their own database of beneficiaries that are not digitized and therefore cannot be easily merged. Delivering public services efficiently and providing financial inclusion to the poor in partnership with the private sector depends on accurate identification and authentication of citizens and residents. Hence Government programs must have the capacity to cross-reference databases and information.
-### 2.2	Why-an identity management system is needed
+### 2.2	Why-an Identity Management System is Needed
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
 
-### 2.3	Setting the stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
+### 2.3	Setting the Stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
 
 MOSIP (Modular Open Source Identity Platform) helps government countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
@@ -106,10 +106,10 @@ This section details:
 ### 5.3 Registration Packet Structure
 This section illustrates the packet creation flow along with the encryption process, as part of Registration Client.
 
-### 5.4 MOSIP-ABIS middleware
+### 5.4 MOSIP-ABIS Middleware
 This section provides details on the ability of MOSIP to support a single or multi-ABIS solution, specifics on the Components & APIs of ABIS Middleware, Strategies for Biometric data management in ABIS and Strategies for de-duplication in case of multiple ABIS systems.
 
-### 5.5 Know more about ABIS interface Spec
+### 5.5 Know more about ABIS Interface Spec
 This section provides the specifications that an ABIS provider must implement to meet MOSIP's requirements.
 
 
@@ -120,10 +120,10 @@ This section illustrates the VDM technical specifications to be adhered by a ven
 ### 5.8 Security 
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
 ## 6. MOSIP REQUIREMENT SPECIFICATIONS
-### 6.1 FUNCTIONAL REQUIREMENT SPECIFICATIONS
+### 6.1 Functional Requirement Specifications
 This Section provides a detailed functional requirement specification for each module in MOSIP
 Please refer wiki for the detailed functional spec.
-###  6.2 NON-FUNCTIONAL REQUIREMENT SPECIFICATIONS
+###  6.2 Non-Functional Requirement Specifications
 This Section details out the non-functional requirements of MOSIP platform
 Please refer wiki for the detailed functional spec.
 
@@ -131,7 +131,7 @@ Please refer wiki for the detailed functional spec.
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 7.1	External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
-#### 7.1.1	ID Authentication APIs
+#### 7.1.1 ID Authentication APIs
 Format: JSON
 This section details the REST services exposed by ID Authentication. Please refer wiki This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
 1. OTP based - TOTP
@@ -180,16 +180,16 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 ## 8. MOSIP TOOL KIT
 The MOSIP tool kit provides a comprehensive guide to install and deploy MOSIP platform. It also provide infrastructure recommendations. The visual designs provides an over view of the application features and functionalities.
-### 8.1	DEPLOYMENT GUIDE
+### 8.1	Deployment Guide
 (Guide on deployment (Used by SI/ Device manufacturers)
-### 8.2	SET UP GUIDE
+### 8.2	Set Up Guide
 #### 8.2.1. Backend Setup (ID Definition Schema, Configs, others)
 #### 8.2.2. Setup Manual: Guide to Setup and initiate platform
 #### 8.2.3. Setup Manual: Guide to Pre-registration 
 #### 8.2.4. Setup Manual: Guide to Registration Client Application
 #### 8.2.5. Admin portal (Data, Device, User Setup)
 ### 8.3	Infrastructure Recommendations (Used by SI/ Device manufacturers)
-### 8.4	PRODUCT DEMO (VDs)
+### 8.4	Product Demo (VDs)
 ## 9.  SUMMARY (WIP)
 ## 10. APPENDICES
 ## 11. REFERENCES
