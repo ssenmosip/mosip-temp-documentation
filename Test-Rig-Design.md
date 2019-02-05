@@ -1,6 +1,7 @@
 ## Test Rig Design
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
-Test-Rig comprises of multiple components starting from 
+
+Test-Rig comprises of multiple components starting from: 
 1. Kubernetes env setup
 1. Pulling the source code from the GIT repository
 1. Running sonarqube tests for static code analysis
