@@ -50,7 +50,7 @@ Name | Required | Description | Example
 preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
 createdBy |Yes|created user of the application|987654321
 createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492+0000
-updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
+updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
 updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492+0000)</li></ul>
 langCode |Yes|primary language code| ENG
 demographicDetails |Yes|demographicDetails of the applicant|
@@ -305,7 +305,7 @@ PRG_PAM_APP_008| PRG_PAM_APP_008  --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| una
 #### 2.7.1.2 PUT Operation
 #### Path -  `/pre-registration/applications`
 #### Summary
-Update the pre-registration status by providing pre-registration id and vaild status defined in pre-registration system in request parameter.
+Update the pre-registration status by providing pre-registration id and valid status defined in pre-registration system in request parameter.
 
 #### Parameters
 Name | Required | Description | Example
@@ -369,7 +369,7 @@ Requires Authentication | Yes
     {
       "pre_registration_id": "96157107249860",
       "deletedBy": "9900806068",
-      "deletedDateTime": "2019-01-18T04:57:15.196Z"
+      "deletedDateTime": "2019-01-18T04:57:15.196+000"
     }
   ]
 }
@@ -551,9 +551,9 @@ Requires Authentication | Yes
       {
          "preRegistrationId":"20180396713560",
          "createdBy":"9900806086",
-         "createdDateTime":"2019-01-11T11:01:21.947Z",
+         "createdDateTime":"2019-01-11T11:01:21.947+000",
          "updatedBy":null,
-         "updatedDateTime":"2019-01-15T14:25:56.512Z",
+         "updatedDateTime":"2019-01-15T14:25:56.512+000",
          "statusCode":"Pending_Appointment",
          "langCode":"ENG",
          "demographicDetails":{
@@ -709,9 +709,8 @@ Requires Authentication | Yes
 ###### Description: Document uploaded successfully
 ```JSON
 {
-  "err": null,
   "status": true,
-  "resTime": "2019-01-16T16:41:06.659Z",
+  "timestamp": "2019-01-16T16:41:06.659+000",
   "response": [
     {
       "preRegsitrationId": "49158360813920",
@@ -730,13 +729,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_001",
+    "message": "INVALID_REQUEST_ID"
+  }
 }
 ```
 
@@ -745,13 +743,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_002",
+    "message": "INVALID_REQUEST_VERSION"
+  }
 }
 ```
 
@@ -760,13 +757,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_003",
+    "message": "INVALID_REQUEST_DATETIME"
+  }
 }
 ```
 
@@ -775,13 +771,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_004",
+    "message":"INVALID_REQUEST_BODY"
+  }
 }
 ```
 ##### Failure Response:
@@ -789,13 +784,12 @@ Requires Authentication | Yes
 ###### Description: if the document size is more than the specified limit
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_007",
-    "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:36:40.763Z",
-  "response": null
+  "timestamp": "2019-01-17T10:36:40.763+000",
+  "err": {
+    "code": "PRG_PAM_DOC_007",
+    "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
+  }
 }
 ```
 ##### Failure Response:
@@ -803,13 +797,12 @@ Requires Authentication | Yes
 ###### Description: Invalid document format
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_004",
-    "message": "DOCUMENT_INVALID_FORMAT"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:25:21.352Z",
-  "response": null
+  "timestamp": "2019-01-17T10:25:21.352+000",
+  "err": {
+    "code": "PRG_PAM_DOC_004",
+    "message": "DOCUMENT_INVALID_FORMAT"
+  }
 }
 ```
 
@@ -818,13 +811,12 @@ Requires Authentication | Yes
 ###### Description: When preregistration data is not found for the preregistration id in the DB
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:26:56.177Z",
-  "response": null
+  "timestamp": "2019-01-17T10:26:56.177+000",
+  "err": {
+    "code": "PRG_PAM_APP_005",
+    "message": "PRG_PAM_APP_005 --> PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+  }
 }
 ```
 
@@ -833,13 +825,12 @@ Requires Authentication | Yes
 ###### Description: If preregistration id, status code, document category code or preregistration data is empty
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_014",
-    "message": "MANDATORY_FIELD_NOT_FOUND"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
-  "response": null
+  "timestamp": "2019-01-17T10:49:10.286+000",
+  "err": {
+    "code": "PRG_PAM_DOC_014",
+    "message": "MANDATORY_FIELD_NOT_FOUND"
+  }
 }
 ```
 
@@ -848,13 +839,12 @@ Requires Authentication | Yes
 ###### Description: If the document & document details are failed to store in the db
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_009",
-    "message": "DOCUMENT_FAILED_TO_UPLOAD"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
-  "response": null
+  "timestamp": "2019-01-17T10:49:10.286+000",
+  "err": {
+    "code": "PRG_PAM_DOC_009",
+    "message": "DOCUMENT_FAILED_TO_UPLOAD"
+  }
 }
 ```
 
@@ -863,13 +853,12 @@ Requires Authentication | Yes
 ###### Description: Document virus scan failed
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_010",
-    "message": "DOCUMENT_FAILED_IN_VIRUS_SCAN"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
-  "response": null
+  "timestamp": "2019-01-17T10:49:10.286+000",
+  "err": {
+    "code": "PRG_PAM_DOC_010",
+    "message": "DOCUMENT_FAILED_IN_VIRUS_SCAN"
+  }
 }
 ```
 
@@ -878,13 +867,12 @@ Requires Authentication | Yes
 ###### Description: Retrieval of preregistration data failed
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_020",
-    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000",
+  "err": {
+    "code": "PRG_PAM_DOC_020",
+    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
+  }
 }
 ```
 
@@ -893,13 +881,12 @@ Requires Authentication | Yes
 ###### Description: Copied document & the details are failed to store in the db
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_011",
-    "message": "DOCUMENT_FAILED_TO_COPY"
-  },
   "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
-  "response": null
+  "timestamp": "2019-01-17T10:49:10.286+000",
+  "err": {
+    "code": "PRG_PAM_DOC_011",
+    "message": "DOCUMENT_FAILED_TO_COPY"
+  }
 }
 ```
 #### 2.7.2.2 POST Operation
@@ -927,9 +914,9 @@ Requires Authentication | Yes
 ###### Description: Document successfully copied
 ```JSON
 {
-  "err": null,
+  
   "status": true,
-  "resTime": "2019-01-17T11:18:43.889Z",
+  "timestamp": "2019-01-17T11:18:43.889+000",
   "response": [
     {
       "sourcePreRegId": "97285429827016",
@@ -946,13 +933,12 @@ Requires Authentication | Yes
 ###### Description: Document not found for the source pre-registration Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:09:33.258Z",
-  "response": null
+  "timestamp": "2019-01-17T11:09:33.258+000",
+  "err": {
+    "code": "PRG_PAM_DOC_005",
+    "message": "DOCUMENT_IS_MISSING"
+  }
 }
 ```
 
@@ -961,13 +947,12 @@ Requires Authentication | Yes
 ###### Description: Source preregistration id or Destination preregistration id is empty or invalid
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_018",
-    "message": "INVALID_REQUEST_PARAMETER"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:22:26.321Z",
-  "response": null
+  "timestamp": "2019-01-17T11:22:26.321+000",
+  "err": {
+    "code": "PRG_PAM_DOC_018",
+    "message": "INVALID_REQUEST_PARAMETER"
+  }
 }
 ```
 
@@ -976,13 +961,12 @@ Requires Authentication | Yes
 ###### Description: ceph exception
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_009",
-    "message": "DOCUMENT_FAILED_TO_UPLOAD"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:22:26.321Z",
-  "response": null
+  "timestamp": "2019-01-17T11:22:26.321+000",
+  "err": {
+    "code": "PRG_PAM_DOC_009",
+    "message": "DOCUMENT_FAILED_TO_UPLOAD"
+  }
 }
 ```
 ##### Failure Response:
@@ -990,13 +974,12 @@ Requires Authentication | Yes
 ###### Description: if the copied document & document details are failed to store in the db
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_011",
-    "message": "DOCUMENT_FAILED_TO_COPY"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:22:26.321Z",
-  "response": null
+  "timestamp": "2019-01-17T11:22:26.321+000",
+  "err": {
+    "code": "PRG_PAM_DOC_011",
+    "message": "DOCUMENT_FAILED_TO_COPY"
+  }
 }
 ```
 
@@ -1022,9 +1005,9 @@ Requires Authentication | Yes
 ###### Description: Documents retrieved successfully
 ```JSON
 {
-  "err": null,
+  
   "status": true,
-  "resTime": "2019-01-17T11:31:44.994Z",
+  "timestamp": "2019-01-17T11:31:44.994+000",
   "response": [
     {
       "pre_registration_id": "97285429827016",
@@ -1062,13 +1045,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_018",
-    "message": "INVALID_REQUEST_PARAMETER"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:38:13.866Z",
-  "response": null
+  "timestamp": "2019-01-17T11:38:13.866+000",
+  "err": {
+    "code": "PRG_PAM_DOC_018",
+    "message": "INVALID_REQUEST_PARAMETER"
+  }
 }
 ```
 ##### Failure Response:
@@ -1076,13 +1058,12 @@ Requires Authentication | Yes
 ###### Description: If the document is not found in the db for the preregistration id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:47:37.773Z",
-  "response": null
+  "timestamp": "2019-01-17T11:47:37.773+000",
+  "err": {
+    "code": "PRG_PAM_DOC_005",
+    "message": "DOCUMENT_IS_MISSING"
+  }
 }
 ```
 ##### Failure Response:
@@ -1090,13 +1071,12 @@ Requires Authentication | Yes
 ###### Description:  ceph exception
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_FAILED_TO_FETCH"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:09:33.258Z",
-  "response": null
+  "timestamp": "2019-01-17T11:09:33.258+000",
+  "err": {
+    "code": "PRG_PAM_DOC_005",
+    "message": "DOCUMENT_FAILED_TO_FETCH"
+  }
 }
 ```
 
@@ -1122,9 +1102,8 @@ Requires Authentication | Yes
 ###### Description: Document successfully deleted
 ```JSON
 {
-  "err": null,
   "status": true,
-  "resTime": "2019-01-17T11:46:49.220Z",
+  "timestamp": "2019-01-17T11:46:49.220+000",
   "response": [
     {
       "documnet_Id": "2c9180836833aa31016837aac4c40012",
@@ -1138,13 +1117,12 @@ Requires Authentication | Yes
 ###### Description: If the document is not found in the db for the preregistration id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:47:37.773Z",
-  "response": null
+  "timestamp": "2019-01-17T11:47:37.773+000",
+  "err": {
+    "code": "PRG_PAM_DOC_005",
+    "message": "DOCUMENT_IS_MISSING"
+  }
 }
 ```
 ##### Failure Response:
@@ -1152,13 +1130,12 @@ Requires Authentication | Yes
 ###### Description: ceph exception
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_006",
-    "message": "DOCUMENT_FAILED_TO_DELETE"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:52:51.433Z",
-  "response": null
+  "timestamp": "2019-01-17T11:52:51.433+000",
+  "err": {
+    "code": "PRG_PAM_DOC_006",
+    "message": "DOCUMENT_FAILED_TO_DELETE"
+  }
 }
 ```
 #### 2.7.2.5 DELETE Operation
@@ -1183,9 +1160,8 @@ Requires Authentication | Yes
 ###### Description: Documents successfully deleted
 ```JSON
 {
-  "err": null,
   "status": true,
-  "resTime": "2019-01-17T11:52:22.165Z",
+  "timestamp": "2019-01-17T11:52:22.165+000",
   "response": [
     {
       "documnet_Id": "2c9180836833aa31016833b242c50000",
@@ -1199,13 +1175,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_018",
-    "message": "INVALID_REQUEST_PARAMETER"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:51:31.071Z",
-  "response": null
+  "timestamp": "2019-01-17T11:51:31.071+000",
+  "err": {
+    "code": "PRG_PAM_DOC_018",
+    "message": "INVALID_REQUEST_PARAMETER"
+  }
 }
 ```
 ##### Failure Response:
@@ -1213,13 +1188,12 @@ Requires Authentication | Yes
 ###### Description: if the document & document details are failed to delete from the db
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:52:51.433Z",
-  "response": null
+  "timestamp": "2019-01-17T11:52:51.433+000",
+  "err": {
+    "code": "PRG_PAM_DOC_005",
+    "message": "DOCUMENT_IS_MISSING"
+  }
 }
 ```
 ##### Failure Response:
@@ -1227,13 +1201,12 @@ Requires Authentication | Yes
 ###### Description: ceph exception
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_006",
-    "message": "DOCUMENT_FAILED_TO_DELETE"
-  },
   "status": false,
-  "resTime": "2019-01-17T11:52:51.433Z",
-  "response": null
+  "timestamp": "2019-01-17T11:52:51.433+000",
+  "err": {
+    "code": "PRG_PAM_DOC_006",
+    "message": "DOCUMENT_FAILED_TO_DELETE"
+  }
 }
 ```
 
@@ -1281,18 +1254,17 @@ Requires Authentication | Yes
 ###### Status code: '200'
 ###### Description: All Pre-Registration Ids fetched successfully
 ```JSON
-{
-  "err": null,
+{ 
   "status": true,
-  "resTime": "2019-01-10T13:24:53.427Z",
+  "timestamp": "2019-01-10T13:24:53.427+000",
   "response": {
     "transactionId": "03a0acf4-14ad-11e9-b7b7-09819c6c033b",
     "countOfPreRegIds": "4",
     "preRegistrationIds": {
-      "42973267563920": "2019-01-10T13:24:53.419Z",
-      "56014280251746": "2019-01-10T13:24:51.665Z",
-      "63470164572136": "2019-01-10T13:24:52.203Z",
-      "25368956035901": "2019-01-10T13:24:52.753Z"
+      "42973267563920": "2019-01-10T13:24:53.419+000",
+      "56014280251746": "2019-01-10T13:24:51.665+000",
+      "63470164572136": "2019-01-10T13:24:52.203+000",
+      "25368956035901": "2019-01-10T13:24:52.753+000"
     }
   }
 }
@@ -1303,13 +1275,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_001",
+    "message": "INVALID_REQUEST_ID"
+  }
 }
 ```
 
@@ -1318,13 +1289,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_002",
+    "message": "INVALID_REQUEST_VERSION"
+  }
 }
 ```
 
@@ -1333,13 +1303,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_003",
+    "message": "INVALID_REQUEST_DATETIME"
+  }
 }
 ```
 
@@ -1348,13 +1317,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_004",
+    "message":"INVALID_REQUEST_BODY"
+  }
 }
 ```
 
@@ -1363,13 +1331,12 @@ Requires Authentication | Yes
 ###### Description: Empty registration center Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_009",
-    "message":"INVALID_REGISTRATION_CENTER_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_009",
+    "message":"INVALID_REGISTRATION_CENTER_ID"
+  }
 }
 ```
 
@@ -1378,13 +1345,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty from-date or to-date
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_010",
-    "message":"INVALID_REQUESTED_DATE"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_010",
+    "message":"INVALID_REQUESTED_DATE"
+  }
 }
 ```
 
@@ -1393,13 +1359,12 @@ Requires Authentication | Yes
 ###### Description: Empty user id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_003",
-    "message":"INVALID_USER_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_003",
+    "message":"INVALID_USER_ID"
+  }
 }
 ```
 
@@ -1408,13 +1373,12 @@ Requires Authentication | Yes
 ###### Description: If appointment is not booked under the registration center Id for the preregistration id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_BOOK_RCI_013",
-    "message": "BOOKING_DATA_NOT_FOUND"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000",
+  "err": {
+    "code": "PRG_BOOK_RCI_013",
+    "message": "BOOKING_DATA_NOT_FOUND"
+  }
 }
 ```
 
@@ -1423,13 +1387,12 @@ Requires Authentication | Yes
 ###### Description: If retrieval of booking data fails
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_013",
-    "message": "FAILED_TO_GET_PRE_REG_ID_BY_REG_CLIENT_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_013",
+    "message": "FAILED_TO_GET_PRE_REG_ID_BY_REG_CLIENT_ID"
+  }
 }
 ```
 
@@ -1438,13 +1401,12 @@ Requires Authentication | Yes
 ###### Description: If retrieval of preregistration data fails 
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_007",
-    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_007",
+    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
+  }
 }
 ```
 
@@ -1453,13 +1415,12 @@ Requires Authentication | Yes
 ###### Description: If no preregistration data created within the from date & to date
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> RECORD_NOT_FOUND_FOR_DATE_RANGE"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:42:35.401Z",
-  "response": null
+  "timestamp": "2019-01-16T17:42:35.401+000",
+  "err": {
+    "code": "PRG_PAM_APP_005",
+    "message": "PRG_PAM_APP_005 --> RECORD_NOT_FOUND_FOR_DATE_RANGE"
+  }
 }
 ```
 
@@ -1468,13 +1429,12 @@ Requires Authentication | Yes
 ###### Description: If retrieval of preregistration data fails 
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_007",
-    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_007",
+    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
+  }
 }
 ```
 
@@ -1483,13 +1443,12 @@ Requires Authentication | Yes
 ###### Description: If writing and reading of files fail
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_014",
-    "message": "FILE_IO_EXCEPTION"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_014",
+    "message": "FILE_IO_EXCEPTION"
+  }
 }
 ```
 
@@ -1498,13 +1457,12 @@ Requires Authentication | Yes
 ###### Description: When demographic JSON file & documents are not zipped
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_005",
-    "message": "FAILED_TO_CREATE_A_ZIP_FILE"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
-  "response": null
+  "timestamp": "2019-01-16T15:25:46.359+000"
+  "err": {
+    "code": "PRG_DATA_SYNC_005",
+    "message": "FAILED_TO_CREATE_A_ZIP_FILE"
+  }
 }
 ```
 
@@ -1529,10 +1487,9 @@ Requires Authentication | Yes
 ###### Status code: '200'
 ###### Description: Data Sync records fetched
 ```JSON
-{
-  "err": null,
+{ 
   "status": true,
-  "resTime": "2019-01-02T11:49:57.139Z",
+  "timestamp": "2019-01-02T11:49:57.139+000",
   "response": {
     "pre-registration-id": "86710482195706",
     "registration-client-id": "1",
@@ -1549,13 +1506,12 @@ Requires Authentication | Yes
 ###### Description: If data does not exists for the preregistration id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:50:08.286Z",
-  "response": null
+  "timestamp": "2019-01-16T17:50:08.286+000",
+  "err": {
+    "code": "PRG_PAM_APP_005",
+    "message": "PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+  }
 }
 ```
 
@@ -1564,13 +1520,12 @@ Requires Authentication | Yes
 ###### Description: If document is not uploaded for the preregistration id
 ```JSON
 {
+  "status": false,
+  "timestamp": "2019-01-02T12:32:27.955+000",
   "err": {
     "message": "FAILED_TO_FETCH_DOCUMENT",
-    "errorcode": "PRG_DATA_SYNC_006"
-  },
-  "status": false,
-  "resTime": "2019-01-02T12:32:27.955Z",
-  "response": null
+    "code": "PRG_DATA_SYNC_006"
+  }
 }
 ```
 #### 2.7.3.3 POST Operation
@@ -1604,9 +1559,8 @@ Requires Authentication | Yes
 ###### Description: Consumed Pre-Registrations saved
 ```JSON
 {
-  "err": null,
   "status": true,
-  "resTime": "2019-01-02T11:47:59.566Z",
+  "timestamp": "2019-01-02T11:47:59.566+000",
   "response": {
     "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
     "countOfStoredPreRegIds": "1",
@@ -1620,13 +1574,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_001",
+    "message": "INVALID_REQUEST_ID"
+  }
 }
 ```
 
@@ -1635,13 +1588,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_002",
+    "message": "INVALID_REQUEST_VERSION"
+  }
 }
 ```
 
@@ -1650,13 +1602,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_003",
+    "message": "INVALID_REQUEST_DATETIME"
+  }
 }
 ```
 
@@ -1665,13 +1616,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_004",
+    "message":"INVALID_REQUEST_BODY"
+  }
 }
 ```
 
@@ -1680,13 +1630,12 @@ Requires Authentication | Yes
 ###### Description: If there are no preregistration ids passed in request body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_011",
-    "message":"INVALID_REQUESTED_PRE_REG_ID_LIST"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_DATA_SYNC_011",
+    "message":"INVALID_REQUESTED_PRE_REG_ID_LIST"
+  }
 }
 ```
 ## 2.7.4 Booking Service APIs
@@ -1728,9 +1677,8 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
   "status": true,
-  "resTime": "2019-01-17T13:28:44.595Z",
+  "timestamp": "2019-01-17T13:28:44.595+000",
   "response": {
     "registration_center_id": "1",
     "appointment_date": "2019-01-18",
@@ -1744,13 +1692,12 @@ Requires Authentication | Yes
 ###### Description: Unable to fetch the pre-Registration demographic data
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_BOOK_RCI_013",
-    "message": "BOOKING_DATA_NOT_FOUND"
-  },
   "status": false,
-  "resTime": "2019-01-17T13:29:15.247Z",
-  "response": null
+  "timestamp": "2019-01-17T13:29:15.247+000",
+  "err": {
+    "code": "PRG_BOOK_RCI_013",
+    "message": "BOOKING_DATA_NOT_FOUND"
+  }
 }
 ```
 #### 2.7.4.2 GET Operation
@@ -1776,9 +1723,8 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
   "status": true,
-  "resTime": "2019-01-17T13:32:51.866Z",
+  "timestamp": "2019-01-17T13:32:51.866+000",
   "response": {
     "regCenterId": "1",
     "centerDetails": [
@@ -1812,13 +1758,12 @@ Requires Authentication | Yes
 ###### Description: Unable to fetch available slots.
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_BOOK_RCI_015",
-    "message": "PRG_BOOK_RCI_015 --> NO_TIME_SLOTS_ASSIGNED_TO_THAT_REG_CENTER"
-  },
   "status": false,
-  "resTime": "2019-01-17T13:33:33.098Z",
-  "response": null
+  "timestamp": "2019-01-17T13:33:33.098+000",
+  "err": {
+    "code": "PRG_BOOK_RCI_015",
+    "message": "PRG_BOOK_RCI_015 --> NO_TIME_SLOTS_ASSIGNED_TO_THAT_REG_CENTER"
+  }
 }
 ```
 #### 2.7.4.3 POST Operation
@@ -1869,10 +1814,9 @@ Requires Authentication | Yes
 ###### Description: Appointment booked successfully
 
 ```JSON
-{
-  "err": null,
+{ 
   "status": true,
-  "resTime": "2019-01-17T13:42:32.427Z",
+  "timestamp": "2019-01-17T13:42:32.427+000",
   "response": [
     {
       "preRegistrationId": "37802950913289",
@@ -1887,13 +1831,12 @@ Requires Authentication | Yes
 ###### Description: Invalid Pre Registration Id.
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID"
-  },
   "status": false,
-  "resTime": "2019-01-17T13:43:59.434Z",
-  "response": null
+  "timestamp": "2019-01-17T13:43:59.434+000",
+  "err": {
+    "code": "PRG_PAM_APP_005",
+    "message": "PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID"
+  }
 }
 ```
 ##### Failure Response:
@@ -1901,13 +1844,12 @@ Requires Authentication | Yes
 ###### Description: Availability not found for selected time.
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_BOOK_RCI_002",
-    "message": "AVAILABILITY_NOT_FOUND_FOR_THE_SELECTED_TIME"
-  },
   "status": false,
-  "resTime": "2019-01-17T13:46:03.002Z",
-  "response": null
+  "timestamp": "2019-01-17T13:46:03.002+000",
+  "err": {
+    "code": "PRG_BOOK_RCI_002",
+    "message": "AVAILABILITY_NOT_FOUND_FOR_THE_SELECTED_TIME"
+  }
 }
 ```
 ##### Failure Response:
@@ -1915,13 +1857,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_001",
+    "message": "INVALID_REQUEST_ID"
+  }
 }
 ```
 
@@ -1930,13 +1871,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_002",
+    "message": "INVALID_REQUEST_VERSION"
+  }
 }
 ```
 
@@ -1945,13 +1885,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_003",
+    "message": "INVALID_REQUEST_DATETIME"
+  }
 }
 ```
 
@@ -1960,13 +1899,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_004",
+    "message":"INVALID_REQUEST_BODY"
+  }
 }
 ```
 #### 2.7.4.4 PUT Operation
@@ -2000,10 +1938,9 @@ Requires Authentication | Yes
 ###### Description: Appointment canceled successfully
 
 ```JSON
-{
-  "err": null,
+{ 
   "status": true,
-  "resTime": "2019-01-17T13:42:32.427Z",
+  "timestamp": "2019-01-17T13:42:32.427+000",
   "response": [
     {
       "preRegistrationId": "37802950913289",
@@ -2018,13 +1955,12 @@ Requires Authentication | Yes
 ###### Description: Invalid Pre Registration Id for registration center.
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID"
-  },
   "status": false,
-  "resTime": "2019-01-17T14:00:13.103Z",
-  "response": null
+  "timestamp": "2019-01-17T14:00:13.103+000",
+  "err": {
+    "code": "PRG_PAM_APP_005",
+    "message": "PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID"
+  }
 }
 ```
 ##### Failure Response:
@@ -2032,13 +1968,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_001",
+    "message": "INVALID_REQUEST_ID"
+  }
 }
 ```
 
@@ -2047,13 +1982,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_002",
+    "message": "INVALID_REQUEST_VERSION"
+  }
 }
 ```
 
@@ -2062,13 +1996,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:31:04.021+000",
+  "err": {
+    "code": "PRG_CORE_REQ_003",
+    "message": "INVALID_REQUEST_DATETIME"
+  }
 }
 ```
 
@@ -2077,13 +2010,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_004",
+    "message":"INVALID_REQUEST_BODY"
+  }
 }
 ```
 #### 2.7.4.5 POST Operation
@@ -2116,7 +2048,7 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.booking.book",
   "ver": "1.0",
-  "reqTime": "2019-01-17T12:48:30.416Z",
+  "reqTime": "2019-01-17T12:48:30.416+000",
   "request": {
     "registration_center_id": "1",
     "pre_registration_ids": [
@@ -2131,12 +2063,12 @@ Requires Authentication | Yes
 ```JSON
 {
   "err": {
-    "errorCode": "PRG_BOOK_RCI_013",
+    "code": "PRG_BOOK_RCI_013",
     "message": "BOOKING_DATA_NOT_FOUND"
   },
   "status": false,
-  "resTime": "2019-01-17T14:09:27.310Z",
-  "response": null
+  "timestamp": "2019-01-17T14:09:27.310+000",
+  
 }
 ```
 ##### Failure Response:
@@ -2144,28 +2076,26 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_001",
+    "message":"INVALID_REQUEST_ID"
+  }
 }
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty Request Version
+###### Description: Invalid or empty request version
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
-  "response": null
+  "timestamp": "2019-01-16T17:32:35.658+000",
+  "err": {
+    "code": "PRG_CORE_REQ_002",
+    "message":"INVALID_REQUEST_VERSION"
+  }
 }
 ```
 
@@ -2174,13 +2104,12 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
   "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_003",
+    "message":"INVALID_REQUEST_DATETIME"
+  }
 }
 ```
 
@@ -2189,17 +2118,16 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
   "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "timestamp": "2019-01-16T15:15:05.467+000",
+  "err": {
+    "code": "PRG_CORE_REQ_004",
+    "message":"INVALID_REQUEST_BODY"
+  }
 }
 ```
-#### 2.7.4.6 GET Operation
-#### Path -  ` pre-registration/booking/masterSynchronization`
+#### 2.7.4.6 PUT Operation
+#### Path -  ` pre-registration/booking/master-sync`
 #### Summary
 Synchronize booking slots availability table with master data.
 
@@ -2216,12 +2144,10 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": {
-    "errorCode": "null",
-    "message": "null"
-  },
   "status": true,
-  "resTime": "2019-01-06T15:56:35.398Z",
-  "response": "Master Data Sync is successful"
+  "timestamp": "2019-01-06T15:56:35.398+000",
+  "response": {
+    "message":"Master Data Sync is successful"
+   }
 }
 ```
