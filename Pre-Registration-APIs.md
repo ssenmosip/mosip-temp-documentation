@@ -47,11 +47,11 @@ Create new pre-registration by demographic details or update demographic details
 #### Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
+preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
 createdBy |Yes|created user of the application|987654321
 createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492+0000
-updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign user id (example: 987654321)</li></ul>
-updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the exisiting pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492+0000)</li></ul>
+updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration dont assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
+updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492+0000)</li></ul>
 langCode |Yes|primary language code| ENG
 demographicDetails |Yes|demographicDetails of the applicant|
 demographicDetails.identity |Yes|identity of the applicant|
@@ -327,7 +327,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "response": [
-  "STATUS_UPDATED_SUCESSFULLY"
+  "STATUS_UPDATED_SUCCESSFULLY"
   ]
 }
 ```
@@ -660,10 +660,8 @@ Code|Message|Description
 PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID | Invalid or empty pre-registration id.
 PRG_PAM_APP_006|PRG_PAM_APP_006 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA | unable to fetch the details by pre-registration id.
 
-
-
 ## 2.7.2 Document Service APIs
-This service enables Pre-Registration portal to request for uploading the document for a perticular pre-registration.
+This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
 ##### Integration - `http://integ.mosip.io`
@@ -793,7 +791,7 @@ Requires Authentication | Yes
 {
   "err": {
     "errorCode": "PRG_PAM_DOC_007",
-    "message": "DOCUMENT_EXCEEDING_PREMITTED_SIZE"
+    "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
   },
   "status": false,
   "resTime": "2019-01-17T10:36:40.763Z",
@@ -877,7 +875,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Retreival of preregistration data failed
+###### Description: Retrieval of preregistration data failed
 ```JSON
 {
   "err": {
@@ -1005,7 +1003,7 @@ Requires Authentication | Yes
 #### 2.7.2.3 GET Operation
 #### Path -  ` /pre-registration/getDocument`
 #### Summary
-This service enables Pre-Registration portal request to retrieve all document associated with perticular pre-registration.
+This service enables Pre-Registration portal request to retrieve all document associated with particular pre-registration.
 
 #### Parameters
 Name | Required | Description | Example
@@ -1240,7 +1238,7 @@ Requires Authentication | Yes
 ```
 
 ## 2.7.3  Data sync Service APIs
-This service enables Pre-Registration to a registration client , request to reterive all pre-registration ids based on registration client id, appointment date and an user type.
+This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 ### Host
 ##### Integration - `http://integ.mosip.io`
@@ -1267,7 +1265,7 @@ id |Yes|Id of the application|mosip.pre-registration.datasync
 ver |Yes|version of the application|1.0
 reqTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.registartion-client-id |Yes|Registration center Id of the application|12
+request.registration-client-id |Yes|Registration center Id of the application|12
 request.from-date |Yes|From date of the application|2019-01-01 00:00:00
 request.to-date |Yes|To date of the application|2019-01-31 00:00:00
 request.user-id |Yes|user Id of the application|Officer
@@ -1281,7 +1279,7 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: All PreRegistrationIds fetched successfully
+###### Description: All Pre-Registration Ids fetched successfully
 ```JSON
 {
   "err": null,
@@ -1497,7 +1495,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: When demographic json file & documents are not zipped
+###### Description: When demographic JSON file & documents are not zipped
 ```JSON
 {
   "err": {
@@ -1578,7 +1576,7 @@ Requires Authentication | Yes
 #### 2.7.3.3 POST Operation
 #### Path -  ` pre-registration/data-sync/reverseDataSync`
 #### Summary
-This service enables Pre-Registration to a registration processor , request to reterive all processed pre-registration ids and store in pre-registration database and update the status code in main table.
+This service enables Pre-Registration to a registration processor , request to retrieve all processed pre-registration ids and store in pre-registration database and update the status code in main table.
 
 #### Parameters
 Name | Required | Description | Example
@@ -1774,7 +1772,7 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Availablity details fetched successfully
+###### Description: Availability details fetched successfully
 
 ```JSON
 {
@@ -1826,7 +1824,7 @@ Requires Authentication | Yes
 #### 2.7.4.3 POST Operation
 #### Path -  ` pre-registration/booking/book`
 #### Summary
-This service enables by Pre-Registration to book an registration center, request to book and rebook an appointment with a selected registration center and time slot. After successful booking update the status code Booked in main table.
+This service enables by Pre-Registration to book an registration center, request to book and re-book an appointment with a selected registration center and time slot. After successful booking update the status code Booked in main table.
 
 #### Parameters for book
 Name | Required | Description | Example
@@ -1900,7 +1898,7 @@ Requires Authentication | Yes
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Availablility not found for selected time.
+###### Description: Availability not found for selected time.
 ```JSON
 {
   "err": {
@@ -2091,7 +2089,7 @@ Requires Authentication | Yes
 #### 2.7.4.5 POST Operation
 #### Path -  ` pre-registration/booking/bookedPreIdsByRegId`
 #### Summary
-Retrieve Pre-Registration appointment details by pre-Registration id and resgistration cebter id for the use of Data sync service.
+Retrieve Pre-Registration appointment details by pre-Registration id and registration center id for the use of Data sync service.
 
 #### Parameters
 Name | Required | Description | Example
@@ -2100,7 +2098,7 @@ id |Yes|Id of the application|mosip.pre-registration.booking.book
 ver |Yes|version of the application|1.0
 reqTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.registartion_center_id|Yes|Registartion Center Id|1
+request.registration_center_id|Yes|Registration Center Id|1
 request.preRegistrationId|Yes|pre Registration Id|37802950913289,..
 
 #### Resource details
@@ -2112,7 +2110,7 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Reterived all pre-registration ids successfully.
+###### Description: Retrieved all pre-registration ids successfully.
 
 ```JSON
 {
@@ -2120,7 +2118,7 @@ Requires Authentication | Yes
   "ver": "1.0",
   "reqTime": "2019-01-17T12:48:30.416Z",
   "request": {
-    "registartion_center_id": "1",
+    "registration_center_id": "1",
     "pre_registration_ids": [
       "37802950913289"
     ]
