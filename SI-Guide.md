@@ -1,9 +1,12 @@
 * [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
-
   * [1.1 Scope](#11scope)
   * [1.2 Intended audience](#12intended-audience)
     * [1.2.1 Internal audience](#121internal-audience)
     * [1.2.2 External Audience](#122external-audience)
+* [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
+  * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system)
+  * [2.2 Why-an Identity Management System is Needed](#22why-an-identity-management-system-is-needed)
+  * [2.3 Key Objectives of MOSIP platform](#23key-objectives-of-MOSIP-platform)
 * [3. MOSIP FUNCTIONAL OVERVIEW](#3mosip-functional-overview)
   * [3.1 Pre-Registration](#31-pre-registration)
   * [3.2 Registration Client](#32-registration-client)
@@ -28,6 +31,8 @@
   * [5.6 MOSIP Biometric Data Standards](#56-mosip-biometric-data-standards)
   * [5.7 Vendor Device Specifications](#57-vendor-device-specifications)
   * [5.8 Security](#58-security)
+* [6. MOSIP REQUIREMENT SPECIFICATIONS](#6-mosip-requirement-specifications)
+
 
 ## 1. MOSIP-INTRODUCTION
 ### 1.1	Scope
@@ -49,8 +54,7 @@ The complexity of government administration in “the modern world” is a major
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
 
-### 2.3	Setting the Stage for MOSIP. (How MOSIP as a product\platform wants to position itself)
-
+### 2.3	Key Objectives of MOSIP platform
 MOSIP (Modular Open Source Identity Platform) helps government countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
 
