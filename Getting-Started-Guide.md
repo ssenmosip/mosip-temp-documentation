@@ -10,7 +10,7 @@
 
 ***
 ## 1. Getting the Source Code [**[↑]**](#content)
-MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the URL [https://github.com/mosip/mosip/](https://github.com/mosip/mosip/). To know more about how to fork code from Github follow this <a href="https://help.github.com/articles/fork-a-repo/" target="blank">guide</a>.
+MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the URL [https://github.com/mosip/mosip/](https://github.com/mosip/mosip/). To know more about how to fork code from Github follow this <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">guide</a>.
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
 ***
