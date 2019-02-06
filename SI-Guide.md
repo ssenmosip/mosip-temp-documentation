@@ -54,7 +54,7 @@
     * [8.2.5. Admin portal (Data, Device, User Setup)](#825-admin-portal-data-device-user-setup)
   * [8.3 Infrastructure Recommendations (Used by SI/ Device manufacturers)](#83infrastructure-recommendations-used-by-si-device-manufacturers)
   * [8.4 Product Demo (VDs)](#84product-demo-vds)
-* [9. SUMMARY](#9--summary-wip]
+* [9. SUMMARY](#9--summary-wip)
 * [10. APPENDICES](#10-appendices)
 * [11. REFERENCES](#11-references)
 
