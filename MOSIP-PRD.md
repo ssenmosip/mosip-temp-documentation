@@ -1,10 +1,3 @@
-* [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
-  * [1.1 Scope](#11-scope)
-  * [1.2 Intended audience](#12intended-audience)
-    * [1.2.1 Internal audience](#121Internal-audience)
-    * [1.2.2 External Audience](#122External-Audience)
-* [2. MOSIP -FOR IDENTITY MANAGEMENT](#2-mosip--for-identity-management)
-
 # 1. MOSIP-INTRODUCTION
 
 ## 1.1 Scope
