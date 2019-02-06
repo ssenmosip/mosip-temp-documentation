@@ -32,7 +32,21 @@
   * [5.7 Vendor Device Specifications](#57-vendor-device-specifications)
   * [5.8 Security](#58-security)
 * [6. MOSIP REQUIREMENT SPECIFICATIONS](#6-mosip-requirement-specifications)
-
+  * [6.1 Functional Requirement Specifications](#61-functional-requirement-specifications)
+  * [6.2 Non-Functional Requirement Specifications](#62-non-functional-requirement-specifications)
+* [7. MOSIP APIs](#7-mosip-apis)
+  * [7.1 External APIs](#71external-apis)
+    * [7.1.1 ID Authentication APIs](#711-id-authentication-apis)
+    * [7.1.2 ABIS APIs](#712abis-apis)
+    * [7.1.3 OTP Manager API](#713otp-manager-api)
+    * [7.1.4 Pre-Registration APIs](#714pre-registration-apis)
+    * [7.1.5 Registration Processor APIs](#715registration-processor-apis)
+  * [7.2 Internal APIs](#72internal-apis)
+    * [7.2.1 Kernel](#721kernel)
+    * [7.2.2 ID Repository](#722id-repository)
+  * [8. MOSIP TOOL KIT](#8-mosip-tool-kit)
+    * [8.1 Deployment Guide](#81deployment-guide)
+    * [8.2 Set Up Guide](#82set-up-guide)
 
 ## 1. MOSIP-INTRODUCTION
 ### 1.1	Scope
