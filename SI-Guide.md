@@ -234,7 +234,7 @@ Format: JSON
 This API will support the following features
 1. APIs for receiving packets
 1. APIs for packet registration status
-1. APIs for Manual Verification Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) for more details
+1. APIs for Manual Verification. Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) for more details
 ### 7.2	Internal APIs
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
 #### 7.2.1	Kernel
