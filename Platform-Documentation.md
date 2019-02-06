@@ -55,9 +55,9 @@
     * [8.2.5. Admin portal (Data, Device, User Setup)](#825-admin-portal-data-device-user-setup)
   * [8.3 Infrastructure Recommendations (Used by SI/ Device manufacturers)](#83infrastructure-recommendations-used-by-si-device-manufacturers)
   * [8.4 Product Demo (VDs)](#84product-demo-vds)
-* [9. SUMMARY](#9--summary-wip)
-* [10. APPENDICES](#10-appendices)
-* [11. REFERENCES](#11-references)
+* [9. GLOSSARY](#9--summary-wip)
+* [10. REFERENCES](#10-appendices)
+
 
 ## 1. MOSIP-INTRODUCTION
 ### 1.1	Scope
@@ -255,18 +255,13 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Repository-API) for more details
 
-## 8. MOSIP TOOL KIT
+## 8. MOSIP TOOL KIT (TBD WIP)
 The MOSIP tool kit provides a comprehensive guide to install and deploy MOSIP platform. It also provide infrastructure recommendations. The visual designs provides an over view of the application features and functionalities.
 ### 8.1	Deployment Guide
 (Guide on deployment (Used by SI/ Device manufacturers)
-### 8.2	Set Up Guide
-#### 8.2.1. Backend Setup (ID Definition Schema, Configs, others)
-#### 8.2.2. Setup Manual: Guide to Setup and initiate platform
-#### 8.2.3. Setup Manual: Guide to Pre-registration 
-#### 8.2.4. Setup Manual: Guide to Registration Client Application
-#### 8.2.5. Admin portal (Data, Device, User Setup)
+### 8.2	How to Guide
+#### 8.2.1. Backend Setup (ID Definition Schema, Configs, others,License management)
 ### 8.3	Infrastructure Recommendations (Used by SI/ Device manufacturers)
-### 8.4	Product Demo (VDs)
-## 9.  SUMMARY (WIP)
-## 10. APPENDICES
-## 11. REFERENCES
+### 8.4	Developers Document
+## 9.  GLOSSARY
+## 10. REFERENCES
