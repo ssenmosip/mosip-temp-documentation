@@ -34,4 +34,4 @@
 * [Tester Documentation](https://github.com/mosip/mosip/wiki/Tester-Documentation)
 * [Contribute to MOSIP](https://github.com/mosip/mosip/wiki/Contribute-to-MOSIP) 
 * [Minutes of Key Meetings](https://github.com/mosip/mosip/wiki/Minutes-of-Key-Meetings)
-* [Mosip PRD](https://github.com/mosip/mosip/wiki/MOSIP-PRD)
+* [Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)
