@@ -166,10 +166,12 @@ Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Packet) for
 
 ### 5.4 MOSIP-ABIS Middleware
 This section provides details on the ability of MOSIP to support a single or multi-ABIS solution, specifics on the Components & APIs of ABIS Middleware, Strategies for Biometric data management in ABIS and Strategies for de-duplication in case of multiple ABIS systems.
+
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) for more details.
 
 ### 5.5 Know more about ABIS Interface Spec
 This section provides the specifications that an ABIS provider must implement to meet MOSIP's requirements.
+
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface) for more details.
 
 ### 5.6 MOSIP Biometric Data Standards
@@ -178,16 +180,20 @@ This section details out the specifications for Biometric data during data acqui
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) for more details.
 ### 5.7 Vendor Device Specifications
 This section illustrates the VDM technical specifications to be adhered by a vendor, who intends to adopt their devices to the MOSIP platform, so as to capture the biometric data and process the same. 
+
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications) for more details.
 ### 5.8 Security 
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
+
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Security) for more details.
 ## 6. MOSIP REQUIREMENT SPECIFICATIONS
 ### 6.1 Functional Requirement Specifications
 This Section provides a detailed functional requirement specification for each module in MOSIP
+
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-FUNCTIONAL-REQUIREMENT-SPECIFICATIONS) for the detailed functional spec.
 ###  6.2 Non-Functional Requirement Specifications
 This Section details out the non-functional requirements of MOSIP platform
+
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
 
 ## 7. MOSIP APIs
@@ -196,14 +202,17 @@ APIs are the crux of MOSIP platform. This section explains about the internal an
 This sections details out the external APIs of MOSIP that interact with external entities.
 #### 7.1.1 ID Authentication APIs
 Format: JSON
-This section details the REST services exposed by ID Authentication. Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication). This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
+This section details the REST services exposed by ID Authentication. 
+Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication). This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
 1. OTP based - TOTP
 1. Pin based - Static Pin
 1. Demo based - PersonalIdentity, Address, FullAddress
 1. Bio based - Fingerprint, IRIS and Face
 #### 7.1.2	ABIS APIs
 Format: JSON
-An ABIS system that integrates with MOSIP should support the operations listed in this section Refer [wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
+An ABIS system that integrates with MOSIP should support the operations listed in this section.
+
+Refer [wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
 This service details the behavior of:
 1. Insert Request
 1. Identify Request
@@ -215,10 +224,11 @@ This service details the behavior of:
 Format: JSON
 OTP manager includes APIs for
 1. OTP generation
-1. OTP validation Please refer [wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
+1. OTP validation. 
+Please refer [wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
 #### 7.1.4	Pre-Registration APIs
 Format: JSON
-This section Refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
+This section [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
 #### 7.1.5	Registration Processor APIs
 Format: JSON
 This API will support the following features
