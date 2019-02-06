@@ -44,19 +44,19 @@
   * [7.2 Internal APIs](#72internal-apis)
     * [7.2.1 Kernel](#721kernel)
     * [7.2.2 ID Repository](#722id-repository)
-  * [8. MOSIP TOOL KIT](#8-mosip-tool-kit)
-    * [8.1 Deployment Guide](#81deployment-guide)
-    * [8.2 Set Up Guide](#82set-up-guide)
-[8.2.1. Backend Setup (ID Definition Schema, Configs, others)](#821-backend-setup-id-definition-schema-configs-others)
-[8.2.2. Setup Manual: Guide to Setup and initiate platform](#822-setup-manual-guide-to-setup-and-initiate-platform)
-[8.2.3. Setup Manual: Guide to Pre-registration](#823-setup-manual-guide-to-pre-registration)
-[8.2.4. Setup Manual: Guide to Registration Client Application](#824-setup-manual-guide-to-registration-client-application)
-[8.2.5. Admin portal (Data, Device, User Setup)](#825-admin-portal-data-device-user-setup)
-[8.3 Infrastructure Recommendations (Used by SI/ Device manufacturers)](#83infrastructure-recommendations-used-by-si-device-manufacturers)
-[8.4 Product Demo (VDs)](#84product-demo-vds)
-[9. SUMMARY](#9--summary-wip]
-[10. APPENDICES](#10-appendices)
-[11. REFERENCES](#11-references)
+* [8. MOSIP TOOL KIT](#8-mosip-tool-kit)
+  * [8.1 Deployment Guide](#81deployment-guide)
+  * [8.2 Set Up Guide](#82set-up-guide)
+    * [8.2.1. Backend Setup (ID Definition Schema, Configs, others)](#821-backend-setup-id-definition-schema-configs-others)
+    * [8.2.2. Setup Manual: Guide to Setup and initiate platform](#822-setup-manual-guide-to-setup-and-initiate-platform)
+    * [8.2.3. Setup Manual: Guide to Pre-registration](#823-setup-manual-guide-to-pre-registration)
+    * [8.2.4. Setup Manual: Guide to Registration Client Application](#824-setup-manual-guide-to-registration-client-application)
+    * [8.2.5. Admin portal (Data, Device, User Setup)](#825-admin-portal-data-device-user-setup)
+  * [8.3 Infrastructure Recommendations (Used by SI/ Device manufacturers)](#83infrastructure-recommendations-used-by-si-device-manufacturers)
+  * [8.4 Product Demo (VDs)](#84product-demo-vds)
+* [9. SUMMARY](#9--summary-wip]
+* [10. APPENDICES](#10-appendices)
+* [11. REFERENCES](#11-references)
 
 ## 1. MOSIP-INTRODUCTION
 ### 1.1	Scope
