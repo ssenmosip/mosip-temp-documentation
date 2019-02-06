@@ -100,20 +100,26 @@ Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Client) for
 ### 3.3 Registration Processor
 Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). This section elucidates the architecturally significant use cases of Registration Processor, which include ability to be scalable, facilitate integration, look-up of the Process View and Logical View, to name a few.
 
+Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor) for more details.
+
 
 ### 3.4 ID Authentication
 
 MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. This section provides details on the architecturally significant use cases of ID-Authentication, which include specifics on API standards, the Process View and Logical View, to list a few.
 
+Please Refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication) for more details.
+
 ### 3.5 Kernel
 Kernel is a platform to build higher-level services as well as a secure sandbox. This section provides details on the active framework of MOSIP, its structure & rules within which the higher-level services operate, the architecturally significant use cases and Logical View, to name a few.
 
+Please Refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details.
 
 ### 3.6 ADMINISTRATION
 ### 3.7 MOSIP RESIDENT SERVICES
 ### 3.8 Reports
 ## 4.	MOSIP ARCHITECTURE OVERVIEW
-MOSIP Architecture is defined in 5 separate sections as stated below.
+MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
+
 ### 4.1 Patterns and Principles
 This section consists of the foundational principles of MOSIP based on which the architecture is defined. The key principle considered includes: Open source and Vendor Neutral, Adaptability, Security, Multi party, Authorization, Authentication, Multi language support, Performance and Scalability, High Availability, and Auditability.
 
