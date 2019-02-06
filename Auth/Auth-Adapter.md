@@ -16,6 +16,7 @@ Auth Adapter includes following class definitions:
 8. [AuthUserDetails](#AuthUserDetails)
 9. [ClientInterceptor](#ClientInterceptor)
 10. [MosipUser](#MosipUser)
+11. [AuthControllerAdvice](#AuthControllerAdvice)
 
 ## SecurityConfig
 
@@ -24,7 +25,7 @@ Holds the main configuration for authentication and authorization using spring s
 Inclusions:
 
 * AuthenticationManager bean configuration:
-  * This is assigned an [AuthProvider](#AuthProvider) that we implemented. This option can include multiple auth providers if necessary based on the requirement.
+  * This is assigned an [AuthProvider](#AuthProvider) that we implemented.
   * RETURNS an instance of the ProviderManager.
 * [AuthFilter](#AuthFilter) bean configuration:
   * This extends **AbstractAuthenticationProcessingFilter**.
@@ -53,10 +54,8 @@ This filter is going to act as a CORS filter. It is assigned before [AuthFilter]
 
 Tasks:
 
-* Stores auth token to be used throughout the cycle across implementations.
 * Sets headers to allow cross origin requests.
 * Sets header to allow and expose **"Authorization"** header.
-* Sets the authToken back to null.
 
 ## AuthProvider
 
@@ -66,7 +65,7 @@ Tasks:
 
 * Contacts auth server to verify token validity.
 * Stores the response body in an instance of [MosipUser](#MosipUser).
-* Updates token into [AuthHeadersFilter](#AuthHeadersFilter).
+* Updates token into **SecurityContext**.
 * Bind [MosipUser](#MosipUser) instance details with the [AuthUserDetails](#AuthUserDetails) that extends Spring Security's UserDetails.
 
 ## AuthSuccessHandler
@@ -103,3 +102,7 @@ Tasks:
 ## MosipUser
 
 Mosip user is the standard spec that will be tuned based on the details stored in ldap for a user.
+
+## AuthControllerAdvice
+
+Adds latest token to the response headers before it is committed.
