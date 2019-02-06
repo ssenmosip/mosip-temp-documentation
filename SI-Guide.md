@@ -94,6 +94,8 @@ Please Refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration) for mo
 ### 3.2 Registration Client
 Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about a parent/guardian/introducer) and packages the information in a secure way. This section provides details on the architecturally significant use cases of Registration Client, which include the ability to be adhered to industry standards, facilitate secure data transmission, Process View and Logical View, to name a few.
 
+Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Client) for more details.
+
 
 ### 3.3 Registration Processor
 Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). This section elucidates the architecturally significant use cases of Registration Processor, which include ability to be scalable, facilitate integration, look-up of the Process View and Logical View, to name a few.
