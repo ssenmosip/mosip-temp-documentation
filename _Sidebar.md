@@ -36,4 +36,4 @@
 * [Minutes of Key Meetings](https://github.com/mosip/mosip/wiki/Minutes-of-Key-Meetings)
 * [Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)
 * [TechnoForte Deliverables](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables)
-  * [Feb'19] (https://github.com/mosip/mosip/wiki/Feb'19)
+  * [Feb'19](https://github.com/mosip/mosip/wiki/Feb'19)
