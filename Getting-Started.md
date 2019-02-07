@@ -31,14 +31,23 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](https:/
 * [SSH Credentials Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Create Pipelines
-With pipeline option in Jenkins, users can consider their CI/CD scripts as code and manage them with their source code. To know more about this [here](https://jenkins.io/solutions/pipeline/)
+With pipeline option in Jenkins, users can consider their CI/CD scripts as code and manage them with their source code. To know more about this refer [here](https://jenkins.io/solutions/pipeline/)
 ### C. Setting Up Github with Jenkins
 
 ***
 ## 3. Setup and Configure Jfrog [**[↑]**](#content)
+ For installing and setting up Jfrog, steps [here](https://www.jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
+Once the setup is complete, please add following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
+* **Maven Central -** https://repo.maven.apache.org/maven2/
+* **Jcentre -** https://jcenter.bintray.com
+* **Openimaj -** http://maven.openimaj.org<br/>
+To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home.<br/>
+To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](https://www.jfrog.com/confluence/display/RTF/Maven+Repository)
 
 ***
 ## 4. Setup and Configure SonarQube [**[↑]**](#content)
+SonarQube server can be setup by following single instructions given [here](https://docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
+For configuring SonarQube with Jenkins, steps given [here](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
 
 ***
 ## 5. Setup and Configure Docker Registry [**[↑]**](#content)
