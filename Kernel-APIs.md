@@ -996,3 +996,103 @@ description|No|Description of the event| |Example description
   "status": true
 }
 ```
+
+
+
+# 9. License Key Manager
+TSPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
+
+This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
+
+### Resource URL
+### `POST /license/generate`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+licenseExpiryTime|Yes|The time at which the license will expire| |2019-03-07T10:00:00.000Z 
+tspId|Yes|The TSP ID against which the license key generated will be mapped| |9837
+
+### Example Request
+```JSON
+{
+  "licenseExpiryTime": "2019-03-07T10:00:00.000Z",
+  "tspId": "9837"
+}
+```
+### Example Response
+```JSON
+{
+  "licenseKey": "gR7Mw7tA7S7qifkf"
+}
+```
+
+### `POST /license/permission`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+licenseKey|Yes|The license key to which the permissions will be mapped| |gR7Mw7tA7S7qifkf 
+tspId|Yes|The TSP ID against which the license key is mapped| |9837
+permissions|Yes|The list of permissions that will be mapped to the TSP-licensekey mentioned.| |OTP Trigger
+
+### Example Request
+```JSON
+{
+  "licenseKey": "gR7Mw7tA7S7qifkf",
+  "permissions": [
+    "OTP Trigger","OTP Authentication"
+  ],
+  "tspId": "9837"
+}
+```
+### Example Response
+```JSON
+{
+  "status": "Mapped License with the permissions"
+}
+```
+
+
+### `GET /license/permission`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
+tspId|Yes|The TSP ID against which the license key is mapped| |9837
+
+### Example Request
+```
+license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
+```
+### Example Response
+```JSON
+{
+  "permissions": [
+    "OTP Trigger",
+    "OTP Authentication"
+  ]
+}
+```
