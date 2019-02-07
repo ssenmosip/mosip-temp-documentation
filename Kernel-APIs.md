@@ -1004,11 +1004,14 @@ TSPs call the IDA to authenticate the Individuals. There can be various service 
 
 This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
 
+## 9.1 License Key Generation
+
+This component generates a license key for a specified TSP ID.
+
 ### Resource URL
 ### `POST /license/generate`
 
 ### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
@@ -1033,6 +1036,9 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
   "licenseKey": "gR7Mw7tA7S7qifkf"
 }
 ```
+## 9.2 Mapping Permissions
+
+This component maps various permissions provided to a specified license key.
 
 ### `POST /license/permission`
 
@@ -1067,6 +1073,9 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 }
 ```
 
+## 9.3 Fetching Permissions 
+
+This component fetches various permission mapped to a license key.
 
 ### `GET /license/permission`
 
