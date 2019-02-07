@@ -87,7 +87,7 @@ Fig: 1 Basic features of MOSIP
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
-Fig: 2 Key objectives of the platform
+
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
