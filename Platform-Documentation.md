@@ -25,6 +25,9 @@
 * [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
   * [7.1 Principles](#71-principles)
   * [7.2 Platform Features](#72-platform-features)
+    * [7.2.1 Configurability](#721-configurability)
+    * [7.2.2 Extensibility](#722-extensibility)
+    * [7.2.3 Modularity](#723-modularity)
   * [7.3 Process View](#73-process-view)
   * [7.4 Logical View](#74-logical-view)
   * [7.5 Technology Stack](#75-technology-stack)
@@ -143,6 +146,9 @@ This section consists of the foundational principles of MOSIP based on which the
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals) for more details.
 ### 7.2 Platform Features
+#### 7.2.1 Configurability
+#### 7.2.2 Extensibility
+#### 7.2.3 Modularity
 ### 7.3 Process View
 This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Process-view) for more details.
