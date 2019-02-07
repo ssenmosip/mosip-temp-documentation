@@ -54,7 +54,7 @@
   * [10.1 Getting Started Guide](#101getting-started-guide)
   * [10.2 Developer Document](#102developer-document)
 * [11. INRFASTRUCTURE RECOMMENDATIONS](#11--inrfastructure-recommendations)
-* [12. GLOSSARY](#12—glossary)
+* [12. GLOSSARY](#12--glossary)
 * [13. ABBREVIATIONS](#13-abbreviations)
 * [14. REFERENCES](#14-references)
 
