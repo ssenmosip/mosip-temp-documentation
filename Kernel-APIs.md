@@ -1096,3 +1096,140 @@ license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
   ]
 }
 ```
+
+
+
+# 10. OTP Notification
+
+This service facilitates sending the generated OTP through sms/email/both.
+
+## 10.1 OTP Notification[Both Email and SMS]
+
+When OTP needs to be notified both through email and sms.
+
+### Resource URL
+### `POST /otp/send`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+emailBodyTemplate|Yes|The email content with $otp as the placeholder which represents the OTP| |Your OTP is $otp 
+emailId|Yes|Email ID to be notified| |testmail@tmail.com
+emailSubjectTemplate|Yes|Subject for the email to be notified||OTP Notification through Email
+mobileNumber|Yes|Mobile number to be notified||1234567890
+notificationTypes|Yes|When opted for both types of notification,both should be mentioned||sms,email
+smsTemplate|Yes|The SMS content with $otp as the placeholder which represents the OTP||Your OTP is $otp
+
+### Example Request
+```JSON
+{
+  "emailBodyTemplate": "Your OTP is $otp",
+  "emailId": "testmail@tmail.com",
+  "emailSubjectTemplate": "Test Mail",
+  "mobileNumber": "1234567890",
+  "notificationTypes": [
+    "email","sms"
+  ],
+  "smsTemplate": "Test SMS $otp"
+}
+```
+### Example Response
+```JSON
+{
+  "status": "success",
+  "message": "Otp notification request submitted"
+}
+```
+## 10.2 OTP Notification[Only Email]
+
+When OTP needs to be notified only through email.
+
+### `POST /otp/send`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+emailBodyTemplate|Yes|The email content with $otp as the placeholder which represents the OTP| |Your OTP is $otp 
+emailId|Yes|Email ID to be notified| |testmail@tmail.com
+emailSubjectTemplate|Yes|Subject for the email to be notified||OTP Notification through Email
+mobileNumber|No|||
+notificationTypes|Yes|When opted for email notification,only email should be mentioned||email
+smsTemplate|No|||
+
+### Example Request
+```JSON
+{
+  "emailBodyTemplate": "Your OTP is $otp",
+  "emailId": "testmail@tmail.com",
+  "emailSubjectTemplate": "Test Mail",
+  "mobileNumber": "",
+  "notificationTypes": [
+    "email"
+  ],
+  "smsTemplate": ""
+}
+```
+### Example Response
+```JSON
+{
+  "status": "Mapped License with the permissions"
+}
+```
+
+## 10.3 OTP Notification[Only SMS]
+
+When OTP needs to be notified only through SMS.
+
+### `POST /license/permission`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+emailBodyTemplate|No|||
+emailId|No|||
+emailSubjectTemplate|No|||
+mobileNumber|Yes|Mobile number to be notified||1234567890
+notificationTypes|Yes|When opted for SMS notification,only sms should be mentioned||sms
+smsTemplate|Yes|The SMS content with $otp as the placeholder which represents the OTP||Your OTP is $otp
+
+### Example Request
+```JSON
+{
+  "emailBodyTemplate": "",
+  "emailId": "",
+  "emailSubjectTemplate": "",
+  "mobileNumber": "1234567890",
+  "notificationTypes": [
+    "sms"
+  ],
+  "smsTemplate": "Your OTP is $otp"
+}
+```
+### Example Response
+```JSON
+{
+  "status": "success",
+  "message": "Otp notification request submitted"
+}
+```
+
