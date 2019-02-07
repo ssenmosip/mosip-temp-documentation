@@ -113,93 +113,104 @@ Kernel is a platform to build higher-level services as well as a secure sandbox.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details.
 
-### 3.6 ADMINISTRATION
-### 3.7 MOSIP RESIDENT SERVICES
+### 3.6 Administration
+### 3.7 Resident Services
 ### 3.8 Reports
-## 4.	MOSIP ARCHITECTURE OVERVIEW
+## 4.	MOSIP SCOPE
+## 5. MOSIP REQUIREMENT SPECIFICATIONS
+### 5.1 Functional Requirement Specifications
+This Section provides a detailed functional requirement specification for each module in MOSIP
+Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-FUNCTIONAL-REQUIREMENT-SPECIFICATIONS) for the detailed functional spec.
+### 5.2 Non- Functional Requirement Specifications
+This Section details out the non-functional requirements of MOSIP platform
+Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
+## 6. PRODUCT DEMO (VDs)
+## 7.	MOSIP ARCHITECTURE OVERVIEW
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
-### 4.1 Patterns and Principles
+### 7.1 Principles
 This section consists of the foundational principles of MOSIP based on which the architecture is defined. The key principle considered includes: Open source and Vendor Neutral, Adaptability, Security, Multi party, Authorization, Authentication, Multi language support, Performance and Scalability, High Availability, and Auditability.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals) for more details.
+### 7.2 Platform Features
+### 7.3 Process View
+This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
+Please Refer [wiki](https://github.com/mosip/mosip/wiki/Process-view) for more details.
 
-
-### 4.2 Logical View
+### 7.4 Logical View
 This section details the key design aspects considered for MOSIP. This includes Ecosystem approach, Configurability, Extensibility, Modularity, and Solution Principles. 
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Logical-Architecture) for more details.
 
-### 4.3 Technology Stack
+### 7.5 Technology Stack
 This section lists all the technologies used in building MOSIP platform.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Technology-Stack) for more details.
 
-### 4.4 Process View
-This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
 
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/Process-view) for more details.
 
-### 4.5 Data Architecture
+
+
+### 7.6 Data Architecture
 This section details the data architecture of MOSIP which includes Security, Multi-Language, High Availability, Auditability, and High Performance. It also details the data models and its naming standards. 
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture) for more details.
 
-## 5.	ARCHITECTURALLY SIGNIFICANT COMPONENTS OF MOSIP
-### 5.1 MOSIP ID Object Definition
+## 8.	ARCHITECTURALLY SIGNIFICANT COMPONENTS OF MOSIP
+### 8.1 ID Object Definition
 ID definition describes the attributes a Country or entity intends to capture from an Individual, which will formulate the definition of ID for a Country. This section elaborates on the mechanism MOSIP adopts, in order to provide the flexibility for each Country to define its preferred ID definition and ID object definition schema.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) for more details.
 
-### 5.2 MOSIP Configuration and Launcher
+### 8.2 Configurations
 MOSIP as a platform will have multiple applications running and each application will have a set of configurations.
 This section details:
 1. The key configuration files a system owner has to create before starting the platform – with a centralized Config Server.
 1. Launcher component which will read the configuration files, validate and launch the platform.
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher) for more details.
 
-### 5.3 Registration Packet Structure
+### 8.3 Registration Packet Structure
 This section illustrates the packet creation flow along with the encryption process, as part of Registration Client.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Packet) for more details.
 
-### 5.4 MOSIP-ABIS Middleware
+### 8.4 ABIS Middleware
 This section provides details on the ability of MOSIP to support a single or multi-ABIS solution, specifics on the Components & APIs of ABIS Middleware, Strategies for Biometric data management in ABIS and Strategies for de-duplication in case of multiple ABIS systems.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) for more details.
-
-### 5.5 Know more about ABIS Interface Spec
-This section provides the specifications that an ABIS provider must implement to meet MOSIP's requirements.
-
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface) for more details.
-
-### 5.6 MOSIP Biometric Data Standards
+### 8.5 MOSIP Biometric Data Standards
 This section details out the specifications for Biometric data during data acquisition and verification. 
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) for more details.
-### 5.7 Vendor Device Specifications
+
+### 8.6 Vendor Device Specifications
 This section illustrates the VDM technical specifications to be adhered by a vendor, who intends to adopt their devices to the MOSIP platform, so as to capture the biometric data and process the same. 
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications) for more details.
-### 5.8 Security 
+
+
+
+
+### 8.7 Security 
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
 
 Please Refer [wiki](https://github.com/mosip/mosip/wiki/Security) for more details.
-## 6. MOSIP REQUIREMENT SPECIFICATIONS
-### 6.1 Functional Requirement Specifications
-This Section provides a detailed functional requirement specification for each module in MOSIP
+### 8.8 Core Data Management
+### 8.9 Test Rig Design
+Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
+Navigate to wiki for further details.
+### 8.10 Integration with External Systems
+This section illustrates the integrational specifications of MOSIP with an external system – WIP.
 
-Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-FUNCTIONAL-REQUIREMENT-SPECIFICATIONS) for the detailed functional spec.
-###  6.2 Non-Functional Requirement Specifications
-This Section details out the non-functional requirements of MOSIP platform
 
-Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
 
-## 7. MOSIP APIs
+
+
+## 9. MOSIP APIs
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
-### 7.1	External APIs
+### 9.1	External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
-#### 7.1.1 ID Authentication APIs
+#### 9.1.1 ID Authentication APIs
 Format: JSON
 This section details the REST services exposed by ID Authentication. 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication). This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
@@ -207,7 +218,7 @@ Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication). This
 1. Pin based - Static Pin
 1. Demo based - PersonalIdentity, Address, FullAddress
 1. Bio based - Fingerprint, IRIS and Face
-#### 7.1.2	ABIS APIs
+#### 9.1.2	ABIS APIs
 Format: JSON
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
 
@@ -219,24 +230,24 @@ This service details the behavior of:
 1. Ping Request
 1. Pending Jobs Request
 1. Reference Count Request
-#### 7.1.3	OTP Manager API
+#### 9.1.3	OTP Manager API
 Format: JSON
 OTP manager includes APIs for
 1. OTP generation
 1. OTP validation. 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
-#### 7.1.4	Pre-Registration APIs
+#### 9.1.4	Pre-Registration APIs
 Format: JSON
 This section [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
-#### 7.1.5	Registration Processor APIs
+#### 9.1.5	Registration Processor APIs
 Format: JSON
 This API will support the following features
 1. APIs for receiving packets
 1. APIs for packet registration status
 1. APIs for Manual Verification. Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) for more details
-### 7.2	Internal APIs
+### 9.2	Internal APIs
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
-#### 7.2.1	Kernel
+#### 9.2.1	Kernel
 The Kernel APIs cover the following APIS
 1. APIs for key management
 1. APIs for master data management
@@ -245,7 +256,7 @@ The Kernel APIs cover the following APIS
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Kernel-APIs) for more details.
 
-#### 7.2.2	ID Repository
+#### 9.2.2	ID Repository
 This is a central API which all other modules of MOSIP will use to retrieve an ID record. This API will support the following features
 1. Creation of a ID record
 1. Lookup of an ID record based on the UIN
@@ -254,13 +265,11 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Repository-API) for more details
 
-## 8. MOSIP TOOL KIT (TBD WIP)
-The MOSIP tool kit provides a comprehensive guide to install and deploy MOSIP platform. It also provide infrastructure recommendations. The visual designs provides an over view of the application features and functionalities.
-### 8.1	Deployment Guide
-(Guide on deployment (Used by SI/ Device manufacturers)
-### 8.2	How to Guide
-#### 8.2.1. Backend Setup (ID Definition Schema, Configs, others,License management)
-### 8.3	Infrastructure Recommendations (Used by SI/ Device manufacturers)
-### 8.4	Developers Document
-## 9.  GLOSSARY
-## 10. REFERENCES
+### 10. HOW TO GUIDE (TBD)
+#### 10.1 Getting Started Guide
+#### 10.2 Developer Document
+## 11.  INRFASTRUCTURE RECOMMENDATIONS
+## 12.  GLOSSARY
+## 13. ABBREVIATIONS
+## 14. REFERENCES
+
