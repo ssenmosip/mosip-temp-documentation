@@ -31,6 +31,7 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](https:/
 * [SSH Credentials Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Create Pipelines
+With pipeline option in Jenkins, users can consider their CI/CD scripts as code and manage them with their source code. To know more about this [here](https://jenkins.io/solutions/pipeline/)
 ### C. Setting Up Github with Jenkins
 
 ***
