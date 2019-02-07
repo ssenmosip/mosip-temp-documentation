@@ -31,6 +31,27 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](https:/
 * [SSH Credentials Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Create Pipelines
+Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in the MOSIP Source Code. MOSIP currently have 5 Jenkins job that take care of CI/CD process for Development Environment. There are - 
+
+* master-branch-build-all-modules
+
+    This Job is used to build whole MOSIP as a single unit. This Job is also acts as a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here are the configuration for Pipeline you might have to explictly change to use MOSIP provided Jenkinsfile- 
+
+    ![Configure Build Triggers](_images/getting_started_images/master-branch-build-all-modules-build-triggers.JPG)
+
+    ![Configure Pipelines](_images/getting_started_images/master-branch-build-all-modules-pipeline.JPG)
+
+    As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of MOSIP repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
+
+    Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code. 
+
+
+* Kernel
+* Pre-Registration
+* Registration
+* Registration-Processor
+* Authentication
+
 ### C. Setting Up Github with Jenkins
 
 ***
