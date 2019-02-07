@@ -21,7 +21,7 @@
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications)
   * [5.2 Non-Functional Requirement Specifications](#52-non--functional-requirement-specifications)
-* [6. PRODUCT DEMO (VDs)](#6-product)
+* [6. PRODUCT DEMO (VDs)](#6-product-demo-vds)
 * [7. MOSIP ARCHITECTURE OVERVIEW](#7-mosip-architecture-overview)
   * [7.1 Principles](#71-principles)
   * [7.2 Platform Features](#72-platform-features)
