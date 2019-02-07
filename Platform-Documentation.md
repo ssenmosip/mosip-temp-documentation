@@ -76,6 +76,8 @@ To better understand and serve citizens, countries are placing increasing attent
 The complexity of government administration in “the modern world” is a major problem in developing countries. Often, individual government programs have their own database of beneficiaries that are not digitized and therefore cannot be easily merged. Delivering public services efficiently and providing financial inclusion to the poor in partnership with the private sector depends on accurate identification and authentication of citizens and residents. Hence Government programs must have the capacity to cross-reference databases and information.
 ### 2.2	Why-an Identity Management System is Needed
 
+![Indentity](_images/mosip_prd/Indentity.JPG)
+
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
 
 ### 2.3	Key Objectives of MOSIP platform
