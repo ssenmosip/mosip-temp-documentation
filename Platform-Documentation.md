@@ -83,9 +83,9 @@ A well-established identity management system can help countries to verify their
 ### 2.3	Key Objectives of MOSIP platform
 MOSIP (Modular Open Source Identity Platform) helps government countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
+Fig: 1 Basic features of MOSIP
 
-
-![MOSIP basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
+![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
 Fig: 2 Key objectives of the platform
 
