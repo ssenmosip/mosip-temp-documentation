@@ -1202,7 +1202,7 @@ smsTemplate|No|||
 
 When OTP needs to be notified only through SMS.
 
-### `POST /license/permission`
+### `POST /otp/send`
 
 ### Resource details
 
