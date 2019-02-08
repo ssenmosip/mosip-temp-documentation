@@ -47,7 +47,7 @@
     * [4.3.4 Static PIN Authentication](#434-static-pin-authentication)
     * [4.3.5 E-KYC Authentication Service](#435-e-kyc-authentication-service)
   * [4.4 Integrated Individual Authentication](#44-integrated-individual-authentication)
-* [5. Admin Setup (TBD WIP)](#5-admin-setup-tbd-wip)
+* [5. Admin Setup (TBD WIP)](#5-resident-services-tbd-wip)
 * [6. Reporting (TBD WIP)](#6-reporting-tbd-wip)
 * [7. Platform Level Features and Utilities](#7-platform-level-features-and-utilities)
   * [7.1 Features](#71-features)
