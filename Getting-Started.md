@@ -30,7 +30,24 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](https:/
 * [SSH Agent Plugin](http://wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin)
 * [SSH Credentials Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
-### B. Create Pipelines
+### B. Setting Up Github for/in Jenkins
+Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at [Webhooks](https://developer.github.com/webhooks/) and [Github hook](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling)). After hooks are in place, we need to setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps - 
+    
+    I. Goto Jenkins
+    II. Goto Credentials -> System
+    III. Goto Global credentials
+    IV. Click on Add Credentials
+    V. Now use following details
+
+        Kind=Username with password
+        Scope=Global (Jenkins, nodes, items, all child items, etc)
+        Username=<Your Github Username>
+        Password=<Your Github Password>
+        ID=Some Unique Identifier to refer to this credentials (to autogenerate this, leave this blank)
+        Description=<It is optional>
+    VI. Now since our Jenkinsfile usage this github credentials, update the credentials id in Jenkinsfile. (To know more about look at this [section]())
+
+### C. Create Pipelines
 Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in the MOSIP Source Code. MOSIP currently have 5 Jenkins job that take care of CI/CD process for Development Environment. There are - 
 
 * master-branch-build-all-modules
@@ -43,16 +60,19 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
     As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of MOSIP repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
 
-    Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code. 
+  Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code. Here in this file,
 
 
 * Kernel
+<TBD>
 * Pre-Registration
+<TBD>
 * Registration
+<TBD>
 * Registration-Processor
+<TBD>
 * Authentication
-
-### C. Setting Up Github with Jenkins
+<TBD>
 
 ***
 ## 3. Setup and Configure Jfrog [**[↑]**](#content)
