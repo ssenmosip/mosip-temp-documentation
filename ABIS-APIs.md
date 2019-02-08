@@ -33,7 +33,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 ```
 //Request
 {
-	"id" : "Insert",
+	"id" : "mosip.abis.insert",
 	"ver" : "1.0",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
@@ -44,7 +44,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Success response
 {
-	"id" : "Insert",
+	"id" : "mosip.abis.insert",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "1"
@@ -52,7 +52,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Failure response
 {
-	"id" : "Insert",
+	"id" : "mosip.abis.insert",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "2",
@@ -60,9 +60,8 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 }
 ```
 ### Behavior of Insert
- - ABIS must get biometric data from referenceURL, process it and store it locally within the ABIS reference database
- - Demographic data corresponding to the individual will be sent as name value pairs in the request
- - referenceId must not be active prior to this pperation i.e., it must not have been used before this operation
+ - ABIS must get biometric data from referenceURL, process it and store it locally within the ABIS reference database 
+ - referenceId must not be active prior to this operation i.e., it must not have been used before this operation
  - De-duplication must not be performed in this operation
  - MOSIP must provide CBEFF format biometric data to ABIS
 
