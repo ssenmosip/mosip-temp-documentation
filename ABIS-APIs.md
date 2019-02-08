@@ -69,15 +69,14 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 ```
 //Request
 {
-	"id" : "Identify",
+	"id" : "mosip.abis.identify",
 	"ver" : "1.0",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"referenceId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-	"maxResults" : "30",
+	"maxResults" : "10",
 	"targetFPIR" : "30",
-	"gallery" : {
-		"url" : "",
+	"gallery" : {		
 		"referenceIds" : [
 			"referenceId" : "",
 			"referenceId" : "",
@@ -87,7 +86,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Success response
 {
-	"id" : "Identify",
+	"id" : "mosip.abis.identify",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "1",
@@ -108,7 +107,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Failure response
 {
-	"id" : "Identify",
+	"id" : "mosip.id.identify",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "2",
@@ -119,10 +118,11 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 ### Behavior of IDENTIFY
  - IDENTIFY request MUST provide a 1:n comparison
  - The input set for comparison can be provided by referenceID
- - The collection against which the input set has to be matched is specified by galleryURL or set of referenceID's. Either 
-   URL or reference ID's can be provided, but not both. If referenceId is provided, atleast one referenceID must be 
-   provided in the input. The provided referenceID's must be present in the reference database.
- - maxResults specify how many results can be returned
+ - The collection against which the input set has to be matched is specified by a set of referenceID's. 
+   If referenceId is provided, atleast one referenceID must be provided in the input. The provided referenceID's must be 
+   present in the reference database.
+ - If IDENTIFY is against all the entries in ABIS, then gallery attribute MUST not be specified
+ - maxResults specify how many results can be returned. By default this will be 10
  - IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR
  - This request should not match against referenceID that is not in the reference database
 
@@ -130,7 +130,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 ```
 //Request
 {
-	"id" : "Delete",
+	"id" : "mosip.abis.delete",
 	"ver" : "1.0",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
@@ -139,7 +139,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Success response
 {
-	"id" : "Delete",
+	"id" : "mosip.abis.delete",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : ""
@@ -147,7 +147,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Failure response
 {
-	"id" : "Delete",
+	"id" : "mosip.abis.delete",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "",
@@ -163,7 +163,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 ```
 //Request
 {
-	"id" : "Ping",
+	"id" : "mosip.abis.ping",
 	"ver" : "1.0",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717"
@@ -171,7 +171,7 @@ All the below operations send biometric data in CBEFF format. (Please refer http
 
 //Success response
 {
-	"id" : "Ping",
+	"id" : "mosip.abis.ping",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "",
@@ -186,7 +186,7 @@ A PING request should respond with a response on the liveness of the ABIS system
 ```
 //Request
 {
-	"id" : "PendingJobs",
+	"id" : "mosip.abis.pendingJobs",
 	"ver" : "1.0",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717"
@@ -194,7 +194,7 @@ A PING request should respond with a response on the liveness of the ABIS system
 
 //Success response
 {
-	"id" : "PendingJobs",
+	"id" : "mosip.abis.pendingJobs",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"jobscount" : "",
@@ -210,7 +210,7 @@ A PING request should respond with a response on the liveness of the ABIS system
 ```
 //Request
 {
-	"id" : "ReferenceCount",
+	"id" : "mosip.abis.referenceCount",
 	"ver" : "1.0",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717"
@@ -218,7 +218,7 @@ A PING request should respond with a response on the liveness of the ABIS system
 
 //Success response
 {
-	"id" : "ReferenceCount",
+	"id" : "mosip.abis.referenceCount",
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"count" : "",
