@@ -2,8 +2,6 @@
 * [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
   * [1.1 Scope](#11scope)
   * [1.2 Intended Audience](#12intended-audience)
-    * [1.2.1 Internal Audience](#121internal-audience)
-    * [1.2.2 External Audience](#122external-audience)
 * [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
   * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system)
   * [2.2 Why-an Identity Management System is needed](#22why-an-identity-management-system-is-needed)
@@ -65,13 +63,10 @@
 ### 1.1	Scope
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner.
 ### 1.2	Intended Audience
-#### 1.2.1	Internal Audience
-1. Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
-1. Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
-
-#### 1.2.2	External Audience
-1. SIs (System Integrator).
-1. Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
+* Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
+* Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
+* SIs (System Integrator).
+* Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
 ## 2.	MOSIP -FOR IDENTITY MANAGEMENT
 ### 2.1	What-is an Identity Management System
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems .The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s .Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
