@@ -613,12 +613,142 @@ lastUpdated|No|Date in UTC ISO format| |
 }
 ```
 
-## 3.2 Global config details-get service
+## 3.2 Config details-get service
 
-This service will return back the global configuration data of the MOSIP platform. 
+This service will return back the global and registration configuration data of the MOSIP platform. 
 
 ### Resource URL
-### `GET /globalconfigs`
+### `GET /configs`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+
+/syncdata/v1.0/configs
+
+### Example Response
+```JSON
+{
+  "registrationConfiguration": {
+    "keyValidityPeriodPreRegPack": "3",
+    "smsNotificationTemplateRegCorrection": "OTP for your request is $otp",
+    "defaultDOB": "1-Jan",
+    "smsNotificationTemplateOtp": "OTP for your request is $otp",
+    "supervisorVerificationRequiredForExceptions": "true",
+    "keyValidityPeriodRegPack": "3",
+    "irisRetryAttempts": "10",
+    "fingerprintQualityThreshold": "120",
+    "multifactorauthentication": "true",
+    "smsNotificationTemplateUpdateUIN": "OTP for your request is $otp",
+    "supervisorAuthType": "password",
+    "maxDurationRegPermittedWithoutMasterdataSyncInDays": "10",
+    "modeOfNotifyingIndividual": "mobile",
+    "emailNotificationTemplateUpdateUIN": "Hello $user the OTP is $otp",
+    "maxDocSizeInMB": "150",
+    "emailNotificationTemplateOtp": "Hello $user the OTP is $otp",
+    "emailNotificationTemplateRegCorrection": "Hello $user the OTP is $otp",
+    "faceRetry": "12",
+    "noOfFingerprintAuthToOnboardUser": "10",
+    "smsNotificationTemplateLostUIN": "OTP for your request is $otp",
+    "supervisorAuthMode": "IRIS",
+    "operatorRegSubmissionMode": "fingerprint",
+    "officerAuthType": "password",
+    "faceQualityThreshold": "25",
+    "gpsDistanceRadiusInMeters": "3",
+    "automaticSyncFreqServerToClient": "25",
+    "maxDurationWithoutMasterdataSyncInDays": "7",
+    "loginMode": "bootable dongle",
+    "irisQualityThreshold": "25",
+    "retentionPeriodAudit": "3",
+    "fingerprintRetryAttempts": "234",
+    "emailNotificationTemplateNewReg": "Hello $user the OTP is $otp",
+    "passwordExpiryDurationInDays": "3",
+    "emailNotificationTemplateLostUIN": "Hello $user the OTP is $otp",
+    "blockRegistrationIfNotSynced": "10",
+    "noOfIrisAuthToOnboardUser": "10",
+    "smsNotificationTemplateNewReg": "OTP for your request is $otp"
+  },
+  "globalConfiguration": {
+    "mosip.kernel.email.max-length": "50",
+    "mosip.kernel.email.domain.ext-max-lenght": "7",
+    "mosip.kernel.rid.sequence-length": "5",
+    "mosip.kernel.uin.uin-generation-cron": "0 * * * * *",
+    "mosip.kernel.email.special-char": "!#$%&'*+-/=?^_`{|}~.",
+    "mosip.kernel.prid.sequence-limit": "3",
+    "mosip.kernel.email.domain.ext-min-lenght": "2",
+    "mosip.kernel.machineid.length": "4",
+    "mosip.supported-languages": "eng,ara,fra",
+    "auth.header.name": "Authorization",
+    "mosip.kernel.phone.min-length": "9",
+    "mosip.kernel.virus-scanner.host": "104.211.209.102",
+    "mosip.kernel.email.min-length": "7",
+    "mosip.kernel.uin.length.conjugative-even-digits-limit": "3",
+    "mosip.kernel.rid.machineid-length": "5",
+    "mosip.kernel.prid.repeating-block-limit": "3",
+    "mosip.kernel.vid.length.repeating-block-limit": "2",
+    "mosip.kernel.rid.length": "29",
+    "mosip.kernel.uin.restricted-numbers": "786,666",
+    "mosip.kernel.keygenerator.asymmetric-algorithm-name": "RSA ",
+    "mosip.kernel.email.domain.special-char": "-",
+    "mosip.kernel.vid.length.repeating-limit": "2",
+    "mosip.kernel.uin.length.reverse-digits-limit": "5",
+    "mosip.kernel.vid.not-start-with": "0,1",
+    "mosip.kernel.registrationcenterid.length": "4",
+    "mosip.kernel.phone.special-char": "+ -",
+    "mosip.kernel.uin.uins-to-generate": "200000",
+    "mosip.kernel.vid.length": "16",
+    "mosip.kernel.uin.length.repeating-block-limit": "2",
+    "mosip.kernel.uin.length.sequence-limit": "3",
+    "mosip.kernel.keygenerator.symmetric-algorithm-length": "256",
+    "mosip.kernel.keygenerator.symmetric-algorithm-name": "AES",
+    "mosip.kernel.crypto.symmetric-algorithm-name": "AES",
+    "mosip.kernel.virus-scanner.port": "3310",
+    "mosip.kernel.rid.centerid-length": "5",
+    "mosip.kernel.uin.length.digits-limit": "5",
+    "mosip.kernel.rid.timestamp-length": "14",
+    "mosip.kernel.vid.length.sequence-limit": "3",
+    "mosip.kernel.keygenerator.asymmetric-algorithm-length": "2048",
+    "mosip.kernel.uin.min-unused-threshold": "100000",
+    "auth.role.prefix": "ROLE_",
+    "auth.server.validate.url": "https://integ.mosip.io/authmanager/validate_token",
+    "mosip.kernel.prid.length": "14",
+    "mosip.kernel.syncdata.registration-center-config-file": "registration-${spring.profiles.active}.properties",
+    "mosip.kernel.crypto.asymmetric-algorithm-name": "RSA",
+    "mosip.kernel.uin.length": "12",
+    "mosip.kernel.phone.max-length": "15",
+    "mosip.kernel.prid.repeating-limit": "2",
+   "mosip.kernel.tokenid.length": "36",
+    "mosip.kernel.tspid.length": "4",
+    "mosip.kernel.syncdata.global-config-file": "application-${spring.profiles.active}.properties",
+    "mosip.kernel.prid.not-start-with": "0,1",
+    "mosip.kernel.tokenid.sequence-limit": "3",
+    "mosip.kernel.uin.length.repeating-limit": "2",
+    "mosip.kernel.data-key-splitter": "#KEY_SPLITTER#"
+  }
+}
+
+```
+
+
+
+
+## 3.3 Get All Roles 
+
+This service will return back the all roles of the applications. 
+
+### Resource URL
+### `GET /roles`
+
 
 ### Resource details
 
@@ -638,29 +768,22 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-		"archivalPolicy":"arc_policy_2",
-		"otpTimeOutInMinutes":2,
-		"numberOfWrongAttemptsForOtp":5,
-		"accountFreezeTimeoutInHours":10, 
-		"uinLength":24,
-		"vidLength":32,
-		"pridLength":32,
-		"tokenIdLength":23,
-		"tspIdLength":24,
-		"registrationCenterId":"KDUE83CJ3",
-		"machineId":"MCBD3UI3",
-		"mobilenumberlength":10,
-		"restrictedNumbers":"8732,321,65",
-		"languagesSupported":"eng,ara,fra"
+   "roles": [
+      {
+      "roleDescription": "string",
+      "roleId": "string",
+      "roleName": "string"
+      }
+          ]
 }
 ```
 
-## 3.3 Registration Center Config details-get service
+## 3.4 Get list of users and role-mapping 
 
-This service will return back the registration configuration data of the MOSIP platform. 
+This service will return back the list of users and its role-mapping based on the registration-center-id. 
 
 ### Resource URL
-### `GET /registrationcenterconfig/{registrationcenterid}`
+### `GET /userdetails/{regid}`
 
 
 ### Resource details
@@ -681,43 +804,52 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-		"loginMode":"bootable dongle",
-		"fingerprintQualityThreshold":120,
-		"fingerprintRetryAttempts":234,
-		"irisQualityThreshold":25,
-		"irisRetryAttempts":10,
-		"faceQualityThreshold":25,
-		"faceRetry":12,
-		"supervisorVerificationRequiredForExceptions":true,
-		"operatorRegSubmissionMode":"fingerprint",
-		"supervisorAuthMode":"IRIS",
-		"emailNotificationTemplateOtp":"Hello $user, the OTP is $otp",
-		"smsNotificationTemplateOtp":"OTP for your request is $otp",
-		"emailNotificationTemplateNewReg":"Hello $user, the OTP is $otp",
-		"smsNotificationTemplateNewReg":"OTP for your request is $otp",
-		"emailNotificationTemplateRegCorrection":"Hello $user, the OTP is $otp",
-		"smsNotificationTemplateRegCorrection":"OTP for your request is $otp",
-		"emailNotificationTemplateUpdateUIN":"Hello $user, the OTP is $otp",
-		"smsNotificationTemplateUpdateUIN":"OTP for your request is $otp",
-		"emailNotificationTemplateLostUIN":"Hello $user, the OTP is $otp",
-		"smsNotificationTemplateLostUIN":"OTP for your request is $otp",
-		"passwordExpiryDurationInDays":3,
-		"keyValidityPeriodRegPack":3,
-		"keyValidityPeriodPreRegPack":3,
-		"retentionPeriodAudit":3,
-		"automaticSyncFreqServerToClient":25,
-		"blockRegistrationIfNotSynced":10,
-		"maxDurationRegPermittedWithoutMasterdataSyncInDays":10,
-		"maxDurationWithoutMasterdataSyncInDays":7,
-		"modeOfNotifyingIndividual":"mobile",
-		"noOfFingerprintAuthToOnboardUser":10,
-		"noOfIrisAuthToOnboardUser":10,
-		"multifactorauthentication":true,
-		"gpsDistanceRadiusInMeters":3,
-		"officerAuthType":"password",
-		"supervisorAuthType":"password",
-		"defaultDOB":"1-Jan",
-		"maxDocSizeInMB":150
+   "userDetails": [
+    {
+      "langCode": "string",
+      "mail": "string",
+      "mobile": "string",
+      "name": "string",
+      "roles": [
+        "string"
+      ],
+      "userName": "string",
+      "userPassword": "string"
+    }
+  ]
+}
+```
+## 3.5 Public key-get service
+
+This service will provide the public key for the specific application fetched from key manager. 
+
+### Resource URL
+### `GET /publickey`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description |  Example
+-----|----------|-------------|--------
+applicationId |Yes|Id of the application| REGISTRATION,IDA
+referenceId|No|Id of the Machine/TSP|
+timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
+
+### Example Request
+/syncdata/v1.0/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
+
+### Example Response
+```JSON
+
+{
+  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
+  "issuedAt": "2018-01-01T10:00:00",
+  "expiryAt": "2018-12-10T06:12:51.994"
 }
 ```
 
