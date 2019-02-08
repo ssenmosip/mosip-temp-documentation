@@ -1,57 +1,57 @@
 ## Table Of Content
-* [1. Pre-Registration](
-  * [1.1 Log in- Log out Feature](
-  * [1.2 Language Data Manager](
-    * [1.2.1 Translation](
-    * [1.2.2 Transliteration](
-  * [1.3 Pre-Registration Sync](
-  * [1.4 Appointment Booking](
-    * [1.4.1 Search Registration center](
-    * [1.4.2 Choose the Registration center from the search result and check available slots](
-    * [1.4.3 Choose an available time slot and book an appointment](
-    * [1.4.4 Reschedule a booked appointment](
-    * [1.4.5 Cancel an appointment](
-  * [1.5 Pre-Registration Application Manager](
-    * [1.5.1 Pre-Registration Application Manager](
-    * [1.5.2 Acknowledgment](
-    * [1.5.3 PRID Generator](
-* [2. Registration](
-  * [2.1 Registration Client Setup](
-  * [2.2 System Health Checker](
-  * [2.3 Registration Officer Authentication](
-  * [2.4 User Onboarding/Manager](
-  * [2.5 Language Manager](
-  * [2.6 Registration Application Manager – New](
-  * [2.7 Registration Officer Authorization](
-  * [2.8 Registration Packet Manager](
-  * [2.9 Sync Handler](
-  * [2.10 Individual UIN – Update](
-  * [2.11 Clean Up](
-* [3. Registration Processor](
-  * [3.1 Registration Packet Handler](
-  * [3.2 Registration Status Service](
-  * [3.3 Registration Packet Processor](
-  * [3.4 UIN Generator](
-  * [3.5 Print](
-  * [3.6 UIN Lifecycle Manager](
-  * [3.7 External System Integration](
-* [4. ID-Authentication](
-  * [4.1 TSP/UA Authentication](
-    * [4.1.1 TSP Authentication](
-    * [4.1.2 Authentication Mode Verifier](
-  * [4.2 TSP/UA Authorization](
-  * [4.3 Individual Authentication](
-    * [4.3.1 Biometric Authentication](
-    * [4.3.2 Demographic Authentication](
-    * [4.3.3 OTP Authentication](
-    * [4.3.4 Static PIN Authentication](
-    * [4.3.5 E-KYC Authentication Service](
-  * [4.4 Integrated Individual Authentication](
-* [5. Admin Setup (TBD WIP)](
-* [6. Reporting (TBD WIP)](
-* [7. Platform Level Features and Utilities](
-  * [7.1 Features](
-  * [7.2 Utilities](
+* [1. Pre-Registration](#1-pre-registration)
+  * [1.1 Log in- Log out Feature](#11-log-in--log-out-feature)
+  * [1.2 Language Data Manager](#12-language-data-manager)
+    * [1.2.1 Translation](#121translation)
+    * [1.2.2 Transliteration](#122transliteration)
+  * [1.3 Pre-Registration Sync](#13-pre-registration-sync)
+  * [1.4 Appointment Booking](#14-appointment-booking)
+    * [1.4.1 Search Registration center](#141-search-registration-center)
+    * [1.4.2 Choose the Registration center from the search result and check available slots](#142-choose-the-registration-center-from-the-search-result-and-check-available-slots)
+    * [1.4.3 Choose an available time slot and book an appointment](#143-choose-an-available-time-slot-and-book-an-appointment)
+    * [1.4.4 Reschedule a booked appointment](#144-reschedule-a-booked-appointment)
+    * [1.4.5 Cancel an appointment](#145-cancel-an-appointment)
+  * [1.5 Pre-Registration Application Manager](#15-pre-registration-application-manager)
+    * [1.5.1 Pre-Registration Application Manager](#151pre-registration-application-manager)
+    * [1.5.2 Acknowledgment](#152acknowledgment)
+    * [1.5.3 PRID Generator](#153----prid-generator)
+* [2. Registration](#2-registration)
+  * [2.1 Registration Client Setup](#21-registration-client-setup)
+  * [2.2 System Health Checker](#22-system-health-checker)
+  * [2.3 Registration Officer Authentication](#23-registration-officer-authentication)
+  * [2.4 User Onboarding/Manager](#24-user-onboardingmanager)
+  * [2.5 Language Manager](#25-language-manager)
+  * [2.6 Registration Application Manager – New](#26-registration-application-manager--new)
+  * [2.7 Registration Officer Authorization](#27-registration-officer-authorization)
+  * [2.8 Registration Packet Manager](#28-registration-packet-manager)
+  * [2.9 Sync Handler](#29-sync-handler)
+  * [2.10 Individual UIN – Update](#210-individual-uin--update)
+  * [2.11 Clean Up](#211-clean-up)
+* [3. Registration Processor](#3-registration-processor)
+  * [3.1 Registration Packet Handler](#31-registration-packet-handler)
+  * [3.2 Registration Status Service](#32-registration-status-service)
+  * [3.3 Registration Packet Processor](#33-registration-packet-processor)
+  * [3.4 UIN Generator](#34-uin-generator)
+  * [3.5 Print](#35-print)
+  * [3.6 UIN Lifecycle Manager](#36-uin-lifecycle-manager)
+  * [3.7 External System Integration](#37-external-system-integration)
+* [4. ID-Authentication](#4-id-authentication)
+  * [4.1 TSP/UA Authentication](#41-tspua-authentication)
+    * [4.1.1 TSP Authentication](#411-tsp-authentication)
+    * [4.1.2 Authentication Mode Verifier](#412-authentication-mode-verifier)
+  * [4.2 TSP/UA Authorization](#42-tspua-authorization)
+  * [4.3 Individual Authentication](#43-individual-authentication)
+    * [4.3.1 Biometric Authentication](#431-biometric-authentication)
+    * [4.3.2 Demographic Authentication](#432-demographic-authentication)
+    * [4.3.3 OTP Authentication](#433-otp-authentication)
+    * [4.3.4 Static PIN Authentication](#434-static-pin-authentication)
+    * [4.3.5 E-KYC Authentication Service](#435-e-kyc-authentication-service)
+  * [4.4 Integrated Individual Authentication](#44-integrated-individual-authentication)
+* [5. Admin Setup (TBD WIP)](#5-admin-setup-tbd-wip)
+* [6. Reporting (TBD WIP)](#6-reporting-tbd-wip)
+* [7. Platform Level Features and Utilities](#7-platform-level-features-and-utilities)
+  * [7.1 Features](#71-features)
+  * [7.2 Utilities](#72-utilities)
 ## 1. Pre-Registration
 ### 1.1 Log in- Log out Feature
 ### 1.2 Language Data Manager
