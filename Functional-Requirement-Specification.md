@@ -139,8 +139,9 @@ The system provides the provision to a user to select at-least one Pre-Registrat
 #### 4.3.4 Static PIN Authentication
 #### 4.3.5 E-KYC Authentication Service
 ### 4.4 Integrated Individual Authentication
-## 5. Admin Setup (TBD WIP)
-## 6. Reporting (TBD WIP)
-## 7. Platform Level Features and Utilities
-### 7.1 Features
-### 7.2 Utilities
+## 5.Resident Services
+## 6. Admin Setup (TBD WIP)
+## 7. Reporting (TBD WIP)
+## 8. Platform Level Features and Utilities
+### 8.1 Features
+### 8.2 Utilities
