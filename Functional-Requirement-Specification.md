@@ -54,10 +54,12 @@
   * [7.2 Utilities](#72-utilities)
 ## 1. Pre-Registration
 ### 1.1 Log in- Log out Feature
-### 1.2 Language Data Manager
-#### 1.2.1	Translation
-#### 1.2.2	Transliteration
-### 1.3 Pre-Registration Sync
+### 1.2 Pre-Registration Application Manager
+#### 1.2.1	Pre-Registration Application Manager
+#### 1.2.2	PRID Generator
+### 1.3 Language Data Manager
+#### 1.3.1	Translation
+#### 1.3.2	Transliteration
 ### 1.4 Appointment Booking
 This component enables a user\individual to Book\re-schedule an appointment for selected slot in the chosen registration center for registration. It also allows user to cancel a booked appointment.
 
@@ -98,10 +100,8 @@ The system provides the provision to a user to select at-least one Pre-Registrat
 1. The system provides an option to cancel selected Appointment\s against application which is\are in Booked Status and notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
-### 1.5 Pre-Registration Application Manager
-#### 1.5.1	Pre-Registration Application Manager
-#### 1.5.2	Acknowledgment
-#### 1.5.3    PRID Generator
+### 1.5 Acknowledgment
+### 1.6 Pre-Registration Sync
 ## 2. Registration
 ### 2.1 Registration Client Setup
 ### 2.2 System Health Checker
