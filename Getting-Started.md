@@ -117,6 +117,74 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 ***
 ## 6. Installing External Dependencies [**[↑]**](#content)
+*** Install and use PostgreSql on RHEL 7.5
+
+Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
+Postgresql Prerequisites
+On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.
+Steps to install Postgresql in RHEL-7.5
+Download and install PostgreSQL. 
+$ sudo yum install (https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm)<br/>
+*The password that you are prompted to provide during the installation process is for the 'postgres' account, which is the database root-level account, sometimes called the super user ('postgres'). Remember this username and password. You will need it each time you log in to the database.<br/>
+*	The default port for PostgreSQL is 5432. If you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. You will also need to remember to update all further mentions of the database port.<br/>
+
+** checking  the postgresql packages  
+$ sudo yum update <br/>
+$ sudo yum list postgresql* <br/>
+** Installation command <br/>	
+$ sudo yum install postgresql10 postgresql10-server<br/>
+$sudo /usr/pgsql-10/bin/postgresql-10-setup initdb <br/>
+$sudo systemctl enable postgresql-10 <br/>
+Postgresql service stop/start/restart command 
+$ sudo systemctl start postgresql-10 <br/>
+$ sudo systemctl status postgresql-10 <br/>
+$ sudo systemctl stop postgresql-10 <br/>
+To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path
+$ sudo vi /var/lib/pgsql/10/data/postgresql.conf <br/>
+listen_addresses = '*'
+port = 9001 
+unix_socket_directories = '/var/run/postgresql, /tmp'
+
+Below command to open the port 9001 from RHEL 7.5 VM
+$ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
+$ sudo firewall-cmd --reload <br/>
+Reference link:
+<br/>
+(https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora)
+<br/>
+<br/>
+### Install and use Nginx on RHEL 7.5
+
+We are using nginx for webserver andalso proxy server for MOSIP project
+Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command
+
+$sudo vi /etc/yum.repos.d/nginx.repo <br/>
+#### Install nginx package using the yum command:
+$sudo yum update <br/>
+$sudo yum install nginx <br/>
+Append following for RHEL 7.5 <br/>
+[nginx]   <br/>
+name=nginx repo <br/>
+baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/ <br/>
+gpgcheck=0 <br/>
+enabled=1 <br/>
+$ sudo yum install nginx <br/>
+$ sudo systemctl enable nginx  <br/>
+nginx start/stop/restart/status commands  <br/>
+$ sudo systemctl start nginx <br/>
+$ sudo systemctl stop nginx <br/>
+$ sudo systemctl restart nginx <br/>
+$ sudo systemctl status nginx <br/>
+
+ *** To edit files use a text editor such as vi ***
+$ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
+ *** Below command to open the port 80/443 from RHEL 7.5 VM ***
+$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
+$ sudo firewall-cmd –reload <br/>
+
+*** Reference link: ***
+(https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
+
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
