@@ -47,12 +47,11 @@
     * [4.3.4 Static PIN Authentication](#434-static-pin-authentication)
     * [4.3.5 E-KYC Authentication Service](#435-e-kyc-authentication-service)
   * [4.4 Integrated Individual Authentication](#44-integrated-individual-authentication)
-* [5.Resident Services (TBD WIP)]
-* [6. Admin Setup (TBD WIP)](#6-admin-setup-tbd-wip)
-* [7. Reporting (TBD WIP)(#7-reporting-tbd-wip)
-* [8. Platform Level Features and Utilities](#8-platform-level-features-and-utilities)
-  * [8.1 Features](#81-features)
-  * [8.2 Utilities](#82-utilities)
+* [5. Admin Setup (TBD WIP)](#5-admin-setup-tbd-wip)
+* [6. Reporting (TBD WIP)](#6-reporting-tbd-wip)
+* [7. Platform Level Features and Utilities](#7-platform-level-features-and-utilities)
+  * [7.1 Features](#71-features)
+  * [7.2 Utilities](#72-utilities)
 ## 1. Pre-Registration
 ### 1.1 Log in- Log out Feature
 ### 1.2 Pre-Registration Application Manager
@@ -140,7 +139,7 @@ The system provides the provision to a user to select at-least one Pre-Registrat
 #### 4.3.4 Static PIN Authentication
 #### 4.3.5 E-KYC Authentication Service
 ### 4.4 Integrated Individual Authentication
-## 5. Resident Services (TBD WIP)
+## 5.Resident Services
 ## 6. Admin Setup (TBD WIP)
 ## 7. Reporting (TBD WIP)
 ## 8. Platform Level Features and Utilities
