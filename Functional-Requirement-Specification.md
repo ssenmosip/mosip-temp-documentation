@@ -101,6 +101,11 @@ The system provides the provision to a user to select at-least one Pre-Registrat
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 1.5 Acknowledgment
+* The System triggers an Acknowledgement after Successful completion of Pre-Registration (Booking an appointment)
+* The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as provided in Demographic details
+* The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)
+* Individual can Choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later 
+
 ### 1.6 Pre-Registration Sync
 ## 2. Registration
 ### 2.1 Registration Client Setup
