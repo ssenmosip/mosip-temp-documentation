@@ -103,7 +103,7 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
-Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. 
+Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster.
 Here is the Logical Deployment Diagram (Detailing will be done later)- 
 ![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
 
