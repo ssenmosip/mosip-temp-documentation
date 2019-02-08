@@ -54,7 +54,11 @@ This section details about the service APIs in the Master data modules
 
 [2.3.27 Template Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2327-template-api)
 
-[2.3.28 Template Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2328-template-types-api)
+[2.3.28 Individual Types API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2329-individual-types-api)
+
+[2.3.29 Age group Types API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2330-age-group-types-api)
+
+
 
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
@@ -6517,9 +6521,9 @@ id|Yes|id of the Template|
 }
 ```
 
-# 2.3.29 Individual Types API
+# 2.3.28 Individual Types API
 
-# 2.3.29.1 Indivudual Types Master-get all individual types
+# 2.3.28.1 Indivudual Types Master-get all individual types
 
 This service will provides the complete list of all individual types in the MOSIP platform
 
@@ -6565,9 +6569,9 @@ Name | Required | Description | Default Value | Example
 Description: Success
 
 
-# 2.3.30 Age group Types API
+# 2.3.29 Age group Types API
 
-# 2.3.30.1 Age group Types Master-get age group based on the age
+# 2.3.29.1 Age group Types Master-get age group based on the age
 
 This service will provides the age group based on the passed age. 
 
