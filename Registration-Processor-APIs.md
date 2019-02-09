@@ -38,11 +38,9 @@ MultipartFile|Yes|The encrypted zip file| |
 	"version" : "1.0",
 	"timestamp" : "2019-02-02T06:12:25.288Z",
 	"response" : {
-		"success" : {
-			"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN",
-			"error" : null
-		}
-	}
+		"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN"
+	},
+	"error" : null
 }
 ```
 #### Failure response
@@ -52,13 +50,11 @@ MultipartFile|Yes|The encrypted zip file| |
   "id" : "mosip.registration.packet",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
-  "response" : {
-	"status" : null,
-	"error" : {
+  "response" : null,
+  "error" : {
 		"errorcode": "RPR-PKR-005",
 	    "message": "The request received is a duplicate request to upload a Packet"
 	}
-  }
 }
 ```
 
