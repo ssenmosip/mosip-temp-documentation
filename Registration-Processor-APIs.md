@@ -278,7 +278,7 @@ Description: Forbidden
 This service is used to assign one single unassigned applicant record to the input user.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/assignment`
+### `POST /manual-verification/assignment/v1.0`
 
 ### Resource details
 
@@ -296,18 +296,43 @@ String|Yes|The user id| |
 ### Example Request
 ```JSON
 {
-  "userId": "mono29"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	"userId": "mono29"
+  }
 }
 ```
 ### Example Response
+Success response
 ```JSON
 {
-  "regId": "27847657360002520181208123456",
-  "mvUsrId": "mono29",
-  "statusCode": "ASSIGNED",
-  "matchedRefId": "27847657360002520181208123456",
-  "matchedRefType": "UIN",
-  "reasonCode": null
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : {
+	  "regId": "27847657360002520181208123456",
+	  "mvUsrId": "mono29",
+	  "statusCode": "ASSIGNED",
+	  "matchedRefId": "27847657360002520181208123456",
+	  "matchedRefType": "UIN",
+	  "reasonCode": null
+	},
+	"error" : null
+}
+```
+Failure response
+```JSON
+{
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : null,
+	"error" : {
+		"errorCode" : "RPR-FAC-003",
+		"message" : "Cannot find the Registration Packet"
+	}
 }
 ```
 
@@ -328,7 +353,7 @@ Description: Internal server error
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/decision`
+### `POST /manual-verification/decision/v1.0`
 
 ### Resource details
 
@@ -346,23 +371,48 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 ### Example Request
 ```JSON
 {
-  "matchedRefId": "27847657360002520181208123987",
-  "matchedRefType": "RID",
-  "mvUsrId": "mono",
-  "reasonCode": "Problem with biometrics",
-  "regId": "27847657360002520181208123456",
-  "statusCode": "APPROVED"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	  "matchedRefId": "27847657360002520181208123987",
+	  "matchedRefType": "RID",
+	  "mvUsrId": "mono",
+	  "reasonCode": "Problem with biometrics",
+	  "regId": "27847657360002520181208123456",
+	  "statusCode": "APPROVED"
+	}
 }
 ```
 ### Example Response
+Success response
 ```JSON
 {
-  "regId": "27847657360002520181208123456",
-  "mvUsrId": "mono",
-  "statusCode": "APPROVED",
-  "matchedRefId": "27847657360002520181208123987",
-  "matchedRefType": "RID",
-  "reasonCode": "Problem with biometrics"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : {
+	  "regId": "27847657360002520181208123456",
+	  "mvUsrId": "mono",
+	  "statusCode": "APPROVED",
+	  "matchedRefId": "27847657360002520181208123987",
+	  "matchedRefType": "RID",
+	  "reasonCode": "Problem with biometrics"
+	},
+	"error" : null
+}
+```
+Failure response
+```JSON
+{
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : null,
+	"error" : {
+		"errorCode" : "RPR-MVS-003"",
+		"message" : "Invalid status update"
+	}
 }
 ```
 
@@ -383,7 +433,7 @@ Description: Internal server error
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/applicantBiometric`
+### `POST /manual-verification/applicantBiometric/v1.0`
 
 ### Resource details
 
@@ -401,8 +451,13 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ### Example Request
 ```JSON
 {
-  "fileName": "APPLICANTPHOTO",
-  "regId": "27847657360002520181208123456"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	  "fileName": "APPLICANTPHOTO",
+	  "regId": "27847657360002520181208123456"
+	}
 }
 ```
 ### Example Response
@@ -443,8 +498,13 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ### Example Request
 ```JSON
 {
-  "fileName": "DEMOGRAPHICINFO",
-  "regId": "27847657360002520181208123456"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	  "fileName": "PACKETMETAINFO",
+	  "regId": "27847657360002520181208123456"
+	}
 }
 ```
 ### Example Response
