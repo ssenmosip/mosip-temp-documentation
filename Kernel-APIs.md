@@ -1326,7 +1326,8 @@ smsTemplate|No|||
 ### Example Response
 ```JSON
 {
-  "status": "Mapped License with the permissions"
+  "status": "success",
+  "message": "Otp notification request submitted"
 }
 ```
 
