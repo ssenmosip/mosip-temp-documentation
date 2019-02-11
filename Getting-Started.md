@@ -219,6 +219,11 @@ $ sudo firewall-cmd –reload
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
+We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
+We are storing all applications' configuration in config folder inside our Github Repository.
+For getting more details about how to use configuration server with our applications, following developer document can be referred:
+[**MOSIP CONFIGURATION SERVER**](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
+
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
