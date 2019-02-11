@@ -55,3 +55,24 @@ Link: [Notes from meeting with GoM-PwC-MOSIP Tech Board-12Jan'19.docx](_files/No
 Attendees: Anadi, Ramesh, Krishnan, Arun, Shravan, Romila, Pre-ID Issuance Team, Rounak, Amandeep, Lalana, Rahul, Nasir, Swati, Ajay and Resham
 
 Link: [MoM - MOSIP Full Demo Pre-registration - Customer Meeting - 18Jan9.docx](_files/MoM_MOSIP_Full_Demo_Pre_registration_Customer_Meeting_18Jan9.docx)
+
+12) ## MOSIP Full Demo_ID Authentication: Customer Meeting - 29Jan'19
+Attendees: Anadi, Ramesh, Krishnan, Shrikant, Gita, Jyoti, Gayathri ,Shravan, Romila, Gurpreet, Loganathan, Manoj, Hema, Vignesh, Athila, Resham, Techno forte team, Lalana
+
+Link: [MoM - MOSIP Full Demo ID Authentication - Customer Meeting - 29Jan19.docx](_files/MoM_MOSIP_Full_Demo_ID_Authentication_Customer_Meeting_29Jan19.docx)
+
+13) ## MOSIP Full Demo_Registration client: Customer Meeting - 28Jan'19
+Attendees: Anadi, Ramesh, Krishnan, Shrikant, Shravan, Romila, Gayathri, Karthik, Omsaieswar, Akshaya, Vivek, Ragavendran, Leona, Resham, Gita, Lalana, Nagashree, Lingam, Narender, Technoforte Team
+
+Link: [MoM - MOSIP Full Demo Registration client - Customer Meeting - 28Jan19.docx](_files/MoM_MOSIP_Full_Demo_Registration_client_Customer_Meeting_28Jan19.docx)
+
+14) ## MOSIP Full Demo Registration Processor - Customer Meeting - 24Jan'19
+Attendees: Anadi, Ramesh, Krishnan, Shravan, Gita, Romila, Sudheer, Sanjay, Resham, Monobikash, Lingam, Satish, Technoforte Team, Registration Processor Dev Team
+
+Link: [MoM - MOSIP Full Demo Registration Processor - Customer Meeting - 24Jan19.docx](_files/MoM_MOSIP_Full_Demo_Registration_Processor_Customer_Meeting_24Jan19.docx)
+
+15) ## MOSIP Full Demo_Kernel: Customer Meeting - 31Jan'19
+Attendees: Ramesh, Krishnan, Technoforte Team, Shravan, Romila, John, Amandeep, Resham, Shwetha, Gita, Kernel Team
+
+Link: [MoM - MOSIP Full Demo Kernel - Customer Meeting - 31Jan19.docx](_files/MoM_MOSIP_Full_Demo_Kernel_Customer_Meeting_31Jan19.docx)
+

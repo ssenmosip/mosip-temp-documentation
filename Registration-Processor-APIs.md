@@ -11,7 +11,7 @@ This section details about the service APIs in the Registration-Processor module
 This service receives the registration packet and puts it to landing zone.
 
 ### Resource URL
-### `POST /registration-processor/packet-receiver/registrationpackets`
+### `POST /registration-processor/registrationpackets/v1.0`
 
 ### Resource details
 
@@ -34,25 +34,30 @@ MultipartFile|Yes|The encrypted zip file| |
 #### Success response
 ```JSON
 {
-  "PACKET_UPLOADED_TO_LANDING_ZONE"
+	"id" : "mosip.registration.packet",
+	"version" : "1.0",
+	"timestamp" : "2019-02-02T06:12:25.288Z",
+	"response" : {
+		"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN"
+	},
+	"error" : null
 }
 ```
 #### Failure response
 
-Example 1 : Upload packet without syncing the packet id
 ```JSON
 {
-  "message": "PACKET_NOT_YET_SYNC",
-  "errorcode": "IIS_GEN_PACKET NOT YET SYNC IN REGISTRATION"
+  "id" : "mosip.registration.packet",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : null,
+  "error" : {
+		"errorcode": "RPR-PKR-005",
+	    "message": "The request received is a duplicate request to upload a Packet"
+	}
 }
 ```
-Example 2 : Packet is already present in Server
-```JSON
-{
-  "message": "DUPLICATE_PACKET_RECIEVED",
-  "errorcode": "IIS_GEN_DUPLICATE_PACKET_UPLOAD"
-}
-```
+
 ### Response codes
 200
 
@@ -75,7 +80,7 @@ Description: Forbidden
 This service return the registration current status for list of input registration ids.
 
 ### Resource URL
-### `POST /registration-processor/registration-status/registrationstatus`
+### `POST /registration-processor/registrationstatus/v1.0`
 
 ### Resource details
 
@@ -93,47 +98,46 @@ registrationIds|Yes|List of registration ids| |
 ### Example Request
 ```JSON
 {
-  "2018701130000410092012345678,2018701130000410092018110735"
+  "id" : "mosip.registration.status",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : [
+	{
+		"registrationId" : "2018701130000410092012345678"
+	},
+	{
+		"registrationId" : "2018701130000410092012345678"
+	}
+  ]
 }
 ```
 ### Example Response
+Record found :
 ```JSON
-[
+{
+  "id" : "mosip.registration.status",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : [
   {
     "registrationId": "2018701130000410092012345678",
-    "registrationType": "NEW",
-    "referenceRegistrationId": null,
-    "statusCode": "PACKET_UPLOADED_TO_LANDING_ZONE",
-    "langCode": "eng",
-    "statusComment": "Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status",
-    "latestRegistrationTransactionId": "c19f1768-2aa1-494d-8d27-acbdc8e1f68d",
-    "createdBy": "MOSIP_SYSTEM",
-    "createDateTime": "2018-11-02T22:58:08.263",
-    "updatedBy": null,
-    "updateDateTime": "2018-11-02T22:58:08.264",
-    "deletedDateTime": "2018-11-02T22:58:08.264",
-    "retryCount": null,
-    "active": true,
-    "deleted": false
+    "statusCode": "PROCESSING"
   },
   {
     "registrationId": "2018701130000410092018110735",
-    "registrationType": "NEW",
-    "referenceRegistrationId": null,
-    "statusCode": "PACKET_UPLOADED_TO_LANDING_ZONE",
-    "langCode": "eng",
-    "statusComment": "Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status",
-    "latestRegistrationTransactionId": "4c26f2cd-5b64-4587-93a9-ee2198afe1da",
-    "createdBy": "MOSIP_SYSTEM",
-    "createDateTime": "2018-11-02T22:58:53.256",
-    "updatedBy": null,
-    "updateDateTime": "2018-11-02T22:58:53.256",
-    "deletedDateTime": "2018-11-02T22:58:53.256",
-    "retryCount": null,
-    "active": true,
-    "deleted": false
+    "statusCode": "PROCESSED"
   }
 ]
+}
+```
+Record not found :
+```JSON
+{
+  "id" : "mosip.registration.status",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : []
+}
 ```
 
 ### Response codes
@@ -157,7 +161,7 @@ Description: Forbidden
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
 
 ### Resource URL
-### `POST /registration-processor/registration-status/sync`
+### `POST /registration-processor/sync/v1.0`
 
 ### Resource details
 
@@ -174,49 +178,82 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
 
 ### Example Request
 ```JSON
-[
-  {
-    "langCode": "eng",
-    "parentRegistrationId": "",
-    "registrationId": "2018701130000410092012345678",
-    "statusComment": "string",
-    "syncStatus": "PRE_SYNC",
-    "syncType": "NEW_REGISTRATION"
-  },
-  {
-    "langCode": "eng",
-    "parentRegistrationId": "",
-    "registrationId": "2018701130000410092018110735",
-    "statusComment": "string",
-    "syncStatus": "PRE_SYNC",
-    "syncType": "NEW_REGISTRATION"
-  }
-]
+{
+  "id" : "mosip.registration.sync",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : [
+	  {
+		"langCode": "eng",
+		"parentRegistrationId": null,
+		"registrationId": "80006444440002520181208094000",
+		"statusComment": "string",
+		"syncStatus": "PRE_SYNC",
+		"syncType": "NEW"
+	  }
+	]
+}
 ```
 ### Example Response
+Success response :
 ```JSON
-[
-  {
-    "registrationId": "2018701130000410092012345678",
-    "syncType": "NEW_REGISTRATION",
-    "parentRegistrationId": "",
-    "syncStatus": "PRE_SYNC",
-    "statusComment": "string",
-    "langCode": "eng",
-    "isActive": true,
-    "isDeleted": false
-  },
-  {
-    "registrationId": "2018701130000410092018110735",
-    "syncType": "NEW_REGISTRATION",
-    "parentRegistrationId": "",
-    "syncStatus": "PRE_SYNC",
-    "statusComment": "string",
-    "langCode": "eng",
-    "isActive": true,
-    "isDeleted": false
-  }
-]
+{
+  "id" : "mosip.registration.sync",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : [
+	  {
+		"registrationId": "80006444440002520181208094000",
+		"status": "SUCCESS",
+		"message": "Registartion Id's are successfully synched in Sync table",
+		"parentRegistrationId": null
+	  },
+	  {
+		"registrationId": "27847657360002520181208183055",
+		"status": "SUCCESS",
+		"message": "Registartion Id's are successfully synched in Sync table",
+		"parentRegistrationId": null
+	  }
+	]
+}
+```
+Failure response
+```JSON
+{
+  "id" : "mosip.registration.sync",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : [
+	  {
+		"registrationId": "1234575",
+		"status": "FAILURE",
+		"message": "RegistrationId Length Must Be 29",
+		"parentRegistrationId": "string",
+		"errorCode": "RPR-RGS-009"
+	  },
+	  {
+		"registrationId": "12345678901234567890123456789",
+		"status": "FAILURE",
+		"message": "Invalid Time Stamp Found in RegistrationId",
+		"parentRegistrationId": "string",
+		"errorCode": "RPR-RGS-007"
+	  },
+	  {
+		"registrationId": "27847657360002520181208183052",
+		"status": "FAILURE",
+		"message": "Parent RegistrationId Length Must Be 29",
+		"parentRegistrationId": "53718436135988",
+		"errorCode": "RPR-RGS-012"
+	  },
+	  {
+		"registrationId": "27847657360002520181208aaaaaa",
+		"status": "FAILURE",
+		"message": "RegistrationId Must Be Numeric Only",
+		"parentRegistrationId": "string",
+		"errorCode": "RPR-RGS-008"
+	  }
+	]
+}
 ```
 
 ### Response codes
@@ -241,7 +278,7 @@ Description: Forbidden
 This service is used to assign one single unassigned applicant record to the input user.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/assignment`
+### `POST /manual-verification/assignment/v1.0`
 
 ### Resource details
 
@@ -259,17 +296,43 @@ String|Yes|The user id| |
 ### Example Request
 ```JSON
 {
-  "userId": "mono29"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	"userId": "mono29"
+  }
 }
 ```
 ### Example Response
+Success response
 ```JSON
 {
-  "regId": "27847657360002520181208123456",
-  "mvUsrId": "mono29",
-  "statusCode": "ASSIGNED",
-  "matchedRefId": "27847657360002520181208123456",
-  "matchedRefType": "UIN"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : {
+	  "regId": "27847657360002520181208123456",
+	  "mvUsrId": "mono29",
+	  "statusCode": "ASSIGNED",
+	  "matchedRefId": "27847657360002520181208123456",
+	  "matchedRefType": "UIN",
+	  "reasonCode": null
+	},
+	"error" : null
+}
+```
+Failure response
+```JSON
+{
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : null,
+	"error" : {
+		"errorCode" : "RPR-FAC-003",
+		"message" : "Cannot find the Registration Packet"
+	}
 }
 ```
 
@@ -290,7 +353,7 @@ Description: Internal server error
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/decision`
+### `POST /manual-verification/decision/v1.0`
 
 ### Resource details
 
@@ -308,21 +371,48 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 ### Example Request
 ```JSON
 {
-  "matchedRefId": "27847657360002520181208123987",
-  "matchedRefType": "RID",
-  "mvUsrId": "mono",
-  "regId": "27847657360002520181208123456",
-  "statusCode": "APPROVED"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	  "matchedRefId": "27847657360002520181208123987",
+	  "matchedRefType": "RID",
+	  "mvUsrId": "mono",
+	  "reasonCode": "Problem with biometrics",
+	  "regId": "27847657360002520181208123456",
+	  "statusCode": "APPROVED"
+	}
 }
 ```
 ### Example Response
+Success response
 ```JSON
 {
-  "regId": "27847657360002520181208123456",
-  "mvUsrId": "mono",
-  "statusCode": "APPROVED",
-  "matchedRefId": "27847657360002520181208123987",
-  "matchedRefType": "RID"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : {
+	  "regId": "27847657360002520181208123456",
+	  "mvUsrId": "mono",
+	  "statusCode": "APPROVED",
+	  "matchedRefId": "27847657360002520181208123987",
+	  "matchedRefType": "RID",
+	  "reasonCode": "Problem with biometrics"
+	},
+	"error" : null
+}
+```
+Failure response
+```JSON
+{
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "response" : null,
+	"error" : {
+		"errorCode" : "RPR-MVS-003"",
+		"message" : "Invalid status update"
+	}
 }
 ```
 
@@ -343,7 +433,7 @@ Description: Internal server error
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/applicantBiometric`
+### `POST /manual-verification/applicantBiometric/v1.0`
 
 ### Resource details
 
@@ -361,8 +451,13 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ### Example Request
 ```JSON
 {
-  "fileName": "APPLICANTPHOTO",
-  "regId": "27847657360002520181208123456"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	  "fileName": "APPLICANTPHOTO",
+	  "regId": "27847657360002520181208123456"
+	}
 }
 ```
 ### Example Response
@@ -403,8 +498,13 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ### Example Request
 ```JSON
 {
-  "fileName": "DEMOGRAPHICINFO",
-  "regId": "27847657360002520181208123456"
+  "id" : "mosip.manual.verification.assignment",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "request" : {
+	  "fileName": "PACKETMETAINFO",
+	  "regId": "27847657360002520181208123456"
+	}
 }
 ```
 ### Example Response

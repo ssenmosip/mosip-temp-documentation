@@ -18,12 +18,6 @@ This document lists out the instructions on how to use the [AuthAdapter](https:/
 </dependency>
 ```
 
-* Add _**/api**_ as your base path in your properties file
-
-```properties
-server.servlet.path=/api/.......
-```
-
 * Add ComponentScan annotation as shown below to your project. This is to create auth adapter bean.
 
 ```java

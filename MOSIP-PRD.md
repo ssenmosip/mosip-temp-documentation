@@ -1,18 +1,18 @@
 # 1. MOSIP-INTRODUCTION
 
-## Scope
+## 1.1 Scope
 
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner. 
 
-## 1.1.Intended audience
+## 1.2.Intended audience
 
-### 1.1.1.Internal audience
+### 1.2.1.Internal audience
 
 * Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
 
 * Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
  
-### 1.1.2.External Audience
+### 1.2.2.External Audience
 
 * SIs (system integrator)
 
@@ -134,9 +134,9 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 
 [Data encryption and decryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D)
 
-## 7.4.Authentication & Authorization (TBD)
+## 7.4.Authentication & Authorization 
 
-[ID authentication flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/AuthN%26AuthZ.png?token=ArzdLSbnBwNZ4GqWT2K64Jlz_GmKtlsnks5cPDP8wA%3D%3D)
+### [MOSIP Authentication Spec](https://github.com/mosip/mosip/wiki/AuthN-service-specs)
 
 # 8.MOSIP-PRE-REGISTRATION
 

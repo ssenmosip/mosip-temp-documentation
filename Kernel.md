@@ -1,6 +1,6 @@
 Kernel is on which MOSIP services are built. Kernel is a platform to build higher-level services as well as a secure sandbox within which the higher-level service functions. Kernel provides a bedrock to build and run the services by providing several significant necessary technical functions. CK makes it easy to build the higher-level services (domain services, batch services and core services) by taking care of fundamental features so that individual services are concerned with specific business functions. CK provides an active framework that ensures structure and rules within which the higher-level services operate.
 
-## Architecturally significant use cases
+## Architecturally Significant Use Cases
 Kernel as a distinct module is not brought out in the system requirements. The need for Kernel is identified during the architecture process. Hence, there are no ASRs specific to Kernel that are derived from system requirements. Kernel components contributes towards achieving the overall system requirements and hence the high-level ASRs are applicable to Kernel as well.
 
 ### Provide a common technical platform to build higher-level functional services
@@ -21,6 +21,6 @@ Kernel addresses the security concerns by the platform such as Key Management, C
 
 ## Logical view
 
-![Logical Diagram](https://raw.githubusercontent.com/mosip/mosip/DEV/design/_images/Kernel_logical_diagram.jpg?token=ApNuIGgOX6yG_C0XsQbNBGtj-zvujMRGks5cNDoVwA%3D%3D&_sm_au_=iVVZ4T13q2QkJ56Q)
+![Logical Diagram](_images/arch_diagrams/MOSIP_Kernel_logical_diagram.jpg)
 
 
