@@ -496,3 +496,47 @@ Status Code : 200 (OK)
    ]
 }
 ```
+
+## 3. VID Generator
+This is an internal service to be used by Resident Services to generate VID requested by an Individual. This VID should then act as a proxy ID for an Individual (active for limited duration). This VID could be used to authenticate an Individual (as a replacement for UIN) using Auth service.
+
+### Resource URL - `POST identity/vid/v1.0/{uin}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Sample Response
+
+#### Success Scenario:
+Status Code : 200 (OK)
+
+```JSON
+{
+  "id": "mosip.identity.vid",
+  "version": "1.0",
+  "responseTime": "2019-01-21T07:22:58.086+05:30",
+  "vid": "678956453456",
+  "err": []
+}
+```
+
+#### Failed Scenario :   
+Status Code : 200 (OK)
+
+```JSON
+{
+  "id": "mosip.identity.vid",
+  "version": "1.0",
+  "responseTime": "2019-01-21T07:22:58.086+05:30",
+  "err": [
+	   {
+	      "code": "IDA-MLC-002",
+	      "message": "Invalid UIN"
+	    }
+   ]
+}
+```
