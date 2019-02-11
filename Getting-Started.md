@@ -185,6 +185,37 @@ $ sudo firewall-cmd –reload <br/>
 ##### Reference link:
 (https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
 
+### Install Clam AntiVirus
+
+ ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
+
+#### Steps to install ClamAV in RHEL-7.5
+
+$ sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <br/>
+$ sudo rpm -ivh epel-release-latest-7.noarch.rpm <br/>
+$ sudo yum repolist <br/>
+$ sudo yum update <br/>
+$ yum --enablerepo=epel info clamav <br/>
+$ sudo yum --enablerepo=epel install clamav clamav-scanner clamav-update <br/>
+$ sudo yum --enablerepo=epel install clamav-daemon <br/>
+$ sudo yum --enablerepo=epel install clamd <br/>
+$ sudo yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd <br/>
+$ sudo freshclam <br/>
+$  sudo systemctl  clamd status <br/>
+$  sudo systemctl freshclam stauts <br/>
+$  sudo systemctl start freshclam <br/>
+$  sudo systemctl status clamd <br/>
+$  sudo systemctl start clamd <br/>
+
+##### ClamAv port : 3310
+#### Command to check the ClamAV status:
+$ sudo systemctl status clamd@scan.service <br/>
+$ sudo systemctl start clamd@scan.service <br/>
+$ sudo systemctl stop clamd@scan.service <br/>
+##### Below command to open the port 3310 from RHEL 7.5 VM
+$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
+$ sudo firewall-cmd –reload
+
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
