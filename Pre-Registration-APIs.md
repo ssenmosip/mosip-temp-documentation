@@ -1,4 +1,4 @@
-This section details about the service APIs in the Pre-Registration modules
+This section details about the service API in the Pre-Registration modules
 
 ###### [2.7.1 Demographic Service API](#271-Demographic-Service)
 
@@ -10,12 +10,15 @@ This section details about the service APIs in the Pre-Registration modules
 
 ###### [2.7.5 BatchJob Service API](#275-Batch-Job-Service)
 
+###### [2.7.6 Notification Service API](#275-Notification-Job-Service)
+
 #### Swagger link as below.
 1.      https://integ.mosip.io/demographic/swagger-ui.html#/
 2.      https://integ.mosip.io/document/swagger-ui.html#/
 3.      https://integ.mosip.io/datasync/swagger-ui.html#/
 4.      https://integ.mosip.io/booking/swagger-ui.html#/
 5.      https://integ.mosip.io/batchjob/swagger-ui.html#/
+6.      https://integ.mosip.io/notification/swagger-ui.html#/
 
 Right now specifications are under review.
 
@@ -50,9 +53,9 @@ Name | Required | Description | Example
 -----|----------|-------------|--------
 preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
 createdBy |Yes|created user of the application|987654321
-createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492+0000
+createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492Z
 updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
-updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492+0000)</li></ul>
+updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492Z)</li></ul>
 langCode |Yes|primary language code| ENG
 demographicDetails |Yes|demographicDetails of the applicant|
 demographicDetails.identity |Yes|identity of the applicant|
@@ -79,221 +82,268 @@ Requires Authentication | Yes
 
 #### Request:
 ```JSON
-{  
-   "preRegistrationId":"",
-   "createdBy":"9900806068",
-   "createdDateTime":"2019-01-08T17:05:48.492+0000",
-   "updatedBy":"",
-   "updatedDateTime":"",
-   "langCode":"ENG",
-   "demographicDetails":{  
-      "identity":{  
-         "dateOfBirth":"12/12/1992",
-         "gender":[  
-            {  
-               "language":"ENG",
-               "value":"Male"
-            },
-            {  
-               "language":"arb",
-               "value":"إناثا"
-            }
-         ],
-         "addressLine1":[  
-            {  
-               "language":"ENG",
-               "value":"20 AVENUE HASSAN"
-            },
-            {  
-               "language":"arb",
-               "value":"20 افينيو حسن"
-            }
-         ],
-         "addressLine2":[  
-            {  
-               "language":"ENG",
-               "value":""
-            },
-            {  
-               "language":"arb",
-               "value":""
-            }
-         ],
-         "addressLine3":[  
-            {  
-               "language":"ENG",
-               "value":""
-            },
-            {  
-               "language":"arb",
-               "value":""
-            }
-         ],
-         "region":[  
-            {  
-               "language":"ENG",
-               "value":"Beni Mellal-Khenifra"
-            },
-            {  
-               "language":"arb",
-               "value":"بني ملال خنيفرة"
-            }
-         ],
-         "province":[  
-            {  
-               "language":"ENG",
-               "value":"Azilal"
-            },
-            {  
-               "language":"arb",
-               "value":"أزيلال"
-            }
-         ],
-         "postalCode":"570004",
-         "localAdministrativeAuthority":[  
-            {  
-               "language":"ENG",
-               "value":"Afourar"
-            },
-            {  
-               "language":"arb",
-               "value":"أفورار"
-            }
-         ],
-         "email":"sano@gmail.com",
-         "IDSchemaVersion":"1.0",
-         "fullName":[  
-            {  
-               "language":"ENG",
-               "value":"Sanober Noor"
-            },
-            {  
-               "language":"arb",
-               "value":"سانوبر نور"
-            }
-         ],
-         "phone":"9887653767",
-         "CNIENumber":"6789545678909"
+{
+  "id": "mosip.pre-registration.demographic.create",
+  "ver": "1.0",
+  "reqTime": "2019-01-22T07:22:57.086Z",
+  "request": {
+    "preRegistrationId": "",
+    "createdBy": "9876453738",
+    "updatedBy": "",
+    "langCode": "ENG",
+    "demographicDetails": {
+      "identity": {
+        "dateOfBirth": "1995/03/24",
+        "gender": [
+          {
+            "language": "eng",
+            "value": "male"
+          },
+          {
+            "language": "ara",
+            "value": "الذكر"
+          }
+        ],
+        "addressLine1": [
+          {
+            "language": "eng",
+            "value": "c-63 South Extension Part-2 New Delhi"
+          },
+          {
+            "language": "ara",
+            "value": "c-63 South Extension Part-2 New Delhi"
+          }
+        ],
+        "addressLine2": [
+          {
+            "language": "eng",
+            "value": "Jammu"
+          },
+          {
+            "language": "ara",
+            "value": "جامو"
+          }
+        ],
+        "addressLine3": [
+          {
+            "language": "eng",
+            "value": "Kashmir"
+          },
+          {
+            "language": "ara",
+            "value": "كشمير"
+          }
+        ],
+        "region": [
+          {
+            "language": "eng",
+            "value": "Bangalore"
+          },
+          {
+            "language": "ara",
+            "value": "BLR"
+          }
+        ],
+        "province": [
+          {
+            "language": "eng",
+            "value": "Bangalore"
+          },
+          {
+            "language": "ara",
+            "value": "بنغالور"
+          }
+        ],
+        "city": [
+          {
+            "language": "eng",
+            "value": "Bangalore"
+          },
+          {
+            "language": "ara",
+            "value": "بنغالور"
+          }
+        ],
+        "localAdministrativeAuthority": [
+          {
+            "language": "eng",
+            "value": "Bangalore"
+          },
+          {
+            "language": "ara",
+            "value": "بنغالور"
+          }
+        ],
+        "IDSchemaVersion": 1.0,
+        "fullName": [
+          {
+            "language": "eng",
+            "value": "Sanober"
+          },
+          {
+            "language": "ara",
+            "value": "Sanober"
+          }
+        ],
+        "phone": "9480548558",
+        "CNIENumber": 6789545678912,
+        "postalCode": "570000",
+        "email": "sanober@gmail.com"
       }
-   }
+    },
+    "createdDateTime": "2019-01-08T17:05:48.953Z",
+    "updatedDateTime": ""
+  }
 }
+
 ```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Demographic data successfully Created
-
+###### Description: Pre-Registration Status successfully Creaded
 ```JSON
-{  
-   "response":[  
-      {  
-         "preRegistrationId":"46532058236716",
-         "createdBy":"9900806068",
-         "createdDateTime":"2019-01-08T17:05:48.492+0000",
-         "updatedBy":null,
-         "updatedDateTime":"2019-01-18T08:58:38.492+0000",
-         "statusCode":"Pending_Appointment",
-         "langCode":"ENG",
-         "demographicDetails":{  
-            "identity":{  
-               "dateOfBirth":"12/12/1992",
-               "gender":[  
-                  {  
-                     "language":"ENG",
-                     "value":"Male"
-                  },
-                  {  
-                     "language":"arb",
-                     "value":"إناثا"
-                  }
-               ],
-               "addressLine1":[  
-                  {  
-                     "language":"ENG",
-                     "value":"20 AVENUE HASSAN"
-                  },
-                  {  
-                     "language":"arb",
-                     "value":"20 افينيو حسن"
-                  }
-               ],
-               "addressLine2":[  
-                  {  
-                     "language":"ENG",
-                     "value":""
-                  },
-                  {  
-                     "language":"arb",
-                     "value":""
-                  }
-               ],
-               "addressLine3":[  
-                  {  
-                     "language":"ENG",
-                     "value":""
-                  },
-                  {  
-                     "language":"arb",
-                     "value":""
-                  }
-               ],
-               "region":[  
-                  {  
-                     "language":"ENG",
-                     "value":"Beni Mellal-Khenifra"
-                  },
-                  {  
-                     "language":"arb",
-                     "value":"بني ملال خنيفرة"
-                  }
-               ],
-               "province":[  
-                  {  
-                     "language":"ENG",
-                     "value":"Azilal"
-                  },
-                  {  
-                     "language":"arb",
-                     "value":"أزيلال"
-                  }
-               ],
-               "postalCode":"570004",
-               "localAdministrativeAuthority":[  
-                  {  
-                     "language":"ENG",
-                     "value":"Afourar"
-                  },
-                  {  
-                     "language":"arb",
-                     "value":"أفورار"
-                  }
-               ],
-               "email":"sano@gmail.com",
-               "IDSchemaVersion":"1.0",
-               "fullName":[  
-                  {  
-                     "language":"ENG",
-                     "value":"Sanober Noor"
-                  },
-                  {  
-                     "language":"arb",
-                     "value":"سانوبر نور"
-                  }
-               ],
-               "phone":"9887653767",
-               "CNIENumber":"6789545678909"
+ "response": [
+    {
+      "preRegistrationId": "64269837502851",
+      "createdBy": "9876453738",
+      "createdDateTime": "2019-01-08T17:05:48.953Z",
+      "updatedBy": null,
+      "updatedDateTime": "2019-02-11T13:37:37.215Z",
+      "statusCode": "Pending_Appointment",
+      "langCode": "ENG",
+      "demographicDetails": {
+        "identity": {
+          "CNIENumber": 6789545678912,
+          "gender": [
+            {
+              "language": "eng",
+              "value": "male"
+            },
+            {
+              "language": "ara",
+              "value": "الذكر"
             }
-         }
+          ],
+          "city": [
+            {
+              "language": "eng",
+              "value": "Bangalore"
+            },
+            {
+              "language": "ara",
+              "value": "بنغالور"
+            }
+          ],
+          "postalCode": "570000",
+          "localAdministrativeAuthority": [
+            {
+              "language": "eng",
+              "value": "Bangalore"
+            },
+            {
+              "language": "ara",
+              "value": "بنغالور"
+            }
+          ],
+          "fullName": [
+            {
+              "language": "eng",
+              "value": "Sanober"
+            },
+            {
+              "language": "ara",
+              "value": "Sanober"
+            }
+          ],
+          "dateOfBirth": "1995/03/24",
+          "IDSchemaVersion": 1,
+          "province": [
+            {
+              "language": "eng",
+              "value": "Bangalore"
+            },
+            {
+              "language": "ara",
+              "value": "بنغالور"
+            }
+          ],
+          "phone": "9480548558",
+          "addressLine1": [
+            {
+              "language": "eng",
+              "value": "c-63 South Extension Part-2 New Delhi"
+            },
+            {
+              "language": "ara",
+              "value": "c-63 South Extension Part-2 New Delhi"
+            }
+          ],
+          "addressLine2": [
+            {
+              "language": "eng",
+              "value": "Jammu"
+            },
+            {
+              "language": "ara",
+              "value": "جامو"
+            }
+          ],
+          "addressLine3": [
+            {
+              "language": "eng",
+              "value": "Kashmir"
+            },
+            {
+              "language": "ara",
+              "value": "كشمير"
+            }
+          ],
+          "region": [
+            {
+              "language": "eng",
+              "value": "Bangalore"
+            },
+            {
+              "language": "ara",
+              "value": "BLR"
+            }
+          ],
+          "email": "sanober@gmail.com"
+        }
       }
-   ]
+    }
+  ]
 }
 ```
 ##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-      
-###### Failure Details:
+###### Status code: '200'
+###### Description: Failed to create a pre-registration. 
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_001",
+    "message": "UNABLE_TO_CREATE_THE_PRE_REGISTRATION"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: updated date time is empty while creating new pre-registration. 
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_012",
+    "message": "MISSING_REQUEST_PARAMETER"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+###### Other Failure Details:
 Code|Message|Description
 -----|----------|-------------
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
@@ -312,7 +362,7 @@ Update the pre-registration status by providing pre-registration id and valid st
 Name | Required | Description | Example
 -----|----------|-------------|--------
 pre_registration_id |Yes|pre-registration id of the application|46532058236716
-status_code |Yes|status code of the application|BOOKED
+status_code |Yes|status code of the application|Booked
 
 #### Resource details
 Resource Details | Description
@@ -327,21 +377,41 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "response": [
-  "STATUS_UPDATED_SUCCESSFULLY"
-  ]
+  "err": null,
+  "status": "true",
+  "resTime": "2019-02-11T07:07:09.297+0000",
+  "response": "STATUS_UPDATED_SUCESSFULLY"
 }
 ```
 
 ##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-###### Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_STATUS_CODE| Invalid or empty status code
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID|Invalid or empty pre-registration id
+###### Status code: '200'
+###### Description: Invalid or empty status code
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_050",
+    "message": "INVALID_STATUS_CODE"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration id
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_005",
+    "message": "INVALID_PRE_REGISTRATION_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
 
 #### 2.7.1.3 DELETE Operation
 #### Path -  `/pre-registration/applications`
@@ -366,27 +436,61 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-11T07:15:18.565Z",
   "response": [
     {
-      "pre_registration_id": "96157107249860",
-      "deletedBy": "9900806068",
-      "deletedDateTime": "2019-01-18T04:57:15.196+000"
+      "preRegistrationId": "92689634781039",
+      "deletedBy": "9876453738",
+      "deletedDateTime": "2019-02-11T07:15:18.549+0000"
     }
   ]
 }
 ```
 
 ##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-###### Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID|Invalid or empty pre-registration id
-PRG_PAM_APP_003|PRG_PAM_APP_003 --> DELETE_OPERATION_NOT_ALLOWED| delete operation not allowed based on  roles allowed.
-PRG_PAM_APP_004|PRG_PAM_APP_004 --> FAILED_TO_DELETE_THE_PRE_REGISTRATION_RECORD| failed to delete the pre-registration record.
-
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration id
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_005",
+    "message": "INVALID_PRE_REGISTRATION_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: delete operation not allowed based on  roles allowed.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_003",
+    "message": "DELETE_OPERATION_NOT_ALLOWED"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: failed to delete the pre-registration record.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_004",
+    "message": "FAILED_TO_DELETE_THE_PRE_REGISTRATION_RECORD"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
 #### 2.7.1.4 GET Operation
 #### Path -  `/pre-registration/applications`
 #### Summary
@@ -395,7 +499,7 @@ Retrieve All Pre-Registration id, Full name, Status and Appointment details by u
 #### Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-userId |Yes|User Id of the application|rajath@gmail.com
+userId |Yes|User Id of the application|sanober@gmail.com
 
 #### Resource details
 Resource Details | Description
@@ -433,14 +537,19 @@ Requires Authentication | Yes
 ```
 
 ##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-
-###### Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> NO_RECORD_FOUND_FOR_USER_ID|Unable to fetch the pre-Registration demographic data
+###### Status code: '200'
+###### Description: Unable to fetch the pre-Registration demographic data .
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_005",
+    "message": "NO_RECORD_FOUND_FOR_USER_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
 
 #### 2.7.1.5 GET Operation
 #### Path -  `/pre-registration/applications/status`
@@ -473,15 +582,21 @@ Requires Authentication | Yes
   ]
 }
 ```
-##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-###### Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID|Invalid or empty pre-registration id.
 
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration id.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_005",
+    "message": "INVALID_PRE_REGISTRATION_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
 #### 2.7.1.6 GET Operation
 #### Path -  `/pre-registration/applications/byDateTime`
 #### Summary 
@@ -506,6 +621,9 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
   "response": [
     "91793240270548",
     "89470382513069",
@@ -515,16 +633,33 @@ Requires Authentication | Yes
 ```
 
 ##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-
-###### Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_CORE_REQ_003|PRG_CORE_REQ_003 --> INVALID_REQUEST_DATETIME_FORMAT -->  yyyy-MM-dd HH:mm:ss |Invalid requested date formats.
-PRG_PAM_APP_010|PRG_PAM_APP_010 --> RECORD_NOT_FOUND_FOR_DATE_RANGE| no record found between date range.
-
+###### Status code: '200'
+###### Description: Invalid requested date formats.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_003",
+    "message": "INVALID_REQUEST_DATETIME_FORMAT"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: no record found between date range.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_010",
+    "message": "RECORD_NOT_FOUND_FOR_DATE_RANGE"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
 #### 2.7.1.7 GET Operation
 #### Path -  `/pre-registration/applications/details`
 #### Summary
@@ -552,9 +687,9 @@ Requires Authentication | Yes
       {
          "preRegistrationId":"20180396713560",
          "createdBy":"9900806086",
-         "createdDateTime":"2019-01-11T11:01:21.947+000",
+         "createdDateTime":"2019-01-11T11:01:21.947Z",
          "updatedBy":null,
-         "updatedDateTime":"2019-01-15T14:25:56.512+000",
+         "updatedDateTime":"2019-01-15T14:25:56.512Z",
          "statusCode":"Pending_Appointment",
          "langCode":"ENG",
          "demographicDetails":{
@@ -647,21 +782,42 @@ Requires Authentication | Yes
             "CNIENumber":"6789545678909"
          }
       }
+     }
    ]
 }
 ```
 
 ##### Failure Response:
-###### Failure Status code: '200'
-###### Failure Response Structure:
-###### Path -  `mosip/docs/design/pre-registration/service/Pre-Registration-error-response.json`
-###### Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID | Invalid or empty pre-registration id.
-PRG_PAM_APP_006|PRG_PAM_APP_006 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA | unable to fetch the details by pre-registration id.
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration id.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_005",
+    "message": "INVALID_PRE_REGISTRATION_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
 
-## 2.7.2 Document Service APIs
+##### Failure Response:
+###### Status code: '200'
+###### Description: unable to fetch the details by pre-registration id.
+```JSON
+{
+  "err": {
+   "errorCode": "PRG_PAM_APP_006",
+    "message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:46:00.534Z",
+  "response": null
+}
+```
+
+## 2.7.2 Document Service API
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
@@ -711,7 +867,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-16T16:41:06.659+000",
+  "resTime": "2019-01-16T16:41:06.659Z",
   "response": [
     {
       "preRegsitrationId": "49158360813920",
@@ -731,9 +887,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
+  "resTime": "2019-01-16T17:31:04.021Z",
   "err": {
-    "code": "PRG_CORE_REQ_001",
+    "errorCode": "PRG_CORE_REQ_001",
     "message": "INVALID_REQUEST_ID"
   }
 }
@@ -745,9 +901,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
+  "resTime": "2019-01-16T17:32:35.658Z",
   "err": {
-    "code": "PRG_CORE_REQ_002",
+    "errorCode": "PRG_CORE_REQ_002",
     "message": "INVALID_REQUEST_VERSION"
   }
 }
@@ -759,9 +915,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
+  "resTime": "2019-01-16T17:31:04.021Z",
   "err": {
-    "code": "PRG_CORE_REQ_003",
+    "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
   }
 }
@@ -773,9 +929,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
+  "resTime": "2019-01-16T15:15:05.467Z",
   "err": {
-    "code": "PRG_CORE_REQ_004",
+    "errorCode": "PRG_CORE_REQ_004",
     "message":"INVALID_REQUEST_BODY"
   }
 }
@@ -786,9 +942,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:36:40.763+000",
+  "resTime": "2019-01-17T10:36:40.763Z",
   "err": {
-    "code": "PRG_PAM_DOC_007",
+    "errorCode": "PRG_PAM_DOC_007",
     "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
   }
 }
@@ -799,9 +955,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:25:21.352+000",
+  "resTime": "2019-01-17T10:25:21.352Z",
   "err": {
-    "code": "PRG_PAM_DOC_004",
+    "errorCode": "PRG_PAM_DOC_004",
     "message": "DOCUMENT_INVALID_FORMAT"
   }
 }
@@ -813,9 +969,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:26:56.177+000",
+  "resTime": "2019-01-17T10:26:56.177Z",
   "err": {
-    "code": "PRG_PAM_APP_005",
+    "errorCode": "PRG_PAM_APP_005",
     "message": "PRG_PAM_APP_005 --> PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
   }
 }
@@ -827,9 +983,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:49:10.286+000",
+  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
-    "code": "PRG_PAM_DOC_014",
+    "errorCode": "PRG_PAM_DOC_014",
     "message": "MANDATORY_FIELD_NOT_FOUND"
   }
 }
@@ -841,9 +997,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:49:10.286+000",
+  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
-    "code": "PRG_PAM_DOC_009",
+    "errorCode": "PRG_PAM_DOC_009",
     "message": "DOCUMENT_FAILED_TO_UPLOAD"
   }
 }
@@ -855,9 +1011,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:49:10.286+000",
+  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
-    "code": "PRG_PAM_DOC_010",
+    "errorCode": "PRG_PAM_DOC_010",
     "message": "DOCUMENT_FAILED_IN_VIRUS_SCAN"
   }
 }
@@ -869,9 +1025,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000",
+  "resTime": "2019-01-16T15:25:46.359Z",
   "err": {
-    "code": "PRG_PAM_DOC_020",
+    "errorCode": "PRG_PAM_DOC_020",
     "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
   }
 }
@@ -883,9 +1039,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T10:49:10.286+000",
+  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
-    "code": "PRG_PAM_DOC_011",
+    "errorCode": "PRG_PAM_DOC_011",
     "message": "DOCUMENT_FAILED_TO_COPY"
   }
 }
@@ -917,7 +1073,7 @@ Requires Authentication | Yes
 {
   
   "status": true,
-  "timestamp": "2019-01-17T11:18:43.889+000",
+  "timestamp": "2019-01-17T11:18:43.889Z",
   "response": [
     {
       "sourcePreRegId": "97285429827016",
@@ -935,9 +1091,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:09:33.258+000",
+  "resTime": "2019-01-17T11:09:33.258Z",
   "err": {
-    "code": "PRG_PAM_DOC_005",
+    "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
   }
 }
@@ -949,9 +1105,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:22:26.321+000",
+  "resTime": "2019-01-17T11:22:26.321Z",
   "err": {
-    "code": "PRG_PAM_DOC_018",
+    "errorCode": "PRG_PAM_DOC_018",
     "message": "INVALID_REQUEST_PARAMETER"
   }
 }
@@ -963,9 +1119,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:22:26.321+000",
+  "resTime": "2019-01-17T11:22:26.321Z",
   "err": {
-    "code": "PRG_PAM_DOC_009",
+    "errorCode": "PRG_PAM_DOC_009",
     "message": "DOCUMENT_FAILED_TO_UPLOAD"
   }
 }
@@ -976,9 +1132,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:22:26.321+000",
+  "resTime": "2019-01-17T11:22:26.321Z",
   "err": {
-    "code": "PRG_PAM_DOC_011",
+    "errorCode": "PRG_PAM_DOC_011",
     "message": "DOCUMENT_FAILED_TO_COPY"
   }
 }
@@ -1008,7 +1164,7 @@ Requires Authentication | Yes
 {
   
   "status": true,
-  "timestamp": "2019-01-17T11:31:44.994+000",
+  "resTime": "2019-01-17T11:31:44.994Z",
   "response": [
     {
       "pre_registration_id": "97285429827016",
@@ -1047,9 +1203,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:38:13.866+000",
+  "resTime": "2019-01-17T11:38:13.866Z",
   "err": {
-    "code": "PRG_PAM_DOC_018",
+    "errorCode": "PRG_PAM_DOC_018",
     "message": "INVALID_REQUEST_PARAMETER"
   }
 }
@@ -1060,9 +1216,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:47:37.773+000",
+  "resTime": "2019-01-17T11:47:37.773Z",
   "err": {
-    "code": "PRG_PAM_DOC_005",
+    "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
   }
 }
@@ -1073,9 +1229,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:09:33.258+000",
+  "resTime": "2019-01-17T11:09:33.258Z",
   "err": {
-    "code": "PRG_PAM_DOC_005",
+    "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_FAILED_TO_FETCH"
   }
 }
@@ -1104,7 +1260,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-17T11:46:49.220+000",
+  "resTime": "2019-01-17T11:46:49.220Z",
   "response": [
     {
       "documnet_Id": "2c9180836833aa31016837aac4c40012",
@@ -1119,9 +1275,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:47:37.773+000",
+  "resTime": "2019-01-17T11:47:37.773Z",
   "err": {
-    "code": "PRG_PAM_DOC_005",
+    "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
   }
 }
@@ -1132,9 +1288,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:52:51.433+000",
+  "resTime": "2019-01-17T11:52:51.433Z",
   "err": {
-    "code": "PRG_PAM_DOC_006",
+    "errorCode": "PRG_PAM_DOC_006",
     "message": "DOCUMENT_FAILED_TO_DELETE"
   }
 }
@@ -1162,7 +1318,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-17T11:52:22.165+000",
+  "resTime": "2019-01-17T11:52:22.165Z",
   "response": [
     {
       "documnet_Id": "2c9180836833aa31016833b242c50000",
@@ -1177,9 +1333,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:51:31.071+000",
+  "resTime": "2019-01-17T11:51:31.071Z",
   "err": {
-    "code": "PRG_PAM_DOC_018",
+    "errorCode": "PRG_PAM_DOC_018",
     "message": "INVALID_REQUEST_PARAMETER"
   }
 }
@@ -1190,9 +1346,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:52:51.433+000",
+  "resTime": "2019-01-17T11:52:51.433Z",
   "err": {
-    "code": "PRG_PAM_DOC_005",
+    "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
   }
 }
@@ -1203,9 +1359,9 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": false,
-  "timestamp": "2019-01-17T11:52:51.433+000",
+  "resTime": "2019-01-17T11:52:51.433Z",
   "err": {
-    "code": "PRG_PAM_DOC_006",
+    "errorCode": "PRG_PAM_DOC_006",
     "message": "DOCUMENT_FAILED_TO_DELETE"
   }
 }
@@ -1250,52 +1406,76 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.datasync",
+  "ver": "1.0",
+  "reqTime": "2019-02-11T06:57:29.969Z",
+  "request": {
+    "registration-client-id":"10005",
+    "from-date":"2018-02-11 00:00:00",
+    "to-date":"2019-02-12 00:00:00",
+    "user-id":"Officer"
+  }
+}
+```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: All Pre-Registration Ids fetched successfully
 ```JSON
-{ 
+{
+  "err": null,
   "status": true,
-  "timestamp": "2019-01-10T13:24:53.427+000",
+  "resTime": "2019-02-11T07:07:24.757Z",
   "response": {
-    "transactionId": "03a0acf4-14ad-11e9-b7b7-09819c6c033b",
-    "countOfPreRegIds": "4",
+    "transactionId": "aee82061-2dcb-11e9-b69e-b1fffe7cd4d7",
+    "countOfPreRegIds": "12",
     "preRegistrationIds": {
-      "42973267563920": "2019-01-10T13:24:53.419+000",
-      "56014280251746": "2019-01-10T13:24:51.665+000",
-      "63470164572136": "2019-01-10T13:24:52.203+000",
-      "25368956035901": "2019-01-10T13:24:52.753+000"
+      "69032701821381": "2019-02-11T07:07:24.500Z",
+      "42839738507687": "2019-02-11T07:07:24.612Z",
+      "45219759079506": "2019-02-11T07:07:24.662Z",
+      "40685960418214": "2019-02-11T07:07:24.711Z",
+      "62750730690468": "2019-02-11T07:07:24.270Z",
+      "52948359801624": "2019-02-11T07:07:24.559Z",
+      "54680925863583": "2019-02-11T07:07:24.752Z",
+      "20328697253154": "2019-02-11T07:07:24.320Z",
+      "28304826952645": "2019-02-11T07:07:24.437Z",
+      "38419640168598": "2019-02-11T07:07:24.383Z",
+      "94625367217037": "2019-02-11T07:07:24.203Z",
+      "62457394860916": "2019-02-11T07:07:24.144Z"
     }
   }
 }
-```
 
+```
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_001",
+    "errorCode": "PRG_CORE_REQ_001",
     "message": "INVALID_REQUEST_ID"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:50:25.969Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
   "err": {
-    "code": "PRG_CORE_REQ_002",
+    "errorCode": "PRG_CORE_REQ_002",
     "message": "INVALID_REQUEST_VERSION"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:39:35.058Z",
+  "response": null
 }
 ```
 
@@ -1304,54 +1484,55 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_003",
+    "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:39:35.058Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  }
+    "errorCode": "PRG_CORE_REQ_004",
+    "message": "INVALID_REQUEST_BODY"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:39:35.058Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Empty registration center Id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_DATA_SYNC_009",
-    "message":"INVALID_REGISTRATION_CENTER_ID"
-  }
+    "errorCode": "PRG_DATA_SYNC_009",
+    "message": "INVALID_REGISTRATION_CENTER_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:41:35.396Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid or empty from-date or to-date
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_DATA_SYNC_010",
-    "message":"INVALID_REQUESTED_DATE"
-  }
+    "errorCode": "PRG_DATA_SYNC_010",
+    "message": "INVALID_REQUESTED_DATE"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:42:16.393Z",
+  "response": null
 }
 ```
 
@@ -1360,54 +1541,69 @@ Requires Authentication | Yes
 ###### Description: Empty user id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_DATA_SYNC_003",
-    "message":"INVALID_USER_ID"
+    "errorCode": "PRG_DATA_SYNC_003",
+    "message": "INVALID_USER_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
+}
+```
+##### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.datasync",
+  "ver": "1.0",
+  "reqTime": "2019-02-11T06:57:29.969Z",
+  "request": {
+    "registration-client-id":"10005",
+    "from-date":"2019-02-12 00:00:00",
+    "to-date":"2019-02-13 00:00:00",
+    "user-id":"Officer"
   }
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: If appointment is not booked under the registration center Id for the preregistration id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000",
   "err": {
-    "code": "PRG_BOOK_RCI_013",
+    "errorCode": "PRG_BOOK_RCI_013",
     "message": "BOOKING_DATA_NOT_FOUND"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: If retrieval of booking data fails
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000",
   "err": {
-    "code": "PRG_DATA_SYNC_013",
+    "errorCode": "PRG_DATA_SYNC_013",
     "message": "FAILED_TO_GET_PRE_REG_ID_BY_REG_CLIENT_ID"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: If retrieval of preregistration data fails 
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000",
   "err": {
-    "code": "PRG_DATA_SYNC_007",
+    "errorCode": "PRG_DATA_SYNC_007",
     "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
 }
 ```
 
@@ -1416,12 +1612,13 @@ Requires Authentication | Yes
 ###### Description: If no preregistration data created within the from date & to date
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:42:35.401+000",
   "err": {
-    "code": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> RECORD_NOT_FOUND_FOR_DATE_RANGE"
-  }
+    "errorCode": "PRG_PAM_APP_005",
+    "message": "RECORD_NOT_FOUND_FOR_DATE_RANGE"
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:27:36.387Z",
+  "response": null
 }
 ```
 
@@ -1430,40 +1627,42 @@ Requires Authentication | Yes
 ###### Description: If retrieval of preregistration data fails 
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000",
   "err": {
-    "code": "PRG_DATA_SYNC_007",
+    "errorCode": "PRG_DATA_SYNC_007",
     "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
 }
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If writing and reading of files fail
+###### Description: File operation failed 
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000",
   "err": {
-    "code": "PRG_DATA_SYNC_014",
+    "errorCode": "PRG_DATA_SYNC_014",
     "message": "FILE_IO_EXCEPTION"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: When demographic JSON file & documents are not zipped
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:25:46.359+000"
   "err": {
-    "code": "PRG_DATA_SYNC_005",
+    "errorCode": "PRG_DATA_SYNC_005",
     "message": "FAILED_TO_CREATE_A_ZIP_FILE"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:45:35.030Z",
+  "response": null
 }
 ```
 
@@ -1475,30 +1674,35 @@ This service enables Pre-Registration to a registration client , request to retr
 #### Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-pre_registration_id |Yes|Pre Registration id|86710482195706
+pre_registration_id |Yes|Pre Registration id|94625367217037
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
-
+#### Request:
+```JSON
+94625367217037
+```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Data Sync records fetched
 ```JSON
-{ 
+{
+  "err": null,
   "status": true,
-  "timestamp": "2019-01-02T11:49:57.139+000",
+  "resTime": "2019-02-11T07:54:24.043Z",
   "response": {
-    "pre-registration-id": "86710482195706",
-    "registration-client-id": "1",
-    "appointment-date": "2018-12-16",
-    "from-time-slot": "10:05",
-    "to-time-slot": "10:18",
-    "zip-filename": "86710482195706",
+    "pre-registration-id": "94625367217037",
+    "registration-client-id": "10005",
+    "appointment-date": "2019-02-13",
+    "from-time-slot": "09:00",
+    "to-time-slot": "09:15",
+    "zip-filename": "94625367217037",
     "zip-bytes": "{ByteCode}"
+  }
 }
 ```
 
@@ -1507,26 +1711,27 @@ Requires Authentication | Yes
 ###### Description: If data does not exists for the preregistration id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:50:08.286+000",
   "err": {
-    "code": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-  }
+    "errorCode": "PRG_PAM_APP_005",
+    "message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:58:27.909Z",
+  "response": null
 }
 ```
-
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: If document is not uploaded for the preregistration id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-02T12:32:27.955+000",
   "err": {
-    "message": "FAILED_TO_FETCH_DOCUMENT",
-    "code": "PRG_DATA_SYNC_006"
-  }
+    "errorCode": "PRG_DATA_SYNC_006",
+    "message": "FAILED_TO_FETCH_DOCUMENT"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:58:27.909Z",
+  "response": null
 }
 ```
 #### 2.7.3.3 POST Operation
@@ -1553,7 +1758,25 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
-
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.datasync",
+  "ver": "1.0",
+  "reqTime": "2019-02-11T07:05:08.850Z",
+  "request": {
+    "createdBy": "987654321",
+    "createdDateTime": "2019-02-04T08:06:54.230Z",
+    "langCode": "12L",
+    "preRegistrationIds": [
+      "94625367217037",
+      "43526512857302"
+    ],
+    "updateBy": "987654321",
+    "updateDateTime": "2019-02-11T08:06:54.230Z"
+  }
+}
+```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
@@ -1561,11 +1784,11 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-02T11:47:59.566+000",
+  "resTime": "2019-02-11T07:05:08.850Z",
   "response": {
     "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
-    "countOfStoredPreRegIds": "1",
-    "alreadyStoredPreRegIds": "1"
+    "countOfPreRegIds": "1",
+    "preRegistrationIds": "1"
   }
 }
 ```
@@ -1575,12 +1798,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_001",
+    "errorCode": "PRG_CORE_REQ_001",
     "message": "INVALID_REQUEST_ID"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:11:42.742Z",
+  "response": null
 }
 ```
 
@@ -1589,12 +1813,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
   "err": {
-    "code": "PRG_CORE_REQ_002",
+    "errorCode": "PRG_CORE_REQ_002",
     "message": "INVALID_REQUEST_VERSION"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:12:48.242Z",
+  "response": null
 }
 ```
 
@@ -1603,12 +1828,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_003",
+    "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:12:48.242Z",
+  "response": null
 }
 ```
 
@@ -1617,26 +1843,28 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  }
+    "errorCode": "PRG_CORE_REQ_004",
+    "message": "INVALID_REQUEST_BODY"
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:12:48.242Z",
+  "response": null
 }
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If there are no preregistration ids passed in request body
+###### Description: If there are no pre-registration ids passed in request body
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_DATA_SYNC_011",
-    "message":"INVALID_REQUESTED_PRE_REG_ID_LIST"
-  }
+    "errorCode": "PRG_DATA_SYNC_011",
+    "message": "INVALID_REQUESTED_PRE_REG_ID_LIST"
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:16:17.412Z",
+  "response": null
 }
 ```
 ## 2.7.4 Booking Service APIs
@@ -1671,6 +1899,9 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request:
+20910892067562
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
@@ -1678,13 +1909,14 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
   "status": true,
-  "timestamp": "2019-01-17T13:28:44.595+000",
+  "resTime": "2019-02-11T13:24:18.868Z",
   "response": {
     "registration_center_id": "1",
-    "appointment_date": "2019-01-18",
-    "time_slot_from": "12:02",
-    "time_slot_to": "12:15"
+    "appointment_date": "2019-02-13",
+    "time_slot_from": "16:10",
+    "time_slot_to": "16:23"
   }
 }
 ```
@@ -1693,12 +1925,13 @@ Requires Authentication | Yes
 ###### Description: Unable to fetch the pre-Registration demographic data
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-17T13:29:15.247+000",
   "err": {
-    "code": "PRG_BOOK_RCI_013",
+    "errorCode": "PRG_BOOK_RCI_013",
     "message": "BOOKING_DATA_NOT_FOUND"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T08:45:42.797Z",
+  "response": null
 }
 ```
 #### 2.7.4.2 GET Operation
@@ -1717,6 +1950,9 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request:
+1004
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
@@ -1724,31 +1960,38 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
   "status": true,
-  "timestamp": "2019-01-17T13:32:51.866+000",
+  "resTime": "2019-02-11T13:33:07.495Z",
   "response": {
     "regCenterId": "1",
     "centerDetails": [
       {
-        "date": "2019-01-19",
+        "date": "2019-02-13",
         "timeSlots": [
           {
-            "fromTime": "12:15:00",
-            "toTime": "12:28:00",
-            "availability": 1
-          },
-          {
-            "fromTime": "12:41:00",
-            "toTime": "13:00:00",
+            "fromTime": "15:44:00",
+            "toTime": "15:57:00",
             "availability": 4
           },
           {
-            "fromTime": "14:00:00",
-            "toTime": "14:13:00",
+            "fromTime": "16:10:00",
+            "toTime": "16:23:00",
             "availability": 3
           }
         ],
         "holiday": false
+      },
+      {
+        "date": "2019-02-14",
+        "timeSlots": [
+          {
+            "fromTime": "15:57:00",
+            "toTime": "16:10:00",
+            "availability": 4
+          }
+        ],
+        "holiday": true
       }
     ]
   }
@@ -1758,13 +2001,15 @@ Requires Authentication | Yes
 ###### Status code: '200'
 ###### Description: Unable to fetch available slots.
 ```JSON
+
 {
-  "status": false,
-  "timestamp": "2019-01-17T13:33:33.098+000",
   "err": {
-    "code": "PRG_BOOK_RCI_015",
+    "errorCode": "PRG_BOOK_RCI_015",
     "message": "PRG_BOOK_RCI_015 --> NO_TIME_SLOTS_ASSIGNED_TO_THAT_REG_CENTER"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:33:43.114Z",
+  "response": null
 }
 ```
 #### 2.7.4.3 POST Operation
@@ -1809,18 +2054,65 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request for book:
+```JSON
+{
+  "id": "mosip.pre-registration.booking.book",
+  "ver": "1.0",
+  "reqTime": "2019-01-09T15:31:32.957Z",
+  "request": [
+  {
+  "preRegistrationId": "20910892067562",
+      "newBookingDetails": {
+        "registration_center_id": "1",
+        "appointment_date": "2019-02-13",
+        "time_slot_from": "15:31:00",
+        "time_slot_to": "15:44:00"
+      }
+    }
+  ]
+}
+```
+#### Request for rebook:
+```JSON
+{
+  "id": "mosip.pre-registration.booking.book",
+  "ver": "1.0",
+  "reqTime": "2019-01-09T15:31:32.957Z",
+  "request": [
+    {
+      "preRegistrationId": "20910892067562",
+        "oldBookingDetails": {
+        "registration_center_id": "1",
+        "appointment_date": "2019-01-19",
+        "time_slot_from": "15:31:00",
+        "time_slot_to": "15:44:00"
+      },
+      "newBookingDetails": {
+        "registration_center_id": "1",
+        "appointment_date": "2019-02-13",
+        "time_slot_from": "15:44:00",
+        "time_slot_to": "15:57:00"
+      }
+    }
+  ]
+}
+```
+
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Appointment booked successfully
 
 ```JSON
-{ 
+{
+  "err": null,
   "status": true,
-  "timestamp": "2019-01-17T13:42:32.427+000",
+  "resTime": "2019-02-11T13:21:21.617Z",
   "response": [
     {
-      "preRegistrationId": "37802950913289",
+      "preRegistrationId": "25316846873293",
       "bookingStatus": "Booked",
       "bookingMessage": "APPOINTMENT_SUCCESSFULLY_BOOKED"
     }
@@ -1832,12 +2124,13 @@ Requires Authentication | Yes
 ###### Description: Invalid Pre Registration Id.
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-17T13:43:59.434+000",
   "err": {
-    "code": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID"
-  }
+    "errorCode": "PRG_PAM_APP_005",
+    "message": "INVALID_PRE_REGISTRATION_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:34:34.085Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1845,12 +2138,13 @@ Requires Authentication | Yes
 ###### Description: Availability not found for selected time.
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-17T13:46:03.002+000",
   "err": {
-    "code": "PRG_BOOK_RCI_002",
+    "errorCode": "PRG_BOOK_RCI_002",
     "message": "AVAILABILITY_NOT_FOUND_FOR_THE_SELECTED_TIME"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:16.091Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1858,12 +2152,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_001",
+    "errorCode": "PRG_CORE_REQ_001",
     "message": "INVALID_REQUEST_ID"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 
@@ -1872,12 +2167,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
   "err": {
-    "code": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  }
+    "errorCode": "PRG_CORE_REQ_002",
+    "message":  "INVALID_REQUEST_VERSION"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 
@@ -1886,12 +2182,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_003",
+    "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 
@@ -1900,12 +2197,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_CORE_REQ_004",
+    "errorCode": "PRG_CORE_REQ_004",
     "message":"INVALID_REQUEST_BODY"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 #### 2.7.4.4 PUT Operation
@@ -1933,22 +2231,36 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.booking.booked",
+  "ver": "1.0",
+  "reqTime": "2019-01-06T15:56:35.398Z",
+  "request": {
+    "pre_registration_id": "20910892067562",
+     "registration_center_id": "1",
+        "appointment_date": "2019-02-13",
+        "time_slot_from": "15:31:00",
+        "time_slot_to": "15:44:00"
+  }
+}
+```
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Appointment canceled successfully
 
 ```JSON
-{ 
-  "status": true,
-  "timestamp": "2019-01-17T13:42:32.427+000",
-  "response": [
-    {
-      "preRegistrationId": "37802950913289",
-      "bookingStatus": "Booked",
-      "bookingMessage": "APPOINTMENT_SUCCESSFULLY_CANCELED"
-    }
-  ]
+{
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-11T13:16:59.352Z",
+  "response": {
+    "transactionId": "4ffecd8e-2dff-11e9-841f-99921eec72ea",
+    "message": "APPOINTMENT_SUCCESSFULLY_CANCELED"
+  }
 }
 ```
 ##### Failure Response:
@@ -1956,12 +2268,13 @@ Requires Authentication | Yes
 ###### Description: Invalid Pre Registration Id for registration center.
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-17T14:00:13.103+000",
   "err": {
-    "code": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID"
-  }
+    "errorCode": "PRG_PAM_APP_005",
+    "message": "INVALID_PRE_REGISTRATION_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:37:28.680Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1969,12 +2282,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_001",
+    "errorCode": "PRG_CORE_REQ_001",
     "message": "INVALID_REQUEST_ID"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 
@@ -1983,12 +2297,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
   "err": {
-    "code": "PRG_CORE_REQ_002",
+    "errorCode": "PRG_CORE_REQ_002",
     "message": "INVALID_REQUEST_VERSION"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 
@@ -1997,12 +2312,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:31:04.021+000",
   "err": {
-    "code": "PRG_CORE_REQ_003",
+    "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 
@@ -2011,12 +2327,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_CORE_REQ_004",
+    "errorCode":"PRG_CORE_REQ_004",
     "message":"INVALID_REQUEST_BODY"
-  }
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:35:49.602Z",
+  "response": null
 }
 ```
 #### 2.7.4.5 POST Operation
@@ -2040,6 +2357,22 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request:
+
+```JSON
+{
+  "id": "mosip.pre-registration.booking.book",
+  "ver": "1.0",
+  "reqTime": "2019-01-06T15:56:35.398Z",
+  "request": {
+    "registartion_center_id": "12",
+    "pre_registration_ids": [
+      "97285429827016"
+    ]
+  }
+}
+```
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
@@ -2047,15 +2380,17 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "id": "mosip.pre-registration.booking.book",
-  "ver": "1.0",
-  "reqTime": "2019-01-17T12:48:30.416+000",
-  "request": {
-    "registration_center_id": "1",
-    "pre_registration_ids": [
-      "37802950913289"
-    ]
-  }
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-11T13:41:01.029Z",
+  "response": [
+    {
+      "registartion_center_id": "1",
+      "pre_registration_ids": [
+        "20910892067562"
+      ]
+    }
+  ]
 }
 ```
 ##### Failure Response:
@@ -2064,12 +2399,12 @@ Requires Authentication | Yes
 ```JSON
 {
   "err": {
-    "code": "PRG_BOOK_RCI_013",
+    "errorCode": "PRG_BOOK_RCI_013",
     "message": "BOOKING_DATA_NOT_FOUND"
   },
   "status": false,
-  "timestamp": "2019-01-17T14:09:27.310+000",
-  
+  "resTime": "2019-02-11T13:41:43.543Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -2077,12 +2412,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
   "err": {
-    "code": "PRG_CORE_REQ_001",
-    "message":"INVALID_REQUEST_ID"
-  }
+    "errorCode": "PRG_CORE_REQ_001",
+    "message": "INVALID_REQUEST_ID"
+  },
+  "status": false,
+  "resTime": "2019-02-11T12:53:14.075Z",
+  "response": null
 }
 ```
 
@@ -2091,12 +2427,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty request version
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T17:32:35.658+000",
   "err": {
-    "code": "PRG_CORE_REQ_002",
-    "message":"INVALID_REQUEST_VERSION"
-  }
+    "errorCode": "PRG_CORE_REQ_002",
+    "message": "INVALID_REQUEST_VERSION"
+  },
+  "status": false,
+  "resTime": "2019-02-11T12:53:14.075Z",
+  "response": null
 }
 ```
 
@@ -2105,12 +2442,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_CORE_REQ_003",
-    "message":"INVALID_REQUEST_DATETIME"
-  }
+    "errorCode": "PRG_CORE_REQ_003",
+    "message": "INVALID_REQUEST_DATETIME"
+  },
+  "status": false,
+  "resTime": "2019-02-11T12:53:14.075Z",
+  "response": null
 }
 ```
 
@@ -2119,12 +2457,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Body
 ```JSON
 {
-  "status": false,
-  "timestamp": "2019-01-16T15:15:05.467+000",
   "err": {
-    "code": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  }
+    "errorCode": "PRG_CORE_REQ_004",
+    "message": "INVALID_REQUEST_BODY"
+  },
+  "status": false,
+  "resTime": "2019-02-11T12:53:14.075Z",
+  "response": null
 }
 ```
 #### 2.7.4.6 PUT Operation
@@ -2146,14 +2485,14 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-06T15:56:35.398+000",
+  "resTime": "2019-01-06T15:56:35.398Z",
   "response": {
     "message":"Master Data Sync is successful"
    }
 }
 ```
 
-## 2.7.5 Batch Job Service APIs
+## 2.7.5 Batch Job Service API
 This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id.
 
 ### Host
@@ -2188,7 +2527,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-17T13:28:44.595+000",
+  "timestamp": "2019-01-17T13:28:44.595Z",
   "response": "Status to expired updated successfully"
 }
 ```
@@ -2225,7 +2564,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "status": true,
-  "timestamp": "2019-01-17T13:28:44.595+000",
+  "timestamp": "2019-01-17T13:28:44.595Z",
   "response": "Status to consumed updated successfully"
 }
 ```
@@ -2241,5 +2580,147 @@ Requires Authentication | Yes
   "status": false,
   "resTime": "2019-02-11T07:09:08.063Z",
   "response": null
+}
+```
+## 2.7.6 Notification Service API
+This service details used by Pre-Registration portal to trigger notification and get QRCode.
+
+### Host
+##### Integration - `http://integ.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
+
+#### HTTP Operation Allowed
+| Method | Allowed |
+| ------------ | ------------ |
+| POST | True |
+
+#### 2.7.6.1 POST Operation
+#### Path -  ` pre-registration/notification`
+#### Summary
+Notify the user via Email and SMS.
+
+#### Parameters
+Name | Required | Description | Example
+-----|----------|-------------|--------
+name |Yes|user name of the application|Sanober Noor
+preId|Yes|Pre Registration of the application|37802950913289
+appointmentDate| Booking appointment date|2019-01-18
+appointmentTime| Booking appointment time| 12:02
+mobNum| user Mobile number on which he will get sms nitification|9480456789
+emailID| user email Id |sanober@gmail.com
+multipart file| pdf file of acknowledgment page|37802950913289.pdf
+LangCode| language code whatever user choose while login|eng
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+			"name": "sanober noor",
+			"preId": "37802950913289",
+			"appointmentDate": "2019-01-22",
+			"appointmentTime": "22:57",
+			"mobNum": "9748107386",
+			"emailID": "sanober.noor2@mindtree.com"
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Email and sms request  successfully submitted retrieved
+
+```JSON
+{
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-11T12:51:00.787Z",
+  "response": {
+    "name": "sanober noor",
+    "preId": "1234567890",
+    "appointmentDate": "2019-01-22",
+    "appointmentTime": "22:57",
+    "mobNum": "9748107386",
+    "emailID": "sanober.noor2@mindtree.com"
+  }
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Mobile nubmer or Email Id not given
+```JSON
+{
+  "err": {
+    "errorCode": "PRG_ACK_001",
+    "message": "MOBILE_NUMBER_OR_EMAIL_ADDRESS_NOT_FILLED"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:00:10.584Z",
+  "response": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: INCORRECT MANDATORY FIELDS
+```JSON
+{
+  "err": {
+    "errorCode": "PRG_ACK_002",
+    "message": "PRG_ACK_002 --> INCORRECT_MANDATORY_FIELDS"
+  },
+  "status": false,
+  "resTime": "2019-02-11T13:07:33.215Z",
+  "response": null
+}
+```
+#### 2.7.6.2 POST Operation
+#### Path -  ` pre-registration/generateQRCode`
+#### Summary
+To generate QR Code of acknowledgement
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+		"name": "sanober noor",
+		"preId": "37802950913289",
+		"appointmentDate": "2019-01-22",
+		"appointmentTime": "22:57",
+		"mobNum": "9748107386",
+		"emailID": "sanober.noor2@mindtree.com"
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: QR CODE generated  successfully 
+
+```JSON
+{
+		"err": null,
+		"status": true,
+		"resTime": "2019-02-11T13:19:54.099Z",
+		"response": {
+		"qrcode":{ByteCode}
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Failed to generate QR code
+```JSON
+{
+    "errorCode": "PRG_ACK_006",
+    "message": "QRCODE_FAILED_TO_GENERATE"
 }
 ```
