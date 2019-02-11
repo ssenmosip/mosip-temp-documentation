@@ -1,20 +1,21 @@
 This section details about the service APIs in the Pre-Registration modules
 
-###### [2.7.1 Demographic Service APIs]()
+###### [2.7.1 Demographic Service API](#271-Demographic-Service)
 
-###### [2.7.2 Document Service APIs]()
+###### [2.7.2 Document Service API](#272-Document-Service)
 
-###### [2.7.3 Data sync Service APIs]()
+###### [2.7.3 Data sync Service API](#273-Data-sync-Service)
 
-###### [2.7.4 Booking Service APIs]()
+###### [2.7.4 Booking Service API](#274-Booking-Service)
 
-Swagger link as below.
+###### [2.7.5 BatchJob Service API](#275-Batch-Job-Service)
 
-
-1.      https://dev.mosip.io/demographic/swagger-ui.html#/
-2.      https://dev.mosip.io/document/swagger-ui.html#/
-3.      https://dev.mosip.io/booking/swagger-ui.html#/
-4.      https://dev.mosip.io/datasync/swagger-ui.html#/
+#### Swagger link as below.
+1.      https://integ.mosip.io/demographic/swagger-ui.html#/
+2.      https://integ.mosip.io/document/swagger-ui.html#/
+3.      https://integ.mosip.io/datasync/swagger-ui.html#/
+4.      https://integ.mosip.io/booking/swagger-ui.html#/
+5.      https://integ.mosip.io/batchjob/swagger-ui.html#/
 
 Right now specifications are under review.
 
@@ -2149,5 +2150,96 @@ Requires Authentication | Yes
   "response": {
     "message":"Master Data Sync is successful"
    }
+}
+```
+
+## 2.7.5 Batch Job Service APIs
+This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id.
+
+### Host
+##### Integration - `http://integ.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
+
+#### HTTP Operation Allowed
+| Method | Allowed |
+| ------------ | ------------ |
+| GET | False |
+| POST | False |
+| PUT | True |
+| DELETE | False |
+
+#### 2.7.5.1 PUT Operation
+#### Path -  ` /v0.1/pre-registration/batch/state/expiredStatus`
+#### Summary
+Update status of pre-Registration id to expired in database if booking date is less then current date.
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Status updated successfully
+
+```JSON
+{
+  "status": true,
+  "timestamp": "2019-01-17T13:28:44.595+000",
+  "response": "Status to expired updated successfully"
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No pre registration id found to update
+```JSON
+{
+  "err": {
+    "errorCode": "PRG_PAM_BAT_001",
+    "message": "PRG_PAM_BAT_001 --> NO_PRE_REGISTRATION_ID_FOUND_TO_UPDATE_EXPIRED_STATUS"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:09:08.063Z",
+  "response": null
+}
+```
+#### 2.7.5.2 PUT Operation
+#### Path -  ` /v0.1/pre-registration/batch/state/consumedStatus`
+#### Summary
+Update status of pre-Registration id to consumed in database based on details given by registration client.
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Status updated successfully
+
+```JSON
+{
+  "status": true,
+  "timestamp": "2019-01-17T13:28:44.595+000",
+  "response": "Status to consumed updated successfully"
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No pre registration id found to update
+```JSON
+{
+  "err": {
+    "errorCode": "PRG_PAM_BAT_001",
+    "message": "PRG_PAM_BAT_001 --> NO_PRE_REGISTRATION_ID_FOUND_TO_UPDATE_CONSUMED_STATUS"
+  },
+  "status": false,
+  "resTime": "2019-02-11T07:09:08.063Z",
+  "response": null
 }
 ```
