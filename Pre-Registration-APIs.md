@@ -2,7 +2,7 @@ This section details about the service API in the Pre-Registration modules
 
 ## Content
 <!--ts-->
-###### [2.7.1 Demographic Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#271-demographic-service-apis)
+ [2.7.1 Demographic Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#271-demographic-service-apis)
 
  [2.7.2 Document Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#272-document-service-apis)
 
