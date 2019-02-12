@@ -821,7 +821,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 2.7.2 Document Service APIs [**[↑]**](##content)
+# 2.7.2 Document Service APIs [**[↑]**](##content)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
