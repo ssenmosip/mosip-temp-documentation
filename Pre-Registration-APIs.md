@@ -2,17 +2,17 @@ This section details about the service API in the Pre-Registration modules
 
 ## Content
 <!--ts-->
- [2.7.1 Demographic Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#271-demographic-service-apis)
+ [2.7.1 Demographic Service APIs](#271-demographic-service-apis)
 
- [2.7.2 Document Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#272-document-service-apis)
+ [2.7.2 Document Service APIs](#272-document-service-apis)
 
-###### [2.7.3 Data sync Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#273-data-sync-service-apis)
+ [2.7.3 Data sync Service APIs](#273-data-sync-service-apis)
 
-###### [2.7.4 Booking Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#274-booking-service-apis)
+ [2.7.4 Booking Service APIs](#274-booking-service-apis)
 
-###### [2.7.5 BatchJob Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#275-batch-job-service-apis)
+ [2.7.5 BatchJob Service APIs](#275-batch-job-service-apis)
 
-###### [2.7.6 Notification Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#276-notification-job-service-apis)
+ [2.7.6 Notification Service APIs](#276-notification-job-service-apis)
 <!--te-->
 ***
 #### Swagger link as below.
@@ -23,8 +23,10 @@ This section details about the service API in the Pre-Registration modules
 5.      https://integ.mosip.io/batchjob/swagger-ui.html#/
 6.      https://integ.mosip.io/notification/swagger-ui.html#/
 ***
-Needs To be done:
- 
+Tobe Done:
+1. Need to seperate response and error resonse
+2. Need to add id,ver and timestamp in response body
+3. Need to remove user ids from the request body
 
 ***
 # 2.7.1 Demographic Service APIs
@@ -52,7 +54,7 @@ This service details used by Pre-Registration portal to create the demographic f
 #### Summary
 Create new pre-registration by demographic details or update demographic details by providing pre-registration id.
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
@@ -206,7 +208,11 @@ Requires Authentication | Yes
 ###### Status code: '200'
 ###### Description: Pre-Registration Status successfully Creaded
 ```JSON
- "response": [
+{
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-12T08:46:23.821Z",
+  "response": [
     {
       "preRegistrationId": "64269837502851",
       "createdBy": "9876453738",
@@ -362,7 +368,7 @@ PRG_PAM_APP_008| PRG_PAM_APP_008  --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| una
 #### Summary
 Update the pre-registration status by providing pre-registration id and valid status defined in pre-registration system in request parameter.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 pre_registration_id |Yes|pre-registration id of the application|46532058236716
@@ -422,7 +428,7 @@ Requires Authentication | Yes
 #### Summary 
 Discard the entire pre-registration details based pre-registration id provided in request parameter.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 pre_registration_id |Yes|pre-registration id of the application|46532058236716
@@ -500,10 +506,10 @@ Requires Authentication | Yes
 #### Summary
 Retrieve All Pre-Registration id, Full name, Status and Appointment details by user id.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-userId |Yes|User Id of the application|sanober@gmail.com
+user_id |Yes|User Id of the application|sanober@gmail.com
 
 #### Resource details
 Resource Details | Description
@@ -518,6 +524,9 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-12T09:36:19.505Z",
    "response":[  
       {  
          "preId":"50490792462164",
@@ -556,14 +565,14 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.1.5 GET Operation
-#### Path -  `/pre-registration/applications/status`
+#### Path -  `/pre-registration/applicationsStatus`
 #### Summary
 Retrieve pre-registration application status by providing the pre-registration id in request parameter.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-preRegistrationId |Yes|Id of the application|50490792462164
+pre_registration_id |Yes|Id of the application|50490792462164
 
 #### Resource details
 Resource Details | Description
@@ -578,6 +587,9 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-12T09:37:57.743Z",
   "response": [
     {
       "statusCode": "Pending_Appointment",
@@ -602,11 +614,11 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.1.6 GET Operation
-#### Path -  `/pre-registration/applications/byDateTime`
+#### Path -  `/pre-registration/applicationsDataByDateTime`
 #### Summary 
 Retrieve pre-registration ids between created from and to dates provided in request parameters.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 from_date |Yes|From date|2019-01-15 07:22:57.086
@@ -665,14 +677,14 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.1.7 GET Operation
-#### Path -  `/pre-registration/applications/details`
+#### Path -  `/pre-registration/applicationsData`
 #### Summary
 Retrieve Pre-Registration demographic data by pre-Registration id provided in request parameter.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-preRegistrationId |Yes|Id of the application|82986390537094
+pre_registration_id |Yes|Id of the application|82986390537094
 
 #### Resource details
 Resource Details | Description
@@ -687,7 +699,10 @@ Requires Authentication | Yes
 
 ```JSON
 {
-   "response":[
+  "err": null,
+  "status": true,
+  "resTime": "2019-02-12T09:40:24.394Z",
+  "response":[
       {
          "preRegistrationId":"20180396713560",
          "createdBy":"9900806086",
@@ -821,7 +836,7 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.2 Document Service APIs 
+# 2.7.2 Document Service APIs
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
@@ -842,7 +857,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 #### Summary
 Upload document for a pre-registration Id.
 
-#### Parameters
+#### Request Part Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.document.upload
@@ -870,6 +885,7 @@ Requires Authentication | Yes
 ###### Description: Document uploaded successfully
 ```JSON
 {
+  "err": null,
   "status": true,
   "resTime": "2019-01-16T16:41:06.659Z",
   "response": [
@@ -889,13 +905,14 @@ Requires Authentication | Yes
 ###### Status code: '200'
 ###### Description: Invalid or empty Request Id
 ```JSON
-{
-  "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
+{ 
   "err": {
     "errorCode": "PRG_CORE_REQ_001",
     "message": "INVALID_REQUEST_ID"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T17:31:04.021Z",
+  "response": null
 }
 ```
 
@@ -904,12 +921,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Version
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-16T17:32:35.658Z",
   "err": {
     "errorCode": "PRG_CORE_REQ_002",
     "message": "INVALID_REQUEST_VERSION"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T17:32:35.658Z",
+  "response": null
 }
 ```
 
@@ -918,12 +936,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Date & Time
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-16T17:31:04.021Z",
   "err": {
     "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
   }
+  "status": false,
+  "resTime": "2019-01-16T17:31:04.021Z",
+  "response": null
 }
 ```
 
@@ -931,13 +950,14 @@ Requires Authentication | Yes
 ###### Status code: '200'
 ###### Description: Invalid or empty Request Body
 ```JSON
-{
-  "status": false,
-  "resTime": "2019-01-16T15:15:05.467Z",
+{ 
   "err": {
     "errorCode": "PRG_CORE_REQ_004",
     "message":"INVALID_REQUEST_BODY"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -945,12 +965,13 @@ Requires Authentication | Yes
 ###### Description: if the document size is more than the specified limit
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:36:40.763Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_007",
     "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
   }
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -958,12 +979,13 @@ Requires Authentication | Yes
 ###### Description: Invalid document format
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:25:21.352Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_004",
     "message": "DOCUMENT_INVALID_FORMAT"
   }
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -972,12 +994,13 @@ Requires Authentication | Yes
 ###### Description: When preregistration data is not found for the preregistration id in the DB
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:26:56.177Z",
   "err": {
     "errorCode": "PRG_PAM_APP_005",
     "message": "PRG_PAM_APP_005 --> PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
   }
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -986,12 +1009,13 @@ Requires Authentication | Yes
 ###### Description: If preregistration id, status code, document category code or preregistration data is empty
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_014",
     "message": "MANDATORY_FIELD_NOT_FOUND"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1000,12 +1024,13 @@ Requires Authentication | Yes
 ###### Description: If the document & document details are failed to store in the db
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_009",
     "message": "DOCUMENT_FAILED_TO_UPLOAD"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1014,12 +1039,13 @@ Requires Authentication | Yes
 ###### Description: Document virus scan failed
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_010",
     "message": "DOCUMENT_FAILED_IN_VIRUS_SCAN"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1028,12 +1054,13 @@ Requires Authentication | Yes
 ###### Description: Retrieval of preregistration data failed
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-16T15:25:46.359Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_020",
     "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1042,12 +1069,13 @@ Requires Authentication | Yes
 ###### Description: Copied document & the details are failed to store in the db
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T10:49:10.286Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_011",
     "message": "DOCUMENT_FAILED_TO_COPY"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 #### 2.7.2.2 POST Operation
@@ -1056,7 +1084,7 @@ Requires Authentication | Yes
 This service enables Pre-Registration portal to request for copy the document from one pre-registration id to another.
 
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 catCode|Yes|Document category code|POA
@@ -1075,7 +1103,7 @@ Requires Authentication | Yes
 ###### Description: Document successfully copied
 ```JSON
 {
-  
+  "err": null,
   "status": true,
   "timestamp": "2019-01-17T11:18:43.889Z",
   "response": [
@@ -1094,12 +1122,13 @@ Requires Authentication | Yes
 ###### Description: Document not found for the source pre-registration Id
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:09:33.258Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1108,12 +1137,13 @@ Requires Authentication | Yes
 ###### Description: Source preregistration id or Destination preregistration id is empty or invalid
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:22:26.321Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_018",
     "message": "INVALID_REQUEST_PARAMETER"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1122,12 +1152,13 @@ Requires Authentication | Yes
 ###### Description: ceph exception
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:22:26.321Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_009",
     "message": "DOCUMENT_FAILED_TO_UPLOAD"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1135,12 +1166,13 @@ Requires Authentication | Yes
 ###### Description: if the copied document & document details are failed to store in the db
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:22:26.321Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_011",
     "message": "DOCUMENT_FAILED_TO_COPY"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1149,7 +1181,7 @@ Requires Authentication | Yes
 #### Summary
 This service enables Pre-Registration portal request to retrieve all document associated with particular pre-registration.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 pre_registration_id |Yes|Pre-registration id of the application|97285429827016
@@ -1166,7 +1198,7 @@ Requires Authentication | Yes
 ###### Description: Documents retrieved successfully
 ```JSON
 {
-  
+  "err": null,
   "status": true,
   "resTime": "2019-01-17T11:31:44.994Z",
   "response": [
@@ -1206,12 +1238,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:38:13.866Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_018",
     "message": "INVALID_REQUEST_PARAMETER"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1219,12 +1252,13 @@ Requires Authentication | Yes
 ###### Description: If the document is not found in the db for the preregistration id
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:47:37.773Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1232,12 +1266,13 @@ Requires Authentication | Yes
 ###### Description:  ceph exception
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:09:33.258Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_FAILED_TO_FETCH"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
@@ -1246,7 +1281,7 @@ Requires Authentication | Yes
 #### Summary
 This service enables Pre-Registration portal, request to delete the document for a particular document id.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 documentId |Yes|document id of the application|2c9180836833aa31016837aac4c40012
@@ -1263,6 +1298,7 @@ Requires Authentication | Yes
 ###### Description: Document successfully deleted
 ```JSON
 {
+  "err": null,
   "status": true,
   "resTime": "2019-01-17T11:46:49.220Z",
   "response": [
@@ -1278,12 +1314,13 @@ Requires Authentication | Yes
 ###### Description: If the document is not found in the db for the preregistration id
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:47:37.773Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1291,12 +1328,13 @@ Requires Authentication | Yes
 ###### Description: ceph exception
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:52:51.433Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_006",
     "message": "DOCUMENT_FAILED_TO_DELETE"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 #### 2.7.2.5 DELETE Operation
@@ -1304,10 +1342,10 @@ Requires Authentication | Yes
 #### Summary
 This service enables Pre-Registration portal, request to delete all the document for a particular pre-registration id.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-pre_registration_id |Yes|pre-registration id of the application|2c9180836833aa31016837aac4c40012
+pre_registration_id |Yes|pre-registration id of the application|37802950913289
 
 #### Resource details
 Resource Details | Description
@@ -1321,11 +1359,16 @@ Requires Authentication | Yes
 ###### Description: Documents successfully deleted
 ```JSON
 {
+  "err": null,
   "status": true,
   "resTime": "2019-01-17T11:52:22.165Z",
   "response": [
     {
       "documnet_Id": "2c9180836833aa31016833b242c50000",
+      "resMsg": "DOCUMENT_DELETE_SUCCESSFUL"
+    },
+	{
+      "documnet_Id": "2c9180836833aa31016833b242c22120",
       "resMsg": "DOCUMENT_DELETE_SUCCESSFUL"
     }
   ]
@@ -1336,12 +1379,13 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:51:31.071Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_018",
     "message": "INVALID_REQUEST_PARAMETER"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1349,12 +1393,13 @@ Requires Authentication | Yes
 ###### Description: if the document & document details are failed to delete from the db
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:52:51.433Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_005",
     "message": "DOCUMENT_IS_MISSING"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 ##### Failure Response:
@@ -1362,16 +1407,17 @@ Requires Authentication | Yes
 ###### Description: ceph exception
 ```JSON
 {
-  "status": false,
-  "resTime": "2019-01-17T11:52:51.433Z",
   "err": {
     "errorCode": "PRG_PAM_DOC_006",
     "message": "DOCUMENT_FAILED_TO_DELETE"
-  }
+  },
+  "status": false,
+  "resTime": "2019-01-16T15:15:05.467Z",
+  "response": null
 }
 ```
 
-## 2.7.3  Data sync Service APIs [**[↑]**](##content)
+# 2.7.3  Data sync Service APIs
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 ### Host
@@ -1392,7 +1438,7 @@ This service enables Pre-Registration to a registration client , request to retr
 #### Summary
 Retrieve all the pre-registration Ids by date range and registration center Id.
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync
@@ -1554,20 +1600,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-##### Request:
-```JSON
-{
-  "id": "mosip.pre-registration.datasync",
-  "ver": "1.0",
-  "reqTime": "2019-02-11T06:57:29.969Z",
-  "request": {
-    "registration-client-id":"10005",
-    "from-date":"2019-02-12 00:00:00",
-    "to-date":"2019-02-13 00:00:00",
-    "user-id":"Officer"
-  }
-}
-```
+
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: If appointment is not booked under the registration center Id for the preregistration id
@@ -1675,7 +1708,7 @@ Requires Authentication | Yes
 #### Summary
 This service enables Pre-Registration to a registration client , request to retrieve particular pre-registration data based on a pre-registration id.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 pre_registration_id |Yes|Pre Registration id|94625367217037
@@ -1743,7 +1776,7 @@ Requires Authentication | Yes
 #### Summary
 This service enables Pre-Registration to a registration processor , request to retrieve all processed pre-registration ids and store in pre-registration database and update the status code in main table.
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync
@@ -1787,6 +1820,7 @@ Requires Authentication | Yes
 ###### Description: Consumed Pre-Registrations saved
 ```JSON
 {
+  "err":null,
   "status": true,
   "resTime": "2019-02-11T07:05:08.850Z",
   "response": {
@@ -1871,7 +1905,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-## 2.7.4 Booking Service APIs [**[↑]**](##content)
+# 2.7.4 Booking Service APIs
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 ### Host
@@ -1892,19 +1926,16 @@ This service details used by Pre-Registration portal to book an appointment by p
 #### Summary
 Retrieve Pre-Registration appointment details by pre-Registration id.
 
-#### Parameters
+#### Request Query Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-preRegistrationId |Yes|Id of the application|37802950913289
+pre_registration_id |Yes|Id of the application|37802950913289
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
-
-#### Request:
-20910892067562
 
 #### Responses:
 ##### Success Response:
@@ -1946,16 +1977,13 @@ Retrieve Pre-Registration appointment slots available for booking.
 #### Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-registration_center_id |Yes|Registration Center Id|1
+registration_center_id |Yes|Registration Center Id|1004
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
-
-#### Request:
-1004
 
 #### Responses:
 ##### Success Response:
@@ -1968,7 +1996,7 @@ Requires Authentication | Yes
   "status": true,
   "resTime": "2019-02-11T13:33:07.495Z",
   "response": {
-    "regCenterId": "1",
+    "regCenterId": "1004",
     "centerDetails": [
       {
         "date": "2019-02-13",
@@ -2021,7 +2049,7 @@ Requires Authentication | Yes
 #### Summary
 This service enables by Pre-Registration to book an registration center, request to book and re-book an appointment with a selected registration center and time slot. After successful booking update the status code Booked in main table.
 
-#### Parameters for book
+#### Request Body Parameters for book
 Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
@@ -2035,7 +2063,7 @@ request.newBookingDetails.time_slot_from |Yes|Time Slot From|12:15:00
 request.newBookingDetails.time_slot_from |Yes|Time Slot To|12:28:00
 request.oldBookingDetail|No
 
-#### Parameters for rebook
+#### Request Body Parameters for rebook
 Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
@@ -2488,6 +2516,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
   "status": true,
   "resTime": "2019-01-06T15:56:35.398Z",
   "response": {
@@ -2496,7 +2525,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 2.7.5 BatchJob Service APIs [**[↑]**](##content)
+# 2.7.5 BatchJob Service APIs
 This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id.
 
 ### Host
@@ -2530,6 +2559,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
   "status": true,
   "timestamp": "2019-01-17T13:28:44.595Z",
   "response": "Status to expired updated successfully"
@@ -2567,6 +2597,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
+  "err": null,
   "status": true,
   "timestamp": "2019-01-17T13:28:44.595Z",
   "response": "Status to consumed updated successfully"
@@ -2586,7 +2617,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-## 2.7.6 Notification Service APIs [**[↑]**](##content)
+# 2.7.6 Notification Service APIs
 This service details used by Pre-Registration portal to trigger notification and get QRCode.
 
 ### Host
@@ -2604,7 +2635,7 @@ This service details used by Pre-Registration portal to trigger notification and
 #### Summary
 Notify the user via Email and SMS.
 
-#### Parameters
+#### Request Part Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
 name |Yes|user name of the application|Sanober Noor
@@ -2696,12 +2727,12 @@ Requires Authentication | Yes
 #### Request:
 ```JSON
 {
-		"name": "sanober noor",
-		"preId": "37802950913289",
-		"appointmentDate": "2019-01-22",
-		"appointmentTime": "22:57",
-		"mobNum": "9748107386",
-		"emailID": "sanober.noor2@mindtree.com"
+	"name": "sanober noor",
+	"preId": "37802950913289",
+	"appointmentDate": "2019-01-22",
+	"appointmentTime": "22:57",
+	"mobNum": "9748107386",
+	"emailID": "sanober.noor2@mindtree.com"
 }
 ```
 
@@ -2712,11 +2743,12 @@ Requires Authentication | Yes
 
 ```JSON
 {
-		"err": null,
-		"status": true,
-		"resTime": "2019-02-11T13:19:54.099Z",
-		"response": {
-		"qrcode":{ByteCode}
+	"err": null,
+	"status": true,
+	"resTime": "2019-02-11T13:19:54.099Z",
+	"response": {
+	"qrcode":{ByteCode}
+	}
 }
 ```
 ##### Failure Response:
