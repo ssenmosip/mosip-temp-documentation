@@ -770,10 +770,15 @@ Name | Required | Description | Default Value | Example
 {
    "roles": [
       {
-      "roleDescription": "string",
-      "roleId": "string",
-      "roleName": "string"
-      }
+      "roleId": "REGISTRATION_ADMIN",
+      "roleName": "REGISTRATION_ADMIN",
+      "roleDescription": "Registration administrator"
+    },
+    {
+      "roleId": "TSP",
+      "roleName": "TSP",
+      "roleDescription": "Trusted Service Provider"
+    }
           ]
 }
 ```
@@ -805,16 +810,16 @@ Name | Required | Description | Default Value | Example
 ```JSON
 {
    "userDetails": [
-    {
-      "langCode": "string",
-      "mail": "string",
-      "mobile": "string",
-      "name": "string",
+     {
+      "userName": "110001",
+      "mail": "user@mosip.com",
+      "mobile": "987654321",
+      "langCode": null,
+      "userPassword": "e1NIQTI1Nn05SmN0UmJRb01OR0FOZzhxSzE2U0hsOW5xaGl0Q2VsTjBjME1CQi90RXlrPQ==",
+      "name": "user",
       "roles": [
-        "string"
-      ],
-      "userName": "string",
-      "userPassword": "string"
+        "REGISTRATION_ADMIN"
+      ]
     }
   ]
 }
