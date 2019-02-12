@@ -638,7 +638,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "err": null,
-  "status": false,
+  "status": true,
   "resTime": "2019-02-11T13:46:00.534Z",
   "response": [
     "91793240270548",
@@ -939,7 +939,7 @@ Requires Authentication | Yes
   "err": {
     "errorCode": "PRG_CORE_REQ_003",
     "message": "INVALID_REQUEST_DATETIME"
-  }
+  },
   "status": false,
   "resTime": "2019-01-16T17:31:04.021Z",
   "response": null
@@ -968,7 +968,7 @@ Requires Authentication | Yes
   "err": {
     "errorCode": "PRG_PAM_DOC_007",
     "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
-  }
+  },
   "status": false,
   "resTime": "2019-01-16T15:15:05.467Z",
   "response": null
@@ -982,7 +982,7 @@ Requires Authentication | Yes
   "err": {
     "errorCode": "PRG_PAM_DOC_004",
     "message": "DOCUMENT_INVALID_FORMAT"
-  }
+  },
   "status": false,
   "resTime": "2019-01-16T15:15:05.467Z",
   "response": null
@@ -997,7 +997,7 @@ Requires Authentication | Yes
   "err": {
     "errorCode": "PRG_PAM_APP_005",
     "message": "PRG_PAM_APP_005 --> PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-  }
+  },
   "status": false,
   "resTime": "2019-01-16T15:15:05.467Z",
   "response": null
@@ -1105,7 +1105,7 @@ Requires Authentication | Yes
 {
   "err": null,
   "status": true,
-  "timestamp": "2019-01-17T11:18:43.889Z",
+  "resTime": "2019-01-17T11:18:43.889Z",
   "response": [
     {
       "sourcePreRegId": "97285429827016",
@@ -1417,7 +1417,7 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.3  Data sync Service APIs
+# 2.7.3 Data sync Service APIs
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 ### Host
@@ -1820,7 +1820,7 @@ Requires Authentication | Yes
 ###### Description: Consumed Pre-Registrations saved
 ```JSON
 {
-  "err":null,
+  "err": null,
   "status": true,
   "resTime": "2019-02-11T07:05:08.850Z",
   "response": {
@@ -2561,7 +2561,7 @@ Requires Authentication | Yes
 {
   "err": null,
   "status": true,
-  "timestamp": "2019-01-17T13:28:44.595Z",
+  "resTime": "2019-01-17T13:28:44.595Z",
   "response": "Status to expired updated successfully"
 }
 ```
@@ -2599,7 +2599,7 @@ Requires Authentication | Yes
 {
   "err": null,
   "status": true,
-  "timestamp": "2019-01-17T13:28:44.595Z",
+  "resTime": "2019-01-17T13:28:44.595Z",
   "response": "Status to consumed updated successfully"
 }
 ```
