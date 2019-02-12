@@ -27,7 +27,7 @@ Needs To be done:
  
 
 ***
-# 2.7.1 Demographic Service APIs [**[↑]**](##content)
+# 2.7.1 Demographic Service APIs
 This service details used by Pre-Registration portal to create the demographic form by providing his/her basic demographic details.
 
 ### Host
