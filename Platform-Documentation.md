@@ -278,6 +278,7 @@ Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Repository-API) for m
 
 ### 10. HOW TO GUIDE (TBD)
 #### 10.1 Getting Started Guide
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Getting-Started) for more details
 #### 10.2 Developer Document
 ## 11.  INRFASTRUCTURE RECOMMENDATIONS
 ## 12.  GLOSSARY
