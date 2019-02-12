@@ -1,22 +1,22 @@
-[1. Key Manager Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#1-key-manager)
+[1. Key Manager Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#1-key-manager)
 
-[2. Crypto Manager Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#2-crypto-manager)
+[2. Crypto Manager Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#2-crypto-manager)
 
-[3. Data Sync Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#3-sync-data)
+[3. Data Sync Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#3-sync-data)
 
-[4. UIN Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#4-uin)
+[4. UIN Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#4-uin)
 
-[5. SMS Notification Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#5-sms-notification)
+[5. SMS Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#5-sms-notification)
 
-[6. Email Notification Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#6-email-notification)
+[6. Email Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#6-email-notification)
 
-[7. OTP Manager Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#7-otp-manager)
+[7. OTP Manager Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#7-otp-manager)
 
-[8. Audit Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#8-audit-manager)
+[8. Audit Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#8-audit-manager)
 
-[9. License Key Service)] (https://github.com/mosip/mosip/wiki/Kernel-APIs#9-license-key-manager)
+[9. License Key Service)](https://github.com/mosip/mosip/wiki/Kernel-APIs#9-license-key-manager)
 
-[10. OTP Notification Service] (https://github.com/mosip/mosip/wiki/Kernel-APIs#10-otp-notification)
+[10. OTP Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#10-otp-notification)
 
 
 # 1. Key Manager
