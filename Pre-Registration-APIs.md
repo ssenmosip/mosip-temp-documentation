@@ -2,17 +2,17 @@ This section details about the service API in the Pre-Registration modules
 
 ## Content
 <!--ts-->
-###### [2.7.1 Demographic Service APIs](#271-demographic-service-apis)
+###### [2.7.1 Demographic Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#271-demographic-service-apis)
 
-###### [2.7.2 Document Service APIs](#272-document-service-apis)
+###### [2.7.2 Document Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#272-document-service-apis)
 
-###### [2.7.3 Data sync Service APIs](#273-data-sync-service-apis)
+###### [2.7.3 Data sync Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#273-data-sync-service-apis)
 
-###### [2.7.4 Booking Service APIs](#274-booking-service-apis)
+###### [2.7.4 Booking Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#274-booking-service-apis)
 
-###### [2.7.5 BatchJob Service APIs](#275-batch-job-service-apis)
+###### [2.7.5 BatchJob Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#275-batch-job-service-apis)
 
-###### [2.7.6 Notification Service APIs](#276-notification-job-service-apis)
+###### [2.7.6 Notification Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#276-notification-job-service-apis)
 <!--te-->
 ***
 #### Swagger link as below.
