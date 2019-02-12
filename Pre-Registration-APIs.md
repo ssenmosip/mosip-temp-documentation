@@ -4,7 +4,7 @@ This section details about the service API in the Pre-Registration modules
 <!--ts-->
 ###### [2.7.1 Demographic Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#271-demographic-service-apis)
 
-###### [2.7.2 Document Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#272-document-service-apis)
+ [2.7.2 Document Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#272-document-service-apis)
 
 ###### [2.7.3 Data sync Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs#273-data-sync-service-apis)
 
@@ -821,7 +821,7 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.2 Document Service APIs [**[↑]**](##content)
+# 2.7.2 Document Service APIs 
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
