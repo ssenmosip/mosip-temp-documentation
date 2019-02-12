@@ -10,7 +10,7 @@ This section details about the service API in the Pre-Registration modules
 
  [2.7.4 Booking Service APIs](#274-booking-service-apis)
 
- [2.7.5 BatchJob Service APIs](#275-batch-job-service-apis)
+ [2.7.5 BatchJob Service APIs](#275-batchjob-service-apis)
 
  [2.7.6 Notification Service APIs](#276-notification-job-service-apis)
 <!--te-->
