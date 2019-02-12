@@ -280,7 +280,7 @@ Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Repository-API) for m
 #### 10.1 Getting Started Guide
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Getting-Started) for more details
 #### 10.2 Developer Document
-## 11.  INRFASTRUCTURE RECOMMENDATIONS
+## 11.  INFRASTRUCTURE RECOMMENDATIONS
 ## 12.  GLOSSARY
 ## 13. ABBREVIATIONS
 ## 14. REFERENCES
