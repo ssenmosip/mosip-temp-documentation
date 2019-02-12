@@ -804,7 +804,7 @@ Name | Required | Description | Default Value | Example
 -NA-
 
 ### Example Request
-/userdetails/110001
+/userdetails/10001
 
 ### Example Response
 ```JSON
