@@ -1,17 +1,20 @@
 This section details about the service API in the Pre-Registration modules
 
-###### [2.7.1 Demographic Service API](#271-Demographic-Service)
+## Content
+<!--ts-->
+###### [2.7.1 Demographic Service APIs](#271-demographic-service-apis)
 
-###### [2.7.2 Document Service API](#272-Document-Service)
+###### [2.7.2 Document Service APIs](#272-document-service-apis)
 
-###### [2.7.3 Data sync Service API](#273-Data-sync-Service)
+###### [2.7.3 Data sync Service APIs](#273-data-sync-service-apis)
 
-###### [2.7.4 Booking Service API](#274-Booking-Service)
+###### [2.7.4 Booking Service APIs](#274-booking-service-apis)
 
-###### [2.7.5 BatchJob Service API](#275-Batch-Job-Service)
+###### [2.7.5 BatchJob Service APIs](#275-batch-job-service-apis)
 
-###### [2.7.6 Notification Service API](#275-Notification-Job-Service)
-
+###### [2.7.6 Notification Service APIs](#276-notification-job-service-apis)
+<!--te-->
+***
 #### Swagger link as below.
 1.      https://integ.mosip.io/demographic/swagger-ui.html#/
 2.      https://integ.mosip.io/document/swagger-ui.html#/
@@ -19,10 +22,12 @@ This section details about the service API in the Pre-Registration modules
 4.      https://integ.mosip.io/booking/swagger-ui.html#/
 5.      https://integ.mosip.io/batchjob/swagger-ui.html#/
 6.      https://integ.mosip.io/notification/swagger-ui.html#/
+***
+Needs To be done:
+ 
 
-Right now specifications are under review.
-
-## 2.7.1 Demographic Service APIs
+***
+## 2.7.1 Demographic Service APIs [**[↑]**](##content)
 This service details used by Pre-Registration portal to create the demographic form by providing his/her basic demographic details.
 
 ### Host
@@ -46,7 +51,6 @@ This service details used by Pre-Registration portal to create the demographic f
 #### Path -  `/pre-registration/applications`
 #### Summary
 Create new pre-registration by demographic details or update demographic details by providing pre-registration id.
-
 
 #### Parameters
 Name | Required | Description | Example
@@ -817,7 +821,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 2.7.2 Document Service API
+## 2.7.2 Document Service APIs [**[↑]**](##content)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
@@ -1367,7 +1371,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 2.7.3  Data sync Service APIs
+## 2.7.3  Data sync Service APIs [**[↑]**](##content)
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 ### Host
@@ -1867,7 +1871,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-## 2.7.4 Booking Service APIs
+## 2.7.4 Booking Service APIs [**[↑]**](##content)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 ### Host
@@ -2492,7 +2496,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 2.7.5 Batch Job Service API
+## 2.7.5 BatchJob Service APIs [**[↑]**](##content)
 This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id.
 
 ### Host
@@ -2582,7 +2586,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-## 2.7.6 Notification Service API
+## 2.7.6 Notification Service APIs [**[↑]**](##content)
 This service details used by Pre-Registration portal to trigger notification and get QRCode.
 
 ### Host
