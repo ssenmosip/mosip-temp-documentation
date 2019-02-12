@@ -779,7 +779,7 @@ Name | Required | Description | Default Value | Example
       "roleName": "TSP",
       "roleDescription": "Trusted Service Provider"
     }
-          ]
+  ]
 }
 ```
 
