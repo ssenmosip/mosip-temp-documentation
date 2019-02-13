@@ -44,6 +44,5 @@
 |13.|Kernel|Test Cases|Link|xx|
 |14.|Kernel|Test Strategy|Link|xx|
 |15.|Kernel|Mindmaps|Link|xx|
-|16.|Kernel|Process Flows|Link|xx|
-|17.|Kernel|Automation Framework|Link|xx|
-|18.|Kernel|Developer Documentation|Link|xx|
+|16.|Kernel|Automation Framework|Link|xx|
+|17.|Kernel|Developer Documentation|Link|xx|
