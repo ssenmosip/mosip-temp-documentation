@@ -7,6 +7,20 @@ This page will provide details on the various deliverables planned for TechnoFor
 6. Component-Feature-JIRA ID Mapping
 
 **Contacts:**
+
+|**S.No.**| **Module Name**| **Contact Person**|**Contact Number**|
+|:------:|-----|---|---|
+|1.|Pre-registration|xxx|xxx|
+|2.|| | |
+|3.|| |
+|4.|| |
+|5.|| |
+|6.|| |
+|7.|| |
+|8.|| |
+|9.|| |
+|10.|| |
+
 |**S.No.**| **Module Name**| **Contact Person**|**Contact Number**|
 |:------:|-----|---|---|
 |1.|Pre-registration| xxx | xxx|
