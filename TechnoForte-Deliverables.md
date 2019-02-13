@@ -10,19 +10,6 @@ This page will provide details on the various deliverables planned for TechnoFor
 
 |**S.No.**| **Module Name**| **Contact Person**|**Contact Number**|
 |:------:|-----|---|---|
-|1.|Pre-registration|xxx|xxx|
-|2.|| | |
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
-
-|**S.No.**| **Module Name**| **Contact Person**|**Contact Number**|
-|:------:|-----|---|---|
 |1.|Pre-registration| xxx | xxx|
 |2.|Registration Client| xxx | xxx |
 |3.|Registration Processor| xxx | xxx |
