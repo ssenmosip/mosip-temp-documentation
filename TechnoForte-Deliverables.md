@@ -7,3 +7,15 @@ This page will provide details on the various deliverables planned for TechnoFor
 6. Component-Feature-JIRA ID Mapping
 
 **Contacts:**
+|**S.No.**| **Module Name**| **Contact Person**|**Contact Number**|
+|:------:|-----|---|---|
+|1.|Pre-registration| xxx | xxx|
+|2.|Registration Client| xxx | xxx |
+|3.|Registration Processor| xxx | xxx |
+|4.|ID-Authentication| xxx | xxx |
+|5.|Kernel| xxx | xxx |
+|6.|| |
+|7.|| |
+|8.|| |
+|9.|| |
+|10.|| |
