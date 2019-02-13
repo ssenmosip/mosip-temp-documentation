@@ -13,7 +13,7 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|NA|Getting Started Guide|[Link](https://github.com/mosip/mosip/wiki/Getting-Started)||
+|1.|NA|Getting Started Guide|[PD-Section 10.1](https://github.com/mosip/mosip/wiki/Getting-Started)||
 |2.|Pre-registration|High Level Design Document|Link||
 |3.|Pre-registration|API Specifications Document|Link||
 |4.|Pre-registration|Code Drop|Link||
@@ -31,7 +31,7 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
-|2.|Pre-registration|Platform Document and Functional Requirement Specification|[Link](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
+|2.|Pre-registration|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |3.|Pre-registration|Tested Code|Link||
 |4.|Pre-registration|Known Issues, Defects and Pending Items|xls Link||
 |5.|Pre-registration|Test Cases|Link||
