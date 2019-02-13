@@ -7,7 +7,6 @@
 |1.|High Level Design Document|Link|Sent by email to Arun on 05Feb'19|
 
 **Date: 15 Feb 2019**
-
 **Module: Pre-registration, Kernel**
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
