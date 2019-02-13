@@ -22,7 +22,7 @@
 |8.|Kernel|Code Drop|Link||
 |9.|Kernel|Known Issues, Defects and Pending Items|xls Link||
 
-**Date: 25 Feb 2019**
+**Date: 28 Feb 2019**
 
 **Module: Pre-registration, Kernel**
 
