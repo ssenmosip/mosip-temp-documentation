@@ -1,4 +1,4 @@
-**# Pre-registration**
+**Pre-registration**
 
 |**S.No.**| **Component**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -13,13 +13,11 @@
 |9.|| |
 |10.|| |
 
-**# Registration Client**
+**Registration Client**
 
-Module: Pre-registration, Kernel
-
-|**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
+|**S.No.**| **Component**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|High Level Design Document| Link / Attachment Name|
+|1.|xx| xx|MOS-xxx|
 |2.|| | |
 |3.|| |
 |4.|| |
