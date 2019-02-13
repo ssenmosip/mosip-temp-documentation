@@ -20,6 +20,7 @@
   * [ABIS Interface Spec](https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface)
   * [MOSIP Biometric Data Spec](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications)
   * [MOSIP VDM Spec](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
+  * [MOSIP Device Integration Spec](https://github.com/mosip/mosip/wiki/Device-Integration-Specifications)
   * [Security](https://github.com/mosip/mosip/wiki/Security)
 * MOSIP APIs
   * [Kernel](https://github.com/mosip/mosip/wiki/Kernel-APIs)
