@@ -17,11 +17,11 @@
 |2.|Pre-registration|High Level Design Document|Link||
 |3.|Pre-registration|API Specifications Document|Link||
 |4.|Pre-registration|Code Drop|Link||
-|5.|Pre-registration|Known Issues, Defects and Pending Items|xls Link||
+|5.|Pre-registration|Known Issues, Defects and Pending Items|Link to word doc||
 |6.|Kernel|High Level Design Document|Link||
 |7.|Kernel|API Specifications Document|Link||
 |8.|Kernel|Code Drop|Link||
-|9.|Kernel|Known Issues, Defects and Pending Items|xls Link||
+|9.|Kernel|Known Issues, Defects and Pending Items|Link to word doc||
 
 
 **Date: 28 Feb 2019**
@@ -33,7 +33,7 @@
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
 |2.|Pre-registration|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |3.|Pre-registration|Tested Code|Link|Exit Criteria: |
-|4.|Pre-registration|Known Issues, Defects and Pending Items|xls Link||
+|4.|Pre-registration|Known Issues, Defects and Pending Items|Link to word doc||
 |5.|Pre-registration|Test Cases|Link||
 |6.|Pre-registration|Test Strategy|Link||
 |7.|Pre-registration|Mindmaps|Link||
@@ -42,7 +42,7 @@
 |11.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
 |12.|Kernel|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |13.|Kernel|Tested Code|Link|Exit Criteria: |
-|14.|Kernel|Known Issues, Defects and Pending Items|xls Link||
+|14.|Kernel|Known Issues, Defects and Pending Items|Link to word doc||
 |15.|Kernel|Test Cases|Link||
 |16.|Kernel|Test Strategy|Link||
 |17.|Kernel|Mindmaps|Link||
