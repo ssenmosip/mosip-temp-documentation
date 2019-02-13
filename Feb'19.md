@@ -12,16 +12,15 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Pre-registration|High Level Design Document|Link||
-|2.|Pre-registration|API Specifications Document|Link||
-|3.|Pre-registration|Getting Started Guide|Link||
-|4.|Pre-registration|Code to Explore|Link||
+|1.|NA|Getting Started Guide|[Link](https://github.com/mosip/mosip/wiki/Getting-Started)||
+|2.|Pre-registration|High Level Design Document|Link||
+|3.|Pre-registration|API Specifications Document|Link||
+|4.|Pre-registration|Code Drop|Link||
 |5.|Pre-registration|Known Issues, Defects and Pending Items|xls Link||
 |6.|Kernel|High Level Design Document|Link||
 |7.|Kernel|API Specifications Document|Link||
-|8.|Kernel|Getting Started Guide|Link||
-|9.|Kernel|Code to Explore|Link||
-|10.|Kernel|Known Issues, Defects and Pending Items|xls Link||
+|8.|Kernel|Code Drop|Link||
+|9.|Kernel|Known Issues, Defects and Pending Items|xls Link||
 
 **Date: 25 Feb 2019**
 
