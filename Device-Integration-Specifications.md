@@ -11,7 +11,7 @@ Interface approach has been taken to implement the integration with external dev
 4. GPS
 
 ### Scanner: 
-**Interface Class: IMosipDocumentScannerService**  
+**Interface: IMosipDocumentScannerService**  
    1. public Boolean isConnected()  -Method declaration which has to be implemented based on  Device/Platform to check the scanner connection availability.
    
    2. public BufferedImage scan() -  Method declaration which has to be implemented based on  Device/Platform to scan the document from the scanner device.  
@@ -25,9 +25,12 @@ Interface approach has been taken to implement the integration with external dev
 
 4. public List<BufferedImage>  pdfToImages(byte[] pdfBytes) – Method Implementation to convert the pdf document to image format in order to show in the document preview.  
 
- 
+### Printer: 
+ Use the JavaFx provided print functionality to interact with printer directly from UI layer. No additional interface is required. 
+ javafx.scene.web.WebView.getEngine().print(PrinterJob)
+
 ### Web Camera:  
-**Interface Class:IMosipWebcamService**   
+**Interface:IMosipWebcamService**   
 1. public boolean connect(int width, int height)  
    This method is used to open the web camera (there is device specific implementation for this interface) from the list of webcams with specified device name and specified resolution.  
 **_Parameters:_**  
@@ -43,6 +46,12 @@ height - required height for the camera to be set-up
 **Abstract Class:**  MosipWebcamServiceImpl
 
 ### GPS:  
-**Interface Class:MosipWebcamProvider**   
-**Abstract Class:**  
+**Interface:IMosipGPSService**   
+1. public String getComPortGPSData (String comPortNo, int portReadWaitTime);
+   - returns GPS signal.  
+
+**Abstract Class:IMosipGPSServiceImpl**    
+1. public GPSPosition sigalParser(String line)
+Inputs: gps signal (Ex: $GPRMC,055218.000,A,1259.4845,N,08014.7602,E,0.07,120.70,171018,,,A*64)
+   - returns the latitude and longitude from the GPS signal. 
 
