@@ -8,13 +8,13 @@ This page will provide details on the various deliverables planned for TechnoFor
 
 **Contacts:**
 
-|**S.No.**| **Module Name/Purpose**| **Contact Person**|**E-Mail**|
+|**S.No.**| **Module Name/Purpose**| **To**|**CC**|
 |:------:|-----|---|---|
-|1.|Pre-registration| xxx | xxx|
+|1.|Pre-registration|Rudra.Tripathy@mindtree.com, Shashank.Agrawal@mindtree.com, Vyas.Vemuri@mindtree.com|Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, Shwetha.Mruthyunjaya@mindtree.com, Resham.Chugani@mindtree.com|
 |2.|Registration Client| xxx | xxx |
 |3.|Registration Processor| xxx | xxx |
 |4.|ID-Authentication| xxx | xxx |
-|5.|Kernel| xxx | xxx |
+|5.|Kernel|John.Panneerselvam@mindtree.com, Raj.Jha@mindtree.com, Amandeep.Khanuja@mindtree.com| Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, Shwetha.Mruthyunjaya@mindtree.com, Resham.Chugani@mindtree.com|
 |6.|Deployment Setup|xxx|xxx|
 |7.|| |
 |8.|| |
