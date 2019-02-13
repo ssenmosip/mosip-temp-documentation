@@ -39,7 +39,7 @@
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
-|1.|Component-Feature-JIRA ID Mapping| Link / Attachment Name|
+|1.|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|
 |2.|| | |
 |3.|| |
 |4.|| |
