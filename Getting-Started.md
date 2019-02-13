@@ -224,9 +224,16 @@ We are storing all applications' configuration in config folder inside our Githu
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
 [**MOSIP CONFIGURATION SERVER**](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
 
-#### Pre-Registration:
-Application specific configuration for pre-registration micro services are placed in MOSIP config server.
 
+Application specific configuration for all applications and services are placed in MOSIP config server.
+
+**Global:**
+https://github.com/mosip/mosip/blob/master/config/application-dev.properties
+
+**Kernel:**
+https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
+
+**Pre-Registration:**
 https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
 
 
