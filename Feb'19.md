@@ -32,3 +32,20 @@
 |8.|| |
 |9.|| |
 |10.|| |
+
+**Date: 28 Feb 2019**
+
+**Module: Pre-registration, Kernel**
+
+|**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
+|:------:|-----|---|---|
+|1.|Component-Feature-JIRA ID Mapping| Link / Attachment Name|
+|2.|| | |
+|3.|| |
+|4.|| |
+|5.|| |
+|6.|| |
+|7.|| |
+|8.|| |
+|9.|| |
+|10.|| |
