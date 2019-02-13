@@ -26,20 +26,21 @@ Interface approach has been taken to implement the integration with external dev
 4. public List<BufferedImage>  pdfToImages(byte[] pdfBytes) – Method Implementation to convert the pdf document to image format in order to show in the document preview.  
 
  
-### Printer:  
-**Interface Class:**   
-**Abstract Class:** 
-
 ### Web Camera:  
-**Interface Class:MosipWebcamProvider**   
-1. public Webcam connect(int width, int height)  
+**Interface Class:IMosipWebcamService**   
+1. public boolean connect(int width, int height)  
    This method is used to open the web camera (there is device specific implementation for this interface) from the list of webcams with specified device name and specified resolution.  
 **_Parameters:_**  
 width - required width for the camera to be set-up  
 height - required height for the camera to be set-up  
 
-2. public BufferedImage captureImage(Webcam webcam)
-**Abstract Class:**  
+2. public BufferedImage captureImage()  
+   This method captures the image from webcam and returns it. If the webcam is closed or has been already disposed by JVM, it returns null.  
+
+3. public void close()
+   This method is to close the webcam which is opened.
+
+**Abstract Class:**  MosipWebcamServiceImpl
 
 ### GPS:  
 **Interface Class:MosipWebcamProvider**   
