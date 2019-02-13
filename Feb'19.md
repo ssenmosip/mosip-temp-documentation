@@ -39,11 +39,11 @@
 |8.|Pre-registration|Automation Framework|Link|xx|
 |9.|Pre-registration|Developer Documentation|Link|xx|
 |10.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
-|11.|Pre-registration|Tested Code|Link|xx|
-|12.|Pre-registration|Known Issues, Defects and Pending Items|xls Link|xx|
-|13.|Pre-registration|Test Cases|Link|xx|
-|14.|Pre-registration|Test Strategy|Link|xx|
-|15.|Pre-registration|Mindmaps|Link|xx|
-|16.|Pre-registration|Process Flows|Link|xx|
-|17.|Pre-registration|Automation Framework|Link|xx|
-|18.|Pre-registration|Developer Documentation|Link|xx|
+|11.|Kernel|Tested Code|Link|xx|
+|12.|Kernel|Known Issues, Defects and Pending Items|xls Link|xx|
+|13.|Kernel|Test Cases|Link|xx|
+|14.|Kernel|Test Strategy|Link|xx|
+|15.|Kernel|Mindmaps|Link|xx|
+|16.|Kernel|Process Flows|Link|xx|
+|17.|Kernel|Automation Framework|Link|xx|
+|18.|Kernel|Developer Documentation|Link|xx|
