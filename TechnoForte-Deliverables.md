@@ -8,7 +8,7 @@ This page will provide details on the various deliverables planned for TechnoFor
 
 **Contacts:**
 
-|**S.No.**| **Module Name**| **Contact Person**|**E-Mail**|
+|**S.No.**| **Module Name/Purpose**| **Contact Person**|**E-Mail**|
 |:------:|-----|---|---|
 |1.|Pre-registration| xxx | xxx|
 |2.|Registration Client| xxx | xxx |
