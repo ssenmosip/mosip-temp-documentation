@@ -30,12 +30,20 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
-|2.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
+|2.|Pre-registration|Tested Code|Link|xx|
+|3.|Pre-registration|Known Issues, Defects and Pending Items|xls Link|xx|
+|4.|Pre-registration|Test Cases|Link|xx|
+|5.|Pre-registration|Test Strategy|Link|xx|
+|6.|Pre-registration|Mindmaps|Link|xx|
+|7.|Pre-registration|Process Flows|Link|xx|
+|8.|Pre-registration|Automation Framework|Link|xx|
+|9.|Pre-registration|Developer Documentation|Link|xx|
+|10.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
+|11.|Pre-registration|Tested Code|Link|xx|
+|12.|Pre-registration|Known Issues, Defects and Pending Items|xls Link|xx|
+|13.|Pre-registration|Test Cases|Link|xx|
+|14.|Pre-registration|Test Strategy|Link|xx|
+|15.|Pre-registration|Mindmaps|Link|xx|
+|16.|Pre-registration|Process Flows|Link|xx|
+|17.|Pre-registration|Automation Framework|Link|xx|
+|18.|Pre-registration|Developer Documentation|Link|xx|
