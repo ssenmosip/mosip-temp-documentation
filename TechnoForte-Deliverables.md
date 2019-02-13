@@ -5,7 +5,7 @@ This page will provide details on the various deliverables scheduled to be deliv
 4. May'19
 5. Jun'19
 6. [Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)
-7. [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)
+7. [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)
 
 **Contacts:**
 
