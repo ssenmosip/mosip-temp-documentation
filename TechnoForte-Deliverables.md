@@ -10,13 +10,11 @@ This page will provide details on the various deliverables planned for TechnoFor
 
 |**S.No.**| **Module Name/Purpose**| **E-Mail: To**|**E-Mail: CC**|
 |:------:|-----|---|---|
-|1.|Kernel|John.Panneerselvam@mindtree.com, Raj.Jha@mindtree.com, Amandeep.Khanuja@mindtree.com| Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, Shwetha.Mruthyunjaya@mindtree.com, Resham.Chugani@mindtree.com, IIITB|
-|2.|Pre-registration|Rudra.Tripathy@mindtree.com, Shashank.Agrawal@mindtree.com, Vyas.Vemuri@mindtree.com|Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, Shwetha.Mruthyunjaya@mindtree.com, Resham.Chugani@mindtree.com, IIITB|
-|3.|Registration Client| TBA | TBA |
-|4.|Registration Processor| TBA | TBA |
-|5.|ID-Authentication| TBA | TBA |
-|6.|Deployment Setup|Swati.Raj2@mindtree.com, Ajit.Singh3@mindtree.com|Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, IIITB|
+|1.|Deployment Setup|Swati.Raj2@mindtree.com, Ajit.Singh3@mindtree.com|Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, IIITB|
+|2.|Kernel|John.Panneerselvam@mindtree.com, Raj.Jha@mindtree.com, Amandeep.Khanuja@mindtree.com| Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, Shwetha.Mruthyunjaya@mindtree.com, Resham.Chugani@mindtree.com, IIITB|
+|3.|Pre-registration|Rudra.Tripathy@mindtree.com, Shashank.Agrawal@mindtree.com, Vyas.Vemuri@mindtree.com|Shravan.Poorigali@mindtree.com, Romila.Mattu@mindtree.com, Shwetha.Mruthyunjaya@mindtree.com, Resham.Chugani@mindtree.com, IIITB|
+|4.|Registration Client| TBA | TBA |
+|5.|Registration Processor| TBA | TBA |
+|6.|ID-Authentication| TBA | TBA |
 |7.|| |
 |8.|| |
-|9.|| |
-|10.|| |
