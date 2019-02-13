@@ -11,13 +11,37 @@ Interface approach has been taken to implement the integration with external dev
 4. GPS
 
 ### Scanner: 
-Interface Class:
+**Interface Class: IMosipDocumentScannerService**  
+   1. public Boolean isConnected()  -Method declaration which has to be implemented based on  Device/Platform to check the scanner connection availability.
+   
+   2. public BufferedImage scan() -  Method declaration which has to be implemented based on  Device/Platform to scan the document from the scanner device.  
+
+**Abstract Class: DocumentScannerService**  
+1. public byte[] asPDF(List<BufferedImage> bufferedImages) –  Method Implementation to convert the captured scanned document files into pdf format.  
+
+2. public byte[] asImage(List<BufferedImage> bufferedImages) - Method Implementation to convert the captured scanned document files into image format.  
+
+3. public byte[] getImageBytesFromBufferedImage(BufferedImage bufferedImage) – Method Implementation to get the byte[] from BuffredImage object.  
+
+4. public List<BufferedImage>  pdfToImages(byte[] pdfBytes) – Method Implementation to convert the pdf document to image format in order to show in the document preview.  
+
  
-Abstract Class:
-
-
 ### Printer:  
+**Interface Class:**   
+**Abstract Class:** 
 
 ### Web Camera:  
+**Interface Class:MosipWebcamProvider**   
+1. public Webcam connect(int width, int height)  
+   This method is used to open the web camera (there is device specific implementation for this interface) from the list of webcams with specified device name and specified resolution.  
+**_Parameters:_**  
+width - required width for the camera to be set-up  
+height - required height for the camera to be set-up  
+
+2. public BufferedImage captureImage(Webcam webcam)
+**Abstract Class:**  
 
 ### GPS:  
+**Interface Class:MosipWebcamProvider**   
+**Abstract Class:**  
+
