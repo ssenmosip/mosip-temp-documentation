@@ -4,7 +4,7 @@
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
-|1.|High Level Design Document|Sent by email to Arun on 05Feb'19|
+|1.|High Level Design Document|E-Mail Link?|Sent by email to Arun on 05Feb'19|
 
 **Date: 15 Feb 2019**
 
