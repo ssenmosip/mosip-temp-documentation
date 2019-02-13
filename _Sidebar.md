@@ -38,4 +38,4 @@
 * [Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)
 * [TechnoForte Deliverables](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables)
   * [Feb'19](https://github.com/mosip/mosip/wiki/Feb'19)
-  * [Component-Feature to JIRA Mapping](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)
+  * [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)
