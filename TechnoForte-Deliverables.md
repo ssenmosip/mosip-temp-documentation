@@ -1,35 +1,6 @@
-# Sample Format
-Date: 08 Feb 2019
-
-Module: Pre-registration, Kernel
-
-|**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
-|:------:|-----|---|---|
-|1.|High Level Design Document| Link / Attachment Name|
-|2.|| | |
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
-
-
-Date: 15 Feb 2019
-
-Module: Pre-registration, Kernel
-
-|**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
-|:------:|-----|---|---|
-|1.|High Level Design Document| Link / Attachment Name|
-|2.|| | |
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
+This page will provide details on the various deliverables planned for TechnoForte, month-wise: 
+1. Feb'19
+2. Mar'19
+3. Apr'19
+4. May'19
+5. Jun'19
