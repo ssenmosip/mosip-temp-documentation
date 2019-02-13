@@ -1,4 +1,3 @@
-# Device Integration approach:
 
 This document detailed out the design approach to integrate with the list of devices used in the MOSIP platform.
 
