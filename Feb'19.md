@@ -40,7 +40,7 @@
 |9.|Pre-registration|Automation Framework|Link||
 |10.|Pre-registration|Developer Documentation|Link||
 |11.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
-|12.|Kernel|Platform Document and Functional Requirement Specification|[Link](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
+|12.|Kernel|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |13.|Kernel|Tested Code|Link||
 |14.|Kernel|Known Issues, Defects and Pending Items|xls Link||
 |15.|Kernel|Test Cases|Link||
