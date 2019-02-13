@@ -52,7 +52,7 @@
     * [9.2.1 Kernel](#921kernel)
     * [9.2.2 ID Repository](#922id-repository)
 * [10. HOW TO GUIDE](#10-how-to-guide-tbd)
-  * [[Getting Started Guide](https://github.com/mosip/mosip/wiki/Getting-Started)](#101getting-started-guide)
+  * [Getting Started Guide](https://github.com/mosip/mosip/wiki/Getting-Started)]
   * [10.2 Developer Document](#102developer-document)
 * [11. INFRASTRUCTURE RECOMMENDATIONS](#11--inrfastructure-recommendations)
 * [12. GLOSSARY](#12--glossary)
