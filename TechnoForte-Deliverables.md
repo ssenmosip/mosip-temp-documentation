@@ -4,7 +4,8 @@ This page will provide details on the various deliverables planned for TechnoFor
 3. Apr'19
 4. May'19
 5. Jun'19
-6. Component-Feature-JIRA ID Mapping
+6. [Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)
+7. [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)
 
 **Contacts:**
 
