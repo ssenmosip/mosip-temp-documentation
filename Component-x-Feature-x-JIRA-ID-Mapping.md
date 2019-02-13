@@ -1,4 +1,4 @@
-**Kernel**
+**Kernel:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -13,7 +13,7 @@
 |9.|| |
 |10.|| |
 
-**Pre-registration**
+**Pre-registration:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -28,7 +28,7 @@
 |9.|| |
 |10.|| |
 
-**Registration Client**
+**Registration Client:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -43,7 +43,7 @@
 |9.|| |
 |10.|| |
 
-**Registration Processor**
+**Registration Processor:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -58,7 +58,7 @@
 |9.|| |
 |10.|| |
 
-**ID-Authentication**
+**ID-Authentication:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
