@@ -1,7 +1,5 @@
-# Sample Format
-Date: 08 Feb 2019
-
-Module: Pre-registration, Kernel
+**Date: 08 Feb 2019**
+**Module: Pre-registration, Kernel**
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
@@ -17,9 +15,8 @@ Module: Pre-registration, Kernel
 |10.|| |
 
 
-Date: 15 Feb 2019
-
-Module: Pre-registration, Kernel
+**Date: 15 Feb 2019**
+**Module: Pre-registration, Kernel**
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
