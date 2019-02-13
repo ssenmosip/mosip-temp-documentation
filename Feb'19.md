@@ -21,7 +21,7 @@
 |7.|Kernel|API Specifications Document|Link||
 |8.|Kernel|Getting Started Guide|Link||
 |9.|Kernel|Code to Explore|Link||
-|10.|Kernel|Known Issues, Defects and Pending Items|xls Link|xx|
+|10.|Kernel|Known Issues, Defects and Pending Items|xls Link||
 
 **Date: 25 Feb 2019**
 
