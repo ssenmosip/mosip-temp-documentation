@@ -4,7 +4,7 @@ This document detailed out the design approach to integrate with the list of dev
 Interface approach has been taken to implement the integration with external devices.  
 The interface should have the required method to communicate with the external devices.  
 An Abstract class has been defined to implement the common functionality and it should be extended by Vendor specific implementation class.
-The device vendor's specific implementation class should implement the required methods using provided libraries. 
+The device vendor's specific implementation class should extend the Abstract class and implement the required methods using available libraries. 
 
 ## Devices:
 1. Scanner
@@ -13,6 +13,8 @@ The device vendor's specific implementation class should implement the required 
 4. GPS
 
 ### Scanner: 
+***
+
 **Interface: IMosipDocumentScannerService**  
    1. public Boolean isConnected()  -  to check the scanner connection availability.
    
@@ -27,11 +29,14 @@ The device vendor's specific implementation class should implement the required 
 
 4. public List<BufferedImage>  pdfToImages(byte[] pdfBytes) - to convert the pdf document to image format in order to show in the document preview.  
 
-### Printer: 
+### Printer:
+***
  Use the JavaFx provided print functionality to interact with printer directly from UI layer. No additional interface is required. 
  javafx.scene.web.WebView.getEngine().print(PrinterJob)
 
-### Web Camera:  
+### Web Camera: 
+***
+ 
 **Interface:IMosipWebcamService**   
 1. public boolean connect(int width, int height)  
    It is used to open the connection with web camera with the specified resolution provided in the input.  
@@ -45,6 +50,8 @@ The device vendor's specific implementation class should implement the required 
 **Abstract Class:**  MosipWebcamServiceImpl
 
 ### GPS:  
+***
+
 **Interface:IMosipGPSService**   
 1. public String getComPortGPSData (String comPortNo, int portReadWaitTime) - it returns GPS signal in standard format.
 
