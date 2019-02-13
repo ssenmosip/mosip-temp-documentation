@@ -1,11 +1,14 @@
-**Date: 08 Feb 2019** (Sent to Arun)
+**Date: 08 Feb 2019** 
+
 **Module: Pre-registration, Kernel**
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
 |1.|High Level Design Document|Link|Sent by email to Arun on 05Feb'19|
 
+
 **Date: 15 Feb 2019**
+
 **Module: Pre-registration, Kernel**
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
@@ -19,6 +22,7 @@
 |7.|Kernel|API Specifications Document|Link||
 |8.|Kernel|Code Drop|Link||
 |9.|Kernel|Known Issues, Defects and Pending Items|xls Link||
+
 
 **Date: 28 Feb 2019**
 
