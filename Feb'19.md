@@ -32,7 +32,7 @@
 |:------:|-----|---|---|---|
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
 |2.|Pre-registration|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
-|3.|Pre-registration|Tested Code|Link||
+|3.|Pre-registration|Tested Code|Link|Exit Criteria: |
 |4.|Pre-registration|Known Issues, Defects and Pending Items|xls Link||
 |5.|Pre-registration|Test Cases|Link||
 |6.|Pre-registration|Test Strategy|Link||
@@ -41,7 +41,7 @@
 |10.|Pre-registration|Developer Documentation|Link||
 |11.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-to-JIRA-Mapping)|WIP|
 |12.|Kernel|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
-|13.|Kernel|Tested Code|Link||
+|13.|Kernel|Tested Code|Link|Exit Criteria: |
 |14.|Kernel|Known Issues, Defects and Pending Items|xls Link||
 |15.|Kernel|Test Cases|Link||
 |16.|Kernel|Test Strategy|Link||
