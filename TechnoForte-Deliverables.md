@@ -15,7 +15,7 @@ This page will provide details on the various deliverables planned for TechnoFor
 |3.|Registration Processor| xxx | xxx |
 |4.|ID-Authentication| xxx | xxx |
 |5.|Kernel| xxx | xxx |
-|6.|| |
+|6.|Deployment Setup|xxx|xxx|
 |7.|| |
 |8.|| |
 |9.|| |
