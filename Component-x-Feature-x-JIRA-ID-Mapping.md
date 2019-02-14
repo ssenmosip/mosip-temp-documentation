@@ -17,7 +17,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|Pre-Registration Application Manager|Provides (Create\modify\Delete)demographic data and documents|MOS-13344,MOS-13682, MOS-14511, MOS-623, MOS-626, MOS-628, MOS-792, MOS-793, MOS-794, MOS-797, MOS-805, MOS-806|
+|1.|Pre-Registration Application Manager|Provide Demographic Data and Upload Documents (Includes: Create\Modify\Delete)|MOS-13344,MOS-13682, MOS-14511, MOS-623, MOS-626, MOS-628, MOS-792, MOS-793, MOS-794, MOS-797, MOS-805, MOS-806|
 |2.|Login|Log in to the pre-reg system with mobile or email and OTP to access the pre-reg system|MOS-13173, MOS-980, MOS-17, MOS-26|
 |3.|Logout|Log out of the pre-reg system|MOS-10485, MOS-205|
 |4.|Acknowledgement|Generate acknowledgement for successful pre-registration|MOS-13143, MOS-812|
