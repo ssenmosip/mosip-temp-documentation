@@ -14,14 +14,14 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|NA|Getting Started Guide|[PD-Section 10.1](https://github.com/mosip/mosip/wiki/Getting-Started)||
-|2.|Pre-registration|High Level Design Document|Link||
-|3.|Pre-registration|API Specifications Document|Link||
-|4.|Pre-registration|Code Drop|Link||
-|5.|Pre-registration|Known Issues, Defects and Pending Items|Link to word doc||
-|6.|Kernel|High Level Design Document|Link||
-|7.|Kernel|API Specifications Document|Link||
-|8.|Kernel|Code Drop|Link||
-|9.|Kernel|Known Issues, Defects and Pending Items|Link to word doc||
+|2.|Pre-registration|High Level Design Document|Link|Link to be updated by Rajath by 14Feb EoD|
+|3.|Pre-registration|API Specifications Document|Link|Link to be updated by Rajath by 14Feb EoD|
+|4.|Pre-registration|Code Drop|Link|Branch to be clarified with Romila/Shravan|
+|5.|Pre-registration|Known Issues, Defects and Pending Items|Link to word doc|Awaiting template from Romila|
+|6.|Kernel|High Level Design Document|Link|Link to be updated by Raj by 14Feb EoD|
+|7.|Kernel|API Specifications Document|Link|Link to be updated by Raj by 14Feb EoD|
+|8.|Kernel|Code Drop|Link|Branch to be clarified with Romila/Shravan|
+|9.|Kernel|Known Issues, Defects and Pending Items|Link to word doc|Awaiting template from Romila|
 
 
 **Date: 28 Feb 2019**
