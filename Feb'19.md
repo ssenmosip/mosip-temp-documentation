@@ -17,11 +17,11 @@
 |2.|Pre-registration|High Level Design Document|Link|Link to be updated by Rajath by 14Feb EoD|
 |3.|Pre-registration|API Specifications Document|Link|Link to be updated by Rajath by 14Feb EoD|
 |4.|Pre-registration|Code Drop|Link|Branch tag - 0.8.6 - Link to be updated by Rajath by 14Feb EoD|
-|5.|Pre-registration|Known Issues, Defects and Pending Items|Link to word doc|Awaiting template from Romila|
+|5.|Pre-registration|Known Defects and Pending Items|Link to word doc|Awaiting template from Romila|
 |6.|Kernel|High Level Design Document|Link|Link to be updated by Raj by 14Feb EoD|
 |7.|Kernel|API Specifications Document|Link|Link to be updated by Raj by 14Feb EoD|
 |8.|Kernel|Code Drop|Link|Branch tag - 0.8.6 - Link to be updated by Raj by 14Feb EoD|
-|9.|Kernel|Known Issues, Defects and Pending Items|Link to word doc|Awaiting template from Romila|
+|9.|Kernel|Known Defects and Pending Items|Link to word doc|Awaiting template from Romila|
 
 
 **Date: 28 Feb 2019**
@@ -33,7 +33,7 @@
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|WIP|
 |2.|Pre-registration|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |3.|Pre-registration|Tested Code|Link|Exit Criteria: |
-|4.|Pre-registration|Known Issues, Defects and Pending Items|Link to word doc||
+|4.|Pre-registration|Known Defects and Pending Items|Link to word doc||
 |5.|Pre-registration|Test Cases|Link||
 |6.|Pre-registration|Test Strategy|Link||
 |7.|Pre-registration|Mindmaps|Link||
@@ -42,7 +42,7 @@
 |11.|Kernel|Component-Feature-JIRA ID Mapping|[Link](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|WIP|
 |12.|Kernel|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |13.|Kernel|Tested Code|Link|Exit Criteria: |
-|14.|Kernel|Known Issues, Defects and Pending Items|Link to word doc||
+|14.|Kernel|Known Defects and Pending Items|Link to word doc||
 |15.|Kernel|Test Cases|Link||
 |16.|Kernel|Test Strategy|Link||
 |17.|Kernel|Mindmaps|Link||
