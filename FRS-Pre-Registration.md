@@ -33,17 +33,7 @@
     * [Get appointment for the day
     * [Retrieve Application data by PRID
     * [Update appointment status
-* 
-** List of configurable parameters
-Parameter - Possible values - Behavior
-Default Language (Based on languages supported) Compulsory to have data in this language in the application either as preferred language or the second language
-
-
-User Interface
-* 
-
-
-The pre –reg module allows a user to log in and book an appointment for registration.
+  * [List of configurable parameters
 Pre-registration Overview
 UI and APIs
 API capabilities 
@@ -60,6 +50,16 @@ Multiple documents for each applications(documents corresponds to the documents 
 Book appointment for one or more applicants
 Find the convenient registration center per appointment
 Picks time slot 
+
+
+
+
+
+
+
+
+
+
 Overview
 Features
 * Login / Creating an user account
