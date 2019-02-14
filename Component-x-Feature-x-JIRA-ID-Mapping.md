@@ -37,36 +37,36 @@
 |33.|PRID Generator|Generates Pre-Registration ID (PRID)|MOS-735, MOS-1070, MOS-15404|
 |34.|VID Generator|Generates Virtual ID (VID)|MOS-734, MOS-1070, MOS-15404|
 |35.|Token ID Generator|Generates Token ID|MOS-1103, MOS-8321, MOS-12898, MOS-15404|
-|36.|Master Data Management|Create/Update/Delete - Registration Center Type|MOS-539, MOS-10558,MOS-12076|
-|37.|Master Data Management|Registration Center|Create/Update/Delete - Registration Center|MOS-8220, MOS-8221, MOS-8565, MOS-8236, MOS-8244, MOS-9529, MOS-9722, MOS-10560, MOS-11924,MOS-12076|
+|36.|Master Data Management|Create/Read/Update/Delete - Registration Center Type|MOS-539, MOS-10558,MOS-12076|
+|37.|Master Data Management|Create/Read/Update/Delete - Registration Center|MOS-8220, MOS-8221, MOS-8565, MOS-8236, MOS-8244, MOS-9529, MOS-9722, MOS-10560, MOS-11924,MOS-12076|
 |38.|Master Data Management|List of Machine Types|MOS-547,MOS-12076|
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-|39.|Master Data Management| | |
-
-
+|39.|Master Data Management|List of Machine Specificaions|MOS-551, MOS-10565,MOS-12076|
+|40.|Master Data Management|List of Machines|MOS-8222, MOS-8229, MOS-9723, MOS-10566,MOS-12076|
+|41.|Master Data Management|Mappings of Registration Center, Machine and User Mappings|MOS-8232, MOS-10306, MOS-10589,MOS-12076|
+|42.|Master Data Management|Create/Read/Update/Delete - Location Hierarchy|MOS-8233, MOS-8234, MOS-550, MOS-12155, MOS-13943,MOS-12076|
+|43.|Master Data Management|List of Holidays|MOS-8235, MOS-549, MOS-10591,MOS-12076|
+|44.|Master Data Management|Create/Read/Update/Delete - Biometric Authentication Type|MOS-8245, MOS-9622,MOS-12076|
+|45.|Master Data Management|Create/Read/Update/Delete - Biometric Attirbute Type|MOS-8246, MOS-9623,MOS-12076|
+|46.|Master Data Management|Create/Read/Update/Delete - Gender|MOS-8266, MOS-9624, MOS-988, MOS-13944,MOS-12076|
+|47.|Master Data Management|Document Category|MOS-8269, MOS-9683, MOS-10567,MOS-12076|
+|48.|Master Data Management|Document Type|MOS-9684, MOS-10569,MOS-12076|
+|49.|Master Data Management|Document Category - Document Type Mapping|MOS-8270, MOS-9698, MOS-585, MOS-12060, MOS-13962,MOS-12076|
+|50.|Master Data Management|List of Devices|MOS-8263, MOS-9695, MOS-12057,MOS-12076|
+|51.|Master Data Management|List of Device Specifications|MOS-8264, MOS-9788, MOS-10554,MOS-12076|
+|52.|Master Data Management|List of Device Types|MOS-9787, MOS-10563,MOS-12076|
+|53.|Master Data Management|List of Languages|MOS-8265, MOS-1075, MOS-10554,MOS-12076|
+|54.|Master Data Management|List of Titles|MOS-8267, MOS-9696, MOS-992,MOS-12076|
+|55.|Master Data Management|Template File Format|MOS-9687, MOS-10569,MOS-12076|
+|56.|Master Data Management|List of Template Types|MOS-586,MOS-12076|
+|57.|Master Data Management|List of Templates|MOS-8271, MOS-995, MOS-10590, MOS-15461,MOS-12076|
+|58.|Master Data Management|List of Blacklisted Words|MOS-8268, MOS-9697, MOS-1054,MOS-12076|
+|59.|Master Data Management|List of Reason Categories|MOS-9689,MOS-12076|
+|60.|Master Data Management|List of Rejection Reasons|MOS-8551, MOS-9690,MOS-12076|
+|61.|Master Data Management|List of Applications|MOS-8888, MOS-9688,MOS-12076|
+|62.|Master Data Management|List of ID Types|MOS-8247, MOS-9691,MOS-12076|
+|63.|Master Data Management|Mappings of Registration Center and Machine|MOS-9728, MOS-9712, MOS-1053,MOS-12076|
+|64.|Master Data Management|Mappings of Registration Center and Device|MOS-9729, MOS-9712, MOS-10561, MOS-12058,MOS-12076|
+|65.|Master Data Management|Mappings of Registration Center, Machine and Device|MOS-9730, MOS-9712, MOS-10564,MOS-12076|
 
 
 **Pre-registration:**
