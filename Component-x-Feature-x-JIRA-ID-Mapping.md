@@ -62,14 +62,27 @@
 |:------:|-----|---|---|
 |1.|RC Setup & Update|Install/Update and launch the Registration-client software|MOS-13527, MOS-67, MOS-61, MOS-14|
 |2.|Sync| | |
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
+|3.|Login| | |
+|4.|Authentication| | |
+|5.|Authorization| | |
+|6.|Device Onboarding| | |
+|7.|User Registration| | |
+|8.|Logout| | |
+|9.|New Registration| | |
+|10.|Translation| | |
+|11.|Transliteration| | |
+|12.|EoD Process| | |
+|13.|Disk Space Checker| | |
+|14.|Acknowledgement| | |
+|15.|Packet Creation| | |
+|16.|Data Clean Up| | |
+|17.|Notification| | |
+|18.|Packet Exporter| | |
+|19.|Security Scan| | |
+|20.|UIN Update| | |
+|21.|Registration Reports| | |
+|22.|Security| | |
+|23.|VDM| | |
 
 **Registration Processor:** 
 
