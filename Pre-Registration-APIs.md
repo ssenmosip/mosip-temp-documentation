@@ -57,28 +57,32 @@ Create new pre-registration by demographic details or update demographic details
 #### Request Body Parameters
 Name | Required | Description | Example
 -----|----------|-------------|--------
-preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
-createdBy |Yes|created user of the application|987654321
-createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492Z
-updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
-updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492Z)</li></ul>
-langCode |Yes|primary language code| ENG
-demographicDetails |Yes|demographicDetails of the applicant|
-demographicDetails.identity |Yes|identity of the applicant|
-demographicDetails.identity.gender |Yes|gender of the applicant|
-demographicDetails.identity.city |Yes|city of the applicant|
-demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
-demographicDetails.identity.fullName |Yes|full name of the applicant|
-demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application|
-demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
-demographicDetails.identity.email |Yes|email Id of the applicant|
-demographicDetails.identity.province |Yes|province of the applicant|
-demographicDetails.identity.postalCode |Yes|postal code of the applicant|
-demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
-demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
-demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
-demographicDetails.identity.region |Yes|region of the applicant|
-demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
+id |Yes|Id of the application|mosip.pre-registration.demographic.create
+ver |Yes|version of the application|1.0
+reqTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
+request.createdBy |Yes|created user of the application|987654321
+request.createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492Z
+request.updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
+request.updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492Z)</li></ul>
+request.langCode |Yes|primary language code| ENG
+request.demographicDetails |Yes|demographicDetails of the applicant|
+request.demographicDetails.identity |Yes|identity of the applicant|
+request.demographicDetails.identity.gender |Yes|gender of the applicant|
+request.demographicDetails.identity.city |Yes|city of the applicant|
+request.demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
+request.demographicDetails.identity.fullName |Yes|full name of the applicant|
+request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application|
+request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
+request.demographicDetails.identity.email |Yes|email Id of the applicant|
+request.demographicDetails.identity.province |Yes|province of the applicant|
+request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
+request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
+request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
+request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
+request.demographicDetails.identity.region |Yes|region of the applicant|
+request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
 
 #### Resource details
 Resource Details | Description
@@ -88,7 +92,6 @@ Requires Authentication | Yes
 
 #### Request:
 ```JSON
-id,ver and reqTime are optional and NOT consumed. No validation is implemented for these params.
 {
   "id": "mosip.pre-registration.demographic.create",
   "ver": "1.0",
