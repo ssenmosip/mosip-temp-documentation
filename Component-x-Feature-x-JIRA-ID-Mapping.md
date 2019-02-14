@@ -28,8 +28,8 @@ MOS-13682, MOS-14511, MOS-623, MOS-626, MOS-628, MOS-792, MOS-793, MOS-794, MOS-
 |8.|Translation|Translation of the labels/static content as per the pre-configured default language for a Country|MOS-666|
 |9.|Transliteration|Transliteration of the values entered as per the default language chosen by the individual|MOS-667|
 |10.|PRID Generator|Generates a unique Pre-registration ID per applicant|MOS-1072|
-|11.|Pre-Registration Data Sync|Synchronize the Pre-registration data with the Registration-Client and 
-synchronize Status of PRIDs with Registration Processor|MOS-1999, MOS-668|
+|11.|Pre-Registration Data Sync|Synchronize the Pre-registration data with the Registration-Client|MOS-1999| 
+|12.|Pre-Registration Data Sync|Synchronize Status of PRIDs with Registration Processor|MOS-668|
 
 **Registration Client:**
 
