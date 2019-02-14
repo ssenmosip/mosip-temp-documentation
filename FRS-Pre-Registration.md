@@ -1,7 +1,7 @@
 ## Table Of Content
 
 * [Overview
-* [Features
+* [1. Features
   * [Login / Creating an user account]()
     * [Login using email]()
     * [Login using phone number
@@ -34,6 +34,8 @@
     * [Retrieve Application data by PRID
     * [Update appointment status
   * [List of configurable parameters
+
+
 Pre-registration Overview
 UI and APIs
 API capabilities 
