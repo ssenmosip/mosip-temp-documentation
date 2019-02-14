@@ -5,7 +5,7 @@ Architecture and tech stack related tracked items go here. This includes develop
 ## Deployment
 
 
-[Test](mosip/mosip/wiki/FRS-Test)
+[Test](mosip/mosip/wiki/FRS_Test)
 
 # Requirements
 Open requirement issues go here
