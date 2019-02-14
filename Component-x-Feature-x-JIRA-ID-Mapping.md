@@ -60,8 +60,8 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|xxx|xxx|MOS-xxx|
-|2.|| | |
+|1.|RC Setup & Update|Install/Update and launch the Registration-client software|MOS-13527, MOS-67, MOS-61, MOS-14|
+|2.|Sync| | |
 |3.|| |
 |4.|| |
 |5.|| |
