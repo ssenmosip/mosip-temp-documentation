@@ -37,7 +37,37 @@
 |33.|PRID Generator|Generates Pre-Registration ID (PRID)|MOS-735, MOS-1070, MOS-15404|
 |34.|VID Generator|Generates Virtual ID (VID)|MOS-734, MOS-1070, MOS-15404|
 |35.|Token ID Generator|Generates Token ID|MOS-1103, MOS-8321, MOS-12898, MOS-15404|
-|36.|Master Data Management|Provides functionality across MOSIP to read Master Data|MOS-958, MOS-8220, MOS-8221, MOS-8222, MOS-8229, MOS-8232, MOS-8233, MOS-8234, MOS-8235, MOS-8565, MOS-8236, MOS-8244, MOS-8245, MOS-8246, MOS-8266, MOS-8269, MOS-8270, MOS-8263, MOS-8264, MOS-8265, MOS-8267, MOS-8271, MOS-8268, MOS-8551, MOS-8888, MOS-8247, MOS-9529, MOS-11924, MOS-12057, MOS-12058, MOS-12155, MOS-12860, MOS-13943, MOS-13944, MOS-13982, MOS-12060, MOS-13950, MOS-1075, MOS-539, MOS-9683, MOS-9684, MOS-9787, MOS-9788, MOS-9687, MOS-9688, MOS-9689, MOS-9690, MOS-9691, MOS-9942, MOS-9722, MOS-547, MOS-551, MOS-9723, MOS-550, MOS-549, MOS-9622, MOS-9623, MOS-9624, MOS-9695, MOS-9697, MOS-9698, MOS-586, MOS-995, MOS-9728, MOS-9729, MOS-9730, MOS-9696, MOS-10306, MOS-10554, MOS-10562, MOS-10563, MOS-10565, MOS-10566, MOS-10567, MOS-10569, MOS-10573, MOS-10590, MOS-10591, MOS-10593, MOS-988, MOS-992, MOS-1054, MOS-9712, MOS-10561, MOS-1053, MOS-10564, MOS-10558, MOS-10589, MOS-585, MOS-10560, MOS-12076, MOS-12068, MOS-12060, MOS-13951, MOS-13962|
+|36.|Master Data Management|Create/Update/Delete - Registration Center Type|MOS-539, MOS-10558,MOS-12076|
+|37.|Master Data Management|Registration Center|Create/Update/Delete - Registration Center|MOS-8220, MOS-8221, MOS-8565, MOS-8236, MOS-8244, MOS-9529, MOS-9722, MOS-10560, MOS-11924,MOS-12076|
+|38.|Master Data Management|List of Machine Types|MOS-547,MOS-12076|
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+|39.|Master Data Management| | |
+
+
+
 
 **Pre-registration:**
 
