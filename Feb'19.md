@@ -14,8 +14,8 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|NA|Getting Started Guide|[PD-Section 10.1](https://github.com/mosip/mosip/wiki/Getting-Started)||
-|2.|Pre-registration|High Level Design Document|Link|Link to be updated by Rajath by 14Feb EoD|
-|3.|Pre-registration|API Specifications Document|Link|Link to be updated by Rajath by 14Feb EoD|
+|2.|Pre-registration|High Level Design Document|[Pre-Registration HLD](https://github.com/mosip/mosip/wiki/Pre-Registration)||
+|3.|Pre-registration|API Specifications Document|[Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)|Link to be updated by Rajath by 14Feb EoD|
 |4.|Pre-registration|Code Drop|Link|Branch tag - 0.8.6 - Link to be updated by Rajath by 14Feb EoD|
 |5.|Pre-registration|Known Defects and Pending Items|Link to word doc|Awaiting template from Romila|
 |6.|Kernel|High Level Design Document|[Kernel HLD](https://github.com/mosip/mosip/wiki/Kernel) | |
