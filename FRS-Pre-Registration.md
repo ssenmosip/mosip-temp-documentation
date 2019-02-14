@@ -1,5 +1,10 @@
 ## Table Of Content
 The pre –reg module allows a user to log in and book an appointment for registration.
+Pre-registration Overview
+UI and APIs
+API capabilities 
+User account creation
+creating an application
 * User identifies himself\herself through email or phone number
 * Create an application
 Provide data in language of preference(Data collected is as per ID document)
@@ -8,6 +13,12 @@ Create one\multiple applications
 * Upload\attach documents
 Multiple documents for each applications(documents corresponds to the documents defined in the configuration)
 * Books an appointment
+Book appointment for one or more applicants
+Find the convenient registration center per appointment
+Picks time slot 
+>>>>>>>>>>>>>>>>>>>>>>
+Body
+
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 * [1. Pre-Registration](#1-pre-registration)
