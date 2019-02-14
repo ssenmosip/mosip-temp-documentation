@@ -4,14 +4,40 @@
 |:------:|-----|---|---|
 |1.|Crypto Services|Provides services to Encrypt/Decrypt Data|MOS-38, MOS-40, MOS-787, MOS-989, MOS-9284|
 |2.|Key Management|Provides Public/PrivateKeys throughout MOSIP for Encryption/Decryption|MOS-789, OS-1910, MOS-9301, MOS-13359|
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
+|3.|UIN GenerationGenerates UIN|MOS-425, MOS-9738 |
+|4.|Audit Manager|Provides service across MOSIP to store Audit logs|MOS-8, MOS-441, MOS-829, MOS-1910, MOS-12903|
+|5.|OTP Manager|Generates and Validates OTP as per the defined policies|MOS-33, MOS-34, MOS-35, MOS-36, MOS-423, MOS-991, MOS-1056, MOS-1985, MOS-5486|
+|6.|OTP Notification Service|Generates an OTP and sends Notification to a recipient|MOS-8230|
+|7.|Email Notification|Generates and sends an Email using a third party vendor|MOS-973|
+|8.|SMS Notification|Generates and sends an SMS using a third party vendor|MOS-961|
+|9.|Key Generator|Generates Key pair for Encryption and Decryption|MOS-788, MOS-1431|
+|10.|Data Mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|MOS-957|
+|11.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|MOS-960, MOS-12900|
+|12.|Template Merger|Merges a pre-configured template with dynamic values|MOS-786|
+|13.|QR Code Generator|This utility enables QR code generation for pre-registration, registration and UIN acknowledgment|MOS-979|
+|14.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|MOS-31, MOS-32, MOS-14007|
+|15.|Log Manager|Enable Generation and storage of logs in a configured location|MOS-10, MOS-39, MOS-1104, MOS-13742|
+|16.|Static PIN Validator|Performs a pattern validation on Static PIN Validator|MOS-12897|
+|17.|Transliteration|Performs Transliteration from one language to another|MOS-975|
+|18.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|MOS-1028|
+|19.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|MOS-1029|
+|20.|UIN Validator|Performs a pattern validation on UIN|MOS-595, MOS-9743, MOS-15406|
+|21.|PRID Validator|Performs a pattern validation on Pre-Registration ID (PRID)|MOS-1007, MOS-12093|
+|22.|VID Validator|Performs a pattern validation on Virtual ID (VID)|MOS-714|
+|23.|RID Validator|Performs a pattern validation on Registration ID (RID)|MOS-1591, MOS-10415, MOS-12093, MOS-13172|
+|24.|TSP ID Validator|Performs a pattern validation on TSP ID|MOS-1057|
+|25|MOSIP Utilities|Exception Framework, Calendar Utility, Checksum Utility, Crypto Utility, Date Utility, File Utility, Hash Utility, HMAC Utility, Json Utility, Math Utility, String Utility, UUID Utility|MOS-9, MOS-18, MOS-19, MOS-20, MOS-21, MOS-22, MOS-23, MOS-28, MOS-29, MOS-987, MOS-1986, MOS-1988|
+|26.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|MOS-994, MOS-997, MOS-996, MOS-12079, MOS-12944, MOS-12945, MOS-12946, MOS-12902, MOS-12889, MOS-13945, MOS-13976, MOS-15408|
+|27.|License Key Manager|Enables a User to Generate and Map License Keys to TSP and enables TSP to fetch permissions for a particular License Key|MOS-13094,MOS-14005|
+|28.|Authorization|Enable MOSIP to Authorize requests|MOS-15402|
+|29.|RID Generator|Generates Registration ID (RID)|MOS-431, MOS-5191, MOS-12082, MOS-13171|
+|30.|Machine ID Generator|Generates Machine ID|MOS-9711|
+|31.|Registration Center ID Generator|Generates Registration Center ID|MOS-1102|
+|32.|TSP ID Generator|Generates TSP ID|MOS-1058,MOS-10220|
+|33.|PRID Generator|Generates Pre-Registration ID (PRID)|MOS-735, MOS-1070, MOS-15404|
+|34.|VID Generator|Generates Virtual ID (VID)|MOS-734, MOS-1070, MOS-15404|
+|35.|Token ID Generator|Generates Token ID|MOS-1103, MOS-8321, MOS-12898, MOS-15404|
+|36.|Master Data Management|Provides functionality across MOSIP to read Master Data|MOS-958, MOS-8220, MOS-8221, MOS-8222, MOS-8229, MOS-8232, MOS-8233, MOS-8234, MOS-8235, MOS-8565, MOS-8236, MOS-8244, MOS-8245, MOS-8246, MOS-8266, MOS-8269, MOS-8270, MOS-8263, MOS-8264, MOS-8265, MOS-8267, MOS-8271, MOS-8268, MOS-8551, MOS-8888, MOS-8247, MOS-9529, MOS-11924, MOS-12057, MOS-12058, MOS-12155, MOS-12860, MOS-13943, MOS-13944, MOS-13982, MOS-12060, MOS-13950, MOS-1075, MOS-539, MOS-9683, MOS-9684, MOS-9787, MOS-9788, MOS-9687, MOS-9688, MOS-9689, MOS-9690, MOS-9691, MOS-9942, MOS-9722, MOS-547, MOS-551, MOS-9723, MOS-550, MOS-549, MOS-9622, MOS-9623, MOS-9624, MOS-9695, MOS-9697, MOS-9698, MOS-586, MOS-995, MOS-9728, MOS-9729, MOS-9730, MOS-9696, MOS-10306, MOS-10554, MOS-10562, MOS-10563, MOS-10565, MOS-10566, MOS-10567, MOS-10569, MOS-10573, MOS-10590, MOS-10591, MOS-10593, MOS-988, MOS-992, MOS-1054, MOS-9712, MOS-10561, MOS-1053, MOS-10564, MOS-10558, MOS-10589, MOS-585, MOS-10560, MOS-12076, MOS-12068, MOS-12060, MOS-13951, MOS-13962|
 
 **Pre-registration:**
 
