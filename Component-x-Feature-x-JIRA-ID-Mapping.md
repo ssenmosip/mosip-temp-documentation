@@ -56,7 +56,7 @@
 |11.|Pre-Registration Data Sync|Synchronize the Pre-registration data with the Registration-Client|MOS-1999| 
 |12.|Pre-Registration Data Sync|Synchronize Status of PRIDs with Registration Processor|MOS-668|
 
-**Registration Client:**
+**Registration Client:** - WIP
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -71,7 +71,7 @@
 |9.|| |
 |10.|| |
 
-**Registration Processor:**
+**Registration Processor:** - WIP
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -86,7 +86,7 @@
 |9.|| |
 |10.|| |
 
-**ID-Authentication:**
+**ID-Authentication:** - WIP
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
