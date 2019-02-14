@@ -2,8 +2,8 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|xxx|xxx|MOS-xxx|
-|2.|| | |
+|1.|Crypto Services|Provides services to Encrypt/Decrypt Data|MOS-38, MOS-40, MOS-787, MOS-989, MOS-9284|
+|2.|Key Management|Provides Public/PrivateKeys throughout MOSIP for Encryption/Decryption|MOS-789, OS-1910, MOS-9301, MOS-13359|
 |3.|| |
 |4.|| |
 |5.|| |
