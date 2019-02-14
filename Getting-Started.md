@@ -124,7 +124,7 @@ Postgresql Prerequisites
 On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.
 #### Steps to install Postgresql in RHEL-7.5
 ##### Download and install PostgreSQL. <br/>
-$ sudo yum install (https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm)<br/>
+$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm <br/>
 *The password that you are prompted to provide during the installation process is for the 'postgres' account, which is the database root-level account, sometimes called the super user ('postgres'). Remember this username and password. You will need it each time you log in to the database.<br/>
 *	The default port for PostgreSQL is 5432. If you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. You will also need to remember to update all further mentions of the database port.<br/>
 
@@ -216,6 +216,13 @@ $ sudo systemctl stop clamd@scan.service <br/>
 $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
 $ sudo firewall-cmd –reload
 
+##### Reference link:
+(https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7)
+
+### Install and use CEPH 
+Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.
+#### Refer below blog link for install and configure the ceph
+(https://medium.com/@pk0752/ceph-the-next-generation-store-67f7c51780d3)
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
