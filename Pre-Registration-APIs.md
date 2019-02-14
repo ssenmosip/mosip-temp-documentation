@@ -88,6 +88,7 @@ Requires Authentication | Yes
 
 #### Request:
 ```JSON
+id,ver and reqTime are optional and NOT consumed. No validation is implemented for these params.
 {
   "id": "mosip.pre-registration.demographic.create",
   "ver": "1.0",
