@@ -17,7 +17,7 @@
 |2.|Pre-registration|High Level Design Document|[Pre-Registration HLD](https://github.com/mosip/mosip/wiki/Pre-Registration)||
 |3.|Pre-registration|API Specifications Document|[Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)||
 |4.|Pre-registration|Code Drop|Link|Branch tag - 0.8.6 - Link to be updated by Rajath by 14Feb EoD|
-|5.|Pre-registration|Known Defects and Pending Items|Link to word doc|Awaiting template from Romila|
+|5.|Pre-registration|Known Defects and Pending Items|[Document Link](https://github.com/mosip/mosip/blob/master/docs/requirements/Known%20Defects%20and%20Pending%20Items.doc.docx)||
 |6.|Kernel|High Level Design Document|[Kernel HLD](https://github.com/mosip/mosip/wiki/Kernel) | |
 |7.|Kernel|API Specifications Document | [Kernel APIs](https://github.com/mosip/mosip/wiki/Kernel-APIs), [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs) |  |
 |8.|Kernel|Code Drop|Link|Branch tag - 0.8.6 - Link to be updated by Raj by 14Feb EoD|
