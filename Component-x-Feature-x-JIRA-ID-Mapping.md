@@ -4,7 +4,7 @@
 |:------:|-----|---|---|
 |1.|Crypto Services|Provides services to Encrypt/Decrypt Data|MOS-38, MOS-40, MOS-787, MOS-989, MOS-9284|
 |2.|Key Management|Provides Public/PrivateKeys throughout MOSIP for Encryption/Decryption|MOS-789, OS-1910, MOS-9301, MOS-13359|
-|3.|UIN Generation"Generates UIN|MOS-425, MOS-9738 |
+|3.|UIN Generation|Generates UIN|MOS-425, MOS-9738 |
 |4.|Audit Manager|Provides service across MOSIP to store Audit logs|MOS-8, MOS-441, MOS-829, MOS-1910, MOS-12903|
 |5.|OTP Manager|Generates and Validates OTP as per the defined policies|MOS-33, MOS-34, MOS-35, MOS-36, MOS-423, MOS-991, MOS-1056, MOS-1985, MOS-5486|
 |6.|OTP Notification Service|Generates an OTP and sends Notification to a recipient|MOS-8230|
