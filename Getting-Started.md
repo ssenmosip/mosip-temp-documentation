@@ -245,7 +245,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 
 	* **sysadmin:** sysadmin user/role is a super administrator role, who will have all the privileges to performa any task within the database.
 	
-	* **dbaadmin:** dbaadmin user / role is created to handle all the database administration activities db monitoring, performance tuning, backups, restore, replication setup, etc.
+	* **dbadmin:** dbadmin user / role is created to handle all the database administration activities db monitoring, performance tuning, backups, restore, replication setup, etc.
 	
 	* **appadmin:** appadmin user / role is used to perform all the DDL (Data Definition Language) tasks. All the db objects that are created in these databases will be owned by appadmin user.
 	
@@ -272,9 +272,9 @@ Database deployment consists of the following 4 categories of objects to be depl
 
 4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
 
-The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/scripts/database/mosip_master/dml/](https://github.com/mosip/mosip/scripts/database/mosip_master/dml) folder.
+The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/master-data-csv](https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/master-data-csv) folder.
 
-The scripts to create the above objects are available under [https://github.com/mosip/mosip/scripts/database](https://github.com/mosip/mosip/scripts/database/). To deploy the database objects of each application / module, please refer to [README.MD](https://github.com/mosip/mosip/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories.
+The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database](https://github.com/mosip/mosip/tree/0.8.0/scripts/database). To deploy the database objects of each application / module, please refer to [README.MD](https://github.com/mosip/mosip/blob/0.8.0/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories.
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
