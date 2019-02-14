@@ -75,16 +75,15 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|xxx|xxx|MOS-xxx|
-|2.|| | |
-|3.|| |
-|4.|| |
-|5.|| |
-|6.|| |
-|7.|| |
-|8.|| |
-|9.|| |
-|10.|| |
+|1.|packet-receiver-stage|It receives the packet sent from the registration client and performs various sanity checks on the packet|MOS-1030, MOS-1031, MOS-11567, MOS-11855, MOS-249, MOS-43, MOS-44, MOS-45, MOS-46, MOS-49|
+|2.|Demo de-dupe Stage|Demographic de-duplication of name,gender and DOB|MOS-1064, MOS-1079, MOS-13137|
+|3.|Biometric Dedupe Dummy ABIS|A dummy ABIS which provides failure and successful scenarios using Dummy Tags|MOS-11897|
+|4.|Mannual Verification|This is a pluggable stage where a manual verifier can verify the demographic and biometric data of an individual manually|MOS-1076, MOS-1077, MOS-1078, MOS-1080, MOS-1081, MOS-1082|
+|5.|UIN Generator Stage|Generates & allocates UIN. Stores the individual's biometric & demographic data in the identity repository. Notifies the resident that UIN is generated trough the configured channels (SMS,Email etc.)|
+MOS-1065|
+|6.|Print Queue Stage|Enable the availability of UIN data & UIN card for printing and postal services|MOS-1071|
+|7.|UIN update stage|Updates the data(demographic \biometric) of the resident, Updation of UIN status to de-activate and Re-activate|MOS-1085, MOS-1086, MOS-1087, MOS-1089, MOS-12924, MOS-13210, MOS-13211|
+|8.|External system integration|This stage interacts with various external systems|MOS-1032, MOS-13149, MOS-13150, MOS-13151, MOS-13595|
 
 **ID-Authentication:** 
 
