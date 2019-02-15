@@ -467,7 +467,7 @@ Success :
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
-  "file": "B@629f0666"
+  "file": "B@629f0666",
   "error" : null
 }
 ```
@@ -535,7 +535,7 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
-  "file": "B@629f0666"
+  "file": "B@629f0666",
   "error" : null
 }
 ```
