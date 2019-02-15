@@ -2534,7 +2534,7 @@ This service is used by Pre-Registration portal to update an exipred pre registr
 ##### Production -
 
 ***
-#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Batchjob-Service-API-Spec.yaml)
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/BatchJob-Service-API-Spec.yaml)
 ***
 
 #### HTTP Operation Allowed
