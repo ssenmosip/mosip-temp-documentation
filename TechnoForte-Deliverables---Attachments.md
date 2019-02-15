@@ -10,9 +10,13 @@ Link: [MOSIP_HLD_v2](_files/MOSIP_HLD_v2.docx)
 2) ## Module: Pre-registration <15Feb'19>
 Artefact: Known Defects and Pending Items
 
+<<<<<<< HEAD
 Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_PreRegistration.docx)
+=======
+>>>>>>> 5a67693e0bcd81d9217e5c484f4e3a00cd25f539
 
-2) ## Module: Kernel <15Feb'19>
+
+3) ## Module: Kernel <15Feb'19>
 Artefact: Known Defects and Pending Items
 
 Link: [Click to View]

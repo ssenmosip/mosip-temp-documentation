@@ -1,4 +1,4 @@
-**Kernel:**
+**1. Kernel:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -69,7 +69,7 @@
 |65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete|MOS-9730, MOS-9712, MOS-10564,MOS-12076|
 
 
-**Pre-registration:**
+**2. Pre-registration:**
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -86,7 +86,7 @@
 |11.|Pre-Registration Data Sync|Synchronize the Pre-registration data with the Registration-Client|MOS-1999| 
 |12.|Pre-Registration Data Sync|Synchronize Status of PRIDs with Registration Processor|MOS-668|
 
-**Registration Client:** - WIP
+**3. Registration Client:** - WIP
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -114,7 +114,7 @@
 |22.|Security| | |
 |23.|VDM| | |
 
-**Registration Processor:** 
+**4. Registration Processor:** 
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
@@ -129,7 +129,7 @@
 |9.|Non-functional requirements for Processor|Retry Stage|MOS-13197, MOS-8225|
 |10.|Non-functional requirements for Processor|Registration processor camel bridge|MOS-10727, MOS-12568|
 
-**ID-Authentication:** 
+**5. ID-Authentication:** 
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|

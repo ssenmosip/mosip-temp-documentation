@@ -62,7 +62,6 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
   Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code. Here in this file,
 
-
 * Kernel
 <TBD>
 * Pre-Registration
@@ -298,8 +297,201 @@ The scripts to create the above objects are available under [https://github.com/
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
-Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster.
+Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster. As of now Kubernetes Deployment is deviced in two parts - 
+A. One time setup of MOSIP in Kubernetes Cluster
+B. Continuous deployment 
+
+# A. One time setup of MOSIP in Kubernetes Cluster
+One time setup on Kubernetes involves following Steps 
+I. Setting Up local system to communicate with Kubernetes cluster through Local system.
+II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on /scripts/kubernetes/commons directory. following are the files -
+
+![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
+
+We will now go through each of the file and see what changes we need to perofom before we give it to **kubectl**. 
+
+* DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+`kubeclt apply -f DeployIngressController.yaml`
+* DeployServiceIngressService.yaml - 
+
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: ingressservice
+    namespace: kube-system
+  spec:
+    ports:
+      - port: 80
+        name: http
+      - port: 443
+        name: https
+    selector:
+      k8s-app: nginx-ingress-controller
+    type: LoadBalancer
+    loadBalancerIP: 104.211.231.5
+
+Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalance IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that.
+
+* DeployIngress.yaml - 
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: myingress  
+    annotations:    
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+      ingress.kubernetes.io/proxy-body-size: "50m"
+  spec:  
+    rules:
+    - http:
+        paths:    
+        - path: /ping
+          backend:
+            serviceName: ping-server
+            servicePort: 3000  
+        - path: /uingenerator
+          backend:
+            serviceName: kernel-uingenerator-service
+            servicePort: 8080
+        - path: /auditmanager
+          backend:
+            serviceName: kernel-auditmanager-service
+            servicePort: 8081
+        - path: /otpnotifier
+          backend:
+            serviceName: kernel-otpnotification-service
+            servicePort: 8082
+        - path: /emailnotifier
+          backend:
+            serviceName: kernel-emailnotification-service
+            servicePort: 8083
+        - path: /smsnotifier
+          backend:
+            serviceName: kernel-smsnotification-service
+            servicePort: 8084
+        - path: /otpmanager
+          backend:
+            serviceName: kernel-otpmanager-service
+            servicePort: 8085
+        - path: /masterdata
+          backend:
+            serviceName: kernel-masterdata-service
+            servicePort: 8086
+        - path: /cryptomanager
+          backend:
+            serviceName: kernel-cryptomanager-service
+            servicePort: 8087
+        - path: /keymanager
+          backend:
+            serviceName: kernel-keymanager-service
+            servicePort: 8088
+        - path: /syncdata
+          backend:
+            serviceName: kernel-syncdata-service
+            servicePort: 8089
+        - path: /idrepo
+          backend:
+            serviceName: kernel-idrepo-service
+            servicePort: 8090
+        - path: /authmanager
+          backend:
+            serviceName: kernel-auth-service
+            servicePort: 8091
+        - path: /ldapmanager
+          backend:
+            serviceName: kernel-ldap-service
+            servicePort: 8092
+        - path: /licensekeymanager
+          backend:
+            serviceName: kernel-licensekeymanager-service
+            servicePort: 8093
+        - path: /config
+          backend:
+            serviceName: kernel-config-server
+            servicePort: 51000
+        - path: /auth
+          backend:
+            serviceName: pre-registration-auth-service
+            servicePort: 9090
+        - path: /demographic
+          backend:
+            serviceName: pre-registration-demographic-service
+            servicePort: 9092
+        - path: /document
+          backend:
+            serviceName: pre-registration-document-service
+            servicePort: 9093
+        - path: /datasync
+          backend:
+            serviceName: pre-registration-datasync-service
+            servicePort: 9094
+        - path: /booking
+          backend:
+            serviceName: pre-registration-booking-service
+            servicePort: 9095
+        - path: /batchjob
+          backend:
+            serviceName: pre-registration-batchjob-service
+            servicePort: 9096
+        - path: /transliterate
+          backend:
+            serviceName: pre-registration-translitration-service
+            servicePort: 9098
+        - path: /notification
+          backend:
+            serviceName: pre-registration-notification-service
+            servicePort: 9099
+        - path: /identity
+          backend:
+            serviceName: authentication-service
+            servicePort: 8090
+        - path: /pre-registration-ui
+          backend:
+            serviceName: pre-registration-ui
+            servicePort: 80
+        - path: /packetreceiver
+          backend:
+            serviceName: registration-processor-dmz
+            servicePort: 8081
+        - path: /registrationstatus
+          backend:
+            serviceName: registration-processor-registration-status-api
+            servicePort: 8083
+        - path: /nginx
+          backend:
+            serviceName: sample-nginx
+            servicePort: 80
+
+This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.
+
+
+
 Here is the Logical Deployment Diagram (Detailing will be done later)- 
-![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
+
 
 ***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
