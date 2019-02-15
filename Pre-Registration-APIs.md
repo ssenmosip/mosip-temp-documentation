@@ -2270,7 +2270,7 @@ Requires Authentication | Yes
 #### Request:
 ```JSON
 {
-  "id": "mosip.pre-registration.booking.booked",
+  "id": "mosip.pre-registration.booking.book",
   "ver": "1.0",
   "reqTime": "2019-01-06T15:56:35.398Z",
   "request": {
