@@ -286,7 +286,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 |ID Repository|mosip_idrepo|idrepo|
 |Audit|mosip_audit|audit|
 
-**Note:** These databases can be deployed on single or multiple database servers / instances.
+**Note:** These databases can be deployed on single or separate database servers / instances.
 
 3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
 
