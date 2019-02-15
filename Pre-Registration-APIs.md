@@ -36,7 +36,9 @@ This service details used by Pre-Registration portal to create the demographic f
 ##### Integration - `http://integ.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
-
+***
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Demographic-Service-API-Spec.yaml)
+***
 #### HTTP Operation Allowed
 | Method | Allowed |
 | ------------ | ------------ |
@@ -44,10 +46,6 @@ This service details used by Pre-Registration portal to create the demographic f
 | POST | True |
 | PUT | True |
 | DELETE | True |
-
-#### Swagger API spec
-##### Path - `mosip/docs/design/pre-registration/service/Demographic-Service-API-Spec.yaml`
-
 
 #### 2.7.1.1 POST Operation
 #### Path -  `/pre-registration/applications`
@@ -848,6 +846,10 @@ This service enables Pre-Registration portal to request for uploading the docume
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
+***
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Document-Service-API-Spec.yaml)
+***
+
 #### HTTP Operation Allowed
 | Method | Allowed |
 | ------------ | ------------ |
@@ -1429,6 +1431,10 @@ This service enables Pre-Registration to a registration client , request to retr
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
+***
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Datasync-Service-API-Spec.yaml)
+***
+
 #### HTTP Operation Allowed
 | Method | Allowed |
 | ------------ | ------------ |
@@ -1902,6 +1908,10 @@ This service details used by Pre-Registration portal to book an appointment by p
 ##### Integration - `http://integ.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
+
+***
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Booking-Service-API-Spec.yaml)
+***
 
 #### HTTP Operation Allowed
 | Method | Allowed |
@@ -2523,6 +2533,10 @@ This service is used by Pre-Registration portal to update an exipred pre registr
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
+***
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Batchjob-Service-API-Spec.yaml)
+***
+
 #### HTTP Operation Allowed
 | Method | Allowed |
 | ------------ | ------------ |
@@ -2614,6 +2628,10 @@ This service details used by Pre-Registration portal to trigger notification and
 ##### Integration - `http://integ.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
+
+***
+#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Notification-Service-API-Spec.yaml)
+***
 
 #### HTTP Operation Allowed
 | Method | Allowed |
