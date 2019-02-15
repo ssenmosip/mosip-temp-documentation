@@ -5,7 +5,7 @@ The attachments to be referred by TechnoForte have been placed below:
 Artefact: MOSIP_HLD_v2
 
 
-Link: [MOSIP Technical Review - Monday 8th Oct, 2018 2-4pm @ 4th flr Ekstep.docx](_files/MOSIP_HLD_v2.docx)
+Link: [MOSIP_HLD_v2](_files/MOSIP_HLD_v2.docx)
 
 2) ## Module: Pre-registration <15Feb'19>
 Artefact: Known Defects and Pending Items
