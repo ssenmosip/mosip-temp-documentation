@@ -1,3 +1,24 @@
+[1. Key Manager Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#1-key-manager)
+
+[2. Crypto Manager Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#2-crypto-manager)
+
+[3. Data Sync Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#3-sync-data)
+
+[4. UIN Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#4-uin)
+
+[5. SMS Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#5-sms-notification)
+
+[6. Email Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#6-email-notification)
+
+[7. OTP Manager Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#7-otp-manager)
+
+[8. Audit Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#8-audit-manager)
+
+[9. License Key Service)](https://github.com/mosip/mosip/wiki/Kernel-APIs#9-license-key-manager)
+
+[10. OTP Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#10-otp-notification)
+
+
 # 1. Key Manager
 ## 1.1 Public key-get service
 
@@ -770,11 +791,16 @@ Name | Required | Description | Default Value | Example
 {
    "roles": [
       {
-      "roleDescription": "string",
-      "roleId": "string",
-      "roleName": "string"
-      }
-          ]
+      "roleId": "REGISTRATION_ADMIN",
+      "roleName": "REGISTRATION_ADMIN",
+      "roleDescription": "Registration administrator"
+    },
+    {
+      "roleId": "TSP",
+      "roleName": "TSP",
+      "roleDescription": "Trusted Service Provider"
+    }
+  ]
 }
 ```
 
@@ -799,22 +825,22 @@ Name | Required | Description | Default Value | Example
 -NA-
 
 ### Example Request
--NA-
+/userdetails/10001
 
 ### Example Response
 ```JSON
 {
    "userDetails": [
-    {
-      "langCode": "string",
-      "mail": "string",
-      "mobile": "string",
-      "name": "string",
+     {
+      "userName": "110001",
+      "mail": "user@mosip.com",
+      "mobile": "987654321",
+      "langCode": null,
+      "userPassword": "e1NIQTI1Nn05SmN0UmJRb01OR0FOZzhxSzE2U0hsOW5xaGl0Q2VsTjBjME1CQi90RXlrPQ==",
+      "name": "user",
       "roles": [
-        "string"
-      ],
-      "userName": "string",
-      "userPassword": "string"
+        "REGISTRATION_ADMIN"
+      ]
     }
   ]
 }
@@ -1326,7 +1352,8 @@ smsTemplate|No|||
 ### Example Response
 ```JSON
 {
-  "status": "Mapped License with the permissions"
+  "status": "success",
+  "message": "Otp notification request submitted"
 }
 ```
 

@@ -54,7 +54,11 @@ This section details about the service APIs in the Master data modules
 
 [2.3.27 Template Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2327-template-api)
 
-[2.3.28 Template Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2328-template-types-api)
+[2.3.28 Individual Types API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2329-individual-types-api)
+
+[2.3.29 Age group Types API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2330-age-group-types-api)
+
+
 
 # 2.3.1 Holiday Master API
 ## 2.3.1.1 Holiday Master-create service
@@ -651,6 +655,57 @@ Name | Required | Description | Default Value | Example
 		{"id": id, "value": "POR", "languagecode":"string"},
 		{"id": id, "value": "POB", "languagecode":"string"}
 	]
+}
+```
+200
+
+Description: Success
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+404
+
+Description: Not Found
+
+
+
+
+
+# 2.3.3.4 Documents Category Master-get document cateogory based on applicant type code 
+
+This service will provides the service for the List of documents categories based on the passed applicant type code. 
+
+
+### Resource URL
+### `GET /documentcategories/{applicanttypecode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Response
+```JSON
+{
+	"documentcategories": [{
+		"documentcategorycode": "string",
+		"documentname": "string",
+		"description": "string",
+		"languagecode": "string"
+	}]
 }
 ```
 200
@@ -1999,6 +2054,46 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+
+
+# 2.3.8.5 Genders Master-get gender based on gender name service
+Master data is required across the platform. 
+
+This service will provides the gender based on the gender name. 
+
+
+
+### Resource URL
+### `GET /gendertypes/{gendername}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+gendername|Yes|Name of the gender| | 
+
+
+### Example Response
+```JSON
+{
+	"code": "GC001",
+	"genderName": "Female",
+	"langCode": "eu",
+	"isActive": true
+}
+```
+200
+
+Description: Success
+
+
 
 # 2.3.9 Titles Master API
 # 2.3.9.1 Title Master-create service
@@ -4173,6 +4268,59 @@ Description: Not Found
 
 
 
+
+# 2.3.15.8 Locations Master-get service
+
+This service will provides the service for the List of Locations based on the location name. 
+
+
+### Resource URL
+### `GET /locations/locationhierarchy/{locationname}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+locationname|yes|This is the location name. | -NA- | 
+
+### Example Response
+```JSON
+{
+  "locations": [
+		{
+			"code":"string",
+			"name":"string",
+			"hierarchyLevel":"number",
+			"hierarchyLevelName":"string",
+			"parentLocCode":"",
+			"langCode":"string",
+			"isActive":"boolean",
+			
+		},
+		{
+			"code":"string",
+			"name":"string",
+			"hierarchyLevel":"number",
+			"hierarchyLevelName":"string",
+			"parentLocCode":"",
+			"langCode":"string",
+			"isActive":"boolean",
+			
+		}
+	]
+}
+```
+200
+
+Description: Success
+
+
 # 2.3.16 Packet Rejection Reasons Master API
 # 2.3.16.1 Packet Rejection Reason-category Master-create service
 
@@ -4880,6 +5028,109 @@ Name | Required | Description | Default Value | Example
 	]
 }
 ```
+
+
+# 2.3.18.5 Document Types Master-get document category and it's document types service
+
+This service will give back the document category and it's corresponding category types based on Individal type code, Age group type code and Gender type code. 
+
+### Resource URL
+### `GET /docCatTypes`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+individualtypecode |Yes| Code of Individual type | |
+agegrouptypecode |Yes| Code of Age group type | |
+gendertypecode |Yes| Code of Gender type | |
+
+### Example Request
+```JSON
+{
+  "id": "mosip.master.doccattypesonindtypagegndr",
+  "ver": "1.0",
+  "timestamp": "2018-12-24T05:27:49.183Z",
+  "request": {
+    "individualtypecode": "string",
+    "agegrouptypecode": "string",
+    "gendertypecode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+	"documentcategories": [
+		{
+			"code": "string",
+			"description": "string",
+			"isActive": true,
+			"langCode": "string",
+			"name": "string",
+			"documenttype": [
+				{
+					"code": "code",
+					"name": "name",
+					"descr": "descr",
+					"lang_code": "lang_code",
+					"is_active": "is_active"
+				}
+			]
+		}
+	]
+}
+```
+
+
+
+# 2.3.18.6 Document Types Master-Check the Applicant type code-Document category-Document type mapping
+
+This service checks the mapping between the Applicant type code, Document category and the Document type mapping. Result message will be success, if the mapping exists. 
+
+### Resource URL
+### `GET /checkApptypeDoccattypeDoctype`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+applicanttypecode |Yes| Code of Individual type | |
+documentcategorycode |Yes| Code of Age group type| |
+documenttypecode |Yes| Code of Document type | |
+
+### Example Request
+```JSON
+{
+  "id": "mosip.master.doccattypesonindtypagegndr",
+  "ver": "1.0",
+  "timestamp": "2018-12-24T05:27:49.183Z",
+  "request": {
+    "applicanttypecode": "string",
+    "documentcategorycode": "string",
+    "documenttypecode": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+	"resultMessage":"Success"
+}
+```
+
 
 # 2.3.19 Machine Types Master API
 # 2.3.19.1 Machines Types Master-create service
@@ -6269,14 +6520,16 @@ id|Yes|id of the Template|
   "id": "string"
 }
 ```
-# 2.3.28 Template Types API
 
-# 2.3.28.1 Template Type Master-create service
+# 2.3.28 Individual Types API
 
-This service will create the list of Template types which are used in the MOSIP platform. 
+# 2.3.28.1 Indivudual Types Master-get all individual types
+
+This service will provides the complete list of all individual types in the MOSIP platform
+
 
 ### Resource URL
-### `POST /temlateypes`
+### `GET /individualtypes`
 
 ### Resource details
 
@@ -6288,29 +6541,76 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-code|Yes|Code of temlate type| | 
-descr|Yes|Description of the temlate type| | 
-lang_code|Yes|Language code of the temlate type| | 
-isActive |Yes|is active or not| |
+-NA-
 
 ### Example Request
 ```JSON
-{
-  "id": "string",
-  "ver": "string",
-  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-    "code": "string",
-    "description": "string",
-    "isActive": true,
-    "langCode": "string"
-  }
-}
+-NA-
 ```
+
 ### Example Response
 ```JSON
 {
-  "code": "string",
-  "langCode": "string"
+  "individualtypes": [
+    {
+      "individualtypecode": "string",
+      "name": "string",
+      "description": "string",
+      "langCode": "string",
+      "isactive": boolean
+    }
+  ]
 }
 ```
+
+### Response codes
+200
+
+Description: Success
+
+
+# 2.3.29 Age group Types API
+
+# 2.3.29.1 Age group Types Master-get age group based on the age
+
+This service will provides the age group based on the passed age. 
+
+
+### Resource URL
+### `GET /agegrouptype/{age}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Response
+```JSON
+{
+	"agegrouptypecode": "string",
+	"name": "string",
+	"description": "string",
+	"minimumage": "number",
+	"maximumage": "number",
+	"langCode": "string",
+	"isactive": boolean
+}
+```
+
+### Response codes
+200
+
+Description: Success
+

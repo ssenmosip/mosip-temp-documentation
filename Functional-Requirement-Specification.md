@@ -1,20 +1,20 @@
 ## Table Of Content
 * [1. Pre-Registration](#1-pre-registration)
   * [1.1 Log in- Log out Feature](#11-log-in--log-out-feature)
-  * [1.2 Language Data Manager](#12-language-data-manager)
-    * [1.2.1 Translation](#121translation)
-    * [1.2.2 Transliteration](#122transliteration)
-  * [1.3 Pre-Registration Sync](#13-pre-registration-sync)
+  * [1.2 Pre-Registration Application Manager](#12-pre-registration-application-manager)
+    * [1.2.1 Pre-Registration Application Manager](#121pre-registration-application-manager)
+    * [1.2.2 PRID Generator](#122prid-generator)
+  * [1.3 Language Data Manager](#13-language-data-manager)
+    * [1.3.1 Translation](#131translation)
+    * [1.3.2 Transliteration](#132transliteration)
   * [1.4 Appointment Booking](#14-appointment-booking)
     * [1.4.1 Search Registration center](#141-search-registration-center)
     * [1.4.2 Choose the Registration center from the search result and check available slots](#142-choose-the-registration-center-from-the-search-result-and-check-available-slots)
     * [1.4.3 Choose an available time slot and book an appointment](#143-choose-an-available-time-slot-and-book-an-appointment)
     * [1.4.4 Reschedule a booked appointment](#144-reschedule-a-booked-appointment)
     * [1.4.5 Cancel an appointment](#145-cancel-an-appointment)
-  * [1.5 Pre-Registration Application Manager](#15-pre-registration-application-manager)
-    * [1.5.1 Pre-Registration Application Manager](#151pre-registration-application-manager)
-    * [1.5.2 Acknowledgment](#152acknowledgment)
-    * [1.5.3 PRID Generator](#153----prid-generator)
+  * [1.5 Acknowledgment](#15-acknowledgment)
+  * [1.6 Pre-Registration Sync](#16-pre-registration-sync)
 * [2. Registration](#2-registration)
   * [2.1 Registration Client Setup](#21-registration-client-setup)
   * [2.2 System Health Checker](#22-system-health-checker)
@@ -47,11 +47,12 @@
     * [4.3.4 Static PIN Authentication](#434-static-pin-authentication)
     * [4.3.5 E-KYC Authentication Service](#435-e-kyc-authentication-service)
   * [4.4 Integrated Individual Authentication](#44-integrated-individual-authentication)
-* [5. Admin Setup (TBD WIP)](#5-admin-setup-tbd-wip)
-* [6. Reporting (TBD WIP)](#6-reporting-tbd-wip)
-* [7. Platform Level Features and Utilities](#7-platform-level-features-and-utilities)
-  * [7.1 Features](#71-features)
-  * [7.2 Utilities](#72-utilities)
+* [5. Resident Services (TBD WIP)](#5-resident-services-tbd-wip)
+* [6. Admin Setup (TBD WIP)](#6-admin-setup-tbd-wip)
+* [7. Reporting (TBD WIP)](#7-reporting-tbd-wip)
+* [8. Platform Level Features and Utilities](#8-platform-level-features-and-utilities)
+  * [8.1 Features](#81-features)
+  * [8.2 Utilities](#82-utilities)
 ## 1. Pre-Registration
 ### 1.1 Log in- Log out Feature
 ### 1.2 Pre-Registration Application Manager
@@ -101,6 +102,11 @@ The system provides the provision to a user to select at-least one Pre-Registrat
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 1.5 Acknowledgment
+* The System triggers an Acknowledgement after Successful completion of Pre-Registration (Booking an appointment)
+* The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as provided in Demographic details
+* The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)
+* Individual can Choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later 
+
 ### 1.6 Pre-Registration Sync
 ## 2. Registration
 ### 2.1 Registration Client Setup
@@ -134,8 +140,9 @@ The system provides the provision to a user to select at-least one Pre-Registrat
 #### 4.3.4 Static PIN Authentication
 #### 4.3.5 E-KYC Authentication Service
 ### 4.4 Integrated Individual Authentication
-## 5. Admin Setup (TBD WIP)
-## 6. Reporting (TBD WIP)
-## 7. Platform Level Features and Utilities
-### 7.1 Features
-### 7.2 Utilities
+## 5. Resident Services (TBD WIP)
+## 6. Admin Setup (TBD WIP)
+## 7. Reporting (TBD WIP)
+## 8. Platform Level Features and Utilities
+### 8.1 Features
+### 8.2 Utilities

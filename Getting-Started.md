@@ -61,19 +61,17 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
     As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of MOSIP repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
 
   Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code. Here in this file,
-  
-
 
 * Kernel
-TBD
+<TBD>
 * Pre-Registration
-TBD
+<TBD>
 * Registration
-TBD
+<TBD>
 * Registration-Processor
-TBD
+<TBD>
 * Authentication
-TBD
+<TBD>
 
 ***
 ## 3. Setup and Configure Jfrog [**[↑]**](#content)
@@ -118,14 +116,382 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 ***
 ## 6. Installing External Dependencies [**[↑]**](#content)
+### Install and use PostgreSql on RHEL 7.5
+
+Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
+Postgresql Prerequisites
+On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.
+#### Steps to install Postgresql in RHEL-7.5
+##### Download and install PostgreSQL. <br/>
+$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm <br/>
+*The password that you are prompted to provide during the installation process is for the 'postgres' account, which is the database root-level account, sometimes called the super user ('postgres'). Remember this username and password. You will need it each time you log in to the database.<br/>
+*	The default port for PostgreSQL is 5432. If you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. You will also need to remember to update all further mentions of the database port.<br/>
+
+##### checking  the postgresql packages  
+$ sudo yum update <br/>
+$ sudo yum list postgresql* <br/>
+##### Installation command <br/>	
+$ sudo yum install postgresql10 postgresql10-server<br/>
+$sudo /usr/pgsql-10/bin/postgresql-10-setup initdb <br/>
+$sudo systemctl enable postgresql-10 <br/>
+##### Postgresql service stop/start/restart command 
+$ sudo systemctl start postgresql-10 <br/>
+$ sudo systemctl status postgresql-10 <br/>
+$ sudo systemctl stop postgresql-10 <br/>
+To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path
+$ sudo vi /var/lib/pgsql/10/data/postgresql.conf <br/>
+listen_addresses = '*'
+port = 9001 
+unix_socket_directories = '/var/run/postgresql, /tmp'
+
+##### Below command to open the port 9001 from RHEL 7.5 VM
+$ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
+$ sudo firewall-cmd --reload <br/>
+Reference link:
+<br/>
+(https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora)
+<br/>
+<br/>
+### Install and use Nginx on RHEL 7.5
+
+We are using nginx for webserver andalso proxy server for MOSIP project
+Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command
+
+$sudo vi /etc/yum.repos.d/nginx.repo <br/>
+#### Install nginx package using the yum command:
+$sudo yum update <br/>
+$sudo yum install nginx <br/>
+Append following for RHEL 7.5 <br/>
+[nginx]   <br/>
+name=nginx repo <br/>
+baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/ <br/>
+gpgcheck=0 <br/>
+enabled=1 <br/>
+$ sudo yum install nginx <br/>
+$ sudo systemctl enable nginx  <br/>
+###### nginx start/stop/restart/status commands  <br/>
+$ sudo systemctl start nginx <br/>
+$ sudo systemctl stop nginx <br/>
+$ sudo systemctl restart nginx <br/>
+$ sudo systemctl status nginx <br/>
+
+##### To edit files use a text editor such as vi
+$ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
+   Example : <br/> 
+          location / {  <br/>
+                        proxy_set_header Host $host; <br/>
+                        proxy_set_header X-Real-IP $remote_addr; <br/>
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; <br/>
+                        proxy_set_header X-Forwarded-Proto $scheme; <br/>
+                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //endpoint of kubernetes <br/>
+           } <br/>
+
+   
+##### Below command to open the port 80/443 from RHEL 7.5 VM 
+$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
+$ sudo firewall-cmd –reload <br/>
+##### Bind SSL certificate to work https 
+**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](https://letsencrypt.org/getting-started/)
+
+
+##### Reference link:
+(https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
+
+### Install Clam AntiVirus
+
+ ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
+
+#### Steps to install ClamAV in RHEL-7.5
+
+$ sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <br/>
+$ sudo rpm -ivh epel-release-latest-7.noarch.rpm <br/>
+$ sudo yum repolist <br/>
+$ sudo yum update <br/>
+$ yum --enablerepo=epel info clamav <br/>
+$ sudo yum --enablerepo=epel install clamav clamav-scanner clamav-update <br/>
+$ sudo yum --enablerepo=epel install clamav-daemon <br/>
+$ sudo yum --enablerepo=epel install clamd <br/>
+$ sudo yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd <br/>
+$ sudo freshclam <br/>
+$  sudo systemctl  clamd status <br/>
+$  sudo systemctl freshclam stauts <br/>
+$  sudo systemctl start freshclam <br/>
+$  sudo systemctl status clamd <br/>
+$  sudo systemctl start clamd <br/>
+
+##### ClamAv port : 3310
+#### Command to check the ClamAV status:
+$ sudo systemctl status clamd@scan.service <br/>
+$ sudo systemctl start clamd@scan.service <br/>
+$ sudo systemctl stop clamd@scan.service <br/>
+##### Below command to open the port 3310 from RHEL 7.5 VM
+$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
+$ sudo firewall-cmd –reload
+
+##### Reference link:
+(https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7)
+
+### Install and use CEPH 
+Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.
+#### Refer below blog link for install and configure the ceph
+(https://medium.com/@pk0752/ceph-the-next-generation-store-67f7c51780d3)
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
+We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
+We are storing all applications' configuration in config folder inside our Github Repository.
+For getting more details about how to use configuration server with our applications, following developer document can be referred:
+[**MOSIP CONFIGURATION SERVER**](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
+
+
+Application specific configuration for all applications and services are placed in MOSIP config server.
+
+**Global:**
+https://github.com/mosip/mosip/blob/master/config/application-dev.properties
+
+**Kernel:**
+https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
+
+**Pre-Registration:**
+https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
+
+
+### MOSIP database deployment / configuration
+
+Database deployment consists of the following 4 categories of objects to be deployed on postgresql database.
+
+1. **User / Roles:** In MOSIP, the following user / roles are defined to perform various activities
+
+	* **sysadmin:** sysadmin user/role is a super administrator role, who will have all the privileges to performa any task within the database.
+	
+	* **dbadmin:** dbadmin user / role is created to handle all the database administration activities db monitoring, performance tuning, backups, restore, replication setup, etc.
+	
+	* **appadmin:** appadmin user / role is used to perform all the DDL (Data Definition Language) tasks. All the db objects that are created in these databases will be owned by appadmin user.
+	
+	* **Application User:** Each application will have a user / role created to perform DML (Data Manipulation Language) tasks like CRUD operations (select, insert, update, delete). The user prereguser, is created to connect from the application to perform all the DML activities. Similarly, we will have masteruser, prereguser, reguser, idauser, idrepouser, kerneluser, audituser, regprcuser to perform DML tasks for master, pre-registration, registration, ida, ID repository, kernel, audit and registration processor modules respectively.
+
+	**Note:** From the above set of roles only application user / role is specific to a application / module. The other user / roles are common which needs to be  created per postresql db instance / server.
+	
+2. **Database and Schema:** Each application / module of MOSIP platform will have a database and schema defined. All the objects (tables) related to an application / module would be created under the respective database / schema. In MOSIP the following database and scehmas are defined
+
+|application / module name|database Name|schema name|
+|---------------------------|-----------------|-------------------|
+|Master / Administration module|mosip_master|master|
+|Kernel|mosip_kernel|kernel|
+|Pre-registration |mosip_prereg|prereg|
+|Registration|mosip_reg|reg|
+|Registration Processor|mosip_regprc|regprc|
+|ID Authentication|mosip_ida|ida|
+|ID Repository|mosip_idrepo|idrepo|
+|Audit|mosip_audit|audit|
+
+**Note:** These databases can be deployed on single or multiple database servers / instances.
+
+3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
+
+4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
+
+The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/master-data-csv](https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/master-data-csv) folder.
+
+The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database](https://github.com/mosip/mosip/tree/0.8.0/scripts/database). To deploy the database objects of each application / module, please refer to [README.MD](https://github.com/mosip/mosip/blob/0.8.0/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories.
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
-Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster.
+Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster. As of now Kubernetes Deployment is deviced in two parts - 
+A. One time setup of MOSIP in Kubernetes Cluster
+B. Continuous deployment 
+
+# A. One time setup of MOSIP in Kubernetes Cluster
+One time setup on Kubernetes involves following Steps 
+I. Setting Up local system to communicate with Kubernetes cluster through Local system.
+II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on /scripts/kubernetes/commons directory. following are the files -
+
+![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
+
+We will now go through each of the file and see what changes we need to perofom before we give it to **kubectl**. 
+
+* DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+`kubeclt apply -f DeployIngressController.yaml`
+* DeployServiceIngressService.yaml - 
+
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: ingressservice
+    namespace: kube-system
+  spec:
+    ports:
+      - port: 80
+        name: http
+      - port: 443
+        name: https
+    selector:
+      k8s-app: nginx-ingress-controller
+    type: LoadBalancer
+    loadBalancerIP: 104.211.231.5
+
+Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalance IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that.
+
+* DeployIngress.yaml - 
+  apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: myingress  
+    annotations:    
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+      ingress.kubernetes.io/proxy-body-size: "50m"
+  spec:  
+    rules:
+    - http:
+        paths:    
+        - path: /ping
+          backend:
+            serviceName: ping-server
+            servicePort: 3000  
+        - path: /uingenerator
+          backend:
+            serviceName: kernel-uingenerator-service
+            servicePort: 8080
+        - path: /auditmanager
+          backend:
+            serviceName: kernel-auditmanager-service
+            servicePort: 8081
+        - path: /otpnotifier
+          backend:
+            serviceName: kernel-otpnotification-service
+            servicePort: 8082
+        - path: /emailnotifier
+          backend:
+            serviceName: kernel-emailnotification-service
+            servicePort: 8083
+        - path: /smsnotifier
+          backend:
+            serviceName: kernel-smsnotification-service
+            servicePort: 8084
+        - path: /otpmanager
+          backend:
+            serviceName: kernel-otpmanager-service
+            servicePort: 8085
+        - path: /masterdata
+          backend:
+            serviceName: kernel-masterdata-service
+            servicePort: 8086
+        - path: /cryptomanager
+          backend:
+            serviceName: kernel-cryptomanager-service
+            servicePort: 8087
+        - path: /keymanager
+          backend:
+            serviceName: kernel-keymanager-service
+            servicePort: 8088
+        - path: /syncdata
+          backend:
+            serviceName: kernel-syncdata-service
+            servicePort: 8089
+        - path: /idrepo
+          backend:
+            serviceName: kernel-idrepo-service
+            servicePort: 8090
+        - path: /authmanager
+          backend:
+            serviceName: kernel-auth-service
+            servicePort: 8091
+        - path: /ldapmanager
+          backend:
+            serviceName: kernel-ldap-service
+            servicePort: 8092
+        - path: /licensekeymanager
+          backend:
+            serviceName: kernel-licensekeymanager-service
+            servicePort: 8093
+        - path: /config
+          backend:
+            serviceName: kernel-config-server
+            servicePort: 51000
+        - path: /auth
+          backend:
+            serviceName: pre-registration-auth-service
+            servicePort: 9090
+        - path: /demographic
+          backend:
+            serviceName: pre-registration-demographic-service
+            servicePort: 9092
+        - path: /document
+          backend:
+            serviceName: pre-registration-document-service
+            servicePort: 9093
+        - path: /datasync
+          backend:
+            serviceName: pre-registration-datasync-service
+            servicePort: 9094
+        - path: /booking
+          backend:
+            serviceName: pre-registration-booking-service
+            servicePort: 9095
+        - path: /batchjob
+          backend:
+            serviceName: pre-registration-batchjob-service
+            servicePort: 9096
+        - path: /transliterate
+          backend:
+            serviceName: pre-registration-translitration-service
+            servicePort: 9098
+        - path: /notification
+          backend:
+            serviceName: pre-registration-notification-service
+            servicePort: 9099
+        - path: /identity
+          backend:
+            serviceName: authentication-service
+            servicePort: 8090
+        - path: /pre-registration-ui
+          backend:
+            serviceName: pre-registration-ui
+            servicePort: 80
+        - path: /packetreceiver
+          backend:
+            serviceName: registration-processor-dmz
+            servicePort: 8081
+        - path: /registrationstatus
+          backend:
+            serviceName: registration-processor-registration-status-api
+            servicePort: 8083
+        - path: /nginx
+          backend:
+            serviceName: sample-nginx
+            servicePort: 80
+
+This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.
+
+
+
 Here is the Logical Deployment Diagram (Detailing will be done later)- 
-![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
+
 
 ***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)

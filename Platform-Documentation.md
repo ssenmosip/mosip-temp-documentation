@@ -2,8 +2,6 @@
 * [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
   * [1.1 Scope](#11scope)
   * [1.2 Intended Audience](#12intended-audience)
-    * [1.2.1 Internal Audience](#121internal-audience)
-    * [1.2.2 External Audience](#122external-audience)
 * [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
   * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system)
   * [2.2 Why-an Identity Management System is needed](#22why-an-identity-management-system-is-needed)
@@ -54,24 +52,21 @@
     * [9.2.1 Kernel](#921kernel)
     * [9.2.2 ID Repository](#922id-repository)
 * [10. HOW TO GUIDE](#10-how-to-guide-tbd)
-  * [10.1 Getting Started Guide](#101getting-started-guide)
+  * [Getting Started Guide](https://github.com/mosip/mosip/wiki/Getting-Started)
   * [10.2 Developer Document](#102developer-document)
-* [11. INRFASTRUCTURE RECOMMENDATIONS](#11--inrfastructure-recommendations)
+* [11. INFRASTRUCTURE RECOMMENDATIONS](#11--inrfastructure-recommendations)
 * [12. GLOSSARY](#12--glossary)
 * [13. ABBREVIATIONS](#13-abbreviations)
 * [14. REFERENCES](#14-references)
 
 ## 1. MOSIP-INTRODUCTION
 ### 1.1	Scope
-The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner.
+The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
 ### 1.2	Intended Audience
-#### 1.2.1	Internal Audience
-1. Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
-1. Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
-
-#### 1.2.2	External Audience
-1. SIs (System Integrator).
-1. Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
+* Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
+* Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
+* SIs (System Integrator).
+* Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
 ## 2.	MOSIP -FOR IDENTITY MANAGEMENT
 ### 2.1	What-is an Identity Management System
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems .The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s .Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
@@ -283,8 +278,9 @@ Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Repository-API) for m
 
 ### 10. HOW TO GUIDE (TBD)
 #### 10.1 Getting Started Guide
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Getting-Started) for more details
 #### 10.2 Developer Document
-## 11.  INRFASTRUCTURE RECOMMENDATIONS
+## 11.  INFRASTRUCTURE RECOMMENDATIONS
 ## 12.  GLOSSARY
 ## 13. ABBREVIATIONS
 ## 14. REFERENCES
