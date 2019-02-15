@@ -233,11 +233,11 @@ $ sudo firewall-cmd –reload
 
 ### Steps to Install and configuration CEPH 
 Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.
-##### 1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:  <br/>
-	$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms  <br/>
-##### 2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository: <br/>
-	$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <br/>
-##### 3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example: <br/>
+##### 1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example: 
+	$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms 
+##### 2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository:
+	$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+##### 3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example:
 
 	cat << EOM > /etc/yum.repos.d/ceph.repo 
 	[ceph-noarch] 
@@ -253,19 +253,19 @@ Ceph is an open source software that provides massively scalable and distributed
 	$ sudo yum install ceph-deploy
 
 #### CEPH NODE SETUP
-	The admin node must have password-less SSH access to Ceph nodes. When ceph-deploy logs in to a Ceph node as a user, that particular user must have passwordless sudo privileges.  <br/>
+	The admin node must have password-less SSH access to Ceph nodes. When ceph-deploy logs in to a Ceph node as a user, that particular user must have passwordless sudo privileges. 
 
 #### INSTALL NTP
-	We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](http://docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details. <br/>
+	We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](http://docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details. 
 	$ sudo yum install ntp ntpdate ntp-doc 
-		Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server. <br/>
+		Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server. 
 	
 #### INSTALL SSH SERVER
 	sudo yum install openssh-server 
-		Ensure the SSH server is running on ALL Ceph Nodes. <br/>
+		Ensure the SSH server is running on ALL Ceph Nodes.
 
 1) Make a directory on admin node in order to keep all the keys and configuration files that ceph-deploy generates.
-	a. mkdir cluster-config <br/>
+	a. mkdir cluster-config 
     b. cd cluster-config
 2) Now we create a cluster
 
