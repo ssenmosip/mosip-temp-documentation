@@ -257,7 +257,7 @@ https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
 https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
 
 
-### MOSIP database deployment / configuration
+### MOSIP database object deployment / configuration
 
 Database deployment consists of the following 4 categories of objects to be deployed on postgresql database.
 
