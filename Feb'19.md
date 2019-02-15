@@ -18,12 +18,12 @@
 |3.|Pre-registration|High Level Design Document|[Pre-Registration HLD](https://github.com/mosip/mosip/wiki/Pre-Registration)||
 |4.|Pre-registration|API Specifications Document|[Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)||
 |5.|Pre-registration|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6) ||
-|6.|Pre-registration|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_KnownDefects_PendingFeatures_Items_Pre-registration.docx)||
+|6.|Pre-registration|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)||
 |7.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)||
 |8.|Kernel|High Level Design Document|[Kernel HLD](https://github.com/mosip/mosip/wiki/Kernel) | |
 |9.|Kernel|API Specifications Document | [Kernel APIs](https://github.com/mosip/mosip/wiki/Kernel-APIs), [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs) |  |
 |10.|Kernel|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6)||
-|11.|Kernel|Known Defects and Pending Items|Link to word doc|Awaiting word doc with data - Link to be updated by Shwetha|
+|11.|Kernel|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)||
 
 
 **Date: 28 Feb 2019**
