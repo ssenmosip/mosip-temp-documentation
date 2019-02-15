@@ -178,9 +178,22 @@ $ sudo systemctl status nginx <br/>
 
 ##### To edit files use a text editor such as vi
 $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
+   Example : 
+          location / {
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Real-IP $remote_addr;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                        proxy_set_header X-Forwarded-Proto $scheme;
+                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //endpoint of kubernetes 
+                }
+
+   
 ##### Below command to open the port 80/443 from RHEL 7.5 VM 
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
 $ sudo firewall-cmd –reload <br/>
+##### Bind SSL certificate to work https 
+**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](https://letsencrypt.org/getting-started/)
+
 
 ##### Reference link:
 (https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
