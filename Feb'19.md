@@ -14,12 +14,12 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|NA|Getting Started Guide|[PD-Section 10.1](https://github.com/mosip/mosip/wiki/Getting-Started)||
-|2.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|WIP|
+|2.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)||
 |3.|Pre-registration|High Level Design Document|[Pre-Registration HLD](https://github.com/mosip/mosip/wiki/Pre-Registration)||
 |4.|Pre-registration|API Specifications Document|[Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)||
 |5.|Pre-registration|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6) ||
 |6.|Pre-registration|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/blob/master/docs/requirements/Known%20Defects%20and%20Pending%20Items.doc.docx)||
-|7.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|WIP|
+|7.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)||
 |8.|Kernel|High Level Design Document|[Kernel HLD](https://github.com/mosip/mosip/wiki/Kernel) | |
 |9.|Kernel|API Specifications Document | [Kernel APIs](https://github.com/mosip/mosip/wiki/Kernel-APIs), [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs) |  |
 |10.|Kernel|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6)||
