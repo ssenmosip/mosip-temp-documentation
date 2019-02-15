@@ -231,11 +231,41 @@ $ sudo firewall-cmd –reload
 ##### Reference link:
 (https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7)
 
-### Install and use CEPH 
+### Steps to Install and configuration CEPH 
 Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.
-#### Refer below blog link for install and configure the ceph
-(https://medium.com/@pk0752/ceph-the-next-generation-store-67f7c51780d3)
+##### 1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example:  <br/>
+	$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms  <br/>
+##### 2. Install and enable the Extra Packages for Enterprise Linux (EPEL) repository: <br/>
+	$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <br/>
+##### 3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example: <br/>
 
+	cat << EOM > /etc/yum.repos.d/ceph.repo <br/>
+	[ceph-noarch] <br/>
+	name=Ceph noarch packages br/>
+	baseurl=https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch <br/>
+	enabled=1  <br/>
+	gpgcheck=1 <br/>
+	type=rpm-md <br/>
+	gpgkey=https://download.ceph.com/keys/release.asc <br/>
+	EOM <br/>
+##### 4. Update your repository and install ceph-deploy:	
+	$ sudo yum update
+	$ sudo yum install ceph-deploy
+
+#### CEPH NODE SETUP
+	The admin node must have password-less SSH access to Ceph nodes. When ceph-deploy logs in to a Ceph node as a user, that particular user must have passwordless sudo privileges.  <br/>
+
+#### INSTALL NTP
+	We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](http://docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details. <br/>
+	$ sudo yum install ntp ntpdate ntp-doc <br/>
+		Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server. <br/>
+	
+#### INSTALL SSH SERVER
+	sudo yum install openssh-server <br/>
+		Ensure the SSH server is running on ALL Ceph Nodes. <br/>
+
+##### Reference link: 
+(http://docs.ceph.com/docs/mimic/start/quick-start-preflight/)
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
