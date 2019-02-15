@@ -365,9 +365,6 @@ public network = 10.142.0.0/24
 
 	ceph-deploy osd create — data {path} {ceph-node}
 
-Now, if we check status of our cluster, we should get the configuration changes as following
-![Configure Pipelines](_images/getting_started_images/1_WnLbz-mT7_xoF0GscnmCSA.jpg)
-
 ### CEPH Dashboard
 Now, going ahead, we can enable the CEPH dashboard in order to view all the cluster status via a UI console.
 
