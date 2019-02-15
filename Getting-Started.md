@@ -434,16 +434,16 @@ Database deployment consists of the following 4 categories of objects to be depl
 	
 2. **Database and Schema:** Each application / module of MOSIP platform will have a database and schema defined. All the objects (tables) related to an application / module would be created under the respective database / schema. In MOSIP the following database and scehmas are defined
 
-|application / module name|database Name|schema name|
+|application / module name|Database tool|database Name|schema name|
 |---------------------------|-----------------|-------------------|
-|Master / Administration module|mosip_master|master|
-|Kernel|mosip_kernel|kernel|
-|Pre-registration |mosip_prereg|prereg|
-|Registration|mosip_reg|reg|
-|Registration Processor|mosip_regprc|regprc|
-|ID Authentication|mosip_ida|ida|
-|ID Repository|mosip_idrepo|idrepo|
-|Audit|mosip_audit|audit|
+|Master / Administration module|postgresql|mosip_master|master|
+|Kernel|postgresql|mosip_kernel|kernel|
+|Pre-registration |postgresql|mosip_prereg|prereg|
+|Registration|Apache Derby|mosip_reg|reg|
+|Registration Processor|postgresql|mosip_regprc|regprc|
+|ID Authentication|postgresql|mosip_ida|ida|
+|ID Repository|postgresql|mosip_idrepo|idrepo|
+|Audit|postgresql|mosip_audit|audit|
 
 **Note:** These databases can be deployed on single or separate database servers / instances.
 
@@ -453,7 +453,9 @@ Database deployment consists of the following 4 categories of objects to be depl
 
 The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/dml](https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/dml) folder.
 
-The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database](https://github.com/mosip/mosip/tree/0.8.0/scripts/database). To deploy the database objects of each application / module, please refer to [README.MD](https://github.com/mosip/mosip/blob/0.8.0/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories.
+The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database](https://github.com/mosip/mosip/tree/0.8.0/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip/blob/0.8.0/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
+
+**Note: Registration client related deployment scripts (Apache derby DB specific) will be created separately.**
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
