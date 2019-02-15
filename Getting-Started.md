@@ -499,7 +499,7 @@ We will now go through each of the file and see what changes we need to perfom. 
     type: LoadBalancer
     loadBalancerIP: 104.211.231.5
 ```
-Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalance IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that. Now we can run this file. To run this use this command
+Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalancer IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that. Now we can run this file. To run this use this command
 `kubeclt apply -f DeployServiceIngressService.yaml`
 
 * DeployIngress.yaml - 
@@ -642,7 +642,7 @@ This file contains information about routing to different Kubernetes services, S
 `kubeclt apply -f DeployIngressController.yaml`
 
 * docker-registry-secret.yml - 
-This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. for creating secret for the first time, run below command - 
+This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. For creating secret for the first time, run below command - 
 
 `kubectl create secret docker-registry <registry-credential-name> --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email> `
 
@@ -655,12 +655,12 @@ Once the above deployment is done, we will start deploying MOSIP services. For d
 ![Directories](_images/getting_started_images/kubernetes-mosip-services-directory.JPG)
 
 Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials. 
-For doing this, follow below steps (for eg. we will use kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - 
-I. Open a deployment file. 
-II. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-auditmanager-service` to `<Your Docker Registry>/kernel-auditmanager-service`
-III. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>`
-IV. Save the file
-V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml`
+For doing this, follow below steps (for eg. we will use kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
+I. Open a deployment file. <br/>
+II. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-auditmanager-service` to `<Your Docker Registry>/kernel-auditmanager-service` <br/>
+III. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>` <br/>
+IV. Save the file <br/>
+V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml` <br/>
 
 After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
 
