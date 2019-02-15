@@ -6,7 +6,7 @@ Pre registration is the module which is the web channel of the MOSIP. Following 
 # 2. Architecture view
 
 
-## Process view
+## Process view *WIP
 Below is the wiki link for pre registration.
 
 [Process Flow](https://github.com/mosip/mosip/wiki/Process-view#Pre-registration)

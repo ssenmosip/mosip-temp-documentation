@@ -1761,20 +1761,6 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-##### Failure Response:
-###### Status code: '200'
-###### Description: If document is not uploaded for the preregistration id
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_006",
-    "message": "FAILED_TO_FETCH_DOCUMENT"
-  },
-  "status": false,
-  "resTime": "2019-02-11T07:58:27.909Z",
-  "response": null
-}
-```
 #### 2.7.3.3 POST Operation
 #### Path -  ` pre-registration/data-sync/reverseDataSync`
 #### Summary

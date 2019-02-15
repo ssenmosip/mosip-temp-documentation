@@ -1,0 +1,18 @@
+The attachments to be referred by TechnoForte have been placed below:
+
+1) ## MOSIP: High Level Design Document <05Feb'19>
+
+Artefact: MOSIP_HLD_v2
+
+
+Link: [MOSIP_HLD_v2](_files/MOSIP_HLD_v2.docx)
+
+2) ## Module: Pre-registration <15Feb'19>
+Artefact: Known Defects and Pending Items
+
+Link: 
+
+3) ## Module: Kernel <15Feb'19>
+Artefact: Known Defects and Pending Items
+
+Link:

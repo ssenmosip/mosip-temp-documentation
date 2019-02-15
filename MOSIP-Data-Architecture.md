@@ -20,7 +20,7 @@
 
 # Logical view of MOSIP data system
 
-![MOSIP Data Architecture](https://github.com/mosip/mosip/blob/0.8.0/docs/design/_images/MOSIP_DataArchitecture.jpg)
+![MOSIP Data Architecture](_images/arch_diagrams/MOSIP_DataArchitecture.jpg)
 
 ## Security
 
