@@ -33,7 +33,7 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.2|
-|2.|Pre-registration|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
+|2.|Pre-registration|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |3.|Pre-registration|Tested Code|Link|Exit Criteria: |
 |4.|Pre-registration|Known Defects and Pending Items|Link to word doc||
 |5.|Pre-registration|Test Cases|Link||
@@ -42,7 +42,7 @@
 |9.|Pre-registration|Automation Framework|Link||
 |10.|Pre-registration|Developer Documentation|Link||
 |11.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.1|
-|12.|Kernel|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
+|12.|Kernel|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |13.|Kernel|Tested Code|Link|Exit Criteria: |
 |14.|Kernel|Known Defects and Pending Items|Link to word doc||
 |15.|Kernel|Test Cases|Link||
