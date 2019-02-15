@@ -13,10 +13,10 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|NA|Getting Started Guide|[MOSIP Platform Documentation-Section 10.1](https://github.com/mosip/mosip/wiki/Getting-Started)||
+|1.|NA|Getting Started Guide|[MOSIP Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)|Refer Section 10.1|
 |2.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.2|
-|3.|Pre-registration|High Level Design Document|[Pre-Registration HLD](https://github.com/mosip/mosip/wiki/Pre-Registration)||
-|4.|Pre-registration|API Specifications Document|[Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)||
+|3.|Pre-registration|High Level Design Document|[MOSIP Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)|Refer Section |
+|4.|Pre-registration|API Specifications Document|[MOSIP Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)|Refer Section |
 |5.|Pre-registration|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6) ||
 |6.|Pre-registration|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer Sec.2|
 |7.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.1|
