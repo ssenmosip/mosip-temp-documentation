@@ -435,7 +435,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 2. **Database and Schema:** Each application / module of MOSIP platform will have a database and schema defined. All the objects (tables) related to an application / module would be created under the respective database / schema. In MOSIP the following database and scehmas are defined
 
 |application / module name|Database tool|database Name|schema name|
-|---------------------------|-----------------|-------------------|
+|---------------------------|-----------------|-----------------|-------------------|
 |Master / Administration module|postgresql|mosip_master|master|
 |Kernel|postgresql|mosip_kernel|kernel|
 |Pre-registration |postgresql|mosip_prereg|prereg|
