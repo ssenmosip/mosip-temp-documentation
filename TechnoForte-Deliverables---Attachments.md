@@ -12,7 +12,7 @@ Artefact: Known Defects and Pending Items
 
 Link:
 
-2) ## Module: Kernel <15Feb'19>
+3) ## Module: Kernel <15Feb'19>
 Artefact: Known Defects and Pending Items
 
 Link:
