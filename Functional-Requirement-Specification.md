@@ -1,5 +1,5 @@
 ## Table Of Content
-* 1. Pre-Registration
+* 1. Pre-registration
   * [Click here](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration#25-appointment-acknowledgement-prid)
 * [2. Registration](#2-registration)
   * [2.1 Registration Client Setup](#21-registration-client-setup)
