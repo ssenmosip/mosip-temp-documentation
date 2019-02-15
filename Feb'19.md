@@ -4,7 +4,7 @@
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
-|1.|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer attachment 1 in the linked page - Sent by email to Arun on 05Feb'19|
+|1.|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer attachment 1 in the linked page - Delivered on 05Feb'19|
 
 
 **Date: 15 Feb 2019**
