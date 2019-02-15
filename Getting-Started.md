@@ -239,15 +239,15 @@ Ceph is an open source software that provides massively scalable and distributed
 	$ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <br/>
 ##### 3. Add the Ceph repository to your yum configuration file at /etc/yum.repos.d/ceph.repo with the following command.  Replace {ceph-stable-release} with a stable Ceph release (e.g., luminous.) For example: <br/>
 
-	cat << EOM > /etc/yum.repos.d/ceph.repo <br/>
-	[ceph-noarch] <br/>
-	name=Ceph noarch packages br/>
-	baseurl=https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch <br/>
-	enabled=1  <br/>
-	gpgcheck=1 <br/>
-	type=rpm-md <br/>
-	gpgkey=https://download.ceph.com/keys/release.asc <br/>
-	EOM <br/>
+	cat << EOM > /etc/yum.repos.d/ceph.repo 
+	[ceph-noarch] 
+	name=Ceph noarch packages 
+	baseurl=https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch 
+	enabled=1  
+	gpgcheck=1 
+	type=rpm-md
+	gpgkey=https://download.ceph.com/keys/release.asc
+	EOM 
 ##### 4. Update your repository and install ceph-deploy:	
 	$ sudo yum update
 	$ sudo yum install ceph-deploy
@@ -257,12 +257,145 @@ Ceph is an open source software that provides massively scalable and distributed
 
 #### INSTALL NTP
 	We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](http://docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details. <br/>
-	$ sudo yum install ntp ntpdate ntp-doc <br/>
+	$ sudo yum install ntp ntpdate ntp-doc 
 		Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server. <br/>
 	
 #### INSTALL SSH SERVER
-	sudo yum install openssh-server <br/>
+	sudo yum install openssh-server 
 		Ensure the SSH server is running on ALL Ceph Nodes. <br/>
+
+1) Make a directory on admin node in order to keep all the keys and configuration files that ceph-deploy generates.
+	a. mkdir cluster-config <br/>
+    b. cd cluster-config
+2) Now we create a cluster
+
+	ceph-deploy new {initial-monitor-node(s)}
+
+	ceph-deploy new ceph-demo-1 ceph-demo-2
+##### This step marks the nodes as initial monitors.
+
+3) Thereafter, we Install ceph packages on required nodes
+
+	ceph-deploy install {ceph-node} […]
+
+	ceph-deploy install ceph-demo-1 ceph-demo-2
+	
+##### This step will install the latest stable version of ceph, i.e. mimic (13.2.1) on the given nodes.
+
+4) Now, we deploy the initial monitor nodes and gather keys
+
+	ceph-deploy mon create-initial
+5) Now we go ahead and copy our config file and admin key to the admin node as well as ceph-nodes in order to use ceph cli without passing these each time we execute a command.
+
+	ceph-deploy admin {ceph-node}[…]
+
+	ceph-deploy admin ceph-demo-1 ceph-demo-2
+6) Now, we deploy a manager daemon
+
+	ceph-deploy mgr create {ceph-node}[…]
+
+	ceph-deploy mgr create ceph-demo-1 ceph-demo-2
+7) We create 2 OSDs, assuming each osd has a unused disk called dev/sdb
+
+	ceph-deploy osd create — data {device} {ceph-node}
+
+	ceph-deploy osd create — data /dev/sdb ceph-demo-1
+	ceph-deploy osd create — data /dev/sdb ceph-demo-2
+##### After successfully executing these steps, our ceph cluster is up and running. The status and health of the cluster can be checked in by executing
+
+	$ sudo ceph health
+	$ sudo ceph -s
+##### We should get a status saying HEALTH_OK, and a detailed status resembling :
+
+	cluster:
+
+	id: 651e9802-b3f0–4b1d-a4d6-c57a46635bc9
+
+	health: HEALTH_OK
+
+	services:
+
+	mon: 2 daemons, quorum ceph-demo-1,ceph-demo-2
+
+	mgr: ceph-demo-1(active), standbys: ceph-demo-2
+
+	osd: 2 osds: 2 up, 2 in
+
+	data:
+
+	pools: 0 pools, 0 pgs
+
+	objects: 0 objects, 0 B
+
+	usage: 2.0 GiB used, 18 GiB / 20 GiB avail
+
+	pgs:
+
+#####  Expanding the Existing cluster
+Now, to demonstrate the ease of expanding a ceph cluster at runtime, we will be adding one node in our running cluster. We will mark that node as osd, manager and monitor to increase the availability of our existing cluster.
+First of all, we need to make a change to our existing ceph.conf which is present inside the cluster-config directory. We add the following line into it
+
+##### public network = {ip-address}/{bits}
+
+public network = 10.142.0.0/24
+
+##### For this, we need to follow these sample steps:
+
+1) We install ceph packages on 3rd node
+
+	ceph-deploy install {ceph-node}[…]
+
+	ceph-deploy install ceph-demo-3
+2) We need to push the admin keys and conf to 3rd node. We do it using
+
+	ceph-deploy admin {ceph-node}[…]
+
+	ceph-deploy admin ceph-demo-3
+3) Now we will add the 3rd node as our monitor
+
+	ceph-deploy mon add {ceph-nodes}
+
+	ceph-deploy mon add ceph-demo-3
+4) Now, we go ahead and mark 3rd node as our manager
+
+	ceph-deploy mgr create {ceph-node}[…]
+
+	ceph-deploy mgr create ceph-demo-3
+5) We add 3rd node as OSD by following same steps as done while creating the cluster.
+
+	ceph-deploy osd create — data {path} {ceph-node}
+
+Now, if we check status of our cluster, we should get the configuration changes as following
+![Configure Pipelines](_images/getting_started_images/1_WnLbz-mT7_xoF0GscnmCSA.jpg)
+
+### CEPH Dashboard
+Now, going ahead, we can enable the CEPH dashboard in order to view all the cluster status via a UI console.
+
+Ceph in its mimic release has provided the users with a new and redesigned dashboard plugin, with the features like restricted control with username/password protection and SSL/TLS support.
+
+##### To enable the dashboard, we need to follow these steps:
+
+	1) ceph mgr module enable dashboard
+
+	2) ceph dashboard create-self-signed-cert
+
+Note: Self signed certificate is only for quick start purpose.
+
+	3) ceph mgr module disable dashboard
+
+	4) ceph mgr module enable dashboard
+
+Now, we will be able to see the CEPH dashboard on the port 8443, which is by default but on requirement can be configured using:
+
+	ceph config set mgr mgr/dashboard/server_addr $IP
+
+	ceph config set mgr mgr/dashboard/server_port $PORT
+
+To access, and to utilize full functionality of the dashboard, we need to create the login credentials.
+
+	ceph dashboard set-login-credentials <username> <password>
+
+After these steps, our ceph infrastructure is ready with all the configurations to do some actual input output operations.
 
 ##### Reference link: 
 (http://docs.ceph.com/docs/mimic/start/quick-start-preflight/)
