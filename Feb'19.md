@@ -1,10 +1,10 @@
 **Date: 08 Feb 2019** 
 
-**Module: Pre-registration, Kernel**
+**MOSIP**
 
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
-|1.|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer attachment 1 in the linked page - Attachment Name: MOSIP_HLD_v2 - Delivered on 05Feb'19|
+|1.|MOSIP - High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer attachment 1 in the linked page - Attachment Name: MOSIP_HLD_v2 - Delivered on 05Feb'19|
 
 
 **Date: 15 Feb 2019**
