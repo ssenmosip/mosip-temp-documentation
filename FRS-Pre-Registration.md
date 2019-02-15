@@ -13,6 +13,7 @@
     * [2.2.3 Provide Data in Preferred Language](#223-provide-data-in-preferred-language)
     * [2.2.4 Viewing "My Applications" (covers status)](#224-viewing-my-applications-covers-status)
     * [2.2.5 Modify Application Data](#225-modify-application-data)
+    * [2.2.6 Discard Application]
   * [2.3 Attaching Documents to the Application](#23-attaching-documents-to-the-application)
     * [2.3.1 Document Categories and Applicable Document Types](#231-document-categories-and-applicable-document-types)
     * [2.3.2 Referring to already Uploaded Documents](#232-referring-to-already-uploaded-documents)
