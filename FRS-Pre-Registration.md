@@ -1,8 +1,8 @@
 ## Table Of Content
-
+**WIP*
 * [1. Overview](#1-overview)
 * [2. Features](#2-features)
-  * [2.1 Login/Creating an User Account](#21-logincreating-an-user-account)
+  * [2.1 Login/Creating a User Account](#21-logincreating-an-user-account)
     * [2.1.1 Login using Email](#211-login-using-email)
     * [2.1.2 Login using Phone Number](#212-login-using-phone-number)
     * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login)
@@ -13,6 +13,7 @@
     * [2.2.3 Provide Data in Preferred Language](#223-provide-data-in-preferred-language)
     * [2.2.4 Viewing "My Applications" (covers status)](#224-viewing-my-applications-covers-status)
     * [2.2.5 Modify Application Data](#225-modify-application-data)
+    * 2.2.6 Discard Application
   * [2.3 Attaching Documents to the Application](#23-attaching-documents-to-the-application)
     * [2.3.1 Document Categories and Applicable Document Types](#231-document-categories-and-applicable-document-types)
     * [2.3.2 Referring to already Uploaded Documents](#232-referring-to-already-uploaded-documents)

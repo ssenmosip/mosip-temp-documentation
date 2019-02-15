@@ -371,7 +371,7 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 ### Example Request
 ```JSON
 {
-  "id" : "mosip.manual.verification.assignment",
+  "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
   "request" : {
@@ -388,7 +388,7 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 Success response
 ```JSON
 {
-  "id" : "mosip.manual.verification.assignment",
+  "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
   "response" : {
@@ -405,7 +405,7 @@ Success response
 Failure response
 ```JSON
 {
-  "id" : "mosip.manual.verification.assignment",
+  "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
   "response" : null,
@@ -451,7 +451,7 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ### Example Request
 ```JSON
 {
-  "id" : "mosip.manual.verification.assignment",
+  "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
   "request" : {
@@ -461,7 +461,29 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 }
 ```
 ### Example Response
-byte array of applicant demographic information.
+Success :
+```JSON
+{
+  "id" : "mosip.manual.verification.biometric",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "file": "B@629f0666",
+  "error" : null
+}
+```
+Failure :
+```JSON
+{
+  "id" : "mosip.manual.verification.biometric",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "file": null,
+  "error" : {
+	"errorCode" : "RPR-MVS-002",
+	"message" : "Requested file is not present"
+  }
+}
+```
 
 ### Response codes
 200
@@ -498,7 +520,7 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ### Example Request
 ```JSON
 {
-  "id" : "mosip.manual.verification.assignment",
+  "id" : "mosip.manual.verification.demographic",
   "version" : "1.0",
   "timestamp": "2019-02-04T13:46:39.919+0000",
   "request" : {
@@ -508,7 +530,28 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 }
 ```
 ### Example Response
-byte array of applicant biometric.
+```JSON
+{
+  "id" : "mosip.manual.verification.biometric",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "file": "B@629f0666",
+  "error" : null
+}
+```
+Failure :
+```JSON
+{
+  "id" : "mosip.manual.verification.biometric",
+  "version" : "1.0",
+  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "file": null,
+  "error" : {
+	"errorCode" : "RPR-MVS-002",
+	"message" : "Requested file is not present"
+  }
+}
+```
 
 ### Response codes
 200
