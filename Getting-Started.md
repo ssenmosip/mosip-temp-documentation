@@ -297,23 +297,30 @@ The scripts to create the above objects are available under [https://github.com/
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
+
+Here is the Logical Deployment Diagram - 
+
+![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
+
 Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster. As of now Kubernetes Deployment is deviced in two parts - 
+
 A. One time setup of MOSIP in Kubernetes Cluster
+
 B. Continuous deployment 
 
-# A. One time setup of MOSIP in Kubernetes Cluster
+### A. One time setup of MOSIP in Kubernetes Cluster
 One time setup on Kubernetes involves following Steps 
 I. Setting Up local system to communicate with Kubernetes cluster through Local system.
 II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on /scripts/kubernetes/commons directory. following are the files -
 
 ![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
 
-We will now go through each of the file and see what changes we need to perofom before we give it to **kubectl**. 
+We will now go through each of the file and see what changes we need to perfom. we will be using **[kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)** to do the deployments from local system. 
 
 * DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
 `kubeclt apply -f DeployIngressController.yaml`
 * DeployServiceIngressService.yaml - 
-
+```
   apiVersion: v1
   kind: Service
   metadata:
@@ -329,10 +336,12 @@ We will now go through each of the file and see what changes we need to perofom 
       k8s-app: nginx-ingress-controller
     type: LoadBalancer
     loadBalancerIP: 104.211.231.5
-
-Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalance IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that.
+```
+Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalance IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that. Now we can run this file. To run this use this command
+`kubeclt apply -f DeployServiceIngressService.yaml`
 
 * DeployIngress.yaml - 
+```
   apiVersion: extensions/v1beta1
   kind: Ingress
   metadata:
@@ -461,13 +470,41 @@ Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here Yo
           backend:
             serviceName: sample-nginx
             servicePort: 80
+```
 
-This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.
+This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.To run this use this command
+`kubeclt apply -f DeployIngress.yaml`
 
 
+* DeployDefaultBackend.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+`kubeclt apply -f DeployIngressController.yaml`
 
-Here is the Logical Deployment Diagram (Detailing will be done later)- 
+* docker-registry-secret.yml - 
+This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. for creating secret for the first time, run below command - 
 
+`kubectl create secret docker-registry <registry-credential-name> --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email> `
+
+Once secret is created on the Kubernetes Cluster, as a backup strategy we can download the created secret using this command 
+
+`kubectl get secret <registry-credential-name> -o yaml --export`
+
+Once the above deployment is done, we will start deploying MOSIP services. For doing this, we need to look for these directories - 
+
+![Directories](_images/getting_started_images/kubernetes-mosip-services-directory.JPG)
+
+Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials. 
+For doing this, follow below steps (for eg. we will use kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - 
+I. Open a deployment file. 
+II. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-auditmanager-service` to `<Your Docker Registry>/kernel-auditmanager-service`
+III. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>`
+IV. Save the file
+V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml`
+
+After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
+
+B. Continuous deployment 
+
+To be done later
 
 ***
 
@@ -493,5 +530,3 @@ Here is the Logical Deployment Diagram (Detailing will be done later)-
 
 
 
-
-![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
