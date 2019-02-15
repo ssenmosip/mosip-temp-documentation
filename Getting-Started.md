@@ -178,14 +178,14 @@ $ sudo systemctl status nginx <br/>
 
 ##### To edit files use a text editor such as vi
 $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
-   Example : 
-          location / {
-                        proxy_set_header Host $host;
-                        proxy_set_header X-Real-IP $remote_addr;
-                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                        proxy_set_header X-Forwarded-Proto $scheme;
-                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //endpoint of kubernetes 
-                }
+   Example : <br/> 
+          location / {  <br/>
+                        proxy_set_header Host $host; <br/>
+                        proxy_set_header X-Real-IP $remote_addr; <br/>
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; <br/>
+                        proxy_set_header X-Forwarded-Proto $scheme; <br/>
+                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //endpoint of kubernetes <br/>
+           } <br/>
 
    
 ##### Below command to open the port 80/443 from RHEL 7.5 VM 
