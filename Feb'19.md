@@ -14,12 +14,12 @@
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
 |1.|NA|Getting Started Guide|[MOSIP Platform Documentation-Section 10.1](https://github.com/mosip/mosip/wiki/Getting-Started)||
-|2.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)||
+|2.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.2|
 |3.|Pre-registration|High Level Design Document|[Pre-Registration HLD](https://github.com/mosip/mosip/wiki/Pre-Registration)||
 |4.|Pre-registration|API Specifications Document|[Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)||
 |5.|Pre-registration|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6) ||
 |6.|Pre-registration|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)||
-|7.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)||
+|7.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.1|
 |8.|Kernel|High Level Design Document|[Kernel HLD](https://github.com/mosip/mosip/wiki/Kernel) | |
 |9.|Kernel|API Specifications Document | [Kernel APIs](https://github.com/mosip/mosip/wiki/Kernel-APIs), [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs) |  |
 |10.|Kernel|Code Drop|[Tag: 0.8.6](https://github.com/mosip/mosip/releases/tag/0.8.6)||
@@ -32,7 +32,7 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|WIP|
+|1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.2|
 |2.|Pre-registration|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |3.|Pre-registration|Tested Code|Link|Exit Criteria: |
 |4.|Pre-registration|Known Defects and Pending Items|Link to word doc||
@@ -41,7 +41,7 @@
 |7.|Pre-registration|Mindmaps|Link||
 |9.|Pre-registration|Automation Framework|Link||
 |10.|Pre-registration|Developer Documentation|Link||
-|11.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|WIP|
+|11.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Sec.1|
 |12.|Kernel|Platform Document and Functional Requirement Specification|[PD Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |13.|Kernel|Tested Code|Link|Exit Criteria: |
 |14.|Kernel|Known Defects and Pending Items|Link to word doc||
