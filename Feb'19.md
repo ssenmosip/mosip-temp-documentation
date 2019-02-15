@@ -26,7 +26,7 @@
 |11.|Kernel|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer Section 3|
 
 
-**Date: 28 Feb 2019**
+**Date: 28 Feb 2019** * WIP - Please review on the due date
 
 **Module: Pre-registration, Kernel**
 
