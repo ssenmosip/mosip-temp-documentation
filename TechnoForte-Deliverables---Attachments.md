@@ -15,4 +15,4 @@ Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_PreRegistr
 2) ## Module: Kernel <15Feb'19>
 Artefact: Known Defects and Pending Items
 
-Link:
+Link: [Click to View]
