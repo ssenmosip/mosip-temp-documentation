@@ -55,6 +55,38 @@ In case of Exceptions, system should trigger relevant error messages. Refer “M
 
 #### 4.1.2  UIN Validator
 #### 4.1.3 PRID Validator
+As the MOSIP system can validate PRID as per a defined PRID generation logic
+
+Upon receiving a request to validate the PRID the system validates the PRID against the defined policy
+
+1. Validates if the received PRID contains number of digits as configured by the ADMIN
+1. In absence of the configured length, validates if the PRID received should contain 14 digits
+1. Validates the PRID received follows the PRID generation logic 
+In case of Exceptions, triggers relevant error messages
+
+Responds to the source with appropriate message 
+
+Raise an alert in case of listed exceptions as defined below
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+PRID is valid|	"Valid"|	NA|
+PRID is invalid|	"Invalid"|	NA|
+
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+MosipInvalidIDException	|Entered PRID should not be empty or null.|	KER-IDV-101
+MosipInvalidIDException|	Entered PRID should not contain any sequential and repeated block of number for 2 or more than two digits	|KER-IDV-102
+MosipInvalidIDException	|Entered PRID length should be 14 digit	|KER-IDV-103
+MosipInvalidIDException	|Entered PRID should not contain any alphanumeric characters|	KER-IDV-104
+MosipInvalidIDException	|Entered PRID should match checksum	|KER-IDV-105
+MosipInvalidIDException	|Entered PRID should not contain Zero or One as first Digit|	KER-IDV-106
+
+
+
 #### 4.1.4 VID Validator
 MOSIP system can perform VID validation against a defined VID policy
 
@@ -147,6 +179,36 @@ Raise an alert in case of listed exceptions as specified below
 
 
 #### 4.2.3 Registration Center ID Generator
+MOSIP system can generate Registration Center ID as per defined Registration Center ID generation logic
+
+Upon receiving a request to generate Registration Center ID the system generates it as per default Registration Center ID generation logic
+
+Registration Center ID is generated as per the defined logic mentioned below
+
+1. Registration Center ID should only be numeric
+1. Registration Center ID generated should be of length of 5 digits
+1. Each new Registration Center ID should be incremented by 1 for each new request
+1. Registration Center ID generation should start from 10000
+1. The number should not contain the restricted numbers defined by the ADMIN
+In case of Exceptions, system triggers relevant error messages
+
+Responds with the Registration Center ID to the source
+
+Raises an alert in case of listed exceptions
+
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|NA|	NA	|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|------|:------:|
+RegistrationCenterIdException|	Error occured while fetching ID|	KER-RCG-001
+RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
+
+
 #### 4.2.4 TSP ID Generator
 #### 4.2.5 PRID Generator
 #### 4.2.6 VID Generator
