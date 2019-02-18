@@ -61,6 +61,10 @@
 #### 2.4.2.1 Get Slots Availability
 #### 2.4.2.2 Block Slots for one or more Applications
 ### 2.4.3 Cancel Appointment
+•	An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
+In such case the system will notify the user about the successful cancellation 
+•	Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
+
 ### 2.4.4 Re-book Appointment
 ## 2.5 Appointment Acknowledgement (PRID)
 •	An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
