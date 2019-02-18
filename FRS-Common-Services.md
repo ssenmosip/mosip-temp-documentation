@@ -43,6 +43,23 @@
 ### 4.4 PDF Generator
 ### 4.5 Template Merger
 ## 5. Transliteration
+MOSIP system can be able to facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
+1. Validate if all required input parameters have been received as listed below for each specific request
+* User Input Word - Mandatory
+* Input Language Code - Mandatory
+* Output Language Code - Mandatory
+2. Transliterate the Word received from Input Language to Output Language
+1. In case of Exceptions, system triggers relevant error messages as specified below
+## <p align="left">**Type : Error / Failure – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+|TRANSLITERATION_INVALID_ID|Transliteration not possible|KER-TRL-001|
+|TRANSLITERATION_INVALID_LANGUAGE_CODE|Language code not supported|KER-TRL-002|
+
+
+
+
+
 ## 6. MOSIP Utils
 ### 6.1 Mobile Data Validator
 ### 6.2 Email Data Validator
