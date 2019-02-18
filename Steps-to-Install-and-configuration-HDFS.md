@@ -124,3 +124,58 @@ Edit hdfs-site.conf:
         </property>
 </configuration>
 ```
+#### Configure Master
+Edit ~/hadoop/etc/hadoop/masters to be:
+````
+node-master.southindia.cloudapp.azure.com
+````
+#### Configure Slaves
+Edit ~/hadoop/etc/hadoop/slaves to be:
+````
+node-slave1.southindia.cloudapp.azure.com
+````
+### Duplicate Config Files on Each Node 
+1. Copy the hadoop binaries to slave nodes:
+```
+cd /home/hadoop/
+scp hadoop-*.tar.gz node-slave1.southindia.cloudapp.azure.com:/home/hadoop
+```
+2. Connect to node1 via ssh. A password isn’t required, thanks to the ssh keys copied above:
+```
+ssh node-slave1.southindia.cloudapp.azure.com
+```
+3. Unzip the binaries, rename the directory, and exit node-slave1.southindia.cloudapp.azure.com to get back on the node-master.southindia.cloudapp.azure.com:
+```
+tar -xzf hadoop-2.8.1.tar.gz
+mv hadoop-2.8.1 hadoop
+exit
+```
+4. Copy the Hadoop configuration files to the slave nodes:
+``` 
+for node in node-slave1.southindia.cloudapp.azure.com; do
+    scp ~/hadoop/etc/hadoop/* $node:/home/hadoop/hadoop/etc/hadoop/;
+done
+```
+### Format HDFS
+HDFS needs to be formatted like any classical file system. On node-master, run the following command:
+```
+hdfs namenode -format
+```
+Your Hadoop installation is now configured and ready to run.
+### Start HDFS
+1. Start the HDFS by running the following script from node-master:
+```
+start-dfs.sh
+```
+It’ll start NameNode and SecondaryNameNode on node-master.southindia.cloudapp.azure.com, and DataNode on node-slave1.southindia.cloudapp.azure.com, according to the configuration in the slaves config file.
+2. Check that every process is running with the jps command on each node. You should get on node-master.southindia.cloudapp.azure.com (PID will be different):
+```
+21922 Jps
+21603 NameNode
+21787 SecondaryNameNode
+```
+and on node-slave1.southindia.cloudapp.azure.com:
+```
+19728 DataNode
+19819 Jps
+```
