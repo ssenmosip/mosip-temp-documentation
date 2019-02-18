@@ -11,7 +11,7 @@
       * [4.1.4 VID Validator](#414-vid-validator)
       * [4.1.5 RID Validator](#415-rid-validator)
       * [4.1.6 TSP ID Validator](#416-tsp-id-validator)
-    * [4.2 ID Generator:](#42-id-generator-)
+    * [4.2 ID Generator](#42-id-generator)
       * [4.2.1 RID Generator](#421-rid-generator)
       * [4.2.2 Machine ID Generator](#422-machine-id-generator)
       * [4.2.3 Registration Center ID Generator](#423-registration-center-id-generator)
@@ -31,7 +31,7 @@
 #### 4.1.4 VID Validator
 #### 4.1.5 RID Validator
 #### 4.1.6 TSP ID Validator
-### 4.2 ID Generator:
+### 4.2 ID Generator
 #### 4.2.1 RID Generator
 #### 4.2.2 Machine ID Generator
 #### 4.2.3 Registration Center ID Generator
