@@ -36,4 +36,30 @@
 
 ### List of ID Types - Create/Read/Update/Delete
 
+## Registration Management,37,till 41,50-52,63-65
+### Registration Center Type - Create/Read/Update/Delete
+
+### Registration Center - Create/Read/Update/Delete
+
+### List of Machine Types - Create/Read/Update/Delete
+
+### List of Machine Specifications - Create/Read/Update/Delete
+
+### List of Machines - Create/Read/Update/Delete
+
+### Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete
+
+### List of Devices - Create/Read/Update/Delete	
+
+### List of Device Specifications - Create/Read/Update/Delete
+
+### List of Device Types - Create/Read/Update/Delete
+### Mappings of Registration Center and Machine - Create/Read/Update/Delete
+
+### Mappings of Registration Center and Device - Create/Read/Update/Delete
+
+### Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete
+
+
+
 
