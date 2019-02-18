@@ -59,14 +59,12 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
 #### Set NameNode
 Update ~/hadoop/etc/hadoop/core-site.xml:
 ```
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-    <configuration>
-        <property>
+<configuration>
+     <property>
             <name>fs.defaultFS</name>
             <value>hdfs://node-master.southindia.cloudapp.azure.com:51000</value>
-        </property>
-    </configuration>
+     </property>
+</configuration>
 ```
 #### Set path for HDFS
 Edit hdfs-site.conf:
