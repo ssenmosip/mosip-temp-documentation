@@ -104,7 +104,16 @@ Respond with the required result (Valid/Invalid)
 
 Raise an alert in case of listed exceptions as defined below:
 
+### <p align="left"> **1. Type: Success – Info Message**
 
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|TSP ID is Valid|	True	|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|------|:------:|
+|TSP ID in Invalid	|TSP ID length Must be <Length configured)	|KER-IDV-401|
 
 ### 4.2 ID Generator
 #### 4.2.1 RID Generator
