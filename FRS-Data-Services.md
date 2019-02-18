@@ -92,6 +92,20 @@ Respond to the source with appropriate message and Raise an alert in case of lis
 
 #### 4.1.5 RID Validator
 #### 4.1.6 TSP ID Validator
+MOSIP system can perform TSP ID validation against a defined TSP ID policy
+
+Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validate TSP ID as per the TSP ID generation logic
+1. Validates if the request has the following input parameters.
+* TSP ID
+2. Validates TSP ID as per the TSP ID generation Policy
+1. In case of Exceptions system triggers relevant error messages 
+
+Respond with the required result (Valid/Invalid)
+
+Raise an alert in case of listed exceptions as defined below:
+
+
+
 ### 4.2 ID Generator
 #### 4.2.1 RID Generator
 #### 4.2.2 Machine ID Generator
