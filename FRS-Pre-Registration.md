@@ -59,6 +59,11 @@
 #### 2.4.1.3 Find a Center
 ### 2.4.2 Choosing Appointment Slots
 #### 2.4.2.1 Get Slots Availability
+•	The System displays 7 calendar days (configurable) for the Individual to select a slot
+        Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
+        For a Selected Registration Center 8 hours (configurable) are considered as working hours
+•	An individual can view time slots of 15 mins(configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
+
 #### 2.4.2.2 Block Slots for one or more Applications
 ### 2.4.3 Cancel Appointment
 •	An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
