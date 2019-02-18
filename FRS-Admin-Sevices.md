@@ -161,15 +161,15 @@ When license key is mapped with the permissions|	Mapped License with the permiss
 ## <p align="left">**2. Type : Error/Failure – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
--	|TSP entered is null or empty	|KER-LKM-001
--	|The length of license key generated was not of the specified length.|	KER-LKM-002
--	|Permission value entered is not accepted.	|KER-LKM-003
--	|LicenseKey Not Found.	|KER-LKM-004
--	|LicenseKey Expired.|	KER-LKM-005
--	|License Key entered is null or empty.|	KER-LKM-006
--	|Permission entered is an empty string.|	KER-LKM-007
-HttpMessageNotReadableException|	<Dynamic Message as received>	|KER-LKM-008
-RunTimeException	|<Dynamic Message as received>|	KER-LKM-009
+|-	|TSP entered is null or empty	|KER-LKM-001
+|-	|The length of license key generated was not of the specified length.|	KER-LKM-002
+|-	|Permission value entered is not accepted.	|KER-LKM-003
+|-	|LicenseKey Not Found.	|KER-LKM-004
+|-	|LicenseKey Expired.|	KER-LKM-005
+|-	|License Key entered is null or empty.|	KER-LKM-006
+|-	|Permission entered is an empty string.|	KER-LKM-007
+|HttpMessageNotReadableException|	<Dynamic Message as received>	|KER-LKM-008
+|RunTimeException	|<Dynamic Message as received>|	KER-LKM-009
 
 
 
