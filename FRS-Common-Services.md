@@ -71,15 +71,17 @@ Respond to the source with the result (Valid/Invalid)
 
 Raise an alert in case of listed exceptions as follows
 
+## <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+|Mobile no is valid	|"Valid"	|NA|
 
-
-
-
-
-
-
-
-
+## <p align="left">**2. Type : Error/Failure – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+|MosipInvalidPhoneNumberException|Phone number should not be empty or null|KER-MOV-001|
+|MosipInvalidPhoneNumberException|Phone length should be specified number of digits|KER-MOV-002|
+|MosipInvalidPhoneNumberException|Phone number should not contain any special characters except specified|KER-MOV-003|
 ### 6.2 Email Data Validator
 MOSIP system, can validate an Email ID based on a defined policy
 
