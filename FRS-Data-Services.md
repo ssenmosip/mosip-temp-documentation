@@ -68,8 +68,6 @@ Respond to the source with appropriate message and Raise an alert in case of lis
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
-<center>
-
 |**Scenario**|**Message**|**Message Code**|
 |:------:|:------:|:------:|
 |VID is Valid|"Valid"|NA|
@@ -105,44 +103,4 @@ Respond to the source with appropriate message and Raise an alert in case of lis
 
 
 
-FORMAT: 1A
-
-# Tables API 
-Note: Tables can be handcrafted or generated at <http://www.tablesgenerator.com/markdown_tables>.
-
-## Table 1
-**Discussion option 1**
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
-
-# Message [/pages]
-## Create a Message [POST]
-
-### Table 2
-**Discussion option 2**
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
-
-+ Request (application/json)
-
-    ## Table 3
-    **Discussion option 3**
-
-    | Tables   |      Are      |  Cool |
-    |----------|:-------------:|------:|
-    | col 1 is |  left-aligned | $1600 |
-    | col 2 is |    centered   |   $12 |
-    | col 3 is | right-aligned |    $1 |
-
-    + Headers
-
-            Authorization:Bearer tokenString
 
