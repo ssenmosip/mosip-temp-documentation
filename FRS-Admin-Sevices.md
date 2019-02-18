@@ -141,11 +141,16 @@ MOSIP system can generate and validate a license Key
 (b) Validates if the request contains the following input parameters
 * TSP ID - mandatory
 * License key - Mandatory
+
 (c) If the mandatory input parameters are missing, throws the appropriate message.
+
 (d) Validate the License key based on following logic
+
 * License key received should be mapped to the TSP ID received in the request
 * License key should not be expired as per the expiry time mapped to the License Key
+
 (e) If the License key is invalid, throws error message
+
 (f) In case of Exceptions, system triggers relevant error messages
 
 
