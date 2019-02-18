@@ -63,8 +63,12 @@
 ### 2.4.3 Cancel Appointment
 ### 2.4.4 Re-book Appointment
 ## 2.5 Appointment Acknowledgement (PRID)
+•	An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
+•	The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)
 ### 2.5.1 Download Acknowledgement
+•	Individual can Choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later 
 ### 2.5.2 Send Acknowledgement to Email/Phone
+•	The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as per the details provided in Demographic details
 ## 2.6 Registration Client Services
 ### 2.6.1 Get Appointment for the Day
 ### 2.6.2 Retrieve Application Data by PRID
