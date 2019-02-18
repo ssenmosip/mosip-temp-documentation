@@ -43,7 +43,7 @@ request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
 request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 
 ### Sample Request Header
-<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
+#####<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
 
 ### Sample Request Body
 ```JSON
@@ -76,9 +76,8 @@ request: identity: leftEye|N| Left Eye of Individual's IRIS| |
   ],
   "sessionKey": "<encrypted and encoded session key>"
   //Identity Request
-  "request": {
-    //This element should be encrypted and encoded using session key
-	"identity": {
+  "request": {//This element should be encrypted and encoded using session key
+    "identity": {
       "UIN": "4074317832",
       "VID": "9830872690593682",
       "name": [
@@ -138,7 +137,7 @@ request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 ```
 
 ### Sample Response Header     
-<MOSIP-AuthX> = <MOSIP Digital Signature>
+#####<MOSIP-AuthX> = <MOSIP Digital Signature>
 
 ### Sample Response Body
 #### Success Scenario :
@@ -228,7 +227,7 @@ authRequest: request: identity: leftIndex|N| Left Index of Individual's Fingerpr
 authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 
 ### Sample Request Header
-<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
+#####<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
 
 ### Sample Request
 ```JSON
@@ -278,7 +277,8 @@ authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
         {
           "type": "FINGER",
           "subType": "RIGTHT_POINTER",
-          "value": "<base64 encoded value>",
+          "value": "<base64 encoded value>"
+        },
         {
           "type": "IRIS",
           "subType": "RIGHT",
@@ -295,7 +295,7 @@ authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 ```
 
 ### Sample Response Header     
-<MOSIP-AuthX> = <MOSIP Digital Signature>
+#####<MOSIP-AuthX> = <MOSIP Digital Signature>
 
 ### Sample Response Body
 #### Success Scenario :
@@ -463,7 +463,7 @@ reqTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
 txnID|Y|Request Transaction ID| |abc123abc
 
 ### Sample Request Header
-<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
+#####<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
 
 ### Sample Request
 ```JSON
@@ -491,7 +491,7 @@ txnID|Y|Request Transaction ID| |abc123abc
 ```
 
 ### Sample Response Header     
-<MOSIP-AuthX> = <MOSIP Digital Signature>
+#####<MOSIP-AuthX> = <MOSIP Digital Signature>
 
 ### Sample Response Body
 #### Success Scenario:
