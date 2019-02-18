@@ -8,7 +8,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 4. Bio based - Fingerprint, IRIS and Face
 
 ### Resource URL
-### `POST identity/auth/v1.0`
+### `POST identity/auth/v1.0/<MISP-LK>`
 
 ### Resource details
 
@@ -42,66 +42,120 @@ request: identity: fullAddress|N| fullAddress attribute of Individual's Identity
 request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
 request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 
-### Sample Request
+### Sample Request Header
+<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
+
+### Sample Request Body
 ```JSON
 {
+  //API Metadata
   "id": "mosip.identity.auth",
-  "ver": "1.0",
-  "reqTime": "2019-01-23T10:01:57.086+05:30",
-  "txnID": "1234567890",
-  "idvId": "486493840596",
-  "idvIdType": "D",
-  "tspID": "TSP0000005",
-  "authType": {
-  	 "personalIdentity": true,
-    "address": false,
+  "version": "1.0",
+  //Request Metadata 
+  "partnerID": "AP000001",
+  "policy": "<auth-policy-id>",
+  "transactionID": "1234567890",
+  "requestTime": "2019-02-15T10:01:57.086+05:30",
+  "requestedAuth": {
+    "otp": true,
+    "demo": false,
     "bio": false,
-    "otp": false,
     "pin": false
   },
-  "key": {
-    "publicKeyCert": "<Base 64 encoded TSP public key>",
-    "sessionKey": "<encrypted and encoded session key>"
-  },
-  // This element should be encrypted and encoded by Session Key
+  "bioMetadata": [
+    {
+      "bioType": "FMR",
+      "deviceId": "",
+      "deviceProviderID": ""//notmandatory
+    },
+    {
+      "bioType": "IIR",
+      "deviceId": "",
+      "deviceProviderID": ""//addbioparameterswhenRDserviceisfinalized
+    }
+  ],
+  "sessionKey": "<encrypted and encoded session key>"
+  //Identity Request
   "request": {
-    "identity": {
-      "fullName": [
+    //This element should be encrypted and encoded using session key
+	"identity": {
+      "UIN": "4074317832",
+      "VID": "9830872690593682",
+      "name": [
         {
           "language": "ara",
           "value": "ابراهيم بن علي"
+        },
+        {
+          "language": "fra",
+          "value": "Ibrahim Ibn Ali"
+        }
+      ],
+      "addressLine1": [
+        {
+          "language": "ara",
+          "value": "عنوان العينة سطر 1"
+        },
+        {
+          "language": "fra",
+          "value": "exemple d'adresse ligne 1"
+        }
+      ],
+      "fullAddress": [
+        {
+          "language": "ar",
+          "value": "عنوان العينة سطر 2, عنوان العينة سطر 1"
+        },
+        {
+          "language": "fr",
+          "value": "exemple d'adresse ligne 1, exemple d'adresse ligne 2"
+        }
+      ],
+      "biometrics": [
+        {
+          "type": "FINGER",
+          "subType": "UNKNOWN",
+          "value": "<base64 encoded value>"
+        },
+        {
+          "type": "FINGER",
+          "subType": "RIGTHT_POINTER",
+          "value": "<base64 encoded value>"
+        },
+        {
+          "type": "IRIS",
+          "subType": "RIGHT",
+          "value": "<base64 encoded value>"
         }
       ]
+    },
+    "additionalFactors": {
+      "totp": "123456",
+      "staticPin": "987654"
     }
   }
 }
 ```
 
-### Sample Response
+### Sample Response Header     
+<MOSIP-AuthX> = <MOSIP Digital Signature>
+
+### Sample Response Body
 #### Success Scenario :
 Status Code : 200 (OK)
 
 ```JSON
 {
-  "ver": "1.0",
-  "resTime": "2019-01-23T15:38:26.597+05:30",
+  //API Metadata
+  "id": "mosip.identity.auth",
+  "version": "1.0",
+  //Response Metadata
+  "transactionID": "txn12345",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  //Auth Response
   "status": "Y",
-  "txnID": "1234567890",
-  "info": {
-    "idType": "D",
-    "reqTime": "2019-01-23T10:01:57.086+05:30",
-    "matchInfos": [
-      {
-        "authType": "personalIdentity",
-        "language": "ara",
-        "matchingStrategy": "E",
-        "matchingThreshold": 100
-      }
-    ],
-    "bioInfos": [],
-    "usageData": "0x2000000020000000"
-  },
-  "err": [],
+  "staticToken": "<static_token>",
+  "errors": []
 }
 ```
 
@@ -110,11 +164,16 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  "ver": "1.0",
-  "resTime": "2019-01-23T15:38:26.597+05:30",
-  "status": "N",
-  "txnID": "1234567890",
-  "err": [
+  //API Metadata
+  "id": "mosip.identity.auth",
+  "version": "1.0",
+  //Response Metadata
+  "transactionID": "txn12345",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  //Auth Response
+  "status": "Y",
+  "staticToken": "<static_token>",
+  "errors": [
     {
       "code": "IDA-MLC-002",
       "message": "Invalid UIN"
@@ -130,7 +189,7 @@ This service details KYC Auth Request to be used by TSPs to authenticate an Indi
 3. Bio based - Fingerprint, IRIS and Face
 
 ### Resource URL
-### `POST identity/kyc/v1.0`
+### `POST identity/kyc/v1.0/<MISP-LK>`
 
 ### Resource details
 
@@ -168,163 +227,190 @@ authRequest: request: identity: fullAddress|N| fullAddress attribute of Individu
 authRequest: request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
 authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
 
+### Sample Request Header
+<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
+
 ### Sample Request
 ```JSON
 {
+  // API Metadata
   "id": "mosip.identity.kyc",
-  "ver": "1.0",
-  "consentReq": true,
-  "ekycAuthType": "I",
-  // This element should be Base 64 encoded"
-  authRequest": {
-    "id": "mosip.identity.auth",
-    "ver": "1.0",
-    "reqTime": "2019-01-18T11:00:32.149+05:30",
-    "txnID": "1234567890",
-    "idvId": "647082439732",
-    "idvIdType": "D",
-    "muaCode": "1234567890",
-    "tspID": "string",
-    "authType": {
-      "address": false,
+  "version": "1.0",
+  // Request Metadata
+  "partnerID": "KP000001",
+  "policyID": "<kyc-policy-id>",
+  "transactionID": "1234567890",
+  "requestTime": "2019-02-15T10:01:57.086+05:30",
+  "requestedAuth": {
+      "otp": true,
+      "demo": false,
       "bio": true,
-      "otp": false,
-      "personalIdentity": false,
-      "pin": false
+      "pin": true
+  },
+  "bioMetadata": [
+    {
+      "bioType": "FMR",
+      "deviceId": "",
+      "deviceProviderID": ""
     },
-    "bioInfo": [
-      {
-        "bioType": "irisImg",
-        "deviceInfo": {
-          "deviceId": "123143",
-          "make": "cogent",
-          "model": "steel"
+    {
+      "bioType": "IIR",
+      "deviceId": "",
+      "deviceProviderID": ""
+    }
+  ],
+  "kycMetadata" : {
+	"consentRequired": true,
+	"secondaryLangCode": "<sec-lang-code>"
+  },
+  "sessionKey": "<encrypted and encoded session key>",
+  //Identity Request 
+  "request": {// This element should be encrypted and encoded using session key
+    "identity": {
+      "UIN": "4074317832",
+      "VID": "9830872690593682",
+      "biometrics": [
+        {
+          "type": "FINGER",
+          "subType": "UNKNOWN",
+          "value": "<base64 encoded value>"
+        },
+        {
+          "type": "FINGER",
+          "subType": "RIGTHT_POINTER",
+          "value": "<base64 encoded value>",
+        {
+          "type": "IRIS",
+          "subType": "RIGHT",
+          "value": "<base64 encoded value>"
         }
-      }
-    ],
-    "key": {
-    	"publicKeyCert": "<Base 64 encoded TSP public key>",
-    	"sessionKey": "<encrypted and encoded session key>"
-  	},
-  	// This element should be encrypted and encoded by Session Key
-    "request": {
-      "identity": {
-        "leftEye": [
-          {
-            "value": "<Base 64 encoded IRIS ISO Image>"
-          }
-        ]
-      }
+      ]
+    },
+    "additionalFactors": {
+      "totp": "123456",
+      "staticPin": "987654"
     }
   }
 }
 ```
 
-### Sample Response
+### Sample Response Header     
+<MOSIP-AuthX> = <MOSIP Digital Signature>
+
+### Sample Response Body
 #### Success Scenario :
 Status Code : 200 (OK)
 
 ```JSON
 {
-  "kyc": {
+  // API Metadata
+  "id": "mosip.identity.kyc",
+  "version": "1.0",
+  // Response Metadata
+  "transactionID": "txn12345",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  // Auth Response
+  "status": "Y",
+  "staticToken": "<static_token>",
+  "errors": [],
+  "response": {// encoded encrypted KYC info using Partner's public key
+    "ttl": "time_to_live_for_KYC_Info",
     "identity": {
-      "fullName": [
+      "name": [
         {
-          "language": "fre",
-          "value": "Ibrahim Bin Ali"
-        }
-      ],
-      "gender": [
+          "language": "ar",
+          "value": "ابراهيم"
+        },
         {
-          "language": "fre",
-          "value": "mâle"
+          "language": "fr",
+          "value": "Ibrahim"
         }
       ],
       "dateOfBirth": [
         {
-          "value": "1955/04/15"
+          "language": "ar",
+          "value": "16/04/1955"
+        }
+      ],
+      "age": [
+        {
+          "language": "ar",
+          "value": "30"
+        }
+      ],
+      "gender": [
+        {
+          "language": "ar",
+          "value": "الذكر"
+        }
+      ],
+      "phoneNumber": [
+        {
+          "language": "ar",
+          "value": "+212-5398-12345"
+        }
+      ],
+      "emailId": [
+        {
+          "language": "ar",
+          "value": "sample@samplamail.com"
         }
       ],
       "addressLine1": [
         {
-          "language": "fre",
+          "language": "ar",
+          "value": "عنوان العينة سطر 1"
+        },
+        {
+          "language": "fr",
           "value": "exemple d'adresse ligne 1"
         }
       ],
       "addressLine2": [
         {
-          "language": "fre",
+          "language": "ar",
+          "value": "عنوان العينة سطر 2"
+        },
+        {
+          "language": "fr",
           "value": "exemple d'adresse ligne 2"
         }
       ],
       "addressLine3": [
         {
-          "language": "fre",
-          "value": "exemple d'adresse ligne 2"
+          "language": "ar",
+          "value": "عنوان العينة سطر 3"
+        },
+        {
+          "language": "fr",
+          "value": "exemple d'adresse ligne 3"
         }
       ],
-      "city": [
+      "location1": [
         {
-          "language": "fre",
-          "value": "Casablanca"
-        }
-      ],
-      "region": [
+          "language": "ar",
+          "value": "طنجة - تطوان - الحسيمة"
+        },
         {
-          "language": "fre",
+          "language": "fr",
           "value": "Tanger-Tétouan-Al Hoceima"
         }
       ],
-      "province": [
+      "pinCode": [
         {
-          "language": "fre",
-          "value": "Fès-Meknès"
+          "language": "ar",
+          "value": "85000"
+        },
+        {
+          "language": "fr",
+          "value": "85000"
         }
       ],
-      "postalCode": [
+      "photo": [
         {
-          "value": "570004"
-        }
-      ],
-      "email": [
-        {
-          "value": "abc@xyz.com"
-        }
-      ],
-      "phone": [
-        {
-          "language": null,
-          "value": "9876543210"
+          "value": "encoded_face_image_byte_array"
         }
       ]
-    },
-    "idvId": "XXXXXXXX9732"
-  },
-  "auth": {
-    "ver": 1.0,
-	"resTime": "2019-01-23T13:38:45.222Z",
-	"txnID": "1234567890",
-	"status": "Y",
-    "err": [
-      
-    ],
-    "info": {
-      "idType": "D",
-      "reqTime": "2019-01-23T11:00:32.149+05:30",
-      "matchInfos": [
-        
-      ],
-      "bioInfos": [
-        {
-          "bioType": "irisImg",
-          "deviceInfo": {
-            "deviceId": "123143",
-            "make": "cogent",
-            "model": "steel"
-          }
-        }
-      ],
-      "usageData": "0x0000001000000010"
     }
   }
 }
@@ -335,25 +421,28 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  "auth": {
-    "ver": 1.0,
-    "resTime": "2019-01-23T13:38:45.222Z",
-    "txnID": "1234567890",
-    "status": "N",
-    "err": [
+  // API Metadata
+  "id": "mosip.identity.kyc",
+  "version": "1.0",
+  // Response Metadata
+  "transactionID": "txn12345",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  // Auth Response
+  "status": "Y",
+  "staticToken": "<static_token>",
+  "errors": [
       {
         "code": "IDA-MLC-002",
         "message": "Invalid UIN"
       }
     ]
-  }
 }
 ```
 
 ## 3. OTP Request
 This service enables TSP to request for an OTP for an Individual. The OTP will be send via message or email to the Individual. This OTP should then be used to authenticate an Individual using Auth service.
 
-### Resource URL - `POST identity/otp/v1.0`
+### Resource URL - `POST identity/otp/v1.0/<MISP-LK>`
 
 ### Resource details
 
@@ -373,36 +462,54 @@ idvIdType|Y|TSP ID| |tsp1234567
 reqTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
 txnID|Y|Request Transaction ID| |abc123abc
 
+### Sample Request Header
+<MOSIP-AuthX> = <Partner Digital Signature re-issued by MOSIP>
+
 ### Sample Request
 ```JSON
 {
- 	// API Metadata
-	"id": "mosip.identity.otp",
-	"ver": "1.0",
-	//Request Metadata
-	"tspID": "tsp54321",
-	"idvId": "426789089018",
-	"idvIdType": "D",
-	"reqTime": "2019-01-24T14:33:19.931+05:30",
-	"txnID": "txn12345"
+  // API Metadata
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  // Request Metadata
+  "partnerID": "AP000001",
+  "policy": "<auth-policy-id>",
+  "transactionID": "txn12345",
+  "requestTime": "2019-02-15T07:22:57.086+05:30",
+  // OTP Request
+  "request": {
+    "identity": {
+      "UIN": "4074317832",
+      "VID": "9830872690593682"
+    },
+    "channel": {
+      "email": true,
+      "mobile": false
+    }
+  }
 }
-
 ```
-### Sample Response
+
+### Sample Response Header     
+<MOSIP-AuthX> = <MOSIP Digital Signature>
+
+### Sample Response Body
 #### Success Scenario:
 Status Code : 200 (OK)
 
 ```JSON
 {
-  "txnID": "txn67890",
-  "resTime": "2019-01-25T12:10:07.899+05:30",
-  "ver": "1.0",
-  "status": "Y",
-  "err": [],
-  "info": {
-    "idType": "D",
-    "reqTime": "2019-01-24T17:19:17.078+05:30",
-    "usageData": "<usage and matched data on bits>"
+  // API Metadata
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  // Response Metadata
+  "transactionID": "txn12345",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  // OTP Response
+  "errors": [],
+  "response": {
+    "maskedMobile": "XXXXXXX123",
+    "maskedEmail": "abXXXXXXXXXcd@xyz.com"
   }
 }
 ```
@@ -412,10 +519,13 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  "ver": "1.0",
-  "txnID": "txn67890",
-  "resTime": "2019-01-25T12:11:11.416+05:30",
-  "status": "N",
+  // API Metadata
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  // Response Metadata
+  "transactionID": "txn12345",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  // OTP Response
   "err": [
     {
       "errorCode": "IDA-OTA-006",
@@ -475,7 +585,7 @@ Status Code : 200 (OK)
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
   "status": "Y",
-   "err": []
+  "errors": []
 }
 ```
 
@@ -488,7 +598,7 @@ Status Code : 200 (OK)
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
   "status": "Y",
-   "err": [
+  "errors": [
 	   {
 	      "code": "IDA-SPA-003",
 	      "message": "Could not store static pin of the Individual"
@@ -520,7 +630,7 @@ Status Code : 200 (OK)
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
   "vid": "678956453456",
-  "err": []
+  "errors": []
 }
 ```
 
@@ -532,7 +642,7 @@ Status Code : 200 (OK)
   "id": "mosip.identity.vid",
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
-  "err": [
+  "errors": [
 	   {
 	      "code": "IDA-MLC-002",
 	      "message": "Invalid UIN"
