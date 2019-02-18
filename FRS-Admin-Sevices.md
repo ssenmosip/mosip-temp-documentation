@@ -1,4 +1,4 @@
-## Table Of Content
+## 1.Table Of Content
 - [Admin Services](#admin-services)
   * [1. Master Data Management](#1-master-data-management)
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete)
