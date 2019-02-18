@@ -57,8 +57,31 @@ MOSIP system can be able to facilitate transliteration by integrating with a thi
 |TRANSLITERATION_INVALID_LANGUAGE_CODE|Language code not supported|KER-TRL-002|
 ## 6. MOSIP Utils
 ### 6.1 Mobile Data Validator
+MOSIP system, can validate a mobile number based on a defined policy
+
+Upon receiving a request to validate a mobile number against configured mobile number policy, the system validates the mobile number against the policy
+1. Validate if all required input parameters have been received as listed below for each specific request
+* Mobile number
+2. Validate if the mobile no. against the following policies
+* Mobile no. should contain no of digits configured by the ADMIN
+* Mobile no. should only be numerical.
+3. In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
+
+Respond to the source with the result (Valid/Invalid)
+
+Raise an alert in case of listed exceptions as follows
+
+
+
+
+
+
+
+
+
+
 ### 6.2 Email Data Validator
-MOSIP system can validate an Email ID based on a defined policy
+MOSIP system, can validate an Email ID based on a defined policy
 Upon receiving a Request to validate an Email ID against the standard Email ID policy, system validate the Email ID against the Standard Email ID format
 1. Validate if all required input parameters have been received as listed below for each specific request
 * Email ID
