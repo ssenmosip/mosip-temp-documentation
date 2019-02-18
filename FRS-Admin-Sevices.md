@@ -60,6 +60,8 @@
 
 ### Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete
 
+## Partner Management 
+### License Key Manager
 
 
 
