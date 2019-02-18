@@ -1,7 +1,7 @@
 This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Authentication
-This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service - 
+This service details imple authentication (yes/no auth) that can be used by partners to authenticate an Individual. Below are various authentication types supported by this service - 
 1. OTP based - TOTP
 2. Pin based - Static Pin
 3. Demo based - PersonalIdentity, Address, FullAddress
