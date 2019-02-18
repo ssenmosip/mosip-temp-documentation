@@ -26,6 +26,27 @@
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
 #### 4.1.1 Static Pin Validator
+MOSIP system can perform Static PIN validation against a defined Static PIN logic.
+
+Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validate Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
+
+Validate if the request has the following input parameters.
+1. Static PIN
+1. Validate if the Static PIN is of configured length. (Current configured length = 6)
+1. Validate if the Static PIN is only numerical.
+
+In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
+
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|Static PIN is Valid|True|NA|
+
+
+
+
+
+
 #### 4.1.2  UIN Validator
 #### 4.1.3 PRID Validator
 #### 4.1.4 VID Validator
