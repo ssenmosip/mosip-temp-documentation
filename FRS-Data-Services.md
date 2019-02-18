@@ -118,6 +118,34 @@ Raise an alert in case of listed exceptions as defined below:
 ### 4.2 ID Generator
 #### 4.2.1 RID Generator
 #### 4.2.2 Machine ID Generator
+MOSIP system can generate Machine ID as per defined Machine ID generation logic
+
+Upon receiving a request to generate Machine ID the system generates Machine ID as per default Machine ID generation logic as mentioned below
+1. Machine ID should only be numeric
+1. Machine ID generated should be of length of 5 digits
+1. Each new Machine ID should be incremented by 1 for each new request
+1. Machine ID generation should start from 10000
+1. The number should not contain the restricted numbers defined by the ADMINs
+
+Responds with the Machine ID to the source
+
+Raise an alert in case of listed exceptions as specified below
+* All confirmation, warning, and error messages are listed below. The message text is configurable.
+
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|NA|	NA	|NA|
+
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|------|:------:|
+|MachineIdException|	Error occured while fetching ID	|KER-MNG-001|
+|MachineIdException|	Error occured while inserting ID|	KER-MNG-002|
+
+
 #### 4.2.3 Registration Center ID Generator
 #### 4.2.4 TSP ID Generator
 #### 4.2.5 PRID Generator
