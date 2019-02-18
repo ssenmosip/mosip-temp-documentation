@@ -36,7 +36,7 @@
 
 ### List of ID Types - Create/Read/Update/Delete
 
-## Registration Management,37,till 41,50-52,63-65
+## Registration Management
 ### Registration Center Type - Create/Read/Update/Delete
 
 ### Registration Center - Create/Read/Update/Delete
