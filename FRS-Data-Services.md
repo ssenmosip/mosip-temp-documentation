@@ -36,12 +36,18 @@ Validate if the request has the following input parameters.
 1. Validate if the Static PIN is only numerical.
 
 In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
-
+### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
 |:------:|:------:|:------:|
 |Static PIN is Valid|True|NA|
 
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|Static PIN in Invalid|Static PIN length Must be <Length configured>|KER-IDV-501|
+|Static PIN in not numeric|	Static PIN length must be numeric>|	KER-IDV-502|
+|Static PIN input parameter is missing	|Input parameter is missing	|KER-IDV-503|
 
 
 
