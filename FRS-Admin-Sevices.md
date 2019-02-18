@@ -1,5 +1,5 @@
-## 1.Table Of Content
-- [Admin Services](#admin-services)
+## Table Of Content
+
   * [1. Master Data Management](#1-master-data-management)
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete)
     * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete)
