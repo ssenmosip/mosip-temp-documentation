@@ -110,32 +110,42 @@ MOSIP system can generate and validate a license Key
 * Expiry Time - Mandatory
 * If the mandatory input parameters are missing, throw the appropriate message. Refer "Messages" section.
 * License Key generated must be of length configured by ADMIN
+
 (d) Generate the License key
+
 (e) Map the License key to the TSP ID and Expiry time
+
 (f) Respond to the source with the License Key (String)
+
 (g) In case of Exceptions, system should trigger relevant error messages as specified below.
-2.	Mapping Permissions to License Key
-Upon receiving a request to map permissions to the License Key with input parameters (TSP ID, License Key, List of Permissions) the system maps the received permissions to the License Key
-Validates if the request contains the following input parameters
-•	TSP ID - Mandatory
-•	License Key - Mandatory
-•	List of Permissions - Mandatory
-If the mandatory input parameters are missing, throw the appropriate message
-Respond to the source with appropriate message
-In case of Exceptions, system triggers relevant error messages
 
-3.Fetch Permissions for a License Key
+#### 2. Mapping Permissions to License Key
+(a) Upon receiving a request to map permissions to the License Key with input parameters (TSP ID, License Key, List of Permissions) the system maps the received permissions to the License Key
 
-Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key) the system validate if the License Key is Valid
+(b) Validates if the request contains the following input parameters
+* TSP ID - Mandatory
+* License Key - Mandatory
+* List of Permissions - Mandatory
 
-Validates if the request contains the following input parameters
-•	TSP ID - mandatory
-•	License key - Mandatory
-If the mandatory input parameters are missing, throws the appropriate message.
-Validate the License key based on following logic
-•	License key received should be mapped to the TSP ID received in the request
-•	License key should not be expired as per the expiry time mapped to the License Key
-If the License key is invalid, throws error message
-In case of Exceptions, system triggers relevant error messages
+(c) If the mandatory input parameters are missing, throw the appropriate message
+
+(d) Respond to the source with appropriate message
+
+(e) In case of Exceptions, system triggers relevant error messages
+
+#### 3. Fetch Permissions for a License Key
+
+
+(a) Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key) the system validate if the License Key is Valid
+
+(b) Validates if the request contains the following input parameters
+* TSP ID - mandatory
+* License key - Mandatory
+(c) If the mandatory input parameters are missing, throws the appropriate message.
+(d) Validate the License key based on following logic
+* License key received should be mapped to the TSP ID received in the request
+* License key should not be expired as per the expiry time mapped to the License Key
+(e) If the License key is invalid, throws error message
+(f) In case of Exceptions, system triggers relevant error messages
 
 
