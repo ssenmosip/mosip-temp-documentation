@@ -66,6 +66,13 @@ In such case the system will notify the user about the successful cancellation
 •	Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 2.4.4 Re-book Appointment
+•	The System provides the User with a default appointment selection: Select Consecutively available Appointment spots
+•	An individual can select any of the Appointment Date available and any of the Appointment Spot available
+•	The individual has to select against which Pre-Registration ID the Appointment spot is being booked
+•	The System maps appointment spot with all the Pre-Registration IDs which are selected for Appointment Booking. If any Pre-Registration ID does not have Booking mapped, the User is notified if he wants to continue without booking
+•	An individual at this stage me opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
+•	An individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs(configurable) from time of booking
+
 ## 2.5 Appointment Acknowledgement (PRID)
 •	An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
 •	The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)
