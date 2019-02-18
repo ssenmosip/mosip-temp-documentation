@@ -82,7 +82,9 @@ Raise an alert in case of listed exceptions as follows
 
 ### 6.2 Email Data Validator
 MOSIP system, can validate an Email ID based on a defined policy
+
 Upon receiving a Request to validate an Email ID against the standard Email ID policy, system validate the Email ID against the Standard Email ID format
+
 1. Validate if all required input parameters have been received as listed below for each specific request
 * Email ID
 2. Validate if the Email ID contains the minimum no. of characters as configured
@@ -94,6 +96,7 @@ Upon receiving a Request to validate an Email ID against the standard Email ID p
 * ~ .
 5. Validate if the Email ID contains "@" and domain name within the Email ID.
 1. Respond to the source with the result (Valid/Invalid)
+
 Raise an alert in case of listed exceptions (Refer “messages” section)
 
 ## <p align="left">**1. Type : Success – Info Message**
