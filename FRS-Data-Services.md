@@ -56,6 +56,42 @@ In case of Exceptions, system should trigger relevant error messages. Refer “M
 #### 4.1.2  UIN Validator
 #### 4.1.3 PRID Validator
 #### 4.1.4 VID Validator
+MOSIP system can perform VID validation against a defined VID policy
+
+Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
+1. Validates if the VID is of configured length.
+1. If no length is configured, validate if VID length is of 16 digits
+1. Validates the VID by verifying the checksum
+1. Validates if the VID received follows the VID generation logic listed in User Story
+
+Respond to the source with appropriate message and Raise an alert in case of listed exceptions 
+
+### <p align="left"> **1. Type: Success – Info Message**
+
+<center>
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|VID is Valid|"Valid"|NA|
+|VID is Invalid|"Invalid"|NA|
+
+</center>
+
+### <p align="CENTER"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|------|:------:|
+|MosipInvalidIDException|Entered VID should not be empty or null.|KER-IDV-VID-001|
+|MosipInvalidIDException|Entered VID should not contain any sequential and repeated block of number for 2 or more than two digits|KER-IDV-VID-002
+|MosipInvalidIDException|Entered VID length should be 16 digit|	KER-IDV-VID-003|
+|MosipInvalidIDException|Entered VID should not contain any alphanumeric characters|KER-IDV-VID-004|
+|MosipInvalidIDException|Entered VID should match checksum|KER-IDV-VID-005|
+|MosipInvalidIDException|Entered VID should not contain Zero or One as first Digit|KER-IDV-VID-006|
+
+
+
+
+
+
 #### 4.1.5 RID Validator
 #### 4.1.6 TSP ID Validator
 ### 4.2 ID Generator
