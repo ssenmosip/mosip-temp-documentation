@@ -14,7 +14,7 @@
 ### •	SMS notification
 ### •	PDF generator
 ### •	template merger
-•	Transliteration
+## •	Transliteration
 ## MOSIP Utils
 ### •	mobile data validator,
 ### •	email data validator, 
