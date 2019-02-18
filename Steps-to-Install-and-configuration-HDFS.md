@@ -26,7 +26,7 @@ ssh-keygen -b 4096
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-master.southindia.cloudapp.azure.com
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.southindia.cloudapp.azure.com
 ```
-### Download and Unpack Hadoop BinariesPermalink
+### Download and Unpack Hadoop Binaries
 Login to node-master as the hadoop user, download the Hadoop tarball from Hadoop project page, and unzip it:
 ```
 cd
@@ -34,7 +34,7 @@ wget http://apache.mindstudios.com/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.g
 tar -xzf hadoop-2.8.1.tar.gz
 mv hadoop-2.8.1 hadoop
 ```
-### Set Environment VariablesPermalink
+### Set Environment Variables
 Add Hadoop binaries to your PATH. Edit /home/hadoop/.profile and add the following line:
 ```
 PATH=/home/hadoop/hadoop/bin:/home/hadoop/hadoop/sbin:$PATH
@@ -46,15 +46,14 @@ Configuration will be done on node-master and replicated to other nodes.
 ```
 update-alternatives --display java
 ```
-Take the value of the current link and remove the trailing /bin/java. For example on Debian, the link is /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java, so JAVA_HOME should be /usr/lib/jvm/java-8-openjdk-amd64/jre.
-If you installed java from Oracle, JAVA_HOME is the path where you unzipped the java archive.
+Take the value of the current link and remove the trailing /bin/java. For example on RHEL 7, the link is /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/bin/java, so JAVA_HOME should be /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre.
 2. Edit ~/hadoop/etc/hadoop/hadoop-env.sh and replace this line:
 ```
 export JAVA_HOME=${JAVA_HOME}
 ```
 with your actual java installation path. For example on a Debian with open-jdk-8:
 ```
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre
 ```
 #### Set NameNode
 Update ~/hadoop/etc/hadoop/core-site.xml:
