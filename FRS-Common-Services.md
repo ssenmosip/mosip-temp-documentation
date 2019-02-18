@@ -55,14 +55,36 @@ MOSIP system can be able to facilitate transliteration by integrating with a thi
 |:------:|:------:|:------:|
 |TRANSLITERATION_INVALID_ID|Transliteration not possible|KER-TRL-001|
 |TRANSLITERATION_INVALID_LANGUAGE_CODE|Language code not supported|KER-TRL-002|
-
-
-
-
-
 ## 6. MOSIP Utils
 ### 6.1 Mobile Data Validator
 ### 6.2 Email Data Validator
+MOSIP system can validate an Email ID based on a defined policy
+Upon receiving a Request to validate an Email ID against the standard Email ID policy, system validate the Email ID against the Standard Email ID format
+1. Validate if all required input parameters have been received as listed below for each specific request
+* Email ID
+2. Validate if the Email ID contains the minimum no. of characters as configured
+1. Validate if the Email ID contains less than 254 max length
+1. Validate if the Email ID only contains following characters
+* Digits 0 to 9
+* Uppercase and lowercase English letters (a–z, A–Z)
+* Characters ! # $ % & ' * + - / = ? ^ _ ` { | }
+* ~ .
+5. Validate if the Email ID contains "@" and domain name within the Email ID.
+1. Respond to the source with the result (Valid/Invalid)
+Raise an alert in case of listed exceptions (Refer “messages” section)
+
+## <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+|Email ID is valid	|Valid	|NA|
+
+## <p align="left">**2. Type : Error/Failure – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+|MosipInvalidEmailException|	Email should not be empty or null|	KER-EMV-001|
+|MosipInvalidEmailException|	Email length should be specified number of characters|	KER-EMV-002|
+|MosipInvalidEmailException|	Email Domain extension length should be specified number of characters|	KER-EMV-003|
+|MosipInvalidEmailException|	Invalid Email ID|	KER-EMV-004|
 ### 6.3 Exception Framework
 ### 6.4 Calendar Utility 
 ### 6.5 Checksum Utility 
