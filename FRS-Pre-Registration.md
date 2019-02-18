@@ -55,8 +55,17 @@
 ## 2.4 Booking an Appointment
 ### 2.4.1 Choosing a Registration Center for Appointment
 #### 2.4.1.1 Recommended Centers based on Postal Code
+•	The system fetches the Location Hierarchy as defined in the Master Data and recommends registration centers based on the postal code
+•	The search results have the following information about the Registration center :name, Address, Working Hours, Contact Person, Center Type, and Contact Number)
+
 #### 2.4.1.2 Nearby centers based on User Geo-location
+•	An individual can  enable location services,  in the device/machine in order to  to select nearby centers
+•	The System checks for Lat-Long values of the individual and  fetches all the Registration centers within 2 KM Radius (configurable)
+•	The First Registration center as per the search criteria is shown to the individual on Map by default
 #### 2.4.1.3 Find a Center
+•	The System provides the User search criteria, with which user can search a center
+•	The System allows the user to perform text search to find a center
+
 ### 2.4.2 Choosing Appointment Slots
 #### 2.4.2.1 Get Slots Availability
 •	The System displays 7 calendar days (configurable) for the Individual to select a slot
