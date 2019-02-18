@@ -75,7 +75,7 @@ Respond to the source with appropriate message and Raise an alert in case of lis
 
 
 
-### <p align="CENTER"> **2. Type: Error/Failure – Info Message**
+### <p align="left"> **2. Type: Error/Failure – Info Message**
 |**Scenario**|**Message**|**Message Code**|
 |:------:|------|:------:|
 |MosipInvalidIDException|Entered VID should not be empty or null.|KER-IDV-VID-001|
