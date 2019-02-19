@@ -159,7 +159,7 @@
 * parent_loc_code character (32) - Mandatory
 * lang_code character (3) - Mandatory
 * is_active boolean - Mandatory
-1. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
+3. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
