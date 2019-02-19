@@ -53,6 +53,64 @@
 ### 1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete
 
 ### 1.9 List of Rejection Reasons - Create/Read/Update/Delete
+**A. Create a Rejection Reason in Reason List Master Data**
+Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active) the system store the Reason in the DB
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* code - character (64) - Mandatory
+* descr - character (256) - Mandatory
+* rsncat_code - character (36) – Mandatory (The parameter rsncat_code refers to a Language stored in Language Masterdata)
+* lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata)
+* is_active - boolean - Mandatory
+2. Validate if the response contains the following attributes for a Reason Category Code added
+* Code
+* Language Code
+* Rsncat_code (Reason Category Code)
+
+Respond to the source with the appropriate message.
+
+In case of Exceptions, system triggers relevant error messages as listed below
+
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting Reason details|	KER-MSD-058|
+
+**B. Fetch the requested list of reasons based on Reason Category Code and Language Code**
+1. Upon receiving a request to Fetch the requested List of Reasons with the required input parameters (Reason 1. Category Code, Language Code) the system fetches the requested List of reasons stored against the Reason Category Code and Language Code received
+1. Validates if the request contains the following input parameters
+* Language Code - Mandatory
+* Reason Category Code - Mandatory
+3. If either of the mandatory input parameters are missing, responds with the appropriate message as define below in message sections
+1. Validates if the response contains the:
+(a) Requested list based on the requested Language Code and Reason Category Code
+(b) List of Reasons with the corresponding attributes for the list
+* Reason ID
+* Reason Name (per Reason ID)
+* Language Code
+* Reason Category Code
+* IsActive
+5. Responds to the source with the relevant List of Reasons, as per the stated business rules
+1. In case of Exceptions, system should trigger relevant error messages as listed below
+
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while fetching Reasons	|KER-MSD-035|
+Reason not found	|KER-MSD-036|
+
+
 
 ### 1.10 List of Languages - Create/Read/Update/Delete
 
@@ -90,7 +148,7 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
-**1. Create Blacklisted Words in Masterdata DB**
+**A. Create Blacklisted Words in Masterdata DB**
 
 Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active) the system store the Blacklisted Word in the DB
 
@@ -111,6 +169,41 @@ NA|	NA|	NA
 |Message|Message Code|
 |:------:|:------:|
 Error occurred while inserting Device details	|KER-MSD-070|
+**B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata DB**
+**(i) Update**
+1. Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active) the system updates the Blacklisted Word in the Blacklisted Word DB for the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* word- character (128) - Mandatory
+* descr - character (256) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+3. For the code received in the request, replaces all the data received in the request against the data existing in the Blacklisted Word database against the same code
+4. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Word and Language Code for the Blacklisted word updated successfully
+1. In case of Exceptions, system should trigger relevant error messages as listed below
+**(ii) Delete**
+1. Upon receiving a request to delete a Blacklisted Word with the input parameters (code) the system updates the is_deleted flag to true in the Blacklisted Word DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* word- int - Mandatory
+3. Deleted record are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Word for the Blacklisted word deleted successfully
+1. In case of Exceptions, system should trigger relevant error messages as listed below
+
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while updating Blacklisted Word|	KER-MSD-105|
+Error occurred while deleting Blacklisted Word	|KER-MSD-106|
+Blacklisted Words not found	|KER-MSD-008|
+
+
 
 ### 1.16 List of Reason Categories - Create/Read/Update/Delete
 
