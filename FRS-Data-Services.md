@@ -163,6 +163,9 @@ Respond to the source with appropriate message and Raise an alert in case of lis
 
 
 #### 4.1.5 RID Validator
+
+MOSIP system can perform RID validation against a defined ID policy
+
 #### 4.1.6 TSP ID Validator
 MOSIP system can perform TSP ID validation against a defined TSP ID policy
 
