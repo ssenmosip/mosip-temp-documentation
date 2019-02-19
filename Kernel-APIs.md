@@ -18,6 +18,9 @@
 
 [10. OTP Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#10-otp-notification)
 
+[11. Applicant Types Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#11-applicant-type)
+
+[12. Individual Types Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#12-individual-types)
 
 # 1. Key Manager
 ## 1.1 Public key-get service
@@ -1398,6 +1401,306 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 {
   "status": "success",
   "message": "Otp notification request submitted"
+}
+```
+
+# 11. Applicant type
+
+These set of services does various operations regarding the applicant type.
+
+## 11.1 Get applicant type
+
+This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
+
+### Resource URL
+### `GET /applicanttype/getApplicantType`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+individualTypeCode|Yes|The code of the individual type| -NA- |INDTYP_002
+genderCode|Yes|The code of the Gender. | -NA- |ML
+dateofbirth|Yes|Date of birth in UTC standard ISO8601 format| -NA- |2008-10-04T05:00:00.000Z
+biometricAvailable|No|Is the biometric details available| -NA- |true
+languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
+
+### Example Request
+```JSON
+{
+	"id": "mosip.applicanttype.getApplicantType",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"request" : {
+		"individualTypeCode": "INDTYP_002",
+		"genderCode": "ML",
+		"dateofbirth": "2008-10-04T05:00:00.000Z",
+		"biometricAvailable": false,
+		"languagecode": "eng"
+	}
+}
+```
+### Example Response
+```JSON
+{
+	"id": "mosip.applicanttype.getApplicantType",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"response" : {
+		"applicationtypecode": "APP-C-94"
+	}
+}
+```
+
+
+## 11.2 Get document category and types
+
+This service returns the document category and the document types associated with a particular applicant type. 
+
+### Resource URL
+### `GET /applicanttype/getDocCatAndTyp`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
+languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
+
+### Example Request
+```JSON
+{
+	"id": "mosip.applicanttype.getDocCatAndTyp",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"request" : {
+		"applicationtypecode": "APP-C-94",
+		"languagecode": "eng"
+	}
+}
+```
+### Example Response
+```JSON
+{
+	"id": "mosip.applicanttype.getDocCatAndTyp",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"response" : {
+		"documentcategories": [
+			{
+				"id": "DOC_CAT_001", 
+				"value": "POA", 
+				"languagecode":"string",
+				"documenttypes": [
+					{
+						"code": "code", 
+						"name": "name", 
+						"descr":"descr", 
+						"lang_code":"lang_code", 
+						"is_active":"is_active
+					}
+				]			
+			}
+		]
+	}
+}
+```
+
+
+
+## 11.3 Get document categories
+
+This service returns the document categories for a particular applicant type. 
+
+### Resource URL
+### `GET /applicanttype/getDocCategories`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
+
+### Example Request
+```JSON
+{
+	"id": "mosip.applicanttype.getDocCatAndTyp",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"request" : {
+		"applicationtypecode": "APP-C-94"
+	}
+}
+```
+### Example Response
+```JSON
+{
+	"id": "mosip.applicanttype.getDocCatAndTyp",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"response" : {
+		"documentcategories": [
+			{
+				"id": "DOC_CAT_001", 
+				"value": "POA", 
+				"languagecode":"string",
+			}
+		]
+	}
+}
+```
+
+
+
+## 11.4 Is applicant type combination exists
+
+This service checks whether the combination exists for a particular Applicanttype code, Document. 
+
+### Resource URL
+### `GET /applicanttype/isApplicantTypeExists`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
+docCategoryCode|Yes|The code of the document category| -NA- |DOC_CAT_2
+docTypeCode|Yes|The code of the document type| -NA- |DOC_TYP_E
+
+### Example Request
+```JSON
+{
+	"id": "mosip.applicanttype.isApplicantTypeExists",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"request" : {
+		"applicationtypecode": "APP-C-94",
+		"docCategoryCode": "DOC_CAT_2",
+		"docTypeCode": "DOC_TYP_E"
+	}
+}
+```
+### Example Response
+```JSON
+{
+	"id": "mosip.applicanttype.isApplicantTypeExists",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"response" : {
+		"isExists":true
+	}
+}
+```
+
+
+# 12. Individual types
+
+These set of services does various operations regarding the Individual types.
+
+## 12.1 Get all individual types
+
+This service returns all the individual types. 
+
+### Resource URL
+### `GET /individualtype/getAllIndividualTypes`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+```JSON
+-NA-
+```
+### Example Response
+```JSON
+{
+	"id": "mosip.individualtype.getAllIndividualTypes",
+	"ver": "1.0",
+	"timestamp": "2007-12-03T10:15:30Z",
+	"response": {
+		"individualtypes": [{
+			"code": "IND-C-94",
+			"name": "Foreign Child",
+			"lang_code": "eng",
+			"is_active": true
+		}]
+	}
+}
+```
+
+
+## 12.2 Get all individual types
+
+This service returns the individual types based on language code and the individual type code. 
+
+### Resource URL
+### `GET /individualtype/getIndividualTypes`
+
+### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+individualTypeCode|Yes|The code of the individual type| -NA- |IND-C-94
+languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
+
+### Example Request
+```JSON
+{
+	"id": "mosip.individualtype.getIndividualTypes",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"request" : {
+		"individualTypeCode": "IND-C-94",
+		"languagecode": "eng"
+	}
+}```
+### Example Response
+```JSON
+{
+	"id": "mosip.individualtype.getIndividualTypes",
+	"ver" : "1.0",
+	"timestamp" : "2007-12-03T10:15:30Z",
+	"response" : {
+		"individualtype": {
+			"code": "IND-C-94",
+			"name": "Foreign Child",
+			"lang_code": "eng",
+			"is_active": true
+		}
+	}
 }
 ```
 
