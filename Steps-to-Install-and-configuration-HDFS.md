@@ -155,6 +155,22 @@ for node in node-slave1.southindia.cloudapp.azure.com; do
     scp ~/hadoop/etc/hadoop/* $node:/home/hadoop/hadoop/etc/hadoop/;
 done
 ```
+### Create hdfs users
+1. To create users for hdfs (regprocessor, prereg, idrepo), run this command:
+```
+sudo useradd  regprocessor
+sudo useradd  prereg
+sudo useradd  idrepo
+```
+2. Create a directory and give permission for each user
+```
+hdfs dfs -mkdir /user/regprocessor
+hdfs dfs -chown -R regprocessor:regprocessor  /user/regprocessor
+hdfs dfs -mkdir /user/prereg
+hdfs dfs -chown -R prereg:prereg  /user/prereg
+hdfs dfs -mkdir /user/idrepo
+hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
+``` 
 ### Format HDFS
 HDFS needs to be formatted like any classical file system. On node-master, run the following command:
 ```
