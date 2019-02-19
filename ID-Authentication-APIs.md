@@ -2,7 +2,7 @@ This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Authentication
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
-1. OTP based - Time based OTP
+1. OTP based - TOTP (Time based OTP)
 2. Pin based - Static Pin
 3. Demo based - Name, DOB, Age, Gender, Address, FullAddress
 4. Bio based - Fingerprint, IRIS and Face
@@ -192,10 +192,10 @@ Status Code : 200 (OK)
 ```
 
 ## 2. eKYC
-This service details KYC Auth Request to be used by TSPs to authenticate an Individual, and retrieve Individual's KYC details as response. Below are various authentication types supported by KYC Auth - 
-1. OTP based - TOTP
-2. Pin based - Static Pin
-3. Bio based - Fingerprint, IRIS and Face
+This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Auth - 
+1. OTP Auth - Time-based OTP (TOTP)
+2. Pin Auth - Static Pin
+3. Bio Auth - Fingerprint, IRIS and Face
 
 ### Resource URL
 ### `POST identity/kyc/v1.0/<MISP-LK>`
@@ -210,31 +210,33 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id | Y | API Id | | mosip.identity.kyc
-ver | Y | API Version | | version of API
-consentReq|Y|Individual's consent|false|true
-ekycAuthType|Y|Auth type for requested KYC Auth| | O
-authRequest: id | Y | API Id | | mosip.identity.auth
-authRequest: ver | Y | API version | | 1.0
-authRequest: reqTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
-authRequest: txnID | Y | Transaction ID of API | | 1234567890
-authRequest: idvId | Y | Individual's UIN or VID | | 486493840596
-authRequest: idvIdType | Y | Individual's ID Type | D | V
-authRequest: spID|Y|TSP ID| |TSP0000005
-authRequest: authType| Y | Individual Authentication Types supported| | 
-authRequest: authType: personalIdentity| Y | Demographic Authentication - Personal Identity | false| false
-authRequest: authType: address| Y | Demographic Authentication - Address Line | false| false
-authRequest: authType: bio| Y | Bio-metric Authentication Type | false|false
-authRequest: authType: otp| Y | OTP Authentication Type | false|false
-authRequest: authType: pin| Y | Pin Authentication Type |false |false
-authRequest: key: sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
-authRequest: key: publicKeyCert| Y | TSP Public Key Certificate used to Digitally Sign the request | | 
-authRequest: request| Y | Auth request attributes to be used for authenticating Individual | | 
-authRequest: request: identity: name|N| name attribute of Individual's Identity| | 
-authRequest: request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
-authRequest: request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-authRequest: request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
-authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
+MISP-LK| Y | MISP License Key | | 
+id | Y | API Id | mosip.identity.kyc | 
+version | Y | API version | 1.0 | 
+partnerId | Y | eKYC Partner ID | |
+policyId | Y | Policy ID of eKYC Partner | |
+transactionID| Y | Transaction ID of request | | 1234567890
+requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
+requestedAuth| Y | Authentication Types requested| | 
+requestedAuth: otp| Y | OTP Authentication Type | false| false
+requestedAuth: demo| N | Demographic Authentication Type | false| false
+requestedAuth: bio| Y | Biometric Authentication Type | false|false
+requestedAuth: pin| Y | Static Pin Authentication Type |false |false
+bioMetadata| N | Biometric metadata when Bio Auth is requested | | 
+bioMetadata: bioType| Y | Biometric Type requested | |FMR or IIR or FID 
+bioMetadata: deviceId| Y | Biometric Device ID | | 
+bioMetadata: deviceProviderID| Y | Biometric Device Provider ID | | 
+kycMetadata| Y | KYC metadata requested | | 
+kycMetadata: consentRequired| Y | Individual's consent for eKYC Auth | | 
+kycMetadata: secondaryLangCode| N | Secondary Language code to send eKYC response | | 
+sessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+request| Y | Auth request attributes to be used for authenticating Individual | | 
+request: identity: UIN| N | UIN of an Individual| | 
+request: identity: VID| N | VIDof an Individual| | 
+request: identity: biometrics|N| Biometrics of an Individual| |
+request: additionalFactors|N| Additional Factors of Auth requested| |
+request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
+request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth| |
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
@@ -336,36 +338,16 @@ Status Code : 200 (OK)
           "value": "Ibrahim"
         }
       ],
-      "dateOfBirth": [
-        {
-          "language": "ar",
-          "value": "16/04/1955"
-        }
-      ],
-      "age": [
-        {
-          "language": "ar",
-          "value": "30"
-        }
-      ],
+      "dob": "1955/04/06",
+      "age": 30,
       "gender": [
         {
           "language": "ar",
           "value": "الذكر"
         }
       ],
-      "phoneNumber": [
-        {
-          "language": "ar",
-          "value": "+212-5398-12345"
-        }
-      ],
-      "emailId": [
-        {
-          "language": "ar",
-          "value": "sample@samplamail.com"
-        }
-      ],
+      "phoneNumber": "+212-5398-12345",
+      "emailId": "sample@samplamail.com",
       "addressLine1": [
         {
           "language": "ar",
@@ -406,21 +388,8 @@ Status Code : 200 (OK)
           "value": "Tanger-Tétouan-Al Hoceima"
         }
       ],
-      "pinCode": [
-        {
-          "language": "ar",
-          "value": "85000"
-        },
-        {
-          "language": "fr",
-          "value": "85000"
-        }
-      ],
-      "photo": [
-        {
-          "value": "encoded_face_image_byte_array"
-        }
-      ]
+      "pinCode": "85000",
+      "photo": "encoded_face_image_byte_array"
     }
   }
 }
