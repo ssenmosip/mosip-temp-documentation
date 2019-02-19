@@ -54,6 +54,46 @@ In case of Exceptions, system should trigger relevant error messages. Refer “M
 
 
 #### 4.1.2  UIN Validator
+MOSIP system can perform UIN validation against a defined ID policy
+
+Upon receive a Request to validate the UIN the system validates the UIN against the defined policy
+
+Validates if the UIN is of configured length.
+
+If no length is configured, validate if UIN length is of 12 digits
+
+Validates the UIN by verifying the checksum
+
+Validates if the UIN received follows the UIN generation logic
+
+Responds to the source with appropriate message 
+
+Raises an alert in case of listed exceptions as listed below
+
+### <p align="left"> **1. Type: Success – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+UIN is Valid|	"Valid"|	NA|
+UIN is invalid|	"Invalid"	|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+MosipInvalidIDException	|Entered UIN should not be empty or null.|	COK-IDV-UIN-001
+MosipInvalidIDException	|Entered UIN should not contain any sequential and repeated block of number for 2 or more than two digits	|COK-IDV-UIN-002
+MosipInvalidIDException	|Entered UIN length should be 12 digit|	COK-IDV-UIN-003
+MosipInvalidIDException	|Entered UIN should not contain any alphanumeric characters|	COK-IDV-UIN-004
+MosipInvalidIDException|	Entered UIN should match checksum|	COK-IDV-UIN-005
+MosipInvalidIDException	|Entered UIN should not contain Zero or One as first Digit|	COK-IDV-UIN-006
+UIN_VAL_ILLEGAL_REVERSE	|UIN First configured no.of digits should be different from the reverse of last configured no.of digits|	KER-IDV-207
+UIN_VAL_ILLEGAL_EQUAL_LIMIT|	UIN First configured no.of digits should be different from the last configured no.of digits	|KER-IDV-208
+
+
+
+
+
+
+
 #### 4.1.3 PRID Validator
 As the MOSIP system can validate PRID as per a defined PRID generation logic
 
