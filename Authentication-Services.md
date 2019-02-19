@@ -1,3 +1,33 @@
+* [4. Authentication Services]()
+  * [4.1 Single factor Authentication]()
+    * [4.1.1 Biometric Authentication]()
+    * [4.1.2 Demographic Authentication]()
+    * [4.1.3 OTP Authentication]()
+    * [4.1.4 Static PIN Authentication]()
+  * [4.2 Multi-factor Authentication]()
+  * [4.3 Offline Authentication]()
+    * [4.3.1 QR Code based Authentication]()
+  * [4.4 KYC Service]()
+    * [4.4.1 Profile Sharing]()
+    * [Full Profile]()
+    * [Limited Profile Sharing - Policy Based]()
+    * [4.4.2 KYC Partners]()
+    * [Authorized Partners]()
+    * [Application based policy]()
+    * [Partner Licensing]()
+
+What is a factor - It is one of
+"What you know" - Password, Static Pin, Date of Birth, My first pet
+"What you have" - OTP - Mobile, OTP - Email, RSA Token, Smart Card
+"What you are" - Biometrics: Fingerprint, Iris, Face, Voice, ....
+  Pin + Biometric, OTP + Biometric
+A combination of modes in the same factor
+
+   Application is a use case for KYC. Eg. Bank Account opening, Telco SIM purchase. Same organization might have different use cases. Each use case is governed by a different policy.
+
+
+
+
 * [2. Registration](#2-registration)
   * [2.1 Registration Client Setup](#21-registration-client-setup)
   * [2.2 System Health Checker](#22-system-health-checker)
@@ -10,23 +40,3 @@
   * [2.9 Sync Handler](#29-sync-handler)
   * [2.10 Individual UIN – Update](#210-individual-uin--update)
   * [2.11 Clean Up](#211-clean-up)
-* [3. Registration Processor](#3-registration-processor)
-  * [3.1 Registration Packet Handler](#31-registration-packet-handler)
-  * [3.2 Registration Status Service](#32-registration-status-service)
-  * [3.3 Registration Packet Processor](#33-registration-packet-processor)
-  * [3.4 UIN Generator](#34-uin-generator)
-  * [3.5 Print](#35-print)
-  * [3.6 UIN Lifecycle Manager](#36-uin-lifecycle-manager)
-  * [3.7 External System Integration](#37-external-system-integration)
-* [4. ID-Authentication](#4-id-authentication)
-  * [4.1 TSP/UA Authentication](#41-tspua-authentication)
-    * [4.1.1 TSP Authentication](#411-tsp-authentication)
-    * [4.1.2 Authentication Mode Verifier](#412-authentication-mode-verifier)
-  * [4.2 TSP/UA Authorization](#42-tspua-authorization)
-  * [4.3 Individual Authentication](#43-individual-authentication)
-    * [4.3.1 Biometric Authentication](#431-biometric-authentication)
-    * [4.3.2 Demographic Authentication](#432-demographic-authentication)
-    * [4.3.3 OTP Authentication](#433-otp-authentication)
-    * [4.3.4 Static PIN Authentication](#434-static-pin-authentication)
-    * [4.3.5 E-KYC Authentication Service](#435-e-kyc-authentication-service)
-  * [4.4 Integrated Individual Authentication](#44-integrated-individual-authentication)
