@@ -429,3 +429,176 @@ sh hadoop/sbin/stop-dfs.sh
   <value>HTTPS_ONLY</value>
  </property>
 ```
+### Deploying HTTPS in HDFS
+#### Generating the key and certificate
+The first step of deploying HTTPS is to generate the key and the certificate for each machine in the cluster. You can use Java’s keytool utility to accomplish this task:
+Ensure that firstname/lastname OR common name (CN) matches exactly with the fully qualified domain name (e.g. node-master.southindia.cloudapp.azure.com) of the server. 
+```
+keytool -genkey -alias localhost  -keyalg RSA -keysize 2048 -keystore keystore.jks
+```
+####  Creating your own CA
+We use openssl to generate a new CA certificate:
+```
+openssl req -new -x509 -keyout ca-key.cer -out ca-cert.cer -days 365
+```
+The next step is to add the generated CA to the clients’ truststore so that the clients can trust this CA:
+```
+keytool -keystore truststore.jks -alias CARoot -import -file ca-cert.cer
+```
+#### Signing the certificate:
+The next step is to sign all certificates generated  with the CA. First, you need to export the certificate from the keystore:
+```
+keytool -keystore keystore.jks -alias localhost -certreq -file cert-file.cer
+```
+Then sign it with the CA:
+```
+openssl x509 -req -CA ca-cert.cer -CAkey ca-key.cer -in cert-file.cer -out cert-signed.cer -days 365 -CAcreateserial -passin pass:12345678
+```
+Finally, you need to import both the certificate of the CA and the signed certificate into the keystore
+```
+keytool -keystore keystore.jks -alias CARoot -import -file ca-cert.cer
+keytool -keystore keystore.jks -alias localhost -import -file cert-signed.cer
+```
+#### Configuring Hdfs
+Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the keystore and the truststore
+1. Edit ssl-server.xml
+```
+<configuration>
+
+<property>
+  <name>ssl.server.truststore.location</name>
+  <value>/home/hadoop/truststore.jks</value>
+  <description>Truststore to be used by NN and DN. Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.truststore.password</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.truststore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.truststore.reload.interval</name>
+  <value>10000</value>
+  <description>Truststore reload check interval, in milliseconds.
+  Default value is 10000 (10 seconds).
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.location</name>
+  <value>/home/hadoop/keystore.jks</value>
+  <description>Keystore to be used by NN and DN. Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.password</name>
+  <value>12345678</value>
+  <description>Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.keypassword</name>
+  <value>12345678</value>
+  <description>Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.exclude.cipher.list</name>
+  <value>TLS_ECDHE_RSA_WITH_RC4_128_SHA,SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,
+  SSL_RSA_WITH_DES_CBC_SHA,SSL_DHE_RSA_WITH_DES_CBC_SHA,
+  SSL_RSA_EXPORT_WITH_RC4_40_MD5,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,
+  SSL_RSA_WITH_RC4_128_MD5</value>
+  <description>Optional. The weak security cipher suites that you want excluded
+  from SSL communication.</description>
+</property>
+
+</configuration>
+```
+2. Edit ssl-client.xml
+```
+<configuration>
+
+<property>
+  <name>ssl.client.truststore.location</name>
+  <value>/home/madmin/truststore.jks</value>
+  <description>Truststore to be used by clients like distcp. Must be
+  specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.truststore.password</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.truststore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.truststore.reload.interval</name>
+  <value>10000</value>
+  <description>Truststore reload check interval, in milliseconds.
+  Default value is 10000 (10 seconds).
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.location</name>
+  <value>/home/madmin/keystore.jks</value>
+  <description>Keystore to be used by clients like distcp. Must be
+  specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.password</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.keypassword</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+</configuration>
+```
+After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.
+For you face error during kerberos, check this:
+https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html
