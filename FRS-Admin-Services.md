@@ -39,7 +39,7 @@
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
 
 #### A. Create Location Hierarchy in the Masterdata DB
-1. Upon receiving a request to add Location hierarchy (E.g, Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active) the system sstore the Location hierarchy in the DB
+Upon receiving a request to add Location hierarchy (E.g, Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system store the Location hierarchy in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * code - character (36) - Mandatory
 * name - character (128) - Mandatory
@@ -48,31 +48,31 @@
 * parent_loc_code - character (32) - Optional
 * lang_code - character (3) - Mandatory
 * is_active - boolean - Mandatory
-3. Responds with the Code and Language Code for the Location Hierarchy created successfully
+2. Responds with the Code and Language Code for the Location Hierarchy created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
 
 #### B. Check the existence of a Location in Master DB
-1. Upon receiving a request to validate the Location Name with input parameters (Location Name)the system checks the Location Name in the Master DB
+Upon receiving a request to validate the Location Name with input parameters (Location Name)the system checks the Location Name in the Master DB
 1. Validates if the request contains the following input parameters
 * Location Name - Mandatory
-3. If the mandatory input parameters are missing, throw the appropriate message
+2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 #### C. Fetch Location Hierarchy Levels based on a Language Code
-1. Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code) the system fetches the Location Hierarchy Levels
+Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code) the system fetches the Location Hierarchy Levels
 1. Validates if the request contains following input parameters (Language Code)
 * Language Code - Mandatory
-3. Validates if the response contains the Location Hierarchy Levels with the following attributes
+2. Validates if the response contains the Location Hierarchy Levels with the following attributes
 * Hierarchy Level
 * Hierarchy Name
 * IsActive
-4. In case of Exceptions, system triggers relevant error messages
+3. In case of Exceptions, system triggers relevant error messages
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
-1. Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data
+Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data
 1. Validates if the request contains the following input parameters
 * Location Code - Mandatory
 * Language Code - Mandatory
-3. If the mandatory input parameters are missing, throw the appropriate message. 
+2. If the mandatory input parameters are missing, throw the appropriate message. 
 1. Validates if the response contains the following location hierarchy data and the corresponding attributes against the Location Code and Language Code received in the input parameter
 
    **(i) List of Countries against the Location Code**
@@ -103,15 +103,15 @@
    **(vi) List of Pincodes against the Location Code**
    * Pincode
    * IsActive
-5. Respond to the source with all the Location Hierarchy Data based on the Location Code
+4. Respond to the source with all the Location Hierarchy Data based on the Location Code
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
-1. Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data for the next hierarchy level
+Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data for the next hierarchy level
 1. Validates if the request contains the following input parameters
 * Location Code - Mandatory
 * Language Code - Mandatory
-3. If the mandatory input parameters are missing, throws the appropriate message. 
+2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g, if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Respond to the source with the data fetched
 1. In case of Exceptions, system should triggers  error message. 
@@ -120,7 +120,7 @@
 
 ### 1.2 List of Holidays - Create/Read/Update/Delete
 #### A. Create Holiday data in Masterdata DB
-1. Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system store the Holiday in the DB
+Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system store the Holiday in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * location_code - character (36) - Mandatory
 * holiday_date - date - Mandatory
@@ -128,29 +128,29 @@
 * holiday_desc - character (128) - Optional
 * lang_code - character (3) - Mandatory
 * is_active - boolean - Mandatory
-3. The component restricts the bulk creation of Master Data
+2. The component restricts the bulk creation of Master Data
 1. Responds with the Location Code, Holiday Date, Holiday Name and Language Code for the Holiday created successfully
 1. In case of Exceptions, system will trigger error messages as received from the Database
 
 #### B. Fetch List of Holidays based on a Registration Center ID, a Year and a Language Code
 
-1. On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code) the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter
+On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code) the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter
 1. Validates if the received request contains the following input parameters
 * Registration Center ID - Mandatory
 * Year - Mandatory
 * Language Code - Mandatory
-3. If the mandatory input parameters are missing, throws the appropriate message
+2. If the mandatory input parameters are missing, throws the appropriate message
 1. Validates if the response contains the List of Holidays against the Registration Center ID and the year received and contains the following attributes for a Region
 * Holiday ID
 * Holiday Date
 * Holiday Name
 * IsActive
-5. Respond to the source with the List of Holidays
+4. Respond to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Update and Delete a Location in Location Masterdata DB
 ##### (i) Update
-1. On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active) the system updates the Location in the Location DB for the code received
+On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active) the system updates the Location in the Location DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * code character (36) - Mandatory
 * name character (128) - Mandatory
@@ -159,13 +159,13 @@
 * parent_loc_code character (32) - Mandatory
 * lang_code character (3) - Mandatory
 * is_active boolean - Mandatory
-3. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 ##### (ii) Delete
-1. On receiving a  request to delete a Location with the input parameters (code) the system updates the is_deleted flag to true in the Location DB against the code received
+On receiving a  request to delete a Location with the input parameters (code) the system updates the is_deleted flag to true in the Location DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
 1. Delete all records for the code received
 1. Deleted record are not be deleted again
@@ -173,27 +173,27 @@
 1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
 1. Responds with the Code for the Location Hierarchy deleted successfully
 * code - character (36) - Mandatory
-8. In case of Exceptions, system triggers relevant error messages. 
+7. In case of Exceptions, system triggers relevant error messages. 
 
 
 ### 1.3 Biometric Authentication Type - Create/Read/Update/Delete
 #### A. Create Biometric Authentication Type in Masterdata DB
-1. On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active) the system store the Biometric Authentication Type in the DB
+On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active) the system store the Biometric Authentication Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * code - character (36) - Mandatory
 * name - character (64) - Mandatory
 * descr - character (256) - Optional
 * lang_code - character (3) - Mandatory
 * is_active - boolean - Mandatory
-3. Responds with the Biometric Authentication Type Code and Language Code for the Biometric Authentication Type created successfully
+2. Responds with the Biometric Authentication Type Code and Language Code for the Biometric Authentication Type created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database.
 
 #### B. Fetch the List of Biometric Authentication Type based on a Language Code
-1. On receiving a request to fetch the List of Biometric Authentication Type with input parameters (Language Code) the system fetches the List of Biometric Authentication Type against the Language Code
+On receiving a request to fetch the List of Biometric Authentication Type with input parameters (Language Code) the system fetches the List of Biometric Authentication Type against the Language Code
 1. Validates if the request to add Biometric Authentication Type contains the following parameters
 * Language Code - Mandatory
-3. If the mandatory input parameters are missing, responds with all the data.
+2. If the mandatory input parameters are missing, responds with all the data.
 1. Validates if the response contains the List of Biometric Authentication Type against the Language Code along with the IsActive Flag for each Biometric Authentication Type
 1. Responds to the source with List of Biometric Authentication Type
 1. In case of Exceptions, system should trigger relevant error messages
@@ -226,9 +226,9 @@ Upon receiving a request to add a Reason with the input parameters (code, name, 
 * Language Code
 * Rsncat_code (Reason Category Code)
 
-Respond to the source with the appropriate message.
+3. Respond to the source with the appropriate message.
 
-In case of Exceptions, system triggers relevant error messages as listed below
+4. In case of Exceptions, system triggers relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -241,11 +241,11 @@ NA|	NA|	NA
 Error occurred while inserting Reason details|	KER-MSD-058|
 
 **B. Fetch the requested list of reasons based on Reason Category Code and Language Code**
-1. Upon receiving a request to Fetch the requested List of Reasons with the required input parameters (Reason 1. Category Code, Language Code) the system fetches the requested List of reasons stored against the Reason Category Code and Language Code received
+Upon receiving a request to Fetch the requested List of Reasons with the required input parameters (Reason 1. Category Code, Language Code) the system fetches the requested List of reasons stored against the Reason Category Code and Language Code received
 1. Validates if the request contains the following input parameters
 * Language Code - Mandatory
 * Reason Category Code - Mandatory
-3. If either of the mandatory input parameters are missing, responds with the appropriate message as define below in message sections
+2. If either of the mandatory input parameters are missing, responds with the appropriate message as define below in message sections
 1. Validates if the response contains the:
 (a) Requested list based on the requested Language Code and Reason Category Code
 (b) List of Reasons with the corresponding attributes for the list
@@ -254,7 +254,7 @@ Error occurred while inserting Reason details|	KER-MSD-058|
 * Language Code
 * Reason Category Code
 * IsActive
-5. Responds to the source with the relevant List of Reasons, as per the stated business rules
+4. Responds to the source with the relevant List of Reasons, as per the stated business rules
 1. In case of Exceptions, system should trigger relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
@@ -282,17 +282,17 @@ MOSIP system can create Template Type in the Masterdata DB.
 Upon receiving a request to add Template Type (e.g, SMS Notification template - New Registration) with the input 
 parameters (code, descr, lang_code and is_active) the system stores the Template Type in the DB
 
-Validates if all required input parameters have been received as listed below for each specific request
+1. Validates if all required input parameters have been received as listed below for each specific request
 * code - character (36) - Mandatory
 * descr - character (256) - Mandatory
 * lang_code - character (3) - Mandatory
 * is_active - boolean – Mandatory
 
-Respond with the Template Type Code and Language Code for the Template Type created successfully
+2. Respond with the Template Type Code and Language Code for the Template Type created successfully
 
-This component also restrict the bulk creation of Master Data
+3. This component also restrict the bulk creation of Master Data
 
-In case of Exceptions, system triggers relevant error messages as listed below.
+4. In case of Exceptions, system triggers relevant error messages as listed below.
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
@@ -329,22 +329,24 @@ NA|	NA|	NA
 Error occurred while inserting Device details	|KER-MSD-070|
 **B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata DB**
 **(i) Update**
-1. Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active) the system updates the Blacklisted Word in the Blacklisted Word DB for the code received
+
+Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active) the system updates the Blacklisted Word in the Blacklisted Word DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * word- character (128) - Mandatory
 * descr - character (256) - Optional
 * lang_code - character (3) - Mandatory
 * is_active - boolean - Mandatory
-3. For the code received in the request, replaces all the data received in the request against the data existing in the Blacklisted Word database against the same code
-4. Deleted record are not updated
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Blacklisted Word database against the same code
+3. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Word and Language Code for the Blacklisted word updated successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
 **(ii) Delete**
-1. Upon receiving a request to delete a Blacklisted Word with the input parameters (code) the system updates the is_deleted flag to true in the Blacklisted Word DB against the code received
+
+Upon receiving a request to delete a Blacklisted Word with the input parameters (code) the system updates the is_deleted flag to true in the Blacklisted Word DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * word- int - Mandatory
-3. Deleted record are not deleted again
+2. Deleted record are not deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Word for the Blacklisted word deleted successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
@@ -367,23 +369,22 @@ Blacklisted Words not found	|KER-MSD-008|
 
 MOSIP system can create a Reason Category in Master Data
 
-Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active) the system stores the Reason Category in the DB
 
 Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active) the system stores the Reason Category in the DB
 
-Validates if all required input parameters have been received as listed below for each specific request
+1. Validates if all required input parameters have been received as listed below for each specific request
 * code - character (36) - Mandatory
 * name - character (64) - Mandatory
 * descr - character (256) - Mandatory
 * lang_code - character (3) - Mandatory
 * is_active - boolean - Mandatory
 
-Validates if the response contains the following attributes for a Reason Category added
+2. Validates if the response contains the following attributes for a Reason Category added
 * Code
 * Language Code
-Responds with the Reason Category code and Language Code for the Reason Category created successfully
+3. Responds with the Reason Category code and Language Code for the Reason Category created successfully
 
-In case of Exceptions, system triggers relevant error messages as listed below
+4. In case of Exceptions, system triggers relevant error messages as listed below
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
@@ -397,17 +398,17 @@ Error occurred while inserting Reason Category details|	KER-MSD-057|
 ### 1.17 List of Applications - Create/Read/Update/Delete
 **A. Create a List of Applications in Master Data**
 
-1. Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active)the system stores the Application in the DB
+Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active)the system stores the Application in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * code - character (36) - Mandatory
 * name - character (64) - Mandatory
 * descr- character (256) - Mandatory
 * lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata. Refer)
 * is_active - boolean - Mandatory
-3. Validates if the response contains the following attributes for a Application added
+2. Validates if the response contains the following attributes for a Application added
 * Code
 * Language Code
-4. Responds with the Application ID and Language Code for the Application created successfully
+3. Responds with the Application ID and Language Code for the Application created successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -470,7 +471,7 @@ Application not found	|KER-MSD-002|
 ### 1.18 List of ID Types - Create/Read/Update/Delete
 **A. Create an ID type in Master Data**
 
-1. Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active) the system stores the ID Type in the DB
+Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active) the system stores the ID Type in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
 
@@ -480,14 +481,14 @@ Application not found	|KER-MSD-002|
 * lang_code - character (3) – Mandatory(refers to a Language stored in Language Masterdata)
 * is_active - boolean - Mandatory
 
-3. Validates if the response contains the following attributes for an ID Type added
+2. Validates if the response contains the following attributes for an ID Type added
 
 * Code
 * Language Code
 
-4. Responds with the ID Type Code and Language Code for the ID type created successfully
+3. Responds with the ID Type Code and Language Code for the ID type created successfully
 
-5. In case of Exceptions, system should trigger relevant error messages as listed below.
+4. In case of Exceptions, system should trigger relevant error messages as listed below.
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -501,17 +502,17 @@ Error occurred while inserting ID Type details	|KER-MSD-059|
 
 **B. Fetch the List of ID Types based on Language Code**
 
-1. Upon receiving a request to fetch the List of ID Types with input parameters (Language Code) the system fetches the List of ID Types against the Language Code Received
+Upon receiving a request to fetch the List of ID Types with input parameters (Language Code) the system fetches the List of ID Types against the Language Code Received
 
 1. Validates if the request contains the following input parameters
 * Language Code - Mandatory
-3. If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section below.
+2. If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section below.
 
 1. Validates if the response contains the List of ID Types with the following attributes
 * ID Type Name
 * ID Type Code
 * IsActive
-5. In case of Exceptions, system should trigger relevant error messages as listed below.
+4. In case of Exceptions, system should trigger relevant error messages as listed below.
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -543,7 +544,7 @@ MOSIP system can create Machine Type in Masterdata DB
 
 Upon receiving a request to add Machine Type (e.g, Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
 
-Validates if all required input parameters have been received as listed below for each specific request
+1. Validates if all required input parameters have been received as listed below for each specific request
 
 * code - character (36) - Mandatory
 * name - character (64) - Mandatory
@@ -551,13 +552,13 @@ Validates if all required input parameters have been received as listed below fo
 * lang_code - character (3) - Mandatory
 * is_active - boolean - Mandatory
 
-Respond with the Machine Type Code and Language Code for the Machine Type created successfully
+2. Respond with the Machine Type Code and Language Code for the Machine Type created successfully
 
-This feature also restrict the bulk creation of Master Data
+3. This feature also restrict the bulk creation of Master Data
 
-Respond to the source with the appropriate message
+4. Respond to the source with the appropriate message
 
-In case of Exceptions, system triggers error messages as received from the Database as listed below
+5. In case of Exceptions, system triggers error messages as received from the Database as listed below
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
@@ -602,11 +603,11 @@ Error occurred while inserting a mapping of Machine and Center|	KER-MSD-074
 
 #### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata DB
 
-1. Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id) the system updates the is_deleted flag to true in the Center-Machine mapping DB against the input received
+Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id) the system updates the is_deleted flag to true in the Center-Machine mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * regcntr_id - character (36) - Mandatory
 * machine_id - character (36) - Mandatory
-3. Deleted record are not be deleted again
+2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request.
 1. Responds with the Machine Id and Center ID for the mapping of Machine and Center deleted successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
@@ -624,12 +625,12 @@ Mapping for Machine and Center not found|	KER-MSD-114|
 
 ### 2.11 Mappings of Registration Center and Device - Create/Read/Update/Delete
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata DB
-1. Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active) the system stores the Mapping of Device and Center in the DB
+Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active) the system stores the Mapping of Device and Center in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * regcntr_id - character (10) – Mandatory(refers to a Registration Center stored in Registration Center)
 * device_id - character (36) – Mandatory(refers to a Device stored in Device Masterdata)
 * is_active - boolean - Mandatory
-3. Responds with the Device Id and Center ID for the mapping of Device and Center created successfully
+2. Responds with the Device Id and Center ID for the mapping of Device and Center created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database as listed below
 
@@ -644,11 +645,11 @@ NA|	NA|	NA
 Error occurred while inserting a mapping of Device and Center|	KER-MSD-075|
 
 #### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata DB
-1. Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id) the system updates the is_deleted flag to true in the Center-Device mapping DB against the input received
+Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id) the system updates the is_deleted flag to true in the Center-Device mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * regcntr_id - character (36) - Mandatory
 * device_id - character (36) - Mandatory
-3. Deleted record should not be deleted again
+2. Deleted record should not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
@@ -671,13 +672,13 @@ Mapping for Device and Center not found	|KER-MSD-115|
 
 ### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata DB
 
-1. Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active) the system store the Mapping of Center, Machine and Device in the DB
+Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active) the system store the Mapping of Center, Machine and Device in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * regcntr_id - character (36) – Mandatory(refers to a Registration Center stored in Registration Center Masterdata)
 * machine_id - character (36) – Mandatory(refers to a Registration Center stored in Registration Center Masterdata)
 * device_id - character (36) – Mandatory(refers to a Device stored in Device Masterdata)
 * is_active - boolean - Mandatory
-3. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device created successfully
+2. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database as listed below
 ### <p align="left">**1. Type : Success – Info Message**
@@ -691,12 +692,12 @@ NA|	NA|	NA
 Error occurred while inserting a mapping of Center, Machine and Device|	KER-MSD-076|
 
 #### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata DB
-1. Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id) the system updates the is_deleted flag to true in the Center-Machine-Device mapping DB against the input received
+Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id) the system updates the is_deleted flag to true in the Center-Machine-Device mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * regcntr_id - character (36) - Mandatory
 * machine_id - character (36) - Mandatory
 * device_id - character (36) - Mandatory
-3. Deleted record are not be deleted again
+2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages as listed below
@@ -721,10 +722,10 @@ MOSIP system can generate and validate a license Key
 
 (c) Validate if the request contains the following input parameters
 
-* TSP ID - Mandatory
-* Expiry Time - Mandatory
-* If the mandatory input parameters are missing, throw the appropriate message. Refer "Messages" section.
-* License Key generated must be of length configured by ADMIN
+   * TSP ID - Mandatory
+   * Expiry Time - Mandatory
+   * If the mandatory input parameters are missing, throw the appropriate message. Refer "Messages" section.
+   * License Key generated must be of length configured by ADMIN
 
 (d) Generate the License key
 
@@ -738,9 +739,9 @@ MOSIP system can generate and validate a license Key
 (a) Upon receiving a request to map permissions to the License Key with input parameters (TSP ID, License Key, List of Permissions) the system maps the received permissions to the License Key
 
 (b) Validates if the request contains the following input parameters
-* TSP ID - Mandatory
-* License Key - Mandatory
-* List of Permissions - Mandatory
+   * TSP ID - Mandatory
+   * License Key - Mandatory
+   * List of Permissions - Mandatory
 
 (c) If the mandatory input parameters are missing, throw the appropriate message
 
@@ -754,15 +755,15 @@ MOSIP system can generate and validate a license Key
 (a) Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key) the system validate if the License Key is Valid
 
 (b) Validates if the request contains the following input parameters
-* TSP ID - mandatory
-* License key - Mandatory
+   * TSP ID - mandatory
+   * License key - Mandatory
 
 (c) If the mandatory input parameters are missing, throws the appropriate message.
 
 (d) Validate the License key based on following logic
 
-* License key received should be mapped to the TSP ID received in the request
-* License key should not be expired as per the expiry time mapped to the License Key
+   * License key received should be mapped to the TSP ID received in the request
+   * License key should not be expired as per the expiry time mapped to the License Key
 
 (e) If the License key is invalid, throws error message
 
