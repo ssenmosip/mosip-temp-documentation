@@ -1,11 +1,15 @@
 This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Authentication
-This service details imple authentication (yes/no auth) that can be used by partners to authenticate an Individual. Below are various authentication types supported by this service - 
-1. OTP based - TOTP
+This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
+1. OTP based - Time based OTP
 2. Pin based - Static Pin
-3. Demo based - PersonalIdentity, Address, FullAddress
+3. Demo based - Name, DOB, Age, Gender, Address, FullAddress
 4. Bio based - Fingerprint, IRIS and Face
+
+Users of Authentication service - 
+1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service
+2. `Partners` - Auth Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth Partners and sent to MOSIP, via MISP.
 
 ### Resource URL
 ### `POST identity/auth/v1.0/<MISP-LK>`
@@ -20,27 +24,33 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
+MISP-LK| Y | MISP License Key | | 
 id | Y | API Id | | mosip.identity.auth
-ver | Y | API version | | 1.0
-reqTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
-txnID | Y | Transaction ID of API | | 1234567890
-idvId | Y | Individual's UIN or VID | | 486493840596
-idvIdType | Y | Individual's ID Type | D | V
-tspID|Y|TSP ID| |TSP0000005
-authType| Y | Individual Authentication Types supported| | 
-authType: personalIdentity| Y | Demographic Authentication - Personal Identity | false| false
-authType: address| Y | Demographic Authentication - Address Line | false| false
-authType: bio| Y | Bio-metric Authentication Type | false|false
-authType: otp| Y | OTP Authentication Type | false|false
-authType: pin| Y | Pin Authentication Type |false |false
-key: sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
-key: publicKeyCert| Y | TSP Public Key Certificate used to Digitally Sign the request | | 
+version | Y | API version | | 1.0
+partnerId | Y | Auth Partner ID | |
+policyId | Y | Policy ID of Auth Partner | |
+transactionID| Y | Transaction ID of request | | 1234567890
+requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
+requestedAuth| Y | Authentication Types requested| | 
+requestedAuth: otp| Y | OTP Authentication Type | false| false
+requestedAuth: demo| Y | Demographic Authentication Type | false| false
+requestedAuth: bio| Y | Biometric Authentication Type | false|false
+requestedAuth: pin| Y | Static Pin Authentication Type |false |false
+bioMetadata| N | Biometric metadata when Bio Auth is requested | | 
+bioMetadata: bioType| Y | Biometric Type requested | |FMR or IIR or FID 
+bioMetadata: deviceId| Y | Biometric Device ID | | 
+bioMetadata: deviceProviderID| Y | Biometric Device Provider ID | | 
+sessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
 request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: identity: name|N| name attribute of Individual's Identity| | 
+request: identity: UIN| N | UIN of an Individual| | 
+request: identity: VID| N | VIDof an Individual| | 
+request: identity: name| N | name attribute of Individual's Identity| | 
 request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
 request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
-request: identity: leftEye|N| Left Eye of Individual's IRIS| |
+request: identity: biometrics|N| Biometrics of an Individual| |
+request: additionalFactors|N| Additional Factors of Auth requested| |
+request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
+request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth| |
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
