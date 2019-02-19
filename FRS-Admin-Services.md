@@ -264,31 +264,38 @@ Error occurred while inserting Application details|	KER-MSD-056|
 
 **B. Fetch List of Applications based on received input parameter**
 
-**1. Fetch the List of all Applications**
+**(i) Fetch the List of all Applications**
 
-(a) Upon receiving a request to Fetch List of Applications the system fetches all the List of Applications
-(i) Validates if the response contain the following attributes for each Application
+1. Upon receiving a request to Fetch List of Applications the system fetches all the List of Applications
+
+(a) Validates if the response contain the following attributes for each Application
 * Application ID
 * Application Detail
 * IsActive
 
 (b) The response must contain the list of applications in all the languages present in the Database
+
 (c) Responds to the source with all the Application attributes.
 
 **2. Fetch the Application detail based on a Language Code and Application ID**
-(a) Upon receiving a request to Fetch List of Applications with the required input parameters (Application ID, Language Code) the system fetches the Application Detail based on the Application ID and Language Code received
 
-(i) Validate if all required input parameters have been received as listed below for each specific request
+1. Upon receiving a request to Fetch List of Applications with the required input parameters (Application ID, Language Code) the system fetches the Application Detail based on the Application ID and Language Code received
+
+(a) Validate if all required input parameters have been received as listed below for each specific request
 * Application ID - Mandatory
 * Language Code - Mandatory
+
 (b) Respond with the Application Data against the Application ID and Language Code Received
+
 (c) Validate if the response contain the following attributes for each Application
 * Application ID
 * Application Detail
 * IsActive
 
 (d) Respond to the source with the Application Detail
+
 (e) If the mandatory input parameters are missing, responds with all the data.
+
 (f) In case of Exceptions, system should trigger relevant error messages as listed below
 
 
