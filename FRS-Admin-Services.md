@@ -54,6 +54,7 @@
 
 ### 1.9 List of Rejection Reasons - Create/Read/Update/Delete
 **A. Create a Rejection Reason in Reason List Master Data**
+
 Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active) the system store the Reason in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
