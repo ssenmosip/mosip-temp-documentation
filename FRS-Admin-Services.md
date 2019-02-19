@@ -132,47 +132,48 @@
 1. Responds with the Location Code, Holiday Date, Holiday Name and Language Code for the Holiday created successfully
 1. In case of Exceptions, system will trigger error messages as received from the Database
 
-2.	Fetch List of Holidays based on a Registration Center ID, a Year and a Language Code
-	On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code) the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter
-	Validates if the received request contains the following input parameters
-o	Registration Center ID - Mandatory
-o	Year - Mandatory
-o	Language Code - Mandatory
-	If the mandatory input parameters are missing, throws the appropriate message
-	Validates if the response contains the List of Holidays against the Registration Center ID and the year received and contains the following attributes for a Region
-o	Holiday ID
-o	Holiday Date
-o	Holiday Name
-o	IsActive
-	Respond to the source with the List of Holidays
-	In case of Exceptions, system triggers relevant error messages
+#### B. Fetch List of Holidays based on a Registration Center ID, a Year and a Language Code
 
-3.	Update and Delete a Location in Location Masterdata DB
-Update
-1.	On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active) the system updates the Location in the Location DB for the code received
-Validates if all required input parameters have been received as listed below for each specific request
-2.	code character (36) - Mandatory
-3.	name character (128) - Mandatory
-4.	hierarchy_level smallint - Mandatory
-5.	hierarchy_level_name character (64) - Mandatory
-6.	parent_loc_code character (32) - Mandatory
-7.	lang_code character (3) - Mandatory
-8.	is_active boolean - Mandatory
-4.	For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
-5.	Deleted record are not be updated
-6.	Responds with data not found error if deleted record is received in the request
-7.	Responds with the Code and Language Code for the Location Hierarchy updated successfully
-8.	In case of Exceptions, system triggers relevant error messages
-Delete
-1.	On receiving a  request to delete a Location with the input parameters (code) the system updates the is_deleted flag to true in the Location DB against the code received
-2.	Validates if all required input parameters have been received as listed below for each specific request
-3.	Delete all records for the code received
-4.	Deleted record are not be deleted again
-5.	Responds with data not found error if deleted record is received in the request
-6.	Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
-7.	Responds with the Code for the Location Hierarchy deleted successfully
-1.	code - character (36) - Mandatory
-8.	In case of Exceptions, system triggers relevant error messages. 
+1. On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code) the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter
+1. Validates if the received request contains the following input parameters
+* Registration Center ID - Mandatory
+* Year - Mandatory
+* Language Code - Mandatory
+3. If the mandatory input parameters are missing, throws the appropriate message
+1. Validates if the response contains the List of Holidays against the Registration Center ID and the year received and contains the following attributes for a Region
+* Holiday ID
+* Holiday Date
+* Holiday Name
+* IsActive
+5. Respond to the source with the List of Holidays
+1. In case of Exceptions, system triggers relevant error messages
+
+#### C. Update and Delete a Location in Location Masterdata DB
+##### (i) Update
+1. On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active) the system updates the Location in the Location DB for the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code character (36) - Mandatory
+* name character (128) - Mandatory
+* hierarchy_level smallint - Mandatory
+* hierarchy_level_name character (64) - Mandatory
+* parent_loc_code character (32) - Mandatory
+* lang_code character (3) - Mandatory
+* is_active boolean - Mandatory
+1. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
+1. Deleted record are not be updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
+1. In case of Exceptions, system triggers relevant error messages
+##### (ii) Delete
+1. On receiving a  request to delete a Location with the input parameters (code) the system updates the is_deleted flag to true in the Location DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+1. Delete all records for the code received
+1. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Code for the Location Hierarchy deleted successfully
+* code - character (36) - Mandatory
+8. In case of Exceptions, system triggers relevant error messages. 
 
 
 ### 1.3 Biometric Authentication Type - Create/Read/Update/Delete
