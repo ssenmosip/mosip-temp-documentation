@@ -38,6 +38,86 @@
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
 
+#### A. Create Location Hierarchy in the Masterdata DB
+1. Upon receiving a request to add Location hierarchy (E.g, Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active) the system sstore the Location hierarchy in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (128) - Mandatory
+* hierarchy_level - smallint - Mandatory
+* hierarchy_level_name - character (64) - Mandatory
+* parent_loc_code - character (32) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+3. Responds with the Code and Language Code for the Location Hierarchy created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database
+
+#### B. Check the existence of a Location in Master DB
+1. Upon receiving a request to validate the Location Name with input parameters (Location Name)the system checks the Location Name in the Master DB
+1. Validates if the request contains the following input parameters
+* Location Name - Mandatory
+3. If the mandatory input parameters are missing, throw the appropriate message
+1. In case of Exceptions, system triggers relevant error messages
+#### C. Fetch Location Hierarchy Levels based on a Language Code
+1. Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code) the system fetches the Location Hierarchy Levels
+1. Validates if the request contains following input parameters (Language Code)
+* Language Code - Mandatory
+3. Validates if the response contains the Location Hierarchy Levels with the following attributes
+* Hierarchy Level
+* Hierarchy Name
+* IsActive
+4. In case of Exceptions, system triggers relevant error messages
+#### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
+1. Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data
+1. Validates if the request contains the following input parameters
+* Location Code - Mandatory
+* Language Code - Mandatory
+3. If the mandatory input parameters are missing, throw the appropriate message. 
+1. Validates if the response contains the following location hierarchy data and the corresponding attributes against the Location Code and Language Code received in the input parameter
+
+(a) List of Countries against the Location Code
+* Country Code
+* Country Name
+* IsActive
+
+(b) List of Regions against the Location Code
+* Region Code
+* Region Name
+* IsActive
+
+(c) List of Provinces against the Location Code
+* Province Code
+* Province Name
+* IsActive
+
+(d) List of Cities against the Location Code
+* City Code
+* City Name
+* IsActive
+
+(e) List of Local Administrative authorities against the Location Code
+* Local Administrative Authority Code
+* Local Administrative Authority Name
+* IsActive
+
+(f) List of Pincodes against the Location Code
+* Pincode
+* IsActive
+5. Respond to the source with all the Location Hierarchy Data based on the Location Code
+1. In case of Exceptions, system triggers relevant error messages. 
+
+5. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
+1.	Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data for the next hierarchy level
+2.	Validates if the request contains the following input parameters
+1.	Location Code - Mandatory
+2.	Language Code - Mandatory
+3.	If the mandatory input parameters are missing, throws the appropriate message. 
+4.	Fetches the Location data of only the child hierarchy of location code received (For e.g, if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
+5.	Respond to the source with the data fetched
+6.	In case of Exceptions, system should triggers  error message. 
+
+
+
 ### 1.2 List of Holidays - Create/Read/Update/Delete
 
 ### 1.3 Biometric Authentication Type - Create/Read/Update/Delete
