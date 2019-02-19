@@ -172,7 +172,18 @@ Respond to the source with appropriate message and Raise an alert in case of lis
 
 #### 4.1.5 RID Validator
 
-MOSIP system can perform RID validation against a defined ID policy
+RID is generated in the following manner:
+* First 5 Digit: Registration Center ID
+* Next 5 Digits: Machine ID
+* Next 5 Digits: Running sequence
+* Last 14 Digits: Timestamp
+* Total: 29 Digits
+
+RID Validation performs pattern validation on an RID and provides three methods to validate an RID.
+1. Receive a RID, check whether RID is of configured length or not and respond with whether RID is valid or invalid
+1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID is attached to the RID or not. Respond with whether RID is valid or invalid
+1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid 
+
 
 #### 4.1.6 TSP ID Validator
 MOSIP system can perform TSP ID validation against a defined TSP ID policy
