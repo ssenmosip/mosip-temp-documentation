@@ -177,6 +177,27 @@
 
 
 ### 1.3 Biometric Authentication Type - Create/Read/Update/Delete
+#### A. Create Biometric Authentication Type in Masterdata DB
+1. On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active) the system store the Biometric Authentication Type in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (256) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+3. Responds with the Biometric Authentication Type Code and Language Code for the Biometric Authentication Type created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database.
+
+#### B. Fetch the List of Biometric Authentication Type based on a Language Code
+1. On receiving a request to fetch the List of Biometric Authentication Type with input parameters (Language Code) the system fetches the List of Biometric Authentication Type against the Language Code
+1. Validates if the request to add Biometric Authentication Type contains the following parameters
+* Language Code - Mandatory
+3. If the mandatory input parameters are missing, responds with all the data.
+1. Validates if the response contains the List of Biometric Authentication Type against the Language Code along with the IsActive Flag for each Biometric Authentication Type
+1. Responds to the source with List of Biometric Authentication Type
+1. In case of Exceptions, system should trigger relevant error messages
+
 
 ### 1.4 Biometric Attribute Type - Create/Read/Update/Delete
 
