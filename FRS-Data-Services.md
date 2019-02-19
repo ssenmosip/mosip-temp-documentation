@@ -210,6 +210,31 @@ RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
 
 
 #### 4.2.4 TSP ID Generator
+MOSIP system can generate TSP ID as per defined TSP ID generation logic
+
+Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
+
+TSP ID should be generated as per the defined logic mentioned below
+1. TSP ID should only be numeric
+1. TSP ID generated should be of length of 4 digits
+1. Each new TSP ID should be incremented by 1 for each new request
+1. TSP ID generation should start from 1000
+1. The number should not contain the restricted numbers defined by the ADMIN
+
+Responds with the TSP ID to the source
+
+Raise an alert in case of listed exceptions and triggers the following messages as listed below
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|NA|	NA	|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|------|:------:|
+|NA	|TSP ID Generation Failed|	NA|
+
 #### 4.2.5 PRID Generator
 #### 4.2.6 VID Generator
 #### 4.2.7 Token ID Generator
