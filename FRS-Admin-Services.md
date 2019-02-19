@@ -76,33 +76,33 @@
 1. Validates if the response contains the following location hierarchy data and the corresponding attributes against the Location Code and Language Code received in the input parameter
 
    **(i) List of Countries against the Location Code**
-  * Country Code
-  * Country Name
-  * IsActive
+   * Country Code
+   * Country Name
+   * IsActive
 
-(b) List of Regions against the Location Code
-* Region Code
-* Region Name
-* IsActive
+   **(ii) List of Regions against the Location Code**
+   * Region Code
+   * Region Name
+   * IsActive
 
-(c) List of Provinces against the Location Code
-* Province Code
-* Province Name
-* IsActive
+   **(iii) List of Provinces against the Location Code**
+   * Province Code
+   * Province Name
+   * IsActive
 
-(d) List of Cities against the Location Code
-* City Code
-* City Name
-* IsActive
+   **(iv) List of Cities against the Location Code**
+   * City Code
+   * City Name
+   * IsActive
 
-(e) List of Local Administrative authorities against the Location Code
-* Local Administrative Authority Code
-* Local Administrative Authority Name
-* IsActive
+   **(v) List of Local Administrative authorities against the Location Code**
+   * Local Administrative Authority Code
+   * Local Administrative Authority Name
+   * IsActive
 
-(f) List of Pincodes against the Location Code
-* Pincode
-* IsActive
+   **(vi) List of Pincodes against the Location Code
+   * Pincode
+   * IsActive
 5. Respond to the source with all the Location Hierarchy Data based on the Location Code
 1. In case of Exceptions, system triggers relevant error messages. 
 
