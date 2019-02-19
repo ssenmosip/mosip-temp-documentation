@@ -28,7 +28,7 @@ The UINs generated follows the following policies:
 1. UIN should not contain ADMIN defined restricted number
 
 ## 2. Configuration Manager
-## 3. Audit Manager-Log manager
+## 3. Audit Manager
 Audit Manager takes data from different Modules and stores it in the Audit DB. It needs to receive following attribute against each audit record. 
 1. Audit Event ID - Mandatory
 1. Audit Event name - Mandatory
