@@ -337,6 +337,21 @@ If no VID is generated against the UIN:
 INVALID_UIN_EXCEPTION|	Invalid UIN	|KER-VID-001|
 VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 
+**VID generation policy**
+1. VID generated should contain the number of digits as configured
+1. In absence of configured length, VID generated should have 16 digits
+1. Validate if the VID is generated as per the defined logic mentioned below
+* The number should not contain any alphanumeric characters
+* The number should not contain any repeating numbers for 2 or more than 2 digits
+* The number should not contain any sequential number for 3 or more than 3 digits
+* The numbers should not be generated sequentially
+* The number should not have repeated block of numbers for 2 or more than 2 digits
+* The number should not contain the restricted numbers defined by the ADMIN
+* The last digit in the number should be reserved for a checksum
+* The number should not contain '0' or '1' as the first digit.
+4. Expired VID should not be sent in response
+
+
 #### 4.2.7 Token ID Generator
 
 
