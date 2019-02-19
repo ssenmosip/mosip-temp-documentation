@@ -76,6 +76,9 @@ For a request to receive private key, The Key manager will not respond with Priv
 
 ### 3.3 Crypto Utility 
 ### 3.4 Hash Utility
+1. Identifies hash util methods
+1. Creates wrapper class for methods defined in apache-commons hash util
+1. Raises an alert in case of listed
 ### 3.5 HMAC Utility 
 ## 4. Notification
 ### 4.1 OTP Notification Services
