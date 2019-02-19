@@ -1,12 +1,59 @@
-* [2. Registration](#2-registration)
-  * [2.1 Registration Client Setup](#21-registration-client-setup)
-  * [2.2 System Health Checker](#22-system-health-checker)
-  * [2.3 Registration Officer Authentication](#23-registration-officer-authentication)
-  * [2.4 User Onboarding/Manager](#24-user-onboardingmanager)
-  * [2.5 Language Manager](#25-language-manager)
-  * [2.6 Registration Application Manager – New](#26-registration-application-manager--new)
-  * [2.7 Registration Officer Authorization](#27-registration-officer-authorization)
-  * [2.8 Registration Packet Manager](#28-registration-packet-manager)
-  * [2.9 Sync Handler](#29-sync-handler)
-  * [2.10 Individual UIN – Update](#210-individual-uin--update)
-  * [2.11 Clean Up](#211-clean-up)
+Registration
+- Registration Services
+* Master Data Sync
+** Master Data, Configuration
+** End of Day Process
+* Booking Data Sync
+   Appointments (PRIDs), PR Packets
+* Registration Data Services
+  ** List of Registrations
+  ** Registration Packet Upload
+  ** Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter)
+  ** New Registration
+  ** UIN Updates
+  ** Acknowledgement and Notifications
+  ** Biometric Exceptions
+  ** Supervisor Approval
+* User Services
+** User on-boarding
+** Login / Authentication
+** Logout
+
+- Registration Client Library
+* Local Authentication
+** Offline Authentication using Biometrics
+** Biometric SDK Integration (Extract and Match)
+* API Client
+* Biometric Device Manager
+** Vendor Device Manager Integration and Suuport
+* Local Storage
+** Database
+** File system
+* Data Security (Take Architects Help)
+** Trust Environment
+** Encryption and Decryption
+** Storage Policies
+** Key Management
+* Business Validations
+* Data Sync
+** Master Data
+** Pre-registration Data
+** Registration Data
+** Analytics and Audit Logs
+* Peripherals Management (Scanner, Camera,.. )
+* Software Version Upgrade
+* Cleanup
+** Data retention policies
+** Device moving to new center
+** Device retirement
+* Language Support
+** Language Selection
+** Internationalization
+** Transliteration
+** Virtual Keyboards
+** Translation??
+* Health Check
+** Disk Space Check
+** Peripherals Check
+** Virus Scan / Security Scan
+** Reports
