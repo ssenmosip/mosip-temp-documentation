@@ -5,7 +5,7 @@
 |1.|Crypto Services|Provides services to Encrypt/Decrypt Data|[MOS-38](https://mosipid.atlassian.net/browse/MOS-38), [MOS-40](https://mosipid.atlassian.net/browse/MOS-40), [MOS-787](https://mosipid.atlassian.net/browse/MOS-787), [MOS-989](https://mosipid.atlassian.net/browse/MOS-989), [MOS-9284](https://mosipid.atlassian.net/browse/MOS-9284)|
 |2.|Key Management|Provides Public/PrivateKeys throughout MOSIP for Encryption/Decryption|[MOS-789](https://mosipid.atlassian.net/browse/MOS-789), [MOS-1910](https://mosipid.atlassian.net/browse/MOS-1910), [MOS-9301](https://mosipid.atlassian.net/browse/MOS-9301), [MOS-13359](https://mosipid.atlassian.net/browse/MOS-13359)|
 |3.|UIN Generation|Generates UIN|[MOS-425](https://mosipid.atlassian.net/browse/MOS-425), [MOS-9738](https://mosipid.atlassian.net/browse/MOS-9738) |
-|4.|Audit Manager|Provides service across MOSIP to store Audit logs|[MOS-8](https://mosipid.atlassian.net/browse/MOS-8), [MOS-441](https://mosipid.atlassian.net/browse/MOS-441), [MOS-829](https://mosipid.atlassian.net/browse/MOS-829), [MOS-1910](https://mosipid.atlassian.net/browse/MOS-1910), [MOS-12903](https://mosipid.atlassian.net/browse/MOS-12903)|
+|4.|Audit Manager|Provides service across MOSIP to store Audit logs|[MOS-8](https://mosipid.atlassian.net/browse/MOS-8), [MOS-441](https://mosipid.atlassian.net/browse/MOS-441), [MOS-829](https://mosipid.atlassian.net/browse/MOS-829), [MOS-12903](https://mosipid.atlassian.net/browse/MOS-12903)|
 |5.|OTP Manager|Generates and Validates OTP as per the defined policies|[MOS-33](https://mosipid.atlassian.net/browse/MOS-33), [MOS-34](https://mosipid.atlassian.net/browse/MOS-34), [MOS-35](https://mosipid.atlassian.net/browse/MOS-35), [MOS-36](https://mosipid.atlassian.net/browse/MOS-36), [MOS-423](https://mosipid.atlassian.net/browse/MOS-423), [MOS-991](https://mosipid.atlassian.net/browse/MOS-991), [MOS-1056](https://mosipid.atlassian.net/browse/MOS-1056), [MOS-1985](https://mosipid.atlassian.net/browse/MOS-1985), [MOS-5486](https://mosipid.atlassian.net/browse/MOS-5486)|
 |6.|OTP Notification Service|Generates an OTP and sends Notification to a recipient|MOS-8230|
 |7.|Email Notification|Generates and sends an Email using a third party vendor|MOS-973|
@@ -21,7 +21,7 @@
 |17.|Transliteration|Performs Transliteration from one language to another|MOS-975|
 |18.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|MOS-1028|
 |19.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|MOS-1029|
-|20.|UIN Validator|Performs a pattern validation on UIN|MOS-595, MOS-9743, MOS-15406|
+|20.|UIN Validator|Performs a pattern validation on UIN|MOS-595, MOS-9743|
 |21.|PRID Validator|Performs a pattern validation on Pre-Registration ID (PRID)|MOS-1007, MOS-12093|
 |22.|VID Validator|Performs a pattern validation on Virtual ID (VID)|MOS-714|
 |23.|RID Validator|Performs a pattern validation on Registration ID (RID)|MOS-1591, MOS-10415, MOS-12093, MOS-13172|
