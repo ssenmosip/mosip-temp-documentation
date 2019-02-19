@@ -295,8 +295,48 @@ PRID is generated as per the defined logic mentioned below
 Respond with the PRID to the source
 
 Raise an alert in case of listed exceptions as listed below
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|NA|NA|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
+
 
 #### 4.2.6 VID Generator
+MOSIP system can  generate VID as per a defined VID generation logic
+
+Upon receiving a request to generate VID with input parameters (UIN) the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
+
+If the generated VID is active, responds with the same VID
+
+If the generated VID is inactive:
+
+1. Generate new VID based on the VID generation policy defined below
+1. Responds with the new VID generated
+1. Maps the new VID against the received UIN
+
+If no VID is generated against the UIN:
+1. Generates new VID based in the policy defined
+1. Map the new VID against the received UIN
+1. Raise an alert in case of listed exceptions as listed below
+
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|NA|NA|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+INVALID_UIN_EXCEPTION|	Invalid UIN	|KER-VID-001|
+VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
+
 #### 4.2.7 Token ID Generator
 
 
