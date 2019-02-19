@@ -311,6 +311,69 @@ Application not found	|KER-MSD-002|
 
 
 ### 1.18 List of ID Types - Create/Read/Update/Delete
+**A. Create an ID type in Master Data**
+
+1. Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active) the system stores the ID Type in the DB
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+
+* code - character (36) - Mandatory
+* code - character (64) - Mandatory
+* descr - character (256) - Mandatory
+* lang_code - character (3) – Mandatory(refers to a Language stored in Language Masterdata)
+* is_active - boolean - Mandatory
+
+3. Validates if the response contains the following attributes for an ID Type added
+
+* Code
+* Language Code
+
+4. Responds with the ID Type Code and Language Code for the ID type created successfully
+
+5. In case of Exceptions, system should trigger relevant error messages as listed below.
+
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting ID Type details	|KER-MSD-059|
+
+**B. Fetch the List of ID Types based on Language Code**
+
+1. Upon receiving a request to fetch the List of ID Types with input parameters (Language Code) the system fetches the List of ID Types against the Language Code Received
+
+1. Validates if the request contains the following input parameters
+* Language Code - Mandatory
+3. If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section below.
+
+1. Validates if the response contains the List of ID Types with the following attributes
+* ID Type Name
+* ID Type Code
+* IsActive
+5. In case of Exceptions, system should trigger relevant error messages as listed below.
+
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while fetching ID Types|	KER-MSD-021|
+ID Type not found	|KER-MSD-022|
+
+
+
+
+
+
+
+
 
 ## 2. Registration Management
 ### 2.1 Registration Center Type - Create/Read/Update/Delete
