@@ -423,8 +423,59 @@ NA|	NA|	NA
 
 ### 2.9 List of Device Types - Create/Read/Update/Delete
 ### 2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete
+#### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata DB
+Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active) the system stores the Mapping of Machine and Center in the DB
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
+* machine_id - character (10) – Mandatory(refers to a Machine stored in Machine Masterdata)
+* is_active - boolean - Mandatory
+2. Responds with the Machine Id and Center ID for the mapping of Machine and Center created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting a mapping of Machine and Center|	KER-MSD-074
+
+#### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata DB
+
+1. Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id) the system updates the is_deleted flag to true in the Center-Machine mapping DB against the input received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (36) - Mandatory
+* machine_id - character (36) - Mandatory
+3. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request.
+1. Responds with the Machine Id and Center ID for the mapping of Machine and Center deleted successfully
+1. In case of Exceptions, system should trigger relevant error messages as listed below
+
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while deleting a mapping of Machine and Center|	KER-MSD-106|
+Mapping for Machine and Center not found|	KER-MSD-114|
 
 ### 2.11 Mappings of Registration Center and Device - Create/Read/Update/Delete
+#### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata DB
+1. Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active) the system stores the Mapping of Device and Center in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (10) – Mandatory(refers to a Registration Center stored in Registration Center)
+* device_id - character (36) – Mandatory(refers to a Device stored in Device Masterdata)
+* is_active - boolean - Mandatory
+3. Responds with the Device Id and Center ID for the mapping of Device and Center created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database as listed below
+
 
 ### 2.12 Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete
 
