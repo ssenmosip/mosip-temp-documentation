@@ -459,6 +459,10 @@ Finally, you need to import both the certificate of the CA and the signed certif
 keytool -keystore keystore.jks -alias CARoot -import -file ca-cert.cer
 keytool -keystore keystore.jks -alias localhost -import -file cert-signed.cer
 ```
+
+For you face error during kerberos, check this:
+https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html
+
 #### Configuring Hdfs
 Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the keystore and the truststore
 1. Edit ssl-server.xml
@@ -540,7 +544,7 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 
 <property>
   <name>ssl.client.truststore.location</name>
-  <value>/home/madmin/truststore.jks</value>
+  <value>/home/hadoop/truststore.jks</value>
   <description>Truststore to be used by clients like distcp. Must be
   specified.
   </description>
@@ -570,7 +574,7 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 
 <property>
   <name>ssl.client.keystore.location</name>
-  <value>/home/madmin/keystore.jks</value>
+  <value>/home/hadoop/keystore.jks</value>
   <description>Keystore to be used by clients like distcp. Must be
   specified.
   </description>
@@ -600,5 +604,4 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 </configuration>
 ```
 After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.
-For you face error during kerberos, check this:
-https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html
+
