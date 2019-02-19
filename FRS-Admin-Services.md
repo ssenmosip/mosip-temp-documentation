@@ -75,7 +75,7 @@
 3. If the mandatory input parameters are missing, throw the appropriate message. 
 1. Validates if the response contains the following location hierarchy data and the corresponding attributes against the Location Code and Language Code received in the input parameter
 
-(a) List of Countries against the Location Code
+**List of Countries against the Location Code**
 * Country Code
 * Country Name
 * IsActive
