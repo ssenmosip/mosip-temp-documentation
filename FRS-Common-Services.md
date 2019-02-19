@@ -167,11 +167,36 @@ Raise an alert in case of listed exceptions (Refer “messages” section)
 |MosipInvalidEmailException|	Email Domain extension length should be specified number of characters|	KER-EMV-003|
 |MosipInvalidEmailException|	Invalid Email ID|	KER-EMV-004|
 ### 6.3 Exception Framework
+MOSIP system provides base exception framework.
 ### 6.4 Calendar Utility 
+1. Identifies Calendar util methods
+1. Creates wrapper class for methods defined in apache-commons Calendar util
+1. Raises an alert in case of listed exceptions 
 ### 6.5 Checksum Utility 
 ### 6.6 Date Utility
+1. Identifies File util methods
+1. Creates wrapper class for methods defined in apache-commons date and time util
+1. Raises an alert in case of listed exceptions 
 ### 6.7 File Utility
+1. Identifies File util methods
+1. Creates wrapper class for methods defined in apache-commons File util
+1. Raises an alert in case of listed exceptions 
 ### 6.8 Json Utility
+1. Identifies jason util methods
+1. Creates wrapper class for methods defined in apache-commons jason util
+1. Raises an alert in case of listed exceptions 
 ### 6.9 Math Utility
+1. Identifies Math util methods
+1. Creates wrapper class for methods defined in apache-commons Math util
+1. Raises an alert in case of listed exceptions 
 ### 6.10 String Utility
+1. Identifies String util methods
+1. Create wrapper class for methods defined in apache-commons String util
+1. Raises an alert in case of listed exceptions
 ### 6.11 UUID Utility
+1. Upon receiving a request to generate UUID the system generates UUID as per default UUID generation logic
+1. UUID generated should be as per UUID Version 5
+1. UUID generated should be of 36 characters (32 alphanumeric characters and four hyphens e.g. 123e4567-e89b-12d3-a456-426655440000)
+1. Any application in MOSIP can use this UUID utility
+1. Respond with the UUID to the source
+1. Raise an alert in case of listed exceptions
