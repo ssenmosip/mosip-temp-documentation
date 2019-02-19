@@ -49,6 +49,15 @@ The Key Manager instead of responding with the private key, decrypts the symmetr
 
 ### 3.1 Key Generator
 ### 3.2 Key Management
+
+The Key Manager Service works together with the Crypto Service. 
+
+
+It receives a request from Crypto Service from Public Key with the Application ID and Timestamp. Key Manager Service then sends a valid Public key against the application ID received to Crypto Service. In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.
+
+
+For a request to receive private key, The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
+
 ### 3.3 Crypto Utility 
 ### 3.4 Hash Utility
 ### 3.5 HMAC Utility 
