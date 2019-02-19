@@ -93,6 +93,35 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 
 ### 1.16 List of Reason Categories - Create/Read/Update/Delete
 
+MOSIP system can create a Reason Category in Master Data
+
+Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active) the system stores the Reason Category in the DB
+
+Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active) the system stores the Reason Category in the DB
+
+Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (256) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+
+Validates if the response contains the following attributes for a Reason Category added
+* Code
+* Language Code
+Responds with the Reason Category code and Language Code for the Reason Category created successfully
+
+In case of Exceptions, system triggers relevant error messages as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting Reason Category details|	KER-MSD-057|
+
 ### 1.17 List of Applications - Create/Read/Update/Delete
 
 ### 1.18 List of ID Types - Create/Read/Update/Delete
