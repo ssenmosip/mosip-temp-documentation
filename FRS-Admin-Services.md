@@ -241,6 +241,8 @@ NA|	NA|	NA
 Error occurred while inserting Reason details|	KER-MSD-058|
 
 **B. Fetch the requested list of reasons based on Reason Category Code and Language Code**
+
+
 Upon receiving a request to Fetch the requested List of Reasons with the required input parameters (Reason 1. Category Code, Language Code) the system fetches the requested List of reasons stored against the Reason Category Code and Language Code received
 1. Validates if the request contains the following input parameters
 * Language Code - Mandatory
