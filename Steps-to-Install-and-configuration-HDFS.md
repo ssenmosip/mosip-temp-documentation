@@ -71,11 +71,11 @@ Edit hdfs-site.conf:
 <configuration>
     	<property>
                 <name>dfs.namenode.name.dir</name>
-                <value>/home/madmin/data/nameNode</value>
+                <value>/home/hadoop/data/nameNode</value>
         </property>
         <property>
                 <name>dfs.datanode.data.dir</name>
-                <value>/home/madmin/data/dataNode</value>
+                <value>/home/hadoop/data/dataNode</value>
         </property>
         <property>
                 <name>dfs.replication</name>
@@ -177,4 +177,95 @@ and on node-slave1.southindia.cloudapp.azure.com:
 ```
 19728 DataNode
 19819 Jps
+```
+## Securing HDFS
+Following configuration is required to run HDFS in secure mode.
+Read more about kerberos here:
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_kerberos
+### Install Kerberos
+Kerberos server and client needs to be installed on Kerberos VM. We are installing it on our master node.
+1. To install packages for a Kerberos server:
+```
+yum install krb5-server krb5-libs krb5-auth-dialog
+```
+2. To install packages for a Kerberos client:
+```
+yum install krb5-workstation krb5-libs krb5-auth-dialog
+```
+### Configuring the Master KDC Server
+1. Edit the /etc/krb5.conf:
+```
+# Configuration snippets may be placed in this directory as well
+includedir /etc/krb5.conf.d/
+
+[logging]
+ default = FILE:/var/log/krb5libs.log
+ kdc = FILE:/var/log/krb5kdc.log
+ admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+ udp_preference_limit = 1
+ dns_lookup_realm = false
+ ticket_lifetime = 365d
+ renew_lifetime = 365d
+ forwardable = true
+ rdns = false
+ pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
+ default_realm = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+ #default_ccache_name = KEYRING:persistent:%{uid}
+
+[realms]
+ NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
+  kdc = node-master.southindia.cloudapp.azure.com:51088
+  admin_server = node-master.southindia.cloudapp.azure.com
+ }
+
+[domain_realm]
+ .node-master.southindia.cloudapp.azure.com = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+ node-master.southindia.cloudapp.azure.com = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
+2. Edit /var/kerberos/krb5kdc/kdc.conf
+```
+[kdcdefaults]
+ kdc_ports = 51088
+ kdc_tcp_ports = 51088
+
+[realms]
+ NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
+  #master_key_type = aes256-cts
+  acl_file = /var/kerberos/krb5kdc/kadm5.acl
+  dict_file = /usr/share/dict/words
+  admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+  supported_enctypes = aes256-cts:normal aes128-cts:normal des3-hmac-sha1:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal des-hmac-sha1:normal des-cbc-md5:normal des-cbc-crc:normal
+ }
+```
+3. Create the database using the kdb5_util utility.
+```
+/usr/sbin/kdb5_util create -s
+```
+4. Edit the /var/kerberos/krb5kdc/kadm5.acl
+```
+*/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM	*
+```
+5. Create the first principal using kadmin.local at the KDC terminal:
+```
+/usr/sbin/kadmin.local -q "addprinc hadoop/admin"
+```
+6. Start Kerberos using the following commands:
+```
+/sbin/service krb5kdc start
+/sbin/service kadmin start
+```
+7. Verify that the KDC is issuing tickets. 
+First, run kinit to obtain a ticket and store it in a credential cache file.
+```
+kinit hadoop/admin
+```
+Next, use klist to view the list of credentials in the cache.
+```
+klist
+```
+Use kdestroy to destroy the cache and the credentials it contains.
+```
+kdestroy -A
 ```
