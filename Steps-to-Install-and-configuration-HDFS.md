@@ -265,7 +265,7 @@ includedir /etc/krb5.conf.d/
 ```
 5. Create the first principal using kadmin.local at the KDC terminal:
 ```
-/usr/sbin/kadmin.local -q "addprinc hadoop/admin"
+/usr/sbin/kadmin.local -q "addprinc root/admin"
 ```
 6. Start Kerberos using the following commands:
 ```
