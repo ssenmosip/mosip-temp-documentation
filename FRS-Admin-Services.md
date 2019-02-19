@@ -298,6 +298,16 @@ Upon receiving a request to Fetch List of Applications with the required input p
 
 1. In case of Exceptions, system should trigger relevant error messages as listed below
 
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while fetching Application|	KER-MSD-001|
+Application not found	|KER-MSD-002|
 
 
 ### 1.18 List of ID Types - Create/Read/Update/Delete
