@@ -21,6 +21,8 @@
       * [4.2.7 Token ID Generator](#427-token-id-generator)
 # Data services
 ## 1. Data mapper
+Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
+
 ## 2. Data Access Manager
 ## 3. Sync Handler
 ## 4. ID Generator and Validator
