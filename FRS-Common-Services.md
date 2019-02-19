@@ -202,6 +202,6 @@ MOSIP system provides base exception framework.
 1. Respond with the UUID to the source
 1. Raise an alert in case of listed exceptions
 ### 6.12 Zip-Unzip Utility
-1. MOSIP provides Zip-Unzip utility.Identifies Zip-Unzip util methods
+1. Identifies Zip-Unzip util methods
 1. Create wrapper class for methods defined in apache-commons Zip-Unzip util
 1. Raises an alert in case of listed exceptions
