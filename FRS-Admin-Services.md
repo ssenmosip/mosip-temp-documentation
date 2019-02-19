@@ -201,7 +201,105 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 
 ### 1.4 Biometric Attribute Type - Create/Read/Update/Delete
 
+#### A. Create Biometric Attribute in Masterdata DB
+
+On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active) the system stores the Biometric Attribute in the DB
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* bmtyp_code - character (36) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Biometric Attribute Code and Language Code for the Biometric Attribute created successfully
+1. The component restricts the bulk creation of Master Data
+1. Respond to the source with the appropriate message.
+1. In case of Exceptions, system triggers error messages as received from the Database
+
+
+#### B. Fetch the List of Biometric Attributes based on the Biometric Authentication Type and a Language Code
+
+On receiving a request to fetch the List of Biometric Attributes with input parameters (Biometric Authentication Type and Language Code) the system fetches the List of Biometric Attributes against the Biometric Authentication Type and the Language Code Received
+1. Validate if the request contains the following input parameters
+* Biometric Authentication Type - Mandatory
+* Language Code - Mandatory
+2. If no data is present in the DB for the input parameter received, respond with appropriate message.
+1. If both the input parameter is missing, respond with all the data.
+1. If one of the input parameters is missing, throw the appropriate message. Refer "Messages" section.
+1. Validate if the response contains the List of Biometric Attributes with all the attributes against Biometric Authentication Type and Language Code Received
+* Biometric Attribute Code - Mandatory
+* Biometric Attribute Name - Mandatory
+* Biometric Attribute Description - Optional
+* IsActive – Mandatory
+6. Respond to the source with the Fetched Data
+1. In case of Exceptions, system should trigger relevant error messages
+
+
 ### 1.5 Gender - Create/Read/Update/Delete
+#### A. Create Gender Types in Masterdata DB
+
+On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active) the system stores the Gender Type in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (16) - Mandatory
+* name - character (64) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Gender Type Code and Language Code for the Gender Type created successfully
+1. The component restricts the bulk creation of Master Data
+1. Respond to the source with the appropriate message
+1. In case of Exceptions, system will trigger error messages as received from the Database.
+ 
+
+#### B. Update and Delete a Gender Type in Gender Type Masterdata DB
+
+##### (i) Update
+
+On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active) the system updates the Gender Type in the Gender Type DB for the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (16) - Mandatory
+* name - character (64) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Gender Type database against the same code.
+1. Deleted record are not be updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Gender Type Code and Language Code for the Gender Type updated successfully
+1. In case of Exceptions, system should trigger relevant error messages.
+##### (ii) Delete
+
+
+On receiving a request to delete a Gender Type with the input parameters (code) the system updates the is_deleted flag to true in the Gender Type DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - int - Mandatory
+2. Delete all records for the code received
+1. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Gender Type Code for the Gender Type deleted successfully
+1. In case of Exceptions, system should trigger relevant error messages. 
+
+#### C. Check the existence of a Gender in Master DB
+
+On receiving a request to validate the Gender Name with input parameters (Gender Name) the system checks the Gender Name in the Master DB
+1. Validates if the request contains the following input parameters
+* Gender Name - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. Respond to the source with the appropriate message
+1. In case of Exceptions, system triggers relevant error messages
+
+#### D. Fetch the List of Gender Types based on a Language Code
+
+On receiving a request to fetch the List of Gender Types with the input parameters (Language Code) the system fetches the List of Gender Types against the Language Code received
+1. Validates if the request contains the following input parameters
+* Language Code - Mandatory
+2. If the Language code is missing, responds with all the data.
+1. Validates if the response contains the List of Gender Types with the following attributes
+* Gender Code
+* Gender Name
+* isActive
+4. Responds to the source with the List of Gender Types
+5. In case of Exceptions, system triggers relevant error messages
+
 
 ### 1.6 Document Category - Create/Read/Update/Delete
 
