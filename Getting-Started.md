@@ -28,6 +28,15 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](https:/
 * [Publish Over SSH Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Publish+Over+SSH+Plugin)
 * [SonarQube Scanner for Jenkins Plugin](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)
 * [SSH Agent Plugin](http://wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin)
+
+Once the plugin installation is complete, we need to run this command in Jenkins Script Console - 
+
+`System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")`
+
+This above command modifies Content Security Policy in Jenkins to enable loading of style and javascript for HTML Reports.
+
+
+
 * [SSH Credentials Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Setting Up Github for/in Jenkins
