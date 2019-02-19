@@ -379,9 +379,8 @@ Raise an alert in case of listed exceptions as listed below
 |NA|NA|NA|
 
 ### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
 Database	|Connection|	Exception	|unable to connect To db|	KER-TIG-001|
+|:------:|:------:|:------:|:------:|:------:|
 
 
 
