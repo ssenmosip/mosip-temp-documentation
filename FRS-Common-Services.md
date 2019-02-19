@@ -31,6 +31,22 @@
 ## 1. OTP manager
 ## 2. QR Code Generator
 ## 3. Crypto
+Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
+
+#### A. For Encryption
+The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameter. Encrypt the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
+#### B. For Decryption
+The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted. 
+
+
+The Application ID received will be the one, which was sent for encryption of data in the above flow. 
+
+
+The Crypto Service then splits the received data into Encrypted Content and Encrypted Symmetric Key using the Key Splitter and then calls the Key Manager Service with the Encrypted Symmetric Key, Application ID and Timestamp to decrypt the data using private key.
+
+
+The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
+
 ### 3.1 Key Generator
 ### 3.2 Key Management
 ### 3.3 Crypto Utility 
