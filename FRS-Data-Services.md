@@ -353,6 +353,35 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 
 
 #### 4.2.7 Token ID Generator
+MOSIP system can generate Token ID as per defined Token ID generation logic
+
+Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN) the system generate token ID as per default Token ID generation logic
+
+The numbers is not be generated sequentially
+
+Token ID generated is of the length of 36 digits
+
+The length of Token ID is configurable by the ADMIN
+
+Token ID is generated as per the defined logic mentioned below
+* The number does not contain any alphanumeric characters and contains only numeric characters
+* The last digit in the number is reserved for a checksum
+* ID is unique for a combination of TSP ID and UIN received
+* ID is untraceable to both TSP ID and UIN received
+
+Responds with the Token ID to the source
+
+Raise an alert in case of listed exceptions as listed below
+### <p align="left"> **1. Type: Success – Info Message**
+
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|NA|NA|NA|
+
+### <p align="left"> **2. Type: Error/Failure – Info Message**
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+Database	|Connection|	Exception	|unable to connect To db|	KER-TIG-001|
 
 
 
