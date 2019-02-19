@@ -3,7 +3,7 @@
   * [1. UIN Generation](#1-uin-generation)
   * [2. Configuration Manager](#2-configuration-manager)
   * [3. Audit Manager](#3-audit-manager)
-  * [4. Log manager](#4-log-manager)
+  * [4. Log Manager](#4-log-manager)
   * [5. LDAP / Authorization](#5-ldap--authorization)
 # Sub-Systems
 ## 1. UIN Generation
