@@ -90,6 +90,27 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
+**1. Create Blacklisted Words in Masterdata DB**
+
+Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active) the system store the Blacklisted Word in the DB
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* word - character (128) - Mandatory
+* descr - character (256) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Device ID and Language Code for the Device created successfully
+1. The component  restricts the bulk creation of Master Data
+1. In case of Exceptions, system will trigger error messages as received from the Database as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting Device details	|KER-MSD-070|
 
 ### 1.16 List of Reason Categories - Create/Read/Update/Delete
 
