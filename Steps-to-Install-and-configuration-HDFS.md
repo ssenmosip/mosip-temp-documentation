@@ -288,8 +288,15 @@ Do the following steps for masternode.
 kadmin:  addprinc hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
 ```
 2. Create the HTTP principal.
+```
 kadmin:  addprinc HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
-
+```
+3. Create principal for all user of hdfs (regprocessor, prereg, idrepo)
+```
+kadmin:  addprinc regprocessor@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc prereg@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc idrepo@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
 #### To create the Kerberos keytab files
 Create the hdfs keytab file that will contain the hdfs principal and HTTP principal. This keytab file is used for the NameNode, Secondary NameNode, and DataNodes.
 ```
@@ -459,10 +466,6 @@ Finally, you need to import both the certificate of the CA and the signed certif
 keytool -keystore keystore.jks -alias CARoot -import -file ca-cert.cer
 keytool -keystore keystore.jks -alias localhost -import -file cert-signed.cer
 ```
-
-For you face error during kerberos, check this:
-https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html
-
 #### Configuring Hdfs
 Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the keystore and the truststore
 1. Edit ssl-server.xml
@@ -605,3 +608,5 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 ```
 After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.
 
+For you face error during kerberos, check this:
+https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html
