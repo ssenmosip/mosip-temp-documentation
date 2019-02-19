@@ -31,6 +31,51 @@ Data Access Manager provides a DAO (Data access object) interface to do the foll
 1. Provide an interface to call DB functions
 
 ## 3. Sync Handler
+Sync Handler allows registration client to sync Master data, List of User, Roles and respective mappings and Configurations (Registration Client specific and Global configs).
+
+
+Sync Handler also allows Registration Client to push data from Client local database to Master Database.
+
+
+As part of Masterdata Sync, the service will receive a Machine ID and Timestamp, looks for a mapped Center id to that Machine ID and responds to the Registration Client with the Center specific Master data for the following tables.
+
+
+1. Registration Center Type
+1. List of Registration Center
+1. Template File Format
+1. Template Type
+1. Templates
+1. Reason Category
+1. List of Reasons
+1. Document Category
+1. Document Type
+1. Mapping of Document Category-Type (refer table "Valid Documents")
+1. Machine Type
+1. Machine Specifications
+1. List of Machines
+1. Device Types
+1. Device Specifications
+1. List of Devices
+1. Location Hierarchy
+1. List of Languages
+1. List of Genders
+1. Biometric Authentication type - (refer table "Biometric Type")
+1. Biometric Attribute
+1. Center-Machine Mapping
+1. Center-Device Mapping
+1. Center-Machine-Device Mapping
+1. Center-Machine-User Mapping
+1. Center-User Mapping
+
+
+The Sync Handler service will only send incremental changes based on the Timestamp received by the service.
+
+
+For configuration, sync handler will receive a request to sync configurations and will respond back with Registration Client specific and Global Configurations
+
+
+For User, Roles and Respective User-Role mappings, Sync handler will receive Machine ID and Timestamp and will respond to the Registration Client will Center specific incremental changes.
+
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
 #### 4.1.1 Static Pin Validator
