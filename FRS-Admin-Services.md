@@ -303,7 +303,121 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 
 ### 1.6 Document Category - Create/Read/Update/Delete
 
+#### A. Create Document Category in Master Data
+
+On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active) the system stores the Document Category in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Document Category added
+* Code
+* Language Code
+3. Responds with the Document Category Code and Language Code for the Document Category created successfully
+1. Respond to the source with the appropriate message.
+1. In case of Exceptions, system should trigger relevant error messages
+
+
+#### B. Update and Delete a Document Category in the Document Category Masterdata DB
+
+##### (i) Update
+
+
+On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active) the system update the Document Category in the Document Category DB for the Code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the code received in the request, replace all the data received in the request against the data existing in the Document Category database against the same code.
+1. Deleted record should not be updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+##### (ii) Delete
+
+
+On receiving a request to delete a Document Category with the input parameters (code) the system updates the is_deleted flag to true in the Document Category DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+2. Delete all records for the code received
+1. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Document Category Code for the Document Category deleted successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+#### C. Fetch list of Document Categories based on a Language Code
+
+
+On receiving a request to fetch Document Category Details with the input parameters (Language Code) the system fetches all the Document Categories for the Language Code Received
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, responds with all the data.
+1. Validates if the response contain the following attributes for the Document Category Code
+* Document Category Code - Mandatory
+* Document Category Name - Mandatory
+* Document Category Description - Optional
+* IsActive - Mandatory
+4. In case of Exceptions, system triggers relevant error messages
+
+
 ### 1.7 Document Type - Create/Read/Update/Delete
+
+
+#### A. Create Document Type in Master Data
+
+
+On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active) the system stores the Document Type in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Document Type added
+* Code
+* Language Code
+3. Responds with the Document Type Code and Language Code for the Document Type created successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+
+#### B. Update and Delete a Document Type in the Document Type Masterdata DB
+
+##### (i) Update
+
+
+On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active) the system updates the Document Type in the Document Type DB for the Code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Document Type database against the same code
+1. Deleted record are not be updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
+1. In case of Exceptions, system should trigger relevant error messages
+
+
+##### (ii) Delete
+
+On receiving a request to delete a Document Type with the input parameters (code) the system updates the is_deleted flag to true in the Document Type DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+2. Delete all records for the code received
+1. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Document Category Code for the Document Category deleted successfully
+1. In case of Exceptions, system should trigger relevant error messages
+
 
 ### 1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete
 
