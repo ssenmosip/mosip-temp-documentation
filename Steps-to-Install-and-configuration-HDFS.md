@@ -1,9 +1,15 @@
 ## Setup HDFS
 ### Before you begin
-1. Create 2 VMs. They’ll be referred to throughout this guide as node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
+1. Create 2 VMs. They’ll be referred to throughout this guide as 
+node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
 Run the steps in this guide from the node-master unless otherwise specified.
-2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle.
-3. The steps below use example IPs for each node. Adjust each example according to your configuration:
+2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle. For RHEL, follow this:
+https://developers.redhat.com/blog/2018/12/10/install-java-rhel8/
+3. Get the IP of master and slave nodes using:
+```
+ifconfig
+```
+The steps below use below IPs for each node. Adjust /etc/hosts on all nodes according to your configuration:
 ```
 10.0.3.13   node-master.southindia.cloudapp.azure.com
 10.0.3.14   node-slave1.southindia.cloudapp.azure.com
