@@ -1,6 +1,6 @@
 ## Table Of Content
 - [Common Services](#common-services)
-  * [1. OTP manager](#1-otp-manager)
+  * [1. OTP Manager](#1-otp-manager)
   * [2. QR Code Generator](#2-qr-code-generator)
   * [3. Crypto](#3-crypto)
     * [3.1 Key Generator](#31-key-generator)
@@ -28,7 +28,19 @@
     * [6.10 String Utility](#610-string-utility)
     * [6.11 UUID Utility](#611-uuid-utility)
 # Common Services
-## 1. OTP manager
+## 1. OTP Manager
+OTP Manager Component handles OTP Generation and OTP Validation
+
+
+For OTP generation, receives a request to generate an OTP along with a Key in input parameter. 
+
+
+This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager will map an expiry period with the OTP as configured by the Admin.
+
+
+For OTP Validation, it receives a request to validate an OTP with a Key and OTP in input parameter. The component will validate the OTP against the expiry and then will validate the OTP against the Key if the OTP is not expired. If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
+
+
 ## 2. QR Code Generator
 ## 3. Crypto
 Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
@@ -48,6 +60,8 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
 ### 3.1 Key Generator
+This component will receive a request to generate Symmetric and Asymmetric (Public/Private Keys). It will receive a request to generate a Key. It will generate and respond with the Key to the source.
+
 ### 3.2 Key Management
 
 The Key Manager Service works together with the Crypto Service. 
@@ -63,8 +77,18 @@ For a request to receive private key, The Key manager will not respond with Priv
 ### 3.5 HMAC Utility 
 ## 4. Notification
 ### 4.1 OTP Notification Services
+OTP Notification Service is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification. 
+
+
+The service receives a request to generate and send OTP with Notification Type (SMS and/or Email), Template (SMS and/or Email) and Mobile Number (SMS and/or Email). It then calls OTP Generator Service to generate an OTP against a Key (Mobile Number or Email). Its calls the Template Merger Service to merge OTP with the Template (SMS and/or Email). It will then call SMS and/or Email Notification Service to send the notification as per the template. The choice of sending SMS and/or Email will depend on the Notification Type Flag received in Input.
+
 ### 4.2 Email Notification
+This service triggers an Email Notification upon receiving a request to trigger notification with Recipient Email-ID, CC Recipients Email-IDs, Subject, Email Content, and Attachment as input parameter. The restriction on Attachment and its size is configurable. The Third-Party Email Vendor is configurable and any country specific vendor can be used.
+
 ### 4.3 SMS Notification
+
+This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.
+
 ### 4.4 PDF Generator
 ### 4.5 Template Merger
 ## 5. Transliteration
