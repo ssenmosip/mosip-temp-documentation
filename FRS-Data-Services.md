@@ -276,6 +276,26 @@ Raise an alert in case of listed exceptions and triggers the following messages 
 |NA	|TSP ID Generation Failed|	NA|
 
 #### 4.2.5 PRID Generator
+MOSIP system can generate PRID as per a defined PRID generation logic
+
+Upon receiving a request to generate PRID with input parameters the system generates PRID as per default PRID generation logic
+
+PRID generated should contain number of digits as configured by the ADMIN
+In absence of the configured length, the PRID generated should contain 14 digits
+PRID is generated as per the defined logic mentioned below
+* The number should not contain any alphanumeric characters
+* The number should not contain any repeating numbers for 2 or more than 2 digits
+* The number should not contain any sequential number for 3 or more than 3 digits
+* The numbers should not be generated sequentially
+* The number should not have repeated block of numbers for 2 or more than 2 digits
+* The number should not contain the restricted numbers defined by the ADMIN
+* The last digit in the number should be reserved for a checksum
+* The number should not contain '0' or '1' as the first digit.
+
+Respond with the PRID to the source
+
+Raise an alert in case of listed exceptions as listed below
+
 #### 4.2.6 VID Generator
 #### 4.2.7 Token ID Generator
 
