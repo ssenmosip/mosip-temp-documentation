@@ -79,6 +79,35 @@
 
 ### 2.3 List of Machine Types - Create/Read/Update/Delete
 
+MOSIP system can create Machine Type in Masterdata DB
+
+Upon receiving a request to add Machine Type (e.g, Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
+
+Validates if all required input parameters have been received as listed below for each specific request
+
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+
+Respond with the Machine Type Code and Language Code for the Machine Type created successfully
+
+This feature also restrict the bulk creation of Master Data
+
+Respond to the source with the appropriate message
+
+In case of Exceptions, system triggers error messages as received from the Database as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+|Error occurred while inserting Machine Type details	|KER-MSD-061|
+
 ### 2.4 List of Machine Specifications - Create/Read/Update/Delete
 
 ### 2.5 List of Machines - Create/Read/Update/Delete
@@ -153,12 +182,12 @@ MOSIP system can generate and validate a license Key
 
 (f) In case of Exceptions, system triggers relevant error messages
 
-## <p align="left">**1. Type : Success – Info Message**
+### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
 When license key is mapped with the permissions|	Mapped License with the permissions|	NA
 
-## <p align="left">**2. Type : Error/Failure – Info Message**
+### <p align="left">**2. Type : Error/Failure – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
 |-	|TSP entered is null or empty	|KER-LKM-001
