@@ -24,6 +24,12 @@
 Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
 
 ## 2. Data Access Manager
+Data Access Manager provides a DAO (Data access object) interface to do the following
+1. Provide an interface for connection to a DB
+1. Provide an interface to support DB CRUD operation
+1. Provide an interface to support a custom SQL
+1. Provide an interface to call DB functions
+
 ## 3. Sync Handler
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
