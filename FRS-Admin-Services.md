@@ -476,8 +476,83 @@ Mapping for Machine and Center not found|	KER-MSD-114|
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database as listed below
 
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
 
-### 2.12 Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting a mapping of Device and Center|	KER-MSD-075|
+
+#### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata DB
+1. Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id) the system updates the is_deleted flag to true in the Center-Device mapping DB against the input received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (36) - Mandatory
+* device_id - character (36) - Mandatory
+3. Deleted record should not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
+1. In case of Exceptions, system should trigger relevant error messages as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while deleting a mapping of Device and Center|	KER-MSD-105|
+Mapping for Device and Center not found	|KER-MSD-115|
+
+
+
+
+### 2.12 Mappings of Registration Center, Machine, and Device - Create/Read/Update/Delete
+
+
+### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata DB
+
+1. Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active) the system store the Mapping of Center, Machine and Device in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (36) – Mandatory(refers to a Registration Center stored in Registration Center Masterdata)
+* machine_id - character (36) – Mandatory(refers to a Registration Center stored in Registration Center Masterdata)
+* device_id - character (36) – Mandatory(refers to a Device stored in Device Masterdata)
+* is_active - boolean - Mandatory
+3. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting a mapping of Center, Machine and Device|	KER-MSD-076|
+
+#### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata DB
+1. Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id) the system updates the is_deleted flag to true in the Center-Machine-Device mapping DB against the input received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (36) - Mandatory
+* machine_id - character (36) - Mandatory
+* device_id - character (36) - Mandatory
+3. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
+1. In case of Exceptions, system triggers relevant error messages as listed below
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while deleting a mapping of Center, Machine and Device|	KER-MSD-107|
+Mapping for Center, Machine and Device not found	|KER-MSD-116|
 
 ## 3. Partner Management 
 ### 3.1 License Key Manager
