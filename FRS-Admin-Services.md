@@ -100,21 +100,21 @@
    * Local Administrative Authority Name
    * IsActive
 
-   **(vi) List of Pincodes against the Location Code
+   **(vi) List of Pincodes against the Location Code**
    * Pincode
    * IsActive
 5. Respond to the source with all the Location Hierarchy Data based on the Location Code
 1. In case of Exceptions, system triggers relevant error messages. 
 
-5. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
-1.	Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data for the next hierarchy level
-2.	Validates if the request contains the following input parameters
-1.	Location Code - Mandatory
-2.	Language Code - Mandatory
-3.	If the mandatory input parameters are missing, throws the appropriate message. 
-4.	Fetches the Location data of only the child hierarchy of location code received (For e.g, if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
-5.	Respond to the source with the data fetched
-6.	In case of Exceptions, system should triggers  error message. 
+#### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
+1. Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data for the next hierarchy level
+1. Validates if the request contains the following input parameters
+* Location Code - Mandatory
+* Language Code - Mandatory
+3. If the mandatory input parameters are missing, throws the appropriate message. 
+1. Fetches the Location data of only the child hierarchy of location code received (For e.g, if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
+1. Respond to the source with the data fetched
+1. In case of Exceptions, system should triggers  error message. 
 
 
 
