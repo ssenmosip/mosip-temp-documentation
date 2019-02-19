@@ -61,6 +61,31 @@
 ### 1.12 Template File Format - Create/Read/Update/Delete
 
 ### 1.13 List of Template Types - Create/Read/Update/Delete
+MOSIP system can create Template Type in the Masterdata DB.
+
+Upon receiving a request to add Template Type (e.g, SMS Notification template - New Registration) with the input 
+parameters (code, descr, lang_code and is_active) the system stores the Template Type in the DB
+
+Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* descr - character (256) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean – Mandatory
+
+Respond with the Template Type Code and Language Code for the Template Type created successfully
+
+This component also restrict the bulk creation of Master Data
+
+In case of Exceptions, system triggers relevant error messages as listed below.
+### <p align="left">**1. Type : Success – Info Message**
+|Scenario|Message|Message Code|
+|:------:|:------:|:------:|
+NA|	NA|	NA
+
+### <p align="left">**2. Type : Error/Failure – Info Message**
+|Message|Message Code|
+|:------:|:------:|
+Error occurred while inserting Template Type details	|KER-MSD-072|
 
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
