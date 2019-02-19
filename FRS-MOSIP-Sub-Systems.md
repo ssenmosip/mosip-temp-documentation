@@ -28,6 +28,26 @@ The UINs generated follows the following policies:
 
 ## 2. Configuration Manager
 ## 3. Audit Manager-Log manager
+Audit Manager takes data from different Modules and stores it in the Audit DB. It needs to receive following attribute against each audit record. 
+1. Audit Event ID - Mandatory
+1. Audit Event name - Mandatory
+1. Audit Event Type - Mandatory
+1. Action DateTime Stamp - Mandatory
+1. Host Name - Mandatory
+1. Host IP - Mandatory
+1. Application Id - Mandatory
+1. Application Name - Mandatory
+1. Session User Id - Mandatory
+1. Session User Name - Mandatory
+1. Module Name – Optional
+1. Module Id - Optional
+1. ID - Mandatory
+1. ID Type - Mandatory
+1. Logged Timestamp - Mandatory
+1. Audit Log Description - Optional
+1. Created By, (Actor who has done the event) - Mandatory
+1. Created Date and Time Stamp (When this row is inserted into DB) – Mandatory
+
 ## 4. LDAP / Authorization
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below
 
