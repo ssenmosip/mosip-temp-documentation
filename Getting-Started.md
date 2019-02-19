@@ -28,6 +28,8 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](https:/
 * [Publish Over SSH Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Publish+Over+SSH+Plugin)
 * [SonarQube Scanner for Jenkins Plugin](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)
 * [SSH Agent Plugin](http://wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin)
+* [Pipeline Utility Steps Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin)
+* [M2 Release Plugin](https://wiki.jenkins.io/display/JENKINS/M2+Release+Plugin)
 
 Once the plugin installation is complete, we need to run this command in Jenkins Script Console - 
 
