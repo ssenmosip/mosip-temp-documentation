@@ -42,6 +42,7 @@ For OTP Validation, it receives a request to validate an OTP with a Key and OTP 
 
 
 ## 2. QR Code Generator
+QR code generator will take the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
 ## 3. Crypto
 Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
 
@@ -90,7 +91,10 @@ This service triggers an Email Notification upon receiving a request to trigger 
 This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.
 
 ### 4.4 PDF Generator
+This utility enables created of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
+
 ### 4.5 Template Merger
+This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.
 ## 5. Transliteration
 MOSIP system can be able to facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
 1. Validate if all required input parameters have been received as listed below for each specific request
