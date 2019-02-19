@@ -183,7 +183,7 @@ Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_kerberos
 ### Install Kerberos
-Kerberos server and client needs to be installed on Kerberos VM. We are installing it on our master node.
+Kerberos server(KDC) and the client needs to be installed. Install the client on both master and slave nodes. KDC server will be installed on the master node.
 1. To install packages for a Kerberos server:
 ```
 yum install krb5-server krb5-libs krb5-auth-dialog
@@ -259,7 +259,7 @@ includedir /etc/krb5.conf.d/
 7. Verify that the KDC is issuing tickets. 
 First, run kinit to obtain a ticket and store it in a credential cache file.
 ```
-kinit hadoop/admin
+kinit root/admin
 ```
 Next, use klist to view the list of credentials in the cache.
 ```
@@ -268,4 +268,164 @@ klist
 Use kdestroy to destroy the cache and the credentials it contains.
 ```
 kdestroy -A
+```
+###  Install the JCE Policy File
+Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy File on all cluster and Hadoop user machines.
+Follow this link:
+https://dzone.com/articles/install-java-cryptography-extension-jce-unlimited
+### Create and Deploy the Kerberos Principals and Keytab Files
+For more information, check here:
+https://www.cloudera.com/documentation/enterprise/5-16-x/topics/cdh_sg_kerberos_prin_keytab_deploy.html
+If you have root access to the KDC machine, use kadmin.local, else use kadmin.
+To start kadmin.local (on the KDC machine), run this command:
+```
+sudo kadmin.local
+```
+#### To create the Kerberos principals
+Do the following steps for masternode.
+1. In the kadmin.local or kadmin shell, create the hadoop principal. This principal is used for the NameNode, Secondary NameNode, and DataNodes.
+```
+kadmin:  addprinc hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
+2. Create the HTTP principal.
+kadmin:  addprinc HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+
+#### To create the Kerberos keytab files
+Create the hdfs keytab file that will contain the hdfs principal and HTTP principal. This keytab file is used for the NameNode, Secondary NameNode, and DataNodes.
+```
+kadmin:  xst -norandkey -k hadoop.keytab hadoop/admin HTTP/admin
+```
+Use klist to display the keytab file entries; a correctly-created hdfs keytab file should look something like this:
+```
+$ klist -k -e -t hadoop.keytab
+Keytab name: FILE:hadoop.keytab
+KVNO Timestamp           Principal
+---- ------------------- ------------------------------------------------------
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes256-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes128-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des3-cbc-sha1)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (arcfour-hmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia256-cts-cmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia128-cts-cmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-hmac-sha1)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-cbc-md5)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes256-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes128-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des3-cbc-sha1)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (arcfour-hmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia256-cts-cmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia128-cts-cmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-hmac-sha1)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-cbc-md5)
+```
+#### To deploy the Kerberos keytab file
+On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/etc/hadoop/hadoop.keytab.
+### Shut Down the Cluster
+To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties. 
+```
+sh hadoop/sbin/stop-dfs.sh
+```
+### Enable Hadoop Security
+1. To enable Hadoop security, add the following properties to the core-site.xml file on every machine in the cluster:
+```
+<property>
+  <name>hadoop.security.authentication</name>
+  <value>kerberos</value> 
+</property>
+
+<property>
+  <name>hadoop.security.authorization</name>
+  <value>true</value>
+</property>
+ 
+<property>
+  <name>hadoop.http.filter.initializers</name>
+  <value>org.apache.hadoop.security.AuthenticationFilterInitializer</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.type</name>
+  <value>kerberos</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.simple.anonymous.allowed</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.keytab</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value>
+</property>
+
+```
+2. Add the following properties to the hdfs-site.xml file on every machine in the cluster.
+```
+<property>
+  <name>dfs.block.access.token.enable</name>
+  <value>true</value>
+</property>
+
+<!-- NameNode security config -->
+<property>
+  <name>dfs.namenode.keytab.file</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.namenode.kerberos.principal</name>
+  <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+<property>
+  <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<!-- Secondary NameNode security config -->
+<property>
+  <name>dfs.secondary.namenode.keytab.file</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.secondary.namenode.kerberos.principal</name>
+    <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+<property>
+  <name>dfs.secondary.namenode.kerberos.internal.spnego.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<!-- DataNode security config -->
+<property>
+  <name>dfs.datanode.data.dir.perm</name>
+  <value>700</value> 
+</property>
+<property>
+  <name>dfs.datanode.keytab.file</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value><!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.datanode.kerberos.principal</name>
+  <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<!-- Web Authentication config -->
+<property>
+  <name>dfs.web.authentication.kerberos.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+ </property>
+
+<property>
+  <name>dfs.data.transfer.protection</name>
+  <value>authentication</value>
+ </property>
+
+<property>
+  <name>dfs.http.policy</name>
+  <value>HTTPS_ONLY</value>
+ </property>
 ```
