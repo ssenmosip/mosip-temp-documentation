@@ -804,7 +804,8 @@ On receiving a request to delete a Template with the input parameters (id), the 
 
 
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
-**A. Create Blacklisted Words in Masterdata DB**
+
+#### A. Create Blacklisted Words in Masterdata DB
 
 Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system store the Blacklisted Word in the DB
 
@@ -825,8 +826,12 @@ NA|	NA|	NA
 |Message|Message Code|
 |:------:|:------:|
 Error occurred while inserting Device details	|KER-MSD-070|
-**B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata DB**
-**(i) Update**
+
+
+#### B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata DB
+
+
+##### (i) Update
 
 Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system updates the Blacklisted Word in the Blacklisted Word DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -839,7 +844,9 @@ Upon receiving request to update a Blacklisted Word with the input parameters (c
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Word and Language Code for the Blacklisted word updated successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
-**(ii) Delete**
+
+
+##### (ii) Delete
 
 Upon receiving a request to delete a Blacklisted Word with the input parameters (code), the system updates the is_deleted flag to true in the Blacklisted Word DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1928,59 +1935,58 @@ Mapping for Center, Machine and Device not found	|KER-MSD-116|
 ## 3. Partner Management 
 ### 3.1 License Key Manager
 MOSIP system can generate and validate a license Key
-#### 1. Generate License Key
-(a) Upon receiving a request to generate License Key with input parameters (TSP ID, Expiry Time)
+#### A. Generate License Key
 
-(b) Fetch the length from the configurations
+Upon receiving a request to generate License Key with input parameters (TSP ID, Expiry Time)
 
-(c) Validate if the request contains the following input parameters
+1. Fetch the length from the configurations
+
+1. Validate if the request contains the following input parameters
 
    * TSP ID - Mandatory
    * Expiry Time - Mandatory
    * If the mandatory input parameters are missing, throw the appropriate message. Refer "Messages" section.
    * License Key generated must be of length configured by ADMIN
 
-(d) Generate the License key
+3. Generate the License key
+1. Map the License key to the TSP ID and Expiry time
+1. Respond to the source with the License Key (String)
+1. In case of Exceptions, system should trigger relevant error messages as specified below.
 
-(e) Map the License key to the TSP ID and Expiry time
+#### B. Mapping Permissions to License Key
 
-(f) Respond to the source with the License Key (String)
 
-(g) In case of Exceptions, system should trigger relevant error messages as specified below.
+Upon receiving a request to map permissions to the License Key with input parameters (TSP ID, License Key, List of Permissions), the system maps the received permissions to the License Key
 
-#### 2. Mapping Permissions to License Key
-(a) Upon receiving a request to map permissions to the License Key with input parameters (TSP ID, License Key, List of Permissions), the system maps the received permissions to the License Key
-
-(b) Validates if the request contains the following input parameters
+1. Validates if the request contains the following input parameters
    * TSP ID - Mandatory
    * License Key - Mandatory
    * List of Permissions - Mandatory
 
-(c) If the mandatory input parameters are missing, throw the appropriate message
+2. If the mandatory input parameters are missing, throw the appropriate message
 
-(d) Respond to the source with appropriate message
+1. Respond to the source with appropriate message
+1. In case of Exceptions, system triggers relevant error messages
 
-(e) In case of Exceptions, system triggers relevant error messages
-
-#### 3. Fetch Permissions for a License Key
+#### C. Fetch Permissions for a License Key
 
 
-(a) Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key), the system validate if the License Key is Valid
+Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key), the system validate if the License Key is Valid
 
-(b) Validates if the request contains the following input parameters
+1. Validates if the request contains the following input parameters
    * TSP ID - mandatory
    * License key - Mandatory
 
-(c) If the mandatory input parameters are missing, throws the appropriate message.
+2. If the mandatory input parameters are missing, throws the appropriate message.
 
-(d) Validate the License key based on following logic
+1. Validate the License key based on following logic
 
    * License key received should be mapped to the TSP ID received in the request
    * License key should not be expired as per the expiry time mapped to the License Key
 
-(e) If the License key is invalid, throws error message
+4. If the License key is invalid, throws error message
 
-(f) In case of Exceptions, system triggers relevant error messages
+1. In case of Exceptions, system triggers relevant error messages
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
