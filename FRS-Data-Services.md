@@ -77,7 +77,7 @@ Data Access Manager provides a DAO (Data access object) interface to do the foll
 ### 4.1 ID Validator
 #### 4.1.1 Static Pin Validator
 
-Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validate Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
+Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validates Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
 
 1. Validates if the request has the following input parameters.
    * Static PIN
@@ -100,11 +100,11 @@ Upon receiving a request to perform data validation on Static PIN with input par
 
 #### 4.1.2  UIN Validator
 
-Upon receiving a Request to validate the UIN the system validates the UIN against the defined policy
+Upon receiving a request to validate the UIN, the system validates the UIN against the defined policy
 
 1. Validates if the UIN is of configured length.
 
-1. If no length is configured, validate if UIN length is of 12 digits
+1. If no length is configured, validates if UIN length is of 12 digits
 
 1. Validates the UIN by verifying the checksum
 
@@ -134,7 +134,7 @@ UIN_VAL_ILLEGAL_EQUAL_LIMIT|	UIN First configured no.of digits should be differe
 
 #### 4.1.3 PRID Validator
 
-Upon receiving a request to validate the PRID the system validates the PRID against the defined policy
+Upon receiving a request to validate the PRID, the system validates the PRID against the defined policy
 
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
 1. In absence of the configured length, validates if the PRID received should contain 14 digits
@@ -169,7 +169,7 @@ MosipInvalidIDException	|Entered PRID should not contain Zero or One as first Di
 
 Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
 1. Validates if the VID is of configured length.
-1. If no length is configured, validate if VID length is of 16 digits
+1. If no length is configured, validates if VID length is of 16 digits
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received follows the VID generation logic listed in User Story
 
@@ -216,7 +216,7 @@ RID Validation performs pattern validation on an RID and provides three methods 
 
 #### 4.1.6 TSP ID Validator
 
-Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validate TSP ID as per the TSP ID generation logic
+Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validates TSP ID as per the TSP ID generation logic
 1. Validates if the request has the following input parameters.
    * TSP ID
 2. Validates TSP ID as per the TSP ID generation Policy
@@ -240,7 +240,7 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
 
-Upon receiving a request to generate Machine ID the system generates Machine ID as per default Machine ID generation logic as mentioned below
+Upon receiving a request to generate Machine ID, the system generates Machine ID as per default Machine ID generation logic as mentioned below
 1. Machine ID should only be numeric
 1. Machine ID generated should be of length of 5 digits
 1. Each new Machine ID should be incremented by 1 for each new request
@@ -249,7 +249,7 @@ Upon receiving a request to generate Machine ID the system generates Machine ID 
 
 Responds with the Machine ID to the source
 
-Raise an alert in case of listed exceptions as specified below
+Raises an alert in case of listed exceptions as specified below
 * All confirmation, warning, and error messages are listed below. The message text is configurable.
 
 ### <p align="left"> **1. Type: Success – Info Message**
@@ -268,20 +268,19 @@ Raise an alert in case of listed exceptions as specified below
 
 #### 4.2.2 Registration Center ID Generator
 
-Upon receiving a request to generate Registration Center ID the system generates it as per default Registration Center ID generation logic
+Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic
 
-Registration Center ID is generated as per the defined logic mentioned below
+1. Registration Center ID is generated as per the defined logic mentioned below
+   * Registration Center ID should only be numeric
+   * Registration Center ID generated should be of length of 5 digits
+   * Each new Registration Center ID should be incremented by 1 for each new request
+   * Registration Center ID generation should start from 10000
+   * The number should not contain the restricted numbers defined by the ADMIN
+2. In case of Exceptions, system triggers relevant error messages
 
-1. Registration Center ID should only be numeric
-1. Registration Center ID generated should be of length of 5 digits
-1. Each new Registration Center ID should be incremented by 1 for each new request
-1. Registration Center ID generation should start from 10000
-1. The number should not contain the restricted numbers defined by the ADMIN
-In case of Exceptions, system triggers relevant error messages
+1. Responds with the Registration Center ID to the source
 
-Responds with the Registration Center ID to the source
-
-Raises an alert in case of listed exceptions
+1. Raises an alert in case of listed exceptions
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
@@ -300,16 +299,14 @@ RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
 
 Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
 
-TSP ID should be generated as per the defined logic mentioned below
-1. TSP ID should only be numeric
-1. TSP ID generated should be of length of 4 digits
-1. Each new TSP ID should be incremented by 1 for each new request
-1. TSP ID generation should start from 1000
-1. The number should not contain the restricted numbers defined by the ADMIN
-
-Responds with the TSP ID to the source
-
-Raise an alert in case of listed exceptions and triggers the following messages as listed below
+1. TSP ID should be generated as per the defined logic mentioned below
+   * TSP ID should only be numeric
+   * TSP ID generated should be of length of 4 digits
+   * Each new TSP ID should be incremented by 1 for each new request
+   * TSP ID generation should start from 1000
+   * The number should not contain the restricted numbers defined by the ADMIN
+2. Responds with the TSP ID to the source
+1. Raises an alert in case of listed exceptions and triggers the following messages as listed below
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
@@ -323,23 +320,21 @@ Raise an alert in case of listed exceptions and triggers the following messages 
 
 #### 4.2.4 PRID Generator
 
-Upon receiving a request to generate PRID with input parameters the system generates PRID as per default PRID generation logic
+Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic
 
-PRID generated should contain number of digits as configured by the ADMIN
-In absence of the configured length, the PRID generated should contain 14 digits
-PRID is generated as per the defined logic mentioned below
-* The number should not contain any alphanumeric characters
-* The number should not contain any repeating numbers for 2 or more than 2 digits
-* The number should not contain any sequential number for 3 or more than 3 digits
-* The numbers should not be generated sequentially
-* The number should not have repeated block of numbers for 2 or more than 2 digits
-* The number should not contain the restricted numbers defined by the ADMIN
-* The last digit in the number should be reserved for a checksum
-* The number should not contain '0' or '1' as the first digit.
-
-Respond with the PRID to the source
-
-Raise an alert in case of listed exceptions as listed below
+1. PRID generated should contain number of digits as configured by the ADMIN
+1. In absence of the configured length, the PRID generated should contain 14 digits
+1. PRID is generated as per the defined logic mentioned below
+   * The number should not contain any alphanumeric characters
+   * The number should not contain any repeating numbers for 2 or more than 2 digits
+   * The number should not contain any sequential number for 3 or more than 3 digits
+   * The numbers should not be generated sequentially
+   * The number should not have repeated block of numbers for 2 or more than 2 digits
+   * The number should not contain the restricted numbers defined by the ADMIN
+   * The last digit in the number should be reserved for a checksum
+   * The number should not contain '0' or '1' as the first digit.
+4. Responds with the PRID to the source
+1. Raises an alert in case of listed exceptions as listed below
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
@@ -354,7 +349,7 @@ PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
 #### 4.2.5 VID Generator
 
-Upon receiving a request to generate VID with input parameters (UIN) the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
+Upon receiving a request to generate VID with input parameters (UIN), the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
 
 If the generated VID is active, responds with the same VID
 
@@ -367,7 +362,7 @@ If the generated VID is inactive:
 If no VID is generated against the UIN:
 1. Generates new VID based in the policy defined
 1. Map the new VID against the received UIN
-1. Raise an alert in case of listed exceptions as listed below
+1. Raises an alert in case of listed exceptions as listed below
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
@@ -384,7 +379,7 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 **VID generation policy**
 1. VID generated should contain the number of digits as configured
 1. In absence of configured length, VID generated should have 16 digits
-1. Validate if the VID is generated as per the defined logic mentioned below
+1. Validates if the VID is generated as per the defined logic mentioned below
 * The number should not contain any alphanumeric characters
 * The number should not contain any repeating numbers for 2 or more than 2 digits
 * The number should not contain any sequential number for 3 or more than 3 digits
@@ -398,7 +393,7 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 
 #### 4.2.6 Token ID Generator
 
-Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN) the system generate token ID as per default Token ID generation logic
+Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generate token ID as per default Token ID generation logic
 
 The numbers is not be generated sequentially
 
@@ -414,7 +409,7 @@ Token ID is generated as per the defined logic mentioned below
 
 Responds with the Token ID to the source
 
-Raise an alert in case of listed exceptions as listed below
+Raises an alert in case of listed exceptions as listed below
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
