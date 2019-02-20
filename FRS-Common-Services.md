@@ -183,7 +183,6 @@ Upon receiving a request to validate a mobile number against configured mobile n
 |MosipInvalidPhoneNumberException|Phone length should be specified number of digits|KER-MOV-002|
 |MosipInvalidPhoneNumberException|Phone number should not contain any special characters except specified|KER-MOV-003|
 ### 6.2 Email Data Validator
-MOSIP system, can validate an Email ID based on a defined policy
 
 Upon receiving a request to validate an Email ID against the standard Email ID policy, system validates the Email ID against the Standard Email ID format
 
@@ -198,8 +197,7 @@ Upon receiving a request to validate an Email ID against the standard Email ID p
    * ~ .
 5. Validates if the Email ID contains "@" and domain name within the Email ID.
 1. Responds to the source with the result (Valid/Invalid)
-
-Raise an alert in case of listed exceptions (Refer “messages” section)
+1. Raises an alert in case of listed exceptions (Refer “messages” section)
 
 ## <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
