@@ -70,14 +70,16 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
 ### 3.1 Key Generator
-Generate a Symmetric Key
+**Generate a Symmetric Key**
+
 Upon receiving a request to generate symmetric key pair the system generates a key pair (public and private key) as defined below and responds with the symmetric key
 * The symmetric key generated supports AES algorithm
 * The symmetric key generated is of 256 bit size
 * The symmetric will be returned as a byte array
 System then responds with the Symmetric key
 
-Generate a Asymmetric Key
+**Generate a Asymmetric Key**
+
 Upon receiving a request to generate asymmetric key pair the system generates a key pair (public and private key) as defined below and responds with the Asymmetric key
 The asymmetric key pair is generated using the RSA encryption
 The asymmetric key pair generated is of 2048 bit size
