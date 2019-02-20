@@ -74,6 +74,26 @@ It receives a request from Crypto Service from Public Key with the Application I
 For a request to receive private key, The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
 
 ### 3.3 Crypto Utility 
+
+The crypto utility is used to perform encryption and decryption 
+
+#### A. Encryption
+
+1. On receiving a  request to encrypt data with input parameters (Application ID, Reference ID, Timestamp, data) the system gets the public key by calling the Key Manager Webservice with the input parameters received in the request (Application ID, Reference ID, Timestamp, data)
+1. Get the Public key in response from the Key Manager Webservice.
+1. Generates the Symmetric Key by using the Symmetric Key generator API.
+1. Encrypts the data received in the request with the Symmetric key using the Cryptography JAVA API.
+1. Encrypts the symmetric key received using the public key using the Cryptography JAVA API.
+1. Combines the Encrypted data and Encrypted Symmetric Key using Crypto Utility
+1. Responds to the source with the Encrypted data and Encrypted Symmetric key combined in a Byte array.
+
+#### B. Decryption
+
+1. On receiving  a request to decrypt data with input parameters (Application ID, Reference ID, Timestamp, Encrypted Byte array) the system Extracts the encrypted Data and Encrypted public key from the Byte Array received using Crypto Utility
+1. Decrypts the encrypted symmetric received in the request using the Key Management WebService.
+1. Decrypts the encrypted data with the decrypted symmetric using Cryptography JAVA API.
+1. Responds to the source with the Encrypted data and Encrypted Symmetric key combined in a Byte array.
+
 ### 3.4 Hash Utility
 1. Identifies hash util methods
 1. Creates wrapper class for methods defined in apache-commons hash util
