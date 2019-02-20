@@ -53,13 +53,13 @@ Upon receiving a request to add Location hierarchy (e.g., Country - Region - Pro
 1. In case of Exceptions, system triggers error messages as received from the Database
 
 #### B. Check the existence of a Location in Master DB
-Upon receiving a request to validate the Location Name with input parameters (Location Name)the system checks the Location Name in the Master DB
+Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master DB
 1. Validates if the request contains the following input parameters
 * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 #### C. Fetch Location Hierarchy Levels based on a Language Code
-Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code) the system fetches the Location Hierarchy Levels
+Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels
 1. Validates if the request contains following input parameters (Language Code)
 * Language Code - Mandatory
 2. Validates if the response contains the Location Hierarchy Levels with the following attributes
@@ -107,7 +107,7 @@ Upon receiving a  request to fetch all the Location Hierarchy Data with input pa
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
-Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code) the system fetches the Location Hierarchy Data for the next hierarchy level
+Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level
 1. Validates if the request contains the following input parameters
 * Location Code - Mandatory
 * Language Code - Mandatory
@@ -150,7 +150,7 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 
 #### C. Update and Delete a Location in Location Masterdata DB
 ##### (i) Update
-On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active) the system updates the Location in the Location DB for the code received
+On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
 * code character (36) - Mandatory
 * name character (128) - Mandatory
