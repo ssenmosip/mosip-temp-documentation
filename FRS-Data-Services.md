@@ -12,13 +12,12 @@
       * [4.1.5 RID Validator](#415-rid-validator)
       * [4.1.6 TSP ID Validator](#416-tsp-id-validator)
     * [4.2 ID Generator](#42-id-generator)
-      * [4.2.1 RID Generator](#421-rid-generator)
-      * [4.2.2 Machine ID Generator](#422-machine-id-generator)
-      * [4.2.3 Registration Center ID Generator](#423-registration-center-id-generator)
-      * [4.2.4 TSP ID Generator](#424-tsp-id-generator)
-      * [4.2.5 PRID Generator](#425-prid-generator)
-      * [4.2.6 VID Generator](#426-vid-generator)
-      * [4.2.7 Token ID Generator](#427-token-id-generator)
+      * [4.2.1 Machine ID Generator](#421-machine-id-generator)
+      * [4.2.2 Registration Center ID Generator](#422-registration-center-id-generator)
+      * [4.2.3 TSP ID Generator](#423-tsp-id-generator)
+      * [4.2.4 PRID Generator](#424-prid-generator)
+      * [4.2.5 VID Generator](#425-vid-generator)
+      * [4.2.6 Token ID Generator](#426-token-id-generator)
 # Data services
 ## 1. Data mapper
 Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
@@ -229,17 +228,16 @@ RID Validation performs pattern validation on an RID and provides three methods 
 
 
 #### 4.1.6 TSP ID Validator
-MOSIP system can perform TSP ID validation against a defined TSP ID policy
 
 Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validate TSP ID as per the TSP ID generation logic
 1. Validates if the request has the following input parameters.
-* TSP ID
+   * TSP ID
 2. Validates TSP ID as per the TSP ID generation Policy
 1. In case of Exceptions system triggers relevant error messages 
 
-Respond with the required result (Valid/Invalid)
+1. Responds with the required result (Valid/Invalid)
 
-Raise an alert in case of listed exceptions as defined below:
+1. Raises an alert in case of listed exceptions as defined below:
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
@@ -253,8 +251,7 @@ Raise an alert in case of listed exceptions as defined below:
 |TSP ID in Invalid	|TSP ID length Must be <Length configured)	|KER-IDV-401|
 
 ### 4.2 ID Generator
-#### 4.2.1 RID Generator
-#### 4.2.2 Machine ID Generator
+#### 4.2.1 Machine ID Generator
 MOSIP system can generate Machine ID as per defined Machine ID generation logic
 
 Upon receiving a request to generate Machine ID the system generates Machine ID as per default Machine ID generation logic as mentioned below
@@ -283,7 +280,7 @@ Raise an alert in case of listed exceptions as specified below
 |MachineIdException|	Error occured while inserting ID|	KER-MNG-002|
 
 
-#### 4.2.3 Registration Center ID Generator
+#### 4.2.2 Registration Center ID Generator
 MOSIP system can generate Registration Center ID as per defined Registration Center ID generation logic
 
 Upon receiving a request to generate Registration Center ID the system generates it as per default Registration Center ID generation logic
@@ -314,7 +311,7 @@ RegistrationCenterIdException|	Error occured while fetching ID|	KER-RCG-001
 RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
 
 
-#### 4.2.4 TSP ID Generator
+#### 4.2.3 TSP ID Generator
 MOSIP system can generate TSP ID as per defined TSP ID generation logic
 
 Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
@@ -340,7 +337,7 @@ Raise an alert in case of listed exceptions and triggers the following messages 
 |:------:|------|:------:|
 |NA	|TSP ID Generation Failed|	NA|
 
-#### 4.2.5 PRID Generator
+#### 4.2.4 PRID Generator
 MOSIP system can generate PRID as per a defined PRID generation logic
 
 Upon receiving a request to generate PRID with input parameters the system generates PRID as per default PRID generation logic
@@ -372,7 +369,7 @@ Raise an alert in case of listed exceptions as listed below
 PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
 
-#### 4.2.6 VID Generator
+#### 4.2.5 VID Generator
 MOSIP system can  generate VID as per a defined VID generation logic
 
 Upon receiving a request to generate VID with input parameters (UIN) the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
@@ -417,7 +414,7 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 4. Expired VID should not be sent in response
 
 
-#### 4.2.7 Token ID Generator
+#### 4.2.6 Token ID Generator
 MOSIP system can generate Token ID as per defined Token ID generation logic
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN) the system generate token ID as per default Token ID generation logic
