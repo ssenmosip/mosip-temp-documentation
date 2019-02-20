@@ -2,7 +2,7 @@
 **WIP*
 * [1. Overview](#1-overview)
 * [2. Features](#2-features)
-  * [2.1 Login/Creating a User Account](#21-logincreating-an-user-account) [REQ ID: MOS_PFM_PRG_FN2.1]
+  * [2.1 Login/Creating a User Account](#21-logincreating-an-user-account) _(MOS_PFM_PRG_FN2.1)_
     * [2.1.1 Login using Email](#211-login-using-email) [REQ ID: MOS_PFM_PRG_FN2.1.1]
     * [2.1.2 Login using Phone Number](#212-login-using-phone-number) [REQ ID: MOS_PFM_PRG_FN2.1.2]
     * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) [REQ ID: MOS_PFM_PRG_FN2.1.3]
