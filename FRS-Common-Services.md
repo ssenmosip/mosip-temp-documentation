@@ -133,9 +133,9 @@ This utility merges a Template with Placeholders with the dynamic values to form
 ## 5. Transliteration
 MOSIP system can be able to facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
 1. Validate if all required input parameters have been received as listed below for each specific request
-* User Input Word - Mandatory
-* Input Language Code - Mandatory
-* Output Language Code - Mandatory
+   * User Input Word - Mandatory
+   * Input Language Code - Mandatory
+   * Output Language Code - Mandatory
 2. Transliterate the Word received from Input Language to Output Language
 1. In case of Exceptions, system triggers relevant error messages as specified below
 ## <p align="left">**Type : Error / Failure – Info Message**
@@ -149,10 +149,10 @@ MOSIP system, can validate a mobile number based on a defined policy
 
 Upon receiving a request to validate a mobile number against configured mobile number policy, the system validates the mobile number against the policy
 1. Validate if all required input parameters have been received as listed below for each specific request
-* Mobile number
+   * Mobile number
 2. Validate if the mobile no. against the following policies
-* Mobile no. should contain no of digits configured by the ADMIN
-* Mobile no. should only be numerical.
+   * Mobile no. should contain no of digits configured by the ADMIN
+   * Mobile no. should only be numerical.
 3. In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
 
 Respond to the source with the result (Valid/Invalid)
@@ -176,14 +176,14 @@ MOSIP system, can validate an Email ID based on a defined policy
 Upon receiving a Request to validate an Email ID against the standard Email ID policy, system validate the Email ID against the Standard Email ID format
 
 1. Validate if all required input parameters have been received as listed below for each specific request
-* Email ID
+   * Email ID
 2. Validate if the Email ID contains the minimum no. of characters as configured
 1. Validate if the Email ID contains less than 254 max length
 1. Validate if the Email ID only contains following characters
-* Digits 0 to 9
-* Uppercase and lowercase English letters (a–z, A–Z)
-* Characters ! # $ % & ' * + - / = ? ^ _ ` { | }
-* ~ .
+   * Digits 0 to 9
+   * Uppercase and lowercase English letters (a–z, A–Z)
+   * Characters ! # $ % & ' * + - / = ? ^ _ ` { | }
+   * ~ .
 5. Validate if the Email ID contains "@" and domain name within the Email ID.
 1. Respond to the source with the result (Valid/Invalid)
 
