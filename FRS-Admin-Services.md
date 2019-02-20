@@ -1337,13 +1337,13 @@ On receiving a request to fetch Registration Center Details with the input param
 1. Responds with "Accept" message if both the following conditions are met:
 * The Registration Center corresponding to the Registration Center ID received must be not on a holiday on the date received in the input parameter.
 * The Timestamp received in the input parameter must be greater the Registration Center Opening time and Less than or equal to Closing time + 1 Hour.
-4.	Responds with the reject scenario if the above two conditions together are not met.
-5.	E.g. If the Registration center in not on a holiday and its opening and closing time is (9:00 AM to 5:00 PM). Find the sample response below for different timestamp received.
-1.	Timestamp - 4:00 PM - Accepted
-2.	Timestamp - 5:00 PM - Accepted
-3.	Timestamp - 6:00 PM - Accepted
-4.	Timestamp - 6:01 PM - Rejected
-6.	In case of Exceptions, system trigger relevant error messages
+4. Responds with the reject scenario if the above two conditions together are not met.
+1. E.g. If the Registration center in not on a holiday and its opening and closing time is (9:00 AM to 5:00 PM). Find the sample response below for different timestamp received.
+* Timestamp - 4:00 PM - Accepted
+* Timestamp - 5:00 PM - Accepted
+* Timestamp - 6:00 PM - Accepted
+* Timestamp - 6:01 PM - Rejected
+6. In case of Exceptions, system trigger relevant error messages
 
 
 
