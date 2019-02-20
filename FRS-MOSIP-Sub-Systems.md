@@ -12,7 +12,7 @@ The number of UINs to be generated in a pool depends on a configuration to be do
 When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN. 
 
 
-The UINs generated follows the following policies:
+The UINs generated follow the following policies:
 
 
 1. UIN should not contain any alphanumeric characters
