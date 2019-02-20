@@ -421,6 +421,78 @@ On receiving a request to delete a Document Type with the input parameters (code
 
 ### 1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete
 
+#### A. Create a mapping of Document Type and Document Category in Masterdata DB
+
+On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active) the system stores the Document Type in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Document Type added
+* Code
+* Language Code
+3. Responds with the Document Type Code and Language Code for the Document Type created successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+#### B. Fetch List of Document Types based on Document Category and a Language Code
+
+
+On receiving a request to fetch the List of Document Types with input parameters (Document Category Code and Language Code) the system fetches the List of Document Types against the Document Category Code and language Code Received
+1. Validates if the request contains the following input parameters
+* Document Category Code - Mandatory
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message
+1. Validates if the response contains the List of Document Types against the Document Category and Language Code Received and the corresponding attributes for each Document Type
+* Document Type ID - Mandatory
+* Document Type Name - Mandatory
+* IsActive - Mandatory
+4. In case of Exceptions, system triggers relevant error messages
+
+#### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata DB
+
+
+On receiving a request to delete a Document Category-Type mapping with the input parameters (doccat_code, doctyp_code) the system updates the is_deleted flag to true in the Document Category-Type mapping DB against the input received
+1. Validates if all required input parameters have been received as listed below for each specific request
+* doccat_code - character (36) - Mandatory
+* doctyp_code - character (36) - Mandatory
+3. Responds with the doc_type Code and doccat_code for the Document Category-Type mapping deleted successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
+#### D. Fetch applicant type based on Individual Type Code, Date of Birth, Gender Type Code and Biometric Exception Type
+
+
+On receiving a request to get Applicant type with input parameters (Individual Type Code, Date of Birth, Gender Type Code and Biometric Exception Type) the system derives the Applicant Type from the input parameter
+1. Validates if the request contains the following input parameters
+* Individual Type Code - Mandatory
+* Date of Birth - Mandatory
+* Gender Type Code - Mandatory
+* Biometric Exception Type - Optional
+2. Derives the Age Group Type based on following logic
+* Child if Age < 5
+* Adult if Age >= 5
+3. If the mandatory input parameters are missing, throws the appropriate message
+1. Derives the applicant type as per the define logic
+1. In case of Exceptions, system triggers relevant error messages
+
+
+#### E. Check the mapping of Applicant Type-Document Category Name-Document Type Name
+
+
+On receiving a request to check the mapping of Applicant Type-Document Category-Document Type mapping parameters (Applicant Type, Document Category Name and Document Type Name) the system checks the mapping
+
+1. Validates if the request contains the following input parameters
+* Applicant Type Code
+* Document Category Name
+* Document Type Name
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. If the mapping exist, respond with "Valid".
+1. If the mapping does not exist, respond with "Invalid".
+1. In case of Exceptions, system triggers relevant error messages
+
+
 ### 1.9 List of Rejection Reasons - Create/Read/Update/Delete
 **A. Create a Rejection Reason in Reason List Master Data**
 
