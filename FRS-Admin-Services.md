@@ -1599,11 +1599,200 @@ The record fetched are  the latest record existing on or before the date receive
 4. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.7 List of Devices - Create/Read/Update/Delete	
+### 2.7 List of Devices - Create/Read/Update/Delete
+
+#### A. Create a Device in Masterdata DB
+
+On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active) the system Stores the device in the DB
+
+1. While creating a device the system Validates if all required input parameters have been received as listed below for each specific request
+* name - character (64) - Mandatory
+* mac_address - character (64) - Mandatory
+* serial_num - character (64) - Mandatory
+* ip_address - character (17) - Optional
+* dspec_id - character (36) - Mandatory
+* validity_end_date - date - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Device ID and Language Code for the Device created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database.
+
+ 
+#### B. Fetch all the List of Devices based on Device Type and Language Code
+
+
+On receiving request to Fetch list of all Device with the requirement input parameter (Language Code and/or Device Type) the system Fetches all the Devices against the Language Code and/or Device Type as requested
+
+
+1. While fetching the device types the system Validates if the request contains the following input parameters
+* Device Type - Optional
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, system throws the appropriate message. 
+1. If the input parameters contains only Language Code:
+* The response contains all the list of devices for all device types against the Languages code received
+4. If the input parameters contains both Device Type and Language Code:
+* The response  contains the list of devices against the Languages code for that Device Type only
+5. After validation, the above listed parameters system responds with appropriate message if data does not exist against the Language code/Device Type received. 
+1. Validates if the response contains the following attributes for each Device ID, if the input parameters contains only Language Code:
+* Device ID - Mandatory
+* Machine Name - Mandatory
+* Mac Address - Mandatory
+* IP address - Optional
+* Serial Number - Mandatory
+* Device Spec ID - Mandatory
+* IsActive - Mandatory
+7. Validates if the response contains the following attributes for each Device ID, if the input parameters contains Device Type and Language Code:
+* Device Type-Mandatory
+* Device ID - Mandatory
+* Machine Name - Mandatory
+* Mac Address - Mandatory
+* IP address - Optional
+* Serial Number - Mandatory
+* Device Spec ID - Mandatory
+* IsActive - Mandatory
+8. In case of Exceptions, system triggers relevant error messages. 
+
+
+#### C. Fetch Device Registration/Update History detail based on a Device ID and Language Code
+
+On receiving request to fetch Device History Registration/Update Detail with the input parameters (Device ID, Date and Language Code) the system fetches all the attributes of Device from the history table for the Device ID, Date and Language Code received
+
+
+The record fetched are  the latest record existing on or before the date received in the input parameter
+
+
+1. While fetching the device registration and update history the system validates if all required input parameters have been received as listed below for each specific request
+* Device ID - Mandatory
+* Date - Mandatory
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, system throws the appropriate message
+1. Validates if the response contain the following attributes for the Device ID and Language Code Received
+* Device ID - Mandatory
+* Device Name - Mandatory
+* Mac Address - Mandatory
+* IP address - Optional
+* Serial Number - Mandatory
+* Device Spec ID - Mandatory
+* Validity Time - Optional
+* Language Code - Mandatory
+* IsActive - Mandatory
+4. In case of Exceptions, system triggers relevant error messages. 
+	
 
 ### 2.8 List of Device Specifications - Create/Read/Update/Delete
 
+#### A. Create Device Specifications in Master Data
+
+
+On receiving request to add Device Specifications with the input parameters (name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active), the system Stores the Device Specifications in the DB
+
+
+1. While storing the device specifications the system Validates if all required input parameters have been received as listed below for each specific request
+* name - character (64) - Mandatory
+* brand - character (32) - Mandatory
+* model - character (16) - Mandatory
+* dtyp_code - character (36) - Mandatory
+* min_driver_ver - character (16) - Mandatory
+* descr - character (256) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Device Specification added
+* Device Specification ID
+3. Responds with the Device Specification ID and Language Code for the Device Specification created successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
+#### B. Update and Delete a Language in the List of Languages Masterdata DB
+
+##### (i) Update
+
+
+On receiving request to update a Language with the input parameters (code, name, family, native_name and is_active), the system Updates the Language Details in the List of languages DB for the Code received in request
+
+
+1. While updating the language the system Validates if all required input parameters have been received as listed below for each specific request
+* code - character (3) - Mandatory
+* name - character (64) - Mandatory
+* family - character (64) - Optional
+* native_name - character (64) - Optional
+* is_active - boolean - Mandatory
+2. For the Code received in the request, replaces all the data received in the request against the data existing in the List of languages database against the same code.
+1. Deleted record are not updated
+1. Responds with data not found error  if deleted record is received in the request
+1. Responds with the Language Code for the language successfully updated
+1. In case of Exceptions, system triggers relevant error messages. 
+
+##### (ii) Delete
+
+On receiving request to delete a Language with the input parameters (code) the system Updates the is_deleted flag to true in the List of languages DB against the code received in request
+
+1. While deleting the list of language the system Validates if all required input parameters have been received as listed below for each specific request
+* code - character (3) - Mandatory
+2. Deleted record should are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Respond with the Language Code for the language successfully deleted
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
 ### 2.9 List of Device Types - Create/Read/Update/Delete
+#### A. Create Device Type in Master Data
+
+
+Upon receiving a request to add Device Type with the input parameters (code, name, descr, lang_code and is_active), the system Stores the Device Type in the DB
+
+
+1. While creating device type the system validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Device Type added
+* Code
+* Language Code
+3. Responds with the Device Type Code and Language Code for the Device Type created successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+#### B. Update and Delete a Device in the List of Devices Masterdata DB
+
+##### (i) Update
+
+Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active) the system Updates the Device Details in the List of Devices DB for the id received
+
+
+1. While updating the device in device type list the system Validates if all required input parameters have been received as listed below for each specific request
+* id - character (36) - Mandatory
+* name - character (64) - Mandatory
+* brand - character (64) - Mandatory
+* model - character (16) - Mandatory
+* dtyp_code - character (36) - Mandatory
+* min_driver_ver - character (16) - Mandatory
+* descr - character (256) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the id received in the request, replaces all the data received in the request against the data existing in the List of Devices database against the same id.
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device ID and Language Code for the Device updated successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+##### (ii) Delete
+
+Upon receiving a request to delete a Device with the input parameters (id) and Update the is_deleted flag to true in the List of Devices DB against the id received
+
+
+1. While deleting the device in the device list the system validates if all required input parameters have been received as listed below for each specific request
+* id - character (36) - Mandatory
+2. Delete all records for the id received
+1. Deleted record are not  deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device ID for the Device deleted successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+
+
+
 ### 2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete
 #### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata DB
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the DB
