@@ -226,16 +226,16 @@ MOSIP system provides base exception framework.
 1. Raises an alert in case of listed exceptions 
 ### 6.9 String Utility
 1. Identifies String util methods
-1. Create wrapper class for methods defined in apache-commons String util
+1. Creates wrapper class for methods defined in apache-commons String util
 1. Raises an alert in case of listed exceptions
 ### 6.10 UUID Utility
 1. Upon receiving a request to generate UUID the system generates UUID as per default UUID generation logic
 1. UUID generated should be as per UUID Version 5
 1. UUID generated should be of 36 characters (32 alphanumeric characters and four hyphens e.g. 123e4567-e89b-12d3-a456-426655440000)
 1. Any application in MOSIP can use this UUID utility
-1. Respond with the UUID to the source
-1. Raise an alert in case of listed exceptions
+1. Responds with the UUID to the source
+1. Raises an alert in case of listed exceptions
 ### 6.11 Zip-Unzip Utility
 1. Identifies Zip-Unzip util methods
-1. Create wrapper class for methods defined in apache-commons Zip-Unzip util
+1. Creates wrapper class for methods defined in apache-commons Zip-Unzip util
 1. Raises an alert in case of listed exceptions
