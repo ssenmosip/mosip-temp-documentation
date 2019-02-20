@@ -634,46 +634,69 @@ On receiving a request to add a Title (e.g, MR., Mrs.) with the input parameters
 
 #### B.	Update and Delete a Title in Title Masterdata DB
 
-**(i) Update**
+##### (i) Update
 
 
-1.	On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active) the system updates the Title in the Title DB for the code received
-2.Validates if all required input parameters have been received as listed below for each specific request
-1.	code - character (16) - Mandatory
-2.	name - character (64) - Mandatory
-3.	descr - character (128) - Optional
-4.	lang_code - character (3) - Mandatory
-5.	is_active - boolean - Mandatory
-3.For the code received in the request, replaces all the data received in the request against the data existing in the Title database against the same code.
-2.	Deleted record are not updated
-3.	Responds with data not found error if deleted record is received in the request
-4.	Responds with the Title Code and Language Code for the Title created successfully
-5.	In case of Exceptions, system triggers relevant error messages.
-Delete
+On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active) the system updates the Title in the Title DB for the code received
 
-1.	On receiving a request to delete a Title with the input parameters (code) the system updates the is_deleted flag to true in the Title DB against the code received
-2.	Validates if all required input parameters have been received as listed below for each specific request
-1.	code - int - Mandatory
-3.	Delete all records for the code received
-4.	Deleted record are not deleted again
-5.	Responds with data not found error if deleted record is received in the request
-6.	Responds with the Title Code for the Title created successfully
-7.	In case of Exceptions, system triggers relevant error messages. 
-3.Fetch the List of Titles based on a Language Code
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (16) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Title database against the same code.
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Title Code and Language Code for the Title created successfully
+1. In case of Exceptions, system triggers relevant error messages.
 
-1.	On receiving a request to fetch Title Details with the input parameters (Language Code) the system fetches all the Titles with all the attributes for the Language Code Received
-2.	Validates if all required input parameters have been received as listed below for each specific request
-1.	Language Code - Mandatory
-3.	If the mandatory input parameters are missing, responds with all the data.
-4.	Validates if the response contain List of Titles against the received Language Code along with the following attributes for the Title Code
-1.	Title Code - Mandatory
-2.	Title Name - Mandatory
-3.	Title Description - Optional
-4.	IsActive - Mandatory
-5.	In case of Exceptions, system triggers relevant error messages
+##### (i) Delete
+
+On receiving a request to delete a Title with the input parameters (code) the system updates the is_deleted flag to true in the Title DB against the code received
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - int - Mandatory
+2. Delete all records for the code received
+1. Deleted record are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Title Code for the Title created successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
+#### C. Fetch the List of Titles based on a Language Code
+
+On receiving a request to fetch Title Details with the input parameters (Language Code) the system fetches all the Titles with all the attributes for the Language Code Received
+
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, responds with all the data.
+1. Validates if the response contain List of Titles against the received Language Code along with the following attributes for the Title Code
+* Title Code - Mandatory
+* Title Name - Mandatory
+* Title Description - Optional
+* IsActive - Mandatory
+4. In case of Exceptions, system triggers relevant error messages
 
 
 ### 1.12 Template File Format - Create/Read/Update/Delete
+
+#### A. Create Template File Format in Master Data
+
+
+On receiving a request to add Template File Format with the input parameters (code, descr, lang_code and is_active) the system stores the Template File Format in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* descr - character (256) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Template File Format added
+* Code
+* Language Code
+3. Responds with the Template File Format Code and Language Code for the Template File Format created successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
 
 ### 1.13 List of Template Types - Create/Read/Update/Delete
 MOSIP system can create Template Type in the Masterdata DB.
