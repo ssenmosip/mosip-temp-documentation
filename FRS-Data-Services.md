@@ -76,7 +76,6 @@ Data Access Manager provides a DAO (Data access object) interface to do the foll
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
 #### 4.1.1 Static Pin Validator
-MOSIP system can perform Static PIN validation against a defined Static PIN logic.
 
 Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validate Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
 
@@ -99,14 +98,9 @@ In case of Exceptions, system triggers relevant error messages. Refer “Message
 |Static PIN in not numeric|	Static PIN length must be numeric>|	KER-IDV-502|
 |Static PIN input parameter is missing	|Input parameter is missing	|KER-IDV-503|
 
-
-
-
-
 #### 4.1.2  UIN Validator
-1. MOSIP system can perform UIN validation against a defined ID policy
 
-1. Upon receiving a Request to validate the UIN the system validates the UIN against the defined policy
+Upon receiving a Request to validate the UIN the system validates the UIN against the defined policy
 
 1. Validates if the UIN is of configured length.
 
@@ -138,14 +132,7 @@ MosipInvalidIDException	|Entered UIN should not contain Zero or One as first Dig
 UIN_VAL_ILLEGAL_REVERSE	|UIN First configured no.of digits should be different from the reverse of last configured no.of digits|	KER-IDV-207
 UIN_VAL_ILLEGAL_EQUAL_LIMIT|	UIN First configured no.of digits should be different from the last configured no.of digits	|KER-IDV-208
 
-
-
-
-
-
-
 #### 4.1.3 PRID Validator
-MOSIP system can validate PRID as per a defined PRID generation logic
 
 Upon receiving a request to validate the PRID the system validates the PRID against the defined policy
 
@@ -153,11 +140,11 @@ Upon receiving a request to validate the PRID the system validates the PRID agai
 1. In absence of the configured length, validates if the PRID received should contain 14 digits
 1. Validates the PRID received follows the PRID generation logic 
 
-In case of Exceptions, triggers relevant error messages
+1. In case of Exceptions, triggers relevant error messages
 
-Responds to the source with appropriate message 
+1. Responds to the source with appropriate message 
 
-Raises an alert in case of listed exceptions as defined below
+1. Raises an alert in case of listed exceptions as defined below
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
@@ -252,7 +239,6 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
-MOSIP system can generate Machine ID as per defined Machine ID generation logic
 
 Upon receiving a request to generate Machine ID the system generates Machine ID as per default Machine ID generation logic as mentioned below
 1. Machine ID should only be numeric
@@ -281,7 +267,6 @@ Raise an alert in case of listed exceptions as specified below
 
 
 #### 4.2.2 Registration Center ID Generator
-MOSIP system can generate Registration Center ID as per defined Registration Center ID generation logic
 
 Upon receiving a request to generate Registration Center ID the system generates it as per default Registration Center ID generation logic
 
@@ -312,7 +297,6 @@ RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
 
 
 #### 4.2.3 TSP ID Generator
-MOSIP system can generate TSP ID as per defined TSP ID generation logic
 
 Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
 
@@ -338,7 +322,6 @@ Raise an alert in case of listed exceptions and triggers the following messages 
 |NA	|TSP ID Generation Failed|	NA|
 
 #### 4.2.4 PRID Generator
-MOSIP system can generate PRID as per a defined PRID generation logic
 
 Upon receiving a request to generate PRID with input parameters the system generates PRID as per default PRID generation logic
 
@@ -370,7 +353,6 @@ PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
 
 #### 4.2.5 VID Generator
-MOSIP system can  generate VID as per a defined VID generation logic
 
 Upon receiving a request to generate VID with input parameters (UIN) the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
 
@@ -415,7 +397,6 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 
 
 #### 4.2.6 Token ID Generator
-MOSIP system can generate Token ID as per defined Token ID generation logic
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN) the system generate token ID as per default Token ID generation logic
 
