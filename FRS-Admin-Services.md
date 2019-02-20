@@ -68,7 +68,9 @@ Upon receiving a request to fetch the Location Hierarchy Levels with input param
    * IsActive
 3. In case of Exceptions, system triggers relevant error messages
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
+
 Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data
+
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
    * Language Code - Mandatory
