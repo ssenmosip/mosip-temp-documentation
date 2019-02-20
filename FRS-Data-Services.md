@@ -250,7 +250,6 @@ Upon receiving a request to generate Machine ID, the system generates Machine ID
 Responds with the Machine ID to the source
 
 Raises an alert in case of listed exceptions as specified below
-* All confirmation, warning, and error messages are listed below. The message text is configurable.
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
@@ -351,18 +350,15 @@ PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
 Upon receiving a request to generate VID with input parameters (UIN), the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
 
-If the generated VID is active, responds with the same VID
-
-If the generated VID is inactive:
-
-1. Generate new VID based on the VID generation policy defined below
-1. Responds with the new VID generated
-1. Maps the new VID against the received UIN
-
-If no VID is generated against the UIN:
-1. Generates new VID based in the policy defined
-1. Map the new VID against the received UIN
-1. Raises an alert in case of listed exceptions as listed below
+1. If the generated VID is active, responds with the same VID
+1. If the generated VID is inactive:
+   * Generate new VID based on the VID generation policy defined below
+   * Responds with the new VID generated
+   * Maps the new VID against the received UIN
+3. If no VID is generated against the UIN:
+   * Generates new VID based in the policy defined
+   * Map the new VID against the received UIN
+4. Raises an alert in case of listed exceptions as listed below
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
@@ -380,33 +376,32 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 1. VID generated should contain the number of digits as configured
 1. In absence of configured length, VID generated should have 16 digits
 1. Validates if the VID is generated as per the defined logic mentioned below
-* The number should not contain any alphanumeric characters
-* The number should not contain any repeating numbers for 2 or more than 2 digits
-* The number should not contain any sequential number for 3 or more than 3 digits
-* The numbers should not be generated sequentially
-* The number should not have repeated block of numbers for 2 or more than 2 digits
-* The number should not contain the restricted numbers defined by the ADMIN
-* The last digit in the number should be reserved for a checksum
-* The number should not contain '0' or '1' as the first digit.
+   * The number should not contain any alphanumeric characters
+   * The number should not contain any repeating numbers for 2 or more than 2 digits
+   * The number should not contain any sequential number for 3 or more than 3 digits
+   * The numbers should not be generated sequentially
+   * The number should not have repeated block of numbers for 2 or more than 2 digits
+   * The number should not contain the restricted numbers defined by the ADMIN
+   * The last digit in the number should be reserved for a checksum
+   * The number should not contain '0' or '1' as the first digit.
 4. Expired VID should not be sent in response
-
 
 #### 4.2.6 Token ID Generator
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generate token ID as per default Token ID generation logic
 
-The numbers is not be generated sequentially
+1. The numbers is not generated sequentially
 
-Token ID generated is of the length of 36 digits
+1. Token ID generated is of the length of 36 digits
 
-The length of Token ID is configurable by the ADMIN
+1. The length of Token ID is configurable by the ADMIN
 
-Token ID is generated as per the defined logic mentioned below
+1. Token ID is generated as per the defined logic mentioned below
 * The number does not contain any alphanumeric characters and contains only numeric characters
 * The last digit in the number is reserved for a checksum
 * ID is unique for a combination of TSP ID and UIN received
 * ID is untraceable to both TSP ID and UIN received
-
+hello
 Responds with the Token ID to the source
 
 Raises an alert in case of listed exceptions as listed below
