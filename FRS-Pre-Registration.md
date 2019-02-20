@@ -20,11 +20,11 @@
   * [2.4 Booking an Appointment](#24-booking-an-appointment) _(MOS_PFM_PRG_FN_2.4)_
     * [2.4.1 Choosing a Registration Center for Appointment](#241-choosing-a-registration-center-for-appointment) _(MOS_PFM_PRG_FN_2.4.1)_
       * [2.4.1.1 Recommended Centers based on Postal Code](#2411-recommended-centers-based-on-postal-code) _(MOS_PFM_PRG_FN_2.4.1.1)_
-      * [2.4.1.2 Nearby Centers based on User Geo-location](#2412-nearby-centers-based-on-user-geo-location) _(MOS_PFM_PRG_FN_2.4.2)_
-      * [2.4.1.3 Find a Center](#2413-find-a-center) _(MOS_PFM_PRG_FN_2.4.3)_
+      * [2.4.1.2 Nearby Centers based on User Geo-location](#2412-nearby-centers-based-on-user-geo-location) _(MOS_PFM_PRG_FN_2.4.1.2)_
+      * [2.4.1.3 Find a Center](#2413-find-a-center) _(MOS_PFM_PRG_FN_2.4.1.3)_
     * [2.4.2 Choosing Appointment Slots](#242-choosing-appointment-slots) _(MOS_PFM_PRG_FN_2.4.2)_
       * [2.4.2.1 Get Slots Availability](#2421-get-slots-availability) _(MOS_PFM_PRG_FN_2.4.2.1)_
-      * [2.4.2.2 Block Slots for one or more Applications](#2422-block-slots-for-one-or-more-applications) _(MOS_PFM_PRG_FN_2.2.2)_
+      * [2.4.2.2 Block Slots for one or more Applications](#2422-block-slots-for-one-or-more-applications) _(MOS_PFM_PRG_FN_2.4.2.2)_
     * [2.4.3 Cancel Appointment](#243-cancel-appointment) _(MOS_PFM_PRG_FN_2.4.3)_
     * [2.4.4 Re-book Appointment](#244-re-book-appointment) _(MOS_PFM_PRG_FN_2.4.4)_
   * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid) _(MOS_PFM_PRG_FN_2.5)_
