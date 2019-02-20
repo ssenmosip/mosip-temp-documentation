@@ -173,7 +173,7 @@ Upon receiving a request to validate the VID with input parameters (UIN), the sy
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received as per the VID generation logic
 
-1. Responds to the source with appropriate message and Raises an alert in case of listed exceptions 
+1. Responds to the source with appropriate message and raises an alert in case of listed exceptions 
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
