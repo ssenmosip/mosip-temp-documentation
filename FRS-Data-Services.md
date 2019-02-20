@@ -105,21 +105,21 @@ In case of Exceptions, system triggers relevant error messages. Refer “Message
 
 
 #### 4.1.2  UIN Validator
-MOSIP system can perform UIN validation against a defined ID policy
+1. MOSIP system can perform UIN validation against a defined ID policy
 
-Upon receive a Request to validate the UIN the system validates the UIN against the defined policy
+1. Upon receiving a Request to validate the UIN the system validates the UIN against the defined policy
 
-Validates if the UIN is of configured length.
+1. Validates if the UIN is of configured length.
 
-If no length is configured, validate if UIN length is of 12 digits
+1. If no length is configured, validate if UIN length is of 12 digits
 
-Validates the UIN by verifying the checksum
+1. Validates the UIN by verifying the checksum
 
-Validates if the UIN received follows the UIN generation logic
+1. Validates if the UIN received follows the UIN generation logic
 
-Responds to the source with appropriate message 
+1. Responds to the source with appropriate message 
 
-Raises an alert in case of listed exceptions as listed below
+1. Raises an alert in case of listed exceptions as listed below
 
 ### <p align="left"> **1. Type: Success – Info Message**
 |**Scenario**|**Message**|**Message Code**|
@@ -146,18 +146,19 @@ UIN_VAL_ILLEGAL_EQUAL_LIMIT|	UIN First configured no.of digits should be differe
 
 
 #### 4.1.3 PRID Validator
-As the MOSIP system can validate PRID as per a defined PRID generation logic
+MOSIP system can validate PRID as per a defined PRID generation logic
 
 Upon receiving a request to validate the PRID the system validates the PRID against the defined policy
 
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
 1. In absence of the configured length, validates if the PRID received should contain 14 digits
 1. Validates the PRID received follows the PRID generation logic 
+
 In case of Exceptions, triggers relevant error messages
 
 Responds to the source with appropriate message 
 
-Raise an alert in case of listed exceptions as defined below
+Raises an alert in case of listed exceptions as defined below
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
@@ -179,7 +180,6 @@ MosipInvalidIDException	|Entered PRID should not contain Zero or One as first Di
 
 
 #### 4.1.4 VID Validator
-MOSIP system can perform VID validation against a defined VID policy
 
 Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
 1. Validates if the VID is of configured length.
@@ -187,7 +187,7 @@ Upon receiving a request to validate the VID with input parameters (UIN), the sy
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received follows the VID generation logic listed in User Story
 
-Respond to the source with appropriate message and Raise an alert in case of listed exceptions 
+1. Responds to the source with appropriate message and Raises an alert in case of listed exceptions 
 
 ### <p align="left"> **1. Type: Success – Info Message**
 
