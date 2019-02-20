@@ -7,7 +7,7 @@
     * [3.2 Key Management](#32-key-management)
     * [3.3 Crypto Utility](#33-crypto-utility)
     * [3.4 Hash Utility](#34-hash-utility)
-    * [3.5 HMAC Utility](#35-hmac-utility)
+    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utility-checksum-utility)
   * [4. Notification](#4-notification)
     * [4.1 OTP Notification Services](#41-otp-notification-services)
     * [4.2 Email Notification](#42-email-notification)
@@ -79,7 +79,10 @@ For a request to receive private key, The Key manager will not respond with Priv
 1. Identifies hash util methods
 1. Creates wrapper class for methods defined in apache-commons hash util
 1. Raises an alert in case of listed
-### 3.5 HMAC Utility 
+### 3.5 HMAC Utility/Checksum Utility
+
+A HMAC/checksum function is a way to create a compact representation of an arbitrarily large amount of data 
+
 ## 4. Notification
 ### 4.1 OTP Notification Services
 OTP Notification Service is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification. 
