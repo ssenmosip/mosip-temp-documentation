@@ -1174,7 +1174,7 @@ Upon receiving a request to delete a Registration Center with the input paramete
 
 
 1. The system validates if all required input parameters have been received as listed below for each specific request
-* center_id - character (36) - Mandatory
+   * center_id - character (36) - Mandatory 
 2. Responds with the Registration Center Code and Language Code for the Registration Center deleted successfully
 1. In case of Exceptions, system trigger relevant error messages
 
@@ -1184,24 +1184,24 @@ Upon receiving a request to delete a Registration Center with the input paramete
 
 On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Language Code), the system fetches all the Registration Center attributes for the Registration Center ID and Language Code received
 1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
-* Registration Center ID - Mandatory
-* Language Code - Mandatory
+   * Registration Center ID - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. System also validates if the response contain the following attributes for the Registration Center ID along with values as applicable
-* Registration Center ID
-* Registration Center Name
-* Longitude
-* Latitude
-* IsActive
-* Center Type Code
-* Address
-* Working Hours
-* Contact Number
-* No. of kiosk
-* Per kiosk Processing time
-* Starting time
-* End time
-* IsActive
+   * Registration Center ID
+   * Registration Center Name
+   * Longitude
+   * Latitude
+   * IsActive
+   * Center Type Code
+   * Address
+   * Working Hours
+   * Contact Number
+   * No. of kiosk
+   * Per kiosk Processing time
+   * Starting time
+   * End time
+   * IsActive
 
 4. In case of Exceptions, system triggers relevant error messages. 
 
@@ -1212,26 +1212,26 @@ On receiving a request to fetch Registration Center Creation/Updation History De
 
 
 1. While fetching registration center records the system validates if all required input parameters have been received as listed below for each specific request
-* Registration Center ID - Mandatory
-* Date - Mandatory
-* Language Code - Mandatory
+   * Registration Center ID - Mandatory
+   * Date - Mandatory
+   * Language Code - Mandatory
 2. The record fetched are  the latest record existing on or before the date received in the input parameter
 1. If the mandatory input parameters are missing, system throws the appropriate message. 
 1. Validates if the response contain the following attributes for the Registration Center ID along with values as applicable
-* Registration Center ID
-* Registration Center Name
-* Longitude
-* Latitude
-* IsActive
-* Center Type Code
-* Address
-* Working Hours
-* Contact Number
-* No. of kiosk
-* Per koisk Processing time
-* Starting time
-* End time
-* IsActive
+   * Registration Center ID
+   * Registration Center Name
+   * Longitude
+   * Latitude
+   * IsActive
+   * Center Type Code
+   * Address
+   * Working Hours
+   * Contact Number
+   * No. of kiosk
+   * Per koisk Processing time
+   * Starting time
+   * End time
+   * IsActive
 5. In case of Exceptions, system triggers relevant error messages.
 
 #### E. Fetch the List of Holidays based on a Holiday ID and/or Language Code
@@ -1244,10 +1244,10 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 1. If the input parameter is Holiday ID, system will fetch the List of Holidays against the Holiday ID Received for all the languages
 1. If the input parameter is Holiday ID and Language Code, fetches the List of Holidays against the Holiday ID and the Language Code Received
 1. The system also validates if the response contains all the below attributes for each Holiday Fetched
-* Holiday ID
-* Holiday Date
-* Holiday Name
-* IsActive
+   * Holiday ID
+   * Holiday Date
+   * Holiday Name
+   * IsActive
 5. In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
 
 #### F. Fetch Registration Center details based on a Location Code and a Language Code
@@ -1255,24 +1255,24 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 Upon receiving a  request to fetch the List of Registration Centers with the input parameter (Location Code and Language Code), the system fetches the list of all the Registration Centers against the Location Code and Language Code received with all the attributes for each Registration Center
 
 1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
-* Location Code
-* Language Code
+   * Location Code
+   * Language Code
 2. If the mandatory input parameters are missing, throws the appropriate message
 1. Validates if the response contains all the Registration Center against the Location Code received with the following attributes for the Registration Centers
-* Registration Center ID
-* Registration Center Name
-* Longitude
-* Latitude
-* IsActive
-* Center Type
-* Address
-* Working Hours
-* Contact Number
-* No. of kiosk
-* Per koisk Processing time
-* Starting time
-* End time
-* IsActive
+   * Registration Center ID
+   * Registration Center Name
+   * Longitude
+   * Latitude
+   * IsActive
+   * Center Type
+   * Address
+   * Working Hours
+   * Contact Number
+   * No. of kiosk
+   * Per koisk Processing time
+   * Starting time
+   * End time
+   * IsActive
 4. In case of Exceptions, system triggers relevant error messages
 
 #### G. Fetch Registration Center details based on a Longitude and a Latitude, Proximity Distance and Language Code
@@ -1281,28 +1281,28 @@ Upon receiving a  request to fetch the List of Registration Centers with the inp
 On receiving a request  to fetch the List of Registration Centers with the input parameter (Longitude and Latitude, Proximity distance and Language Code), the system fetches the  List of Registration Centers against the input parameters received.
 
 1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
-* Longitude
-* Latitude
-* Proximity Distance
-* Language Code
+   * Longitude
+   * Latitude
+   * Proximity Distance
+   * Language Code
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. The responses contains the list of all the Registration Centers in the radius of Proximity distance radius of the Longitude and the Latitude received with all the attributes for each Registration Center
 1. System fetches the record against the Language Code Received
 1. Validates if the response contains all the Registration Center against the Longitude and the Latitude and the Language Code received with the following attributes for the Registration Centers
-* Registration Center ID
-* Registration Center Name
-* Longitude
-* Latitude
-* IsActive
-* Center Type
-* Address
-* Working Hours
-* Contact Number
-* No. of kiosk
-* Per koisk Processing time
-* Starting time
-* End time
-* IsActive
+   * Registration Center ID
+   * Registration Center Name
+   * Longitude
+   * Latitude
+   * IsActive
+   * Center Type
+   * Address
+   * Working Hours
+   * Contact Number
+   * No. of kiosk
+   * Per koisk Processing time
+   * Starting time
+   * End time
+   * IsActive
 6. In case of Exceptions, system triggers relevant error messages
 
 #### H. Fetch the List of Registration Centers based on Location Hierarchy Level, text input and a Language Code
@@ -1312,27 +1312,27 @@ Upon receiving a request to fetch the List of Registration centers with input pa
 
 
 1. While fetching the list of registration centers the system validates if the request contains the following input parameters
-* Location Hierarchy Level - Mandatory
-* Text Input - Mandatory
-* Language Code - Mandatory
+   * Location Hierarchy Level - Mandatory
+   * Text Input - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message
 1. The list of registration center is fetched based on the combination of Location Hierarchy level and Text received.
 1. System also fetches the list based on the language code received.
 1. The response contain below mentioned attributes for each registration center
-* Registration Center ID
-* Registration Center Name
-* Longitude
-* Latitude
-* IsActive
-* Center Type Code
-* Address
-* Working Hours
-* Contact Number
-* No. of kiosk
-* Per kiosk Processing time
-* Starting time
-* End time
-* IsActive
+   * Registration Center ID
+   * Registration Center Name
+   * Longitude
+   * Latitude
+   * IsActive
+   * Center Type Code
+   * Address
+   * Working Hours
+   * Contact Number
+   * No. of kiosk
+   * Per kiosk Processing time
+   * Starting time
+   * End time
+   * IsActive
 6. In case of Exceptions, system triggers relevant error messages. 
 
 #### I. Validate whether a Registration Center is under working hours based on a timestamp received
@@ -1342,18 +1342,18 @@ On receiving a request to fetch Registration Center Details with the input param
 
 
 1. While determining the status of registration center the system validates if all required input parameters have been received as listed below for each specific request
-* Registration Center ID - Mandatory
-* Date-Timestamp - Mandatory
+   * Registration Center ID - Mandatory
+   * Date-Timestamp - Mandatory
 2. If the mandatory input parameters are missing, system throws the appropriate message. 
 1. Responds with "Accept" message if both the following conditions are met:
-* The Registration Center corresponding to the Registration Center ID received must be not on a holiday on the date received in the input parameter.
-* The Timestamp received in the input parameter must be greater the Registration Center Opening time and Less than or equal to Closing time + 1 Hour.
+   * The Registration Center corresponding to the Registration Center ID received must be not on a holiday on the date received in the input parameter.
+   * The Timestamp received in the input parameter must be greater the Registration Center Opening time and Less than or equal to Closing time + 1 Hour.
 4. Responds with the reject scenario if the above two conditions together are not met.
 1. E.g., If the Registration center in not on a holiday and its opening and closing time is (9:00 AM to 5:00 PM). Find the sample response below for different timestamp received.
-* Timestamp - 4:00 PM - Accepted
-* Timestamp - 5:00 PM - Accepted
-* Timestamp - 6:00 PM - Accepted
-* Timestamp - 6:01 PM - Rejected
+   * Timestamp - 4:00 PM - Accepted
+   * Timestamp - 5:00 PM - Accepted
+   * Timestamp - 6:00 PM - Accepted
+   * Timestamp - 6:01 PM - Rejected
 6. In case of Exceptions, system trigger relevant error messages
 
 
@@ -1365,12 +1365,11 @@ MOSIP system can create Machine Type in Masterdata DB
 Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 
 2. Respond with the Machine Type Code and Language Code for the Machine Type created successfully
 
@@ -1398,15 +1397,15 @@ NA|	NA|	NA
 On receiving a request to add Machine Specifications with the input parameters (name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system stores the Machine Specifications in the DB
 
 1. While creating machine specification in DB the system validates if all required input parameters have been received as listed below for each specific request
-* Id - character (36) - Mandatory
-* name - character (64)- Mandatory
-* brand - character (32)- Mandatory
-* model - character (16)- Mandatory
-* mtyp_code - character (36)- Mandatory
-* min_driver_ver - character (16)- Mandatory
-* descr - character (256)- Optional
-* lang_code - character (3)- Mandatory
-* is_active - boolean - Mandatory
+   * Id - character (36) - Mandatory
+   * name - character (64)- Mandatory
+   * brand - character (32)- Mandatory
+   * model - character (16)- Mandatory
+   * mtyp_code - character (36)- Mandatory
+   * min_driver_ver - character (16)- Mandatory
+   * descr - character (256)- Optional
+   * lang_code - character (3)- Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Machine Specification ID and Language Code for the Machine Specification created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
@@ -1423,15 +1422,15 @@ While updating the Machine Specification the system validates the following
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* id - character (36) - Mandatory
-* name - character (64)- Mandatory
-* brand - character (32)- Mandatory
-* model - character (16)- Mandatory
-* mtyp_code - character (36)- Mandatory
-* min_driver_ver - character (16)- Mandatory
-* descr - character (256)- Optional
-* lang_code - character (3)- Mandatory
-* is_active - boolean - Mandatory
+   * id - character (36) - Mandatory
+   * name - character (64)- Mandatory
+   * brand - character (32)- Mandatory
+   * model - character (16)- Mandatory
+   * mtyp_code - character (36)- Mandatory
+   * min_driver_ver - character (16)- Mandatory
+   * descr - character (256)- Optional
+   * lang_code - character (3)- Mandatory
+   * is_active - boolean - Mandatory
 2. For the id received in the request, replaces all the data received in the request against the data existing in the Machine Specification database against the same id.
 1. Deleted record are not updated
 1. Responds with data not found error, if deleted record is received in the request
@@ -1445,7 +1444,7 @@ On receiving a request to delete a Machine Specification with the input paramete
 
 
 1. While deleting the machine specifications the system validates if all required input parameters have been received as listed below for each specific request
-* id - character (36) - Mandatory
+   * id - character (36) - Mandatory
 2. Delete all records for the id received
 1. Deleted record are not deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -1461,15 +1460,15 @@ On receiving a request to delete a Machine Specification with the input paramete
 On receiving a request to add Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Stores the Machine Details in the DB
 
 1. While creating the machine IDs the system validates if all required input parameters have been received as listed below for each specific request
-* machine_id - character (36) - mandatory
-* name - character (64) - mandatory
-* mac_address - character (64) - mandatory
-* serial_num - character (64) - mandatory
-* ip_address- character (17) - optional
-* validity_end_dtimes - timestamp
-* mspec_id - character (36) - mandatory
-* lang_code - character (3) - mandatory
-* is_active - boolean - mandatory
+   * machine_id - character (36) - mandatory
+   * name - character (64) - mandatory
+   * mac_address - character (64) - mandatory
+   * serial_num - character (64) - mandatory
+   * ip_address- character (17) - optional
+   * validity_end_dtimes - timestamp
+   * mspec_id - character (36) - mandatory
+   * lang_code - character (3) - mandatory
+   * is_active - boolean - mandatory
 
 
 2. Responds with the Machine ID and Language Code for the Machine created successfully
@@ -1486,15 +1485,15 @@ On receiving a request to update a Machine with the input parameters (machine_id
 
 
 1. While updating the machine ID the system Validates if all required input parameters have been received as listed below for each specific request
-* machine_id - character (36) - mandatory
-* name - character (64) - mandatory
-* mac_address - character (64) - mandatory
-* serial_num - character (64) - mandatory
-* ip_address- character (17) - optional
-* validity_end_dtimes - timestamp
-* mspec_id - character (36) - mandatory
-* lang_code - character (3) - mandatory
-* is_active - boolean - mandatory
+   * machine_id - character (36) - mandatory
+   * name - character (64) - mandatory
+   * mac_address - character (64) - mandatory
+   * serial_num - character (64) - mandatory
+   * ip_address- character (17) - optional
+   * validity_end_dtimes - timestamp
+   * mspec_id - character (36) - mandatory
+   * lang_code - character (3) - mandatory
+   * is_active - boolean - mandatory
 2. For the machine_id received in the request, replaces all the data received in the request against the data existing in the List of Machines database against the same machine_id.
 1. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
@@ -1507,7 +1506,7 @@ On receiving a request to delete a Machine with the input parameters (machine_id
 
 
 1. While deleting the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
-* machine_id - character (36) - Mandatory
+   * machine_id - character (36) - Mandatory
 2. Delete all records for the id received
 1. Deleted record are not deleted again
 1. Responds with data not found error  if deleted record is received in the request
@@ -1524,18 +1523,18 @@ The record fetched are the latest record existing on or before the date received
 
 
 1. While fetching the machine registration and updation history the system Validates if all required input parameters have been received as listed below for each specific request
-* Machine ID - Mandatory
-* Date - Mandatory
-* Language Code - Mandatory
+   * Machine ID - Mandatory
+   * Date - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message
 1. Validates if the response contain the following attributes for the Machine ID and Language Code Received
-* Machine ID
-* Machine Name
-* Mac Address
-* IP Address
-* Serial Number
-* Machine Spec ID
-* IsActive
+   * Machine ID
+   * Machine Name
+   * Mac Address
+   * IP Address
+   * Serial Number
+   * Machine Spec ID
+   * IsActive
 4. In case of Exceptions, system triggers relevant error messages
 
 #### D. Fetch Machine Details based on a Machine ID and a Language Code
@@ -1544,18 +1543,18 @@ The record fetched are the latest record existing on or before the date received
 On receiving a request to Fetch Machine Details with the input parameters (Machine ID and Language Code), the system Fetches all the Machine attributes for the Machine ID and the Language Code Received
 
 1. While fetching the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
-* Machine ID - Mandatory
-* Language Code
+   * Machine ID - Mandatory
+   * Language Code
 2. If the request has come for fetching all the machine details, responds with all the list of machines
 1. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Validates if the response contain the following attributes for the Machine ID
-* Machine ID
-* Machine Name
-* Mac Address
-* IP Address
-* Serial Number
-* Machine Spec ID
-* IsActive
+   * Machine ID
+   * Machine Name
+   * Mac Address
+   * IP Address
+   * Serial Number
+   * Machine Spec ID
+   * IsActive
 5. In case of Exceptions, system should trigger relevant error messages. 
 
 
@@ -1568,10 +1567,10 @@ On receiving a request to add a mapping of Center, User and Machine with the inp
 
 
 1. While mapping the system Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (10) - Mandatory
-* usr_id- character (36) - Mandatory
-* machine_id - character (10) - Mandatory
-* is_active - boolean - Mandatory
+   * regcntr_id - character (10) - Mandatory
+   * usr_id- character (36) - Mandatory
+   * machine_id - character (10) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Center ID, Machine ID ad User ID for the Center, User and Machine mapping created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database.
@@ -1583,9 +1582,9 @@ On receiving a request to delete a Center-Machine-User mapping with the input pa
 
 
 1. While deleting the system Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (36) - Mandatory
-* machine_id - character (36) - Mandatory
-* usr_id - character (36) - Mandatory
+   * regcntr_id - character (36) - Mandatory
+   * machine_id - character (36) - Mandatory
+   * usr_id - character (36) - Mandatory
 2. Responds with the Center ID, Machine ID ad User ID for the Center, User and Machine mapping deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
@@ -1597,16 +1596,16 @@ The record fetched are  the latest record existing on or before the date receive
 
 
 1. While fetching the mappings the system Validates if all required input parameters have been received as listed below for each specific request
-* Registration Center ID - Mandatory
-* Machine ID - Mandatory
-* User ID - Mandatory
-* Date - Mandatory
+   * Registration Center ID - Mandatory
+   * Machine ID - Mandatory
+   * User ID - Mandatory
+   * Date - Mandatory
 2. If the mandatory input parameters are missing, system throws the appropriate message.
 1. Validates if the response contains following attributes
-* Registration Center ID
-* Machine ID
-* User ID
-* IsActive
+   * Registration Center ID
+   * Machine ID
+   * User ID
+   * IsActive
 4. In case of Exceptions, system triggers relevant error messages. 
 
 
@@ -1617,14 +1616,14 @@ The record fetched are  the latest record existing on or before the date receive
 On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Stores the device in the DB
 
 1. While creating a device the system Validates if all required input parameters have been received as listed below for each specific request
-* name - character (64) - Mandatory
-* mac_address - character (64) - Mandatory
-* serial_num - character (64) - Mandatory
-* ip_address - character (17) - Optional
-* dspec_id - character (36) - Mandatory
-* validity_end_date - date - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * name - character (64) - Mandatory
+   * mac_address - character (64) - Mandatory
+   * serial_num - character (64) - Mandatory
+   * ip_address - character (17) - Optional
+   * dspec_id - character (36) - Mandatory
+   * validity_end_date - date - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Device ID and Language Code for the Device created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database.
@@ -1637,31 +1636,31 @@ On receiving request to Fetch list of all Device with the requirement input para
 
 
 1. While fetching the device types the system Validates if the request contains the following input parameters
-* Device Type - Optional
-* Language Code - Mandatory
+   * Device Type - Optional
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, system throws the appropriate message. 
 1. If the input parameters contains only Language Code:
-* The response contains all the list of devices for all device types against the Languages code received
+   * The response contains all the list of devices for all device types against the Languages code received
 4. If the input parameters contains both Device Type and Language Code:
-* The response  contains the list of devices against the Languages code for that Device Type only
+   * The response  contains the list of devices against the Languages code for that Device Type only
 5. After validation, the above listed parameters system responds with appropriate message if data does not exist against the Language code/Device Type received. 
 1. Validates if the response contains the following attributes for each Device ID, if the input parameters contains only Language Code:
-* Device ID - Mandatory
-* Machine Name - Mandatory
-* Mac Address - Mandatory
-* IP address - Optional
-* Serial Number - Mandatory
-* Device Spec ID - Mandatory
-* IsActive - Mandatory
+   * Device ID - Mandatory
+   * Machine Name - Mandatory
+   * Mac Address - Mandatory
+   * IP address - Optional
+   * Serial Number - Mandatory
+   * Device Spec ID - Mandatory
+   * IsActive - Mandatory
 7. Validates if the response contains the following attributes for each Device ID, if the input parameters contains Device Type and Language Code:
-* Device Type-Mandatory
-* Device ID - Mandatory
-* Machine Name - Mandatory
-* Mac Address - Mandatory
-* IP address - Optional
-* Serial Number - Mandatory
-* Device Spec ID - Mandatory
-* IsActive - Mandatory
+   * Device Type-Mandatory
+   * Device ID - Mandatory
+   * Machine Name - Mandatory
+   * Mac Address - Mandatory
+   * IP address - Optional
+   * Serial Number - Mandatory
+   * Device Spec ID - Mandatory
+   * IsActive - Mandatory
 8. In case of Exceptions, system triggers relevant error messages. 
 
 
@@ -1674,20 +1673,20 @@ The record fetched are  the latest record existing on or before the date receive
 
 
 1. While fetching the device registration and update history the system validates if all required input parameters have been received as listed below for each specific request
-* Device ID - Mandatory
-* Date - Mandatory
-* Language Code - Mandatory
+   * Device ID - Mandatory
+   * Date - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, system throws the appropriate message
 1. Validates if the response contain the following attributes for the Device ID and Language Code Received
-* Device ID - Mandatory
-* Device Name - Mandatory
-* Mac Address - Mandatory
-* IP address - Optional
-* Serial Number - Mandatory
-* Device Spec ID - Mandatory
-* Validity Time - Optional
-* Language Code - Mandatory
-* IsActive - Mandatory
+   * Device ID - Mandatory
+   * Device Name - Mandatory
+   * Mac Address - Mandatory
+   * IP address - Optional
+   * Serial Number - Mandatory
+   * Device Spec ID - Mandatory
+   * Validity Time - Optional
+   * Language Code - Mandatory
+   * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages. 
 	
 
@@ -1700,16 +1699,16 @@ On receiving request to add Device Specifications with the input parameters (nam
 
 
 1. While storing the device specifications the system Validates if all required input parameters have been received as listed below for each specific request
-* name - character (64) - Mandatory
-* brand - character (32) - Mandatory
-* model - character (16) - Mandatory
-* dtyp_code - character (36) - Mandatory
-* min_driver_ver - character (16) - Mandatory
-* descr - character (256) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * name - character (64) - Mandatory
+   * brand - character (32) - Mandatory
+   * model - character (16) - Mandatory
+   * dtyp_code - character (36) - Mandatory
+   * min_driver_ver - character (16) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Device Specification added
-* Device Specification ID
+   * Device Specification ID
 3. Responds with the Device Specification ID and Language Code for the Device Specification created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
@@ -1723,11 +1722,11 @@ On receiving request to update a Language with the input parameters (code, name,
 
 
 1. While updating the language the system Validates if all required input parameters have been received as listed below for each specific request
-* code - character (3) - Mandatory
-* name - character (64) - Mandatory
-* family - character (64) - Optional
-* native_name - character (64) - Optional
-* is_active - boolean - Mandatory
+   * code - character (3) - Mandatory
+   * name - character (64) - Mandatory
+   * family - character (64) - Optional
+   * native_name - character (64) - Optional
+   * is_active - boolean - Mandatory
 2. For the Code received in the request, replaces all the data received in the request against the data existing in the List of languages database against the same code.
 1. Deleted record are not updated
 1. Responds with data not found error  if deleted record is received in the request
@@ -1739,7 +1738,7 @@ On receiving request to update a Language with the input parameters (code, name,
 On receiving request to delete a Language with the input parameters (code), the system Updates the is_deleted flag to true in the List of languages DB against the code received in request
 
 1. While deleting the list of language the system Validates if all required input parameters have been received as listed below for each specific request
-* code - character (3) - Mandatory
+   * code - character (3) - Mandatory
 2. Deleted record should are not deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Respond with the Language Code for the language successfully deleted
@@ -1754,14 +1753,14 @@ Upon receiving a request to add Device Type with the input parameters (code, nam
 
 
 1. While creating device type the system validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Device Type added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Device Type Code and Language Code for the Device Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
@@ -1773,15 +1772,15 @@ Upon receiving a request update a Device with the input parameters (id, name, ma
 
 
 1. While updating the device in device type list the system Validates if all required input parameters have been received as listed below for each specific request
-* id - character (36) - Mandatory
-* name - character (64) - Mandatory
-* brand - character (64) - Mandatory
-* model - character (16) - Mandatory
-* dtyp_code - character (36) - Mandatory
-* min_driver_ver - character (16) - Mandatory
-* descr - character (256) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * id - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * brand - character (64) - Mandatory
+   * model - character (16) - Mandatory
+   * dtyp_code - character (36) - Mandatory
+   * min_driver_ver - character (16) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the id received in the request, replaces all the data received in the request against the data existing in the List of Devices database against the same id.
 1. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
@@ -1794,7 +1793,7 @@ Upon receiving a request to delete a Device with the input parameters (id) and U
 
 
 1. While deleting the device in the device list the system validates if all required input parameters have been received as listed below for each specific request
-* id - character (36) - Mandatory
+   * id - character (36) - Mandatory
 2. Delete all records for the id received
 1. Deleted record are not  deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -1809,9 +1808,9 @@ Upon receiving a request to delete a Device with the input parameters (id) and U
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
-* machine_id - character (10) – Mandatory (refers to a Machine stored in Machine Masterdata)
-* is_active - boolean - Mandatory
+   * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
+   * machine_id - character (10) – Mandatory (refers to a Machine stored in Machine Masterdata)
+   * is_active - boolean - Mandatory
 2. Responds with the Machine Id and Center ID for the mapping of Machine and Center created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database as listed below
@@ -1829,8 +1828,8 @@ Error occurred while inserting a mapping of Machine and Center|	KER-MSD-074
 
 Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id), the system updates the is_deleted flag to true in the Center-Machine mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (36) - Mandatory
-* machine_id - character (36) - Mandatory
+   * regcntr_id - character (36) - Mandatory
+   * machine_id - character (36) - Mandatory
 2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request.
 1. Responds with the Machine Id and Center ID for the mapping of Machine and Center deleted successfully
@@ -1851,9 +1850,9 @@ Mapping for Machine and Center not found|	KER-MSD-114|
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata DB
 Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
-* device_id - character (36) – Mandatory (refers to a Device stored in Device Masterdata)
-* is_active - boolean - Mandatory
+   * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
+   * device_id - character (36) – Mandatory (refers to a Device stored in Device Masterdata)
+   * is_active - boolean - Mandatory
 2. Responds with the Device Id and Center ID for the mapping of Device and Center created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database as listed below
@@ -1871,8 +1870,8 @@ Error occurred while inserting a mapping of Device and Center|	KER-MSD-075|
 #### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata DB
 Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_deleted flag to true in the Center-Device mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (36) - Mandatory
-* device_id - character (36) - Mandatory
+   * regcntr_id - character (36) - Mandatory
+   * device_id - character (36) - Mandatory
 2. Deleted record should not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
@@ -1898,10 +1897,10 @@ Mapping for Device and Center not found	|KER-MSD-115|
 
 Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system store the Mapping of Center, Machine and Device in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (36) – Mandatory (refers to a Registration Center stored in Registration Center Masterdata)
-* machine_id - character (36) – Mandatory (refers to a Registration Center stored in Registration Center Masterdata)
-* device_id - character (36) – Mandatory (refers to a Device stored in Device Masterdata)
-* is_active - boolean - Mandatory
+   * regcntr_id - character (36) – Mandatory (refers to a Registration Center stored in Registration Center Masterdata)
+   * machine_id - character (36) – Mandatory (refers to a Registration Center stored in Registration Center Masterdata)
+   * device_id - character (36) – Mandatory (refers to a Device stored in Device Masterdata)
+   * is_active - boolean - Mandatory
 2. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database as listed below
@@ -1918,9 +1917,9 @@ Error occurred while inserting a mapping of Center, Machine and Device|	KER-MSD-
 #### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata DB
 Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id), the system updates the is_deleted flag to true in the Center-Machine-Device mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* regcntr_id - character (36) - Mandatory
-* machine_id - character (36) - Mandatory
-* device_id - character (36) - Mandatory
+   * regcntr_id - character (36) - Mandatory
+   * machine_id - character (36) - Mandatory
+   * device_id - character (36) - Mandatory
 2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
@@ -1946,7 +1945,6 @@ Upon receiving a request to generate License Key with input parameters (TSP ID, 
 1. Fetch the length from the configurations
 
 1. Validate if the request contains the following input parameters
-
    * TSP ID - Mandatory
    * Expiry Time - Mandatory
    * If the mandatory input parameters are missing, throw the appropriate message. Refer "Messages" section.
@@ -1984,7 +1982,6 @@ Upon receiving a request to fetch permissions for a License Key with input param
 2. If the mandatory input parameters are missing, throws the appropriate message.
 
 1. Validate the License key based on following logic
-
    * License key received should be mapped to the TSP ID received in the request
    * License key should not be expired as per the expiry time mapped to the License Key
 
