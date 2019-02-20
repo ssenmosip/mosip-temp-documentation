@@ -70,7 +70,6 @@ Upon receiving a request to fetch the Location Hierarchy Levels with input param
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
 
 Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data
-
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
    * Language Code - Mandatory
@@ -117,8 +116,6 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Responds to the source with the data fetched
 1. In case of Exceptions, system should triggers  error message. 
-
-
 
 ### 1.2 List of Holidays - Create/Read/Update/Delete
 #### A. Create Holiday data in Masterdata DB
@@ -177,7 +174,6 @@ On receiving a  request to delete a Location with the input parameters (code), t
    * code - character (36) - Mandatory
 7. In case of Exceptions, system triggers relevant error messages. 
 
-
 ### 1.3 Biometric Authentication Type - Create/Read/Update/Delete
 #### A. Create Biometric Authentication Type in Masterdata DB
 On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the DB
@@ -200,7 +196,6 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 1. Responds to the source with List of Biometric Authentication Type
 1. In case of Exceptions, system triggers relevant error messages
 
-
 ### 1.4 Biometric Attribute Type - Create/Read/Update/Delete
 
 #### A. Create Biometric Attribute in Masterdata DB
@@ -219,7 +214,6 @@ On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb
 1. Responds to the source with the appropriate message.
 1. In case of Exceptions, system triggers error messages as received from the Database
 
-
 #### B. Fetch the List of Biometric Attributes based on the Biometric Authentication Type and a Language Code
 
 On receiving a request to fetch the List of Biometric Attributes with input parameters (Biometric Authentication Type and Language Code), the system fetches the List of Biometric Attributes against the Biometric Authentication Type and the Language Code Received
@@ -237,7 +231,6 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 6. Responds to the source with the Fetched Data
 1. In case of Exceptions, system triggers relevant error messages
 
-
 ### 1.5 Gender - Create/Read/Update/Delete
 #### A. Create Gender Types in Masterdata DB
 
@@ -252,7 +245,6 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
 1. Responds to the source with the appropriate message
 1. In case of Exceptions, system will trigger error messages as received from the Database.
  
-
 #### B. Update and Delete a Gender Type in Gender Type Masterdata DB
 
 ##### (i) Update
@@ -269,7 +261,6 @@ On receiving a request to update a Gender Type with the input parameters (code, 
 1. Responds with the Gender Type Code and Language Code for the Gender Type updated successfully
 1. In case of Exceptions, system triggers relevant error messages.
 ##### (ii) Delete
-
 
 On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -302,7 +293,6 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 4. Responds to the source with the List of Gender Types
 5. In case of Exceptions, system triggers relevant error messages
 
-
 ### 1.6 Document Category - Create/Read/Update/Delete
 
 #### A. Create Document Category in Master Data
@@ -321,11 +311,9 @@ On receiving a request to add Document Category with the input parameters (code,
 1. Responds to the source with the appropriate message.
 1. In case of Exceptions, system triggers relevant error messages
 
-
 #### B. Update and Delete a Document Category in the Document Category Masterdata DB
 
 ##### (i) Update
-
 
 On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category DB for the Code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -342,7 +330,6 @@ On receiving a request to update a Document Category with the input parameters (
 
 ##### (ii) Delete
 
-
 On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -354,7 +341,6 @@ On receiving a request to delete a Document Category with the input parameters (
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Fetch list of Document Categories based on a Language Code
-
 
 On receiving a request to fetch Document Category Details with the input parameters (Language Code), the system fetches all the Document Categories for the Language Code Received
 
@@ -368,12 +354,9 @@ On receiving a request to fetch Document Category Details with the input paramet
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-
 ### 1.7 Document Type - Create/Read/Update/Delete
 
-
 #### A. Create Document Type in Master Data
-
 
 On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -388,11 +371,9 @@ On receiving a request to add Document Type with the input parameters (code, nam
 3. Responds with the Document Type Code and Language Code for the Document Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-
 #### B. Update and Delete a Document Type in the Document Type Masterdata DB
 
 ##### (i) Update
-
 
 On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active), the system updates the Document Type in the Document Type DB for the Code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -407,7 +388,6 @@ On receiving a request to update a Document Type with the input parameters (code
 1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-
 ##### (ii) Delete
 
 On receiving a request to delete a Document Type with the input parameters (code), the system updates the is_deleted flag to true in the Document Type DB against the code received
@@ -419,7 +399,6 @@ On receiving a request to delete a Document Type with the input parameters (code
 1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
 1. Responds with the Document Category Code for the Document Category deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
-
 
 ### 1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete
 
@@ -440,7 +419,6 @@ On receiving a request to add Document Type with the input parameters (code, nam
 
 #### B. Fetch List of Document Types based on Document Category and a Language Code
 
-
 On receiving a request to fetch the List of Document Types with input parameters (Document Category Code and Language Code), the system fetches the List of Document Types against the Document Category Code and language Code Received
 1. Validates if the request contains the following input parameters
    * Document Category Code - Mandatory
@@ -454,7 +432,6 @@ On receiving a request to fetch the List of Document Types with input parameters
 
 #### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata DB
 
-
 On receiving a request to delete a Document Category-Type mapping with the input parameters (doccat_code, doctyp_code), the system updates the is_deleted flag to true in the Document Category-Type mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * doccat_code - character (36) - Mandatory
@@ -462,9 +439,7 @@ On receiving a request to delete a Document Category-Type mapping with the input
 3. Responds with the doc_type Code and doccat_code for the Document Category-Type mapping deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-
 #### D. Fetch applicant type based on Individual Type Code, Date of Birth, Gender Type Code and Biometric Exception Type
-
 
 On receiving a request to get Applicant type with input parameters (Individual Type Code, Date of Birth, Gender Type Code and Biometric Exception Type), the system derives the Applicant Type from the input parameter
 1. Validates if the request contains the following input parameters
@@ -479,9 +454,7 @@ On receiving a request to get Applicant type with input parameters (Individual T
 1. Derives the applicant type as per the define logic
 1. In case of Exceptions, system triggers relevant error messages
 
-
 #### E. Check the mapping of Applicant Type-Document Category Name-Document Type Name
-
 
 On receiving a request to check the mapping of Applicant Type-Document Category-Document Type mapping parameters (Applicant Type, Document Category Name and Document Type Name), the system checks the mapping
 
@@ -493,7 +466,6 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 1. If the mapping exists, responds with "Valid".
 1. If the mapping does not exist, responds with "Invalid".
 1. In case of Exceptions, system triggers relevant error messages
-
 
 ### 1.9 List of Rejection Reasons - Create/Read/Update/Delete
 #### A. Create a Rejection Reason in Reason List Master Data
@@ -513,7 +485,6 @@ Upon receiving a request to add a Reason with the input parameters (code, name, 
    * Rsncat_code (Reason Category Code)
 
 3. Responds to the source with the appropriate message.
-
 4. In case of Exceptions, system triggers relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
@@ -527,7 +498,6 @@ NA|	NA|	NA
 Error occurred while inserting Reason details|	KER-MSD-058|
 
 #### B. Fetch the requested list of reasons based on Reason Category Code and Language Code
-
 
 Upon receiving a request to Fetch the requested List of Reasons with the required input parameters (Reason 1. Category Code, Language Code), the system fetches the requested List of reasons stored against the Reason Category Code and Language Code received
 1. Validates if the request contains the following input parameters
@@ -556,16 +526,11 @@ NA|	NA|	NA
 Error occurred while fetching Reasons	|KER-MSD-035|
 Reason not found	|KER-MSD-036|
 
-
-
 ### 1.10 List of Languages - Create/Read/Update/Delete
-
 
 #### A. Create List of Languages in Master Data
 
-
 After receiving a request to add Language Details with the input parameters (code, name, family, native_name and is_active), the system stores the Language Details in the DB
-
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (3) - Mandatory
@@ -577,7 +542,6 @@ After receiving a request to add Language Details with the input parameters (cod
 1. In case of Exceptions, system triggers relevant error messages
 
 #### B. Fetch the List of Languages
-
 
 After receiving a request to fetch the List of Languages the system fetches the List of Languages
 
@@ -591,7 +555,6 @@ After receiving a request to fetch the List of Languages the system fetches the 
 #### C. Update and Delete a Language in the List of Languages Masterdata DB
 
 ##### (i) Update
-
 
 After receiving a request to update a Language with the input parameters (code, name, family, native_name and is_active), the system updates the Language Details in the List of languages DB for the Code received in request
 
@@ -607,9 +570,7 @@ After receiving a request to update a Language with the input parameters (code, 
 1. Responds with the Language Code for the language successfully updated
 1. In case of Exceptions, system triggers relevant error messages
 
-
 ##### (ii) Delete
-
 
 After receiving a request to delete a Language with the input parameters (code), the system updates the is_deleted flag to true in the List of languages DB against the code received in request
 
@@ -620,13 +581,11 @@ After receiving a request to delete a Language with the input parameters (code),
 1. Responds with the Language Code for the language successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-
 ### 1.11 List of Titles - Create/Read/Update/Delete
 
 #### A.	Create a Title in Masterdata DB
 
 On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Title in the DB
-
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
@@ -640,7 +599,6 @@ On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameter
 #### B.	Update and Delete a Title in Title Masterdata DB
 
 ##### (i) Update
-
 
 On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active), the system updates the Title in the Title DB for the code received
 
@@ -668,11 +626,9 @@ On receiving a request to delete a Title with the input parameters (code), the s
 1. Responds with the Title Code for the Title created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-
 #### C. Fetch the List of Titles based on a Language Code
 
 On receiving a request to fetch Title Details with the input parameters (Language Code), the system fetches all the Titles with all the attributes for the Language Code Received
-
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Language Code - Mandatory
@@ -684,11 +640,9 @@ On receiving a request to fetch Title Details with the input parameters (Languag
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-
 ### 1.12 Template File Format - Create/Read/Update/Delete
 
 #### A. Create Template File Format in Master Data
-
 
 On receiving a request to add Template File Format with the input parameters (code, descr, lang_code and is_active), the system stores the Template File Format in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -701,7 +655,6 @@ On receiving a request to add Template File Format with the input parameters (co
    * Language Code
 3. Responds with the Template File Format Code and Language Code for the Template File Format created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
-
 
 ### 1.13 List of Template Types - Create/Read/Update/Delete
 MOSIP system can create Template Type in the Masterdata DB.
@@ -716,9 +669,7 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
    * is_active - boolean – Mandatory
 
 2. Responds with the Template Type Code and Language Code for the Template Type created successfully
-
 3. This component also restrict the bulk creation of Master Data
-
 4. In case of Exceptions, system triggers relevant error messages as listed below.
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -733,7 +684,6 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
 #### A. create Template in the Masterdata DB
-
 
 On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system stores the Template in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -754,9 +704,7 @@ On receiving a request to add a Template with the input parameters (id, name, de
 
 #### B. Fetch Template based on a Template Type and a Language Code
 
-
 On receiving a request to fetch a Template with the input parameters (Template Type Code and List of Language Code), the system fetches the Template for the Template Type Code and all Language Codes received
-
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Template Type Code - Mandatory
@@ -768,7 +716,6 @@ On receiving a request to fetch a Template with the input parameters (Template T
    * Template - Mandatory
    * IsActive
 5. In case of Exceptions, system triggers relevant error messages
-
 
 #### C. Update and Delete a Template in Template Masterdata DB
 
@@ -794,7 +741,6 @@ On receiving a request to update a Template with the input parameters (id, name,
 1. Responds with the Template Id and Language Code for the Template updated successfully
 1. In case of Exceptions, system triggers relevant error messages.
 
-
 ##### (ii) Delete
 
 On receiving a request to delete a Template with the input parameters (id), the system Updates the is_deleted flag to true in the Template DB against the id received
@@ -806,7 +752,6 @@ On receiving a request to delete a Template with the input parameters (id), the 
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Template Id for the Template deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
-
 
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
 
@@ -874,7 +819,6 @@ Error occurred while deleting Blacklisted Word	|KER-MSD-106|
 Blacklisted Words not found	|KER-MSD-008|
 
 
-
 ### 1.16 List of Reason Categories - Create/Read/Update/Delete
 
 MOSIP system can create a Reason Category in Master Data
@@ -893,7 +837,6 @@ Upon receiving a request to add Reason Category with the input parameters (code,
    * Code
    * Language Code
 3. Responds with the Reason Category code and Language Code for the Reason Category created successfully
-
 4. In case of Exceptions, system triggers relevant error messages as listed below
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -1037,20 +980,12 @@ Error occurred while fetching ID Types|	KER-MSD-021|
 ID Type not found	|KER-MSD-022|
 
 
-
-
-
-
-
-
-
 ## 2. Registration Management
 ### 2.1 Registration Center Type - Create/Read/Update/Delete
 
 #### A. Create Registration Center Type in Master Data
 
 On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system store the Registration Center Type in the DB
-
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -1098,12 +1033,10 @@ On receiving a request to delete a Registration Center Type with the input param
 1. Responds with the Registration Center Type code for the Registration Center Type successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-
 ### 2.2 Registration Center - Create/Read/Update/Delete
 
 
 #### A. Create a Registration Center record in Masterdata DB
-
 
 Upon receiving a request to add Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours
 per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system Stores the Registration Center in the DB
@@ -1208,7 +1141,6 @@ On receiving a request to fetch Registration Center Details with the input param
 4. In case of Exceptions, system triggers relevant error messages. 
 
 #### D. Fetch Registration Center record based on a Registration center ID, Date and Language Code from the Registration Center Updation/Creation History table
-
 
 On receiving a request to fetch Registration Center Creation/Updation History Detail with the input parameters (Registration Center ID, Date and Language Code), the system fetches all the attributes of Registration Center from the history table for the Registration Center ID, Date and Language Code received
 
@@ -1357,7 +1289,6 @@ On receiving a request to fetch Registration Center Details with the input param
    * Timestamp - 6:00 PM - Accepted
    * Timestamp - 6:01 PM - Rejected
 6. In case of Exceptions, system trigger relevant error messages
-
 
 
 ### 2.3 List of Machine Types - Create/Read/Update/Delete
@@ -1802,9 +1733,6 @@ Upon receiving a request to delete a Device with the input parameters (id) and U
 1. Responds with the Device ID for the Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-
-
-
 ### 2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete
 #### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata DB
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the DB
@@ -1889,11 +1817,7 @@ NA|	NA|	NA
 Error occurred while deleting a mapping of Device and Center|	KER-MSD-105|
 Mapping for Device and Center not found	|KER-MSD-115|
 
-
-
-
 ### 2.12 Mappings of Registration Center, Machine, and Device - Create/Read/Update/Delete
-
 
 ### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata DB
 
