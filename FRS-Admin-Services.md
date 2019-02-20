@@ -39,8 +39,8 @@
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
 
 #### A. Create Location Hierarchy in the Masterdata DB
-Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system store the Location hierarchy in the DB
-1. Validates if all required input parameters have been received as listed below for each specific request
+Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the DB
+1. While storing the location hierarchy the system Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (128) - Mandatory
    * hierarchy_level - smallint - Mandatory
@@ -48,13 +48,13 @@ Upon receiving a request to add Location hierarchy (e.g., Country - Region - Pro
    * parent_loc_code - character (32) - Optional
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
-2. Responds with the Code and Language Code for the Location Hierarchy created successfully
+2. Responds with the Language Code for the Location Hierarchy created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
 
 #### B. Check the existence of a Location in Master DB
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master DB
-1. Validates if the request contains the following input parameters
+1. While checking the location in the DB the system validates if the request contains the following input parameters
    * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
