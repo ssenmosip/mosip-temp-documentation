@@ -29,24 +29,29 @@
     * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility)
 # Common Services
 ## 1. OTP Manager
-OTP Manager Component handles OTP Generation and OTP Validation
+### A. OTP Generation
+1. OTP Manager Component handles OTP Generation and OTP Validation
 
 
-For OTP generation, system receives a request to generate an OTP along with a Key in input parameter. 
+1. For OTP generation, system receives a request to generate an OTP along with a Key in input parameter. 
 
 
-This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
+1. This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
 
-The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
+1. The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
 
+### B. OTP Validation
+1. For OTP Validation, system receives a request to validate an OTP with a Key and OTP in input parameter. 
 
-For OTP Validation, it receives a request to validate an OTP with a Key and OTP in input parameter. The component validates the OTP against the expiry and then will validate the OTP against the Key if the OTP is not expired. 
+1. The component validates the OTP against the expiry and then validates the OTP against the Key if the OTP is not expired. 
 
-If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
+1. If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”. 
+
+1. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
 
 
 ## 2. QR Code Generator
-QR code generator will take the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
+QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
 ## 3. Crypto Services
 Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
 
@@ -65,7 +70,7 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
 ### 3.1 Key Generator
-This component will receive a request to generate Symmetric and Asymmetric (Public/Private Keys). It will receive a request to generate a Key. It will generate and respond with the Key to the source.
+This component receives a request to generate Symmetric and Asymmetric (Public/Private Keys). It receives a request to generate a Key. It generates and responds with the Key to the source.
 
 ### 3.2 Key Management
 
