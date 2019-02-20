@@ -39,7 +39,7 @@
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
 
 #### A. Create Location Hierarchy in the Masterdata DB
-Upon receiving a request to add Location hierarchy (E.g, Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system store the Location hierarchy in the DB
+Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system store the Location hierarchy in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
 * code - character (36) - Mandatory
 * name - character (128) - Mandatory
@@ -112,7 +112,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 * Location Code - Mandatory
 * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
-1. Fetches the Location data of only the child hierarchy of location code received (For e.g, if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
+1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Respond to the source with the data fetched
 1. In case of Exceptions, system should triggers  error message. 
 
@@ -620,7 +620,7 @@ After receiving a request to delete a Language with the input parameters (code) 
 
 #### A.	Create a Title in Masterdata DB
 
-On receiving a request to add a Title (e.g, MR., Mrs.) with the input parameters (code, name, descr, lang_code and is_active) the system stores the Title in the DB
+On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameters (code, name, descr, lang_code and is_active) the system stores the Title in the DB
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -701,7 +701,7 @@ On receiving a request to add Template File Format with the input parameters (co
 ### 1.13 List of Template Types - Create/Read/Update/Delete
 MOSIP system can create Template Type in the Masterdata DB.
 
-Upon receiving a request to add Template Type (e.g, SMS Notification template - New Registration) with the input 
+Upon receiving a request to add Template Type (e.g., SMS Notification template - New Registration) with the input 
 parameters (code, descr, lang_code and is_active) the system stores the Template Type in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1338,7 +1338,7 @@ On receiving a request to fetch Registration Center Details with the input param
 * The Registration Center corresponding to the Registration Center ID received must be not on a holiday on the date received in the input parameter.
 * The Timestamp received in the input parameter must be greater the Registration Center Opening time and Less than or equal to Closing time + 1 Hour.
 4. Responds with the reject scenario if the above two conditions together are not met.
-1. E.g. If the Registration center in not on a holiday and its opening and closing time is (9:00 AM to 5:00 PM). Find the sample response below for different timestamp received.
+1. E.g., If the Registration center in not on a holiday and its opening and closing time is (9:00 AM to 5:00 PM). Find the sample response below for different timestamp received.
 * Timestamp - 4:00 PM - Accepted
 * Timestamp - 5:00 PM - Accepted
 * Timestamp - 6:00 PM - Accepted
@@ -1351,7 +1351,7 @@ On receiving a request to fetch Registration Center Details with the input param
 
 MOSIP system can create Machine Type in Masterdata DB
 
-Upon receiving a request to add Machine Type (e.g, Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
+Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
 
