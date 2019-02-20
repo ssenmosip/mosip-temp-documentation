@@ -1034,6 +1034,58 @@ ID Type not found	|KER-MSD-022|
 ## 2. Registration Management
 ### 2.1 Registration Center Type - Create/Read/Update/Delete
 
+#### A. Create Registration Center Type in Master Data
+
+On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active) the system store the Registration Center Type in the DB
+
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Validates if the response contains the following attributes for a Registration Center Type added
+* Code
+* Language Code
+3. Responds with the Registration Center Type code and Language Code for the Registration Center Type successfully created
+1. In case of Exceptions, system triggers relevant error messages. 
+
+	
+#### B. Update and Delete a Registration Center Type in the Registration Center Type Masterdata DB
+
+##### (i) Update
+
+On receiving a request to update a Registration Center Type with the input parameters (code, name, descr, lang_code and is_active) the system Updates the Registration Center Type Details in the Registration Center Type DB for the Code received
+
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+1. code - character (36) - Mandatory
+* name - character (64) - Mandatory
+* descr - character (128) - Optional
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the Code received in the request, replaces all the data received in the request against the data existing in the Registration Center Type database against the same code.
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Registration Center Type code and Language Code for the Registration Center Type successfully updated
+1. In case of Exceptions, system triggers relevant error messages
+
+##### (ii) Delete
+
+On receiving a request to delete a Registration Center Type with the input parameters (code) the system updates the is_deleted flag to true in the Registration Center Type DB against the code received
+
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (36) - Mandatory
+2. Delete all records for the code received
+1. Deleted record are deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Registration Center Type code for the Registration Center Type successfully deleted
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
 ### 2.2 Registration Center - Create/Read/Update/Delete
 
 ### 2.3 List of Machine Types - Create/Read/Update/Delete
