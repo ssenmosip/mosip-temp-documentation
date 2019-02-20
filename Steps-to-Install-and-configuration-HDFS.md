@@ -41,9 +41,15 @@ tar -xzf hadoop-2.8.1.tar.gz
 mv hadoop-2.8.1 hadoop
 ```
 ### Set Environment Variables
-Add Hadoop binaries to your PATH. Edit /home/hadoop/.profile and add the following line:
+Add Hadoop binaries to your PATH. Edit /home/hadoop/.bashrc and add the following line:
 ```
-PATH=/home/hadoop/hadoop/bin:/home/hadoop/hadoop/sbin:$PATH
+export HADOOP_HOME=$HOME/hadoop
+export HADOOP_CONF_DIR=$HOME/hadoop/etc/hadoop
+export HADOoP_MAPRED_HOME=$HOME/hadoop
+export HADOOP_COMMON_HOME=$HOME/hadoop
+export HADOOP_HDFS_HOME=$HOME/hadoop
+export YARN_HOME=$HOME/hadoop
+export PATH=$PATH:$HOME/hadoop/bin
 ```
 ### Configure the Master Node
 Configuration will be done on node-master and replicated to other nodes.
