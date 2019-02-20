@@ -28,6 +28,13 @@ The UINs generated follows the following policies:
 1. UIN should not contain ADMIN defined restricted number
 
 ## 2. Configuration Server
+
+The Central config server provides following functionality
+1.	It provides functionality to read XML files and Property files
+2.	It helps to manage all the configuration files stored at a centralized location in Git
+3.	It provides a functionality to change the property for a micro-service , it can reflect the changes dynamically without redeploying the micro-service.
+4.	This component allows all the configurations to come from a central server
+
 ## 3. Audit Manager
 Audit Manager takes data from different Modules and stores it in the Audit DB. It needs to receive following attribute against each audit record. 
 1. Audit Event ID - Mandatory
