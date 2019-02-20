@@ -2,7 +2,7 @@
 - [Common Services](#common-services)
   * [1. OTP Manager](#1-otp-manager)
   * [2. QR Code Generator](#2-qr-code-generator)
-  * [3. Crypto](#3-crypto)
+  * [3. Crypto Services](#3-crypto)
     * [3.1 Key Generator](#31-key-generator)
     * [3.2 Key Management](#32-key-management)
     * [3.3 Crypto Utility](#33-crypto-utility)
@@ -43,7 +43,7 @@ For OTP Validation, it receives a request to validate an OTP with a Key and OTP 
 
 ## 2. QR Code Generator
 QR code generator will take the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
-## 3. Crypto
+## 3. Crypto Services
 Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
 
 #### A. For Encryption
