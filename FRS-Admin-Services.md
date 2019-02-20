@@ -558,6 +558,64 @@ Reason not found	|KER-MSD-036|
 
 ### 1.10 List of Languages - Create/Read/Update/Delete
 
+
+#### A. Create List of Languages in Master Data
+
+
+After receiving a request to add Language Details with the input parameters (code, name, family, native_name and is_active) the system stores the Language Details in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (3) - Mandatory
+* name - character (64) - Mandatory
+* family - character (64) - Optional
+* native_name - character (64) - Optional
+* is_active - boolean - Mandatory
+2. Responds with the Language Code for the language successfully created
+1. In case of Exceptions, system triggers relevant error messages
+
+#### B. Fetch the List of Languages
+
+
+After receiving a request to fetch the List of Languages the system fetches the List of Languages
+
+1. Validates if the response contains the List of all Languages with the following attributes
+* Language Code - Mandatory
+* Language Name - Mandatory
+* IsActive – Mandatory
+2. Respond to the source with the List of Languages
+1. In case of Exceptions, system triggers relevant error messages
+
+#### C. Update and Delete a Language in the List of Languages Masterdata DB
+
+##### (i) Update
+
+
+After receiving a request to update a Language with the input parameters (code, name, family, native_name and is_active) the system updates the Language Details in the List of languages DB for the Code received in request
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (3) - Mandatory
+* name - character (64) - Mandatory
+* family - character (64) - Optional
+* native_name - character (64) - Optional
+* is_active - boolean - Mandatory
+2. For the Code received in the request, replaces all the data received in the request against the data existing in the List of languages database against the same code.
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Language Code for the language successfully updated
+1. In case of Exceptions, system triggers relevant error messages
+
+
+##### (ii) Delete
+
+
+After receiving a request to delete a Language with the input parameters (code) the system updates the is_deleted flag to true in the List of languages DB against the code received in request
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* code - character (3) - Mandatory
+2. Deleted record should not deleted again
+1. Responds with data not found error  if deleted record is received in the request
+1. Responds with the Language Code for the language successfully deleted
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
 ### 1.11 List of Titles - Create/Read/Update/Delete
 
 ### 1.12 Template File Format - Create/Read/Update/Delete
