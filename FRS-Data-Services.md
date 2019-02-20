@@ -31,50 +31,48 @@ Data Access Manager provides a DAO (Data access object) interface to do the foll
 1. Provide an interface to call DB functions
 
 ## 3. Sync Handler
-Sync Handler allows registration client to sync Master data, List of User, Roles and respective mappings and Configurations (Registration Client specific and Global configs).
+1. Sync Handler allows registration client to sync Master data, List of User, Roles and respective mappings and Configurations (Registration Client specific and Global configs).
 
 
-Sync Handler also allows Registration Client to push data from Client local database to Master Database.
+1. Sync Handler also allows Registration Client to push data from Client local database to Master Database.
 
 
-As part of Masterdata Sync, the service will receive a Machine ID and Timestamp, looks for a mapped Center id to that Machine ID and responds to the Registration Client with the Center specific Master data for the following tables.
+1. As part of Masterdata Sync, the service receives a Machine ID and Timestamp, looks for a mapped Center id to that Machine ID and responds to the Registration Client with the Center specific Master data for the following tables.
+   * Registration Center Type
+   * List of Registration Center
+   * Template File Format
+   * Template Type
+   * Templates
+   * Reason Category
+   * List of Reasons
+   * Document Category
+   * Document Type
+   * Mapping of Document Category-Type (refer table "Valid Documents")
+   * Machine Type
+   * Machine Specifications
+   * List of Machines
+   * Device Types
+   * Device Specifications
+   * List of Devices
+   * Location Hierarchy
+   * List of Languages
+   * List of Genders
+   * Biometric Authentication type - (refer table "Biometric Type")
+   * Biometric Attribute
+   * Center-Machine Mapping
+   * Center-Device Mapping
+   * Center-Machine-Device Mapping
+   * Center-Machine-User Mapping
+   * Center-User Mapping
 
 
-1. Registration Center Type
-1. List of Registration Center
-1. Template File Format
-1. Template Type
-1. Templates
-1. Reason Category
-1. List of Reasons
-1. Document Category
-1. Document Type
-1. Mapping of Document Category-Type (refer table "Valid Documents")
-1. Machine Type
-1. Machine Specifications
-1. List of Machines
-1. Device Types
-1. Device Specifications
-1. List of Devices
-1. Location Hierarchy
-1. List of Languages
-1. List of Genders
-1. Biometric Authentication type - (refer table "Biometric Type")
-1. Biometric Attribute
-1. Center-Machine Mapping
-1. Center-Device Mapping
-1. Center-Machine-Device Mapping
-1. Center-Machine-User Mapping
-1. Center-User Mapping
+4. The Sync Handler service only sends incremental changes based on the Timestamp received by the service.
 
 
-The Sync Handler service will only send incremental changes based on the Timestamp received by the service.
+1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations
 
 
-For configuration, sync handler will receive a request to sync configurations and will respond back with Registration Client specific and Global Configurations
-
-
-For User, Roles and Respective User-Role mappings, Sync handler will receive Machine ID and Timestamp and will respond to the Registration Client will Center specific incremental changes.
+1. For User, Roles and Respective User-Role mappings, Sync handler receives Machine ID and Timestamp and will respond to the Registration Client about Center specific incremental changes.
 
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
@@ -83,12 +81,12 @@ MOSIP system can perform Static PIN validation against a defined Static PIN logi
 
 Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validate Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
 
-1. Validate if the request has the following input parameters.
-* Static PIN
-2. Validate if the Static PIN is of configured length. (Current configured length = 6)
-1. Validate if the Static PIN is only numerical.
+1. Validates if the request has the following input parameters.
+   * Static PIN
+2. Validates if the Static PIN is of configured length. (Current configured length = 6)
+1. Validates if the Static PIN is only numerical.
 
-In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
+In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
