@@ -1380,6 +1380,69 @@ NA|	NA|	NA
 
 ### 2.4 List of Machine Specifications - Create/Read/Update/Delete
 
+
+#### A. Create Machine Specifications in the Masterdata DB
+
+
+On receiving a request to add Machine Specifications with the input parameters (name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system stores the Machine Specifications in the DB
+
+1. While creating machine specification in DB the system validates if all required input parameters have been received as listed below for each specific request
+* Id - character (36) - Mandatory
+* name - character (64)- Mandatory
+* brand - character (32)- Mandatory
+* model - character (16)- Mandatory
+* mtyp_code - character (36)- Mandatory
+* min_driver_ver - character (16)- Mandatory
+* descr - character (256)- Optional
+* lang_code - character (3)- Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Machine Specification ID and Language Code for the Machine Specification created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database
+
+#### B. Update and Delete a Machine Specification in the Machine Specification Masterdata DB
+
+##### (i) Update
+
+
+On receiving a request to update a Machine Specification with the input parameters (id, name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system updates the Machine Specification Details in the Machine Specification DB for the id received
+
+
+While updating the Machine Specification the system validates the following
+
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* id - character (36) - Mandatory
+* name - character (64)- Mandatory
+* brand - character (32)- Mandatory
+* model - character (16)- Mandatory
+* mtyp_code - character (36)- Mandatory
+* min_driver_ver - character (16)- Mandatory
+* descr - character (256)- Optional
+* lang_code - character (3)- Mandatory
+* is_active - boolean - Mandatory
+2. For the id received in the request, replaces all the data received in the request against the data existing in the Machine Specification database against the same id.
+1. Deleted record are not updated
+1. Responds with data not found error, if deleted record is received in the request
+1. Responds with the Machine Specification ID and Language Code for the Machine Specification updated successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+##### (ii) Delete
+
+
+On receiving a request to delete a Machine Specification with the input parameters (id), the system Updates the is_deleted flag to true in the Machine Specification DB against the id received
+
+
+1. While deleting the machine specifications the system validates if all required input parameters have been received as listed below for each specific request
+* id - character (36) - Mandatory
+2. Delete all records for the id received
+1. Deleted record are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Machine Specification ID for the Machine Specification deleted successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+
 ### 2.5 List of Machines - Create/Read/Update/Delete
 
 ### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete
