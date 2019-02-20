@@ -3,8 +3,8 @@
   * [1. UIN Generation](#1-uin-generation)
   * [2. Configuration Server](#2-configuration-server)
   * [3. Audit Manager](#3-audit-manager)
-  * [4. Log Manager](#4-log-manager)
-  * [5. LDAP / Authorization](#5-ldap--authorization)
+    * [3.1 Log Manager](#31-log-manager)
+  * [4. LDAP / Authorization](#4-ldap--authorization)
 # Sub-Systems
 ## 1. UIN Generation
 MOSIP generates a pool of UINs before the registration process and stores them. 
@@ -57,14 +57,14 @@ Audit Manager takes data from different Modules and stores it in the Audit DB. I
 1. Audit Log Description - Optional
 1. Created By, (Actor who has done the event) - Mandatory
 1. Created Date and Time Stamp (When this row is inserted into DB) – Mandatory
-## 4. Log Manager
+### 3.1 Log Manager
 Log manager will provide following functionalities
 1. Generate logs across the application
 1. Store generated logs in configured location
 1. Support for reading the logger configurations through as external file
 1. Support addition log level to a particular logger dynamically
 
-## 5. LDAP / Authorization
+## 4. LDAP / Authorization
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below
 
 1. OTP manager: To be defined
