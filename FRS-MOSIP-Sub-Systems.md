@@ -1,7 +1,7 @@
 ## Table Of Content
 - [Sub-Systems](#sub-systems)
   * [1. UIN Generation](#1-uin-generation)
-  * [2. Configuration Manager](#2-configuration-manager)
+  * [2. Configuration Server](#2-configuration-server)
   * [3. Audit Manager](#3-audit-manager)
   * [4. Log Manager](#4-log-manager)
   * [5. LDAP / Authorization](#5-ldap--authorization)
@@ -27,7 +27,7 @@ The UINs generated follows the following policies:
 1. UIN should not contain three even adjacent digits (E.g. 3948613752)
 1. UIN should not contain ADMIN defined restricted number
 
-## 2. Configuration Manager
+## 2. Configuration Server
 ## 3. Audit Manager
 Audit Manager takes data from different Modules and stores it in the Audit DB. It needs to receive following attribute against each audit record. 
 1. Audit Event ID - Mandatory
