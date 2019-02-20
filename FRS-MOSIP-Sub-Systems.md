@@ -36,7 +36,8 @@ The Central config server provides following functionality
 2.	It helps to manage all the configuration files stored at a centralized location in Git
 3.	It provides a functionality to change the property for a micro-service, it can reflect the changes dynamically without redeploying the micro-service.
 4.	This component allows all the configurations to come from a central server
-[Please refer the configuring MOSIP section in getting started guide for more details on the configuration server](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-)
+
+[Please refer the **configuring MOSIP** section in **getting started guide** for more details on the configuration server](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-)
 
 ## 3. Audit Manager
 Audit Manager takes data from different Modules and stores it in the Audit DB. It needs to receive following attribute against each audit record. 
