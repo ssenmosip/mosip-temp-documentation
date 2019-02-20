@@ -41,13 +41,13 @@
 #### A. Create Location Hierarchy in the Masterdata DB
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system store the Location hierarchy in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (128) - Mandatory
-* hierarchy_level - smallint - Mandatory
-* hierarchy_level_name - character (64) - Mandatory
-* parent_loc_code - character (32) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (128) - Mandatory
+   * hierarchy_level - smallint - Mandatory
+   * hierarchy_level_name - character (64) - Mandatory
+   * parent_loc_code - character (32) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Code and Language Code for the Location Hierarchy created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
@@ -1560,7 +1560,7 @@ On receiving a request to Fetch Machine Details with the input parameters (Machi
 
 #### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata DB
 
-On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active) the system Store the Mapping of Center, User and Machine in the DB
+On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active), the system Store the Mapping of Center, User and Machine in the DB
 
 
 1. While mapping the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1575,7 +1575,7 @@ On receiving a request to add a mapping of Center, User and Machine with the inp
 
 #### B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Masterdata DB
 
-On receiving a request to delete a Center-Machine-User mapping with the input parameters (regcntr_id, machine_id, usr_id) the system Updates the is_deleted flag to true in the Center-Machine-User mapping DB against the input received
+On receiving a request to delete a Center-Machine-User mapping with the input parameters (regcntr_id, machine_id, usr_id), the system Updates the is_deleted flag to true in the Center-Machine-User mapping DB against the input received
 
 
 1. While deleting the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1587,7 +1587,7 @@ On receiving a request to delete a Center-Machine-User mapping with the input pa
 
 #### C. Fetch Mapping History of Registration Center, Machine and User based on Registration Centre ID, Machine ID, User ID and Date
 
-On receiving a request to fetch Mapping History of Registration, Machine and User with input parameters (Registration Centre ID, Machine ID, User ID and Date ) the system  Fetches all the attributes of Registration, Machine and User Mapping from the history table for the Machine ID and Date received
+On receiving a request to fetch Mapping History of Registration, Machine and User with input parameters (Registration Centre ID, Machine ID, User ID and Date), the system  Fetches all the attributes of Registration, Machine and User Mapping from the history table for the Machine ID and Date received
 
 The record fetched are  the latest record existing on or before the date received in the input parameter
 
@@ -1610,7 +1610,7 @@ The record fetched are  the latest record existing on or before the date receive
 
 #### A. Create a Device in Masterdata DB
 
-On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active) the system Stores the device in the DB
+On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Stores the device in the DB
 
 1. While creating a device the system Validates if all required input parameters have been received as listed below for each specific request
 * name - character (64) - Mandatory
@@ -1629,7 +1629,7 @@ On receiving request to add a device with the input parameters (name, mac_addres
 #### B. Fetch all the List of Devices based on Device Type and Language Code
 
 
-On receiving request to Fetch list of all Device with the requirement input parameter (Language Code and/or Device Type) the system Fetches all the Devices against the Language Code and/or Device Type as requested
+On receiving request to Fetch list of all Device with the requirement input parameter (Language Code and/or Device Type), the system Fetches all the Devices against the Language Code and/or Device Type as requested
 
 
 1. While fetching the device types the system Validates if the request contains the following input parameters
@@ -1663,7 +1663,7 @@ On receiving request to Fetch list of all Device with the requirement input para
 
 #### C. Fetch Device Registration/Update History detail based on a Device ID and Language Code
 
-On receiving request to fetch Device History Registration/Update Detail with the input parameters (Device ID, Date and Language Code) the system fetches all the attributes of Device from the history table for the Device ID, Date and Language Code received
+On receiving request to fetch Device History Registration/Update Detail with the input parameters (Device ID, Date and Language Code), the system fetches all the attributes of Device from the history table for the Device ID, Date and Language Code received
 
 
 The record fetched are  the latest record existing on or before the date received in the input parameter
@@ -1732,7 +1732,7 @@ On receiving request to update a Language with the input parameters (code, name,
 
 ##### (ii) Delete
 
-On receiving request to delete a Language with the input parameters (code) the system Updates the is_deleted flag to true in the List of languages DB against the code received in request
+On receiving request to delete a Language with the input parameters (code), the system Updates the is_deleted flag to true in the List of languages DB against the code received in request
 
 1. While deleting the list of language the system Validates if all required input parameters have been received as listed below for each specific request
 * code - character (3) - Mandatory
@@ -1765,7 +1765,7 @@ Upon receiving a request to add Device Type with the input parameters (code, nam
 
 ##### (i) Update
 
-Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active) the system Updates the Device Details in the List of Devices DB for the id received
+Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Updates the Device Details in the List of Devices DB for the id received
 
 
 1. While updating the device in device type list the system Validates if all required input parameters have been received as listed below for each specific request
