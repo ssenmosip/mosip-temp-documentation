@@ -84,7 +84,7 @@ Upon receiving a request to perform data validation on Static PIN with input par
 2. Validates if the Static PIN is of configured length. (Current configured length = 6)
 1. Validates if the Static PIN is only numerical.
 
-In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
+1. In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
