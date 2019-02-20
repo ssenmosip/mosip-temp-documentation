@@ -23,14 +23,14 @@
 Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
 
 ## 2. Data Access Manager
-Data Access Manager provides a DAO (Data access object) interface to do the following
+Data Access Manager provides a DAO (Data Access Object) interface to do the following
 1. Provide an interface for connection to a DB
 1. Provide an interface to support DB CRUD operation
 1. Provide an interface to support a custom SQL
 1. Provide an interface to call DB functions
 
 ## 3. Sync Handler
-1. Sync Handler allows registration client to sync Master data, List of User, Roles and respective mappings and Configurations (Registration Client specific and Global configs).
+1. Sync Handler allows registration client to sync Master data, List of User, Roles and Respective Mappings and Configurations (Registration Client specific and Global Configs).
 
 
 1. Sync Handler also allows Registration Client to push data from Client local database to Master Database.
@@ -56,7 +56,7 @@ Data Access Manager provides a DAO (Data access object) interface to do the foll
    * Location Hierarchy
    * List of Languages
    * List of Genders
-   * Biometric Authentication type - (refer table "Biometric Type")
+   * Biometric Authentication Type - (refer table "Biometric Type")
    * Biometric Attribute
    * Center-Machine Mapping
    * Center-Device Mapping
@@ -94,7 +94,7 @@ Upon receiving a request to perform data validation on Static PIN with input par
 ### <p align="left"> **2. Type: Error/Failure – Info Message**
 |**Scenario**|**Message**|**Message Code**|
 |:------:|:------:|:------:|
-|Static PIN in Invalid|Static PIN length Must be <Length configured>|KER-IDV-501|
+|Static PIN in Invalid|Static PIN length Must be < Length configured >|KER-IDV-501|
 |Static PIN in not numeric|	Static PIN length must be numeric>|	KER-IDV-502|
 |Static PIN input parameter is missing	|Input parameter is missing	|KER-IDV-503|
 
