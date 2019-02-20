@@ -727,6 +727,82 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
+#### A. create Template in the Masterdata DB
+
+
+On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active) the system stores the Template in the DB
+1. Validates if all required input parameters have been received as listed below for each specific request
+* id- character (36) - Mandatory
+* name - character (128) - Mandatory
+* descr - character (256) - Optional
+* file_format_code - character (36) – Mandatory (refers to a Template File Format stored in Template File Format Masterdata)
+* model - character (128) - Optional
+* file_txt - character (4086) - Optional
+* module_id - character (36) - Optional
+* module_name - character (128) - Optional
+* template_typ_code - character (36) – Mandatory(refers to a Template Type stored in Template Type Masterdata)
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Template Id and Language Code for the Template created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers relevant error messages. 
+
+#### B. Fetch Template based on a Template Type and a Language Code
+
+
+On receiving a request to fetch a Template with the input parameters (Template Type Code and List of Language Code), the system fetches the Template for the Template Type Code and all Language Codes received
+
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* Template Type Code - Mandatory
+* List of Language Code - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section.
+1. Response must contain templates for all the language codes received in the input parameter
+1. Validates if the response contains the Template along with the following attributes
+* Template Type Code - Mandatory
+* Template - Mandatory
+* IsActive
+5. In case of Exceptions, system triggers relevant error messages
+
+
+#### C. Update and Delete a Template in Template Masterdata DB
+
+##### (i) Update
+
+On receiving a request to update a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active) the system updates the Template in the Template DB for the id received
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* id - character (36) - Mandatory
+* name - character (128) - Mandatory
+* descr - character (256) - Optional
+* file_format_code - character (36) - Mandatory
+* model - character (128) - Optional
+* file_txt - character (4086) - Optional
+* module_id - character (36) - Optional
+* module_name - character (128) - Optional
+* template_typ_code - character (36) - Mandatory
+* lang_code - character (3) - Mandatory
+* is_active - boolean - Mandatory
+2. For the id received in the request, replaces all the data received in the request against the data existing in the Template database against the same id
+1. Deleted record are not updated
+1. Responds with data not found error (Refer Acceptance criteria) if deleted record is received in the request
+1. Responds with the Template Id and Language Code for the Template updated successfully
+1. In case of Exceptions, system triggers relevant error messages.
+
+
+##### (ii) Delete
+
+On receiving a request to delete a Template with the input parameters (id) the system Updates the is_deleted flag to true in the Template DB against the id received
+
+1. Validates if all required input parameters have been received as listed below for each specific request
+* id- character (36) - Mandatory
+2. Delete all records for the code received
+1. Deleted record should are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Template Id for the Template deleted successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
 **A. Create Blacklisted Words in Masterdata DB**
 
