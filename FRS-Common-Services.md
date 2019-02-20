@@ -113,10 +113,12 @@ A HMAC/checksum function is a way to create a compact representation of an arbit
 
 ## 4. Notification
 ### 4.1 OTP Notification Services
-OTP Notification Service is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification. 
-
-
-The service receives a request to generate and send OTP with Notification Type (SMS and/or Email), Template (SMS and/or Email) and Mobile Number (SMS and/or Email). It then calls OTP Generator Service to generate an OTP against a Key (Mobile Number or Email). Its calls the Template Merger Service to merge OTP with the Template (SMS and/or Email). It will then call SMS and/or Email Notification Service to send the notification as per the template. The choice of sending SMS and/or Email will depend on the Notification Type Flag received in Input.
+1. OTP Notification Services is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification. 
+1. The service receives a request to generate and send OTP with Notification Type (SMS and/or Email), Template (SMS and/or Email) and Mobile Number (SMS and/or Email). 
+1. It then calls OTP Generator Service to generate an OTP against a Key (Mobile Number or Email). 
+1. Its calls the Template Merger Service to merge OTP with the Template (SMS and/or Email). 
+1. It calls SMS and/or Email Notification Service to send the notification as per the template. 
+1. The choice of sending SMS and/or Email depends on the Notification Type Flag received in Input.
 
 ### 4.2 Email Notification
 This service triggers an Email Notification upon receiving a request to trigger notification with Recipient Email-ID, CC Recipients Email-IDs, Subject, Email Content, and Attachment as input parameter. The restriction on Attachment and its size is configurable. The Third-Party Email Vendor is configurable and any country specific vendor can be used.
@@ -131,12 +133,12 @@ This utility enables created of PDF from the content received. It will receive a
 ### 4.5 Template Merger
 This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.
 ## 5. Transliteration
-MOSIP system can be able to facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
-1. Validate if all required input parameters have been received as listed below for each specific request
+MOSIP system can facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
+1. Validates if all required input parameters have been received as listed below for each specific request
    * User Input Word - Mandatory
    * Input Language Code - Mandatory
    * Output Language Code - Mandatory
-2. Transliterate the Word received from Input Language to Output Language
+2. Transliterates the Word received from Input Language to Output Language
 1. In case of Exceptions, system triggers relevant error messages as specified below
 ## <p align="left">**Type : Error / Failure – Info Message**
 |Scenario|Message|Message Code|
