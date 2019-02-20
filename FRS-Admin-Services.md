@@ -1492,48 +1492,60 @@ On receiving a request to update a Machine with the input parameters (machine_id
 
 ##### (ii) Delete
 
-1.	On receiving a request to delete a Machine with the input parameters (machine_id), the system Updates the is_deleted flag to true in the List of Machines DB against the machine_id received
-1.	While deleting the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
-•	machine_id - character (36) - Mandatory
-2.	Delete all records for the id received
-3.	Deleted record are not deleted again
-4.	Responds with data not found error  if deleted record is received in the request
-5.	Responds with the Machine ID for the Machine deleted successfully
-6.	In case of Exceptions, system triggers relevant error messages. 
-3. Fetch Machine Registration/Updation History detail based on a Machine ID and Language Code
-1.	Upon receiving a request to fetch Machine History Registration/Updation Detail with the input parameters (Machine ID, Date and Language Code), the system Fetches all the attributes of Machine from the history table for the Machine ID, Date and Language Code received
-2.	The record fetched are the latest record existing on or before the date received in the input parameter
-1.	While fetching the machine registration and updation history the system Validates if all required input parameters have been received as listed below for each specific request
-•	Machine ID - Mandatory
-•	Date - Mandatory
-•	Language Code - Mandatory
-2.	If the mandatory input parameters are missing, throws the appropriate message
-3.	Validates if the response contain the following attributes for the Machine ID and Language Code Received
-•	Machine ID
-•	Machine Name
-•	Mac Address
-•	IP Address
-•	Serial Number
-•	Machine Spec ID
-•	IsActive
-4.	In case of Exceptions, system triggers relevant error messages
+On receiving a request to delete a Machine with the input parameters (machine_id), the system Updates the is_deleted flag to true in the List of Machines DB against the machine_id received
 
-4. Fetch Machine Details based on a Machine ID and a Language Code
-1.	On receiving a request to Fetch Machine Details with the input parameters (Machine ID and Language Code), the system Fetches all the Machine attributes for the Machine ID and the Language Code Received
-2.While fetching the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
-•	Machine ID - Mandatory
-•	Language Code
-3. If the request has come for fetching all the machine details, responds with all the list of machines
-4. If the mandatory input parameters are missing, throws the appropriate message. 
-5. Validates if the response contain the following attributes for the Machine ID
-•	Machine ID
-•	Machine Name
-•	Mac Address
-•	IP Address
-•	Serial Number
-•	Machine Spec ID
-•	IsActive
-6. In case of Exceptions, system should trigger relevant error messages. 
+
+1. While deleting the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
+* machine_id - character (36) - Mandatory
+2. Delete all records for the id received
+1. Deleted record are not deleted again
+1. Responds with data not found error  if deleted record is received in the request
+1. Responds with the Machine ID for the Machine deleted successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+
+#### C. Fetch Machine Registration/Updation History detail based on a Machine ID and Language Code
+
+
+Upon receiving a request to fetch Machine History Registration/Updation Detail with the input parameters (Machine ID, Date and Language Code), the system Fetches all the attributes of Machine from the history table for the Machine ID, Date and Language Code received
+
+The record fetched are the latest record existing on or before the date received in the input parameter
+
+
+1. While fetching the machine registration and updation history the system Validates if all required input parameters have been received as listed below for each specific request
+* Machine ID - Mandatory
+* Date - Mandatory
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message
+1. Validates if the response contain the following attributes for the Machine ID and Language Code Received
+* Machine ID
+* Machine Name
+* Mac Address
+* IP Address
+* Serial Number
+* Machine Spec ID
+* IsActive
+4. In case of Exceptions, system triggers relevant error messages
+
+#### D. Fetch Machine Details based on a Machine ID and a Language Code
+
+
+On receiving a request to Fetch Machine Details with the input parameters (Machine ID and Language Code), the system Fetches all the Machine attributes for the Machine ID and the Language Code Received
+
+1. While fetching the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
+* Machine ID - Mandatory
+* Language Code
+2. If the request has come for fetching all the machine details, responds with all the list of machines
+1. If the mandatory input parameters are missing, throws the appropriate message. 
+1. Validates if the response contain the following attributes for the Machine ID
+* Machine ID
+* Machine Name
+* Mac Address
+* IP Address
+* Serial Number
+* Machine Spec ID
+* IsActive
+5. In case of Exceptions, system should trigger relevant error messages. 
 
 
 ### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete
