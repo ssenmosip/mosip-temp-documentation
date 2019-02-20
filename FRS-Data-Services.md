@@ -138,7 +138,7 @@ Upon receiving a request to validate the PRID, the system validates the PRID aga
 
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
 1. In absence of the configured length, validates if the PRID received should contain 14 digits
-1. Validates the PRID received follows the PRID generation logic 
+1. Validates the PRID received as per the PRID generation logic 
 
 1. In case of Exceptions, triggers relevant error messages
 
