@@ -108,7 +108,7 @@ Upon receiving a request to validate the UIN, the system validates the UIN again
 
 1. Validates the UIN by verifying the checksum
 
-1. Validates if the UIN received follows the UIN generation logic
+1. Validates if the UIN received as per the UIN generation logic
 
 1. Responds to the source with appropriate message 
 
@@ -171,7 +171,7 @@ Upon receiving a request to validate the VID with input parameters (UIN), the sy
 1. Validates if the VID is of configured length.
 1. If no length is configured, validates if VID length is of 16 digits
 1. Validates the VID by verifying the checksum
-1. Validates if the VID received follows the VID generation logic listed in User Story
+1. Validates if the VID received as per the VID generation logic
 
 1. Responds to the source with appropriate message and Raises an alert in case of listed exceptions 
 
