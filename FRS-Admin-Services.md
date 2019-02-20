@@ -105,7 +105,7 @@ Upon receiving a  request to fetch all the Location Hierarchy Data with input pa
    **(vi) List of Pincodes against the Location Code**
    * Pincode
    * IsActive
-4. Respond to the source with all the Location Hierarchy Data based on the Location Code
+4. Responds to the source with all the Location Hierarchy Data based on the Location Code
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
@@ -115,7 +115,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
-1. Respond to the source with the data fetched
+1. Responds to the source with the data fetched
 1. In case of Exceptions, system should triggers  error message. 
 
 
@@ -147,7 +147,7 @@ On receiving a request to fetch the list of Holidays with the input parameters (
    * Holiday Date
    * Holiday Name
    * IsActive
-4. Respond to the source with the List of Holidays
+4. Responds to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Update and Delete a Location in Location Masterdata DB
@@ -198,7 +198,7 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 2. If the mandatory input parameters are missing, responds with all the data.
 1. Validates if the response contains the List of Biometric Authentication Type against the Language Code along with the IsActive Flag for each Biometric Authentication Type
 1. Responds to the source with List of Biometric Authentication Type
-1. In case of Exceptions, system should trigger relevant error messages
+1. In case of Exceptions, system triggers relevant error messages
 
 
 ### 1.4 Biometric Attribute Type - Create/Read/Update/Delete
@@ -216,26 +216,26 @@ On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb
    * is_active - boolean - Mandatory
 2. Responds with the Biometric Attribute Code and Language Code for the Biometric Attribute created successfully
 1. The component restricts the bulk creation of Master Data
-1. Respond to the source with the appropriate message.
+1. Responds to the source with the appropriate message.
 1. In case of Exceptions, system triggers error messages as received from the Database
 
 
 #### B. Fetch the List of Biometric Attributes based on the Biometric Authentication Type and a Language Code
 
 On receiving a request to fetch the List of Biometric Attributes with input parameters (Biometric Authentication Type and Language Code), the system fetches the List of Biometric Attributes against the Biometric Authentication Type and the Language Code Received
-1. Validate if the request contains the following input parameters
+1. Validates if the request contains the following input parameters
    * Biometric Authentication Type - Mandatory
    * Language Code - Mandatory
-2. If no data is present in the DB for the input parameter received, respond with appropriate message.
-1. If both the input parameter is missing, respond with all the data.
+2. If no data is present in the DB for the input parameter received, responds with appropriate message.
+1. If both the input parameter is missing, responds with all the data.
 1. If one of the input parameters is missing, throw the appropriate message. Refer "Messages" section.
-1. Validate if the response contains the List of Biometric Attributes with all the attributes against Biometric Authentication Type and Language Code Received
+1. Validates if the response contains the List of Biometric Attributes with all the attributes against Biometric Authentication Type and Language Code Received
    * Biometric Attribute Code - Mandatory
    * Biometric Attribute Name - Mandatory
    * Biometric Attribute Description - Optional
    * IsActive – Mandatory
-6. Respond to the source with the Fetched Data
-1. In case of Exceptions, system should trigger relevant error messages
+6. Responds to the source with the Fetched Data
+1. In case of Exceptions, system triggers relevant error messages
 
 
 ### 1.5 Gender - Create/Read/Update/Delete
@@ -249,7 +249,7 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
    * is_active - boolean - Mandatory
 2. Responds with the Gender Type Code and Language Code for the Gender Type created successfully
 1. The component restricts the bulk creation of Master Data
-1. Respond to the source with the appropriate message
+1. Responds to the source with the appropriate message
 1. In case of Exceptions, system will trigger error messages as received from the Database.
  
 
@@ -267,7 +267,7 @@ On receiving a request to update a Gender Type with the input parameters (code, 
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Gender Type Code and Language Code for the Gender Type updated successfully
-1. In case of Exceptions, system should trigger relevant error messages.
+1. In case of Exceptions, system triggers relevant error messages.
 ##### (ii) Delete
 
 
@@ -278,7 +278,7 @@ On receiving a request to delete a Gender Type with the input parameters (code),
 1. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Gender Type Code for the Gender Type deleted successfully
-1. In case of Exceptions, system should trigger relevant error messages. 
+1. In case of Exceptions, system triggers relevant error messages. 
 
 #### C. Check the existence of a Gender in Master DB
 
@@ -286,7 +286,7 @@ On receiving a request to validate the Gender Name with input parameters (Gender
 1. Validates if the request contains the following input parameters
    * Gender Name - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
-1. Respond to the source with the appropriate message
+1. Responds to the source with the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 
 #### D. Fetch the List of Gender Types based on a Language Code
@@ -318,8 +318,8 @@ On receiving a request to add Document Category with the input parameters (code,
    * Code
    * Language Code
 3. Responds with the Document Category Code and Language Code for the Document Category created successfully
-1. Respond to the source with the appropriate message.
-1. In case of Exceptions, system should trigger relevant error messages
+1. Responds to the source with the appropriate message.
+1. In case of Exceptions, system triggers relevant error messages
 
 
 #### B. Update and Delete a Document Category in the Document Category Masterdata DB
@@ -405,7 +405,7 @@ On receiving a request to update a Document Type with the input parameters (code
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
-1. In case of Exceptions, system should trigger relevant error messages
+1. In case of Exceptions, system triggers relevant error messages
 
 
 ##### (ii) Delete
@@ -418,7 +418,7 @@ On receiving a request to delete a Document Type with the input parameters (code
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
 1. Responds with the Document Category Code for the Document Category deleted successfully
-1. In case of Exceptions, system should trigger relevant error messages
+1. In case of Exceptions, system triggers relevant error messages
 
 
 ### 1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete
@@ -490,8 +490,8 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
    * Document Category Name
    * Document Type Name
 2. If the mandatory input parameters are missing, throws the appropriate message. 
-1. If the mapping exists, respond with "Valid".
-1. If the mapping does not exist, respond with "Invalid".
+1. If the mapping exists, responds with "Valid".
+1. If the mapping does not exist, responds with "Invalid".
 1. In case of Exceptions, system triggers relevant error messages
 
 
@@ -507,12 +507,12 @@ Upon receiving a request to add a Reason with the input parameters (code, name, 
    * rsncat_code - character (36) – Mandatory (The parameter rsncat_code refers to a Language stored in Language Masterdata)
    * lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata)
    * is_active - boolean - Mandatory
-2. Validate if the response contains the following attributes for a Reason Category Code added
+2. Validates if the response contains the following attributes for a Reason Category Code added
    * Code
    * Language Code
    * Rsncat_code (Reason Category Code)
 
-3. Respond to the source with the appropriate message.
+3. Responds to the source with the appropriate message.
 
 4. In case of Exceptions, system triggers relevant error messages as listed below
 
@@ -543,7 +543,7 @@ Upon receiving a request to Fetch the requested List of Reasons with the require
    * Reason Category Code
    * IsActive
 4. Responds to the source with the relevant List of Reasons, as per the stated business rules
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -585,7 +585,7 @@ After receiving a request to fetch the List of Languages the system fetches the 
    * Language Code - Mandatory
    * Language Name - Mandatory
    * IsActive – Mandatory
-2. Respond to the source with the List of Languages
+2. Responds to the source with the List of Languages
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Update and Delete a Language in the List of Languages Masterdata DB
@@ -715,7 +715,7 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
    * lang_code - character (3) - Mandatory
    * is_active - boolean – Mandatory
 
-2. Respond with the Template Type Code and Language Code for the Template Type created successfully
+2. Responds with the Template Type Code and Language Code for the Template Type created successfully
 
 3. This component also restrict the bulk creation of Master Data
 
@@ -848,7 +848,7 @@ Upon receiving request to update a Blacklisted Word with the input parameters (c
 3. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Word and Language Code for the Blacklisted word updated successfully
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
 ##### (ii) Delete
@@ -859,7 +859,7 @@ Upon receiving a request to delete a Blacklisted Word with the input parameters 
 2. Deleted record are not deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Word for the Blacklisted word deleted successfully
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -919,7 +919,7 @@ Upon receiving a request to add Application with the input parameters (code, nam
    * Code
    * Language Code
 3. Responds with the Application ID and Language Code for the Application created successfully
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
@@ -950,22 +950,22 @@ Upon receiving a request to Fetch List of Applications, the system fetches all t
 
 Upon receiving a request to Fetch List of Applications with the required input parameters (Application ID, Language Code), the system fetches the Application Detail based on the Application ID and Language Code received
 
-1. Validate if all required input parameters have been received as listed below for each specific request
+1. Validates if all required input parameters have been received as listed below for each specific request
    * Application ID - Mandatory
    * Language Code - Mandatory
 
-2. Respond with the Application Data against the Application ID and Language Code Received
+2. Responds with the Application Data against the Application ID and Language Code Received
 
-1. Validate if the response contain the following attributes for each Application
+1. Validates if the response contain the following attributes for each Application
    * Application ID
    * Application Detail
    * IsActive
 
-4. Respond to the source with the Application Detail
+4. Responds to the source with the Application Detail
 
 1. If the mandatory input parameters are missing, responds with all the data.
 
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -999,7 +999,7 @@ Upon receiving a request to add an ID Type with the input parameters (code, name
 
 3. Responds with the ID Type Code and Language Code for the ID type created successfully
 
-4. In case of Exceptions, system should trigger relevant error messages as listed below.
+4. In case of Exceptions, system triggers relevant error messages as listed below.
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -1023,7 +1023,7 @@ Upon receiving a request to fetch the List of ID Types with input parameters (La
    * ID Type Name
    * ID Type Code
    * IsActive
-4. In case of Exceptions, system should trigger relevant error messages as listed below.
+4. In case of Exceptions, system triggers relevant error messages as listed below.
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -1337,7 +1337,7 @@ Upon receiving a request to fetch the List of Registration centers with input pa
    * IsActive
 6. In case of Exceptions, system triggers relevant error messages. 
 
-#### I. Validate whether a Registration Center is under working hours based on a timestamp received
+#### I. Validates whether a Registration Center is under working hours based on a timestamp received
 
 
 On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Date-Timestamp), the system determines the status of the Registration center as per the logic defined. 
@@ -1373,11 +1373,11 @@ Upon receiving a request to add Machine Type (e.g., Dongle) with the input param
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
 
-2. Respond with the Machine Type Code and Language Code for the Machine Type created successfully
+2. Responds with the Machine Type Code and Language Code for the Machine Type created successfully
 
 3. This feature also restrict the bulk creation of Master Data
 
-4. Respond to the source with the appropriate message
+4. Responds to the source with the appropriate message
 
 5. In case of Exceptions, system triggers error messages as received from the Database as listed below
 ### <p align="left">**1. Type : Success – Info Message**
@@ -1557,7 +1557,7 @@ On receiving a request to Fetch Machine Details with the input parameters (Machi
    * Serial Number
    * Machine Spec ID
    * IsActive
-5. In case of Exceptions, system should trigger relevant error messages. 
+5. In case of Exceptions, system triggers relevant error messages. 
 
 
 ### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete
@@ -1743,7 +1743,7 @@ On receiving request to delete a Language with the input parameters (code), the 
    * code - character (3) - Mandatory
 2. Deleted record should are not deleted again
 1. Responds with data not found error if deleted record is received in the request
-1. Respond with the Language Code for the language successfully deleted
+1. Responds with the Language Code for the language successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
 
@@ -1835,7 +1835,7 @@ Upon receiving a request to delete a Center-Machine mapping with the input param
 2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request.
 1. Responds with the Machine Id and Center ID for the mapping of Machine and Center deleted successfully
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
@@ -1877,7 +1877,7 @@ Upon receiving a request to delete a Center-Device mapping with the input parame
 2. Deleted record should not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
-1. In case of Exceptions, system should trigger relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages as listed below
 ### <p align="left">**1. Type : Success – Info Message**
 |Scenario|Message|Message Code|
 |:------:|:------:|:------:|
@@ -1946,7 +1946,7 @@ Upon receiving a request to generate License Key with input parameters (TSP ID, 
 
 1. Fetch the length from the configurations
 
-1. Validate if the request contains the following input parameters
+1. Validates if the request contains the following input parameters
    * TSP ID - Mandatory
    * Expiry Time - Mandatory
    * If the mandatory input parameters are missing, throw the appropriate message. Refer "Messages" section.
@@ -1954,8 +1954,8 @@ Upon receiving a request to generate License Key with input parameters (TSP ID, 
 
 3. Generate the License key
 1. Map the License key to the TSP ID and Expiry time
-1. Respond to the source with the License Key (String)
-1. In case of Exceptions, system should trigger relevant error messages as specified below.
+1. Responds to the source with the License Key (String)
+1. In case of Exceptions, system triggers relevant error messages as specified below.
 
 #### B. Mapping Permissions to License Key
 
@@ -1969,13 +1969,13 @@ Upon receiving a request to map permissions to the License Key with input parame
 
 2. If the mandatory input parameters are missing, throw the appropriate message
 
-1. Respond to the source with appropriate message
+1. Responds to the source with appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Fetch Permissions for a License Key
 
 
-Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key), the system validate if the License Key is Valid
+Upon receiving a request to fetch permissions for a License Key with input parameters (TSP ID, License Key), the system Validates if the License Key is Valid
 
 1. Validates if the request contains the following input parameters
    * TSP ID - mandatory
@@ -1983,7 +1983,7 @@ Upon receiving a request to fetch permissions for a License Key with input param
 
 2. If the mandatory input parameters are missing, throws the appropriate message.
 
-1. Validate the License key based on following logic
+1. Validates the License key based on following logic
    * License key received should be mapped to the TSP ID received in the request
    * License key should not be expired as per the expiry time mapped to the License Key
 
