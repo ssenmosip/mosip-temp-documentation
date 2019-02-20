@@ -208,9 +208,9 @@ RID is generated in the following manner:
 * Last 14 Digits: Timestamp
 * Total: 29 Digits
 
-RID Validation performs pattern validation on an RID and provides three methods to validate an RID.
+RID Validation performs pattern validation on RID and provides three methods to validate RID.
 1. Receive a RID, check whether RID is of configured length or not and respond with whether RID is valid or invalid
-1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID is attached to the RID or not. Respond with whether RID is valid or invalid
+1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID are attached to the RID or not. Respond with whether RID is valid or invalid
 1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid 
 
 
@@ -388,23 +388,18 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 
 #### 4.2.6 Token ID Generator
 
-Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generate token ID as per default Token ID generation logic
+Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
 
-1. The numbers is not generated sequentially
-
+1. The numbers is not be generated sequentially
 1. Token ID generated is of the length of 36 digits
-
 1. The length of Token ID is configurable by the ADMIN
-
 1. Token ID is generated as per the defined logic mentioned below
-* The number does not contain any alphanumeric characters and contains only numeric characters
-* The last digit in the number is reserved for a checksum
-* ID is unique for a combination of TSP ID and UIN received
-* ID is untraceable to both TSP ID and UIN received
-hello
-Responds with the Token ID to the source
-
-Raises an alert in case of listed exceptions as listed below
+   * The number does not contain any alphanumeric characters and contains only numeric characters
+   * The last digit in the number is reserved for a checksum
+   * ID is unique for a combination of TSP ID and UIN received
+   * ID is untraceable to both TSP ID and UIN received
+5. Responds with the Token ID to the source
+1. Raises an alert in case of listed exceptions as listed below
 ### <p align="left"> **1. Type: Success – Info Message**
 
 |**Scenario**|**Message**|**Message Code**|
