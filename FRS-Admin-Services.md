@@ -1550,6 +1550,55 @@ On receiving a request to Fetch Machine Details with the input parameters (Machi
 
 ### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete
 
+
+#### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata DB
+
+On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active) the system Store the Mapping of Center, User and Machine in the DB
+
+
+1. While mapping the system Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (10) - Mandatory
+* usr_id- character (36) - Mandatory
+* machine_id - character (10) - Mandatory
+* is_active - boolean - Mandatory
+2. Responds with the Center ID, Machine ID ad User ID for the Center, User and Machine mapping created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database.
+
+
+#### B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Masterdata DB
+
+On receiving a request to delete a Center-Machine-User mapping with the input parameters (regcntr_id, machine_id, usr_id) the system Updates the is_deleted flag to true in the Center-Machine-User mapping DB against the input received
+
+
+1. While deleting the system Validates if all required input parameters have been received as listed below for each specific request
+* regcntr_id - character (36) - Mandatory
+* machine_id - character (36) - Mandatory
+* usr_id - character (36) - Mandatory
+2. Responds with the Center ID, Machine ID ad User ID for the Center, User and Machine mapping deleted successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+#### C. Fetch Mapping History of Registration Center, Machine and User based on Registration Centre ID, Machine ID, User ID and Date
+
+On receiving a request to fetch Mapping History of Registration, Machine and User with input parameters (Registration Centre ID, Machine ID, User ID and Date ) the system  Fetches all the attributes of Registration, Machine and User Mapping from the history table for the Machine ID and Date received
+
+The record fetched are  the latest record existing on or before the date received in the input parameter
+
+
+1. While fetching the mappings the system Validates if all required input parameters have been received as listed below for each specific request
+* Registration Center ID - Mandatory
+* Machine ID - Mandatory
+* User ID - Mandatory
+* Date - Mandatory
+2. If the mandatory input parameters are missing, system throws the appropriate message.
+1. Validates if the response contains following attributes
+* Registration Center ID
+* Machine ID
+* User ID
+* IsActive
+4. In case of Exceptions, system triggers relevant error messages. 
+
+
 ### 2.7 List of Devices - Create/Read/Update/Delete	
 
 ### 2.8 List of Device Specifications - Create/Read/Update/Delete
