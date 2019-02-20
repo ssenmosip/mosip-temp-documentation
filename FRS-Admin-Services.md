@@ -55,23 +55,23 @@ Upon receiving a request to add Location hierarchy (e.g., Country - Region - Pro
 #### B. Check the existence of a Location in Master DB
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master DB
 1. Validates if the request contains the following input parameters
-* Location Name - Mandatory
+   * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 #### C. Fetch Location Hierarchy Levels based on a Language Code
 Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels
 1. Validates if the request contains following input parameters (Language Code)
-* Language Code - Mandatory
+   * Language Code - Mandatory
 2. Validates if the response contains the Location Hierarchy Levels with the following attributes
-* Hierarchy Level
-* Hierarchy Name
-* IsActive
+   * Hierarchy Level
+   * Hierarchy Name
+   * IsActive
 3. In case of Exceptions, system triggers relevant error messages
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
 Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data
 1. Validates if the request contains the following input parameters
-* Location Code - Mandatory
-* Language Code - Mandatory
+   * Location Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message. 
 1. Validates if the response contains the following location hierarchy data and the corresponding attributes against the Location Code and Language Code received in the input parameter
 
@@ -109,8 +109,8 @@ Upon receiving a  request to fetch all the Location Hierarchy Data with input pa
 #### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
 Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level
 1. Validates if the request contains the following input parameters
-* Location Code - Mandatory
-* Language Code - Mandatory
+   * Location Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Respond to the source with the data fetched
@@ -122,12 +122,12 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 #### A. Create Holiday data in Masterdata DB
 Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* location_code - character (36) - Mandatory
-* holiday_date - date - Mandatory
-* holiday_name - character (64) - Mandatory
-* holiday_desc - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * location_code - character (36) - Mandatory
+   * holiday_date - date - Mandatory
+   * holiday_name - character (64) - Mandatory
+   * holiday_desc - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. The component restricts the bulk creation of Master Data
 1. Responds with the Location Code, Holiday Date, Holiday Name and Language Code for the Holiday created successfully
 1. In case of Exceptions, system will trigger error messages as received from the Database
@@ -136,15 +136,15 @@ Upon receiving a request to add Holiday Data with the input parameters (location
 
 On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code), the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter
 1. Validates if the received request contains the following input parameters
-* Registration Center ID - Mandatory
-* Year - Mandatory
-* Language Code - Mandatory
+   * Registration Center ID - Mandatory
+   * Year - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message
 1. Validates if the response contains the List of Holidays against the Registration Center ID and the year received and contains the following attributes for a Region
-* Holiday ID
-* Holiday Date
-* Holiday Name
-* IsActive
+   * Holiday ID
+   * Holiday Date
+   * Holiday Name
+   * IsActive
 4. Respond to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
@@ -152,13 +152,13 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 ##### (i) Update
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code character (36) - Mandatory
-* name character (128) - Mandatory
-* hierarchy_level smallint - Mandatory
-* hierarchy_level_name character (64) - Mandatory
-* parent_loc_code character (32) - Mandatory
-* lang_code character (3) - Mandatory
-* is_active boolean - Mandatory
+   * code character (36) - Mandatory
+   * name character (128) - Mandatory
+   * hierarchy_level smallint - Mandatory
+   * hierarchy_level_name character (64) - Mandatory
+   * parent_loc_code character (32) - Mandatory
+   * lang_code character (3) - Mandatory
+   * is_active boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
@@ -172,7 +172,7 @@ On receiving a  request to delete a Location with the input parameters (code), t
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
 1. Responds with the Code for the Location Hierarchy deleted successfully
-* code - character (36) - Mandatory
+   * code - character (36) - Mandatory
 7. In case of Exceptions, system triggers relevant error messages. 
 
 
@@ -180,11 +180,11 @@ On receiving a  request to delete a Location with the input parameters (code), t
 #### A. Create Biometric Authentication Type in Masterdata DB
 On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (256) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (256) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Biometric Authentication Type Code and Language Code for the Biometric Authentication Type created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database.
@@ -192,7 +192,7 @@ On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, 
 #### B. Fetch the List of Biometric Authentication Type based on a Language Code
 On receiving a request to fetch the List of Biometric Authentication Type with input parameters (Language Code), the system fetches the List of Biometric Authentication Type against the Language Code
 1. Validates if the request to add Biometric Authentication Type contains the following parameters
-* Language Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, responds with all the data.
 1. Validates if the response contains the List of Biometric Authentication Type against the Language Code along with the IsActive Flag for each Biometric Authentication Type
 1. Responds to the source with List of Biometric Authentication Type
@@ -206,12 +206,12 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active), the system stores the Biometric Attribute in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* bmtyp_code - character (36) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * bmtyp_code - character (36) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Biometric Attribute Code and Language Code for the Biometric Attribute created successfully
 1. The component restricts the bulk creation of Master Data
 1. Respond to the source with the appropriate message.
@@ -222,16 +222,16 @@ On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb
 
 On receiving a request to fetch the List of Biometric Attributes with input parameters (Biometric Authentication Type and Language Code), the system fetches the List of Biometric Attributes against the Biometric Authentication Type and the Language Code Received
 1. Validate if the request contains the following input parameters
-* Biometric Authentication Type - Mandatory
-* Language Code - Mandatory
+   * Biometric Authentication Type - Mandatory
+   * Language Code - Mandatory
 2. If no data is present in the DB for the input parameter received, respond with appropriate message.
 1. If both the input parameter is missing, respond with all the data.
 1. If one of the input parameters is missing, throw the appropriate message. Refer "Messages" section.
 1. Validate if the response contains the List of Biometric Attributes with all the attributes against Biometric Authentication Type and Language Code Received
-* Biometric Attribute Code - Mandatory
-* Biometric Attribute Name - Mandatory
-* Biometric Attribute Description - Optional
-* IsActive – Mandatory
+   * Biometric Attribute Code - Mandatory
+   * Biometric Attribute Name - Mandatory
+   * Biometric Attribute Description - Optional
+   * IsActive – Mandatory
 6. Respond to the source with the Fetched Data
 1. In case of Exceptions, system should trigger relevant error messages
 
@@ -241,10 +241,10 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 
 On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (16) - Mandatory
-* name - character (64) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (16) - Mandatory
+   * name - character (64) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Gender Type Code and Language Code for the Gender Type created successfully
 1. The component restricts the bulk creation of Master Data
 1. Respond to the source with the appropriate message
@@ -257,10 +257,10 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
 
 On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active), the system updates the Gender Type in the Gender Type DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (16) - Mandatory
-* name - character (64) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (16) - Mandatory
+   * name - character (64) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Gender Type database against the same code.
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
@@ -271,7 +271,7 @@ On receiving a request to update a Gender Type with the input parameters (code, 
 
 On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - int - Mandatory
+   * code - int - Mandatory
 2. Delete all records for the code received
 1. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -282,7 +282,7 @@ On receiving a request to delete a Gender Type with the input parameters (code),
 
 On receiving a request to validate the Gender Name with input parameters (Gender Name), the system checks the Gender Name in the Master DB
 1. Validates if the request contains the following input parameters
-* Gender Name - Mandatory
+   * Gender Name - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Respond to the source with the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
@@ -291,12 +291,12 @@ On receiving a request to validate the Gender Name with input parameters (Gender
 
 On receiving a request to fetch the List of Gender Types with the input parameters (Language Code), the system fetches the List of Gender Types against the Language Code received
 1. Validates if the request contains the following input parameters
-* Language Code - Mandatory
+   * Language Code - Mandatory
 2. If the Language code is missing, responds with all the data.
 1. Validates if the response contains the List of Gender Types with the following attributes
-* Gender Code
-* Gender Name
-* isActive
+   * Gender Code
+   * Gender Name
+   * isActive
 4. Responds to the source with the List of Gender Types
 5. In case of Exceptions, system triggers relevant error messages
 
@@ -307,14 +307,14 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 
 On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Category in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Document Category added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Document Category Code and Language Code for the Document Category created successfully
 1. Respond to the source with the appropriate message.
 1. In case of Exceptions, system should trigger relevant error messages
@@ -327,11 +327,11 @@ On receiving a request to add Document Category with the input parameters (code,
 
 On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category DB for the Code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the code received in the request, replace all the data received in the request against the data existing in the Document Category database against the same code.
 1. Deleted record should not be updated
 1. Responds with data not found error if deleted record is received in the request
@@ -343,7 +343,7 @@ On receiving a request to update a Document Category with the input parameters (
 
 On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
+   * code - character (36) - Mandatory
 2. Delete all records for the code received
 1. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -357,13 +357,13 @@ On receiving a request to delete a Document Category with the input parameters (
 On receiving a request to fetch Document Category Details with the input parameters (Language Code), the system fetches all the Document Categories for the Language Code Received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* Language Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, responds with all the data.
 1. Validates if the response contain the following attributes for the Document Category Code
-* Document Category Code - Mandatory
-* Document Category Name - Mandatory
-* Document Category Description - Optional
-* IsActive - Mandatory
+   * Document Category Code - Mandatory
+   * Document Category Name - Mandatory
+   * Document Category Description - Optional
+   * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
 
@@ -375,14 +375,14 @@ On receiving a request to fetch Document Category Details with the input paramet
 
 On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Document Type added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Document Type Code and Language Code for the Document Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
@@ -394,11 +394,11 @@ On receiving a request to add Document Type with the input parameters (code, nam
 
 On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active), the system updates the Document Type in the Document Type DB for the Code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Document Type database against the same code
 1. Deleted record are not be updated
 1. Responds with data not found error if deleted record is received in the request
@@ -410,7 +410,7 @@ On receiving a request to update a Document Type with the input parameters (code
 
 On receiving a request to delete a Document Type with the input parameters (code), the system updates the is_deleted flag to true in the Document Type DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
+   * code - character (36) - Mandatory
 2. Delete all records for the code received
 1. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -425,14 +425,14 @@ On receiving a request to delete a Document Type with the input parameters (code
 
 On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Document Type added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Document Type Code and Language Code for the Document Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
@@ -441,13 +441,13 @@ On receiving a request to add Document Type with the input parameters (code, nam
 
 On receiving a request to fetch the List of Document Types with input parameters (Document Category Code and Language Code), the system fetches the List of Document Types against the Document Category Code and language Code Received
 1. Validates if the request contains the following input parameters
-* Document Category Code - Mandatory
-* Language Code - Mandatory
+   * Document Category Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message
 1. Validates if the response contains the List of Document Types against the Document Category and Language Code Received and the corresponding attributes for each Document Type
-* Document Type ID - Mandatory
-* Document Type Name - Mandatory
-* IsActive - Mandatory
+   * Document Type ID - Mandatory
+   * Document Type Name - Mandatory
+   * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
 #### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata DB
@@ -455,8 +455,8 @@ On receiving a request to fetch the List of Document Types with input parameters
 
 On receiving a request to delete a Document Category-Type mapping with the input parameters (doccat_code, doctyp_code), the system updates the is_deleted flag to true in the Document Category-Type mapping DB against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* doccat_code - character (36) - Mandatory
-* doctyp_code - character (36) - Mandatory
+   * doccat_code - character (36) - Mandatory
+   * doctyp_code - character (36) - Mandatory
 3. Responds with the doc_type Code and doccat_code for the Document Category-Type mapping deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
@@ -466,13 +466,13 @@ On receiving a request to delete a Document Category-Type mapping with the input
 
 On receiving a request to get Applicant type with input parameters (Individual Type Code, Date of Birth, Gender Type Code and Biometric Exception Type), the system derives the Applicant Type from the input parameter
 1. Validates if the request contains the following input parameters
-* Individual Type Code - Mandatory
-* Date of Birth - Mandatory
-* Gender Type Code - Mandatory
-* Biometric Exception Type - Optional
+   * Individual Type Code - Mandatory
+   * Date of Birth - Mandatory
+   * Gender Type Code - Mandatory
+   * Biometric Exception Type - Optional
 2. Derives the Age Group Type based on following logic
-* Child if Age < 5
-* Adult if Age >= 5
+   * Child if Age < 5
+   * Adult if Age >= 5
 3. If the mandatory input parameters are missing, throws the appropriate message
 1. Derives the applicant type as per the define logic
 1. In case of Exceptions, system triggers relevant error messages
@@ -484,9 +484,9 @@ On receiving a request to get Applicant type with input parameters (Individual T
 On receiving a request to check the mapping of Applicant Type-Document Category-Document Type mapping parameters (Applicant Type, Document Category Name and Document Type Name), the system checks the mapping
 
 1. Validates if the request contains the following input parameters
-* Applicant Type Code
-* Document Category Name
-* Document Type Name
+   * Applicant Type Code
+   * Document Category Name
+   * Document Type Name
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. If the mapping exists, respond with "Valid".
 1. If the mapping does not exist, respond with "Invalid".
@@ -494,21 +494,21 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 
 
 ### 1.9 List of Rejection Reasons - Create/Read/Update/Delete
-**A. Create a Rejection Reason in Reason List Master Data**
+#### A. Create a Rejection Reason in Reason List Master Data
 
 Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system store the Reason in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* code - character (64) - Mandatory
-* descr - character (256) - Mandatory
-* rsncat_code - character (36) – Mandatory (The parameter rsncat_code refers to a Language stored in Language Masterdata)
-* lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata)
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * code - character (64) - Mandatory
+   * descr - character (256) - Mandatory
+   * rsncat_code - character (36) – Mandatory (The parameter rsncat_code refers to a Language stored in Language Masterdata)
+   * lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata)
+   * is_active - boolean - Mandatory
 2. Validate if the response contains the following attributes for a Reason Category Code added
-* Code
-* Language Code
-* Rsncat_code (Reason Category Code)
+   * Code
+   * Language Code
+   * Rsncat_code (Reason Category Code)
 
 3. Respond to the source with the appropriate message.
 
@@ -524,22 +524,22 @@ NA|	NA|	NA
 |:------:|:------:|
 Error occurred while inserting Reason details|	KER-MSD-058|
 
-**B. Fetch the requested list of reasons based on Reason Category Code and Language Code**
+#### B. Fetch the requested list of reasons based on Reason Category Code and Language Code
 
 
 Upon receiving a request to Fetch the requested List of Reasons with the required input parameters (Reason 1. Category Code, Language Code), the system fetches the requested List of reasons stored against the Reason Category Code and Language Code received
 1. Validates if the request contains the following input parameters
-* Language Code - Mandatory
-* Reason Category Code - Mandatory
+   * Language Code - Mandatory
+   * Reason Category Code - Mandatory
 2. If either of the mandatory input parameters is missing, responds with the appropriate message as define below in message sections
 1. Validates if the response contains the:
 (a) Requested list based on the requested Language Code and Reason Category Code
 (b) List of Reasons with the corresponding attributes for the list
-* Reason ID
-* Reason Name (per Reason ID)
-* Language Code
-* Reason Category Code
-* IsActive
+   * Reason ID
+   * Reason Name (per Reason ID)
+   * Language Code
+   * Reason Category Code
+   * IsActive
 4. Responds to the source with the relevant List of Reasons, as per the stated business rules
 1. In case of Exceptions, system should trigger relevant error messages as listed below
 
@@ -563,12 +563,14 @@ Reason not found	|KER-MSD-036|
 
 
 After receiving a request to add Language Details with the input parameters (code, name, family, native_name and is_active), the system stores the Language Details in the DB
+
+
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (3) - Mandatory
-* name - character (64) - Mandatory
-* family - character (64) - Optional
-* native_name - character (64) - Optional
-* is_active - boolean - Mandatory
+   * code - character (3) - Mandatory
+   * name - character (64) - Mandatory
+   * family - character (64) - Optional
+   * native_name - character (64) - Optional
+   * is_active - boolean - Mandatory
 2. Responds with the Language Code for the language successfully created
 1. In case of Exceptions, system triggers relevant error messages
 
@@ -578,9 +580,9 @@ After receiving a request to add Language Details with the input parameters (cod
 After receiving a request to fetch the List of Languages the system fetches the List of Languages
 
 1. Validates if the response contains the List of all Languages with the following attributes
-* Language Code - Mandatory
-* Language Name - Mandatory
-* IsActive – Mandatory
+   * Language Code - Mandatory
+   * Language Name - Mandatory
+   * IsActive – Mandatory
 2. Respond to the source with the List of Languages
 1. In case of Exceptions, system triggers relevant error messages
 
@@ -590,12 +592,13 @@ After receiving a request to fetch the List of Languages the system fetches the 
 
 
 After receiving a request to update a Language with the input parameters (code, name, family, native_name and is_active), the system updates the Language Details in the List of languages DB for the Code received in request
+
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (3) - Mandatory
-* name - character (64) - Mandatory
-* family - character (64) - Optional
-* native_name - character (64) - Optional
-* is_active - boolean - Mandatory
+   * code - character (3) - Mandatory
+   * name - character (64) - Mandatory
+   * family - character (64) - Optional
+   * native_name - character (64) - Optional
+   * is_active - boolean - Mandatory
 2. For the Code received in the request, replaces all the data received in the request against the data existing in the List of languages database against the same code.
 1. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
@@ -609,7 +612,7 @@ After receiving a request to update a Language with the input parameters (code, 
 After receiving a request to delete a Language with the input parameters (code), the system updates the is_deleted flag to true in the List of languages DB against the code received in request
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (3) - Mandatory
+   * code - character (3) - Mandatory
 2. Deleted record should not deleted again
 1. Responds with data not found error  if deleted record is received in the request
 1. Responds with the Language Code for the language successfully deleted
@@ -624,11 +627,11 @@ On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameter
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (16) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (16) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Title Code and Language Code for the Title created successfully
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
@@ -640,11 +643,11 @@ On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameter
 On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active), the system updates the Title in the Title DB for the code received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (16) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (16) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Title database against the same code.
 1. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
@@ -656,7 +659,7 @@ On receiving a request to update a Title with the input parameters (code, name, 
 On receiving a request to delete a Title with the input parameters (code), the system updates the is_deleted flag to true in the Title DB against the code received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - int - Mandatory
+   * code - int - Mandatory
 2. Delete all records for the code received
 1. Deleted record are not deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -670,13 +673,13 @@ On receiving a request to fetch Title Details with the input parameters (Languag
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* Language Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, responds with all the data.
 1. Validates if the response contain List of Titles against the received Language Code along with the following attributes for the Title Code
-* Title Code - Mandatory
-* Title Name - Mandatory
-* Title Description - Optional
-* IsActive - Mandatory
+   * Title Code - Mandatory
+   * Title Name - Mandatory
+   * Title Description - Optional
+   * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
 
@@ -687,13 +690,13 @@ On receiving a request to fetch Title Details with the input parameters (Languag
 
 On receiving a request to add Template File Format with the input parameters (code, descr, lang_code and is_active), the system stores the Template File Format in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* descr - character (256) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Template File Format added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Template File Format Code and Language Code for the Template File Format created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
@@ -705,10 +708,10 @@ Upon receiving a request to add Template Type (e.g., SMS Notification template -
 parameters (code, descr, lang_code and is_active), the system stores the Template Type in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* descr - character (256) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean – Mandatory
+   * code - character (36) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean – Mandatory
 
 2. Respond with the Template Type Code and Language Code for the Template Type created successfully
 
@@ -732,17 +735,17 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 
 On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system stores the Template in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* id- character (36) - Mandatory
-* name - character (128) - Mandatory
-* descr - character (256) - Optional
-* file_format_code - character (36) – Mandatory (refers to a Template File Format stored in Template File Format Masterdata)
-* model - character (128) - Optional
-* file_txt - character (4086) - Optional
-* module_id - character (36) - Optional
-* module_name - character (128) - Optional
-* template_typ_code - character (36) – Mandatory (refers to a Template Type stored in Template Type Masterdata)
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * id- character (36) - Mandatory
+   * name - character (128) - Mandatory
+   * descr - character (256) - Optional
+   * file_format_code - character (36) – Mandatory (refers to a Template File Format stored in Template File Format Masterdata)
+   * model - character (128) - Optional
+   * file_txt - character (4086) - Optional
+   * module_id - character (36) - Optional
+   * module_name - character (128) - Optional
+   * template_typ_code - character (36) – Mandatory (refers to a Template Type stored in Template Type Masterdata)
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Template Id and Language Code for the Template created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers relevant error messages. 
@@ -754,14 +757,14 @@ On receiving a request to fetch a Template with the input parameters (Template T
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* Template Type Code - Mandatory
-* List of Language Code - Mandatory
+   * Template Type Code - Mandatory
+   * List of Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section.
 1. Response must contain templates for all the language codes received in the input parameter
 1. Validates if the response contains the Template along with the following attributes
-* Template Type Code - Mandatory
-* Template - Mandatory
-* IsActive
+   * Template Type Code - Mandatory
+   * Template - Mandatory
+   * IsActive
 5. In case of Exceptions, system triggers relevant error messages
 
 
@@ -772,17 +775,17 @@ On receiving a request to fetch a Template with the input parameters (Template T
 On receiving a request to update a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system updates the Template in the Template DB for the id received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* id - character (36) - Mandatory
-* name - character (128) - Mandatory
-* descr - character (256) - Optional
-* file_format_code - character (36) - Mandatory
-* model - character (128) - Optional
-* file_txt - character (4086) - Optional
-* module_id - character (36) - Optional
-* module_name - character (128) - Optional
-* template_typ_code - character (36) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * id - character (36) - Mandatory
+   * name - character (128) - Mandatory
+   * descr - character (256) - Optional
+   * file_format_code - character (36) - Mandatory
+   * model - character (128) - Optional
+   * file_txt - character (4086) - Optional
+   * module_id - character (36) - Optional
+   * module_name - character (128) - Optional
+   * template_typ_code - character (36) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the id received in the request, replaces all the data received in the request against the data existing in the Template database against the same id
 1. Deleted record are not updated
 1. Responds with data not found error (Refer Acceptance criteria) if deleted record is received in the request
@@ -795,7 +798,7 @@ On receiving a request to update a Template with the input parameters (id, name,
 On receiving a request to delete a Template with the input parameters (id), the system Updates the is_deleted flag to true in the Template DB against the id received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* id- character (36) - Mandatory
+   * id- character (36) - Mandatory
 2. Delete all records for the code received
 1. Deleted record should are not deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -810,10 +813,10 @@ On receiving a request to delete a Template with the input parameters (id), the 
 Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system store the Blacklisted Word in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* word - character (128) - Mandatory
-* descr - character (256) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * word - character (128) - Mandatory
+   * descr - character (256) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Responds with the Device ID and Language Code for the Device created successfully
 1. The component  restricts the bulk creation of Master Data
 1. In case of Exceptions, system will trigger error messages as received from the Database as listed below
@@ -835,10 +838,10 @@ Error occurred while inserting Device details	|KER-MSD-070|
 
 Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system updates the Blacklisted Word in the Blacklisted Word DB for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* word- character (128) - Mandatory
-* descr - character (256) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * word- character (128) - Mandatory
+   * descr - character (256) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Blacklisted Word database against the same code
 3. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
@@ -850,7 +853,7 @@ Upon receiving request to update a Blacklisted Word with the input parameters (c
 
 Upon receiving a request to delete a Blacklisted Word with the input parameters (code), the system updates the is_deleted flag to true in the Blacklisted Word DB against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
-* word- int - Mandatory
+   * word- int - Mandatory
 2. Deleted record are not deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Word for the Blacklisted word deleted successfully
@@ -878,15 +881,15 @@ MOSIP system can create a Reason Category in Master Data
 Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Reason Category in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (256) - Mandatory
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 
 2. Validates if the response contains the following attributes for a Reason Category added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Reason Category code and Language Code for the Reason Category created successfully
 
 4. In case of Exceptions, system triggers relevant error messages as listed below
@@ -901,18 +904,18 @@ NA|	NA|	NA
 Error occurred while inserting Reason Category details|	KER-MSD-057|
 
 ### 1.17 List of Applications - Create/Read/Update/Delete
-**A. Create a List of Applications in Master Data**
+#### A. Create a List of Applications in Master Data
 
 Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr- character (256) - Mandatory
-* lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata. Refer)
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr- character (256) - Mandatory
+   * lang_code - character (3) – Mandatory (The parameter lang_code refers to a Language stored in Language Masterdata. Refer)
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for an Application added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Application ID and Language Code for the Application created successfully
 1. In case of Exceptions, system should trigger relevant error messages as listed below
 ### <p align="left">**1. Type : Success – Info Message**
@@ -925,35 +928,36 @@ NA|	NA|	NA
 |:------:|:------:|
 Error occurred while inserting Application details|	KER-MSD-056|
 
-**B. Fetch List of Applications based on received input parameter**
 
-**(i) Fetch the List of all Applications**
+#### B. Fetch List of Applications based on received input parameter
+
+##### (i) Fetch the List of all Applications
 
 Upon receiving a request to Fetch List of Applications, the system fetches all the List of Applications
 
 1. Validates if the response contain the following attributes for each Application
-* Application ID
-* Application Detail
-* IsActive
+   * Application ID
+   * Application Detail
+   * IsActive
 
 2. The response must contain the list of applications in all the languages present in the Database
 
 1. Responds to the source with all the Application attributes.
 
-**(ii) Fetch the Application detail based on a Language Code and Application ID**
+##### (ii) Fetch the Application detail based on a Language Code and Application ID
 
 Upon receiving a request to Fetch List of Applications with the required input parameters (Application ID, Language Code), the system fetches the Application Detail based on the Application ID and Language Code received
 
 1. Validate if all required input parameters have been received as listed below for each specific request
-* Application ID - Mandatory
-* Language Code - Mandatory
+   * Application ID - Mandatory
+   * Language Code - Mandatory
 
 2. Respond with the Application Data against the Application ID and Language Code Received
 
 1. Validate if the response contain the following attributes for each Application
-* Application ID
-* Application Detail
-* IsActive
+   * Application ID
+   * Application Detail
+   * IsActive
 
 4. Respond to the source with the Application Detail
 
@@ -974,22 +978,22 @@ Application not found	|KER-MSD-002|
 
 
 ### 1.18 List of ID Types - Create/Read/Update/Delete
-**A. Create an ID type in Master Data**
+#### A. Create an ID type in Master Data
 
 Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the DB
 
 1. Validates if all required input parameters have been received as listed below for each specific request
 
-* code - character (36) - Mandatory
-* code - character (64) - Mandatory
-* descr - character (256) - Mandatory
-* lang_code - character (3) – Mandatory (refers to a Language stored in Language Masterdata)
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * code - character (64) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) – Mandatory (refers to a Language stored in Language Masterdata)
+   * is_active - boolean - Mandatory
 
 2. Validates if the response contains the following attributes for an ID Type added
 
-* Code
-* Language Code
+   * Code
+   * Language Code
 
 3. Responds with the ID Type Code and Language Code for the ID type created successfully
 
@@ -1005,18 +1009,18 @@ NA|	NA|	NA
 |:------:|:------:|
 Error occurred while inserting ID Type details	|KER-MSD-059|
 
-**B. Fetch the List of ID Types based on Language Code**
+#### B. Fetch the List of ID Types based on Language Code
 
 Upon receiving a request to fetch the List of ID Types with input parameters (Language Code), the system fetches the List of ID Types against the Language Code Received
 
 1. Validates if the request contains the following input parameters
-* Language Code - Mandatory
+   * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section below.
 
 1. Validates if the response contains the List of ID Types with the following attributes
-* ID Type Name
-* ID Type Code
-* IsActive
+   * ID Type Name
+   * ID Type Code
+   * IsActive
 4. In case of Exceptions, system should trigger relevant error messages as listed below.
 
 ### <p align="left">**1. Type : Success – Info Message**
@@ -1047,14 +1051,14 @@ On receiving a request to add Registration Center Type with the input parameters
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * code - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. Validates if the response contains the following attributes for a Registration Center Type added
-* Code
-* Language Code
+   * Code
+   * Language Code
 3. Responds with the Registration Center Type code and Language Code for the Registration Center Type successfully created
 1. In case of Exceptions, system triggers relevant error messages. 
 
@@ -1068,10 +1072,10 @@ On receiving a request to update a Registration Center Type with the input param
 
 1. Validates if all required input parameters have been received as listed below for each specific request
 1. code - character (36) - Mandatory
-* name - character (64) - Mandatory
-* descr - character (128) - Optional
-* lang_code - character (3) - Mandatory
-* is_active - boolean - Mandatory
+   * name - character (64) - Mandatory
+   * descr - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
 2. For the Code received in the request, replaces all the data received in the request against the data existing in the Registration Center Type database against the same code.
 1. Deleted record are not updated
 1. Responds with data not found error if deleted record is received in the request
@@ -1084,7 +1088,7 @@ On receiving a request to delete a Registration Center Type with the input param
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
-* code - character (36) - Mandatory
+   * code - character (36) - Mandatory
 2. Delete all records for the code received
 1. Deleted record are deleted again
 1. Responds with data not found error if deleted record is received in the request
@@ -1104,28 +1108,28 @@ per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, 
 
 
 1. The system validates if all required input parameters have been received as listed below for each specific request
-* center_id - character (36) - mandatory
-* name - character (128) - mandatory
-* cntrtyp_code - character (36) - optional
-* addr_line1 - character (256) - optional
-* addr_line2 - character (256) - optional
-* addr_line3 - character (256) - optional
-* latitude - character (32) - optional
-* longitude - character (32) - optional
-* location_code - character (36) - mandatory
-* contact_phone - character (16) - optional
-* contact_person - character (256) - optional
-* number_of_kiosks - smallint - optional
-* working_hours - character (32) - optional
-* per_kiosk_process_time - time - optional
-* center_start_time - time - optional
-* center_end_time - time - optional
-* lunch_start_time - time - optional
-* lunch_end_time - time - optional
-* holiday_loc_code - character (36) - optional
-* timezone - string (128) - optional
-* lang_code - character (3) - mandatory
-* is_active - boolean - mandatory
+   * center_id - character (36) - mandatory
+   * name - character (128) - mandatory
+   * cntrtyp_code - character (36) - optional
+   * addr_line1 - character (256) - optional
+   * addr_line2 - character (256) - optional
+   * addr_line3 - character (256) - optional
+   * latitude - character (32) - optional
+   * longitude - character (32) - optional
+   * location_code - character (36) - mandatory
+   * contact_phone - character (16) - optional
+   * contact_person - character (256) - optional
+   * number_of_kiosks - smallint - optional
+   * working_hours - character (32) - optional
+   * per_kiosk_process_time - time - optional
+   * center_start_time - time - optional
+   * center_end_time - time - optional
+   * lunch_start_time - time - optional
+   * lunch_end_time - time - optional
+   * holiday_loc_code - character (36) - optional
+   * timezone - string (128) - optional
+   * lang_code - character (3) - mandatory
+   * is_active - boolean - mandatory
 2. Responds with the Registration Center Code and Language Code for the Registration Center created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database. 
@@ -1137,28 +1141,28 @@ per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, 
 On receiving a request to update a Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours, per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system updates the Registration Center Details in the List of Registration Center DB for the center_id received
 
 1. The system validates if all required input parameters have been received as listed below for each specific request
-* center_id - character (36) - mandatory
-* name - character (128) - mandatory
-* cntrtyp_code - character (36) - optional
-* addr_line1 - character (256) - optional
-* addr_line2 - character (256) - optional
-* addr_line3 - character (256) - optional
-* latitude - character (32) - optional
-* longitude - character (32) - optional
-* location_code - character (36) - mandatory
-* contact_phone - character (16) - optional
-* contact_person - character (256) - optional
-* number_of_kiosks - smallint - optional
-* working_hours - character (32) - optional
-* per_kiosk_process_time - time - optional
-* center_start_time - time - optional
-* center_end_time - time - optional
-* lunch_start_time - time - optional
-* lunch_end_time - time - optional
-* holiday_loc_code - character (36) - optional
-* timezone - character (64) - optional
-* lang_code - character (3) - mandatory
-* is_active - boolean - mandatory
+   * center_id - character (36) - mandatory
+   * name - character (128) - mandatory
+   * cntrtyp_code - character (36) - optional
+   * addr_line1 - character (256) - optional
+   * addr_line2 - character (256) - optional
+   * addr_line3 - character (256) - optional
+   * latitude - character (32) - optional
+   * longitude - character (32) - optional
+   * location_code - character (36) - mandatory
+   * contact_phone - character (16) - optional
+   * contact_person - character (256) - optional
+   * number_of_kiosks - smallint - optional
+   * working_hours - character (32) - optional
+   * per_kiosk_process_time - time - optional
+   * center_start_time - time - optional
+   * center_end_time - time - optional
+   * lunch_start_time - time - optional
+   * lunch_end_time - time - optional
+   * holiday_loc_code - character (36) - optional
+   * timezone - character (64) - optional
+   * lang_code - character (3) - mandatory
+   * is_active - boolean - mandatory
 2. For the center_id received in the request, replaces all the data received in the request against the data existing in the List of Registration Center database against the same center_id.
 1. Responds with the Registration Center Code and Language Code for the Registration Center updated successfully
 1. In case of Exceptions, system triggers relevant error messages
