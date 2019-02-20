@@ -2,7 +2,7 @@
 - [Common Services](#common-services)
   * [1. OTP Manager](#1-otp-manager)
   * [2. QR Code Generator](#2-qr-code-generator)
-  * [3. Crypto Services](#3-crypto)
+  * [3. Crypto Services](#3-crypto-services)
     * [3.1 Key Generator](#31-key-generator)
     * [3.2 Key Management](#32-key-management)
     * [3.3 Crypto Utility](#33-crypto-utility)
@@ -32,13 +32,17 @@
 OTP Manager Component handles OTP Generation and OTP Validation
 
 
-For OTP generation, receives a request to generate an OTP along with a Key in input parameter. 
+For OTP generation, system receives a request to generate an OTP along with a Key in input parameter. 
 
 
-This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager will map an expiry period with the OTP as configured by the Admin.
+This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
+
+The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
 
 
-For OTP Validation, it receives a request to validate an OTP with a Key and OTP in input parameter. The component will validate the OTP against the expiry and then will validate the OTP against the Key if the OTP is not expired. If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
+For OTP Validation, it receives a request to validate an OTP with a Key and OTP in input parameter. The component validates the OTP against the expiry and then will validate the OTP against the Key if the OTP is not expired. 
+
+If the OTP is not expired and is valid against the Key, it will respond with message “Valid” else responds with “Invalid”. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
 
 
 ## 2. QR Code Generator
