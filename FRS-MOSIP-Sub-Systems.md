@@ -7,7 +7,9 @@
   * [5. LDAP / Authorization](#5-ldap--authorization)
 # Sub-Systems
 ## 1. UIN Generation
-MOSIP will generate a pool of UINs before the registration process and stores them. The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service will respond with an unallocated UIN from the generated Pool. When the pool reaches a configured number of minimum UINs, MOSIP will generate another pool of UIN. 
+MOSIP generates a pool of UINs before the registration process and stores them. 
+The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated Pool. 
+When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN. 
 
 
 The UINs generated follows the following policies:
