@@ -60,7 +60,7 @@ Audit Manager takes data from different Modules and stores it in the Audit DB. I
 1. Created By, (Actor who has done the event) - Mandatory
 1. Created Date and Time Stamp (When this row is inserted into DB) – Mandatory
 ### 3.1 Log Manager
-Log manager will provide following functionalities
+Log manager provides following functionalities
 1. Generate logs across the application
 1. Store generated logs in configured location
 1. Support for reading the logger configurations through as external file
