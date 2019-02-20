@@ -1088,6 +1088,265 @@ On receiving a request to delete a Registration Center Type with the input param
 
 ### 2.2 Registration Center - Create/Read/Update/Delete
 
+
+#### A. Create a Registration Center record in Masterdata DB
+
+
+Upon receiving a request to add Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours
+per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active) the system Stores the Registration Center in the DB
+
+
+1. The system validates if all required input parameters have been received as listed below for each specific request
+* center_id - character (36) - mandatory
+* name - character (128) - mandatory
+* cntrtyp_code - character (36) - optional
+* addr_line1 - character (256) - optional
+* addr_line2 - character (256) - optional
+* addr_line3 - character (256) - optional
+* latitude - character (32) - optional
+* longitude - character (32) - optional
+* location_code - character (36) - mandatory
+* contact_phone - character (16) - optional
+* contact_person - character (256) - optional
+* number_of_kiosks - smallint - optional
+* working_hours - character (32) - optional
+* per_kiosk_process_time - time - optional
+* center_start_time - time - optional
+* center_end_time - time - optional
+* lunch_start_time - time - optional
+* lunch_end_time - time - optional
+* holiday_loc_code - character (36) - optional
+* timezone - string (128) - optional
+* lang_code - character (3) - mandatory
+* is_active - boolean - mandatory
+2. Responds with the Registration Center Code and Language Code for the Registration Center created successfully
+1. The component restricts the bulk creation of Master Data
+1. In case of Exceptions, system triggers error messages as received from the Database. 
+
+#### B. Update and Delete a Registration Center in the List of Registration Center Masterdata DB
+##### (i) Update
+
+
+On receiving a request to update a Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours, per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active) the system updates the Registration Center Details in the List of Registration Center DB for the center_id received
+
+1. The system validates if all required input parameters have been received as listed below for each specific request
+* center_id - character (36) - mandatory
+* name - character (128) - mandatory
+* cntrtyp_code - character (36) - optional
+* addr_line1 - character (256) - optional
+* addr_line2 - character (256) - optional
+* addr_line3 - character (256) - optional
+* latitude - character (32) - optional
+* longitude - character (32) - optional
+* location_code - character (36) - mandatory
+* contact_phone - character (16) - optional
+* contact_person - character (256) - optional
+* number_of_kiosks - smallint - optional
+* working_hours - character (32) - optional
+* per_kiosk_process_time - time - optional
+* center_start_time - time - optional
+* center_end_time - time - optional
+* lunch_start_time - time - optional
+* lunch_end_time - time - optional
+* holiday_loc_code - character (36) - optional
+* timezone - character (64) - optional
+* lang_code - character (3) - mandatory
+* is_active - boolean - mandatory
+2. For the center_id received in the request, replaces all the data received in the request against the data existing in the List of Registration Center database against the same center_id.
+1. Responds with the Registration Center Code and Language Code for the Registration Center updated successfully
+1. In case of Exceptions, system triggers relevant error messages
+
+##### (ii) Delete
+
+
+Upon receiving a request to delete a Registration Center with the input parameters (center_id) the system updates the is_deleted flag to true in the List of Registration Center DB against the center_id received
+
+
+1. The system validates if all required input parameters have been received as listed below for each specific request
+* center_id - character (36) - Mandatory
+2. Responds with the Registration Center Code and Language Code for the Registration Center deleted successfully
+1. In case of Exceptions, system trigger relevant error messages
+
+
+#### C. Fetch Registration Center details based on a Registration Center ID and Language Code.
+
+
+On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Language Code) the system fetches all the Registration Center attributes for the Registration Center ID and Language Code received
+1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
+* Registration Center ID - Mandatory
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. System also validates if the response contain the following attributes for the Registration Center ID along with values as applicable
+* Registration Center ID
+* Registration Center Name
+* Longitude
+* Latitude
+* IsActive
+* Center Type Code
+* Address
+* Working Hours
+* Contact Number
+* No. of kiosk
+* Per kiosk Processing time
+* Starting time
+* End time
+* IsActive
+
+4. In case of Exceptions, system triggers relevant error messages. 
+
+#### D. Fetch Registration Center record based on a Registration center ID, Date and Language Code from the Registration Center Updation/Creation History table
+
+
+On receiving a request to fetch Registration Center Creation/Updation History Detail with the input parameters (Registration Center ID, Date and Language Code) the system fetches all the attributes of Registration Center from the history table for the Registration Center ID, Date and Language Code received
+
+
+1. While fetching registration center records the system validates if all required input parameters have been received as listed below for each specific request
+* Registration Center ID - Mandatory
+* Date - Mandatory
+* Language Code - Mandatory
+2. The record fetched are  the latest record existing on or before the date received in the input parameter
+1. If the mandatory input parameters are missing, system throws the appropriate message. 
+1. Validates if the response contain the following attributes for the Registration Center ID along with values as applicable
+* Registration Center ID
+* Registration Center Name
+* Longitude
+* Latitude
+* IsActive
+* Center Type Code
+* Address
+* Working Hours
+* Contact Number
+* No. of kiosk
+* Per koisk Processing time
+* Starting time
+* End time
+* IsActive
+5. In case of Exceptions, system triggers relevant error messages.
+
+#### E. Fetch the List of Holidays based on a Holiday ID and/or Language Code
+
+
+On receiving a request to fetch the list of Holidays with the input parameters (Holiday ID and/or Language Code), the system fetches the required data as per the input parameter received. 
+
+
+1. System Fetches all the records of Holiday List if the request does not contain any input parameters
+1. If the input parameter is Holiday ID, system will fetch the List of Holidays against the Holiday ID Received for all the languages
+1. If the input parameter is Holiday ID and Language Code, fetches the List of Holidays against the Holiday ID and the Language Code Received
+1. The system also validates if the response contains all the below attributes for each Holiday Fetched
+* Holiday ID
+* Holiday Date
+* Holiday Name
+* IsActive
+5. In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
+
+#### F. Fetch Registration Center details based on a Location Code and a Language Code
+
+Upon receiving a  request to fetch the List of Registration Centers with the input parameter (Location Code and Language Code), the system fetches the list of all the Registration Centers against the Location Code and Language Code received with all the attributes for each Registration Center
+
+1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
+* Location Code
+* Language Code
+2. If the mandatory input parameters are missing, throws the appropriate message
+1. Validates if the response contains all the Registration Center against the Location Code received with the following attributes for the Registration Centers
+* Registration Center ID
+* Registration Center Name
+* Longitude
+* Latitude
+* IsActive
+* Center Type
+* Address
+* Working Hours
+* Contact Number
+* No. of kiosk
+* Per koisk Processing time
+* Starting time
+* End time
+* IsActive
+4. In case of Exceptions, system triggers relevant error messages
+
+#### G. Fetch Registration Center details based on a Longitude and a Latitude, Proximity Distance and Language Code
+
+
+On receiving a request  to fetch the List of Registration Centers with the input parameter (Longitude and Latitude, Proximity distance and Language Code), the system fetches the  List of Registration Centers against the input parameters received.
+
+1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
+* Longitude
+* Latitude
+* Proximity Distance
+* Language Code
+2. If the mandatory input parameters are missing, throw the appropriate message
+1. The responses contains the list of all the Registration Centers in the radius of Proximity distance radius of the Longitude and the Latitude received with all the attributes for each Registration Center
+1. System fetches the record against the Language Code Received
+1. Validates if the response contains all the Registration Center against the Longitude and the Latitude and the Language Code received with the following attributes for the Registration Centers
+* Registration Center ID
+* Registration Center Name
+* Longitude
+* Latitude
+* IsActive
+* Center Type
+* Address
+* Working Hours
+* Contact Number
+* No. of kiosk
+* Per koisk Processing time
+* Starting time
+* End time
+* IsActive
+6. In case of Exceptions, system triggers relevant error messages
+
+#### H. Fetch the List of Registration Centers based on Location Hierarchy Level, text input and a Language Code
+
+
+Upon receiving a request to fetch the List of Registration centers with input parameters (Location Hierarchy Level, Text Input and a Language Code) the system fetches the List of Registration centers
+
+
+1. While fetching the list of registration centers the system validates if the request contains the following input parameters
+* Location Hierarchy Level - Mandatory
+* Text Input - Mandatory
+* Language Code - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message
+1. The list of registration center is fetched based on the combination of Location Hierarchy level and Text received.
+1. System also fetches the list based on the language code received.
+1. The response contain below mentioned attributes for each registration center
+* Registration Center ID
+* Registration Center Name
+* Longitude
+* Latitude
+* IsActive
+* Center Type Code
+* Address
+* Working Hours
+* Contact Number
+* No. of kiosk
+* Per kiosk Processing time
+* Starting time
+* End time
+* IsActive
+6. In case of Exceptions, system triggers relevant error messages. 
+
+#### I. Validate whether a Registration Center is under working hours based on a timestamp received
+
+
+On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Date-Timestamp) the system determines the status of the Registration center as per the logic defined. 
+
+
+1. While determining the status of registration center the system validates if all required input parameters have been received as listed below for each specific request
+* Registration Center ID - Mandatory
+* Date-Timestamp - Mandatory
+2. If the mandatory input parameters are missing, system throws the appropriate message. 
+1. Responds with "Accept" message if both the following conditions are met:
+(a)* The Registration Center corresponding to the Registration Center ID received must be not on a holiday on the date received in the input parameter.
+* 2.	The Timestamp received in the input parameter must be greater the Registration Center Opening time and Less than or equal to Closing time + 1 Hour.
+4.	Responds with the reject scenario if the above two conditions together are not met.
+5.	E.g. If the Registration center in not on a holiday and its opening and closing time is (9:00 AM to 5:00 PM). Find the sample response below for different timestamp received.
+1.	Timestamp - 4:00 PM - Accepted
+2.	Timestamp - 5:00 PM - Accepted
+3.	Timestamp - 6:00 PM - Accepted
+4.	Timestamp - 6:01 PM - Rejected
+6.	In case of Exceptions, system trigger relevant error messages
+
+
+
 ### 2.3 List of Machine Types - Create/Read/Update/Delete
 
 MOSIP system can create Machine Type in Masterdata DB
