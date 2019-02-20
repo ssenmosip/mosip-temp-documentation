@@ -7,7 +7,7 @@
     * [3.2 Key Management](#32-key-management)
     * [3.3 Crypto Utility](#33-crypto-utility)
     * [3.4 Hash Utility](#34-hash-utility)
-    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utility-checksum-utility)
+    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utilitychecksum-utility)
   * [4. Notification](#4-notification)
     * [4.1 OTP Notification Services](#41-otp-notification-services)
     * [4.2 Email Notification](#42-email-notification)
@@ -20,14 +20,13 @@
     * [6.2 Email Data Validator](#62-email-data-validator)
     * [6.3 Exception Framework](#63-exception-framework)
     * [6.4 Calendar Utility](#64-calendar-utility)
-    * [6.5 Checksum Utility](#65-checksum-utility)
-    * [6.6 Date Utility](#66-date-utility)
-    * [6.7 File Utility](#67-file-utility)
-    * [6.8 Json Utility](#68-json-utility)
-    * [6.9 Math Utility](#69-math-utility)
-    * [6.10 String Utility](#610-string-utility)
-    * [6.11 UUID Utility](#611-uuid-utility)
-    * [6.12 Zip-Unzip Utility](#612-zip-unzip-utility)
+    * [6.5 Date Utility](#65-date-utility)
+    * [6.6 File Utility](#66-file-utility)
+    * [6.7 Json Utility](#67-json-utility)
+    * [6.8 Math Utility](#68-math-utility)
+    * [6.9 String Utility](#69-string-utility)
+    * [6.10 UUID Utility](#610-uuid-utility)
+    * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility)
 # Common Services
 ## 1. OTP Manager
 OTP Manager Component handles OTP Generation and OTP Validation
@@ -179,35 +178,35 @@ MOSIP system provides base exception framework.
 1. Identifies Calendar util methods
 1. Creates wrapper class for methods defined in apache-commons Calendar util
 1. Raises an alert in case of listed exceptions 
-### 6.5 Checksum Utility 
-### 6.6 Date Utility
+
+### 6.5 Date Utility
 1. Identifies File util methods
 1. Creates wrapper class for methods defined in apache-commons date and time util
 1. Raises an alert in case of listed exceptions 
-### 6.7 File Utility
+### 6.6 File Utility
 1. Identifies File util methods
 1. Creates wrapper class for methods defined in apache-commons File util
 1. Raises an alert in case of listed exceptions 
-### 6.8 Json Utility
+### 6.7 Json Utility
 1. Identifies jason util methods
 1. Creates wrapper class for methods defined in apache-commons jason util
 1. Raises an alert in case of listed exceptions 
-### 6.9 Math Utility
+### 6.8 Math Utility
 1. Identifies Math util methods
 1. Creates wrapper class for methods defined in apache-commons Math util
 1. Raises an alert in case of listed exceptions 
-### 6.10 String Utility
+### 6.9 String Utility
 1. Identifies String util methods
 1. Create wrapper class for methods defined in apache-commons String util
 1. Raises an alert in case of listed exceptions
-### 6.11 UUID Utility
+### 6.10 UUID Utility
 1. Upon receiving a request to generate UUID the system generates UUID as per default UUID generation logic
 1. UUID generated should be as per UUID Version 5
 1. UUID generated should be of 36 characters (32 alphanumeric characters and four hyphens e.g. 123e4567-e89b-12d3-a456-426655440000)
 1. Any application in MOSIP can use this UUID utility
 1. Respond with the UUID to the source
 1. Raise an alert in case of listed exceptions
-### 6.12 Zip-Unzip Utility
+### 6.11 Zip-Unzip Utility
 1. Identifies Zip-Unzip util methods
 1. Create wrapper class for methods defined in apache-commons Zip-Unzip util
 1. Raises an alert in case of listed exceptions
