@@ -364,3 +364,5 @@ Upon receiving a request to generate Token ID (with input para meters (TSP ID, U
 |**Scenario**|**Message**|**Message Code**|
 |:------:|:------:|:------:|
 |Database Connection Exception	|unable to connect To db|KER-TIG-001|
+
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
