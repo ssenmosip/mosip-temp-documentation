@@ -2,7 +2,7 @@
 
 * [1. Overview](#1-overview)
 * [2. Features](#2-features)
-  * [2.1 Login/Creating a User Account](#21-logincreating-an-user-account) 
+  * [2.1 Login/Creating an User Account](#21-logincreating-an-user-account) 
     * [2.1.1 Login using Email](#211-login-using-email) _(MOS_PFM_PRG_FR_1)_
     * [2.1.2 Login using Phone Number](#212-login-using-phone-number) _(MOS_PFM_PRG_FR_2)_
     * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) _(MOS_PFM_PRG_FR_3)_
@@ -34,8 +34,7 @@
     * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) _(MOS_PFM_PRG_FR_23)_
   * [2.7 List of Configurable Parameters](#27-list-of-configurable-parameters) _(MOS_PFM_PRG_FR_24)_
 # 1. Overview
-The pre-registration module enables a user to book an appointment for one or many individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot 
- and then notifies user on successful booking.This module also has the provision for appointment rescheduling and cancellation.
+The pre-registration module enables an user to book an appointment for one or many individuals for registration. It allows an user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking.This module also has the provision for appointment rescheduling and cancellation.
 
 # 2. Features
 ## 2.1 Login/Creating an user account
