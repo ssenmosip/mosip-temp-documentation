@@ -225,6 +225,8 @@ Raises an alert in case of listed exceptions as specified below
 |MachineIdException|	Error occured while inserting ID|	KER-MNG-002|
 
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
+
 #### 4.2.2 Registration Center ID Generator
 
 Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic
