@@ -39,10 +39,10 @@
 # 2. Features
 ## 2.1 Login/Creating an user account
 ### 2.1.1 Login using Email
-The Individual can login to the Pre-registration Portal by providing his/her Email Id. The System validates the email id, once validated sends an OTP to the email id as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
+The Individual can login to the Pre-registration Portal by providing his/her Email Id. The System validates the email ID, once validated sends an OTP to the email ID as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
 
 ### 2.1.2 Login using Phone Number
-The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The System validates the Mobile Number, once validated sends an OTP to the email id as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
+The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The System validates the Mobile Number, once validated sends an OTP to the email ID as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
 
 ### 2.1.3 Automatic Account Creation on First Login
 The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email ID. After successful Authentication, the system check if the Individual is first time user or not. If the Individual is first time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User ID.
@@ -96,32 +96,35 @@ An individual may opt to  perform text search to find a center based on which th
 ### 2.4.2 Choosing Appointment Slots
 
 #### 2.4.2.1 Get Slots Availability
-•	The System displays 7 calendar days (configurable) for the Individual to select a slot
-        Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
-        For a Selected Registration Center 8 hours (configurable) are considered as working hours
-•	An individual can view time slots of 15 mins(configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
+1. The System displays 7 calendar days (configurable) for the Individual to select a slot
+1. Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
+1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
+1. An individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
 
 #### 2.4.2.2 Block Slots for one or more Applications
+
 ### 2.4.3 Cancel Appointment
-•	An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
-In such case the system will notify the user about the successful cancellation 
-•	Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
+1. An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
+1. In such case the system will notify the user about the successful cancellation 
+1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 2.4.4 Re-book Appointment
-•	The System provides the User with a default appointment selection: Select Consecutively available Appointment spots
-•	An individual can select any of the Appointment Date available and any of the Appointment Spot available
-•	The individual has to select against which Pre-Registration ID the Appointment spot is being booked
-•	The System maps appointment spot with all the Pre-Registration IDs which are selected for Appointment Booking. If any Pre-Registration ID does not have Booking mapped, the User is notified if he wants to continue without booking
-•	An individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
-•	An individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs(configurable) from time of booking
+1. The System provides the User with a default appointment selection: Select Consecutively available Appointment spots
+1. An individual can select any of the Appointment Date available and any of the Appointment Spot available
+1. The individual has to select against which Pre-Registration ID the Appointment spot is being booked
+1. The System maps appointment spot with all the Pre-Registration IDs which are selected for Appointment Booking. 
+1. If any Pre-Registration ID does not have Booking mapped, the User is notified if he wants to continue without booking
+1. An individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
+1. An individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
 
 ## 2.5 Appointment Acknowledgement (PRID)
-•	An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
-•	The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)
+1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
+1. The acknowledgement contains the following information: Name, Pre-Registration ID, Age/DoB, Mobile Number, Email ID and Registration center Details, Appointment Date, Appointment Time)
+
 ### 2.5.1 Download Acknowledgement
-•	Individual can Choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later 
+Individual can Choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later 
 ### 2.5.2 Send Acknowledgement to Email/Phone
-•	The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as per the details provided in Demographic details
+The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as per the details provided in Demographic details
 ## 2.6 Registration Client Services
 ### 2.6.1 Get Appointment for the Day
 ### 2.6.2 Retrieve Application Data by PRID
