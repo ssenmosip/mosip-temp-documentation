@@ -33,7 +33,7 @@
 1. OTP Manager Component handles OTP Generation and OTP Validation
 
 
-1. For OTP generation, system receives a request to generate an OTP along with a Key in input parameter. 
+1. For OTP generation, system receives a request to generate an OTP along with a key in input parameter. 
 
 
 1. This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
