@@ -153,15 +153,15 @@ Upon receiving the Registration Center ID, Date Range (Start Date, End Date) for
 1. The System generates a Transaction ID
 1. The System then Fetches all the Pre-Registrations within the Date Range (Start Range, End Date) and for the Registration Center ID received and calculates the count of the Pre-Registration IDs being sent.
 1. The System sends the List of Pre-Registration Ids along with count of Pre-Registrations.
-1. The system receive the Pre-Registration ID/IDs for which Pre-Registration Data has to be sent.
+1. The System receive the Pre-Registration ID/IDs for which Pre-Registration Data has to be sent.
 1. The System sends the zip file per Pre-Registration ID consisting of Demo Data, Files, and Appointment Time.
 
 ## 2.7 List of Configurable Parameters and Processes
 
-**Configuration Parameters**
+1. **Configuration Parameters**
 
 Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
 
-**Configurable Processes**
+1. **Configurable Processes**
 
 Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
