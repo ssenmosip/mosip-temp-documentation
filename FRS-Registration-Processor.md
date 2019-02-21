@@ -20,7 +20,7 @@
      * [3.1.3 Source Authentication](#313-source-authentication)
      * [3.1.4 Machine-User-Center Mapping Check](#314-machine-user-center-mapping-check)
      * [3.1.5 GPS Capture Check](#315-gps-capture-check)
-     * [3.1.6 Operator & Supervisor Validation](#316-operator---supervisor-validation)
+     * [3.1.6 Operator & Supervisor Validation](#316-operator--supervisor-validation)
    * [3.2 Processing](#32-processing)
      * [3.2.1 Individual Data Validations](#321-individual-data-validations)
        * [3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check](#3211-data-quality-check--photo--age--gender-data-check)
