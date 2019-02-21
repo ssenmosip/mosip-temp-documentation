@@ -45,7 +45,6 @@ The Individual can login to the Pre-registration Portal by providing his/her Ema
 The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The System validates the Mobile Number, once validated sends an OTP to the email id as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
 
 ### 2.1.3 Automatic Account Creation on First Login
-
 The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email ID. After successful Authentication, the system check if the Individual is first time user or not. If the Individual is first time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User ID.
 
 ### 2.1.4 Logout/Session Timeout
@@ -68,10 +67,14 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 |------|-----|
 |**Pending Appointment**|Appointment is yet to be booked|
 |**Booked**|  Appointment is booked successfully| 
-|**Expired**| Appointed date has passed**| 
+|**Expired**| Appointed date has passed| 
 
 ### 2.2.5 Modify Application Data
+The Individual Can Modify the Pre-Registration data by selecting the Modify Information from the Dashboard. The system provides the Demographic form with pre-filled demo details. The Individual can edit the required changes. The system associates the modified demo details with the Pre-Registration Id for which modifies information is initiated.
+
 ### 2.2.6 Discard Application
+The Individual can discard the Pre-Registration by clicking on the Delete icon for the Pre-Registration Id for which he/she wishes to discard. The System provides the Individual with two options: ‘Discard entire Application’ or ‘Cancel Appointment’. The Individual choses to discard entire Application. The System deletes all the data mapped to the Pre-Registration Id and cancels the appointment (if any).
+
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
 ### 2.3.2 Referring to already Uploaded Documents
