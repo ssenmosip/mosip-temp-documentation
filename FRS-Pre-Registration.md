@@ -45,7 +45,7 @@ The Individual can login to the Pre-registration Portal by providing his/her Ema
 The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The System validates the Mobile Number, once validated sends an OTP to the email ID as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
 
 ### 2.1.3 Automatic Account Creation on First Login
-The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email ID. After successful Authentication, the system check if the Individual is first time user or not. If the Individual is first time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User ID.
+The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email ID. After successful Authentication, the system checks if the Individual is first time user or not. If the Individual is first time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User ID.
 
 ### 2.1.4 Logout/Session Timeout
 The Individual wishes to logout of the Pre-Registration system and clicks on the Logout. The Token issued during the Authentication of User Login is deleted and the User gets logged out of the system.
