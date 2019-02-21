@@ -77,6 +77,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
+
 ### 2.3.2 Referring to already Uploaded Documents
 ## 2.4 Booking an Appointment
 ### 2.4.1 Choosing a Registration Center for Appointment
