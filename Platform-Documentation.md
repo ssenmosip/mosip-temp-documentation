@@ -129,7 +129,24 @@ Please Refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications
 This Section provides a detailed functional requirement specification for each module in MOSIP
-
+#### 5.1.1 FRS Data Services
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
+#### 5.1.2 FRS Common Services
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
+#### 5.1.3 FRS Admin Services
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
+#### 5.1.4 MOSIP Sub Systems
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems)
+#### 5.1.5 FRS Pre-Registration
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration)
+#### 5.1.6 FRS Registration Processor
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
+#### 5.1.7 FRS Resident Services
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
+#### 5.1.8 Registration Services
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/Registration-Services)
+#### 5.1.9 Authentication Services
+Refer to [Wiki](https://github.com/mosip/mosip/wiki/Authentication-Services)
 ### 5.2 Non- Functional Requirement Specifications
 This Section details out the non-functional requirements of MOSIP platform
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
