@@ -39,6 +39,8 @@
 # 2. Features
 ## 2.1 Login/Creating an user account
 ### 2.1.1 Login using Email
+The Individual can login to the Pre-registration Portal by providing his/her Email Id. The System validates the email id, once validated sends an OTP to the email id as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
+
 ### 2.1.2 Login using Phone Number
 ### 2.1.3 Automatic Account Creation on First Login
 ### 2.1.4 Logout/Session Timeout
