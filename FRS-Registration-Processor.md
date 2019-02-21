@@ -34,7 +34,7 @@
        * [3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)](#3231-data-verification-pluggable-by-si--not-part-of-mosip)
        * [3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)](#3232-data-enrichment-incl-receipt-of-update-packet-from-ext-system-and-process-thereafter-in-terms-of-mosips-capability)
        * [3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)](#3233-manual-verification-for-ext-system-data-update-pluggable-by-si)
-       * [3.2.3.4 Manual Adjudication (Pluggable by SI)](3234-manual-adjudication-pluggable-by-si)
+       * [3.2.3.4 Manual Adjudication (Pluggable by SI)](#3234-manual-adjudication-pluggable-by-si)
        * [3.2.3.5 ABIS Integration (Incl. ABIS Middleware)](#3235-abis-integration-incl-abis-middleware)
      * [3.2.4 ID Issuance](#324-id-issuance)
        * [3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association](#3241-identity-generation-refer-to-uin-generation-service--incl-uin-generation-and-uin-association)
