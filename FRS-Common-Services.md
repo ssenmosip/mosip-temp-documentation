@@ -92,6 +92,8 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 1. In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.
 1. For a request to receive private key, The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
 
+[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md)
+
 ### 3.3 Crypto Utility 
 
 The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which perfomrs following functions
