@@ -160,8 +160,8 @@ Upon receiving the Registration Center ID, Date Range (Start Date, End Date) for
 
 1. **Configuration Parameters**
 
-Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
+   Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
 
 1. **Configurable Processes**
 
-Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
+   Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
