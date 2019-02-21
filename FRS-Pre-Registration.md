@@ -126,7 +126,7 @@ An Individual may opt to  perform text search to find a center based on which th
 1. If any Pre-Registration Id does not have Booking mapped, the user is notified if he wants to continue without booking
 1. An Individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
 1. An Individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
-
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-reg-center-availability-service.md)
 ## 2.5 Appointment Acknowledgement (PRID)
 1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
 1. The acknowledgement contains the following information: Name, Pre-Registration Id, Age/DoB, Mobile Number, Email Id and Registration center Details, Appointment Date, Appointment Time)
