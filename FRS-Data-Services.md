@@ -31,6 +31,8 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 1. Provide an interface to support a custom SQL
 1. Provide an interface to call DB functions
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
+
 ## 3. Sync Handler
 1. Sync Handler allows registration client to sync Master data, List of User, Roles and Respective Mappings and Configurations (Registration Client specific and Global Configs).
 1. Sync Handler also allows Registration Client to push data from Client local database to Master Database.
