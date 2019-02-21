@@ -60,6 +60,8 @@ The Individual can create Multiple Applications, once the Demographic Details an
 ### 2.2.3 Provide Data in Preferred Language
 The Individual can select his/her language of preference (from list of languages as set by Admin) from the Login Screen. The Individual can then provide data in the preferred language as selected
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
+
 ### 2.2.4 Viewing "My Applications" (covers status)
 The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
 
