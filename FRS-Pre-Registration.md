@@ -24,15 +24,15 @@
       * [2.4.1.3 Find a Center](#2413-find-a-center) _(MOS_PFM_PRG_FR_16)_
     * [2.4.2 Choosing Appointment Slots](#242-choosing-appointment-slots) 
       * [2.4.2.1 Get Slots Availability](#2421-get-slots-availability) _(MOS_PFM_PRG_FR_17)_
-    * [2.4.3 Cancel Appointment](#243-cancel-appointment) _(MOS_PFM_PRG_FR_19)_
-    * [2.4.4 Re-book Appointment](#244-re-book-appointment) _(MOS_PFM_PRG_FR_20)_
+    * [2.4.3 Cancel Appointment](#243-cancel-appointment) _(MOS_PFM_PRG_FR_18)_
+    * [2.4.4 Re-book Appointment](#244-re-book-appointment) _(MOS_PFM_PRG_FR_19)_
   * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid) 
-    * [2.5.1 Download Acknowledgement](#251-download-acknowledgement) _(MOS_PFM_PRG_FR_21)_
-    * [2.5.2 Send Acknowledgement to Email/Phone](#252-send-acknowledgement-to-emailphone) _(MOS_PFM_PRG_FR_22)_
+    * [2.5.1 Download Acknowledgement](#251-download-acknowledgement) _(MOS_PFM_PRG_FR_20)_
+    * [2.5.2 Send Acknowledgement to Email/Phone](#252-send-acknowledgement-to-emailphone) _(MOS_PFM_PRG_FR_21)_
   * [2.6 Registration Client Services](#26-registration-client-services)
-    * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) _(MOS_PFM_PRG_FR_23)_
-    * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) _(MOS_PFM_PRG_FR_24)_
-  * [2.7 List of Configurable Parameters](#27-list-of-configurable-parameters) _(MOS_PFM_PRG_FR_26)_
+    * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) _(MOS_PFM_PRG_FR_22)_
+    * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) _(MOS_PFM_PRG_FR_23)_
+  * [2.7 List of Configurable Parameters](#27-list-of-configurable-parameters) _(MOS_PFM_PRG_FR_24)_
 # 1. Overview
 The pre-registration module enables a user to book an appointment for one or many individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot 
  and then notifies user on successful booking.This module also has the provision for appointment rescheduling and cancellation.
