@@ -208,7 +208,7 @@ Upon receiving a request to validate an Email ID against the standard Email ID p
 |MosipInvalidEmailException|	Email Domain extension length should be specified number of characters|	KER-EMV-003|
 |MosipInvalidEmailException|	Invalid Email ID|	KER-EMV-004|
 
-(Design link to mobile and email data validator](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md)
+[Design link to mobile and email data validator](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md)
 ### 6.3 Exception Framework
 MOSIP system provides base exception framework.
 ### 6.4 Calendar Utility 
