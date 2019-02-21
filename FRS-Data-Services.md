@@ -276,7 +276,6 @@ Upon receiving a request to generate TSP ID, the system generates it as per defa
 
 Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic
 1. PRID generated should contain number of digits as configured by the ADMIN
-1. In absence of the configured length, the PRID generated should contain 14 digits
 1. PRID is generated as per the defined logic mentioned below
    * The number should not contain any alphanumeric characters
    * The number should not contain any repeating numbers for 2 or more than 2 digits
