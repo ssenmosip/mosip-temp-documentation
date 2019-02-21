@@ -66,6 +66,8 @@ Log manager provides following functionalities
 1. Support for reading the logger configurations through as external file
 1. Support addition log level to a particular logger dynamically
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-logger.md)
+
 ## 4. LDAP / Authorization
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below
 
