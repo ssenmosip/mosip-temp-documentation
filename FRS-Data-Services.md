@@ -22,7 +22,7 @@
 ## 1. Data mapper
 Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
 
 ## 2. Data Access Manager
 Data Access Manager provides a DAO (Data Access Object) interface to do the following
@@ -31,7 +31,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 1. Provide an interface to support a custom SQL
 1. Provide an interface to call DB functions
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
 
 ## 3. Sync Handler
 1. Sync Handler allows registration client to sync Master data, List of User, Roles and Respective Mappings and Configurations (Registration Client specific and Global Configs).
@@ -67,7 +67,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations
 1. For User, Roles and Respective User-Role mappings, Sync handler receives Center ID and Timestamp and will respond to the Registration Client with Center specific incremental changes.
 
-[Link to design](https://github.com/mosip/mosip/blob/0.8.0_FIT3_KERNEL/docs/design/kernel/kernel-syncservices.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/0.8.0_FIT3_KERNEL/docs/design/kernel/kernel-syncservices.md)
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
 #### 4.1.1 Static Pin Validator
@@ -202,7 +202,7 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 |:------:|------|:------:|
 |TSP ID in Invalid	|TSP ID length Must be of <Length configured>	|KER-IDV-401|
 
-[Link to ID validator design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
+[**Link to ID validator design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
 
@@ -231,7 +231,7 @@ Raises an alert in case of listed exceptions as specified below
 |MachineIdException|	Error occured while inserting ID|	KER-MNG-002|
 
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
 
 #### 4.2.2 Registration Center ID Generator
 
@@ -258,7 +258,7 @@ Upon receiving a request to generate Registration Center ID, the system generate
 RegistrationCenterIdException|	Error occured while fetching ID|	KER-RCG-001
 RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
 
 #### 4.2.3 TSP ID Generator
 
@@ -282,7 +282,7 @@ Upon receiving a request to generate TSP ID, the system generates it as per defa
 |:------:|------|:------:|
 |NA	|TSP ID Generation Failed|	NA|
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
 
 #### 4.2.4 PRID Generator
 
@@ -310,7 +310,7 @@ Upon receiving a request to generate PRID with input parameters, the system gene
 |:------:|:------:|:------:|
 PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
 
 #### 4.2.5 VID Generator
 
@@ -345,7 +345,7 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 4. Expired VID should not be sent in response
 
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
 #### 4.2.6 Token ID Generator
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
@@ -371,4 +371,4 @@ Upon receiving a request to generate Token ID (with input para meters (TSP ID, U
 |:------:|:------:|:------:|
 |Database Connection Exception	|unable to connect To db|KER-TIG-001|
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
