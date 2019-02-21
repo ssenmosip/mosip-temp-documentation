@@ -56,8 +56,20 @@ The Individual wishes to logout of the Pre-Registration system and clicks on the
 The Individual will be provided with Demographic form for new pre-registration application, Individual Fills Demographic Details (Full Name, Age/DOB, Gender, Residential status, Address Lines (1,2,3), Region, Province, City, Local Administrative Authority, Mobile Number, Email ID, CNIE/EC Number, Postal Code). The System validates the Fields entered, the system also checks for the Mandatory fields. Once validated the Pre-Registration Id is generated and the Demographic details provided gets mapped to that PRID.
 
 ### 2.2.2 Create Multiple Applications
+The Individual can create Multiple Applications, once the Demographic Details and the Documents are uploaded the Individual can add an applicant from the Preview page. The Individual can also add applicants from Dashboard by clicking on Create New Application. The System provides the Individual with Demographic form to fill. The System associates the pre-registration Id to the new Application(s) created.
+
 ### 2.2.3 Provide Data in Preferred Language
+The Individual can select his/her language of preference (from list of languages as set by Admin) from the Login Screen. The Individual can then provide data in the preferred language as selected
+
 ### 2.2.4 Viewing "My Applications" (covers status)
+The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
+
+|Status|Description|
+|------|-----|
+|**Pending Appointment**|Appointment is yet to be booked|
+|**Booked**|  Appointment is booked successfully| 
+|**Expired**| Appointed date has passed**| 
+
 ### 2.2.5 Modify Application Data
 ### 2.2.6 Discard Application
 ## 2.3 Attaching Documents to the Application
