@@ -7,12 +7,12 @@
 |3.|UIN Generation|Generates UIN|[MOS-425](https://mosipid.atlassian.net/browse/MOS-425), [MOS-9738](https://mosipid.atlassian.net/browse/MOS-9738) |
 |4.|Audit Manager|Provides service across MOSIP to store Audit logs|[MOS-8](https://mosipid.atlassian.net/browse/MOS-8), [MOS-441](https://mosipid.atlassian.net/browse/MOS-441), [MOS-829](https://mosipid.atlassian.net/browse/MOS-829), [MOS-12903](https://mosipid.atlassian.net/browse/MOS-12903)|
 |5.|OTP Manager|Generates and Validates OTP as per the defined policies|[MOS-33](https://mosipid.atlassian.net/browse/MOS-33), [MOS-34](https://mosipid.atlassian.net/browse/MOS-34), [MOS-35](https://mosipid.atlassian.net/browse/MOS-35), [MOS-36](https://mosipid.atlassian.net/browse/MOS-36), [MOS-423](https://mosipid.atlassian.net/browse/MOS-423), [MOS-991](https://mosipid.atlassian.net/browse/MOS-991), [MOS-1056](https://mosipid.atlassian.net/browse/MOS-1056), [MOS-1985](https://mosipid.atlassian.net/browse/MOS-1985), [MOS-5486](https://mosipid.atlassian.net/browse/MOS-5486)|
-|6.|OTP Notification Service|Generates an OTP and sends Notification to a recipient|MOS-8230|
-|7.|Email Notification|Generates and sends an Email using a third party vendor|MOS-973|
-|8.|SMS Notification|Generates and sends an SMS using a third party vendor|MOS-961|
-|9.|Key Generator|Generates Key pair for Encryption and Decryption|MOS-788, MOS-1431|
-|10.|Data Mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|MOS-957|
-|11.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|MOS-960, MOS-12900|
+|6.|OTP Notification Service|Generates an OTP and sends Notification to a recipient|[MOS-8230](https://mosipid.atlassian.net/browse/MOS-8230)|
+|7.|Email Notification|Generates and sends an Email using a third party vendor|[MOS-973](https://mosipid.atlassian.net/browse/MOS-973)|
+|8.|SMS Notification|Generates and sends an SMS using a third party vendor|[MOS-961](https://mosipid.atlassian.net/browse/MOS-961)|
+|9.|Key Generator|Generates Key pair for Encryption and Decryption|[MOS-788](https://mosipid.atlassian.net/browse/MOS-788), [MOS-1431](https://mosipid.atlassian.net/browse/MOS-1431)|
+|10.|Data Mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|[MOS-957](https://mosipid.atlassian.net/browse/MOS-957)|
+|11.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|[MOS-960](https://mosipid.atlassian.net/browse/MOS-960), [MOS-12900](https://mosipid.atlassian.net/browse/MOS-12900)|
 |12.|Template Merger|Merges a pre-configured template with dynamic values|MOS-786|
 |13.|QR Code Generator|This utility enables QR code generation for pre-registration, registration and UIN acknowledgment|MOS-979|
 |14.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|MOS-31, MOS-32, MOS-14007|
