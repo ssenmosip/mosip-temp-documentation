@@ -22,6 +22,8 @@
 ## 1. Data mapper
 Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
+
 ## 2. Data Access Manager
 Data Access Manager provides a DAO (Data Access Object) interface to do the following
 1. Provide an interface for connection to a DB
