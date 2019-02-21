@@ -252,6 +252,8 @@ Upon receiving a request to generate Registration Center ID, the system generate
 RegistrationCenterIdException|	Error occured while fetching ID|	KER-RCG-001
 RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-RID.md)
+
 #### 4.2.3 TSP ID Generator
 
 Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
