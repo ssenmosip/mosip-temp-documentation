@@ -300,15 +300,9 @@ PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
 #### 4.2.5 VID Generator
 
-Upon receiving a request to generate VID with input parameters (UIN), the system checks if a VID is already generated, validates if the existing VID is active based on the defined VID expiry policy
-1. If the generated VID is active, responds with the same VID
-1. If the generated VID is inactive:
-   * Generate new VID based on the VID generation policy defined below
-   * Responds with the new VID generated
-   * Maps the new VID against the received UIN
-3. If no VID is generated against the UIN:
-   * Generates new VID based in the policy defined
-   * Map the new VID against the received UIN
+Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
+1. VID should be generated as per the defined logic mentioned below
+1. Responds with the PRID to the source
 4. Raises an alert in case of listed exceptions as listed below
 
 ### <p align="left"> **1. Type: Success – Info Message**
@@ -325,7 +319,6 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
 
 **VID generation policy**
 1. VID generated should contain the number of digits as configured
-1. In absence of configured length, VID generated should have 16 digits
 1. Validates if the VID is generated as per the defined logic mentioned below
    * The number should not contain any alphanumeric characters
    * The number should not contain any repeating numbers for 2 or more than 2 digits
