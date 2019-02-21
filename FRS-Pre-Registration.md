@@ -98,8 +98,8 @@ In such case the system will notify the user about the successful cancellation
 ### 2.6.1 Get Appointment for the Day
 ### 2.6.2 Retrieve Application Data by PRID
 ### 2.6.3 Update Appointment Status
-## 2.7 List of Configurable Parameters
+## 2.7 List of Configurable Parameters and Processes
 
-[Configuration Parameters](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
+* **[Configuration Parameters]**(https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
 
-[Configurable Processes](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
+*** [Configurable Processes]**(https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
