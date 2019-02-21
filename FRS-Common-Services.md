@@ -31,14 +31,9 @@
 ## 1. OTP Manager
 ### A. OTP Generation
 1. OTP Manager Component handles OTP Generation and OTP Validation
-
-
-1. For OTP generation, system receives a request to generate an OTP along with a Key in input parameter. 
-
-
+1. For OTP Generation, system receives a request to generate an OTP along with a Key in input parameter. 
 1. This Key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
-
-1. The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
+1. The component generates an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
 
 ### B. OTP Validation
 1. For OTP Validation, system receives a request to validate an OTP with a Key and OTP in input parameter. 
