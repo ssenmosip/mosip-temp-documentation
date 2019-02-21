@@ -45,12 +45,12 @@
 |41.|Master Data Management|Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete|[MOS-8232](https://mosipid.atlassian.net/browse/MOS-8232), [MOS-10306](https://mosipid.atlassian.net/browse/MOS-10306), [MOS-10589](https://mosipid.atlassian.net/browse/MOS-10589), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
 |42.|Master Data Management|Create/Read/Update/Delete - Location Hierarchy|[MOS-8233](https://mosipid.atlassian.net/browse/MOS-8233), [MOS-8234](https://mosipid.atlassian.net/browse/MOS-8234), [MOS-550](https://mosipid.atlassian.net/browse/MOS-550), [MOS-12155](https://mosipid.atlassian.net/browse/MOS-12155), [MOS-13943](https://mosipid.atlassian.net/browse/MOS-13943), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
 |43.|Master Data Management|List of Holidays - Create/Read/Update/Delete|[MOS-8235](https://mosipid.atlassian.net/browse/MOS-8235), [MOS-549](https://mosipid.atlassian.net/browse/MOS-549), [MOS-8565](https://mosipid.atlassian.net/browse/MOS-8565), [MOS-10591](https://mosipid.atlassian.net/browse/MOS-10591), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
-|44.|Master Data Management|Biometric Authentication Type - Create/Read|MOS-8245, MOS-9622,MOS-12076|
-|45.|Master Data Management|Biometric Attirbute Type - Create/Read|MOS-8246, MOS-9623,MOS-12076|
-|46.|Master Data Management|Gender - Create/Read/Update/Delete|MOS-8266, MOS-9624, MOS-988, MOS-13944,MOS-12076|
-|47.|Master Data Management|Document Category - Create/Read/Update/Delete|MOS-8269, MOS-9683, MOS-10567,MOS-12076|
+|44.|Master Data Management|Biometric Authentication Type - Create/Read|[MOS-8245](https://mosipid.atlassian.net/browse/MOS-8245), [MOS-9622](https://mosipid.atlassian.net/browse/MOS-9622), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|45.|Master Data Management|Biometric Attirbute Type - Create/Read|[MOS-8246](https://mosipid.atlassian.net/browse/MOS-8246), [MOS-9623](https://mosipid.atlassian.net/browse/MOS-9623), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|46.|Master Data Management|Gender - Create/Read/Update/Delete|[MOS-8266](https://mosipid.atlassian.net/browse/MOS-8266), [MOS-9624](https://mosipid.atlassian.net/browse/MOS-9624), [MOS-988](https://mosipid.atlassian.net/browse/MOS-988), [MOS-13944](https://mosipid.atlassian.net/browse/MOS-13944), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|47.|Master Data Management|Document Category - Create/Read/Update/Delete|[MOS-8269](https://mosipid.atlassian.net/browse/MOS-8269), [MOS-9683](https://mosipid.atlassian.net/browse/MOS-9683), [MOS-10567](https://mosipid.atlassian.net/browse/MOS-10567), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
 |48.|Master Data Management|Document Type - Create/Update/Delete|MOS-9684, MOS-10569,MOS-12076|
-|49.|Master Data Management|Applicant Type-Document Category-Document Type Mapping - Read|MOS-12060, MOS-13962, MOS-12076, MOS-12068, MOS-13591|
+|49.|Master Data Management|Applicant Type-Document Category-Document Type Mapping - Read|[MOS-12060](https://mosipid.atlassian.net/browse/MOS-12060), MOS-13962, MOS-12076, MOS-12068, MOS-13591|
 |50.|Master Data Management|List of Devices - Create/Read/Update/Delete|MOS-8263, MOS-9695, MOS-12057,MOS-12076, MOS-10563|
 |51.|Master Data Management|List of Device Specifications - Create/Read/Update/Delete|MOS-8264, MOS-9788, MOS-12076, MOS-10562|
 |52.|Master Data Management|List of Device Types - Create/Update/Delete|MOS-9787, MOS-10563,MOS-12076|
