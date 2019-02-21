@@ -152,6 +152,7 @@ The system sends an acknowledgement to the  applicant through SMS, Email and on-
 1. Each time slot with Available spots will be displayed.
 1. The Individual can select a slot and proceed to Book Appointment or can go back to select another Registration center
 
+[Linl to design](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
 ### 2.6.2 Retrieve Application Data by PRID
 Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id(Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
 1. The system generates a Transaction Id
