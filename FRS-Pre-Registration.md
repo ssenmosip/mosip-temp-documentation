@@ -1,5 +1,5 @@
 ## Table Of Content
-**WIP*
+
 * [1. Overview](#1-overview)
 * [2. Features](#2-features)
   * [2.1 Login/Creating a User Account](#21-logincreating-an-user-account) 
