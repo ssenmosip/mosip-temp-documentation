@@ -60,7 +60,7 @@ The Individual can create Multiple Applications, once the Demographic Details an
 ### 2.2.3 Provide Data in Preferred Language
 The Individual can select his/her language of preference (from list of languages as set by Admin) from the Login Screen. The Individual can then provide data in the preferred language as selected
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
 
 ### 2.2.4 Viewing "My Applications" (covers status)
 The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
@@ -122,7 +122,7 @@ An Individual may opt to  perform text search to find a center based on which th
 1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
 
 ### 2.4.4 Re-book Appointment
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
@@ -133,7 +133,7 @@ An Individual may opt to  perform text search to find a center based on which th
 1. An Individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
 1. An Individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-reg-center-availability-service.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-reg-center-availability-service.md)
 ## 2.5 Appointment Acknowledgement (PRID)
 1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
 1. The acknowledgement contains the following information: Name, Pre-Registration Id, Age/DoB, Mobile Number, Email Id and Registration center Details, Appointment Date, Appointment Time)
@@ -152,7 +152,7 @@ The system sends an acknowledgement to the  applicant through SMS, Email and on-
 1. Each time slot with Available spots will be displayed.
 1. The Individual can select a slot and proceed to Book Appointment or can go back to select another Registration center
 
-[Linl to design](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
+[**Link to design**](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
 ### 2.6.2 Retrieve Application Data by PRID
 Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id(Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
 1. The system generates a Transaction Id
