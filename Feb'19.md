@@ -37,16 +37,14 @@
 |3.|Pre-registration|Tested Code|Link|Exit Criteria: |
 |4.|Pre-registration|Known Defects and Pending Items|Link to word doc|Refer Section 2|
 |5.|Pre-registration|Test Cases|Link||
-|6.|Pre-registration|Test Strategy|Link||
-|7.|Pre-registration|Mindmaps|Link||
-|9.|Pre-registration|Automation Framework|Link||
-|10.|Pre-registration|Developer Documentation|Link||
-|11.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Section 1|
-|12.|Kernel|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
-|13.|Kernel|Tested Code|Link|Exit Criteria: |
-|14.|Kernel|Known Defects and Pending Items|Link to word doc|Refer Section 3|
-|15.|Kernel|Test Cases|Link||
-|16.|Kernel|Test Strategy|Link||
-|17.|Kernel|Mindmaps|Link||
-|18.|Kernel|Automation Framework|Link||
-|19.|Kernel|Developer Documentation|Link||
+|6.|Pre-registration|Mindmaps|Link||
+|7.|Pre-registration|Automation Framework|Link||
+|8.|Pre-registration|Developer Documentation|Link||
+|9.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Section 1|
+|10.|Kernel|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
+|11.|Kernel|Tested Code|Link|Exit Criteria: |
+|12.|Kernel|Known Defects and Pending Items|Link to word doc|Refer Section 3|
+|13.|Kernel|Test Cases|Link||
+|14.|Kernel|Mindmaps|Link||
+|15.|Kernel|Automation Framework|Link||
+|16.|Kernel|Developer Documentation|Link||
