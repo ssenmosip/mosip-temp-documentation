@@ -33,9 +33,10 @@
   * [2.6 Registration Client Services](#26-registration-client-services)
     * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) _(MOS_PFM_PRG_FR_23)_
     * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) _(MOS_PFM_PRG_FR_24)_
-    * [2.6.3 Update Appointment Status](#263-update-appointment-status) _(MOS_PFM_PRG_FR_25)_
   * [2.7 List of Configurable Parameters](#27-list-of-configurable-parameters) _(MOS_PFM_PRG_FR_26)_
 # 1. Overview
+The pre-registration module enables a user to book an appointment for one or many individuals for registration. It allows an user to enter their demographic details and book appointment by choosing a suitable registration center and time slot.
+
 # 2. Features
 ## 2.1 Login/Creating an user account
 ### 2.1.1 Login using Email
@@ -139,10 +140,26 @@ Individual can Choose to print the Acknowledgement or can Download the Acknowled
 The System sends an acknowledgement to the  applicant through SMS, Email and on-screens as per the details provided in Demographic details
 ## 2.6 Registration Client Services
 ### 2.6.1 Get Appointment for the Day
+1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
+1. The system presents a  list of Centers to the user to select the required Registration center 
+1. The Time selection with calendar days along with number of spots available per calendar day will be displayed 
+1. Individual can select any of the calendar day which he\she wishes to Book Appointment.
+1. Time slots of 15 minutes each are displayed.
+1. Each time slot with Available spots will be displayed.
+1. The Individual can select a slot and proceed to Book Appointment or can go back to select another Registration center
+
 ### 2.6.2 Retrieve Application Data by PRID
-### 2.6.3 Update Appointment Status
+Upon receiving the Registration Center ID, Date Range (Start Date, End Date) for the List of Pre-Registrations, User ID (Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
+1. The System generates a Transaction ID
+1. The System then Fetches all the Pre-Registrations within the Date Range (Start Range, End Date) and for the Registration Center ID received and calculates the count of the Pre-Registration IDs being sent.
+1. The System sends the List of Pre-Registration Ids along with count of Pre-Registrations.
+1. The system receive the Pre-Registration ID/IDs for which Pre-Registration Data has to be sent.
+1. The System sends the zip file per Pre-Registration ID consisting of Demo Data, Files, and Appointment Time.
+
 ## 2.7 List of Configurable Parameters and Processes
 
-* **Configuration Parameters**(https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
+* **Configuration Parameters**
+Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
 
-* **Configurable Processes**(https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
+* **Configurable Processes**
+Refer to [Wiki](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
