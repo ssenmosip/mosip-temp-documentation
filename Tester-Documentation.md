@@ -46,69 +46,49 @@ Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libr
 
 The framework consists majorly 3 Elements/parts as below:
 	
-      Test Case Configurator
-      Test Data Util
+      Test Data
+      Test Scenario
       Test Execution and Assert
-      Results
+      Results/Reporting
 
-#### 2.1.1.1 Test Case Configurator
+Directory Structure:
 
-This is created on the fly while running the specific mofule’s api based on the combination of api specific attributes. Each api attribute is combined with valid and invalid data which forms specific test scenario. It is assumed that there is ONE valid scenario with all attributes of an api being valid and this forms smoke scenario. Error scenarios are formed by combination of invalid attributes of an api.
-The configuration is formed with specific combination of api attributes and Data Util is called with this config file.
+#### 2.1.1.1 Test Data
+Test Data is maintained under the path src/test/resources. Every module's data is saved separately from other module with folder name as module name(say Kernel).
+Every api under specific module is saved as folder name. All test cases belonging to an api are saved with separate folders; the name of folder being the name of the test case. Each test case folder has 2 jsons; one for request.json and another refering expected response.json.
+It looks as below:
+src/test/resources/moduleName/apiName/testCaseName/Request.json
+src/test/resources/moduleName/apiName/testCaseName/Response.json
 
-#### 2.1.1.2 Test Data Util
+Example: 
+src/test/resources/Kernel/FetchDevice/invalid_deviceType_blank/Request.json
+src/test/resources/Kernel/FetchDevice/invalid_deviceType_blank/Response.json
 
-Test Data Util forms unique request and response jsons based on the config file received.
+#### 2.1.1.2 Test  Scenario
 
-### Request:
+Test Cases are formed around api's behavior and its attributes. Every api will have valid and invalid scenarios with varying combination of attributes of the api. First success scenario test cases are formed by keeping all attributes as valid. Then error scenarios are formed by updating a field as invalid one at at time. 
+Each folder name under specific api represents an individual test case.
 
-Based on the valid/Invalid combination of api attributes, the templatized request.json is de-parameterized with randomized generation of input data and placed in folder named with test case name. 
+#### 2.1.1.3 Test Execution and assert
+IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.Test are executed using io rest assured DSL libraries. All methods are implemented under CommonLibrary.java and ApplicationLibrary.java file contains generic methods to accept input body and resource uri. These files can be located under io.mosip.util package.
 
-### Response:
+All tests are maintained module wise; each class under tests represent an api specific to the module. The name of the java class is same as api name. The same java class is having test methods to run multiple test data combination for an api.
+The directory structure is:
+io.mosip.kernel.tests
+io.mosip.preregistration.tests
+io.mosip.authenticatiion.tests
+io.mosip.registrationprocessor.tests
 
-Based on the type of de-parameterized request, response is mapped with statically saved expected response.json files and saved under the same folder where request was been saved.
+Example test class file: io.mosip.kernel.test.AuditLog.java
 
-### Folder Structure:
+After getting actual response from the service, the actual response body is compared with expected response body by using hashcode and then json to json comparison by removing dynamic elements from both response json.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared. The code for assert is present under: io.mosip.service.AssertResponse java file.
 
-Each test scenario/tes case/data combination is written to separate folder and named with test case name. Based on the api’s attribute combination from config file, the folders are populated.
-
-#### 2.1.1.3 Test Execution and Assert
-
-Execution:
-IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.
-
-Assert:
-All the foldeers under specific api is traversed through to run each request and compared the actual and expected response sent by Data Util.  Response files are converted to Json Object using Json Mappers and then Object to Object is compared.
-
-#### 2.1.1.4 Results:
-
-Result is captured in output.json file where each test case is mapped with unique JIRA ID. This info intern is used to write to Zephyr. After each automation run, Test Cycle will be created and can see detailed report in Zephyr.
-
-## Contract to be followed with Test Data Util:
-
-1.	Based on the templatized request, the api attributes have to be parameterized. If any of the attribute is not tokenized (data is already provided) then retain original value else de-parameterize using randomly generated input data(based on valid/invalid config parameters). This is to avoid parameterization of static data.
-
-2.	Folder Naming Convention
-
-If all attributes in the config file is valid then folder name to be followed as “testcase_smoke” (There will be only one valid scenario for each api)
-
-If any of the attribute is invalid then folder name to be followed as “Invalid_+”name of the invalid attribute”. It is assumed, each time only one attribute will be invalid, if found more than one attribute as invalid then can suffix that name with prior one (Ex: “Invalid_+”name of the invalid attribute1 + name of the invalid attribute2”)
-
-3.	As part of Integration scenario, have to generate request json consuming specific parameters from output of another api.
-
-4.	Few of the input data has to be dynamically generated at the time of de-parameterizing  request.json files 
-Examples: 
-
-Datetimestamp lesser/greater than 20 min than current time (requirement from IDA, Kernel modules) 
-Adding logic to encode/encrypt specific demographic/biometric data
-
-5.	Handling Biometric Data
-
-Util to generate packets is been shared by Reg client, by using this util input request is to be generated as part of Reg-Proc apis requirement.
-
+#### 2.1.1.4 Test Results/Reportig
+Based on the assert function output a test is decided as PASS or FAIL and then written to TestNG default report emailable.html report. This report can be found under test-output/emailable-report.html. The same is circulated to other audience after pipeline QA build.
+ 
 ## 2.2 Api Testing Strategy
 
-Api Testign is broadly classified as Component and integration(Scenario) testing.
+Api Testing is broadly classified as Component and integration(Scenario) testing.
 
 ### Component Tests
 Component tests are like unit tests for the API - It checks individual methods available in the API in isolation. We create these tests by making a test step for each method or resource that is available in the service contract. 
@@ -131,14 +111,25 @@ The easiest way to create component tests is to consume the service contract and
 
 These individual API tests are the most important tests that we build because they will be leveraged in all of the subsequent testing techniques.  These tests simplify the process of approaching API testing.
 
-### Scenario Tests
+### Integration/Scenario Tests
 Under this type of testing, we assemble the individual component tests into a sequence, much like the example described as below.
 Ex: Create Application, Upload Document, Book appointment and Fetch Application data.
 There are two great techniques for obtaining the sequence:
 1.	Review the user story to identify the individual API calls that are being made.
 2.	Exercise the UI and capture the traffic being made to the underlying APIs.
 
-Scenario tests allow us to understand if defects might be introduced by combining different data points together.
+Approach:
+An individual method is created for all of the preregistration apis with method name as api name. Inputs for the method will be refered from specific module/api/valid or invalid scenarios (Ex: src/test/resource/prereg/CreateApplication/createPreRegistration_smoke) which is already maintained as part of component testing. All these methods are written under io.mosip.util.PreRegistrationLibrary.java class file.
+Scenario is designed by calling the methods in the same order as transaction happens in real life as illustrated below.
+
+Scenario to delete a document for the Booked appointment. Sequence of actions accomplished using api specific methods are:
+
+CreateApplication()
+DocumentUpload()
+BookingAppointment()
+DeleteDocumentByPreId()
+
+Integration tests allow us to understand if defects might be introduced by combining different data points together.
 
 
 ## 2.3 Module level testing
