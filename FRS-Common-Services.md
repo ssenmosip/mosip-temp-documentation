@@ -44,7 +44,7 @@
 
 1. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-otpmanager.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-otpmanager.md)
 
 ## 2. QR Code Generator
 QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
@@ -65,7 +65,7 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto.md)
 ### 3.1 Key Generator
 #### A. Generate a Symmetric Key
 
@@ -82,7 +82,7 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 * The asymmetric key pair generated is of 2048 bit size
 * The asymmetric is returned as a byte array
 
-[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator.md)
 
 ### 3.2 Key Management
 
@@ -92,7 +92,7 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 1. In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.
 1. For a request to receive private key, The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
 
-[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md)
 
 ### 3.3 Crypto Utility 
 
@@ -122,23 +122,23 @@ A HMAC/checksum function is a way to create a compact representation of an arbit
 1. The restriction on Attachment and its size is configurable. 
 1. The Third-Party Email Vendor is configurable and any country specific vendor can be used.
 
-[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-emailnotification.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-emailnotification.md)
 
 ### 4.3 SMS Notification
 
 This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification.md)
 
 ### 4.4 PDF Generator
 This utility enables created of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md)
 
 ### 4.5 Template Merger
 This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.
 
-[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-templatemanager.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-templatemanager.md)
 
 ## 5. Transliteration
 MOSIP system can facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
@@ -208,7 +208,7 @@ Upon receiving a request to validate an Email ID against the standard Email ID p
 |MosipInvalidEmailException|	Email Domain extension length should be specified number of characters|	KER-EMV-003|
 |MosipInvalidEmailException|	Invalid Email ID|	KER-EMV-004|
 
-[Design link to mobile and email data validator](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md)
+[**Design Link to mobile and email data validator**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md)
 ### 6.3 Exception Framework
 MOSIP system provides base exception framework.
 ### 6.4 Calendar Utility 
