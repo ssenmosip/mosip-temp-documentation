@@ -65,6 +65,7 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto.md)
 ### 3.1 Key Generator
 #### A. Generate a Symmetric Key
 
