@@ -77,8 +77,19 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
+1. When an individual provides his/her Demographic data, the Pre-registration system captures the data. 
+1. Based on the parameters (From Config file) used for Applicant type determination, the Pre-Registration system sends the Id to the mapping.
+1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
+1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
 
 ### 2.3.2 Referring to already Uploaded Documents
+1. An Individual logs in to the pre-registration system and opts to Update\modify a Pre-Registration Application 
+1. The system redirects the Individual to the Demographic Details saved in the system earlier
+1. The Individual can update the required data (Basic Demographic) and can proceed to upload Documents.
+1. The Individual may then opt to delete an existing document and upload new document if he\she wants to update the document uploaded (for any of POI, POA, POB, and supporting Document)
+1. The Individual should then review and Confirm Details before proceeding to book appointment
+
+
 ## 2.4 Booking an Appointment
 ### 2.4.1 Choosing a Registration Center for Appointment
 
