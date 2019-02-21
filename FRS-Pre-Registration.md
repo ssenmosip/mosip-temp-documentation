@@ -42,10 +42,19 @@
 The Individual can login to the Pre-registration Portal by providing his/her Email Id. The System validates the email id, once validated sends an OTP to the email id as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
 
 ### 2.1.2 Login using Phone Number
+The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The System validates the Mobile Number, once validated sends an OTP to the email id as provided. The Individual enters the OTP as received. The System validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
+
 ### 2.1.3 Automatic Account Creation on First Login
+
+The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email ID. After successful Authentication, the system check if the Individual is first time user or not. If the Individual is first time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User ID.
+
 ### 2.1.4 Logout/Session Timeout
+The Individual wishes to logout of the Pre-Registration system and clicks on the Logout. The Token issued during the Authentication of User Login is deleted and the User gets logged out of the system.
+
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
+The Individual will be provided with Demographic form for new pre-registration application, Individual Fills Demographic Details (Full Name, Age/DOB, Gender, Residential status, Address Lines (1,2,3), Region, Province, City, Local Administrative Authority, Mobile Number, Email ID, CNIE/EC Number, Postal Code). The System validates the Fields entered, the system also checks for the Mandatory fields. Once validated the Pre-Registration Id is generated and the Demographic details provided gets mapped to that PRID.
+
 ### 2.2.2 Create Multiple Applications
 ### 2.2.3 Provide Data in Preferred Language
 ### 2.2.4 Viewing "My Applications" (covers status)
