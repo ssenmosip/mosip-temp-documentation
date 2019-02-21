@@ -42,7 +42,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
    * List of Reasons
    * Document Category
    * Document Type
-   * Mapping of Document Category-Type (refer table "Valid Documents")
+   * Mapping of Applicant Type-Document Category-Document Type (refer table "Valid Documents")
    * Machine Type
    * Machine Specifications
    * List of Machines
@@ -52,7 +52,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
    * Location Hierarchy
    * List of Languages
    * List of Genders
-   * Biometric Authentication Type - (refer table "Biometric Type")
+   * Biometric Authentication Type
    * Biometric Attribute
    * Center-Machine Mapping
    * Center-Device Mapping
@@ -61,7 +61,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
    * Center-User Mapping
 4. The Sync Handler service only sends incremental changes based on the Timestamp received by the service.
 1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations
-1. For User, Roles and Respective User-Role mappings, Sync handler receives Machine ID and Timestamp and will respond to the Registration Client about Center specific incremental changes.
+1. For User, Roles and Respective User-Role mappings, Sync handler receives Center ID and Timestamp and will respond to the Registration Client with Center specific incremental changes.
 
 ## 4. ID Generator and Validator
 ### 4.1 ID Validator
