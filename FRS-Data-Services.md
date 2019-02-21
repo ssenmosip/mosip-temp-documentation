@@ -276,6 +276,8 @@ Upon receiving a request to generate TSP ID, the system generates it as per defa
 |:------:|------|:------:|
 |NA	|TSP ID Generation Failed|	NA|
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
+
 #### 4.2.4 PRID Generator
 
 Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic
