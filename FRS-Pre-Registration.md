@@ -80,18 +80,21 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 ### 2.3.2 Referring to already Uploaded Documents
 ## 2.4 Booking an Appointment
 ### 2.4.1 Choosing a Registration Center for Appointment
+
 #### 2.4.1.1 Recommended Centers based on Postal Code
 1. The system fetches the Location Hierarchy as defined in the Master Data and recommends registration centers based on the postal code
-1. The search results have the following information about the Registration center :name, Address, Working Hours, Contact Person, Center Type, and Contact Number)
+1. The search results have the following information about the Registration center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
 
 #### 2.4.1.2 Nearby centers based on User Geo-location
 1. An individual can  enable location services,  in the device/machine in order to select nearby centers
 1. The System checks for Lat-Long values of the individual and  fetches all the Registration centers within 2 KM Radius (configurable)
 1. The First Registration center as per the search criteria is shown to the individual on Map by default
+
 #### 2.4.1.3 Find a Center
 An individual may opt to  perform text search to find a center based on which the system displays the registration centers
 
 ### 2.4.2 Choosing Appointment Slots
+
 #### 2.4.2.1 Get Slots Availability
 •	The System displays 7 calendar days (configurable) for the Individual to select a slot
         Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
