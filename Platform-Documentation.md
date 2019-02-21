@@ -129,7 +129,7 @@ Please Refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications
 This Section provides a detailed functional requirement specification for each module in MOSIP
-Please refer [wiki](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification) for the detailed functional spec.
+
 ### 5.2 Non- Functional Requirement Specifications
 This Section details out the non-functional requirements of MOSIP platform
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
