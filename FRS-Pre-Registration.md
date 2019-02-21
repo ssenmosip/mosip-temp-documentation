@@ -54,7 +54,7 @@ The Individual wishes to logout of the Pre-Registration system and clicks on the
 
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
-The Individual will be provided with Demographic form for new pre-registration application, Individual Fills Demographic Details (Full Name, Age/DOB, Gender, Residential status, Address Lines (1,2,3), Region, Province, City, Local Administrative Authority, Mobile Number, Email ID, CNIE/EC Number, Postal Code). The System validates the Fields entered, the system also checks for the Mandatory fields. Once validated the Pre-Registration Id is generated and the Demographic details provided gets mapped to that PRID.
+The Individual is provided with Demographic form for new pre-registration application, Individual Fills Demographic Details (Full Name, Age/DOB, Gender, Residential status, Address Lines (1,2,3), Region, Province, City, Local Administrative Authority, Mobile Number, Email ID, CNIE/EC Number, Postal Code). The System validates the Fields entered, the system also checks for the Mandatory fields. Once validated the Pre-Registration Id is generated and the Demographic details provided gets mapped to that PRID.
 
 ### 2.2.2 Create Multiple Applications
 The Individual can create Multiple Applications, once the Demographic Details and the Documents are uploaded the Individual can add an applicant from the Preview page. The Individual can also add applicants from Dashboard by clicking on Create New Application. The System provides the Individual with Demographic form to fill. The System associates the pre-registration Id to the new Application(s) created.
