@@ -44,6 +44,7 @@
 
 1. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-otpmanager.md)
 
 ## 2. QR Code Generator
 QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
