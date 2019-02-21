@@ -350,9 +350,7 @@ Upon receiving a request to generate Token ID (with input para meters (TSP ID, U
 |NA|NA|NA|
 
 ### <p align="left"> **2. Type: Error/Failure – Info Message**
-Database	|Connection|	Exception	|unable to connect To db|	KER-TIG-001|
-|:------:|:------:|:------:|:------:|:------:|
 
-
-
-
+|**Scenario**|**Message**|**Message Code**|
+|:------:|:------:|:------:|
+|Database Connection Exception	|unable to connect To db|KER-TIG-001|
