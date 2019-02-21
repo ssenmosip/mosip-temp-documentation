@@ -117,9 +117,7 @@ UIN_VAL_ILLEGAL_EQUAL_LIMIT|	UIN First configured no.of digits should be differe
 
 Upon receiving a request to validate the PRID, the system validates the PRID against the defined policy
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
-1. In absence of the configured length, validates if the PRID received should contain 14 digits
 1. Validates the PRID received as per the PRID generation logic 
-1. In case of Exceptions, triggers relevant error messages
 1. Responds to the source with appropriate message 
 1. Raises an alert in case of listed exceptions as defined below
 ### <p align="left"> **1. Type: Success – Info Message**
@@ -144,7 +142,6 @@ MosipInvalidIDException	|Entered PRID should not contain Zero or One as first Di
 
 Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
 1. Validates if the VID is of configured length.
-1. If no length is configured, validates if VID length is of 16 digits
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received as per the VID generation logic
 1. Responds to the source with appropriate message and raises an alert in case of listed exceptions 
@@ -186,7 +183,6 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 1. Validates if the request has the following input parameters.
    * TSP ID
 2. Validates TSP ID as per the TSP ID generation Policy
-1. In case of Exceptions system triggers relevant error messages 
 1. Responds with the required result (Valid/Invalid)
 1. Raises an alert in case of listed exceptions as defined below:
 
@@ -199,7 +195,7 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 ### <p align="left"> **2. Type: Error/Failure – Info Message**
 |**Scenario**|**Message**|**Message Code**|
 |:------:|------|:------:|
-|TSP ID in Invalid	|TSP ID length Must be <Length configured)	|KER-IDV-401|
+|TSP ID in Invalid	|TSP ID length Must be of <Length configured>	|KER-IDV-401|
 
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
