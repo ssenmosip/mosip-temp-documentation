@@ -1293,8 +1293,6 @@ On receiving a request to fetch Registration Center Details with the input param
 
 ### 2.3 List of Machine Types - Create/Read/Update/Delete
 
-MOSIP system can create Machine Type in Masterdata DB
-
 Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
