@@ -137,6 +137,9 @@ This utility enables created of PDF from the content received. It will receive a
 
 ### 4.5 Template Merger
 This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.
+
+[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-templatemanager.md)
+
 ## 5. Transliteration
 MOSIP system can facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -187,6 +190,7 @@ Upon receiving a request to validate an Email ID against the standard Email ID p
    * Uppercase and lowercase English letters (a–z, A–Z)
    * Characters ! # $ % & ' * + - / = ? ^ _ ` { | }
    * ~ .
+
 5. Validates if the Email ID contains "@" and domain name within the Email ID.
 1. Responds to the source with the result (Valid/Invalid)
 1. Raises an alert in case of listed exceptions (Refer “messages” section)
