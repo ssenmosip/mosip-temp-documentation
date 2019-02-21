@@ -34,7 +34,7 @@
     * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) 
   * [2.7 List of Configurable Parameters](#27-list-of-configurable-parameters) _(MOS_PFM_PRG_FR_7)_
 # 1. Overview
-The pre-registration module enables an user to book an appointment for one or many individuals for registration. It allows an user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking. This module also has the provision for appointment rescheduling and cancellation.
+The pre-registration module enables an user to book an appointment for one or many Individuals for registration. It allows an user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
 # 2. Features
 ## 2.1 Login/Creating an user account
@@ -77,16 +77,16 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
-1. When an individual provides his/her Demographic data, the Pre-registration system captures the data. 
+1. When an Individual provides his/her Demographic data, the Pre-registration system captures the data. 
 1. Based on the parameters (From Config file) used for Applicant type determination, the Pre-Registration system sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
 
 ### 2.3.2 Referring to already Uploaded Documents
-1. An individual logs in to the pre-registration system and opts to Update\modify a Pre-Registration Application 
+1. An Individual logs in to the pre-registration system and opts to Update\modify a Pre-Registration Application 
 1. The system redirects the Individual to the Demographic Details saved in the system earlier
-1. The individual can update the required data (Basic Demographic) and can proceed to upload Documents.
-1. The individual may then opt to delete an existing document and upload new document if he\she wants to update the document uploaded (for any of POI, POA, POB, and supporting Document)
+1. The Individual can update the required data (Basic Demographic) and can proceed to upload Documents.
+1. The Individual may then opt to delete an existing document and upload new document if he\she wants to update the document uploaded (for any of POI, POA, POB, and supporting Document)
 1. The Individual should then review and Confirm Details before proceeding to book appointment
 
 
@@ -98,12 +98,12 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 1. The search results have the following information about the Registration center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
 
 #### 2.4.1.2 Nearby centers based on User Geo-location
-1. An individual can  enable location services,  in the device/machine in order to select nearby centers
-1. The system checks for Lat-Long values of the individual and  fetches all the Registration centers within 2 KM Radius (configurable)
-1. The First Registration center as per the search criteria is shown to the individual on Map by default
+1. An Individual can  enable location services,  in the device/machine in order to select nearby centers
+1. The system checks for Lat-Long values of the Individual and  fetches all the Registration centers within 2 KM Radius (configurable)
+1. The First Registration center as per the search criteria is shown to the Individual on Map by default
 
 #### 2.4.1.3 Find a Center
-An individual may opt to  perform text search to find a center based on which the system displays the registration centers
+An Individual may opt to  perform text search to find a center based on which the system displays the registration centers
 
 ### 2.4.2 Choosing Appointment Slots
 
@@ -111,21 +111,21 @@ An individual may opt to  perform text search to find a center based on which th
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot
 1. Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
-1. An individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
+1. An Individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
 
 ### 2.4.3 Cancel Appointment
-1. An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
+1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
 1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 2.4.4 Re-book Appointment
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
-1. An individual can select any of the Appointment Date available and any of the Appointment Spot available
-1. The individual has to select against which Pre-Registration Id the Appointment spot is being booked
+1. An Individual can select any of the Appointment Date available and any of the Appointment Spot available
+1. The Individual has to select against which Pre-Registration Id the Appointment spot is being booked
 1. The system maps appointment spot with all the Pre-Registration Ids which are selected for Appointment Booking. 
 1. If any Pre-Registration Id does not have Booking mapped, the user is notified if he wants to continue without booking
-1. An individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
-1. An individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
+1. An Individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
+1. An Individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
 
 ## 2.5 Appointment Acknowledgement (PRID)
 1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
