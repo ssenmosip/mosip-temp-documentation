@@ -82,6 +82,8 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 * The asymmetric key pair generated is of 2048 bit size
 * The asymmetric is returned as a byte array
 
+[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator.md)
+
 ### 3.2 Key Management
 
 1. The Key Manager Service works together with the Crypto Service. 
