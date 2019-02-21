@@ -26,7 +26,7 @@
 |11.|Kernel|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer Section 3|
 
 
-**Date: 28 Feb 2019** * WIP - Please review on the due date
+**Date: 25 Feb 2019** * WIP - Please review on the due date
 
 **Module: Pre-registration, Kernel**
 
@@ -34,7 +34,7 @@
 |:------:|-----|---|---|---|
 |1.|Pre-registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Section 2|
 |2.|Pre-registration|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
-|3.|Pre-registration|Tested Code|Link|Exit Criteria: |
+|3.|Pre-registration|Tested Code|Link|Exit Criteria: Sonar Report (URL),Code coverage,0 Major defects,0 Blockers,0 Critical,100% test execution,Zapphire report needs to be published,Release Notes ,How to raise defects - guide|
 |4.|Pre-registration|Known Defects and Pending Items|Link to word doc|Refer Section 2|
 |5.|Pre-registration|Test Cases|Link||
 |6.|Pre-registration|Mindmaps|Link||
@@ -42,7 +42,7 @@
 |8.|Pre-registration|Developer Documentation|Link||
 |9.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Section 1|
 |10.|Kernel|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
-|11.|Kernel|Tested Code|Link|Exit Criteria: |
+|11.|Kernel|Tested Code|Link|Exit Criteria: Sonar Report (URL),Code coverage,0 Major defects,0 Blockers,0 Critical,100% test execution,Zapphire report needs to be published,Release Notes ,How to raise defects - guide |
 |12.|Kernel|Known Defects and Pending Items|Link to word doc|Refer Section 3|
 |13.|Kernel|Test Cases|Link||
 |14.|Kernel|Mindmaps|Link||
