@@ -33,10 +33,10 @@
 1. OTP Manager Component handles OTP Generation and OTP Validation
 
 
-1. For OTP generation, system receives a request to generate an OTP along with a key in input parameter. 
+1. For OTP generation, system receives a request to generate an OTP along with a Key in input parameter. 
 
 
-1. This key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
+1. This Key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
 
 1. The component will generate an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
 
@@ -56,7 +56,7 @@ QR code generator takes the content received along with the version number and c
 Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
 
 #### A. For Encryption
-The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameter. Encrypt the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
+The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameter. Encrypt the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
 #### B. For Decryption
 The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted. 
 
