@@ -74,7 +74,7 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 ### 2.2.5 Modify Application Data
 The Individual Can Modify the Pre-Registration data by selecting the Modify Information from the Dashboard. The system provides the Demographic form with pre-filled demo details. The Individual can edit the required changes. The system associates the modified demo details with the Pre-Registration Id for which modifies information is initiated.
 
-[Link to design](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
+[**Link to design**](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
 
 ### 2.2.6 Discard Application
 The Individual can discard the Pre-Registration by clicking on the Delete icon for the Pre-Registration Id for which he/she wishes to discard. The system provides the Individual with two options: ‘Discard entire Application’ or ‘Cancel Appointment’. The Individual choses to discard entire Application. The system deletes all the data mapped to the Pre-Registration Id and cancels the appointment (if any).
@@ -161,7 +161,7 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 1. The system receive the Pre-Registration Id/Ids for which Pre-Registration Data has to be sent.
 1. The system sends the zip file per Pre-Registration Id consisting of Demo Data, Files, and Appointment Time.
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-data-sync.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-data-sync.md)
 ## 2.7 List of Configurable Parameters and Processes
 
 1. [Configuration Parameters](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Configurations_Consolidated%20List_Updated_14Nov18_CV_Final.xlsx)
