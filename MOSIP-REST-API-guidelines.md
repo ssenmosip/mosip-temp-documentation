@@ -95,6 +95,7 @@ The request payload goes here.
 For example, 
 
 Request: 
+```JSON
 {
 	/***** Following is the header information *****/
 	"id":"mosip.kernel.otpservice",			
@@ -110,6 +111,7 @@ Request:
 		// payload
 	}
 }
+```
 
 # 16	Response format
 There are 4 sections in the Response. 
@@ -127,7 +129,9 @@ The response payload goes here.
 For example, 
 
 Response: 
+```JSON
 {
+
 	/***** Following is the header information *****/
 	"id":"mosip.kernel.otpservice",			
 	"version":"1.0",	
@@ -138,11 +142,9 @@ Response:
 		"status" : "error"
 	},
 	
-	
 	/***** Following is the response payload *****/
 	"response" : {
 		// payload
-
 	}
 
 	/***** Errors wrapped in an array *****/
@@ -156,7 +158,7 @@ Response:
 	  }		
 	]
 }
-
+```
 
 
 
