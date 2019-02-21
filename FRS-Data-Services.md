@@ -338,6 +338,8 @@ VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
    * The number should not contain '0' or '1' as the first digit.
 4. Expired VID should not be sent in response
 
+
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
 #### 4.2.6 Token ID Generator
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
