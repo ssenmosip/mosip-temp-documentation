@@ -48,7 +48,7 @@ The Individual can login to the Pre-registration Portal by providing his/her Mob
 The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first time user or not. If the Individual is first time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
 
 ### 2.1.4 Logout/Session Timeout
-The Individual wishes to logout of the Pre-Registration system and clicks on the Logout. The Token issued during the Authentication of User Login is deleted and the User gets logged out of the system.
+The Individual wishes to logout of the Pre-Registration system and clicks on the Logout. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
 
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
@@ -119,11 +119,11 @@ An individual may opt to  perform text search to find a center based on which th
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 2.4.4 Re-book Appointment
-1. The system provides the User with a default appointment selection: Select Consecutively available Appointment spots
+1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
 1. An individual can select any of the Appointment Date available and any of the Appointment Spot available
 1. The individual has to select against which Pre-Registration Id the Appointment spot is being booked
 1. The system maps appointment spot with all the Pre-Registration Ids which are selected for Appointment Booking. 
-1. If any Pre-Registration Id does not have Booking mapped, the User is notified if he wants to continue without booking
+1. If any Pre-Registration Id does not have Booking mapped, the user is notified if he wants to continue without booking
 1. An individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
 1. An individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
 
