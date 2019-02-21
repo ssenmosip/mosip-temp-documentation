@@ -33,7 +33,7 @@
 1. OTP Manager Component handles OTP Generation and OTP Validation
 1. For OTP Generation, system receives a request to generate an OTP along with a Key in input parameter. 
 1. This Key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
-1. The component generates an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
+1. The component generates an OTP as per the configured length and responds back with the OTP to the source. OTP manager maps an expiry period with the OTP as configured by the Admin.
 
 ### B. OTP Validation
 1. For OTP Validation, system receives a request to validate an OTP with a Key and OTP in input parameter. 
@@ -51,7 +51,7 @@ QR code generator takes the content received along with the version number and c
 Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
 
 #### A. For Encryption
-The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameter. Encrypt the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
+The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parametern encrypts the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
 #### B. For Decryption
 The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted. 
 
@@ -90,25 +90,10 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 
 ### 3.3 Crypto Utility 
 
-The crypto utility is used to perform encryption and decryption 
-
-#### A. Encryption
-
-1. On receiving a  request to encrypt data with input parameters (Application ID, Reference ID, Timestamp, data) the system gets the public key by calling the Key Manager Webservice with the input parameters received in the request (Application ID, Reference ID, Timestamp, data)
-1. Get the Public key in response from the Key Manager Webservice.
-1. Generates the Symmetric Key by using the Symmetric Key generator API.
-1. Encrypts the data received in the request with the Symmetric key using the Cryptography JAVA API.
-1. Encrypts the symmetric key received using the public key using the Cryptography JAVA API.
-1. Combines the Encrypted data and Encrypted Symmetric Key using Crypto Utility
-1. Responds to the source with the Encrypted data and Encrypted Symmetric key combined in a Byte array.
-
-#### B. Decryption
-
-1. On receiving  a request to decrypt data with input parameters (Application ID, Reference ID, Timestamp, Encrypted Byte array) the system Extracts the encrypted Data and Encrypted public key from the Byte Array received using Crypto Utility
-1. Decrypts the encrypted symmetric received in the request using the Key Management WebService.
-1. Decrypts the encrypted data with the decrypted symmetric using Cryptography JAVA API.
-1. Responds to the source with the Encrypted data and Encrypted Symmetric key combined in a Byte array.
-
+The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which perfomrs following functions
+1. It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source
+2. It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption
+ 
 ### 3.4 Hash Utility
 1. Identifies hash util methods
 1. Creates wrapper class for methods defined in apache-commons hash util
