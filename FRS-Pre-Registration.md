@@ -24,7 +24,6 @@
       * [2.4.1.3 Find a Center](#2413-find-a-center) _(MOS_PFM_PRG_FR_16)_
     * [2.4.2 Choosing Appointment Slots](#242-choosing-appointment-slots) 
       * [2.4.2.1 Get Slots Availability](#2421-get-slots-availability) _(MOS_PFM_PRG_FR_17)_
-      * [2.4.2.2 Block Slots for one or more Applications](#2422-block-slots-for-one-or-more-applications) _(MOS_PFM_PRG_FR_18)_
     * [2.4.3 Cancel Appointment](#243-cancel-appointment) _(MOS_PFM_PRG_FR_19)_
     * [2.4.4 Re-book Appointment](#244-re-book-appointment) _(MOS_PFM_PRG_FR_20)_
   * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid) 
@@ -114,8 +113,6 @@ An individual may opt to  perform text search to find a center based on which th
 1. Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
 1. An individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
-
-#### 2.4.2.2 Block Slots for one or more Applications
 
 ### 2.4.3 Cancel Appointment
 1. An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
