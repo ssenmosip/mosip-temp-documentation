@@ -11,7 +11,7 @@
    * [2.3 Resume Workflow](#23-resume-workflow)
    * [2.4 Integration (System capability)](#24-integration-system-capability)
    * [2.5 Workflow Customization (Ability to plug-in/exclude stages)](#25-workflow-customization-ability-to-plug-inexclude-stages)
-   * [2.6 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)](#26-multiple-workflows--specific-to-lifecycle---eg--new-vs-update--activation-vs-deactivation--applicant-type-specific-workflow-)
+   * [2.6 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)](#26-multiple-workflows-specific-to-lifecycle--eg-new-vs-update-activation-vs-deactivation-applicant-type-specific-workflow)
    * [2.7 Scalability and Throughput](#27-scalability-and-throughput)
  - [3. Types of Stages](#3-types-of-stages)
    * [3.1 Pre-processing Validations](#31-pre-processing-validations)
