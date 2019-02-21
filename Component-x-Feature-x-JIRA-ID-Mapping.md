@@ -49,24 +49,24 @@
 |45.|Master Data Management|Biometric Attirbute Type - Create/Read|[MOS-8246](https://mosipid.atlassian.net/browse/MOS-8246), [MOS-9623](https://mosipid.atlassian.net/browse/MOS-9623), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
 |46.|Master Data Management|Gender - Create/Read/Update/Delete|[MOS-8266](https://mosipid.atlassian.net/browse/MOS-8266), [MOS-9624](https://mosipid.atlassian.net/browse/MOS-9624), [MOS-988](https://mosipid.atlassian.net/browse/MOS-988), [MOS-13944](https://mosipid.atlassian.net/browse/MOS-13944), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
 |47.|Master Data Management|Document Category - Create/Read/Update/Delete|[MOS-8269](https://mosipid.atlassian.net/browse/MOS-8269), [MOS-9683](https://mosipid.atlassian.net/browse/MOS-9683), [MOS-10567](https://mosipid.atlassian.net/browse/MOS-10567), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
-|48.|Master Data Management|Document Type - Create/Update/Delete|MOS-9684, MOS-10569,MOS-12076|
-|49.|Master Data Management|Applicant Type-Document Category-Document Type Mapping - Read|[MOS-12060](https://mosipid.atlassian.net/browse/MOS-12060), MOS-13962, MOS-12076, MOS-12068, MOS-13591|
-|50.|Master Data Management|List of Devices - Create/Read/Update/Delete|MOS-8263, MOS-9695, MOS-12057,MOS-12076, MOS-10563|
-|51.|Master Data Management|List of Device Specifications - Create/Read/Update/Delete|MOS-8264, MOS-9788, MOS-12076, MOS-10562|
-|52.|Master Data Management|List of Device Types - Create/Update/Delete|MOS-9787, MOS-10563,MOS-12076|
-|53.|Master Data Management|List of Languages - Create/Read/Update/Delete|MOS-8265, MOS-1075, MOS-10554,MOS-12076|
-|54.|Master Data Management|List of Titles - Create/Read/Update/Delete|MOS-8267, MOS-9696, MOS-992,MOS-12076|
-|55.|Master Data Management|Template File Format - Create/Update/Delete|MOS-9687,MOS-12076, MOS-10573|
-|56.|Master Data Management|List of Template Types - Create|MOS-586,MOS-12076|
-|57.|Master Data Management|List of Templates - Create/Read/Update/Delete|MOS-8271, MOS-995, MOS-10590, MOS-15461,MOS-12076|
-|58.|Master Data Management|List of Blacklisted Words - Create/Read/Update/Delete|MOS-8268, MOS-9697, MOS-1054,MOS-12076|
-|59.|Master Data Management|List of Reason Categories - Create|MOS-9689,MOS-12076|
-|60.|Master Data Management|List of Rejection Reasons - Create/Read|MOS-8551, MOS-9690,MOS-12076|
-|61.|Master Data Management|List of Applications - Create/Read|MOS-8888, MOS-9688,MOS-12076|
-|62.|Master Data Management|List of ID Types - Create/Read|MOS-8247, MOS-9691,MOS-12076|
-|63.|Master Data Management|Mappings of Registration Center and Machine - Create/Read/Delete|MOS-9728, MOS-9712, MOS-1053,MOS-12076|
-|64.|Master Data Management|Mappings of Registration Center and Device - Create/Read/Delete|MOS-9729, MOS-9712, MOS-10561, MOS-12058,MOS-12076|
-|65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|MOS-9730, MOS-9712, MOS-10564,MOS-12076|
+|48.|Master Data Management|Document Type - Create/Update/Delete|[MOS-9684](https://mosipid.atlassian.net/browse/MOS-9684), [MOS-10569](https://mosipid.atlassian.net/browse/MOS-10569), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|49.|Master Data Management|Applicant Type-Document Category-Document Type Mapping - Read|[MOS-12060](https://mosipid.atlassian.net/browse/MOS-12060), [MOS-13962](https://mosipid.atlassian.net/browse/MOS-13962), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076), [MOS-12068](https://mosipid.atlassian.net/browse/MOS-12068), [MOS-13591](https://mosipid.atlassian.net/browse/MOS-13591)|
+|50.|Master Data Management|List of Devices - Create/Read/Update/Delete|[MOS-8263](https://mosipid.atlassian.net/browse/MOS-8263), [MOS-9695](https://mosipid.atlassian.net/browse/MOS-9695), [MOS-12057](https://mosipid.atlassian.net/browse/MOS-12057), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076), [MOS-10563](https://mosipid.atlassian.net/browse/MOS-10563)|
+|51.|Master Data Management|List of Device Specifications - Create/Read/Update/Delete|[MOS-8264](https://mosipid.atlassian.net/browse/MOS-8264), [MOS-9788](https://mosipid.atlassian.net/browse/MOS-9788), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076), [MOS-10562](https://mosipid.atlassian.net/browse/MOS-10562)|
+|52.|Master Data Management|List of Device Types - Create/Update/Delete|[MOS-9787](https://mosipid.atlassian.net/browse/MOS-9787), [MOS-10563](https://mosipid.atlassian.net/browse/MOS-10563), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|53.|Master Data Management|List of Languages - Create/Read/Update/Delete|[MOS-8265](https://mosipid.atlassian.net/browse/MOS-8265), [MOS-1075](https://mosipid.atlassian.net/browse/MOS-1075), [MOS-10554](https://mosipid.atlassian.net/browse/MOS-10554), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|54.|Master Data Management|List of Titles - Create/Read/Update/Delete| [MOS-8267](https://mosipid.atlassian.net/browse/MOS-8267), [MOS-9696](https://mosipid.atlassian.net/browse/MOS-9696), [MOS-992](https://mosipid.atlassian.net/browse/MOS-992), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|55.|Master Data Management|Template File Format - Create/Update/Delete|[MOS-9687](https://mosipid.atlassian.net/browse/MOS-9687), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076), [MOS-10573](https://mosipid.atlassian.net/browse/MOS-10573)|
+|56.|Master Data Management|List of Template Types - Create|[MOS-586](https://mosipid.atlassian.net/browse/MOS-586), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|57.|Master Data Management|List of Templates - Create/Read/Update/Delete|[MOS-8271](https://mosipid.atlassian.net/browse/MOS-8271), [MOS-995](https://mosipid.atlassian.net/browse/MOS-995), [MOS-10590](https://mosipid.atlassian.net/browse/MOS-10590), [MOS-15461](https://mosipid.atlassian.net/browse/MOS-15461), [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|58.|Master Data Management|List of Blacklisted Words - Create/Read/Update/Delete|MOS-8268, MOS-9697, MOS-1054, [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|59.|Master Data Management|List of Reason Categories - Create|MOS-9689, [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|60.|Master Data Management|List of Rejection Reasons - Create/Read|MOS-8551, MOS-9690,[MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|61.|Master Data Management|List of Applications - Create/Read|MOS-8888, MOS-9688,[MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|62.|Master Data Management|List of ID Types - Create/Read|MOS-8247, MOS-9691,[MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|63.|Master Data Management|Mappings of Registration Center and Machine - Create/Read/Delete|MOS-9728, MOS-9712, MOS-1053, [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|64.|Master Data Management|Mappings of Registration Center and Device - Create/Read/Delete|MOS-9729, MOS-9712, MOS-10561, MOS-12058, [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
+|65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|MOS-9730, MOS-9712, MOS-10564, [MOS-12076](https://mosipid.atlassian.net/browse/MOS-12076)|
 |66.|Master Data Management|Individual Type Management - Read|MOS-13950|
 
 
