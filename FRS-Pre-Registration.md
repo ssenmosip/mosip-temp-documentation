@@ -116,7 +116,7 @@ An individual may opt to  perform text search to find a center based on which th
 
 ### 2.4.3 Cancel Appointment
 1. An individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
-1. In such case the system will notify the user about the successful cancellation 
+1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
 ### 2.4.4 Re-book Appointment
