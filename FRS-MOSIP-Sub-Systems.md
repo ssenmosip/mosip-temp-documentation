@@ -1,13 +1,71 @@
 ## Table Of Content
 - [Sub-Systems](#sub-systems)
   * [1. UIN Generation](#1-uin-generation)
-  * [2. Configuration Manager](#2-configuration-manager)
-  * [3. Audit Manager-Log manager](#3-audit-manager-log-manager)
+  * [2. Configuration Server](#2-configuration-server)
+  * [3. Audit Manager](#3-audit-manager)
+    * [3.1 Log Manager](#31-log-manager)
   * [4. LDAP / Authorization](#4-ldap--authorization)
 # Sub-Systems
 ## 1. UIN Generation
-## 2. Configuration Manager
-## 3. Audit Manager-Log manager
+MOSIP generates a pool of UINs before the registration process and stores them. 
+The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated Pool. 
+When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN. 
+
+
+The UINs generated follow the following policies:
+
+
+1. UIN should not contain any alphanumeric characters
+1. UIN should not contain any repeating numbers for 2 or more than 2 digits
+1. UIN should not contain any sequential number for 3 or more than 3 digits
+1. UIN should not be generated sequentially
+1. UIN should not have repeated block of numbers for 2 or more than 2 digits
+1. The last digit in the number should be reserved for a checksum
+1. The number should not contain '0' or '1' as the first digit.
+1. First 5 digits should be different from the last 5 digits (E.g. 4345643456)
+1. First 5 digits should be different to the last 5 digits reversed (E.g. 4345665434)
+1. UIN should not be an ascending or descending cyclic figure (E.g. 4567890123, 6543210987)
+1. UIN should be different from the repetition of the first two digits 5 times (E.g. 3434343434)
+1. UIN should not contain three even adjacent digits (E.g. 3948613752)
+1. UIN should not contain ADMIN defined restricted number
+
+## 2. Configuration Server
+
+The Central config server provides following functionality
+1.	It provides functionality to read XML files and Property files
+2.	It helps to manage all the configuration files stored at a centralized location in Git
+3.	It provides a functionality to change the property for a micro-service, it can reflect the changes dynamically without redeploying the micro-service.
+4.	This component allows all the configurations to come from a central server
+
+[Please refer the **configuring MOSIP** section in **getting started guide** for more details on the configuration server](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-)
+
+## 3. Audit Manager
+Audit Manager takes data from different Modules and stores it in the Audit DB. It needs to receive following attribute against each audit record. 
+1. Audit Event ID - Mandatory
+1. Audit Event name - Mandatory
+1. Audit Event Type - Mandatory
+1. Action DateTime Stamp - Mandatory
+1. Host Name - Mandatory
+1. Host IP - Mandatory
+1. Application Id - Mandatory
+1. Application Name - Mandatory
+1. Session User Id - Mandatory
+1. Session User Name - Mandatory
+1. Module Name – Optional
+1. Module Id - Optional
+1. ID - Mandatory
+1. ID Type - Mandatory
+1. Logged Timestamp - Mandatory
+1. Audit Log Description - Optional
+1. Created By, (Actor who has done the event) - Mandatory
+1. Created Date and Time Stamp (When this row is inserted into DB) – Mandatory
+### 3.1 Log Manager
+Log manager provides following functionalities
+1. Generate logs across the application
+1. Store generated logs in configured location
+1. Support for reading the logger configurations through as external file
+1. Support addition log level to a particular logger dynamically
+
 ## 4. LDAP / Authorization
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below
 

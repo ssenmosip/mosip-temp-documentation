@@ -1,11 +1,15 @@
 This wiki page details the REST services exposed by ID Authentication.
 
 ## 1. Authentication
-This service details imple authentication (yes/no auth) that can be used by partners to authenticate an Individual. Below are various authentication types supported by this service - 
-1. OTP based - TOTP
+This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
+1. OTP based - TOTP (Time based OTP)
 2. Pin based - Static Pin
-3. Demo based - PersonalIdentity, Address, FullAddress
+3. Demo based - Name, DOB, Age, Gender, Address, FullAddress
 4. Bio based - Fingerprint, IRIS and Face
+
+Users of Authentication service - 
+1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service
+2. `Partners` - Auth Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth Partners and sent to MOSIP, via MISP.
 
 ### Resource URL
 ### `POST identity/auth/v1.0/<MISP-LK>`
@@ -20,27 +24,33 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
+MISP-LK| Y | MISP License Key | | 
 id | Y | API Id | | mosip.identity.auth
-ver | Y | API version | | 1.0
-reqTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
-txnID | Y | Transaction ID of API | | 1234567890
-idvId | Y | Individual's UIN or VID | | 486493840596
-idvIdType | Y | Individual's ID Type | D | V
-tspID|Y|TSP ID| |TSP0000005
-authType| Y | Individual Authentication Types supported| | 
-authType: personalIdentity| Y | Demographic Authentication - Personal Identity | false| false
-authType: address| Y | Demographic Authentication - Address Line | false| false
-authType: bio| Y | Bio-metric Authentication Type | false|false
-authType: otp| Y | OTP Authentication Type | false|false
-authType: pin| Y | Pin Authentication Type |false |false
-key: sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
-key: publicKeyCert| Y | TSP Public Key Certificate used to Digitally Sign the request | | 
+version | Y | API version | | 1.0
+partnerId | Y | Auth Partner ID | |
+policyId | Y | Policy ID of Auth Partner | |
+transactionID| Y | Transaction ID of request | | 1234567890
+requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
+requestedAuth| Y | Authentication Types requested| | 
+requestedAuth: otp| Y | OTP Authentication Type | false| false
+requestedAuth: demo| Y | Demographic Authentication Type | false| false
+requestedAuth: bio| Y | Biometric Authentication Type | false|false
+requestedAuth: pin| Y | Static Pin Authentication Type |false |false
+bioMetadata| N | Biometric metadata when Bio Auth is requested | | 
+bioMetadata: bioType| Y | Biometric Type requested | |FMR or IIR or FID 
+bioMetadata: deviceId| Y | Biometric Device ID | | 
+bioMetadata: deviceProviderID| Y | Biometric Device Provider ID | | 
+sessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
 request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: identity: name|N| name attribute of Individual's Identity| | 
+request: identity: UIN| N | UIN of an Individual| | 
+request: identity: VID| N | VIDof an Individual| | 
+request: identity: name| N | name attribute of Individual's Identity| | 
 request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
 request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
-request: identity: leftEye|N| Left Eye of Individual's IRIS| |
+request: identity: biometrics|N| Biometrics of an Individual| |
+request: additionalFactors|N| Additional Factors of Auth requested| |
+request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
+request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth| |
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
@@ -53,7 +63,7 @@ request: identity: leftEye|N| Left Eye of Individual's IRIS| |
   "version": "1.0",
   //Request Metadata 
   "partnerID": "AP000001",
-  "policy": "<auth-policy-id>",
+  "policyID": "<auth-policy-id>",
   "transactionID": "1234567890",
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "requestedAuth": {
@@ -182,10 +192,10 @@ Status Code : 200 (OK)
 ```
 
 ## 2. eKYC
-This service details KYC Auth Request to be used by TSPs to authenticate an Individual, and retrieve Individual's KYC details as response. Below are various authentication types supported by KYC Auth - 
-1. OTP based - TOTP
-2. Pin based - Static Pin
-3. Bio based - Fingerprint, IRIS and Face
+This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Auth - 
+1. OTP Auth - Time-based OTP (TOTP)
+2. Pin Auth - Static Pin
+3. Bio Auth - Fingerprint, IRIS and Face
 
 ### Resource URL
 ### `POST identity/kyc/v1.0/<MISP-LK>`
@@ -200,31 +210,33 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id | Y | API Id | | mosip.identity.kyc
-ver | Y | API Version | | version of API
-consentReq|Y|Individual's consent|false|true
-ekycAuthType|Y|Auth type for requested KYC Auth| | O
-authRequest: id | Y | API Id | | mosip.identity.auth
-authRequest: ver | Y | API version | | 1.0
-authRequest: reqTime| Y |Time when Request was captured| | 2018-10-17T07:22:57.086+05:30
-authRequest: txnID | Y | Transaction ID of API | | 1234567890
-authRequest: idvId | Y | Individual's UIN or VID | | 486493840596
-authRequest: idvIdType | Y | Individual's ID Type | D | V
-authRequest: spID|Y|TSP ID| |TSP0000005
-authRequest: authType| Y | Individual Authentication Types supported| | 
-authRequest: authType: personalIdentity| Y | Demographic Authentication - Personal Identity | false| false
-authRequest: authType: address| Y | Demographic Authentication - Address Line | false| false
-authRequest: authType: bio| Y | Bio-metric Authentication Type | false|false
-authRequest: authType: otp| Y | OTP Authentication Type | false|false
-authRequest: authType: pin| Y | Pin Authentication Type |false |false
-authRequest: key: sessionKey| Y | TSP Session Key, encrypted using TSP Public Key | | 
-authRequest: key: publicKeyCert| Y | TSP Public Key Certificate used to Digitally Sign the request | | 
-authRequest: request| Y | Auth request attributes to be used for authenticating Individual | | 
-authRequest: request: identity: name|N| name attribute of Individual's Identity| | 
-authRequest: request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
-authRequest: request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-authRequest: request: identity: leftIndex|N| Left Index of Individual's Fingerprint| |
-authRequest: request: identity: leftEye|N| Left Eye of Individual's IRIS| |
+MISP-LK| Y | MISP License Key | | 
+id | Y | API Id | mosip.identity.kyc | 
+version | Y | API version | 1.0 | 
+partnerId | Y | eKYC Partner ID | |
+policyId | Y | Policy ID of eKYC Partner | |
+transactionID| Y | Transaction ID of request | | 1234567890
+requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
+requestedAuth| Y | Authentication Types requested| | 
+requestedAuth: otp| Y | OTP Authentication Type | false| false
+requestedAuth: demo| N | Demographic Authentication Type | false| false
+requestedAuth: bio| Y | Biometric Authentication Type | false|false
+requestedAuth: pin| Y | Static Pin Authentication Type |false |false
+bioMetadata| N | Biometric metadata when Bio Auth is requested | | 
+bioMetadata: bioType| Y | Biometric Type requested | |FMR or IIR or FID 
+bioMetadata: deviceId| Y | Biometric Device ID | | 
+bioMetadata: deviceProviderID| Y | Biometric Device Provider ID | | 
+kycMetadata| Y | KYC metadata requested | | 
+kycMetadata: consentRequired| Y | Individual's consent for eKYC Auth | | 
+kycMetadata: secondaryLangCode| N | Secondary Language code to send eKYC response | | 
+sessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+request| Y | Auth request attributes to be used for authenticating Individual | | 
+request: identity: UIN| N | UIN of an Individual| | 
+request: identity: VID| N | VIDof an Individual| | 
+request: identity: biometrics|N| Biometrics of an Individual| |
+request: additionalFactors|N| Additional Factors of Auth requested| |
+request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
+request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth| |
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
@@ -326,36 +338,16 @@ Status Code : 200 (OK)
           "value": "Ibrahim"
         }
       ],
-      "dateOfBirth": [
-        {
-          "language": "ar",
-          "value": "16/04/1955"
-        }
-      ],
-      "age": [
-        {
-          "language": "ar",
-          "value": "30"
-        }
-      ],
+      "dob": "1955/04/06",
+      "age": 30,
       "gender": [
         {
           "language": "ar",
           "value": "الذكر"
         }
       ],
-      "phoneNumber": [
-        {
-          "language": "ar",
-          "value": "+212-5398-12345"
-        }
-      ],
-      "emailId": [
-        {
-          "language": "ar",
-          "value": "sample@samplamail.com"
-        }
-      ],
+      "phoneNumber": "+212-5398-12345",
+      "emailId": "sample@samplamail.com",
       "addressLine1": [
         {
           "language": "ar",
@@ -396,21 +388,8 @@ Status Code : 200 (OK)
           "value": "Tanger-Tétouan-Al Hoceima"
         }
       ],
-      "pinCode": [
-        {
-          "language": "ar",
-          "value": "85000"
-        },
-        {
-          "language": "fr",
-          "value": "85000"
-        }
-      ],
-      "photo": [
-        {
-          "value": "encoded_face_image_byte_array"
-        }
-      ]
+      "postalCode": "85000",
+      "photo": "encoded_face_image_byte_array"
     }
   }
 }
@@ -440,7 +419,7 @@ Status Code : 200 (OK)
 ```
 
 ## 3. OTP Request
-This service enables TSP to request for an OTP for an Individual. The OTP will be send via message or email to the Individual. This OTP should then be used to authenticate an Individual using Auth service.
+This service enables Partners to request for an OTP for an Individual. The OTP will be send via message or email as requested to the Individual. This OTP can then be used to authenticate an Individual using Authentication or eKYC service.
 
 ### Resource URL - `POST identity/otp/v1.0/<MISP-LK>`
 
@@ -454,13 +433,18 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id|Y|API Id| |mosip.identity.otp
-ver|Y|API Version| |1.0
-tspID|Y|TSP ID| |tsp1234567
-idvId|Y|TSP ID| |tsp1234567
-idvIdType|Y|TSP ID| |tsp1234567
-reqTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
-txnID|Y|Request Transaction ID| |abc123abc
+MISP-LK| Y | MISP License Key | | 
+id | Y | API Id | mosip.identity.otp | 
+version | Y | API version | 1.0 | 
+partnerId | Y | Auth or eKYC Partner ID | |
+policyId | Y | Policy ID of Auth or eKYC Partner | |
+transactionID| Y | Transaction ID of request | | 1234567890
+requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
+request| Y | Attributes to be used for requesting for an OTP | | 
+request: identity: UIN| N | UIN of an Individual| | 
+request: identity: VID| N | VID of an Individual| | 
+request: channel: email| N | Request OTP to be sent to Individual's email| | true
+request: channel: phone| N | Request OTP to be sent to Individual's phone| | true
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
@@ -473,7 +457,7 @@ txnID|Y|Request Transaction ID| |abc123abc
   "version": "1.0",
   // Request Metadata
   "partnerID": "AP000001",
-  "policy": "<auth-policy-id>",
+  "policyID": "<auth-policy-id>",
   "transactionID": "txn12345",
   "requestTime": "2019-02-15T07:22:57.086+05:30",
   // OTP Request
@@ -484,7 +468,7 @@ txnID|Y|Request Transaction ID| |abc123abc
     },
     "channel": {
       "email": true,
-      "mobile": false
+      "phone": false
     }
   }
 }
@@ -536,7 +520,7 @@ Status Code : 200 (OK)
 ```
 
 ## 4. Static Pin Storage
-This is an internal service to be used by Resident Services to store Static Pin generated by an Individual. This Static Pin should then be used to authenticate an Individual using Auth service.
+This is an internal service to be used by Resident Services to store Static Pin generated by an Individual. This Static Pin should then be used to authenticate an Individual using Authentication service.
 
 ### Resource URL - `POST identity/static-pin/v1.0`
 
@@ -550,7 +534,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id|Y|API Id| |mosip.identity.otp
+id|Y|API Id| |mosip.identity.static-pin
 version|Y|TSP ID| |tsp1234567
 requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
 request: identity : UIN|Y|Individual's UIN| | 678956453456

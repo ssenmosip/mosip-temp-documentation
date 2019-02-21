@@ -1,9 +1,15 @@
 ## Setup HDFS
 ### Before you begin
-1. Create 2 VMs. They’ll be referred to throughout this guide as node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
+1. Create 2 VMs. They’ll be referred to throughout this guide as 
+node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
 Run the steps in this guide from the node-master unless otherwise specified.
-2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle.
-3. The steps below use example IPs for each node. Adjust each example according to your configuration:
+2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle. For RHEL, follow this:
+https://developers.redhat.com/blog/2018/12/10/install-java-rhel8/
+3. Get the IP of master and slave nodes using:
+```
+ifconfig
+```
+The steps below use below IPs for each node. Adjust /etc/hosts on all nodes according to your configuration:
 ```
 10.0.3.13   node-master.southindia.cloudapp.azure.com
 10.0.3.14   node-slave1.southindia.cloudapp.azure.com
@@ -30,14 +36,20 @@ ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.southindia.cloudapp.azur
 Login to node-master as the hadoop user, download the Hadoop tarball from Hadoop project page, and unzip it:
 ```
 cd
-wget http://apache.mindstudios.com/hadoop/common/hadoop-2.8.1/hadoop-2.8.1.tar.gz
+wget https://archive.apache.org/dist/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz
 tar -xzf hadoop-2.8.1.tar.gz
 mv hadoop-2.8.1 hadoop
 ```
 ### Set Environment Variables
-Add Hadoop binaries to your PATH. Edit /home/hadoop/.profile and add the following line:
+Add Hadoop binaries to your PATH. Edit /home/hadoop/.bashrc and add the following line:
 ```
-PATH=/home/hadoop/hadoop/bin:/home/hadoop/hadoop/sbin:$PATH
+export HADOOP_HOME=$HOME/hadoop
+export HADOOP_CONF_DIR=$HOME/hadoop/etc/hadoop
+export HADOoP_MAPRED_HOME=$HOME/hadoop
+export HADOOP_COMMON_HOME=$HOME/hadoop
+export HADOOP_HDFS_HOME=$HOME/hadoop
+export YARN_HOME=$HOME/hadoop
+export PATH=$PATH:$HOME/hadoop/bin
 ```
 ### Configure the Master Node
 Configuration will be done on node-master and replicated to other nodes.
@@ -71,11 +83,11 @@ Edit hdfs-site.conf:
 <configuration>
     	<property>
                 <name>dfs.namenode.name.dir</name>
-                <value>/home/madmin/data/nameNode</value>
+                <value>/home/hadoop/data/nameNode</value>
         </property>
         <property>
                 <name>dfs.datanode.data.dir</name>
-                <value>/home/madmin/data/dataNode</value>
+                <value>/home/hadoop/data/dataNode</value>
         </property>
         <property>
                 <name>dfs.replication</name>
@@ -155,6 +167,22 @@ for node in node-slave1.southindia.cloudapp.azure.com; do
     scp ~/hadoop/etc/hadoop/* $node:/home/hadoop/hadoop/etc/hadoop/;
 done
 ```
+### Create hdfs users
+1. To create users for hdfs (regprocessor, prereg, idrepo), run this command:
+```
+sudo useradd  regprocessor
+sudo useradd  prereg
+sudo useradd  idrepo
+```
+2. Create a directory and give permission for each user
+```
+hdfs dfs -mkdir /user/regprocessor
+hdfs dfs -chown -R regprocessor:regprocessor  /user/regprocessor
+hdfs dfs -mkdir /user/prereg
+hdfs dfs -chown -R prereg:prereg  /user/prereg
+hdfs dfs -mkdir /user/idrepo
+hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
+``` 
 ### Format HDFS
 HDFS needs to be formatted like any classical file system. On node-master, run the following command:
 ```
@@ -178,3 +206,435 @@ and on node-slave1.southindia.cloudapp.azure.com:
 19728 DataNode
 19819 Jps
 ```
+## Securing HDFS
+Following configuration is required to run HDFS in secure mode.
+Read more about kerberos here:
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_kerberos
+### Install Kerberos
+Kerberos server(KDC) and the client needs to be installed. Install the client on both master and slave nodes. KDC server will be installed on the master node.
+1. To install packages for a Kerberos server:
+```
+yum install krb5-server krb5-libs krb5-auth-dialog
+```
+2. To install packages for a Kerberos client:
+```
+yum install krb5-workstation krb5-libs krb5-auth-dialog
+```
+### Configuring the Master KDC Server
+1. Edit the /etc/krb5.conf:
+```
+# Configuration snippets may be placed in this directory as well
+includedir /etc/krb5.conf.d/
+
+[logging]
+ default = FILE:/var/log/krb5libs.log
+ kdc = FILE:/var/log/krb5kdc.log
+ admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+ udp_preference_limit = 1
+ dns_lookup_realm = false
+ ticket_lifetime = 365d
+ renew_lifetime = 365d
+ forwardable = true
+ rdns = false
+ pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
+ default_realm = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+ #default_ccache_name = KEYRING:persistent:%{uid}
+
+[realms]
+ NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
+  kdc = node-master.southindia.cloudapp.azure.com:51088
+  admin_server = node-master.southindia.cloudapp.azure.com
+ }
+
+[domain_realm]
+ .node-master.southindia.cloudapp.azure.com = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+ node-master.southindia.cloudapp.azure.com = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
+2. Edit /var/kerberos/krb5kdc/kdc.conf
+```
+[kdcdefaults]
+ kdc_ports = 51088
+ kdc_tcp_ports = 51088
+
+[realms]
+ NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
+  #master_key_type = aes256-cts
+  acl_file = /var/kerberos/krb5kdc/kadm5.acl
+  dict_file = /usr/share/dict/words
+  admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+  supported_enctypes = aes256-cts:normal aes128-cts:normal des3-hmac-sha1:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal des-hmac-sha1:normal des-cbc-md5:normal des-cbc-crc:normal
+ }
+```
+3. Create the database using the kdb5_util utility.
+```
+/usr/sbin/kdb5_util create -s
+```
+4. Edit the /var/kerberos/krb5kdc/kadm5.acl
+```
+*/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM	*
+```
+5. Create the first principal using kadmin.local at the KDC terminal:
+```
+/usr/sbin/kadmin.local -q "addprinc root/admin"
+```
+6. Start Kerberos using the following commands:
+```
+/sbin/service krb5kdc start
+/sbin/service kadmin start
+```
+7. Verify that the KDC is issuing tickets. 
+First, run kinit to obtain a ticket and store it in a credential cache file.
+```
+kinit root/admin
+```
+Next, use klist to view the list of credentials in the cache.
+```
+klist
+```
+Use kdestroy to destroy the cache and the credentials it contains.
+```
+kdestroy -A
+```
+###  Install the JCE Policy File
+Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy File on all cluster and Hadoop user machines.
+Follow this link:
+https://dzone.com/articles/install-java-cryptography-extension-jce-unlimited
+### Create and Deploy the Kerberos Principals and Keytab Files
+For more information, check here:
+https://www.cloudera.com/documentation/enterprise/5-16-x/topics/cdh_sg_kerberos_prin_keytab_deploy.html
+If you have root access to the KDC machine, use kadmin.local, else use kadmin.
+To start kadmin.local (on the KDC machine), run this command:
+```
+sudo kadmin.local
+```
+#### To create the Kerberos principals
+Do the following steps for masternode.
+1. In the kadmin.local or kadmin shell, create the hadoop principal. This principal is used for the NameNode, Secondary NameNode, and DataNodes.
+```
+kadmin:  addprinc hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
+2. Create the HTTP principal.
+```
+kadmin:  addprinc HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
+3. Create principal for all user of hdfs (regprocessor, prereg, idrepo)
+```
+kadmin:  addprinc regprocessor@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc prereg@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc idrepo@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+```
+#### To create the Kerberos keytab files
+Create the hdfs keytab file that will contain the hdfs principal and HTTP principal. This keytab file is used for the NameNode, Secondary NameNode, and DataNodes.
+```
+kadmin:  xst -norandkey -k hadoop.keytab hadoop/admin HTTP/admin
+```
+Use klist to display the keytab file entries; a correctly-created hdfs keytab file should look something like this:
+```
+$ klist -k -e -t hadoop.keytab
+Keytab name: FILE:hadoop.keytab
+KVNO Timestamp           Principal
+---- ------------------- ------------------------------------------------------
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes256-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes128-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des3-cbc-sha1)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (arcfour-hmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia256-cts-cmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia128-cts-cmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-hmac-sha1)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-cbc-md5)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes256-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes128-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des3-cbc-sha1)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (arcfour-hmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia256-cts-cmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia128-cts-cmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-hmac-sha1)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-cbc-md5)
+```
+#### To deploy the Kerberos keytab file
+On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/etc/hadoop/hadoop.keytab.
+### Shut Down the Cluster
+To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties. 
+```
+sh hadoop/sbin/stop-dfs.sh
+```
+### Enable Hadoop Security
+1. To enable Hadoop security, add the following properties to the core-site.xml file on every machine in the cluster:
+```
+<property>
+  <name>hadoop.security.authentication</name>
+  <value>kerberos</value> 
+</property>
+
+<property>
+  <name>hadoop.security.authorization</name>
+  <value>true</value>
+</property>
+ 
+<property>
+  <name>hadoop.http.filter.initializers</name>
+  <value>org.apache.hadoop.security.AuthenticationFilterInitializer</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.type</name>
+  <value>kerberos</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.simple.anonymous.allowed</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.keytab</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value>
+</property>
+
+```
+2. Add the following properties to the hdfs-site.xml file on every machine in the cluster.
+```
+<property>
+  <name>dfs.block.access.token.enable</name>
+  <value>true</value>
+</property>
+
+<!-- NameNode security config -->
+<property>
+  <name>dfs.namenode.keytab.file</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.namenode.kerberos.principal</name>
+  <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+<property>
+  <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<!-- Secondary NameNode security config -->
+<property>
+  <name>dfs.secondary.namenode.keytab.file</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.secondary.namenode.kerberos.principal</name>
+    <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+<property>
+  <name>dfs.secondary.namenode.kerberos.internal.spnego.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<!-- DataNode security config -->
+<property>
+  <name>dfs.datanode.data.dir.perm</name>
+  <value>700</value> 
+</property>
+<property>
+  <name>dfs.datanode.keytab.file</name>
+  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value><!-- path to the HDFS keytab -->
+</property>
+<property>
+  <name>dfs.datanode.kerberos.principal</name>
+  <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+</property>
+
+<!-- Web Authentication config -->
+<property>
+  <name>dfs.web.authentication.kerberos.principal</name>
+  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+ </property>
+
+<property>
+  <name>dfs.data.transfer.protection</name>
+  <value>authentication</value>
+ </property>
+
+<property>
+  <name>dfs.http.policy</name>
+  <value>HTTPS_ONLY</value>
+ </property>
+```
+### Deploying HTTPS in HDFS
+#### Generating the key and certificate
+The first step of deploying HTTPS is to generate the key and the certificate for each machine in the cluster. You can use Java’s keytool utility to accomplish this task:
+Ensure that firstname/lastname OR common name (CN) matches exactly with the fully qualified domain name (e.g. node-master.southindia.cloudapp.azure.com) of the server. 
+```
+keytool -genkey -alias localhost  -keyalg RSA -keysize 2048 -keystore keystore.jks
+```
+####  Creating your own CA
+We use openssl to generate a new CA certificate:
+```
+openssl req -new -x509 -keyout ca-key.cer -out ca-cert.cer -days 365
+```
+The next step is to add the generated CA to the clients’ truststore so that the clients can trust this CA:
+```
+keytool -keystore truststore.jks -alias CARoot -import -file ca-cert.cer
+```
+#### Signing the certificate:
+The next step is to sign all certificates generated  with the CA. First, you need to export the certificate from the keystore:
+```
+keytool -keystore keystore.jks -alias localhost -certreq -file cert-file.cer
+```
+Then sign it with the CA:
+```
+openssl x509 -req -CA ca-cert.cer -CAkey ca-key.cer -in cert-file.cer -out cert-signed.cer -days 365 -CAcreateserial -passin pass:12345678
+```
+Finally, you need to import both the certificate of the CA and the signed certificate into the keystore
+```
+keytool -keystore keystore.jks -alias CARoot -import -file ca-cert.cer
+keytool -keystore keystore.jks -alias localhost -import -file cert-signed.cer
+```
+#### Configuring Hdfs
+Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the keystore and the truststore
+1. Edit ssl-server.xml
+```
+<configuration>
+
+<property>
+  <name>ssl.server.truststore.location</name>
+  <value>/home/hadoop/truststore.jks</value>
+  <description>Truststore to be used by NN and DN. Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.truststore.password</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.truststore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.truststore.reload.interval</name>
+  <value>10000</value>
+  <description>Truststore reload check interval, in milliseconds.
+  Default value is 10000 (10 seconds).
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.location</name>
+  <value>/home/hadoop/keystore.jks</value>
+  <description>Keystore to be used by NN and DN. Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.password</name>
+  <value>12345678</value>
+  <description>Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.keypassword</name>
+  <value>12345678</value>
+  <description>Must be specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.exclude.cipher.list</name>
+  <value>TLS_ECDHE_RSA_WITH_RC4_128_SHA,SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,
+  SSL_RSA_WITH_DES_CBC_SHA,SSL_DHE_RSA_WITH_DES_CBC_SHA,
+  SSL_RSA_EXPORT_WITH_RC4_40_MD5,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,
+  SSL_RSA_WITH_RC4_128_MD5</value>
+  <description>Optional. The weak security cipher suites that you want excluded
+  from SSL communication.</description>
+</property>
+
+</configuration>
+```
+2. Edit ssl-client.xml
+```
+<configuration>
+
+<property>
+  <name>ssl.client.truststore.location</name>
+  <value>/home/hadoop/truststore.jks</value>
+  <description>Truststore to be used by clients like distcp. Must be
+  specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.truststore.password</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.truststore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.truststore.reload.interval</name>
+  <value>10000</value>
+  <description>Truststore reload check interval, in milliseconds.
+  Default value is 10000 (10 seconds).
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.location</name>
+  <value>/home/hadoop/keystore.jks</value>
+  <description>Keystore to be used by clients like distcp. Must be
+  specified.
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.password</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.keypassword</name>
+  <value>12345678</value>
+  <description>Optional. Default value is "".
+  </description>
+</property>
+
+<property>
+  <name>ssl.client.keystore.type</name>
+  <value>jks</value>
+  <description>Optional. The keystore file format, default value is "jks".
+  </description>
+</property>
+
+</configuration>
+```
+After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.
+
+For you face error during kerberos, check this:
+https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html

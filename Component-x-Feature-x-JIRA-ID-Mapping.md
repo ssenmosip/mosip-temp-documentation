@@ -5,7 +5,7 @@
 |1.|Crypto Services|Provides services to Encrypt/Decrypt Data|[MOS-38](https://mosipid.atlassian.net/browse/MOS-38), [MOS-40](https://mosipid.atlassian.net/browse/MOS-40), [MOS-787](https://mosipid.atlassian.net/browse/MOS-787), [MOS-989](https://mosipid.atlassian.net/browse/MOS-989), [MOS-9284](https://mosipid.atlassian.net/browse/MOS-9284)|
 |2.|Key Management|Provides Public/PrivateKeys throughout MOSIP for Encryption/Decryption|[MOS-789](https://mosipid.atlassian.net/browse/MOS-789), [MOS-1910](https://mosipid.atlassian.net/browse/MOS-1910), [MOS-9301](https://mosipid.atlassian.net/browse/MOS-9301), [MOS-13359](https://mosipid.atlassian.net/browse/MOS-13359)|
 |3.|UIN Generation|Generates UIN|[MOS-425](https://mosipid.atlassian.net/browse/MOS-425), [MOS-9738](https://mosipid.atlassian.net/browse/MOS-9738) |
-|4.|Audit Manager|Provides service across MOSIP to store Audit logs|[MOS-8](https://mosipid.atlassian.net/browse/MOS-8), [MOS-441](https://mosipid.atlassian.net/browse/MOS-441), [MOS-829](https://mosipid.atlassian.net/browse/MOS-829), [MOS-1910](https://mosipid.atlassian.net/browse/MOS-1910), [MOS-12903](https://mosipid.atlassian.net/browse/MOS-12903)|
+|4.|Audit Manager|Provides service across MOSIP to store Audit logs|[MOS-8](https://mosipid.atlassian.net/browse/MOS-8), [MOS-441](https://mosipid.atlassian.net/browse/MOS-441), [MOS-829](https://mosipid.atlassian.net/browse/MOS-829), [MOS-12903](https://mosipid.atlassian.net/browse/MOS-12903)|
 |5.|OTP Manager|Generates and Validates OTP as per the defined policies|[MOS-33](https://mosipid.atlassian.net/browse/MOS-33), [MOS-34](https://mosipid.atlassian.net/browse/MOS-34), [MOS-35](https://mosipid.atlassian.net/browse/MOS-35), [MOS-36](https://mosipid.atlassian.net/browse/MOS-36), [MOS-423](https://mosipid.atlassian.net/browse/MOS-423), [MOS-991](https://mosipid.atlassian.net/browse/MOS-991), [MOS-1056](https://mosipid.atlassian.net/browse/MOS-1056), [MOS-1985](https://mosipid.atlassian.net/browse/MOS-1985), [MOS-5486](https://mosipid.atlassian.net/browse/MOS-5486)|
 |6.|OTP Notification Service|Generates an OTP and sends Notification to a recipient|MOS-8230|
 |7.|Email Notification|Generates and sends an Email using a third party vendor|MOS-973|
@@ -21,13 +21,13 @@
 |17.|Transliteration|Performs Transliteration from one language to another|MOS-975|
 |18.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|MOS-1028|
 |19.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|MOS-1029|
-|20.|UIN Validator|Performs a pattern validation on UIN|MOS-595, MOS-9743, MOS-15406|
+|20.|UIN Validator|Performs a pattern validation on UIN|MOS-595, MOS-9743|
 |21.|PRID Validator|Performs a pattern validation on Pre-Registration ID (PRID)|MOS-1007, MOS-12093|
 |22.|VID Validator|Performs a pattern validation on Virtual ID (VID)|MOS-714|
 |23.|RID Validator|Performs a pattern validation on Registration ID (RID)|MOS-1591, MOS-10415, MOS-12093, MOS-13172|
 |24.|TSP ID Validator|Performs a pattern validation on TSP ID|MOS-1057|
-|25|MOSIP Utilities|Exception Framework, Calendar Utility, Checksum Utility, Crypto Utility, Date Utility, File Utility, Hash Utility, HMAC Utility, Json Utility, Math Utility, String Utility, UUID Utility|MOS-9, MOS-18, MOS-19, MOS-20, MOS-21, MOS-22, MOS-23, MOS-28, MOS-29, MOS-987, MOS-1986, MOS-1988|
-|26.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|MOS-994, MOS-997, MOS-996, MOS-12079, MOS-12944, MOS-12945, MOS-12946, MOS-12902, MOS-12889, MOS-13945, MOS-13976, MOS-15408|
+|25|MOSIP Utilities|Exception Framework, Calendar Utility, Checksum Utility, Crypto Utility, Date Utility, File Utility, Hash Utility, HMAC Utility, Json Utility, Math Utility, String Utility, UUID Utility|MOS-9, MOS-18, MOS-19, MOS-20, MOS-21, MOS-22, MOS-23, MOS-28, MOS-29, MOS-987, MOS-1986, MOS-1988, MOS-9284, MOS-65(MOS-481)|
+|26.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|MOS-994, MOS-997, MOS-996, MOS-12079, MOS-12944, MOS-12945, MOS-12946, MOS-12902, MOS-12889, MOS-13945, MOS-13976, MOS-15408, MOS-16083, MOS-16110|
 |27.|License Key Manager|Enables a User to Generate and Map License Keys to TSP and enables TSP to fetch permissions for a particular License Key|MOS-13094,MOS-14005|
 |28.|Authorization|Enable MOSIP to Authorize requests|MOS-15402|
 |29.|RID Generator|Generates Registration ID (RID)|MOS-431, MOS-5191, MOS-12082, MOS-13171|
@@ -37,36 +37,37 @@
 |33.|PRID Generator|Generates Pre-Registration ID (PRID)|MOS-735, MOS-1070, MOS-15404|
 |34.|VID Generator|Generates Virtual ID (VID)|MOS-734, MOS-1070, MOS-15404|
 |35.|Token ID Generator|Generates Token ID|MOS-1103, MOS-8321, MOS-12898, MOS-15404|
-|36.|Master Data Management|Registration Center Type - Create/Read/Update/Delete|MOS-539, MOS-10558,MOS-12076|
-|37.|Master Data Management|Registration Center - Create/Read/Update/Delete|MOS-8220, MOS-8221, MOS-8565, MOS-8236, MOS-8244, MOS-9529, MOS-9722, MOS-10560, MOS-11924,MOS-12076|
-|38.|Master Data Management|List of Machine Types - Create/Read/Update/Delete|MOS-547,MOS-12076|
-|39.|Master Data Management|List of Machine Specifications - Create/Read/Update/Delete|MOS-551, MOS-10565,MOS-12076|
+|36.|Master Data Management|Registration Center Type - Create/Update/Delete|MOS-539, MOS-10558,MOS-12076|
+|37.|Master Data Management|Registration Center - Create/Read/Update/Delete|MOS-8220, MOS-8221, MOS-8236, MOS-8244, MOS-9529, MOS-9722, MOS-10560, MOS-11924,MOS-12076|
+|38.|Master Data Management|List of Machine Types - Create|MOS-547,MOS-12076|
+|39.|Master Data Management|List of Machine Specifications - Create/Update/Delete|MOS-551, MOS-10565,MOS-12076|
 |40.|Master Data Management|List of Machines - Create/Read/Update/Delete|MOS-8222, MOS-8229, MOS-9723, MOS-10566,MOS-12076|
-|41.|Master Data Management|Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete|MOS-8232, MOS-10306, MOS-10589,MOS-12076|
+|41.|Master Data Management|Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete|MOS-8232, MOS-10306, MOS-10589,MOS-12076|
 |42.|Master Data Management|Create/Read/Update/Delete - Location Hierarchy|MOS-8233, MOS-8234, MOS-550, MOS-12155, MOS-13943,MOS-12076|
-|43.|Master Data Management|List of Holidays - Create/Read/Update/Delete|MOS-8235, MOS-549, MOS-10591,MOS-12076|
-|44.|Master Data Management|Biometric Authentication Type - Create/Read/Update/Delete|MOS-8245, MOS-9622,MOS-12076|
-|45.|Master Data Management|Biometric Attirbute Type - Create/Read/Update/Delete|MOS-8246, MOS-9623,MOS-12076|
+|43.|Master Data Management|List of Holidays - Create/Read/Update/Delete|MOS-8235, MOS-549, MOS-8565, MOS-10591,MOS-12076|
+|44.|Master Data Management|Biometric Authentication Type - Create/Read|MOS-8245, MOS-9622,MOS-12076|
+|45.|Master Data Management|Biometric Attirbute Type - Create/Read|MOS-8246, MOS-9623,MOS-12076|
 |46.|Master Data Management|Gender - Create/Read/Update/Delete|MOS-8266, MOS-9624, MOS-988, MOS-13944,MOS-12076|
 |47.|Master Data Management|Document Category - Create/Read/Update/Delete|MOS-8269, MOS-9683, MOS-10567,MOS-12076|
-|48.|Master Data Management|Document Type - Create/Read/Update/Delete|MOS-9684, MOS-10569,MOS-12076|
-|49.|Master Data Management|Document Category-Document Type Mapping - Create/Read/Update/Delete|MOS-8270, MOS-9698, MOS-585, MOS-12060, MOS-13962,MOS-12076|
-|50.|Master Data Management|List of Devices - Create/Read/Update/Delete|MOS-8263, MOS-9695, MOS-12057,MOS-12076|
-|51.|Master Data Management|List of Device Specifications - Create/Read/Update/Delete|MOS-8264, MOS-9788, MOS-10554,MOS-12076|
-|52.|Master Data Management|List of Device Types - Create/Read/Update/Delete|MOS-9787, MOS-10563,MOS-12076|
+|48.|Master Data Management|Document Type - Create/Update/Delete|MOS-9684, MOS-10569,MOS-12076|
+|49.|Master Data Management|Applicant Type-Document Category-Document Type Mapping - Read|MOS-12060, MOS-13962, MOS-12076, MOS-12068, MOS-13591|
+|50.|Master Data Management|List of Devices - Create/Read/Update/Delete|MOS-8263, MOS-9695, MOS-12057,MOS-12076, MOS-10563|
+|51.|Master Data Management|List of Device Specifications - Create/Read/Update/Delete|MOS-8264, MOS-9788, MOS-12076, MOS-10562|
+|52.|Master Data Management|List of Device Types - Create/Update/Delete|MOS-9787, MOS-10563,MOS-12076|
 |53.|Master Data Management|List of Languages - Create/Read/Update/Delete|MOS-8265, MOS-1075, MOS-10554,MOS-12076|
 |54.|Master Data Management|List of Titles - Create/Read/Update/Delete|MOS-8267, MOS-9696, MOS-992,MOS-12076|
-|55.|Master Data Management|Template File Format - Create/Read/Update/Delete|MOS-9687, MOS-10569,MOS-12076|
-|56.|Master Data Management|List of Template Types - Create/Read/Update/Delete|MOS-586,MOS-12076|
+|55.|Master Data Management|Template File Format - Create/Update/Delete|MOS-9687,MOS-12076, MOS-10573|
+|56.|Master Data Management|List of Template Types - Create|MOS-586,MOS-12076|
 |57.|Master Data Management|List of Templates - Create/Read/Update/Delete|MOS-8271, MOS-995, MOS-10590, MOS-15461,MOS-12076|
 |58.|Master Data Management|List of Blacklisted Words - Create/Read/Update/Delete|MOS-8268, MOS-9697, MOS-1054,MOS-12076|
-|59.|Master Data Management|List of Reason Categories - Create/Read/Update/Delete|MOS-9689,MOS-12076|
-|60.|Master Data Management|List of Rejection Reasons - Create/Read/Update/Delete|MOS-8551, MOS-9690,MOS-12076|
-|61.|Master Data Management|List of Applications - Create/Read/Update/Delete|MOS-8888, MOS-9688,MOS-12076|
-|62.|Master Data Management|List of ID Types - Create/Read/Update/Delete|MOS-8247, MOS-9691,MOS-12076|
-|63.|Master Data Management|Mappings of Registration Center and Machine - Create/Read/Update/Delete|MOS-9728, MOS-9712, MOS-1053,MOS-12076|
-|64.|Master Data Management|Mappings of Registration Center and Device - Create/Read/Update/Delete|MOS-9729, MOS-9712, MOS-10561, MOS-12058,MOS-12076|
-|65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete|MOS-9730, MOS-9712, MOS-10564,MOS-12076|
+|59.|Master Data Management|List of Reason Categories - Create|MOS-9689,MOS-12076|
+|60.|Master Data Management|List of Rejection Reasons - Create/Read|MOS-8551, MOS-9690,MOS-12076|
+|61.|Master Data Management|List of Applications - Create/Read|MOS-8888, MOS-9688,MOS-12076|
+|62.|Master Data Management|List of ID Types - Create/Read|MOS-8247, MOS-9691,MOS-12076|
+|63.|Master Data Management|Mappings of Registration Center and Machine - Create/Read/Delete|MOS-9728, MOS-9712, MOS-1053,MOS-12076|
+|64.|Master Data Management|Mappings of Registration Center and Device - Create/Read/Delete|MOS-9729, MOS-9712, MOS-10561, MOS-12058,MOS-12076|
+|65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|MOS-9730, MOS-9712, MOS-10564,MOS-12076|
+|66.|Master Data Management|Individual Type Management - Read|MOS-13950|
 
 
 **2. Pre-registration:**
