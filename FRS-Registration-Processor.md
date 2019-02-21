@@ -7,7 +7,7 @@
    * [1.4 Re-activate UIN](#14-re-activate-uin)
  - [2. Configurable Workflow](#2-configurable-workflow)
    * [2.1 Orchestration](#21-orchestration)
-   * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing--in-case-of-exceptions-failures-)
+   * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures)
    * [2.3 Resume Workflow](#23-resume-workflow)
    * [2.4 Integration (System capability)](#24-integration--system-capability-)
    * [2.5 Workflow Customization (Ability to plug-in/exclude stages)](#25-workflow-customization--ability-to-plug-in-exclude-stages-)
