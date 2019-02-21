@@ -304,6 +304,8 @@ Upon receiving a request to generate PRID with input parameters, the system gene
 |:------:|:------:|:------:|
 PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
+
 #### 4.2.5 VID Generator
 
 Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
