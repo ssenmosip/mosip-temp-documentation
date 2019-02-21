@@ -201,6 +201,7 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 |:------:|------|:------:|
 |TSP ID in Invalid	|TSP ID length Must be of <Length configured>	|KER-IDV-401|
 
+[Link to ID validator design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
 
