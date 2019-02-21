@@ -10,8 +10,8 @@
   * [8. Update Static PIN](#8-update-static-pin)
   * [9. View History of Authentication Requests (for Prescribed Days/number of requests)](#9-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests)
   * [10. Lock/Unlock UIN](#10-lockunlock-uin)
-  * [11. Lock/Unlock KYC Docs/Data Sharing](#11-lockunlock-kyc-docs-data-sharing)
-  * [12. Lock/Unlock Biometric Auth/Other Auth](#12-lockunlock-biometric-auth-other-auth)
+  * [11. Lock/Unlock KYC Docs/Data Sharing](#11-lockunlock-kyc-docsdata-sharing)
+  * [12. Lock/Unlock Biometric Auth/Other Auth](#12-lockunlock-biometric-authother-auth)
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID
