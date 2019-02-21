@@ -118,16 +118,21 @@ There are two great techniques for obtaining the sequence:
 1.	Review the user story to identify the individual API calls that are being made.
 2.	Exercise the UI and capture the traffic being made to the underlying APIs.
 
-Approach:
+**Approach:**
+
 An individual method is created for all of the preregistration apis with method name as api name. Inputs for the method will be refered from specific module/api/valid or invalid scenarios (Ex: src/test/resource/prereg/CreateApplication/createPreRegistration_smoke) which is already maintained as part of component testing. All these methods are written under io.mosip.util.PreRegistrationLibrary.java class file.
 Scenario is designed by calling the methods in the same order as transaction happens in real life as illustrated below.
 
 Scenario to delete a document for the Booked appointment. Sequence of actions accomplished using api specific methods are:
 
 CreateApplication()
+
 DocumentUpload()
+
 BookingAppointment()
+
 DeleteDocumentByPreId()
+
 
 Integration tests allow us to understand if defects might be introduced by combining different data points together.
 
