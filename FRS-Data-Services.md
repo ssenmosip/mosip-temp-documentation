@@ -90,7 +90,6 @@ Upon receiving a request to perform data validation on Static PIN with input par
 
 Upon receiving a request to validate the UIN, the system validates the UIN against the defined policy
 1. Validates if the UIN is of configured length.
-1. If no length is configured, validates if UIN length is of 12 digits
 1. Validates the UIN by verifying the checksum
 1. Validates if the UIN received as per the UIN generation logic
 1. Responds to the source with appropriate message 
