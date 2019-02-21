@@ -23,7 +23,7 @@
      * [3.1.6 Operator & Supervisor Validation](#316-operator--supervisor-validation)
    * [3.2 Processing](#32-processing)
      * [3.2.1 Individual Data Validations](#321-individual-data-validations)
-       * [3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check](#3211-data-quality-check--photo--age--gender-data-check)
+       * [3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check](#3211-data-quality-check-photo-age-gender-data-check)
        * [3.2.1.2 Biometrics Quality Check](#3212-biometrics-quality-check)
        * [3.2.1.3 Doc. Validation - OCR](#3213-doc-validation---ocr)
      * [3.2.2 Functional Validations](#322-functional-validations)
