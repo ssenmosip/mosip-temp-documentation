@@ -74,6 +74,8 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 ### 2.2.5 Modify Application Data
 The Individual Can Modify the Pre-Registration data by selecting the Modify Information from the Dashboard. The system provides the Demographic form with pre-filled demo details. The Individual can edit the required changes. The system associates the modified demo details with the Pre-Registration Id for which modifies information is initiated.
 
+[Link to design](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
+
 ### 2.2.6 Discard Application
 The Individual can discard the Pre-Registration by clicking on the Delete icon for the Pre-Registration Id for which he/she wishes to discard. The system provides the Individual with two options: ‘Discard entire Application’ or ‘Cancel Appointment’. The Individual choses to discard entire Application. The system deletes all the data mapped to the Pre-Registration Id and cancels the appointment (if any).
 
