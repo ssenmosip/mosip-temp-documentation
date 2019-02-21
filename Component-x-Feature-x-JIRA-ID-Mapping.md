@@ -13,20 +13,20 @@
 |9.|Key Generator|Generates Key pair for Encryption and Decryption|[MOS-788](https://mosipid.atlassian.net/browse/MOS-788), [MOS-1431](https://mosipid.atlassian.net/browse/MOS-1431)|
 |10.|Data Mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|[MOS-957](https://mosipid.atlassian.net/browse/MOS-957)|
 |11.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|[MOS-960](https://mosipid.atlassian.net/browse/MOS-960), [MOS-12900](https://mosipid.atlassian.net/browse/MOS-12900)|
-|12.|Template Merger|Merges a pre-configured template with dynamic values|MOS-786|
-|13.|QR Code Generator|This utility enables QR code generation for pre-registration, registration and UIN acknowledgment|MOS-979|
-|14.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|MOS-31, MOS-32, MOS-14007|
-|15.|Log Manager|Enable Generation and storage of logs in a configured location|MOS-10, MOS-39, MOS-1104, MOS-13742|
-|16.|Static PIN Validator|Performs a pattern validation on Static PIN Validator|MOS-12897|
-|17.|Transliteration|Performs Transliteration from one language to another|MOS-975|
-|18.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|MOS-1028|
-|19.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|MOS-1029|
-|20.|UIN Validator|Performs a pattern validation on UIN|MOS-595, MOS-9743|
-|21.|PRID Validator|Performs a pattern validation on Pre-Registration ID (PRID)|MOS-1007, MOS-12093|
-|22.|VID Validator|Performs a pattern validation on Virtual ID (VID)|MOS-714|
-|23.|RID Validator|Performs a pattern validation on Registration ID (RID)|MOS-1591, MOS-10415, MOS-12093, MOS-13172|
-|24.|TSP ID Validator|Performs a pattern validation on TSP ID|MOS-1057|
-|25|MOSIP Utilities|Exception Framework, Calendar Utility, Checksum Utility, Crypto Utility, Date Utility, File Utility, Hash Utility, HMAC Utility, Json Utility, Math Utility, String Utility, UUID Utility|MOS-9, MOS-18, MOS-19, MOS-20, MOS-21, MOS-22, MOS-23, MOS-28, MOS-29, MOS-987, MOS-1986, MOS-1988, MOS-9284, MOS-65(MOS-481)|
+|12.|Template Merger|Merges a pre-configured template with dynamic values|[MOS-786](https://mosipid.atlassian.net/browse/MOS-786)|
+|13.|QR Code Generator|This utility enables QR code generation for pre-registration, registration and UIN acknowledgment|[MOS-979](https://mosipid.atlassian.net/browse/MOS-979)|
+|14.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|[MOS-31](https://mosipid.atlassian.net/browse/MOS-31), [MOS-32](https://mosipid.atlassian.net/browse/MOS-32), [MOS-14007](https://mosipid.atlassian.net/browse/MOS-14007)|
+|15.|Log Manager|Enable Generation and storage of logs in a configured location|[MOS-10](https://mosipid.atlassian.net/browse/MOS-10), [MOS-39](https://mosipid.atlassian.net/browse/MOS-39), [MOS-1104](https://mosipid.atlassian.net/browse/MOS-1104), [MOS-13742](https://mosipid.atlassian.net/browse/MOS-13742)|
+|16.|Static PIN Validator|Performs a pattern validation on Static PIN Validator|[MOS-12897](https://mosipid.atlassian.net/browse/MOS-12897)|
+|17.|Transliteration|Performs Transliteration from one language to another|[MOS-975](https://mosipid.atlassian.net/browse/MOS-975)|
+|18.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|[MOS-1028](https://mosipid.atlassian.net/browse/MOS-1028)|
+|19.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|[MOS-1029](https://mosipid.atlassian.net/browse/MOS-1029)|
+|20.|UIN Validator|Performs a pattern validation on UIN|[MOS-595](https://mosipid.atlassian.net/browse/MOS-595), [MOS-9743](https://mosipid.atlassian.net/browse/MOS-9743)|
+|21.|PRID Validator|Performs a pattern validation on Pre-Registration ID (PRID)|[MOS-1007](https://mosipid.atlassian.net/browse/MOS-1007), [MOS-12093](https://mosipid.atlassian.net/browse/MOS-12093)|
+|22.|VID Validator|Performs a pattern validation on Virtual ID (VID)|[MOS-714](https://mosipid.atlassian.net/browse/MOS-714)|
+|23.|RID Validator|Performs a pattern validation on Registration ID (RID)|[MOS-1591](https://mosipid.atlassian.net/browse/MOS-1591), [MOS-10415](https://mosipid.atlassian.net/browse/MOS-10415), [MOS-12093](https://mosipid.atlassian.net/browse/MOS-12093), [MOS-13172](https://mosipid.atlassian.net/browse/MOS-13172)|
+|24.|TSP ID Validator|Performs a pattern validation on TSP ID|[MOS-1057](https://mosipid.atlassian.net/browse/MOS-1057)|
+|25|MOSIP Utilities|Exception Framework, Calendar Utility, Checksum Utility, Crypto Utility, Date Utility, File Utility, Hash Utility, HMAC Utility, Json Utility, Math Utility, String Utility, UUID Utility|[MOS-9](https://mosipid.atlassian.net/browse/MOS-9), [MOS-18](https://mosipid.atlassian.net/browse/MOS-18), [MOS-19](https://mosipid.atlassian.net/browse/MOS-19), [MOS-20](https://mosipid.atlassian.net/browse/MOS-20), MOS-21, MOS-22, MOS-23, MOS-28, MOS-29, MOS-987, MOS-1986, MOS-1988, MOS-9284, MOS-65(MOS-481)|
 |26.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|MOS-994, MOS-997, MOS-996, MOS-12079, MOS-12944, MOS-12945, MOS-12946, MOS-12902, MOS-12889, MOS-13945, MOS-13976, MOS-15408, MOS-16083, MOS-16110|
 |27.|License Key Manager|Enables a User to Generate and Map License Keys to TSP and enables TSP to fetch permissions for a particular License Key|MOS-13094,MOS-14005|
 |28.|Authorization|Enable MOSIP to Authorize requests|MOS-15402|
