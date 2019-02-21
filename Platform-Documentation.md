@@ -97,30 +97,30 @@ This section details out the design aspects of MOSIP, driven by the key function
 ### 3.1 Pre-Registration
 Pre-registration is the module which is the web channel of MOSIP. This section elaborates on the key design considerations for Pre-registration which include micro-service based architecture, Data validation as executed in UI, key design patterns like aggregate service pattern and proxy design pattern. It also elaborates on the architecturally significant use cases by providing a Process View and Conceptual View.
 
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration) for more details.
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration) for more details.
 
 ### 3.2 Registration Client
 Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about a parent/guardian/introducer) and packages the information in a secure way. This section provides details on the architecturally significant use cases of Registration Client, which include the ability to be adhered to industry standards, facilitate secure data transmission, Process View and Logical View, to name a few.
 
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Client) for more details.
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Client) for more details.
 
 
 ### 3.3 Registration Processor
 Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). This section elucidates the architecturally significant use cases of Registration Processor, which include ability to be scalable, facilitate integration, look-up of the Process View and Logical View, to name a few.
 
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor) for more details.
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor) for more details.
 
 
 ### 3.4 ID Authentication
 
 MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. This section provides details on the architecturally significant use cases of ID-Authentication, which include specifics on API standards, the Process View and Logical View, to list a few.
 
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication) for more details.
+Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication) for more details.
 
 ### 3.5 Kernel
 Kernel is a platform to build higher-level services as well as a secure sandbox. This section provides details on the active framework of MOSIP, its structure & rules within which the higher-level services operate, the architecturally significant use cases and Logical View, to name a few.
 
-Please Refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details.
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details.
 
 ### 3.6 Administration
 ### 3.7 Resident Services
@@ -130,23 +130,23 @@ Please Refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details
 ### 5.1 Functional Requirement Specifications
 This Section provides a detailed functional requirement specification for each module in MOSIP
 #### 5.1.1 FRS Data Services
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Data-Services) for more details
 #### 5.1.2 FRS Common Services
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Common-Services) for more details
 #### 5.1.3 FRS Admin Services
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Admin-Services) for more details
 #### 5.1.4 MOSIP Sub Systems
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems) for more details
 #### 5.1.5 FRS Pre-Registration
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details
 #### 5.1.6 FRS Registration Processor
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor) for more details
 #### 5.1.7 FRS Resident Services
-Refer to [wiki](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Resident-Services) for more details
 #### 5.1.8 Registration Services
-Refer to [wiki](https://github.com/mosip/mosip/wiki/Registration-Services)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Services) for more details
 #### 5.1.9 Authentication Services
-Refer to [wiki](https://github.com/mosip/mosip/wiki/Authentication-Services)
+Please refer [wiki](https://github.com/mosip/mosip/wiki/Authentication-Services) for more details
 ### 5.2 Non- Functional Requirement Specifications
 This Section details out the non-functional requirements of MOSIP platform
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
