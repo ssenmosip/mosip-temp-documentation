@@ -122,12 +122,18 @@ A HMAC/checksum function is a way to create a compact representation of an arbit
 1. The restriction on Attachment and its size is configurable. 
 1. The Third-Party Email Vendor is configurable and any country specific vendor can be used.
 
+[link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-emailnotification.md)
+
 ### 4.3 SMS Notification
 
 This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification.md)
+
 ### 4.4 PDF Generator
 This utility enables created of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
+
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md)
 
 ### 4.5 Template Merger
 This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.
