@@ -122,6 +122,8 @@ An Individual may opt to  perform text search to find a center based on which th
 1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
+
 ### 2.4.4 Re-book Appointment
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
 1. An Individual can select any of the Appointment Date available and any of the Appointment Spot available
