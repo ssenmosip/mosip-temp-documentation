@@ -302,7 +302,7 @@ PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 
 Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
 1. VID should be generated as per the defined logic mentioned below
-1. Responds with the PRID to the source
+1. Responds with the VID to the source
 4. Raises an alert in case of listed exceptions as listed below
 
 ### <p align="left"> **1. Type: Success – Info Message**
