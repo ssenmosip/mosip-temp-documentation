@@ -20,15 +20,15 @@
     * [1.17 List of Applications - Create/Read](#117-list-of-applications---createreadupdatedelete)
     * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createreadupdatedelete)
   * [2. Registration Management](#2-registration-management)
-    * [2.1 Registration Center Type - Create/Read/Update/Delete](#21-registration-center-type---createreadupdatedelete)
+    * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createreadupdatedelete)
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete)
-    * [2.3 List of Machine Types - Create/Read/Update/Delete](#23-list-of-machine-types---createreadupdatedelete)
-    * [2.4 List of Machine Specifications - Create/Read/Update/Delete](#24-list-of-machine-specifications---createreadupdatedelete)
+    * [2.3 List of Machine Types - Create](#23-list-of-machine-types---createreadupdatedelete)
+    * [2.4 List of Machine Specifications - Create/Update/Delete](#24-list-of-machine-specifications---createreadupdatedelete)
     * [2.5 List of Machines - Create/Read/Update/Delete](#25-list-of-machines---createreadupdatedelete)
-    * [2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete](#26-mappings-of-registration-center-machine-and-user-mappings---createreadupdatedelete)
+    * [2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete](#26-mappings-of-registration-center-machine-and-user-mappings---createreadupdatedelete)
     * [2.7 List of Devices - Create/Read/Update/Delete](#27-list-of-devices---createreadupdatedelete)
     * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete)
-    * [2.9 List of Device Types - Create/Read/Update/Delete](#29-list-of-device-types---createreadupdatedelete)
+    * [2.9 List of Device Types - Create](#29-list-of-device-types---createreadupdatedelete)
     * [2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete](#210-mappings-of-registration-center-and-machine---createreadupdatedelete)
     * [2.11 Mappings of Registration Center and Device - Create/Read/Update/Delete](#211-mappings-of-registration-center-and-device---createreadupdatedelete)
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete](#212-mappings-of-registration-center-machine-and-device---createreadupdatedelete)
@@ -1017,7 +1017,7 @@ ID Type not found	|KER-MSD-022|
 
 
 ## 2. Registration Management
-### 2.1 Registration Center Type - Create/Read/Update/Delete
+### 2.1 Registration Center Type - Create/Update/Delete
 
 #### A. Create Registration Center Type in Master Data
 
@@ -1204,23 +1204,7 @@ On receiving a request to fetch Registration Center Creation/Updation History De
    * IsActive
 5. In case of Exceptions, system triggers relevant error messages.
 
-#### E. Fetch the List of Holidays based on a Holiday ID and/or Language Code
-
-
-On receiving a request to fetch the list of Holidays with the input parameters (Holiday ID and/or Language Code), the system fetches the required data as per the input parameter received. 
-
-
-1. System Fetches all the records of Holiday List if the request does not contain any input parameters
-1. If the input parameter is Holiday ID, system will fetch the List of Holidays against the Holiday ID Received for all the languages
-1. If the input parameter is Holiday ID and Language Code, fetches the List of Holidays against the Holiday ID and the Language Code Received
-1. The system also validates if the response contains all the below attributes for each Holiday Fetched
-   * Holiday ID
-   * Holiday Date
-   * Holiday Name
-   * IsActive
-5. In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
-
-#### F. Fetch Registration Center details based on a Location Code and a Language Code
+#### E. Fetch Registration Center details based on a Location Code and a Language Code
 
 Upon receiving a  request to fetch the List of Registration Centers with the input parameter (Location Code and Language Code), the system fetches the list of all the Registration Centers against the Location Code and Language Code received with all the attributes for each Registration Center
 
@@ -1245,7 +1229,7 @@ Upon receiving a  request to fetch the List of Registration Centers with the inp
    * IsActive
 4. In case of Exceptions, system triggers relevant error messages
 
-#### G. Fetch Registration Center details based on a Longitude and a Latitude, Proximity Distance and Language Code
+#### F. Fetch Registration Center details based on a Longitude and a Latitude, Proximity Distance and Language Code
 
 
 On receiving a request  to fetch the List of Registration Centers with the input parameter (Longitude and Latitude, Proximity distance and Language Code), the system fetches the  List of Registration Centers against the input parameters received.
@@ -1275,7 +1259,7 @@ On receiving a request  to fetch the List of Registration Centers with the input
    * IsActive
 6. In case of Exceptions, system triggers relevant error messages
 
-#### H. Fetch the List of Registration Centers based on Location Hierarchy Level, text input and a Language Code
+#### G. Fetch the List of Registration Centers based on Location Hierarchy Level, text input and a Language Code
 
 
 Upon receiving a request to fetch the List of Registration centers with input parameters (Location Hierarchy Level, Text Input and a Language Code), the system fetches the List of Registration centers
@@ -1305,7 +1289,7 @@ Upon receiving a request to fetch the List of Registration centers with input pa
    * IsActive
 6. In case of Exceptions, system triggers relevant error messages. 
 
-#### I. Validates whether a Registration Center is under working hours based on a timestamp received
+#### H. Validates whether a Registration Center is under working hours based on a timestamp received
 
 
 On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Date-Timestamp), the system determines the status of the Registration center as per the logic defined. 
@@ -1327,7 +1311,7 @@ On receiving a request to fetch Registration Center Details with the input param
 6. In case of Exceptions, system trigger relevant error messages
 
 
-### 2.3 List of Machine Types - Create/Read/Update/Delete
+### 2.3 List of Machine Types - Create
 
 Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1353,7 +1337,7 @@ NA|	NA|	NA
 |:------:|:------:|
 |Error occurred while inserting Machine Type details	|KER-MSD-061|
 
-### 2.4 List of Machine Specifications - Create/Read/Update/Delete
+### 2.4 List of Machine Specifications - Create/Update/Delete
 
 
 #### A. Create Machine Specifications in the Masterdata DB
@@ -1523,7 +1507,7 @@ On receiving a request to Fetch Machine Details with the input parameters (Machi
 5. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Update/Delete
+### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete
 
 
 #### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata DB
@@ -1653,6 +1637,42 @@ The record fetched are  the latest record existing on or before the date receive
    * Language Code - Mandatory
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages. 
+
+#### D. Update and Delete a Device in the List of Devices Masterdata DB
+
+##### (i) Update
+
+Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Updates the Device Details in the List of Devices DB for the id received
+
+
+1. While updating the device in device type list the system Validates if all required input parameters have been received as listed below for each specific request
+   * id - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * mac_address - character (64) - Mandatory
+   * serial_num - character (64) - Mandatory
+   * ip_address - character (17) - Optional
+   * dspec_id - character (36) - Mandatory
+   * validity_end_date - date - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
+2. For the id received in the request, replaces all the data received in the request against the data existing in the List of Devices database against the same id.
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device ID and Language Code for the Device updated successfully
+1. In case of Exceptions, system triggers relevant error messages. 
+
+##### (ii) Delete
+
+Upon receiving a request to delete a Device with the input parameters (id) and Update the is_deleted flag to true in the List of Devices DB against the id received
+
+
+1. While deleting the device in the device list the system validates if all required input parameters have been received as listed below for each specific request
+   * id - character (36) - Mandatory
+2. Delete all records for the id received
+1. Deleted record are not  deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device ID for the Device deleted successfully
+1. In case of Exceptions, system triggers relevant error messages
 	
 
 ### 2.8 List of Device Specifications - Create/Read/Update/Delete
@@ -1678,38 +1698,6 @@ On receiving request to add Device Specifications with the input parameters (nam
 1. In case of Exceptions, system triggers relevant error messages. 
 
 
-#### B. Update and Delete a Language in the List of Languages Masterdata DB
-
-##### (i) Update
-
-
-On receiving request to update a Language with the input parameters (code, name, family, native_name and is_active), the system Updates the Language Details in the List of languages DB for the Code received in request
-
-
-1. While updating the language the system Validates if all required input parameters have been received as listed below for each specific request
-   * code - character (3) - Mandatory
-   * name - character (64) - Mandatory
-   * family - character (64) - Optional
-   * native_name - character (64) - Optional
-   * is_active - boolean - Mandatory
-2. For the Code received in the request, replaces all the data received in the request against the data existing in the List of languages database against the same code.
-1. Deleted record are not updated
-1. Responds with data not found error  if deleted record is received in the request
-1. Responds with the Language Code for the language successfully updated
-1. In case of Exceptions, system triggers relevant error messages. 
-
-##### (ii) Delete
-
-On receiving request to delete a Language with the input parameters (code), the system Updates the is_deleted flag to true in the List of languages DB against the code received in request
-
-1. While deleting the list of language the system Validates if all required input parameters have been received as listed below for each specific request
-   * code - character (3) - Mandatory
-2. Deleted record should are not deleted again
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Language Code for the language successfully deleted
-1. In case of Exceptions, system triggers relevant error messages. 
-
-
 ### 2.9 List of Device Types - Create/Read/Update/Delete
 #### A. Create Device Type in Master Data
 
@@ -1727,42 +1715,6 @@ Upon receiving a request to add Device Type with the input parameters (code, nam
    * Code
    * Language Code
 3. Responds with the Device Type Code and Language Code for the Device Type created successfully
-1. In case of Exceptions, system triggers relevant error messages
-
-#### B. Update and Delete a Device in the List of Devices Masterdata DB
-
-##### (i) Update
-
-Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Updates the Device Details in the List of Devices DB for the id received
-
-
-1. While updating the device in device type list the system Validates if all required input parameters have been received as listed below for each specific request
-   * id - character (36) - Mandatory
-   * name - character (64) - Mandatory
-   * brand - character (64) - Mandatory
-   * model - character (16) - Mandatory
-   * dtyp_code - character (36) - Mandatory
-   * min_driver_ver - character (16) - Mandatory
-   * descr - character (256) - Mandatory
-   * lang_code - character (3) - Mandatory
-   * is_active - boolean - Mandatory
-2. For the id received in the request, replaces all the data received in the request against the data existing in the List of Devices database against the same id.
-1. Deleted record are not updated
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Device ID and Language Code for the Device updated successfully
-1. In case of Exceptions, system triggers relevant error messages. 
-
-##### (ii) Delete
-
-Upon receiving a request to delete a Device with the input parameters (id) and Update the is_deleted flag to true in the List of Devices DB against the id received
-
-
-1. While deleting the device in the device list the system validates if all required input parameters have been received as listed below for each specific request
-   * id - character (36) - Mandatory
-2. Delete all records for the id received
-1. Deleted record are not  deleted again
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Device ID for the Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
 ### 2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete
