@@ -95,6 +95,8 @@ Refer below for the process:
 #### 4.1.3 PRID Validator
 
 Upon receiving a request to validate the PRID, the system validates the PRID against the defined policy
+
+Refer below for the process:
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
 1. Validates the PRID received as per the PRID generation logic 
 1. Responds to the source with appropriate message 
