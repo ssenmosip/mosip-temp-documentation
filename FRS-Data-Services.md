@@ -26,10 +26,10 @@ Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfe
 
 ## 2. Data Access Manager
 Data Access Manager provides a DAO (Data Access Object) interface to do the following
-1. Provide an interface for connection to a DB
-1. Provide an interface to support DB CRUD operation
+1. Provide an interface for connection to a Database
+1. Provide an interface to support Database CRUD (Create, Read, Update, Delete) operation
 1. Provide an interface to support a custom SQL
-1. Provide an interface to call DB functions
+1. Provide an interface to call Database functions
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
 
