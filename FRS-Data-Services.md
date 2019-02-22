@@ -21,7 +21,7 @@
 
 # Data services
 ## 1. Data mapper
-Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity 
+Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity. 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
 
@@ -30,7 +30,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 1. Provide an interface for connection to a Database
 1. Provide an interface to support Database CRUD (Create, Read, Update, Delete) operation
 1. Provide an interface to support a custom SQL
-1. Provide an interface to call Database functions
+1. Provide an interface to call Database functions.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
 
@@ -65,7 +65,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
    * Center-Machine-User Mapping
    * Center-User Mapping
 4. The Sync Handler service only sends incremental changes based on the Timestamp received by the service.
-1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations
+1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations.
 1. For User, Roles and Respective User-Role mappings, Sync handler receives Center ID and Timestamp and will respond to the Registration Client with Center specific incremental changes.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/0.8.0_FIT3_KERNEL/docs/design/kernel/kernel-syncservices.md)
@@ -78,9 +78,9 @@ Upon receiving a request to generate Machine ID, the system generates Machine ID
 1. Machine ID generated should be of length of 5 digits
 1. Each new Machine ID should be incremented by 1 for each new request
 1. Machine ID generation should start from 10000
-1. The number should not contain the restricted numbers defined by the ADMINs
+1. The number should not contain the restricted numbers defined by the ADMINs.
 
-Responds with the Machine ID to the source
+Responds with the Machine ID to the source.
 
 Raises an alert in case of exceptions. 
 
@@ -105,7 +105,7 @@ Refer below for the process:
 
 #### 4.1.3 TSP ID Generator
 
-Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
+Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic.
 
 Refer below for the process:
 1. TSP ID should be generated as per the defined logic mentioned below
@@ -121,7 +121,7 @@ Refer below for the process:
 
 #### 4.1.4 PRID Generator
 
-Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic
+Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic.
 
 Refer below for the process:
 1. PRID generated should contain number of digits as configured by the ADMIN
@@ -133,7 +133,7 @@ Refer below for the process:
    * The number should not have repeated block of numbers for 2 or more than 2 digits
    * The number should not contain the restricted numbers defined by the ADMIN
    * The last digit in the number should be reserved for a checksum
-   * The number should not contain '0' or '1' as the first digit.
+   * The number should not contain '0' or '1' as the first digit
 4. Responds with the PRID to the source
 1. Raises an alert in case of exceptions. 
 
@@ -147,7 +147,7 @@ Upon receiving a request to generate VID, the system generates PRID as per defau
 4. Raises an alert in case of exceptions. 
 
 **VID generation policy**
-1. VID generated should contain the number of digits as configured
+1. VID generated should contain the number of digits as configured.
 1. Validates if the VID is generated as per the defined logic mentioned below
    * The number should not contain any alphanumeric characters
    * The number should not contain any repeating numbers for 2 or more than 2 digits
@@ -157,7 +157,7 @@ Upon receiving a request to generate VID, the system generates PRID as per defau
    * The number should not contain the restricted numbers defined by the ADMIN
    * The last digit in the number should be reserved for a checksum
    * The number should not contain '0' or '1' as the first digit.
-4. Expired VID should not be sent in response
+4. Expired VID should not be sent in response.
 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
@@ -175,7 +175,7 @@ Refer below for the process:
    * ID is unique for a combination of TSP ID and UIN received
    * ID is untraceable to both TSP ID and UIN received
 5. Responds with the Token ID to the source
-1. Raises an alert in case of exceptions
+1. Raises an alert in case of exceptions.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
 
@@ -220,7 +220,7 @@ Refer below for the process:
 1. Validates if the VID is of configured length.
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received as per the VID generation logic
-1. Responds to the source with appropriate message and raises an alert in case of exceptions 
+1. Responds to the source with appropriate message and raises an alert in case of exceptions.
 
 #### 4.2.5 RID Validator
 
@@ -234,7 +234,7 @@ RID is generated in the following manner:
 RID Validation performs pattern validation on RID and provides three methods to validate RID.
 1. Receive a RID, check whether RID is of configured length or not and respond with whether RID is valid or invalid
 1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID are attached to the RID or not. Respond with whether RID is valid or invalid
-1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid 
+1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid.
 
 #### 4.2.6 TSP ID Validator
 
