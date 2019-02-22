@@ -141,7 +141,7 @@ The system performs the following steps to update the location in the Masterdata
 1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 ##### (ii) Delete
-On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location DB against the code received.The system performs the following steps in order to delete the loaction\s received in the code:
+On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received.The system performs the following steps in order to delete the loaction\s received in the code:
 1. Validates if all required input parameters have been received as listed below for each specific request
 1. Delete all records for the code received
 1. Deleted record are not be deleted again
@@ -342,7 +342,7 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 
 #### A. Create Document Category in Master Data
 
-On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Category in the DB as per the below listed steps
+On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Category in the Database as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -1731,7 +1731,7 @@ While deleting the device specifications the system performs the following steps
 #### A. Create Device Type in Master Data
 
 
-Upon receiving a request to add Device Type with the input parameters (code, name, descr, lang_code and is_active), the system Stores the Device Type in the DB
+Upon receiving a request to add Device Type with the input parameters (code, name, descr, lang_code and is_active), the system Stores the Device Type in the Database
 
 
 1. While creating device type the system validates if all required input parameters have been received as listed below for each specific request
@@ -1747,8 +1747,8 @@ Upon receiving a request to add Device Type with the input parameters (code, nam
 1. In case of Exceptions, system triggers relevant error messages
 
 ### 2.10 Mappings of Registration Center and Machine - Create/Delete
-#### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata DB
-Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the DB
+#### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata Database
+Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
@@ -1760,9 +1760,9 @@ Upon receiving a request to add a mapping of Machine and Center with the input p
 ### <p align="left">**1. Type : Success – Info Message**
 
 
-#### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata DB
+#### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata Database
 
-Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id), the system updates the is_deleted flag to true in the Center-Machine mapping DB against the input received
+Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id), the system updates the is_deleted flag to true in the Center-Machine mapping Database against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) - Mandatory
    * machine_id - character (36) - Mandatory
@@ -1773,8 +1773,8 @@ Upon receiving a request to delete a Center-Machine mapping with the input param
 
 
 ### 2.11 Mappings of Registration Center and Device - Create/Read/Delete
-#### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata DB
-Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the DB
+#### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata Database
+Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (10) – Mandatory (refers to a Registration Center stored in Registration Center)
    * device_id - character (36) – Mandatory (refers to a Device stored in Device Masterdata)
@@ -1784,8 +1784,8 @@ Upon receiving a request to add a mapping of Device and Center with the input pa
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata DB
-Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_deleted flag to true in the Center-Device mapping DB against the input received
+#### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata Database
+Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_deleted flag to true in the Center-Device mapping Database against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) - Mandatory
    * device_id - character (36) - Mandatory
@@ -1815,9 +1815,9 @@ While fetching the attributes of Center and Device Mapping from the history tabl
 
 ### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete
 
-### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata DB
+### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata Database
 
-Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system store the Mapping of Center, Machine and Device in the DB
+Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system store the Mapping of Center, Machine and Device in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) – Mandatory (refers to a Registration Center stored in Registration Center Masterdata)
    * machine_id - character (36) – Mandatory (refers to a Registration Center stored in Registration Center Masterdata)
@@ -1828,8 +1828,8 @@ Upon receiving a request to add a mapping of Center, Machine and Device with the
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata DB
-Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id), the system updates the is_deleted flag to true in the Center-Machine-Device mapping DB against the input received
+#### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata Database
+Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id), the system updates the is_deleted flag to true in the Center-Machine-Device mapping Database against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * regcntr_id - character (36) - Mandatory
    * machine_id - character (36) - Mandatory
