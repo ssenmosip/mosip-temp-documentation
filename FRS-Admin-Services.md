@@ -175,6 +175,40 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 4. Responds to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
+#### C. Update and Delete List of Holiday in  Masterdata DB
+##### (i) Update
+
+On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system updates the Holiday List in the Holiday DB for the code received
+
+1. Validate if all required input parameters have been received as listed below for each specific request
+   * id - integer
+   * location_code - character (36) - Mandatory
+   * holiday_date - date - Mandatory
+   * holiday_name - character (64) - Mandatory
+   * holiday_desc - character (128) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
+   * New Holiday Date - date - Optional
+   * New Holiday Name - character (64) - Optional
+   * New Holiday Description - character (128) - Optional
+2. For the code received in the request, replaces all the data received in the request against the data existing in the List of Holidays database against the same id.
+1. Deleted record are  updated
+1. Respond with data not found error if deleted record is received in the request
+1. Responds with the Location Code, Holiday Date, Holiday Name and Language Code for the Holiday updated successfully
+1. In case of Exceptions, system triggers relevant error messages.
+ 
+##### (ii) Delete
+
+On receiving a  request to delete a Holiday List with the input parameters (code) the system updates the is_deleted flag to true in the Holiday DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * location_code - character (36) - Mandatory
+   * holiday_date - date - Mandatory
+   * holiday_name - character (64) - Mandatory
+2. Delete all records for the code received
+1. Deleted record are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Location Code, Holiday Date and Holiday Name for the Holiday deleted successfully
+1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.3 Biometric Authentication Type - Create/Read
 #### A. Create Biometric Authentication Type in Masterdata DB
