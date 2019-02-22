@@ -41,7 +41,7 @@
 #### A. Create Location Hierarchy in the Masterdata Database
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the Database
 
-While storing the location hierarchy in the database the system performs the following steps:
+While storing the location hierarchy in the database, the system performs the following steps:
 1.  Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (128) - Mandatory
@@ -57,7 +57,7 @@ While storing the location hierarchy in the database the system performs the fol
 #### B. Check the existence of a Location in Master Database
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master Database
 
-While checking the location in the Database the system performs the following steps:
+While checking the location in the Database, the system performs the following steps:
 
 1. Validates if the request contains the following input parameters
    * Location Name - Mandatory
@@ -193,7 +193,7 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 #### C. Update and Delete List of Holiday in  Masterdata Database
 ##### (i) Update
 
-On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system updates the Holiday List in the Holiday Database for the code received as per the below steps
+On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system updates the Holiday List in the Holiday Database for the code received as per the below steps
 
 1. Validate if all required input parameters have been received as listed below for each specific request
    * id - integer
@@ -214,7 +214,7 @@ On receiving a  request to update a Holiday list with the input parameters (id, 
  
 ##### (ii) Delete
 
-On receiving a  request to delete a Holiday List with the input parameters (code) the system updates the is_deleted flag to true in the Holiday Database against the code received  as per the below steps
+On receiving a  request to delete a Holiday List with the input parameters (code), the system updates the is_deleted flag to true in the Holiday Database against the code received  as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * location_code - character (36) - Mandatory
    * holiday_date - date - Mandatory
@@ -455,9 +455,9 @@ On receiving a request to delete a Document Type with the input parameters (code
 
 #### A. Fetch list of Document Categories based on Applicant Type from Masterdata Database
 
-Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code) the system fetches all the Document Categories for the Applicant Type Code Received
+Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code), the system fetches all the Document Categories for the Applicant Type Code Received
 
-While fetching the list of documents the system performs the flowing steps
+While fetching the list of documents, the system performs the flowing steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Applicant Type Code - Mandatory
 2. If the mandatory input parameter is missing, responds with the appropriate error message
@@ -472,9 +472,9 @@ While fetching the list of documents the system performs the flowing steps
 
 #### B. Fetch List of Document Category-Document Type mappings based on Applicant Type and a List of Language Codes
 
-Upon receiving a request to fetch List of Document Category-Document Type mappings with input parameters (Applicant Type and List of Language Codes) the system fetches the required data
+Upon receiving a request to fetch List of Document Category-Document Type mappings with input parameters (Applicant Type and List of Language Codes), the system fetches the required data
 
-While fetching the data the system performs the flowing steps
+While fetching the data, the system performs the flowing steps
 1. Validates if the request contains the following input parameters
    * Applicant Type - Mandatory
    * List of Language Codes - Mandatory
@@ -589,7 +589,7 @@ After receiving a request to add Language Details with the input parameters (cod
 
 #### B. Fetch the List of Languages
 
-After receiving a request to fetch the List of Languages the system fetches the List of Languages
+After receiving a request to fetch the List of Languages, the system fetches the List of Languages
 
 1. Validates if the response contains the List of all Languages with the following attributes
    * Language Code - Mandatory
@@ -707,8 +707,8 @@ Update and Delete a Template File Format in Template File Format Masterdata Data
 
 (i)Update
 
-1.	On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active) the system updates the Template File Format in the Template File Format Database for the Code received
-While updating the Template File Format the system perform the following steps
+1.	On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active), the system updates the Template File Format in the Template File Format Database for the Code received
+While updating the Template File Format, the system perform the following steps
 1.	Validates if all required input parameters have been received as listed below for each specific request
 •	code - character (36) - Mandatory
 •	descr - character (256) - Optional
@@ -722,8 +722,8 @@ While updating the Template File Format the system perform the following steps
 
 (ii)Delete
 
-On receiving  a request to delete a Template File Format with the input parameters (code) the system updates the is_deleted flag to true in the Template File Format Database against the code received
-While deleting the Template File Format the system perform the following steps
+On receiving  a request to delete a Template File Format with the input parameters (code), the system updates the is_deleted flag to true in the Template File Format Database against the code received
+While deleting the Template File Format, the system perform the following steps
 
 1.	Validates if all required input parameters have been received as listed below for each specific request
 1.	code - character (36) - Mandatory
@@ -870,8 +870,8 @@ Upon receiving a request to delete a Blacklisted Word with the input parameters 
 
 C.Fetch List of Blacklisted words based on a Language Code
 
-1.	Upon receiving a  request to Fetch the List of Blacklisted words with input parameters (Language Code) the system fetches the List of Blacklisted words against the Language Code received
-While fetching the black listed words the system perform the following steps
+1.	Upon receiving a  request to Fetch the List of Blacklisted words with input parameters (Language Code), the system fetches the List of Blacklisted words against the Language Code received
+While fetching the black listed words, the system perform the following steps
 1.	Validates if the request contains the following input parameters
 •	Language Code - Mandatory
 2.	If the mandatory input parameters are missing, throws the appropriate message. 
