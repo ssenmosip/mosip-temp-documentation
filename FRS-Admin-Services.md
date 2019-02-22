@@ -38,8 +38,8 @@
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
 
-#### A. Create Location Hierarchy in the Masterdata DB
-Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the DB
+#### A. Create Location Hierarchy in the Masterdata Database
+Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the Database
 
 While storing the location hierarchy in the database the system performs the following steps:
 1.  Validates if all required input parameters have been received as listed below for each specific request
@@ -54,9 +54,9 @@ While storing the location hierarchy in the database the system performs the fol
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
 
-#### B. Check the existence of a Location in Master DB
-Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master DB
-While checking the location in the DB the system performs the following steps:
+#### B. Check the existence of a Location in Master Database
+Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master Database
+While checking the location in the Database the system performs the following steps:
 1.Validates if the request contains the following input parameters
    * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
@@ -121,10 +121,12 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. Responds to the source with the data fetched
 1. In case of Exceptions, system should triggers  error message. 
 
-#### F. Update and Delete a Location in Location Masterdata DB
+#### F. Update and Delete a Location in Location Masterdata Database
 ##### (i) Update
-On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location DB for the code received
-The system performs the following steps to update the location in the Masterdata DB 
+On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location Database
+ for the code received
+The system performs the following steps to update the location in the Masterdata Database
+ 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code character (36) - Mandatory
    * name character (128) - Mandatory
@@ -151,8 +153,9 @@ On receiving a  request to delete a Location with the input parameters (code), t
 
 
 ### 1.2 List of Holidays - Create/Read/Update/Delete
-#### A. Create Holiday data in Masterdata DB
-Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the DB
+#### A. Create Holiday data in Masterdata Database
+
+Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * location_code - character (36) - Mandatory
    * holiday_date - date - Mandatory
@@ -181,10 +184,10 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 4. Responds to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete List of Holiday in  Masterdata DB
+#### C. Update and Delete List of Holiday in  Masterdata Database
 ##### (i) Update
 
-On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system updates the Holiday List in the Holiday DB for the code received as per the below steps
+On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system updates the Holiday List in the Holiday Database for the code received as per the below steps
 
 1. Validate if all required input parameters have been received as listed below for each specific request
    * id - integer
@@ -205,7 +208,7 @@ On receiving a  request to update a Holiday list with the input parameters (id, 
  
 ##### (ii) Delete
 
-On receiving a  request to delete a Holiday List with the input parameters (code) the system updates the is_deleted flag to true in the Holiday DB against the code received  as per the below steps
+On receiving a  request to delete a Holiday List with the input parameters (code) the system updates the is_deleted flag to true in the Holiday Database against the code received  as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * location_code - character (36) - Mandatory
    * holiday_date - date - Mandatory
@@ -217,8 +220,8 @@ On receiving a  request to delete a Holiday List with the input parameters (code
 1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.3 Biometric Authentication Type - Create/Read
-#### A. Create Biometric Authentication Type in Masterdata DB
-On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the DB as per the below steps
+#### A. Create Biometric Authentication Type in Masterdata Database
+On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the Database as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -240,9 +243,9 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 
 ### 1.4 Biometric Attribute Type - Create/Read
 
-#### A. Create Biometric Attribute in Masterdata DB
+#### A. Create Biometric Attribute in Masterdata Database
 
-On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active), the system stores the Biometric Attribute in the DB as per the below steps
+On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active), the system stores the Biometric Attribute in the Database as per the below steps
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -262,7 +265,7 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 1. Validates if the request contains the following input parameters
    * Biometric Authentication Type - Mandatory
    * Language Code - Mandatory
-2. If no data is present in the DB for the input parameter received, responds with appropriate message.
+2. If no data is present in the Database for the input parameter received, responds with appropriate message.
 1. If both the input parameter is missing, responds with all the data.
 1. If one of the input parameters is missing, throw the appropriate message. Refer "Messages" section.
 1. Validates if the response contains the List of Biometric Attributes with all the attributes against Biometric Authentication Type and Language Code Received
@@ -274,9 +277,9 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 1. In case of Exceptions, system triggers relevant error messages
 
 ### 1.5 Gender - Create/Read/Update/Delete
-#### A. Create Gender Types in Masterdata DB
+#### A. Create Gender Types in Masterdata Database
 
-On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the DB as per the below steps
+On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the Database as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
    * name - character (64) - Mandatory
@@ -287,11 +290,11 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
 1. Responds to the source with the appropriate message
 1. In case of Exceptions, system will trigger error messages as received from the Database.
  
-#### B. Update and Delete a Gender Type in Gender Type Masterdata DB
+#### B. Update and Delete a Gender Type in Gender Type Masterdata Database
 
 ##### (i) Update
 
-On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active), the system updates the Gender Type in the Gender Type DB for the code received as per the below steps
+On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active), the system updates the Gender Type in the Gender Type Database for the code received as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
    * name - character (64) - Mandatory
@@ -304,7 +307,7 @@ On receiving a request to update a Gender Type with the input parameters (code, 
 1. In case of Exceptions, system triggers relevant error messages.
 ##### (ii) Delete
 
-On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type DB against the code received as per the below steps
+On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type Database against the code received as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - int - Mandatory
 2. Delete all records for the code received
@@ -313,9 +316,9 @@ On receiving a request to delete a Gender Type with the input parameters (code),
 1. Responds with the Gender Type Code for the Gender Type deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-#### C. Check the existence of a Gender in Master DB
+#### C. Check the existence of a Gender in Master Database
 
-On receiving a request to validate the Gender Name with input parameters (Gender Name), the system checks the Gender Name in the Master DB as per the below listed steps
+On receiving a request to validate the Gender Name with input parameters (Gender Name), the system checks the Gender Name in the Master Database as per the below listed steps
 1. Validates if the request contains the following input parameters
    * Gender Name - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
@@ -353,11 +356,11 @@ On receiving a request to add Document Category with the input parameters (code,
 1. Responds to the source with the appropriate message.
 1. In case of Exceptions, system triggers relevant error messages
 
-#### B. Update and Delete a Document Category in the Document Category Masterdata DB
+#### B. Update and Delete a Document Category in the Document Category Masterdata Database
 
 ##### (i) Update
 
-On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category DB for the Code received as per the below listed steps
+On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category Database for the Code received as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -372,7 +375,7 @@ On receiving a request to update a Document Category with the input parameters (
 
 ##### (ii) Delete
 
-On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category DB against the code received as per the below listed steps
+On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category Database against the code received as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
 2. Delete all records for the code received
@@ -400,7 +403,7 @@ On receiving a request to fetch Document Category Details with the input paramet
 
 #### A. Create Document Type in Master Data
 
-On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the DB
+On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -413,11 +416,11 @@ On receiving a request to add Document Type with the input parameters (code, nam
 3. Responds with the Document Type Code and Language Code for the Document Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-#### B. Update and Delete a Document Type in the Document Type Masterdata DB
+#### B. Update and Delete a Document Type in the Document Type Masterdata Database
 
 ##### (i) Update
 
-On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active), the system updates the Document Type in the Document Type DB for the Code received
+On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active), the system updates the Document Type in the Document Type Database for the Code received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -432,7 +435,7 @@ On receiving a request to update a Document Type with the input parameters (code
 
 ##### (ii) Delete
 
-On receiving a request to delete a Document Type with the input parameters (code), the system updates the is_deleted flag to true in the Document Type DB against the code received
+On receiving a request to delete a Document Type with the input parameters (code), the system updates the is_deleted flag to true in the Document Type Database against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
 2. Delete all records for the code received
@@ -444,7 +447,7 @@ On receiving a request to delete a Document Type with the input parameters (code
 
 ### 1.8 Applicant Type - Document Category - Document Type Mapping - Read
 
-#### A. Fetch list of Document Categories based on Applicant Type from Masterdata DB
+#### A. Fetch list of Document Categories based on Applicant Type from Masterdata Database
 
 1.	Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code) the system fetches all the Document Categories for the Applicant Type Code Received
 While fetching the list of documents the system performs the flowing steps
@@ -486,9 +489,9 @@ While fetching the data the system performs the flowing steps
 7.	In case of Exceptions, system triggers relevant error messages
 
 
-#### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata DB
+#### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata Database
 
-On receiving a request to delete a Document Category-Type mapping with the input parameters (doccat_code, doctyp_code), the system updates the is_deleted flag to true in the Document Category-Type mapping DB against the input received
+On receiving a request to delete a Document Category-Type mapping with the input parameters (doccat_code, doctyp_code), the system updates the is_deleted flag to true in the Document Category-Type mapping Database against the input received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * doccat_code - character (36) - Mandatory
    * doctyp_code - character (36) - Mandatory
@@ -526,7 +529,7 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 ### 1.9 List of Rejection Reasons - Create/Read
 #### A. Create a Rejection Reason in Reason List Master Data
 
-Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system store the Reason in the DB
+Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system store the Reason in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -566,7 +569,7 @@ Upon receiving a request to Fetch the requested List of Reasons with the require
 
 #### A. Create List of Languages in Master Data
 
-After receiving a request to add Language Details with the input parameters (code, name, family, native_name and is_active), the system stores the Language Details in the DB
+After receiving a request to add Language Details with the input parameters (code, name, family, native_name and is_active), the system stores the Language Details in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (3) - Mandatory
@@ -588,11 +591,11 @@ After receiving a request to fetch the List of Languages the system fetches the 
 2. Responds to the source with the List of Languages
 1. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete a Language in the List of Languages Masterdata DB
+#### C. Update and Delete a Language in the List of Languages Masterdata Database
 
 ##### (i) Update
 
-After receiving a request to update a Language with the input parameters (code, name, family, native_name and is_active), the system updates the Language Details in the List of languages DB for the Code received in request
+After receiving a request to update a Language with the input parameters (code, name, family, native_name and is_active), the system updates the Language Details in the List of languages Database for the Code received in request
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (3) - Mandatory
@@ -608,7 +611,7 @@ After receiving a request to update a Language with the input parameters (code, 
 
 ##### (ii) Delete
 
-After receiving a request to delete a Language with the input parameters (code), the system updates the is_deleted flag to true in the List of languages DB against the code received in request
+After receiving a request to delete a Language with the input parameters (code), the system updates the is_deleted flag to true in the List of languages Database against the code received in request
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (3) - Mandatory
@@ -619,9 +622,9 @@ After receiving a request to delete a Language with the input parameters (code),
 
 ### 1.11 List of Titles - Create/Read/Update/Delete
 
-#### A.	Create a Title in Masterdata DB
+#### A.	Create a Title in Masterdata Database
 
-On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Title in the DB
+On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Title in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
@@ -632,11 +635,11 @@ On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameter
 2. Responds with the Title Code and Language Code for the Title created successfully
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
-#### B.	Update and Delete a Title in Title Masterdata DB
+#### B.	Update and Delete a Title in Title Masterdata Database
 
 ##### (i) Update
 
-On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active), the system updates the Title in the Title DB for the code received
+On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active), the system updates the Title in the Title Database for the code received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
@@ -652,7 +655,7 @@ On receiving a request to update a Title with the input parameters (code, name, 
 
 ##### (i) Delete
 
-On receiving a request to delete a Title with the input parameters (code), the system updates the is_deleted flag to true in the Title DB against the code received
+On receiving a request to delete a Title with the input parameters (code), the system updates the is_deleted flag to true in the Title Database against the code received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - int - Mandatory
@@ -680,7 +683,7 @@ On receiving a request to fetch Title Details with the input parameters (Languag
 
 #### A. Create Template File Format in Master Data
 
-On receiving a request to add Template File Format with the input parameters (code, descr, lang_code and is_active), the system stores the Template File Format in the DB
+On receiving a request to add Template File Format with the input parameters (code, descr, lang_code and is_active), the system stores the Template File Format in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * descr - character (256) - Mandatory
@@ -693,11 +696,11 @@ On receiving a request to add Template File Format with the input parameters (co
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### B. Create Template File Format in Master Data
-Update and Delete a Template File Format in Template File Format Masterdata DB
+Update and Delete a Template File Format in Template File Format Masterdata Database
 
 (i)Update
 
-1.	On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active) the system updates the Template File Format in the Template File Format DB for the Code received
+1.	On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active) the system updates the Template File Format in the Template File Format Database for the Code received
 While updating the Template File Format the system perform the following steps
 1.	Validates if all required input parameters have been received as listed below for each specific request
 •	code - character (36) - Mandatory
@@ -712,7 +715,7 @@ While updating the Template File Format the system perform the following steps
 
 (ii)Delete
 
-On receiving  a request to delete a Template File Format with the input parameters (code) the system updates the is_deleted flag to true in the Template File Format DB against the code received
+On receiving  a request to delete a Template File Format with the input parameters (code) the system updates the is_deleted flag to true in the Template File Format Database against the code received
 While deleting the Template File Format the system perform the following steps
 
 1.	Validates if all required input parameters have been received as listed below for each specific request
@@ -725,10 +728,10 @@ While deleting the Template File Format the system perform the following steps
 7.	In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.13 List of Template Types - Create
-MOSIP system can create Template Type in the Masterdata DB.
+MOSIP system can create Template Type in the Masterdata Database.
 
 Upon receiving a request to add Template Type (e.g., SMS Notification template - New Registration) with the input 
-parameters (code, descr, lang_code and is_active), the system stores the Template Type in the DB
+parameters (code, descr, lang_code and is_active), the system stores the Template Type in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -743,9 +746,9 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
 
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
-#### A. Create Template in the Masterdata DB
+#### A. Create Template in the Masterdata Database
 
-On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system stores the Template in the DB
+On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system stores the Template in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * id- character (36) - Mandatory
    * name - character (128) - Mandatory
@@ -777,11 +780,11 @@ On receiving a request to fetch a Template with the input parameters (Template T
    * IsActive
 5. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete a Template in Template Masterdata DB
+#### C. Update and Delete a Template in Template Masterdata Database
 
 ##### (i) Update
 
-On receiving a request to update a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system updates the Template in the Template DB for the id received
+On receiving a request to update a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system updates the Template in the Template Database for the id received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * id - character (36) - Mandatory
@@ -803,7 +806,7 @@ On receiving a request to update a Template with the input parameters (id, name,
 
 ##### (ii) Delete
 
-On receiving a request to delete a Template with the input parameters (id), the system Updates the is_deleted flag to true in the Template DB against the id received
+On receiving a request to delete a Template with the input parameters (id), the system Updates the is_deleted flag to true in the Template Database against the id received
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * id- character (36) - Mandatory
@@ -815,9 +818,9 @@ On receiving a request to delete a Template with the input parameters (id), the 
 
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
 
-#### A. Create Blacklisted Words in Masterdata DB
+#### A. Create Blacklisted Words in Masterdata Database
 
-Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system store the Blacklisted Word in the DB
+Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system store the Blacklisted Word in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * word - character (128) - Mandatory
@@ -829,12 +832,12 @@ Upon receiving a request to add a Blacklisted Word with the input parameters (co
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata DB
+#### B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata Database
 
 
 ##### (i) Update
 
-Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system updates the Blacklisted Word in the Blacklisted Word DB for the code received
+Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system updates the Blacklisted Word in the Blacklisted Word Database for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * word- character (128) - Mandatory
    * descr - character (256) - Optional
@@ -849,7 +852,7 @@ Upon receiving request to update a Blacklisted Word with the input parameters (c
 
 ##### (ii) Delete
 
-Upon receiving a request to delete a Blacklisted Word with the input parameters (code), the system updates the is_deleted flag to true in the Blacklisted Word DB against the code received
+Upon receiving a request to delete a Blacklisted Word with the input parameters (code), the system updates the is_deleted flag to true in the Blacklisted Word Database against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
    * word- int - Mandatory
 2. Deleted record are not deleted again
@@ -875,7 +878,7 @@ While fetching the black listed words the system perform the following steps
 MOSIP system can create a Reason Category in Master Data
 
 
-Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Reason Category in the DB
+Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Reason Category in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -894,7 +897,7 @@ Upon receiving a request to add Reason Category with the input parameters (code,
 ### 1.17 List of Applications - Create/Read
 #### A. Create a List of Applications in Master Data
 
-Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the DB
+Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -948,7 +951,7 @@ Upon receiving a request to Fetch List of Applications with the required input p
 ### 1.18 List of ID Types - Create/Read
 #### A. Create an ID type in Master Data
 
-Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the DB
+Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
 
@@ -988,7 +991,7 @@ Upon receiving a request to fetch the List of ID Types with input parameters (La
 
 #### A. Create Registration Center Type in Master Data
 
-On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system store the Registration Center Type in the DB
+On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system store the Registration Center Type in the Database
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -1003,11 +1006,11 @@ On receiving a request to add Registration Center Type with the input parameters
 1. In case of Exceptions, system triggers relevant error messages. 
 
 	
-#### B. Update and Delete a Registration Center Type in the Registration Center Type Masterdata DB
+#### B. Update and Delete a Registration Center Type in the Registration Center Type Masterdata Database
 
 ##### (i) Update
 
-On receiving a request to update a Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system Updates the Registration Center Type Details in the Registration Center Type DB for the Code received
+On receiving a request to update a Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system Updates the Registration Center Type Details in the Registration Center Type Database for the Code received
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1024,7 +1027,7 @@ On receiving a request to update a Registration Center Type with the input param
 
 ##### (ii) Delete
 
-On receiving a request to delete a Registration Center Type with the input parameters (code), the system updates the is_deleted flag to true in the Registration Center Type DB against the code received
+On receiving a request to delete a Registration Center Type with the input parameters (code), the system updates the is_deleted flag to true in the Registration Center Type Database against the code received
 
 
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1039,10 +1042,10 @@ On receiving a request to delete a Registration Center Type with the input param
 ### 2.2 Registration Center - Create/Read/Update/Delete
 
 
-#### A. Create a Registration Center record in Masterdata DB
+#### A. Create a Registration Center record in Masterdata Database
 
 Upon receiving a request to add Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours
-per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system Stores the Registration Center in the DB
+per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system Stores the Registration Center in the Database
 
 
 1. The system validates if all required input parameters have been received as listed below for each specific request
@@ -1072,11 +1075,11 @@ per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, 
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
-#### B. Update and Delete a Registration Center in the List of Registration Center Masterdata DB
+#### B. Update and Delete a Registration Center in the List of Registration Center Masterdata Database
 ##### (i) Update
 
 
-On receiving a request to update a Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours, per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system updates the Registration Center Details in the List of Registration Center DB for the center_id received
+On receiving a request to update a Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours, per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system updates the Registration Center Details in the List of Registration Center Database for the center_id received
 
 1. The system validates if all required input parameters have been received as listed below for each specific request
    * center_id - character (36) - mandatory
@@ -1108,7 +1111,7 @@ On receiving a request to update a Registration Center with the input parameters
 ##### (ii) Delete
 
 
-Upon receiving a request to delete a Registration Center with the input parameters (center_id), the system updates the is_deleted flag to true in the List of Registration Center DB against the center_id received
+Upon receiving a request to delete a Registration Center with the input parameters (center_id), the system updates the is_deleted flag to true in the List of Registration Center Database against the center_id received
 
 
 1. The system validates if all required input parameters have been received as listed below for each specific request
@@ -1280,7 +1283,7 @@ On receiving a request to fetch Registration Center Details with the input param
 
 ### 2.3 List of Machine Types - Create
 
-Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the DB
+Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the Database
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -1298,12 +1301,12 @@ Upon receiving a request to add Machine Type (e.g., Dongle) with the input param
 ### 2.4 List of Machine Specifications - Create/Update/Delete
 
 
-#### A. Create Machine Specifications in the Masterdata DB
+#### A. Create Machine Specifications in the Masterdata Database
 
 
-On receiving a request to add Machine Specifications with the input parameters (name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system stores the Machine Specifications in the DB
+On receiving a request to add Machine Specifications with the input parameters (name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system stores the Machine Specifications in the Database
 
-1. While creating machine specification in DB the system validates if all required input parameters have been received as listed below for each specific request
+1. While creating machine specification in Database the system validates if all required input parameters have been received as listed below for each specific request
    * Id - character (36) - Mandatory
    * name - character (64)- Mandatory
    * brand - character (32)- Mandatory
@@ -1317,12 +1320,12 @@ On receiving a request to add Machine Specifications with the input parameters (
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
 
-#### B. Update and Delete a Machine Specification in the Machine Specification Masterdata DB
+#### B. Update and Delete a Machine Specification in the Machine Specification Masterdata Database
 
 ##### (i) Update
 
 
-On receiving a request to update a Machine Specification with the input parameters (id, name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system updates the Machine Specification Details in the Machine Specification DB for the id received
+On receiving a request to update a Machine Specification with the input parameters (id, name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system updates the Machine Specification Details in the Machine Specification Database for the id received
 
 
 While updating the Machine Specification the system validates the following
@@ -1347,7 +1350,7 @@ While updating the Machine Specification the system validates the following
 ##### (ii) Delete
 
 
-On receiving a request to delete a Machine Specification with the input parameters (id), the system Updates the is_deleted flag to true in the Machine Specification DB against the id received
+On receiving a request to delete a Machine Specification with the input parameters (id), the system Updates the is_deleted flag to true in the Machine Specification Database against the id received
 
 
 1. While deleting the machine specifications the system validates if all required input parameters have been received as listed below for each specific request
@@ -1362,9 +1365,9 @@ On receiving a request to delete a Machine Specification with the input paramete
 
 ### 2.5 List of Machines - Create/Read/Update/Delete
 
-#### A. Create a Machine in Masterdata DB
+#### A. Create a Machine in Masterdata Database
 
-On receiving a request to add Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Stores the Machine Details in the DB
+On receiving a request to add Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Stores the Machine Details in the Database
 
 1. While creating the machine IDs the system validates if all required input parameters have been received as listed below for each specific request
    * machine_id - character (36) - mandatory
@@ -1383,12 +1386,12 @@ On receiving a request to add Machine with the input parameters (machine_id, nam
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Update and Delete a Machine in the List of Machines Masterdata DB
+#### B. Update and Delete a Machine in the List of Machines Masterdata Database
 
 ##### (i) Update
 
 
-On receiving a request to update a Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Updates the Machine Details in the List of Machines DB for the machine_id received
+On receiving a request to update a Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Updates the Machine Details in the List of Machines Database for the machine_id received
 
 
 1. While updating the machine ID the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1409,7 +1412,7 @@ On receiving a request to update a Machine with the input parameters (machine_id
 
 ##### (ii) Delete
 
-On receiving a request to delete a Machine with the input parameters (machine_id), the system Updates the is_deleted flag to true in the List of Machines DB against the machine_id received
+On receiving a request to delete a Machine with the input parameters (machine_id), the system Updates the is_deleted flag to true in the List of Machines Database against the machine_id received
 
 
 1. While deleting the machine IDs the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1468,9 +1471,9 @@ On receiving a request to Fetch Machine Details with the input parameters (Machi
 ### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete
 
 
-#### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata DB
+#### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata Database
 
-On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active), the system Store the Mapping of Center, User and Machine in the DB
+On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active), the system Store the Mapping of Center, User and Machine in the Database
 
 
 1. While mapping the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1483,9 +1486,9 @@ On receiving a request to add a mapping of Center, User and Machine with the inp
 1. In case of Exceptions, system triggers error messages as received from the Database.
 
 
-#### B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Masterdata DB
+#### B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Masterdata Database
 
-On receiving a request to delete a Center-Machine-User mapping with the input parameters (regcntr_id, machine_id, usr_id), the system Updates the is_deleted flag to true in the Center-Machine-User mapping DB against the input received
+On receiving a request to delete a Center-Machine-User mapping with the input parameters (regcntr_id, machine_id, usr_id), the system Updates the is_deleted flag to true in the Center-Machine-User mapping Database against the input received
 
 
 1. While deleting the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1518,9 +1521,9 @@ The record fetched are  the latest record existing on or before the date receive
 
 ### 2.7 List of Devices - Create/Read/Update/Delete
 
-#### A. Create a Device in Masterdata DB
+#### A. Create a Device in Masterdata Database
 
-On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Stores the device in the DB
+On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Stores the device in the Database
 
 1. While creating a device the system Validates if all required input parameters have been received as listed below for each specific request
    * name - character (64) - Mandatory
@@ -1596,11 +1599,11 @@ The record fetched are  the latest record existing on or before the date receive
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages. 
 
-#### D. Update and Delete a Device in the List of Devices Masterdata DB
+#### D. Update and Delete a Device in the List of Devices Masterdata Database
 
 ##### (i) Update
 
-Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Updates the Device Details in the List of Devices DB for the id received
+Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Updates the Device Details in the List of Devices Database for the id received
 
 
 1. While updating the device in device type list the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1621,7 +1624,7 @@ Upon receiving a request update a Device with the input parameters (id, name, ma
 
 ##### (ii) Delete
 
-Upon receiving a request to delete a Device with the input parameters (id) and Update the is_deleted flag to true in the List of Devices DB against the id received
+Upon receiving a request to delete a Device with the input parameters (id) and Update the is_deleted flag to true in the List of Devices Database against the id received
 
 
 1. While deleting the device in the device list the system validates if all required input parameters have been received as listed below for each specific request
@@ -1638,7 +1641,7 @@ Upon receiving a request to delete a Device with the input parameters (id) and U
 #### A. Create Device Specifications in Master Data
 
 
-On receiving request to add Device Specifications with the input parameters (name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active), the system Stores the Device Specifications in the DB
+On receiving request to add Device Specifications with the input parameters (name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active), the system Stores the Device Specifications in the Database
 
 
 1. While storing the device specifications the system Validates if all required input parameters have been received as listed below for each specific request
@@ -1655,9 +1658,10 @@ On receiving request to add Device Specifications with the input parameters (nam
 3. Responds with the Device Specification ID and Language Code for the Device Specification created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-B.Fetch List of Device Specifications based on a Language Code
+#### B. Fetch List of Device Specifications based on a Language Code
 
 On receiving request to fetch the List of Device Specifications with input parameters (Language Code and/or Device Type) the system fetches the List of Device Specifications against the Language Code and/or Device Type
+
 While fetching the List of Device Specifications against the Language Code and/or Device Type the system performs the following steps
 1.	Validates if the request contains the following input parameters
 •	Language Code - Mandatory
@@ -1687,11 +1691,11 @@ While fetching the List of Device Specifications against the Language Code and/o
 7.	In case of Exceptions, system triggers relevant error messages
 
 
-C.Update and Delete a Device Specification in the Device Specification Masterdata DB
+C.Update and Delete a Device Specification in the Device Specification Masterdata Database
 
 (i) Update
 
-On receiving a request to update a Device Specification with the input parameters (id, name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active) the system updates the Device Specification Details in the Device Specification DB for the id received
+On receiving a request to update a Device Specification with the input parameters (id, name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active) the system updates the Device Specification Details in the Device Specification Database for the id received
 While updating the device specifications the system performs the following steps
 1.	Validates if all required input parameters have been received as listed below for each specific request
 •	id - character (36) - Mandatory
@@ -1712,7 +1716,7 @@ While updating the device specifications the system performs the following steps
 Delete
 
 
-1.	On receiving a request to delete a Device Specification with the input parameters (id) the system updates the is_deleted flag to true in the Device Specification DB against the id received
+1.	On receiving a request to delete a Device Specification with the input parameters (id) the system updates the is_deleted flag to true in the Device Specification Database against the id received
 While deleting the device specifications the system performs the following steps
 1.	Validates if all required input parameters have been received as listed below for each specific request
 •	id - character (36) - Mandatory
