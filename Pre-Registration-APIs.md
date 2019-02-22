@@ -80,6 +80,7 @@ request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the appl
 request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
 request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant|
+request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant|
 request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
 
 #### Resource details
