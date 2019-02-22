@@ -73,6 +73,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 #### 4.1.1 Static Pin Validator
 
 Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validates Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
+Refer below for the process:
 1. Validates if the request has the following input parameters.
    * Static PIN
 2. Validates if the Static PIN is of configured length. (Current configured length = 6)
