@@ -96,7 +96,7 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 
 ### 3.3 Crypto Utility 
 
-The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which perfomrs following functions
+The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which perfoms following functions
 1. It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source
 2. It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption
  
