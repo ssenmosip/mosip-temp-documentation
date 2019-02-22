@@ -354,7 +354,7 @@ On receiving a request to fetch Document Category Details with the input paramet
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-### 1.7 Document Type - Create/Read/Update/Delete
+### 1.7 Document Type - Create/Update/Delete
 
 #### A. Create Document Type in Master Data
 
