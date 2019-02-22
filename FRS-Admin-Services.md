@@ -3,8 +3,8 @@
   * [1. Master Data Management](#1-master-data-management)
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete)
     * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete)
-    * [1.3 Biometric Authentication Type - Create/Read/Update/Delete](#13-biometric-authentication-type---createreadupdatedelete)
-    * [1.4 Biometric Attribute Type - Create/Read/Update/Delete](#14-biometric-attribute-type---createreadupdatedelete)
+    * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createreadupdatedelete)
+    * [1.4 Biometric Attribute Type - Create/Read](#14-biometric-attribute-type---createreadupdatedelete)
     * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete)
     * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete)
     * [1.7 Document Type - Create/Read/Update/Delete](#17-document-type---createreadupdatedelete)
@@ -174,7 +174,7 @@ On receiving a  request to delete a Location with the input parameters (code), t
    * code - character (36) - Mandatory
 7. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.3 Biometric Authentication Type - Create/Read/Update/Delete
+### 1.3 Biometric Authentication Type - Create/Read
 #### A. Create Biometric Authentication Type in Masterdata DB
 On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -196,7 +196,7 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 1. Responds to the source with List of Biometric Authentication Type
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.4 Biometric Attribute Type - Create/Read/Update/Delete
+### 1.4 Biometric Attribute Type - Create/Read
 
 #### A. Create Biometric Attribute in Masterdata DB
 
