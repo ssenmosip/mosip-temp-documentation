@@ -12,7 +12,7 @@
     * [1.9 List of Rejection Reasons - Create/Read](#19-list-of-rejection-reasons---createreadupdatedelete)
     * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete)
     * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete)
-    * [1.12 Template File Format - Create/Read/Update/Delete](#112-template-file-format---createreadupdatedelete)
+    * [1.12 Template File Format - Create/Update/Delete](#112-template-file-format---createreadupdatedelete)
     * [1.13 List of Template Types - Create/Read/Update/Delete](#113-list-of-template-types---createreadupdatedelete)
     * [1.14 List of Templates - Create/Read/Update/Delete](#114-list-of-templates---createreadupdatedelete)
     * [1.15 List of Blacklisted Words - Create/Read/Update/Delete](#115-list-of-blacklisted-words---createreadupdatedelete)
@@ -642,7 +642,7 @@ On receiving a request to fetch Title Details with the input parameters (Languag
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-### 1.12 Template File Format - Create/Read/Update/Delete
+### 1.12 Template File Format - Create/Update/Delete
 
 #### A. Create Template File Format in Master Data
 
