@@ -73,51 +73,24 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 #### 4.1.1 Static Pin Validator
 
 Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validates Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
+
 Refer below for the process:
 1. Validates if the request has the following input parameters.
    * Static PIN
 2. Validates if the Static PIN is of configured length. (Current configured length = 6)
 1. Validates if the Static PIN is only numerical.
-1. In case of Exceptions, system triggers relevant error messages. Refer “Messages” section
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|Static PIN is Valid|True|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|Static PIN in Invalid|Static PIN length Must be < Length configured >|KER-IDV-501|
-|Static PIN in not numeric|	Static PIN length must be numeric>|	KER-IDV-502|
-|Static PIN input parameter is missing	|Input parameter is missing	|KER-IDV-503|
+1. In case of Exceptions, system triggers relevant error messages. 
 
 #### 4.1.2  UIN Validator
 
 Upon receiving a request to validate the UIN, the system validates the UIN against the defined policy
+
+Refer below for the process:
 1. Validates if the UIN is of configured length.
 1. Validates the UIN by verifying the checksum
 1. Validates if the UIN received as per the UIN generation logic
 1. Responds to the source with appropriate message 
-1. Raises an alert in case of listed exceptions as listed below
-
-### <p align="left"> **1. Type: Success – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-UIN is Valid|	"Valid"|	NA|
-UIN is invalid|	"Invalid"	|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-MosipInvalidIDException	|Entered UIN should not be empty or null.|	COK-IDV-UIN-001
-MosipInvalidIDException	|Entered UIN should not contain any sequential and repeated block of number for 2 or more than two digits	|COK-IDV-UIN-002
-MosipInvalidIDException	|Entered UIN length should be 12 digit|	COK-IDV-UIN-003
-MosipInvalidIDException	|Entered UIN should not contain any alphanumeric characters|	COK-IDV-UIN-004
-MosipInvalidIDException|	Entered UIN should match checksum|	COK-IDV-UIN-005
-MosipInvalidIDException	|Entered UIN should not contain Zero or One as first Digit|	COK-IDV-UIN-006
-UIN_VAL_ILLEGAL_REVERSE	|UIN First configured no.of digits should be different from the reverse of last configured no.of digits|	KER-IDV-207
-UIN_VAL_ILLEGAL_EQUAL_LIMIT|	UIN First configured no.of digits should be different from the last configured no.of digits	|KER-IDV-208
+1. Raises an alert in case of exceptions. 
 
 #### 4.1.3 PRID Validator
 
@@ -125,24 +98,7 @@ Upon receiving a request to validate the PRID, the system validates the PRID aga
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
 1. Validates the PRID received as per the PRID generation logic 
 1. Responds to the source with appropriate message 
-1. Raises an alert in case of listed exceptions as defined below
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-PRID is valid|	"Valid"|	NA|
-PRID is invalid|	"Invalid"|	NA|
-
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-MosipInvalidIDException	|Entered PRID should not be empty or null.|	KER-IDV-101
-MosipInvalidIDException|	Entered PRID should not contain any sequential and repeated block of number for 2 or more than two digits	|KER-IDV-102
-MosipInvalidIDException	|Entered PRID length should be 14 digit	|KER-IDV-103
-MosipInvalidIDException	|Entered PRID should not contain any alphanumeric characters|	KER-IDV-104
-MosipInvalidIDException	|Entered PRID should match checksum	|KER-IDV-105
-MosipInvalidIDException	|Entered PRID should not contain Zero or One as first Digit|	KER-IDV-106
+1. Raises an alert in case of exceptions. 
 
 #### 4.1.4 VID Validator
 
@@ -150,24 +106,7 @@ Upon receiving a request to validate the VID with input parameters (UIN), the sy
 1. Validates if the VID is of configured length.
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received as per the VID generation logic
-1. Responds to the source with appropriate message and raises an alert in case of listed exceptions 
-
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|VID is Valid|"Valid"|NA|
-|VID is Invalid|"Invalid"|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|------|:------:|
-|MosipInvalidIDException|Entered VID should not be empty or null.|KER-IDV-VID-001|
-|MosipInvalidIDException|Entered VID should not contain any sequential and repeated block of number for 2 or more than two digits|KER-IDV-VID-002
-|MosipInvalidIDException|Entered VID length should be 16 digit|	KER-IDV-VID-003|
-|MosipInvalidIDException|Entered VID should not contain any alphanumeric characters|KER-IDV-VID-004|
-|MosipInvalidIDException|Entered VID should match checksum|KER-IDV-VID-005|
-|MosipInvalidIDException|Entered VID should not contain Zero or One as first Digit|KER-IDV-VID-006|
+1. Responds to the source with appropriate message and raises an alert in case of exceptions 
 
 #### 4.1.5 RID Validator
 
@@ -190,19 +129,7 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
    * TSP ID
 2. Validates TSP ID as per the TSP ID generation Policy
 1. Responds with the required result (Valid/Invalid)
-1. Raises an alert in case of listed exceptions as defined below:
-
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|TSP ID is Valid|	True	|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|------|:------:|
-|TSP ID in Invalid	|TSP ID length Must be of <Length configured>	|KER-IDV-401|
-
+1. Raises an alert in case of exceptions. 
 [**Link to ID validator design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
@@ -216,21 +143,7 @@ Upon receiving a request to generate Machine ID, the system generates Machine ID
 
 Responds with the Machine ID to the source
 
-Raises an alert in case of listed exceptions as specified below
-
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|NA|	NA	|NA|
-
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|------|:------:|
-|MachineIdException|	Error occured while fetching ID	|KER-MNG-001|
-|MachineIdException|	Error occured while inserting ID|	KER-MNG-002|
-
+Raises an alert in case of exceptions. 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
 
@@ -245,19 +158,7 @@ Upon receiving a request to generate Registration Center ID, the system generate
    * The number should not contain the restricted numbers defined by the ADMIN
 2. In case of Exceptions, system triggers relevant error messages
 1. Responds with the Registration Center ID to the source
-1. Raises an alert in case of listed exceptions
-
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|NA|	NA	|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|------|:------:|
-RegistrationCenterIdException|	Error occured while fetching ID|	KER-RCG-001
-RegistrationCenterIdException|	Error occured while inserting ID|	KER-RCG-002
+1. Raises an alert in case of exceptions.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
 
@@ -271,18 +172,7 @@ Upon receiving a request to generate TSP ID, the system generates it as per defa
    * TSP ID generation should start from 1000
    * The number should not contain the restricted numbers defined by the ADMIN
 2. Responds with the TSP ID to the source
-1. Raises an alert in case of listed exceptions and triggers the following messages as listed below
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|NA|	NA	|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|------|:------:|
-|NA	|TSP ID Generation Failed|	NA|
-
+1. Raises an alert in case of exceptions and triggers the messages. 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
 
 #### 4.2.4 PRID Generator
@@ -299,17 +189,7 @@ Upon receiving a request to generate PRID with input parameters, the system gene
    * The last digit in the number should be reserved for a checksum
    * The number should not contain '0' or '1' as the first digit.
 4. Responds with the PRID to the source
-1. Raises an alert in case of listed exceptions as listed below
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|NA|NA|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
+1. Raises an alert in case of exceptions. 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
 
@@ -318,19 +198,7 @@ PridGenerationexception	|Unable to connect to the database|	KER-PRD-001|
 Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
 1. VID should be generated as per the defined logic mentioned below
 1. Responds with the VID to the source
-4. Raises an alert in case of listed exceptions as listed below
-
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|NA|NA|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-INVALID_UIN_EXCEPTION|	Invalid UIN	|KER-VID-001|
-VID_GENERATION_FAILED_EXCEPTION	|VID Generation Failed|	KER-VID-002|
+4. Raises an alert in case of exceptions. 
 
 **VID generation policy**
 1. VID generated should contain the number of digits as configured
@@ -359,17 +227,5 @@ Upon receiving a request to generate Token ID (with input para meters (TSP ID, U
    * ID is unique for a combination of TSP ID and UIN received
    * ID is untraceable to both TSP ID and UIN received
 5. Responds with the Token ID to the source
-1. Raises an alert in case of listed exceptions as listed below
-### <p align="left"> **1. Type: Success – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|NA|NA|NA|
-
-### <p align="left"> **2. Type: Error/Failure – Info Message**
-
-|**Scenario**|**Message**|**Message Code**|
-|:------:|:------:|:------:|
-|Database Connection Exception	|unable to connect To db|KER-TIG-001|
-
+1. Raises an alert in case of exceptions
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
