@@ -848,16 +848,7 @@ Upon receiving a request to add a Blacklisted Word with the input parameters (co
    * is_active - boolean - Mandatory
 2. Responds with the Device ID and Language Code for the Device created successfully
 1. The component  restricts the bulk creation of Master Data
-1. In case of Exceptions, system will trigger error messages as received from the Database as listed below
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting Device details	|KER-MSD-070|
+1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
 #### B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata DB
@@ -900,6 +891,17 @@ Error occurred while updating Blacklisted Word|	KER-MSD-105|
 Error occurred while deleting Blacklisted Word	|KER-MSD-106|
 Blacklisted Words not found	|KER-MSD-008|
 
+C.Fetch List of Blacklisted words based on a Language Code
+
+1.	Upon receiving a  request to Fetch the List of Blacklisted words with input parameters (Language Code) the system fetches the List of Blacklisted words against the Language Code received
+While fetching the black listed words the system perform the following steps
+1.	Validates if the request contains the following input parameters
+•	Language Code - Mandatory
+2.	If the mandatory input parameters are missing, throws the appropriate message. 
+3.	Validates if the response contains the List of Blacklisted words against Language Code and the corresponding attributes for the Blacklisted word
+•	Blacklisted Word
+•	IsActive
+4.	In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.16 List of Reason Categories - Create
 
