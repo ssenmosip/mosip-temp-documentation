@@ -43,13 +43,13 @@ Upon receiving a request to add Location hierarchy (e.g., Country - Region - Pro
 
 While storing the location hierarchy in the database, the system performs the following steps:
 1.  Validates if all required input parameters have been received as listed below for each specific request
-   * code - character (36) - Mandatory
-   * name - character (128) - Mandatory
-   * hierarchy_level - smallint - Mandatory
-   * hierarchy_level_name - character (64) - Mandatory
-   * parent_loc_code - character (32) - Optional
-   * lang_code - character (3) - Mandatory
-   * is_active - boolean - Mandatory
+    * code - character (36) - Mandatory
+    * name - character (128) - Mandatory
+    * hierarchy_level - smallint - Mandatory
+    * hierarchy_level_name - character (64) - Mandatory
+    * parent_loc_code - character (32) - Optional
+    * lang_code - character (3) - Mandatory
+    * is_active - boolean - Mandatory
 2. Responds with the Location Hierarchy created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
