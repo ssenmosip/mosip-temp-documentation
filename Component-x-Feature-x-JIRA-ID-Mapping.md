@@ -74,18 +74,18 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|Pre-Registration Application Manager|Provide Demographic Data and Upload Documents (Includes: Create\Modify\Delete)|MOS-13344,MOS-13682, MOS-14511, MOS-623, MOS-626, MOS-628, MOS-792, MOS-793, MOS-794, MOS-797, MOS-805, MOS-806|
-|2.|Login|Login to the Pre-registration application with Mobile or E-Mail and OTP|MOS-13173, MOS-980, MOS-17, MOS-26|
-|3.|Logout|Logout of the Pre-registration application|MOS-10485, MOS-205|
-|4.|Acknowledgement|Generate acknowledgement for successful pre-registration|MOS-13143, MOS-812|
-|5.|RC Identifier|Search for available registration centers to book appoint|MOS-814|
-|6.|Availability Checker|Get availability of slots for the chosen registration center|MOS-663, MOS-816|
-|7.|Appointment Booking|Book\re-book the appointment in the chosen registration-center for registration|MOS-664, MOS-665, MOS-817, MOS-818, MOS-977, MOS-978|
-|8.|Translation|Translation of the labels/static content as per the pre-configured default language for a Country|MOS-666|
-|9.|Transliteration|Transliteration of the values entered as per the default language chosen by the individual|MOS-667|
-|10.|PRID Generator|Generate/Assign a unique Pre-registration ID per applicant|MOS-1072|
-|11.|Pre-Registration Data Sync|Synchronize the Pre-registration data with the Registration-Client|MOS-1999| 
-|12.|Pre-Registration Data Sync|Synchronize Status of PRIDs with Registration Processor|MOS-668|
+|1.|Pre-Registration Application Manager|Provide Demographic Data and Upload Documents (Includes: Create\Modify\Delete)|[MOS-13344](https://mosipid.atlassian.net/browse/MOS-13344), [MOS-13682](https://mosipid.atlassian.net/browse/MOS-13682), [MOS-14511](https://mosipid.atlassian.net/browse/MOS-14511), [MOS-623](https://mosipid.atlassian.net/browse/MOS-623), [MOS-626](https://mosipid.atlassian.net/browse/MOS-626), [MOS-628](https://mosipid.atlassian.net/browse/MOS-628), [MOS-792](https://mosipid.atlassian.net/browse/MOS-792), [MOS-793](https://mosipid.atlassian.net/browse/MOS-793), [MOS-794](https://mosipid.atlassian.net/browse/MOS-794), [MOS-797](https://mosipid.atlassian.net/browse/MOS-797), [MOS-805](https://mosipid.atlassian.net/browse/MOS-805), [MOS-806](https://mosipid.atlassian.net/browse/MOS-806)|
+|2.|Login|Login to the Pre-registration application with Mobile or E-Mail and OTP|[MOS-13173](https://mosipid.atlassian.net/browse/MOS-13173), [MOS-980](https://mosipid.atlassian.net/browse/MOS-980), [MOS-17](https://mosipid.atlassian.net/browse/MOS-17), [MOS-26](https://mosipid.atlassian.net/browse/MOS-26)|
+|3.|Logout|Logout of the Pre-registration application|[MOS-10485](https://mosipid.atlassian.net/browse/MOS-10485), [MOS-205](https://mosipid.atlassian.net/browse/MOS-205)|
+|4.|Acknowledgement|Generate acknowledgement for successful pre-registration|[MOS-13143](https://mosipid.atlassian.net/browse/MOS-13143), [MOS-812](https://mosipid.atlassian.net/browse/MOS-812)|
+|5.|RC Identifier|Search for available registration centers to book appoint|[MOS-814](https://mosipid.atlassian.net/browse/MOS-814)|
+|6.|Availability Checker|Get availability of slots for the chosen registration center|[MOS-663](https://mosipid.atlassian.net/browse/MOS-663), [MOS-816](https://mosipid.atlassian.net/browse/MOS-816)|
+|7.|Appointment Booking|Book\re-book the appointment in the chosen registration-center for registration|[MOS-664](https://mosipid.atlassian.net/browse/MOS-664), [MOS-665](https://mosipid.atlassian.net/browse/MOS-665), [MOS-817](https://mosipid.atlassian.net/browse/MOS-817), [MOS-818](https://mosipid.atlassian.net/browse/MOS-818), [MOS-977](https://mosipid.atlassian.net/browse/MOS-977), [MOS-978](https://mosipid.atlassian.net/browse/MOS-978)|
+|8.|Translation|Translation of the labels/static content as per the pre-configured default language for a Country|[MOS-666](https://mosipid.atlassian.net/browse/MOS-666)|
+|9.|Transliteration|Transliteration of the values entered as per the default language chosen by the individual|[MOS-667](https://mosipid.atlassian.net/browse/MOS-667)|
+|10.|PRID Generator|Generate/Assign a unique Pre-registration ID per applicant|[MOS-1072](https://mosipid.atlassian.net/browse/MOS-1072)|
+|11.|Pre-Registration Data Sync|Synchronize the Pre-registration data with the Registration-Client|[MOS-1999](https://mosipid.atlassian.net/browse/MOS-1999)| 
+|12.|Pre-Registration Data Sync|Synchronize Status of PRIDs with Registration Processor|[MOS-668](https://mosipid.atlassian.net/browse/MOS-668)|
 
 **3. Registration Client:** - WIP
 
