@@ -8,7 +8,7 @@
     * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete)
     * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete)
     * [1.7 Document Type - Create/Update/Delete](#17-document-type---createreadupdatedelete)
-    * [1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete](#18-document-category---document-type-mapping---createreadupdatedelete)
+    * [1.8 Applicant Type - Document Category - Document Type Mapping - Read](#18-document-category---document-type-mapping---createreadupdatedelete)
     * [1.9 List of Rejection Reasons - Create/Read/Update/Delete](#19-list-of-rejection-reasons---createreadupdatedelete)
     * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete)
     * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete)
@@ -400,7 +400,7 @@ On receiving a request to delete a Document Type with the input parameters (code
 1. Responds with the Document Category Code for the Document Category deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete
+### 1.8 Applicant Type - Document Category - Document Type Mapping - Read
 
 #### A. Create a mapping of Document Type and Document Category in Masterdata DB
 
