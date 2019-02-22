@@ -32,7 +32,7 @@
   * [2.6 Registration Client Services](#26-registration-client-services) _(MOS_PFM_PRG_FR_6)_
     * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) 
     * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) 
-  * [2.7 List of Configurable Parameters](#27-list-of-configurable-parameters) _(MOS_PFM_PRG_FR_7)_
+  * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes) _(MOS_PFM_PRG_FR_7)_
 # 1. Overview
 The pre-registration module enables an user to book an appointment for one or many Individuals for registration. It allows an user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
