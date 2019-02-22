@@ -161,7 +161,7 @@ The system performs the following steps in order to delete the loaction\s receiv
 ### 1.2 List of Holidays - Create/Read/Update/Delete
 #### A. Create Holiday data in Masterdata Database
 
-Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the Database
+Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the Database. The following steps are performed by the system:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * location_code - character (36) - Mandatory
    * holiday_date - date - Mandatory
