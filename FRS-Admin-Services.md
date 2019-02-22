@@ -9,7 +9,7 @@
     * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete)
     * [1.7 Document Type - Create/Update/Delete](#17-document-type---createreadupdatedelete)
     * [1.8 Applicant Type - Document Category - Document Type Mapping - Read](#18-document-category---document-type-mapping---createreadupdatedelete)
-    * [1.9 List of Rejection Reasons - Create/Read/Update/Delete](#19-list-of-rejection-reasons---createreadupdatedelete)
+    * [1.9 List of Rejection Reasons - Create/Read](#19-list-of-rejection-reasons---createreadupdatedelete)
     * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete)
     * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete)
     * [1.12 Template File Format - Create/Read/Update/Delete](#112-template-file-format---createreadupdatedelete)
@@ -469,7 +469,7 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 1. If the mapping does not exist, responds with "Invalid".
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.9 List of Rejection Reasons - Create/Read/Update/Delete
+### 1.9 List of Rejection Reasons - Create/Read
 #### A. Create a Rejection Reason in Reason List Master Data
 
 Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system store the Reason in the DB
