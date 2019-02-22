@@ -40,7 +40,9 @@
 
 #### A. Create Location Hierarchy in the Masterdata DB
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the DB
-1. While storing the location hierarchy the system Validates if all required input parameters have been received as listed below for each specific request
+
+While storing the location hierarchy in the database the system performs the following steps:
+1.  Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (128) - Mandatory
    * hierarchy_level - smallint - Mandatory
@@ -54,7 +56,8 @@ Upon receiving a request to add Location hierarchy (e.g., Country - Region - Pro
 
 #### B. Check the existence of a Location in Master DB
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master DB
-1. While checking the location in the DB the system validates if the request contains the following input parameters
+While checking the location in the DB the system performs the following steps:
+1.Validates if the request contains the following input parameters
    * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
@@ -69,7 +72,8 @@ Upon receiving a request to fetch the Location Hierarchy Levels with input param
 3. In case of Exceptions, system triggers relevant error messages
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
 
-Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data based on requested Location code and language code.
+Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data based on requested Location code and language code.The following steps are performed by the system:
+
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
    * Language Code - Mandatory
@@ -108,7 +112,7 @@ Upon receiving a  request to fetch all the Location Hierarchy Data with input pa
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
-Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level
+Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level.The following steps are performed by the system:
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
    * Language Code - Mandatory
@@ -120,6 +124,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 #### F. Update and Delete a Location in Location Masterdata DB
 ##### (i) Update
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location DB for the code received
+The system performs the following steps to update the location in the Masterdata DB 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code character (36) - Mandatory
    * name character (128) - Mandatory
@@ -134,7 +139,7 @@ On receiving a  request to update a Location with the input parameters (code, na
 1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 ##### (ii) Delete
-On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location DB against the code received
+On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location DB against the code received.The system performs the following steps in order to delete the loaction\s received in the code:
 1. Validates if all required input parameters have been received as listed below for each specific request
 1. Delete all records for the code received
 1. Deleted record are not be deleted again
@@ -161,7 +166,8 @@ Upon receiving a request to add Holiday Data with the input parameters (location
 
 #### B. Fetch List of Holidays based on a Registration Center ID, a Year and a Language Code
 
-On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code), the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter
+On receiving a request to fetch the list of Holidays with the input parameters (Registration Center ID, Year and Language Code), the system fetches the list of Holidays  mapped to a Registration Center and for the year and Language Code received in input parameter as per the below steps
+
 1. Validates if the received request contains the following input parameters
    * Registration Center ID - Mandatory
    * Year - Mandatory
@@ -178,7 +184,7 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 #### C. Update and Delete List of Holiday in  Masterdata DB
 ##### (i) Update
 
-On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system updates the Holiday List in the Holiday DB for the code received
+On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active) the system updates the Holiday List in the Holiday DB for the code received as per the below steps
 
 1. Validate if all required input parameters have been received as listed below for each specific request
    * id - integer
@@ -199,7 +205,7 @@ On receiving a  request to update a Holiday list with the input parameters (id, 
  
 ##### (ii) Delete
 
-On receiving a  request to delete a Holiday List with the input parameters (code) the system updates the is_deleted flag to true in the Holiday DB against the code received
+On receiving a  request to delete a Holiday List with the input parameters (code) the system updates the is_deleted flag to true in the Holiday DB against the code received  as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * location_code - character (36) - Mandatory
    * holiday_date - date - Mandatory
@@ -212,7 +218,7 @@ On receiving a  request to delete a Holiday List with the input parameters (code
 
 ### 1.3 Biometric Authentication Type - Create/Read
 #### A. Create Biometric Authentication Type in Masterdata DB
-On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the DB
+On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the DB as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -224,7 +230,7 @@ On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, 
 1. In case of Exceptions, system triggers error messages as received from the Database.
 
 #### B. Fetch the List of Biometric Authentication Type based on a Language Code
-On receiving a request to fetch the List of Biometric Authentication Type with input parameters (Language Code), the system fetches the List of Biometric Authentication Type against the Language Code
+On receiving a request to fetch the List of Biometric Authentication Type with input parameters (Language Code), the system fetches the List of Biometric Authentication Type against the Language Code as per the below steps
 1. Validates if the request to add Biometric Authentication Type contains the following parameters
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, responds with all the data.
@@ -236,7 +242,7 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 
 #### A. Create Biometric Attribute in Masterdata DB
 
-On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active), the system stores the Biometric Attribute in the DB
+On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active), the system stores the Biometric Attribute in the DB as per the below steps
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -252,7 +258,7 @@ On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb
 
 #### B. Fetch the List of Biometric Attributes based on the Biometric Authentication Type and a Language Code
 
-On receiving a request to fetch the List of Biometric Attributes with input parameters (Biometric Authentication Type and Language Code), the system fetches the List of Biometric Attributes against the Biometric Authentication Type and the Language Code Received
+On receiving a request to fetch the List of Biometric Attributes with input parameters (Biometric Authentication Type and Language Code), the system fetches the List of Biometric Attributes against the Biometric Authentication Type and the Language Code Received as per the below steps
 1. Validates if the request contains the following input parameters
    * Biometric Authentication Type - Mandatory
    * Language Code - Mandatory
@@ -270,7 +276,7 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 ### 1.5 Gender - Create/Read/Update/Delete
 #### A. Create Gender Types in Masterdata DB
 
-On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the DB
+On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the DB as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
    * name - character (64) - Mandatory
@@ -285,7 +291,7 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
 
 ##### (i) Update
 
-On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active), the system updates the Gender Type in the Gender Type DB for the code received
+On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active), the system updates the Gender Type in the Gender Type DB for the code received as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (16) - Mandatory
    * name - character (64) - Mandatory
@@ -298,7 +304,7 @@ On receiving a request to update a Gender Type with the input parameters (code, 
 1. In case of Exceptions, system triggers relevant error messages.
 ##### (ii) Delete
 
-On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type DB against the code received
+On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type DB against the code received as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - int - Mandatory
 2. Delete all records for the code received
@@ -309,7 +315,7 @@ On receiving a request to delete a Gender Type with the input parameters (code),
 
 #### C. Check the existence of a Gender in Master DB
 
-On receiving a request to validate the Gender Name with input parameters (Gender Name), the system checks the Gender Name in the Master DB
+On receiving a request to validate the Gender Name with input parameters (Gender Name), the system checks the Gender Name in the Master DB as per the below listed steps
 1. Validates if the request contains the following input parameters
    * Gender Name - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
@@ -318,7 +324,7 @@ On receiving a request to validate the Gender Name with input parameters (Gender
 
 #### D. Fetch the List of Gender Types based on a Language Code
 
-On receiving a request to fetch the List of Gender Types with the input parameters (Language Code), the system fetches the List of Gender Types against the Language Code received
+On receiving a request to fetch the List of Gender Types with the input parameters (Language Code), the system fetches the List of Gender Types against the Language Code received as per the below listed steps
 1. Validates if the request contains the following input parameters
    * Language Code - Mandatory
 2. If the Language code is missing, responds with all the data.
@@ -333,7 +339,7 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 
 #### A. Create Document Category in Master Data
 
-On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Category in the DB
+On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Category in the DB as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -351,7 +357,7 @@ On receiving a request to add Document Category with the input parameters (code,
 
 ##### (i) Update
 
-On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category DB for the Code received
+On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category DB for the Code received as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -366,7 +372,7 @@ On receiving a request to update a Document Category with the input parameters (
 
 ##### (ii) Delete
 
-On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category DB against the code received
+On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category DB against the code received as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
 2. Delete all records for the code received
@@ -378,7 +384,7 @@ On receiving a request to delete a Document Category with the input parameters (
 
 #### C. Fetch list of Document Categories based on a Language Code
 
-On receiving a request to fetch Document Category Details with the input parameters (Language Code), the system fetches all the Document Categories for the Language Code Received
+On receiving a request to fetch Document Category Details with the input parameters (Language Code), the system fetches all the Document Categories for the Language Code Received as per the below listed steps
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Language Code - Mandatory
