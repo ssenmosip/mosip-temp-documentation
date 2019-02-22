@@ -31,7 +31,7 @@ The UINs generated follow the following policies:
 
 ## 2. Configuration Server
 
-MOSIP will has a centralized config server where all the configuration elements are saved, including the platform config and ID Object schema.
+MOSIP has a centralized config server where all the configuration elements are saved, including the platform config and ID Object schema.
 The Central config server provides following functionality
 1.	It provides functionality to read XML files and Property files
 2.	It helps to manage all the configuration files stored at a centralized location in Git
