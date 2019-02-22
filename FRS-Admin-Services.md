@@ -117,6 +117,34 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. Responds to the source with the data fetched
 1. In case of Exceptions, system should triggers  error message. 
 
+#### F. Update and Delete a Location in Location Masterdata DB
+##### (i) Update
+On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location DB for the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * code character (36) - Mandatory
+   * name character (128) - Mandatory
+   * hierarchy_level smallint - Mandatory
+   * hierarchy_level_name character (64) - Mandatory
+   * parent_loc_code character (32) - Mandatory
+   * lang_code character (3) - Mandatory
+   * is_active boolean - Mandatory
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
+1. Deleted record are not be updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
+1. In case of Exceptions, system triggers relevant error messages
+##### (ii) Delete
+On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location DB against the code received
+1. Validates if all required input parameters have been received as listed below for each specific request
+1. Delete all records for the code received
+1. Deleted record are not be deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Code for the Location Hierarchy deleted successfully
+   * code - character (36) - Mandatory
+7. In case of Exceptions, system triggers relevant error messages. 
+
+
 ### 1.2 List of Holidays - Create/Read/Update/Delete
 #### A. Create Holiday data in Masterdata DB
 Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the DB
@@ -147,32 +175,6 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 4. Responds to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete a Location in Location Masterdata DB
-##### (i) Update
-On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location DB for the code received
-1. Validates if all required input parameters have been received as listed below for each specific request
-   * code character (36) - Mandatory
-   * name character (128) - Mandatory
-   * hierarchy_level smallint - Mandatory
-   * hierarchy_level_name character (64) - Mandatory
-   * parent_loc_code character (32) - Mandatory
-   * lang_code character (3) - Mandatory
-   * is_active boolean - Mandatory
-2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
-1. Deleted record are not be updated
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
-1. In case of Exceptions, system triggers relevant error messages
-##### (ii) Delete
-On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location DB against the code received
-1. Validates if all required input parameters have been received as listed below for each specific request
-1. Delete all records for the code received
-1. Deleted record are not be deleted again
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
-1. Responds with the Code for the Location Hierarchy deleted successfully
-   * code - character (36) - Mandatory
-7. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.3 Biometric Authentication Type - Create/Read
 #### A. Create Biometric Authentication Type in Masterdata DB
