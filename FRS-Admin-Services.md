@@ -115,7 +115,7 @@ Upon receiving a  request to fetch all the Location Hierarchy Data with input pa
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### E. Fetch the Location Hierarchy Data for the bottom next hierarchy based on a Location Code and a Language Code
-Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level.The following steps are performed by the system:
+Upon receiving a request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data for the next hierarchy level. The following steps are performed by the system:
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
    * Language Code - Mandatory
@@ -127,7 +127,8 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 #### F. Update and Delete a Location in Location Masterdata Database
 ##### (i) Update
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location Database
- for the code received
+for the code received.
+
 The system performs the following steps to update the location in the Masterdata Database
  
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -144,7 +145,9 @@ The system performs the following steps to update the location in the Masterdata
 1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 ##### (ii) Delete
-On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received.The system performs the following steps in order to delete the loaction\s received in the code:
+On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received. 
+
+The system performs the following steps in order to delete the loaction\s received in the code:
 1. Validates if all required input parameters have been received as listed below for each specific request
 1. Delete all records for the code received
 1. Deleted record are not be deleted again
