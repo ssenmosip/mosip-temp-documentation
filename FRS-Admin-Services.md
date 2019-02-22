@@ -535,8 +535,7 @@ Upon receiving a request to add a Reason with the input parameters (code, name, 
    * Rsncat_code (Reason Category Code)
 
 3. Responds to the source with the appropriate message.
-4. In case of Exceptions, system triggers relevant error messages as listed below
-
+4. In case of Exceptions, system triggers relevant error messages. 
 
 #### B. Fetch the requested list of reasons based on Reason Category Code and Language Code
 
@@ -1288,16 +1287,7 @@ Upon receiving a request to add Machine Type (e.g., Dongle) with the input param
 
 4. Responds to the source with the appropriate message
 
-5. In case of Exceptions, system triggers error messages as received from the Database as listed below
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-|Error occurred while inserting Machine Type details	|KER-MSD-061|
+5. In case of Exceptions, system triggers error messages as received from the Database.
 
 ### 2.4 List of Machine Specifications - Create/Update/Delete
 
