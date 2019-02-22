@@ -91,7 +91,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|RC Setup & Update|Install/Update and launch the Registration-client software|MOS-13527, MOS-67, MOS-61, MOS-14|
+|1.|RC Setup & Update|Install/Update and launch the Registration-client software|[MOS-13527](https://mosipid.atlassian.net/browse/MOS-13527), [MOS-67](https://mosipid.atlassian.net/browse/MOS-67), [MOS-61](https://mosipid.atlassian.net/browse/MOS-61), [MOS-14](https://mosipid.atlassian.net/browse/MOS-14)|
 |2.|Sync| | |
 |3.|Login| | |
 |4.|Authentication| | |
