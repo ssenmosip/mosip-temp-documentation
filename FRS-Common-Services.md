@@ -147,12 +147,8 @@ MOSIP system can facilitate transliteration by integrating with a third party se
    * Input Language Code - Mandatory
    * Output Language Code - Mandatory
 2. Transliterates the Word received from Input Language to Output Language
-1. In case of Exceptions, system triggers relevant error messages as specified below
-## <p align="left">**Type : Error / Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|TRANSLITERATION_INVALID_ID|Transliteration not possible|KER-TRL-001|
-|TRANSLITERATION_INVALID_LANGUAGE_CODE|Language code not supported|KER-TRL-002|
+1. In case of Exceptions, system triggers relevant error messages.
+
 ## 6. MOSIP Utils
 ### 6.1 Mobile Data Validator
 
@@ -164,19 +160,8 @@ Upon receiving a request to validate a mobile number against configured mobile n
    * Mobile no. should only be numerical.
 3. In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
 1. Responds to the source with the result (Valid/Invalid)
-1. Raises an alert in case of listed exceptions as follows
+1. Raises an alert in case of exceptions.
 
-## <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|Mobile no is valid	|"Valid"	|NA|
-
-## <p align="left">**2. Type : Error/Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|MosipInvalidPhoneNumberException|Phone number should not be empty or null|KER-MOV-001|
-|MosipInvalidPhoneNumberException|Phone length should be specified number of digits|KER-MOV-002|
-|MosipInvalidPhoneNumberException|Phone number should not contain any special characters except specified|KER-MOV-003|
 ### 6.2 Email Data Validator
 
 Upon receiving a request to validate an Email ID against the standard Email ID policy, system validates the Email ID against the Standard Email ID format
@@ -193,20 +178,7 @@ Upon receiving a request to validate an Email ID against the standard Email ID p
 
 5. Validates if the Email ID contains "@" and domain name within the Email ID.
 1. Responds to the source with the result (Valid/Invalid)
-1. Raises an alert in case of listed exceptions (Refer “messages” section)
-
-## <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|Email ID is valid	|Valid	|NA|
-
-## <p align="left">**2. Type : Error/Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|MosipInvalidEmailException|	Email should not be empty or null|	KER-EMV-001|
-|MosipInvalidEmailException|	Email length should be specified number of characters|	KER-EMV-002|
-|MosipInvalidEmailException|	Email Domain extension length should be specified number of characters|	KER-EMV-003|
-|MosipInvalidEmailException|	Invalid Email ID|	KER-EMV-004|
+1. Raises an alert in case of exceptions 
 
 [**Design Link to mobile and email data validator**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md)
 ### 6.3 Exception Framework
