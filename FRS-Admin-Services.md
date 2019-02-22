@@ -706,6 +706,38 @@ On receiving a request to add Template File Format with the input parameters (co
 3. Responds with the Template File Format Code and Language Code for the Template File Format created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
+#### B. Create Template File Format in Master Data
+Update and Delete a Template File Format in Template File Format Masterdata DB
+
+(i)Update
+
+1.	On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active) the system updates the Template File Format in the Template File Format DB for the Code received
+While updating the Template File Format the system perform the following steps
+1.	Validates if all required input parameters have been received as listed below for each specific request
+•	code - character (36) - Mandatory
+•	descr - character (256) - Optional
+•	lang_code - character (3) - Mandatory
+•	is_active - boolean - Mandatory
+2.	For the code received in the request, replaces all the data received in the request against the data existing in the Template File Format database against the same code.
+3.	Deleted record are not updated
+4.	Responds with data not found error if deleted record is received in the request
+5.	Responds with the Template File Format Code and Language Code for the Template File Format updated successfully
+6.	In case of Exceptions, system triggers relevant error messages
+
+(ii)Delete
+
+On receiving  a request to delete a Template File Format with the input parameters (code) the system updates the is_deleted flag to true in the Template File Format DB against the code received
+While deleting the Template File Format the system perform the following steps
+
+1.	Validates if all required input parameters have been received as listed below for each specific request
+1.	code - character (36) - Mandatory
+2.	Delete all records for the code received
+3.	Deleted record are not deleted again
+4.	Responds with data not found error if deleted record is received in the request
+5.	Responds with dependency found error (Refer Acceptance criteria) if a record to be deleted is used as foreign key in the dependent table
+6.	Responds with the Template File Format Code for the Template File Format deleted successfully
+7.	In case of Exceptions, system triggers relevant error messages. 
+
 ### 1.13 List of Template Types - Create
 MOSIP system can create Template Type in the Masterdata DB.
 
