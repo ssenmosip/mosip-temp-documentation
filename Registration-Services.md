@@ -4,8 +4,11 @@
 * [Master Data Sync]()
   * [Master Data, Configuration]()
   * [End of Day Process]()
-[* Booking Data Sync]()
-  [ Appointments (PRIDs), PR Packets]()
+* [Booking Data Sync]()
+  * [Appointments (PRIDs)
+  * [PR Packets]()
+
+
 [* Registration Data Services]()
   [** List of Registrations]()
   [** Registration Packet Upload]()
