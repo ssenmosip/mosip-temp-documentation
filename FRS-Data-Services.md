@@ -142,6 +142,8 @@ Refer below for the process:
 #### 4.1.5 VID Generator
 
 Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
+
+Refer below for the process:
 1. VID should be generated as per the defined logic mentioned below
 1. Responds with the VID to the source
 4. Raises an alert in case of exceptions. 
