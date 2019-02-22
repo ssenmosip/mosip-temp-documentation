@@ -59,7 +59,7 @@ Upon receiving a request to validate the Location Name with input parameters (Lo
 
 While checking the location in the Database the system performs the following steps:
 
-1.Validates if the request contains the following input parameters
+1. Validates if the request contains the following input parameters
    * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
