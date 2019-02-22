@@ -20,7 +20,7 @@
       * [4.2.6 Token ID Generator](#426-token-id-generator)
 # Data services
 ## 1. Data mapper
-Data mapper is used across MOSIP to facilitate mapping between DTO and entity 
+Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
 
