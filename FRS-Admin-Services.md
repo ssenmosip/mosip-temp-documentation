@@ -703,36 +703,39 @@ On receiving a request to add Template File Format with the input parameters (co
 1. In case of Exceptions, system triggers relevant error messages. 
 
 #### B. Create Template File Format in Master Data
+
 Update and Delete a Template File Format in Template File Format Masterdata Database
 
-(i)Update
+##### (i) Update
 
-1.	On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active), the system updates the Template File Format in the Template File Format Database for the Code received
+On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active), the system updates the Template File Format in the Template File Format Database for the Code received
+
 While updating the Template File Format, the system perform the following steps
-1.	Validates if all required input parameters have been received as listed below for each specific request
-•	code - character (36) - Mandatory
-•	descr - character (256) - Optional
-•	lang_code - character (3) - Mandatory
-•	is_active - boolean - Mandatory
-2.	For the code received in the request, replaces all the data received in the request against the data existing in the Template File Format database against the same code.
-3.	Deleted record are not updated
-4.	Responds with data not found error if deleted record is received in the request
-5.	Responds with the Template File Format Code and Language Code for the Template File Format updated successfully
-6.	In case of Exceptions, system triggers relevant error messages
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * code - character (36) - Mandatory
+   * descr - character (256) - Optional
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
+2. For the code received in the request, replaces all the data received in the request against the data existing in the Template File Format database against the same code.
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Template File Format Code and Language Code for the Template File Format updated successfully
+1. In case of Exceptions, system triggers relevant error messages
 
-(ii)Delete
+##### (ii) Delete
 
 On receiving  a request to delete a Template File Format with the input parameters (code), the system updates the is_deleted flag to true in the Template File Format Database against the code received
+
 While deleting the Template File Format, the system perform the following steps
 
-1.	Validates if all required input parameters have been received as listed below for each specific request
-1.	code - character (36) - Mandatory
-2.	Delete all records for the code received
-3.	Deleted record are not deleted again
-4.	Responds with data not found error if deleted record is received in the request
-5.	Responds with dependency found error (Refer Acceptance criteria) if a record to be deleted is used as foreign key in the dependent table
-6.	Responds with the Template File Format Code for the Template File Format deleted successfully
-7.	In case of Exceptions, system triggers relevant error messages. 
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * code - character (36) - Mandatory
+2. Delete all records for the code received
+1. Deleted record are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error (Refer Acceptance criteria) if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Template File Format Code for the Template File Format deleted successfully
+1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.13 List of Template Types - Create
 MOSIP system can create Template Type in the Masterdata Database.
@@ -868,17 +871,18 @@ Upon receiving a request to delete a Blacklisted Word with the input parameters 
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-C.Fetch List of Blacklisted words based on a Language Code
+#### C. Fetch List of Blacklisted words based on a Language Code
 
-1.	Upon receiving a  request to Fetch the List of Blacklisted words with input parameters (Language Code), the system fetches the List of Blacklisted words against the Language Code received
+Upon receiving a  request to Fetch the List of Blacklisted words with input parameters (Language Code), the system fetches the List of Blacklisted words against the Language Code received
+
 While fetching the black listed words, the system perform the following steps
-1.	Validates if the request contains the following input parameters
-•	Language Code - Mandatory
-2.	If the mandatory input parameters are missing, throws the appropriate message. 
-3.	Validates if the response contains the List of Blacklisted words against Language Code and the corresponding attributes for the Blacklisted word
-•	Blacklisted Word
-•	IsActive
-4.	In case of Exceptions, system triggers relevant error messages. 
+1. Validates if the request contains the following input parameters
+   * Language Code - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. Validates if the response contains the List of Blacklisted words against Language Code and the corresponding attributes for the Blacklisted word
+   * Blacklisted Word
+   * IsActive
+4. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.16 List of Reason Categories - Create
 
@@ -1670,69 +1674,72 @@ On receiving request to add Device Specifications with the input parameters (nam
 On receiving request to fetch the List of Device Specifications with input parameters (Language Code and/or Device Type) the system fetches the List of Device Specifications against the Language Code and/or Device Type
 
 While fetching the List of Device Specifications against the Language Code and/or Device Type the system performs the following steps
-1.	Validates if the request contains the following input parameters
-•	Language Code - Mandatory
-•	Device Type - Optional
-2.	If the mandatory input parameters are missing, throws the appropriate message. 
-3.	If the input parameters contains only Language Code:
-•	The response contains all the list of device specs against all the devices for the requested Language Code
-4.	If the input parameters contains Device Type and Language Code:
-•	The response contains only the list of device specs against the requested device type for the requested Language Code
-5.	Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains only Language Code
-•	Device Specification ID
-•	Device Name
-•	Device Brand
-•	Device Model
-•	Device Type
-•	Minimum Driver Version
-•	IsActive
-6.	Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains Device Type and Language Code
-•	Device Type
-•	Device Specification ID
-•	Device Name
-•	Device Brand
-•	Device Model
-•	Device Type
-•	Minimum Driver Version
-•	IsActive
-7.	In case of Exceptions, system triggers relevant error messages
+1. Validates if the request contains the following input parameters
+   * Language Code - Mandatory
+   * Device Type - Optional
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. If the input parameters contains only Language Code:
+   * The response contains all the list of device specs against all the devices for the requested Language Code
+4. If the input parameters contains Device Type and Language Code:
+   * The response contains only the list of device specs against the requested device type for the requested Language Code
+5. Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains only Language Code
+   * Device Specification ID
+   * Device Name
+   * Device Brand
+   * Device Model
+   * Device Type
+   * Minimum Driver Version
+   * IsActive
+6. Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains Device Type and Language Code
+   * Device Type
+   * Device Specification ID
+   * Device Name
+   * Device Brand
+   * Device Model
+   * Device Type
+   * Minimum Driver Version
+   * IsActive
+7. In case of Exceptions, system triggers relevant error messages
 
 
-C.Update and Delete a Device Specification in the Device Specification Masterdata Database
+#### C. Update and Delete a Device Specification in the Device Specification Masterdata Database
 
-(i) Update
+##### (i) Update
 
 On receiving a request to update a Device Specification with the input parameters (id, name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active) the system updates the Device Specification Details in the Device Specification Database for the id received
+
+
 While updating the device specifications the system performs the following steps
-1.	Validates if all required input parameters have been received as listed below for each specific request
-•	id - character (36) - Mandatory
-•	name - character (64) - Mandatory
-•	brand - character (64) - Mandatory
-•	model - character (16) - Mandatory
-•	dtyp_code - character (36) - Mandatory
-•	min_driver_ver - character (16) - Mandatory
-•	descr - character (256) - Mandatory
-•	lang_code - character (3) - Mandatory
-•	is_active - boolean - Mandatory
-2.	For the id received in the request, replaces all the data received in the request against the data existing in the Device Specification database against the same id
-3.	Deleted record are not updated
-4.	Responds with data not found error if deleted record is received in the request
-5.	Responds with the Device Specification ID and Language Code for the Device Specification updated successfully
-6.	In case of Exceptions, system triggers relevant error messages. 
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * id - character (36) - Mandatory
+   * name - character (64) - Mandatory
+   * brand - character (64) - Mandatory
+   * model - character (16) - Mandatory
+   * dtyp_code - character (36) - Mandatory
+   * min_driver_ver - character (16) - Mandatory
+   * descr - character (256) - Mandatory
+   * lang_code - character (3) - Mandatory
+   * is_active - boolean - Mandatory
+2. For the id received in the request, replaces all the data received in the request against the data existing in the Device Specification database against the same id
+1. Deleted record are not updated
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with the Device Specification ID and Language Code for the Device Specification updated successfully
+1. In case of Exceptions, system triggers relevant error messages. 
 
-Delete
+##### (ii) Delete
 
 
-1.	On receiving a request to delete a Device Specification with the input parameters (id) the system updates the is_deleted flag to true in the Device Specification Database against the id received
+On receiving a request to delete a Device Specification with the input parameters (id) the system updates the is_deleted flag to true in the Device Specification Database against the id received
+
 While deleting the device specifications the system performs the following steps
-1.	Validates if all required input parameters have been received as listed below for each specific request
-•	id - character (36) - Mandatory
-2.	Delete all records for the id received
-2.	Deleted record are not deleted again
-3.	Responds with data not found error if deleted record is received in the request
-4.	Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
-5.	Responds with the Device Specification ID for the Device Specification deleted successfully
-6.	In case of Exceptions, system triggers relevant error messages. 
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * id - character (36) - Mandatory
+2. Delete all records for the id received
+1. Deleted record are not deleted again
+1. Responds with data not found error if deleted record is received in the request
+1. Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+1. Responds with the Device Specification ID for the Device Specification deleted successfully
+1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 2.9 List of Device Types - Create
 #### A. Create Device Type in Master Data
@@ -1764,7 +1771,6 @@ Upon receiving a request to add a mapping of Machine and Center with the input p
 2. Responds with the Machine Id and Center ID for the mapping of Machine and Center created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database. 
-### <p align="left">**1. Type : Success – Info Message**
 
 
 #### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata Database
@@ -1800,25 +1806,28 @@ Upon receiving a request to delete a Center-Device mapping with the input parame
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
 1. In case of Exceptions, system triggers relevant error messages.
-### <p align="left">**1. Type : Success – Info Message**
 
 
-C.Fetch Device-Center History record based on the timestamp received
+#### C. Fetch Device-Center History record based on the timestamp received
 
 On receiving a request to fetch Mapping History of Center and Device with input parameters (Registration Center ID, Device ID and Date Timestamp) the system fetches all the attributes of Center and Device Mapping from the history table for the Registration Center ID, Device ID and Date received
+
+
 The record fetched are the latest record existing on or before the date received in the input parameter
+
+
 While fetching the attributes of Center and Device Mapping from the history table the system performs the following steps
-1.	Validates if all required input parameters have been received as listed below for each specific request
-1.	Registration Center ID - Mandatory
-2.	Device ID - Mandatory
-3.	Date Timestamp - Mandatory
-2.	If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section.
-3.	Validates if the response contains following attributes
-1.	Registration Center ID
-2.	Device ID
-3.	IsActive
-4.	Effective date
-4.	In case of Exceptions, system triggers relevant error messages
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * Registration Center ID - Mandatory
+   * Device ID - Mandatory
+   * Date Timestamp - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. Validates if the response contains following attributes
+   * Registration Center ID
+   * Device ID
+   * IsActive
+   * Effective date
+4. In case of Exceptions, system triggers relevant error messages
 
 ### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete
 
@@ -1845,7 +1854,6 @@ Upon receiving a request to delete a Center-Machine-Device mapping with the inpu
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
-### <p align="left">**1. Type : Success – Info Message**
 
 
 ## 3. Partner Management 
