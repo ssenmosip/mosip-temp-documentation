@@ -73,7 +73,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 ### 4.1 ID Generator
 #### 4.1.1 Machine ID Generator
 
-Upon receiving a request to generate Machine ID, the system generates Machine ID as per default Machine ID generation logic as mentioned below
+Upon receiving a request to generate Machine ID, the system generates Machine ID as per default Machine ID generation logic as mentioned below:
 1. Machine ID should only be numeric
 1. Machine ID generated should be of length of 5 digits
 1. Each new Machine ID should be incremented by 1 for each new request
