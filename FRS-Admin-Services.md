@@ -537,15 +537,6 @@ Upon receiving a request to add a Reason with the input parameters (code, name, 
 3. Responds to the source with the appropriate message.
 4. In case of Exceptions, system triggers relevant error messages as listed below
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting Reason details|	KER-MSD-058|
 
 #### B. Fetch the requested list of reasons based on Reason Category Code and Language Code
 
@@ -565,16 +556,6 @@ Upon receiving a request to Fetch the requested List of Reasons with the require
 4. Responds to the source with the relevant List of Reasons, as per the stated business rules
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while fetching Reasons	|KER-MSD-035|
-Reason not found	|KER-MSD-036|
 
 ### 1.10 List of Languages - Create/Read/Update/Delete
 
@@ -753,15 +734,7 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
 2. Responds with the Template Type Code and Language Code for the Template Type created successfully
 3. This component also restrict the bulk creation of Master Data
 4. In case of Exceptions, system triggers relevant error messages as listed below.
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting Template Type details	|KER-MSD-072|
 
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
@@ -879,17 +852,6 @@ Upon receiving a request to delete a Blacklisted Word with the input parameters 
 1. Responds with the Word for the Blacklisted word deleted successfully
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while updating Blacklisted Word|	KER-MSD-105|
-Error occurred while deleting Blacklisted Word	|KER-MSD-106|
-Blacklisted Words not found	|KER-MSD-008|
 
 C.Fetch List of Blacklisted words based on a Language Code
 
@@ -922,15 +884,7 @@ Upon receiving a request to add Reason Category with the input parameters (code,
    * Language Code
 3. Responds with the Reason Category code and Language Code for the Reason Category created successfully
 4. In case of Exceptions, system triggers relevant error messages as listed below
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting Reason Category details|	KER-MSD-057|
 
 ### 1.17 List of Applications - Create/Read
 #### A. Create a List of Applications in Master Data
@@ -947,15 +901,6 @@ Upon receiving a request to add Application with the input parameters (code, nam
    * Language Code
 3. Responds with the Application ID and Language Code for the Application created successfully
 1. In case of Exceptions, system triggers relevant error messages as listed below
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting Application details|	KER-MSD-056|
 
 
 #### B. Fetch List of Applications based on received input parameter
@@ -994,17 +939,6 @@ Upon receiving a request to Fetch List of Applications with the required input p
 
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while fetching Application|	KER-MSD-001|
-Application not found	|KER-MSD-002|
-
 
 ### 1.18 List of ID Types - Create/Read
 #### A. Create an ID type in Master Data
@@ -1028,15 +962,6 @@ Upon receiving a request to add an ID Type with the input parameters (code, name
 
 4. In case of Exceptions, system triggers relevant error messages as listed below.
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting ID Type details	|KER-MSD-059|
 
 #### B. Fetch the List of ID Types based on Language Code
 
@@ -1050,18 +975,7 @@ Upon receiving a request to fetch the List of ID Types with input parameters (La
    * ID Type Name
    * ID Type Code
    * IsActive
-4. In case of Exceptions, system triggers relevant error messages as listed below.
-
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while fetching ID Types|	KER-MSD-021|
-ID Type not found	|KER-MSD-022|
+4. In case of Exceptions, system triggers relevant error messages. 
 
 
 ## 2. Registration Management
@@ -1842,16 +1756,9 @@ Upon receiving a request to add a mapping of Machine and Center with the input p
    * is_active - boolean - Mandatory
 2. Responds with the Machine Id and Center ID for the mapping of Machine and Center created successfully
 1. The component restricts the bulk creation of Master Data
-1. In case of Exceptions, system triggers error messages as received from the Database as listed below
+1. In case of Exceptions, system triggers error messages as received from the Database. 
 ### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting a mapping of Machine and Center|	KER-MSD-074
 
 #### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata DB
 
@@ -1862,18 +1769,8 @@ Upon receiving a request to delete a Center-Machine mapping with the input param
 2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request.
 1. Responds with the Machine Id and Center ID for the mapping of Machine and Center deleted successfully
-1. In case of Exceptions, system triggers relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages .
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while deleting a mapping of Machine and Center|	KER-MSD-106|
-Mapping for Machine and Center not found|	KER-MSD-114|
 
 ### 2.11 Mappings of Registration Center and Device - Create/Read/Delete
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata DB
@@ -1884,17 +1781,8 @@ Upon receiving a request to add a mapping of Device and Center with the input pa
    * is_active - boolean - Mandatory
 2. Responds with the Device Id and Center ID for the mapping of Device and Center created successfully
 1. The component restricts the bulk creation of Master Data
-1. In case of Exceptions, system triggers error messages as received from the Database as listed below
+1. In case of Exceptions, system triggers error messages as received from the Database. 
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
-
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting a mapping of Device and Center|	KER-MSD-075|
 
 #### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata DB
 Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_deleted flag to true in the Center-Device mapping DB against the input received
@@ -1904,17 +1792,9 @@ Upon receiving a request to delete a Center-Device mapping with the input parame
 2. Deleted record should not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id and Center ID for the mapping of Device and Center deleted successfully
-1. In case of Exceptions, system triggers relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages.
 ### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while deleting a mapping of Device and Center|	KER-MSD-105|
-Mapping for Device and Center not found	|KER-MSD-115|
 
 C.Fetch Device-Center History record based on the timestamp received
 
@@ -1945,16 +1825,8 @@ Upon receiving a request to add a mapping of Center, Machine and Device with the
    * is_active - boolean - Mandatory
 2. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device created successfully
 1. The component restricts the bulk creation of Master Data
-1. In case of Exceptions, system triggers error messages as received from the Database as listed below
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
+1. In case of Exceptions, system triggers error messages as received from the Database. 
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while inserting a mapping of Center, Machine and Device|	KER-MSD-076|
 
 #### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata DB
 Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id), the system updates the is_deleted flag to true in the Center-Machine-Device mapping DB against the input received
@@ -1965,17 +1837,9 @@ Upon receiving a request to delete a Center-Machine-Device mapping with the inpu
 2. Deleted record are not be deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
-1. In case of Exceptions, system triggers relevant error messages as listed below
+1. In case of Exceptions, system triggers relevant error messages. 
 ### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-NA|	NA|	NA
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Message|Message Code|
-|:------:|:------:|
-Error occurred while deleting a mapping of Center, Machine and Device|	KER-MSD-107|
-Mapping for Center, Machine and Device not found	|KER-MSD-116|
 
 ## 3. Partner Management 
 ### 3.1 License Key Manager
