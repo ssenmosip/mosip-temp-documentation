@@ -82,7 +82,7 @@ Upon receiving a request to store audit logs with the input parameters the audit
 7. Raises an alert in case of an exception 
 
 ## 4. LDAP / Authorization (WIP)
-MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below
+MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:
 
 1. OTP manager: To be defined
 1. SMS Notification Manager API : To be defined
