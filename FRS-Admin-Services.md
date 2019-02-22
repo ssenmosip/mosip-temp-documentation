@@ -126,7 +126,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 
 #### F. Update and Delete a Location in Location Masterdata Database
 ##### (i) Update
-On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active),  the system updates the Location in the Location Database
+On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
 for the code received.
 
 The system performs the following steps to update the location in the Masterdata Database
@@ -455,18 +455,19 @@ On receiving a request to delete a Document Type with the input parameters (code
 
 #### A. Fetch list of Document Categories based on Applicant Type from Masterdata Database
 
-1.	Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code) the system fetches all the Document Categories for the Applicant Type Code Received
+Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code) the system fetches all the Document Categories for the Applicant Type Code Received
+
 While fetching the list of documents the system performs the flowing steps
-1.	Validates if all required input parameters have been received as listed below for each specific request
-1.	Applicant Type Code - Mandatory
-2.	If the mandatory input parameter is missing, responds with the appropriate error message
-3.	Validates if the response contain the following attributes for each Document Category Code
-•	Document Category Code
-•	Name
-•	Description
-•	Language Code
-•	Is Active
-4.	In case of Exceptions, system triggers relevant error messages
+1. Validates if all required input parameters have been received as listed below for each specific request
+   * Applicant Type Code - Mandatory
+2. If the mandatory input parameter is missing, responds with the appropriate error message
+1. Validates if the response contain the following attributes for each Document Category Code
+   * Document Category Code
+   * Name
+   * Description
+   * Language Code
+   * Is Active
+4. In case of Exceptions, system triggers relevant error messages
 
 
 #### B. Fetch List of Document Category-Document Type mappings based on Applicant Type and a List of Language Codes
@@ -474,25 +475,25 @@ While fetching the list of documents the system performs the flowing steps
 Upon receiving a request to fetch List of Document Category-Document Type mappings with input parameters (Applicant Type and List of Language Codes) the system fetches the required data
 
 While fetching the data the system performs the flowing steps
-1.	Validates if the request contains the following input parameters
-•	Applicant Type - Mandatory
-•	List of Language Codes - Mandatory
-2.	If the mandatory input parameters are missing, throws the appropriate message. 
-3.	Fetches the Document Category-Document Type mapping for all language codes received in response
-4.	The response contains the List of Mappings of Document Category and Document Type against each Document Category
-5.	Each Document Category contains the below attributes
-•	Document Category Code
-•	Name
-•	Description
-•	Language Code
-•	Is Active
-6.	Each Document Type contains the below attributes
-•	Document Type Code
-•	Name
-•	Description
-•	Language Code
-•	Is Active
-7.	In case of Exceptions, system triggers relevant error messages
+1. Validates if the request contains the following input parameters
+   * Applicant Type - Mandatory
+   * List of Language Codes - Mandatory
+2. If the mandatory input parameters are missing, throws the appropriate message. 
+1. Fetches the Document Category-Document Type mapping for all language codes received in response
+1. The response contains the List of Mappings of Document Category and Document Type against each Document Category
+1. Each Document Category contains the below attributes
+   * Document Category Code
+   * Name
+   * Description
+   * Language Code
+   * Is Active
+6. Each Document Type contains the below attributes
+   * Document Type Code
+   * Name
+   * Description
+   * Language Code
+   * Is Active
+7. In case of Exceptions, system triggers relevant error messages
 
 
 #### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata Database
