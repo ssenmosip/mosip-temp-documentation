@@ -354,7 +354,7 @@ This document describes the following aspects
     } ],
 	"hashSequence2" : [ {
       "label" : "otherFiles",
-      "value" : [ "officerCBEFF", "supervisiorCBEFF", "PacketMetaInfo", "Audit"]
+      "value" : [ "officerCBEFF", "supervisiorCBEFF", "Audit"]
     } ],
 	"capturedRegiseredDevices" : [ {
       "label" : "fingerprint",
