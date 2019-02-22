@@ -13,12 +13,12 @@
     * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete)
     * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete)
     * [1.12 Template File Format - Create/Update/Delete](#112-template-file-format---createreadupdatedelete)
-    * [1.13 List of Template Types - Create/Read/Update/Delete](#113-list-of-template-types---createreadupdatedelete)
+    * [1.13 List of Template Types - Create](#113-list-of-template-types---createreadupdatedelete)
     * [1.14 List of Templates - Create/Read/Update/Delete](#114-list-of-templates---createreadupdatedelete)
     * [1.15 List of Blacklisted Words - Create/Read/Update/Delete](#115-list-of-blacklisted-words---createreadupdatedelete)
-    * [1.16 List of Reason Categories - Create/Read/Update/Delete](#116-list-of-reason-categories---createreadupdatedelete)
-    * [1.17 List of Applications - Create/Read/Update/Delete](#117-list-of-applications---createreadupdatedelete)
-    * [1.18 List of ID Types - Create/Read/Update/Delete](#118-list-of-id-types---createreadupdatedelete)
+    * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---createreadupdatedelete)
+    * [1.17 List of Applications - Create/Read](#117-list-of-applications---createreadupdatedelete)
+    * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createreadupdatedelete)
   * [2. Registration Management](#2-registration-management)
     * [2.1 Registration Center Type - Create/Read/Update/Delete](#21-registration-center-type---createreadupdatedelete)
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete)
@@ -658,7 +658,7 @@ On receiving a request to add Template File Format with the input parameters (co
 3. Responds with the Template File Format Code and Language Code for the Template File Format created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.13 List of Template Types - Create/Read/Update/Delete
+### 1.13 List of Template Types - Create
 MOSIP system can create Template Type in the Masterdata DB.
 
 Upon receiving a request to add Template Type (e.g., SMS Notification template - New Registration) with the input 
@@ -685,7 +685,7 @@ Error occurred while inserting Template Type details	|KER-MSD-072|
 
 ### 1.14 List of Templates - Create/Read/Update/Delete
 
-#### A. create Template in the Masterdata DB
+#### A. Create Template in the Masterdata DB
 
 On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system stores the Template in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -821,7 +821,7 @@ Error occurred while deleting Blacklisted Word	|KER-MSD-106|
 Blacklisted Words not found	|KER-MSD-008|
 
 
-### 1.16 List of Reason Categories - Create/Read/Update/Delete
+### 1.16 List of Reason Categories - Create
 
 MOSIP system can create a Reason Category in Master Data
 
@@ -850,7 +850,7 @@ NA|	NA|	NA
 |:------:|:------:|
 Error occurred while inserting Reason Category details|	KER-MSD-057|
 
-### 1.17 List of Applications - Create/Read/Update/Delete
+### 1.17 List of Applications - Create/Read
 #### A. Create a List of Applications in Master Data
 
 Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the DB
@@ -924,7 +924,7 @@ Error occurred while fetching Application|	KER-MSD-001|
 Application not found	|KER-MSD-002|
 
 
-### 1.18 List of ID Types - Create/Read/Update/Delete
+### 1.18 List of ID Types - Create/Read
 #### A. Create an ID type in Master Data
 
 Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the DB
