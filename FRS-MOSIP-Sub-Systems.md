@@ -69,7 +69,7 @@ Log manager provides following functionalities
 
 [Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-logger.md)
 
-## 4. LDAP / Authorization
+## 4. LDAP / Authorization (WIP)
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below
 
 1. OTP manager: To be defined
