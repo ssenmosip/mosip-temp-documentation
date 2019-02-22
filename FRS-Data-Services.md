@@ -130,6 +130,7 @@ Upon receiving a request to perform data validation on TSP ID with input paramet
 2. Validates TSP ID as per the TSP ID generation Policy
 1. Responds with the required result (Valid/Invalid)
 1. Raises an alert in case of exceptions. 
+
 [**Link to ID validator design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
 ### 4.2 ID Generator
 #### 4.2.1 Machine ID Generator
@@ -173,6 +174,7 @@ Upon receiving a request to generate TSP ID, the system generates it as per defa
    * The number should not contain the restricted numbers defined by the ADMIN
 2. Responds with the TSP ID to the source
 1. Raises an alert in case of exceptions and triggers the messages. 
+
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
 
 #### 4.2.4 PRID Generator
@@ -228,4 +230,5 @@ Upon receiving a request to generate Token ID (with input para meters (TSP ID, U
    * ID is untraceable to both TSP ID and UIN received
 5. Responds with the Token ID to the source
 1. Raises an alert in case of exceptions
+
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
