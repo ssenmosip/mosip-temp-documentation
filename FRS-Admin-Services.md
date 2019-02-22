@@ -438,33 +438,47 @@ On receiving a request to delete a Document Type with the input parameters (code
 
 ### 1.8 Applicant Type - Document Category - Document Type Mapping - Read
 
-#### A. Create a mapping of Document Type and Document Category in Masterdata DB
+#### A. Fetch list of Document Categories based on Applicant Type from Masterdata DB
 
-On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the DB
-1. Validates if all required input parameters have been received as listed below for each specific request
-   * code - character (36) - Mandatory
-   * name - character (64) - Mandatory
-   * descr - character (128) - Optional
-   * lang_code - character (3) - Mandatory
-   * is_active - boolean - Mandatory
-2. Validates if the response contains the following attributes for a Document Type added
-   * Code
-   * Language Code
-3. Responds with the Document Type Code and Language Code for the Document Type created successfully
-1. In case of Exceptions, system triggers relevant error messages
+1.	Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code) the system fetches all the Document Categories for the Applicant Type Code Received
+While fetching the list of documents the system performs the flowing steps
+1.	Validates if all required input parameters have been received as listed below for each specific request
+1.	Applicant Type Code - Mandatory
+2.	If the mandatory input parameter is missing, responds with the appropriate error message
+3.	Validates if the response contain the following attributes for each Document Category Code
+•	Document Category Code
+•	Name
+•	Description
+•	Language Code
+•	Is Active
+4.	In case of Exceptions, system triggers relevant error messages
 
-#### B. Fetch List of Document Types based on Document Category and a Language Code
 
-On receiving a request to fetch the List of Document Types with input parameters (Document Category Code and Language Code), the system fetches the List of Document Types against the Document Category Code and language Code Received
-1. Validates if the request contains the following input parameters
-   * Document Category Code - Mandatory
-   * Language Code - Mandatory
-2. If the mandatory input parameters are missing, throws the appropriate message
-1. Validates if the response contains the List of Document Types against the Document Category and Language Code Received and the corresponding attributes for each Document Type
-   * Document Type ID - Mandatory
-   * Document Type Name - Mandatory
-   * IsActive - Mandatory
-4. In case of Exceptions, system triggers relevant error messages
+#### B. Fetch List of Document Category-Document Type mappings based on Applicant Type and a List of Language Codes
+
+Upon receiving a request to fetch List of Document Category-Document Type mappings with input parameters (Applicant Type and List of Language Codes) the system fetches the required data
+
+While fetching the data the system performs the flowing steps
+1.	Validates if the request contains the following input parameters
+•	Applicant Type - Mandatory
+•	List of Language Codes - Mandatory
+2.	If the mandatory input parameters are missing, throws the appropriate message. 
+3.	Fetches the Document Category-Document Type mapping for all language codes received in response
+4.	The response contains the List of Mappings of Document Category and Document Type against each Document Category
+5.	Each Document Category contains the below attributes
+•	Document Category Code
+•	Name
+•	Description
+•	Language Code
+•	Is Active
+6.	Each Document Type contains the below attributes
+•	Document Type Code
+•	Name
+•	Description
+•	Language Code
+•	Is Active
+7.	In case of Exceptions, system triggers relevant error messages
+
 
 #### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata DB
 
