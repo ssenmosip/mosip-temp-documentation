@@ -86,6 +86,8 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
 
+[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
+
 ### 2.3.2 Referring to already Uploaded Documents
 1. An Individual logs in to the pre-registration system and opts to Update\modify a Pre-Registration Application 
 1. The system redirects the Individual to the Demographic Details saved in the system earlier
