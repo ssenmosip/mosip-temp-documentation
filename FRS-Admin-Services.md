@@ -1916,6 +1916,23 @@ NA|	NA|	NA
 Error occurred while deleting a mapping of Device and Center|	KER-MSD-105|
 Mapping for Device and Center not found	|KER-MSD-115|
 
+C.Fetch Device-Center History record based on the timestamp received
+
+On receiving a request to fetch Mapping History of Center and Device with input parameters (Registration Center ID, Device ID and Date Timestamp) the system fetches all the attributes of Center and Device Mapping from the history table for the Registration Center ID, Device ID and Date received
+The record fetched are the latest record existing on or before the date received in the input parameter
+While fetching the attributes of Center and Device Mapping from the history table the system performs the following steps
+1.	Validates if all required input parameters have been received as listed below for each specific request
+1.	Registration Center ID - Mandatory
+2.	Device ID - Mandatory
+3.	Date Timestamp - Mandatory
+2.	If the mandatory input parameters are missing, throws the appropriate message. Refer "Messages" section.
+3.	Validates if the response contains following attributes
+1.	Registration Center ID
+2.	Device ID
+3.	IsActive
+4.	Effective date
+4.	In case of Exceptions, system triggers relevant error messages
+
 ### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete
 
 ### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata DB
