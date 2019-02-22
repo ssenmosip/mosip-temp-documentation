@@ -64,7 +64,8 @@ While checking the location in the Database the system performs the following st
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 #### C. Fetch Location Hierarchy Levels based on a Language Code
-Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels in the requested language.
+Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels in the requested language.The following steps are performed by the system: 
+
 1. Validates if the request contains following input parameters (Language Code)
    * Language Code - Mandatory
 2. Validates if the response contains the Location Hierarchy Levels with the following attributes
@@ -74,7 +75,7 @@ Upon receiving a request to fetch the Location Hierarchy Levels with input param
 3. In case of Exceptions, system triggers relevant error messages
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
 
-Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data based on requested Location code and language code.The following steps are performed by the system:
+Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data based on requested Location code and language code. The following steps are performed by the system:
 
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
