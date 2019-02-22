@@ -105,6 +105,8 @@ Refer below for the process:
 #### 4.1.4 VID Validator
 
 Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
+
+Refer below for the process:
 1. Validates if the VID is of configured length.
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received as per the VID generation logic
@@ -127,6 +129,8 @@ RID Validation performs pattern validation on RID and provides three methods to 
 #### 4.1.6 TSP ID Validator
 
 Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validates TSP ID as per the TSP ID generation logic
+
+Refer below for the process:
 1. Validates if the request has the following input parameters.
    * TSP ID
 2. Validates TSP ID as per the TSP ID generation Policy
