@@ -1745,6 +1745,68 @@ On receiving request to add Device Specifications with the input parameters (nam
 3. Responds with the Device Specification ID and Language Code for the Device Specification created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
+B.Fetch List of Device Specifications based on a Language Code
+
+On receiving request to fetch the List of Device Specifications with input parameters (Language Code and/or Device Type) the system fetches the List of Device Specifications against the Language Code and/or Device Type
+While fetching the List of Device Specifications against the Language Code and/or Device Type the system performs the following steps
+1.	Validates if the request contains the following input parameters
+•	Language Code - Mandatory
+•	Device Type - Optional
+2.	If the mandatory input parameters are missing, throws the appropriate message. 
+3.	If the input parameters contains only Language Code:
+•	The response contains all the list of device specs against all the devices for the requested Language Code
+4.	If the input parameters contains Device Type and Language Code:
+•	The response contains only the list of device specs against the requested device type for the requested Language Code
+5.	Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains only Language Code
+•	Device Specification ID
+•	Device Name
+•	Device Brand
+•	Device Model
+•	Device Type
+•	Minimum Driver Version
+•	IsActive
+6.	Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains Device Type and Language Code
+•	Device Type
+•	Device Specification ID
+•	Device Name
+•	Device Brand
+•	Device Model
+•	Device Type
+•	Minimum Driver Version
+•	IsActive
+7.	In case of Exceptions, system triggers relevant error messages
+C.Update and Delete a Device Specification in the Device Specification Masterdata DB
+(i) Update
+On receiving a request to update a Device Specification with the input parameters (id, name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active) the system updates the Device Specification Details in the Device Specification DB for the id received
+While updating the device specifications the system performs the following steps
+1.	Validates if all required input parameters have been received as listed below for each specific request
+•	id - character (36) - Mandatory
+•	name - character (64) - Mandatory
+•	brand - character (64) - Mandatory
+•	model - character (16) - Mandatory
+•	dtyp_code - character (36) - Mandatory
+•	min_driver_ver - character (16) - Mandatory
+•	descr - character (256) - Mandatory
+•	lang_code - character (3) - Mandatory
+•	is_active - boolean - Mandatory
+2.	For the id received in the request, replaces all the data received in the request against the data existing in the Device Specification database against the same id
+3.	Deleted record are not updated
+4.	Responds with data not found error if deleted record is received in the request
+5.	Responds with the Device Specification ID and Language Code for the Device Specification updated successfully
+6.	In case of Exceptions, system triggers relevant error messages. 
+Delete
+
+
+1.	On receiving a request to delete a Device Specification with the input parameters (id) the system updates the is_deleted flag to true in the Device Specification DB against the id received
+While deleting the device specifications the system performs the following steps
+1.	Validates if all required input parameters have been received as listed below for each specific request
+•	id - character (36) - Mandatory
+2.	Delete all records for the id received
+2.	Deleted record are not deleted again
+3.	Responds with data not found error if deleted record is received in the request
+4.	Responds with dependency found error if a record to be deleted is used as foreign key in the dependent table
+5.	Responds with the Device Specification ID for the Device Specification deleted successfully
+6.	In case of Exceptions, system triggers relevant error messages. 
 
 ### 2.9 List of Device Types - Create
 #### A. Create Device Type in Master Data
