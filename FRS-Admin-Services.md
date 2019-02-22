@@ -144,7 +144,7 @@ The system performs the following steps to update the location in the Masterdata
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Code and Language Code for the Location Hierarchy updated successfully
 1. In case of Exceptions, system triggers relevant error messages
-##### (ii) Delete
+#### (ii) Delete
 On receiving a  request to delete a Location with the input parameters (code), the system updates the is_deleted flag to true in the Location Database against the code received. 
 
 The system performs the following steps in order to delete the loaction\s received in the code:
@@ -191,7 +191,7 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Update and Delete List of Holiday in  Masterdata Database
-##### (i) Update
+#### (i) Update
 
 On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system updates the Holiday List in the Holiday Database for the code received as per the below steps
 
@@ -212,7 +212,7 @@ On receiving a  request to update a Holiday list with the input parameters (id, 
 1. Responds with the Location Code, Holiday Date, Holiday Name and Language Code for the Holiday updated successfully
 1. In case of Exceptions, system triggers relevant error messages.
  
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a  request to delete a Holiday List with the input parameters (code), the system updates the is_deleted flag to true in the Holiday Database against the code received  as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -298,7 +298,7 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
  
 #### B. Update and Delete a Gender Type in Gender Type Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Gender Type with the input parameters (code, name, lang_code and is_active), the system updates the Gender Type in the Gender Type Database for the code received as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -311,7 +311,7 @@ On receiving a request to update a Gender Type with the input parameters (code, 
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Gender Type Code and Language Code for the Gender Type updated successfully
 1. In case of Exceptions, system triggers relevant error messages.
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a request to delete a Gender Type with the input parameters (code),  the system updates the is_deleted flag to true in the Gender Type Database against the code received as per the below steps
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -364,7 +364,7 @@ On receiving a request to add Document Category with the input parameters (code,
 
 #### B. Update and Delete a Document Category in the Document Category Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Document Category with the input parameters (code, name, descr, lang_code and is_active), the system update the Document Category in the Document Category Database for the Code received as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -379,7 +379,7 @@ On receiving a request to update a Document Category with the input parameters (
 1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a request to delete a Document Category with the input parameters (code), the system updates the is_deleted flag to true in the Document Category Database against the code received as per the below listed steps
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -424,7 +424,7 @@ On receiving a request to add Document Type with the input parameters (code, nam
 
 #### B. Update and Delete a Document Type in the Document Type Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Document Type with the input parameters (code, name, descr, lang_code and is_active), the system updates the Document Type in the Document Type Database for the Code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -439,7 +439,7 @@ On receiving a request to update a Document Type with the input parameters (code
 1. Responds with the Document Category Code and Language Code for the Document Category updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a request to delete a Document Type with the input parameters (code), the system updates the is_deleted flag to true in the Document Type Database against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -600,7 +600,7 @@ After receiving a request to fetch the List of Languages, the system fetches the
 
 #### C. Update and Delete a Language in the List of Languages Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 After receiving a request to update a Language with the input parameters (code, name, family, native_name and is_active), the system updates the Language Details in the List of languages Database for the Code received in request
 
@@ -616,7 +616,7 @@ After receiving a request to update a Language with the input parameters (code, 
 1. Responds with the Language Code for the language successfully updated
 1. In case of Exceptions, system triggers relevant error messages
 
-##### (ii) Delete
+#### (ii) Delete
 
 After receiving a request to delete a Language with the input parameters (code), the system updates the is_deleted flag to true in the List of languages Database against the code received in request
 
@@ -644,7 +644,7 @@ On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameter
 
 #### B.	Update and Delete a Title in Title Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Title with the input parameters (code, name, descr, lang_code and is_active), the system updates the Title in the Title Database for the code received
 
@@ -660,7 +660,7 @@ On receiving a request to update a Title with the input parameters (code, name, 
 1. Responds with the Title Code and Language Code for the Title created successfully
 1. In case of Exceptions, system triggers relevant error messages.
 
-##### (i) Delete
+#### (i) Delete
 
 On receiving a request to delete a Title with the input parameters (code), the system updates the is_deleted flag to true in the Title Database against the code received
 
@@ -706,7 +706,7 @@ On receiving a request to add Template File Format with the input parameters (co
 
 Update and Delete a Template File Format in Template File Format Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving  a request to update a Template File Format with the input parameters (code, descr, lang_code and is_active), the system updates the Template File Format in the Template File Format Database for the Code received
 
@@ -722,7 +722,7 @@ While updating the Template File Format, the system perform the following steps
 1. Responds with the Template File Format Code and Language Code for the Template File Format updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving  a request to delete a Template File Format with the input parameters (code), the system updates the is_deleted flag to true in the Template File Format Database against the code received
 
@@ -792,7 +792,7 @@ On receiving a request to fetch a Template with the input parameters (Template T
 
 #### C. Update and Delete a Template in Template Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system updates the Template in the Template Database for the id received
 
@@ -814,7 +814,7 @@ On receiving a request to update a Template with the input parameters (id, name,
 1. Responds with the Template Id and Language Code for the Template updated successfully
 1. In case of Exceptions, system triggers relevant error messages.
 
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a request to delete a Template with the input parameters (id), the system Updates the is_deleted flag to true in the Template Database against the id received
 
@@ -845,7 +845,7 @@ Upon receiving a request to add a Blacklisted Word with the input parameters (co
 #### B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata Database
 
 
-##### (i) Update
+#### (i) Update
 
 Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system updates the Blacklisted Word in the Blacklisted Word Database for the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -860,7 +860,7 @@ Upon receiving request to update a Blacklisted Word with the input parameters (c
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-##### (ii) Delete
+#### (ii) Delete
 
 Upon receiving a request to delete a Blacklisted Word with the input parameters (code), the system updates the is_deleted flag to true in the Blacklisted Word Database against the code received
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -924,7 +924,7 @@ Upon receiving a request to add Application with the input parameters (code, nam
 
 #### B. Fetch List of Applications based on received input parameter
 
-##### (i) Fetch the List of all Applications
+#### (i) Fetch the List of all Applications
 
 Upon receiving a request to Fetch List of Applications, the system fetches all the List of Applications
 
@@ -937,7 +937,7 @@ Upon receiving a request to Fetch List of Applications, the system fetches all t
 
 1. Responds to the source with all the Application attributes.
 
-##### (ii) Fetch the Application detail based on a Language Code and Application ID
+#### (ii) Fetch the Application detail based on a Language Code and Application ID
 
 Upon receiving a request to Fetch List of Applications with the required input parameters (Application ID, Language Code), the system fetches the Application Detail based on the Application ID and Language Code received
 
@@ -1019,7 +1019,7 @@ On receiving a request to add Registration Center Type with the input parameters
 	
 #### B. Update and Delete a Registration Center Type in the Registration Center Type Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system Updates the Registration Center Type Details in the Registration Center Type Database for the Code received
 
@@ -1036,7 +1036,7 @@ On receiving a request to update a Registration Center Type with the input param
 1. Responds with the Registration Center Type code and Language Code for the Registration Center Type successfully updated
 1. In case of Exceptions, system triggers relevant error messages
 
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a request to delete a Registration Center Type with the input parameters (code), the system updates the is_deleted flag to true in the Registration Center Type Database against the code received
 
@@ -1087,7 +1087,7 @@ per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, 
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 #### B. Update and Delete a Registration Center in the List of Registration Center Masterdata Database
-##### (i) Update
+#### (i) Update
 
 
 On receiving a request to update a Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours, per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system updates the Registration Center Details in the List of Registration Center Database for the center_id received
@@ -1119,7 +1119,7 @@ On receiving a request to update a Registration Center with the input parameters
 1. Responds with the Registration Center Code and Language Code for the Registration Center updated successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-##### (ii) Delete
+#### (ii) Delete
 
 
 Upon receiving a request to delete a Registration Center with the input parameters (center_id), the system updates the is_deleted flag to true in the List of Registration Center Database against the center_id received
@@ -1333,7 +1333,7 @@ On receiving a request to add Machine Specifications with the input parameters (
 
 #### B. Update and Delete a Machine Specification in the Machine Specification Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 
 On receiving a request to update a Machine Specification with the input parameters (id, name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system updates the Machine Specification Details in the Machine Specification Database for the id received
@@ -1358,7 +1358,7 @@ While updating the Machine Specification the system validates the following
 1. Responds with the Machine Specification ID and Language Code for the Machine Specification updated successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-##### (ii) Delete
+#### (ii) Delete
 
 
 On receiving a request to delete a Machine Specification with the input parameters (id), the system Updates the is_deleted flag to true in the Machine Specification Database against the id received
@@ -1399,7 +1399,7 @@ On receiving a request to add Machine with the input parameters (machine_id, nam
 
 #### B. Update and Delete a Machine in the List of Machines Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 
 On receiving a request to update a Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Updates the Machine Details in the List of Machines Database for the machine_id received
@@ -1421,7 +1421,7 @@ On receiving a request to update a Machine with the input parameters (machine_id
 1. Responds with the Machine ID and Language Code for the Machine updated successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-##### (ii) Delete
+#### (ii) Delete
 
 On receiving a request to delete a Machine with the input parameters (machine_id), the system Updates the is_deleted flag to true in the List of Machines Database against the machine_id received
 
@@ -1612,7 +1612,7 @@ The record fetched are  the latest record existing on or before the date receive
 
 #### D. Update and Delete a Device in the List of Devices Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 Upon receiving a request update a Device with the input parameters (id, name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Updates the Device Details in the List of Devices Database for the id received
 
@@ -1633,7 +1633,7 @@ Upon receiving a request update a Device with the input parameters (id, name, ma
 1. Responds with the Device ID and Language Code for the Device updated successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-##### (ii) Delete
+#### (ii) Delete
 
 Upon receiving a request to delete a Device with the input parameters (id) and Update the is_deleted flag to true in the List of Devices Database against the id received
 
@@ -1704,7 +1704,7 @@ While fetching the List of Device Specifications against the Language Code and/o
 
 #### C. Update and Delete a Device Specification in the Device Specification Masterdata Database
 
-##### (i) Update
+#### (i) Update
 
 On receiving a request to update a Device Specification with the input parameters (id, name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active) the system updates the Device Specification Details in the Device Specification Database for the id received
 
@@ -1726,7 +1726,7 @@ While updating the device specifications the system performs the following steps
 1. Responds with the Device Specification ID and Language Code for the Device Specification updated successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-##### (ii) Delete
+#### (ii) Delete
 
 
 On receiving a request to delete a Device Specification with the input parameters (id) the system updates the is_deleted flag to true in the Device Specification Database against the id received
