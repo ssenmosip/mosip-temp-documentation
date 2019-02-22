@@ -1,8 +1,8 @@
 [Registration Client]()
 
 [Registration Services]()
-[* Master Data Sync]()
-[** Master Data, Configuration]()
+* [Master Data Sync]()
+  * [Master Data, Configuration]()
 [** End of Day Process]()
 [* Booking Data Sync]()
   [ Appointments (PRIDs), PR Packets]()
