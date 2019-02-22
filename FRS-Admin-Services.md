@@ -1,6 +1,6 @@
 ## Table Of Content
 
-  * [1. Master Data Management](#1-master-data-management)
+  * [1. Master Data Management](#1-master-data-management) (MOS_PFM_ADS_FR_1)
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete)
     * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete)
     * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createreadupdatedelete)
@@ -19,7 +19,7 @@
     * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---createreadupdatedelete)
     * [1.17 List of Applications - Create/Read](#117-list-of-applications---createreadupdatedelete)
     * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createreadupdatedelete)
-  * [2. Registration Management](#2-registration-management)
+  * [2. Registration Management](#2-registration-management) (MOS_PFM_ADS_FR_2)
     * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createreadupdatedelete)
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete)
     * [2.3 List of Machine Types - Create](#23-list-of-machine-types---createreadupdatedelete)
@@ -32,7 +32,7 @@
     * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createreadupdatedelete)
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreadupdatedelete)
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createreadupdatedelete)
-  * [3. Partner Management](#3-partner-management)
+  * [3. Partner Management](#3-partner-management) (MOS_PFM_ADS_FR_3)
     * [3.1 License Key Manager](#31-license-key-manager)
 # Admin Services
 ## 1. Master Data Management
