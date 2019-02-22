@@ -4,20 +4,21 @@
   * [2. Data Access Manager](#2-data-access-manager) (MOS_PFM_DAS_FR_2)
   * [3. Sync Handler](#3-sync-handler) (MOS_PFM_DAS_FR_3)
   * [4. ID Generator and Validator](#4-id-generator-and-validator) (MOS_PFM_DAS_FR_4)
-    * [4.1 ID Validator](#41-id-validator)
-      * [4.1.1 Static Pin Validator](#411-static-pin-validator)
-      * [4.1.2  UIN Validator](#412--uin-validator)
-      * [4.1.3 PRID Validator](#413-prid-validator)
-      * [4.1.4 VID Validator](#414-vid-validator)
-      * [4.1.5 RID Validator](#415-rid-validator)
-      * [4.1.6 TSP ID Validator](#416-tsp-id-validator)
-    * [4.2 ID Generator](#42-id-generator)
-      * [4.2.1 Machine ID Generator](#421-machine-id-generator)
-      * [4.2.2 Registration Center ID Generator](#422-registration-center-id-generator)
-      * [4.2.3 TSP ID Generator](#423-tsp-id-generator)
-      * [4.2.4 PRID Generator](#424-prid-generator)
-      * [4.2.5 VID Generator](#425-vid-generator)
-      * [4.2.6 Token ID Generator](#426-token-id-generator)
+    * [4.1 ID Generator](#41-id-generator)
+      * [4.1.1 Machine ID Generator](#411-machine-id-generator)
+      * [4.1.2 Registration Center ID Generator](#412-registration-center-id-generator)
+      * [4.1.3 TSP ID Generator](#413-tsp-id-generator)
+      * [4.1.4 PRID Generator](#414-prid-generator)
+      * [4.1.5 VID Generator](#415-vid-generator)
+      * [4.1.6 Token ID Generator](#416-token-id-generator)
+    * [4.2 ID Validator](#42-id-validator)
+      * [4.2.1 Static Pin Validator](#421-static-pin-validator)
+      * [4.2.2  UIN Validator](#422--uin-validator)
+      * [4.2.3 PRID Validator](#423-prid-validator)
+      * [4.2.4 VID Validator](#424-vid-validator)
+      * [4.2.5 RID Validator](#425-rid-validator)
+      * [4.2.6 TSP ID Validator](#426-tsp-id-validator)
+
 # Data services
 ## 1. Data mapper
 Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity 
@@ -69,77 +70,8 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 
 [**Link to design**](https://github.com/mosip/mosip/blob/0.8.0_FIT3_KERNEL/docs/design/kernel/kernel-syncservices.md)
 ## 4. ID Generator and Validator
-### 4.1 ID Validator
-#### 4.1.1 Static Pin Validator
-
-Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validates Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
-
-Refer below for the process:
-1. Validates if the request has the following input parameters.
-   * Static PIN
-2. Validates if the Static PIN is of configured length. (Current configured length = 6)
-1. Validates if the Static PIN is only numerical.
-1. In case of Exceptions, system triggers relevant error messages. 
-
-#### 4.1.2  UIN Validator
-
-Upon receiving a request to validate the UIN, the system validates the UIN against the defined policy
-
-Refer below for the process:
-1. Validates if the UIN is of configured length.
-1. Validates the UIN by verifying the checksum
-1. Validates if the UIN received as per the UIN generation logic
-1. Responds to the source with appropriate message 
-1. Raises an alert in case of exceptions. 
-
-#### 4.1.3 PRID Validator
-
-Upon receiving a request to validate the PRID, the system validates the PRID against the defined policy
-
-Refer below for the process:
-1. Validates if the received PRID contains number of digits as configured by the ADMIN
-1. Validates the PRID received as per the PRID generation logic 
-1. Responds to the source with appropriate message 
-1. Raises an alert in case of exceptions. 
-
-#### 4.1.4 VID Validator
-
-Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
-
-Refer below for the process:
-1. Validates if the VID is of configured length.
-1. Validates the VID by verifying the checksum
-1. Validates if the VID received as per the VID generation logic
-1. Responds to the source with appropriate message and raises an alert in case of exceptions 
-
-#### 4.1.5 RID Validator
-
-RID is generated in the following manner:
-* First 5 Digit: Registration Center ID
-* Next 5 Digits: Machine ID
-* Next 5 Digits: Running sequence
-* Last 14 Digits: Timestamp
-* Total: 29 Digits
-
-RID Validation performs pattern validation on RID and provides three methods to validate RID.
-1. Receive a RID, check whether RID is of configured length or not and respond with whether RID is valid or invalid
-1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID are attached to the RID or not. Respond with whether RID is valid or invalid
-1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid 
-
-#### 4.1.6 TSP ID Validator
-
-Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validates TSP ID as per the TSP ID generation logic
-
-Refer below for the process:
-1. Validates if the request has the following input parameters.
-   * TSP ID
-2. Validates TSP ID as per the TSP ID generation Policy
-1. Responds with the required result (Valid/Invalid)
-1. Raises an alert in case of exceptions. 
-
-[**Link to ID validator design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
-### 4.2 ID Generator
-#### 4.2.1 Machine ID Generator
+### 4.1 ID Generator
+#### 4.1.1 Machine ID Generator
 
 Upon receiving a request to generate Machine ID, the system generates Machine ID as per default Machine ID generation logic as mentioned below
 1. Machine ID should only be numeric
@@ -154,7 +86,7 @@ Raises an alert in case of exceptions.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
 
-#### 4.2.2 Registration Center ID Generator
+#### 4.1.2 Registration Center ID Generator
 
 Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic
 
@@ -171,7 +103,7 @@ Refer below for the process:
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
 
-#### 4.2.3 TSP ID Generator
+#### 4.1.3 TSP ID Generator
 
 Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
 
@@ -187,7 +119,7 @@ Refer below for the process:
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
 
-#### 4.2.4 PRID Generator
+#### 4.1.4 PRID Generator
 
 Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic
 
@@ -207,7 +139,7 @@ Refer below for the process:
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
 
-#### 4.2.5 VID Generator
+#### 4.1.5 VID Generator
 
 Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
 1. VID should be generated as per the defined logic mentioned below
@@ -229,7 +161,7 @@ Upon receiving a request to generate VID, the system generates PRID as per defau
 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
-#### 4.2.6 Token ID Generator
+#### 4.1.6 Token ID Generator
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
 
@@ -246,3 +178,74 @@ Refer below for the process:
 1. Raises an alert in case of exceptions
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
+
+### 4.2 ID Validator
+#### 4.2.1 Static Pin Validator
+
+Upon receiving a request to perform data validation on Static PIN with input parameters (Static PIN), the system validates Static PIN as per the Static PIN generation logic and responds with the required result (Valid/Invalid).
+
+Refer below for the process:
+1. Validates if the request has the following input parameters.
+   * Static PIN
+2. Validates if the Static PIN is of configured length. (Current configured length = 6)
+1. Validates if the Static PIN is only numerical.
+1. In case of Exceptions, system triggers relevant error messages. 
+
+#### 4.2.2  UIN Validator
+
+Upon receiving a request to validate the UIN, the system validates the UIN against the defined policy
+
+Refer below for the process:
+1. Validates if the UIN is of configured length.
+1. Validates the UIN by verifying the checksum
+1. Validates if the UIN received as per the UIN generation logic
+1. Responds to the source with appropriate message 
+1. Raises an alert in case of exceptions. 
+
+#### 4.2.3 PRID Validator
+
+Upon receiving a request to validate the PRID, the system validates the PRID against the defined policy
+
+Refer below for the process:
+1. Validates if the received PRID contains number of digits as configured by the ADMIN
+1. Validates the PRID received as per the PRID generation logic 
+1. Responds to the source with appropriate message 
+1. Raises an alert in case of exceptions. 
+
+#### 4.2.4 VID Validator
+
+Upon receiving a request to validate the VID with input parameters (UIN), the system validates the VID against the defined VID policy
+
+Refer below for the process:
+1. Validates if the VID is of configured length.
+1. Validates the VID by verifying the checksum
+1. Validates if the VID received as per the VID generation logic
+1. Responds to the source with appropriate message and raises an alert in case of exceptions 
+
+#### 4.2.5 RID Validator
+
+RID is generated in the following manner:
+* First 5 Digit: Registration Center ID
+* Next 5 Digits: Machine ID
+* Next 5 Digits: Running sequence
+* Last 14 Digits: Timestamp
+* Total: 29 Digits
+
+RID Validation performs pattern validation on RID and provides three methods to validate RID.
+1. Receive a RID, check whether RID is of configured length or not and respond with whether RID is valid or invalid
+1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID are attached to the RID or not. Respond with whether RID is valid or invalid
+1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid 
+
+#### 4.2.6 TSP ID Validator
+
+Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validates TSP ID as per the TSP ID generation logic
+
+Refer below for the process:
+1. Validates if the request has the following input parameters.
+   * TSP ID
+2. Validates TSP ID as per the TSP ID generation Policy
+1. Responds with the required result (Valid/Invalid)
+1. Raises an alert in case of exceptions. 
+
+[**Link to ID validator design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
+
