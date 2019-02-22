@@ -29,9 +29,9 @@
     * [2.7 List of Devices - Create/Read/Update/Delete](#27-list-of-devices---createreadupdatedelete)
     * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete)
     * [2.9 List of Device Types - Create](#29-list-of-device-types---createreadupdatedelete)
-    * [2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete](#210-mappings-of-registration-center-and-machine---createreadupdatedelete)
-    * [2.11 Mappings of Registration Center and Device - Create/Read/Update/Delete](#211-mappings-of-registration-center-and-device---createreadupdatedelete)
-    * [2.12 Mappings of Registration Center, Machine and Device - Create/Read/Update/Delete](#212-mappings-of-registration-center-machine-and-device---createreadupdatedelete)
+    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createreadupdatedelete)
+    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreadupdatedelete)
+    * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createreadupdatedelete)
   * [3. Partner Management](#3-partner-management)
     * [3.1 License Key Manager](#31-license-key-manager)
 # Admin Services
@@ -1698,7 +1698,7 @@ On receiving request to add Device Specifications with the input parameters (nam
 1. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.9 List of Device Types - Create/Read/Update/Delete
+### 2.9 List of Device Types - Create
 #### A. Create Device Type in Master Data
 
 
@@ -1717,7 +1717,7 @@ Upon receiving a request to add Device Type with the input parameters (code, nam
 3. Responds with the Device Type Code and Language Code for the Device Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 2.10 Mappings of Registration Center and Machine - Create/Read/Update/Delete
+### 2.10 Mappings of Registration Center and Machine - Create/Delete
 #### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata DB
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the DB
 
@@ -1760,7 +1760,7 @@ NA|	NA|	NA
 Error occurred while deleting a mapping of Machine and Center|	KER-MSD-106|
 Mapping for Machine and Center not found|	KER-MSD-114|
 
-### 2.11 Mappings of Registration Center and Device - Create/Read/Update/Delete
+### 2.11 Mappings of Registration Center and Device - Create/Read/Delete
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata DB
 Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the DB
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1801,7 +1801,7 @@ NA|	NA|	NA
 Error occurred while deleting a mapping of Device and Center|	KER-MSD-105|
 Mapping for Device and Center not found	|KER-MSD-115|
 
-### 2.12 Mappings of Registration Center, Machine, and Device - Create/Read/Update/Delete
+### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete
 
 ### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata DB
 
