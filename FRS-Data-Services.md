@@ -36,7 +36,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 ## 3. Sync Handler
 1. Sync Handler allows registration client to sync Master data, List of User, Roles and Respective Mappings and Configurations (Registration Client specific and Global Configs).
 1. Sync Handler also allows Registration Client to push data from Client local database to Master Database.
-1. As part of Masterdata Sync, the service receives a Machine ID and Timestamp, looks for a mapped Center id to that Machine ID and responds to the Registration Client with the Center specific Master data for the following tables.
+1. As part of Masterdata Sync, the service receives a Machine ID and Timestamp, looks for a mapped Center ID to that Machine ID and responds to the Registration Client with the Center specific Master data for the following tables.
    * Registration Center Type
    * List of Registration Center
    * Template File Format
