@@ -1775,8 +1775,12 @@ While fetching the List of Device Specifications against the Language Code and/o
 •	Minimum Driver Version
 •	IsActive
 7.	In case of Exceptions, system triggers relevant error messages
+
+
 C.Update and Delete a Device Specification in the Device Specification Masterdata DB
+
 (i) Update
+
 On receiving a request to update a Device Specification with the input parameters (id, name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active) the system updates the Device Specification Details in the Device Specification DB for the id received
 While updating the device specifications the system performs the following steps
 1.	Validates if all required input parameters have been received as listed below for each specific request
@@ -1794,6 +1798,7 @@ While updating the device specifications the system performs the following steps
 4.	Responds with data not found error if deleted record is received in the request
 5.	Responds with the Device Specification ID and Language Code for the Device Specification updated successfully
 6.	In case of Exceptions, system triggers relevant error messages. 
+
 Delete
 
 
