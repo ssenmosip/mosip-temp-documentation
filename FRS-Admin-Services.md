@@ -7,7 +7,7 @@
     * [1.4 Biometric Attribute Type - Create/Read](#14-biometric-attribute-type---createreadupdatedelete)
     * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete)
     * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete)
-    * [1.7 Document Type - Create/Read/Update/Delete](#17-document-type---createreadupdatedelete)
+    * [1.7 Document Type - Create/Update/Delete](#17-document-type---createreadupdatedelete)
     * [1.8 Document Category - Document Type Mapping - Create/Read/Update/Delete](#18-document-category---document-type-mapping---createreadupdatedelete)
     * [1.9 List of Rejection Reasons - Create/Read/Update/Delete](#19-list-of-rejection-reasons---createreadupdatedelete)
     * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete)
