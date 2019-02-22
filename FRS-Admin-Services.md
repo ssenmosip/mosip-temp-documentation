@@ -48,7 +48,7 @@ Upon receiving a request to add Location hierarchy (e.g., Country - Region - Pro
    * parent_loc_code - character (32) - Optional
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
-2. Responds with the Language Code for the Location Hierarchy created successfully
+2. Responds with the Location Hierarchy created successfully
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
 
@@ -59,7 +59,7 @@ Upon receiving a request to validate the Location Name with input parameters (Lo
 2. If the mandatory input parameters are missing, throw the appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 #### C. Fetch Location Hierarchy Levels based on a Language Code
-Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels
+Upon receiving a request to fetch the Location Hierarchy Levels with input parameters (Language Code), the system fetches the Location Hierarchy Levels in the requested language.
 1. Validates if the request contains following input parameters (Language Code)
    * Language Code - Mandatory
 2. Validates if the response contains the Location Hierarchy Levels with the following attributes
@@ -69,7 +69,7 @@ Upon receiving a request to fetch the Location Hierarchy Levels with input param
 3. In case of Exceptions, system triggers relevant error messages
 #### D. Fetch the Location Hierarchy Data based on a Location Code and a Language Code
 
-Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data
+Upon receiving a  request to fetch all the Location Hierarchy Data with input parameters (Location Code and Language Code), the system fetches the Location Hierarchy Data based on requested Location code and language code.
 1. Validates if the request contains the following input parameters
    * Location Code - Mandatory
    * Language Code - Mandatory
@@ -2031,23 +2031,9 @@ Upon receiving a request to fetch permissions for a License Key with input param
 
 1. In case of Exceptions, system triggers relevant error messages
 
-### <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-When license key is mapped with the permissions|	Mapped License with the permissions|	NA
 
-### <p align="left">**2. Type : Error/Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|-	|TSP entered is null or empty	|KER-LKM-001
-|-	|The length of license key generated was not of the specified length.|	KER-LKM-002
-|-	|Permission value entered is not accepted.	|KER-LKM-003
-|-	|LicenseKey Not Found.	|KER-LKM-004
-|-	|LicenseKey Expired.|	KER-LKM-005
-|-	|License Key entered is null or empty.|	KER-LKM-006
-|-	|Permission entered is an empty string.|	KER-LKM-007
-|HttpMessageNotReadableException|	<Dynamic Message as received>	|KER-LKM-008
-|RunTimeException	|<Dynamic Message as received>|	KER-LKM-009
+
+
 
 
 
