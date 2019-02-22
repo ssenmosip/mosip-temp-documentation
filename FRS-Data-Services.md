@@ -174,6 +174,8 @@ Refer below for the process:
 #### 4.2.3 TSP ID Generator
 
 Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic
+
+Refer below for the process:
 1. TSP ID should be generated as per the defined logic mentioned below
    * TSP ID should only be numeric
    * TSP ID generated should be of length of 4 digits
@@ -188,6 +190,8 @@ Upon receiving a request to generate TSP ID, the system generates it as per defa
 #### 4.2.4 PRID Generator
 
 Upon receiving a request to generate PRID with input parameters, the system generates PRID as per default PRID generation logic
+
+Refer below for the process:
 1. PRID generated should contain number of digits as configured by the ADMIN
 1. PRID is generated as per the defined logic mentioned below
    * The number should not contain any alphanumeric characters
@@ -228,6 +232,8 @@ Upon receiving a request to generate VID, the system generates PRID as per defau
 #### 4.2.6 Token ID Generator
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
+
+Refer below for the process:
 1. The numbers is not be generated sequentially
 1. Token ID generated is of the length of 36 digits
 1. The length of Token ID is configurable by the ADMIN
