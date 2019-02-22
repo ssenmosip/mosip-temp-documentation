@@ -157,6 +157,8 @@ Raises an alert in case of exceptions.
 #### 4.2.2 Registration Center ID Generator
 
 Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic
+
+Refer below for the process:
 1. Registration Center ID is generated as per the defined logic mentioned below
    * Registration Center ID should only be numeric
    * Registration Center ID generated should be of length of 5 digits
