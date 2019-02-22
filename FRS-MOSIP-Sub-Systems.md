@@ -4,7 +4,7 @@
   * [2. Configuration Server](#2-configuration-server) (MOS_PFM_SUB_FR_2)
   * [3. Audit Manager](#3-audit-manager) (MOS_PFM_SUB_FR_3)
     * [3.1 Log Manager](#31-log-manager)
-  * [4. LDAP / Authorization](#4-ldap--authorization) (MOS_PFM_SUB_FR_4)
+  * [4. LDAP / Authorization](#4-ldap--authorization-wip) (MOS_PFM_SUB_FR_4)
 # Sub-Systems
 ## 1. UIN Generation
 MOSIP generates a pool of UINs before the registration process and stores them. 
