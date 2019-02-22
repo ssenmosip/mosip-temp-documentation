@@ -125,7 +125,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. In case of Exceptions, system should triggers  error message. 
 
 #### F. Update and Delete a Location in Location Masterdata Database
-##### (i) Update
+#### (i) Update
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
 for the code received.
 
