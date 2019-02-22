@@ -56,7 +56,9 @@ While storing the location hierarchy in the database the system performs the fol
 
 #### B. Check the existence of a Location in Master Database
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master Database
+
 While checking the location in the Database the system performs the following steps:
+
 1.Validates if the request contains the following input parameters
    * Location Name - Mandatory
 2. If the mandatory input parameters are missing, throw the appropriate message
