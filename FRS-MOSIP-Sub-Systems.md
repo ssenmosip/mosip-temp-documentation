@@ -81,6 +81,14 @@ Upon receiving a request to store audit logs with the input parameters the audit
    * Failure
 7. Raises an alert in case of an exception 
 
+### 3.1 Log Manager
+Log manager provides following functionalities:
+
+1. Generate logs across the application
+1. Store generated logs in configured location
+1. Support for reading the logger configurations through as external file
+1. Support addition log level to a particular logger dynamically
+
 ## 4. LDAP / Authorization (WIP)
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:
 
