@@ -122,7 +122,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Responds to the source with the data fetched
-1. In case of Exceptions, system should trigger  error message. 
+1. In case of Exceptions, system should trigger an error message. 
 
 #### F. Update and Delete a Location in Location Masterdata Database
 #### (i) Update
@@ -208,7 +208,7 @@ On receiving a  request to update a Holiday list with the input parameters (id, 
    * New Holiday Description - character (128) - Optional
 2. For the code received in the request, replaces all the data received in the request against the data existing in the List of Holidays database against the same id.
 1. Deleted record are  updated
-1. Respond with data not found error if deleted record is received in the request
+1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Location Code, Holiday Date, Holiday Name and Language Code for the Holiday updated successfully
 1. In case of Exceptions, system triggers relevant error messages.
  
@@ -271,7 +271,7 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 1. Validates if the request contains the following input parameters
    * Biometric Authentication Type - Mandatory
    * Language Code - Mandatory
-2. If no data is present in the Database for the input parameter received, responds with appropriate message.
+2. If no data is present in the Database for the input parameter received, responds with an appropriate message.
 1. If both the input parameter is missing, responds with all the data.
 1. If one of the input parameters is missing, throw the appropriate message. Refer "Messages" section.
 1. Validates if the response contains the List of Biometric Attributes with all the attributes against Biometric Authentication Type and Language Code Received
