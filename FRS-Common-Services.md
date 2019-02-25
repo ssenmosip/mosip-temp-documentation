@@ -48,6 +48,8 @@
 
 ## 2. QR Code Generator
 QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-qrcodegenerator.md)
 ## 3. Crypto Services
 Crypto service encrypts or decrypts data across MOSIP with the help of Public/Private Keys.
 
