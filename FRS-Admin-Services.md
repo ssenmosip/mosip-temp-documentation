@@ -1643,12 +1643,12 @@ Refer below for the process:
    * Device Type - Optional
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, system throws the appropriate message. 
-1. If the input parameters contains only Language Code:
+1. If the input parameters contain only Language Code:
    * The response contains all the list of devices for all device types against the Languages code received
-4. If the input parameters contains both Device Type and Language Code:
+4. If the input parameters contain both Device Type and Language Code:
    * The response  contains the list of devices against the Languages code for that Device Type only
-5. After validation, the above listed parameters system responds with appropriate message if data does not exist against the Language code/Device Type received. 
-1. Validates if the response contains the following attributes for each Device ID, if the input parameters contains only Language Code:
+5. After validation, the above listed parameters system responds with an appropriate message if data does not exist against the Language code/Device Type received. 
+1. Validates if the response contains the following attributes for each Device ID, if the input parameters contain only Language Code:
    * Device ID - Mandatory
    * Machine Name - Mandatory
    * Mac Address - Mandatory
@@ -1656,7 +1656,7 @@ Refer below for the process:
    * Serial Number - Mandatory
    * Device Spec ID - Mandatory
    * IsActive - Mandatory
-7. Validates if the response contains the following attributes for each Device ID, if the input parameters contains Device Type and Language Code:
+7. Validates if the response contains the following attributes for each Device ID, if the input parameters contain Device Type and Language Code:
    * Device Type-Mandatory
    * Device ID - Mandatory
    * Machine Name - Mandatory
@@ -1768,11 +1768,11 @@ While fetching the List of Device Specifications against the Language Code and/o
    * Language Code - Mandatory
    * Device Type - Optional
 2. If the mandatory input parameters are missing, throws the appropriate message. 
-1. If the input parameters contains only Language Code:
+1. If the input parameters contain only Language Code:
    * The response contains all the list of device specs against all the devices for the requested Language Code
-4. If the input parameters contains Device Type and Language Code:
+4. If the input parameters contain Device Type and Language Code:
    * The response contains only the list of device specs against the requested device type for the requested Language Code
-5. Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains only Language Code
+5. Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contain only Language Code
    * Device Specification ID
    * Device Name
    * Device Brand
@@ -1780,7 +1780,7 @@ While fetching the List of Device Specifications against the Language Code and/o
    * Device Type
    * Minimum Driver Version
    * IsActive
-6. Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contains Device Type and Language Code
+6. Validates if the response contains the List of Device Specifications with the following attributes, if the input parameters contain Device Type and Language Code
    * Device Type
    * Device Specification ID
    * Device Name
@@ -1998,7 +1998,7 @@ Refer below for the process:
 
 2. If the mandatory input parameters are missing, throw the appropriate message
 
-1. Responds to the source with appropriate message
+1. Responds to the source with an appropriate message
 1. In case of Exceptions, system triggers relevant error messages
 
 #### C. Fetch Permissions for a License Key
