@@ -701,7 +701,7 @@ The system performs the following steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, responds with all the data.
-1. Validates if the response contain List of Titles against the received Language Code along with the following attributes for the Title Code
+1. Validates if the response contains List of Titles against the received Language Code along with the following attributes for the Title Code
    * Title Code - Mandatory
    * Title Name - Mandatory
    * Title Description - Optional
@@ -1308,7 +1308,7 @@ Refer below for the process:
 2. If the mandatory input parameters are missing, throws the appropriate message
 1. The list of registration center is fetched based on the combination of Location Hierarchy level and Text received.
 1. System also fetches the list based on the language code received.
-1. The response contain below mentioned attributes for each registration center
+1. The response contains below mentioned attributes for each registration center
    * Registration Center ID
    * Registration Center Name
    * Longitude
@@ -1362,7 +1362,7 @@ Refer below for the process:
    * is_active - boolean - Mandatory
 2. Responds with the Machine Type Code and Language Code for the Machine Type created successfully
 
-3. This feature also restrict the bulk creation of Master Data
+3. This feature also restricts the bulk creation of Master Data
 
 4. Responds to the source with the appropriate message
 
