@@ -161,7 +161,7 @@ The system performs the following steps in order to delete the loaction\s receiv
 ### 1.2 List of Holidays - Create/Read/Update/Delete
 #### A. Create Holiday data in Masterdata Database
 
-Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system store the Holiday in the Database. The following steps are performed by the system:
+Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system stores the Holiday in the Database. The following steps are performed by the system:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * location_code - character (36) - Mandatory
    * holiday_date - date - Mandatory
@@ -227,7 +227,7 @@ On receiving a  request to delete a Holiday List with the input parameters (code
 
 ### 1.3 Biometric Authentication Type - Create/Read
 #### A. Create Biometric Authentication Type in Masterdata Database
-On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system store the Biometric Authentication Type in the Database as per the below steps:
+On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Biometric Authentication Type in the Database as per the below steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
    * name - character (64) - Mandatory
@@ -545,7 +545,7 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 ### 1.9 List of Rejection Reasons - Create/Read
 #### A. Create a Rejection Reason in Reason List Master Data
 
-Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system store the Reason in the Database
+Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system stores the Reason in the Database
 
 The system performs the following steps:
 
@@ -772,7 +772,7 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
    * is_active - boolean – Mandatory
 
 2. Responds with the Template Type Code and Language Code for the Template Type created successfully
-3. This component also restrict the bulk creation of Master Data
+3. This component also restricts the bulk creation of Master Data
 4. In case of Exceptions, system triggers relevant error messages as listed below.
 
 
@@ -846,7 +846,7 @@ On receiving a request to delete a Template with the input parameters (id), the 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * id- character (36) - Mandatory
 2. Delete all records for the code received
-1. Deleted record should are not deleted again
+1. Deleted record should be not deleted again
 1. Responds with data not found error if deleted record is received in the request
 1. Responds with the Template Id for the Template deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
@@ -855,7 +855,7 @@ On receiving a request to delete a Template with the input parameters (id), the 
 
 #### A. Create Blacklisted Words in Masterdata Database
 
-Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system store the Blacklisted Word in the Database and performs the following steps:
+Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system stores the Blacklisted Word in the Database and performs the following steps:
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * word - character (128) - Mandatory
@@ -1036,7 +1036,7 @@ Refer below for the process:
 
 #### A. Create Registration Center Type in Master Data
 
-On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system store the Registration Center Type in the Database
+On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Registration Center Type in the Database
 
 Refer below for the process:
 
@@ -1173,7 +1173,7 @@ Refer below for the process:
 1. The system validates if all required input parameters have been received as listed below for each specific request
    * center_id - character (36) - Mandatory 
 2. Responds with the Registration Center Code and Language Code for the Registration Center deleted successfully
-1. In case of Exceptions, system trigger relevant error messages
+1. In case of Exceptions, system triggers relevant error messages
 
 
 #### C. Fetch Registration Center details based on a Registration Center ID and Language Code.
@@ -1215,7 +1215,7 @@ Refer below for the process:
    * Registration Center ID - Mandatory
    * Date - Mandatory
    * Language Code - Mandatory
-2. The record fetched are  the latest record existing on or before the date received in the input parameter
+2. The record fetched is the latest record existing on or before the date received in the input parameter
 1. If the mandatory input parameters are missing, system throws the appropriate message. 
 1. Validates if the response contains the following attributes for the Registration Center ID along with values as applicable
    * Registration Center ID
@@ -1274,7 +1274,7 @@ Refer below for the process:
    * Proximity Distance
    * Language Code
 2. If the mandatory input parameters are missing, throw the appropriate message
-1. The responses contains the list of all the Registration Centers in the radius of Proximity distance radius of the Longitude and the Latitude received with all the attributes for each Registration Center
+1. The responses contain the list of all the Registration Centers in the radius of Proximity distance radius of the Longitude and the Latitude received with all the attributes for each Registration Center
 1. System fetches the record against the Language Code Received
 1. Validates if the response contains all the Registration Center against the Longitude and the Latitude and the Language Code received with the following attributes for the Registration Centers
    * Registration Center ID
@@ -1346,12 +1346,12 @@ Refer below for the process:
    * Timestamp - 5:00 PM - Accepted
    * Timestamp - 6:00 PM - Accepted
    * Timestamp - 6:01 PM - Rejected
-6. In case of Exceptions, system trigger relevant error messages
+6. In case of Exceptions, system triggers relevant error messages
 
 
 ### 2.3 List of Machine Types - Create
 
-Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system store the Machine Type in the Database
+Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Machine Type in the Database
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -1509,7 +1509,7 @@ Refer below for the process:
 
 Upon receiving a request to fetch Machine History Registration/Updation Detail with the input parameters (Machine ID, Date and Language Code), the system Fetches all the attributes of Machine from the history table for the Machine ID, Date and Language Code received
 
-The record fetched are the latest record existing on or before the date received in the input parameter
+The record fetched is the latest record existing on or before the date received in the input parameter
 
 Refer below for the process:
 
@@ -1557,7 +1557,7 @@ Refer below for the process:
 
 #### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata Database
 
-On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active), the system Store the Mapping of Center, User and Machine in the Database
+On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active), the system Stores the Mapping of Center, User and Machine in the Database
 
 Refer below for the process:
 
@@ -1590,7 +1590,7 @@ Refer below for the process:
 
 On receiving a request to fetch Mapping History of Registration, Machine and User with input parameters (Registration Centre ID, Machine ID, User ID and Date), the system  Fetches all the attributes of Registration, Machine and User Mapping from the history table for the Machine ID and Date received
 
-The record fetched are  the latest record existing on or before the date received in the input parameter
+The record fetched is the latest record existing on or before the date received in the input parameter
 
 Refer below for the process:
 
@@ -1673,7 +1673,7 @@ Refer below for the process:
 On receiving request to fetch Device History Registration/Update Detail with the input parameters (Device ID, Date and Language Code), the system fetches all the attributes of Device from the history table for the Device ID, Date and Language Code received
 
 
-The record fetched are  the latest record existing on or before the date received in the input parameter
+The record fetched is the latest record existing on or before the date received in the input parameter
 
 Refer below for the process:
 
@@ -1913,7 +1913,7 @@ Refer below for the process:
 On receiving a request to fetch Mapping History of Center and Device with input parameters (Registration Center ID, Device ID and Date Timestamp) the system fetches all the attributes of Center and Device Mapping from the history table for the Registration Center ID, Device ID and Date received
 
 
-The record fetched are the latest record existing on or before the date received in the input parameter
+The record fetched is the latest record existing on or before the date received in the input parameter
 
 
 While fetching the attributes of Center and Device Mapping from the history table the system performs the following steps
@@ -1933,7 +1933,7 @@ While fetching the attributes of Center and Device Mapping from the history tabl
 
 ### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata Database
 
-Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system store the Mapping of Center, Machine and Device in the Database
+Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system stores the Mapping of Center, Machine and Device in the Database
 
 Refer below for the process:
 1. Validates if all required input parameters have been received as listed below for each specific request
