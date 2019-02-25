@@ -1959,6 +1959,8 @@ Refer below for the process:
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-masterdata.md)
+
 
 ## 3. Partner Management 
 ### 3.1 License Key Manager
@@ -2019,6 +2021,9 @@ Refer below for the process:
 4. If the License key is invalid, throws error message
 
 1. In case of Exceptions, system triggers relevant error messages
+
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
 
 
 
