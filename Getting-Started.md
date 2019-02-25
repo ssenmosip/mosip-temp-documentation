@@ -461,6 +461,24 @@ Database deployment consists of the following 4 categories of objects to be depl
 3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
 
 4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
+  Pre-Registration: Please execute following script. This would be put in git in next built.
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('eng', 'ara', 'Latin-Arabic', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
+
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('fra', 'ara', 'Latin-Arabic', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
+
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('ara', 'fra', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
+
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('ara', 'eng', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
+
+
 
 The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml](https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml) folder.
 
