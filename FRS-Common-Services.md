@@ -49,10 +49,10 @@
 ## 2. QR Code Generator
 QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
 ## 3. Crypto Services
-Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
+Crypto service encrypts or decrypts data across MOSIP with the help of Public/Private Keys.
 
 #### A. For Encryption
-The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parametern encrypts the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
+The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameters encrypts the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
 #### B. For Decryption
 The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted. 
 
@@ -96,7 +96,7 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 
 ### 3.3 Crypto Utility 
 
-The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which perfoms following functions
+The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which performs following functions
 1. It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source
 2. It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption
  
