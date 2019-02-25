@@ -122,9 +122,12 @@ This will contain 3 mandatory fields. They are "id", "version" and "requesttime"
 16.2. Response meta data:
 This is an optional field. If the service is expecting any metadata, they can be passed here. 
 
-
 16.3. Response payload: 
 The response payload goes here. 
+
+16.4. Errors: 
+The Errors array goes here. Even, in case of single error, the error have to be in an array. This is an optional field. In case if the service doesn't contains error, this element will not be there in the response. 
+
 
 For example, 
 
@@ -160,7 +163,7 @@ Response:
 }
 ```
 
-
+In case, there is no request payload or path params or URL params, only the version will be present in the URL. 
 
 # References
 https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
