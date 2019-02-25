@@ -134,7 +134,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|TSP Authentication |Validates if the authenticating agency(s) are authenticated sources to initiate the individual's authentication request|MOS-12231, MOS-10938, MOS-10914, MOS-1421, MOS-1099, MOS-1098, MOS-13157, MOS-13156|
+|1.|TSP Authentication |Validates if the authenticating agency(s) are authenticated sources to initiate the individual's authentication request|[MOS-12231](https://mosipid.atlassian.net/browse/MOS-12231), [MOS-10938](https://mosipid.atlassian.net/browse/MOS-10938), [MOS-10914](https://mosipid.atlassian.net/browse/MOS-10914), [MOS-1421](https://mosipid.atlassian.net/browse/MOS-1421), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099), [MOS-1098](https://mosipid.atlassian.net/browse/MOS-1098), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156)|
 |2.|TSP Authorization|Determines if the authenticating agency(s) are authorized entities to initiate the individual's authentication request|MOS-8369, MOS-1156, MOS-1129, MOS-1123|
 |3.|Biometric Authentication|Verifies the authenticity of an individual using biometric attributes provided in the authentication request|MOS-10831,MOS-10378, MOS-10308, MOS-10046, MOS-1411, MOS-1154, MOS-1150, MOS-1133, MOS-12073, MOS-1155, MOS-1145, MOS-12072, MOS-10963, MOS-10131, MOS-10114, MOS-1417, MOS-1149, MOS-1146|
 |4.|Demographic Authentication|Verifies the authenticity of an individual using demographic attributes provided in the authentication request|MOS-11900, MOS-10182, MOS-8854, MOS-8437, MOS-1412, MOS-1114, MOS-584, MOS-233, MOS-232, MOS-231, MOS-230, MOS-223, MOS-212, MOS-208, MOS-207, MOS-13162|
