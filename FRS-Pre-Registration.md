@@ -2,7 +2,7 @@
 
 * [1. Overview](#1-overview)
 * [2. Features](#2-features)
-  * [2.1 Login/Creating an User Account](#21-logincreating-an-user-account) _(MOS_PFM_PRG_FR_1)_
+  * [2.1 Login/Creating a User Account](#21-logincreating-a-user-account) _(MOS_PFM_PRG_FR_1)_
     * [2.1.1 Login using Email](#211-login-using-email) 
     * [2.1.2 Login using Phone Number](#212-login-using-phone-number) 
     * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) 
@@ -34,12 +34,12 @@
     * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) 
   * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes) _(MOS_PFM_PRG_FR_7)_
 # 1. Overview
-The pre-registration module enables an user to book an appointment for one or many Individuals for registration. It allows an user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking. This module also has the provision for appointment rescheduling and cancellation.
+The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
 # 2. Features
-## 2.1 Login/Creating an user account
+## 2.1 Login/Creating a user account
 ### 2.1.1 Login using Email
-The Individual can login to the Pre-registration Portal by providing his/her Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard(if existing user).
+The Individual can login to the Pre-registration Portal by providing his/her Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard (if existing user).
 
 
 ### 2.1.2 Login using Phone Number
