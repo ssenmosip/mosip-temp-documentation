@@ -227,4 +227,4 @@ MOSIP system provides base exception framework.
 1. Raises an alert in case of listed exceptions
 
 
-## [**Link to design for Utilities**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md)
+[**Link to design for Utilities**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md)
