@@ -122,7 +122,7 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 2. If the mandatory input parameters are missing, throws the appropriate message. 
 1. Fetches the Location data of only the child hierarchy of location code received (For e.g., if the location code for a particular Province is received, responds with the data of all the Cities existing in that Province, similarly if location code of a City is received, responds all the data regarding the Local Administrative Authorities existing under that City)
 1. Responds to the source with the data fetched
-1. In case of Exceptions, system should triggers  error message. 
+1. In case of Exceptions, system should trigger  error message. 
 
 #### F. Update and Delete a Location in Location Masterdata Database
 #### (i) Update
