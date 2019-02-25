@@ -216,7 +216,7 @@ MOSIP system provides base exception framework.
 1. Responds with the UUID to the source
 1. Raises an alert in case of listed exceptions
 
-[Link to design](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-uuid-generator.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-uuid-generator.md)
 ### 6.11 Zip-Unzip Utility
 1. Identifies Zip-Unzip util methods
 1. Creates wrapper class for methods defined in apache-commons Zip-Unzip util
