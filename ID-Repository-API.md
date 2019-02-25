@@ -11,7 +11,7 @@ This API will support the following features
 This operation will create a new ID record in the ID repository and store corresponding demographic and biometric documents. 
 
 ### Resource URL
-### `POST /identity/v1.0/568469473107`
+### `POST /identity/v1.0/{UIN}`
 
 ### Resource details
 
@@ -227,7 +227,7 @@ This operation will retrieve an ID record from the ID repository for a given UIN
 If no identity type is provided, stored identity will be returned as a default response. If any of the identity type - bio and/or demo or all is present, their respective documents will be returned along with stored identity details.
 
 ### Resource URL
-### `GET /identity/v1.0/568469473107?type=bio`
+### `GET /identity/v1.0/{UIN}?type=bio`
 
 ### Resource details
 
@@ -402,7 +402,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/v1.0/568469473107`
+### `PATCH /identity/v1.0/{UIN}`
 
 ### Resource details
 
