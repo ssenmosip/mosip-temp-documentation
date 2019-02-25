@@ -37,12 +37,11 @@
 |3.|Pre-registration|Tested Code|Link|Exit Criteria: Sonar report with all quality gates cleared (link to Sonar report), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
 |4.|Pre-registration|Known Defects and Pending Items|Link to word doc|Refer Section 2 in the linked page|
 |5.|Pre-registration|Test Cases|Link||
-|6.|Pre-registration|Mindmaps|Link||
+|6.|Pre-registration|Mindmaps|[Click to View](https://github.com/mosip/mosip/tree/master/docs/testing/Pre-Registration/Mindmaps)||
 |7.|Pre-registration|Automation Framework|Link||
 |8.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Section 1 in the linked page|
 |9.|Kernel|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1 ](https://github.com/mosip/mosip/wiki/Functional-Requirement-Specification)|WIP|
 |10.|Kernel|Tested Code|Link|Exit Criteria: Sonar report with all quality gates cleared (link to Sonar report), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
 |11.|Kernel|Known Defects and Pending Items|Link to word doc|Refer Section 3 in the linked page|
 |12.|Kernel|Test Cases|Link||
-|13.|Kernel|Mindmaps|Link||
-|14.|Kernel|Automation Framework|Link||
+|13.|Kernel|Automation Framework|Link||
