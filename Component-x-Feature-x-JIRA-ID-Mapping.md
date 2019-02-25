@@ -126,9 +126,9 @@
 |5.|UIN Generator Stage|Generates & allocates UIN. Stores the individual's biometric & demographic data in the identity repository. Notifies the resident that UIN is generated trough the configured channels (SMS,Email etc.)|[MOS-1065](https://mosipid.atlassian.net/browse/MOS-1065)|
 |6.|Print Queue Stage|Enable the availability of UIN data & UIN card for printing and postal services|[MOS-1071](https://mosipid.atlassian.net/browse/MOS-1071)|
 |7.|UIN update stage|Updates the data(demographic \biometric) of the resident, Updation of UIN status to de-activate and Re-activate|[MOS-1085](https://mosipid.atlassian.net/browse/MOS-1085), [MOS-1086](https://mosipid.atlassian.net/browse/MOS-1086), [MOS-1087](https://mosipid.atlassian.net/browse/MOS-1087), [MOS-1089](https://mosipid.atlassian.net/browse/MOS-1089), [MOS-12924](https://mosipid.atlassian.net/browse/MOS-12924), [MOS-13210](https://mosipid.atlassian.net/browse/MOS-13210), [MOS-13211](https://mosipid.atlassian.net/browse/MOS-13211)|
-|8.|External system integration|This stage interacts with various external systems|MOS-1032, MOS-13149, MOS-13150, MOS-13151, MOS-13595|
-|9.|Non-functional requirements for Processor|Retry Stage|MOS-13197, MOS-8225|
-|10.|Non-functional requirements for Processor|Registration processor camel bridge|MOS-10727, MOS-12568|
+|8.|External system integration|This stage interacts with various external systems|[MOS-1032](https://mosipid.atlassian.net/browse/MOS-1032), [MOS-13149](https://mosipid.atlassian.net/browse/MOS-13149), [MOS-13150](https://mosipid.atlassian.net/browse/MOS-13150), [MOS-13151](https://mosipid.atlassian.net/browse/MOS-13151), [MOS-13595](https://mosipid.atlassian.net/browse/MOS-13595)|
+|9.|Non-functional requirements for Processor|Retry Stage|[MOS-13197](https://mosipid.atlassian.net/browse/MOS-13197), [MOS-8225](https://mosipid.atlassian.net/browse/MOS-8225)|
+|10.|Non-functional requirements for Processor|Registration processor camel bridge|[MOS-10727](https://mosipid.atlassian.net/browse/MOS-10727), [MOS-12568](https://mosipid.atlassian.net/browse/MOS-12568)|
 
 **5. ID-Authentication:** 
 
