@@ -39,7 +39,7 @@ The pre-registration module enables an user to book an appointment for one or ma
 # 2. Features
 ## 2.1 Login/Creating an user account
 ### 2.1.1 Login using Email
-The Individual can login to the Pre-registration Portal by providing his/her Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard.
+The Individual can login to the Pre-registration Portal by providing his/her Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard(existing user).
 
 
 ### 2.1.2 Login using Phone Number
