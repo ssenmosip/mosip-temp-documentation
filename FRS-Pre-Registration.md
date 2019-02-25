@@ -132,7 +132,7 @@ An Individual may opt to  perform text search to find a center based on which th
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot
 1. Calendar day\s which are  Holidays for the selected Registration center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
-1. An Individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available spots for every time slot shown in the selected calendar day
+1. An Individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available slots for every time slot shown in the selected calendar day
 
 ### 2.4.3 Cancel Appointment
 1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
@@ -143,9 +143,9 @@ An Individual may opt to  perform text search to find a center based on which th
 
 ### 2.4.4 Re-book Appointment
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
-1. An Individual can select any of the Appointment Date available and any of the Appointment Spot available
+1. An Individual can select any of the Appointment Date available and any of the Appointment Slot available
 1. The Individual has to select against which Pre-Registration Id the Appointment spot is being booked
-1. The system maps appointment spot with all the Pre-Registration Ids which are selected for Appointment Booking. 
+1. The system maps appointment slot with all the Pre-Registration Ids which are selected for Appointment Booking. 
 1. If any Pre-Registration Id does not have Booking mapped, the user is notified if he wants to continue without booking
 1. An Individual at this stage may opt to search Registration center. In this case the appointment -booking (Time Slot selected) done is removed
 1. An Individual can not  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
