@@ -37,7 +37,7 @@
 The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
 # 2. Features
-## 2.1 Login/Creating a user account
+## 2.1 Login/Creating a User Account
 ### 2.1.1 Login using Email
 The Individual can login to the Pre-registration Portal by providing his/her Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first time) or Dashboard (if existing user).
 
