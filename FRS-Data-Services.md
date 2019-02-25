@@ -201,7 +201,7 @@ Refer below for the process:
 1. Validates if the UIN is of configured length.
 1. Validates the UIN by verifying the checksum
 1. Validates if the UIN received as per the UIN generation logic
-1. Responds to the source with appropriate message 
+1. Responds to the source with an appropriate message 
 1. Raises an alert in case of exceptions. 
 
 #### 4.2.3 PRID Validator
@@ -211,7 +211,7 @@ Upon receiving a request to validate the PRID, the system validates the PRID aga
 Refer below for the process:
 1. Validates if the received PRID contains number of digits as configured by the ADMIN
 1. Validates the PRID received as per the PRID generation logic 
-1. Responds to the source with appropriate message 
+1. Responds to the source with an appropriate message 
 1. Raises an alert in case of exceptions. 
 
 #### 4.2.4 VID Validator
@@ -222,7 +222,7 @@ Refer below for the process:
 1. Validates if the VID is of configured length.
 1. Validates the VID by verifying the checksum
 1. Validates if the VID received as per the VID generation logic
-1. Responds to the source with appropriate message and raises an alert in case of exceptions.
+1. Responds to the source with an appropriate message and raises an alert in case of exceptions.
 
 #### 4.2.5 RID Validator
 
