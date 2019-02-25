@@ -151,6 +151,8 @@ MOSIP system can facilitate transliteration by integrating with a third party se
 2. Transliterates the Word received from Input Language to Output Language
 1. In case of Exceptions, system triggers relevant error messages.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-transliteration.md)
+
 ## 6. MOSIP Utils
 ### 6.1 Mobile Data Validator
 
