@@ -38,10 +38,9 @@
 |4.|Pre-registration|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer Section 4 in the linked page|
 |5.|Pre-registration|Test Cases|[Click to view](https://mosipid.atlassian.net/browse/MOS-17241?jql=project%20%3D%2010000%20AND%20issuetype%20%3D%20Test%20and%20%22Epic%20Link%22%3DMOS-2)||
 |6.|Pre-registration|Mindmaps|[Click to View](https://github.com/mosip/mosip/tree/master/docs/testing/Pre-Registration/Mindmaps)||
-|7.|Pre-registration|Automation Framework|Link||
+|7.|Pre-registration & Kernel|Automation Framework|Link||
 |8.|Kernel|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)|Refer Section 1 in the linked page|
 |9.|Kernel|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1 ](https://github.com/mosip/mosip/wiki/Platform-Documentation)|WIP|
 |10.|Kernel|Tested Code|[Tag: 0.8.13](https://github.com/mosip/mosip/releases/tag/0.8.13)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](http://104.215.158.154:9000/dashboard?id=io.mosip.kernel%3Akernel-parent)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
 |11.|Kernel|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)|Refer Section 5 in the linked page|
 |12.|Kernel|Test Cases|Link||
-|13.|Kernel|Automation Framework|Link||
