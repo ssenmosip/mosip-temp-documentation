@@ -79,7 +79,7 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 ### 2.2.5 Modify Application Data
-The Individual Can Modify the Pre-Registration data by selecting the Modify Information from the Dashboard. The system provides the Demographic form with pre-filled demo details. The Individual can edit the required changes. The system associates the modified demo details with the Pre-Registration Id for which modifies information is initiated.
+The Individual Can Modify the Pre-Registration data by selecting the Modify Information from the Dashboard. The system provides the Demographic form with pre-filled demo details. The Individual can edit the required changes. The system associates the modified demo details with the Pre-Registration Id for which modify information is initiated.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
 
