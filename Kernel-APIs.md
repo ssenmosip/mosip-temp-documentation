@@ -1523,7 +1523,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 This service returns the document categories for a particular applicant type. 
 
 ### Resource URL
-### `GET /applicanttype/getDocCategories`
+### `GET /applicanttype/getDocCategories?applicationtypecode="APP-C-94&languages=eng,fra,ara`
 
 ### Resource details
 Resource Details | Description
@@ -1535,17 +1535,11 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
+languages|Yes|Languages separated by comma as the delimiter| -NA- |eng,fra,ara
+
 
 ### Example Request
-```JSON
-{
-	"id": "mosip.applicanttype.getDocCatAndTyp",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"request" : {
-		"applicationtypecode": "APP-C-94"
-	}
-}
+NA
 ```
 ### Example Response
 ```JSON
