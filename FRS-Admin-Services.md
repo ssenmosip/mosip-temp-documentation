@@ -398,7 +398,7 @@ On receiving a request to fetch Document Category Details with the input paramet
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, responds with all the data.
-1. Validates if the response contain the following attributes for the Document Category Code
+1. Validates if the response contains the following attributes for the Document Category Code
    * Document Category Code - Mandatory
    * Document Category Name - Mandatory
    * Document Category Description - Optional
@@ -467,7 +467,7 @@ While fetching the list of documents, the system performs the following steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * Applicant Type Code - Mandatory
 2. If the mandatory input parameter is missing, responds with the appropriate error message
-1. Validates if the response contain the following attributes for each Document Category Code
+1. Validates if the response contains the following attributes for each Document Category Code
    * Document Category Code
    * Name
    * Description
@@ -640,7 +640,7 @@ The system performs the following steps:
 
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (3) - Mandatory
-2. Deleted record should not deleted again
+2. Deleted record should not be deleted again
 1. Responds with data not found error  if deleted record is received in the request
 1. Responds with the Language Code for the language successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
@@ -956,7 +956,7 @@ Refer below for the process:
 
 Upon receiving a request to Fetch List of Applications, the system fetches all the List of Applications and performs the following steps:
 
-1. Validates if the response contain the following attributes for each Application
+1. Validates if the response contains the following attributes for each Application
    * Application ID
    * Application Detail
    * IsActive
@@ -977,7 +977,7 @@ Refer below for the process:
 
 2. Responds with the Application Data against the Application ID and Language Code Received
 
-1. Validates if the response contain the following attributes for each Application
+1. Validates if the response contains the following attributes for each Application
    * Application ID
    * Application Detail
    * IsActive
@@ -1186,7 +1186,7 @@ Refer below for the process:
    * Registration Center ID - Mandatory
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message. 
-1. System also validates if the response contain the following attributes for the Registration Center ID along with values as applicable
+1. System also validates if the response contains the following attributes for the Registration Center ID along with values as applicable
    * Registration Center ID
    * Registration Center Name
    * Longitude
@@ -1217,7 +1217,7 @@ Refer below for the process:
    * Language Code - Mandatory
 2. The record fetched are  the latest record existing on or before the date received in the input parameter
 1. If the mandatory input parameters are missing, system throws the appropriate message. 
-1. Validates if the response contain the following attributes for the Registration Center ID along with values as applicable
+1. Validates if the response contains the following attributes for the Registration Center ID along with values as applicable
    * Registration Center ID
    * Registration Center Name
    * Longitude
@@ -1519,7 +1519,7 @@ Refer below for the process:
    * Date - Mandatory
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, throws the appropriate message
-1. Validates if the response contain the following attributes for the Machine ID and Language Code Received
+1. Validates if the response contains the following attributes for the Machine ID and Language Code Received
    * Machine ID
    * Machine Name
    * Mac Address
@@ -1541,7 +1541,7 @@ Refer below for the process:
    * Language Code
 2. If the request has come for fetching all the machine details, responds with all the list of machines
 1. If the mandatory input parameters are missing, throws the appropriate message. 
-1. Validates if the response contain the following attributes for the Machine ID
+1. Validates if the response contains the following attributes for the Machine ID
    * Machine ID
    * Machine Name
    * Mac Address
@@ -1683,7 +1683,7 @@ Refer below for the process:
    * Date - Mandatory
    * Language Code - Mandatory
 2. If the mandatory input parameters are missing, system throws the appropriate message
-1. Validates if the response contain the following attributes for the Device ID and Language Code Received
+1. Validates if the response contains the following attributes for the Device ID and Language Code Received
    * Device ID - Mandatory
    * Device Name - Mandatory
    * Mac Address - Mandatory
