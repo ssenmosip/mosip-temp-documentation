@@ -117,7 +117,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-service.md)
 
 #### 2.4.1.1 Recommended Centers based on Postal Code
-1. The system fetches the Location Hierarchy as defined in the Master Data and recommends registration centers based on the postal code
+1. The system recommends registration centers based on the postal code(s) of all the applicants for whom the appointment is to be booked
 1. The search results have the following information about the Registration Center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
 
 #### 2.4.1.2 Nearby centers based on User Geo-location
