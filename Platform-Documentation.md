@@ -142,7 +142,7 @@ Please refer wiki for detailed functional specification of the following service
 ## 4.	MOSIP SCOPE
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications
-This Section provides a detailed functional requirement specification for each module in MOSIP
+This section provides a detailed functional requirement specification for each module in MOSIP
 #### 5.1.1 [FRS Pre-Registration](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration)
 #### 5.1.2 [FRS Data Services](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
 #### 5.1.3 [FRS Common Services](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
@@ -153,7 +153,7 @@ This Section provides a detailed functional requirement specification for each m
 #### 5.1.8 [FRS Authentication Services](https://github.com/mosip/mosip/wiki/Authentication-Services)
 #### 5.1.9 [FRS Resident Services](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
 ### 5.2 Non- Functional Requirement Specifications
-This Section details out the non-functional requirements of MOSIP platform
+This section details out the non-functional requirements of MOSIP platform
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
 ## 6. PRODUCT DEMO (VDs)
@@ -239,27 +239,30 @@ Navigate to wiki for further details.
 ### 8.10 Integration with External Systems
 This section illustrates the integrational specifications of MOSIP with an external system – WIP.
 
-
-
-
-
 ## 9. MOSIP APIs
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 9.1	External APIs
 This sections details out the external APIs of MOSIP that interact with external entities.
 #### 9.1.1 ID Authentication APIs
 Format: JSON
+
 This section details the REST services exposed by ID Authentication. 
-Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication). This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
+
+Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication). 
+
+This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
 1. OTP based - TOTP
 1. Pin based - Static Pin
 1. Demo based - PersonalIdentity, Address, FullAddress
 1. Bio based - Fingerprint, IRIS and Face
 #### 9.1.2	ABIS APIs
 Format: JSON
+
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
 
-Refer [wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
+Refer [wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). 
+
+All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
 This service details the behavior of:
 1. Insert Request
 1. Identify Request
@@ -269,22 +272,26 @@ This service details the behavior of:
 1. Reference Count Request
 #### 9.1.3	OTP Manager API
 Format: JSON
+
 OTP manager includes APIs for
 1. OTP generation
 1. OTP validation. 
+
 Please refer [wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
 #### 9.1.4	Pre-Registration APIs
 Format: JSON
-This section [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
+
+This [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
 #### 9.1.5	Registration Processor APIs
 Format: JSON
+
 This API will support the following features
 1. APIs for receiving packets
 1. APIs for packet registration status
 1. APIs for Manual Verification. Refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) for more details
 ### 9.2	Internal APIs
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
-#### 9.2.1	Kernel
+#### 9.2.1 Kernel
 The Kernel APIs cover the following APIS
 1. APIs for key management
 1. APIs for master data management
