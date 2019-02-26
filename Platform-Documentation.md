@@ -95,9 +95,14 @@ MOSIP (Modular Open Source Identity Platform) helps government countries to buil
 ## 3.	MOSIP FUNCTIONAL OVERVIEW
 This section details out the design aspects of MOSIP, driven by the key functional modules as listed below. Navigate to wiki for further details on each module. 
 ### 3.1 Pre-Registration
-Pre-registration is the module which is the web channel of MOSIP. This section elaborates on the key design considerations for Pre-registration which include micro-service based architecture, Data validation as executed in UI, key design patterns like aggregate service pattern and proxy design pattern. It also elaborates on the architecturally significant use cases by providing a Process View and Conceptual View.
+Pre-registration is the module which is the web channel of MOSIP. This section elaborates on the the following aspects of the pre-registration module
+A.Key design considerations for Pre-registration which include micro-service based architecture, Data validation as executed in UI, key design patterns like aggregate service pattern and proxy design pattern. It also elaborates on the architecturally significant use cases by providing a Process View and Conceptual View.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration) for more details.
+
+B.Detailed functional requirement specifications for Pre-registration
+
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details.
 
 ### 3.2 Registration Client
 Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about a parent/guardian/introducer) and packages the information in a secure way. This section provides details on the architecturally significant use cases of Registration Client, which include the ability to be adhered to industry standards, facilitate secure data transmission, Process View and Logical View, to name a few.
