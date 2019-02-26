@@ -158,7 +158,8 @@ A.Provides details on the active framework of MOSIP, its structure & rules withi
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details.
 
-B. Detailed functional requirement specifications 
+B. Detailed functional requirement specifications
+ 
 Please refer wiki for detailed functional specification of the following services
 * [Sub-Systems](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems)
 * [Common Services](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
