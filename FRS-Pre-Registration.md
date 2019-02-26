@@ -146,6 +146,10 @@ The user opts to view the available slots for a selected registration center.
 1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
 1. An Individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available slots for every time slot shown in the selected calendar day
+1. The system auto-suggest the closest available timeslot(s) to the chosen applicant(s) and allocates it 
+1. An applicant however can further update the preference and choose the preferred timeslot
+1. An individual can book the appointment for the preferred/chosen time slot – Subsequently the timeslots are locked
+
 
 ### 2.4.3 Cancel Appointment
 1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
