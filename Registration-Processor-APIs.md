@@ -69,7 +69,7 @@ Description: Packet successfully uploaded to landing zone
 This service return the registration current status for list of input registration ids.
 
 ### Resource URL
-### `POST /registration-processor/registrationstatus/v1.0`
+### `GET /registration-processor/registrationstatus/v1.0`
 
 ### Resource details
 
