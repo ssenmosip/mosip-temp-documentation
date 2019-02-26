@@ -140,8 +140,9 @@ The First Registration Center as per the search criteria is shown to the Individ
 
 ### 2.4.2 Choosing Appointment Slots
 
-#### 2.4.2.1 Get Slots AvailabilityThe user selects a search criteria and based on the search criteria specified
-1. The system displays 7 calendar days (configurable) for the Individual to select a slot
+#### 2.4.2.1 Get Slots Availability
+The user opts to view the available slots for a selected registration center.
+1. The system displays 7 calendar days (configurable) for the Individual to select a slot in the chosen center
 1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
 1. An Individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available slots for every time slot shown in the selected calendar day
