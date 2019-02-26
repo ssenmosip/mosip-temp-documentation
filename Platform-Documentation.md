@@ -15,8 +15,7 @@
   * [3.5 Kernel](#35-kernel)
   * [3.6 Administration](#36-administration)
   * [3.7 Resident Services](#37-resident-services)
-  * [3.8 Reports](#38-reports)
-* [4. MOSIP SCOPE](#4mosip-scope)
+ * [4. MOSIP SCOPE](#4mosip-scope)
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications)
   * [5.2 Non-Functional Requirement Specifications](#52-non--functional-requirement-specifications)
@@ -168,7 +167,6 @@ Please refer wiki for detailed functional specification of the following service
 
 ### 3.6 Administration
 ### 3.7 Resident Services
-### 3.8 Reports
 ## 4.	MOSIP SCOPE
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications
