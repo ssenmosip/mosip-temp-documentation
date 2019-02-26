@@ -161,6 +161,7 @@ An Individual may opt to  perform text search to find a center based on which th
 
 ### 2.5.1 Download Acknowledgement
 Individual can choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later
+
 The acknowledgement template is language and channel (email,sms,on screen) specific.
 
 [**Reference Templates**](https://github.com/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration) 
