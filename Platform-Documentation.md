@@ -136,6 +136,7 @@ Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Registration-Process
 ID Authentication provides an API based authentication mechanism for entities to validate Individuals. 
 
 This section elaborates the following aspects of ID authentication services
+
 **A**. Provides details on the architecturally significant use cases of ID-Authentication, which include specifics on API standards, the Process View and Logical View, to list a few.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication) for more details.
@@ -145,9 +146,24 @@ Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication) for m
 Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services) for more details.
 
 ### 3.5 Kernel
-Kernel is a platform to build higher-level services as well as a secure sandbox. This section provides details on the active framework of MOSIP, its structure & rules within which the higher-level services operate, the architecturally significant use cases and Logical View, to name a few.
+Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services
+* Sub-Systems
+* Common Services
+* Data Services
+* Admin Services
+
+This section elaborates the following aspects of Kernel
+
+A.Provides details on the active framework of MOSIP, its structure & rules within which the higher-level services operate, the architecturally significant use cases and Logical View, to name a few.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Kernel) for more details.
+
+B. Detailed functional requirement specifications 
+Please refer wiki for detailed functional specification of the following services
+* [Sub-Systems](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems)
+* [Common Services](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
+* [Data Services](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
+* [Admin Services](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
 
 ### 3.6 Administration
 ### 3.7 Resident Services
