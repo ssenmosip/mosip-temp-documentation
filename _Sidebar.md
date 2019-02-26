@@ -37,7 +37,7 @@
 * [Contribute to MOSIP](https://github.com/mosip/mosip/wiki/Contribute-to-MOSIP) 
 * [Minutes of Key Meetings](https://github.com/mosip/mosip/wiki/Minutes-of-Key-Meetings)
 * [Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation)
-* [Deliverables](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables)
+* [Deliverables](https://github.com/mosip/mosip/wiki/Deliverables)
   * [Feb'19](https://github.com/mosip/mosip/wiki/Feb'19)
   * [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)
   * [Attachments](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)
