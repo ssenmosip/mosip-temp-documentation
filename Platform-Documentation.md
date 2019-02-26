@@ -154,6 +154,7 @@ This Section provides a detailed functional requirement specification for each m
 #### 5.1.9 [FRS Resident Services](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
 ### 5.2 Non- Functional Requirement Specifications
 This Section details out the non-functional requirements of MOSIP platform
+
 Please refer [wiki](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
 ## 6. PRODUCT DEMO (VDs)
 ## 7.	MOSIP ARCHITECTURE OVERVIEW
