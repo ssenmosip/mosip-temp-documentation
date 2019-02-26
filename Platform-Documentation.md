@@ -100,7 +100,7 @@ A. Key design considerations for Pre-registration which include micro-service ba
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration) for more details.
 
-Detailed functional requirement specifications for Pre-registration
+B. Detailed functional requirement specifications for Pre-registration
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details.
 
