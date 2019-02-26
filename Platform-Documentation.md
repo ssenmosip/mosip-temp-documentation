@@ -123,6 +123,7 @@ Please refer [wiki](https://https://github.com/mosip/mosip/wiki/FRS-Registration
 Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). 
 
 This section elucidates the following aspects of Registration Processor
+
 **A.**Architecturally significant use cases of Registration Processor, which include ability to be scalable, facilitate integration, look-up of the Process View and Logical View, to name a few.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor) for more details.
@@ -132,9 +133,16 @@ B.Detailed functional requirement specifications for Registration Processor
 Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor) for more details
 ### 3.4 ID Authentication
 
-MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. This section provides details on the architecturally significant use cases of ID-Authentication, which include specifics on API standards, the Process View and Logical View, to list a few.
+ID Authentication provides an API based authentication mechanism for entities to validate Individuals. 
+
+This section elaborates the following aspects of ID authentication services
+**A**. Provides details on the architecturally significant use cases of ID-Authentication, which include specifics on API standards, the Process View and Logical View, to list a few.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Authentication) for more details.
+
+**B.** Detailed functional requirement specifications for authentication services
+
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services) for more details.
 
 ### 3.5 Kernel
 Kernel is a platform to build higher-level services as well as a secure sandbox. This section provides details on the active framework of MOSIP, its structure & rules within which the higher-level services operate, the architecturally significant use cases and Logical View, to name a few.
