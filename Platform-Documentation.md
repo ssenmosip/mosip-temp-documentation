@@ -98,14 +98,14 @@ Pre-registration  is the web channel of MOSIP.
 
 Detailed functional requirement specifications for Pre-registration
 
-Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details.
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details.
 
 ### 3.2 Registration Client
 Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about a parent/guardian/introducer) and packages the information in a secure way. 
 
 Detailed functional requirement specifications for Registration Client
 
-Please refer [wiki](https://https://github.com/mosip/mosip/wiki/FRS-Registration-Services) for more details.
+Please refer [**wiki**](https://https://github.com/mosip/mosip/wiki/FRS-Registration-Services) for more details.
 
 
 ### 3.3 Registration Processor
@@ -309,11 +309,11 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 1. Updation of an ID record based on the UIN
 1. Will not support search based on attributes of an ID
 
-Please refer [wiki](https://github.com/mosip/mosip/wiki/ID-Repository-API) for more details
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/ID-Repository-API) for more details
 
 ### 10. HOW TO GUIDE (TBD)
 #### 10.1 Getting Started Guide
-Please refer [wiki](https://github.com/mosip/mosip/wiki/Getting-Started) for more details
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/Getting-Started) for more details
 #### 10.2 Developer Document
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS
 ## 12.  GLOSSARY
