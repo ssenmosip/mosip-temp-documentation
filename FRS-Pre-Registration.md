@@ -60,7 +60,7 @@ The Individual is provided with Demographic form based on the id Object Definiti
 
 ### 2.2.2 Create Multiple Applications
 
-Once the Demographic Details are filled and the Documents are uploaded, if the Individual wishes to add an applicant, he/she can opt to select _Add an Applicant_ option on the preview page or on the Dashboard. The system provides the Individual with Demographic form based on the defined id Object Definition to fill. The system associates the pre-registration Id to the new Application(s) created.
+Once the Demographic Details are filled and the Documents are uploaded, if the Individual wishes to add an applicant, he/she can opt to select _Add An Applicant_ option on the preview page or _Create New Application_ option on the Dashboard. The system provides the Individual with Demographic form based on the defined id Object Definition to fill. The system associates the pre-registration Id to the new Application(s) created.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
@@ -83,9 +83,7 @@ If the individual visits the Registration Centre and consumes the appointment, t
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 ### 2.2.5 Modify Application Data
-The Individual Can Modify the Pre-Registration data by selecting the Modify information from the Dashboard. The system provides the Demographic form with pre-filled demo details. The Individual can edit the required changes. The system associates the modified demo details with the Pre-Registration Id for which Modify information is initiated.
-
-The individual can modify the pre-registration data by opting to select the “Modify” option for a specific application
+The individual can modify the pre-registration data by opting to select the “Modify” option for a specific application. The system provides the Demographic form with pre-filled demo details and allows the individual to edit the details as required. The system associates the modified demo details with the Pre-Registration Id for which Modify information is initiated.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
 
