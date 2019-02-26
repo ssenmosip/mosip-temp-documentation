@@ -43,7 +43,7 @@ The Individual can login to the Pre-registration Portal by providing his/her Ema
 
 
 ### 2.1.2 Login using Phone Number
-The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The system validates the Mobile Number, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
+The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The system validates the Mobile Number, once validated sends an OTP to the Mobile Number as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
 ### 2.1.3 Automatic Account Creation on First Login
 The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first-time user or not. If the Individual is first-time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
