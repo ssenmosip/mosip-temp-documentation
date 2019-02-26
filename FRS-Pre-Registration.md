@@ -105,11 +105,11 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 ### 2.3.2 Referring to already Uploaded Documents
-1. An Individual logs in to the pre-registration system and opts to Update\modify a Pre-Registration Application 
-1. The system redirects the Individual to the Demographic Details saved in the system earlier
-1. The Individual can update the required data (basic Demographic) and can proceed to upload Documents.
-1. The Individual may then opt to replace an existing document by uploading new document if he\she wants to update the document uploaded (for any of POI, POA, POB, and supporting Document)
-1. The Individual should then review and Confirm Details before proceeding to book appointment
+
+* The POA document could be uploaded or can be referred to an already uploaded POA of an existing applicant
+* The individual could select a particular applicant document to which he wants to refer 
+
+
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
