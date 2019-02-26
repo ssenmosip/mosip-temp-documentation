@@ -426,6 +426,15 @@ https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
 **Pre-Registration:**
 https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
 
+**Properties that need to be changed once the external dependencies are installed**
+1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
+2. To be precise, following are the changes that need to be done:   
+
+`mosip.kernel.virus-scanner.host=<your-clamav-hostname>`  <br/>
+`mosip.kernel.virus-scanner.port=<your-clamav-port>`  <br/>
+`mosip.kernel.fsadapter.ceph.access-key=<your-ceph-access-key>`  <br/>
+`mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
+`mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/>
 
 ### MOSIP database object deployment / configuration
 
