@@ -56,7 +56,8 @@ If the Individual wishes to logout of the Pre-Registration system, he/she can op
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
 
-The Individual is provided with Demographic form based on the id [Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. Once validated the Pre-Registration Id is generated and the Demographic details provided gets mapped to that PRID.
+The Individual is provided with Demographic form based on the id [Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
+Once validated the **Pre-Registration Id is generated** and the Demographic details provided gets mapped to that PRID.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
@@ -97,7 +98,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
 1. When an Individual provides his/her Demographic data, the Pre-registration system captures the data. 
-1. Based on the parameters (from Config file) used for Applicant type determination, the Pre-Registration system sends the Id to the mapping.
+1. Based on the parameters (from Config file) for example-The gender,age and residential status(Foreigner,national) from the demographic data applicant types are determined.The Pre-Registration system then sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
 
