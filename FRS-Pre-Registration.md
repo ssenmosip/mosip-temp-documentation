@@ -167,6 +167,11 @@ The acknowledgement template is language and channel (email,sms,on screen) spe
 [**Reference Templates**](https://github.com/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration) 
 ### 2.5.2 Send Acknowledgement to Email/Phone
 The system sends an acknowledgement to the  applicant through SMS, Email and on-screens as per the details provided in Demographic details
+
+In case of multiple application, the system sends notifications to each applicant (as defined in the demographic details of the applicant\s)
+
+An individual can opt to manually trigger notification\s to the contact details of additional recipients.
+
 ## 2.6 Registration Client Services
 ### 2.6.1 Get Appointment for the Day
 1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
