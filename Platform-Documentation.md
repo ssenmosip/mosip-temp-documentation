@@ -120,11 +120,16 @@ Please refer [wiki](https://https://github.com/mosip/mosip/wiki/FRS-Registration
 
 
 ### 3.3 Registration Processor
-Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). This section elucidates the architecturally significant use cases of Registration Processor, which include ability to be scalable, facilitate integration, look-up of the Process View and Logical View, to name a few.
+Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). 
+
+This section elucidates the following aspects of Registration Processor
+**A.**Architecturally significant use cases of Registration Processor, which include ability to be scalable, facilitate integration, look-up of the Process View and Logical View, to name a few.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Registration-Processor) for more details.
 
+B.Detailed functional requirement specifications for Registration Processor
 
+Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor) for more details
 ### 3.4 ID Authentication
 
 MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. This section provides details on the architecturally significant use cases of ID-Authentication, which include specifics on API standards, the Process View and Logical View, to list a few.
