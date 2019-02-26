@@ -78,7 +78,7 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 |**Booked**|  Appointment is booked successfully| 
 |**Expired**| Appointed date has passed| 
 
-if the individual visits the Registration Centre and consumes the appointment, then the application will be removed from the list
+If the individual visits the Registration Centre and consumes the appointment, then the application will be removed from the list
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
