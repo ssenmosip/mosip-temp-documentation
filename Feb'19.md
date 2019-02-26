@@ -44,3 +44,5 @@
 |10.|Kernel|Tested Code|[Tag: 0.8.13](https://github.com/mosip/mosip/releases/tag/0.8.13)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](http://104.215.158.154:9000/dashboard?id=io.mosip.kernel%3Akernel-parent)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
 |11.|Kernel|Known Defects and Pending Items|[Click to View](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)|Refer Section 5 in the linked page|
 |12.|Kernel|Test Cases|[Click to View](https://github.com/mosip/mosip/wiki/Testing-Attachments---Kernel)|
+|13.|PreRegistration Api|Test Cases|[Click to View](https://github.com/mosip/mosip/wiki/Testing-Attachments-PreRegistration-Api)|
+
