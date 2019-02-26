@@ -693,6 +693,10 @@ V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml`
 
 After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
 
+**NOTE** _kernel-config-server-deployment-and-service.yml_ is using a secret named **config-server-secret** , this service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command:
+
+`$ kubectl create secret generic <your-secret-name> --from-file=ssh-privatekey=/path/to/.ssh/id_rsa --from-file=ssh-publickey=/path/to/.ssh/id_rsa.pub`
+
 B. Continuous deployment 
 
 To be done later
