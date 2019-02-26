@@ -122,6 +122,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 #### 2.4.1.1 Recommended Centers based on Postal Code
 1. The system recommends registration centers based on the postal code(s) of all the applicants for whom the appointment is to be booked
 1. The search results have the following information about the Registration Center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
+The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 #### 2.4.1.2 Nearby centers based on User Geo-location
 1. An Individual can  enable location services,  in the device/machine in order to select nearby centers
@@ -130,12 +131,15 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 #### 2.4.1.3 Find a Center
 An Individual may opt to  perform text search to find a center based on which the system displays the registration centers
+It is a contextual search where the individual selects a search criteria and based on the search enters text. 
+The First Registration Center as per the search criteria is shown to the Individual on Map by default
+
 
 
 
 ### 2.4.2 Choosing Appointment Slots
 
-#### 2.4.2.1 Get Slots Availability
+#### 2.4.2.1 Get Slots AvailabilityThe user selects a search criteria and based on the search criteria specified
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot
 1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
