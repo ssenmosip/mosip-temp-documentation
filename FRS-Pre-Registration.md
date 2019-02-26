@@ -49,7 +49,7 @@ The Individual can login to the Pre-registration Portal by providing his/her Mob
 The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first-time user or not. If the Individual is first-time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
 
 ### 2.1.4 Logout/Session Timeout
-The Individual wishes to logout of the Pre-Registration system and clicks on the Logout. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
+If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
 
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
