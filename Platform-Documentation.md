@@ -96,11 +96,11 @@ This section details out the design aspects of MOSIP, driven by the key function
 ### 3.1 Pre-Registration
 Pre-registration  is the web channel of MOSIP. This section elaborates on the the following aspects of the pre-registration module
 
-**A.** Key design considerations for Pre-registration which include micro-service based architecture, Data validation as executed in UI, key design patterns like aggregate service pattern and proxy design pattern. It also elaborates on the architecturally significant use cases by providing a Process View and Conceptual View.
+A. Key design considerations for Pre-registration which include micro-service based architecture, Data validation as executed in UI, key design patterns like aggregate service pattern and proxy design pattern. It also elaborates on the architecturally significant use cases by providing a Process View and Conceptual View.
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/Pre-Registration) for more details.
 
-**B.** Detailed functional requirement specifications for Pre-registration
+Detailed functional requirement specifications for Pre-registration
 
 Please refer [wiki](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details.
 
