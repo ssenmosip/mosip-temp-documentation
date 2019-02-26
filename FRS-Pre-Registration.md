@@ -66,7 +66,7 @@ Once the Demographic Details are filled and the Documents are uploaded, if the I
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.3 Provide Data in Preferred Language
+### 2.2.3 Provide Data in Preferred Language (WIP)
 The Individual can select his/her language of preference (from a list of languages as set by Admin) from the Login Screen. The Individual can then provide data in the preferred language as selected
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
