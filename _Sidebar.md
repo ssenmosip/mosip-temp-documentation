@@ -41,3 +41,5 @@
   * [Feb'19](https://github.com/mosip/mosip/wiki/Feb'19)
   * [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)
   * [Attachments](https://github.com/mosip/mosip/wiki/TechnoForte-Deliverables---Attachments)
+  * [Testing Attachments - Kernel ()
+  * Tesing Attachments - Pre-registration Pre ()
