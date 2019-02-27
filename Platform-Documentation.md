@@ -113,7 +113,7 @@ Registration Client application captures the Demographic and Biometric details o
 1. Client has the ability to update itself for patch upgrades (bug fixes/enhancements) in a remote way. There could be hundreds of client instances running on laptops/desktops. Updates on all of them are controlled by the client and a central server.
 1. Registration client is secured such that it cannot be tampered and misused
 
-Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Registration-Services)for detailed functional specifications of registration services.
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Registration-Services) for detailed functional specifications of registration services.
 
 
 ### 3.3 Registration Processor
