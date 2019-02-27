@@ -11,7 +11,7 @@
     * [2.2.1 Provide Demographic Data](#221-provide-demographic-data) _(PRE_FR_2.1)_
     * [2.2.2 Provide Consent](#222-provide-consent) _(PRE_FR_2.2)_
     * [2.2.3 Create Multiple Applications](#223-create-multiple-applications) _(PRE_FR_2.3)_
-    * [2.2.4 Provide Data in Preferred Language](#224-provide-data-in-preferred-language-wip) _(PRE_FR_2.4)_
+    * [2.2.4 Provide Data in Preferred Language (WIP)](#224-provide-data-in-preferred-language-wip) _(PRE_FR_2.4)_
     * [2.2.5 Viewing "My Applications" (covers status)](#225-viewing-my-applications-covers-status) _(PRE_FR_2.5)_
     * [2.2.6 Modify Application Data](#226-modify-application-data) _(PRE_FR_2.6)_
     * [2.2.7 Discard Application](#227-discard-application) _(PRE_FR_2.7)_
