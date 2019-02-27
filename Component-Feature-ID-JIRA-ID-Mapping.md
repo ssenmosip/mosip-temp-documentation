@@ -2,14 +2,14 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID**|
 |:------:|-----|---|---|---|
-|1.|OTP Manager|Description|CMN_FR_1|MOS-xxx|
-|2.|QR Code Generator|Description|CMN_FR_2|MOS-xxx|
-|3.|Crypto Services|Key Generator|CMN_FR_3.1|MOS-xxx|
-|4.|Crypto Services|Key Management|CMN_FR_3.2|MOS-xxx|
-|5.|Crypto Services|Crypto Utility|CMN_FR_3.3|MOS-xxx|
-|6.|Crypto Services|Hash Utility|CMN_FR_3.4|MOS-xxx|
-|7.|Crypto Services|HMAC Utility/Checksum Utility|CMN_FR_3.5|MOS-xxx|
-|8.|Key Generator|Description|CMN_FR_3.1|MOS-xxx|
+|1.|OTP Manager|Description|[CMN_FR_1](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|2.|QR Code Generator|Description|[CMN_FR_2](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|3.|Crypto Services|Key Generator|[CMN_FR_3.1](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|4.|Crypto Services|Key Management|[CMN_FR_3.2](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|5.|Crypto Services|Crypto Utility|[CMN_FR_3.3](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|6.|Crypto Services|Hash Utility|[CMN_FR_3.4](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|7.|Crypto Services|HMAC Utility/Checksum Utility|[CMN_FR_3.5](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
+|8.|Key Generator|Description|[CMN_FR_3.1](https://github.com/mosip/mosip/wiki/FRS-Common-Services)|MOS-xxx|
 
 **2. Data Services:**
 
