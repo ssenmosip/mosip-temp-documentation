@@ -138,7 +138,7 @@ Detailed functional requirement specifications for authentication services
 Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services) for more details.
 
 ### 3.5 Kernel
-Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services
+Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services:
 * UIN Generation
 * Configuration Server
 * Audit Manager
@@ -148,7 +148,7 @@ Kernel is a platform to build higher-level services as well as a secure sandbox.
 * Data Services
 * Admin Services
 
-Please refer wiki for detailed functional specification of the following services
+Please refer wiki for detailed functional specification of the following services:
 * [**UIN Generation**](https://github.com/mosip/mosip/wiki/UIN-Generation)
 * [**Configuration Server**](https://github.com/mosip/mosip/wiki/Configuration-Server)
 * [**Audit Manager**](https://github.com/mosip/mosip/wiki/Audit-Manager)
