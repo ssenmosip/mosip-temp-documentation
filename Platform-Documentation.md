@@ -153,7 +153,7 @@ Please refer wiki for detailed functional specification of the following service
 * [**Configuration Server**](https://github.com/mosip/mosip/wiki/Configuration-Server)
 * [**Audit Manager**](https://github.com/mosip/mosip/wiki/Audit-Manager)
   * [**Log manager**](https://github.com/mosip/mosip/wiki/Audit-Manager#log-manager)
-* [**Authentication and Authorization**](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization)
+* [**Authentication and Authorization**](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization(WIP))
 * [**Common Services**](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
 * [**Data Services**](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
 * [**Admin Services**](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
