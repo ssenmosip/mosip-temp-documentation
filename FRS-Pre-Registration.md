@@ -8,12 +8,13 @@
     * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) 
     * [2.1.4 Logout/Session Timeout](#214-logoutsession-timeout) 
   * [2.2 Creating an Application](#22-creating-an-application) _(MOS_PFM_PRG_FR_2)_
-    * [2.2.1 Provide Demographic Data](#221-provide-demographic-data) 
-    * [2.2.2 Create Multiple Applications](#222-create-multiple-applications) 
-    * [2.2.3 Provide Data in Preferred Language](#223-provide-data-in-preferred-language) 
-    * [2.2.4 Viewing "My Applications" (covers status)](#224-viewing-my-applications-covers-status) 
-    * [2.2.5 Modify Application Data](#225-modify-application-data) 
-    * [2.2.6 Discard Application](#226-discard-application) 
+    * [2.2.1 Provide Demographic Data](#221-provide-demographic-data)
+    * [2.2.2 Provide Consent](#222-provide-consent)
+    * [2.2.3 Create Multiple Applications](#223-create-multiple-applications) 
+    * [2.2.4 Provide Data in Preferred Language](#224-provide-data-in-preferred-language) 
+    * [2.2.5 Viewing "My Applications" (covers status)](#225-viewing-my-applications-covers-status) 
+    * [2.2.6 Modify Application Data](#226-modify-application-data) 
+    * [2.2.7 Discard Application](#227-discard-application) 
   * [2.3 Attaching Documents to the Application](#23-attaching-documents-to-the-application) _(MOS_PFM_PRG_FR_3)_
     * [2.3.1 Document Categories and Applicable Document Types](#231-document-categories-and-applicable-document-types) 
     * [2.3.2 Referring to already Uploaded Documents](#232-referring-to-already-uploaded-documents) 
@@ -61,18 +62,29 @@ Once validated the **Pre-Registration Id is generated** and the Demographic deta
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.2 Create Multiple Applications
+### 2.2.2 Provide Consent
+
+An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide his/her consent for storage and utilization of his/her personal information. On providing his/her consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
+
+In case of closure of the Consent Pop-up: 
+1. First-time login: On closure, then system alerts the user that he will be logged out due to not providing consent.
+1. Existing User login
+   * Scenario 1 Create new Application from Dashboard: On closure, the Individual will be redirected to Dashboard page.
+   * Scenario 2 Add Applicant from Preview Page: On closure, the individual will be redirected to Dashboard page.
+
+
+### 2.2.3 Create Multiple Applications
 
 Once the Demographic Details are filled and the Documents are uploaded, if the Individual wishes to add an applicant, he/she can opt to select _Add An Applicant_ option on the preview page or _Create New Application_ option on the Dashboard. The system provides the Individual with Demographic form based on the defined id Object Definition to fill. The system associates the pre-registration Id to the new Application(s) created.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.3 Provide Data in Preferred Language (WIP)
+### 2.2.4 Provide Data in Preferred Language (WIP)
 The Individual can select his/her language of preference (from a list of languages as set by Admin) from the Login Screen. The Individual can then provide data in the preferred language as selected
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
 
-### 2.2.4 Viewing "My Applications" (covers status)
+### 2.2.5 Viewing "My Applications" (covers status)
 The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
 
 |Status|Description|
@@ -85,12 +97,12 @@ If the individual visits the Registration Centre and consumes the appointment, t
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.5 Modify Application Data
+### 2.2.6 Modify Application Data
 The individual can modify the pre-registration data by opting to select the “Modify” option for a specific application. The system provides the Demographic form with pre-filled demo details and allows the individual to edit the details as required. The system associates the modified demo details with the Pre-Registration Id for which Modify information is initiated.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
 
-### 2.2.6 Discard Application
+### 2.2.7 Discard Application
 The Individual can discard the Pre-Registration by clicking on the Delete icon for the Pre-Registration Id for which he/she wishes to discard. The system provides the Individual with two options: ‘Discard entire Application’ or ‘Cancel Appointment.' The Individual choses to discard entire Application. The system deletes all the data mapped to the Pre-Registration Id and cancels the appointment (if any).
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
