@@ -1,3 +1,4 @@
+* **Authentication and Authorization** _(AUT_FR_1)_
 
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:
 
