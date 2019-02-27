@@ -22,6 +22,9 @@
 
 [12. Individual Types Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#12-individual-types)
 
+[13. UIN acknowledgement service](https://github.com/mosip/mosip/wiki/Kernel-APIs#13-uin-acknowledgement-service)
+
+
 # 1. Key Manager
 ## 1.1 Public key-get service
 
