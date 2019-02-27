@@ -1,32 +1,32 @@
 ## Table Of Content
 - [Common Services](#common-services)
-  * [1. OTP Manager](#1-otp-manager) (MOS_PFM_COS_FR_1)
-  * [2. QR Code Generator](#2-qr-code-generator) (MOS_PFM_COS_FR_2)
-  * [3. Crypto Services](#3-crypto-services) (MOS_PFM_COS_FR_3)
-    * [3.1 Key Generator](#31-key-generator)
-    * [3.2 Key Management](#32-key-management)
-    * [3.3 Crypto Utility](#33-crypto-utility)
-    * [3.4 Hash Utility](#34-hash-utility)
-    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utilitychecksum-utility)
-  * [4. Notification](#4-notification) (MOS_PFM_COS_FR_4)
-    * [4.1 OTP Notification Services](#41-otp-notification-services)
-    * [4.2 Email Notification](#42-email-notification)
-    * [4.3 SMS Notification](#43-sms-notification)
-    * [4.4 PDF Generator](#44-pdf-generator)
-    * [4.5 Template Merger](#45-template-merger)
-  * [5. Transliteration](#5-transliteration) (MOS_PFM_COS_FR_5)
-  * [6. MOSIP Utils](#6-mosip-utils) (MOS_PFM_COS_FR_6)
-    * [6.1 Mobile Data Validator](#61-mobile-data-validator)
-    * [6.2 Email Data Validator](#62-email-data-validator)
-    * [6.3 Exception Framework](#63-exception-framework)
-    * [6.4 Calendar Utility](#64-calendar-utility)
-    * [6.5 Date Utility](#65-date-utility)
-    * [6.6 File Utility](#66-file-utility)
-    * [6.7 Json Utility](#67-json-utility)
-    * [6.8 Math Utility](#68-math-utility)
-    * [6.9 String Utility](#69-string-utility)
-    * [6.10 UUID Utility](#610-uuid-utility)
-    * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility)
+  * [1. OTP Manager](#1-otp-manager) _(CMN_FR_1)_
+  * [2. QR Code Generator](#2-qr-code-generator) _(CMN_FR_2)_
+  * [3. Crypto Services](#3-crypto-services) _(CMN_FR_3)_
+    * [3.1 Key Generator](#31-key-generator) _(CMN_FR_3.1)_
+    * [3.2 Key Management](#32-key-management) _(CMN_FR_3.2)_
+    * [3.3 Crypto Utility](#33-crypto-utility) _(CMN_FR_3.3)_
+    * [3.4 Hash Utility](#34-hash-utility) _(CMN_FR_3.4)_
+    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utilitychecksum-utility) _(CMN_FR_3.5)_
+  * [4. Notification](#4-notification) (MOS_PFM_COS_FR_4) _(CMN_FR_4)_
+    * [4.1 OTP Notification Services](#41-otp-notification-services) _(CMN_FR_4.1)_
+    * [4.2 Email Notification](#42-email-notification) _(CMN_FR_4.2)_
+    * [4.3 SMS Notification](#43-sms-notification) _(CMN_FR_4.3)_
+    * [4.4 PDF Generator](#44-pdf-generator) _(CMN_FR_4.4)_
+    * [4.5 Template Merger](#45-template-merger) _(CMN_FR_4.5)_
+  * [5. Transliteration](#5-transliteration) _(CMN_FR_5)_
+  * [6. MOSIP Utils](#6-mosip-utils) _(CMN_FR_6)_
+    * [6.1 Mobile Data Validator](#61-mobile-data-validator) _(CMN_FR_6.1)_
+    * [6.2 Email Data Validator](#62-email-data-validator) _(CMN_FR_6.2)_
+    * [6.3 Exception Framework](#63-exception-framework) _(CMN_FR_6.3)_
+    * [6.4 Calendar Utility](#64-calendar-utility) _(CMN_FR_6.4)_
+    * [6.5 Date Utility](#65-date-utility) _(CMN_FR_6.5)_
+    * [6.6 File Utility](#66-file-utility) _(CMN_FR_6.6)_
+    * [6.7 Json Utility](#67-json-utility) _(CMN_FR_6.7)_
+    * [6.8 Math Utility](#68-math-utility) _(CMN_FR_6.8)_
+    * [6.9 String Utility](#69-string-utility) _(CMN_FR_6.9)_
+    * [6.10 UUID Utility](#610-uuid-utility) _(CMN_FR_6.10)_
+    * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility) _(CMN_FR_6.11)_
 # Common Services
 ## 1. OTP Manager
 ### A. OTP Generation
