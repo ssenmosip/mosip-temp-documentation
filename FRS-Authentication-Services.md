@@ -1,22 +1,22 @@
 * [4. Authentication Services]()
-  * [4.1 Single factor Authentication]() (MOS_PFM_IDA_FR_1)
-    * [4.1.1 Biometric Authentication]()
-    * [4.1.2 Demographic Authentication]()
-    * [4.1.3 OTP Authentication]()
-    * [4.1.4 Static PIN Authentication]()
-  * [4.2 Multi-factor Authentication]() (MOS_PFM_IDA_FR_2)
-  * [4.3 Offline Authentication]() (MOS_PFM_IDA_FR_3)
-    * [4.3.1 QR Code based Authentication]()
-  * [4.4 KYC Service]() (MOS_PFM_IDA_FR_4)
-    * [4.4.1 Profile Sharing]()
+  * [4.1 Single factor Authentication]() _(IDA_FR_1)_
+    * [4.1.1 Biometric Authentication]() _(IDA_FR_1.1)_
+    * [4.1.2 Demographic Authentication]() _(IDA_FR_1.2)_
+    * [4.1.3 OTP Authentication]() _(IDA_FR_1.3)_
+    * [4.1.4 Static PIN Authentication]() _(IDA_FR_1.4)_
+  * [4.2 Multi-factor Authentication]() _(IDA_FR_2)_
+  * [4.3 Offline Authentication]() _(IDA_FR_3)_
+    * [4.3.1 QR Code based Authentication]() _(IDA_FR_3.1)_
+  * [4.4 KYC Service]() _(IDA_FR_4)_
+    * [4.4.1 Profile Sharing]() _(IDA_FR_4.1)_
     * [Full Profile]()
     * [Limited Profile Sharing - Policy Based]()
-    * [4.4.2 KYC Partners]()
+    * [4.4.2 KYC Partners]() _(IDA_FR_4.2)_
     * [Authorized Partners]()
     * [Application based policy]()
     * [Partner Licensing]()
-  * [4.5 Authentication Device Support]() (MOS_PFM_IDA_FR_5)
-  * [4.5.1 Registered Devices and Open Devices (Architects to contribute)]()
+  * [4.5 Authentication Device Support]() _(IDA_FR_5)_
+  * [4.5.1 Registered Devices and Open Devices (Architects to contribute)]() _(IDA_FR_5.1)_
 
 
 Partner Licensing - API Key issues to partner is used to sign packets.
