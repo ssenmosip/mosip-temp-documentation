@@ -66,7 +66,7 @@ Once validated the **Pre-Registration Id is generated** and the Demographic deta
 
 An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide his/her consent for storage and utilization of his/her personal information. On providing his/her consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
 
-In case of closure of the Consent Pop-up: 
+In case of closure of the Consent Pop-up the following scenarios may arise:
 1. First-time login: On closure, then system alerts the user that he will be logged out due to not providing consent.
 1. Existing User login
    * Scenario 1 Create new Application from Dashboard: On closure, the Individual will be redirected to Dashboard page.
