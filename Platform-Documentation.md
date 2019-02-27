@@ -94,26 +94,41 @@ MOSIP (Modular Open Source Identity Platform) helps government countries to buil
 ## 3.	MOSIP FUNCTIONAL OVERVIEW
 This section details out the design aspects of MOSIP, driven by the key functional modules as listed below. Navigate to wiki for further details on each module. 
 ### 3.1 Pre-Registration
-Pre-registration  is the web channel of MOSIP. 
 
-Detailed functional requirement specifications for Pre-registration
+Pre-registration is the module which is the web channel of the MOSIP. This module enables a user to do the following: 
+1. Book an appointment for one or many Individuals for registration. 
+1. Enter their demographic details and book appointment by choosing a suitable registration center and time slot 
+1. Notifies user on a successful booking
+1. This module also has the provision for appointment rescheduling and cancellation
+1. It has the capability to sync data with registration client
 
-Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for more details.
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for detailed functional specifications of pre-registration module.
 
 ### 3.2 Registration Client
-Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about a parent/guardian/introducer) and packages the information in a secure way. 
+Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about parent/guardian/introducer) and packages the information in a secure way. This module provides the following capabilities:
+1. Provides a secure way of capturing an Individual's demographic and biometric data
+1. Provides interfaces to biometric devices that comply to industry standards
+1. Registration client works in online and offline mode to capture data
+1. This module also provides option to transfer data to server when online and helps in uninterrupted registrations
+1. Client has the ability to update itself for patch upgrades (bug fixes/enhancements) in a remote way. There could be hundreds of client instances running on laptops/desktops. Updates on all of them are controlled by the client and a central server.
+1. Registration client is secured such that it cannot be tampered and misused
 
-Detailed functional requirement specifications for Registration Client
-
-Please refer [**wiki**](https://https://github.com/mosip/mosip/wiki/FRS-Registration-Services) for more details.
+Please refer [**wiki**](https://https://github.com/mosip/mosip/wiki/FRS-Registration-Services) for detailed functional specifications of registration services.
 
 
 ### 3.3 Registration Processor
-Registration Processor processes the data (Demographic and Biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). 
+Registration Processor processes the data (demographic and biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). The source of data are primarily from:
+1. MOSIP Registration Client
+1. Existing ID system(s) of a country
 
-Detailed functional requirement specifications for Registration Processor
+This module has the following capabilities:
+1. Provides guaranteed packet processing- Not lose the packet once received on the server
+1. Handle server failure, recovery and re-submission of packets for processing automatically
+1. It has the capability to add new processing step(s) without changing existing steps as different countries may have different processing requirements
+1. Capability to integrate with multiple ABIS providers. Accommodate sending one or more biometric modality to one or more ABISs and calculate a composite fusion score and then take a decision on the processing
+1. Each processing step is scalable independently based on the load
 
-Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor) for more details
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor) for detailed functional requirement specifications of Registration Processor
 ### 3.4 ID Authentication
 
 ID Authentication provides an API based authentication mechanism for entities to validate Individuals. 
@@ -124,15 +139,21 @@ Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Authentication-S
 
 ### 3.5 Kernel
 Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services
-* Sub-Systems
+* UIN Generation
+* Configuration Server
+* Audit Manager
+  * Log manager
+* Authentication and Authorization
 * Common Services
 * Data Services
 * Admin Services
 
-Detailed functional requirement specifications
- 
 Please refer wiki for detailed functional specification of the following services
-* [**Sub-Systems**](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems)
+* [**UIN Generation**](https://github.com/mosip/mosip/wiki/UIN-Generation)
+* [**Configuration Server**](https://github.com/mosip/mosip/wiki/Configuration-Server)
+* [**Audit Manager**](https://github.com/mosip/mosip/wiki/Audit-Manager)
+  * [**Log manager**](https://github.com/mosip/mosip/wiki/Audit-Manager#log-manager)
+* [**Authentication and Authorization**](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization)
 * [**Common Services**](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
 * [**Data Services**](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
 * [**Admin Services**](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
