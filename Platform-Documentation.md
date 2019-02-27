@@ -131,11 +131,22 @@ This module has the following capabilities:
 Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor) for detailed functional requirement specifications of Registration Processor
 ### 3.4 ID Authentication
 
-ID Authentication provides an API based authentication mechanism for entities to validate Individuals. 
+ID Authentication provides an API based authentication mechanism for entities to validate Individuals. ID Authentication is the primary mode for entities to validate an Individual before providing any service.
+This module provides the following capabilities:
+1. Authenticate an Individual in a secure and trusted way
+1. Captures of biometrics data as per the defines standards
+1. Authenticates an Individual based on his basic identity data captured via MOSIP
+1. In addition to demographic and biometric authentication, an Individual is also authenticates based on the following parameters:
+* TOTP based 
+* Static pin 
+* Challenge response
+5. Authentication APIs
+1. High Availability (HA) to ensure smooth service
+1. Scalable to cater to the growing population of a country
+1. Protects an Individual's identity from request-replay attacks
+1. Audited for reporting and fraud management checks
 
-Detailed functional requirement specifications for authentication services
-
-Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services) for more details.
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services) for detailed functional requirement specifications for authentication services.
 
 ### 3.5 Kernel
 Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services:
