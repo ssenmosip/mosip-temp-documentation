@@ -9,7 +9,7 @@
   * [2.3 Key Objectives of MOSIP Platform](#23key-objectives-of-MOSIP-platform)
 * [3. MOSIP FUNCTIONAL OVERVIEW](#3mosip-functional-overview)
   * [3.1 Pre-Registration](#31-pre-registration)
-  * [3.2 Registration Client](#32-registration-client)
+  * [3.2 Registration Services](#32-registration-services)
   * [3.3 Registration Processor](#33-registration-Processor)
   * [3.4 ID Authentication](#34-id-authentication)
   * [3.5 Kernel](#35-kernel)
@@ -104,7 +104,7 @@ Pre-registration is the module which is the web channel of the MOSIP. This modul
 
 Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration) for detailed functional specifications of pre-registration module.
 
-### 3.2 Registration Client
+### 3.2 Registration Services
 Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about parent/guardian/introducer) and packages the information in a secure way. This module provides the following capabilities:
 1. Provides a secure way of capturing an Individual's demographic and biometric data
 1. Provides interfaces to biometric devices that comply to industry standards
@@ -113,7 +113,7 @@ Registration Client application captures the Demographic and Biometric details o
 1. Client has the ability to update itself for patch upgrades (bug fixes/enhancements) in a remote way. There could be hundreds of client instances running on laptops/desktops. Updates on all of them are controlled by the client and a central server.
 1. Registration client is secured such that it cannot be tampered and misused
 
-Please refer [**wiki**](https://https://github.com/mosip/mosip/wiki/FRS-Registration-Services) for detailed functional specifications of registration services.
+Please refer [**wiki**](https://github.com/mosip/mosip/wiki/FRS-Registration-Services)for detailed functional specifications of registration services.
 
 
 ### 3.3 Registration Processor
