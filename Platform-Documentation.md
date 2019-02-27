@@ -122,7 +122,7 @@ Registration Processor processes the data (demographic and biometric) of an Indi
 1. Existing ID system(s) of a country
 
 This module has the following capabilities:
-1. Provides guaranteed packet processing- Not lose the packet once received on the server
+1. Provides guaranteed packet processing - Not lose the packet once received on the server
 1. Handle server failure, recovery and re-submission of packets for processing automatically
 1. It has the capability to add new processing step(s) without changing existing steps as different countries may have different processing requirements
 1. Capability to integrate with multiple ABIS providers. Accommodate sending one or more biometric modality to one or more ABISs and calculate a composite fusion score and then take a decision on the processing
