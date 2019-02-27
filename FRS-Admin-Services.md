@@ -1,39 +1,39 @@
 ## Table Of Content
 
-  * [1. Master Data Management](#1-master-data-management) (MOS_PFM_ADS_FR_1)
-    * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete)
-    * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete)
-    * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createread)
-    * [1.4 Biometric Attribute Type - Create/Read](#14-biometric-attribute-type---createread)
-    * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete)
-    * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete)
-    * [1.7 Document Type - Create/Update/Delete](#17-document-type---createupdatedelete)
-    * [1.8 Applicant Type - Document Category - Document Type Mapping - Read](#18-applicant-type---document-category---document-type-mapping---read)
-    * [1.9 List of Rejection Reasons - Create/Read](#19-list-of-rejection-reasons---createread)
-    * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete)
-    * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete)
-    * [1.12 Template File Format - Create/Update/Delete](#112-template-file-format---createupdatedelete)
-    * [1.13 List of Template Types - Create](#113-list-of-template-types---create)
-    * [1.14 List of Templates - Create/Read/Update/Delete](#114-list-of-templates---createreadupdatedelete)
-    * [1.15 List of Blacklisted Words - Create/Read/Update/Delete](#115-list-of-blacklisted-words---createreadupdatedelete)
-    * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---create)
-    * [1.17 List of Applications - Create/Read](#117-list-of-applications---createread)
-    * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread)
-  * [2. Registration Management](#2-registration-management) (MOS_PFM_ADS_FR_2)
-    * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete)
-    * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete)
-    * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create)
-    * [2.4 List of Machine Specifications - Create/Update/Delete](#24-list-of-machine-specifications---createupdatedelete)
-    * [2.5 List of Machines - Create/Read/Update/Delete](#25-list-of-machines---createreadupdatedelete)
-    * [2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete](#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete)
-    * [2.7 List of Devices - Create/Read/Update/Delete](#27-list-of-devices---createreadupdatedelete)
-    * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete)
-    * [2.9 List of Device Types - Create](#29-list-of-device-types---create)
-    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete)
-    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete)
-    * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete)
-  * [3. Partner Management](#3-partner-management) (MOS_PFM_ADS_FR_3)
-    * [3.1 License Key Manager](#31-license-key-manager)
+  * [1. Master Data Management](#1-master-data-management) _(ADM_FR_1)_
+    * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete) _(ADM_FR_1.1)_
+    * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete) _(ADM_FR_1.2)_
+    * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createread) _(ADM_FR_1.3)_
+    * [1.4 Biometric Attribute Type - Create/Read](#14-biometric-attribute-type---createread) _(ADM_FR_1.4)_
+    * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete) _(ADM_FR_1.5)_
+    * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete) _(ADM_FR_1.6)_
+    * [1.7 Document Type - Create/Update/Delete](#17-document-type---createupdatedelete) _(ADM_FR_1.7)_
+    * [1.8 Applicant Type - Document Category - Document Type Mapping - Read](#18-applicant-type---document-category---document-type-mapping---read) _(ADM_FR_1.8)_
+    * [1.9 List of Rejection Reasons - Create/Read](#19-list-of-rejection-reasons---createread) _(ADM_FR_1.9)_
+    * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete) _(ADM_FR_1.10)_
+    * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete) _(ADM_FR_1.11)_
+    * [1.12 Template File Format - Create/Update/Delete](#112-template-file-format---createupdatedelete) _(ADM_FR_1.12)_
+    * [1.13 List of Template Types - Create](#113-list-of-template-types---create) _(ADM_FR_1.13)_
+    * [1.14 List of Templates - Create/Read/Update/Delete](#114-list-of-templates---createreadupdatedelete) _(ADM_FR_1.14)_
+    * [1.15 List of Blacklisted Words - Create/Read/Update/Delete](#115-list-of-blacklisted-words---createreadupdatedelete) _(ADM_FR_1.15)_
+    * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---create) _(ADM_FR_1.16)_
+    * [1.17 List of Applications - Create/Read](#117-list-of-applications---createread) _(ADM_FR_1.17)_
+    * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread) _(ADM_FR_1.18)_
+  * [2. Registration Management](#2-registration-management) _(ADM_FR_2)_
+    * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete) _(ADM_FR_2.1)_
+    * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete) _(ADM_FR_2.2)_
+    * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create) _(ADM_FR_2.3)_
+    * [2.4 List of Machine Specifications - Create/Update/Delete](#24-list-of-machine-specifications---createupdatedelete) _(ADM_FR_2.4)_
+    * [2.5 List of Machines - Create/Read/Update/Delete](#25-list-of-machines---createreadupdatedelete) _(ADM_FR_2.5)_
+    * [2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete](#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete) _(ADM_FR_2.6)_
+    * [2.7 List of Devices - Create/Read/Update/Delete](#27-list-of-devices---createreadupdatedelete) _(ADM_FR_2.7)_
+    * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete) _(ADM_FR_2.8)_
+    * [2.9 List of Device Types - Create](#29-list-of-device-types---create) _(ADM_FR_2.9)_
+    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete) _(ADM_FR_2.10)_
+    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete) _(ADM_FR_2.11)_
+    * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
+  * [3. Partner Management](#3-partner-management) _(ADM_FR_3)_
+    * [3.1 License Key Manager](#31-license-key-manager) _(ADM_FR_3.1)_
 # Admin Services
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
