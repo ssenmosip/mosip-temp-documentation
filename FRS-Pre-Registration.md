@@ -2,38 +2,38 @@
 
 * [1. Overview](#1-overview)
 * [2. Features](#2-features)
-  * [2.1 Login/Creating a User Account](#21-logincreating-a-user-account) _(MOS_PFM_PRG_FR_1)_
-    * [2.1.1 Login using Email](#211-login-using-email) 
-    * [2.1.2 Login using Phone Number](#212-login-using-phone-number) 
-    * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) 
-    * [2.1.4 Logout/Session Timeout](#214-logoutsession-timeout) 
-  * [2.2 Creating an Application](#22-creating-an-application) _(MOS_PFM_PRG_FR_2)_
-    * [2.2.1 Provide Demographic Data](#221-provide-demographic-data)
-    * [2.2.2 Provide Consent](#222-provide-consent)
-    * [2.2.3 Create Multiple Applications](#223-create-multiple-applications) 
-    * [2.2.4 Provide Data in Preferred Language](#224-provide-data-in-preferred-language) 
-    * [2.2.5 Viewing "My Applications" (covers status)](#225-viewing-my-applications-covers-status) 
-    * [2.2.6 Modify Application Data](#226-modify-application-data) 
-    * [2.2.7 Discard Application](#227-discard-application) 
-  * [2.3 Attaching Documents to the Application](#23-attaching-documents-to-the-application) _(MOS_PFM_PRG_FR_3)_
-    * [2.3.1 Document Categories and Applicable Document Types](#231-document-categories-and-applicable-document-types) 
-    * [2.3.2 Referring to already Uploaded Documents](#232-referring-to-already-uploaded-documents) 
-  * [2.4 Booking an Appointment](#24-booking-an-appointment) _(MOS_PFM_PRG_FR_4)_
-    * [2.4.1 Choosing a Registration Center for Appointment](#241-choosing-a-registration-center-for-appointment) 
+  * [2.1 Login/Creating a User Account](#21-logincreating-a-user-account) _(PRE_FR_1)_
+    * [2.1.1 Login using Email](#211-login-using-email) _(PRE_FR_1.1)_
+    * [2.1.2 Login using Phone Number](#212-login-using-phone-number) _(PRE_FR_1.2)_
+    * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) _(PRE_FR_1.3)_ 
+    * [2.1.4 Logout/Session Timeout](#214-logoutsession-timeout) _(PRE_FR_1.4)_
+  * [2.2 Creating an Application](#22-creating-an-application) _(PRE_FR_2)_
+    * [2.2.1 Provide Demographic Data](#221-provide-demographic-data) _(PRE_FR_2.1)_
+    * [2.2.2 Provide Consent](#222-provide-consent) _(PRE_FR_2.2)_
+    * [2.2.3 Create Multiple Applications](#223-create-multiple-applications) _(PRE_FR_2.3)_
+    * [2.2.4 Provide Data in Preferred Language](#224-provide-data-in-preferred-language) _(PRE_FR_2.4)_
+    * [2.2.5 Viewing "My Applications" (covers status)](#225-viewing-my-applications-covers-status) _(PRE_FR_2.5)_
+    * [2.2.6 Modify Application Data](#226-modify-application-data) _(PRE_FR_2.6)_
+    * [2.2.7 Discard Application](#227-discard-application) _(PRE_FR_2.7)_
+  * [2.3 Attaching Documents to the Application](#23-attaching-documents-to-the-application) _(PRE_FR_3)_
+    * [2.3.1 Document Categories and Applicable Document Types](#231-document-categories-and-applicable-document-types) _(PRE_FR_3.1)_
+    * [2.3.2 Referring to already Uploaded Documents](#232-referring-to-already-uploaded-documents) _(PRE_FR_3.2)_
+  * [2.4 Booking an Appointment](#24-booking-an-appointment) _(PRE_FR_4)_
+    * [2.4.1 Choosing a Registration Center for Appointment](#241-choosing-a-registration-center-for-appointment) _(PRE_FR_4.1)_
       * [2.4.1.1 Recommended Centers based on Postal Code](#2411-recommended-centers-based-on-postal-code) 
       * [2.4.1.2 Nearby Centers based on User Geo-location](#2412-nearby-centers-based-on-user-geo-location) 
       * [2.4.1.3 Find a Center](#2413-find-a-center) 
-    * [2.4.2 Choosing Appointment Slots](#242-choosing-appointment-slots) 
+    * [2.4.2 Choosing Appointment Slots](#242-choosing-appointment-slots) _(PRE_FR_4.2)_
       * [2.4.2.1 Get Slots Availability](#2421-get-slots-availability) 
-    * [2.4.3 Cancel Appointment](#243-cancel-appointment) 
-    * [2.4.4 Re-book Appointment](#244-re-book-appointment) 
-  * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid) _(MOS_PFM_PRG_FR_5)_
-    * [2.5.1 Download Acknowledgement](#251-download-acknowledgement) 
-    * [2.5.2 Send Acknowledgement to Email/Phone](#252-send-acknowledgement-to-emailphone) 
-  * [2.6 Registration Client Services](#26-registration-client-services) _(MOS_PFM_PRG_FR_6)_
-    * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) 
-    * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) 
-  * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes) _(MOS_PFM_PRG_FR_7)_
+    * [2.4.3 Cancel Appointment](#243-cancel-appointment) _(PRE_FR_4.3)_
+    * [2.4.4 Re-book Appointment](#244-re-book-appointment) _(PRE_FR_4.4)_
+  * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid) _(PRE_FR_5)_
+    * [2.5.1 Download Acknowledgement](#251-download-acknowledgement) _(PRE_FR_5.1)_
+    * [2.5.2 Send Acknowledgement to Email/Phone](#252-send-acknowledgement-to-emailphone) _(PRE_FR_5.2)_
+  * [2.6 Registration Client Services](#26-registration-client-services) _(PRE_FR_6)_
+    * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) _(PRE_FR_6.1)_
+    * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) _(PRE_FR_6.2)_
+  * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes) _(PRE_FR_7)_
 # 1. Overview
 The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on a successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
