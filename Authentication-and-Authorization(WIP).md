@@ -1,4 +1,4 @@
-# Authentication and Authorization (WIP)
+
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:
 
 1. OTP manager: To be defined
