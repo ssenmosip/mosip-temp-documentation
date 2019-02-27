@@ -66,7 +66,7 @@ Once validated the **Pre-Registration Id is generated** and the Demographic deta
 
 An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide his/her consent for storage and utilization of his/her personal information. On providing his/her consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
 
-In case of closure of the Consent Pop-up the following scenarios may arise:
+In case of closure of the Consent Pop-up, the following scenarios may arise:
 1. First-time login: On closure, then system alerts the user that he will be logged out due to not providing consent.
 1. Existing User login
    * Scenario 1 Create new Application from Dashboard: On closure, the Individual will be redirected to Dashboard page.
@@ -110,7 +110,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
 1. When an Individual provides his/her Demographic data, the Pre-registration system captures the data. 
-1. Based on the parameters (from Config file) for example-The gender,age and residential status(Foreigner,national) from the demographic data applicant types are determined.The Pre-Registration system then sends the Id to the mapping.
+1. Based on the parameters (from Config file) for example-The gender, age and residential status(Foreigner, National) from the demographic data applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
 
@@ -144,7 +144,9 @@ The First Registration Center as per the search criteria is shown to the Individ
 
 #### 2.4.1.3 Find a Center
 An Individual may opt to  perform text search to find a center based on which the system displays the registration centers
+
 It is a contextual search where the individual selects a search criteria and based on the selected search criteria enters relevant text. 
+
 The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 
@@ -157,7 +159,7 @@ The user opts to view the available slots for a selected registration center.
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot in the chosen center
 1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
-1. An Individual can view time slots of 15 mins (configurable) each for the selected calendar day and view Available slots for every time slot shown in the selected calendar day
+1. An Individual can view time slots of 15 minutes (configurable) each for the selected calendar day and view Available slots for every time slot shown in the selected calendar day
 1. The system auto-suggest the closest available timeslot(s) to the chosen applicant(s) and allocates it 
 1. An applicant however can further update the preference and choose the preferred timeslot
 1. An individual can book the appointment for the preferred/chosen time slot – Subsequently the timeslots are locked
@@ -174,10 +176,10 @@ The user opts to view the available slots for a selected registration center.
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
 1. An Individual can select any of the Appointment Date available and any of the Appointment Slot available
 1. The Individual has to select against which Pre-Registration Id the Appointment spot is being booked
-1. The system maps appointment slot with all the Pre-Registration Ids which are selected for Appointment Booking. 
+1. The system maps appointment slot with all the Pre-Registration Ids, which are selected for Appointment Booking. 
 1. If any Pre-Registration Id does not have Booking mapped, the user is notified if he wants to continue without booking
-1. An Individual at this stage may opt to search Registration Center. In this case the appointment -booking (Time Slot selected) done is removed
-1. An Individual cannot  Re-book the Appointment if the appointment Booking is less than 48 hrs (configurable) from time of booking
+1. An Individual at this stage may opt to search Registration Center. In this case the appointment-booking (Time Slot selected) done is removed
+1. An Individual cannot  Re-book the Appointment if the appointment Booking is less than 48 hours (configurable) from time of booking
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-re-booking-service.md)
 ## 2.5 Appointment Acknowledgement (PRID)
@@ -187,7 +189,7 @@ The user opts to view the available slots for a selected registration center.
 ### 2.5.1 Download Acknowledgement
 Individual can choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later
 
-The acknowledgement template is language and channel (email,sms,on screen) specific.
+The acknowledgement template is language and channel (email, sms, on screen) specific.
 
 [**Reference Templates**](https://github.com/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration) 
 ### 2.5.2 Send Acknowledgement to Email/Phone
