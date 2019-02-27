@@ -1413,7 +1413,7 @@ These set of services does various operations regarding the applicant type.
 This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
 
 ### Resource URL
-### `GET /applicanttype/getApplicantType`
+### `GET /applicanttype/getApplicantType?individualTypeCode=INDTYP_002&genderCode=ML&dateofbirth=2008-10-04T05:00:00.000Z&biometricAvailable=true&languagecode=eng`
 
 ### Resource details
 Resource Details | Description
@@ -1432,18 +1432,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 
 ### Example Request
 ```JSON
-{
-	"id": "mosip.applicanttype.getApplicantType",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"request" : {
-		"individualTypeCode": "INDTYP_002",
-		"genderCode": "ML",
-		"dateofbirth": "2008-10-04T05:00:00.000Z",
-		"biometricAvailable": false,
-		"languagecode": "eng"
-	}
-}
+-NA-
 ```
 ### Example Response
 ```JSON
@@ -1463,7 +1452,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 This service returns the document category and the document types associated with a particular applicant type. 
 
 ### Resource URL
-### `GET /applicanttype/getDocCatAndTyp`
+### `GET /applicanttype/getDocCatAndTyp?applicationtypecode=APP-C-94&languages=eng&language=fra'
 
 ### Resource details
 Resource Details | Description
@@ -1475,19 +1464,11 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
-languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
+languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
 
 ### Example Request
 ```JSON
-{
-	"id": "mosip.applicanttype.getDocCatAndTyp",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"request" : {
-		"applicationtypecode": "APP-C-94",
-		"languagecode": "eng"
-	}
-}
+-NA-
 ```
 ### Example Response
 ```JSON
@@ -1523,7 +1504,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 This service returns the document categories for a particular applicant type. 
 
 ### Resource URL
-### `GET /applicanttype/getDocCategories?applicationtypecode="APP-C-94&languages=eng,fra,ara`
+### `GET /applicanttype/getDocCategories?applicationtypecode="APP-C-94"`
 
 ### Resource details
 Resource Details | Description
@@ -1535,7 +1516,6 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
-languages|Yes|Languages separated by comma as the delimiter| -NA- |eng,fra,ara
 
 
 ### Example Request
@@ -1566,7 +1546,7 @@ NA
 This service checks whether the combination exists for a particular Applicanttype code, Document. 
 
 ### Resource URL
-### `GET /applicanttype/isApplicantTypeExists`
+### `GET /applicanttype/isApplicantTypeExists/{applicationtypecode}/{docCategoryCode}/{docTypeCode}`
 
 ### Resource details
 Resource Details | Description
@@ -1583,16 +1563,7 @@ docTypeCode|Yes|The code of the document type| -NA- |DOC_TYP_E
 
 ### Example Request
 ```JSON
-{
-	"id": "mosip.applicanttype.isApplicantTypeExists",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"request" : {
-		"applicationtypecode": "APP-C-94",
-		"docCategoryCode": "DOC_CAT_2",
-		"docTypeCode": "DOC_TYP_E"
-	}
-}
+-NA-
 ```
 ### Example Response
 ```JSON
@@ -1656,7 +1627,7 @@ Name | Required | Description | Default Value | Example
 This service returns the individual types based on language code and the individual type code. 
 
 ### Resource URL
-### `GET /individualtype/getIndividualTypes`
+### `GET /individualtype/getIndividualTypes/{individualTypeCode}/{languagecode}`
 
 ### Resource details
 Resource Details | Description
@@ -1672,15 +1643,8 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 
 ### Example Request
 ```JSON
-{
-	"id": "mosip.individualtype.getIndividualTypes",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"request" : {
-		"individualTypeCode": "IND-C-94",
-		"languagecode": "eng"
-	}
-}```
+-NA-
+```
 ### Example Response
 ```JSON
 {
