@@ -36,11 +36,10 @@ MultipartFile|Yes|The encrypted zip file| |
 {
 	"id" : "mosip.registration.packet",
 	"version" : "1.0",
-	"responsetime" : "2019-02-14T12:40:59.768Z",
+	"responsetime" : "2019-02-02T06:12:25.288Z",
 	"response" : {
 		"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN"
-	},
-	"error" : null
+	}
 }
 ```
 #### Failure response
@@ -49,12 +48,11 @@ MultipartFile|Yes|The encrypted zip file| |
 {
   "id" : "mosip.registration.packet",
   "version" : "1.0",
-  "responsetime": "2019-02-14T12:40:59.768Z",
-  "response" : null,
-  "error" : {
+  "responsetime": "2019-02-02T06:12:25.288Z",
+  "errors" : [{
 		"errorcode": "RPR-PKR-005",
 	    "message": "The request received is a duplicate request to upload a Packet"
-	}
+	}]
 }
 ```
 
@@ -287,8 +285,7 @@ Success response
 	  "matchedRefId": "27847657360002520181208123456",
 	  "matchedRefType": "UIN",
 	  "reasonCode": null
-	},
-	"error" : null
+	}
 }
 ```
 Failure response
@@ -297,11 +294,10 @@ Failure response
   "id" : "mosip.manual.verification.assignment",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "response" : null,
-	"error" : {
+	"errors" : [{
 		"errorCode" : "RPR-FAC-003",
 		"message" : "Cannot find the Registration Packet"
-	}
+	}]
 }
 ```
 
@@ -359,8 +355,7 @@ Success response
 	  "matchedRefId": "27847657360002520181208123987",
 	  "matchedRefType": "RID",
 	  "reasonCode": "Problem with biometrics"
-	},
-	"error" : null
+	}
 }
 ```
 Failure response
@@ -369,11 +364,10 @@ Failure response
   "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "response" : null,
-	"error" : {
+	"errors" : [{
 		"errorCode" : "RPR-MVS-003"",
 		"message" : "Invalid status update"
-	}
+	}]
 }
 ```
 
@@ -421,8 +415,9 @@ Success :
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "file": "B@629f0666",
-  "error" : null
+  "response" : {
+	  "file": "B@629f0666"
+  }
 }
 ```
 Failure :
@@ -431,11 +426,10 @@ Failure :
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "file": null,
-  "error" : {
+  "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
-  }
+  }]
 }
 ```
 
@@ -482,8 +476,9 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "file": "B@629f0666",
-  "error" : null
+  "response" : {
+	  "file": "B@629f0666"
+  }
 }
 ```
 Failure :
@@ -492,11 +487,10 @@ Failure :
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "file": null,
-  "error" : {
+  "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
-  }
+  }]
 }
 ```
 
