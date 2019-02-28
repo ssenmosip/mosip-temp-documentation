@@ -176,15 +176,19 @@ Please refer wiki for detailed functional specification of the following service
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications
 This section provides a detailed functional requirement specification for each module in MOSIP
-#### 5.1.1 [FRS Pre-Registration](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration)
-#### 5.1.2 [FRS Data Services](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
-#### 5.1.3 [FRS Common Services](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
-#### 5.1.4 [FRS Admin Services](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
-#### 5.1.5 [FRS MOSIP Sub Systems](https://github.com/mosip/mosip/wiki/FRS-MOSIP-Sub-Systems)
-#### 5.1.6 [FRS Registration Services](https://github.com/mosip/mosip/wiki/Registration-Services)
-#### 5.1.7 [FRS Registration Processor](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
-#### 5.1.8 [FRS Authentication Services](https://github.com/mosip/mosip/wiki/Authentication-Services)
-#### 5.1.9 [FRS Resident Services](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
+#### 5.1.1 [Pre-Registration](https://github.com/mosip/mosip/wiki/FRS-Pre-Registration)
+#### 5.1.2 [Data Services](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
+#### 5.1.3 [Common Services](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
+#### 5.1.4 [Admin Services](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
+#### 5.1.5 [UIN Generation](https://github.com/mosip/mosip/wiki/UIN-Generation)
+#### 5.1.6 [Configuration Server](https://github.com/mosip/mosip/wiki/Configuration-Server)
+#### 5.1.7 [Audit Manager](https://github.com/mosip/mosip/wiki/Audit-Manager)
+#### 5.1.7.1 [Log manager](https://github.com/mosip/mosip/wiki/Audit-Manager#log-manager)
+#### 5.1.8 [Authentication and Authorization](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization(WIP))
+#### 5.1.9 [Registration Services](https://github.com/mosip/mosip/wiki/Registration-Services)
+#### 5.1.10 [Registration Processor](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
+#### 5.1.11 [Authentication Services](https://github.com/mosip/mosip/wiki/Authentication-Services)
+#### 5.1.12 [Resident Services](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
 ### 5.2 Non- Functional Requirement Specifications
 This section details out the non-functional requirements of MOSIP platform
 
