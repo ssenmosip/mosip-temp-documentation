@@ -184,9 +184,9 @@ This section provides a detailed functional requirement specification for each m
 #### 5.1.6 [Configuration Server](https://github.com/mosip/mosip/wiki/Configuration-Server)
 #### 5.1.7 [Audit Manager](https://github.com/mosip/mosip/wiki/Audit-Manager)
 #### 5.1.8 [Authentication and Authorization](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization(WIP))
-#### 5.1.9 [Registration Services](https://github.com/mosip/mosip/wiki/Registration-Services)
+#### 5.1.9 [Registration Services](https://github.com/mosip/mosip/wiki/FRS-Registration-Services)
 #### 5.1.10 [Registration Processor](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
-#### 5.1.11 [Authentication Services](https://github.com/mosip/mosip/wiki/Authentication-Services)
+#### 5.1.11 [Authentication Services](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services)
 #### 5.1.12 [Resident Services](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
 ### 5.2 Non- Functional Requirement Specifications
 This section details out the non-functional requirements of MOSIP platform
