@@ -22,7 +22,7 @@ Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Kernel.doc
 4) ## Module: Pre-registration <25Feb'19>
 Artefact: Known Defects and Pending Items
 
-Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Pre-registration_25Feb19_Updated.docx)
+Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Pre-registration_25Feb19_Latest.docx)
 
 
 5) ## Module: Kernel <25Feb'19>
