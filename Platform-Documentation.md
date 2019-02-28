@@ -52,10 +52,10 @@
     * [9.2.1 Kernel](#921-kernel)
     * [9.2.2 ID Repository](#922id-repository)
 * [10. HOW TO GUIDE](#10-how-to-guide-tbd)
-  * [10.1 Getting Started Guide](#101-getting-started)
+  * [10.1 Getting Started Guide](#101getting-started-guide)
   * [10.2 Developer Document](#102developer-document)
-* [11. INFRASTRUCTURE RECOMMENDATIONS](#11--inrfastructure-recommendations)
-* [12. GLOSSARY](#12--glossary)
+* [11. INFRASTRUCTURE RECOMMENDATIONS](#11-inrfastructure-recommendations)
+* [12. GLOSSARY](#12-glossary)
 * [13. ABBREVIATIONS](#13-abbreviations)
 * [14. REFERENCES](#14-references)
 
