@@ -18,7 +18,7 @@
  * [4. MOSIP SCOPE](#4mosip-scope)
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications)
-  * [5.2 Non-Functional Requirement Specifications](#52-non--functional-requirement-specifications)
+  * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications)
 * [6. PRODUCT DEMO (VDs)](#6-product-demo-vds)
 * [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
   * [7.1 Principles](#71-principles)
@@ -188,7 +188,7 @@ This section provides a detailed functional requirement specification for each m
 #### 5.1.10 [Registration Processor](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
 #### 5.1.11 [Authentication Services](https://github.com/mosip/mosip/wiki/FRS-Authentication-Services)
 #### 5.1.12 [Resident Services](https://github.com/mosip/mosip/wiki/FRS-Resident-Services)
-### 5.2 Non- Functional Requirement Specifications
+### 5.2 Non-Functional Requirement Specifications
 This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements) for the detailed functional spec.
