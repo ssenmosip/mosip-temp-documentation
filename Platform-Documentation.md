@@ -183,7 +183,6 @@ This section provides a detailed functional requirement specification for each m
 #### 5.1.5 [UIN Generation](https://github.com/mosip/mosip/wiki/UIN-Generation)
 #### 5.1.6 [Configuration Server](https://github.com/mosip/mosip/wiki/Configuration-Server)
 #### 5.1.7 [Audit Manager](https://github.com/mosip/mosip/wiki/Audit-Manager)
-#### 5.1.7.1 [Log manager](https://github.com/mosip/mosip/wiki/Audit-Manager#log-manager)
 #### 5.1.8 [Authentication and Authorization](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization(WIP))
 #### 5.1.9 [Registration Services](https://github.com/mosip/mosip/wiki/Registration-Services)
 #### 5.1.10 [Registration Processor](https://github.com/mosip/mosip/wiki/FRS-Registration-Processor)
