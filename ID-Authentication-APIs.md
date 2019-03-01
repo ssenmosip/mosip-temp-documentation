@@ -58,91 +58,118 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
 ### Sample Request Body
 ```JSON
 {
-  //API Metadata
-  "id": "mosip.identity.auth",
-  "version": "1.0",
-  //Request Metadata 
-  "partnerID": "AP000001",
-  "policyID": "<auth-policy-id>",
-  "transactionID": "1234567890",
-  "requestTime": "2019-02-15T10:01:57.086+05:30",
-  "requestedAuth": {
-    "otp": true,
-    "demo": false,
-    "bio": false,
-    "pin": false
-  },
-  "bioMetadata": [
-    {
-      "bioType": "FMR",
-      "deviceId": "",
-      "deviceProviderID": ""
-    },
-    {
-      "bioType": "IIR",
-      "deviceId": "",
-      "deviceProviderID": ""
-    }
-  ],
-  "sessionKey": "<encrypted and encoded session key>",
-  //Identity Request
-  "request": {//This element should be encrypted and encoded using session key
-    "identity": {
-      "UIN": "4074317832",
-      "VID": "9830872690593682",
-      "name": [
-        {
-          "language": "ara",
-          "value": "ابراهيم بن علي"
-        },
-        {
-          "language": "fra",
-          "value": "Ibrahim Ibn Ali"
-        }
-      ],
-      "addressLine1": [
-        {
-          "language": "ara",
-          "value": "عنوان العينة سطر 1"
-        },
-        {
-          "language": "fra",
-          "value": "exemple d'adresse ligne 1"
-        }
-      ],
-      "fullAddress": [
-        {
-          "language": "ar",
-          "value": "عنوان العينة سطر 2, عنوان العينة سطر 1"
-        },
-        {
-          "language": "fr",
-          "value": "exemple d'adresse ligne 1, exemple d'adresse ligne 2"
-        }
-      ],
-      "biometrics": [
-        {
-          "type": "FINGER",
-          "subType": "UNKNOWN",
-          "value": "<base64 encoded value>"
-        },
-        {
-          "type": "FINGER",
-          "subType": "RIGTHT_POINTER",
-          "value": "<base64 encoded value>"
-        },
-        {
-          "type": "IRIS",
-          "subType": "RIGHT",
-          "value": "<base64 encoded value>"
-        }
-      ]
-    },
-    "additionalFactors": {
-      "totp": "123456",
-      "staticPin": "987654"
-    }
-  }
+	// API Metadata
+	"id": "mosip.identity.auth",
+	"version": "1.0",
+	// Request Metadata
+	"requestTime": "2019-02-15T10:01:57.086+05:30",
+	"transactionID": "1234567890",
+	"requestedAuth": {
+		"otp": true,
+		"demo": false,
+		"bio": false
+	},
+	"consentObtained": true,// Consent Obtained for performing Auth
+	"individualId": "9830872690593682",
+	"individualIdType": "VID",	
+	"sessionKey": "<encrypted (RSA OAEP) with MOSIP public key and encoded session key>",
+	"keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
+	//Identity Request
+	"request": {// This element should be encrypted and encoded using session key AES GCM
+		"timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
+		"factors": {
+			"otp": "123456",
+			"demographics": {
+				"name": [ 
+					{
+						"language": "ara",
+						"value": "ابراهيم بن علي"
+					},
+					{
+						"language": "fra",
+						"value": "Ibrahim Ibn Ali"
+					}
+				],
+				"gender" : [ 
+					{
+						"language" : "ara",
+						"value" : "الذكر"
+					}, 
+					{
+						"language" : "fra",
+						"value" : "mâle"
+					} 
+				],
+				"fullAddress": [
+					{
+						"language": "ara",
+						"value": "عنوان العينة سطر 1, عنوان العينة سطر 2"
+					},
+					{
+						"language": "fra",
+						"value": "exemple d'adresse ligne 1, exemple d'adresse ligne 2"
+					}
+				]
+			},
+			"biometrics": [
+				{
+					"transactionID": "1234567890",
+					"requestedBioType": {// Data sent by Partner Application
+						"FMR" : true,
+						"FIR" : false,
+						"IIR" : false,
+						"FID" : false
+					},
+					"metaData": {// Data sent by RD Service
+							"deviceCode": "",// This is digital ID of device given by MOSIP device service
+							"deviceProviderID": "",
+							"deviceServiceID": "",// RD Service ID
+							"deviceServiceVersion":""// RD Service Version
+					},
+					"values": [//Data sent by RD Service
+						{
+							"type": "FMR",
+							"subType": "UNKNOWN",
+							"value": "<base64 encoded value>",
+							"timestamp": "2019-02-15T10:01:57.086+05:30",
+							"signature": "base64 signature of the block"
+						},
+						{
+							"type": "FMR",
+							"subType": "RIGTHT_POINTER",
+							"value": "<base64 encoded value>",
+							"timestamp": "2019-02-15T10:01:57.086+05:30",
+							"signature": "base64 signature of the block"
+						}
+					]
+				},
+				{
+					"transactionID": "1234567890",
+					"requestedBioType": {
+						"FMR" : false,
+						"FIR" : false,
+						"IIR" : true,
+						"FID" : false
+					},
+					"metaData": {
+							"deviceCode": "",// This is digital ID of device given by MOSIP device service
+							"deviceProviderID": "",
+							"deviceServiceID": "",// RD Service ID
+							"deviceServiceVersion":""// RD Service Version
+					},
+					"values": [
+						{
+							"type": "IIR",
+							"subType": "RIGHT",
+							"value": "<base64 encoded value>",
+							"timestamp": "2019-02-15T10:01:57.086+05:30",
+							"signature": "base64 signature of the block"
+						}
+					]
+				}
+			]
+		}
+	}
 }
 ```
 
@@ -193,12 +220,11 @@ Status Code : 200 (OK)
 
 ## 2. eKYC
 This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Auth - 
-1. OTP Auth - Time-based OTP (TOTP)
-2. Pin Auth - Static Pin
-3. Bio Auth - Fingerprint, IRIS and Face
+1. OTP Auth - Time-based OTP (OTP)
+2. Bio Auth - Fingerprint, IRIS and Face
 
 ### Resource URL
-### `POST identity/kyc/v1.0/<MISP-LK>`
+### `POST identity/kyc/1.0/<eKYC-Partner-ID>/<MISP-LK>`
 
 ### Resource details
 
@@ -244,65 +270,119 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
 ### Sample Request
 ```JSON
 {
-  // API Metadata
-  "id": "mosip.identity.kyc",
-  "version": "1.0",
-  // Request Metadata
-  "partnerID": "KP000001",
-  "policyID": "<kyc-policy-id>",
-  "transactionID": "1234567890",
-  "requestTime": "2019-02-15T10:01:57.086+05:30",
-  "requestedAuth": {
-      "otp": true,
-      "demo": false,
-      "bio": true,
-      "pin": true
-  },
-  "bioMetadata": [
-    {
-      "bioType": "FMR",
-      "deviceId": "",
-      "deviceProviderID": ""
-    },
-    {
-      "bioType": "IIR",
-      "deviceId": "",
-      "deviceProviderID": ""
-    }
-  ],
-  "kycMetadata" : {
-	"consentRequired": true,
-	"secondaryLangCode": "<sec-lang-code>"
-  },
-  "sessionKey": "<encrypted and encoded session key>",
-  //Identity Request 
-  "request": {// This element should be encrypted and encoded using session key
-    "identity": {
-      "UIN": "4074317832",
-      "VID": "9830872690593682",
-      "biometrics": [
-        {
-          "type": "FINGER",
-          "subType": "UNKNOWN",
-          "value": "<base64 encoded value>"
-        },
-        {
-          "type": "FINGER",
-          "subType": "RIGTHT_POINTER",
-          "value": "<base64 encoded value>"
-        },
-        {
-          "type": "IRIS",
-          "subType": "RIGHT",
-          "value": "<base64 encoded value>"
-        }
-      ]
-    },
-    "additionalFactors": {
-      "totp": "123456",
-      "staticPin": "987654"
-    }
-  }
+	// API Metadata
+	"id": "mosip.identity.auth",
+	"version": "1.0",
+	// Request Metadata
+	"requestTime": "2019-02-15T10:01:57.086+05:30",
+	"transactionID": "1234567890",
+	"requestedAuth": {
+		"otp": true,
+		"demo": false,
+		"bio": false
+	},
+	"consentObtained": true,
+	"secondaryLangCode" : "<sec-lang-code>",
+	"individualId": "9830872690593682",
+	"individualIdType": "VID",	
+	"sessionKey": "<encrypted (RSA OAEP) with MOSIP public key and encoded session key>",
+	"keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
+	//Identity Request
+	"request": {// This element should be encrypted and encoded using session key AES GCM
+		"timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
+		"factors": {
+			"otp": "123456",
+			"demographics": {
+				"name": [
+					{
+						"language": "ara",
+						"value": "ابراهيم بن علي"
+					},
+					{
+						"language": "fra",
+						"value": "Ibrahim Ibn Ali"
+					}
+				],
+				"gender" : [ 
+					{
+						"language" : "ara",
+						"value" : "الذكر"
+					}, 
+					{
+						"language" : "fra",
+						"value" : "mâle"
+					} 
+				],
+				"fullAddress": [
+					{
+						"language": "ara",
+						"value": "عنوان العينة سطر 1, عنوان العينة سطر 2"
+					},
+					{
+						"language": "fra",
+						"value": "exemple d'adresse ligne 1, exemple d'adresse ligne 2"
+					}
+				]
+			},
+			"biometrics": [
+				{
+					"transactionID": "1234567890",
+					"requestedBioType": {// Data sent by Partner Application
+						"FMR" : true,
+						"FIR" : false,
+						"IIR" : false,
+						"FID" : false
+					},
+					"metaData": {// Metadata sent by RD Service
+							"deviceCode": "",// This is digital ID of device given by MOSIP device service
+							"deviceProviderID": "",
+							"deviceServiceID": "",// RD Service ID
+							"deviceServiceVersion":""// RD Service Version
+					},
+					"values": [//Biometrics Data sent by RD Service
+						{
+							"type": "FMR",
+							"subType": "UNKNOWN",
+							"value": "<base64 encoded value>",
+							"timestamp": "2019-02-15T10:01:57.086+05:30",
+							"signature": "base64 signature of the block"
+						},
+						{
+							"type": "FMR",
+							"subType": "RIGTHT_POINTER",
+							"value": "<base64 encoded value>",
+							"timestamp": "2019-02-15T10:01:57.086+05:30",
+							"signature": "base64 signature of the block"
+						}
+					]
+				},
+				{
+					"transactionID": "1234567890",
+					"requestedBioType": {
+						"FMR" : false,
+						"FIR" : false,
+						"IIR" : true,
+						"FID" : false
+					},
+					"metaData": {
+							"deviceCode": "",// This is digital ID of device given by MOSIP device service
+							"deviceProviderID": "",
+							"deviceServiceID": "",// RD Service ID
+							"deviceServiceVersion":""// RD Service Version
+					},
+					"values": [
+						{
+							"type": "IIR",
+							"subType": "RIGHT",
+							"value": "<base64 encoded value>",
+							"timestamp": "2019-02-15T10:01:57.086+05:30",
+							"signature": "base64 signature of the block"
+						}
+					]
+				}
+			]
+		}
+	}
 }
 ```
 
