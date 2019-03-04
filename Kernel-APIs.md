@@ -14,7 +14,7 @@
 
 [8. Audit Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#8-audit-manager)
 
-[9. License Key Service)](https://github.com/mosip/mosip/wiki/Kernel-APIs#9-license-key-manager)
+[9. License Key Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#9-license-key-manager)
 
 [10. OTP Notification Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#10-otp-notification)
 
