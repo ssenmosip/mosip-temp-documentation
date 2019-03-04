@@ -4,10 +4,15 @@
 # 1 Introduction
 ## 1.1 Context
 The MOSIP architecture mainly consists of the following functional blocks/modules
-* Pre-Registration - Web application that will be independently tested
-* Registration Client - A thick desktop client application that will be connected to scanner devices (finger print, iris), camera and printer
-* Registration Processor - A backend server application that processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
-* IDA (ID Authentication) - A backend authentication server that authenticates the resident based on biometric and demographic information
+* Pre-Registration - Web application designed in Angular JS
+A resident can provide his demographic details in this web application and book an appointment for his future registration at a registration center
+* Registration Client - A Desktop thick client application developed in JavaFX.
+A resident is registered through the Registration Client software to generate get a unique identification number. The software captures demographic and biometrics information of the residents. It is connected to scanner devices (finger print, iris), camera and printer to capture resident biometrics information
+* Registration Processor - A backend server application developed using SEDA framework
+It processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
+* IDA (ID Authentication) - A backend authentication server developed using spring family. 
+It authenticates the resident based on registered set of biometric and demographic information
+
 
 Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
 
