@@ -174,9 +174,9 @@ The user opts to view the available slots for a selected registration center.
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
 
 ### 2.4.4 Re-book Appointment
-1. The system provides the user with a default appointment selection: Select Consecutively available Appointment spots
+1. The system provides the user with a default appointment selection: Select Consecutively available Appointment Slots.
 1. An Individual can select any of the Appointment Date available and any of the Appointment Slot available
-1. The Individual has to select against which Pre-Registration Id the Appointment spot is being booked
+1. The Individual has to select against which Pre-Registration Id the Appointment slot is being booked
 1. The system maps appointment slot with all the Pre-Registration Ids, which are selected for Appointment Booking. 
 1. If any Pre-Registration Id does not have Booking mapped, the user is notified if he wants to continue without booking
 1. An Individual at this stage may opt to search Registration Center. In this case the appointment-booking (Time Slot selected) done is removed
@@ -204,10 +204,10 @@ An individual can opt to manually trigger notification\s to the contact details 
 ### 2.6.1 Get Appointment for the Day
 1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
 1. The system presents a  list of Centers to the user to select the required Registration Center 
-1. The Time selection with calendar days along with number of spots available per calendar day will be displayed 
+1. The Time selection with calendar days along with number of slots available per calendar day will be displayed 
 1. Individual can select any of the calendar day which he\she wishes to Book Appointment.
 1. Time slots of 15 minutes each are displayed.
-1. Each time slot with Available spots will be displayed.
+1. Each time slot with Available slots will be displayed.
 1. The Individual can select a slot and proceed to Book Appointment or can go back to select another Registration Center
 
 [**Link to design**](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
