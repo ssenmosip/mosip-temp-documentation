@@ -14,6 +14,7 @@ It processes the client packets and generates UIN based on de-dup information fr
 It authenticates the resident based on registered set of biometric and demographic information
 
 Each of the modules has the following building blocks which are the testable entities
+
  Module | Testable Entities | Tool/Technology | Comments |
  -------|-------------------|-----------------|-----------
  Pre-Registration | UI, REST APIs | | | 
