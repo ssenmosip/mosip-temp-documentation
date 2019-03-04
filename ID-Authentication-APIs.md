@@ -1,18 +1,17 @@
-This wiki page details the REST services exposed by ID Authentication.
+This wiki page details the REST services exposed by ID Authentication. Version 1.0
 
 ## 1. Authentication
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
 1. OTP based - TOTP (Time based OTP)
-2. Pin based - Static Pin
-3. Demo based - Name, DOB, Age, Gender, Address, FullAddress
-4. Bio based - Fingerprint, IRIS and Face
+2. Demo based - Name, DOB, Age, Gender, Address, FullAddress
+3. Bio based - Fingerprint, IRIS and Face
 
 Users of Authentication service - 
-1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service
+1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - Auth Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth Partners and sent to MOSIP, via MISP.
 
 ### Resource URL
-### `POST identity/auth/1.0/<Auth-Partner-ID>/<MISP-LK>`
+### `POST identity/auth/<version>/<Auth-Partner-ID>/<MISP-LK>`
 
 ### Resource details
 
@@ -67,15 +66,16 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
   "requestedAuth": {
     "otp": true,
     "demo": false,
+    "partialDemo" : false, //In case we want to get approximate demo match so small spelling mistakes are ignored just like the old style soundex kind of impl
     "bio": false
   },
   "consentObtained": true,
   "individualId": "9830872690593682",
   "individualIdType": "VID",
-  "sessionKey": "<encrypted (RSA OAEP) with MOSIP public key and encoded session key>",
+  "sessionKey": ["<encrypted (RSA OAEP) with MOSIP public key and encoded session key for first biometric>", "<encrypted (RSA OAEP) with MOSIP public key and encoded session key for second biometric>"],
   "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
   //Identity Request
-  "request": {// This element should be encrypted and encoded using session key AES GCM
+  "request": {// This element should be encrypted using the first session key AES GCM and Base64 encoded
     "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
     "factors": {
       "otp": "123456",
@@ -100,6 +100,10 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
             "value": "mâle"
           }
         ],
+        "age":{
+          "type": "age", // other options are DOB
+          "value": ">25" //or 25, <25, >=25, <=25
+        },
         "fullAddress": [
           {
             "language": "ara",
@@ -111,7 +115,7 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
           }
         ]
       },
-      "biometrics": [
+      "biometrics": [ //Array size can not exceed 10, each object is encrypted and encoded using the session key in the order.
         {
           "transactionID": "1234567890",
           "requestedBioType": {// Data sent by Partner Application
@@ -220,11 +224,11 @@ Status Code : 200 (OK)
 
 ## 2. eKYC
 This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Auth - 
-1. OTP Auth - Time-based OTP (OTP)
+1. OTP Auth - OTP
 2. Bio Auth - Fingerprint, IRIS and Face
 
 ### Resource URL
-### `POST identity/kyc/1.0/<eKYC-Partner-ID>/<MISP-LK>`
+### `POST identity/kyc/<version>/<eKYC-Partner-ID>/<MISP-LK>`
 
 ### Resource details
 
@@ -262,7 +266,7 @@ request: identity: VID| N | VIDof an Individual| |
 request: identity: biometrics|N| Biometrics of an Individual| |
 request: additionalFactors|N| Additional Factors of Auth requested| |
 request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
-request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth| |
+
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
