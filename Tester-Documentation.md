@@ -25,9 +25,7 @@ Each of the modules has the following building blocks which are the testable ent
 
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
- Pre-Registration | UI, REST APIs | * UI Functional Testing
-* Individual API testing 
-* API level integration testing| | 
+ Pre-Registration | UI, REST APIs | * UI Functional Testing * Individual API testing * API level integration testing| | 
  Registration Client | Java APIs | | | 
  Registration Processor | Java APIs, SEDA vert.x stages | | | 
  IDA | REST APIs | | | 
