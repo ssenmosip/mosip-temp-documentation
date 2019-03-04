@@ -22,26 +22,33 @@ In this document we will also talk about utilities for test data generation, too
 ## 1.2 Scope
 1. Test Coverage
 
-Each of the modules has the following building blocks which are the testable entities
+Each of the modules has the following building blocks which are the testable entities, at the module level
 
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
  Pre-Registration | UI, REST APIs | 1. UI Functional Testing 2. Individual API testing 3. API level integration testing| | 
- Registration Client | Java APIs | 1. UI Functional Testing 2. Individual API testing 3. API level integration testing | | 
+ Registration Client | Java APIs | 1. UI Functional Testing (with simulators and with devices) 2. Individual API testing 3. API level integration testing | | 
  Registration Processor | Java APIs, SEDA vert.x stages | 1. Individual API testing 2. Integration workflow testing including the APIs and Vert.x for processing various packet types| | 
  IDA | REST APIs | 1. Individual API testing 2. Integration workflow testing | | 
  Kernel | REST APIs | 1. Individual API testing 2. Integration workflow testing | | 
 
+System Integration Testing
+This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
+
 * a. Test Automation - tools, approach, test code configuration management process, regular usage
-* b. Device integration
-* c. End to end or System testing
+
 2. Data Coverage
 a. Data utility tools - approach, usage
 3. Test Management Tools
 4. Defect Management & Lifecycle
 
 # 2 Test Approach
-A progressively evolving test approach will be adopted i.e. a bottom up approach starting from individual API verification --> module level testing --> integration across modules --> End to end workflow testing
+Each module is tested, both manually and through automation software for effective test coverage.
+
+A progressively evolving test approach is being adopted in both cases. 
+1. Manual Testing starts with module level functional coverage followed by --> integration across modules --> End to end workflow testing
+2. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
+a. Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
 
 ## 2.1 API Testing
 API testing will be carried out in 2 stages, both via Test Automation.
