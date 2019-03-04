@@ -21,11 +21,12 @@ In this document we will also talk about utilities for test data generation, too
 
 ## 1.2 Scope
 1. Test Coverage
+
 Each of the modules has the following building blocks which are the testable entities
 
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
- Pre-Registration | UI, REST APIs | * UI Functional Testing\\n * Individual API testing\n * API level integration testing| | 
+ Pre-Registration | UI, REST APIs | 1. UI Functional Testing 2. Individual API testing 3. API level integration testing| | 
  Registration Client | Java APIs | | | 
  Registration Processor | Java APIs, SEDA vert.x stages | | | 
  IDA | REST APIs | | | 
