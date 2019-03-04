@@ -27,10 +27,10 @@ Each of the modules has the following building blocks which are the testable ent
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
  Pre-Registration | UI, REST APIs | 1. UI Functional Testing 2. Individual API testing 3. API level integration testing| | 
- Registration Client | Java APIs | | | 
- Registration Processor | Java APIs, SEDA vert.x stages | | | 
- IDA | REST APIs | | | 
- Kernel | REST APIs | | | 
+ Registration Client | Java APIs | 1. UI Functional Testing 2. Individual API testing 3. API level integration testing | | 
+ Registration Processor | Java APIs, SEDA vert.x stages | 1. Individual API testing 2. Integration workflow testing including the APIs and Vert.x for processing various packet types| | 
+ IDA | REST APIs | 1. Individual API testing 2. Integration workflow testing | | 
+ Kernel | REST APIs | 1. Individual API testing 2. Integration workflow testing | | 
 
 * a. Test Automation - tools, approach, test code configuration management process, regular usage
 * b. Device integration
