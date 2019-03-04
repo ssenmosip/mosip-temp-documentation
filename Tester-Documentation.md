@@ -14,13 +14,13 @@ It processes the client packets and generates UIN based on de-dup information fr
 It authenticates the resident based on registered set of biometric and demographic information
 
 Each of the modules has the following building blocks which are the testable entities
-Module | Testable Entities | Tool/Technology| |
----------|-----------------|---------|---------
-Pre-Registration | UI, REST APIs | | |
-Registration Client | Java APIs | | | 
-Registration Processor | Java APIs, SEDA vert.x stages | | | 
-IDA | REST APIs | | | 
-Kernel | REST APIs | | |
+ Module | Testable Entities | Tool/Technology | Comments |
+ -------|-------------------|-----------------|-----------
+ Pre-Registration | UI, REST APIs | | | 
+ Registration Client | Java APIs | | | 
+ Registration Processor | Java APIs, SEDA vert.x stages | | | 
+ IDA | REST APIs | | | 
+ Kernel | REST APIs | | | 
 
 Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
 
