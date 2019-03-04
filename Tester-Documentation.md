@@ -2,7 +2,7 @@
 ***
 **# **MOSIP - Test Strategy (Work in progress copy)****
 # 1 Introduction
-## 1.1 Context
+## 1.1 Overview
 The MOSIP architecture mainly consists of the following functional blocks/modules
 * Pre-Registration - Web application designed in Angular JS
 A resident can provide his demographic details in this web application and book an appointment for his future registration at a registration center
@@ -13,16 +13,6 @@ It processes the client packets and generates UIN based on de-dup information fr
 * IDA (ID Authentication) - A backend authentication server developed using spring family. 
 It authenticates the resident based on registered set of biometric and demographic information
 
-Each of the modules has the following building blocks which are the testable entities
-
- Module | Testable Entities | Tool/Technology | Comments |
- -------|-------------------|-----------------|-----------
- Pre-Registration | UI, REST APIs | | | 
- Registration Client | Java APIs | | | 
- Registration Processor | Java APIs, SEDA vert.x stages | | | 
- IDA | REST APIs | | | 
- Kernel | REST APIs | | | 
-
 Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
 
 In this document we will also talk about utilities for test data generation, tools for test automation and test strategy in general.
@@ -31,6 +21,18 @@ In this document we will also talk about utilities for test data generation, too
 
 ## 1.2 Scope
 1. Test Coverage
+Each of the modules has the following building blocks which are the testable entities
+
+ Module | Testable Entities | Levels of Testing | Comments |
+ -------|-------------------|-----------------|-----------
+ Pre-Registration | UI, REST APIs | * UI Functional Testing
+* Individual API testing 
+* API level integration testing| | 
+ Registration Client | Java APIs | | | 
+ Registration Processor | Java APIs, SEDA vert.x stages | | | 
+ IDA | REST APIs | | | 
+ Kernel | REST APIs | | | 
+
 * a. Test Automation - tools, approach, test code configuration management process, regular usage
 * b. Device integration
 * c. End to end or System testing
