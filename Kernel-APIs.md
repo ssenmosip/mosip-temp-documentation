@@ -1271,6 +1271,69 @@ license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
 ```
 
 
+## 9.4 Change license key status
+
+This service moves the status of the license key to SUSPENDED status.
+
+### `PUT /license/status`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
+status|Yes|The status of the license key. It is an enumeration {ACTIVE, SUSPENDED, BLOCKED}| |ACTIVE
+
+### Example Request
+```
+{
+	"id":"mosip.license.status",			
+	"version":"1.0",	
+	"requesttime":"2007-12-03T10:15:30Z",
+	"request" : {
+		"licensekey":"gR7Mw7tA7S7qifkf",
+		"status":"ACTIVE"
+	}
+}
+```
+### Example Response
+Sample Success Response:
+
+```JSON
+{
+	"id":"mosip.license.status",			
+	"version":"1.0",	
+	"responsetime":"2007-12-03T10:15:30Z",	
+	"response" : {
+		"message":"The status had been changed successfully. "
+	}
+}	
+```
+
+
+Sample Error Response:
+
+```JSON
+{
+	"id":"mosip.license.status",			
+	"version":"1.0",	
+	"responsetime":"2007-12-03T10:15:30Z",	
+	"errors":[
+		"errorCode": "PRG_PAM_APP_001",
+		"message": "License key not found"
+	  }	
+	]
+}
+```
+
+
+
 
 # 10. OTP Notification
 
@@ -1697,7 +1760,8 @@ Name | Required | Description | Default Value | Example
 	"request" : {
 		"uin":"33983987329832"
 	}
-}```
+}
+```
 ### Example Response
 ```JSON
 {
