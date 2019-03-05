@@ -48,23 +48,11 @@ https://mosip.com/v2/OTP/generator
 https://mosip.com/v2/OTP/validator
 # 6	Appropriate usage of the HTTP methods
 Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource. 
+
 # 7	HTTP Status codes
-Use the following HTTP status codes are used to convey the result of the Restful service calls. For example, following should be avoided. 
-HTTP Status code returned: 200
-HTTP Response text: “The requested resource is not found”
-All the HTTP status codes can be used. Some of the HTTP status codes are as follows, 
-## 7.1	2xx Category (Success category)
-The 2xx category conveys the service successfully received the request and processed successfully. 
-### 7.1.1	200 Ok
-This is the standard success response for the HTTP methods GET, PUT and POST. 
-### 7.1.2	201 Created
-This is the standard success response for the creation of items. 
-## 7.2	4xx Category (Client errors)
-The 4xx category represents the error category, which are caused by the caller. This status code is applicable for all methods. 
-### 7.2.1	400 Bad request
-When a caller calls the service with some bad request, this HTTP status code is returned. The error can be of malformed URL syntax or the size of the request may be too large etc., 
-### 7.2.2	405 Method not allowed
-When a specific method is not allowed in the resource, this HTTP status code is returned. For example, the DELETE might not be applicable in a resource and if caller request to delete some item, 405 status code is returned. 
+In all the success cases and failure cases, 200 HTTP Status code is returned. Based on the "errors" JSON element in the response, the caller can decide whether the call is success or failure. 
+ 
+
 # 8	Identifying a resource
 When the caller want to identify the resource, the path param is used. For example, 
 https://mosip.com/v2/individuals/id1234
@@ -76,6 +64,7 @@ https://mosip.com/v2/individuals/id1234?city=someCityName&pincode=473822
 # 10	Sorting
 In case if the results have to be sorted, it can be mentioned in the URL parameter named sort. For example, 
 https://mosip.com/v2/individuals/1234?sort=firstName 
+
 # 11	Pagination
 In case of pagination, the page number can be mentioned in the parameter by the name “page”. For example, 
 https://mosip.com/v2/individuals/1234?page=15
@@ -85,38 +74,96 @@ Always use SSL for the services. No services should be exposed without SSL.
 
 # 13	Versioning
 Always version the service. The version have to be mentioned in the URL of the service after the hostname (and port number, if any). For example,   
-https://mosip.com/v2/individuals/1234
+https://mosip.com/individuals/v1.0/1234
 
 # 14	Design first approach
 Always go with the design first approach. First, define the Swagger specification and publish to the Swagger UI after getting it reviewed. The coding should be started after the design is completed and the specification is completed in Swagger. 
-# 15	Response format
-Following are the response formats used in the platform, 
-1.	JSON
-Always the response JSON should be surrounded with envelope ( { } ). For example,	
 
+# 15	Request format
+There are 3 sections in the Request. 
+
+15.1. Request headers:
+This will contain 3 mandatory fields. They are "id", "version" and "requesttime". The "requesttime" have to be in UTC standard ISO8601 format
+
+15.2. Request meta data:
+This is an optional field. If the service is expecting any metadata, they can be passed here. 
+
+
+15.3. Request payload: 
+The request payload goes here. 
+
+For example, 
+
+Request: 
+```JSON
 {
-	“name” : ”Scott Blogger”,
-	“mobile” : “3298-34523457”
+	/***** Following is the header information *****/
+	"id":"mosip.kernel.otpservice",			
+	"version":"1.0",	
+	"requesttime":"2007-12-03T10:15:30Z",
+	
+	/***** Following is the metadata information *****/
+	"metadata" : {
+	},
+	
+	/***** Following is the request payload *****/
+	"request" : {
+		// payload
+	}
 }
-# 16	Error message
-Following error message format is used in case of error response, 
-
 ```
+
+# 16	Response format
+There are 4 sections in the Response. 
+
+16.1. Response headers:
+This will contain 3 mandatory fields. They are "id", "version" and "requesttime". The "requesttime" have to be in UTC standard ISO8601 format
+
+16.2. Response meta data:
+This is an optional field. If the service is expecting any metadata, they can be passed here. 
+
+16.3. Response payload: 
+The response payload goes here. 
+
+16.4. Errors: 
+The Errors array goes here. Even, in case of single error, the error have to be in an array. This is an optional field. In case if the service doesn't contains error, this element will not be there in the response. 
+
+
+For example, 
+
+Response: 
+```JSON
 {
-  "errors": [
-    {
-      "errorCode": "KER-APP-XXX",
-      "errorMessage": "Error occurred while fetching Device Specification"
-    },
-    {
-      "errorCode": "KER-MSD-XXX",
-      "errorMessage": "Invalid Date Format"
-    }
-  ]
+
+	/***** Following is the header information *****/
+	"id":"mosip.kernel.otpservice",			
+	"version":"1.0",	
+	"responsetime":"2007-12-03T10:15:30Z",	
+
+	/***** Following is the metadata information *****/
+	"metadata" : {
+		"status" : "error"
+	},
+	
+	/***** Following is the response payload *****/
+	"response" : {
+		// payload
+	}
+
+	/***** Errors wrapped in an array *****/
+	"errors":[
+		"errorCode": "PRG_PAM_APP_001",
+		"message": "Mobile or email not available"
+	  },
+  	  {
+		"errorCode": "PRG_PAM_APP_001",
+		"message": "Service vendor is not responding"
+	  }		
+	]
 }
 ```
 
-Even in case of one error, surround with an envelope and place the error in an array. 
+In case, there is no request payload or path params or URL params, only the version will be present in the URL. 
 
 # References
 https://en.wikipedia.org/wiki/List_of_HTTP_status_codes

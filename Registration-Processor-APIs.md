@@ -36,11 +36,10 @@ MultipartFile|Yes|The encrypted zip file| |
 {
 	"id" : "mosip.registration.packet",
 	"version" : "1.0",
-	"timestamp" : "2019-02-02T06:12:25.288Z",
-	"response" : {
+	"responsetime" : "2019-02-02T06:12:25.288Z",
+	"response" : [{
 		"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN"
-	},
-	"error" : null
+	}]
 }
 ```
 #### Failure response
@@ -49,12 +48,11 @@ MultipartFile|Yes|The encrypted zip file| |
 {
   "id" : "mosip.registration.packet",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "response" : null,
-  "error" : {
+  "responsetime": "2019-02-02T06:12:25.288Z",
+  "errors" : [{
 		"errorcode": "RPR-PKR-005",
 	    "message": "The request received is a duplicate request to upload a Packet"
-	}
+	}]
 }
 ```
 
@@ -63,24 +61,13 @@ MultipartFile|Yes|The encrypted zip file| |
 
 Description: Packet successfully uploaded to landing zone
 
-400
-
-Description: Packet already present in landing zone
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
 
 # 2.9.2 Registration Status API
 ## 2.9.2.1 Packet-status service
 This service return the registration current status for list of input registration ids.
 
 ### Resource URL
-### `POST /registration-processor/registrationstatus/v1.0`
+### `GET /registration-processor/registrationstatus/v1.0`
 
 ### Resource details
 
@@ -100,7 +87,7 @@ registrationIds|Yes|List of registration ids| |
 {
   "id" : "mosip.registration.status",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : [
 	{
 		"registrationId" : "2018701130000410092012345678"
@@ -117,7 +104,7 @@ Record found :
 {
   "id" : "mosip.registration.status",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : [
   {
     "registrationId": "2018701130000410092012345678",
@@ -135,7 +122,7 @@ Record not found :
 {
   "id" : "mosip.registration.status",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : []
 }
 ```
@@ -145,17 +132,7 @@ Record not found :
 
 Description: Successfully retrieved information
 
-400
 
-Description: Could not find information
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
 
 ## 2.9.2.2 Sync-registration service
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
@@ -181,7 +158,7 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
 {
   "id" : "mosip.registration.sync",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : [
 	  {
 		"langCode": "eng",
@@ -200,7 +177,7 @@ Success response :
 {
   "id" : "mosip.registration.sync",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : [
 	  {
 		"registrationId": "80006444440002520181208094000",
@@ -222,7 +199,7 @@ Failure response
 {
   "id" : "mosip.registration.sync",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : [
 	  {
 		"registrationId": "1234575",
@@ -261,17 +238,7 @@ Failure response
 
 Description: Successfully synced
 
-400
 
-Description: Could sync
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
 
 # 2.9.3 Manual Adjudication API
 ## 2.9.3.1 manual-adjudication-assignment service
@@ -298,7 +265,7 @@ String|Yes|The user id| |
 {
   "id" : "mosip.manual.verification.assignment",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
 	"userId": "mono29"
   }
@@ -310,7 +277,7 @@ Success response
 {
   "id" : "mosip.manual.verification.assignment",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : {
 	  "regId": "27847657360002520181208123456",
 	  "mvUsrId": "mono29",
@@ -318,8 +285,7 @@ Success response
 	  "matchedRefId": "27847657360002520181208123456",
 	  "matchedRefType": "UIN",
 	  "reasonCode": null
-	},
-	"error" : null
+	}
 }
 ```
 Failure response
@@ -327,27 +293,18 @@ Failure response
 {
   "id" : "mosip.manual.verification.assignment",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "response" : null,
-	"error" : {
+  "responsetime": "2019-02-14T12:40:59.768Z",
+	"errors" : [{
 		"errorCode" : "RPR-FAC-003",
 		"message" : "Cannot find the Registration Packet"
-	}
+	}]
 }
 ```
 
 ### Response codes
 200
 
-Description: Successfully assigned applicant to manual adjudicator
-
-400
-
-Description: Could not assign
-
-500
-
-Description: Internal server error
+Description : response code is always 200 if server receives the request.
 
 ## 2.9.3.2 manual-adjudication-decision service
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
@@ -373,7 +330,7 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 {
   "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
 	  "matchedRefId": "27847657360002520181208123987",
 	  "matchedRefType": "RID",
@@ -390,7 +347,7 @@ Success response
 {
   "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : {
 	  "regId": "27847657360002520181208123456",
 	  "mvUsrId": "mono",
@@ -398,8 +355,7 @@ Success response
 	  "matchedRefId": "27847657360002520181208123987",
 	  "matchedRefType": "RID",
 	  "reasonCode": "Problem with biometrics"
-	},
-	"error" : null
+	}
 }
 ```
 Failure response
@@ -407,27 +363,19 @@ Failure response
 {
   "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "response" : null,
-	"error" : {
+  "responsetime": "2019-02-14T12:40:59.768Z",
+	"errors" : [{
 		"errorCode" : "RPR-MVS-003"",
 		"message" : "Invalid status update"
-	}
+	}]
 }
 ```
 
 ### Response codes
 200
 
-Description: Successfully Updated decision
+Description : response code is always 200 if server receives the request.
 
-400
-
-Description: Could update decision
-
-500
-
-Description: Internal server error
 
 ## 2.9.3.3 manual-adjudication-applicant-biometric service
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
@@ -453,7 +401,7 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 {
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
 	  "fileName": "APPLICANTPHOTO",
 	  "regId": "27847657360002520181208123456"
@@ -466,9 +414,10 @@ Success :
 {
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "file": "B@629f0666",
-  "error" : null
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : {
+	  "file": "B@629f0666"
+  }
 }
 ```
 Failure :
@@ -476,33 +425,25 @@ Failure :
 {
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "file": null,
-  "error" : {
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
-  }
+  }]
 }
 ```
 
 ### Response codes
 200
 
-Description: Successfully retrieved applicant demographic
+Description : response code is always 200 if server receives the request.
 
-400
-
-Description: Could not find information from packet store
-
-500
-
-Description: Internal server error
 
 ## 2.9.3.4 manual-adjudication-applicant-demographic service
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.
 
 ### Resource URL
-### `POST /registration-processor/manual-adjudication/applicantDemographic`
+### `POST /manual-verification/applicantDemographic/v1.0`
 
 ### Resource details
 
@@ -522,7 +463,7 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 {
   "id" : "mosip.manual.verification.demographic",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
+  "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
 	  "fileName": "PACKETMETAINFO",
 	  "regId": "27847657360002520181208123456"
@@ -534,9 +475,10 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 {
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "file": "B@629f0666",
-  "error" : null
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : {
+	  "file": "B@629f0666"
+  }
 }
 ```
 Failure :
@@ -544,24 +486,15 @@ Failure :
 {
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
-  "timestamp": "2019-02-04T13:46:39.919+0000",
-  "file": null,
-  "error" : {
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
-  }
+  }]
 }
 ```
 
 ### Response codes
 200
 
-Description: Successfully retrieved applicant biometric
-
-400
-
-Description: Could not find information from packet store
-
-500
-
-Description: Internal server error
+Description : response code is always 200 if server receives the request.

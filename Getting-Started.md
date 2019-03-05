@@ -426,6 +426,15 @@ https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
 **Pre-Registration:**
 https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
 
+**Properties that need to be changed once the external dependencies are installed**
+1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
+2. To be precise, following are the changes that need to be done:   
+
+`mosip.kernel.virus-scanner.host=<your-clamav-hostname>`  <br/>
+`mosip.kernel.virus-scanner.port=<your-clamav-port>`  <br/>
+`mosip.kernel.fsadapter.ceph.access-key=<your-ceph-access-key>`  <br/>
+`mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
+`mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/>
 
 ### MOSIP database object deployment / configuration
 
@@ -461,10 +470,28 @@ Database deployment consists of the following 4 categories of objects to be depl
 3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
 
 4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
+  Pre-Registration: Please execute following script. This would be put in git in next built.
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('eng', 'ara', 'Latin-Arabic', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
 
-The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/dml](https://github.com/mosip/mosip/tree/0.8.0/scripts/database/mosip_master/dml) folder.
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('fra', 'ara', 'Latin-Arabic', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
 
-The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/0.8.0/scripts/database](https://github.com/mosip/mosip/tree/0.8.0/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip/blob/0.8.0/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('ara', 'fra', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
+
+INSERT INTO prereg.language_transliteration(
+lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
+VALUES ('ara', 'eng', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
+
+
+
+The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml](https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml) folder.
+
+The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/master/scripts/database](https://github.com/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
 **Note: Registration client related deployment scripts (Apache derby DB specific) will be created separately.**
 
@@ -674,6 +701,10 @@ IV. Save the file <br/>
 V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml` <br/>
 
 After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
+
+**NOTE** _kernel-config-server-deployment-and-service.yml_ is using a secret named **config-server-secret** , this service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command:
+
+`$ kubectl create secret generic <your-secret-name> --from-file=ssh-privatekey=/path/to/.ssh/id_rsa --from-file=ssh-publickey=/path/to/.ssh/id_rsa.pub`
 
 B. Continuous deployment 
 

@@ -1,39 +1,39 @@
 ## Table Of Content
 - [Common Services](#common-services)
-  * [1. OTP Manager](#1-otp-manager)
-  * [2. QR Code Generator](#2-qr-code-generator)
+  * [1. OTP Manager](#1-otp-manager) _(CMN_FR_1)_
+  * [2. QR Code Generator](#2-qr-code-generator) _(CMN_FR_2)_
   * [3. Crypto Services](#3-crypto-services)
-    * [3.1 Key Generator](#31-key-generator)
-    * [3.2 Key Management](#32-key-management)
-    * [3.3 Crypto Utility](#33-crypto-utility)
-    * [3.4 Hash Utility](#34-hash-utility)
-    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utilitychecksum-utility)
-  * [4. Notification](#4-notification)
-    * [4.1 OTP Notification Services](#41-otp-notification-services)
-    * [4.2 Email Notification](#42-email-notification)
-    * [4.3 SMS Notification](#43-sms-notification)
-    * [4.4 PDF Generator](#44-pdf-generator)
-    * [4.5 Template Merger](#45-template-merger)
-  * [5. Transliteration](#5-transliteration)
-  * [6. MOSIP Utils](#6-mosip-utils)
-    * [6.1 Mobile Data Validator](#61-mobile-data-validator)
-    * [6.2 Email Data Validator](#62-email-data-validator)
-    * [6.3 Exception Framework](#63-exception-framework)
-    * [6.4 Calendar Utility](#64-calendar-utility)
-    * [6.5 Date Utility](#65-date-utility)
-    * [6.6 File Utility](#66-file-utility)
-    * [6.7 Json Utility](#67-json-utility)
-    * [6.8 Math Utility](#68-math-utility)
-    * [6.9 String Utility](#69-string-utility)
-    * [6.10 UUID Utility](#610-uuid-utility)
-    * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility)
+    * [3.1 Key Generator](#31-key-generator) _(CMN_FR_3.1)_
+    * [3.2 Key Management](#32-key-management) _(CMN_FR_3.2)_
+    * [3.3 Crypto Utility](#33-crypto-utility) _(CMN_FR_3.3)_
+    * [3.4 Hash Utility](#34-hash-utility) _(CMN_FR_3.4)_
+    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utilitychecksum-utility) _(CMN_FR_3.5)_
+  * [4. Notification](#4-notification) 
+    * [4.1 OTP Notification Services](#41-otp-notification-services) _(CMN_FR_4.1)_
+    * [4.2 Email Notification](#42-email-notification) _(CMN_FR_4.2)_
+    * [4.3 SMS Notification](#43-sms-notification) _(CMN_FR_4.3)_
+    * [4.4 PDF Generator](#44-pdf-generator) _(CMN_FR_4.4)_
+    * [4.5 Template Merger](#45-template-merger) _(CMN_FR_4.5)_
+  * [5. Transliteration](#5-transliteration) _(CMN_FR_5)_
+  * [6. MOSIP Utils](#6-mosip-utils) 
+    * [6.1 Mobile Data Validator](#61-mobile-data-validator) _(CMN_FR_6.1)_
+    * [6.2 Email Data Validator](#62-email-data-validator) _(CMN_FR_6.2)_
+    * [6.3 Exception Framework](#63-exception-framework) _(CMN_FR_6.3)_
+    * [6.4 Calendar Utility](#64-calendar-utility) _(CMN_FR_6.4)_
+    * [6.5 Date Utility](#65-date-utility) _(CMN_FR_6.5)_
+    * [6.6 File Utility](#66-file-utility) _(CMN_FR_6.6)_
+    * [6.7 Json Utility](#67-json-utility) _(CMN_FR_6.7)_
+    * [6.8 Math Utility](#68-math-utility) _(CMN_FR_6.8)_
+    * [6.9 String Utility](#69-string-utility) _(CMN_FR_6.9)_
+    * [6.10 UUID Utility](#610-uuid-utility) _(CMN_FR_6.10)_
+    * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility) _(CMN_FR_6.11)_
 # Common Services
 ## 1. OTP Manager
 ### A. OTP Generation
 1. OTP Manager Component handles OTP Generation and OTP Validation
 1. For OTP Generation, system receives a request to generate an OTP along with a Key in input parameter. 
 1. This Key can be a Mobile number, Email ID or a combination of Mobile Number and Email ID. 
-1. The component generates an OTP as per the configured length and responds back with to the source with the OTP. OTP manager maps an expiry period with the OTP as configured by the Admin.
+1. The component generates an OTP as per the configured length and responds back with the OTP to the source. OTP manager maps an expiry period with the OTP as configured by the Admin.
 
 ### B. OTP Validation
 1. For OTP Validation, system receives a request to validate an OTP with a Key and OTP in input parameter. 
@@ -44,14 +44,17 @@
 
 1. A user will have a maximum configured number of tries to get the OTP wrong after which he/she will be blocked for a configured amount of time. During this blocked period, he/she cannot generate or validate another OTP.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-otpmanager.md)
 
 ## 2. QR Code Generator
 QR code generator takes the content received along with the version number and converts the content into a QR code. The version number is configurable and determines how much data a QR code can store. The more the version number, the more data can be stored in a QR Code.
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-qrcodegenerator.md)
 ## 3. Crypto Services
-Crypto service encrypt or decrypt data across MOSIP with the help of Public/Private Keys.
+Crypto service encrypts or decrypts data across MOSIP with the help of Public/Private Keys.
 
 #### A. For Encryption
-The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameter. Encrypt the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
+The Crypto Service receives a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be encrypted. It calls the Key Generator API for a symmetric Key and encrypt data using that symmetric Key. It then calls Key Manager Service and get the public key for the Application ID and Timestamp received in the input parameters encrypts the symmetric key using the Public key and joins the Encrypted data and Encrypted Symmetric Key using a Key splitter and respond to the source with the joined data.
 #### B. For Decryption
 The Crypto Service will receive a request from an application with input parameters – Application ID, Reference ID, Timestamp and Data that needs to be decrypted. 
 
@@ -64,6 +67,7 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto.md)
 ### 3.1 Key Generator
 #### A. Generate a Symmetric Key
 
@@ -80,6 +84,8 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 * The asymmetric key pair generated is of 2048 bit size
 * The asymmetric is returned as a byte array
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator.md)
+
 ### 3.2 Key Management
 
 1. The Key Manager Service works together with the Crypto Service. 
@@ -88,27 +94,14 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 1. In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.
 1. For a request to receive private key, The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md)
+
 ### 3.3 Crypto Utility 
 
-The crypto utility is used to perform encryption and decryption 
-
-#### A. Encryption
-
-1. On receiving a  request to encrypt data with input parameters (Application ID, Reference ID, Timestamp, data) the system gets the public key by calling the Key Manager Webservice with the input parameters received in the request (Application ID, Reference ID, Timestamp, data)
-1. Get the Public key in response from the Key Manager Webservice.
-1. Generates the Symmetric Key by using the Symmetric Key generator API.
-1. Encrypts the data received in the request with the Symmetric key using the Cryptography JAVA API.
-1. Encrypts the symmetric key received using the public key using the Cryptography JAVA API.
-1. Combines the Encrypted data and Encrypted Symmetric Key using Crypto Utility
-1. Responds to the source with the Encrypted data and Encrypted Symmetric key combined in a Byte array.
-
-#### B. Decryption
-
-1. On receiving  a request to decrypt data with input parameters (Application ID, Reference ID, Timestamp, Encrypted Byte array) the system Extracts the encrypted Data and Encrypted public key from the Byte Array received using Crypto Utility
-1. Decrypts the encrypted symmetric received in the request using the Key Management WebService.
-1. Decrypts the encrypted data with the decrypted symmetric using Cryptography JAVA API.
-1. Responds to the source with the Encrypted data and Encrypted Symmetric key combined in a Byte array.
-
+The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which performs following functions
+1. It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source
+2. It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption
+ 
 ### 3.4 Hash Utility
 1. Identifies hash util methods
 1. Creates wrapper class for methods defined in apache-commons hash util
@@ -131,15 +124,24 @@ A HMAC/checksum function is a way to create a compact representation of an arbit
 1. The restriction on Attachment and its size is configurable. 
 1. The Third-Party Email Vendor is configurable and any country specific vendor can be used.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-emailnotification.md)
+
 ### 4.3 SMS Notification
 
 This service triggers an SMS Notification upon receiving a request to trigger notification with Phone Number and Content as input parameter. The third-party SMS Vendor is configurable and any country specific vendor can be used.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification.md)
+
 ### 4.4 PDF Generator
 This utility enables created of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md)
+
 ### 4.5 Template Merger
 This utility merges a Template with Placeholders with the dynamic values to form the content to be sent as Notifications or Acknowledgement. The Utility will receive a template and dynamic values from a source. It will merge the values and template and respond with the processed content.
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-templatemanager.md)
+
 ## 5. Transliteration
 MOSIP system can facilitate transliteration by integrating with a third party service provider. Receive a request for transliteration with the required input parameters (Word, Input Language Code, and Output Language Code)
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -147,12 +149,10 @@ MOSIP system can facilitate transliteration by integrating with a third party se
    * Input Language Code - Mandatory
    * Output Language Code - Mandatory
 2. Transliterates the Word received from Input Language to Output Language
-1. In case of Exceptions, system triggers relevant error messages as specified below
-## <p align="left">**Type : Error / Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|TRANSLITERATION_INVALID_ID|Transliteration not possible|KER-TRL-001|
-|TRANSLITERATION_INVALID_LANGUAGE_CODE|Language code not supported|KER-TRL-002|
+1. In case of Exceptions, system triggers relevant error messages.
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-transliteration.md)
+
 ## 6. MOSIP Utils
 ### 6.1 Mobile Data Validator
 
@@ -164,19 +164,8 @@ Upon receiving a request to validate a mobile number against configured mobile n
    * Mobile no. should only be numerical.
 3. In case of Exceptions, system should trigger relevant error messages. Refer “Messages” section
 1. Responds to the source with the result (Valid/Invalid)
-1. Raises an alert in case of listed exceptions as follows
+1. Raises an alert in case of exceptions.
 
-## <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|Mobile no is valid	|"Valid"	|NA|
-
-## <p align="left">**2. Type : Error/Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|MosipInvalidPhoneNumberException|Phone number should not be empty or null|KER-MOV-001|
-|MosipInvalidPhoneNumberException|Phone length should be specified number of digits|KER-MOV-002|
-|MosipInvalidPhoneNumberException|Phone number should not contain any special characters except specified|KER-MOV-003|
 ### 6.2 Email Data Validator
 
 Upon receiving a request to validate an Email ID against the standard Email ID policy, system validates the Email ID against the Standard Email ID format
@@ -190,22 +179,12 @@ Upon receiving a request to validate an Email ID against the standard Email ID p
    * Uppercase and lowercase English letters (a–z, A–Z)
    * Characters ! # $ % & ' * + - / = ? ^ _ ` { | }
    * ~ .
+
 5. Validates if the Email ID contains "@" and domain name within the Email ID.
 1. Responds to the source with the result (Valid/Invalid)
-1. Raises an alert in case of listed exceptions (Refer “messages” section)
+1. Raises an alert in case of exceptions 
 
-## <p align="left">**1. Type : Success – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|Email ID is valid	|Valid	|NA|
-
-## <p align="left">**2. Type : Error/Failure – Info Message**
-|Scenario|Message|Message Code|
-|:------:|:------:|:------:|
-|MosipInvalidEmailException|	Email should not be empty or null|	KER-EMV-001|
-|MosipInvalidEmailException|	Email length should be specified number of characters|	KER-EMV-002|
-|MosipInvalidEmailException|	Email Domain extension length should be specified number of characters|	KER-EMV-003|
-|MosipInvalidEmailException|	Invalid Email ID|	KER-EMV-004|
+[**Design Link to mobile and email data validator**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datavalidator.md)
 ### 6.3 Exception Framework
 MOSIP system provides base exception framework.
 ### 6.4 Calendar Utility 
@@ -240,7 +219,12 @@ MOSIP system provides base exception framework.
 1. Any application in MOSIP can use this UUID utility
 1. Responds with the UUID to the source
 1. Raises an alert in case of listed exceptions
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-uuid-generator.md)
 ### 6.11 Zip-Unzip Utility
 1. Identifies Zip-Unzip util methods
 1. Creates wrapper class for methods defined in apache-commons Zip-Unzip util
 1. Raises an alert in case of listed exceptions
+
+
+[**Link to design for Utilities**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md)

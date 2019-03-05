@@ -79,8 +79,11 @@ otp|Yes|This is OTP which is sent to the userid's preferred channel| -NA- | 6473
 ```
 ### Example Response
 ```
-Response Header:
-AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+
+Set-Cookie →RefreshToken=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTQzMTk2NX0.A3MRm3LMBmdnEkq0kHltBltpxvrk6v5WPLPEWftPh_HsoeJjOK6w7PHXGhMiBu5F1-8RQeVqFW_OpaeC6sgFGw; Max-Age=6000000; Expires=Wed, 08-May-2019 20:00:30 GMT; Path=/; Secure; HttpOnly
 
 JSON Response:
 {
@@ -125,8 +128,11 @@ appid|Yes|This is the application ID of the caller of this service. It should be
 ```
 ### Example Response
 ```
-Response Header:
-AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+
+Set-Cookie →RefreshToken=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTQzMTk2NX0.A3MRm3LMBmdnEkq0kHltBltpxvrk6v5WPLPEWftPh_HsoeJjOK6w7PHXGhMiBu5F1-8RQeVqFW_OpaeC6sgFGw; Max-Age=6000000; Expires=Wed, 08-May-2019 20:00:30 GMT; Path=/; Secure; HttpOnly
 
 JSON:
 {
@@ -171,8 +177,11 @@ secretkey|Yes|This is the secret key which was provided to the application corre
 ```
 ### Example Response
 ```
-Response Header:
-AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+
+Set-Cookie →RefreshToken=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTQzMTk2NX0.A3MRm3LMBmdnEkq0kHltBltpxvrk6v5WPLPEWftPh_HsoeJjOK6w7PHXGhMiBu5F1-8RQeVqFW_OpaeC6sgFGw; Max-Age=6000000; Expires=Wed, 08-May-2019 20:00:30 GMT; Path=/; Secure; HttpOnly
 
 JSON:
 {
@@ -200,17 +209,80 @@ Requires Authentication | no
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-AuthToken|Yes|AuthToken passed in the request header| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Authorization|Yes|AuthToken passed in the request cookie| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
 
 ### Example Request
 ```
-Request Header:
-AuthToken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Request Cookie:
+Authorization eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
 ```
 ### Example Response
 ```JSON
 {
 	"message":"Token had been validated successfully"
+}
+
+```
+
+## 2.2 Refresh Token
+
+This service generates a new Auth token using Refresh token on expiration
+
+### Resource URL
+### `POST /v1.0/authorize/refreshToken`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Cookies and also a JSON message will be returned. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Authorization|Yes|AuthToken passed in the request cookie| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+### Example Request
+```
+Request Cookie:
+Authorization eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+```
+### Example Response
+```JSON
+{
+	"message":"New auth token generated successfully"
+}
+
+```
+## 2.3 Invalidate Token
+
+This service invalidates the token
+
+### Resource URL
+### `POST /v1.0/authorize/invalidateToken`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Cookies and also a JSON message will be returned. 
+Requires Authentication | no
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+Authorization|Yes|AuthToken passed in the request cookie| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+
+### Example Request
+```
+Request Cookie:
+Authorization eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+```
+### Example Response
+```JSON
+{
+	"message":"Token invalidated successfully"
 }
 
 ```

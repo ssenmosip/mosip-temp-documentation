@@ -58,6 +58,7 @@ This section details about the service APIs in the Master data modules
 
 [2.3.29 Age group Types API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2330-age-group-types-api)
 
+[2.3.30 Template Types Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#2330-template-types-api)
 
 
 # 2.3.1 Holiday Master API
@@ -6606,6 +6607,58 @@ Name | Required | Description | Default Value | Example
 	"maximumage": "number",
 	"langCode": "string",
 	"isactive": boolean
+}
+```
+
+### Response codes
+200
+
+Description: Success
+
+
+
+
+# 2.3.30 Template Types API
+
+# 2.3.30.1 Age group Types Master-get template types
+
+This service fetches the template types irrespective of the language. The service returns the results in all the languages. 
+
+
+### Resource URL
+### `GET /templatetype/{code}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|This is the template code field|-NA-|auth-email-content
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Response
+```JSON
+{
+
+	/***** Following is the header information *****/
+	"id":"mosip.applicationtype.getapplicationtype",			
+	"version":"1.0",	
+	"responsetime":"2007-12-03T10:15:30Z",
+	"response" : {
+		"code": "string",
+		"descr": "string",
+		"langCode": "string",
+		"isactive": boolean
+	}
 }
 ```
 
