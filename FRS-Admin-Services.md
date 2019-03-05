@@ -1,6 +1,6 @@
 ## Table Of Content
 
-  * [1. Master Data Management](#1-master-data-management) _(ADM_FR_1)_
+  * [1. Master Data Management](#1-master-data-management) 
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete) _(ADM_FR_1.1)_
     * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete) _(ADM_FR_1.2)_
     * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createread) _(ADM_FR_1.3)_
@@ -19,7 +19,7 @@
     * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---create) _(ADM_FR_1.16)_
     * [1.17 List of Applications - Create/Read](#117-list-of-applications---createread) _(ADM_FR_1.17)_
     * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread) _(ADM_FR_1.18)_
-  * [2. Registration Management](#2-registration-management) _(ADM_FR_2)_
+  * [2. Registration Management](#2-registration-management) 
     * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete) _(ADM_FR_2.1)_
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete) _(ADM_FR_2.2)_
     * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create) _(ADM_FR_2.3)_
@@ -32,7 +32,7 @@
     * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete) _(ADM_FR_2.10)_
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
-  * [3. Partner Management](#3-partner-management) _(ADM_FR_3)_
+  * [3. Partner Management](#3-partner-management) 
     * [3.1 License Key Manager](#31-license-key-manager) _(ADM_FR_3.1)_
 # Admin Services
 ## 1. Master Data Management
