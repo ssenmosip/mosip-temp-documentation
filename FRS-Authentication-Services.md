@@ -1,13 +1,13 @@
 * [4. Authentication Services]()
-  * [4.1 Single factor Authentication]() _(IDA_FR_1)_
+  * [4.1 Single factor Authentication]() 
     * [4.1.1 Biometric Authentication]() _(IDA_FR_1.1)_
     * [4.1.2 Demographic Authentication]() _(IDA_FR_1.2)_
     * [4.1.3 OTP Authentication]() _(IDA_FR_1.3)_
     * [4.1.4 Static PIN Authentication]() _(IDA_FR_1.4)_
   * [4.2 Multi-factor Authentication]() _(IDA_FR_2)_
-  * [4.3 Offline Authentication]() _(IDA_FR_3)_
+  * [4.3 Offline Authentication]()
     * [4.3.1 QR Code based Authentication]() _(IDA_FR_3.1)_
-  * [4.4 KYC Service]() _(IDA_FR_4)_
+  * [4.4 KYC Service]() 
     * [4.4.1 Profile Sharing]() _(IDA_FR_4.1)_
     * [Full Profile]()
     * [Limited Profile Sharing - Policy Based]()
