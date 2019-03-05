@@ -52,7 +52,7 @@
     * [5.11.3 Transliteration](#5113-transliteration) _(REG_FR_5.23)_
     * [5.11.4 Virtual Keyboards](#5114-virtual-keyboards) _(REG_FR_5.24)_
     * [5.11.5 Translation??](#5115-translation) _(REG_FR_5.25)_
-  * [5.12 Health Check](#512-health-check) _(REG_FR_5.12)_
+  * [5.12 Health Check](#512-health-check) 
     * [5.12.1 Disk Space Check](#5121-disk-space-check) _(REG_FR_5.26)_
     * [5.12.2 Peripherals Check](#5122-peripherals-check) _(REG_FR_5.27)_
     * [5.12.3 Virus Scan/Security Scan](#5123-virus-scansecurity-scan) _(REG_FR_5.28)_
