@@ -1,68 +1,55 @@
-**Application Bundle:**
-***
-Registration client application will be delivered as a Docker image, which can be downloadable from Docker MOSIP private repository. 
-The generated image would be signed and same will be validated when it is installed at the desktop machine.
- 
-**Registration Client – Docker Image:**  
-![Reg Client Application Bundle](_images/registration/reg-client-app-bundle.png) 
- 
- - DerbyDB - This image contains the db, tables, few tables with values and authentication for the db.
-
 **Application Setup KIT:** 
 ***
-The ‘Registration Client Setup KIT’ would be available at MOSIP server.
-This KIT will contain the runtime engine that is required for Registration client application to run.  
-As Docker container is the runtime engine, the same would be embedded into this KIT.
-The Docker image would not be available as part of this KIT. It would be available in MOSIP Docker private repo and same would be downloaded from client application through Docker command.
-It also contains the DB key which will be loaded into the TPM of client machine.
-User should login to the Admin portal and Download this KIT and initiate the installation process.
+Registration client application would be delivered into two parts:  
+   1. Zip file - Contains Application Base folder structure with DB.    
+   2. Application Binaries.   
 
-   **TBD** - In detail of Setup kit to be provided.
-   -VcXsrv Windows X Server
 
-   **Build Process:**  
-    The standard Jenkin build process would be followed to generate the Registration client docker image and the generated docker image would be placed in to the MOISP Private repository. 
+**Application Build Process:**  
+***    
+   The standard Jenkin build process would be followed to generate the Registration client docker image and the generated docker image would be placed in to the MOISP Private repository.  
 
-    The Docker image contains the Derby database jar, authentication setup script, initial table creation and few insert script.
-    - Initial Script contains:
-      1. List of screens.
-      2. Screen and role mapping. 
      
-   **Application Runtime:** 
-![Reg Client Application Deployment](_images/registration/reg-client-app-runtime.png)   	 
-
-   The above diagram depicts the actual runtime of registration client application. 
-    
+**Application Runtime:**
+***   
    -Windows 10 Operating System.  
-   -VcXsrv Windows X Server [.exe] - [40 MB] - to open the GUI component from docker container.  
    -Java Runtime Environment - 1.8  
    -Derby DB. [ Version - 13]  
-   -Docker Installation Pkg. [version - 18.*][600 MB]  
 	 
-**Installation at Desktop Machine:**
-***
-![Reg Client Application Installation](_images/registration/reg-client-app-install-process.png)   		 
- 
-   Download the application setup KIT from MOISP admin portal. 
-   Double click on the provided .exe file to extract the package and install the Docker container in local machine in a 
-   particular folder.  
-   **TBD -** List of values to be entered by the user during installation to be determined. 
-   Once installation completed then click on the ‘RegClientStart.bat’ file to initialize the Docker container and pull the latest ‘MOSIPRegistrationClient’ image from Private Docker hub. 
-   Generate and Load the DB key into the TPM [Trusted Platform Module]. {More research required in this area} 
+**Installation at Desktop Machine:**   
+***  
+**Zip file:**  
+   1. User login to the Admin portal and download the client application ZIP file.  
+   2. Once downloaded then unzip the file into a particular location. It contains the following structure.    
+      - lib : it contains the library required for the application to start.  
+      - prop : it contains the property file that will be used by application.  
+      - log : the application log file would be written under this folder.  
+      - db : it contains the db related files.  
+   3. Store the DB boot key into the TPM [Trusted Platform Module].  
    
-   Then run the Docker container to launch the application. 
-   Once application launched then connect to the TPM and pull the required key to communicate with the DB. 
-   Check the data availability in the local DB, if no data available then initiate the ‘Sync [Master/ Configure/ User]’ process to download the machine [MAC ID] specific center level data from MOSIP server environment.
+**Application Binaries:**  
+When user clicks on the 'main.jar' it does the following :  
+   1. It loads the binary repository URL from property file.
+   2. Communicate with the  JFrog repository through secured connection.  
+   3. Download the latest build [TBD] Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
+   4. Compare the checksum of local version of jar files with the data present in Manifest.mf file.    
+   5. Identify the list of binary files to be downloaded and initiate the secured connection to JFrog repo.  
+   6. Download the required jars.  
+   7. Start the application.      
    
-   Note: Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement. 
-
+   Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
+   Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
+   During initial setup, until the data gets synch from server the user can't use the application.     
+   Note:  
+      - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
 
 **Database:**
 *** 
    -The Derby database will be used to store the local transaction information along with Master and configuration data.  
    -The data stored into the database would be encrypted using a particular boot key password.  
    -The key would be maintained in TPM and same will be used during communication with database from application.  
- 
+   - 
+   
 **Update:**
 ***
    **Database update:**  
@@ -135,13 +122,13 @@ Through sync process the data would be sync between local machine and server bas
    3.	Logs in local machine.
    4.	Generated Registration and Pre-Registration packet.
 
+
+**To Be Discussed:**   
+***  
+   1. Need to decide whether we follow Auto update/ manual update approach?  	
+   2. How to load key into TPM? The respective rotation policy?  
+   3. How to update the DB password/ encryption key?  
+   4. If any db table structure got changed / new table added then how to execute the same in client machines?  
    
-**To Be Discussed:** 
-***
-   1. Docker login credential during installation?
-   2. Docker installation volume path.?
-   3. Auto update/ manual update?	
-   4. How to load key into TPM? The respective rotation policy.
-   5. How to update the DB password/ encryption key?
-   6. Shall we provide the Docker software as part of Initial KIT which is to be downloaded from MOSIP server?
+   
    
