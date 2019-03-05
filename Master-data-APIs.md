@@ -1,5 +1,5 @@
 This section details about the service APIs in the Master data modules
-
+ 
 [2.3.1 Holiday Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#231-holiday-master-api)
 
 [2.3.2 Blacklisted words Master API](https://github.com/mosip/mosip/wiki/Master-data-APIs#232-blacklisted-words-master-api)
