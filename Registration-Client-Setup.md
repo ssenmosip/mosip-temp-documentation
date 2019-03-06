@@ -49,6 +49,39 @@ When user clicks on the 'main.jar' it does the following :
    -The data stored into the database would be encrypted using a particular boot key password.  
    -The key would be maintained in TPM and same will be used during communication with database from application.  
    - 
+
+**Anti Virus - Configuration:** 
+***  
+   Installation of Open Source Anti Virus Software [ClamAV]:
+   1.	Download the ClamAV from the below url  
+   		https://www.clamav.net/downloads  
+   		
+   	2.	Install the downloaded .exe file.  
+   	
+   ClamAV Config Setup:  
+
+    1.Copy C:\Program Files\ClamAV\conf_examples\clamd.conf.sample file  
+      Paste as C:\Program Files\ClamAV\conf_examples\clamd.conf  
+
+    2.Copy C:\Program Files\ClamAV\conf_examples\ freshclam.conf.sample file  
+      Paste as C:\Program Files\ClamAV\conf_examples\ freshclam.conf  
+        
+    3.Comment the line# 8(Example) in both the files    
+
+    **clamd.conf file changes:**  
+    1.	Uncomment LogFile "C:\Program Files\ClamAV\clamd.log"(Line 14)
+   
+    **freshclam.conf file changes:**  
+     Uncomment the below mentioned lines in the file,  
+    1.	DatabaseDirectory - "C:\Program Files\ClamAV\database"(Line 13)  
+    2.	UpdateLogFile     - "C:\Program Files\ClamAV\freshclam.log"(Line 17)  
+    3.	DatabaseMirror    - db.XY.clamav.net(Line 69)  change XY to our country code  
+    4.	DatabaseMirror    - database.clamav.net(Line 75)   
+    5.	Checks 24(Line 113)  
+    6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
+
+   **Once all the Configurations are done run the “freshclam.exe” and then run “clamd.exe”.**  
+   	
    
 **Update:**
 ***
