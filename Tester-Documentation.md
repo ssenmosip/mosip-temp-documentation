@@ -59,30 +59,34 @@ API testing will be carried out in 2 stages, both via Test Automation.
 In this approach the request and response APIs will be templatized. The input request API template will be parameterised via a data utility, which also prepares the expected response JSON file. The request is then posted to get the actual response. The actual and expected response JSONs are compared to verify the result. 
 Data utility also handles the transliteration of input values.
 
-Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:
+API Automation will be done using Rest Assured IO DSL using Java. The tools/Libraries used are as below:
 
-*     IO Rest Assured DSL
-*     TestNG
-*     Java/J2EE
-*     Eclipse Editor
+* IO Rest Assured DSL
+* TestNG
+* Java/J2EE
+* Eclipse Editor
 
 The framework consists majorly 3 Elements/parts as below:
 	
-*       Test Data
-*       Test Scenario
-*       Test Execution and Assert
-*       Results/Reporting
+* Test Data
+* Test Scenario
+* Test Execution and Assert
+* Results/Reporting
 
 Directory Structure:
 
 #### 2.1.1.1 Test Data
 Test Data is maintained under the path src/test/resources. Every module's data is saved separately from other module with folder name as module name(say Kernel).
-Every api under specific module is saved as folder name. All test cases belonging to an api are saved with separate folders; the name of folder being the name of the test case. Each test case folder has 2 jsons; one for request.json and another refering expected response.json.
+
+Every API under specific module is saved as folder name. All test cases belonging to an API are saved with separate folders; the name of folder being the name of the test case. Each test case folder has 2 jsons; one for request.json and another refering expected response.json.
+
 It looks as below:
+
 src/test/resources/moduleName/apiName/testCaseName/Request.json
 src/test/resources/moduleName/apiName/testCaseName/Response.json
 
 Example: 
+
 src/test/resources/Kernel/FetchDevice/invalid_deviceType_blank/Request.json
 src/test/resources/Kernel/FetchDevice/invalid_deviceType_blank/Response.json
 
@@ -95,10 +99,17 @@ Each folder name under specific api represents an individual test case.
 IO Rest Assured methods (POST, GET, PUT, and DELETE) used to run the requests. These methods saved under Common Library so that same methods are re-used.Test are executed using io rest assured DSL libraries. All methods are implemented under CommonLibrary.java and ApplicationLibrary.java file contains generic methods to accept input body and resource uri. These files can be located under io.mosip.util package.
 
 All tests are maintained module wise; each class under tests represent an api specific to the module. The name of the java class is same as api name. The same java class is having test methods to run multiple test data combination for an api.
+
+
 The directory structure is:
+
+
 io.mosip.kernel.tests
+
 io.mosip.preregistration.tests
+
 io.mosip.authenticatiion.tests
+
 io.mosip.registrationprocessor.tests
 
 Example test class file: io.mosip.kernel.test.AuditLog.java
@@ -108,37 +119,37 @@ After getting actual response from the service, the actual response body is comp
 #### 2.1.1.4 Test Results/Reportig
 Based on the assert function output a test is decided as PASS or FAIL and then written to TestNG default report emailable.html report. This report can be found under test-output/emailable-report.html. The same is circulated to other audience after pipeline QA build.
  
-## 2.2 Api Testing Strategy
+## 2.2 API Testing Strategy
 
-Api Testing is broadly classified as Component and integration(Scenario) testing.
+API Testing is broadly classified as Component and integration(Scenario) testing.
 
-### Component Tests
+### 2.2.1 Component Tests
 Component tests are like unit tests for the API - It checks individual methods available in the API in isolation. We create these tests by making a test step for each method or resource that is available in the service contract. 
 
 The easiest way to create component tests is to consume the service contract and let it create the clients. We will then data-drive each individual test case with positive and negative data to validate that the responses that come back have the following characteristics:
 
-* 	 The request json payload is well-formed (schema validation)
-* 	The response json payload is well-formed (schema validation)
-* 	The response status is as expected (200 OK, SQL result set returned)
-* 	The response error payloads contain the correct error messages and error codes
-* 	Assertion - the individual elements in the response match our expectations (presence of specific element, datatype 
-        of element etc).
-* 	The service responds within an expected time frame 
-* 	Validate how the system behaves when some request headers are missing, e.g., Content-Type, Authorization, etc.
-*	Checking what happens if provide query parameters for a method that should accept only form parameters in a body
-* 	verifying whether a protected resource is not available over HTTP when it should be only on HTTPS
-* 	Business logic testing. Say while Fetching application (PreId) presence of valid Preregistration ID is mandatory      
-       in the request.
-* 	Positive and Negative testing. Making sure that if you make a bad request, it responds as expected.
+* The request json payload is well-formed (schema validation)
+* The response json payload is well-formed (schema validation)
+* The response status is as expected (200 OK, SQL result set returned)
+* The response error payloads contain the correct error messages and error codes
+* Assertion - the individual elements in the response match our expectations (presence of specific element, datatype of element etc).
+* The service responds within an expected time frame 
+* Validate how the system behaves when some request headers are missing, e.g., Content-Type, Authorization, etc.
+* Checking what happens if provide query parameters for a method that should accept only form parameters in a body
+* Verifying whether a protected resource is not available over HTTP when it should be only on HTTPS
+* Business logic testing. Say while Fetching application (PreId) presence of valid Preregistration ID is mandatory in the request.
+* Positive and Negative testing. Making sure that if you make a bad request, it responds as expected.
 
 These individual API tests are the most important tests that we build because they will be leveraged in all of the subsequent testing techniques.  These tests simplify the process of approaching API testing.
 
-### Integration/Scenario Tests
+### 2.2.2 Integration/Scenario Tests
 Under this type of testing, we assemble the individual component tests into a sequence, much like the example described as below.
+
 Ex: Create Application, Upload Document, Book appointment and Fetch Application data.
+
 There are two great techniques for obtaining the sequence:
-1.	Review the user story to identify the individual API calls that are being made.
-2.	Exercise the UI and capture the traffic being made to the underlying APIs.
+1. Review the user story to identify the individual API calls that are being made.
+1. Exercise the UI and capture the traffic being made to the underlying APIs.
 
 **Approach:**
 
@@ -162,7 +173,7 @@ Integration tests allow us to understand if defects might be introduced by combi
 ## 2.3 Module level testing
 MOSIP module level testing cannot be completely automated due to the use of scanner devices and others that involve manual intervention. Therefore the following approach will be adopted for creating a controlled end to end regression test suite that considers no devices, but simulators. This also includes the simulation of ABIS responses via a ABIS Simulator.
 
-# Registration Client Approach
+# 3. Registration Client Approach
 
 Please ensure the following prerequisites is available in the machine from where we are going to launch and test the application:
 1. Updated derby DB 
@@ -171,42 +182,42 @@ Please ensure the following prerequisites is available in the machine from where
 
 First in order to launch the application, we must configure our machine to the center and it can be achieved by inserting a query in Derby DB where user will insert / update the MAC address of the particular machine from where user launches the application.
 
-# Login Functionality:
+# 4. Login Functionality:
 To create a packet, the user must have a valid user name and password and more importantly on-boarded to the machine. The User can create one using insert query in "User details" table in Derby DB.Once logged in to the application, the user will be routed to "Home screen" where the user has option to start a New Registration, UIN Update and Lost UIN. If the credentials are not valid or the user is not on-boarded then the application will display appropriate error message and restricts the user to proceed further
 
-# Packet Creation:
+# 5. Packet Creation:
 
-## a. Pre-Registration Sync:
+## 5.1 Pre-Registration Sync:
 The resident's are allowed to provide their Demographic and basic proof documents via online. Upon completion of those information, they will be provided with a PRID. Post that the resident are supposed to make an appointment to the registration center and complete the registration. Once the PRID is generated, the pre-registration team will provide a service through which they will put all PRID available for the registration client and in turn RC team will get those in to their DB by Pre-Registration sync.
 
-## b. Demo Data Capture:
+## 5.2 Demo Data Capture:
 Using New Registration tab on home screen, the user can either enter the resident's detail manually or the user can fetch the details using PRID(Pre-registration ID). When user fetches the details using PRID, the RC will check whether the information is available in DB and if not it will check online and based on availability it will display the details. If in case, the details are available in both places, then it will fetch it from online considering the online is the recent and updated one. All mandatory fields needs to be captured and the configured secondary language will display the same on the right hand side of the application. If user wants to transliterate the information, then using virtual keyboard the user can enter the data.
 
-## c. Document Upload
+## 5.3 Document Upload
 Once demographic information are captured, the user has to upload the necessary documents through document upload screen and the document category will come from Master data. The user will not be allowed to upload more than one document type for a single category. The RC should not have an option to store or export it to external devices but must have access to view and delete it.
 
-## d. Biometric capture:
+## 5.4 Biometric capture:
 Since due to non-availability of external devices, biometric details are stubbed while creating a packet. Biometric details like Fingerprint (4+4+2), IRIS (1+1) and Face photo. Except applicant photo, all other details are stubbed.Also the biometric details are placed as CBEFF file format in the packets.
 
-## e. Preview
+## 5.5 Preview
 After user has captured all the information, the application will display the preview screen where the user and resident will re-verify for correctness of information. If something needs to be changed, using Edit option the user will change the value and complete the registration capture process
 
-## f. Registration Authentication
+## 5.6 Registration Authentication
 The final step to create a packet is by authenticating it with RO credentials. The packets which have biometric exception information will need supervisor credentials for authenticating it. Upon successful authentication, the packet will get created and stored in the default configured path. 
 
-# EOD Process:
+# 6. EOD Process:
 In EOD process, the user can either approve a packet or reject with reasons. The list of reason to reject will come from master data and this can be achieved by sync job. Only supervisor will have access to EOD process. Once supervisor logged in and start to approve the packet. Before approving, all pending approval packets are available in "Pending approval" queue. Select a packet / group of packets and user can approve / reject based on necessity. 
 
-# Upload Packets:
+# 7. Upload Packets:
 Click the upload button and all the internal approved packets will get uploaded and moved to the server. The UI will display the uploaded status whether it is uploaded successfully or not. 
 
-# Packet Validation:
-## a.	Basic Checks:
+# 8. Packet Validation:
+## 8.1	Basic Checks:
 1. Packet store folder and packet availability
 2. Acknowledgement
 3. Packet is encrypted or not
 
-## b.	Advanced checks: 
+## 8.2	Advanced checks: 
 1. Decrypt the packet using the utility and verify the packet structure like availability of Demo, Bio, HMAC, Documents uploaded, Exception info, Supervisor and RO info 
 
 
@@ -266,7 +277,7 @@ Tests to validate the functionality of each screen either with Successful or Err
 
 [[https://github.com/mosip/mosip/blob/add180c7590ac0d97ae941008a22fc01e0a01de3/testing/automation/RegClientAutoFrmwrk-DirStr.JPG]]
 
-# Data Coverage
+# 9. Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
 There are 5 data generation utilities with the following purposes 
 1. for testing Pre-Reg and Reg Client UIs
@@ -297,16 +308,18 @@ Test data util when run picks the random data from respective tags in master yml
 
 <!---This document covers the automation testing standards, for the RESTful webservice testers.--->
 
-# 2 Structuring Tests for API testing
-## 2.1 Naming Convention
+# 10. Structuring Tests for API testing
+## 10.1 Naming Convention
 
 Project Name as Mosip
+
 Every module as Test Suite
+
 Test Suites are as below:
-    Pre-Registration 
-    Reg-Proc
-    IDA
-    Kernel
+* Pre-Registration 
+* Reg-Proc
+* IDA
+* Kernel
 
 Note: As Registration module doe not have any Restful apis, not considered for automation.
 
@@ -318,18 +331,18 @@ ModuleName SprintCycle_Type of Test_Fetaure_JIRA ID_Description
 
 **ModuleName:**
 
-   Pre-Registration - 1
-   Reg-Proc -2
-   IDA -3
-   Kernel -4
+* Pre-Registration - 1
+* Reg-Proc -2
+* IDA -3
+* Kernel -4
 
 Sprint Cycle: 1 , 2 ,3 etc
 
-Type of Test as below
-   1 – Sanity
-   2 – Progression
-   3- Regression
-   4- Progression and Regression both
+Type of Test as below:
+1. Sanity
+1. Progression
+1. Regression
+1. Progression and Regression both
 
 JIRA ID – Relevant story under test
 
@@ -339,79 +352,82 @@ Ex: 14_3_OTP_MOS-27_Verify OTP triggered successfully
 
 The above test case is interpreted as this test case belongs to Pre-Registration module of  4th sprint, regression test case, testing OTP feature addressed using JIRA no as MOS-27 for test scenario “verify otp is triggered successfully”.
 
-## 2.2 Header
+## 10.2 Header
 Every test is to be preceded with Header script addressing below elements
 
 Name: Name of the tests
+
 Module: Module going to test
+
 Author: Individual who is writing tests
+
 Date: Date of development of tests
 
-## 2.3 Functional testing of individual methods or operations
+## 10.3 Functional testing of individual methods or operations
 
 This testing ensures whether a method or operation performs the task correctly, which it is intended to do actually.
 Example: Say if a POST method/operation ‘register’ used to create a user then a new user creation is completed with an entry into database.
 
-## 2.4 Syntax checking of individual methods/operations
+## 10.4 Syntax checking of individual methods/operations
 This type of testing is done to validate if it accepts only valid inputs and all invalid inputs are rejected with proper error code/messages.
 
-## 2.5 Construct test scenarios
+## 10.5 Construct test scenarios
 By clubbing, multiple methods/operations create End-to-End regression scenarios.
 
 Example: Simulate Input Data -> Trigger OTP -> Generate OTP -> Get OTP -> Authenticate OTP
 										
-## 2.6 Exceptional behavior checking
+## 10.6 Exceptional behavior checking
 	
 This type of testing is performed to check if apis fail gracefully with proper error code and error messages. Need to simulate error scenarios and validate the 4xx and 5xx series of status codes.	
 
 Sending incorrect or invalid parameters to the API triggers a negative outcome, which is commonly an error message or other indication of a problem
 
-## 2.7 Database Validation
+## 10.7 Database Validation
 The data created/Updated/Deleted should be validated against DB entry with JDBC step using the tool.
 
-# 3 Input Data Handling
+# 11 Input Data Handling
 
-## 3.1 Parsing/generating input data 
+## 11.1 Parsing/generating input data 
 
 Input data should be handled as master json file and then it is parsed across the soapui project to refer input elements.
 Groovy scripting is used to generate data dynamically (Ex: email address).
 
 All input json files are saved in git and accessed accordingly.
 
-## 3.2 Use realistic data 
+## 11.2 Use realistic data 
 
 Make it a priority to understand the rationale behind the API, along with the information being sent to it, both in design and in practice.
 
-## 3.3 Mock Services
+## 11.3 Mock Services
 
 As part of End-to-End testing if feature is not available (out of scope for feature under test and not yet implemented), create Mock services using SOAP UI tool. Also, can create stubs using Groovy scripting.
 
-## 3.4 Capturing Logs
+## 11.4 Capturing Logs
 
 As part of proof of validation, save logs of execution; which can then be transferred to git repository as a reference point.
 
-# 4 Assertions
+# 12 Assertions
 
-## 4.1 Add as many as assertions
+## 12.1 Add as many as assertions
 	
 Cultivate habit of adding assertions as many as possible which would uniquely validates whether a test is pass or fail. Use tool assertions, which would be quicker and reuse script assertions wherever required.
 
-## 4.2 Dynamic assertions
+## 12.2 Dynamic assertions
 
 Tightly couple assertions with dynamic data, which is generated as part of test execution. This will ensure the expected result exactly matches the requirement along with changing data.
 
 Example: txn_id in the response should match with txn_id in request, which is dynamically generated each time test is run. Add Json path assertion to check txn_id in response is same as txn_id in the request.
 
-# 5 Scope of apis
+# 13 Scope of apis
 
 Get the clarity of feature under scope of testing. Testing the features which are not under current scope and 3rd party operations should be avoided.  3rd party apis are tested only to check if it is prompting expected element/status. This strategy helps us to arrive with quality tests. 
 
-# 6 Test Strategy
-## 6.1 Registration Processor
+# 14 Test Strategy
+## 14.1 Registration Processor
 Registration Processor is the core part of MOSIP where the Identity and Validation of resident’s enrolled data happens, and on a successful verification UIN will be generated and delivered to the residents. Functional verification and security aspects plays a critical role in evaluation of Registration Processor. Unlike the regular black box testing, this will be more of a Grey box testing that involves verification of the stages for the Registration Processor Module of the MOSIP Software.
-## 6.2 Module Level Testing
+## 14.2 Module Level Testing
 This testing ensures Registration Processor Module level operation performed correctly (intended) without any issues. Example: Registration Processor starts with uploading packets leading to virus scan, then to Packet store and finally creating the UIN. 
-## 6.3 Registration Processor Workflow 
+## 14.3 Registration Processor Workflow 
 Following are the high level positive and negative scenarios covering the below shown workflow diagram of the reg proc module
 
 Number | Test Scenarios | Category| 
@@ -448,7 +464,7 @@ Number | Test Scenarios | Category|
 
 [[https://github.com/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG]]
 
-## 6.4 Pre-requisite for Reg Proc testing
+## 14.4 Pre-requisite for Reg Proc testing
 1.	Create resident test packet from reg client
 2.	Ensure Reg Proc and all its associated job are up and running
 
@@ -472,7 +488,7 @@ Number | Test Scenarios | Category|
 5.	Required Privileges to DB for Testdata updates to create positive / negative flow.
 6.	Ensure all the depended services are deployed.
 
-## 6.5 Test Step
+## 14.5 Test Step
 Registration packets created by the registration clients will be periodically uploaded to the server for processing. The packets will be stored in Virus scan folder initially and status will be updated in registration status table. 
 
 In case of successful Virus Scan, packets move to DFS. In case of Virus Scan failure, packets move to Retry Folder. The statuses of these packets is in the Enrollment Status Table.
@@ -481,17 +497,17 @@ Packets are successfully uploaded to file system and ready for decryption. Decry
 After successful packet structure validation, the packet Meta info is stored in DB. The user, machine and center information will be further validated at Master Data in DB to check if authorized person creates the packet.
 After successful Bio dedupe, the UIN Generator will be called to allocate an unique identification number to the applicant by using 'kernel-idgenerator-uin' Rest API to generate UIN. It will return the unique id which will be allotted to the applicant.it will call kernel-idrepo-service create API to add a new applicant to id repository. After successful response from the idrepo-service, store the uin information in registration processor db. Update individual_demo_dedupe table with uin information against the registration id.
 
-### 6.5.1 OSI Validation
+### 14.5.1 OSI Validation
 Testing an OSI validation we populate the MASTER DB with User,machine,center details in a combination set with valid / Invalid Details. We create packets using Utils by passing valid/Invalid details of User/Machine/Center Details .The validation of OSI stage DB record for each condition will be verified.
-### 6.5.2 Demo Dedupe:
+### 14.5.2 Demo Dedupe:
 Demo dedupe records matching GENDER,NAME and DOB  .Perform demo dedupe on all potential 'demo dedupe records' with 'applicant demographic information' using levenshtein distance algorithm. However for Testing we modify the DB with UIN with pre populated data . We use the same of set data while creating the packet to validate the condition.
-### 6.5.3 Configuration:
+### 14.5.3 Configuration:
 Camel route xml is implemented in the private network where the stages are running on loosely coupled.By Modifying the route in-out of the vertx end point we validate the stages behaviors . 
-### 6.5.4 Bio-Dedupe:
+### 14.5.4 Bio-Dedupe:
 We create packet with dummy tag as unique / duplicate in CBEF which passed on Mock ABIS service to validate the Bio-Dedupe. Based on the tag ABIS decide the uniqueness of the packet .  
 
 
-## 6.6 Test Data
+## 14.6 Test Data
 Registration processor takes input as packet , the validation of stages involves data carried inside the packet. To validate positive and negative conditions we need to create the different combination of packet as mentioned below.
 
  | Packet with different Conditions | 
@@ -650,7 +666,7 @@ Registration processor takes input as packet , the validation of stages involves
 | Create a packet with Office supervisor is missing  |
 | Create a packet  with unknown Geo data in master DB |
 
-## 6.7 Output verification
+## 14.7 Output verification
 1.	Packet Handler request and response for JSON format/ structure/contents validation and verification according to the API specs.
 2.	Status and error code verification according to the API spec.
 3.	Biometric accuracy for Biometric dedupe
@@ -658,44 +674,44 @@ Registration processor takes input as packet , the validation of stages involves
 5.	DB status check for the packet processing across various stages in Registration Processor.
 6.	Application log - ensure no errors logged .
 
-## 6.8 Test Execution Process:
+## 14.8 Test Execution Process:
 QA Analyst is responsible for the sanity testing.  QA Analyst will be executing the sanity testing of the Registration Processor as specified below.  Test cases will be executed & Defects are logged in JIRA.  
-### 6.8.1 Entrance Criteria:
+### 14.8.1 Entrance Criteria:
 1. Unit testing and Integration Testing are completed.
 2. Sanity test cases are identified.
 3. QA environment is available.
-### 6.8.2 Exit Criteria:
+### 14.8.2 Exit Criteria:
 1. All Sanity test cases are executed and results documented.
 2. Defects are documented and severity is designated. 
 
-## 6.9 Test Setup
+## 14.9 Test Setup
 Below is the Block diagram / network diagram depicting all the connections and hardware devices.
 <!---[[https://github.com/mosip/mosip-test/blob/master/rptopo.png]]--->
 
-## 6.10 Hardware – Server configuration
+## 14.10 Hardware – Server configuration
 
 Item | Setup | 
 -----  | -----------------|
 Microsoft Azure | Azure Virtual Machine Application server | 
 Microsoft Azure | Azure DB Instance | 	
 
-## 6.11 Hardware – Registration Client Machine
+## 14.11 Hardware – Registration Client Machine
 Item | Configuration | 
 -----  | -----------------|
 Intel | Core i5 | 
 
-## 6.12 Software – Server 
+## 14.12 Software – Server 
 Item | Configuration | 
 -----  | -----------------|
 Microsoft Azure| apache-maven-3.5.4 maven | 
 Microsoft Azure | jdk1.8.0_181-amd64 | 	
 
-## 6.13 Software – Client 
+## 14.13 Software – Client 
 Item | Configuration | 
 -----  | -----------------|
 Microsoft| Windows 10 | 
 
-## 6.14 Test Tools (software)
+## 14.14 Test Tools (software)
 This section should contain a table that documents the testing tools that will be needed to plan, script, and perform functional testing. Tools are required for test scripting, test defect tracking, test results logging, performance testing, automated testing and test management. 
 
 Item | Area | 
@@ -704,10 +720,10 @@ Jira | Defect Tracking |
 PostgreSQL | DB | 	
 Swager UI | API Manual Testing | 
 
-## 6.15 Integration Testing 
+## 14.15 Integration Testing 
 The purpose of System Integration testing is to test a set of logically related components in a business like scenario. Integrating the Registration Processor with other modules in MOSIP for example Kernel for Cryptography , Registration packet from Registration client etc. To ensure Registration Processor able to work as intended.
 
-## 6.16 End to End Testing 
+## 14.16 End to End Testing 
 The process of this to Test the MOSIP as a system like by considering the real deployment, we create test scenarios  which starts by Pre-registration demo data will consumed by Registration client and then create a packet to upload in registration processor. Registration Processor will do Virus Scan,Integrity check,structural validation,OSI Validation,Demo Dedupe and finally do bio Dedupe post successful of the before stages the UIN will be created . Our Test Scenarios will be cover with positive and negative on the end to end flow .			
 
 
