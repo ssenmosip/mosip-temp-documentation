@@ -35,10 +35,10 @@ Each of the modules has the following building blocks which are the testable ent
 System Integration Testing
 This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
 
-* a. Test Automation - tools, approach, test code configuration management process, regular usage
+* Test Automation - tools, approach, test code configuration management process, regular usage
 
 2. Data Coverage
-a. Data utility tools - approach, usage
+* Data utility tools - approach, usage
 3. Test Management Tools
 4. Defect Management & Lifecycle
 
@@ -48,7 +48,7 @@ Each module is tested, both manually and through automation software for effecti
 A progressively evolving test approach is being adopted in both cases. 
 1. Manual Testing starts with module level functional coverage followed by --> integration across modules --> End to end workflow testing
 2. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
-a. Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
+* Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
 
 ## 2.1 API Testing
 API testing will be carried out in 2 stages, both via Test Automation.
@@ -68,10 +68,10 @@ Api Automation will be done using Rest Assured IO DSL using Java. The tools/Libr
 
 The framework consists majorly 3 Elements/parts as below:
 	
-      Test Data
-      Test Scenario
-      Test Execution and Assert
-      Results/Reporting
+*       Test Data
+*       Test Scenario
+*       Test Execution and Assert
+*       Results/Reporting
 
 Directory Structure:
 
