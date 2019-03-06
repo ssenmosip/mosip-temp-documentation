@@ -22,7 +22,7 @@ In this document we will also talk about utilities for test data generation, too
 ## 1.2 Scope
 1. Test Coverage
 
-Each of the modules has the following building blocks which are the testable entities, at the module level
+  * Each of the modules has the following building blocks which are the testable entities, at the module level
 
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
@@ -32,8 +32,8 @@ Each of the modules has the following building blocks which are the testable ent
  IDA | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
  Kernel | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
 
-System Integration Testing
-This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
+  * System Integration Testing -
+    This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
 
 * Test Automation - tools, approach, test code configuration management process, regular usage
 
