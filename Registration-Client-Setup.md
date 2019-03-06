@@ -36,23 +36,9 @@ When user clicks on the 'main.jar' it does the following :
    5. Identify the list of binary files to be downloaded and initiate the secured connection to JFrog repo.  
    6. Download the required jars.  
    7. Start the application.      
-   
-   Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
-   Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
-   During initial setup, until the data gets synch from server the user can't use the application.     
-   Note:  
-      - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
 
-**Database:**
-*** 
-   -The Derby database will be used to store the local transaction information along with Master and configuration data.  
-   -The data stored into the database would be encrypted using a particular boot key password.  
-   -The key would be maintained in TPM and same will be used during communication with database from application.  
-   - 
-
-**Anti Virus - Configuration:** 
-***  
-   Installation of Open Source Anti Virus Software [ClamAV]:
+**Anti Virus:**  
+   Installation of Open Source Anti Virus Software [ClamAV]:  
    1.	Download the ClamAV from the below url  
    		https://www.clamav.net/downloads  
    		
@@ -81,9 +67,23 @@ When user clicks on the 'main.jar' it does the following :
     6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
 
    **Once all the Configurations are done run the “freshclam.exe” and then run “clamd.exe”.**  
-   	
+
+**Database:**  
+   - The Derby database will be used to store the local transaction information along with Master and configuration data.   
+   - The data stored into the database would be encrypted using a particular boot key password.   
+   - The key would be maintained in TPM and same will be used during communication with database from application.   
+   - Initial provided DB contains all the required tables with few are only having data.    
+   - During sync process the data will be updated into the local database.  
+
+**Application Startup:**     
+   - Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
+   - Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
+   - During initial setup, until the data gets synch from server the user can't use the application.     
+   - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
+
+
    
-**Update:**
+**Update Process:**
 ***
    **Database update:**  
    If database to be updated to the next version then update the same in the Docker image [JFROG repository] and that will get downloaded through the respective Docker pull statement. Docker pull only download the updated layer [not all layers]
