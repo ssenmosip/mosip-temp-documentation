@@ -111,6 +111,16 @@ Whenever communication happening with online services the OAuth token need to be
 To generate the OAuth token the client secret key / login user id / password would be passed to the ‘Login’ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
 
 
+   **Trusted Platform Module (TPM):**  
+   - Secure non-volatile storage  
+   - Secure logging 
+   - Windows 10 requires TPM 2.0 to be enabled in all its desktop editions (Home, Pro, Enterprise, and Education)  
+   - On Windows TPM 2.0 is avilable via TPM Base Services (TBS) API  
+   - on Linux - via /dev/tpm0 or /dev/tpmrm0 device file abstractions  
+   
+   
+   
+
 **System Prerequisites:**
 *** 
    -CPU - Dual Core Processor - 2GHZ  
