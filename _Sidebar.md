@@ -42,4 +42,3 @@
   * [Component-Feature-JIRA ID Mapping](https://github.com/mosip/mosip/wiki/Component-x-Feature-x-JIRA-ID-Mapping)
   * [Attachments](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)
   * [Testing Attachments - Kernel](https://github.com/mosip/mosip/wiki/Testing-Attachments---Kernel)
-  * Tesing Attachments - Pre-registration Pre ()
