@@ -99,13 +99,13 @@ When user clicks on the 'main.jar' it does the following :
 The packet created during registration process and downloaded from pre-registration application would be encrypted using asymmetric and symmetric key.   
 The asymmetric key received from MOSIP server will be used for encryption of registration packet and it can only be decrypted at server end only. At regular interval the encryption public key at Registration client would be updated.
 The Symmetric key would be generated on runtime and same will be used during the pre-registration packet decryption.  
-   **<TODO>:** How to secure the Docker image?
-
+   
+   
    **Key management:**  
    The key required for encryption / decryption at different process of an application would be maintained in database and TPM.
-   TPM  – it will hold the DB encryption and decryption key.
-   DB 	– it will hold the pre-registration symmetric key.
-        – it will also hold the Registration packet public key.
+   TPM  - it will hold the DB encryption and decryption key.
+   DB 	- it will hold the pre-registration symmetric key.
+       - it will also hold the Registration packet public key.
  
    **REST Service integration Authentication:**  
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
@@ -115,11 +115,11 @@ To generate the OAuth token the client secret key / login user id / password wou
 
 **System Prerequisites:**
 *** 
-   •CPU - Dual Core Processor - 2GHZ  
-   •Ram – 8 GB  
-   •Local Storage Disk Space – 500 GB 
-   •5 USB 2.0 ports or equivalent hub.  
-   •Physical machine with TPM facility.   
+   -CPU - Dual Core Processor - 2GHZ  
+   -Ram – 8 GB  
+   -Local Storage Disk Space – 500 GB 
+   -USB 2.0 ports or equivalent hub.  
+   -Physical machine with TPM facility.   
  
 **Data Setup:**  
 ***
