@@ -1,30 +1,22 @@
-**Application Setup KIT:** 
+**Registration Client - Application Setup Process:** 
 ***
-Registration client application would be delivered into two parts:  
-   1. Zip file - Contains Application Base folder structure with DB.    
-   2. Application Binaries.   
+
+This document contains the information about the 'Registration client' application initial setup process to be followed by the Registration officers to setup the same into their local desktop machine.     
+
+The Registration client application is delivered into two parts:  
+   1. Zip file - Contains Application Base folder structure with installed derby DB.      
+   2. Application Binaries.  - Contains the application runtime jars.  
 
 
-**Application Build Process:**  
-***    
-   The standard Jenkin build process would be followed to generate the Registration client docker image and the generated docker image would be placed in to the MOISP Private repository.  
-
-     
-**Application Runtime:**
-***   
-   -Windows 10 Operating System.  
-   -Java Runtime Environment - 1.8  
-   -Derby DB. [ Version - 13]  
-	 
 **Installation at Desktop Machine:**   
 ***  
 **Zip file:**  
    1. User login to the Admin portal and download the client application ZIP file.  
    2. Once downloaded then unzip the file into a particular location. It contains the following structure.    
       - lib : it contains the library required for the application to start.  
-      - prop : it contains the property file that will be used by application.  
-      - log : the application log file would be written under this folder.  
-      - db : it contains the db related files.  
+      - prop : it contains the property file that will be used by application.    
+      - log : the application log file would be written under this folder.    
+      - db : it contains the derby database, tables and few table with the data.      
    3. Store the DB boot key into the TPM [Trusted Platform Module].  
    
 **Application Binaries:**  
@@ -82,7 +74,6 @@ When user clicks on the 'main.jar' it does the following :
    - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
 
 
-   
 **Update Process:**
 ***
    **Database update:**  
@@ -91,6 +82,12 @@ When user clicks on the 'main.jar' it does the following :
    **Application update:**  
    Through application the version of Docker Image between the local repository and remote repository will be validated. If there is any difference in the version, then prompt the user to complete the current process [Registration and pushing packet] and initiate the software update process.
    
+
+**User Mapping to the Local machine:** 
+***  
+   User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id. 
+   The existing user configured in Admin portal for a particular registration center can only be tagged to the local machine. 
+
     	
 **Security:** 
 ***
@@ -102,10 +99,11 @@ The Symmetric key would be generated on runtime and same will be used during the
    
    
    **Key management:**  
-   The key required for encryption / decryption at different process of an application would be maintained in database and TPM.
+   The key required for encryption / decryption at different process of an application would be maintained in database [encrypted format] and TPM.
+   
    TPM  - it will hold the DB encryption and decryption key.
-   DB 	- it will hold the pre-registration symmetric key.
-       - it will also hold the Registration packet public key.
+   DB 	- it will hold the pre-registration symmetric key, which is generated during runtime and it will not be downloaded from server.  
+       - it will also hold the center specific public key to encrypt the Registration packet, which is downloaded and refreshed from server at a regular interval.      
  
    **REST Service integration Authentication:**  
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
@@ -116,8 +114,8 @@ To generate the OAuth token the client secret key / login user id / password wou
 **System Prerequisites:**
 *** 
    -CPU - Dual Core Processor - 2GHZ  
-   -Ram – 8 GB  
-   -Local Storage Disk Space – 500 GB 
+   -Ram - 8 GB  
+   -Local Storage Disk Space - 500 GB 
    -USB 2.0 ports or equivalent hub.  
    -Physical machine with TPM facility.   
  
@@ -126,8 +124,9 @@ To generate the OAuth token the client secret key / login user id / password wou
 In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be taken care at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine mac-id and center id.
 
-   **Admin Portal:**  
-   Configure the following Data with respect to Registration client at Admin portal.
+   **Sync Service :**  
+   The following data would be sync from Server to local db through the multiple sync jobs and the same to be setup at server by Admin.   
+   
    1.	User Profile Setup. 
    2.	User Authentication Setup. 
    3.	Role Setup. 
@@ -137,11 +136,7 @@ Through sync process the data would be sync between local machine and server bas
    7.	Registration Center Configuration. 
    8.	Machine Configuration. 
    9.	Center to Machine mapping. 
-   10.	Center – User mapping. 
-
-   **User Mapping to the Local machine:** 
-   User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id. 
-   The existing user configured in Admin portal for a particular registration center can only be tagged to the local machine. 
+   10.	Center User mapping. 
 
 
 **Archival Policy:**
@@ -158,10 +153,10 @@ Through sync process the data would be sync between local machine and server bas
 
 **To Be Discussed:**   
 ***  
-   1. Need to decide whether we follow Auto update/ manual update approach?  	
+   1. Need to decide whether we need to follow the Auto update/ manual update approach?  	
    2. How to load key into TPM? The respective rotation policy?  
    3. How to update the DB password/ encryption key?  
-   4. If any db table structure got changed / new table added then how to execute the same in client machines?  
-   
-   
+   4. If any db table structure got changed / new table added then how to syncup the same in client machines?  
+  
+  
    
