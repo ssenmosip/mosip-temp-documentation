@@ -167,7 +167,6 @@ Response Cookie:
 
 Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
 
-Set-Cookie →RefreshToken=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTQzMTk2NX0.A3MRm3LMBmdnEkq0kHltBltpxvrk6v5WPLPEWftPh_HsoeJjOK6w7PHXGhMiBu5F1-8RQeVqFW_OpaeC6sgFGw; Max-Age=6000000; Expires=Wed, 08-May-2019 20:00:30 GMT; Path=/; Secure; HttpOnly
 
 JSON Response:
 {
@@ -186,7 +185,8 @@ Error Responses
 
 1. Invalid OTP: If the passed OTP is not valid. 
 
-JSON Response:
+```JSON
+
 {
 	"id": "mosip.authentication.useridOTP",
 	"ver": "1.0",
@@ -204,7 +204,8 @@ JSON Response:
 
 2. Expired OTP: If the passed OTP is expired. 
 
-JSON Response:
+```JSON
+
 {
 	"id": "mosip.authentication.useridOTP",
 	"ver": "1.0",
@@ -216,7 +217,6 @@ JSON Response:
 		  }	
 		]
 }
-
 ```
 
 ## 1.3 Authenticate using username and password
@@ -262,7 +262,6 @@ Response Cookie:
 
 Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
 
-Set-Cookie →RefreshToken=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTQzMTk2NX0.A3MRm3LMBmdnEkq0kHltBltpxvrk6v5WPLPEWftPh_HsoeJjOK6w7PHXGhMiBu5F1-8RQeVqFW_OpaeC6sgFGw; Max-Age=6000000; Expires=Wed, 08-May-2019 20:00:30 GMT; Path=/; Secure; HttpOnly
 
 JSON:
 {
@@ -280,8 +279,8 @@ JSON:
 Error Responses
 
 1. Invalid credentials: If the passed credentials is not correct. 
+```JSON
 
-JSON Response:
 {
 	"id": "mosip.authentication.useridPwd",
 	"ver": "1.0",
@@ -297,8 +296,8 @@ JSON Response:
 ```
 
 2. Invalid application ID: If the passed in application is not correct. 
+```JSON
 
-JSON Response:
 {
 	"id": "mosip.authentication.useridPwd",
 	"ver": "1.0",
@@ -357,8 +356,6 @@ Response Cookie:
 
 Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
 
-Set-Cookie →RefreshToken=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTQzMTk2NX0.A3MRm3LMBmdnEkq0kHltBltpxvrk6v5WPLPEWftPh_HsoeJjOK6w7PHXGhMiBu5F1-8RQeVqFW_OpaeC6sgFGw; Max-Age=6000000; Expires=Wed, 08-May-2019 20:00:30 GMT; Path=/; Secure; HttpOnly
-
 JSON:
 {
 	"id": "mosip.authentication.clientidsecretkey",
@@ -376,7 +373,7 @@ Error Responses
 
 1. Invalid credentials: If the passed credentials is not correct. 
 
-JSON Response:
+```JSON
 {
 	"id": "mosip.authentication.clientidsecretkey",
 	"ver": "1.0",
@@ -439,7 +436,7 @@ Error Responses
 
 1. Invalid Token: If the passed token is not correct. 
 
-JSON Response:
+```JSON
 {
 	"id": "mosip.authentication.validatetoken",
 	"ver": "1.0",
@@ -610,7 +607,7 @@ Error Responses
 
 1. Invalid OTP: If the passed OTP is not correct. 
 
-JSON Response:
+```JSON
 {
 	"id": "mosip.authentication.validateOTP",
 	"ver": "1.0",
@@ -628,7 +625,7 @@ JSON Response:
 
 2. OTP Expired: If the passed OTP had been expired. 
 
-JSON Response:
+```JSON
 {
 	"id": "mosip.authentication.validateOTP",
 	"ver": "1.0",
