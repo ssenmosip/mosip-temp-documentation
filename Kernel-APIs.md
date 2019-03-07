@@ -7844,7 +7844,6 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 		"attributes": [{
 				"attribute": "IndividualType",
 				"value": "Foreigner"
-
 			},
 			{
 				"attribute": "genderCode",
@@ -7873,7 +7872,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 {
 	"id": "mosip.applicanttype.getApplicantType",
 	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
+	"responsetime": "2007-12-03T10:15:30Z",
 	"response" : {
 		"applicationtypecode": "APP-C-94"
 	}
