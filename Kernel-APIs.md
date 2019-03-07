@@ -7817,7 +7817,7 @@ These set of services does various operations regarding the applicant type.
 This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
 
 ### Resource URL
-### `GET /applicanttype/getApplicantType?individualTypeCode=INDTYP_002&genderCode=ML&dateofbirth=2008-10-04T05:00:00.000Z&biometricAvailable=true&languagecode=eng`
+### `POST /applicanttype/getApplicantType`
 
 ### Resource details
 Resource Details | Description
@@ -7836,8 +7836,38 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 
 ### Example Request
 ```JSON
--NA-
+{
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"request": {
+		"attributes": [{
+				"attribute": "IndividualType",
+				"value": "Foreigner"
+
+			},
+			{
+				"attribute": "genderCode",
+				"value": "ML"
+			},
+			{
+				"attribute": "dateofbirth",
+				"value": "2008-10-04T05:00:00.000Z"
+			},
+			{
+				"attribute": "biometricAvailable",
+				"value": true
+			},
+			{
+				"attribute": "languagecode",
+				"value": "eng"
+			}
+		]
+
+	}
+}
 ```
+
 ### Example Response
 ```JSON
 {
