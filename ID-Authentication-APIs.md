@@ -26,30 +26,24 @@ Name | Required | Description | Default Value | Example
 MISP-LK| Y | MISP License Key | | 
 id | Y | API Id | | mosip.identity.auth
 version | Y | API version | | 1.0
-partnerId | Y | Auth Partner ID | |
-policyId | Y | Policy ID of Auth Partner | |
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
 requestedAuth| Y | Authentication Types requested| | 
 requestedAuth: otp| Y | OTP Authentication Type | false| false
 requestedAuth: demo| Y | Demographic Authentication Type | false| false
 requestedAuth: bio| Y | Biometric Authentication Type | false|false
-requestedAuth: pin| Y | Static Pin Authentication Type |false |false
-bioMetadata| N | Biometric metadata when Bio Auth is requested | | 
-bioMetadata: bioType| Y | Biometric Type requested | |FMR or IIR or FID 
-bioMetadata: deviceId| Y | Biometric Device ID | | 
-bioMetadata: deviceProviderID| Y | Biometric Device Provider ID | | 
-sessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+individualId| Y | VID of Individual | | 9830872690593682 
+individualIdType| Y | Type of Individual ID | VID |
+consentObtained| Y | If consent of Individual is obtained | true
+keyIndex| Y | Thumbprint of public key certificate used for encryption of sessionKey | 
+requestSessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+requestHMAC| Y | sha256 of request block before encryption and hash is encrypted using requestSessionKey | |
 request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: identity: UIN| N | UIN of an Individual| | 
-request: identity: VID| N | VIDof an Individual| | 
-request: identity: name| N | name attribute of Individual's Identity| | 
-request: identity: addressLine1|N| addressLine1 attribute of Individual's Identity| |  
-request: identity: fullAddress|N| fullAddress attribute of Individual's Identity| | 
-request: identity: biometrics|N| Biometrics of an Individual| |
-request: additionalFactors|N| Additional Factors of Auth requested| |
-request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
-request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth| |
+request: factors: otp| N | OTP | | 
+request: factors: timestamp| N | Timestamp when request block was captured| | 
+request: factors: transactionID|N| Transaction ID provided by Device Service| |
+request: factors: demographics|N| Demographic data of an Individual| |
+request: factors: biometrics|N| Biometric data of an Individual| |
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
@@ -57,27 +51,23 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
 ### Sample Request Body
 ```JSON
 {
-  // API Metadata
   "id": "mosip.identity.auth",
   "version": "1.0",
-  // Request Metadata
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "transactionID": "1234567890",
   "requestedAuth": {
     "otp": true,
     "demo": false,
-    "partialDemo" : false, //In case we want to get approximate demo match so small spelling mistakes are ignored just like the old style soundex kind of impl
     "bio": false
   },
   "consentObtained": true,
   "individualId": "9830872690593682",
   "individualIdType": "VID",
   "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
-  "requestSessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-  "HMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>"
-  //Identity Request
-  "request": {// This element should be encrypted using the request session key AES GCM and Base64 encoded. The request should be encrypted before its stored or transmitted.
-    "factors": { 
+  "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
+  "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
+  "request": {
+    "factors": {
       "otp": "123456",
       "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
       "transactionID": "1234567890",
@@ -102,10 +92,16 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
             "value": "mâle"
           }
         ],
-        "age":{
-          "type": "age", // other options are DOB
-          "value": ">25" //or 25, <25, >=25, <=25
-        },
+        "age": [
+          {
+            "value": "25"
+          }
+        ],
+        "dob": [
+          {
+            "value": "25/11/1990"
+          }
+        ],
         "fullAddress": [
           {
             "language": "ara",
@@ -117,47 +113,41 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
           }
         ]
       },
-      "biometrics": [ //Array size can not exceed 10.
-        
-            {
-              "data": {// Entire data block is encrypted and base64 encoded. This is data is sent by the MOSIP device. 
-                  "deviceCode": "",// This is digital ID of device given by MOSIP device service
-                  "deviceProviderID": "",
-                  "deviceServiceID": "",// RD Service ID
-                  "deviceServiceVersion": "", // RD Service Version                  
-                  "type": "FMR",
-                  "requestedBioType": "FMR",
-                  "requestedScore": <floating point number to represent the minimum required score for the capture>,
-                  "subType": "UNKNOWN",
-                  "value": "<encrypted with session key and base64 encoded biometric data>",
-                  "transactionID": "1234567890",
-                  "timestamp": "2019-02-15T10:01:57.086+05:30",
-                  "qualityScore": floating point number representing the score for the current capture,
-                  }
-                  "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)", 
-                  "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>", 
-                  "signature": "base64 signature of the data and metaData block"
-            },
-
-            {
-              "data": {// Entire data block is encrypted and base64 encoded. This is data is sent by the MOSIP device.
-                  "deviceCode": "",// This is digital ID of device given by MOSIP device service
-                  "deviceProviderID": "",
-                  "deviceServiceID": "",// RD Service ID
-                  "deviceServiceVersion": "", // RD Service Version                  
-                  "type": "IIR",
-                  "requestedBioType": "IIR",
-                  "subType": "RIGHT",
-                  "value": "<encrypted with session key and base64 encoded biometric data>",
-                  "transactionID": "1234567890",
-                  "timestamp": "2019-02-15T10:01:57.086+05:30",
-                  }
-                  "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)", 
-                  "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>", 
-                  "signature": "base64 signature of the data and metaData block"
-            }
-                
-        
+      "biometrics": [
+        {
+          "data": {
+            "deviceCode": "",
+            "deviceProviderID": "",
+            "deviceServiceID": "",
+            "deviceServiceVersion": "",
+            "bioType": "FMR",
+            "bioSubType": "UNKNOWN",
+            "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+            "transactionID": "1234567890",
+            "timestamp": "2019-02-15T10:01:57.086+05:30",
+            "requestedScore": "<floating point number to represent the minimum required score for the capture>",
+            "qualityScore": "<floating point number representing the score for the current capture>"
+          },
+          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+          "signature": "base64 signature of the data and metaData block"
+        },
+        {
+          "data": {
+            "deviceCode": "",
+            "deviceProviderID": "",
+            "deviceServiceID": "",
+            "deviceServiceVersion": "",
+            "bioType": "IIR",
+            "bioSubType": "RIGHT",
+            "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+            "transactionID": "1234567890",
+            "timestamp": "2019-02-15T10:01:57.086+05:30"
+          },
+          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+          "signature": "base64 signature of the data and metaData block"
+        }
       ]
     }
   }
@@ -180,7 +170,7 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Auth Response
-  "status": "Y",
+  "status": true,
   "staticToken": "<static_token>",
   "errors": []
 }
@@ -198,7 +188,7 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Auth Response
-  "status": "Y",
+  "status": false,
   "staticToken": "<static_token>",
   "errors": [
     {
@@ -231,28 +221,24 @@ MISP-LK| Y | MISP License Key | |
 id | Y | API Id | mosip.identity.kyc | 
 version | Y | API version | 1.0 | 
 partnerId | Y | eKYC Partner ID | |
-policyId | Y | Policy ID of eKYC Partner | |
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
 requestedAuth| Y | Authentication Types requested| | 
 requestedAuth: otp| Y | OTP Authentication Type | false| false
 requestedAuth: demo| N | Demographic Authentication Type | false| false
 requestedAuth: bio| Y | Biometric Authentication Type | false|false
-requestedAuth: pin| Y | Static Pin Authentication Type |false |false
-bioMetadata| N | Biometric metadata when Bio Auth is requested | | 
-bioMetadata: bioType| Y | Biometric Type requested | |FMR or IIR or FID 
-bioMetadata: deviceId| Y | Biometric Device ID | | 
-bioMetadata: deviceProviderID| Y | Biometric Device Provider ID | | 
-kycMetadata| Y | KYC metadata requested | | 
-kycMetadata: consentRequired| Y | Individual's consent for eKYC Auth | | 
-kycMetadata: secondaryLangCode| N | Secondary Language code to send eKYC response | | 
-sessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+individualId| Y | VID of Individual | | 9830872690593682 
+individualIdType| Y | Type of Individual ID | VID |
+consentObtained| Y | If consent of Individual is obtained | true
+secondaryLangCode| Y | Secondary Language Code | |
+keyIndex| Y | Thumbprint of public key certificate used for encryption of sessionKey | 
+requestSessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+requestHMAC| Y | sha256 of request block before encryption and hash is encrypted using requestSessionKey | |
 request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: identity: UIN| N | UIN of an Individual| | 
-request: identity: VID| N | VIDof an Individual| | 
-request: identity: biometrics|N| Biometrics of an Individual| |
-request: additionalFactors|N| Additional Factors of Auth requested| |
-request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
+request: factors: otp| N | OTP | | 
+request: factors: timestamp| N | Timestamp when request block was captured| | 
+request: factors: biometrics|N| Biometrics of an Individual| |
+request: factors: transactionID|N| Transaction ID provided by Device Service| |
 
 
 ### Sample Request Header
@@ -261,115 +247,61 @@ request: additionalFactors: totp|N| OTP used for requested OTP Auth| |
 ### Sample Request
 ```JSON
 {
-  // API Metadata
-  "id": "mosip.identity.auth",
+  "id": "mosip.identity.kyc",
   "version": "1.0",
-  // Request Metadata
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "transactionID": "1234567890",
   "requestedAuth": {
     "otp": true,
     "demo": false,
-    "bio": false
+    "bio": true
   },
   "consentObtained": true,
   "secondaryLangCode": "<sec-lang-code>",
   "individualId": "9830872690593682",
   "individualIdType": "VID",
-  "sessionKey": "<encrypted (RSA OAEP) with MOSIP public key and encoded session key>",
   "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
-  //Identity Request
-  "request": {// This element should be encrypted and encoded using session key AES GCM
-    "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
+  "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
+  "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
+  "request": {
     "factors": {
       "otp": "123456",
-      "demographics": {
-        "name": [
-          {
-            "language": "ara",
-            "value": "ابراهيم بن علي"
-          },
-          {
-            "language": "fra",
-            "value": "Ibrahim Ibn Ali"
-          }
-        ],
-        "gender": [
-          {
-            "language": "ara",
-            "value": "الذكر"
-          },
-          {
-            "language": "fra",
-            "value": "mâle"
-          }
-        ],
-        "fullAddress": [
-          {
-            "language": "ara",
-            "value": "عنوان العينة سطر 1, عنوان العينة سطر 2"
-          },
-          {
-            "language": "fra",
-            "value": "exemple d'adresse ligne 1, exemple d'adresse ligne 2"
-          }
-        ]
-      },
+      "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
+      "transactionID": "1234567890",
       "biometrics": [
         {
-          "transactionID": "1234567890",
-          "requestedBioType": {// Data sent by Partner Application
-            "FMR": true,
-            "FIR": false,
-            "IIR": false,
-            "FID": false
-          },
-          "metaData": {// Data sent by RD Service
-            "deviceCode": "",// This is digital ID of device given by MOSIP device service
+          "data": {
+            "deviceCode": "",
             "deviceProviderID": "",
-            "deviceServiceID": "",// RD Service ID
-            "deviceServiceVersion": ""// RD Service Version
+            "deviceServiceID": "",
+            "deviceServiceVersion": "",
+            "bioType": "FMR",
+            "bioSubType": "UNKNOWN",
+            "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+            "transactionID": "1234567890",
+            "timestamp": "2019-02-15T10:01:57.086+05:30",
+            "requestedScore": "<floating point number to represent the minimum required score for the capture>",
+            "qualityScore": "<floating point number representing the score for the current capture>"
           },
-          "values": [
-            {
-              "type": "FMR",
-              "subType": "UNKNOWN",
-              "value": "<base64 encoded value>",
-              "timestamp": "2019-02-15T10:01:57.086+05:30",
-              "signature": "base64 signature of the block"
-            },
-            {
-              "type": "FMR",
-              "subType": "RIGTHT_POINTER",
-              "value": "<base64 encoded value>",
-              "timestamp": "2019-02-15T10:01:57.086+05:30",
-              "signature": "base64 signature of the block"
-            }
-          ]
+          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+          "signature": "base64 signature of the data and metaData block"
         },
         {
-          "transactionID": "1234567890",
-          "requestedBioType": {// Data sent by Partner Application
-            "FMR": false,
-            "FIR": false,
-            "IIR": true,
-            "FID": false
-          },
-          "metaData": {// Data sent by RD Service
-            "deviceCode": "",// This is digital ID of device given by MOSIP device service
+          "data": {
+            "deviceCode": "",
             "deviceProviderID": "",
-            "deviceServiceID": "",// RD Service ID
-            "deviceServiceVersion": ""// RD Service Version
+            "deviceServiceID": "",
+            "deviceServiceVersion": "",
+            "bioType": "IIR",
+            "bioSubType": "RIGHT",
+            "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+            "transactionID": "1234567890",
+            "timestamp": "2019-02-15T10:01:57.086+05:30"
           },
-          "values": [
-            {
-              "type": "IIR",
-              "subType": "RIGHT",
-              "value": "<base64 encoded value>",
-              "timestamp": "2019-02-15T10:01:57.086+05:30",
-              "signature": "base64 signature of the block"
-            }
-          ]
+          "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+          "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+          "signature": "base64 signature of the data and metaData block"
         }
       ]
     }
@@ -393,7 +325,7 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   // Auth Response
-  "status": "Y",
+  "status": true,
   "staticToken": "<static_token>",
   "errors": [],
   "response": {// encoded encrypted KYC info using Partner's public key
@@ -401,19 +333,18 @@ Status Code : 200 (OK)
     "identity": {
       "name": [
         {
-          "language": "ar",
+          "language": "ara",
           "value": "ابراهيم"
         },
         {
-          "language": "fr",
+          "language": "fra",
           "value": "Ibrahim"
         }
       ],
-      "dob": "1955/04/06",
-      "age": 30,
+      "dob": "25/11/1990",
       "gender": [
         {
-          "language": "ar",
+          "language": "ara",
           "value": "الذكر"
         }
       ],
@@ -421,46 +352,34 @@ Status Code : 200 (OK)
       "emailId": "sample@samplamail.com",
       "addressLine1": [
         {
-          "language": "ar",
+          "language": "ara",
           "value": "عنوان العينة سطر 1"
         },
         {
-          "language": "fr",
+          "language": "fra",
           "value": "exemple d'adresse ligne 1"
         }
       ],
       "addressLine2": [
         {
-          "language": "ar",
+          "language": "ara",
           "value": "عنوان العينة سطر 2"
         },
         {
-          "language": "fr",
+          "language": "fra",
           "value": "exemple d'adresse ligne 2"
         }
       ],
       "addressLine3": [
         {
-          "language": "ar",
+          "language": "ara",
           "value": "عنوان العينة سطر 3"
         },
         {
-          "language": "fr",
+          "language": "fra",
           "value": "exemple d'adresse ligne 3"
         }
-      ],
-      "location1": [
-        {
-          "language": "ar",
-          "value": "طنجة - تطوان - الحسيمة"
-        },
-        {
-          "language": "fr",
-          "value": "Tanger-Tétouan-Al Hoceima"
-        }
-      ],
-      "postalCode": "85000",
-      "photo": "encoded_face_image_byte_array"
+      ]
     }
   }
 }
@@ -478,7 +397,7 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   // Auth Response
-  "status": "Y",
+  "status": false,
   "staticToken": "<static_token>",
   "errors": [
       {
@@ -492,7 +411,7 @@ Status Code : 200 (OK)
 ## 3. OTP Request
 This service enables Partners to request for an OTP for an Individual. The OTP will be send via message or email as requested to the Individual. This OTP can then be used to authenticate an Individual using Authentication or eKYC service.
 
-### Resource URL - `POST identity/otp/v1.0/<MISP-LK>`
+### Resource URL - `POST identity/otp/<version>/<Partner-ID>/<MISP-LK>`
 
 ### Resource details
 
@@ -505,17 +424,15 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 MISP-LK| Y | MISP License Key | | 
+partnerId | Y | Auth or eKYC Partner ID | |
 id | Y | API Id | mosip.identity.otp | 
 version | Y | API version | 1.0 | 
-partnerId | Y | Auth or eKYC Partner ID | |
-policyId | Y | Policy ID of Auth or eKYC Partner | |
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
-request| Y | Attributes to be used for requesting for an OTP | | 
-request: identity: UIN| N | UIN of an Individual| | 
-request: identity: VID| N | VID of an Individual| | 
-request: channel: email| N | Request OTP to be sent to Individual's email| | true
-request: channel: phone| N | Request OTP to be sent to Individual's phone| | true
+individualId| Y | VID | | 
+individualIdType| Y | Type of Individual ID | VID
+otpChannel: email| N | Request OTP to be sent to Individual's email| | true
+otpChannel: phone| N | Request OTP to be sent to Individual's phone| | true
 
 ### Sample Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
@@ -523,24 +440,15 @@ request: channel: phone| N | Request OTP to be sent to Individual's phone| | tru
 ### Sample Request
 ```JSON
 {
-  // API Metadata
   "id": "mosip.identity.otp",
   "version": "1.0",
-  // Request Metadata
-  "partnerID": "AP000001",
-  "policyID": "<auth-policy-id>",
   "transactionID": "txn12345",
   "requestTime": "2019-02-15T07:22:57.086+05:30",
-  // OTP Request
-  "request": {
-    "identity": {
-      "UIN": "4074317832",
-      "VID": "9830872690593682"
-    },
-    "channel": {
-      "email": true,
-      "phone": false
-    }
+  "individualId": "9830872690593682",
+  "individualIdType": "VID",
+  "otpChannel": {
+    "email": true,
+    "phone": false
   }
 }
 ```
@@ -581,10 +489,10 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   // OTP Response
-  "err": [
+  "errors": [
     {
-      "errorCode": "IDA-OTA-006",
-      "errorMessage": "OTP is invalid"
+      "code": "IDA-OTA-006",
+      "message": "OTP is invalid"
     }
   ]
 }
@@ -593,7 +501,7 @@ Status Code : 200 (OK)
 ## 4. Static Pin Storage
 This is an internal service to be used by Resident Services to store Static Pin generated by an Individual. This Static Pin should then be used to authenticate an Individual using Authentication service.
 
-### Resource URL - `POST identity/static-pin/v1.0`
+### Resource URL - `POST /identity/staticpin/<version>`
 
 ### Resource details
 
@@ -606,24 +514,22 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Y|API Id| |mosip.identity.static-pin
-version|Y|TSP ID| |tsp1234567
+version|Y|Version of API| |1.0
 requestTime|Y|Time when Request was captured| |2018-10-17T07:22:57.086+05:30
-request: identity : UIN|Y|Individual's UIN| | 678956453456
-request: identity : VID|Y|Individual's VID| | 678956453456
+individualId| Y | VID | | 
+individualIdType| Y | Type of Individual ID | |VID
 request: staticPin|Y|Static Pin to be stored||123456
 
 
 ### Sample Request
 ```JSON
 {
-  "id": "mosip.identity.static-pin",
+  "id": "mosip.identity.staticpin",
   "version": "1.0",
   "requestTime": "2019-01-21T07:22:57.086+05:30",
+  "individualId": "4974892859",
+  "individualIdType": "UIN",
   "request": {
-	"identity": {
-	  "UIN": "678956453456",
-	  "VID": "678956453456"
-	},
 	"staticPin" : "123456"
   }
 }
@@ -636,10 +542,10 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  "id": "mosip.identity.static-pin",
+  "id": "mosip.identity.staticpin",
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
-  "status": "Y",
+  "status": true,
   "errors": []
 }
 ```
@@ -649,23 +555,23 @@ Status Code : 200 (OK)
 
 ```JSON
 {
-  "id": "mosip.identity.static-pin",
+  "id": "mosip.identity.staticpin",
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
-  "status": "Y",
+  "status": true,
   "errors": [
-	   {
-	      "code": "IDA-SPA-003",
-	      "message": "Could not store static pin of the Individual"
-	    }
-   ]
+    {
+      "code": "IDA-SPA-003",
+      "message": "Could not store static pin of the Individual"
+    }
+  ]
 }
 ```
 
 ## 5. VID Generator
 This is an internal service to be used by Resident Services to generate VID requested by an Individual. This VID should then act as a proxy ID for an Individual (active for limited duration). This VID could be used to authenticate an Individual (as a replacement for UIN) using Auth service.
 
-### Resource URL - `POST identity/vid/v1.0/{uin}`
+### Resource URL - `POST identity/vid/<version>/{uin}`
 
 ### Resource details
 
@@ -684,7 +590,9 @@ Status Code : 200 (OK)
   "id": "mosip.identity.vid",
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
-  "vid": "678956453456",
+  "response": {
+    "vid": "678956453456"
+  },
   "errors": []
 }
 ```
@@ -698,10 +606,10 @@ Status Code : 200 (OK)
   "version": "1.0",
   "responseTime": "2019-01-21T07:22:58.086+05:30",
   "errors": [
-	   {
-	      "code": "IDA-MLC-002",
-	      "message": "Invalid UIN"
-	    }
-   ]
+    {
+      "code": "IDA-MLC-002",
+      "message": "Invalid UIN"
+    }
+  ]
 }
 ```
