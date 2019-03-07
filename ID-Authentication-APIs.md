@@ -72,13 +72,15 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
   "consentObtained": true,
   "individualId": "9830872690593682",
   "individualIdType": "VID",
-  "sessionKey": ["<encrypted (RSA OAEP) with MOSIP public key and encoded session key for first biometric>", "<encrypted (RSA OAEP) with MOSIP public key and encoded session key for second biometric>"],
   "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
+  "requestSessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+  "HMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>"
   //Identity Request
-  "request": {// This element should be encrypted using the first session key AES GCM and Base64 encoded
-    "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
-    "factors": {
+  "request": {// This element should be encrypted using the request session key AES GCM and Base64 encoded. The request should be encrypted before its stored or transmitted.
+    "factors": { 
       "otp": "123456",
+      "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
+      "transactionID": "1234567890",
       "demographics": {
         "name": [
           {
@@ -115,62 +117,47 @@ request: additionalFactors: staticPin|N| Static Pin used for requested Pin Auth|
           }
         ]
       },
-      "biometrics": [ //Array size can not exceed 10, each object is encrypted and encoded using the session key in the order.
-        {
-          "transactionID": "1234567890",
-          "requestedBioType": {// Data sent by Partner Application
-            "FMR": true,
-            "FIR": false,
-            "IIR": false,
-            "FID": false
-          },
-          "metaData": {// Data sent by RD Service
-            "deviceCode": "",// This is digital ID of device given by MOSIP device service
-            "deviceProviderID": "",
-            "deviceServiceID": "",// RD Service ID
-            "deviceServiceVersion": ""// RD Service Version
-          },
-          "values": [
+      "biometrics": [ //Array size can not exceed 10.
+        
             {
-              "type": "FMR",
-              "subType": "UNKNOWN",
-              "value": "<base64 encoded value>",
-              "timestamp": "2019-02-15T10:01:57.086+05:30",
-              "signature": "base64 signature of the block"
+              "data": {// Entire data block is encrypted and base64 encoded. This is data is sent by the MOSIP device. 
+                  "deviceCode": "",// This is digital ID of device given by MOSIP device service
+                  "deviceProviderID": "",
+                  "deviceServiceID": "",// RD Service ID
+                  "deviceServiceVersion": "", // RD Service Version                  
+                  "type": "FMR",
+                  "requestedBioType": "FMR",
+                  "requestedScore": <floating point number to represent the minimum required score for the capture>,
+                  "subType": "UNKNOWN",
+                  "value": "<encrypted with session key and base64 encoded biometric data>",
+                  "transactionID": "1234567890",
+                  "timestamp": "2019-02-15T10:01:57.086+05:30",
+                  "qualityScore": floating point number representing the score for the current capture,
+                  }
+                  "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)", 
+                  "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>", 
+                  "signature": "base64 signature of the data and metaData block"
             },
+
             {
-              "type": "FMR",
-              "subType": "RIGTHT_POINTER",
-              "value": "<base64 encoded value>",
-              "timestamp": "2019-02-15T10:01:57.086+05:30",
-              "signature": "base64 signature of the block"
+              "data": {// Entire data block is encrypted and base64 encoded. This is data is sent by the MOSIP device.
+                  "deviceCode": "",// This is digital ID of device given by MOSIP device service
+                  "deviceProviderID": "",
+                  "deviceServiceID": "",// RD Service ID
+                  "deviceServiceVersion": "", // RD Service Version                  
+                  "type": "IIR",
+                  "requestedBioType": "IIR",
+                  "subType": "RIGHT",
+                  "value": "<encrypted with session key and base64 encoded biometric data>",
+                  "transactionID": "1234567890",
+                  "timestamp": "2019-02-15T10:01:57.086+05:30",
+                  }
+                  "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)", 
+                  "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>", 
+                  "signature": "base64 signature of the data and metaData block"
             }
-          ]
-        },
-        {
-          "transactionID": "1234567890",
-          "requestedBioType": {// Data sent by Partner Application
-            "FMR": false,
-            "FIR": false,
-            "IIR": true,
-            "FID": false
-          },
-          "metaData": {// Data sent by RD Service
-            "deviceCode": "",// This is digital ID of device given by MOSIP device service
-            "deviceProviderID": "",
-            "deviceServiceID": "",// RD Service ID
-            "deviceServiceVersion": ""// RD Service Version
-          },
-          "values": [
-            {
-              "type": "IIR",
-              "subType": "RIGHT",
-              "value": "<base64 encoded value>",
-              "timestamp": "2019-02-15T10:01:57.086+05:30",
-              "signature": "base64 signature of the block"
-            }
-          ]
-        }
+                
+        
       ]
     }
   }
