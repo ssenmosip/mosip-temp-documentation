@@ -59,6 +59,10 @@ When user clicks on the 'main.jar' it does the following :
     6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
 
    **Once all the Configurations are done run the “freshclam.exe” and then run “clamd.exe”.**  
+**External hardware Driver:**
+   This section covers the list of drivers required to communicate with the devices.  
+   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should be installed.    
+   - The application has been currently tested with CANON LiDE 120.   
 
 **Database:**  
    - The Derby database will be used to store the local transaction information along with Master and configuration data.   
