@@ -91,16 +91,8 @@ request: biometrics|N| Biometric data of an Individual| |
             "value": "mâle"
           }
         ],
-        "age": [
-          {
-            "value": "25"
-          }
-        ],
-        "dob": [
-          {
-            "value": "25/11/1990"
-          }
-        ],
+        "age": "25",
+        "dob": "25/11/1990",
         "fullAddress": [
           {
             "language": "ara",
