@@ -702,7 +702,20 @@ V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml`
 
 After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
 
-**NOTE** _kernel-config-server-deployment-and-service.yml_ is using a secret named **config-server-secret** , this service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command:
+**For Pre-Registration-UI**<br/>
+Pre-registration-ui uses a file config.json to configure URLs of backend, which have to be provided as config map in pre-registration-ui-deployment-and-service.yml. For creating the configmap follow below steps:
+1. Create a file named config.json with the following content: <br/>
+    
+ {
+    "BASE_URL": "< your-pre-reg-backend-hostname >",
+    "PRE_REG_URL": "< ui-context-path-if-any >"
+    } 
+
+2. From the path where you have created the file give the command:<br/>
+`kubectl create configmap pre-registration-ui-configuration --from-file=config.json`<br/>
+<br/>
+
+**NOTE kernel-config-server-deployment-and-service.yml** is using a secret named **config-server-secret** , this service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command:
 
 `$ kubectl create secret generic <your-secret-name> --from-file=ssh-privatekey=/path/to/.ssh/id_rsa --from-file=ssh-publickey=/path/to/.ssh/id_rsa.pub`
 
