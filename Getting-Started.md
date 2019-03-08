@@ -717,7 +717,7 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 
 **NOTE kernel-config-server-deployment-and-service.yml** is using a secret named **config-server-secret** , this service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command:
 
-`$ kubectl create secret generic <your-secret-name> --from-file=ssh-privatekey=/path/to/.ssh/id_rsa --from-file=ssh-publickey=/path/to/.ssh/id_rsa.pub`
+`$ kubectl create secret generic config-server-secret --from-file=ssh-privatekey=/path/to/.ssh/id_rsa --from-file=ssh-publickey=/path/to/.ssh/id_rsa.pub`
 
 B. Continuous deployment 
 
