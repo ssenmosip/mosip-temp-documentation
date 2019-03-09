@@ -307,6 +307,22 @@ includedir /etc/krb5.conf.d/
 /sbin/service krb5kdc start
 /sbin/service kadmin start
 ```
+to set up the KDC server to auto-start on boot.
+
+```
+RHEL/CentOS/Oracle Linux 6
+
+chkconfig krb5kdc on
+
+chkconfig kadmin on
+
+RHEL/CentOS/Oracle Linux 7
+
+systemctl enable krb5kdc
+
+systemctl enable kadmin
+```
+
 7. Verify that the KDC is issuing tickets. 
 First, run kinit to obtain a ticket and store it in a credential cache file.
 ```
