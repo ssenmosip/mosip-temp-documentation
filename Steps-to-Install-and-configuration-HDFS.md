@@ -25,13 +25,25 @@ Slave nodes store the actual data and provide processing power to run the jobs. 
 The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.
 1. Login to node-master as the hadoop user, and generate an ssh-key:
 ```
-ssh-keygen -b 4096
+ssh-keygen -t rsa
 ```
-2. Copy the key to the other nodes.
+id_rsa.pub will contains the generated public key
+
+2. Copy the public key to all the other nodes.
 ```
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-master.southindia.cloudapp.azure.com
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.southindia.cloudapp.azure.com
 ```
+ or
+
+add manually the ssh public key to each nodes in .ssh/authorized_keys
+and try to ssh other node to see if shh has been configured successfully
+
+```
+ssh hadoop@node-slave1.southindia.cloudapp.azure.com
+```
+
+
 ### Download and Unpack Hadoop Binaries
 Login to node-master as the hadoop user, download the Hadoop tarball from Hadoop project page, and unzip it:
 ```
@@ -41,9 +53,9 @@ tar -xzf hadoop-2.8.1.tar.gz
 mv hadoop-2.8.1 hadoop
 ```
 ### Set Environment Variables
-Add Hadoop binaries to your PATH. Edit /home/hadoop/.bashrc and add the following line:
+Add Hadoop binaries to your PATH. Edit ``/home/hadoop/.bashrc`` or ``/home/hadoop/.bash_profiles`` and add the following line:
 ```
-export HADOOP_HOME=$HOME/hadoop
+export HADOOP_HOME=$HOME/hadoop [hadoop installation directory]
 export HADOOP_CONF_DIR=$HOME/hadoop/etc/hadoop
 export HADOoP_MAPRED_HOME=$HOME/hadoop
 export HADOOP_COMMON_HOME=$HOME/hadoop
@@ -135,6 +147,12 @@ Edit hdfs-site.conf:
         </property>
 </configuration>
 ```
+
+create directories
+```
+mkdir -p /home/hadoop/data/nameNode [where on the filesystem the DFS name node should store the name table(fsimage)]
+mkdir -p /home/hadoop/data/dataNode  [where data node should store its blocks.]
+```
 #### Configure Master
 Edit ~/hadoop/etc/hadoop/masters to be:
 ````
@@ -151,6 +169,9 @@ node-slave1.southindia.cloudapp.azure.com
 cd /home/hadoop/
 scp hadoop-*.tar.gz node-slave1.southindia.cloudapp.azure.com:/home/hadoop
 ```
+
+or copy each configured files to other nodes
+
 2. Connect to node1 via ssh. A password isn’t required, thanks to the ssh keys copied above:
 ```
 ssh node-slave1.southindia.cloudapp.azure.com
@@ -167,22 +188,6 @@ for node in node-slave1.southindia.cloudapp.azure.com; do
     scp ~/hadoop/etc/hadoop/* $node:/home/hadoop/hadoop/etc/hadoop/;
 done
 ```
-### Create hdfs users
-1. To create users for hdfs (regprocessor, prereg, idrepo), run this command:
-```
-sudo useradd  regprocessor
-sudo useradd  prereg
-sudo useradd  idrepo
-```
-2. Create a directory and give permission for each user
-```
-hdfs dfs -mkdir /user/regprocessor
-hdfs dfs -chown -R regprocessor:regprocessor  /user/regprocessor
-hdfs dfs -mkdir /user/prereg
-hdfs dfs -chown -R prereg:prereg  /user/prereg
-hdfs dfs -mkdir /user/idrepo
-hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
-``` 
 ### Format HDFS
 HDFS needs to be formatted like any classical file system. On node-master, run the following command:
 ```
@@ -206,6 +211,24 @@ and on node-slave1.southindia.cloudapp.azure.com:
 19728 DataNode
 19819 Jps
 ```
+Hdfs has been Configured Successfully
+
+### Create hdfs users
+1. To create users for hdfs (regprocessor, prereg, idrepo), run this command:
+```
+sudo useradd  regprocessor
+sudo useradd  prereg
+sudo useradd  idrepo
+```
+2. Create a directory and give permission for each user
+```
+hdfs dfs -mkdir /user/regprocessor
+hdfs dfs -chown -R regprocessor:regprocessor  /user/regprocessor
+hdfs dfs -mkdir /user/prereg
+hdfs dfs -chown -R prereg:prereg  /user/prereg
+hdfs dfs -mkdir /user/idrepo
+hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
+``` 
 ## Securing HDFS
 Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
