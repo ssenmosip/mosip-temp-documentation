@@ -1,25 +1,26 @@
 # MOSIP Configuration Server
 
 We will be using MOSIP config server (Spring cloud configurration Server) to manage all the configurations of all the microservices which will be running at a central place.<br/><br/>
-**NOTE:** For the documentation purpose I have mentioned the config server URL as http://localhost:8080 ,but for development purposes please connect to Config Server running in dev environment. For the DEV config server URL please contact your respective TLs.
+**NOTE:** For the documentation purpose I have mentioned the config server URL as http://localhost:8080 ,but you have to mention the URL where configuration server is running
 
 ![Configuration Server](_images/arch_diagrams/MOSIP_config_server_setup.png)
 
 ## Git Repo
 1. All the configuration files will be stored inside git in<br/>
    **\git\mosip\config**<br/>
-2. For all the micro services to work independently, we will name the properties files in a particular format.<br/>
+2. For every module there will be one property file (eg: for kernel)<br/>
    The nomenclature will be as follows:<br/>
-   **_{ApplicationName}-{MicroServiceName}-{profileName}.properties_**<br/>
+   **_{module-name}-{profile-Name}.properties_**<br/>
    For example if the application name is kernel and microservice is kernel-idgenerator-vid and profile name can be 
-   development (to differentiate between different environments, eg: testing, dev, QA etc.), so the properties file name
+   dev(to differentiate between different environments, eg: testing, dev, QA etc.), so the properties file name
    will be:<br/>
-   **kernel-kernel-idgenerator-vid-development.properties**<br/>
-3. If we are using multiple profiles, letâ€™s say one for dev and one for testing, we can create 2 properties files with names - **kernel-kernel-idgenerator-vid-test.properties, kernel-kernel-idgenerator-vid-development.properties**, and can switch between multiple profiles through Microservice application.
-4. For XML files, name them as follows:<br/>
+   **kernel-dev.properties**<br/>
+3. If we are using multiple profiles, say one for dev and one for testing, we can create 2 properties files with names - **kernel-test.properties, kernel-dev.properties**, and can switch between multiple profiles through Microservice application.
+4. Properties common across the modules will be stored in files named: **application-{profile-name}.properties**
+5. For XML files, name them as follows:<br/>
    _**{NameOfFile}-{profileName}.xml**_
-## Microservices â€“ Configuration Clients:<br/>
-### â€¢	Spring boot client<br/>
+## Microservices Configuration Clients:<br/>
+### Spring boot client<br/>
    All the microservices will act as clients of config server.<br/>
 1. For which microservices will be needing _spring-cloud-starter-config_ dependency, which can be added through maven.
 
@@ -37,9 +38,13 @@ We will be using MOSIP config server (Spring cloud configurration Server) to man
 		`</dependency>`<br/>
 2. There should be one **bootstrap.properties** file in the spring boot application under resources which will contain the details for MOSIP config server running. Inside the properties file following properties have to be mentioned:
 * **spring.cloud.config.uri** key with the value of URL of config server that will be provided.
-* **spring.cloud.config.label** which will define the branch in which we are working. Since we are working right now in DEV branch in git, its value will be DEV.
+* **spring.cloud.config.label** which will define the branch from which we have to get properties from.
 * **spring.profiles.active** which will contain the value of profile that you have mentioned will saving the file.
-*  **spring.application.name** which will be **_{applicationName}-{microserviceName}_** in our case, which we have mentioned while saving the file.<br/>
+*  **spring.application.name** name of the application<br/>
+*  **spring.cloud.config.name** name of module to which the application belongs<br/>
+*  **spring.cloud.config.username** name of the user if config-server is secured
+*  **spring.cloud.config.password** password of the user if config-server is secured
+
 
 Sample Bootstrap.properties file:<br/>
 
@@ -47,12 +52,12 @@ Sample Bootstrap.properties file:<br/>
 `server.port = 8081`<br/>
 `# Application name - the name appended at starting of file name to differentiate`<br/>
 `# between different property files for different microservices`<br/>
-`spring.application.name=kernal-kernal-idgenerator-vid`<br/>
+`spring.application.name=kernal-idgenerator-vid`<br/>
  
 `#Active Profile - will relate to development properties file in the server.`<br/>
 `#If this property is absent then default profile will be activated which is`<br/>
 `#the property file without any environment name at the end. `<br/>
-`spring.profiles.active=development`<br/>
+`spring.profiles.active=dev`<br/>
 
 
 `# defining current branch in which we are working as label`<br/>
@@ -63,7 +68,7 @@ Sample Bootstrap.properties file:<br/>
 `spring.cloud.config.uri=http://localhost:8080`<br/>
 
  
-`#management.security.enabled=false`<br/>
+`#spring.cloud.config.name=kernel`<br/>
 
 `#exposing refresh endpoint so that whenevr configuration changes in git,`<br/>
 `#post /actuator/refresh endpoint can be called for the client microservices`<br/>
@@ -96,7 +101,7 @@ In the above snippet we are using RefreshScope annotation so that the client sho
 **http://{mosip-config-server URL}/{application-name}-{microservice-name} /{label} /{branch}/{filename}.(xml/json).** 
 <br/>
 <br/>
-### â€¢	Vert.x client:
+### Vert.x client:
 1. For Vert.x application we need the following dependencies to be added to our Maven project:
         `<dependency>`<br/>
 		  `<groupId>io.vertx</groupId>`<br/>
@@ -159,9 +164,23 @@ In the above snippet we are using RefreshScope annotation so that the client sho
 
 
 
-**NOTE:** <br/>**Whenever there is a change in the configuration in GIT Repo, every microservice/application which  is using that particular configuration has to call the refresh endpoint in order to get that latest configuration without restarting. If the client doesnâ€™t call the refresh API, it will keep on getting the old configuration.** <br/>
+**NOTE:** <br/>**Whenever there is a change in the configuration in GIT Repo, every microservice/application which  is using that particular configuration has to call the refresh endpoint in order to get that latest configuration without restarting. If the client doesnt call the refresh API, it will keep on getting the old configuration.** <br/>
 The refresh end point is following:<br/>
 **POST  {Microservice-URL} /actuator/refresh**
+
+**To Encrypt any property:** <br/>
+Run the following command : <br/>
+`curl http://<spring_security_username_env>:<spring_security_password_env>@<your-config-server-hostname>:<your-config-server-port>/encrypt -d <value-to-encrypt>`
+
+And place the encrypted value in client application properties file with the format: <br/>
+`password={cipher}<encrypted-value>`
+
+**To Decrypt any property manually:** <br/>
+
+`curl http://<spring_security_username_env>:<spring_security_password_env>@<your-config-server-hostname>:<your-config-server-port>/decrypt -d <encrypted-value-to-decrypt>`
+
+**NOTE** There is no need to write decryption mechanism in client applications for encrypted values. They will be automatically decrypted.
+
 
 
 
