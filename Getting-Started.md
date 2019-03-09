@@ -758,8 +758,10 @@ Save the above file with any name and apply it using: <br/>
 9. Once above configuration is done, execute `kubectl apply -f kernel-auditmanager-service-deployment-and-service.yml`
 <br/>
 <br/>
-The username and password entered here for authentication has to be be added to each service which needs to connect to config server. Explanation TBD later.
-
+The username and password entered here for authentication has to be be added to each service which needs to connect to config server. Explanation TBD later. <br/>
+More information can be found [here](https://github.com/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md)
+<br/>
+<br/>
 ### Deploy other components:
 Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials.
 For doing this, follow below steps (for eg. we will use kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
