@@ -692,13 +692,82 @@ Once the above deployment is done, we will start deploying MOSIP services. For d
 
 ![Directories](_images/getting_started_images/kubernetes-mosip-services-directory.JPG)
 
-Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials. 
+###  Firstly Deploy Kernel Configuration server
+ The script is inside (scripts/kubernetes/kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml) <br/> 
+Follow below steps:
+1. Create a secret for Config server to connect to git repo. This service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command: (Add known hosts for Git as well for first time connection): <br/>
+`kubectl create secret generic config-server-secret --from-file=id_rsa=/path/to/.ssh/id_rsa --from-file=id_rsa.pub=/path/to/.ssh/id_rsa.pub --from-file=known_hosts=/path/to/.ssh/known_hosts` <br/>
+
+**For Encryption Decryption of properties** <br/>
+<br/>
+Create keystore with following command: <br/>
+`keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -storepass <store-password> --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
+
+When you run the above command it will ask you for password for <your-alias> , choose your password or press enter for same password as < store-password >
+
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
+`keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
+For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing ) <br/>
+<br/>
+2. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/>
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: config-server-keystore-values-secret
+type: Opaque
+data:
+  alias: < base-64-encoded-alias-for keystore >
+  password: <  base-64-encoded-password-for keystore >
+  secret: < base-64-encoded-secret-for keystore >
+```
+Save the above file with any name and apply it using: <br/>
+`kubectl apply -f < file-name >` 
+<br/>
+<br/>
+3. Create file with following content to create basic authenticationsecret for securing configuration server: <br/>
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: config-server-base-auth-secret
+type: Opaque
+data:
+  username: < base-64-encoded-username >
+  password: < base-64-encoded-passowrd >
+```
+Save the above file with any name and apply it using: <br/>
+`kubectl apply -f < file-name >` 
+<br/>
+<br/>
+4. Create server.keystore as secret to volume mount it inside container: <br/>
+`kubectl create secret generic config-server-keystore --from-file=server.keystore=<your-server.keystore-file-generated-above>`
+<br/>
+<br/>
+5. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
+<br/>
+<br/>
+6. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
+<br/>
+<br/>
+7. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `<Your Docker Registry>/kernel-config-server` <br/>
+<br/>
+8. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>`
+<br/>
+<br/>
+9. Once above configuration is done, execute `kubectl apply -f kernel-auditmanager-service-deployment-and-service.yml`
+<br/>
+<br/>
+The username and password entered here for authentication has to be be added to each service which needs to connect to config server. Explanation TBD later.
+
+### Deploy other components:
+Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials.
 For doing this, follow below steps (for eg. we will use kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
 I. Open a deployment file. <br/>
 II. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-auditmanager-service` to `<Your Docker Registry>/kernel-auditmanager-service` <br/>
 III. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>` <br/>
-IV. Save the file <br/>
-V. Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml` <br/>
+IV. Change `active_profile_env` to whichever profile you want to activate and `spring_config_label_env` to the branch from which you want to pick up the configuration<br/>
+V. Save the file and Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml` <br/>
 
 After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
 
@@ -715,9 +784,6 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 `kubectl create configmap pre-registration-ui-configuration --from-file=config.json`<br/>
 <br/>
 
-**NOTE kernel-config-server-deployment-and-service.yml** is using a secret named **config-server-secret** , this service connects to your Source code management repository, to get configuration for all the services depending on this configuration server. So it needs access to your private key and public key to connect to the repository.(If you are using ssh URL for cloning the repo). For generating the required secret give the following command:
-
-`$ kubectl create secret generic config-server-secret --from-file=ssh-privatekey=/path/to/.ssh/id_rsa --from-file=ssh-publickey=/path/to/.ssh/id_rsa.pub`
 
 B. Continuous deployment 
 
