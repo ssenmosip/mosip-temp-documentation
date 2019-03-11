@@ -10,7 +10,7 @@
   * [4.4 KYC Service]() 
     * [4.4.1 Profile Sharing based on Policy]() _(IDA_FR_4.1)_
     * [4.4.2 Partners Authentication]()
-      * [MISP Licensing Authentication ]() _(IDA_FR_4.2)_
+      * [MISP License Authentication ]() _(IDA_FR_4.2)_
       * [Partner Policy Authentication ]() _(IDA_FR_4.3)_
       * [MISP Partner Other Authentication]() _(IDA_FR_4.4)_
   * [4.5 Authentication Device Support]() 
