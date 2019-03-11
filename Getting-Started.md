@@ -725,40 +725,25 @@ Save the above file with any name and apply it using: <br/>
 `kubectl apply -f < file-name >` 
 <br/>
 <br/>
-3. Create file with following content to create basic authenticationsecret for securing configuration server: <br/>
-```
-apiVersion: v1
-kind: Secret
-metadata:
-  name: config-server-base-auth-secret
-type: Opaque
-data:
-  username: < base-64-encoded-username >
-  password: < base-64-encoded-passowrd >
-```
-Save the above file with any name and apply it using: <br/>
-`kubectl apply -f < file-name >` 
-<br/>
-<br/>
-4. Create server.keystore as secret to volume mount it inside container: <br/>
+
+3. Create server.keystore as secret to volume mount it inside container: <br/>
 `kubectl create secret generic config-server-keystore --from-file=server.keystore=<your-server.keystore-file-generated-above>`
 <br/>
 <br/>
-5. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
+4. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
 <br/>
 <br/>
-6. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
+5. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
 <br/>
 <br/>
-7. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `<Your Docker Registry>/kernel-config-server` <br/>
+6. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `<Your Docker Registry>/kernel-config-server` <br/>
 <br/>
-8. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>`
-<br/>
-<br/>
-9. Once above configuration is done, execute `kubectl apply -f kernel-auditmanager-service-deployment-and-service.yml`
+7. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>`
 <br/>
 <br/>
-The username and password entered here for authentication has to be be added to each service which needs to connect to config server. Explanation TBD later. <br/>
+8. Once above configuration is done, execute `kubectl apply -f kernel-config-server-deployment-and-service.yml`
+<br/>
+<br/>
 More information can be found [here](https://github.com/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md)
 <br/>
 <br/>
