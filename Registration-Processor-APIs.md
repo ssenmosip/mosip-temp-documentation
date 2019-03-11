@@ -6,6 +6,8 @@ This section details about the service APIs in the Registration-Processor module
 
 [2.9.3 Manual Adjudication API](https://github.com/mosip/mosip/wiki/Manual-Adjudication-APIs#293-manual-adjudication)
 
+[2.10.1 Bio Dedupe Service](https://github.com/mosip/mosip/wiki/bio-dedupe-service#2101-bio-dedupe)
+
 # 2.9.1 Packet Receiver API
 ## 2.9.1.1 Packet-receiver service
 This service receives the registration packet and puts it to landing zone.
