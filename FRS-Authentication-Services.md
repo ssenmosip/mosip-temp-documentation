@@ -30,9 +30,9 @@
 # 4. KYC Service 
 ## 4.1 Profile Sharing based on Policy
 ## 4.2 Authorized Partners and Authentication 
-### 4.2.1 MISP Licensing
-### 4.2.2 Partner Policy
-### 4.2.3 Partner Authentication
-# 5. Authentication Device Support 
-## 5.1 Registered Devices and Open Devices (Architects to contribute)
+# 5. MISP Licensing
+## 5.1 Partner Policy
+## 5.2 Partner Authentication
+# 6. Authentication Device Support 
+## 6.1 Registered Devices and Open Devices (Architects to contribute)
 
