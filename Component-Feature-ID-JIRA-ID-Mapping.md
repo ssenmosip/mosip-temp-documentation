@@ -76,6 +76,7 @@
 |5.|Multi-factor Authenticator|Multi-factor Authentication |IDA_FR_2||
 |6.|To be Planned-V2|QR Code based Authentication |IDA_FR_3.1||
 |7.|eKYC Authenticator|Profile Sharing based on Policy |IDA_FR_4.1||
+
 **12. Resident Services:** 
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
