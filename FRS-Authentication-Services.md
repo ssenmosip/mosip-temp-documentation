@@ -11,10 +11,10 @@
   * [3.1 QR Code based Authentication](#31-qr-code-based-authentication) _(IDA_FR_3.1)_
 - [4. KYC Service](#4-kyc-service)
   * [4.1 Profile Sharing based on Policy](#41-profile-sharing-based-on-policy) _(IDA_FR_4.1)_
-  * [4.2 Authorized Partners and Authentication](#42-authorized-partners-and-authentication)
-    + [4.2.1 MISP Licensing](#421-misp-licensing) _(IDA_FR_4.2)_
-    + [4.2.2 Partner Policy](#422-partner-policy) _(IDA_FR_4.3)_
-    + [4.2.3 Partner Authentication](#423-partner-authentication) _(IDA_FR_4.4)_
+- [5. Partners Authentication](#42-authorized-partners-and-authentication)
+    * [5.1  MISP License Authentication](#421-misp-licensing) _(IDA_FR_4.2)_
+    * [5.2  Partner Policy Authentication ](#422-partner-policy) _(IDA_FR_4.3)_
+    * [5.3  MISP Partner Other Authentication](#423-partner-authentication) _(IDA_FR_4.4)_
 - [5. Authentication Device Support](#5-authentication-device-support)
   * [5.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices-architects-to-contribute) _(IDA_FR_5.1)_
 
