@@ -1,20 +1,3 @@
-* [4. Authentication Services]()
-  * [4.1 Single factor Authentication]() 
-    * [4.1.1 Biometric Authentication]() _(IDA_FR_1.1)_
-    * [4.1.2 Demographic Authentication]() _(IDA_FR_1.2)_
-    * [4.1.3 OTP Authentication]() _(IDA_FR_1.3)_
-    * [4.1.4 Static PIN Authentication]() _(IDA_FR_1.4)_
-  * [4.2 Multi-factor Authentication]() _(IDA_FR_2)_
-  * [4.3 Offline Authentication]()
-    * [4.3.1 QR Code based Authentication]() _(IDA_FR_3.1)_
-  * [4.4 KYC Service]() 
-    * [4.4.1 Profile Sharing based on Policy]() _(IDA_FR_4.1)_
-    * [4.4.2 Partners Authentication]()
-      * [MISP License Authentication ]() _(IDA_FR_4.2)_
-      * [Partner Policy Authentication ]() _(IDA_FR_4.3)_
-      * [MISP Partner Other Authentication]() _(IDA_FR_4.4)_
-  * [4.5 Authentication Device Support]() 
-    * [4.5.1 Registered Devices and Open Devices (Architects to contribute)]() _(IDA_FR_5.1)_
 
 
 - [Authentication Services](#authentication-services)
@@ -33,7 +16,7 @@
     + [4.2.2 Partner Policy](#422-partner-policy) _(IDA_FR_4.3)_
     + [4.2.3 Partner Authentication](#423-partner-authentication) _(IDA_FR_4.4)_
 - [5. Authentication Device Support](#5-authentication-device-support)
-  * [5.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices--architects-to-contribute-) _(IDA_FR_5.1)_
+  * [5.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices-architects-to-contribute) _(IDA_FR_5.1)_
 
 # Authentication Services 
 # 1. Single factor Authentication 
