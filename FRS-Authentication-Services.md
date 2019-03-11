@@ -9,10 +9,10 @@
     * [4.3.1 QR Code based Authentication]() _(IDA_FR_3.1)_
   * [4.4 KYC Service]() 
     * [4.4.1 Profile Sharing based on Policy]() _(IDA_FR_4.1)_
-    * [4.4.2 Partners Authorisation and Authentication]()
-      * [MISP Licensing]() _(IDA_FR_4.2)_
-      * [Partner Policy]() _(IDA_FR_4.3)_
-      * [Partner Authentication]() _(IDA_FR_4.4)_
+    * [4.4.2 Partners Authentication]()
+      * [MISP Licensing Authentication ]() _(IDA_FR_4.2)_
+      * [Partner Policy Authentication ]() _(IDA_FR_4.3)_
+      * [Partner Other Authentication]() _(IDA_FR_4.4)_
   * [4.5 Authentication Device Support]() 
     * [4.5.1 Registered Devices and Open Devices (Architects to contribute)]() _(IDA_FR_5.1)_
 
