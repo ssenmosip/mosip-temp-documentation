@@ -15,8 +15,8 @@
     * [5.1  MISP License Authentication](#421-misp-licensing) _(IDA_FR_4.2)_
     * [5.2  Partner Policy Authentication ](#422-partner-policy) _(IDA_FR_4.3)_
     * [5.3  MISP Partner Other Authentication](#423-partner-authentication) _(IDA_FR_4.4)_
-- [5. Authentication Device Support](#5-authentication-device-support)
-  * [5.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices-architects-to-contribute) _(IDA_FR_5.1)_
+- [6. Authentication Device Support](#5-authentication-device-support)
+  * [6.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices-architects-to-contribute) _(IDA_FR_5.1)_
 
 # Authentication Services 
 # 1. Single factor Authentication 
