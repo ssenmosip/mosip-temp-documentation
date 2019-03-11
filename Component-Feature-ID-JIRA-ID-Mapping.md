@@ -69,7 +69,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.|OTP Authenticator||||
 
 **12. Resident Services:** 
 
