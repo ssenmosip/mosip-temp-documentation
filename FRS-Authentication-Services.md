@@ -29,10 +29,10 @@
 ## 3.1 QR Code based Authentication 
 # 4. KYC Service 
 ## 4.1 Profile Sharing based on Policy
-## 4.2 Authorized Partners and Authentication 
-# 5. MISP Licensing
-## 5.1 Partner Policy
-## 5.2 Partner Authentication
+# 5 Partners Authentication and Authorisation
+## 5.1 MISP License Authentication
+## 5.2 Partner Policy Authentication
+## 5.3 MISP Partner Other Authentication
 # 6. Authentication Device Support 
 ## 6.1 Registered Devices and Open Devices (Architects to contribute)
 
