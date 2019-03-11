@@ -17,14 +17,39 @@
     * [4.5.1 Registered Devices and Open Devices (Architects to contribute)]() _(IDA_FR_5.1)_
 
 
-Partner Licensing - API Key issues to partner is used to sign packets.
+- [Authentication Services](#authentication-services)
+- [1. Single factor Authentication](#1-single-factor-authentication)
+  * [1.1 Biometric Authentication](#11-biometric-authentication) _(IDA_FR_1.1)_
+  * [1.2 Demographic Authentication](#12-demographic-authentication) _(IDA_FR_1.2)_
+  * [1.3 OTP Authentication](#13-otp-authentication) _(IDA_FR_1.3)_
+  * [1.4 Static PIN Authentication](#14-static-pin-authentication) _(IDA_FR_1.4)_
+- [2. Multi-factor Authentication](#2-multi-factor-authentication) _(IDA_FR_2)_
+- [3. Offline Authentication](#3-offline-authentication)
+  * [3.1 QR Code based Authentication](#31-qr-code-based-authentication) _(IDA_FR_3.1)_
+- [4. KYC Service](#4-kyc-service)
+  * [4.1 Profile Sharing based on Policy](#41-profile-sharing-based-on-policy) _(IDA_FR_4.1)_
+  * [4.2 Authorized Partners and Authentication](#42-authorized-partners-and-authentication)
+    + [4.2.1 MISP Licensing](#421-misp-licensing) _(IDA_FR_4.2)_
+    + [4.2.2 Partner Policy](#422-partner-policy) _(IDA_FR_4.3)_
+    + [4.2.3 Partner Authentication](#423-partner-authentication) _(IDA_FR_4.4)_
+- [5. Authentication Device Support](#5-authentication-device-support)
+  * [5.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices--architects-to-contribute-) _(IDA_FR_5.1)_
 
-What is a factor - It is one of
-"What you know" - Password, Static Pin, Date of Birth, My first pet
-"What you have" - OTP - Mobile, OTP - Email, RSA Token, Smart Card
-"What you are" - Biometrics: Fingerprint, Iris, Face, Voice, ....
-  Pin + Biometric, OTP + Biometric
-A combination of modes in the same factor
-
-   Application is a use case for KYC. Eg. Bank Account opening, Telco SIM purchase. Same organization might have different use cases. Each use case is governed by a different policy.
+# Authentication Services 
+# 1. Single factor Authentication 
+## 1.1 Biometric Authentication 
+## 1.2 Demographic Authentication  
+## 1.3 OTP Authentication 
+## 1.4 Static PIN Authentication 
+# 2. Multi-factor Authentication
+# 3. Offline Authentication 
+## 3.1 QR Code based Authentication 
+# 4. KYC Service 
+## 4.1 Profile Sharing based on Policy
+## 4.2 Authorized Partners and Authentication 
+### 4.2.1 MISP Licensing
+### 4.2.2 Partner Policy
+### 4.2.3 Partner Authentication
+# 5. Authentication Device Support 
+## 5.1 Registered Devices and Open Devices (Architects to contribute)
 
