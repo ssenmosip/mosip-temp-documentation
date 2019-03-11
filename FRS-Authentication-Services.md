@@ -12,7 +12,7 @@
     * [4.4.2 Partners Authentication]()
       * [MISP Licensing Authentication ]() _(IDA_FR_4.2)_
       * [Partner Policy Authentication ]() _(IDA_FR_4.3)_
-      * [Partner Other Authentication]() _(IDA_FR_4.4)_
+      * [MISP Partner Other Authentication]() _(IDA_FR_4.4)_
   * [4.5 Authentication Device Support]() 
     * [4.5.1 Registered Devices and Open Devices (Architects to contribute)]() _(IDA_FR_5.1)_
 
