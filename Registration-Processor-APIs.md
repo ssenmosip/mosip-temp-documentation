@@ -498,3 +498,27 @@ Failure :
 200
 
 Description : response code is always 200 if server receives the request.
+
+## 2.10.1 bio-dedupe service
+The abis would call bio-dedupe service to get the biometric cbeff file.
+
+### Resource URL
+### `POST /bio-dedupe/v1.0/{referenceid}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+FileRequestDto|Yes|Dto containing registration id and file name| |
+
+### Response codes
+200
+
+Description : response code is always 200 if server receives the request.
