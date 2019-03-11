@@ -518,6 +518,11 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 FileRequestDto|Yes|Dto containing registration id and file name| |
 
+### Example Response
+```JSON
+// byte array of CBEFF xml file
+```
+
 ### Response codes
 200
 
