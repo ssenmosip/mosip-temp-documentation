@@ -744,8 +744,10 @@ Save the above file with any name and apply it using: <br/>
 8. Once above configuration is done, execute `kubectl apply -f kernel-config-server-deployment-and-service.yml`
 <br/>
 <br/>
-More information can be found [here](https://github.com/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md)
-<br/>
+
+More information can be found [here]( https://github.com/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md )
+
+
 <br/>
 
 ### Deploy other components: <br/>
