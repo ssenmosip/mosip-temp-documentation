@@ -183,7 +183,7 @@ And place the encrypted value in client application properties file with the for
 
 `curl /<config-server-application-context-path-if-any>/decrypt -d <encrypted-value-to-decrypt>`
 
-**NOTE** There is no need to write decryption mechanism in client applications for encrypted values. They will be automatically decrypted.
+**NOTE** There is no need to write decryption mechanism in client applications for encrypted values. They will be automatically decrypted by config server as long as `{cipher}` is prefixed with encrypted value.
 
 
 
