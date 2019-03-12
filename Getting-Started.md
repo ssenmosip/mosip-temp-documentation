@@ -127,7 +127,7 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 ***
 ## 6. Installing External Dependencies [**[↑]**](#content)
-### Install and use PostgreSql on RHEL 7.5
+### 6.1 Install and use PostgreSql on RHEL 7.5
 
 Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
 Postgresql Prerequisites
@@ -163,7 +163,7 @@ Reference link:
 (https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora)
 <br/>
 <br/>
-### Install and use Nginx on RHEL 7.5
+### 6.2 Install and use Nginx on RHEL 7.5
 
 We are using nginx for webserver andalso proxy server for MOSIP project
 Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command
@@ -208,7 +208,7 @@ $ sudo firewall-cmd –reload <br/>
 ##### Reference link:
 (https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
 
-### Install Clam AntiVirus
+### 6.3 Install Clam AntiVirus
 
  ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
 
@@ -242,7 +242,8 @@ $ sudo firewall-cmd –reload
 ##### Reference link:
 (https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7)
 
-### Steps to Install and configuration CEPH 
+### 6.4 Steps to Install and configuration CEPH 
+NOTE: Required only if CEPH is used for packet storage.
 Ceph is an open source software that provides massively scalable and distributed data store. It provides highly scalable object, block and file based storage under a unified system.
 ##### 1. On Red Hat Enterprise Linux 7, register the target machine with subscription-manager, verify your subscriptions, and enable the “Extras” repository for package dependencies. For example: 
 	$ sudo subscription-manager repos --enable=rhel-7-server-extras-rpms 
@@ -407,6 +408,14 @@ After these steps, our ceph infrastructure is ready with all the configurations 
 
 ##### Reference link: 
 (http://docs.ceph.com/docs/mimic/start/quick-start-preflight/)
+
+### 6.5 Steps to Install and configuration HDFS
+
+NOTE: Required only if HDFS is used for packet storage.
+
+[Refer - Steps-to-Install-and-configuration-HDFS](https://github.com/mosip/mosip/wiki/Steps-to-Install-and-configuration-HDFS)
+
+
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
