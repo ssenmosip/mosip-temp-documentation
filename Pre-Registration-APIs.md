@@ -13,7 +13,7 @@ This section details about the service API in the Pre-Registration modules
  [2.7.5 BatchJob Service APIs](#275-batchjob-service-apis)
 
  [2.7.6 Notification Service APIs](#276-notification-service-apis)
- 
+
  [2.7.7 Transliteration Service APIs](#276-transliteration-service-apis)
 <!--te-->
 ***
@@ -24,6 +24,7 @@ This section details about the service API in the Pre-Registration modules
 4.      https://integ.mosip.io/pre-registration/v1.0/booking/swagger-ui.html#/
 5.      https://integ.mosip.io/pre-registration/v1.0/batchjob/swagger-ui.html#/
 6.      https://integ.mosip.io/pre-registration/v1.0/notification/swagger-ui.html#/
+7.      https://integ.mosip.io/pre-registration/v1.0/translitration/swagger-ui.html#/
 ***
 Tobe Done:
 1. Need to seperate response and error resonse
@@ -55,7 +56,7 @@ This service details used by Pre-Registration portal to create the demographic f
 Create new pre-registration by demographic details or update demographic details by providing pre-registration id.
 
 #### Request Body Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.demographic.create
 ver |Yes|version of the application|1.0
@@ -66,23 +67,23 @@ request.createdBy |Yes|created user of the application|987654321
 request.createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492Z
 request.updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
 request.updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492Z)</li></ul>
-request.langCode |Yes|primary language code| ENG
+request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
 request.demographicDetails.identity |Yes|identity of the applicant|
 request.demographicDetails.identity.gender |Yes|gender of the applicant|
-request.demographicDetails.identity.city |Yes|city of the applicant|
+request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
-request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application|
+request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
 request.demographicDetails.identity.email |Yes|email Id of the applicant|
-request.demographicDetails.identity.province |Yes|province of the applicant|
+request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
 request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
 request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
 request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
-request.demographicDetails.identity.region |Yes|region of the applicant|
-request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant|
+request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
 
 #### Resource details
@@ -394,7 +395,7 @@ PRG_PAM_APP_008| PRG_PAM_APP_008  --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| una
 Update the pre-registration status by providing pre-registration id and valid status defined in pre-registration system in request parameter.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|pre-registration id of the application|46532058236716
 status_code |Yes|status code of the application|Booked
@@ -454,7 +455,7 @@ Requires Authentication | Yes
 Discard the entire pre-registration details based pre-registration id provided in request parameter.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|pre-registration id of the application|46532058236716
 
@@ -532,7 +533,7 @@ Requires Authentication | Yes
 Retrieve All Pre-Registration id, Full name, Status and Appointment details by user id.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 user_id |Yes|User Id of the application|sanober@gmail.com
 
@@ -590,12 +591,12 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.1.5 GET Operation
-#### Path -  `/applicationsStatus`
+#### Path -  `/applications/status`
 #### Summary
 Retrieve pre-registration application status by providing the pre-registration id in request parameter.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|Id of the application|50490792462164
 
@@ -639,15 +640,15 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.1.6 GET Operation
-#### Path -  `/applicationsDataByDateTime`
+#### Path -  `/applications/byDateTime`
 #### Summary 
 Retrieve pre-registration ids between created from and to dates provided in request parameters.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
-from_date |Yes|From date|2019-01-15 07:22:57.086
-to_date |Yes|To date|2019-01-19 07:22:57.086
+from_date |Yes|From date|2019-01-15
+to_date |Yes|To date|2019-01-19
 
 #### Resource details
 Resource Details | Description
@@ -702,12 +703,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.1.7 GET Operation
-#### Path -  `/applicationsData`
+#### Path -  `/applications/details`
 #### Summary
 Retrieve Pre-Registration demographic data by pre-Registration id provided in request parameter.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|Id of the application|82986390537094
 
@@ -907,7 +908,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 Upload document for a pre-registration Id.
 
 #### Request Part Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.document.upload
 ver |Yes|version of the application|1.0
@@ -1128,13 +1129,13 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.2.2 POST Operation
-#### Path -  `/copyDocuments`
+#### Path -  `/documents/copy`
 #### Summary
 This service enables Pre-Registration portal to request for copy the document from one pre-registration id to another.
 
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 catCode|Yes|Document category code|POA
 destinationPreId |Yes|Destination Pre-registration id of the application|67531403498547
@@ -1226,12 +1227,12 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.2.3 GET Operation
-#### Path -  `/getDocument`
+#### Path -  `/documents`
 #### Summary
 This service enables Pre-Registration portal request to retrieve all document associated with particular pre-registration.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|Pre-registration id of the application|97285429827016
 
@@ -1326,12 +1327,12 @@ Requires Authentication | Yes
 ```
 
 #### 2.7.2.4 DELETE Operation
-#### Path -  `/deleteDocument`
+#### Path -  `/documents`
 #### Summary
 This service enables Pre-Registration portal, request to delete the document for a particular document id.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 documentId |Yes|document id of the application|2c9180836833aa31016837aac4c40012
 
@@ -1387,12 +1388,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.2.5 DELETE Operation
-#### Path -  `/deleteAllByPreRegId`
+#### Path -  `/documents/byPreRegId`
 #### Summary
 This service enables Pre-Registration portal, request to delete all the document for a particular pre-registration id.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|pre-registration id of the application|37802950913289
 
@@ -1487,12 +1488,12 @@ This service enables Pre-Registration to a registration client , request to retr
 | DELETE | False |
 
 #### 2.7.3.1 POST Operation
-#### Path -  `/retrieveAllPreRegIds`
+#### Path -  `/datasync`
 #### Summary
 Retrieve all the pre-registration Ids by date range and registration center Id.
 
 #### Request Body Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync
 ver |Yes|version of the application|1.0
@@ -1762,7 +1763,7 @@ Requires Authentication | Yes
 This service enables Pre-Registration to a registration client , request to retrieve particular pre-registration data based on a pre-registration id.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|Pre Registration id|94625367217037
 
@@ -1811,12 +1812,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.3.3 POST Operation
-#### Path -  `/reverseDataSync`
+#### Path -  `/datasync/store`
 #### Summary
 This service enables Pre-Registration to a registration processor , request to retrieve all processed pre-registration ids and store in pre-registration database and update the status code in main table.
 
 #### Request Body Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync
 ver |Yes|version of the application|1.0
@@ -1965,12 +1966,12 @@ This service details used by Pre-Registration portal to book an appointment by p
 | DELETE | False |
 
 #### 2.7.4.1 GET Operation
-#### Path -  `/appointmentDetails`
+#### Path -  `/appointment`
 #### Summary
 Retrieve Pre-Registration appointment details by pre-Registration id.
 
 #### Request Query Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 pre_registration_id |Yes|Id of the application|37802950913289
 
@@ -2013,12 +2014,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.4.2 GET Operation
-#### Path -  `/availability`
+#### Path -  `/appointment/availability`
 #### Summary
 Retrieve Pre-Registration appointment slots available for booking.
 
 #### Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 registration_center_id |Yes|Registration Center Id|1004
 
@@ -2088,12 +2089,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.4.3 POST Operation
-#### Path -  `/book`
+#### Path -  `/appointment`
 #### Summary
 This service enables by Pre-Registration to book an registration center, request to book and re-book an appointment with a selected registration center and time slot. After successful booking update the status code Booked in main table.
 
 #### Request Body Parameters for book
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
 ver |Yes|version of the application|1.0
@@ -2107,7 +2108,7 @@ request.newBookingDetails.time_slot_from |Yes|Time Slot To|12:28:00
 request.oldBookingDetail|No
 
 #### Request Body Parameters for rebook
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
 ver |Yes|version of the application|1.0
@@ -2282,12 +2283,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.4.4 PUT Operation
-#### Path -  `/book`
+#### Path -  `/appointment`
 #### Summary
 This service enables by Pre-Registration to cancel an appointment booking, request to cancel an booked appointment with a selected registration center and time slot. After successful canceling an booking update the status code Canceled in appointment table.
 
 #### Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
 ver |Yes|version of the application|1.0
@@ -2412,12 +2413,12 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.4.5 POST Operation
-#### Path -  `/bookedPreIdsByRegId`
+#### Path -  `/appointment/preIdsByRegId`
 #### Summary
 Retrieve Pre-Registration appointment details by pre-Registration id and registration center id for the use of Data sync service.
 
 #### Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
 ver |Yes|version of the application|1.0
@@ -2542,7 +2543,7 @@ Requires Authentication | Yes
 }
 ```
 #### 2.7.4.6 PUT Operation
-#### Path -  `/master-sync`
+#### Path -  `/appointment/availability/sync`
 #### Summary
 Synchronize booking slots availability table with master data.
 
@@ -2687,7 +2688,7 @@ This service details used by Pre-Registration portal to trigger notification and
 Notify the user via Email and SMS.
 
 #### Request Part Parameters
-Name | Required | Description | Example
+Name | Required | Description | Comment
 -----|----------|-------------|--------
 name |Yes|user name of the application|Sanober Noor
 preId|Yes|Pre Registration of the application|37802950913289
@@ -2811,6 +2812,7 @@ Requires Authentication | Yes
     "message": "QRCODE_FAILED_TO_GENERATE"
 }
 ```
+
 # 2.7.6 Transliteration Service APIs
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
