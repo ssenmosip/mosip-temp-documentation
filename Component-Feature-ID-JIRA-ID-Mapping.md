@@ -79,7 +79,7 @@
 |8.|MPA Authenticator|MISP License Authentication ||[MOS-1098](https://mosipid.atlassian.net/browse/MOS-1098), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
 |9.|MPA Authenticator|Partner Policy Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099) |
 |10.|MPA Authenticator|MISP Partner Other Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
-|11.|MPA Authenticator|Registered Devices and Open Devices |||
+|11.|To be planned|Registered Devices and Open Devices |||
 
 **12. Resident Services:** 
 
