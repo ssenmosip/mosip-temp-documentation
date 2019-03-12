@@ -749,7 +749,7 @@ Save the above file with any name and apply it using: <br/>
 <br/>
 6. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `<Your Docker Registry>/kernel-config-server` <br/>
 <br/>
-7. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>`
+7. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `< Your docker registry credentials secret >`
 <br/>
 <br/>
 8. Once above configuration is done, execute `kubectl apply -f kernel-config-server-deployment-and-service.yml`
