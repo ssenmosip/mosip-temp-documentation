@@ -774,17 +774,8 @@ After above process is completed, you can run `kubectl get services` command to 
 
 **For Pre-Registration-UI**<br/>
 Pre-registration-ui uses a file config.json to configure URLs of backend, which have to be provided as config map in pre-registration-ui-deployment-and-service.yml. For creating the configmap follow below steps:
-1. Create a file named config.json with the following content: <br/>
-    
- {
-    "BASE_URL": "< your-pre-reg-backend-hostname >",
-    "PRE_REG_URL": "< ui-context-path-if-any >"
-    } 
-
-2. From the path where you have created the file give the command:<br/>
-`kubectl create configmap pre-registration-ui-configuration --from-file=config.json`<br/>
-<br/>
-
+1. Edit the file scripts -> kubernetes -> pre-registration-deployment -> pre-registration-ui-configuration.yaml
+2. Update `https://dev.mosip.io/` value with url of proxy server which points to pre-registration services. (Note: While editing, be careful with escape sequence characters)
 
 B. Continuous deployment 
 
