@@ -77,7 +77,7 @@
 |6.|To be Planned-V2|QR Code based Authentication |IDA_FR_3.1||
 |7.|MPA Authenticator|MISP License Authentication |IDA_FR_4.1|[MOS-1098](https://mosipid.atlassian.net/browse/MOS-1098), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
 |8.|MPA Authenticator|Partner Policy Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156),[MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099) |
-|9.|MPA Authenticator|MISP Partner Other Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123),[MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156),[MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
+|9.|MPA Authenticator|MISP Partner Other Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
 |10.|MPA Authenticator|Registered Devices and Open Devices |||
 
 **12. Resident Services:** 
