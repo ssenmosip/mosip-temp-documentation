@@ -713,7 +713,7 @@ Follow below steps:
 
 `kubectl create secret generic config-server-secret --from-file=id_rsa=/path/to/.ssh/id_rsa --from-file=id_rsa.pub=/path/to/.ssh/id_rsa.pub --from-file=known_hosts=/path/to/.ssh/known_hosts` <br/>
 
-**For Encryption Decryption of properties** <br/>
+**For Encryption Decryption of properties with configuration server** <br/>
 <br/>
 Create keystore with following command: <br/>
 `keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -keypass < key-secret > -storepass < store-password > --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
