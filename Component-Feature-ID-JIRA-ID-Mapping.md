@@ -71,7 +71,7 @@
 |:------:|-----|---|---|---|
 |1.|Biometric Authenticator|Biometric Authentication |IDA_FR_1.1||
 |2.|Demographic Authenticator|Demographic Authentication |IDA_FR_1.2||
-|3.|OTP Authenticator|OTP Authentication |IDA_FR_1.3||
+|3.|OTP Authenticator|OTP Authentication |IDA_FR_1.3|[MOS-17444](https://mosipid.atlassian.net/browse/MOS-17444)|
 |4.|Static Pin Authenticator|Static PIN Authentication |IDA_FR_1.4||
 |5.|Multi-factor Authenticator|Multi-factor Authentication |IDA_FR_2||
 |6.|To be Planned-V2|QR Code based Authentication |IDA_FR_3.1||
