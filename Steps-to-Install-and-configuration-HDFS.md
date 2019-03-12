@@ -230,6 +230,7 @@ hdfs dfs -mkdir /user/idrepo
 hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
 ``` 
 ## Securing HDFS
+NOTE: Currently it is not enabled. <WIP>
 Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_kerberos
