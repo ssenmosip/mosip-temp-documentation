@@ -69,7 +69,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|Biometric Authenticator|Biometric Authentication |IDA_FR_1.1|[MOS-1155](https://mosipid.atlassian.net/browse/MOS-1155), [MOS-1145](https://mosipid.atlassian.net/browse/MOS-1145), [MOS-18108](https://mosipid.atlassian.net/browse/MOS-18108), [MOS-12073](https://mosipid.atlassian.net/browse/MOS-12073),[MOS-12072](https://mosipid.atlassian.net/browse/MOS-12072), [MOS-10831](https://mosipid.atlassian.net/browse/MOS-10831),[MOS-10308](https://mosipid.atlassian.net/browse/MOS-10308), [MOS-1150](https://mosipid.atlassian.net/browse/MOS-1150)|
+|1.|Biometric Authenticator|Biometric Authentication |IDA_FR_1.1|[MOS-1155](https://mosipid.atlassian.net/browse/MOS-1155), [MOS-1145](https://mosipid.atlassian.net/browse/MOS-1145), [MOS-18108](https://mosipid.atlassian.net/browse/MOS-18108), [MOS-12073](https://mosipid.atlassian.net/browse/MOS-12073), [MOS-12072](https://mosipid.atlassian.net/browse/MOS-12072), [MOS-10831](https://mosipid.atlassian.net/browse/MOS-10831), [MOS-10308](https://mosipid.atlassian.net/browse/MOS-10308), [MOS-1150](https://mosipid.atlassian.net/browse/MOS-1150)|
 |2.|Demographic Authenticator|Demographic Authentication |IDA_FR_1.2|[MOS-13162](https://mosipid.atlassian.net/browse/MOS-13162), [MOS-1114](https://mosipid.atlassian.net/browse/MOS-1114)|
 |3.|OTP Authenticator|OTP Authentication |IDA_FR_1.3|[MOS-17444](https://mosipid.atlassian.net/browse/MOS-17444),[MOS-224](https://mosipid.atlassian.net/browse/MOS-224), [MOS-42](https://mosipid.atlassian.net/browse/MOS-42) |
 |4.|Static Pin Authenticator|Static PIN Authentication |IDA_FR_1.4||
