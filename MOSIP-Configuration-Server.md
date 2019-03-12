@@ -171,14 +171,14 @@ The refresh end point is following:<br/>
 
 **To Encrypt any property:** <br/>
 Run the following command : <br/>
-`curl http://<spring_security_username_env>:<spring_security_password_env>@<your-config-server-hostname>:<your-config-server-port>/encrypt -d <value-to-encrypt>`
+`curl http://<your-config-server-url>/<config-server-application-context-path-if-any>/encrypt -d <value-to-encrypt>`
 
 And place the encrypted value in client application properties file with the format: <br/>
 `password={cipher}<encrypted-value>`
 
 **To Decrypt any property manually:** <br/>
 
-`curl http://<spring_security_username_env>:<spring_security_password_env>@<your-config-server-hostname>:<your-config-server-port>/decrypt -d <encrypted-value-to-decrypt>`
+`curl /<config-server-application-context-path-if-any>/decrypt -d <encrypted-value-to-decrypt>`
 
 **NOTE** There is no need to write decryption mechanism in client applications for encrypted values. They will be automatically decrypted.
 
