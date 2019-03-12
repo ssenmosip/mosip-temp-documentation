@@ -75,9 +75,9 @@
 |4.|Static Pin Authenticator|Static PIN Authentication |IDA_FR_1.4||
 |5.|Multi-factor Authenticator|Multi-factor Authentication |IDA_FR_2||
 |6.|To be Planned-V2|QR Code based Authentication |IDA_FR_3.1||
-|7.|MPA Authenticator|MISP License Authentication |IDA_FR_4.1||
-|8.|MPA Authenticator|Partner Policy Authentication |||
-|9.|MPA Authenticator|MISP Partner Other Authentication |||
+|7.|MPA Authenticator|MISP License Authentication |IDA_FR_4.1|[MOS-1098](https://mosipid.atlassian.net/browse/MOS-1098)|
+|8.|MPA Authenticator|Partner Policy Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123)|
+|9.|MPA Authenticator|MISP Partner Other Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123)|
 |10.|MPA Authenticator|Registered Devices and Open Devices |||
 
 **12. Resident Services:** 
