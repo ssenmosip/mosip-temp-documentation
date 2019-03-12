@@ -436,6 +436,8 @@ https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.propertie
 `mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
 `mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/>
 
+For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server]( https://github.com/mosip/mosip/wiki/Getting-Started#firstly-deploy-kernel-configuration-server ) in this document.
+
 ### MOSIP database object deployment / configuration
 
 Database deployment consists of the following 4 categories of objects to be deployed on postgresql database.
