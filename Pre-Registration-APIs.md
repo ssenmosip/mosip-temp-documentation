@@ -13,6 +13,8 @@ This section details about the service API in the Pre-Registration modules
  [2.7.5 BatchJob Service APIs](#275-batchjob-service-apis)
 
  [2.7.6 Notification Service APIs](#276-notification-service-apis)
+ 
+ [2.7.7 Transliteration Service APIs](#276-transliteration-service-apis)
 <!--te-->
 ***
 #### Swagger link as below.
@@ -2808,4 +2810,95 @@ Requires Authentication | Yes
     "errorCode": "PRG_ACK_006",
     "message": "QRCODE_FAILED_TO_GENERATE"
 }
+```
+# 2.7.6 Transliteration Service APIs
+This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
+
+### Host
+##### Integration - `http://integ.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
+#### HTTP Operation Allowed
+| Method | Allowed |
+| ------------ | ------------ |
+| GET | False |
+| POST | True |
+| PUT | False |
+| DELETE | False |
+
+#### 2.7.6.1 POST Operation
+#### Path -  `/translitrate`
+#### Summary
+Transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
+
+#### Parameters
+Name | Required | Description | Example
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.transliteration.transliterate
+ver |Yes|version of the application|1.0
+reqTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.from_field_lang|Yes|From language code|eng
+request.from_field_name |Yes|From filed name|Name1
+request.from_field_value |Yes|From field value |Kishan
+request.to_field_lang |Yes|To language code|ara
+request.to_field_name |Yes|From filed name|Name2
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+#### Request:
+
+```JSON
+{
+  "id": "mosip.pre-registration.transliteration.transliterate",
+  "reqTime": "2018-10-17T07:22:57.086Z",
+  "ver": "1.0",
+  "request": 
+  {
+    "from_field_lang": "eng",
+    "from_field_name": "Name1",
+    "from_field_value": "Kishan",
+    "to_field_lang": "ara",
+    "to_field_name": "Name2",
+    "to_field_value": ""
+  }
+  
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Given key is translitrated successfully
+
+```JSON
+{
+  "err": null,
+  "status": true,
+  "resTime": "2019-03-12T06:48:26.671Z",
+  "response": {
+    "from_field_name": "Name1",
+    "from_field_value": "Kishan",
+    "from_field_lang": "eng",
+    "to_field_name": "Name2",
+    "to_field_value": "كِسهَن",
+    "to_field_lang": "ara"
+  }
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid field
+```JSON
+{
+  "err": {
+    "message": "INCORRECT_MANDATORY_FIELDS",
+    "errorcode": "PRG_TRL_APP_002"
+  },
+  "status": false,
+  "resTime": "2019-03-12T06:48:47.891Z",
+  "response": null
+} 
 ```
