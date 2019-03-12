@@ -169,6 +169,17 @@ In the above snippet we are using @RefreshScope annotation which will help the c
 The refresh end point is following:<br/>
 **POST  {Microservice-URL} /actuator/refresh**
 
+**For Encryption Decryption of properties** <br/>
+<br/>
+Create keystore with following command: <br/>
+`keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -storepass <store-password> --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
+
+When you run the above command it will ask you for password for <your-alias> , choose your password or press enter for same password as < store-password >
+
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
+`keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
+For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing )
+
 **To Encrypt any property:** <br/>
 Run the following command : <br/>
 `curl http://<your-config-server-url>/<config-server-application-context-path-if-any>/encrypt -d <value-to-encrypt>`
