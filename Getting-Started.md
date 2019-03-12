@@ -738,7 +738,7 @@ Save the above file with any name and apply it using: <br/>
 <br/>
 
 3. Create server.keystore as secret to volume mount it inside container: <br/>
-`kubectl create secret generic config-server-keystore --from-file=server.keystore=<your-server.keystore-file-generated-above>`
+`kubectl create secret generic config-server-keystore --from-file=server.keystore=< location-of-your-server.keystore-file-generated-above >`
 <br/>
 <br/>
 4. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
