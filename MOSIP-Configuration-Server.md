@@ -75,7 +75,7 @@ Sample Bootstrap.properties file:<br/>
 `#post /actuator/refresh endpoint can be called for the client microservices`<br/>
 `#to update the configuration`<br/>
 `management.endpoints.web.exposure.include=refresh`<br/>
-3. Once the setup is done, the properties can be used in same way in application as local properties file for properties file and yaml file. Lets assume I have a key in my properties file, we can get the value as follows:
+3. Once the setup is done, the microservice/application will be able to fetch the properties from config server. For Example:
 
 `/** `<br/>
  `* `<br/>
@@ -97,9 +97,9 @@ Sample Bootstrap.properties file:<br/>
      `   return this.msg;`<br/>
         
    `  } `<br/>
-In the above snippet we are using RefreshScope annotation so that the client should be able to call the refresh API /actuator/refresh, and get latest configuration if there are any changes in configuration in GIT repo and â€œconfig Server not running please checkâ€� is the default value which will be should as value for key â€œmsgâ€� if there is any problem in fetching value from MOSIP config server.<br/>
+In the above snippet we are using @RefreshScope annotation which will help the client application to get lastest configuration from config server without restarting the application (by calling the refresh API /actuator/refresh on the application endpoint) <br/>
 4. For any other configuration file such as xml/json etc. you can directly get the entire file through the following url:<br/>
-**http://{mosip-config-server URL}/{application-name}-{microservice-name} /{label} /{branch}/{filename}.(xml/json).** 
+**http://{mosip-config-server URL}/{spring.cloud.config.name} /{label} /{branch}/{filename}.(xml/json).** 
 <br/>
 <br/>
 ### Vert.x client:
@@ -156,7 +156,7 @@ In the above snippet we are using RefreshScope annotation so that the client sho
         `});`<br/>
          `return future;`<br/>
     ` }`<br/>
-4. Letâ€™s assume I put port number in which the application will be running in the properties file, and I need to get that port value while initiating the application, I can get it as follows:<br/>
+4. Lets assume I put port number in which the application will be running in the properties file, and I need to get that port value while initiating the application, I can get it as follows:<br/>
        ` Integer port = Integer.parseInt(configuration.getString("port"));`<br/>
         `server = vertx.createHttpServer()`<br/>
         		`.requestHandler(req -> `<br/>
