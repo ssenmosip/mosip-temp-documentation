@@ -714,9 +714,7 @@ Follow below steps:
 **For Encryption Decryption of properties** <br/>
 <br/>
 Create keystore with following command: <br/>
-`keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -storepass <store-password> --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
-
-When you run the above command it will ask you for password for <your-alias> , choose your password or press enter for same password as < store-password >
+`keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -keypass < key-secret > -storepass < store-password > --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
 
 The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
 `keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
@@ -731,8 +729,8 @@ metadata:
 type: Opaque
 data:
   alias: < base-64-encoded-alias-for keystore >
-  password: <  base-64-encoded-password-for keystore >
-  secret: < base-64-encoded-secret-for keystore >
+  password: <  base-64-store-password >
+  secret: < base-64-encoded-key-secret >
 ```
 Save the above file with any name and apply it using: <br/>
 `kubectl apply -f < file-name >` 
