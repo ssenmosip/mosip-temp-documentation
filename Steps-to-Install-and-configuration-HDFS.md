@@ -1,4 +1,4 @@
-## Setup HDFS
+## 1. Setup HDFS
 ### Before you begin
 1. Create 2 VMs. They’ll be referred to throughout this guide as 
 node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
@@ -229,8 +229,9 @@ hdfs dfs -chown -R prereg:prereg  /user/prereg
 hdfs dfs -mkdir /user/idrepo
 hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
 ``` 
-## Securing HDFS
-NOTE: Currently it is not enabled. <WIP>
+## 2. Securing HDFS
+NOTE: Currently not enabled. `<WIP>`
+
 Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_kerberos
