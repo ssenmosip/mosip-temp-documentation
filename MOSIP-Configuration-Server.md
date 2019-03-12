@@ -1,18 +1,19 @@
 # MOSIP Configuration Server
 
-We will be using MOSIP config server (Spring cloud configurration Server) to manage all the configurations of all the microservices which will be running at a central place.<br/><br/>
-**NOTE:** For the documentation purpose I have mentioned the config server URL as http://localhost:8080 ,but you have to mention the URL where configuration server is running
+We will be using MOSIP config server (Spring cloud configuration Server) to manage configurations of all the services.<br/><br/>
+**NOTE:** For the documentation purpose I have mentioned the config server URL as http://localhost:8080 in this document, but you have to mention the URL where configuration server is running.
 
 ![Configuration Server](_images/arch_diagrams/MOSIP_config_server_setup.png)
 
 ## Git Repo
-1. All the configuration files will be stored inside git in<br/>
-   **\git\mosip\config**<br/>
-2. For every module there will be one property file (eg: for kernel)<br/>
+1. All the configuration files at the moment are stored inside git in<br/>
+   **\git\mosip\config**<br/> (can be customized to take it from git repo of system owner. 
+ Change spring.cloud.config.server.git.search-paths property in config server bootstrap.properties accordingly.)
+2. For every module (specific to an environment such as dev, qa, test etc.) there will be a single property file (eg: for kernel)<br/>
    The nomenclature will be as follows:<br/>
    **_{module-name}-{profile-Name}.properties_**<br/>
    For example if the application name is kernel and microservice is kernel-idgenerator-vid and profile name can be 
-   dev(to differentiate between different environments, eg: testing, dev, QA etc.), so the properties file name
+   dev(to differentiate between different environments, eg: testing, dev, qa etc.), so the properties file name
    will be:<br/>
    **kernel-dev.properties**<br/>
 3. If we are using multiple profiles, say one for dev and one for testing, we can create 2 properties files with names - **kernel-test.properties, kernel-dev.properties**, and can switch between multiple profiles through Microservice application.
@@ -21,8 +22,8 @@ We will be using MOSIP config server (Spring cloud configurration Server) to man
    _**{NameOfFile}-{profileName}.xml**_
 ## Microservices Configuration Clients:<br/>
 ### Spring boot client<br/>
-   All the microservices will act as clients of config server.<br/>
-1. For which microservices will be needing _spring-cloud-starter-config_ dependency, which can be added through maven.
+All the microservices will act as clients and reuqest configuration from config server.<br/>
+1. Microservices should include _spring-cloud-starter-config_ dependency, which can be added through maven in their pom.xml.
 
 `		<dependency>`<br/>
 			`<groupId>org.springframework.cloud</groupId>`<br/>
@@ -36,12 +37,13 @@ We will be using MOSIP config server (Spring cloud configurration Server) to man
 			`<artifactId>spring-boot-starter-actuator</artifactId>`<br/>
 			`<version>${spring.boot.version}</version>`<br/>
 		`</dependency>`<br/>
-2. There should be one **bootstrap.properties** file in the spring boot application under resources which will contain the details for MOSIP config server running. Inside the properties file following properties have to be mentioned:
+2. There should be one **bootstrap.properties** file in the spring boot application(microservice) under resources which will contain the details for MOSIP config server. Inside the properties file following properties have to be mentioned:
 * **spring.cloud.config.uri** key with the value of URL of config server that will be provided.
 * **spring.cloud.config.label** which will define the branch from which we have to get properties from.
-* **spring.profiles.active** which will contain the value of profile that you have mentioned will saving the file.
+* **spring.profiles.active** which will contain the value of profile to be activated (Eg. dev for dev profile, when filename is kernel-dev.properties, and test for test profile when filename is kernel-test.properties).
+* **spring.cloud.config.server.git.search-paths** which is the folder inside git repo which contains the configuration files.
 *  **spring.application.name** name of the application<br/>
-*  **spring.cloud.config.name** name of module to which the application belongs<br/>
+*  **spring.cloud.config.name** name of module to which the application belongs (eg. Kernel, Pre-Registration) <br/>
 *  **spring.cloud.config.username** name of the user if config-server is secured
 *  **spring.cloud.config.password** password of the user if config-server is secured
 
