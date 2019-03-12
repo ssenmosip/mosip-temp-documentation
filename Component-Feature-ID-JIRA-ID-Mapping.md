@@ -70,10 +70,10 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|Biometric Authenticator|Biometric Authentication |IDA_FR_1.1||
-|2.|Demographic Authenticator|Demographic Authentication |IDA_FR_1.2||
+|2.|Demographic Authenticator|Demographic Authentication |IDA_FR_1.2|[MOS-13162](https://mosipid.atlassian.net/browse/MOS-13162)|
 |3.|OTP Authenticator|OTP Authentication |IDA_FR_1.3|[MOS-17444](https://mosipid.atlassian.net/browse/MOS-17444)|
 |4.|Static Pin Authenticator|Static PIN Authentication |IDA_FR_1.4||
-|5.|Multi-factor Authenticator|Multi-factor Authentication |IDA_FR_2||
+|5.|Multi-factor Authenticator|Multi-factor Authentication |IDA_FR_2|[MOS-13664](https://mosipid.atlassian.net/browse/MOS-13664)|
 |6.|To be Planned-V2|QR Code based Authentication |IDA_FR_3.1||
 |7.|MPA Authenticator|MISP License Authentication |IDA_FR_4.1|[MOS-1098](https://mosipid.atlassian.net/browse/MOS-1098)|
 |8.|MPA Authenticator|Partner Policy Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123)|
