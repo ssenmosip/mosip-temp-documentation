@@ -415,6 +415,8 @@ NOTE: Required only if HDFS is used for packet storage.
 
 [Refer - Steps-to-Install-and-configuration-HDFS](https://github.com/mosip/mosip/wiki/Steps-to-Install-and-configuration-HDFS)
 
+### 6.6 Steps to install Kernel Key Manager Service
+Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given here - https://github.com/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md. 
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
@@ -777,8 +779,8 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 1. Create a file named config.json with the following content: <br/>
     
  {
-    "BASE_URL": "< your-pre-reg-backend-hostname >",
-    "PRE_REG_URL": "< ui-context-path-if-any >"
+    "BASE_URL": "< your-pre-reg-backend-hostname >",
+    "PRE_REG_URL": "< ui-context-path-if-any >"
     } 
 
 2. From the path where you have created the file give the command:<br/>
