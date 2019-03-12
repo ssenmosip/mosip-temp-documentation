@@ -42,11 +42,8 @@ All the microservices will act as clients and reuqest configuration from config 
 * **spring.cloud.config.label** which will define the branch from which we have to get properties from.
 * **spring.profiles.active** which will contain the value of profile to be activated (Eg. dev for dev profile, when filename is kernel-dev.properties, and test for test profile when filename is kernel-test.properties).
 * **spring.cloud.config.server.git.search-paths** which is the folder inside git repo which contains the configuration files.
-*  **spring.application.name** name of the application<br/>
-*  **spring.cloud.config.name** name of module to which the application belongs (eg. Kernel, Pre-Registration) <br/>
-*  **spring.cloud.config.username** name of the user if config-server is secured
-*  **spring.cloud.config.password** password of the user if config-server is secured
-
+*  **spring.application.name** name of the application/microservice <br/>
+*  **spring.cloud.config.name** name of module to which the microservice belongs (eg. Kernel, Pre-Registration) <br/>
 
 Sample Bootstrap.properties file:<br/>
 
@@ -63,7 +60,7 @@ Sample Bootstrap.properties file:<br/>
 
 
 `# defining current branch in which we are working as label`<br/>
-`spring.cloud.config.label=DEV `<br/>
+`spring.cloud.config.label=master `<br/>
  
 
 `# url where spring cloud config server is running `<br/>
@@ -72,11 +69,13 @@ Sample Bootstrap.properties file:<br/>
  
 `#spring.cloud.config.name=kernel`<br/>
 
+`spring.cloud.config.server.git.search-paths=config`<br/>
+
 `#exposing refresh endpoint so that whenevr configuration changes in git,`<br/>
 `#post /actuator/refresh endpoint can be called for the client microservices`<br/>
 `#to update the configuration`<br/>
 `management.endpoints.web.exposure.include=refresh`<br/>
-3. Once the setup is done, the properties can be used in same way in application as local properties file for properties file and yaml file. Letâ€™s assume I have a key â€œmsgâ€� in my properties file, we can get the value as follows:
+3. Once the setup is done, the properties can be used in same way in application as local properties file for properties file and yaml file. Lets assume I have a key in my properties file, we can get the value as follows:
 
 `/** `<br/>
  `* `<br/>
