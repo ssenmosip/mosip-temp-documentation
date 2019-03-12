@@ -27,7 +27,7 @@ Tobe Done:
 1. Need to seperate response and error resonse
 2. Need to add id,ver and timestamp in response body
 3. Need to remove user ids from the request body
-
+**Note**: id,ver and reqTime are optional field and not consumed by pre registration unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 # 2.7.1 Demographic Service APIs
 This service details used by Pre-Registration portal to create the demographic form by providing his/her basic demographic details.
