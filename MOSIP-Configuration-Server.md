@@ -163,22 +163,14 @@ In the above snippet we are using @RefreshScope annotation which will help the c
         			`	req.response().end("I am running on the port fetched from the configuration "`<br/>
         						`+ "stored in Spring config server")).listen(port);`<br/>
 
-
-
 **NOTE:** <br/>**Whenever there is a change in the configuration in GIT Repo, every microservice/application which  is using that particular configuration has to call the refresh endpoint in order to get that latest configuration without restarting. If the client doesnt call the refresh API, it will keep on getting the old configuration.** <br/>
 The refresh end point is following:<br/>
 **POST  {Microservice-URL} /actuator/refresh**
 
-**For Encryption Decryption of properties** <br/>
-<br/>
-Create keystore with following command: <br/>
-`keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -storepass <store-password> --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
 
-When you run the above command it will ask you for password for <your-alias> , choose your password or press enter for same password as < store-password >
+**For Encryption and Decryption of properties* you need to generate Keystore, For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing )
 
-The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
-`keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
-For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing )
+To setup and configure keystore for config server refer to the configuration server [README](https://github.com/mosip/mosip/edit/0.9.0/kernel/kernel-config-server/README.md)
 
 **To Encrypt any property:** <br/>
 Run the following command : <br/>
