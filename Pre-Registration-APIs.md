@@ -2877,17 +2877,17 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "err": null,
-  "status": true,
-  "resTime": "2019-03-12T06:48:26.671Z",
-  "response": {
-    "from_field_name": "Name1",
-    "from_field_value": "Kishan",
-    "from_field_lang": "eng",
-    "to_field_name": "Name2",
-    "to_field_value": "كِسهَن",
-    "to_field_lang": "ara"
-  }
+  "err": null,
+  "status": true,
+  "resTime": "2019-03-12T06:48:26.671Z",
+  "response": {
+    "from_field_name": "Name1",
+    "from_field_value": "Kishan",
+    "from_field_lang": "eng",
+    "to_field_name": "Name2",
+    "to_field_value": "كِسهَن",
+    "to_field_lang": "ara"
+  }
 }
 ```
 ##### Failure Response:
@@ -2895,12 +2895,12 @@ Requires Authentication | Yes
 ###### Description: Invalid field
 ```JSON
 {
-  "err": {
-    "message": "INCORRECT_MANDATORY_FIELDS",
-    "errorcode": "PRG_TRL_APP_002"
-  },
-  "status": false,
-  "resTime": "2019-03-12T06:48:47.891Z",
-  "response": null
-} 
+  "err": {
+    "message": "INCORRECT_MANDATORY_FIELDS",
+    "errorcode": "PRG_TRL_APP_002"
+  },
+  "status": false,
+  "resTime": "2019-03-12T06:48:47.891Z",
+  "response": null
+}
 ```
