@@ -52,6 +52,7 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
+|2.|||||
 
 **9. Registration:**
 
