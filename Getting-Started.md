@@ -718,11 +718,11 @@ Follow below steps:
 Create keystore with following command: <br/>
 `keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -keypass < key-secret > -storepass < store-password > --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
 
-The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
+3. The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
 `keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
 For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing ) <br/>
 <br/>
-2. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/>
+4. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/>
 ```
 apiVersion: v1
 kind: Secret
@@ -734,27 +734,27 @@ data:
   password: <  base-64-store-password >
   secret: < base-64-encoded-key-secret >
 ```
-Save the above file with any name and apply it using: <br/>
+5. Save the above file with any name and apply it using: <br/>
 `kubectl apply -f < file-name >` 
 <br/>
 <br/>
 
-3. Create server.keystore as secret to volume mount it inside container: <br/>
+6. Create server.keystore as secret to volume mount it inside container: <br/>
 `kubectl create secret generic config-server-keystore --from-file=server.keystore=< location-of-your-server.keystore-file-generated-above >`
 <br/>
 <br/>
-4. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
+7. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
 <br/>
 <br/>
-5. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
+8. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
 <br/>
 <br/>
-6. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `< Your Docker Registry >/kernel-config-server` <br/>
+9. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `< Your Docker Registry >/kernel-config-server` <br/>
 <br/>
-7. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `< Your docker registry credentials secret >`
+10. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `< Your docker registry credentials secret >`
 <br/>
 <br/>
-8. Once above configuration is done, execute `kubectl apply -f kernel-config-server-deployment-and-service.yml`
+11. Once above configuration is done, execute `kubectl apply -f kernel-config-server-deployment-and-service.yml`
 <br/>
 <br/>
 
