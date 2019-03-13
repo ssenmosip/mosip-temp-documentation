@@ -128,7 +128,21 @@ Upon receiving an authentication request, the system evaluate the Individual's I
 
 
 
-## 1.2 Demographic Authentication  
+## 1.2 Demographic Authentication
+
+**A. Strategy for Authentication**
+
+MOSIP supports only exact match for the demographic authentication of the individual and does not perform any validations related to partial match and phonetics match. No error messages related to partial match and phonetics match are triggered.
+
+**B. Demographic (Address) Authentication**
+
+No weightage is provided to any field\s but exact match strategy is adopted for demographic address
+
+**C. Multi-System Authentication**
+
+MOSIP sends a positive response only if all configured parameters match
+In case of multi-system authentication, MOSIP responds back with e-KYC data based on alternate preferred business rules, as preferred by an SI. It is feasible for a Country/SI to accommodate business rule to send a positive response if 2 out of 3 systems match, to clear authentication – Without Code change by SI
+  
 ## 1.3 OTP Authentication 
 ## 1.4 Static PIN Authentication 
 # 2. Multi-factor Authentication
@@ -136,6 +150,134 @@ Upon receiving an authentication request, the system evaluate the Individual's I
 ## 3.1 QR Code based Authentication 
 # 4. KYC Service 
 ## 4.1 Profile Sharing based on Policy
+
+
+**A. Respond back to TSP with KYC details, as configured - KycAuth - Add KycFilter, decode authRequest**
+
+Upon receiving a request for authentication from TSP the system Respond back to TSP with KYC details, as configured as per the following steps:
+
+1. The System receives authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request (Refer MOS - 41 for OTP based Authentication request parameters)
+2. Decodes the authentication request and obtain all the input parameters of the auth request
+3. Validates eAuthType and compare the data in the PID block in the auth request
+4. Validates if the MUA has permission for eKYC
+5. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissable mode of authentication for e-KYC for the MUA
+6. The System performs all the validation of the OTP Validation process and encodes the auth response
+7. Validates the status of the auth response based on auth response and proceed only if the status is successful
+8. The system proceeds to construct the e-KYC response element, which is encoded and encrypted.
+9. The System then proceeds to execute tokenization 
+10. Retrieves the configured demVal parameter configured for the country
+11. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the AUA
+12. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
+13. The System retrieves the PDF template configured for the limited KYC to construct ePri element of the response
+14. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+15. The system retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the reponse
+16. The system validates the rqSec flag
+17. The system returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
+18. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
+19. The System retrieve the PDF template configured for the Full KYC to construct ePri element
+20. The System retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+21. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
+22. The System also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
+23. The System then proceeds to execute ‘Notification SMS/E-mail
+24. Alerts and Warning messages for data type violation are sent as per data definition
+25. All the error and warning messages are configurable via a configurable file.Please refer Git for more details on the type of error messages
+
+**B. Support return additional eKYC data to social protection system (TBD)**
+
+MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (Evaluate security aspect, as linking of HoF and maintenance of family relationship will be required as a security imperative) and send to Social Protection Data System
+
+MOSIP to provide a mechanism to record the consent of HoF
+
+This is required to accommodate Household Program of GoM
+
+**C. Integrate Fingerprint Authentication with e-KYC**
+
+Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request the system performs the following steps
+
+1. Decodes the authentication request and obtains all the input parameters of the auth request
+2. Validates eAuthType and compare the data in the PID block in the auth request
+3. Validates if the MUA has permission for eKYC
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for eKYC for the MUA
+5. The system performs Fingerprint Validation as per defined standards and encodes the auth response
+6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
+7. The system proceeds to construct the eKYC response element which will be encoded and encrypted.
+8. The proceeds to execute tokenization user story 
+9. The system then retrieves the configured demVal parameter configured for the country
+10. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the MUA
+11. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
+12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
+13. The system retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+14. The actor retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the reponse
+15. Validates the rqSec flag
+16. Returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
+17. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
+18. Retrieves the PDF template configured for the Full KYC to construct ePri element
+19. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
+21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
+22. The system then proceeds to execute Notification-SMS/E-mail
+23. Alerts and Warning messages for data type violation are sent as per data definition
+24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+
+**D. Integrate IRIS Authentication with e-KYC**
+
+Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request the system perform the following steps
+
+1. Decodes the authentication request and obtain all the input parameters of the auth request
+2. Validates eAuthType and compares the data in the PID block in the auth request
+3. Validates if the MUA has permission for eKYC
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for eKYC for the MUA
+5. The system performs all the validation of the IRIS Validation Story as per defined standards and encodes the auth response
+6. Validate the status of the auth response based on auth response from MOS-1154 and proceed only if the status is successful
+7. The system proceeds to construct the eKYC response element which will be encoded and encrypted.
+8. The system proceeds to execute tokenization user story 
+9. Retrieves the configured demVal parameter configured for the country
+10. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the MUA
+11. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
+12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
+13. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+14. Retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the reponse
+15. Validates the rqSec flag
+16. Returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
+17. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
+18. Retrieves the PDF template configured for the Full KYC to construct ePri element
+19. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the reponse
+21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
+22. The actor proceeds to execute Notification-SMS/E-mail
+23. Alerts and Warning messages for data type violation are sent as per data definition
+24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+
+**E. Integrate static pin authentication with e-KYC**
+
+
+Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request the system performs the following steps
+
+1. Decodes the authentication request and obtain all the input parameters of the auth request
+2. Validates eAuthType and compare the data in the PID block in the auth request
+3. Validates if the MUA has permission for eKYC
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for eKYC for the MUA
+5. The system performs all the validation of the IRIS Validation standards and encodes the auth response
+6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
+7. The system the proceeds to construct the eKYC response element which will be encoded and encrypted.
+8. Proceeds to execute tokenization user story 
+9. Retrieves the configured demVal parameter configured for the country
+10. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the MUA
+11. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
+12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
+13. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+14. Retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
+15. Validates the rqSec flag
+16. The system then returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
+17. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
+18. Retrieves the PDF template configured for the Full KYC to construct ePri element
+19. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
+21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
+22. The system then proceeds to execute Notification -SMS/E-mail user story
+23. Alerts and Warning messages for data type violation are sent as per data definition
+24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+
 # 5 Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication
 ## 5.2 Partner Policy Authentication
