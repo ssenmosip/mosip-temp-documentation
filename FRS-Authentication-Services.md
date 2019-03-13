@@ -30,7 +30,7 @@ Upon receiving an authentication service request, the system authenticates the f
 4. The system then constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 5. The system also provides id, idType, indication of type of attribute was used for Auth ( “pi->namePri” or/and “pi->nameSec” , Ad->Address line 1,etc, FAd, FID,pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1,etc, FAd, FID,pin, OTP ), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 6. Alerts and warning messages for data type violation are sent as per data definition
-7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [error messages](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements Detailing References/ID-Authentication/Sprint 9/Consolidated error messages V2.1.xlsx).
+7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [error messages](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 ## 1.2 Demographic Authentication  
