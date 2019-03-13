@@ -1,15 +1,17 @@
 This section details about the service APIs in the Registration-Processor modules
 
-[2.9.1 Packet receiver API](#291-packet-receiver-api)
+[1. Packet receiver Service](#1-packet-receiver-service)
 
-[2.9.2 Registration status API](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs#292-registration-status)
+[2. Registration status Service](#2-registration-status-service)
 
-[2.9.3 Manual Adjudication API](https://github.com/mosip/mosip/wiki/Manual-Adjudication-APIs#293-manual-adjudication)
+[3. Manual Adjudication Service](#3-manual-adjudication-service)
 
-[2.10.1 Bio Dedupe Service](https://github.com/mosip/mosip/wiki/bio-dedupe-service#2101-bio-dedupe)
+[4. Bio Dedupe Service](#4-bio-dedupe-service)
 
-# 2.9.1 Packet Receiver API
-## 2.9.1.1 Packet-receiver service
+[5. Packet Generator Service](#5-packet-generator-service)
+
+# 1 Packet Receiver Service
+## 1.1 Packet-receiver service
 This service receives the registration packet and puts it to landing zone.
 
 ### Resource URL
@@ -64,8 +66,8 @@ MultipartFile|Yes|The encrypted zip file| |
 Description: Packet successfully uploaded to landing zone
 
 
-# 2.9.2 Registration Status API
-## 2.9.2.1 Packet-status service
+# 2 Registration Status Service
+## 2.1 Packet-status service
 This service return the registration current status for list of input registration ids.
 
 ### Resource URL
@@ -136,7 +138,7 @@ Description: Successfully retrieved information
 
 
 
-## 2.9.2.2 Sync-registration service
+## 2.2 Sync-registration service
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
 
 ### Resource URL
@@ -242,8 +244,8 @@ Description: Successfully synced
 
 
 
-# 2.9.3 Manual Adjudication API
-## 2.9.3.1 manual-adjudication-assignment service
+# 3 Manual Adjudication Service
+## 3.1 manual-adjudication-assignment service
 This service is used to assign one single unassigned applicant record to the input user.
 
 ### Resource URL
@@ -308,7 +310,7 @@ Failure response
 
 Description : response code is always 200 if server receives the request.
 
-## 2.9.3.2 manual-adjudication-decision service
+## 3.2 manual-adjudication-decision service
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
 
 ### Resource URL
@@ -379,7 +381,7 @@ Failure response
 Description : response code is always 200 if server receives the request.
 
 
-## 2.9.3.3 manual-adjudication-applicant-biometric service
+## 3.3 manual-adjudication-applicant-biometric service
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
 
 ### Resource URL
@@ -441,7 +443,7 @@ Failure :
 Description : response code is always 200 if server receives the request.
 
 
-## 2.9.3.4 manual-adjudication-applicant-demographic service
+## 3.4 manual-adjudication-applicant-demographic service
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.
 
 ### Resource URL
@@ -501,7 +503,8 @@ Failure :
 
 Description : response code is always 200 if server receives the request.
 
-## 2.10.1 bio-dedupe service
+# 4 Bio Dedupe Service
+## 4.1 Bio Dedupe service
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
 ### Resource URL
@@ -524,6 +527,61 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 ```JSON
 // byte array of CBEFF xml file
 ```
+
+### Response codes
+200
+
+Description : response code is always 200 if server receives the request.
+
+# 5 Packet Generator Service
+## 4.1 Packet Generator Service
+The abis would call bio-dedupe service to get the biometric cbeff file.
+
+### Resource URL
+### `POST /bio-dedupe/v1.0/{referenceid}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+PacketGeneratorRequestDto|Yes|Dto containing information required for activate or deactivate packet| |
+
+### Example Request
+```JSON
+{
+  "id": "mosip.packet.generator",
+  "version": "1.0",
+  "requesttime": "2019-02-02T06:12:25.288Z",
+  "request": {
+    "centerId": "10031",
+    "machineId": "10011",
+    "reason": "something",
+    "registrationType": "DEACTIVATED",
+    "uin": "4215839851"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "mosip.packet.generator",
+  "version": "1.0",
+  "responsetime": "2019-02-02T06:12:25.288Z",
+  "response": {
+    "registrationId": "10031100110005020190313110030",
+    "status": "RECEIVED",
+    "message": "Packet created and uploaded"
+  }
+}
+```
+
 
 ### Response codes
 200
