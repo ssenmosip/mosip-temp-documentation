@@ -51,7 +51,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|, 
-|1.||Login/Creating a User Account|PRE_FR_1|MOS-17, MOS-26, |
+|1.||Login/Creating a User Account|PRE_FR_1|[MOS-17], [MOS-26] |
 |2.||Logout/Session Timeout|PRE_FR_1.4|MOS-205|
 |3.||Creating an Application|PRE_FR_2|MOS-623, MOS-625, MOS-792, MOS-793, |
 |4.||Provide Consent|PRE_FR_2.2||
