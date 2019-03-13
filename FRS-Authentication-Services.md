@@ -64,6 +64,7 @@ Upon receiving a authentication request, the system evaluates the Individual's f
 7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
 
 **D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against threshold (BioAuthService)**
+
 Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, UA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType) and the match score
 2. The biometric is sent in Base-64 encoded format
@@ -110,7 +111,7 @@ Upon receiving an authentication request, the system evaluate the Individual's I
    * Validates if total number of Iris records should not exceed 2
    * Validates if single irisImg record is present in the input
    * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database.
-3. The system then generates a match score based on the level of match of the Irises. The SDK will provide the match score}
+3. The system then generates a match score based on the level of match of the Irises. The SDK will provide the match score
 4. The system validates if two irisImg records are present in the input
 5. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of match of the Irises. 
 6. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
