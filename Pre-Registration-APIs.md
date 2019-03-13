@@ -918,11 +918,22 @@ request |Yes|Request for the application|
 request.pre_registration_id |Yes|Pre-registration id of the application|49158360813920
 request.doc_cat_code |Yes|Document category code|POI
 request.doc_typ_code |Yes|Document type code|address
-request.doc_file_format |Yes|Document file format|pdf
-request.status_code |Yes|Status of the application|Pending_Appoinment
-request.upload_by |Yes|Document Uploaded user Id|9480548558
-request.upload_date_time |Yes|Document Uploaded date & time|2019-01-09T07:22:57.086Z
 request.lang_code |Yes|Language code of the application|ENG
+
+```JSON
+{
+		"id": "mosip.pre-registration.document.upload",
+		"ver" : "1.0",
+		"reqTime" : "2019-03-13T07:22:57.086Z",
+		"request" :
+		{
+			"pre_registartion_id" : "36732486130976",
+			"doc_cat_code" : "POA",
+			"doc_typ_code" : "address",
+			"lang_code" : "ENG"
+		 }
+}
+```
 
 #### Resource details
 Resource Details | Description
