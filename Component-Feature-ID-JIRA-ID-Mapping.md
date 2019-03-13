@@ -51,23 +51,22 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.||Login using Email|PRE_FR_1.1||
-|2.||Login using Phone Number|PRE_FR_1.2||
-|3.||Logout/Session Timeout|PRE_FR_1.4||
-|4.||Creating an Application|PRE_FR_2||
-|5.||Provide Consent|PRE_FR_2.2||
-|6.||Provide Data in Preferred Language|PRE_FR_2.4||
-|7.||Viewing "My Applications"|PRE_FR_2.5||
-|8.||Modify Application Data|PRE_FR_2.6||
-|9.||Discard Application|PRE_FR_2.7||
-|10.||Document Categories and Applicable Document Types|PRE_FR_3.1||
-|11.||Choosing a Registration Center for Appointment|PRE_FR_4.1||
-|12.||Choosing Appointment Slots|PRE_FR_4.2||
-|13.||Cancel Appointment|PRE_FR_4.3||
-|14.||Re-book Appointment|PRE_FR_4.4||
-|15.||Appointment Acknowledgement (PRID)|PRE_FR_5||
-|16.||Get Appointment for the Day|PRE_FR_6.1||
-|17.||Retrieve Application Data by PRID|PRE_FR_6.2||
+|1.||Login/Creating a User Account|PRE_FR_1||
+|2.||Logout/Session Timeout|PRE_FR_1.4||
+|3.||Creating an Application|PRE_FR_2||
+|4.||Provide Consent|PRE_FR_2.2||
+|5.||Provide Data in Preferred Language|PRE_FR_2.4||
+|6.||Viewing "My Applications"|PRE_FR_2.5||
+|7.||Modify Application Data|PRE_FR_2.6||
+|8.||Discard Application|PRE_FR_2.7||
+|9.||Document Categories and Applicable Document Types|PRE_FR_3.1||
+|10.||Choosing a Registration Center for Appointment|PRE_FR_4.1||
+|11.||Choosing Appointment Slots|PRE_FR_4.2||
+|12.||Cancel Appointment|PRE_FR_4.3||
+|13.||Re-book Appointment|PRE_FR_4.4||
+|14.||Appointment Acknowledgement (PRID)|PRE_FR_5||
+|15.||Get Appointment for the Day|PRE_FR_6.1||
+|16.||Retrieve Application Data by PRID|PRE_FR_6.2||
 
 
 **9. Registration:**
