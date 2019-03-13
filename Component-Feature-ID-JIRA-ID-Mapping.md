@@ -61,7 +61,7 @@
 |8.||Discard Application|PRE_FR_2.7|[MOS-805](https://mosipid.atlassian.net/browse/MOS-805), [MOS-806](https://mosipid.atlassian.net/browse/MOS-806), [MOS-807](https://mosipid.atlassian.net/browse/MOS-807)|
 |9.||Document Categories and Applicable Document Types|PRE_FR_3.1||
 |10.||Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-663](https://mosipid.atlassian.net/browse/MOS-663), [MOS-814](https://mosipid.atlassian.net/browse/MOS-814)|
-|11.||Choosing Appointment Slots|PRE_FR_4.2|[MOS-817](https://mosipid.atlassian.net/browse/MOS-817) |
+|11.||Choosing Appointment Slots|PRE_FR_4.2|[MOS-817](https://mosipid.atlassian.net/browse/MOS-817)|
 |12.||Cancel Appointment|PRE_FR_4.3|[MOS-665](https://mosipid.atlassian.net/browse/MOS-665)|
 |13.||Re-book Appointment|PRE_FR_4.4||
 |14.||Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](https://mosipid.atlassian.net/browse/MOS-812)|
