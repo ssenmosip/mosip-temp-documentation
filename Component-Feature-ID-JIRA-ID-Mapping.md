@@ -66,7 +66,7 @@
 |13.||Re-book Appointment|PRE_FR_4.4||
 |14.||Appointment Acknowledgement (PRID)|PRE_FR_5||
 |15.||Get Appointment for the Day|PRE_FR_6.1||
-|16.||Retrieve Application Data by PRID|PRE_FR_6.2|[MOS-668](https://mosipid.atlassian.net/browse/MOS-668)|
+|16.||Retrieve Application Data by PRID|PRE_FR_6.2||
 |17.||List of Configurable Parameters and Processes|PRE_FR_7||
 
 **9. Registration:**
