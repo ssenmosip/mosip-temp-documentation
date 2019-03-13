@@ -2841,7 +2841,7 @@ This service is used by Pre-Registration portal to transliterate given value fro
 | DELETE | False |
 
 #### 2.7.6.1 POST Operation
-#### Path -  `/translitrate`
+#### Path -  `/transliterate`
 #### Summary
 Transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
 
