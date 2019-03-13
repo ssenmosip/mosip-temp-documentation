@@ -52,8 +52,8 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.||Login/Creating a User Account|PRE_FR_1|[MOS-17](https://mosipid.atlassian.net/browse/MOS-17), [MOS-26](https://mosipid.atlassian.net/browse/MOS-26)|
-|2.||Logout/Session Timeout|PRE_FR_1.4||
-|3.||Creating an Application|PRE_FR_2||
+|2.||Logout/Session Timeout|PRE_FR_1.4|[MOS-205](https://mosipid.atlassian.net/browse/MOS-205)|
+|3.||Creating an Application|PRE_FR_2|[MOS-623](https://mosipid.atlassian.net/browse/MOS-623), [MOS-625](https://mosipid.atlassian.net/browse/MOS-625)|
 |4.||Provide Consent|PRE_FR_2.2||
 |5.||Provide Data in Preferred Language|PRE_FR_2.4||
 |6.||Viewing "My Applications"|PRE_FR_2.5||
