@@ -50,7 +50,7 @@
 **8. Pre-registration:**
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
-|:------:|-----|---|---|---|, 
+|:------:|-----|---|---|---|
 |1.||Login/Creating a User Account|PRE_FR_1||
 
 **9. Registration:**
