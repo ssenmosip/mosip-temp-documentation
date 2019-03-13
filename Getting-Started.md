@@ -723,6 +723,7 @@ Create keystore with following command: <br/>
 For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing ) <br/>
 <br/>
 4. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/>
+
 ```
 apiVersion: v1
 kind: Secret
@@ -734,6 +735,7 @@ data:
   password: <  base-64-store-password >
   secret: < base-64-encoded-key-secret >
 ```
+<br/>
 5. Save the above file with any name and apply it using: <br/>
 `kubectl apply -f < file-name >` 
 <br/>
