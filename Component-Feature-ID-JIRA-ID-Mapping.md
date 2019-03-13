@@ -51,7 +51,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|, 
-|1.||Login/Creating a User Account|PRE_FR_1|[MOS-17](https://mosipid.atlassian.net/browse/MOS-17), [MOS-26](https://mosipid.atlassian.net/browse/MOS-26) |
+|1.||Login/Creating a User Account|PRE_FR_1|[MOS-17](https://mosipid.atlassian.net/browse/MOS-17), [MOS-26](https://mosipid.atlassian.net/browse/MOS-26)|
 |2.||Logout/Session Timeout|PRE_FR_1.4|[MOS-205](https://mosipid.atlassian.net/browse/MOS-205)|
 |3.||Creating an Application|PRE_FR_2|[MOS-623](https://mosipid.atlassian.net/browse/MOS-623), [MOS-625](https://mosipid.atlassian.net/browse/MOS-625), [MOS-792](https://mosipid.atlassian.net/browse/MOS-792), [MOS-793](https://mosipid.atlassian.net/browse/MOS-793)|
 |4.||Provide Consent|PRE_FR_2.2||
@@ -64,7 +64,7 @@
 |11.||Choosing Appointment Slots|PRE_FR_4.2|[MOS-817](https://mosipid.atlassian.net/browse/MOS-817) |
 |12.||Cancel Appointment|PRE_FR_4.3|[MOS-665](https://mosipid.atlassian.net/browse/MOS-665)|
 |13.||Re-book Appointment|PRE_FR_4.4||
-|14.||Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](https://mosipid.atlassian.net/browse/MOS-812) |
+|14.||Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](https://mosipid.atlassian.net/browse/MOS-812)|
 |15.||Get Appointment for the Day|PRE_FR_6.1|[MOS-664](https://mosipid.atlassian.net/browse/MOS-664), [MOS-816](https://mosipid.atlassian.net/browse/MOS-816)|
 |16.||Retrieve Application Data by PRID|PRE_FR_6.2|[MOS-668](https://mosipid.atlassian.net/browse/MOS-668)|
 |17.||List of Configurable Parameters and Processes|PRE_FR_7||
