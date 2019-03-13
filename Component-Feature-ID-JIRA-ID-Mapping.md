@@ -55,14 +55,14 @@
 |2.||Logout/Session Timeout|PRE_FR_1.4|[MOS-205](https://mosipid.atlassian.net/browse/MOS-205)|
 |3.||Creating an Application|PRE_FR_2|[MOS-623](https://mosipid.atlassian.net/browse/MOS-623), [MOS-625](https://mosipid.atlassian.net/browse/MOS-625)|
 |4.||Provide Consent|PRE_FR_2.2||
-|5.||Provide Data in Preferred Language|PRE_FR_2.4||
+|5.||Provide Data in Preferred Language|PRE_FR_2.4|[MOS-666](https://mosipid.atlassian.net/browse/MOS-666), [MOS-667](https://mosipid.atlassian.net/browse/MOS-667)|
 |6.||Viewing "My Applications"|PRE_FR_2.5|[MOS-626](https://mosipid.atlassian.net/browse/MOS-626)|
 |7.||Modify Application Data|PRE_FR_2.6|[MOS-628](https://mosipid.atlassian.net/browse/MOS-628)|
 |8.||Discard Application|PRE_FR_2.7||
 |9.||Document Categories and Applicable Document Types|PRE_FR_3.1||
 |10.||Choosing a Registration Center for Appointment|PRE_FR_4.1||
 |11.||Choosing Appointment Slots|PRE_FR_4.2|[MOS-664](https://mosipid.atlassian.net/browse/MOS-664)|
-|12.||Cancel Appointment|PRE_FR_4.3||
+|12.||Cancel Appointment|PRE_FR_4.3|[MOS-665](https://mosipid.atlassian.net/browse/MOS-665)|
 |13.||Re-book Appointment|PRE_FR_4.4||
 |14.||Appointment Acknowledgement (PRID)|PRE_FR_5||
 |15.||Get Appointment for the Day|PRE_FR_6.1|[MOS-663](https://mosipid.atlassian.net/browse/MOS-663)|
