@@ -35,8 +35,8 @@ Upon receiving an authentication service request, the system authenticates the f
 **B. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
 
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
-1. The authentication service request should have  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) of the Individual (data definition doc as specified below-Provide link)
-2. The biometric data is sent in Base-64 encoded format
+1. The authentication service request should have  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) of the Individual _**(data definition doc as specified below-Provide link)**_
+2. The biometric data is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. System validates if the time period between the current time stamp and the request time stamp is <= time period 
 4. System validates that total number of face record(s) should not exceed 1
 5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched
@@ -44,14 +44,14 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold 
 9. Alerts and warning messages for data type violation are sent as per data definition
-10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server**
 
 Upon receiving a authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
 
-1. The authentication service request has  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType). (Note: The specifications are detailed in the data definition doc as specified below)provide link
-2. The biometric is sent in Base-64 encoded format
+1. The authentication service request has  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType). _**(Note: The specifications are detailed in the data definition doc as specified below)provide link**_
+2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system then validated the following
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input
@@ -61,25 +61,25 @@ Upon receiving a authentication request, the system evaluates the Individual's f
 4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database 
 5. The system then generates a match score based on the level of match of the fingerprints and proceeds to execute compare against fingerprint threshold 
 6. Alerts and warning messages for data type violation are sent as per data definition
-7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against threshold (BioAuthService)**
 
 Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, UA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType) and the match score
-2. The biometric is sent in Base-64 encoded format
+2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system retrieves the threshold level configured which is acceptable for a match
 4. The system then validates the following if the match score is equal to greater than the threshold level
 5. The system constructs the response to the requesting source with status(Y/N), txnId (same as request), resTime of response, err,actn
 6. The system also provides id, idType, indication of type of attribute was used for Auth ( “pi->namePri” or/and “pi->nameSec” , Ad->Address line 1,etc, FAd, fgerMin or fgerImg ,pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1,etc, FAd, fgerMin or fgerImg ,pin, OTP ), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 7. Alerts and warning messages for data type violation are sent as per data definition
-8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages.
+8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **E. Support two finger authentication so that the quality of incoming fingerprints is better**
 
 1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType). 
-2. The biometric is sent in Base-64 encoded format
+2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system validated the following
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
@@ -96,15 +96,15 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 12. The system also provides id, idType, indication of type of attribute was used for Auth ( “pi->namePri” or/and “pi->nameSec” , Ad->Address line 1,etc, FAd, fgerMin ,pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1,etc, FAd, fgerMin ,pin, OTP ), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 13. The system then  proceeds to send notifications
 14. Alerts and Warning messages for data type violation are sent as per data definition
-15. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+15. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server**
 
 Upon receiving an authentication request, the system evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) of the Individual (Note: The specifications are detailed in the data definition doc as specified below)
-2. The biometric is sent in Base-64 encoded format
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) of the Individual _**(Note: The specifications are detailed in the data definition doc as specified below)**_
+2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The System the following
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
@@ -118,7 +118,7 @@ Upon receiving an authentication request, the system evaluate the Individual's I
 7. The system generates a composite match score by summing up the match scores for the first and the second iris Images}
 8. The system proceeds to execute compare against Iris threshold 
 9. Alerts and warning messages for data type violation are sent as per data definition
-10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against threshold (TBD)**
