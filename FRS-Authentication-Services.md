@@ -104,7 +104,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual _**(Note: The specifications are detailed in the data definition doc as specified below)**_
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
-3. The System the following:
+3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
    * Validates if total number of Iris records should not exceed 2
