@@ -316,7 +316,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 23. Alerts and warning messages for data type violation are sent as per data definition
 24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-# 5 Partners Authentication and Authorisation
+# 5. Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication
 
 **Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
