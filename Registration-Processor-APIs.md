@@ -521,7 +521,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-FileRequestDto|Yes|Dto containing registration id and file name| |
+byte[]|Yes|byte array of CBEFF file| |
 
 ### Example Response
 ```JSON
@@ -538,7 +538,7 @@ Description : response code is always 200 if server receives the request.
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
 ### Resource URL
-### `POST /bio-dedupe/v1.0/{referenceid}`
+### `POST /registration-processor/packetgenerator/v1.0`
 
 ### Resource details
 
