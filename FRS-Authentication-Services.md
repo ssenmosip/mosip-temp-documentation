@@ -280,6 +280,18 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 
 # 5 Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication
+
+MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
+1. Receives a pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio,Bio_Type,pin, otp, pin, session key, HMAC Value, signature, otp, namePri, nameSec, addrPri, addrSec,addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
+_**Please refer Git for the specifications in the data definition Link needs to be updated**_
+2. Validates if the MISP-LK has not expired
+3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
+4. Validates if the MISP-LK status is active
+5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
+6. Captures and stores the transaction details for audit purpose.
+7. Alerts and warning messages for data type violation are sent as per data definition _**(Link to be updated)**_
+8. The alert and warning messages are configurable via a configurable file.
+
 ## 5.2 Partner Policy Authentication
 ## 5.3 MISP Partner Other Authentication
 # 6. Authentication Device Support 
