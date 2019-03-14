@@ -307,7 +307,7 @@ The system then validates the following:
 5. Retrieves all the policies constituting the partnerID
 6. Validates if the auth type specified in the request is one of the policies retrieved for the partner
 7. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
-8. Validates if the <authvalue> in the i/p parameter is same <authval>stored in the database for the mapped UIN and VID
+8. Validates if the "authvalue" in the i/p parameter is same "authval" stored in the database for the mapped UIN and VID
 9. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
 10. The system then integrates the response with the static token generated for the authentication request  
 11. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
@@ -330,7 +330,7 @@ The system then validates the following:
 6. Validates if the auth type specified in the request is one of the policies retrieved.
 7. Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration
 8. Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)
-9. The system performs all the validation of the <auth> as per standards and encodes the auth response
+9. The system performs all the validation of the "auth" as per standards and encodes the auth response
 10. Validate the status of the auth response and proceed only if the status is successful
 11. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
 12. The system integrates the response with the static token generated for the authentication request 
