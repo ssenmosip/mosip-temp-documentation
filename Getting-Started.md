@@ -17,7 +17,7 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 ## 2. Setup and Configure Jenkins [**[↑]**](#content)
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
 
-### A. Installing Jenkins
+### A. Installing Jenkins version 2.150.1
 Jenkins installation is pretty standard one(see [How to install Jenkins](https://jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. Also you have to install following list of plugins - 
 * [Github Plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin)
 * [Artifactory Plugin](https://wiki.jenkins.io/display/JENKINS/Artifactory+Plugin)
@@ -85,7 +85,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 <TBD>
 
 ***
-## 3. Setup and Configure Jfrog [**[↑]**](#content)
+## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#content)
  For installing and setting up Jfrog, steps [here](https://www.jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
 Once the setup is complete, please add following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
 * **Maven Central -** https://repo.maven.apache.org/maven2/
@@ -103,7 +103,7 @@ Also if you are planning to import all versions of the Mosip modules in Jfrog to
 
 
 ***
-## 4. Setup and Configure SonarQube [**[↑]**](#content)
+## 4. Setup and Configure SonarQube version 7.3 [**[↑]**](#content)
 SonarQube server can be setup by following single instructions given [here](https://docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
 For configuring SonarQube with Jenkins, steps given [here](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
 
@@ -135,7 +135,7 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 ***
 ## 6. Installing External Dependencies [**[↑]**](#content)
-### 6.1 Install and use PostgreSql on RHEL 7.5
+### 6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5
 
 Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
 Postgresql Prerequisites
