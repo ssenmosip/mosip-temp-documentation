@@ -1,4 +1,4 @@
-## 1. Setup HDFS
+## 1. Setup HDFS version 2.8.1
 ### Before you begin
 1. Create 2 VMs. They’ll be referred to throughout this guide as 
 node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
