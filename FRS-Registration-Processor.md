@@ -18,7 +18,7 @@
      * [3.1.1 Sanity Check](#311-sanity-check) _(RPR_FR_3.1)_
      * [3.1.2 Virus Scan](#312-virus-scan) _(RPR_FR_3.2)_
      * [3.1.3 Source Authentication](#313-source-authentication) _(RPR_FR_3.3)_
-     * [3.1.4 Machine-User-Center Mapping Check](#314-machine-user-center-mapping-check) _(RPR_FR_3.4)_
+     * [3.1.4 Machine-User-Center-Device Checks](#314-machine-user-center-mapping-check) _(RPR_FR_3.4)_
      * [3.1.5 GPS Capture Check](#315-gps-capture-check) _(RPR_FR_3.5)_
      * [3.1.6 Operator & Supervisor Validation](#316-operator--supervisor-validation) _(RPR_FR_3.6)_
    * [3.2 Processing](#32-processing) 
