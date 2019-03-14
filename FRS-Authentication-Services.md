@@ -5,7 +5,6 @@
   * [1.1 Biometric Authentication](#11-biometric-authentication) _(IDA_FR_1.1)_
   * [1.2 Demographic Authentication](#12-demographic-authentication) _(IDA_FR_1.2)_
   * [1.3 OTP Authentication](#13-otp-authentication) _(IDA_FR_1.3)_
-  * [1.4 Static PIN Authentication](#14-static-pin-authentication) _(IDA_FR_1.4)_
 - [2. Multi-factor Authentication](#2-multi-factor-authentication) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
   * [3.1 QR Code based Authentication](#31-qr-code-based-authentication) _(IDA_FR_3.1)_
@@ -14,7 +13,6 @@
 - [5. Partners Authentication](#42-authorized-partners-and-authentication)
     * [5.1  MISP License Authentication](#421-misp-licensing) _(IDA_FR_5.1)_
     * [5.2  Partner Policy Authentication ](#422-partner-policy) _(IDA_FR_5.2)_
-    * [5.3  MISP Partner Other Authentication](#423-partner-authentication) _(IDA_FR_5.3)_
 - [6. Authentication Device Support](#5-authentication-device-support)
   * [6.1 Registered Devices and Open Devices (Architects to contribute)](#51-registered-devices-and-open-devices-architects-to-contribute) _(IDA_FR_6.1)_
 
@@ -145,7 +143,6 @@ MOSIP sends a positive response only if all configured parameters match
 In case of multi-system authentication, MOSIP responds back with e-KYC data based on alternate preferred business rules, as preferred by an SI. It is feasible for a Country/SI to accommodate business rule to send a positive response if 2 out of 3 systems match, to clear authentication – Without Code change by SI
   
 ## 1.3 OTP Authentication 
-## 1.4 Static PIN Authentication 
 # 2. Multi-factor Authentication
 # 3. Offline Authentication 
 ## 3.1 QR Code based Authentication 
@@ -296,7 +293,8 @@ _**Please refer Git for the specifications in the data [**definition Link**](htt
 8. The alert and warning messages are configurable via a configurable file.
 
 ## 5.2 Partner Policy Authentication
-## 5.3 MISP Partner Other Authentication
 # 6. Authentication Device Support 
-## 6.1 Registered Devices and Open Devices (Architects to contribute)
+## 6.1 Registered Devices and Open Devices TBD 
+
+Technical story (Architects to contribute)
 
