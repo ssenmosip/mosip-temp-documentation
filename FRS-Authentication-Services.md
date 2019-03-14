@@ -293,6 +293,65 @@ _**Please refer Git for the specifications in the data [**definition Link**](htt
 8. The alert and warning messages are configurable via a configurable file.
 
 ## 5.2 Partner Policy Authentication
+
+**A. Authenticate and authorize Auth Partner**
+
+The system receives authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec= E/P, mtSec= 1 to 100, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
+(Note: The specifications are detailed in the data definition doc)
+
+The system then validates the following:
+1. Validates the digital signature in the certificate
+2. Validates the certificate
+3. Validates if the partnerID belongs to a registered partner
+4. The system also validates if the partner status is active
+5. Retrieves all the policies constituting the partnerID
+6. Validates if the auth type specified in the request is one of the policies retrieved for the partner
+7. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
+8. Validates if the <authvalue> in the i/p parameter is same <authval>stored in the database for the mapped UIN and VID
+9. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
+10. The system then integrates the response with the static token generated for the authentication request  
+11. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
+12. The system also provides id, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Id, Ad, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver.
+13. The system proceeds to execute Notification SMS
+14. _**Alerts and Warning messages for data type violation are sent as per data definition (Link to be updated)**_
+15. The alert and warning messages are configurable via a configurable file.
+
+**B. Authenticate and authorize e-KYC partner - proxy implementation**
+
+The system receives pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, Signature, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual (Note: The specifications are detailed in the data definition doc)
+
+The system then validates the following:
+
+1. Validates digital signature in the certificate
+2. Validates the certificate
+3. Validates if the partnerID belongs to a registered partner
+4. Validates if the partner status is active
+5. Retrieves the policy constituting for the partnerID
+6. Validates if the auth type specified in the request is one of the policies retrieved.
+7. Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration
+8. Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)
+9. The system performs all the validation of the <auth> as per standards and encodes the auth response
+10. Validate the status of the auth response and proceed only if the status is successful
+11. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
+12. The system integrates the response with the static token generated for the authentication request 
+13. Retrieves the configured demVal parameter configured for the country
+14. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err.
+15. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
+16. Retrieves the configured id fields as per the e-KYC policy and identifies the id fields configured to be part of the response
+17. Appends the response with the demographic and id fields as per the policy
+18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
+19. The system proceeds to execute Notification-SMS
+20. _**Alerts and Warning messages for data type violation are sent as per data definition (Link to be updated)**_
+21. The alert and warning messages are configurable via a configurable file.
+
+**C. Support multiple license keys (policies) for a single TSP (Partner) (Feature Roadmap-TBD)**
+
+**License Key Generation**
+
+1. License key generation to be invoked through admin portal with an approval process > Key to be associated to the TSP ID > TSP should have a mechanism to access the key
+2. MOSIP should support multiple license keys per TSP. There will be a separate license key per use case / application with associated policy
+3. Once a TSP is authorized, they should ideally have a self-service (TSP Portal) mechanism to get their keys, and regenerate them on need basis. In the absence of a Self-Service portal, it should be possible for the admin to generate the key and email it to the TSP. This can be done as part of the approval process, as well as on an ad hoc basis when the key needs to be replaced
+
 # 6. Authentication Device Support 
 ## 6.1 Registered Devices and Open Devices TBD 
 
