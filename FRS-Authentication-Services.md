@@ -281,7 +281,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 # 5 Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication
 
-**Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) **
+**Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
 1. Receives a pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, nameSec, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
