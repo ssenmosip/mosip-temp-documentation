@@ -297,7 +297,7 @@ _**Please refer Git for the specifications in the data [**definition Link**](htt
 **A. Authenticate and authorize Auth Partner**
 
 The system receives authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec= E/P, mtSec= 1 to 100, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
-(Note: The specifications are detailed in the [data definition doc](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx))
+(Note: The specifications are detailed in the [**data definition doc**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx))
 
 The system then validates the following:
 1. Validates the digital signature in the certificate
@@ -313,7 +313,7 @@ The system then validates the following:
 11. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 12. The system also provides id, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Id, Ad, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver.
 13. The system proceeds to execute Notification SMS
-14. _**Alerts and Warning messages for data type violation are sent as per data definition (Link to be updated)**_
+14. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
 15. The alert and warning messages are configurable via a configurable file.
 
 **B. Authenticate and authorize e-KYC partner - proxy implementation**
@@ -341,7 +341,7 @@ The system then validates the following:
 17. Appends the response with the demographic and id fields as per the policy
 18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
 19. The system proceeds to execute Notification-SMS
-20. _**Alerts and Warning messages for data type violation are sent as per data definition (Link to be updated)**_
+20. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
 21. The alert and warning messages are configurable via a configurable file.
 
 **C. Support multiple license keys (policies) for a single TSP (Partner) (Feature Roadmap-TBD)**
