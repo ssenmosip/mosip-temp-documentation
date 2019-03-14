@@ -180,7 +180,7 @@ Upon receiving a request for authentication from TSP the system Respond back to 
 22. The System also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
 23. The System then proceeds to execute ‘Notification SMS/E-mail
 24. Alerts and Warning messages for data type violation are sent as per data definition
-25. All the error and warning messages are configurable via a configurable file.Please refer Git for more details on the type of error messages
+25. All the error and warning messages are configurable via a configurable file.Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **B. Support return additional eKYC data to social protection system (TBD)**
 
@@ -217,7 +217,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
 22. The system then proceeds to execute Notification-SMS/E-mail
 23. Alerts and Warning messages for data type violation are sent as per data definition
-24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **D. Integrate IRIS Authentication with e-KYC**
 
@@ -246,7 +246,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
 22. The actor proceeds to execute Notification-SMS/E-mail
 23. Alerts and Warning messages for data type violation are sent as per data definition
-24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **E. Integrate static pin authentication with e-KYC**
 
@@ -276,7 +276,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
 22. The system then proceeds to execute Notification -SMS/E-mail user story
 23. Alerts and Warning messages for data type violation are sent as per data definition
-24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of error messages
+24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 # 5 Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication
