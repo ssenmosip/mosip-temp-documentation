@@ -24,38 +24,39 @@
 **A. Authenticate the face of the Individual by comparing the match score of the photo against threshold**
 
 Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against threshold as per the following steps:
-1. The authentication service request should have  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) and the match score(s) 
+
+1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) and the match score(s)
 2. The biometric data is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system retrieves the threshold level configured which is acceptable for a match and then validates if the match score is equal to greater than the threshold level and sets the status as 'Y' for authentication
 4. The system then constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
-5. The system also provides id, idType, indication of type of attribute was used for Auth ( “pi->namePri” or/and “pi->nameSec” , Ad->Address line 1,etc, FAd, FID,pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1,etc, FAd, FID,pin, OTP ), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
+5. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 6. Alerts and warning messages for data type violation are sent as per data definition
 7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **B. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
 
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
-1. The authentication service request should have  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) of the Individual _**(data definition doc as specified below-Provide link)**_
+1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual _**(data definition doc as specified below-Provide link)**_
 2. The biometric data is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
-3. System validates if the time period between the current time stamp and the request time stamp is <= time period 
+3. System validates if the time period between the current time stamp and the request time stamp is <= time period
 4. System validates that total number of face record(s) should not exceed 1
 5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched
 6. The system then generates a match score based on the level of match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
-8. The system then proceeds to execute compare against face threshold 
+8. The system then proceeds to execute compare against face threshold
 9. Alerts and warning messages for data type violation are sent as per data definition
 10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server**
 
-Upon receiving a authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
+Upon receiving an authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
 
-1. The authentication service request has  the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType). _**(Note: The specifications are detailed in the data definition doc as specified below)provide link**_
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). _**(Note: The specifications are detailed in the data definition doc as specified below)provide link**_
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
-3. The system then validated the following
+3. The system then validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input
-   * Retrieves configuration for priority between fgerMin and fgerImg . Process only priority 1 based on the configuration - only fgerMin is supported
+   * Retrieves configuration for priority between fgerMin and fgerImg. Process only priority 1 based on the configuration - only fgerMin is supported
    * Validates if single fgerMin should not contain more than one finger
    * Validates if total number of fgerMin records should not exceed 2
 4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database 
@@ -66,21 +67,21 @@ Upon receiving a authentication request, the system evaluates the Individual's f
 **D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against threshold (BioAuthService)**
 
 Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:
-1. The authentication service request has the following parameters: id, Con, reqTime, txnId, UA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType) and the match score
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, UA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType) and the match score
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system retrieves the threshold level configured which is acceptable for a match
 4. The system then validates the following if the match score is equal to greater than the threshold level
-5. The system constructs the response to the requesting source with status(Y/N), txnId (same as request), resTime of response, err,actn
-6. The system also provides id, idType, indication of type of attribute was used for Auth ( “pi->namePri” or/and “pi->nameSec” , Ad->Address line 1,etc, FAd, fgerMin or fgerImg ,pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1,etc, FAd, fgerMin or fgerImg ,pin, OTP ), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
+5. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
+6. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP ), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 7. Alerts and warning messages for data type violation are sent as per data definition
 8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
-**E. Support two finger authentication so that the quality of incoming fingerprints is better**
+**E. Support two-finger authentication so that the quality of incoming fingerprints is better**
 
-1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,pin, OTP, session key, HMAC Value,signature, namePri, msPri , mtPri, nameSec, msSec , mtSec, dCode,mId, Bios(bioType, attriType). 
+1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). 
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
-3. The system validated the following
+3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
    * Validates if single fgerMin record contains more than one finger
@@ -92,39 +93,39 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 8. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 9. The actor retrieves the composite finger threshold configured which is acceptable for a match
 10. The actor validates if the composite match score is equal to greater than the composite finger threshold
-11. Constructs the response to the requesting source with status(Y/N), txnId (same as request), resTime of response, err, actn
-12. The system also provides id, idType, indication of type of attribute was used for Auth ( “pi->namePri” or/and “pi->nameSec” , Ad->Address line 1,etc, FAd, fgerMin ,pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1,etc, FAd, fgerMin ,pin, OTP ), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
-13. The system then  proceeds to send notifications
-14. Alerts and Warning messages for data type violation are sent as per data definition
+11. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
+12. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
+13. The system then proceeds to send notifications
+14. Alerts and warning messages for data type violation are sent as per data definition
 15. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server**
 
-Upon receiving an authentication request, the system evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
+Upon receiving an authentication request, the system evaluates the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio,Bio_Type,pin, otp, session key, HMAC Value,signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P,mtPri= 1 to 100, addrSec msSec= E/P,mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender,dob,age, langPri, langSec,dCode,mId, Bios(bioType, attriType) of the Individual _**(Note: The specifications are detailed in the data definition doc as specified below)**_
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual _**(Note: The specifications are detailed in the data definition doc as specified below)**_
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
-3. The System the following
+3. The System the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
    * Validates if total number of Iris records should not exceed 2
    * Validates if single irisImg record is present in the input
    * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database.
-3. The system then generates a match score based on the level of match of the Irises. The SDK will provide the match score
-4. The system validates if two irisImg records are present in the input
-5. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of match of the Irises. 
-6. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
-7. The system generates a composite match score by summing up the match scores for the first and the second iris Images}
-8. The system proceeds to execute compare against Iris threshold 
-9. Alerts and warning messages for data type violation are sent as per data definition
-10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+4. The system then generates a match score based on the level of match of the Irises. The SDK will provide the match score
+5. The system validates if two irisImg records are present in the input
+6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of match of the Irises.
+7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
+8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
+9. The system proceeds to execute compare against Iris threshold
+10. Alerts and warning messages for data type violation are sent as per data definition
+11. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
-**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against threshold (TBD)**
+_**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against threshold (TBD)**_
 
 
-**H. Composite match score (TBD)**
+_**H. Composite match score (TBD)**_
 
 
 
@@ -154,37 +155,37 @@ In case of multi-system authentication, MOSIP responds back with e-KYC data base
 
 **A. Respond back to TSP with KYC details, as configured - KycAuth - Add KycFilter, decode authRequest**
 
-Upon receiving a request for authentication from TSP the system Respond back to TSP with KYC details, as configured as per the following steps:
+Upon receiving a request for authentication from TSP, the system responds back to TSP with KYC details, as configured as per the following steps:
 
-1. The System receives authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request (Refer MOS - 41 for OTP based Authentication request parameters)
+1. The system receives authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request **(Refer MOS-41 for OTP based Authentication request parameters)**
 2. Decodes the authentication request and obtain all the input parameters of the auth request
 3. Validates eAuthType and compare the data in the PID block in the auth request
-4. Validates if the MUA has permission for eKYC
-5. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissable mode of authentication for e-KYC for the MUA
-6. The System performs all the validation of the OTP Validation process and encodes the auth response
+4. Validates if the MUA has permission for e-KYC
+5. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
+6. The system performs all the validation of the OTP Validation process and encodes the auth response
 7. Validates the status of the auth response based on auth response and proceed only if the status is successful
 8. The system proceeds to construct the e-KYC response element, which is encoded and encrypted.
-9. The System then proceeds to execute tokenization 
+9. The system then proceeds to execute tokenization
 10. Retrieves the configured demVal parameter configured for the country
-11. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the AUA
-12. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
-13. The System retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-14. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-15. The system retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the reponse
+11. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the AUA
+12. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
+13. The system retrieves the PDF template configured for the limited KYC to construct ePri element of the response
+14. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+15. The system retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
 16. The system validates the rqSec flag
-17. The system returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
-18. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
-19. The System retrieve the PDF template configured for the Full KYC to construct ePri element
-20. The System retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+17. The system returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
+18. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
+19. The system retrieves the PDF template configured for the Full KYC to construct ePri element
+20. The system retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
 21. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
-22. The System also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
-23. The System then proceeds to execute ‘Notification SMS/E-mail
-24. Alerts and Warning messages for data type violation are sent as per data definition
-25. All the error and warning messages are configurable via a configurable file.Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+22. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
+23. The system then proceeds to execute Notification SMS/E-mail
+24. Alerts and warning messages for data type violation are sent as per data definition
+25. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**B. Support return additional eKYC data to social protection system (TBD)**
+**B. Support returns additional e-KYC data to social protection system (TBD)**
 
-MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (Evaluate security aspect, as linking of HoF and maintenance of family relationship will be required as a security imperative) and send to Social Protection Data System
+MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of family relationship will be required as a security imperative) and send to Social Protection Data System
 
 MOSIP to provide a mechanism to record the consent of HoF
 
@@ -192,60 +193,60 @@ This is required to accommodate Household Program of GoM
 
 **C. Integrate Fingerprint Authentication with e-KYC**
 
-Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request the system performs the following steps
+Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system performs the following steps:
 
 1. Decodes the authentication request and obtains all the input parameters of the auth request
 2. Validates eAuthType and compare the data in the PID block in the auth request
-3. Validates if the MUA has permission for eKYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for eKYC for the MUA
-5. The system performs Fingerprint Validation as per defined standards and encodes the auth response
+3. Validates if the MUA has permission for e-KYC
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
+5. The system performs fingerprint validation as per defined standards and encodes the auth response
 6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
-7. The system proceeds to construct the eKYC response element which will be encoded and encrypted.
-8. The proceeds to execute tokenization user story 
+7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
+8. The proceeds to execute tokenization user story
 9. The system then retrieves the configured demVal parameter configured for the country
-10. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the MUA
-11. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
+10. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the MUA
+11. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
 12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-13. The system retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-14. The actor retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the reponse
+13. The system retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+14. The actor retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
 15. Validates the rqSec flag
-16. Returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
-17. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
+16. Returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
+17. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
 18. Retrieves the PDF template configured for the Full KYC to construct ePri element
-19. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+19. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
 20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
-21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec,addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
+21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
 22. The system then proceeds to execute Notification-SMS/E-mail
-23. Alerts and Warning messages for data type violation are sent as per data definition
+23. Alerts and warning messages for data type violation are sent as per data definition
 24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **D. Integrate IRIS Authentication with e-KYC**
 
-Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request the system perform the following steps
+Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system perform the following steps:
 
 1. Decodes the authentication request and obtain all the input parameters of the auth request
 2. Validates eAuthType and compares the data in the PID block in the auth request
-3. Validates if the MUA has permission for eKYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for eKYC for the MUA
+3. Validates if the MUA has permission for e-KYC
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
 5. The system performs all the validation of the IRIS Validation Story as per defined standards and encodes the auth response
-6. Validate the status of the auth response based on auth response from MOS-1154 and proceed only if the status is successful
-7. The system proceeds to construct the eKYC response element which will be encoded and encrypted.
-8. The system proceeds to execute tokenization user story 
+6. Validate the status of the auth response based on auth response from _**MOS-1154**_ and proceed only if the status is successful
+7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
+8. The system proceeds to execute tokenization user story
 9. Retrieves the configured demVal parameter configured for the country
-10. Constructs the response with the fields eResp, demVal, actn, txnId,resTime, err. Out of these elements eResp, txnId,resTime, err will also be available out of the encrypted block for audit purpose of the MUA
-11. Validates MUA permissions for e-KYC { if MUA eKYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response }
+10. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the MUA
+11. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
 12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-13. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-14. Retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the reponse
+13. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
+14. Retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
 15. Validates the rqSec flag
-16. Returns masked id, tokenid, namePri,gender, DOB,langPri addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri,langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,loc1Sec,loc2Sec,loc3Sec, pcSec,signature as per the validation s in step 13, 14 and 15]
-17. Validates MUA permissions for e-KYC - else {MUA eKYC permissions = ‘Full KYC' then}
+16. Returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
+17. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
 18. Retrieves the PDF template configured for the Full KYC to construct ePri element
-19. Retrieves the configured demographic fields (out of name,address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
-20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the reponse
-21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri,gender, DOB,langPri, addrline1Pri,addrline2Pri,addrline3Pri,loc1Pri,loc2Pri,loc3Pri,pcPri,ePht,ePri, langSec, nameSec, addrline1Sec,addrline2Sec,addrline3Sec,citySec,stateSec,countrySec, pcSec,signature, as per the validations in step 15, 19, 20]
+19. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
+20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
+21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
 22. The actor proceeds to execute Notification-SMS/E-mail
-23. Alerts and Warning messages for data type violation are sent as per data definition
+23. Alerts and warning messages for data type violation are sent as per data definition
 24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **E. Integrate static pin authentication with e-KYC**
