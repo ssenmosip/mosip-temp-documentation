@@ -180,8 +180,7 @@ The system receives authentication service request with the parameters: id, Con,
 8. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 9. The system also provides UIN token, IdType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), ReqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 10. Encoded Data (48 bit rep of Hexadecimal) will be used to indicate type of attribute was used for Auth and type of attribute matched for Auth - To be finalised with Technical team
-11. The system proceeds to execute Notification SMS, E-mail. Please refer Git for more details on the type of error messages
-
+11. The system proceeds to execute Notification SMS, E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
 
   
 ## 1.3 OTP Authentication 
