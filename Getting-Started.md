@@ -91,8 +91,16 @@ Once the setup is complete, please add following remote repositories to your Jfr
 * **Maven Central -** https://repo.maven.apache.org/maven2/
 * **Jcentre -** https://jcenter.bintray.com
 * **Openimaj -** http://maven.openimaj.org<br/>
-To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home.<br/>
+To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home to point to JFrog.<br/>
 To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](https://www.jfrog.com/confluence/display/RTF/Maven+Repository)
+
+**NOTE** JFrog Artifactory setup by Mindtree is open to public for read only access. So if any of the modules are dependent on previous modules, that you don't have built, you need to connect to our JFrog server to pull those dependencies. For doing that, in the settings.xml file that you generated above, replace url of ID with repository snapshot and release to our Jfrog URLs which will be : </br>
+1. `<url>http://devops.mosip.io/artifactory/libs-snapshot</url>` for libs-snapshot 
+2. `<url>http://devops.mosip.io/artifactory/libs-release</url>` for libs-release
+
+Once you are done with pulling the dependencies you need, you can replace it back to your Jfrog URLs. <br/>
+Also if you are planning to import all versions of the Mosip modules in Jfrog to your VM or Jfrog, make sure you have enough space in your Jfrog VM where you will be importing these dependencies.
+
 
 ***
 ## 4. Setup and Configure SonarQube [**[↑]**](#content)
