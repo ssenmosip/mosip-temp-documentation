@@ -152,6 +152,7 @@ _**Provide link to error msgs.MOS-231**_
 **C. Multi-System Authentication**
 
 MOSIP sends a positive response only if all configured parameters match
+
 In case of multi-system authentication, MOSIP responds back with e-KYC data based on alternate preferred business rules, as preferred by an SI. It is feasible for a Country/SI to accommodate business rule to send a positive response if 2 out of 3 systems match, to clear authentication – Without Code change by SI
   
 ## 1.3 OTP Authentication 
@@ -294,8 +295,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
 1. Receives a pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, nameSec, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
-_**Please refer Git for the specifications in the data [**definition Link**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
- needs to be updated**_
+**Please refer [**data definition doc**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
 2. Validates if the MISP-LK has not expired
 3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
 4. Validates if the MISP-LK status is active
