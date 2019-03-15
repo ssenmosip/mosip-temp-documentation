@@ -369,6 +369,173 @@ Masked e-mail: XXaXXhXXh@gmail.com
 
 
 # 2. Multi-factor Authentication
+
+•	2. Multi-system Authentication (IDA_FR_2)
+
+**A. Validate the timestamp of the authentication request**
+
+The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+
+The system then validates the following:
+1. Validates if the time period between the current time stamp and the request time stamp is <= 20 min
+2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)---> Default value-24 hrs
+3. The system proceeds to execute mode of authentication validation as per the defined standards
+4. Then triggers error messages as configured.
+
+MOSIP supports standard time for timestamps of authentication requests and responses
+1. The timestamp of the Authentication, e-KYC, OTP trigger requests and responses will support IS0-8601 standard.
+2. The TSPs in a country are expected to send the timestamp (reqTime) in the request in UTC with time zone
+3. MOSIP returns the timestamp (resTime) in the response in UTC with Time zone
+
+**B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated**
+
+The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+
+1. The system matches the input UIN from the individual with the UIN in the auth database (Complete match)
+
+2. The system proceeds match Input UIN from the individual matches with the UIN in the auth database
+3. triggers notification as per the defined and configured template and in the default language English
+4. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_ 
+
+
+**C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated**
+
+The system receives authentication request from TSP with the following parameters: id = VID, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
+
+1. The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN
+2. The system proceeds to Match UIN as per defined standards
+3. triggers notification as per the defined and configured template and in the default language English
+4. Please refer wiki for to know more about the type error messages based on scenario._**Link to be attached)**_
+
+**D. Trigger SMS to the Individual's mobile for every authentication request**
+
+
+The system receives authentication request from TSP with the following parameters:
+ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+
+The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request
+
+1. Retrieves the mode of communication (i.e) mobile configured for sending the notification
+2. Validates if the configured mode of communication is also registered
+3. Validates the response for Auth Type 
+4. Fetches the notification template as per admin configuration
+5. The system triggers notification as per the defined and configured template and in the default language English
+6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+
+
+**E. Trigger e-mail to the Individual's e-mail ID for every authentication request**
+
+The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
+
+1. The system retrieves the mode of communication (i.e) e-mail configured for sending the notification
+2. The system validates if the configured mode of communication is also registered
+3. Validates the response by Auth Type as per the defined standards
+4. Fetches the notification template as per admin configuration
+5. The system triggers notification as per the defined and configured template and in the default language English
+6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+
+
+**F. Store identity data and related documents in MOSIP database**
+
+The system receives request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id, [**identity element**]( https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) as per the [**ID object schema**]( https://github.com/mosip/mosip/wiki/ID-Repository-API)
+
+The system then performs the following steps to Store identity data and related documents in MOSIP database:
+1. Validates if the request contains “individualBiometrics” or the “parentOrGuardianBiometrics” CBEFF files in the request
+2. The system interacts with biometric SDK to convert the FIR (Fingerprint Image Record) in the CBEFF file to FMR
+3. Appends the FMR (Fingerprint Minutiae Record) to the CBEFF file by using the kernel CBEFF utility service
+4. Stores the files in the distributed file system (DFS)
+5. Stores the references to the file in DFS in the database
+6. Validates if the request contains files corresponding to proofOfAddress, or proofOfIdentity, or proofOfRelationship, or proofOfDateOfBirth attributes.
+7. Stores the files in the distributed file system
+8. Stores the references to the file in DFS in the database
+9. The system validates if the request contains fullName, dateOfBirth, age, gender, addressLine1, addressLine2, addressLine3, region, province, city, postalCode, phone, email, CNIENumber, localAdministrativeAuthority, parentOrGuardianRIDOrUIN and parentOrGuardianNam in the request
+10. Stores the available identity details of the individual in the database securedly.
+11. Validate if at least one identity element is present in the request
+12. Validate if a document is present in the input the corresponding category is present in the identity element
+13. The system sends the response with the following parameters id, version, timestamp, status, and the entity element
+14. The default status is ‘ACTIVATED’. The status is configurable.
+15. The system proceed to trigger notification as per the defined and configured template and in the default language English
+16. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+
+**G. Retrieve the stored identity details and the related documents**
+
+The system receives request to retrieve the UIN details with type as an optional parameter
+
+1. The system retrieves the identity details of the individual corresponding to the UIN in the request
+2. Validates if the type attribute in the request is “demo”
+3. The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response
+4. Validates if the type attribute in the request is “bio”
+5. The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response
+6. Validates if the type attribute in the request is “all”
+7. The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response
+8. The system sends the response with the following parameters: id, version, timestamp, status, and the response element with the appended elements.
+9.  The system proceed to trigger notification as per the defined and configured template and in the default language English
+10.  Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+
+
+**H. Update identity data and related documents in MOSIP database**
+
+The system receives request to update the UIN details with the following parameters: id, UIN, version, timestamp, registration id, status and identity attributes and documents
+
+1. The system updates only the identity attributes corresponding to the UIN in the request. For example if e-mail is present in the input only the e-mail of the UIN in the database will be updated.
+1. Validates if the demographic “documents” are present in the input
+1. The system updates the demographic documents corresponding to the UIN in the DFS
+1. Validates if the biometric “documents” are present in the input
+1. The system updates the biometric documents corresponding to the UIN in the DFS
+1. The system validates if both the demo and biometric documents are present in the input
+1. The system updates the biometric and demographic documents corresponding to the UIN in the DFS
+1. The status of the UIN can also be updated to ‘deactivated’ or ‘blocked’
+1. The system sends the response with the following parameters id, version, timestamp, status, and the response entity
+ 1. The system proceed to trigger notification as per the defined and configured template and in the default language English
+1. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+
+**I. Generate and store VIDs**
+
+The system receives VID generation and storage request with the parameters: UIN, ver
+
+The system performs the following steps to generate and store VIDs
+
+1. Validates if the UIN in the request is available in the auth database (Complete match) and the status of the UIN is active
+2. Validates if VID is already generated for the mapped UIN and validates if the existing VID is active based on the defined VID expiry policy
+3. The system sends the response with existing VID, err, resTime, ver
+4. Validates if VID is already generated for the mapped UIN and validates if the existing VID has expired based on the defined VID expiry policy
+5. The system generates new VID based on the VID generation policy defined 
+6. The system maps the new VID against the received UIN and sends the response new VID, err, resTime, ver
+7. Validates if VID is not generated for the mapped UIN
+8. The system generates new VID based on the VID generation policy defined 
+9. Responds with the new VID generated
+10. The system maps the new VID against the received UIN
+11. The system sends the response new VID, err, resTime, ver
+12. Captures and stores the transaction details for audit purpose.
+13. The system proceed to trigger notification as per the defined and configured template and in the default language English
+14. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+
+**J. Generate a static token ID for each MOSIP authentication request, to facilitate authentication**
+
+The system receives authentication service request with the following parameters: 
+id, reqTime, txnId, idType, tspId and other authentication parameters based on the authentication type requested by the Individual 
+
+The system then performs the following steps to generate a static token ID
+
+The system retrieves the parameters relevant for token Id generation
+
+1. Validates if idType = VID is used in the input and retrieves the UIN mapped to the VID (id)
+1. Validates if idType = UIN is used in the input and retrieves the UIN (id)
+1. The system retrieves the tspid
+1. Generates tokenID based on the retrieved parameters and based on the defined standards
+1. The tokenID is unique for a UIN and tspId combination. The same id should be returned if any auth request is received from the same UIN and tspId combination
+1. The tokenID is generated for every authentication request
+1. The length of tokenID is configurable by the ADMIN. The tokenID generated can be of the default length of 36 digits
+1. The UIN and tspid are not be derivable from the tokenId
+1. The tokenID is a random number generated
+1. The tokenId does not contain any alphanumeric characters and should contain only numeric characters
+1. The number does not contain the restricted numbers defined by the ADMIN
+1. The generated tokenid is integrated to the authentication response along with other parameters.
+
+Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
+1. The system then captures and stores the transaction details for audit purpose.
+
+
 # 3. Offline Authentication 
 ## 3.1 QR Code based Authentication 
 # 4. KYC Service 
