@@ -164,7 +164,7 @@ The system receives authentication service request with the parameters: id, Con,
 4. Constructs the response to the requesting source with Res (Y/N), txnId (same as request), timestamp_Res of response, error code
 5. Provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->cityPri, ad->statePri, ad->countryPri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->citySec, ad->stateSec, ad->countrySec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 6. The system proceeds to send  Notification -SMS and ‘E-mail’ user stories.
-_**Provide link to error msgs.MOS-231**_
+Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 
@@ -184,7 +184,7 @@ Please refer Git for more details on [**data definition**](https://github.com/mo
 4. Validates if the Age of the individual is greater than or equal to the Age in the i/p parameter
 5. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 6. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->age”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->age, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’. _**Please refer Git for for details on the type of error messages.**_
+7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **E. Match Name of the individual in the database so that the individual is authenticated**
 
@@ -209,7 +209,8 @@ The system receives authentication request from TSP with the parameters: id, Con
 2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID
 3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->phone”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->phone, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification SMS/E-mail _**(Link to be attached)**_
+5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+
 
 
 **G. Match e-mail ID of the individual in the database so that the individual is authenticated**
@@ -221,40 +222,42 @@ Please refer Git for more details on [**data definition**](https://github.com/mo
 2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->email”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->email, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification -SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+5. The system proceeds to execute Notification -SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
 
 
 **H. Match gender of the individual in the database so that the individual is authenticated**
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, gender of the Individual.
-_**Please refer Git for more details on the parameters. Gender data validation**_
+Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system matches the Gender in the input parameter with the Gender of the individual in the auth DB based on the mapped UIN/VID
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->gender”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->gender, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification - SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+5. The system proceeds to execute Notification - SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
 
 **I. Match DOB of the individual in the database so that the individual is authenticated**
 
-The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dob of the Individual. _**Please refer Git for more details on the parameters.**_
+The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dob of the Individual. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID
 3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->dob”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->dob, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **J. Support country specific address ID attributes for an individual**
 
 **(i) Complete Address and Exact Match**
 
-The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, Id, ad, fad, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, msPri = E (Exact), langPri, addrSec, msSec = E (Exact), langSec _**Please refer Git for more details on the parameters**_
+The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, Id, ad, fad, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, msPri = E (Exact), langPri, addrSec, msSec = E (Exact), langSec Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. Validates if the addrPri in the i/p parameter is same as the Address (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
 3. Validates if the addrSec in the i/p parameter is same as the Address (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
 4. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 5. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, fad->addrPri or/and fad->addrSec, etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->Name_Prim” or/and “Id->Name_Second”, fad->addrPri, or/and fad->addrSec, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-6. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+6. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **(ii) Address as individual line items and Complete Match**
 
@@ -264,16 +267,16 @@ The system receives authentication service request with the parameters: id, Con,
 4. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec) in the i/p parameter is same as the Address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
 5. The system constructs the response to the requesting source with Res (Y/N), txnId (same as request), timestamp_Res of response, error code
 6. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->loc1Pri, ad->loc2Pri, ad->loc3Pri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->loc1Sec, ad->loc2Sec, ad->loc3Sec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’ user stories. _**(Links to be attached)**_
+7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’ user stories. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **K. Match DOB Type for an individual in the Auth database so that an individual can be authenticated**
 
-The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dobType of the Individual _**Please refer Git for more details on the parameters**_
+The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dobType of the Individual Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system matches the DOB Type in the input parameter with the dobType of the individual in the auth DB based on the mapped UIN/VID
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->dobType”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->dobType, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 [**Link to design**](https://github.com/mosip/mosip/blob/0.8.0/docs/design/authentication/Demo_Auth_Request_REST_Service.md)
 
@@ -283,7 +286,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 
 **A. Trigger OTP to an individual so that the individual can be authenticated based on OTP**
 
-The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. _**Please refer Git for more details on the parameters**_
+The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 
 1. Validates if the Timestamp of OTP generation request is older than 20 min
 2. The system generates the OTP for the request. (Use < product_id >_< encoded token_id >_< txn_id > < MUA Code >logic to generate a unique key for this OTP generation request; The system calls the Core kernel OTP generator component by passing the unique key; The system receives the OTP from the Core kernel component)
@@ -293,13 +296,13 @@ The system receives OTP service request with the parameters: id, session id, req
 6. Triggers a response to the requesting source with status (Y/N) for successful trigger of OTP, txnId (same as request), resTime, err - error code and error message
 7. The system also sends additional information on idType of input, reqTime of input, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code, masked mobile and masked e-mail
 8. The system proceeds to execute Validate OTP as per the defined standards
-9. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+9. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **B. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
 
 
-The system receives OTP based authentication request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, OTP. _**Please refer Git for more details on the parameters**_
+The system receives OTP based authentication request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, OTP. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. The system validates if the transaction id matches with transaction id value of OTP Generate Request
 2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 3. Validates if the OTP in the i/p parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
@@ -307,15 +310,16 @@ The system receives OTP based authentication request with the parameters: id, Co
 5. Constructs the authentication response based on validation results
 6. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 7. Provides UIN token, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Name, DOB, etc, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-8. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+8. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **C. Trigger SMS to the Individual's mobile for OTP Trigger request**
 
-The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. _**Please refer git for more details on the parameters**_
+The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. The system retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
 2. Validates if the configured mode of communication is also registered
 3. The system fetches the notification template as per admin configuration
-4. Triggers notification as per the defined and configured template and in the default language English. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+4. Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
 
 **D. Respond with masked e-mail and masked phone no for OTP trigger request so that the TSP can intimate the individual on the mode of communication of the OTP**
 
@@ -329,7 +333,7 @@ The system follows the following steps to include Masked e-mail and phone in the
    * If the configured mode = phone and Registered Mode is e-mail; then
    * Send OTP to e-mail
    * If Registered mode is none, then
-   * Send error code. Please refer wiki for to know more about the type error messages based on scenario._**Link to be attached)**_
+   * Send error code. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 2. If the communication mode = mobile
 3. Mask the mobile no of the individual as per logic below and include the masked mobile in info object of response
 4. If the communication mode = e-mail
@@ -369,7 +373,7 @@ Masked e-mail: XXaXXhXXh@gmail.com
 3. Validates if the configured mode of communication is also registered
 4. Fetches the notification template as per admin configuration
 5. Triggers notification as per the defined and configured template and in the default language English
-6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+6. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
 
@@ -401,7 +405,7 @@ The system receives authentication request from TSP with the following parameter
 
 2. The system proceeds match Input UIN from the individual matches with the UIN in the auth database
 3. triggers notification as per the defined and configured template and in the default language English
-4. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_ 
+4. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx). 
 
 
 **C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated**
@@ -411,7 +415,7 @@ The system receives authentication request from TSP with the following parameter
 1. The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN
 2. The system proceeds to Match UIN as per defined standards
 3. triggers notification as per the defined and configured template and in the default language English
-4. Please refer wiki for to know more about the type error messages based on scenario._**Link to be attached)**_
+4. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **D. Trigger SMS to the Individual's mobile for every authentication request**
 
@@ -426,7 +430,7 @@ The system then performs the following steps to Trigger SMS to the Individual's 
 3. Validates the response for Auth Type 
 4. Fetches the notification template as per admin configuration
 5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+6. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **E. Trigger e-mail to the Individual's e-mail ID for every authentication request**
@@ -438,7 +442,7 @@ The system receives authentication request from TSP with the following parameter
 3. Validates the response by Auth Type as per the defined standards
 4. Fetches the notification template as per admin configuration
 5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+6. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **F. Store identity data and related documents in MOSIP database**
@@ -461,7 +465,7 @@ The system then performs the following steps to Store identity data and related 
 13. The system sends the response with the following parameters id, version, timestamp, status, and the entity element
 14. The default status is ‘ACTIVATED’. The status is configurable.
 15. The system proceed to trigger notification as per the defined and configured template and in the default language English
-16. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+16. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **G. Retrieve the stored identity details and the related documents**
 
@@ -476,7 +480,7 @@ The system receives request to retrieve the UIN details with type as an optional
 7. The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response
 8. The system sends the response with the following parameters: id, version, timestamp, status, and the response element with the appended elements.
 9.  The system proceed to trigger notification as per the defined and configured template and in the default language English
-10.  Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+10.  Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **H. Update identity data and related documents in MOSIP database**
@@ -492,8 +496,8 @@ The system receives request to update the UIN details with the following paramet
 1. The system updates the biometric and demographic documents corresponding to the UIN in the DFS
 1. The status of the UIN can also be updated to ‘deactivated’ or ‘blocked’
 1. The system sends the response with the following parameters id, version, timestamp, status, and the response entity
- 1. The system proceed to trigger notification as per the defined and configured template and in the default language English
-1. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+1. The system proceed to trigger notification as per the defined and configured template and in the default language English
+1. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **I. Generate and store VIDs**
 
@@ -514,7 +518,7 @@ The system performs the following steps to generate and store VIDs
 11. The system sends the response new VID, err, resTime, ver
 12. Captures and stores the transaction details for audit purpose.
 13. The system proceed to trigger notification as per the defined and configured template and in the default language English
-14. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached**_
+14. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **J. Generate a static token ID for each MOSIP authentication request, to facilitate authentication**
 
