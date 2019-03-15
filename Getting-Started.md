@@ -485,6 +485,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 |ID Authentication|postgresql|mosip_ida|ida|
 |ID Repository|postgresql|mosip_idrepo|idrepo|
 |Audit|postgresql|mosip_audit|audit|
+|IAM|postgresql|mosip_iam|iam|
 
 **Note:** These databases can be deployed on single or separate database servers / instances.
 
@@ -514,7 +515,7 @@ The system configuration and master data is available under the respective appli
 
 The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/master/scripts/database](https://github.com/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
-**Note: Registration client related deployment scripts (Apache derby DB specific) will be created separately.**
+**Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
 
 ***
 ## 8. MOSIP Deployment [**[↑]**](#content)
