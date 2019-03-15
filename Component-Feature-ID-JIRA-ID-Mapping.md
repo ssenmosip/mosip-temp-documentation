@@ -86,8 +86,9 @@
 |10.|EOD Process| Data Retention Policies  |REG_FR_5.18|[MOS-12867](https://mosipid.atlassian.net/browse/MOS-12867), [MOS-12874](https://mosipid.atlassian.net/browse/MOS-12874), [MOS-16712](https://mosipid.atlassian.net/browse/MOS-16712), [MOS-556](https://mosipid.atlassian.net/browse/MOS-556), [MOS-558](https://mosipid.atlassian.net/browse/MOS-558), [MOS-8624](https://mosipid.atlassian.net/browse/MOS-8624), [MOS-9036](https://mosipid.atlassian.net/browse/MOS-9036), [MOS-9090](https://mosipid.atlassian.net/browse/MOS-9090), [MOS-9108](https://mosipid.atlassian.net/browse/MOS-9108)|
 |11.|Face Capture| Encryption and Decryption |REG_FR_5.8|[MOS-1252](https://mosipid.atlassian.net/browse/MOS-1252)|
 |12.|Finger print Capture| Key Management  |REG_FR_5.10|[MOS-1184](https://mosipid.atlassian.net/browse/MOS-1184)|
-|13.|Login| New Registration  |REG_FR_5.18|[MOS-11661](https://mosipid.atlassian.net/browse/MOS-11661], [MOS-1186] (https://mosipid.atlassian.net/browse/MOS-1186), [MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118)]
-|14.|Login| Offline Authentication using Biometrics |REG_FR_3.4|[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118),[MOS-12135] (https://mosipid.atlassian.net/browse/MOS-12135), [MOS-12185](https://mosipid.atlassian.net/browse/MOS-12185), [MOS-12199](https://mosipid.atlassian.net/browse/MOS-12199), [MOS-16040] https://mosipid.atlassian.net/browse/MOS-16040), [MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135)]
+|13.|Login| New Registration |REG_FR_5.18|[MOS-11661](https://mosipid.atlassian.net/browse/MOS-11661),[MOS-1186](https://mosipid.atlassian.net/browse/MOS-1186),[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118)|
+|14.|Login| Offline Authentication using Biometrics |REG_FR_5.1|[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118),[MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135),[MOS-12185](https://mosipid.atlassian.net/browse/MOS-12185),[MOS-12199](https://mosipid.atlassian.net/browse/MOS-12199),[MOS-16040](https://mosipid.atlassian.net/browse/MOS-16040)|
+
 
 
 **10. Registration Processor:**
