@@ -72,6 +72,12 @@
 
 **9. Registration:**
 
+|**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
+|:------:|-----|---|---|---|
+|1.||Acknowledgement | Master Data, Configuration |REG_FR_2.2|[MOS-1273](https://mosipid.atlassian.net/browse/MOS-1273), [MOS-13559](https://mosipid.atlassian.net/browse/MOS-13559), [MOS-1278](https://mosipid.atlassian.net/browse/MOS-1278), [MOS-338](https://mosipid.atlassian.net/browse/MOS-338)|
+
+
+
 **10. Registration Processor:**
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
