@@ -91,6 +91,29 @@
 |15.|Login| Login/Authentication |REG_FR_4.2|[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118),[MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135)|
 |16.|Login| Online/Offline behaviour |REG_FR_3.3|[MOS-553](https://mosipid.atlassian.net/browse/MOS-553),[MOS-8368](https://mosipid.atlassian.net/browse/MOS-8368)|
 |17.|Login| PR Packets |REG_FR_2.2|[MOS-553](https://mosipid.atlassian.net/browse/MOS-553),[MOS-8328](https://mosipid.atlassian.net/browse/MOS-8328)|
+|18.|Logout| PR Packets |REG_FR_2.2|[MOS-563](https://mosipid.atlassian.net/browse/MOS-563)|
+|19.|Lost UIN| PR Packets |REG_FR_2.2|[MOS-18117](https://mosipid.atlassian.net/browse/MOS-18117)|
+|20.|New Registration| PR Packets |REG_FR_2.2|[MOS-1015](https://mosipid.atlassian.net/browse/MOS-1015)|
+|21.|New Registration| Pre- registration data |REG_FR_5.13|[MOS-1015](https://mosipid.atlassian.net/browse/MOS-1015)|
+|22.|New Registration| Registration client UI |REG_FR_5.11|[MOS-10407](https://mosipid.atlassian.net/browse/MOS-10407)|
+|23.|New Registration| Registration data |REG_FR_5.14|[MOS-10409](https://mosipid.atlassian.net/browse/MOS-10409)|
+|24.|New Registration| Software version upgrade  |REG_FR_5.17|[MOS-10555](https://mosipid.atlassian.net/browse/MOS-10555)|
+|25.|New Registration| Storage policies  |REG_FR_5.9|[MOS-11612](https://mosipid.atlassian.net/browse/MOS-11612)|
+|26.|New Registration| Transliteration  |REG_FR_5.23|[MOS-11678](https://mosipid.atlassian.net/browse/MOS-11678)|
+|27.|New Registration| Vendor device manager integration and support  |REG_FR_5.4|[MOS-11678](https://mosipid.atlassian.net/browse/MOS-11678)|
+|28.|New Registration| Acknowledgement and notifications  |REG_FR_3.6|[MOS-1204](https://mosipid.atlassian.net/browse/MOS-1204)|
+|29.|New Registration| Analytics and Audit logs  |REG_FR_5.15|[MOS-12167](https://mosipid.atlassian.net/browse/MOS-1015)|
+|30.|New Registration| Appointments(PRIDs)  |REG_FR_2.1|[MOS-1219](https://mosipid.atlassian.net/browse/MOS-1015)|
+|31.|New Registration| Biometric exception  |REG_FR_3.7|[MOS-1292](https://mosipid.atlassian.net/browse/MOS-1292)|
+|32.|New Registration| Biometric SDK integration(extract and match)  |REG_FR_5.2|[MOS-1315](https://mosipid.atlassian.net/browse/MOS-1315)|
+|33.|New Registration| Business validations |REG_FR_5.11|[MOS-13522](https://mosipid.atlassian.net/browse/MOS-13522)|
+|34.|New Registration| Data retention policies  |REG_FR_5.18|[MOS-15107](https://mosipid.atlassian.net/browse/MOS-15107)|
+|35.|New Registration| Database |REG_FR_5.5|[MOS-15324](https://mosipid.atlassian.net/browse/MOS-15324)|
+|36.|New Registration| Device moving to new centre  |REG_FR_5.19|[MOS-16008](https://mosipid.atlassian.net/browse/MOS-16008)|
+|37.|New Registration| Disk space check  |REG_FR_5.26|[MOS-16537](https://mosipid.atlassian.net/browse/MOS-16537)|
+|38.|New Registration| Encryption and decryption |REG_FR_5.8|[MOS-16544](https://mosipid.atlassian.net/browse/MOS-16544)|
+|39.|New Registration| End of day process  |REG_FR_1.2|[MOS-16791](https://mosipid.atlassian.net/browse/MOS-16791)|
+|40.|New Registration| File system  |REG_FR_5.6|[MOS-17663](https://mosipid.atlassian.net/browse/MOS-17663)|
 |41.|New Registration|File System|REG_FR_5.6|[MOS-236](https://mosipid.atlassian.net/browse/MOS-236), [MOS-554](https://mosipid.atlassian.net/browse/MOS-554), [MOS-17663](https://mosipid.atlassian.net/browse/MOS-17663)|
 |42.|New Registration|Key Management|REG_FR_5.10|[MOS-8694](https://mosipid.atlassian.net/browse/MOS-8694), [MOS-8742](https://mosipid.atlassian.net/browse/MOS-8742), [MOS-9072](https://mosipid.atlassian.net/browse/MOS-9072)|
 |43.|Notification|Key Management|REG_FR_5.10|[MOS-1195](https://mosipid.atlassian.net/browse/MOS-1195), [MOS-1303](https://mosipid.atlassian.net/browse/MOS-1303), [MOS-12989](https://mosipid.atlassian.net/browse/MOS-12989)|
