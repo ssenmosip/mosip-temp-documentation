@@ -280,6 +280,94 @@ The system receives authentication request from TSP with the parameters: id, Con
 
   
 ## 1.3 OTP Authentication 
+
+**A. Trigger OTP to an individual so that the individual can be authenticated based on OTP**
+
+The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. _**Please refer Git for more details on the parameters**_
+
+1. Validates if the Timestamp of OTP generation request is older than 20 min
+2. The system generates the OTP for the request. (Use < product_id >_< encoded token_id >_< txn_id > < MUA Code >logic to generate a unique key for this OTP generation request; The system calls the Core kernel OTP generator component by passing the unique key; The system receives the OTP from the Core kernel component)
+3. Retrieves the mode of communication (i.e) e-mail or phone no configured for sending the OTP
+4. The system validates if the configured mode of communication is also registered
+5. The system triggers OTP to the configured and registered mode of the individual
+6. Triggers a response to the requesting source with status (Y/N) for successful trigger of OTP, txnId (same as request), resTime, err - error code and error message
+7. The system also sends additional information on idType of input, reqTime of input, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code, masked mobile and masked e-mail
+8. The system proceeds to execute Validate OTP as per the defined standards
+9. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+
+
+**B. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
+
+
+The system receives OTP based authentication request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, OTP. _**Please refer Git for more details on the parameters**_
+1. The system validates if the transaction id matches with transaction id value of OTP Generate Request
+2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
+3. Validates if the OTP in the i/p parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
+4. The system validates the validity of the OTP (For points 2 and 3 - The system regenerates the unique key using the logic < product_id >_< encoded token_id >_< txn_id > < MUA Code >; The system calls the core kernel validator component by passing OTP and the unique key and receives a validation response)
+5. Constructs the authentication response based on validation results
+6. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
+7. Provides UIN token, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Name, DOB, etc, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
+8. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+
+**C. Trigger SMS to the Individual's mobile for OTP Trigger request**
+
+The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. _**Please refer git for more details on the parameters**_
+1. The system retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
+2. Validates if the configured mode of communication is also registered
+3. The system fetches the notification template as per admin configuration
+4. Triggers notification as per the defined and configured template and in the default language English. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+
+**D. Respond with masked e-mail and masked phone no for OTP trigger request so that the TSP can intimate the individual on the mode of communication of the OTP**
+
+The system follows the following steps to include Masked e-mail and phone in the info object in the response
+1. Retrieves the mode to which OTP will be sent based on the validation for modes 
+   * Validates if the configured mode of communication is also registered
+   * If the configured mode is also Registered
+   * Send OTP to the configured and registered mode
+   * If the configured mode = e-mail and Registered Mode is Mobile; then
+   * Send OTP to Mobile
+   * If the configured mode = phone and Registered Mode is e-mail; then
+   * Send OTP to e-mail
+   * If Registered mode is none, then
+   * Send error code. Please refer wiki for to know more about the type error messages based on scenario._** Link to be attached)**_
+2. If the communication mode = mobile
+3. Mask the mobile no of the individual as per logic below and include the masked mobile in info object of response
+4. If the communication mode = e-mail
+5. Mask the e-mail of the individual as per the logic below and include the masked e-mail in info object of response
+6. If the communication mode = mobile and e-mail
+7. Mask both the mobile no and the email as per the logic below and include the both in info object of response
+ 
+**Logic for masking mobile**
+
+1. No of digits in the mobile number to be retrieved – say n
+2. Mask first {(50% of the n digits) + 1} digits of the mobile number
+
+Note: 50% in case of decimal means rounded to the greatest whole number
+
+Eg:
+Original phone no: 8347899201
+Masked phone no: XXXXXX9201
+**Logic for masking e-mail**
+
+1. Consider the characters prior to the symbol ‘@’
+2. Assign a position to each character
+3. Mask every alternate 2 characters starting from position 1
+
+Eg:
+Original e-mail: umamahesh@gmail.com
+Masked e-mail: XXaXXhXXh@gmail.com
+
+**E. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
+
+1. The system receives OTP service request with the parameters: id, session id, reqTime , txnId, MUA code, ver, MUA_Licensekey, idType, signature
+2. The system then retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
+3. Validates if the configured mode of communication is also registered
+4. Fetches the notification template as per admin configuration
+5. Triggers notification as per the defined and configured template and in the default language English
+6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
+
+
+
 # 2. Multi-factor Authentication
 # 3. Offline Authentication 
 ## 3.1 QR Code based Authentication 
