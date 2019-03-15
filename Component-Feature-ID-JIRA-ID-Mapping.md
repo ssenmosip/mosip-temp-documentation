@@ -76,6 +76,8 @@
 |:------:|-----|---|---|---|
 |1.|Acknowledgement | Master Data, Configuration |REG_FR_2.2|[MOS-1273](https://mosipid.atlassian.net/browse/MOS-1273), [MOS-13559](https://mosipid.atlassian.net/browse/MOS-13559), [MOS-1278](https://mosipid.atlassian.net/browse/MOS-1278), [MOS-338](https://mosipid.atlassian.net/browse/MOS-338)|
 
+|2.|Authentication | Master Data, Configuration |REG_FR_2.2|[MOS-16809](https://mosipid.atlassian.net/browse/MOS-16809), [MOS-15833](https://mosipid.atlassian.net/browse/MOS-15833), [MOS-13659](https://mosipid.atlassian.net/browse/MOS-13659), [MOS-1175](https://mosipid.atlassian.net/browse/MOS-1175),[MOS-12192](https://mosipid.atlassian.net/browse/MOS-12192),[MOS-1301(https://mosipid.atlassian.net/browse/MOS-1301),[MOS-1320](https://mosipid.atlassian.net/browse/MOS-1320),[MOS-1334(https://mosipid.atlassian.net/browse/MOS-1334),[MOS-1307](https://mosipid.atlassian.net/browse/MOS-1307),[MOS-1310(https://mosipid.atlassian.net/browse/MOS-1310),[MOS-13523](https://mosipid.atlassian.net/browse/MOS-13523)|
+
 
 
 **10. Registration Processor:**
