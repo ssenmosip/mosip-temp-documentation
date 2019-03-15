@@ -27,6 +27,7 @@ This section details about the service API in the Pre-Registration modules
 5.      https://integ.mosip.io/pre-registration/v1.0/batchjob/swagger-ui.html#/
 6.      https://integ.mosip.io/pre-registration/v1.0/notification/swagger-ui.html#/
 7.      https://integ.mosip.io/pre-registration/v1.0/translitration/swagger-ui.html#/
+8.      https://devops.mosip.io/pre-registration/v1.0/auth/swagger-ui.html#
 ***
 Tobe Done:
 1. Need to seperate response and error resonse
