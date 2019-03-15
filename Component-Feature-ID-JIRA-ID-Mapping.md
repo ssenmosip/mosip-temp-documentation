@@ -88,7 +88,9 @@
 |12.|Finger print Capture| Key Management  |REG_FR_5.10|[MOS-1184](https://mosipid.atlassian.net/browse/MOS-1184)|
 |13.|Login| New Registration |REG_FR_5.18|[MOS-11661](https://mosipid.atlassian.net/browse/MOS-11661),[MOS-1186](https://mosipid.atlassian.net/browse/MOS-1186),[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118)|
 |14.|Login| Offline Authentication using Biometrics |REG_FR_5.1|[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118),[MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135),[MOS-12185](https://mosipid.atlassian.net/browse/MOS-12185),[MOS-12199](https://mosipid.atlassian.net/browse/MOS-12199),[MOS-16040](https://mosipid.atlassian.net/browse/MOS-16040)|
-
+|15.|Login| Login/Authentication |REG_FR_4.2|[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118),[MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135)|
+|16.|Login| Online/Offline behaviour |REG_FR_3.3|[MOS-553](https://mosipid.atlassian.net/browse/MOS-553),[MOS-8368](https://mosipid.atlassian.net/browse/MOS-8368)|
+|17.|Login| PR Packets |REG_FR_2.2|[MOS-553](https://mosipid.atlassian.net/browse/MOS-553),[MOS-8328](https://mosipid.atlassian.net/browse/MOS-8328)|
 
 
 **10. Registration Processor:**
