@@ -2919,3 +2919,157 @@ Requires Authentication | Yes
   "response": null
 }
 ```
+#2.7.8  Auth Service Apis
+This service details used by Pre-Registration portal to authenticate user by sending otp to the user , validating with userid and otp.
+### Host
+##### Integration - `http://integ.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
+#### HTTP Operation Allowed
+| Method | Allowed |
+| ------------ | ------------ |
+| POST | True |
+#### 2.7.8.1 POST Operation
+#### Path -  `/sendotp`
+#### Summary
+This will send the otp to the requested user in the preferred channel(sms/email)
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+userid |Yes|user id of the applicant|8907654778
+langcode|Yes|The preferred language code |eng
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+			 "id": "string",
+			"version": "string",
+			"requesttime": "2019-03-15T07:24:47.605Z",
+			"request": {
+			    "langCode": "string",
+			    "userId": "string"
+			  }
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms sent successfully
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-03-15T08:08:13.246Z",
+  "response": {
+    "message": "Sms Request Sent"
+  },
+  "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+
+```JSON
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2019-03-15T08:09:42.327Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PRG_AUTH_001",
+      "message": "SEND_OTP_FAILED: Inavlid Parameters"
+    }
+  ]
+}
+```
+#### 2.7.8.2 POST Operation
+#### Path -  `/useridotp`
+#### Summary
+This will validate  the otp and the userid and provide the accessToken
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+userid |Yes|user id of the applicant|8907654778
+otp|Yes|The preferred language code |123456
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+			"id": "string",
+			"version": "string",
+			"requesttime": "2019-03-15T08:28:04.783Z",
+			"request": {
+			    "otp": "123456",
+			    "userId": "9538895320"
+			  }
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms sent successfully
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-03-15T08:08:13.246Z",
+  "response": {
+    "message": "Otp Validated Successfully"
+  },
+  "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+
+```JSON
+
+```
+
+#### 2.7.8.3 POST Operation
+#### Path -  `/invalidatetoken`
+#### Summary
+This will invalidate the access token when force logout is done.
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+No request body
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Token invalidated successfully
+```JSON
+
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+
+```JSON
+
+```
+
+
+
