@@ -184,6 +184,7 @@ The system receives authentication service request with the parameters: id, Con,
 
 
 **F. Match phone number of the individual in the database so that the individual is authenticated**
+
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, phone of the Individual. _**Phone number validation data Git link-Req-223**_
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
 2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID
