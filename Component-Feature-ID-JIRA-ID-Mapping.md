@@ -84,8 +84,10 @@
 |8.|Disk Space Checker| Business Validations |REG_FR_3.2|[MOS-336](https://mosipid.atlassian.net/browse/MOS-336)|
 |9.|EOD Process| Business Validations |REG_FR_3.2|[MOS-11767](https://mosipid.atlassian.net/browse/MOS-11767)|
 |10.|EOD Process| Data Retention Policies  |REG_FR_5.18|[MOS-12867](https://mosipid.atlassian.net/browse/MOS-12867),[MOS-12874](https://mosipid.atlassian.net/browse/MOS-12874),[MOS-16712](https://mosipid.atlassian.net/browse/MOS-16712],[MOS-556](https://mosipid.atlassian.net/browse/MOS-556),[MOS-558](https://mosipid.atlassian.net/browse/MOS-558),[MOS-8624](https://mosipid.atlassian.net/browse/MOS-8624),[MOS-9036](https://mosipid.atlassian.net/browse/MOS-9036),[MOS-9090](https://mosipid.atlassian.net/browse/MOS-9090),[MOS-9108](https://mosipid.atlassian.net/browse/MOS-9108)|
+
 |11.|Face Capture| 
-Encryption and Decryption |REG_FR_5.8|[MOS-1252](https://mosipid.atlassian.net/browse/MOS-1252)|
+Encryption and Decryption |REG_FR_5.8|[MOS-1252]
+(https://mosipid.atlassian.net/browse/MOS-1252)|
 
 
 **10. Registration Processor:**
