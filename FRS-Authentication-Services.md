@@ -474,3 +474,5 @@ The system then validates the following:
 
 Technical story (Architects to contribute)
 
+<product_id>_<encoded token_id>_<txn_id> <MUA Code>; 
+
