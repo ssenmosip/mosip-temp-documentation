@@ -145,7 +145,7 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 
 _**H. Composite match score (TBD)**_
 
-
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
 
 ## 1.2 Demographic Authentication
 
@@ -541,6 +541,7 @@ The system retrieves the parameters relevant for token Id generation
 Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
 13. The system then captures and stores the transaction details for audit purpose.
 
+[**Link to design**](https://github.com/mosip/mosip/blob/0.8.0/docs/design/authentication/VID_Generate_REST_Service.md)
 
 # 3. Offline Authentication 
 ## 3.1 QR Code based Authentication 
@@ -672,6 +673,9 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 22. The system then proceeds to execute Notification -SMS/E-mail
 23. Alerts and warning messages for data type violation are sent as per data definition
 24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/authentication/eKYC_Auth_Request_REST_service.md)
+
 
 # 5. Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication
