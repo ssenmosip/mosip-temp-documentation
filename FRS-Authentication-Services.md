@@ -275,7 +275,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->dobType”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->dobType, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 5. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
 
-
+[**Link to design**](https://github.com/mosip/mosip/blob/0.8.0/docs/design/authentication/Demo_Auth_Request_REST_Service.md)
 
 
   
@@ -371,7 +371,9 @@ Masked e-mail: XXaXXhXXh@gmail.com
 5. Triggers notification as per the defined and configured template and in the default language English
 6. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
 
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
 
+[**Link to design**](https://github.com/mosip/mosip/blob/0.8.0/docs/design/authentication/Auth_Request_REST_service.md)
 
 # 2. Multi-factor Authentication
 
