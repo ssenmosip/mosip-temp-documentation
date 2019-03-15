@@ -91,6 +91,45 @@
 |15.|Login| Login/Authentication |REG_FR_4.2|[MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118),[MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135)|
 |16.|Login| Online/Offline behaviour |REG_FR_3.3|[MOS-553](https://mosipid.atlassian.net/browse/MOS-553),[MOS-8368](https://mosipid.atlassian.net/browse/MOS-8368)|
 |17.|Login| PR Packets |REG_FR_2.2|[MOS-553](https://mosipid.atlassian.net/browse/MOS-553),[MOS-8328](https://mosipid.atlassian.net/browse/MOS-8328)|
+|41.|New Registration|File System|REG_FR_5.6|[MOS-236](https://mosipid.atlassian.net/browse/MOS-236), [MOS-554](https://mosipid.atlassian.net/browse/MOS-554), [MOS-17663](https://mosipid.atlassian.net/browse/MOS-17663)|
+|42.|New Registration|Key Management|REG_FR_5.10|[MOS-8694](https://mosipid.atlassian.net/browse/MOS-8694), [MOS-8742](https://mosipid.atlassian.net/browse/MOS-8742), [MOS-9072](https://mosipid.atlassian.net/browse/MOS-9072)|
+|43.|Notification|Key Management|REG_FR_5.10|[MOS-1195](https://mosipid.atlassian.net/browse/MOS-1195), [MOS-1303](https://mosipid.atlassian.net/browse/MOS-1303), [MOS-12989](https://mosipid.atlassian.net/browse/MOS-12989)|
+|44.|Packet Creation|List of Registrations|REG_FR_3.1|[MOS-11628](https://mosipid.atlassian.net/browse/MOS-11628)|
+|45.|Packet Creation|Login/Authentication|REG_FR_4.2|[MOS-12112](https://mosipid.atlassian.net/browse/MOS-12112)|
+|46.|Packet Creation|Login/Authentication|REG_FR_4.2|[MOS-65](https://mosipid.atlassian.net/browse/MOS-65), [MOS-8658](https://mosipid.atlassian.net/browse/MOS-8658)|
+|47.|Packet Creation|Login/Authentication|REG_FR_4.2|[MOS-65](https://mosipid.atlassian.net/browse/MOS-65), [MOS-8658](https://mosipid.atlassian.net/browse/MOS-8658), [MOS-8761](https://mosipid.atlassian.net/browse/MOS-8761), [MOS-12961](https://mosipid.atlassian.net/browse/MOS-12961), [MOS-13561](https://mosipid.atlassian.net/browse/MOS-35961), [MOS-559](https://mosipid.atlassian.net/browse/MOS-559), [MOS-1328](https://mosipid.atlassian.net/browse/MOS-1328), [MOS-1305](https://mosipid.atlassian.net/browse/MOS-1305), [MOS-1317](https://mosipid.atlassian.net/browse/MOS-1317)|
+|48.|Packet Exporter|Logout|REG_FR_4.3|[MOS-559](https://mosipid.atlassian.net/browse/MOS-559)|
+|49.|RC Setup & Update|Master Data|REG_FR_5.12|[MOS-13527](https://mosipid.atlassian.net/browse/MOS-13527), [MOS-16120](https://mosipid.atlassian.net/browse/MOS-16120)|
+|50.|RC Setup & Update|Master Data, Configuration|REG_FR_1.1|[MOS-12088](https://mosipid.atlassian.net/browse/MOS-12088), [MOS-13174](https://mosipid.atlassian.net/browse/MOS-113174), [MOS-14](https://mosipid.atlassian.net/browse/MOS-14), [MOS-13179](https://mosipid.atlassian.net/browse/MOS-13179), [MOS-14225](https://mosipid.atlassian.net/browse/MOS-14225), [MOS-9054](https://mosipid.atlassian.net/browse/MOS-9054), [MOS-61](https://mosipid.atlassian.net/browse/MOS-61), [MOS-67](https://mosipid.atlassian.net/browse/MOS-67), [MOS-8710](https://mosipid.atlassian.net/browse/MOS-8710), [MOS-16941](https://mosipid.atlassian.net/browse/MOS-16941), [MOS-11784](https://mosipid.atlassian.net/browse/MOS-11784)|
+|51.|RC Setup & Update|New Registration|REG_FR_3.4|[MOS-8678](https://mosipid.atlassian.net/browse/MOS-8678), [MOS-8710](https://mosipid.atlassian.net/browse/MOS-8710)|
+|52.|Reports|New Registration|REG_FR_3.4|[MOS-1275](https://mosipid.atlassian.net/browse/MOS-1275), [MOS-1309](https://mosipid.atlassian.net/browse/MOS-1309)|
+|53.|Security|New Registration|REG_FR_3.4|[MOS-8726](https://mosipid.atlassian.net/browse/MOS-8726)|
+|54.|Security Scan|New Registration|REG_FR_3.4|[MOS-13526](https://mosipid.atlassian.net/browse/MOS-13526), [MOS-15832](https://mosipid.atlassian.net/browse/MOS-15832), [MOS-15835](https://mosipid.atlassian.net/browse/MOS-15835)|
+|55.|Sync|New Registration|REG_FR_3.4|[MOS-1013](https://mosipid.atlassian.net/browse/MOS-1013), [MOS-1014](https://mosipid.atlassian.net/browse/MOS-1014), [MOS-11582](https://mosipid.atlassian.net/browse/MOS-11582)|
+|56.|Sync|Offline Authentication using Biometrics|REG_FR_5.1|[MOS-11582](https://mosipid.atlassian.net/browse/MOS-11582), [MOS-11597](https://mosipid.atlassian.net/browse/MOS-11597)|
+|57.|Sync|Online / Offline Behaviour|REG_FR_3.3|[MOS-11644](https://mosipid.atlassian.net/browse/MOS-11644), [MOS-11597](https://mosipid.atlassian.net/browse/MOS-11597), [MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696)|
+|58.|Sync|Peripherals Check|REG_FR_5.27|[MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696)|
+|59.|Sync|Peripherals Management|REG_FR_5.16|[MOS-1200](https://mosipid.atlassian.net/browse/MOS-1200), [MOS-12083](https://mosipid.atlassian.net/browse/MOS-12083)|
+|60.|Sync|PR Packets|REG_FR_2.2|[MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223)|
+|61.|Sync|Pre-registration Data|REG_FR_5.13|[MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223)|
+|62.|Sync|Registration Client UI|REG_FR_6|[MOS-1227](https://mosipid.atlassian.net/browse/MOS-1227), [MOS-1243](https://mosipid.atlassian.net/browse/MOS-1243), [MOS-1235](https://mosipid.atlassian.net/browse/MOS-1235), [MOS-1244](https://mosipid.atlassian.net/browse/MOS-1244), [MOS-1277](https://mosipid.atlassian.net/browse/MOS-1277), [MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367), [MOS-1279](https://mosipid.atlassian.net/browse/MOS-1279)|
+|63.|Sync|Registration Data|REG_FR_5.14|[MOS-13184](https://mosipid.atlassian.net/browse/MOS-13184), [MOS-1343](https://mosipid.atlassian.net/browse/MOS-1343), [MOS-13665](https://mosipid.atlassian.net/browse/MOS-13665), [MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367), [MOS-1381](https://mosipid.atlassian.net/browse/MOS-1381)|
+|64.|Sync|Data Retention Policies|REG_FR_5.18|[MOS-1381](https://mosipid.atlassian.net/browse/MOS-1381)|
+|65.|Sync|Registration Packet Upload|REG_FR_3.2|[MOS-1381](https://mosipid.atlassian.net/browse/MOS-1381), [MOS-13983](https://mosipid.atlassian.net/browse/MOS-13983)|
+|66.|Sync|Business Validations|REG_FR_5.11|[MOS-13994](https://mosipid.atlassian.net/browse/MOS-13994), [MOS-18331](https://mosipid.atlassian.net/browse/MOS-18331), [MOS-16848](https://mosipid.atlassian.net/browse/MOS-16848)|
+|67.|Sync|Software Version Upgrade|REG_FR_5.11|[MOS-18089](https://mosipid.atlassian.net/browse/MOS-18089)|
+|68.|Sync|Storage Policies|REG_FR_5.9|[MOS-63](https://mosipid.atlassian.net/browse/MOS-63)|
+|69.|Sync|Supervisor Approval|REG_FR_3.8|[MOS-8572](https://mosipid.atlassian.net/browse/MOS-8572), [MOS-8641](https://mosipid.atlassian.net/browse/MOS-8641)|
+|70.|Sync|Translation|REG_FR_5.25|[MOS-8572](https://mosipid.atlassian.net/browse/MOS-8572)|
+|71.|Sync|Transliteration|REG_FR_5.25|[MOS-8641](https://mosipid.atlassian.net/browse/MOS-8641)|
+|72.|Sync|Trust Environment|REG_FR_5.7|[MOS-8942](https://mosipid.atlassian.net/browse/MOS-8942)|
+|73.|Sync|UIN Updates|REG_FR_3.5|[MOS-8942](https://mosipid.atlassian.net/browse/MOS-8942)|
+|74.|Translation|UIN Updates|REG_FR_3.5|[MOS-1202](https://mosipid.atlassian.net/browse/MOS-1202)|
+|75.|Transliteration|User on-boarding|REG_FR_4.1|[MOS-1288](https://mosipid.atlassian.net/browse/MOS-1288), [MOS-1293](https://mosipid.atlassian.net/browse/MOS-1293)|
+|76.|Transliteration|Vendor Device Manager Integration and Support|REG_FR_5.4|[MOS-1178](https://mosipid.atlassian.net/browse/MOS-1178), [MOS-1299](https://mosipid.atlassian.net/browse/MOS-1299), [MOS-13524](https://mosipid.atlassian.net/browse/MOS-13524), [MOS-13560](https://mosipid.atlassian.net/browse/MOS-13560), [MOS-13660](https://mosipid.atlassian.net/browse/MOS-13660), [MOS-14999](https://mosipid.atlassian.net/browse/MOS-14999), [MOS-12984](https://mosipid.atlassian.net/browse/MOS-12984), [MOS-15998](https://mosipid.atlassian.net/browse/MOS-15998), [MOS-18319](https://mosipid.atlassian.net/browse/MOS-18319)|
+|77.|User Onboarding|Virtual Keyboards|REG_FR_5.24|[MOS-1006](https://mosipid.atlassian.net/browse/MOS-1006), [MOS-1009](https://mosipid.atlassian.net/browse/MOS-1009), [MOS-1010](https://mosipid.atlassian.net/browse/MOS-1010), [MOS-1011](https://mosipid.atlassian.net/browse/MOS-1011), [MOS-1012](https://mosipid.atlassian.net/browse/MOS-1012), [MOS-1206](https://mosipid.atlassian.net/browse/MOS-1206), [MOS-1330](https://mosipid.atlassian.net/browse/MOS-1330), [MOS-16545](https://mosipid.atlassian.net/browse/MOS-16545), [MOS-1008](https://mosipid.atlassian.net/browse/MOS-1008)|
+|78.|VDM|Virus Scan/Security Scan|REG_FR_5.28|[MOS-13075](https://mosipid.atlassian.net/browse/MOS-13075), [MOS-16121](https://mosipid.atlassian.net/browse/MOS-16121)|
+|79.|Security Scan|Key Management|REG_FR_5.10|[MOS-18150](https://mosipid.atlassian.net/browse/MOS-18150)|
 
 
 **10. Registration Processor:**
