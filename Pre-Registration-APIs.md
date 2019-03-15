@@ -2937,6 +2937,9 @@ This will send the otp to the requested user in the preferred channel(sms/email)
 #### Request Part Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.auth.sendotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 userid |Yes|user id of the applicant|8907654778
 langcode|Yes|The preferred language code |eng
 
@@ -2999,6 +3002,9 @@ This will validate  the otp and the userid and provide the accessToken
 #### Request Part Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.auth.useridotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 userid |Yes|user id of the applicant|8907654778
 otp|Yes|The preferred language code |123456
 
@@ -3055,7 +3061,7 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Request:
-No request body
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
