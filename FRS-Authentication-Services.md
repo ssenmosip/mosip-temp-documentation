@@ -370,7 +370,6 @@ Masked e-mail: XXaXXhXXh@gmail.com
 
 # 2. Multi-factor Authentication
 
-•	2. Multi-system Authentication (IDA_FR_2)
 
 **A. Validate the timestamp of the authentication request**
 
@@ -533,7 +532,7 @@ The system retrieves the parameters relevant for token Id generation
 1. The generated tokenid is integrated to the authentication response along with other parameters.
 
 Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
-1. The system then captures and stores the transaction details for audit purpose.
+13. The system then captures and stores the transaction details for audit purpose.
 
 
 # 3. Offline Authentication 
