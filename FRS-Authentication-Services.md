@@ -194,6 +194,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 
 
 **G. Match e-mail ID of the individual in the database so that the individual is authenticated**
+
 The system receives an authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, email of the Individual.
  _**Please refer Git for more details on the parameters. Email ID data validation**_
 
@@ -205,6 +206,7 @@ The system receives an authentication request from TSP with the parameters: id, 
 
 
 **H. Match gender of the individual in the database so that the individual is authenticated**
+
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, gender of the Individual.
 _**Please refer Git for more details on the parameters. Gender data validation**_
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
@@ -214,6 +216,7 @@ _**Please refer Git for more details on the parameters. Gender data validation**
 5. The system proceeds to execute Notification - SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
 
 **I. Match DOB of the individual in the database so that the individual is authenticated**
+
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dob of the Individual. _**Please refer Git for more details on the parameters.**_
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID
@@ -223,7 +226,9 @@ The system receives authentication request from TSP with the parameters: id, Con
 
 
 **J. Support country specific address ID attributes for an individual**
- **(i) Complete Address and Exact Match**
+
+**(i) Complete Address and Exact Match**
+
 The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, Id, ad, fad, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, msPri = E (Exact), langPri, addrSec, msSec = E (Exact), langSec _**Please refer Git for more details on the parameters**_
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. Validates if the addrPri in the i/p parameter is same as the Address (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
@@ -233,6 +238,7 @@ The system receives authentication service request with the parameters: id, Con,
 6. The system proceeds to execute Notification SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
 
 **(ii) Address as individual line items and Complete Match**
+
 1. The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, UA_Licensekey, SA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, addrLine1Pri, addrLine2Pri, addrLine3Pri loc1Pri, loc2Pri, loc3Pri, pcPri, msPri = E (Exact), LangPri, addrLine1Sec, addrLine2Sec, addrLine3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, msSec = E (Exact), LangSec
 2. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 3. The system validates if each of the address line items (addrLine1Pri, addrLine2Pri, addrLine3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri) in the i/p parameter is same as the Address line items (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
@@ -242,6 +248,7 @@ The system receives authentication service request with the parameters: id, Con,
 7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’ user stories. _**(Links to be attached)**_
 
 **K. Match DOB Type for an individual in the Auth database so that an individual can be authenticated**
+
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dobType of the Individual _**Please refer Git for more details on the parameters**_
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system matches the DOB Type in the input parameter with the dobType of the individual in the auth DB based on the mapped UIN/VID
