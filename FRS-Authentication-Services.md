@@ -182,6 +182,16 @@ The system receives authentication service request with the parameters: id, Con,
 10. Encoded Data (48 bit rep of Hexadecimal) will be used to indicate type of attribute was used for Auth and type of attribute matched for Auth - To be finalised with Technical team
 11. The system proceeds to execute Notification SMS, E-mail. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
 
+
+**F. Match phone number of the individual in the database so that the individual is authenticated**
+The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, phone of the Individual. _**Phone number validation data Git link-Req-223**_
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
+2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID
+3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
+4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->phone”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->phone, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
+5. The system proceeds to execute Notification SMS/E-mail _**(Link to be attached)**_
+
+
   
 ## 1.3 OTP Authentication 
 # 2. Multi-factor Authentication
