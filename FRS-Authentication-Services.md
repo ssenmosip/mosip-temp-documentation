@@ -49,7 +49,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 Upon receiving an authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). _**(Note: The specifications are detailed in the data definition doc as specified below)provide link**_
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
+
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system then validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
@@ -102,7 +103,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 
 Upon receiving an authentication request, the system evaluates the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual _**(Note: The specifications are detailed in the data definition doc as specified below)**_
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
@@ -156,8 +157,7 @@ MOSIP supports only exact match for the demographic authentication of the indivi
 
 No weightage is provided to any field\s but exact match strategy is adopted for demographic address
 
-The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, UA_Licensekey, SA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, addrLine1Pri, addrLine2Pri, addrLine3Pri cityPri, statePri,, countryPri, pcPri, msPri = E (Exact), LangPri, addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec, msSec = E (Exact), LangSec. _**Address validate data definition link**_
-
+The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, UA_Licensekey, SA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, addrLine1Pri, addrLine2Pri, addrLine3Pri cityPri, statePri,, countryPri, pcPri, msPri = E (Exact), LangPri, addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec, msSec = E (Exact), LangSec. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 1. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system validates if each of the address line items (addrLine1Pri, addrLine2Pri, addrLine3Pri, cityPri, statePri, countryPri, pcPri) in the i/p parameter is same as the address line items (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
 3. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec) in the i/p parameter is same as the address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
