@@ -221,7 +221,7 @@ The system receives an authentication request from TSP with the parameters: id, 
 2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->email”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->email, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification -SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _** Link to be attached)**_
+5. The system proceeds to execute Notification -SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. _**Link to be attached)**_
 
 
 **H. Match gender of the individual in the database so that the individual is authenticated**
@@ -329,7 +329,7 @@ The system follows the following steps to include Masked e-mail and phone in the
    * If the configured mode = phone and Registered Mode is e-mail; then
    * Send OTP to e-mail
    * If Registered mode is none, then
-   * Send error code. Please refer wiki for to know more about the type error messages based on scenario._** Link to be attached)**_
+   * Send error code. Please refer wiki for to know more about the type error messages based on scenario._**Link to be attached)**_
 2. If the communication mode = mobile
 3. Mask the mobile no of the individual as per logic below and include the masked mobile in info object of response
 4. If the communication mode = e-mail
@@ -617,7 +617,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 3. Validates if the MUA has permission for e-KYC
 4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
 5. The system performs all the validation of the IRIS Validation Story as per defined standards and encodes the auth response
-6. Validate the status of the auth response based on auth response from _**MOS-1154**_ and proceed only if the status is successful
+6. Validate the status of the auth response based on auth response and proceed only if the status is successful
 7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
 8. The system proceeds to execute tokenization user story
 9. Retrieves the configured demVal parameter configured for the country
@@ -679,7 +679,7 @@ MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (
 4. Validates if the MISP-LK status is active
 5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
 6. Captures and stores the transaction details for audit purpose.
-7. Alerts and warning messages for data type violation are sent as per [**definition Link**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) _**(Link to be updated)**_
+7. Alerts and warning messages for data type violation are sent as per [**data definition Link](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) _**(Link to be updated)**_
 8. The alert and warning messages are configurable via a configurable file.
 
 ## 5.2 Partner Policy Authentication
