@@ -177,7 +177,7 @@ In case of multi-system authentication, MOSIP responds back with e-KYC data base
 **D. Verify the Age of the individual so that the individual is authenticated**
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, age of the Individual.
-_**Please refer Git for more details on the parameters (Provide link)**_
+Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID
 3. The system calculates the age of the individual based on the DOB.
@@ -188,7 +188,7 @@ _**Please refer Git for more details on the parameters (Provide link)**_
 
 **E. Match Name of the individual in the database so that the individual is authenticated**
 
-The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, namePri, msPri = P (Partial), mtPri= 1 to 100, nameSec, msSec = P (Partial), mtSec= 1 to 100 _**Link to name data validation**_
+The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, namePri, msPri = P (Partial), mtPri= 1 to 100, nameSec, msSec = P (Partial), mtSec= 1 to 100. Please refer Git for more details on [**data definition**](https://github.com/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system compares the namePri in the i/p parameter with the Name saved in the primary language ‘Lang’ in the auth database
 3. The system generates the match value
