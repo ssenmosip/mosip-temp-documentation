@@ -120,7 +120,26 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 11. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
-_**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold (TBD)**_
+**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold**
+
+The system receives authentication service request with the following parameters: 
+id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) 
+1. The system retrieves generated score match
+2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+3. The system then validated the following:
+   * Validates if single irisImg records are present in the input
+   * Retrieves the threshold level configured which is acceptable for a match
+   * Validates if the match score is equal to greater than the threshold level}
+   * Validates if two irisImg records are present in the input
+   * Retrieves the composite threshold level configured which is acceptable for a match
+   * Validates if the composite match score is equal to greater than the composite threshold
+4. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg , pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg, pin, OTP), reqTime, fgerMinCn, fgerImgCn, irisImgCn, faceImgCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code 
+5. Integrates the response with the static token generated for the authentication request _**(Link to be placed)**_
+6. The system proceeds to execute compare against Iris threshold 
+7. Alerts and Warning messages for data type violation are sent as per data definition
+8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+
+
 
 
 _**H. Composite match score (TBD)**_
