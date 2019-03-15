@@ -2919,7 +2919,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#2.7.8  Auth Service Apis
+# 2.7.8 Auth Service APIs
 This service details used by Pre-Registration portal to authenticate user by sending otp to the user , validating with userid and otp.
 ### Host
 ##### Integration - `http://integ.mosip.io`
