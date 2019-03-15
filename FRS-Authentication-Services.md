@@ -19,9 +19,9 @@
 # Authentication Services 
 # 1. Single factor Authentication 
 ## 1.1 Biometric Authentication 
-**A. Authenticate the face of the Individual by comparing the match score of the photo against threshold**
+**A. Authenticate the face of the Individual by comparing the match score of the photo against the threshold**
 
-Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against threshold as per the following steps:
+Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against the threshold as per the following steps:
 
 1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) and the match score(s)
 2. The biometric data is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
@@ -39,7 +39,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 3. System validates if the time period between the current time stamp and the request time stamp is <= time period
 4. System validates that total number of face record(s) should not exceed 1
 5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched
-6. The system then generates a match score based on the level of match of the face
+6. The system then generates a match score based on the level of the match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold
 9. Alerts and warning messages for data type violation are sent as per data definition
@@ -58,19 +58,19 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if single fgerMin should not contain more than one finger
    * Validates if total number of fgerMin records should not exceed 2
 4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database 
-5. The system then generates a match score based on the level of match of the fingerprints and proceeds to execute compare against fingerprint threshold 
+5. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
 6. Alerts and warning messages for data type violation are sent as per data definition
 7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against threshold (BioAuthService)**
+**D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold (BioAuthService)**
 
-Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:
+Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, UA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType) and the match score
 2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
 3. The system retrieves the threshold level configured which is acceptable for a match
 4. The system then validates the following if the match score is equal to greater than the threshold level
 5. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
-6. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP ), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
+6. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 7. Alerts and warning messages for data type violation are sent as per data definition
 8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -85,9 +85,9 @@ Upon receiving an authentication request, the system authenticates the fingerpri
    * Validates if single fgerMin record contains more than one finger
    * Validates if total number of fgerMin records exceed 2
 4. The system then matches first fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database.
-5. Generates a match score (using SDK) based on the level of match of the fgerMin for the first fingerprint
+5. Generates a match score (using SDK) based on the level of the match of the fgerMin for the first fingerprint
 6. Matches second fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database.
-7. Then generates a match score (using SDK) based on the level of match of the fgerMin for the second fingerprint
+7. Then generates a match score (using SDK) based on the level of the match of the fgerMin for the second fingerprint
 8. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 9. The actor retrieves the composite finger threshold configured which is acceptable for a match
 10. The actor validates if the composite match score is equal to greater than the composite finger threshold
@@ -110,9 +110,9 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if total number of Iris records should not exceed 2
    * Validates if single irisImg record is present in the input
    * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database.
-4. The system then generates a match score based on the level of match of the Irises. The SDK will provide the match score
+4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
 5. The system validates if two irisImg records are present in the input
-6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of match of the Irises.
+6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises.
 7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
@@ -120,7 +120,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 11. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
-_**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against threshold (TBD)**_
+_**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold (TBD)**_
 
 
 _**H. Composite match score (TBD)**_
@@ -144,7 +144,7 @@ The system receives authentication service request with the parameters: id, Con,
 3. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec) in the i/p parameter is same as the address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
 4. Constructs the response to the requesting source with Res (Y/N), txnId (same as request), timestamp_Res of response, error code
 5. Provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->cityPri, ad->statePri, ad->countryPri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->citySec, ad->stateSec, ad->countrySec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-6. The system proceeds send  Notification -SMS and ‘E-mail’ user stories.
+6. The system proceeds to send  Notification -SMS and ‘E-mail’ user stories.
 _**Provide link to error msgs.MOS-231**_
 
 
@@ -159,7 +159,7 @@ In case of multi-system authentication, MOSIP responds back with e-KYC data base
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, age of the Individual.
 _**Please refer Git for more details on the parameters (Provide link)**_
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID
 3. The system calculates the age of the individual based on the DOB.
 4. Validates if the Age of the individual is greater than or equal to the Age in the i/p parameter
@@ -170,7 +170,7 @@ _**Please refer Git for more details on the parameters (Provide link)**_
 **E. Match Name of the individual in the database so that the individual is authenticated**
 
 The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, namePri, msPri = P (Partial), mtPri= 1 to 100, nameSec, msSec = P (Partial), mtSec= 1 to 100 _**Link to name data validation**_
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 2. The system compares the namePri in the i/p parameter with the Name saved in the primary language ‘Lang’ in the auth database
 3. The system generates the match value
 4. Validates if the match valve calculated in step 3 is equal to or above the match threshold_Prim in the input parameter
@@ -210,7 +210,7 @@ Upon receiving a request for authentication from TSP, the system responds back t
 2. Decodes the authentication request and obtain all the input parameters of the auth request
 3. Validates eAuthType and compare the data in the PID block in the auth request
 4. Validates if the MUA has permission for e-KYC
-5. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
+5. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
 6. The system performs all the validation of the OTP Validation process and encodes the auth response
 7. Validates the status of the auth response based on auth response and proceed only if the status is successful
 8. The system proceeds to construct the e-KYC response element, which is encoded and encrypted.
@@ -234,7 +234,7 @@ Upon receiving a request for authentication from TSP, the system responds back t
 
 **B. Support returns additional e-KYC data to social protection system (TBD)**
 
-MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of family relationship will be required as a security imperative) and send to Social Protection Data System
+MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of a family relationship will be required as a security imperative) and send to Social Protection Data System
 
 MOSIP to provide a mechanism to record the consent of HoF
 
@@ -247,7 +247,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 1. Decodes the authentication request and obtains all the input parameters of the auth request
 2. Validates eAuthType and compare the data in the PID block in the auth request
 3. Validates if the MUA has permission for e-KYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
 5. The system performs fingerprint validation as per defined standards and encodes the auth response
 6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
 7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
@@ -276,7 +276,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 1. Decodes the authentication request and obtain all the input parameters of the auth request
 2. Validates eAuthType and compares the data in the PID block in the auth request
 3. Validates if the MUA has permission for e-KYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
 5. The system performs all the validation of the IRIS Validation Story as per defined standards and encodes the auth response
 6. Validate the status of the auth response based on auth response from _**MOS-1154**_ and proceed only if the status is successful
 7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
@@ -305,7 +305,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 1. Decodes the authentication request and obtain all the input parameters of the auth request
 2. Validates eAuthType and compare the data in the PID block in the auth request
 3. Validates if the MUA has permission for e-KYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of permissible mode of authentication for e-KYC for the MUA
+4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
 5. The system performs all the validation of the IRIS Validation standards and encodes the auth response
 6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
 7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
@@ -357,7 +357,7 @@ The system then validates the following:
 4. The system also validates if the partner status is active
 5. Retrieves all the policies constituting the partnerID
 6. Validates if the auth type specified in the request is one of the policies retrieved for the partner
-7. Validates if the time period between the current time stamp and the request time stamp is <= time period (n- admin config)
+7. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 8. Validates if the "authvalue" in the i/p parameter is same "authval" stored in the database for the mapped UIN and VID
 9. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
 10. The system then integrates the response with the static token generated for the authentication request  
