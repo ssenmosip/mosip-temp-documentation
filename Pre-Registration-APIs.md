@@ -14,9 +14,9 @@ This section details about the service API in the Pre-Registration modules
 
  [2.7.6 Notification Service APIs](#276-notification-service-apis)
 
- [2.7.7 Transliteration Service APIs](#276-transliteration-service-apis)
+ [2.7.7 Transliteration Service APIs](#277-transliteration-service-apis)
  
- [2.7.8 Auth Service APIs](#276-auth-service-apis)
+ [2.7.8 Auth Service APIs](#278-auth-service-apis)
 <!--te-->
 ***
 #### Swagger link as below.
