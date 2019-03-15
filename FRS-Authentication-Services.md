@@ -400,8 +400,8 @@ The system then validates the following:
 **License Key Generation**
 
 1. License key generation to be invoked through admin portal with an approval process > Key to be associated to the TSP ID > TSP should have a mechanism to access the key
-2. MOSIP should support multiple license keys per TSP. There will be a separate license key per use case / application with associated policy
-3. Once a TSP is authorized, they should ideally have a self-service (TSP Portal) mechanism to get their keys, and regenerate them on need basis. In the absence of a Self-Service portal, it should be possible for the admin to generate the key and email it to the TSP. This can be done as part of the approval process, as well as on an ad hoc basis when the key needs to be replaced
+2. MOSIP should support multiple license keys per TSP. There will be a separate license key per use case/application with associated policy
+3. Once a TSP is authorized, they should ideally have a self-service (TSP Portal) mechanism to get their keys and regenerate them on need basis. In the absence of a Self-service portal, it should be possible for the admin to generate the key and email it to the TSP. This can be done as part of the approval process, as well as on an ad hoc basis when the key needs to be replaced
 
 # 6. Authentication Device Support 
 ## 6.1 Registered Devices and Open Devices TBD 
