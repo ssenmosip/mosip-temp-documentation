@@ -345,8 +345,11 @@ The system follows the following steps to include Masked e-mail and phone in the
 Note: 50% in case of decimal means rounded to the greatest whole number
 
 Eg:
+
 Original phone no: 8347899201
+
 Masked phone no: XXXXXX9201
+
 **Logic for masking e-mail**
 
 1. Consider the characters prior to the symbol ‘@’
@@ -354,7 +357,9 @@ Masked phone no: XXXXXX9201
 3. Mask every alternate 2 characters starting from position 1
 
 Eg:
+
 Original e-mail: umamahesh@gmail.com
+
 Masked e-mail: XXaXXhXXh@gmail.com
 
 **E. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
