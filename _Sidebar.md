@@ -6,6 +6,8 @@
   * [Technology stack](https://github.com/mosip/mosip/wiki/Technology-Stack)
   * [Process view](https://github.com/mosip/mosip/wiki/Process-view)
   * [Data architecture](https://github.com/mosip/mosip/wiki/MOSIP-Data-Architecture)
+  * [Security](https://github.com/mosip/mosip/wiki/Security)
+    * [Security Tools](https://github.com/mosip/mosip/wiki/Security-Tools)
 * Design
   * [ID Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
   * [MOSIP configuration](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
@@ -21,8 +23,6 @@
   * [MOSIP Biometric Data Spec](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications)
   * [MOSIP VDM Spec](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
   * [MOSIP Device Integration Spec](https://github.com/mosip/mosip/wiki/Device-Integration-Specifications)
-  * [Security](https://github.com/mosip/mosip/wiki/Security)
-    * [Security Tools](https://github.com/mosip/mosip/wiki/Security-Tools)
 * MOSIP APIs
   * [Kernel](https://github.com/mosip/mosip/wiki/Kernel-APIs)
   * [ID Authentication](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs)
