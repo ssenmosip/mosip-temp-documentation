@@ -650,7 +650,8 @@ Requires Authentication | Yes
       "deletedBy": "9876453738",
       "deletedDateTime": "2019-02-11T07:15:18.549Z"
     }
-  ]
+  ],
+  "errors":null
 }
 ```
 
@@ -764,11 +765,11 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_005",
-		"message": "NO_RECORD_FOUND_FOR_USER_ID"
-		}
-	]
+	{
+	 "errorCode": "PRG_PAM_APP_005",
+	 "message": "NO_RECORD_FOUND_FOR_USER_ID"
+	}
+   ]
 }
 ```
 
@@ -818,11 +819,11 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_005",
-		"message": "INVALID_PRE_REGISTRATION_ID"
-		}
-	]
+	{
+	 "errorCode": "PRG_PAM_APP_005",
+	 "message": "INVALID_PRE_REGISTRATION_ID"
+	}
+   ]
 }
 ```
 #### 2.7.2.6 GET Operation
@@ -872,9 +873,9 @@ Requires Authentication | Yes
   "response": null,
   "errors": [ 
        {
-		"errorCode": "PRG_PAM_APP_003",
-		"message": "INVALID_REQUEST_DATETIME_FORMAT"
-	   }
+	"errorCode": "PRG_PAM_APP_003",
+	"message": "INVALID_REQUEST_DATETIME_FORMAT"
+       }
   ]
 }
 ```
@@ -888,11 +889,11 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [ 
-		{
-		"errorCode": "PRG_PAM_APP_010",
-		"message": "RECORD_NOT_FOUND_FOR_DATE_RANGE"
-		}
-	]
+	{
+	 "errorCode": "PRG_PAM_APP_010",
+	 "message": "RECORD_NOT_FOUND_FOR_DATE_RANGE"
+	}
+   ]
 }
 ```
 #### 2.7.2.7 GET Operation
@@ -1059,8 +1060,8 @@ Requires Authentication | Yes
        {
         "errorCode": "PRG_PAM_APP_005",
         "essage": "INVALID_PRE_REGISTRATION_ID"
-	   }
-  ]
+       }
+   ]
 }
 ```
 
@@ -1074,11 +1075,11 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response":null,
   "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_006",
-		"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA"
-		}
-  ]
+	{
+	"errorCode": "PRG_PAM_APP_006",
+	"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA"
+	}
+   ]
 }
 ```
 
