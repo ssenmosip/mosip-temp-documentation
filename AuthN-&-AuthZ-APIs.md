@@ -174,8 +174,7 @@ JSON Response:
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"response": {
-		"message":"OTP validation is successfull",
-		"status":true
+		"message":"OTP validation is successfull"
 	}
 }
 
