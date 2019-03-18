@@ -171,7 +171,7 @@ Reference link:
 (https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora)
 <br/>
 <br/>
-### 6.2 Install and use Nginx on RHEL 7.5
+### 6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5
 
 We are using nginx for webserver andalso proxy server for MOSIP project
 Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command
@@ -216,7 +216,7 @@ $ sudo firewall-cmd –reload <br/>
 ##### Reference link:
 (https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
 
-### 6.3 Install Clam AntiVirus
+### 6.3 Install Clam AntiVirus Version 0.101.0
 
  ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
 
