@@ -2,32 +2,34 @@ This section details about the service API in the Pre-Registration modules
 
 ## Content
 <!--ts-->
- [2.7.1 Demographic Service APIs](#271-demographic-service-apis)
+ [2.7.1 Auth Service APIs](#271-auth-service-apis)
 
- [2.7.2 Document Service APIs](#272-document-service-apis)
+ [2.7.2 Demographic Service APIs](#272-demographic-service-apis)
 
- [2.7.3 Data sync Service APIs](#273-data-sync-service-apis)
+ [2.7.3 Document Service APIs](#273-document-service-apis)
 
- [2.7.4 Booking Service APIs](#274-booking-service-apis)
+ [2.7.4 Data sync Service APIs](#274-data-sync-service-apis)
 
- [2.7.5 BatchJob Service APIs](#275-batchjob-service-apis)
+ [2.7.5 Booking Service APIs](#275-booking-service-apis)
 
- [2.7.6 Notification Service APIs](#276-notification-service-apis)
+ [2.7.6 BatchJob Service APIs](#276-batchjob-service-apis)
 
- [2.7.7 Transliteration Service APIs](#277-transliteration-service-apis)
- 
- [2.7.8 Auth Service APIs](#278-auth-service-apis)
+ [2.7.7 Notification Service APIs](#277-notification-service-apis)
+
+ [2.7.8 Transliteration Service APIs](#278-transliteration-service-apis)
+
 <!--te-->
 ***
 #### Swagger link as below.
-1.      https://integ.mosip.io/pre-registration/v1.0/demographic/swagger-ui.html#/
-2.      https://integ.mosip.io/pre-registration/v1.0/document/swagger-ui.html#/
-3.      https://integ.mosip.io/pre-registration/v1.0/sync/swagger-ui.html#/
-4.      https://integ.mosip.io/pre-registration/v1.0/booking/swagger-ui.html#/
-5.      https://integ.mosip.io/pre-registration/v1.0/batchjob/swagger-ui.html#/
-6.      https://integ.mosip.io/pre-registration/v1.0/notification/swagger-ui.html#/
-7.      https://integ.mosip.io/pre-registration/v1.0/translitration/swagger-ui.html#/
-8.      https://devops.mosip.io/pre-registration/v1.0/auth/swagger-ui.html#
+1.      https://qa.mosip.io/pre-registration/v1.0/auth/swagger-ui.html#
+2.      https://qa.mosip.io/pre-registration/v1.0/demographic/swagger-ui.html#/
+3.      https://qa.mosip.io/pre-registration/v1.0/document/swagger-ui.html#/
+4.      https://qa.mosip.io/pre-registration/v1.0/sync/swagger-ui.html#/
+5.      https://qa.mosip.io/pre-registration/v1.0/booking/swagger-ui.html#/
+6.      https://qa.mosip.io/pre-registration/v1.0/batchjob/swagger-ui.html#/
+7.      https://qa.mosip.io/pre-registration/v1.0/notification/swagger-ui.html#/
+8.      https://qa.mosip.io/pre-registration/v1.0/translitration/swagger-ui.html#/
+
 ***
 Tobe Done:
 1. Need to seperate response and error resonse
@@ -36,15 +38,179 @@ Tobe Done:
 
 **Note**: id,ver and reqTime, resTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
-# 2.7.1 Demographic Service APIs
+
+# 2.7.1 Auth Service APIs
+This service details used by Pre-Registration portal to authenticate user by sending otp to the user , validating with userid and otp.
+### Host
+##### qaration - `http://qa.mosip.io`
+##### Development - `http://dev.mosip.io`
+##### Production -
+
+***
+#### [Swagger API spec 0.9.0 version link](https://github.com/mosip/mosip/tree/0.9.0/docs/design/pre-registration/service/Auth-Service-API-Spec-090.yaml)
+***
+
+#### HTTP Operation Allowed
+| Method | Allowed |
+| ------------ | ------------ |
+| POST | True |
+#### 2.7.1.1 POST Operation
+#### Path -  `/sendotp`
+#### Summary
+This will send the otp to the requested user in the preferred channel(sms/email)
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.auth.sendotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+userid |Yes|user id of the applicant|8907654778
+langcode|Yes|The preferred language code |eng
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+	"id": "mosip.pre-registration.auth.sendotp",
+	"version": "1.0",
+	"requesttime": "2019-03-15T07:24:47.605Z",
+	"request": {
+		"langCode": "eng",
+		"userId": "8907654778"
+	}
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms sent successfully
+```JSON
+{
+	"id": "mosip.pre-registration.auth.sendotp",
+	"version": "1.0",
+	"responsetime": "2019-03-15T07:24:50.246Z",
+	"response": {
+		"message": "Sms Request Sent"
+	},
+	"errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+
+```JSON
+{
+	"id": "mosip.pre-registration.auth.sendotp",
+	"version": "1.0",
+	"responsetime": "2019-03-15T08:09:42.327Z",
+	"response": null,
+	"errors": [
+		{
+		"errorCode": "PRG_AUTH_001",
+		"message": "SEND_OTP_FAILED: Inavlid Parameters"
+		}
+	]	
+}
+```
+#### 2.7.1.2 POST Operation
+#### Path -  `/useridotp`
+#### Summary
+This will validate  the otp and the userid and provide the accessToken
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.auth.useridotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+userid |Yes|user id of the applicant|8907654778
+otp|Yes|The preferred language code |123456
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+	"id": "mosip.pre-registration.auth.useridotp",
+	"version": "1.0",
+	"requesttime": "2019-03-15T08:28:04.783Z",
+	"request": {
+		"otp": "123456",
+		"userId": "9538895320"
+	}
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms sent successfully
+```JSON
+{
+	"id": "mosip.pre-registration.auth.useridotp",
+	"version": "1.0",
+	"responsetime": "2019-03-15T08:08:13.246Z",
+	"response": {
+		"message": "Otp Validated Successfully"
+	},
+	"errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+
+```JSON
+
+```
+
+#### 2.7.1.3 POST Operation
+#### Path -  `/invalidatetoken`
+#### Summary
+This will invalidate the access token when force logout is done.
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Token invalidated successfully
+```JSON
+
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+
+```JSON
+
+```
+
+# 2.7.2 Demographic Service APIs
 This service details used by Pre-Registration portal to create the demographic form by providing his/her basic demographic details.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 ***
-#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Demographic-Service-API-Spec.yaml)
+#### [Swagger API spec 0.9.0 version link](https://github.com/mosip/mosip/tree/0.9.0/docs/design/pre-registration/service/Demographic-Service-API-Spec-090.yaml)
 ***
 #### HTTP Operation Allowed
 | Method | Allowed |
@@ -54,7 +220,7 @@ This service details used by Pre-Registration portal to create the demographic f
 | PUT | True |
 | DELETE | True |
 
-#### 2.7.1.1 POST Operation
+#### 2.7.2.1 POST Operation
 #### Path -  `/applications`
 #### Summary
 Create new pre-registration by demographic details or update demographic details by providing pre-registration id.
@@ -107,7 +273,7 @@ Requires Authentication | Yes
     "createdBy": "9876453738",
     "updatedBy": "",
     "langCode": "ENG",
-	"createdDateTime": "2019-01-08T17:05:48.953Z",
+    "createdDateTime": "2019-01-08T17:05:48.953Z",
     "updatedDateTime": "",
     "demographicDetails": {
       "identity": {
@@ -229,9 +395,9 @@ Requires Authentication | Yes
 ###### Description: Pre-Registration Status successfully Creaded
 ```JSON
 {
-  "err": null,
-  "status": true,
-  "resTime": "2019-02-12T08:46:23.821Z",
+   "id": "mosip.pre-registration.demographic.create",
+   "version": "1.0",
+   "responsetime": "2019-03-15T08:08:13.246Z",
   "response": [
     {
       "preRegistrationId": "64269837502851",
@@ -352,6 +518,7 @@ Requires Authentication | Yes
       }
     }
    }
+   "errors":null
   ]
 }
 ```
@@ -387,13 +554,13 @@ Requires Authentication | Yes
 Code|Message|Description
 -----|----------|-------------
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
-PRG_PAM_APP_001| PRG_PAM_APP_001 --> UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create a pre-registration.
-PRG_PAM_APP_012| PRG_PAM_APP_012 --> MISSING_REQUEST_PARAMETER|If created by/create date time/updated by/updated date time is empty while creating new pre-registration.
-PRG_PAM_APP_005|PRG_PAM_APP_005 --> INVALID_PRE_REGISTRATION_ID |Invalid pre-registration-id while updating the pre-registration.
-PRG_PAM_APP_006|PRG_PAM_APP_006 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id 
-PRG_PAM_APP_008| PRG_PAM_APP_008  --> UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
+PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create a pre-registration.
+PRG_PAM_APP_012|MISSING_REQUEST_PARAMETER|If created by/create date time/updated by/updated date time is empty while creating new pre-registration.
+PRG_PAM_APP_005|INVALID_PRE_REGISTRATION_ID |Invalid pre-registration-id while updating the pre-registration.
+PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id 
+PRG_PAM_APP_008|UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
 
-#### 2.7.1.2 PUT Operation
+#### 2.7.2.2 PUT Operation
 #### Path -  `/applications`
 #### Summary
 Update the pre-registration status by providing pre-registration id and valid status defined in pre-registration system in request parameter.
@@ -453,7 +620,7 @@ Requires Authentication | Yes
 }
 ```
 
-#### 2.7.1.3 DELETE Operation
+#### 2.7.2.3 DELETE Operation
 #### Path -  `/applications`
 #### Summary 
 Discard the entire pre-registration details based pre-registration id provided in request parameter.
@@ -531,7 +698,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.1.4 GET Operation
+#### 2.7.2.4 GET Operation
 #### Path -  `/applications`
 #### Summary
 Retrieve All Pre-Registration id, Full name, Status and Appointment details by user id.
@@ -594,7 +761,7 @@ Requires Authentication | Yes
 }
 ```
 
-#### 2.7.1.5 GET Operation
+#### 2.7.2.5 GET Operation
 #### Path -  `/applications/status`
 #### Summary
 Retrieve pre-registration application status by providing the pre-registration id in request parameter.
@@ -643,7 +810,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.1.6 GET Operation
+#### 2.7.2.6 GET Operation
 #### Path -  `/applications/byDateTime`
 #### Summary 
 Retrieve pre-registration ids between created from and to dates provided in request parameters.
@@ -706,7 +873,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.1.7 GET Operation
+#### 2.7.2.7 GET Operation
 #### Path -  `/applications/details`
 #### Summary
 Retrieve Pre-Registration demographic data by pre-Registration id provided in request parameter.
@@ -886,11 +1053,11 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.2 Document Service APIs
+# 2.7.3 Document Service APIs
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
@@ -906,7 +1073,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 | PUT | False |
 | DELETE | True |
 
-#### 2.7.2.1 POST Operation
+#### 2.7.3.1 POST Operation
 #### Path -  `/documents`
 #### Summary
 Upload document for a pre-registration Id.
@@ -1143,7 +1310,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.2.2 POST Operation
+#### 2.7.3.2 POST Operation
 #### Path -  `/documents/copy`
 #### Summary
 This service enables Pre-Registration portal to request for copy the document from one pre-registration id to another.
@@ -1241,7 +1408,7 @@ Requires Authentication | Yes
 }
 ```
 
-#### 2.7.2.3 GET Operation
+#### 2.7.3.3 GET Operation
 #### Path -  `/documents`
 #### Summary
 This service enables Pre-Registration portal request to retrieve all document associated with particular pre-registration.
@@ -1341,7 +1508,7 @@ Requires Authentication | Yes
 }
 ```
 
-#### 2.7.2.4 DELETE Operation
+#### 2.7.3.4 DELETE Operation
 #### Path -  `/documents`
 #### Summary
 This service enables Pre-Registration portal, request to delete the document for a particular document id.
@@ -1402,7 +1569,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.2.5 DELETE Operation
+#### 2.7.3.5 DELETE Operation
 #### Path -  `/documents/byPreRegId`
 #### Summary
 This service enables Pre-Registration portal, request to delete all the document for a particular pre-registration id.
@@ -1482,11 +1649,11 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.3 Data sync Service APIs
+# 2.7.4 Data sync Service APIs
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
@@ -1502,7 +1669,7 @@ This service enables Pre-Registration to a registration client , request to retr
 | PUT | False |
 | DELETE | False |
 
-#### 2.7.3.1 POST Operation
+#### 2.7.4.1 POST Operation
 #### Path -  `/datasync`
 #### Summary
 Retrieve all the pre-registration Ids by date range and registration center Id.
@@ -1772,7 +1939,7 @@ Requires Authentication | Yes
 }
 ```
 
-#### 2.7.3.2 GET Operation
+#### 2.7.4.2 GET Operation
 #### Path -  `/datasync`
 #### Summary
 This service enables Pre-Registration to a registration client , request to retrieve particular pre-registration data based on a pre-registration id.
@@ -1826,7 +1993,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.3.3 POST Operation
+#### 2.7.4.3 POST Operation
 #### Path -  `/datasync/store`
 #### Summary
 This service enables Pre-Registration to a registration processor , request to retrieve all processed pre-registration ids and store in pre-registration database and update the status code in main table.
@@ -1960,11 +2127,11 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-# 2.7.4 Booking Service APIs
+# 2.7.5 Booking Service APIs
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
@@ -1980,7 +2147,7 @@ This service details used by Pre-Registration portal to book an appointment by p
 | PUT | True |
 | DELETE | False |
 
-#### 2.7.4.1 GET Operation
+#### 2.7.5.1 GET Operation
 #### Path -  `/appointment`
 #### Summary
 Retrieve Pre-Registration appointment details by pre-Registration id.
@@ -2028,7 +2195,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.4.2 GET Operation
+#### 2.7.5.2 GET Operation
 #### Path -  `/appointment/availability`
 #### Summary
 Retrieve Pre-Registration appointment slots available for booking.
@@ -2103,7 +2270,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.4.3 POST Operation
+#### 2.7.5.3 POST Operation
 #### Path -  `/appointment`
 #### Summary
 This service enables by Pre-Registration to book an registration center, request to book and re-book an appointment with a selected registration center and time slot. After successful booking update the status code Booked in main table.
@@ -2297,7 +2464,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.4.4 PUT Operation
+#### 2.7.5.4 PUT Operation
 #### Path -  `/appointment`
 #### Summary
 This service enables by Pre-Registration to cancel an appointment booking, request to cancel an booked appointment with a selected registration center and time slot. After successful canceling an booking update the status code Canceled in appointment table.
@@ -2427,7 +2594,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.4.5 POST Operation
+#### 2.7.5.5 POST Operation
 #### Path -  `/appointment/preIdsByRegId`
 #### Summary
 Retrieve Pre-Registration appointment details by pre-Registration id and registration center id for the use of Data sync service.
@@ -2557,7 +2724,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.4.6 PUT Operation
+#### 2.7.5.6 PUT Operation
 #### Path -  `/appointment/availability/sync`
 #### Summary
 Synchronize booking slots availability table with master data.
@@ -2584,11 +2751,11 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.5 BatchJob Service APIs
+# 2.7.6 BatchJob Service APIs
 This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
@@ -2604,7 +2771,7 @@ This service is used by Pre-Registration portal to update an exipred pre registr
 | PUT | True |
 | DELETE | False |
 
-#### 2.7.5.1 PUT Operation
+#### 2.7.6.1 PUT Operation
 #### Path -  `/expiredStatus`
 #### Summary
 Update status of pre-Registration id to expired in database if booking date is less then current date.
@@ -2642,7 +2809,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.5.2 PUT Operation
+#### 2.7.6.2 PUT Operation
 #### Path -  `/consumedStatus`
 #### Summary
 Update status of pre-Registration id to consumed in database based on details given by registration client.
@@ -2680,11 +2847,11 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-# 2.7.6 Notification Service APIs
+# 2.7.7 Notification Service APIs
 This service details used by Pre-Registration portal to trigger notification and get QRCode.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
@@ -2697,7 +2864,7 @@ This service details used by Pre-Registration portal to trigger notification and
 | ------------ | ------------ |
 | POST | True |
 
-#### 2.7.6.1 POST Operation
+#### 2.7.7.1 POST Operation
 #### Path -  `/notification`
 #### Summary
 Notify the user via Email and SMS.
@@ -2780,7 +2947,7 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-#### 2.7.6.2 POST Operation
+#### 2.7.7.2 POST Operation
 #### Path -  `/generateQRCode`
 #### Summary
 To generate QR Code of acknowledgement
@@ -2828,11 +2995,11 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.6 Transliteration Service APIs
+# 2.7.8 Transliteration Service APIs
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
 ### Host
-##### Integration - `http://integ.mosip.io`
+##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 #### HTTP Operation Allowed
@@ -2843,7 +3010,7 @@ This service is used by Pre-Registration portal to transliterate given value fro
 | PUT | False |
 | DELETE | False |
 
-#### 2.7.6.1 POST Operation
+#### 2.7.8.1 POST Operation
 #### Path -  `/transliterate`
 #### Summary
 Transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
@@ -2919,163 +3086,3 @@ Requires Authentication | Yes
   "response": null
 }
 ```
-# 2.7.8 Auth Service APIs
-This service details used by Pre-Registration portal to authenticate user by sending otp to the user , validating with userid and otp.
-### Host
-##### Integration - `http://integ.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| POST | True |
-#### 2.7.8.1 POST Operation
-#### Path -  `/sendotp`
-#### Summary
-This will send the otp to the requested user in the preferred channel(sms/email)
-
-#### Request Part Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.auth.sendotp
-version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-userid |Yes|user id of the applicant|8907654778
-langcode|Yes|The preferred language code |eng
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request:
-```JSON
-{
-			 "id": "string",
-			"version": "string",
-			"requesttime": "2019-03-15T07:24:47.605Z",
-			"request": {
-			    "langCode": "string",
-			    "userId": "string"
-			  }
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: sms sent successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "responsetime": "2019-03-15T08:08:13.246Z",
-  "response": {
-    "message": "Sms Request Sent"
-  },
-  "errors": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid parameters
-
-```JSON
-{
-  "id": null,
-  "version": null,
-  "responsetime": "2019-03-15T08:09:42.327Z",
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "PRG_AUTH_001",
-      "message": "SEND_OTP_FAILED: Inavlid Parameters"
-    }
-  ]
-}
-```
-#### 2.7.8.2 POST Operation
-#### Path -  `/useridotp`
-#### Summary
-This will validate  the otp and the userid and provide the accessToken
-
-#### Request Part Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.auth.useridotp
-version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-userid |Yes|user id of the applicant|8907654778
-otp|Yes|The preferred language code |123456
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request:
-```JSON
-{
-			"id": "string",
-			"version": "string",
-			"requesttime": "2019-03-15T08:28:04.783Z",
-			"request": {
-			    "otp": "123456",
-			    "userId": "9538895320"
-			  }
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: sms sent successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "responsetime": "2019-03-15T08:08:13.246Z",
-  "response": {
-    "message": "Otp Validated Successfully"
-  },
-  "errors": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid parameters
-
-```JSON
-
-```
-
-#### 2.7.8.3 POST Operation
-#### Path -  `/invalidatetoken`
-#### Summary
-This will invalidate the access token when force logout is done.
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request:
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Token invalidated successfully
-```JSON
-
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid parameters
-
-```JSON
-
-```
-
-
-
