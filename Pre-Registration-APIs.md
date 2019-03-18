@@ -113,8 +113,8 @@ Requires Authentication | Yes
 	"response": null,
 	"errors": [
 		{
-		"errorCode": "PRG_AUTH_001",
-		"message": "SEND_OTP_FAILED: Inavlid Parameters"
+		 "errorCode": "PRG_AUTH_001",
+		 "message": "SEND_OTP_FAILED: Inavlid Parameters"
 		}
 	]	
 }
@@ -518,8 +518,8 @@ Requires Authentication | Yes
       }
     }
    }
-   "errors":null
-  ]
+  ],
+  "errors":null
 }
 ```
 ##### Failure Response:
@@ -728,7 +728,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response":[  
@@ -759,7 +759,7 @@ Requires Authentication | Yes
 ###### Description: Unable to fetch the pre-Registration demographic data .
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
@@ -795,7 +795,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.status",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": [
@@ -813,7 +813,7 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration id.
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.status",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
@@ -849,7 +849,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.byDateTime",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": [
@@ -866,7 +866,7 @@ Requires Authentication | Yes
 ###### Description: Invalid requested date formats.
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.byDateTime",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
@@ -883,7 +883,7 @@ Requires Authentication | Yes
 ###### Description: no record found between date range.
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.byDateTime",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
@@ -918,7 +918,7 @@ Requires Authentication | Yes
 
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response":[
@@ -1051,7 +1051,7 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration id.
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response":null,
@@ -1069,7 +1069,7 @@ Requires Authentication | Yes
 ###### Description: unable to fetch the details by pre-registration id.
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.fetch",
+  "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response":null,
