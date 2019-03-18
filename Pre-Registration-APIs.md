@@ -114,7 +114,7 @@ Requires Authentication | Yes
 	"errors": [
 		{
 		 "errorCode": "PRG_AUTH_001",
-		 "message": "SEND_OTP_FAILED: Inavlid Parameters"
+		 "message": "SEND_OTP_FAILED"
 		}
 	]	
 }
