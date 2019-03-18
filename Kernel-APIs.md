@@ -54,11 +54,16 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
-  "issuedAt": "2018-01-01T10:00:00",
-  "expiryAt": "2018-12-10T06:12:51.994"
+	"id": "mosip.keymanager.publickey",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
+		  "issuedAt": "2018-01-01T10:00:00",
+		  "expiryAt": "2018-12-10T06:12:51.994"
+		}
+	}
 }
-
 ```
 
 ## 1.2 Decrypt Symmetric key
@@ -106,7 +111,12 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-  "symmetricKey": "decryptedSymmetricKey"
+	"id": "mosip.keymanager.decrypt",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		"symmetricKey": "decryptedSymmetricKey"
+	}
 }
 
 ```
@@ -148,8 +158,13 @@ Requires Authentication | Yes
 ### Example Response
 ```
 {
-  "data": "wk4RM2su2lBXuhx3_EtBijXTDp0Y20fJA6tmoONPjr6YBLqwu_YRWiSa10o-bQWesb-IobxPg-KsZq-Gc0L6Rq6besw-rMavg5a5nPU7b3pAug0N6Ek4B7S8v_tc5cu7LBRdBv1mRSS2onxXbT2R4qeEwl_11KtxPs_ek6g4vV6oEQRem2fPhop_21DaoWVEZFovHAAJDqSFj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8LYp-hG3RhR_xC7trAOTqilzLjLfirE3Wjfor5bhLiG9eZyTb52ihKsDV1l2oBAhn9Aao_fYl3UD5QekSNLRVlfU1BMSVRURVIjeKen-3j5KhnE-93Qfe_pBfMBIKEkTJJ7pR-4cO7l-X0"
-}
+	"id": "mosip.keymanager.encrypt",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		"data": "wk4RM2su2lBXuhx3_EtBijXTDp0Y20fJA6tmoONPjr6YBLqwu_YRWiSa10o-bQWesb-IobxPg-KsZq-Gc0L6Rq6besw-rMavg5a5nPU7b3pAug0N6Ek4B7S8v_tc5cu7LBRdBv1mRSS2onxXbT2R4qeEwl_11KtxPs_ek6g4vV6oEQRem2fPhop_21DaoWVEZFovHAAJDqSFj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8LYp-hG3RhR_xC7trAOTqilzLjLfirE3Wjfor5bhLiG9eZyTb52ihKsDV1l2oBAhn9Aao_fYl3UD5QekSNLRVlfU1BMSVRURVIjeKen-3j5KhnE-93Qfe_pBfMBIKEkTJJ7pR-4cO7l-X0"
+	}
+}	
 ```
 
 
@@ -189,8 +204,13 @@ Requires Authentication | Yes
 ### Example Response
 ```
 {
-  "data": "string"
-}
+	"id": "mosip.cryptomanager.decrypt",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		"data": "string"
+	}
+}	
 ```
 
 
@@ -222,360 +242,365 @@ lastUpdated|No|Date in UTC ISO format| |
 ### Example Response
 ```JSON
 {
-	"lastSyncTime": "2019-03-04T12:34:15.477Z",
-	"registrationCenter": [{
-		"id": "10001",
-		"name": "المركز أ بن منصور",
-		"centerTypeCode": "REG",
-		"addressLine1": "P4238",
-		"addressLine2": "بن منصور",
-		"addressLine3": " المغرب",
-		"latitude": "35.52117",
-		"longitude": "-6.453276",
-		"locationCode": "14022",
-		"holidayLocationCode": "KTA",
-		"contactPhone": "944945765",
-		"numberOfStations": null,
-		"workingHours": "8:00:00",
-		"numberOfKiosks": 1,
-		"perKioskProcessTime": "00:15:00",
-		"centerStartTime": "09:00:00",
-		"centerEndTime": "17:00:00",
-		"timeZone": "(GTM+01:00) توقيت وسط أوروبا",
-		"contactPerson": "جهن د ",
-		"lunchStartTime": "13:00:00",
-		"lunchEndTime": "14:00:00",
-		"isDeleted": null,
-		"langCode": "ara",
-		"isActive": true
-	}],
-	"registrationCenterTypes": [{
-		"isDeleted": null,
-		"langCode": "fra",
-		"isActive": true,
-		"code": "REG",
-		"name": "Ordinaire",
-		"descr": "Centre dinscription régulière"
-	}],
-	"machineDetails": [{
-		"id": "10001",
-		"name": "Machine 1",
-		"serialNum": "NM5328114630",
-		"macAddress": "e1:01:2b:c2:1d:b0",
-		"ipAddress": "192.168.0.150",
-		"machineSpecId": "1001",
-		"validityDateTime": null,
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"machineSpecification": [{
-		"id": "1001",
-		"name": "ستر  ",
-		"brand": "دلّ  ",
-		"model": "3568",
-		"machineTypeCode": "DKS",
-		"minDriverversion": "1.454",
-		"description": "لأخذ التسجيلات",
-		"isDeleted": null,
-		"langCode": "ara",
-		"isActive": true
-	}],
-	"machineType": [{
-		"code": "DKS",
-		"name": "الحاسوب",
-		"description": "أجهزة الكمبيوتر المكتبية",
-		"isDeleted": null,
-		"langCode": "ara",
-		"isActive": true
-	}],
-	"devices": [{
-		"id": "3000021",
-		"name": "Finger Print Scanner 1",
-		"serialNum": "SZ5912878988",
-		"deviceSpecId": "165",
-		"macAddress": "85:bb:97:4b:14:05",
-		"ipAddress": null,
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"deviceTypes": [{
-		"code": "CMR",
-		"name": "Camera",
-		"description": "For capturing photo",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"deviceSpecifications": [{
-		"id": "165",
-		"name": "Fingerprint Scanner",
-		"brand": "Safran Morpho",
-		"model": "1300 E2",
-		"deviceTypeCode": "FRS",
-		"minDriverversion": "1.12",
-		"description": "To scan fingerprint",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"holidays": [{
-		"holidayId": "2000049",
-		"holidayDate": "2019-01-01",
-		"holidayDay": "2",
-		"holidayMonth": "1",
-		"holidayYear": "2019",
-		"holidayName": "Jour de l’an",
-		"locationCode": "KTA",
-		"isDeleted": null,
-		"langCode": "fra",
-		"isActive": true
-	}],
-	"documentCategories": [{
-		"code": "POA",
-		"name": "Proof of Address",
-		"description": "Address Proof",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"documentTypes": [{
-		"code": "CIN",
-		"name": "CNIE card",
-		"description": "Moroccan National Electronic ID Card",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"validDocumentMapping": [{
-		"docTypeCode": "CIN",
-		"docCategoryCode": "POI",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"templates": [{
-		"id": "1101",
-		"name": "Template for authorization content",
-		"description": "Template for authorization content",
-		"fileFormatCode": "txt",
-		"model": null,
-		"fileText": "Dear $name\nYour Authentication of UIN $uin using $authType on $date at $time Hrs $status at a device deployed by MOSIP Services",
-		"moduleId": "10004",
-		"moduleName": "ID Authentication",
-		"templateTypeCode": "auth-email-content",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"templatesTypes": [{
-		"code": "auth-email-content",
-		"description": "Template for authorization content",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"templateFileFormat": [{
-		"code": "txt",
-		"description": "Text File",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"reasonCategory": [{
-		"code": "MNA",
-		"name": "Manual Adjudication",
-		"description": "Rejection during Manual Adjudication",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"reasonList": [{
-		"code": "APM",
-		"name": "Age-Photo Mismatch",
-		"description": "Mismatch between the Age and Photo",
-		"rsnCatCode": "CLR",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"blackListedWords": [{
-		"word": "shit",
-		"description": "Blacklisted Word",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"locationHierarchy": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"code": "MOR",
-		"name": "Morroco",
-		"hierarchyLevel": 0,
-		"hierarchyName": "Country",
-		"parentLocCode": null,
-		"createdBy": null,
-		"updatedBy": null
-	}],
-	"biometricattributes": [{
-			"code": "LTM",
-			"name": "Left Thumb",
-			"description": "Print of Left Thumb",
-			"biometricTypeCode": "FNR",
-			"isDeleted": null,
-			"langCode": "eng",
-			"isActive": true
-		},
-		{
-			"code": "PTT",
-			"name": "صور",
-			"description": "طباعة الصور",
-			"biometricTypeCode": "PHT",
+	"id": "mosip.sync.getmasterdata",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		"lastSyncTime": "2019-03-04T12:34:15.477Z",
+		"registrationCenter": [{
+			"id": "10001",
+			"name": "المركز أ بن منصور",
+			"centerTypeCode": "REG",
+			"addressLine1": "P4238",
+			"addressLine2": "بن منصور",
+			"addressLine3": " المغرب",
+			"latitude": "35.52117",
+			"longitude": "-6.453276",
+			"locationCode": "14022",
+			"holidayLocationCode": "KTA",
+			"contactPhone": "944945765",
+			"numberOfStations": null,
+			"workingHours": "8:00:00",
+			"numberOfKiosks": 1,
+			"perKioskProcessTime": "00:15:00",
+			"centerStartTime": "09:00:00",
+			"centerEndTime": "17:00:00",
+			"timeZone": "(GTM+01:00) توقيت وسط أوروبا",
+			"contactPerson": "جهن د ",
+			"lunchStartTime": "13:00:00",
+			"lunchEndTime": "14:00:00",
 			"isDeleted": null,
 			"langCode": "ara",
 			"isActive": true
-		}
-	],
-	"biometricTypes": [{
-		"code": "FNR",
-		"name": "Fingerprint",
-		"description": "Finger prints of the applicant",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"applications": [{
-		"code": "1111",
-		"name": "Pre_Reg",
-		"description": "string",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"idTypes": [{
-		"code": "UIN",
-		"name": "Unique Identification Number",
-		"descr": "National ID given to the applicant",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"titles": [{
-		"code": "MIR",
-		"titleName": "Mr",
-		"titleDescription": "Male Title",
-		"langCode": "eng",
-		"isDeleted": null,
-		"isActive": true
-	}],
-	"genders": [{
-		"code": "MLE",
-		"genderName": "Male",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"languages": [{
-		"code": "eng",
-		"name": "English",
-		"family": "Indo-European",
-		"nativeName": "English",
-		"isDeleted": null,
-		"isActive": true
-	}],
-	"applicantValidDocuments": [{
-		"appTypeCode": "001",
-		"docTypeCode": "CIN",
-		"docCatCode": "POI",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"individualTypes": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"code": "FR",
-		"name": "Foreigner"
-	}],
-	"registrationCenterMachines": [{
-		"regCenterId": "10001",
-		"machineId": "10001",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"registrationCenterDevices": [{
-		"regCenterId": "10001",
-		"deviceId": "3000021",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"registrationCenterMachineDevices": [{
-		"regCenterId": "10001",
-		"machineId": "10001",
-		"deviceId": "3000021",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"registrationCenterUserMachines": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"cntrId": "10001",
-		"machineId": "10001",
-		"usrId": "110001"
-	}],
-	"registrationCenterUsers": [{
-		"regCenterId": "10001",
-		"userId": "110001",
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true
-	}],
-	"registrationCenterMachineHistory": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"regCenterId": "10001",
-		"machineId": "10001",
-		"effectivetimes": "2019-02-28T10:24:38.460784"
-	}],
-	"registrationCenterDeviceHistory": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"regCenterId": "10001",
-		"deviceId": "3000021",
-		"effectivetimes": "2019-02-28T10:24:38.420Z"
-	}],
-	"registrationCenterMachineDeviceHistory": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"regCenterId": "10001",
-		"machineId": "10001",
-		"deviceId": "3000021",
-		"effectiveDateTime": null
-	}],
-	"registrationCenterUserMachineMappingHistory": [{
-		"cntrId": "10001",
-		"machineId": "10001",
-		"usrId": "110001",
-		"effectivetimes": "2019-02-28T10:24:38.496Z"
-	}],
-	"registrationCenterUserHistory": [{
-		"isDeleted": null,
-		"langCode": "eng",
-		"isActive": true,
-		"regCntrId": "10001",
-		"userId": "110001",
-		"effectDateTimes": "2019-02-28T10:24:38.478467"
-	}]
+		}],
+		"registrationCenterTypes": [{
+			"isDeleted": null,
+			"langCode": "fra",
+			"isActive": true,
+			"code": "REG",
+			"name": "Ordinaire",
+			"descr": "Centre dinscription régulière"
+		}],
+		"machineDetails": [{
+			"id": "10001",
+			"name": "Machine 1",
+			"serialNum": "NM5328114630",
+			"macAddress": "e1:01:2b:c2:1d:b0",
+			"ipAddress": "192.168.0.150",
+			"machineSpecId": "1001",
+			"validityDateTime": null,
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"machineSpecification": [{
+			"id": "1001",
+			"name": "ستر  ",
+			"brand": "دلّ  ",
+			"model": "3568",
+			"machineTypeCode": "DKS",
+			"minDriverversion": "1.454",
+			"description": "لأخذ التسجيلات",
+			"isDeleted": null,
+			"langCode": "ara",
+			"isActive": true
+		}],
+		"machineType": [{
+			"code": "DKS",
+			"name": "الحاسوب",
+			"description": "أجهزة الكمبيوتر المكتبية",
+			"isDeleted": null,
+			"langCode": "ara",
+			"isActive": true
+		}],
+		"devices": [{
+			"id": "3000021",
+			"name": "Finger Print Scanner 1",
+			"serialNum": "SZ5912878988",
+			"deviceSpecId": "165",
+			"macAddress": "85:bb:97:4b:14:05",
+			"ipAddress": null,
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"deviceTypes": [{
+			"code": "CMR",
+			"name": "Camera",
+			"description": "For capturing photo",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"deviceSpecifications": [{
+			"id": "165",
+			"name": "Fingerprint Scanner",
+			"brand": "Safran Morpho",
+			"model": "1300 E2",
+			"deviceTypeCode": "FRS",
+			"minDriverversion": "1.12",
+			"description": "To scan fingerprint",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"holidays": [{
+			"holidayId": "2000049",
+			"holidayDate": "2019-01-01",
+			"holidayDay": "2",
+			"holidayMonth": "1",
+			"holidayYear": "2019",
+			"holidayName": "Jour de l’an",
+			"locationCode": "KTA",
+			"isDeleted": null,
+			"langCode": "fra",
+			"isActive": true
+		}],
+		"documentCategories": [{
+			"code": "POA",
+			"name": "Proof of Address",
+			"description": "Address Proof",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"documentTypes": [{
+			"code": "CIN",
+			"name": "CNIE card",
+			"description": "Moroccan National Electronic ID Card",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"validDocumentMapping": [{
+			"docTypeCode": "CIN",
+			"docCategoryCode": "POI",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"templates": [{
+			"id": "1101",
+			"name": "Template for authorization content",
+			"description": "Template for authorization content",
+			"fileFormatCode": "txt",
+			"model": null,
+			"fileText": "Dear $name\nYour Authentication of UIN $uin using $authType on $date at $time Hrs $status at a device deployed by MOSIP Services",
+			"moduleId": "10004",
+			"moduleName": "ID Authentication",
+			"templateTypeCode": "auth-email-content",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"templatesTypes": [{
+			"code": "auth-email-content",
+			"description": "Template for authorization content",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"templateFileFormat": [{
+			"code": "txt",
+			"description": "Text File",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"reasonCategory": [{
+			"code": "MNA",
+			"name": "Manual Adjudication",
+			"description": "Rejection during Manual Adjudication",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"reasonList": [{
+			"code": "APM",
+			"name": "Age-Photo Mismatch",
+			"description": "Mismatch between the Age and Photo",
+			"rsnCatCode": "CLR",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"blackListedWords": [{
+			"word": "shit",
+			"description": "Blacklisted Word",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"locationHierarchy": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"code": "MOR",
+			"name": "Morroco",
+			"hierarchyLevel": 0,
+			"hierarchyName": "Country",
+			"parentLocCode": null,
+			"createdBy": null,
+			"updatedBy": null
+		}],
+		"biometricattributes": [{
+				"code": "LTM",
+				"name": "Left Thumb",
+				"description": "Print of Left Thumb",
+				"biometricTypeCode": "FNR",
+				"isDeleted": null,
+				"langCode": "eng",
+				"isActive": true
+			},
+			{
+				"code": "PTT",
+				"name": "صور",
+				"description": "طباعة الصور",
+				"biometricTypeCode": "PHT",
+				"isDeleted": null,
+				"langCode": "ara",
+				"isActive": true
+			}
+		],
+		"biometricTypes": [{
+			"code": "FNR",
+			"name": "Fingerprint",
+			"description": "Finger prints of the applicant",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"applications": [{
+			"code": "1111",
+			"name": "Pre_Reg",
+			"description": "string",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"idTypes": [{
+			"code": "UIN",
+			"name": "Unique Identification Number",
+			"descr": "National ID given to the applicant",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"titles": [{
+			"code": "MIR",
+			"titleName": "Mr",
+			"titleDescription": "Male Title",
+			"langCode": "eng",
+			"isDeleted": null,
+			"isActive": true
+		}],
+		"genders": [{
+			"code": "MLE",
+			"genderName": "Male",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"languages": [{
+			"code": "eng",
+			"name": "English",
+			"family": "Indo-European",
+			"nativeName": "English",
+			"isDeleted": null,
+			"isActive": true
+		}],
+		"applicantValidDocuments": [{
+			"appTypeCode": "001",
+			"docTypeCode": "CIN",
+			"docCatCode": "POI",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"individualTypes": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"code": "FR",
+			"name": "Foreigner"
+		}],
+		"registrationCenterMachines": [{
+			"regCenterId": "10001",
+			"machineId": "10001",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"registrationCenterDevices": [{
+			"regCenterId": "10001",
+			"deviceId": "3000021",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"registrationCenterMachineDevices": [{
+			"regCenterId": "10001",
+			"machineId": "10001",
+			"deviceId": "3000021",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"registrationCenterUserMachines": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"cntrId": "10001",
+			"machineId": "10001",
+			"usrId": "110001"
+		}],
+		"registrationCenterUsers": [{
+			"regCenterId": "10001",
+			"userId": "110001",
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true
+		}],
+		"registrationCenterMachineHistory": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"regCenterId": "10001",
+			"machineId": "10001",
+			"effectivetimes": "2019-02-28T10:24:38.460784"
+		}],
+		"registrationCenterDeviceHistory": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"regCenterId": "10001",
+			"deviceId": "3000021",
+			"effectivetimes": "2019-02-28T10:24:38.420Z"
+		}],
+		"registrationCenterMachineDeviceHistory": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"regCenterId": "10001",
+			"machineId": "10001",
+			"deviceId": "3000021",
+			"effectiveDateTime": null
+		}],
+		"registrationCenterUserMachineMappingHistory": [{
+			"cntrId": "10001",
+			"machineId": "10001",
+			"usrId": "110001",
+			"effectivetimes": "2019-02-28T10:24:38.496Z"
+		}],
+		"registrationCenterUserHistory": [{
+			"isDeleted": null,
+			"langCode": "eng",
+			"isActive": true,
+			"regCntrId": "10001",
+			"userId": "110001",
+			"effectDateTimes": "2019-02-28T10:24:38.478467"
+		}]
+	}
 }
 
 ## 3.2 Config details-get service
@@ -604,104 +629,108 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "registrationConfiguration": {
-    "keyValidityPeriodPreRegPack": "3",
-    "smsNotificationTemplateRegCorrection": "OTP for your request is $otp",
-    "defaultDOB": "1-Jan",
-    "smsNotificationTemplateOtp": "OTP for your request is $otp",
-    "supervisorVerificationRequiredForExceptions": "true",
-    "keyValidityPeriodRegPack": "3",
-    "irisRetryAttempts": "10",
-    "fingerprintQualityThreshold": "120",
-    "multifactorauthentication": "true",
-    "smsNotificationTemplateUpdateUIN": "OTP for your request is $otp",
-    "supervisorAuthType": "password",
-    "maxDurationRegPermittedWithoutMasterdataSyncInDays": "10",
-    "modeOfNotifyingIndividual": "mobile",
-    "emailNotificationTemplateUpdateUIN": "Hello $user the OTP is $otp",
-    "maxDocSizeInMB": "150",
-    "emailNotificationTemplateOtp": "Hello $user the OTP is $otp",
-    "emailNotificationTemplateRegCorrection": "Hello $user the OTP is $otp",
-    "faceRetry": "12",
-    "noOfFingerprintAuthToOnboardUser": "10",
-    "smsNotificationTemplateLostUIN": "OTP for your request is $otp",
-    "supervisorAuthMode": "IRIS",
-    "operatorRegSubmissionMode": "fingerprint",
-    "officerAuthType": "password",
-    "faceQualityThreshold": "25",
-    "gpsDistanceRadiusInMeters": "3",
-    "automaticSyncFreqServerToClient": "25",
-    "maxDurationWithoutMasterdataSyncInDays": "7",
-    "loginMode": "bootable dongle",
-    "irisQualityThreshold": "25",
-    "retentionPeriodAudit": "3",
-    "fingerprintRetryAttempts": "234",
-    "emailNotificationTemplateNewReg": "Hello $user the OTP is $otp",
-    "passwordExpiryDurationInDays": "3",
-    "emailNotificationTemplateLostUIN": "Hello $user the OTP is $otp",
-    "blockRegistrationIfNotSynced": "10",
-    "noOfIrisAuthToOnboardUser": "10",
-    "smsNotificationTemplateNewReg": "OTP for your request is $otp"
-  },
-  "globalConfiguration": {
-    "mosip.kernel.email.max-length": "50",
-    "mosip.kernel.email.domain.ext-max-lenght": "7",
-    "mosip.kernel.rid.sequence-length": "5",
-    "mosip.kernel.uin.uin-generation-cron": "0 * * * * *",
-    "mosip.kernel.email.special-char": "!#$%&'*+-/=?^_`{|}~.",
-    "mosip.kernel.prid.sequence-limit": "3",
-    "mosip.kernel.email.domain.ext-min-lenght": "2",
-    "mosip.kernel.machineid.length": "4",
-    "mosip.supported-languages": "eng,ara,fra",
-    "auth.header.name": "Authorization",
-    "mosip.kernel.phone.min-length": "9",
-    "mosip.kernel.virus-scanner.host": "104.211.209.102",
-    "mosip.kernel.email.min-length": "7",
-    "mosip.kernel.uin.length.conjugative-even-digits-limit": "3",
-    "mosip.kernel.rid.machineid-length": "5",
-    "mosip.kernel.prid.repeating-block-limit": "3",
-    "mosip.kernel.vid.length.repeating-block-limit": "2",
-    "mosip.kernel.rid.length": "29",
-    "mosip.kernel.uin.restricted-numbers": "786,666",
-    "mosip.kernel.keygenerator.asymmetric-algorithm-name": "RSA ",
-    "mosip.kernel.email.domain.special-char": "-",
-    "mosip.kernel.vid.length.repeating-limit": "2",
-    "mosip.kernel.uin.length.reverse-digits-limit": "5",
-    "mosip.kernel.vid.not-start-with": "0,1",
-    "mosip.kernel.registrationcenterid.length": "4",
-    "mosip.kernel.phone.special-char": "+ -",
-    "mosip.kernel.uin.uins-to-generate": "200000",
-    "mosip.kernel.vid.length": "16",
-    "mosip.kernel.uin.length.repeating-block-limit": "2",
-    "mosip.kernel.uin.length.sequence-limit": "3",
-    "mosip.kernel.keygenerator.symmetric-algorithm-length": "256",
-    "mosip.kernel.keygenerator.symmetric-algorithm-name": "AES",
-    "mosip.kernel.crypto.symmetric-algorithm-name": "AES",
-    "mosip.kernel.virus-scanner.port": "3310",
-    "mosip.kernel.rid.centerid-length": "5",
-    "mosip.kernel.uin.length.digits-limit": "5",
-    "mosip.kernel.rid.timestamp-length": "14",
-    "mosip.kernel.vid.length.sequence-limit": "3",
-    "mosip.kernel.keygenerator.asymmetric-algorithm-length": "2048",
-    "mosip.kernel.uin.min-unused-threshold": "100000",
-    "auth.role.prefix": "ROLE_",
-    "auth.server.validate.url": "https://integ.mosip.io/authmanager/validate_token",
-    "mosip.kernel.prid.length": "14",
-    "mosip.kernel.syncdata.registration-center-config-file": "registration-${spring.profiles.active}.properties",
-    "mosip.kernel.crypto.asymmetric-algorithm-name": "RSA",
-    "mosip.kernel.uin.length": "12",
-    "mosip.kernel.phone.max-length": "15",
-    "mosip.kernel.prid.repeating-limit": "2",
-   "mosip.kernel.tokenid.length": "36",
-    "mosip.kernel.tspid.length": "4",
-    "mosip.kernel.syncdata.global-config-file": "application-${spring.profiles.active}.properties",
-    "mosip.kernel.prid.not-start-with": "0,1",
-    "mosip.kernel.tokenid.sequence-limit": "3",
-    "mosip.kernel.uin.length.repeating-limit": "2",
-    "mosip.kernel.data-key-splitter": "#KEY_SPLITTER#"
-  }
+	"id": "mosip.sync.getconfig",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "registrationConfiguration": {
+		"keyValidityPeriodPreRegPack": "3",
+		"smsNotificationTemplateRegCorrection": "OTP for your request is $otp",
+		"defaultDOB": "1-Jan",
+		"smsNotificationTemplateOtp": "OTP for your request is $otp",
+		"supervisorVerificationRequiredForExceptions": "true",
+		"keyValidityPeriodRegPack": "3",
+		"irisRetryAttempts": "10",
+		"fingerprintQualityThreshold": "120",
+		"multifactorauthentication": "true",
+		"smsNotificationTemplateUpdateUIN": "OTP for your request is $otp",
+		"supervisorAuthType": "password",
+		"maxDurationRegPermittedWithoutMasterdataSyncInDays": "10",
+		"modeOfNotifyingIndividual": "mobile",
+		"emailNotificationTemplateUpdateUIN": "Hello $user the OTP is $otp",
+		"maxDocSizeInMB": "150",
+		"emailNotificationTemplateOtp": "Hello $user the OTP is $otp",
+		"emailNotificationTemplateRegCorrection": "Hello $user the OTP is $otp",
+		"faceRetry": "12",
+		"noOfFingerprintAuthToOnboardUser": "10",
+		"smsNotificationTemplateLostUIN": "OTP for your request is $otp",
+		"supervisorAuthMode": "IRIS",
+		"operatorRegSubmissionMode": "fingerprint",
+		"officerAuthType": "password",
+		"faceQualityThreshold": "25",
+		"gpsDistanceRadiusInMeters": "3",
+		"automaticSyncFreqServerToClient": "25",
+		"maxDurationWithoutMasterdataSyncInDays": "7",
+		"loginMode": "bootable dongle",
+		"irisQualityThreshold": "25",
+		"retentionPeriodAudit": "3",
+		"fingerprintRetryAttempts": "234",
+		"emailNotificationTemplateNewReg": "Hello $user the OTP is $otp",
+		"passwordExpiryDurationInDays": "3",
+		"emailNotificationTemplateLostUIN": "Hello $user the OTP is $otp",
+		"blockRegistrationIfNotSynced": "10",
+		"noOfIrisAuthToOnboardUser": "10",
+		"smsNotificationTemplateNewReg": "OTP for your request is $otp"
+	  },
+	  "globalConfiguration": {
+		"mosip.kernel.email.max-length": "50",
+		"mosip.kernel.email.domain.ext-max-lenght": "7",
+		"mosip.kernel.rid.sequence-length": "5",
+		"mosip.kernel.uin.uin-generation-cron": "0 * * * * *",
+		"mosip.kernel.email.special-char": "!#$%&'*+-/=?^_`{|}~.",
+		"mosip.kernel.prid.sequence-limit": "3",
+		"mosip.kernel.email.domain.ext-min-lenght": "2",
+		"mosip.kernel.machineid.length": "4",
+		"mosip.supported-languages": "eng,ara,fra",
+		"auth.header.name": "Authorization",
+		"mosip.kernel.phone.min-length": "9",
+		"mosip.kernel.virus-scanner.host": "104.211.209.102",
+		"mosip.kernel.email.min-length": "7",
+		"mosip.kernel.uin.length.conjugative-even-digits-limit": "3",
+		"mosip.kernel.rid.machineid-length": "5",
+		"mosip.kernel.prid.repeating-block-limit": "3",
+		"mosip.kernel.vid.length.repeating-block-limit": "2",
+		"mosip.kernel.rid.length": "29",
+		"mosip.kernel.uin.restricted-numbers": "786,666",
+		"mosip.kernel.keygenerator.asymmetric-algorithm-name": "RSA ",
+		"mosip.kernel.email.domain.special-char": "-",
+		"mosip.kernel.vid.length.repeating-limit": "2",
+		"mosip.kernel.uin.length.reverse-digits-limit": "5",
+		"mosip.kernel.vid.not-start-with": "0,1",
+		"mosip.kernel.registrationcenterid.length": "4",
+		"mosip.kernel.phone.special-char": "+ -",
+		"mosip.kernel.uin.uins-to-generate": "200000",
+		"mosip.kernel.vid.length": "16",
+		"mosip.kernel.uin.length.repeating-block-limit": "2",
+		"mosip.kernel.uin.length.sequence-limit": "3",
+		"mosip.kernel.keygenerator.symmetric-algorithm-length": "256",
+		"mosip.kernel.keygenerator.symmetric-algorithm-name": "AES",
+		"mosip.kernel.crypto.symmetric-algorithm-name": "AES",
+		"mosip.kernel.virus-scanner.port": "3310",
+		"mosip.kernel.rid.centerid-length": "5",
+		"mosip.kernel.uin.length.digits-limit": "5",
+		"mosip.kernel.rid.timestamp-length": "14",
+		"mosip.kernel.vid.length.sequence-limit": "3",
+		"mosip.kernel.keygenerator.asymmetric-algorithm-length": "2048",
+		"mosip.kernel.uin.min-unused-threshold": "100000",
+		"auth.role.prefix": "ROLE_",
+		"auth.server.validate.url": "https://integ.mosip.io/authmanager/validate_token",
+		"mosip.kernel.prid.length": "14",
+		"mosip.kernel.syncdata.registration-center-config-file": "registration-${spring.profiles.active}.properties",
+		"mosip.kernel.crypto.asymmetric-algorithm-name": "RSA",
+		"mosip.kernel.uin.length": "12",
+		"mosip.kernel.phone.max-length": "15",
+		"mosip.kernel.prid.repeating-limit": "2",
+	   "mosip.kernel.tokenid.length": "36",
+		"mosip.kernel.tspid.length": "4",
+		"mosip.kernel.syncdata.global-config-file": "application-${spring.profiles.active}.properties",
+		"mosip.kernel.prid.not-start-with": "0,1",
+		"mosip.kernel.tokenid.sequence-limit": "3",
+		"mosip.kernel.uin.length.repeating-limit": "2",
+		"mosip.kernel.data-key-splitter": "#KEY_SPLITTER#"
+	  }
+	}
 }
-
 ```
 
 
@@ -733,19 +762,24 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-   "roles": [
-      {
-      "roleId": "REGISTRATION_ADMIN",
-      "roleName": "REGISTRATION_ADMIN",
-      "roleDescription": "Registration administrator"
-    },
-    {
-      "roleId": "TSP",
-      "roleName": "TSP",
-      "roleDescription": "Trusted Service Provider"
-    }
-  ]
-}
+	"id": "mosip.sync.getroles",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	   "roles": [
+		  {
+		  "roleId": "REGISTRATION_ADMIN",
+		  "roleName": "REGISTRATION_ADMIN",
+		  "roleDescription": "Registration administrator"
+		},
+		{
+		  "roleId": "TSP",
+		  "roleName": "TSP",
+		  "roleDescription": "Trusted Service Provider"
+		}
+	  ]
+	}
+}		
 ```
 
 ## 3.4 Get list of users and role-mapping 
@@ -774,20 +808,25 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-   "userDetails": [
-     {
-      "userName": "110001",
-      "mail": "user@mosip.com",
-      "mobile": "987654321",
-      "langCode": null,
-      "userPassword": "e1NIQTI1Nn05SmN0UmJRb01OR0FOZzhxSzE2U0hsOW5xaGl0Q2VsTjBjME1CQi90RXlrPQ==",
-      "name": "user",
-      "roles": [
-        "REGISTRATION_ADMIN"
-      ]
-    }
-  ]
-}
+	"id": "mosip.sync.userrolesmapping",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	   "userDetails": [
+		 {
+		  "userName": "110001",
+		  "mail": "user@mosip.com",
+		  "mobile": "987654321",
+		  "langCode": null,
+		  "userPassword": "e1NIQTI1Nn05SmN0UmJRb01OR0FOZzhxSzE2U0hsOW5xaGl0Q2VsTjBjME1CQi90RXlrPQ==",
+		  "name": "user",
+		  "roles": [
+			"REGISTRATION_ADMIN"
+		  ]
+		}
+	  ]
+	}
+}	
 ```
 ## 3.5 Public key-get service
 
@@ -817,10 +856,15 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
-  "issuedAt": "2018-01-01T10:00:00",
-  "expiryAt": "2018-12-10T06:12:51.994"
-}
+	"id": "mosip.sync.getpublickey",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
+		  "issuedAt": "2018-01-01T10:00:00",
+		  "expiryAt": "2018-12-10T06:12:51.994"
+	}
+}	
 ```
 
 
@@ -852,7 +896,12 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```
 {
-  "uin": "734168915279"
+	"id": "mosip.uin.getuin",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "uin": "734168915279"
+	}
 }
 ```
 
@@ -901,9 +950,14 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 ### Example Response
 ```
 {
-  "message": "Sms Request Sent",
-  "status": "success"
-}
+	"id": "mosip.sms.send",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "message": "Sms Request Sent",
+	  "status": "success"
+	}
+}	
 ```
 
 
@@ -951,9 +1005,14 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 ### Example Response
 ```
 {
-  "message": "Email Request sent",
-  "status": "success"
-}
+	"id": "mosip.email.send",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "message": "Email Request sent",
+	  "status": "success"
+	}
+}	
 ```
 
 
@@ -1000,8 +1059,13 @@ key |Yes|Key| | 9820173642
 ### Example Response
 ```JSON
 {
-  "otp": "849004",
-  "status": "GENERATION_SUCCESSFUL"
+	"id": "mosip.applicanttype.getApplicantType",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "otp": "849004",
+	  "status": "GENERATION_SUCCESSFUL"
+	}
 }
 ```
 
@@ -1035,9 +1099,14 @@ otp|Yes|OTP| | 123456
 ### Example Response
 ```
 {
-  "status": "success",
-  "message": "VALIDATION SUCCESSFUL"
-}
+	"id": "mosip.authentication.sendotp",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "status": "success",
+	  "message": "VALIDATION SUCCESSFUL"
+	}
+}	
 ```
 
 
@@ -1111,7 +1180,12 @@ description|No|Description of the event| |Example description
 ### Example Response
 ```JSON
 {
-  "status": true
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "status": true
+	}
 }
 ```
 
@@ -1156,7 +1230,12 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
 ### Example Response
 ```JSON
 {
-  "licenseKey": "gR7Mw7tA7S7qifkf"
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "licenseKey": "gR7Mw7tA7S7qifkf"
+	}
 }
 ```
 ## 9.2 Mapping Permissions
@@ -1197,7 +1276,12 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 ### Example Response
 ```JSON
 {
-  "status": "Mapped License with the permissions"
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "status": "Mapped License with the permissions"
+	}
 }
 ```
 
@@ -1227,10 +1311,15 @@ license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
 ### Example Response
 ```JSON
 {
-  "permissions": [
-    "OTP Trigger",
-    "OTP Authentication"
-  ]
+	"id": "mosip.license.permission",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "permissions": [
+		"OTP Trigger",
+		"OTP Authentication"
+	  ]
+	}
 }
 ```
 
@@ -1347,8 +1436,13 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 ### Example Response
 ```JSON
 {
-  "status": "success",
-  "message": "Otp notification request submitted"
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "status": "success",
+	  "message": "Otp notification request submitted"
+	}
 }
 ```
 ## 10.2 OTP Notification[Only Email]
@@ -1395,9 +1489,14 @@ smsTemplate|No|||
 ### Example Response
 ```JSON
 {
-  "status": "success",
-  "message": "Otp notification request submitted"
-}
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"request": {
+	  "status": "success",
+	  "message": "Otp notification request submitted"
+	}
+}	
 ```
 
 ## 10.3 OTP Notification[Only SMS]
@@ -1444,9 +1543,14 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 ### Example Response
 ```JSON
 {
-  "status": "success",
-  "message": "Otp notification request submitted"
-}
+	"id": "mosip.applicanttype.getApplicantType",
+	"version": "1.0",
+	"requesttime": "2007-12-03T10:15:30Z",
+	"response": {
+	  "status": "success",
+	  "message": "Otp notification request submitted"
+	}
+}	
 ```
 
 # 11. Applicant type
