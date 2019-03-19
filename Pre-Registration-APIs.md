@@ -1087,7 +1087,7 @@ Requires Authentication | Yes
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 ### Host
-##### Integration - `http://qa.mosip.io`
+##### QA - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
 
@@ -1147,8 +1147,8 @@ Requires Authentication | Yes
 ###### Description: Document uploaded successfully
 ```JSON
 {
-  "err": null,
-  "id": "string",
+  "id": "mosip.pre-registration.document.upload",
+  "version" : "1.0",
   "responsetime": "2019-01-16T16:41:06.659Z",
   "response": [
     {
@@ -1159,7 +1159,8 @@ Requires Authentication | Yes
       "documentType": "identity",
       "resMsg": "DOCUMENT_UPLOAD_SUCCESSFUL"
     }
-  ]
+  ],
+  "errors":null
 }
 ```
 
@@ -1168,178 +1169,30 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty Request Id
 ```JSON
 { 
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
-  "id": "string",
+  "id": "mosip.pre-registration.document.upload",
+  "version" : "1.0",
   "responsetime": "2019-01-16T17:31:04.021Z",
-  "response": null
+  "response":null,
+  "errors":[
+		{
+		"errorCode": "PRG_PAM_DOC_007",
+		"message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
+		}
+    ]
 }
 ```
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Version
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T17:32:35.658Z",
-  "response": null
-}
-```
+###### Other Failure Details:
+Code|Message|Description
+-----|----------|-------------
+PRG_CORE_REQ_004|INVALID_REQUEST_BODY|If the Request Body is empty.
+PRG_PAM_DOC_004|DOCUMENT_INVALID_FORMAT|Invalid document format.
+PRG_PAM_APP_005|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|When preregistration data is not found for the preregistration id in the DB.
+PRG_PAM_DOC_014|MANDATORY_FIELD_NOT_FOUND |If the document & preregistration id, status code, document category code or preregistration data is empty are failed to store in the db.
+PRG_PAM_DOC_010|DOCUMENT_FAILED_IN_VIRUS_SCAN| Document virus scan failed. 
+PRG_PAM_DOC_020|DEMOGRAPHIC_GET_RECORD_FAILED| Retrieval of preregistration data failed.
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Date & Time
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T17:31:04.021Z",
-  "response": null
-}
-```
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Body
-```JSON
-{ 
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message":"INVALID_REQUEST_BODY"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: if the document size is more than the specified limit
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_007",
-    "message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid document format
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_004",
-    "message": "DOCUMENT_INVALID_FORMAT"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: When preregistration data is not found for the preregistration id in the DB
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "PRG_PAM_APP_005 --> PRG_PAM_APP_005 --> UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If preregistration id, status code, document category code or preregistration data is empty
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_014",
-    "message": "MANDATORY_FIELD_NOT_FOUND"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If the document & document details are failed to store in the db
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_009",
-    "message": "DOCUMENT_FAILED_TO_UPLOAD"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Document virus scan failed
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_010",
-    "message": "DOCUMENT_FAILED_IN_VIRUS_SCAN"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Retrieval of preregistration data failed
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_020",
-    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Copied document & the details are failed to store in the db
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_011",
-    "message": "DOCUMENT_FAILED_TO_COPY"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
 #### 2.7.3.2 POST Operation
 #### Path -  `/documents/copy`
 #### Summary
@@ -1365,9 +1218,9 @@ Requires Authentication | Yes
 ###### Description: Document successfully copied
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-01-17T11:18:43.889Z",
+  "id": "mosip.pre-registration.document.copy",
+  "version" : "1.0",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response": [
     {
       "sourcePreRegId": "97285429827016",
@@ -1375,7 +1228,8 @@ Requires Authentication | Yes
       "destPreRegId": "67531403498547",
       "destDocumnetId": "2c9180836833aa3101685b88e12f0016"
     }
-  ]
+  ],
+  "errors":null
 }
 ```
 
@@ -1384,59 +1238,26 @@ Requires Authentication | Yes
 ###### Description: Document not found for the source pre-registration Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  "id": "mosip.pre-registration.document.upload",
+  "version" : "1.0",
+  "responsetime": "2019-01-16T17:31:04.021Z",
+  "response":null,
+  "errors":[
+		{
+        "errorCode": "PRG_PAM_DOC_005",
+        "message": "DOCUMENT_IS_MISSING"
+        }
+	]
 }
 ```
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Source preregistration id or Destination preregistration id is empty or invalid
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_018",
-    "message": "INVALID_REQUEST_PARAMETER"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
+###### Other Failure Details:
+Code|Message|Description
+-----|----------|-------------
+PRG_PAM_DOC_018|INVALID_REQUEST_PARAMETER|Source preregistration id or Destination preregistration id is empty or invalid.
+PRG_PAM_DOC_009|DOCUMENT_FAILED_TO_UPLOAD|HDFS exception.
+PRG_PAM_DOC_011|DOCUMENT_FAILED_TO_COPY|if the copied document & document details are failed to store in the db.
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: ceph exception
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_009",
-    "message": "DOCUMENT_FAILED_TO_UPLOAD"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: if the copied document & document details are failed to store in the db
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_011",
-    "message": "DOCUMENT_FAILED_TO_COPY"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
 
 #### 2.7.3.3 GET Operation
 #### Path -  `/documents`
