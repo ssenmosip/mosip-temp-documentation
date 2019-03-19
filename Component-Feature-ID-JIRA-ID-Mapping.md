@@ -168,7 +168,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.|NA|New UIN Issuance|RPR_FR_1.1|NA|
 
 **11. Authentication:** 
 
