@@ -75,8 +75,8 @@
 |22.|pre-registration-ui|Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](https://mosipid.atlassian.net/browse/MOS-812), [MOS-13142](https://mosipid.atlassian.net/browse/MOS-13142), [MOS-13143](https://mosipid.atlassian.net/browse/MOS-13143)|
 |23.|pre-registration-ui|Get Appointment for the Day|PRE_FR_6.1|[MOS-816](https://mosipid.atlassian.net/browse/MOS-816)|
 |24.|pre-registration-booking-service|Get Appointment for the Day|PRE_FR_6.1|[MOS-663](https://mosipid.atlassian.net/browse/MOS-663)|
-|16.|pre-registration-datasync-service|Retrieve Application Data by PRID|PRE_FR_6.2|[MOS-668](https://mosipid.atlassian.net/browse/MOS-668), [MOS-1999](https://mosipid.atlassian.net/browse/MOS-1999)|
-|17.||List of Configurable Parameters and Processes|PRE_FR_7|[MOS-10291](https://mosipid.atlassian.net/browse/MOS-10291), [MOS-14510](https://mosipid.atlassian.net/browse/MOS-14510)|
+|25.|pre-registration-datasync-service|Retrieve Application Data by PRID|PRE_FR_6.2|[MOS-668](https://mosipid.atlassian.net/browse/MOS-668), [MOS-1999](https://mosipid.atlassian.net/browse/MOS-1999)|
+|26.||List of Configurable Parameters and Processes|PRE_FR_7|[MOS-10291](https://mosipid.atlassian.net/browse/MOS-10291), [MOS-14510](https://mosipid.atlassian.net/browse/MOS-14510)|
 
 
 **9. Registration:**
