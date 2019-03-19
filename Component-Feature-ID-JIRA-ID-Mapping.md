@@ -169,6 +169,41 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|NA|New UIN Issuance|RPR_FR_1.1|NA|
+| 1| NA| New UIN Issuance| RPR_FR_1.1| 
+| 2| uin-update-stage| UIN Update| RPR_FR_1.2| [MOS-13211](https://mosipid.atlassian.net/browse/)MOS-13211), [ MOS-13210](https://mosipid.atlassian.net/browse/) MOS-13210), [ MOS-12924](https://mosipid.atlassian.net/browse/) MOS-12924), 
+| 3| uin-update-stage| De-activate UIN – Manual/Automated| RPR_FR_1.3| [MOS-1086](https://mosipid.atlassian.net/browse/)MOS-1086), [ MOS-1085](https://mosipid.atlassian.net/browse/) MOS-1085), 
+| 4| uin-update-stage| Re-activate UIN| RPR_FR_1.4| [MOS-1087](https://mosipid.atlassian.net/browse/)MOS-1087), 
+| 5| registration-processor-camel-bridge| Orchestration| RPR_FR_2.1| [MOS-10727](https://mosipid.atlassian.net/browse/)MOS-10727), [ MOS-12568](https://mosipid.atlassian.net/browse/) MOS-12568), [  MOS-17609](https://mosipid.atlassian.net/browse/)  MOS-17609), [ MOS-15017](https://mosipid.atlassian.net/browse/) MOS-15017), 
+| 6| reprocess-stage| Retry Processing (In case of exceptions/failures)| RPR_FR_2.2| [MOS-8225](https://mosipid.atlassian.net/browse/)MOS-8225), 
+| 7| reprocess-stage| Resume Workflow| RPR_FR_2.3| [MOS-13197](https://mosipid.atlassian.net/browse/)MOS-13197), 
+| 8| NA| Integration (System capability)| RPR_FR_2.4| 
+| 9| NA| Workflow Customization (Ability to plug-in/exclude stages)| RPR_FR_2.5| 
+| 10| NA| Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)| RPR_FR_2.6| 
+| 11| NA| Scalability and Throughput| RPR_FR_2.7| 
+| 12| packet-receiver-stage| Sanity Check| RPR_FR_3.1| [MOS-44](https://mosipid.atlassian.net/browse/)MOS-44), [ MSO-45](https://mosipid.atlassian.net/browse/) MSO-45), [ MOS-46](https://mosipid.atlassian.net/browse/) MOS-46), [ MOS-1031](https://mosipid.atlassian.net/browse/) MOS-1031), 
+| 13| virus-scanner-stage| Virus Scan| RPR_FR_3.2| [MOS-49](https://mosipid.atlassian.net/browse/)MOS-49), [ MOS-50](https://mosipid.atlassian.net/browse/) MOS-50), [ MOS-718](https://mosipid.atlassian.net/browse/) MOS-718), [ MOS-11855](https://mosipid.atlassian.net/browse/) MOS-11855), 
+| 14| | Source Authentication| RPR_FR_3.3| 
+| 15| osi-validator-stage| Machine-User-Center Mapping Check| RPR_FR_3.4| [MOS-240](https://mosipid.atlassian.net/browse/)MOS-240), [ MOS-12831](https://mosipid.atlassian.net/browse/) MOS-12831), [ ](https://mosipid.atlassian.net/browse/) ), 
+| 16| osi-validator-stage| GPS Capture Check| RPR_FR_3.5| 
+| 17| osi-validator-stage| Operator & Supervisor Validation| RPR_FR_3.6| [MOS-1088](https://mosipid.atlassian.net/browse/)MOS-1088), [ MOS-9129](https://mosipid.atlassian.net/browse/) MOS-9129), [ MOS-246](https://mosipid.atlassian.net/browse/) MOS-246), [ MOS-245](https://mosipid.atlassian.net/browse/) MOS-245), [ MOS-241](https://mosipid.atlassian.net/browse/) MOS-241), [ MOS-14589](https://mosipid.atlassian.net/browse/) MOS-14589), [ MOS-242](https://mosipid.atlassian.net/browse/) MOS-242), [ MOS-17805](https://mosipid.atlassian.net/browse/) MOS-17805), 
+| 18| quality-matchness-checker-stage| Data Quality Check: Photo, Age, Gender Data Check| RPR_FR_3.7| [MOS-1082](https://mosipid.atlassian.net/browse/)MOS-1082), 
+| 19| quality-matchness-checker-stage| Biometrics Quality Check| RPR_FR_3.8| [MOS-1093](https://mosipid.atlassian.net/browse/)MOS-1093), [ MOS-1091](https://mosipid.atlassian.net/browse/) MOS-1091), [ MOS-1084](https://mosipid.atlassian.net/browse/) MOS-1084), [ MOS-17610](https://mosipid.atlassian.net/browse/) MOS-17610), [ MOS-8460](https://mosipid.atlassian.net/browse/) MOS-8460), 
+| 20| quality-matchness-checker-stage| Doc. Validation - OCR| RPR_FR_3.9| [MOS-1081](https://mosipid.atlassian.net/browse/)MOS-1081), 
+| 21| quality-matchness-checker-stage| File & Document Validation| RPR_FR_3.10| [MOS-226](https://mosipid.atlassian.net/browse/)MOS-226), [ MOS-48](https://mosipid.atlassian.net/browse/) MOS-48), [ MOS-13138](https://mosipid.atlassian.net/browse/) MOS-13138), 
+| 22| osi-validator-stage| Introducer Validation| RPR_FR_3.11| [MOS-1088](https://mosipid.atlassian.net/browse/)MOS-1088), [ MOS-9129](https://mosipid.atlassian.net/browse/) MOS-9129), [ MOS-246](https://mosipid.atlassian.net/browse/) MOS-246), [ MOS-245](https://mosipid.atlassian.net/browse/) MOS-245), [ MOS-17805](https://mosipid.atlassian.net/browse/) MOS-17805), 
+| 23| demo-dedupe-stage, bio-dedupe-stage, packet-bio-dedupe-service| Deduplication – Demographic, Biometrics| RPR_FR_3.12| [MOS-1094](https://mosipid.atlassian.net/browse/)MOS-1094), [ MOS-1079](https://mosipid.atlassian.net/browse/) MOS-1079), [ MOS-1064](https://mosipid.atlassian.net/browse/) MOS-1064), [ MOS-1096](https://mosipid.atlassian.net/browse/) MOS-1096), [ MOS-1095](https://mosipid.atlassian.net/browse/) MOS-1095), [ MOS-9343](https://mosipid.atlassian.net/browse/) MOS-9343), [ MOS-9342](https://mosipid.atlassian.net/browse/) MOS-9342), [ MOS-9341](https://mosipid.atlassian.net/browse/) MOS-9341), [ MOS-11897](https://mosipid.atlassian.net/browse/) MOS-11897), 
+| 24| NA| Data Verification (Pluggable by SI – Not part of MOSIP)| RPR_FR_3.13| 
+| 25| NA| Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)| RPR_FR_3.14| 
+| 26| NA| Manual Verification for ext. system data update (Pluggable by SI)| RPR_FR_3.15| 
+| 27| manual-verification-stage| Manual Adjudication (Pluggable by SI)| RPR_FR_3.16| [MOS-1078](https://mosipid.atlassian.net/browse/)MOS-1078), [ MOS-1077](https://mosipid.atlassian.net/browse/) MOS-1077), [ MOS-1076](https://mosipid.atlassian.net/browse/) MOS-1076), [ MOS-16105](https://mosipid.atlassian.net/browse/) MOS-16105), 
+| 28| registration-processor-abis| ABIS Integration (Incl. ABIS Middleware)| RPR_FR_3.17| [MOS-1097](https://mosipid.atlassian.net/browse/)MOS-1097), [ MOS-13141](https://mosipid.atlassian.net/browse/) MOS-13141), [ MOS-13140](https://mosipid.atlassian.net/browse/) MOS-13140), 
+| 29| uin-generator-stage| Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association| RPR_FR_3.18| [MOS-1065](https://mosipid.atlassian.net/browse/)MOS-1065), [ MOS-19000](https://mosipid.atlassian.net/browse/) MOS-19000), 
+| 30| uin-generator-stage| Store/Update ID Repository (Refer to ID-Auth)| RPR_FR_3.19| [MOS-1067](https://mosipid.atlassian.net/browse/)MOS-1067), [ MOS-1089](https://mosipid.atlassian.net/browse/) MOS-1089), 
+| 31| Integration-Kernel-Audit Manager| Capture Audit Trails/Analytics Data| RPR_FR_3.20| [MOS-719](https://mosipid.atlassian.net/browse/)MOS-719), [ MOS-9597](https://mosipid.atlassian.net/browse/) MOS-9597), [ MOS-8367](https://mosipid.atlassian.net/browse/) MOS-8367), [ MOS-13198](https://mosipid.atlassian.net/browse/) MOS-13198), [ ](https://mosipid.atlassian.net/browse/) ), 
+| 32| message-sender-stage| Notification (Pluggable by SI)| RPR_FR_3.21| [MOS-10783](https://mosipid.atlassian.net/browse/)MOS-10783), [ MOS-1069](https://mosipid.atlassian.net/browse/) MOS-1069), [ MOS-1068](https://mosipid.atlassian.net/browse/) MOS-1068), [ MOS-12007](https://mosipid.atlassian.net/browse/) MOS-12007), [ MOS-11962](https://mosipid.atlassian.net/browse/) MOS-11962), [ MOS-13967](https://mosipid.atlassian.net/browse/) MOS-13967), [ MOS-14595](https://mosipid.atlassian.net/browse/) MOS-14595), [ MOS-1066](https://mosipid.atlassian.net/browse/) MOS-1066), 
+| 33| printing-stage| Print & Post (Pluggable by SI)| RPR_FR_3.22| [MOS-14596](https://mosipid.atlassian.net/browse/)MOS-14596), [ MOS-14582](https://mosipid.atlassian.net/browse/) MOS-14582), [ MOS-16107](https://mosipid.atlassian.net/browse/) MOS-16107), [ MOS-15021](https://mosipid.atlassian.net/browse/) MOS-15021), [ MOS-1071 ](https://mosipid.atlassian.net/browse/) MOS-1071 ), 
+| 34| NA| Data Seeding to External Functional ID System (Pluggable by SI)| RPR_FR_3.23| 
+
 
 **11. Authentication:** 
 
