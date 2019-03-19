@@ -40,7 +40,7 @@
     * [3.5 Policies - Create/Read/Update/Delete](#33-policies) _(ADM_FR_3.5)_
     * [3.6 Partner-Policy Mapping - Create/Read/Update/Delete](#33-partner-policy-mapping) _(ADM_FR_3.6)_
     * [3.7 MISP-Partner Mapping - Create/Read/Update/Delete](#33-misp-partner-mapping) _(ADM_FR_3.7)_
-    * [3.8 Validate and Re-issue Digital Certificate](#33-digital-certificate) _(ADM_FR_3.8)_
+    * [3.8 Validate and Re-issue Digital Certificate to Partner](#33-digital-certificate) _(ADM_FR_3.8)_
     * [3.9 Distribution of Public Keys to Partners- Create/Read/Update/Delete](#33-misp) _(ADM_FR_3.9)_
 # Admin Services
 ## 1. Master Data Management
