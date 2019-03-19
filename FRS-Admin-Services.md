@@ -33,7 +33,8 @@
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
   * [3. Partner Management](#3-partner-management) 
-    * [3.1 License Key Manager](#31-license-key-manager) _(ADM_FR_3.1)_
+    * [3.1 License Key Generator](#31-license-key-generator) _(ADM_FR_3.1)_
+    * [3.2 License Key Status Validator](#31-license-key-status-validator) _(ADM_FR_3.2)_
 # Admin Services
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
