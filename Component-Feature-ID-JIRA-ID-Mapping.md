@@ -55,15 +55,19 @@
 |2.|pre-registration-ui|Logout/Session Timeout|PRE_FR_1.4|[MOS-205](https://mosipid.atlassian.net/browse/MOS-205), [MOS-10485](https://mosipid.atlassian.net/browse/MOS-10485), [MOS-17869](https://mosipid.atlassian.net/browse/MOS-17869)|
 |3.|pre-registration-ui|Creating an Application|PRE_FR_2|[MOS-792](https://mosipid.atlassian.net/browse/MOS-792), [MOS-793](https://mosipid.atlassian.net/browse/MOS-793)|
 |4.|pre-registration-demographic-service, pre-registration-document-service|Creating an Application|PRE_FR_2|[MOS-623](https://mosipid.atlassian.net/browse/MOS-623), [MOS-625](https://mosipid.atlassian.net/browse/MOS-625)|
-|5.||Provide Consent|PRE_FR_2.2|[MOS-13682](https://mosipid.atlassian.net/browse/MOS-13682)|
-|6.||Provide Data in Preferred Language|PRE_FR_2.4|[MOS-666](https://mosipid.atlassian.net/browse/MOS-666), [MOS-13144](https://mosipid.atlassian.net/browse/MOS-13144),[MOS-13965](https://mosipid.atlassian.net/browse/MOS-13965)|
-|7.||Provide Data in Preferred Language|PRE_FR_2.4|[MOS-667](https://mosipid.atlassian.net/browse/MOS-667)|
-|6.||Viewing "My Applications"|PRE_FR_2.5|[MOS-626](https://mosipid.atlassian.net/browse/MOS-626), [MOS-794](https://mosipid.atlassian.net/browse/MOS-794)|
-|7.||Modify Application Data|PRE_FR_2.6|[MOS-628](https://mosipid.atlassian.net/browse/MOS-628), [MOS-797](https://mosipid.atlassian.net/browse/MOS-797)|
-|8.||Discard Application|PRE_FR_2.7|[MOS-805](https://mosipid.atlassian.net/browse/MOS-805), [MOS-806](https://mosipid.atlassian.net/browse/MOS-806)|
-|9.||Document Categories and Applicable Document Types|PRE_FR_3.1|[MOS-13344](https://mosipid.atlassian.net/browse/MOS-13344)|
-|10.||Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-814](https://mosipid.atlassian.net/browse/MOS-814)|
-|11.||Choosing Appointment Slots|PRE_FR_4.2|[MOS-664](https://mosipid.atlassian.net/browse/MOS-664), [MOS-817](https://mosipid.atlassian.net/browse/MOS-817)|
+|5.|pre-registration-ui|Provide Consent|PRE_FR_2.2|[MOS-13682](https://mosipid.atlassian.net/browse/MOS-13682)|
+|6.|pre-registration-ui|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-666](https://mosipid.atlassian.net/browse/MOS-666), [MOS-13144](https://mosipid.atlassian.net/browse/MOS-13144),[MOS-13965](https://mosipid.atlassian.net/browse/MOS-13965)|
+|7.|pre-registration-translitration-service|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-667](https://mosipid.atlassian.net/browse/MOS-667)|
+|8.|pre-registration-ui|Viewing "My Applications"|PRE_FR_2.5|[MOS-794](https://mosipid.atlassian.net/browse/MOS-794)|
+|9.||Viewing "My Applications"|PRE_FR_2.5|[MOS-626](https://mosipid.atlassian.net/browse/MOS-626)|
+|10.|pre-registration-ui|Modify Application Data|PRE_FR_2.6|[MOS-797](https://mosipid.atlassian.net/browse/MOS-797)|
+|11.|pre-registration-demographic-service, pre-registration-document-service|Modify Application Data|PRE_FR_2.6|[MOS-628](https://mosipid.atlassian.net/browse/MOS-628)|
+|12.|pre-registration-ui|Discard Application|PRE_FR_2.7|[MOS-806](https://mosipid.atlassian.net/browse/MOS-806)|
+|13.||Discard Application|PRE_FR_2.7|[MOS-805](https://mosipid.atlassian.net/browse/MOS-805))|
+|14.|pre-registration-ui|Document Categories and Applicable Document Types|PRE_FR_3.1|[MOS-13344](https://mosipid.atlassian.net/browse/MOS-13344)|
+|15.|pre-registration-ui|Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-814](https://mosipid.atlassian.net/browse/MOS-814)|
+|16.|pre-registration-ui|Choosing Appointment Slots|PRE_FR_4.2|[MOS-817](https://mosipid.atlassian.net/browse/MOS-817)|
+|17.||Choosing Appointment Slots|PRE_FR_4.2|[MOS-664](https://mosipid.atlassian.net/browse/MOS-664)|
 |12.||Cancel Appointment|PRE_FR_4.3|[MOS-665](https://mosipid.atlassian.net/browse/MOS-665), [MOS-818](https://mosipid.atlassian.net/browse/MOS-818)|
 |13.||Re-book Appointment|PRE_FR_4.4|[MOS-977](https://mosipid.atlassian.net/browse/MOS-977), [MOS-978](https://mosipid.atlassian.net/browse/MOS-978)|
 |14.||Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](https://mosipid.atlassian.net/browse/MOS-812), [MOS-13142](https://mosipid.atlassian.net/browse/MOS-13142), [MOS-13143](https://mosipid.atlassian.net/browse/MOS-13143)|
