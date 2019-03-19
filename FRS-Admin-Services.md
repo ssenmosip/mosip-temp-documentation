@@ -33,19 +33,15 @@
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
   * [3. MISP Management](#3-partner-management) 
-    * [3.1 License Key Generator](#31-license-key-generator) _(ADM_FR_3.1)_
-    * [3.2 License Key Status Validator](#32-license-key-status-validator) _(ADM_FR_3.2)_
-    * [3.3 MISP - Create/Read/Update/Delete](#33-misps) _(ADM_FR_3.3)_
+    * [3.1 MISP - Create/Read/Update/Delete](#33-misps) _(ADM_FR_3.3)_
+      * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#33-misps) _(ADM_FR_3.4)_ 
   * [4. Partner Management](#3-partner-management) 
-    * [4.1 License Key Generator](#31-license-key-generator) _(ADM_FR_4.1)_
-    * [4.2 License Key Status Validator](#32-license-key-status-validator) _(ADM_FR_4.2)_
-    * [4.3 MISP - Create/Read/Update/Delete](#33-misps) _(ADM_FR_4.3)_
-    * [4.4 Partners- Create/Read/Update/Delete](#33-partners) _(ADM_FR_4.4)_
-    * [4.5 Policies - Create/Read/Update/Delete](#33-policies) _(ADM_FR_4.5)_
-    * [4.6 Partner-Policy Mapping - Create/Read/Update/Delete](#33-partner-policy-mapping) _(ADM_FR_4.6)_
-    * [4.7 MISP-Partner Mapping - Create/Read/Update/Delete](#33-misp-partner-mapping) _(ADM_FR_4.7)_
-    * [4.8 Validate and Re-issue Digital Certificate to Partner](#33-digital-certificate) _(ADM_FR_4.8)_
-    * [4.9 Distribution of Public Keys to Partners- Create/Read/Update/Delete](#33-misp) _(ADM_FR_4.9)_
+    * [4.4 Partners- Create/Read/Update/Delete](#33-partners) _(ADM_FR_4.1)_
+    * [4.5 Policies - Create/Read/Update/Delete](#33-policies) _(ADM_FR_4.2)_
+    * [4.6 Partner-Policy Mapping - Create/Read/Update/Delete](#33-partner-policy-mapping) _(ADM_FR_4.3)_
+    * [4.7 MISP-Partner Mapping - Create/Read/Update/Delete](#33-misp-partner-mapping) _(ADM_FR_4.4)_
+    * [4.8 Validate and Re-issue Digital Certificate to Partner](#33-digital-certificate) _(ADM_FR_4.5)_
+    * [4.9 Distribution of Public Keys to Partners- Create/Read/Update/Delete](#33-misp) _(ADM_FR_4.6)_
 # Admin Services
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete
