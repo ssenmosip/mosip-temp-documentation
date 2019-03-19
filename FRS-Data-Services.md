@@ -13,6 +13,7 @@
       * [4.1.6 Token ID Generator](#416-token-id-generator) _(DAT_FR_4.6)_
       * [4.1.7 MISP ID Generator](#416-misp-id-generator) _(DAT_FR_4.13)_
       * [4.1.8 Partner ID Generator](#416-partner-id-generator) _(DAT_FR_4.14)_
+      * [4.1.9 License Key Generator](#417-license-key-generator) _(DAT_FR_4.16)_
     * [4.2 ID Validator](#42-id-validator) 
       * [4.2.1 Static Pin Validator](#421-static-pin-validator) _(DAT_FR_4.7)_
       * [4.2.2  UIN Validator](#422--uin-validator) _(DAT_FR_4.8)_
@@ -21,6 +22,7 @@
       * [4.2.5 RID Validator](#425-rid-validator) _(DAT_FR_4.11)_
       * [4.2.6 TSP ID Validator](#426-tsp-id-validator) _(DAT_FR_4.12)_
       * [4.2.7 Partner ID Validator](#426-partner-id-validator) _(DAT_FR_4.15)_
+      * [4.2.8 License Key Status Validator](#427-license-key-status-validator) _(DAT_FR_4.17)_
 
 # Data services
 ## 1. Data mapper
