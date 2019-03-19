@@ -239,6 +239,13 @@ $  sudo systemctl status clamd <br/>
 $  sudo systemctl start clamd <br/>
 
 ##### ClamAv port : 3310
+explicitly open the CalmAV port 3310 for that uncommenting "TCPSocket 3310" line in below file then restart the clamd@scan service 
+$ sudo vi /etc/clamd.d/scan.conf
+$ sudo systemctl restart clamd@scan.service
+To open the 3310 from VM firewall 
+$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent
+$ sudo firewall-cmd --reload
+
 #### Command to check the ClamAV status:
 $ sudo systemctl status clamd@scan.service <br/>
 $ sudo systemctl start clamd@scan.service <br/>
