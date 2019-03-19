@@ -176,8 +176,7 @@
 |7.|eKYC Authenticator|eKYC Authentication |IDA_FR_4.1|[MOS-13161](https://mosipid.atlassian.net/browse/MOS-13161), [MOS-1119](https://mosipid.atlassian.net/browse/MOS-1119), [MOS-10165](https://mosipid.atlassian.net/browse/MOS-10165), [MOS-12241](https://mosipid.atlassian.net/browse/MOS-12241), [MOS-13963](https://mosipid.atlassian.net/browse/MOS-13963) |
 |8.|MPA Authenticator|MISP License Authentication |IDA_FR_5.1|[MOS-1098](https://mosipid.atlassian.net/browse/MOS-1098), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
 |9.|MPA Authenticator|Partner Policy Authentication |IDA_FR_5.2|[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099) |
-|10.|MPA Authenticator|MISP Partner Other Authentication ||[MOS-1129](https://mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](https://mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](https://mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](https://mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](https://mosipid.atlassian.net/browse/MOS-1099)|
-|11.|To be planned|Registered Devices and Open Devices |IDA_FR_6.1|[MOS-18215](https://mosipid.atlassian.net/browse/MOS-MOS-18215)|
+|10.|To be planned|Registered Devices and Open Devices |IDA_FR_6.1|[MOS-18215](https://mosipid.atlassian.net/browse/MOS-MOS-18215)|
 
 **12. Resident Services:** 
 
