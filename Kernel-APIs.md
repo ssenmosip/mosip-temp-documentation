@@ -217,7 +217,7 @@ Requires Authentication | Yes
 # 3 Sync data
 ## 3.1 Sync Master data-get service
 
-This service will provides the list of all master data. This service is used mainly by the Enrolment client module. In case, other modules calls this service, the machineid will be empty. The machineid will be used to get the location and based on the location, the holiday list will be retrieved. If the requestdate is not passed, all the master data will be returned. If the requestdate is passed, all the data will be returned for which the created or updated date is greater than equal request date. 
+This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
 
 ### Resource URL
 ### `GET /masterdata`
@@ -239,6 +239,465 @@ lastUpdated|No|Date in UTC ISO format| |
 ### Example Request
 
 syncdata/v1.0/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
+
+### Example Response
+```JSON
+{
+	"id": "mosip.sync.getmasterdata",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+		"lastSyncTime": "2019-03-04T12:34:15.477Z",
+		 "registrationCenter": [
+    {
+      "id": "10007",
+      "name": "Center Sidi Taibi",
+      "centerTypeCode": "REG",
+      "addressLine1": "Rabat Road",
+      "addressLine2": "Sidi Taibi",
+      "addressLine3": "Morroco",
+      "latitude": "34.192861",
+      "longitude": "-6.683662",
+      "locationCode": "14025",
+      "holidayLocationCode": "KTA",
+      "contactPhone": "811552880",
+      "numberOfStations": null,
+      "workingHours": "8:00:00",
+      "numberOfKiosks": 1,
+      "perKioskProcessTime": "00:15:00",
+      "centerStartTime": "09:00:00",
+      "centerEndTime": "17:00:00",
+      "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+      "contactPerson": "Monty Carlo",
+      "lunchStartTime": "13:00:00",
+      "lunchEndTime": "14:00:00",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "registrationCenterTypes": [
+    {
+      "isDeleted": null,
+      "langCode": "fra",
+      "isActive": true,
+      "code": "REG",
+      "name": "Ordinaire",
+      "descr": "Centre dinscription régulière"
+    }
+  ],
+  "machineDetails": [
+    {
+      "id": "10007",
+      "name": "Machine 7",
+      "serialNum": "LK8186452621",
+      "macAddress": "6d:a6:30:56:66:9f",
+      "ipAddress": "192.168.0.227",
+      "machineSpecId": "1001",
+      "validityDateTime": null,
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "machineSpecification": [
+    {
+      "id": "1001",
+      "name": "ستر  ",
+      "brand": "دلّ  ",
+      "model": "3568",
+      "machineTypeCode": "DKS",
+      "minDriverversion": "1.454",
+      "description": "لأخذ التسجيلات",
+      "isDeleted": null,
+      "langCode": "ara",
+      "isActive": true
+    }
+  ],
+  "machineType": [
+    {
+      "code": "DKS",
+      "name": "الحاسوب",
+      "description": "أجهزة الكمبيوتر المكتبية",
+      "isDeleted": null,
+      "langCode": "ara",
+      "isActive": true
+    }
+  ],
+  "devices": [
+    {
+      "id": "3000027",
+      "name": "Finger Print Scanner 7",
+      "serialNum": "CX8481464983",
+      "deviceSpecId": "165",
+      "macAddress": "d4:98:44:dd:aa:f1",
+      "ipAddress": null,
+      "validityDateTime": null,
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "deviceTypes": [
+    {
+      "code": "FRS",
+      "name": "Finger Print Scanner",
+      "description": "For scanning fingerprints",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "deviceSpecifications": [
+    {
+      "id": "165",
+      "name": "Fingerprint Scanner",
+      "brand": "Safran Morpho",
+      "model": "1300 E2",
+      "deviceTypeCode": "FRS",
+      "minDriverversion": "1.12",
+      "description": "To scan fingerprint",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "holidays": [
+    {
+      "holidayId": "2000049",
+      "holidayDate": "2019-01-01",
+      "holidayDay": "2",
+      "holidayMonth": "1",
+      "holidayYear": "2019",
+      "holidayName": "Jour de l’an",
+      "locationCode": "KTA",
+      "isDeleted": null,
+      "langCode": "fra",
+      "isActive": true
+    }
+  ],
+  "documentCategories": [
+    {
+      "code": "POA",
+      "name": "Proof of Address",
+      "description": "Address Proof",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "documentTypes": [
+    {
+      "code": "CIN",
+      "name": "CNIE card",
+      "description": "Moroccan National Electronic ID Card",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "validDocumentMapping": [
+    {
+      "docTypeCode": "CIN",
+      "docCategoryCode": "POI",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "templates": [
+    {
+      "id": "1101",
+      "name": "Template for authorization content",
+      "description": "Template for authorization content",
+      "fileFormatCode": "txt",
+      "model": null,
+      "fileText": "Dear $name\nYour Authentication of UIN $uin using $authType on $date at $time Hrs $status at a device deployed by MOSIP Services",
+      "moduleId": "10004",
+      "moduleName": "ID Authentication",
+      "templateTypeCode": "auth-email-content",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "templatesTypes": [
+    {
+      "code": "auth-email-content",
+      "description": "Template for authorization content",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "templateFileFormat": [
+    {
+      "code": "txt",
+      "description": "Text File",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "reasonCategory": [
+    {
+      "code": "MNA",
+      "name": "Manual Adjudication",
+      "description": "Rejection during Manual Adjudication",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "reasonList": [
+    {
+      "code": "APM",
+      "name": "Age-Photo Mismatch",
+      "description": "Mismatch between the Age and Photo",
+      "rsnCatCode": "CLR",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "blackListedWords": [
+    {
+      "word": "shit",
+      "description": "Blacklisted Word",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "locationHierarchy": [
+    {
+      "isDeleted": null,
+      "langCode": "ara",
+      "isActive": true,
+      "code": "MOR",
+      "name": "الْـمَغْرِبُ",
+      "hierarchyLevel": 0,
+      "hierarchyName": "بلد",
+      "parentLocCode": null,
+      "createdBy": null,
+      "updatedBy": null
+    }
+  ],
+  "biometricattributes": [
+    {
+      "code": "LTM",
+      "name": "Left Thumb",
+      "description": "Print of Left Thumb",
+      "biometricTypeCode": "FNR",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "biometricTypes": [
+    {
+      "code": "FNR",
+      "name": "Fingerprint",
+      "description": "Finger prints of the applicant",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "applications": [
+    {
+      "code": "app01",
+      "name": "application 1",
+      "description": "app description",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "applicantValidDocuments": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "appTypeCode": "001",
+      "docTypeCode": "CIN",
+      "docCatCode": "POI"
+    }
+  ],
+  "individualTypes": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "code": "FR",
+      "name": "Foreigner"
+    }
+  ],
+  "appDetails": [
+    {
+      "id": "10001",
+      "name": "Pre-Registration",
+      "descr": "Web portal for pre-registrations",
+      "langCode": "eng",
+      "isDeleted": null,
+      "isActive": true
+    }
+  ],
+  "appRolePriorities": [
+    {
+      "appId": "10003",
+      "processId": "login_auth",
+      "roleCode": "SUPERADMIN",
+      "priority": 1,
+      "langCode": "eng",
+      "isDeleted": null,
+      "isActive": true
+    }
+  ],
+  "screenAuthorizations": [
+    {
+      "screenId": "approveRegistrationRoot",
+      "roleCode": "SUPERADMIN",
+      "isPermitted": true,
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "processList": [
+    {
+      "id": "login_auth",
+      "name": "Login authentication",
+      "descr": "Login authentication",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "registrationCenterMachines": [
+    {
+      "regCenterId": "10007",
+      "machineId": "10007",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "registrationCenterDevices": [
+    {
+      "regCenterId": "10007",
+      "deviceId": "3000027",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "registrationCenterMachineDevices": [
+    {
+      "regCenterId": "10007",
+      "machineId": "10007",
+      "deviceId": "3000027",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "registrationCenterUserMachines": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "cntrId": "10007",
+      "machineId": "10007",
+      "usrId": "110007"
+    }
+  ],
+  "registrationCenterUsers": [
+    {
+      "regCenterId": "10007",
+      "userId": "110007",
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true
+    }
+  ],
+  "registrationCenterMachineHistory": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "regCenterId": "10007",
+      "machineId": "10007",
+      "effectivetimes": "2019-02-27T10:50:57.626598"
+    }
+  ],
+  "registrationCenterDeviceHistory": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "regCenterId": "10007",
+      "deviceId": "3000027",
+      "effectivetimes": "2019-02-27T10:50:57.589Z"
+    }
+  ],
+  "registrationCenterMachineDeviceHistory": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "regCenterId": "10007",
+      "machineId": "10007",
+      "deviceId": "3000027",
+      "effectivetimes": "2019-02-27T10:50:57.607964"
+    }
+  ],
+  "registrationCenterUserMachineMappingHistory": [
+    {
+      "cntrId": "10007",
+      "machineId": "10007",
+      "usrId": "110007",
+      "effectivetimes": "2019-02-27T10:50:57.660Z"
+    }
+  ],
+  "registrationCenterUserHistory": [
+    {
+      "isDeleted": null,
+      "langCode": "eng",
+      "isActive": true,
+      "regCntrId": "10007",
+      "userId": "110007",
+      "effectDateTimes": "2019-02-27T10:50:57.644336"
+    }
+  ]
+}
+```
+
+## 3.2 Sync Master data-get service
+
+This service will provides the list of all master data. This service is used mainly by the Enrollment client module. 
+
+### Resource URL
+### `GET /masterdata`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+regcenterId|Yes|Registration center id| |
+macaddress|No|MAC address of the machine| | 
+serialnumber|No|serial number of the machine| | 
+lastUpdated|No|Date in UTC ISO format| | 
+
+### Example Request
+
+syncdata/v1.0/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 
 ### Example Response
 ```JSON
