@@ -104,6 +104,12 @@
 |18.|Acknowledgement| Acknowledgement and Notifications | REG_FR_3.6| [MOS-13559](https://mosipid.atlassian.net/browse/MOS-13559), [MOS-1278](https://mosipid.atlassian.net/browse/MOS-1278), [MOS-1273](https://mosipid.atlassian.net/browse/MOS-1273),[MOS-338](https://mosipid.atlassian.net/browse/MOS-338) | 
 |19.|New Registration| Acknowledgement and Notifications | REG_FR_3.6| [MOS-12167](https://mosipid.atlassian.net/browse/MOS-12167), [MOS-1315](https://mosipid.atlassian.net/browse/MOS-1315), [MOS-1316](https://mosipid.atlassian.net/browse/MOS-1316) |
 |20.|Notification| Acknowledgement and Notifications | REG_FR_3.6| [MOS-1303](https://mosipid.atlassian.net/browse/MOS-1303), [MOS-1195](https://mosipid.atlassian.net/browse/MOS-1195), [MOS-12989](https://mosipid.atlassian.net/browse/MOS-12989) |
+|20.|Notification| Acknowledgement and Notifications | REG_FR_3.6| [MOS-1303](https://mosipid.atlassian.net/browse/MOS-1303), [MOS-1195](https://mosipid.atlassian.net/browse/MOS-1195), [MOS-12989](https://mosipid.atlassian.net/browse/MOS-12989) |
+|21.|New Registration| Biometric Exceptions  | REG_FR_3.7| [MOS-19011](https://mosipid.atlassian.net/browse/MOS-19011), [MOS-15999](https://mosipid.atlassian.net/browse/MOS-15999), [MOS-16109](https://mosipid.atlassian.net/browse/MOS-16109), [MOS-1292](https://mosipid.atlassian.net/browse/MOS-1292) |
+|22.|Authentication| Biometric Exceptions  | REG_FR_3.7| [MOS-13659](https://mosipid.atlassian.net/browse/MOS-13659) |
+|23.|Finger Print Capture| Biometric Exceptions  | REG_FR_3.7| [MOS-1184](https://mosipid.atlassian.net/browse/MOS-1184) |
+|24.|Authentication| Biometric Exceptions | REG_FR_3.7| [MOS-13523](https://mosipid.atlassian.net/browse/MOS-13523), [MOS-1310](https://mosipid.atlassian.net/browse/MOS-1310), [MOS-1307](https://mosipid.atlassian.net/browse/MOS-1307), [MOS-1320](https://mosipid.atlassian.net/browse/MOS-1320)  |
+
 
 
 
