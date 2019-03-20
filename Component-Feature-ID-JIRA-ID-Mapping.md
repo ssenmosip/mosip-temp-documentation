@@ -122,7 +122,14 @@
 |35.|Packet exporter| Offline Authentication using Biometrics  | REG_FR_5.1| [MOS-1317](https://mosipid.atlassian.net/browse/MOS-1317) |
 |36.|Security Scan| Key Management  | REG_FR_5.10| [MOS-18150](https://mosipid.atlassian.net/browse/MOS-18150) |
 |37.|New Registration| Key Management  | REG_FR_5.10| [MOS-15112](https://mosipid.atlassian.net/browse/MOS-15112) |
-|38.|Sync| Key Management  | REG_FR_5.10| [MOS-13665](https://mosipid.atlassian.net/browse/MOS-13665),[MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696), [MOS-1244](https://mosipid.atlassian.net/browse/MOS-1244)  |
+|38.|Sync| Key Management  | REG_FR_5.10| [MOS-13665](https://mosipid.atlassian.net/browse/MOS-13665),[MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696), [MOS-1244](https://mosipid.atlassian.net/browse/MOS-1244) |
+|39.|RC Setup & Update| Business validations | REG_FR_5.11| [MOS-19006](https://mosipid.atlassian.net/browse/MOS-19006) |
+|40.|Sync| Business validations | REG_FR_5.11| [MOS-16848](https://mosipid.atlassian.net/browse/MOS-16848) |
+|41.|EOD Process| Business validations  | REG_FR_5.11| [MOS-12867](https://mosipid.atlassian.net/browse/MOS-12867), [MOS-12874](https://mosipid.atlassian.net/browse/MOS-12874) |
+|42.|Packet Creation | Business validations | REG_FR_5.11| [MOS-12112](https://mosipid.atlassian.net/browse/MOS-12112) |
+|43.|Login| Business validations | REG_FR_5.11| [MOS-11661](https://mosipid.atlassian.net/browse/MOS-11661) |
+|44.|Device onboarding|  Business validations | REG_FR_5.11| [MOS-10537](https://mosipid.atlassian.net/browse/MOS-10537) |
+|45.|New registration| Business validations   | REG_FR_5.11| [MOS-10406](https://mosipid.atlassian.net/browse/MOS-10406), [MOS-13624](https://mosipid.atlassian.net/browse/MOS-13624), [MOS-12187](https://mosipid.atlassian.net/browse/MOS-12187), [MOS-12167](https://mosipid.atlassian.net/browse/MOS-12167), [MOS-11750](https://mosipid.atlassian.net/browse/MOS-11750), [MOS-11732](https://mosipid.atlassian.net/browse/MOS-11732), [MOS-11678](https://mosipid.atlassian.net/browse/MOS-11678), [MOS-10408](https://mosipid.atlassian.net/browse/MOS-10408), [MOS-1015](https://mosipid.atlassian.net/browse/MOS-1015), [MOS-1018](https://mosipid.atlassian.net/browse/MOS-1018), [MOS-554](https://mosipid.atlassian.net/browse/MOS-554), [MOS-236](https://mosipid.atlassian.net/browse/MOS-236) |
 
 
 
