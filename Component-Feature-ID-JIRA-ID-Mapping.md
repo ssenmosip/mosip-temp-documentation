@@ -110,6 +110,10 @@
 |23.|Finger Print Capture| Biometric Exceptions  | REG_FR_3.7| [MOS-1184](https://mosipid.atlassian.net/browse/MOS-1184) |
 |24.|Authentication| Supervisor Approval | REG_FR_3.8| [MOS-13523](https://mosipid.atlassian.net/browse/MOS-13523), [MOS-1310](https://mosipid.atlassian.net/browse/MOS-1310), [MOS-1307](https://mosipid.atlassian.net/browse/MOS-1307), [MOS-1320](https://mosipid.atlassian.net/browse/MOS-1320)  |
 |25.|User Onboarding| User On-boarding | REG_FR_4.1| [MOS-19001](https://mosipid.atlassian.net/browse/MOS-19001), [MOS-1330](https://mosipid.atlassian.net/browse/MOS-1330), [MOS-1206](https://mosipid.atlassian.net/browse/MOS-1206), [MOS-1012](https://mosipid.atlassian.net/browse/MOS-1012), [MOS-1011](https://mosipid.atlassian.net/browse/MOS-1011), [MOS-1010](https://mosipid.atlassian.net/browse/MOS-1010), [MOS-1009](https://mosipid.atlassian.net/browse/MOS-1009), [MOS-1008](https://mosipid.atlassian.net/browse/MOS-1008),  [MOS-1006](https://mosipid.atlassian.net/browse/MOS-1006) |
+|26.|Authentication| Login/Authentication  | REG_FR_4.2| [MOS-18483](https://mosipid.atlassian.net/browse/MOS-18483), [MOS-16809](https://mosipid.atlassian.net/browse/MOS-16809), [MOS-15833](https://mosipid.atlassian.net/browse/MOS-15833) |
+|27.|New Registration| User On-boarding | REG_FR_4.2| [MOS-16829](https://mosipid.atlassian.net/browse/MOS-16829) |
+|28.|Login| User On-boarding | REG_FR_4.2| [MOS-16040](https://mosipid.atlassian.net/browse/MOS-16040), [MOS-12199](https://mosipid.atlassian.net/browse/MOS-12199), [MOS-12185](https://mosipid.atlassian.net/browse/MOS-12185), [MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135), [MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118), [MOS-8368](https://mosipid.atlassian.net/browse/MOS-8368), [MOS-1186](https://mosipid.atlassian.net/browse/MOS-1186), [MOS-553](https://mosipid.atlassian.net/browse/MOS-553) |
+|29.|RC Setup & Update | User On-boarding | REG_FR_4.2| [MOS-14225](https://mosipid.atlassian.net/browse/MOS-14225), [MOS-13179](https://mosipid.atlassian.net/browse/MOS-13179), [MOS-9054](https://mosipid.atlassian.net/browse/MOS-9054) |
 
 
 
