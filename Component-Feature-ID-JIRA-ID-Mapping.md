@@ -155,20 +155,20 @@
 |70.|VDM |  Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-16121](https://mosipid.atlassian.net/browse/MOS-16121),    [MOS-13075](https://mosipid.atlassian.net/browse/MOS-13075) |
 |71.|Device Onboarding|  Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-1309](https://mosipid.atlassian.net/browse/MOS-1309),    [MOS-1275](https://mosipid.atlassian.net/browse/MOS-1275), [MOS-1226](https://mosipid.atlassian.net/browse/MOS-1226), [MOS-1224](https://mosipid.atlassian.net/browse/MOS-1224) |
 |72.|New Registration | Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-10409](https://mosipid.atlassian.net/browse/MOS-10409), [MOS-1325](https://mosipid.atlassian.net/browse/MOS-1325), [MOS-1331](https://mosipid.atlassian.net/browse/MOS-1331), [MOS-16024](https://mosipid.atlassian.net/browse/MOS-16024), [MOS-16008](https://mosipid.atlassian.net/browse/MOS-16008), [MOS-16016](https://mosipid.atlassian.net/browse/MOS-16016), [MOS-1302](https://mosipid.atlassian.net/browse/MOS-1302), [MOS-1291](https://mosipid.atlassian.net/browse/MOS-1291), [MOS-1287](https://mosipid.atlassian.net/browse/MOS-1287), [MOS-1285](https://mosipid.atlassian.net/browse/MOS-1285), [MOS-1342](https://mosipid.atlassian.net/browse/MOS-1342), [MOS-13522](https://mosipid.atlassian.net/browse/MOS-13522), [MOS-1205](https://mosipid.atlassian.net/browse/MOS-1205), [MOS-1177](https://mosipid.atlassian.net/browse/MOS-1177) |
-|71.|Face capture|  Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-1252](https://mosipid.atlassian.net/browse/MOS-1252) |
-|71.|Device Onboarding| Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-1226](https://mosipid.atlassian.net/browse/MOS-1226),    [MOS-1224](https://mosipid.atlassian.net/browse/MOS-1224) |
-|73.|Security|  Database | REG_FR_5.5| [MOS-8726](https://mosipid.atlassian.net/browse/MOS-8726) |
-|74.|RC Setup & Update|  Database  | REG_FR_5.5| [MOS-8710](https://mosipid.atlassian.net/browse/MOS-8710) |
-|75.|RC Setup & Update|  File system | REG_FR_5.6| [MOS-16120](https://mosipid.atlassian.net/browse/MOS-16120), [MOS-13174](https://mosipid.atlassian.net/browse/MOS-13174), [MOS-12088](https://mosipid.atlassian.net/browse/MOS-12088), [MOS-13527](https://mosipid.atlassian.net/browse/MOS-13527), [MOS-8710](https://mosipid.atlassian.net/browse/MOS-8710), [MOS-14](https://mosipid.atlassian.net/browse/MOS-14), [MOS-61](https://mosipid.atlassian.net/browse/MOS-61) |
-|76.|Packet creation| File system    | REG_FR_5.6| [MOS-11628](https://mosipid.atlassian.net/browse/MOS-11628) |
-|77.|Acknowledgement|  Encryption and Decryption   | REG_FR_5.8| [MOS-15835](https://mosipid.atlassian.net/browse/MOS-15835) |
-|78.|Sync|  Encryption and Decryption    | REG_FR_5.8| [MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696), [MOS-1343](https://mosipid.atlassian.net/browse/MOS-1343)  |
-|79.|Security|  Encryption and Decryption   | REG_FR_5.8| [MOS-8726](https://mosipid.atlassian.net/browse/MOS-8726) |
-|80.|RC Setup & Update|  Encryption and Decryption  | REG_FR_5.8| [MOS-65](https://mosipid.atlassian.net/browse/MOS-65) |
-|81.|RC Setup & Update| Storage Policies  | REG_FR_5.9| [MOS-65](https://mosipid.atlassian.net/browse/MOS-11784) |
-|82.|Packet Creation|  Storage Policies  | REG_FR_5.9| [MOS-65](https://mosipid.atlassian.net/browse/MOS-65) |
-|83.|UIN Update|  Registration Client UI  | REG_FR_6| [MOS-65](https://mosipid.atlassian.net/browse/MOS-14999) |
-|84.|New Registration|  Registration Client UI  | REG_FR_6| [MOS-13080](https://mosipid.atlassian.net/browse/MOS-13080), [MOS-11678](https://mosipid.atlassian.net/browse/MOS-11678), [MOS-8742](https://mosipid.atlassian.net/browse/MOS-8742), [MOS-11713](https://mosipid.atlassian.net/browse/MOS-11713), [MOS-15324](https://mosipid.atlassian.net/browse/MOS-15324) |
+|73.|Face capture|  Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-1252](https://mosipid.atlassian.net/browse/MOS-1252) |
+|74.|Device Onboarding| Vendor Device Manager Integration and Suuport (  | REG_FR_5.4| [MOS-1226](https://mosipid.atlassian.net/browse/MOS-1226),    [MOS-1224](https://mosipid.atlassian.net/browse/MOS-1224) |
+|75.|Security|  Database | REG_FR_5.5| [MOS-8726](https://mosipid.atlassian.net/browse/MOS-8726) |
+|76.|RC Setup & Update|  Database  | REG_FR_5.5| [MOS-8710](https://mosipid.atlassian.net/browse/MOS-8710) |
+|77.|RC Setup & Update|  File system | REG_FR_5.6| [MOS-16120](https://mosipid.atlassian.net/browse/MOS-16120), [MOS-13174](https://mosipid.atlassian.net/browse/MOS-13174), [MOS-12088](https://mosipid.atlassian.net/browse/MOS-12088), [MOS-13527](https://mosipid.atlassian.net/browse/MOS-13527), [MOS-8710](https://mosipid.atlassian.net/browse/MOS-8710), [MOS-14](https://mosipid.atlassian.net/browse/MOS-14), [MOS-61](https://mosipid.atlassian.net/browse/MOS-61) |
+|78.|Packet creation| File system    | REG_FR_5.6| [MOS-11628](https://mosipid.atlassian.net/browse/MOS-11628) |
+|79.|Acknowledgement|  Encryption and Decryption   | REG_FR_5.8| [MOS-15835](https://mosipid.atlassian.net/browse/MOS-15835) |
+|80.|Sync|  Encryption and Decryption    | REG_FR_5.8| [MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696), [MOS-1343](https://mosipid.atlassian.net/browse/MOS-1343)  |
+|81.|Security|  Encryption and Decryption   | REG_FR_5.8| [MOS-8726](https://mosipid.atlassian.net/browse/MOS-8726) |
+|82.|RC Setup & Update|  Encryption and Decryption  | REG_FR_5.8| [MOS-65](https://mosipid.atlassian.net/browse/MOS-65) |
+|83.|RC Setup & Update| Storage Policies  | REG_FR_5.9| [MOS-65](https://mosipid.atlassian.net/browse/MOS-11784) |
+|84.|Packet Creation|  Storage Policies  | REG_FR_5.9| [MOS-65](https://mosipid.atlassian.net/browse/MOS-65) |
+|85.|UIN Update|  Registration Client UI  | REG_FR_6| [MOS-65](https://mosipid.atlassian.net/browse/MOS-14999) |
+|86.|New Registration|  Registration Client UI  | REG_FR_6| [MOS-13080](https://mosipid.atlassian.net/browse/MOS-13080), [MOS-11678](https://mosipid.atlassian.net/browse/MOS-11678), [MOS-8742](https://mosipid.atlassian.net/browse/MOS-8742), [MOS-11713](https://mosipid.atlassian.net/browse/MOS-11713), [MOS-15324](https://mosipid.atlassian.net/browse/MOS-15324) |
 
 
 
