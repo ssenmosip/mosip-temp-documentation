@@ -109,7 +109,7 @@
 |22.|Authentication| Biometric Exceptions  | REG_FR_3.7| [MOS-13659](https://mosipid.atlassian.net/browse/MOS-13659) |
 |23.|Finger Print Capture| Biometric Exceptions  | REG_FR_3.7| [MOS-1184](https://mosipid.atlassian.net/browse/MOS-1184) |
 |24.|Authentication| Supervisor Approval | REG_FR_3.8| [MOS-13523](https://mosipid.atlassian.net/browse/MOS-13523), [MOS-1310](https://mosipid.atlassian.net/browse/MOS-1310), [MOS-1307](https://mosipid.atlassian.net/browse/MOS-1307), [MOS-1320](https://mosipid.atlassian.net/browse/MOS-1320)  |
-|25.|Authentication| Supervisor Approval | REG_FR_4.1| [MOS-19001](https://mosipid.atlassian.net/browse/MOS-19001), [MOS-1330](https://mosipid.atlassian.net/browse/MOS-1330), [MOS-1206](https://mosipid.atlassian.net/browse/MOS-1206), [MOS-1012](https://mosipid.atlassian.net/browse/MOS-1012), [MOS-1011](https://mosipid.atlassian.net/browse/MOS-1011), [MOS-1010](https://mosipid.atlassian.net/browse/MOS-1010), [MOS-1009](https://mosipid.atlassian.net/browse/MOS-1009), [MOS-1008](https://mosipid.atlassian.net/browse/MOS-1008),  [MOS-1006](https://mosipid.atlassian.net/browse/MOS-1006) |
+|25.|User Onboarding| User On-boarding | REG_FR_4.1| [MOS-19001](https://mosipid.atlassian.net/browse/MOS-19001), [MOS-1330](https://mosipid.atlassian.net/browse/MOS-1330), [MOS-1206](https://mosipid.atlassian.net/browse/MOS-1206), [MOS-1012](https://mosipid.atlassian.net/browse/MOS-1012), [MOS-1011](https://mosipid.atlassian.net/browse/MOS-1011), [MOS-1010](https://mosipid.atlassian.net/browse/MOS-1010), [MOS-1009](https://mosipid.atlassian.net/browse/MOS-1009), [MOS-1008](https://mosipid.atlassian.net/browse/MOS-1008),  [MOS-1006](https://mosipid.atlassian.net/browse/MOS-1006) |
 
 
 
