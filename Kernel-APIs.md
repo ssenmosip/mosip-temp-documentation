@@ -1132,7 +1132,7 @@ syncdata/v1.0/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM53281
 }
 ```
 
-## 3.2 Config details-get service
+## 3.3 Config details-get service
 
 This service will return back the global and registration configuration data of the MOSIP platform. 
 
@@ -1265,7 +1265,7 @@ Name | Required | Description | Default Value | Example
 
 
 
-## 3.3 Get All Roles 
+## 3.4 Get All Roles 
 
 This service will return back the all roles of the applications. 
 
@@ -1311,7 +1311,7 @@ Name | Required | Description | Default Value | Example
 }		
 ```
 
-## 3.4 Get list of users and role-mapping 
+## 3.5 Get list of users and role-mapping 
 
 This service will return back the list of users and its role-mapping based on the registration-center-id. 
 
@@ -1357,7 +1357,7 @@ Name | Required | Description | Default Value | Example
 	}
 }	
 ```
-## 3.5 Public key-get service
+## 3.6 Public key-get service
 
 This service will provide the public key for the specific application fetched from key manager. 
 
