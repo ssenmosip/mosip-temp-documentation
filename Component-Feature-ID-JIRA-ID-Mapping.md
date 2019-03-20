@@ -83,9 +83,8 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|RC Setup & Update| Master Data, Configuration |REG_FR_1.1|[MOS-16941](https://mosipid.atlassian.net/browse/MOS-16941)|
-
-|2.|New Registration| Master Data, Configuration |REG_FR_1.1|[MOS-16791](https://mosipid.atlassian.net/browse/MOS-16791), [MOS-16537](https://mosipid.atlassian.net/browse/MOS-16537) |
+|1.|RC Setup & Update| Master Data, Configuration | REG_FR_1.1| [MOS-16941](https://mosipid.atlassian.net/browse/MOS-16941)|
+|2.|New Registration| Master Data, Configuration | REG_FR_1.1| [MOS-16791](https://mosipid.atlassian.net/browse/MOS-16791), [MOS-16537](https://mosipid.atlassian.net/browse/MOS-16537), [MOS-16537](https://mosipid.atlassian.net/browse/MOS-16537), [MOS-16778](https://mosipid.atlassian.net/browse/MOS-16778), [MOS-13657](https://mosipid.atlassian.net/browse/MOS-13657), [MOS-13655](https://mosipid.atlassian.net/browse/MOS-13655), [MOS-13557](https://mosipid.atlassian.net/browse/MOS-13557), [MOS-13661](https://mosipid.atlassian.net/browse/MOS-13661) |
 
 
 **10. Registration Processor:**
