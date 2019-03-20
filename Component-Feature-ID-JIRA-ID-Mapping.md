@@ -92,6 +92,16 @@
 |6.|Sync| Appointments (PRIDs) | REG_FR_2.1| [MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367), [MOS-1277](https://mosipid.atlassian.net/browse/MOS-1277), [MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223), [MOS-1200](https://mosipid.atlassian.net/browse/MOS-1200)|
 |7.|New Registration| PR packets | REG_FR_2.2| [MOS-13556](https://mosipid.atlassian.net/browse/MOS-13556), [MOS-1204](https://mosipid.atlassian.net/browse/MOS-1204) |
 |8.|Sync| PR packets | REG_FR_2.2| [MOS-11582](https://mosipid.atlassian.net/browse/MOS-11582), [MOS-1277](https://mosipid.atlassian.net/browse/MOS-1277), [MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223), [MOS-1200](https://mosipid.atlassian.net/browse/MOS-1200),[MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367) |
+|9.|Sync| List of Registrations | REG_FR_3.1| [MOS-13983](https://mosipid.atlassian.net/browse/MOS-13983) | 
+|10.|Packet Exporter| Registration Packet Upload | REG_FR_3.2| [MOS-13561](https://mosipid.atlassian.net/browse/MOS-13561),[MOS-1328](https://mosipid.atlassian.net/browse/MOS-1328),[MOS-559](https://mosipid.atlassian.net/browse/MOS-559),[MOS-12961](https://mosipid.atlassian.net/browse/MOS-12961) | 
+|11.|EOD Process| Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) | REG_FR_3.3| [MOS-16712](https://mosipid.atlassian.net/browse/MOS-16712) | 
+|12.|New Registration| Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) | REG_FR_3.3| [MOS-9072](https://mosipid.atlassian.net/browse/MOS-9072) | 
+|13.|Packet Exporter| Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) | REG_FR_3.3| [MOS-1328](https://mosipid.atlassian.net/browse/MOS-1328), [MOS-1305](https://mosipid.atlassian.net/browse/MOS-1305),[MOS-559](https://mosipid.atlassian.net/browse/MOS-559) | 
+|14.|Sync| Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) | REG_FR_3.3| [MOS-63](https://mosipid.atlassian.net/browse/MOS-63) | 
+
+
+
+
 
 **10. Registration Processor:**
 
