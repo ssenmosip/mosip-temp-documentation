@@ -85,10 +85,11 @@
 |:------:|-----|---|---|---|
 |1.|RC Setup & Update| Master Data, Configuration | REG_FR_1.1| [MOS-16941](https://mosipid.atlassian.net/browse/MOS-16941)|
 |2.|New Registration| Master Data, Configuration | REG_FR_1.1| [MOS-16791](https://mosipid.atlassian.net/browse/MOS-16791), [MOS-16537](https://mosipid.atlassian.net/browse/MOS-16537), [MOS-16537](https://mosipid.atlassian.net/browse/MOS-16537), [MOS-16778](https://mosipid.atlassian.net/browse/MOS-16778), [MOS-13657](https://mosipid.atlassian.net/browse/MOS-13657), [MOS-13655](https://mosipid.atlassian.net/browse/MOS-13655), [MOS-13557](https://mosipid.atlassian.net/browse/MOS-13557), [MOS-13661](https://mosipid.atlassian.net/browse/MOS-13661) |
-|3.|UIN update| Master Data, Configuration | REG_FR_1.1| [MOS-13659](https://mosipid.atlassian.net/browse/MOS-13660), [MOS-12984](https://mosipid.atlassian.net/browse/MOS-13659) |
+|3.|UIN update| Master Data, Configuration | REG_FR_1.1| [MOS-13660](https://mosipid.atlassian.net/browse/MOS-13660), [MOS-12984](https://mosipid.atlassian.net/browse/MOS-12984) |
 |4.|Authentication| Master Data, Configuration | REG_FR_1.1| [MOS-16941](https://mosipid.atlassian.net/browse/MOS-16941)|
 |5.|Sync| Master Data, Configuration | REG_FR_1.1| [MOS-11644](https://mosipid.atlassian.net/browse/MOS-11644), [MOS-18331](https://mosipid.atlassian.net/browse/MOS-18331), [MOS-13994](https://mosipid.atlassian.net/browse/MOS-13994), [MOS-11582](https://mosipid.atlassian.net/browse/MOS-11582), [MOS-1279](https://mosipid.atlassian.net/browse/MOS-1279), [MOS-1243](https://mosipid.atlassian.net/browse/MOS-1243), [MOS-1235](https://mosipid.atlassian.net/browse/MOS-1235), [MOS-1227](https://mosipid.atlassian.net/browse/MOS-1227) |
-|5.|EOD process| End of day process | REG_FR_1.2| [MOS-11767](https://mosipid.atlassian.net/browse/MOS-11767), [MOS-9108](https://mosipid.atlassian.net/browse/MOS-9108), [MOS-9090](https://mosipid.atlassian.net/browse/MOS-9090), [MOS-9036](https://mosipid.atlassian.net/browse/MOS-9036), [MOS-8624](https://mosipid.atlassian.net/browse/MOS-8624), [MOS-558](https://mosipid.atlassian.net/browse/MOS-558), [MOS-556](https://mosipid.atlassian.net/browse/MOS-556) |
+|5.|New Registration| Appointments (PRIDs) | REG_FR_2.1| [MOS-13556](https://mosipid.atlassian.net/browse/MOS-13556), [MOS-1204](https://mosipid.atlassian.net/browse/MOS-1204) |
+|6.|Sync| Appointments (PRIDs) | REG_FR_2.1| [MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367), [MOS-1277](https://mosipid.atlassian.net/browse/MOS-1277), [MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223), [MOS-1200](https://mosipid.atlassian.net/browse/MOS-1200)|
 
 
 **10. Registration Processor:**
