@@ -607,7 +607,7 @@ lastUpdated|No|Date in UTC ISO format| |
 
 ## 3.2 Sync Master data-get service
 
-### `GET /syncdata`
+### `GET /masterdata`
 
 ### Resource details
 
@@ -20471,4 +20471,3 @@ lastUpdated|No|Date in UTC ISO format| |
       "name": "app1",
       "description": "decs",
       "isDeleted": null,
-    
