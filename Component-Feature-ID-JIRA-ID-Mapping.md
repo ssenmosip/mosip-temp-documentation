@@ -130,8 +130,13 @@
 |43.|Login| Business validations | REG_FR_5.11| [MOS-11661](https://mosipid.atlassian.net/browse/MOS-11661) |
 |44.|Device onboarding|  Business validations | REG_FR_5.11| [MOS-10537](https://mosipid.atlassian.net/browse/MOS-10537) |
 |45.|New registration| Business validations   | REG_FR_5.11| [MOS-10406](https://mosipid.atlassian.net/browse/MOS-10406), [MOS-13624](https://mosipid.atlassian.net/browse/MOS-13624), [MOS-12187](https://mosipid.atlassian.net/browse/MOS-12187), [MOS-12167](https://mosipid.atlassian.net/browse/MOS-12167), [MOS-11750](https://mosipid.atlassian.net/browse/MOS-11750), [MOS-11732](https://mosipid.atlassian.net/browse/MOS-11732), [MOS-11678](https://mosipid.atlassian.net/browse/MOS-11678), [MOS-10408](https://mosipid.atlassian.net/browse/MOS-10408), [MOS-1015](https://mosipid.atlassian.net/browse/MOS-1015), [MOS-1018](https://mosipid.atlassian.net/browse/MOS-1018), [MOS-554](https://mosipid.atlassian.net/browse/MOS-554), [MOS-236](https://mosipid.atlassian.net/browse/MOS-236) |
-
-
+|46.|Device onboarding|  Master data | REG_FR_5.12| [MOS-11597](https://mosipid.atlassian.net/browse/MOS-11597) |
+|46.|New registration|  Pre-registration Data | REG_FR_5.13| [MOS-16784](https://mosipid.atlassian.net/browse/MOS-16784) |
+|46.|New registration|  Registration Data | REG_FR_5.14| [MOS-16544](https://mosipid.atlassian.net/browse/MOS-16544) |
+|46.|EoD process| Analytics and Audit Logs  | REG_FR_5.15| [MOS-16712](https://mosipid.atlassian.net/browse/MOS-16712) |
+|46.|Security Scan| Analytics and Audit Logs  | REG_FR_5.15| [MOS-15832](https://mosipid.atlassian.net/browse/MOS-15832) |
+|46.|Sync|  Analytics and Audit Logs  | REG_FR_5.15| [MOS-13184](https://mosipid.atlassian.net/browse/MOS-13184), [MOS-11597](https://mosipid.atlassian.net/browse/MOS-11597) |
+|46.|Packet Creation| Analytics and Audit Logs  | REG_FR_5.15| [MOS-8761](https://mosipid.atlassian.net/browse/MOS-8761) |
 
 **10. Registration Processor:**
 
