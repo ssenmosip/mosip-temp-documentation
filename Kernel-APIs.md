@@ -602,6 +602,7 @@ lastUpdated|No|Date in UTC ISO format| |
 		}]
 	}
 }
+```
 
 ## 3.2 Config details-get service
 
