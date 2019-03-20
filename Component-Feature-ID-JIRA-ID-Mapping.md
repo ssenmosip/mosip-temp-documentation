@@ -120,7 +120,9 @@
 |33.|Login| Offline Authentication using Biometrics  | REG_FR_5.1| [MOS-12135](https://mosipid.atlassian.net/browse/MOS-12135), [MOS-553](https://mosipid.atlassian.net/browse/MOS-553), [MOS-12118](https://mosipid.atlassian.net/browse/MOS-12118), [MOS-8368](https://mosipid.atlassian.net/browse/MOS-8368) |
 |34.|Authentication| Offline Authentication using Biometrics | REG_FR_5.1| [MOS-1334](https://mosipid.atlassian.net/browse/MOS-1334), [MOS-1175](https://mosipid.atlassian.net/browse/MOS-1175) |
 |35.|Packet exporter| Offline Authentication using Biometrics  | REG_FR_5.1| [MOS-1317](https://mosipid.atlassian.net/browse/MOS-1317) |
-
+|36.|Security Scan| Key Management  | REG_FR_5.10| [MOS-18150](https://mosipid.atlassian.net/browse/MOS-18150) |
+|37.|New Registration| Key Management  | REG_FR_5.10| [MOS-15112](https://mosipid.atlassian.net/browse/MOS-15112) |
+|38.|Sync| Key Management  | REG_FR_5.10| [MOS-13665](https://mosipid.atlassian.net/browse/MOS-13665),[MOS-11696](https://mosipid.atlassian.net/browse/MOS-11696), [MOS-1244](https://mosipid.atlassian.net/browse/MOS-1244)  |
 
 
 
