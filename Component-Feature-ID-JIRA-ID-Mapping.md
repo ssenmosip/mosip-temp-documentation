@@ -141,7 +141,11 @@
 |54.|RC Setup & Update| Software Version Upgrade   | REG_FR_5.17| [MOS-13527](https://mosipid.atlassian.net/browse/MOS-13527), [MOS-67](https://mosipid.atlassian.net/browse/MOS-67)  |
 |55.|New Registration| Data retention policies   | REG_FR_5.18| [MOS-12167](https://mosipid.atlassian.net/browse/MOS-12167)  |
 |56.|Sync| Data retention policies    | REG_FR_5.18| [MOS-12083](https://mosipid.atlassian.net/browse/MOS-12083), [MOS-8942](https://mosipid.atlassian.net/browse/MOS-8942), [MOS-8641](https://mosipid.atlassian.net/browse/MOS-8641), [MOS-8572](https://mosipid.atlassian.net/browse/MOS-8572), [MOS-1381](https://mosipid.atlassian.net/browse/MOS-1381), [MOS-1338](https://mosipid.atlassian.net/browse/MOS-1338), [MOS-18089](https://mosipid.atlassian.net/browse/MOS-18089) |
-
+|57.|Data Clean-Up|  Device moving to new center    | REG_FR_5.19| [MOS-13698](https://mosipid.atlassian.net/browse/MOS-13698)  |
+|58.|New Registration|  Device retirement | REG_FR_5.2| [MOS-10555](https://mosipid.atlassian.net/browse/MOS-10555) , [MOS-1300](https://mosipid.atlassian.net/browse/MOS-1300) |
+|59.|New Registration| Transliteration | REG_FR_5.23| [MOS-15107](https://mosipid.atlassian.net/browse/MOS-15107)  |
+|60.|Transliteration |  Transliteration | REG_FR_5.23| [MOS-1293](https://mosipid.atlassian.net/browse/MOS-1293), [MOS-1288](https://mosipid.atlassian.net/browse/MOS-1288)  |
+|61.|New Registration |  Virtual Keyboards | REG_FR_5.24| [MOS-10410](https://mosipid.atlassian.net/browse/MOS-10410)  |
 
 
 
