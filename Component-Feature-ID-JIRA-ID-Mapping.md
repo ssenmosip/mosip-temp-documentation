@@ -90,7 +90,8 @@
 |5.|Sync| Master Data, Configuration | REG_FR_1.1| [MOS-11644](https://mosipid.atlassian.net/browse/MOS-11644), [MOS-18331](https://mosipid.atlassian.net/browse/MOS-18331), [MOS-13994](https://mosipid.atlassian.net/browse/MOS-13994), [MOS-11582](https://mosipid.atlassian.net/browse/MOS-11582), [MOS-1279](https://mosipid.atlassian.net/browse/MOS-1279), [MOS-1243](https://mosipid.atlassian.net/browse/MOS-1243), [MOS-1235](https://mosipid.atlassian.net/browse/MOS-1235), [MOS-1227](https://mosipid.atlassian.net/browse/MOS-1227) |
 |5.|New Registration| Appointments (PRIDs) | REG_FR_2.1| [MOS-13556](https://mosipid.atlassian.net/browse/MOS-13556), [MOS-1204](https://mosipid.atlassian.net/browse/MOS-1204) |
 |6.|Sync| Appointments (PRIDs) | REG_FR_2.1| [MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367), [MOS-1277](https://mosipid.atlassian.net/browse/MOS-1277), [MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223), [MOS-1200](https://mosipid.atlassian.net/browse/MOS-1200)|
-
+|7.|New Registration| PR packets | REG_FR_2.2| [MOS-13556](https://mosipid.atlassian.net/browse/MOS-13556), [MOS-1204](https://mosipid.atlassian.net/browse/MOS-1204) |
+|8.|Sync| PR packets | REG_FR_2.2| [MOS-11582](https://mosipid.atlassian.net/browse/MOS-11582), [MOS-1277](https://mosipid.atlassian.net/browse/MOS-1277), [MOS-1223](https://mosipid.atlassian.net/browse/MOS-1223), [MOS-1200](https://mosipid.atlassian.net/browse/MOS-1200),[MOS-1367](https://mosipid.atlassian.net/browse/MOS-1367) |
 
 **10. Registration Processor:**
 
