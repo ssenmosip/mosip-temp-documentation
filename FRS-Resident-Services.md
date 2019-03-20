@@ -10,6 +10,7 @@
   * [8. View History of Authentication Requests (for Prescribed Days/number of requests)](#9-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests) _(RES_FR_8)_
   * [9. Lock/Unlock UIN for each Authentication Type](#10-lockunlock-uin) _(RES_FR_9)_
   * [10. Generate Virtual ID](#2-generate-virtual-id) _(RES_FR_10)_
+    * Virtual ID Types
   * [11. Revoke/In-activate a Virtual ID](#2-generate-virtual-id) _(RES_FR_11)_
 
 # Resident Services
