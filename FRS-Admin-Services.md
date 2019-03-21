@@ -32,7 +32,7 @@
     * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete) _(ADM_FR_2.10)_
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
-  * [3. MISP Management](#3-partner-management) 
+  * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#33-misps) _(ADM_FR_3.1)_
       * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#33-misps) _(ADM_FR_3.2)_ 
   
@@ -1964,7 +1964,7 @@ Refer below for the process:
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-masterdata.md)
 
 
-## 3. Partner Management 
+## 3. MISP Management 
 ### 3.1 License Key Manager
 MOSIP system can generate and validate a license Key
 #### A. Generate License Key
