@@ -49,12 +49,12 @@ Upon receiving a request to create a Policy with input parameters (Policy ID, Po
 1. The system receives a request to fetch a Policy with input parameters (Policy ID and/or Policy Name)
 2. Fetches the data existing against the input parameter received
 3. Responds to the source with the required data
-   * If only Policy ID is received, fetches data against the Policy ID from the database 
-   * If Policy Name is received, fetches data against the Policy Name from the database
-   * If both Policy ID and Policy Name is received, fetches data against the combination of both the input parameters
-   * If the input parameter received is null or empty, fetches all the data
-   * Fetches only active data from the database
-   * If the data does not exist for input parameters received, throws the appropriate message. 
+  * If only Policy ID is received, fetches data against the Policy ID from the database 
+  * If Policy Name is received, fetches data against the Policy Name from the database
+  * If both Policy ID and Policy Name is received, fetches data against the combination of both the input parameters
+  * If the input parameter received is null or empty, fetches all the data
+  * Fetches only active data from the database
+  * If the data does not exist for input parameters received, throws the appropriate message. 
 4. In case of exceptions, system triggers relevant error messages
 ### C. Update Policy
 Upon receiving a request to update a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system updates the data and responds to the source with the required message
