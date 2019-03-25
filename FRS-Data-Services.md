@@ -121,7 +121,7 @@ Refer below for the process:
 5. Responds with the MISP ID to the source
 6. Raises an alert in case of exceptions and triggers the messages.
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
+[**Link to design**]() _**update the link**_
 
 #### 4.1.4 PRID Generator
 
