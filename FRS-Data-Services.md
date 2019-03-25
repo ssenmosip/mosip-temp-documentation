@@ -11,11 +11,11 @@
       * [4.1.4 PRID Generator](#414-prid-generator) _(DAT_FR_4.4)_
       * [4.1.5 VID Generator](#415-vid-generator) _(DAT_FR_4.5)_
       * [4.1.6 Token ID Generator](#416-token-id-generator) _(DAT_FR_4.6)_
-      * [4.1.7 Partner ID Generator](#416-partner-id-generator) _(DAT_FR_4.12)_
-      * [4.1.8 License Key Generator](#417-license-key-generator) _(DAT_FR_4.13)_
+      * [4.1.7 Partner ID Generator](#417-partner-id-generator) _(DAT_FR_4.12)_
+      * [4.1.8 License Key Generator](#418-license-key-generator) _(DAT_FR_4.13)_
     * [4.2 ID Validator](#42-id-validator) 
       * [4.2.1 Static Pin Validator](#421-static-pin-validator) _(DAT_FR_4.7)_
-      * [4.2.2  UIN Validator](#422--uin-validator) _(DAT_FR_4.8)_
+      * [4.2.2 UIN Validator](#422--uin-validator) _(DAT_FR_4.8)_
       * [4.2.3 PRID Validator](#423-prid-validator) _(DAT_FR_4.9)_
       * [4.2.4 VID Validator](#424-vid-validator) _(DAT_FR_4.10)_
       * [4.2.5 RID Validator](#425-rid-validator) _(DAT_FR_4.11)_
@@ -106,19 +106,20 @@ Refer below for the process:
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
 
-#### 4.1.3 TSP ID Generator
+#### 4.1.3 MISP ID Generator
 
-Upon receiving a request to generate TSP ID, the system generates it as per default TSP ID generation logic.
+Upon receiving a request to generate MISP ID, the system generates it as per default MISP ID generation logic.
 
 Refer below for the process:
-1. TSP ID should be generated as per the defined logic mentioned below
-   * TSP ID should only be numeric
-   * TSP ID generated should be of length of 4 digits
-   * Each new TSP ID should be incremented by 1 for each new request
-   * TSP ID generation should start from 1000
-   * The number should not contain the restricted numbers defined by the ADMIN
-2. Responds with the TSP ID to the source
-1. Raises an alert in case of exceptions and triggers the messages. 
+
+1. MISP ID should be generated as per the defined logic mentioned below
+   * MISP ID should only be numeric
+   * MISP ID generated should be of length of 3 digits (Configurable)
+2. MISP ID generation should start from 100
+3. Each new MISP ID should be incremented by one for each new request
+4. The number should not contain the restricted numbers defined by the ADMIN
+5. Responds with the MISP ID to the source
+6. Raises an alert in case of exceptions and triggers the messages.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TSPID%20Generator.md)
 
