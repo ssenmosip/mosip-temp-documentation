@@ -41,7 +41,7 @@ Upon receiving a request to delete a Partner with input parameters (Partner ID),
 ## 1.2 Policies - Create/Read/Update/Delete
 
 ### A. Create Policy
-Upon receiving a request to create a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system stores the data in database and responds to the source with the required message
+Upon receiving a request to create a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system stores the data in the database and responds to the source with the required message
 
 1. If the mandatory input parameters are missing, throw the appropriate message
 2. In case of exceptions, system should trigger relevant error messages
@@ -59,8 +59,8 @@ Upon receiving a request to create a Policy with input parameters (Policy ID, Po
 ### C. Update Policy
 Upon receiving a request to update a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system updates the data and responds to the source with the required message
 
-1. Policy ID serves as search criteria to update the record in database
-2. Updates the data received against the data already existing in database against the Policy ID received
+1. Policy ID serves as search criteria to update the record in the database
+2. Updates the data received against the data already existing in the database against the Policy ID received
 3. If the mandatory input parameters are missing, throws the appropriate message
 4. In case of exceptions, system triggers relevant error messages
 ### D. Delete Policy
