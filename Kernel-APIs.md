@@ -1435,7 +1435,7 @@ Name | Required | Description | Default Value | Example
 ```
 
 
-## 4.1 UIN-get service
+## 4.2 UIN- Status Update service
 
 This service will update the issued UN status to Assigned or Unassigned(Unused).  
 
