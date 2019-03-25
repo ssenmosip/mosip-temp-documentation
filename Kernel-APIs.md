@@ -1435,6 +1435,59 @@ Name | Required | Description | Default Value | Example
 ```
 
 
+## 4.1 UIN-get service
+
+This service will update the issued UN status to Assigned or Unassigned(Unused).  
+
+### Resource URL
+### `PUT /uin`
+ 
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Request
+
+PUT /uingenerator/v1.0/uin
+```
+{
+                "id":"mosip.kernel.uinservice",                                  
+                "version":"1.0", 
+                "requesttime":"2018-12-09T06:39:03.683Z",
+                "request" : {
+                                "uin":"5193698130",
+                                "status":"ASSIGNED"
+                }
+}
+```
+
+
+### Example Response
+```
+{
+	"id": "mosip.kernel.uinservice",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+                      "uin":"5193698130",
+                      "status":"ASSIGNED"
+                }
+}
+```
+
+
+
+
+
 # 5 SMS Notification
 ## 5.1 SMS Notification Post Service
 
