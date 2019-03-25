@@ -94,13 +94,13 @@ Raises an alert in case of exceptions.
 Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic
 
 Refer below for the process:
-1. Registration Center ID is generated as per the defined logic mentioned below
+1. Registration Center ID is generated as per the defined logic mentioned below:
    * Registration Center ID should only be numeric
    * Registration Center ID generated should be of length of 5 digits
    * Each new Registration Center ID should be incremented by 1 for each new request
    * Registration Center ID generation should start from 10000
    * The number should not contain the restricted numbers defined by the ADMIN
-2. In case of Exceptions, system triggers relevant error messages
+2. In case of exceptions, system triggers relevant error messages
 1. Responds with the Registration Center ID to the source
 1. Raises an alert in case of exceptions.
 
@@ -112,7 +112,7 @@ Upon receiving a request to generate MISP ID, the system generates it as per def
 
 Refer below for the process:
 
-1. MISP ID should be generated as per the defined logic mentioned below
+1. MISP ID should be generated as per the defined logic mentioned below:
    * MISP ID should only be numeric
    * MISP ID generated should be of length of 3 digits (Configurable)
 2. MISP ID generation should start from 100
@@ -129,7 +129,7 @@ Upon receiving a request to generate PRID with input parameters, the system gene
 
 Refer below for the process:
 1. PRID generated should contain number of digits as configured by the ADMIN
-1. PRID is generated as per the defined logic mentioned below
+1. PRID is generated as per the defined logic mentioned below:
    * The number should not contain any alphanumeric characters
    * The number should not contain any repeating numbers for 2 or more than 2 digits
    * The number should not contain any sequential number for 3 or more than 3 digits
@@ -148,13 +148,13 @@ Refer below for the process:
 Upon receiving a request to generate VID, the system generates PRID as per default PRID generation logic
 
 Refer below for the process:
-1. VID should be generated as per the defined logic mentioned below
+1. VID should be generated as per the defined logic mentioned below:
 1. Responds with the VID to the source
-4. Raises an alert in case of exceptions. 
+1. Raises an alert in case of exceptions. 
 
 **VID generation policy**
 1. VID generated should contain the number of digits as configured.
-1. Validates if the VID is generated as per the defined logic mentioned below
+1. Validates if the VID is generated as per the defined logic mentioned below:
    * The number should not contain any alphanumeric characters
    * The number should not contain any repeating numbers for 2 or more than 2 digits
    * The number should not contain any sequential number for 3 or more than 3 digits
@@ -175,7 +175,7 @@ Refer below for the process:
 1. The numbers is not be generated sequentially
 1. Token ID generated is of the length of 36 digits
 1. The length of Token ID is configurable by the ADMIN
-1. Token ID is generated as per the defined logic mentioned below
+1. Token ID is generated as per the defined logic mentioned below:
    * The number does not contain any alphanumeric characters and contains only numeric characters
    * The last digit in the number is reserved for a checksum
    * ID is unique for a combination of TSP ID and UIN received
@@ -208,7 +208,7 @@ Upon receiving a request to generate License Key, the system generates it as per
    * License Key is alphanumeric
    * License Key generated is of length of 8 digits
    * License Key is mapped to expiry (Expiry to be configured by admin).
-2. In case of Exceptions, system triggers relevant error messages
+2. In case of exceptions, system triggers relevant error messages
 
 [**Link to design**]() _**update the link**_
 
@@ -224,7 +224,7 @@ Refer below for the process:
    * Static PIN
 2. Validates if the Static PIN is of configured length. (Current configured length = 6)
 1. Validates if the Static PIN is only numerical.
-1. In case of Exceptions, system triggers relevant error messages. 
+1. In case of exceptions, system triggers relevant error messages. 
 
 #### 4.2.2  UIN Validator
 
@@ -280,7 +280,7 @@ RID Validation performs pattern validation on RID and provides three methods to 
    * If the Partner ID is Inactive, respond with message "INACTIVE"
    * If the Partner ID is of configured length and is Active, respond with "ACTIVE"
 5. Throws an error if an input parameter is empty
-6. In case of Exceptions, system triggers relevant error messages.
+6. In case of exceptions, system triggers relevant error messages.
 
 [**Link to design**]() _**update the link**_
 
@@ -290,14 +290,14 @@ The system receives a request to check status of the License Key with an input p
 1. Checks the length of the License Key
 2. Fetches the status of the License Key
 3. Throw an error if an input parameter in empty
-4. Responds to the source according to the conditions mentioned below
+4. Responds to the source according to the conditions mentioned below:
    * If the length of License Key is not 8 digits, respond with message "INVALID"
    * If the License Key is expired as per the expiry period configured, respond with message "EXPIRED"
    * If the status of License Key is "SUSPENDED", respond with message "SUSPENDED"
    * If the status of License Key is "BLOCKED", respond with message "BLOCKED"
    * If the status of License Key is "ACTIVE", respond with message "ACTIVE"
    * License Key should be mapped to expiry (Expiry to be configured by admin).
-5. In case of Exceptions, system triggers relevant error messages. 
+5. In case of exceptions, system triggers relevant error messages. 
 
 [**Link to design**]() _**update the link**_
 
