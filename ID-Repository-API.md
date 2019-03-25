@@ -29,7 +29,7 @@ requesttime | yes | timestamp of the request | | 2018-12-11T06:12:25.288Z
 request | yes | Request Body attributes | | 
 request: registrationId | yes | registration id | | 
 request: identity | yes | JSON body as per the ID object schema | | 
-request: decouemnts | yes | Documents that are to be uploaded for any ID attribute | | 
+request: documents | yes | Documents that are to be uploaded for any ID attribute | | 
 
 **Example request**
 
@@ -226,7 +226,8 @@ request: decouemnts | yes | Documents that are to be uploaded for any ID attribu
 This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of the Individual are returned
 2. When type=demo is selected, Demographic documents along with Identity details of the Individual are returned
-3. When type=all is selected, both individualBiometrics and demographic documents are returned along with Identity details of the Individual
+3. When type=all is selected, both individualBiometrics and demographic documents are returned along with Identity details of the Individual    
+
 If no identity type is provided, stored Identity details of the Individual will be returned as a default response.
 
 ### Resource URL
