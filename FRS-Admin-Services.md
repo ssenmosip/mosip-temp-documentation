@@ -34,7 +34,7 @@
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
   * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
-      * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#33-misps) _(ADM_FR_3.2)_ 
+      * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete) _(ADM_FR_3.2)_ 
   
 # Admin Services
 ## 1. Master Data Management
