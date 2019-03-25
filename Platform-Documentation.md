@@ -161,7 +161,7 @@ Kernel is a platform to build higher-level services as well as a secure sandbox.
 * Admin Services
 
 Please refer wiki for detailed functional specification of the following services:
-* [**UIN Generation**](https://github.com/mosip/mosip/wiki/UIN-Generation)
+* [**UIN Generation**](UIN-Generation)
 * [**Configuration Server**](https://github.com/mosip/mosip/wiki/Configuration-Server)
 * [**Audit Manager**](https://github.com/mosip/mosip/wiki/Audit-Manager)
   * [**Log manager**](https://github.com/mosip/mosip/wiki/Audit-Manager#log-manager)
