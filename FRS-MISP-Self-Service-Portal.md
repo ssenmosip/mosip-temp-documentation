@@ -112,5 +112,27 @@ Upon receiving a request to delete a Partner-Policy Mapping with input parameter
 
 
 ## 1.4 MISP-Partner Mapping - Create/Read/Delete
+
+### A. Create Partner-Policy Mapping
+Upon receiving a request to create a MISP-Partner Mapping with input parameters (MISP ID, Partner ID, IsActive), the system store the data in the database and Responds to the source with the required message
+1. One MISP can be mapped to multiple Partners
+2. One Partner can be mapped to multiple MISPs
+3. If the mandatory input parameters are missing, the system throws an appropriate message
+4. In case of exceptions, system triggers relevant error messages
+### B. Read MISP-Partner Mapping
+Upon receiving a request to fetch a MISP-Partner mapping (MISP ID and/or Partner ID), the system fetches the data existing against the input parameter received and responds to the source with the required data
+1. If only MISP ID is received, system fetches data against the MISP ID from the database
+2. If Partner ID is received, fetches data against the Partner ID from the database
+3. If both MISP ID and Partner ID is received, fetches data against the combination of both the input parameters
+4. If the input parameter received is null or empty, fetches all the data
+5. Fetches only active data from the database
+6. If the mandatory input parameters are missing, throws the appropriate message. 
+7. If the data does not exist for input parameters received, throws the appropriate message. 
+8. In case of exceptions, system triggers relevant error messages
+### C. Delete Partner-Policy Mapping
+Upon receiving a request to delete a MISP-Partner Mapping with input parameters (MISP ID, Partner ID), the system Deletes the data as mentioned in Acceptance Criteria and responds to the source with the required message
+1. If the mandatory input parameters are missing, throws the appropriate message
+2. In case of exceptions, system triggers relevant error messages.
+
 ## 1.5 Validate and Re-issue Digital Certificate to Partner
 ## 1.6 Distribution of Public Keys to Partners
