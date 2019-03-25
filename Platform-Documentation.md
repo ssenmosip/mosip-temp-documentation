@@ -162,13 +162,13 @@ Kernel is a platform to build higher-level services as well as a secure sandbox.
 
 Please refer wiki for detailed functional specification of the following services:
 * [**UIN Generation**](UIN-Generation)
-* [**Configuration Server**](https://github.com/mosip/mosip/wiki/Configuration-Server)
-* [**Audit Manager**](https://github.com/mosip/mosip/wiki/Audit-Manager)
-  * [**Log manager**](https://github.com/mosip/mosip/wiki/Audit-Manager#log-manager)
-* [**Authentication and Authorization**](https://github.com/mosip/mosip/wiki/Authentication-and-Authorization(WIP))
-* [**Common Services**](https://github.com/mosip/mosip/wiki/FRS-Common-Services)
-* [**Data Services**](https://github.com/mosip/mosip/wiki/FRS-Data-Services)
-* [**Admin Services**](https://github.com/mosip/mosip/wiki/FRS-Admin-Services)
+* [**Configuration Server**](Configuration-Server)
+* [**Audit Manager**](Audit-Manager)
+  * [**Log manager**](log-manager)
+* [**Authentication and Authorization**](Authentication-and-Authorization(WIP))
+* [**Common Services**](FRS-Common-Services)
+* [**Data Services**](FRS-Data-Services)
+* [**Admin Services**](FRS-Admin-Services)
 
 ### 3.6 Administration (WIP)
 ### 3.7 Resident Services (WIP)
