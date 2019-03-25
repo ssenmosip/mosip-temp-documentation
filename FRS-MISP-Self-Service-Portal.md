@@ -39,6 +39,36 @@ Upon receiving a request to delete a Partner with input parameters (Partner ID),
 3. In case of exceptions, system triggers relevant error messages
 
 ## 1.2 Policies - Create/Read/Update/Delete
+
+### A. Create Policy
+Upon receiving a request to create a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system stores the data in database and responds to the source with the required message
+
+1. If the mandatory input parameters are missing, throw the appropriate message
+2. In case of exceptions, system should trigger relevant error messages
+### B. Read Policy
+1. The system receives a request to fetch a Policy with input parameters (Policy ID and/or Policy Name)
+2. Fetches the data existing against the input parameter received
+3. Responds to the source with the required data
+   * If only Policy ID is received, fetches data against the Policy ID from the database 
+   * If Policy Name is received, fetches data against the Policy Name from the database
+   * If both Policy ID and Policy Name is received, fetches data against the combination of both the input parameters
+   * If the input parameter received is null or empty, fetches all the data
+   * Fetches only active data from the database
+   * If the data does not exist for input parameters received, throws the appropriate message. 
+4. In case of exceptions, system triggers relevant error messages
+### C. Update Policy
+Upon receiving a request to update a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system updates the data and responds to the source with the required message
+
+1. Policy ID serves as search criteria to update the record in database
+2. Updates the data received against the data already existing in database against the Policy ID received
+3. If the mandatory input parameters are missing, throws the appropriate message
+4. In case of exceptions, system triggers relevant error messages
+### D. Delete Policy
+Upon receiving a request to delete a Policy with input parameters (Policy ID) the system deletes the data as requested and responds to the source with the required message
+
+1. If the mandatory input parameters are missing, throws the appropriate message
+2. In case of exceptions, system triggers relevant error messages.
+
 ## 1.3 Partner-Policy Mapping - Create/Read/Update/Delete
 ## 1.4 MISP-Partner Mapping - Create/Read/Delete
 ## 1.5 Validate and Re-issue Digital Certificate to Partner
