@@ -12,7 +12,7 @@
       * [4.1.5 VID Generator](#415-vid-generator) _(DAT_FR_4.5)_
       * [4.1.6 Token ID Generator](#416-token-id-generator) _(DAT_FR_4.6)_
       * [4.1.7 Partner ID Generator](#417-partner-id-generator) _(DAT_FR_4.12)_
-      * [4.1.8 License Key Generator](#418-license-key-generator) _(DAT_FR_4.13)_
+      * [4.1.8 MISP License Key Generator](#418-misp-license-key-generator) _(DAT_FR_4.13)_
     * [4.2 ID Validator](#42-id-validator) 
       * [4.2.1 Static Pin Validator](#421-static-pin-validator) _(DAT_FR_4.7)_
       * [4.2.2 UIN Validator](#422--uin-validator) _(DAT_FR_4.8)_
@@ -184,6 +184,35 @@ Refer below for the process:
 1. Raises an alert in case of exceptions.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
+
+
+#### 4.1.7 Partner ID Generator
+Upon receiving a request to generate partner ID, the system generates it as per default partner ID generation logic.
+
+Refer below for the process:
+
+1. Partner ID is only be numeric
+1. Partner ID generated is be of length of 4 digits
+1. Partner ID length is be configurable
+1. Each new Partner ID should be incremented by 1 for each new request
+1. Partner ID generation is start from 1000
+1. In case of exceptions, system triggers relevant error messages. 
+
+[**Link to design**]() _**update the link**_
+
+#### 4.1.8 MISP License Key Generator
+Upon receiving a request to generate License Key, the system generates it as per default License Key generation logic and responds with the License Key to the source
+
+1. License Key is generated as per the defined logic mentioned below:
+   * License Key Generation follows a random generation pattern
+   * License Key is alphanumeric
+   * License Key generated is of length of 8 digits
+   * License Key is mapped to an expiry (Expiry to be configured by admin).
+2. In case of Exceptions, system triggers relevant error messages
+
+[**Link to design**]() _**update the link**_
+
+
 
 ### 4.2 ID Validator
 #### 4.2.1 Static Pin Validator
