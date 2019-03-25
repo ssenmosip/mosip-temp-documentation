@@ -8,7 +8,7 @@ This API will support the following features
 
 ## 1. Create    
 
-This operation will create a new ID record in the ID repository and store corresponding demographic and biometric documents. 
+This operation will create a new ID record in the ID repository and store corresponding demographic and bio-metric documents. 
 
 ### Resource URL
 ### `POST /identity/v1.0/{UIN}`
@@ -25,11 +25,11 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.id.create | 
 version | yes | version of the API | | 1.0
-timestamp | yes | timestamp of the request | | 1539936202
-registrationId | yes | registration id | | 
-request | yes | JSON body as per the ID object schema | | 
+requesttime | yes | timestamp of the request | | 2018-12-11T06:12:25.288Z
+request | yes | Request Body attributes | | 
+request: registrationId | yes | registration id | | 
 request: identity | yes | JSON body as per the ID object schema | | 
-request: decouemnts | yes | Docuements that are to be uploaded for any ID attribute | | 
+request: decouemnts | yes | Documents that are to be uploaded for any ID attribute | | 
 
 **Example request**
 
@@ -37,19 +37,19 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
 {
   "id": "mosip.id.create",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:12:25.288Z",
-  "registrationId": "12342343200065201812120100555",
+  "requesttime": "2018-12-11T06:12:25.288Z",
   "request": {
+    "registrationId": "12342343200065201812120100555",
     "identity": {
-      "IDSchemaVersion": 1.0,
+      "IDSchemaVersion": 1,
       "UIN": 981576026435,
       "fullName": [
         {
           "language": "ara",
-          "value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ… Ø¨Ù† Ø¹Ù„ÙŠ"
+          "value": "ابراهيم بن علي"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "Ibrahim Ibn Ali"
         }
       ],
@@ -58,70 +58,70 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
       "gender": [
         {
           "language": "ara",
-          "value": "Ø§Ù„Ø°ÙƒØ±"
+          "value": "الذكر"
         },
         {
-          "language": "fre",
-          "value": "mÃ¢le"
+          "language": "fra",
+          "value": "mâle"
         }
       ],
       "addressLine1": [
         {
           "language": "ara",
-          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
+          "value": "عنوان العينة سطر 1"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "exemple d'adresse ligne 1"
         }
       ],
       "addressLine2": [
         {
           "language": "ara",
-          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
+          "value": "عنوان العينة سطر 2"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "exemple d'adresse ligne 2"
         }
       ],
       "addressLine3": [
         {
           "language": "ara",
-          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
+          "value": "عنوان العينة سطر 3"
         },
         {
-          "language": "fre",
-          "value": "exemple d'adresse ligne 2"
+          "language": "fra",
+          "value": "exemple d'adresse ligne 3"
         }
       ],
       "region": [
         {
           "language": "ara",
-          "value": "Ø·Ù†Ø¬Ø© - ØªØ·ÙˆØ§Ù† - Ø§Ù„Ø­Ø³ÙŠÙ…Ø©"
+          "value": "طنجة - تطوان - الحسيمة"
         },
         {
-          "language": "fre",
-          "value": "Tanger-TÃ©touan-Al Hoceima"
+          "language": "fra",
+          "value": "Tanger-Tétouan-Al Hoceima"
         }
       ],
       "province": [
         {
           "language": "ara",
-          "value": "Ù�Ø§Ø³-Ù…ÙƒÙ†Ø§Ø³"
+          "value": "فاس-مكناس"
         },
         {
-          "language": "fre",
-          "value": "FÃ¨s-MeknÃ¨s"
+          "language": "fra",
+          "value": "Fès-Meknès"
         }
       ],
       "city": [
         {
           "language": "ara",
-          "value": "Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
+          "value": "الدار البيضاء"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "Casablanca"
         }
       ],
@@ -132,10 +132,10 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
       "localAdministrativeAuthority": [
         {
           "language": "ara",
-          "value": "Ø³Ù„Ù…Ù‰"
+          "value": "سلمى"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "salma"
         }
       ],
@@ -143,10 +143,10 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
       "parentOrGuardianName": [
         {
           "language": "ara",
-          "value": "Ø³Ù„Ù…Ù‰"
+          "value": "سلمى"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "salma"
         }
       ],
@@ -172,12 +172,12 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
       },
       "individualBiometrics": {
         "format": "cbeff",
-        "version": 1.0,
+        "version": 1,
         "value": "fileReferenceID"
       },
       "parentOrGuardianBiometrics": {
         "format": "cbeff",
-        "version": 1.0,
+        "version": 1,
         "value": "fileReferenceID"
       }
     },
@@ -213,9 +213,9 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
 {
   "id": "mosip.id.create",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:13:05.218Z",
-  "status": "ACTIVATED",
+  "responsetime": "2018-12-11T06:13:05.218Z",
   "response": {
+    "status": "ACTIVATED",
     "entity": "http://mosip.io/identity/568469473107"
   }
 }
@@ -224,7 +224,10 @@ request: decouemnts | yes | Docuements that are to be uploaded for any ID attrib
 ## 2. Read         
 
 This operation will retrieve an ID record from the ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
-If no identity type is provided, stored identity will be returned as a default response. If any of the identity type - bio and/or demo or all is present, their respective documents will be returned along with stored identity details.
+1. When type=bio is selected, individualBiometrics along with Identity details of the Individual are returned
+2. When type=demo is selected, Demographic documents along with Identity details of the Individual are returned
+3. When type=all is selected, both individualBiometrics and demographic documents are returned along with Identity details of the Individual
+If no identity type is provided, stored Identity details of the Individual will be returned as a default response.
 
 ### Resource URL
 ### `GET /identity/v1.0/{UIN}?type=bio`
@@ -242,20 +245,20 @@ Requires Authentication | Yes
 {
   "id": "mosip.id.read",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:13:05.218Z",
-  "status": "ACTIVATED",
+  "responsetime": "2018-12-11T06:13:05.218Z",
   "response": {
-    	//JSON object as per the ID Object Schema defined by the system owner
+    //JSON object as per the ID Object Schema defined by the system owner
+    "status": "ACTIVATED",
     "identity": {
       "IDSchemaVersion": 1.0,
       "UIN": 981576026435,
       "fullName": [
         {
           "language": "ara",
-          "value": "Ø§Ø¨Ø±Ø§Ù‡ÙŠÙ… Ø¨Ù† Ø¹Ù„ÙŠ"
+          "value": "ابراهيم بن علي"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "Ibrahim Ibn Ali"
         }
       ],
@@ -264,70 +267,70 @@ Requires Authentication | Yes
       "gender": [
         {
           "language": "ara",
-          "value": "Ø§Ù„Ø°ÙƒØ±"
+          "value": "الذكر"
         },
         {
-          "language": "fre",
-          "value": "mÃ¢le"
+          "language": "fra",
+          "value": "mâle"
         }
       ],
       "addressLine1": [
         {
           "language": "ara",
-          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 1"
+          "value": "عنوان العينة سطر 1"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "exemple d'adresse ligne 1"
         }
       ],
       "addressLine2": [
         {
           "language": "ara",
-          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
+          "value": "عنوان العينة سطر 2"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "exemple d'adresse ligne 2"
         }
       ],
       "addressLine3": [
         {
           "language": "ara",
-          "value": "Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹ÙŠÙ†Ø© Ø³Ø·Ø± 2"
+          "value": "عنوان العينة سطر 3"
         },
         {
-          "language": "fre",
-          "value": "exemple d'adresse ligne 2"
+          "language": "fra",
+          "value": "exemple d'adresse ligne 3"
         }
       ],
       "region": [
         {
           "language": "ara",
-          "value": "Ø·Ù†Ø¬Ø© - ØªØ·ÙˆØ§Ù† - Ø§Ù„Ø­Ø³ÙŠÙ…Ø©"
+          "value": "طنجة - تطوان - الحسيمة"
         },
         {
-          "language": "fre",
-          "value": "Tanger-TÃ©touan-Al Hoceima"
+          "language": "fra",
+          "value": "Tanger-Tétouan-Al Hoceima"
         }
       ],
       "province": [
         {
           "language": "ara",
-          "value": "Ù�Ø§Ø³-Ù…ÙƒÙ†Ø§Ø³"
+          "value": "فاس-مكناس"
         },
         {
-          "language": "fre",
-          "value": "FÃ¨s-MeknÃ¨s"
+          "language": "fra",
+          "value": "Fès-Meknès"
         }
       ],
       "city": [
         {
           "language": "ara",
-          "value": "Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"
+          "value": "الدار البيضاء"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "Casablanca"
         }
       ],
@@ -338,10 +341,10 @@ Requires Authentication | Yes
       "localAdministrativeAuthority": [
         {
           "language": "ara",
-          "value": "Ø³Ù„Ù…Ù‰"
+          "value": "سلمى"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "salma"
         }
       ],
@@ -349,10 +352,10 @@ Requires Authentication | Yes
       "parentOrGuardianName": [
         {
           "language": "ara",
-          "value": "Ø³Ù„Ù…Ù‰"
+          "value": "سلمى"
         },
         {
-          "language": "fre",
+          "language": "fra",
           "value": "salma"
         }
       ],
@@ -416,10 +419,10 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | Id of the API | mosip.id.update | 
 version | Y | version of the API | | 1.0
-timestamp | Y | timestamp of the request | | 1539936202
-registrationId | Y | registration id | | 
-status | N | status of ID | | 
-request | N | JSON body as per the ID object schema | | 
+requesttime | Y | timestamp of the request | | 2018-12-11T06:12:25.288Z
+request | Y | Request body attributes | | 
+request: status | N | status of ID | | 
+request: registrationId | Y | registration id | | 
 request: identity | N | JSON body as per the ID object schema | | 
 request: documents | N | Documents that are to be uploaded for any ID attribute | | 
 
@@ -429,11 +432,11 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 {
   "id": "mosip.id.update",
   "version": "1.0",
-  "timestamp": "2018-12-11T06:12:25.288Z",
-  "registrationId": "12342343200065201812120100556",
-  "status": "DEACTIVATED",
+  "requesttime": "2018-12-11T06:12:25.288Z",
   "request": {
     //JSON object as per the ID Object Schema defined by the system owner
+    "registrationId": "12342343200065201812120100556",
+    "status": "DEACTIVATED",
     "identity": {
       "email": "sample123@email.com",
       "individualBiometrics": {
@@ -456,12 +459,12 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 
 ```
 {
-	"id" : "mosip.id.update",
-	"version" : "1.0",
-	"timestamp" : "2018-12-11T06:13:05.218Z",
-	"status" : "DEACTIVATED",
-	"response" : {
-		"entity" : "http://mosip.io/identity/568469473107"
-	}	
+  "id": "mosip.id.update",
+  "version": "1.0",
+  "responsetime": "2018-12-11T06:13:05.218Z",
+  "response": {
+    "status": "DEACTIVATED",
+    "entity": "http://mosip.io/identity/568469473107"
+  }
 }
 ```
