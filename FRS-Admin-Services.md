@@ -1968,6 +1968,36 @@ Refer below for the process:
 ### 3.1 MISP - Create/Read/Update/Delete
 #### 3.1.1 License Key Allocation- Create/Read/Update/Delete
 
+#### A. Create MISP
+1. The system receives a request to create a MISP with input parameters (MISP ID, MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address, MISP User name, MISP Password, MISP License Key, MISP License Key Status, IsActive)
+2. Stores the data in the database
+3. Responds to the source with the required message
+4. If the mandatory input parameters are missing, throws the appropriate message. 
+5. In case of exceptions, system triggers relevant error messages. 
+#### B. Read MISP
+1. The system receives a request to fetch a MISP with input parameters (MISP ID and/or MISP Organization Name)
+2. Fetches the data existing against the input parameter received. 
+3. If only MISP ID is received, fetches data against the MISP ID from the database
+4. If MISP Organization Name is received, fetches data against the MISP Organization Name from the database
+5. If both MISP ID and MISP Organization Name is received, fetches data against the combination of both the input parameters (Complete match of Org name and MISP ID)
+1. Fetches only active data from the database
+1. If the input parameter received is null or empty, fetches all the data
+1. If the mandatory input parameters are missing, throws the appropriate message. 
+1. If the data does not exist for input parameters received, throws the appropriate message. 
+1. In case of Exceptions, system triggers relevant error messages. 
+#### C. Update MISP
+1. The system receives a request to update a MISP with input parameters (MISP ID, MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address, MISP User name, MISP Password, MISP License Key, MISP License Key Status, IsActive
+2. Updates the data and Responds to the source with the required message
+1. MISP ID will serves as search criteria to update the record in the database
+1. The system updates the data received against the data already existing in the database against the MISP ID received
+1. If the mandatory input parameters are missing, throws the appropriate message. 
+1. In case of Exceptions, system triggers relevant error messages. 
+#### D. Delete MISP
+1. The system receives a request to delete a MISP with input parameters (MISP ID)
+1. Deletes the data as mentioned as requested
+1. Responds to the source with the required message
+4. If the mandatory input parameters are missing, throws the appropriate message.
+5. In case of exceptions, system triggers relevant error messages. 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
 
