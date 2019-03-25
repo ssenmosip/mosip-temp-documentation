@@ -1966,7 +1966,7 @@ Refer below for the process:
 
 ## 3. MISP Management 
 ### 3.1 MISP - Create/Read/Update/Delete
-### 3.1.1 License Key Allocation
+#### 3.1.1 License Key Allocation- Create/Read/Update/Delete
 
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
