@@ -207,7 +207,7 @@ Upon receiving a request to generate License Key, the system generates it as per
    * License Key Generation follows a random generation pattern
    * License Key is alphanumeric
    * License Key generated is of length of 8 digits
-   * License Key is mapped to an expiry (Expiry to be configured by admin).
+   * License Key is mapped to expiry (Expiry to be configured by admin).
 2. In case of Exceptions, system triggers relevant error messages
 
 [**Link to design**]() _**update the link**_
