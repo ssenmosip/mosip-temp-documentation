@@ -271,16 +271,33 @@ RID Validation performs pattern validation on RID and provides three methods to 
 1. Receive a RID along with Registration Center ID and Machine ID. Check whether RID is of configured length or not and whether Registration Center ID and Machine ID are attached to the RID or not. Respond with whether RID is valid or invalid
 1. Receive a RID along with Registration Center ID, Machine ID, Sequence Length and Timestamp Length. Check whether RID is proper or not as per the input received. Respond with whether RID is valid or invalid.
 
-#### 4.2.6 TSP ID Validator
+#### 4.2.6 Partner ID Validator
+1. The system receives a request to check status of a Partner with an input parameter (Partner ID)
+2. Checks the length of the Partner ID
+3. Checks the status of the Partner ID
+4. Responds to the source according to the conditions mentioned below:
+   * If the length of Partner ID is not of the configured length, respond with message "INVALID"
+   * If the Partner ID is Inactive, respond with message "INACTIVE"
+   * If the Partner ID is of configured length and is Active, respond with "ACTIVE"
+5. Throws an error if an input parameter is empty
+6. In case of Exceptions, system triggers relevant error messages.
 
-Upon receiving a request to perform data validation on TSP ID with input parameters (TSP ID), the system validates TSP ID as per the TSP ID generation logic
+[**Link to design**]() _**update the link**_
 
-Refer below for the process:
-1. Validates if the request has the following input parameters.
-   * TSP ID
-2. Validates TSP ID as per the TSP ID generation Policy
-1. Responds with the required result (Valid/Invalid)
-1. Raises an alert in case of exceptions. 
+#### 4.2.7 License Key Status Validator
 
-[**Link to ID validator design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-idvalidator.md)
+The system receives a request to check status of the License Key with an input parameter (License Key)
+1. Checks the length of the License Key
+2. Fetches the status of the License Key
+3. Throw an error if an input parameter in empty
+4. Responds to the source according to the conditions mentioned below
+   * If the length of License Key is not 8 digits, respond with message "INVALID"
+   * If the License Key is expired as per the expiry period configured, respond with message "EXPIRED"
+   * If the status of License Key is "SUSPENDED", respond with message "SUSPENDED"
+   * If the status of License Key is "BLOCKED", respond with message "BLOCKED"
+   * If the status of License Key is "ACTIVE", respond with message "ACTIVE"
+   * License Key should be mapped to expiry (Expiry to be configured by admin).
+5. In case of Exceptions, system triggers relevant error messages. 
+
+[**Link to design**]() _**update the link**_
 
