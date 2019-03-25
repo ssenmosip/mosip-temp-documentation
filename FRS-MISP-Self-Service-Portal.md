@@ -135,4 +135,12 @@ Upon receiving a request to delete a MISP-Partner Mapping with input parameters 
 2. In case of exceptions, system triggers relevant error messages.
 
 ## 1.5 Validate and Re-issue Digital Certificate to Partner
+
+Upon receiving a request to validate the Digital Certificate provided by a Partner with Input (Digital Certificate), the system does the following:
+1. Validates the Digital Certificate
+2. Signs the Digital Certificate with MOSIP's Certificate and issue a Certificate Chain
+3. Responds with the signed certificate to the source
+4. If the mandatory input parameters are missing, throws the appropriate message. 
+5. In case of exceptions, system triggers relevant error messages
+
 ## 1.6 Distribution of Public Keys to Partners
