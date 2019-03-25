@@ -70,6 +70,47 @@ Upon receiving a request to delete a Policy with input parameters (Policy ID) th
 2. In case of exceptions, system triggers relevant error messages.
 
 ## 1.3 Partner-Policy Mapping - Create/Read/Update/Delete
+
+### A. Create Partner-Policy Mapping
+Upon receiving a request to create a Partner-Policy Mapping with input parameters (Partner ID, Policy ID, IsActive), the system stores the data in the database and responds to the source with the required message:
+
+1. Input parameters must be present as mentioned below:
+   * Partner ID - Mandatory
+   * Policy ID - Mandatory
+   * IsActive - Mandatory
+2. There can only be one Policy mapped to a Partner
+3. If the mandatory input parameters are missing, the system throws the appropriate message
+4. In case of exceptions, system triggers relevant error messages. 
+### B. Read Policy Json File based on Partner ID
+Upon receiving a request to fetch a Policy with input parameters (Partner ID), the system fetches the data existing against the input parameter received and responds to the source with the required data as per the below steps:
+
+1. Fetches the Policy mapped to the Partner ID received in input
+2. Fetches only active data from the database
+3. If the mandatory input parameters are missing, throws the appropriate message. 
+4. If the data does not exist for input parameters received, throws the appropriate message
+5. In case of exceptions, system triggers relevant error messages. 
+### C. Update Partner-Policy Mapping
+Upon receiving a request to update a Partner-Policy Mapping with input parameters (Partner ID, Policy ID, IsActive), the system updates the data and responds to the source with the required message as per the below steps:
+
+1. Input parameters must be present as mentioned below:
+   * Partner ID - Mandatory
+   * Policy ID - Mandatory
+   * IsActive - Mandatory
+2. Partner ID serves as search criteria to update the record in the database
+3. There can only be one Policy mapped to a Partner
+4. Updates the data received against the data already existing in the database against the Partner ID received
+5. If the mandatory input parameters are missing, throw the appropriate message
+6. In case of exceptions, system triggers relevant error messages. 
+### D. Delete Partner-Policy Mapping
+Upon receiving a request to delete a Partner-Policy Mapping with input parameters (Partner ID, Policy ID), the system deletes the data as requested and Responds to the source with the required message
+
+1. Input parameters must be present as mentioned below:
+   * Partner ID - Mandatory
+   * Policy ID - Mandatory
+2. If the mandatory input parameters are missing, throw the appropriate message
+3. In case of exceptions, system triggers relevant error messages. 
+
+
 ## 1.4 MISP-Partner Mapping - Create/Read/Delete
 ## 1.5 Validate and Re-issue Digital Certificate to Partner
 ## 1.6 Distribution of Public Keys to Partners
