@@ -144,3 +144,13 @@ Upon receiving a request to validate the Digital Certificate provided by a Partn
 5. In case of exceptions, system triggers relevant error messages
 
 ## 1.6 Distribution of Public Keys to Partners
+
+Upon receiving a request to get Public Key with an input parameter (Date Time-stamp) the system performs the following steps:
+1. The system calls the Key Manager Service to get the Public Key with Input Parameter (Application ID, Reference ID, Date Time-Stamp)
+2. Retrieves the Public Key as per the timestamp. 
+3. Responds to the source with the Private Key
+4. The Public Key should be a valid and active key for the Time-Stamp received
+5. The Public Key corresponds to the Private Key used by the IDA
+6. If the mandatory input parameters are missing, system throws the appropriate message. 
+7. In case of exceptions, system triggers relevant error messages.
+
