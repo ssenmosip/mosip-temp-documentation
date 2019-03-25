@@ -75,8 +75,8 @@ Below is the list of databases in MOSIP
 
 # Data Model Naming Standards
 
-[Naming Standards](https://github.com/mosip/mosip/wiki/Data-Model-Naming-Standards)
+[Naming Standards](Data-Model-Naming-Standards)
 
 # Data Model
 
-[Data Model](https://github.com/mosip/mosip/wiki/MOSIP-Data-Model)
+[Data Model](MOSIP-Data-Model)
