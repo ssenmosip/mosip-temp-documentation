@@ -26,7 +26,7 @@
 ## 1. Data mapper
 Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity. 
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-datamapper.md)
 
 ## 2. Data Access Manager
 Data Access Manager provides a DAO (Data Access Object) interface to do the following
@@ -35,7 +35,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 1. Provide an interface to support a custom SQL
 1. Provide an interface to call Database functions.
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-dataaccess.md)
 
 ## 3. Sync Handler
 1. Sync Handler allows registration client to sync Master data, List of User, Roles and Respective Mappings and Configurations (Registration Client specific and Global Configs).
@@ -71,7 +71,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
 1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations.
 1. For User, Roles and Respective User-Role mappings, Sync handler receives Center ID and Timestamp and will respond to the Registration Client with Center specific incremental changes.
 
-[**Link to design**](https://github.com/mosip/mosip/blob/0.8.0_FIT3_KERNEL/docs/design/kernel/kernel-syncservices.md)
+[**Link to design**](/mosip/mosip/blob/0.8.0_FIT3_KERNEL/docs/design/kernel/kernel-syncservices.md)
 ## 4. ID Generator and Validator
 ### 4.1 ID Generator
 #### 4.1.1 Machine ID Generator
@@ -87,7 +87,7 @@ Responds with the Machine ID to the source.
 
 Raises an alert in case of exceptions. 
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
 
 #### 4.1.2 Registration Center ID Generator
 
@@ -104,7 +104,7 @@ Refer below for the process:
 1. Responds with the Registration Center ID to the source
 1. Raises an alert in case of exceptions.
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
 
 #### 4.1.3 MISP ID Generator
 
@@ -141,7 +141,7 @@ Refer below for the process:
 4. Responds with the PRID to the source
 1. Raises an alert in case of exceptions. 
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
 
 #### 4.1.5 VID Generator
 
@@ -166,7 +166,7 @@ Refer below for the process:
 4. Expired VID should not be sent in response.
 
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
 #### 4.1.6 Token ID Generator
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
@@ -183,7 +183,7 @@ Refer below for the process:
 5. Responds with the Token ID to the source
 1. Raises an alert in case of exceptions.
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
 
 
 #### 4.1.7 Partner ID Generator
