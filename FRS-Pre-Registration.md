@@ -95,7 +95,7 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 |------|-----|-----|-----|
 |**Pending Appointment**|Appointment is yet to be booked|Filled only demographic details|Upload documents and book an appointment|
 | | |Filled demographic details and uploaded documents |Book an appointment|
-|**Booked**|  Appointment is booked successfully| Filled demographic details, uploaded documents, and booked appointment|Visit the registration center on your appointment date and time|
+|**Booked**|  Appointment is booked successfully| Filled demographic details, uploaded documents, and booked appointment|Visit the registration center on the appointment date and time|
 |**Expired**| Appointed date has passed| -|N/A
 
 If the individual visits the Registration Centre and consumes the appointment, then the application will be removed from the list
