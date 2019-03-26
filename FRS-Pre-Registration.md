@@ -61,13 +61,13 @@ If the user is inactive for X minutes( X is configurable)the system notifies the
 The Individual is provided with Demographic form based on the id [**Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
 Once validated the **Pre-Registration Id is generated** ( Pre-registration Request Id)and the Demographic details provided gets mapped to that PRID.
 
-Note:Consent is sought from the user for every new application created in the system
+Note: Consent is sought from the user for every new application created in the system
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 ### 2.2.2 Provide Consent
 
-An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide his/her consent for storage and utilization of his/her personal information.The consent is sought from the user for every new application created in the system .On providing his/her consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
+An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide his/her consent for storage and utilization of his/her personal information. The consent is sought from the user for every new application created in the system .On providing his/her consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
 
 In case of closure of the Consent Pop-up, the following scenarios may arise:
 1. First-time login: On closure, then system alerts the user that he will be logged out due to not providing consent.
