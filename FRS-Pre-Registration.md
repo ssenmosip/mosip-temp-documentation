@@ -70,7 +70,7 @@ In case of closure of the Consent Pop-up, the following scenarios may arise:
 1. First-time login: On closure, then system alerts the user that he will be logged out due to not providing consent.
 1. Existing User login
    * Scenario 1 Create new Application from Dashboard: On closure, the Individual will be redirected to Dashboard page.
-   * Scenario 2 Add Applicant from Preview Page: On closure, the individual will be redirected to Dashboard page.
+   * Scenario 2 Add Applicant from Preview Page: On closure, the individual will be redirected to Preview Page.
 
 
 ### 2.2.3 Create Multiple Applications
