@@ -1961,7 +1961,7 @@ Refer below for the process:
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-masterdata.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-masterdata.md)
 
 
 ## 3. MISP Management 
@@ -1999,7 +1999,7 @@ Refer below for the process:
 4. If the mandatory input parameters are missing, throws the appropriate message.
 5. In case of exceptions, system triggers relevant error messages. 
 
-[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
 
 
 
