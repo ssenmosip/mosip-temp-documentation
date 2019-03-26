@@ -444,13 +444,12 @@ For getting more details about how to use configuration server with our applicat
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
 **A. Global:**
-
 https://github.com/mosip/mosip/blob/master/config/application-dev.properties
 
-**Kernel:**
+**B. Kernel:**
 https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
 
-**Pre-Registration:**
+**C. Pre-Registration:**
 https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
 
 **Properties that need to be changed once the external dependencies are installed**
