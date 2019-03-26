@@ -232,21 +232,37 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 
 
 [1](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+
 [1](mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+
 [1](mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+
 [1](blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+
 [1](master/docs/design/pre-registration/pre-registration-individual.md) 
+
 [1](docs/design/pre-registration/pre-registration-individual.md)
+
 [1](design/pre-registration/pre-registration-individual.md)
+
 [1](pre-registration/pre-registration-individual.md)
+
 [1](pre-registration-individual.md)
 
 
+
+
 [1](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+
 [1](/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+
 [1](/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+
 [1](/master/docs/design/pre-registration/pre-registration-individual.md)
+
 [1](/docs/design/pre-registration/pre-registration-individual.md)
+
 [1](/design/pre-registration/pre-registration-individual.md)
+
 
 [1](/pre-registration/pre-registration-individual.md)
