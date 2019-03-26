@@ -169,7 +169,7 @@ The user opts to view the available slots for a selected registration center.
 ### 2.4.3 Cancel Appointment
 1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
 1. In such case the system notifies the user about the successful cancellation 
-1. Following a successful Appointment Cancellation the system unlocks the time slot of the Pre-Registration 
+1. Following a successful Appointment Cancellation the system unlocks the time slot of the Registration Center
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
 
