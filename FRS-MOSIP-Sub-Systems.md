@@ -38,7 +38,7 @@ The Central config server provides following functionality:
 1. It provides a functionality to change the property for a micro-service, it can reflect the changes dynamically without redeploying the micro-service.
 1. This component allows all the configurations to come from a central server
 
-[Please refer the **configuring MOSIP** section in **Getting Started guide** for more details on the configuration server](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-)
+[Please refer the **configuring MOSIP** section in **Getting Started guide** for more details on the configuration server](Getting-Started#7-configuring-mosip-)
 
 ## 3. Audit Manager
 The Audit Manager component receives a request to audit and store data, validates if the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). This component will also ensure non-auditable data is not stored.
