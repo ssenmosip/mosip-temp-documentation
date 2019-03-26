@@ -53,6 +53,7 @@ The Individual logs in to the Pre-Registration portal with his/her Mobile Number
 
 ### 2.1.4 Logout/Session Timeout
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
+If the user is inactive for X minutes( X is configurable)the system notifies the user one minute before the configured timeout limit. In case such case the system will not save any user data.
 
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
