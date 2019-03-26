@@ -224,6 +224,6 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 
 1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip)
 
-
+[he](Getting-Started#7-configuring-mosip-)
 Please refer to para 7.C in Getting started Guide.
 1. [**Configurable Processes**](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
