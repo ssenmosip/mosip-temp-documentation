@@ -37,7 +37,7 @@
 # 1. Overview
 The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on a successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
-[**Link to Process View**](https://github.com/mosip/mosip/wiki/Process-view#pre-registration)
+[**Link to Process View**](Process-view#pre-registration)
 
 # 2. Features
 ## 2.1 Login/Creating a User Account
@@ -57,7 +57,7 @@ If the Individual wishes to logout of the Pre-Registration system, he/she can op
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
 
-The Individual is provided with Demographic form based on the id [Object Definition](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)  for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
+The Individual is provided with Demographic form based on the id [Object Definition](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
 Once validated the **Pre-Registration Id is generated** and the Demographic details provided gets mapped to that PRID.
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
