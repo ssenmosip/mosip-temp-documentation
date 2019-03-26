@@ -21,12 +21,14 @@ The Registration client application is delivered into two parts:
 ***  
 **Zip file:**  
    1. User login to the Admin portal and download the client application ZIP file.  
-   2. Once downloaded then unzip the file into a particular location. It contains the following structure.    
+   2. Once downloaded then unzip the file into a particular location. It contains the following structure.  
+      - bin : It contains the client UI and service executable in encrypted format.
       - lib : it contains the library required for the application to start.  
       - prop : it contains the property file that will be used by application.    
       - log : the application log file would be written under this folder.    
-      - db : it contains the derby database, tables and few table with the data.      
-   3. Store the DB boot key into the TPM [Trusted Platform Module].  
+      - db : it contains the derby database, tables and few table with the data.  
+      - run.jar : Executable jar to download the s/w.
+   3. Store the DB boot key into the TPM [Trusted Platform Module] [TBD].  
    
 **Application Binaries:**  
 When user clicks on the 'main.jar' it does the following :  
