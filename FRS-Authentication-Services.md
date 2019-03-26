@@ -24,7 +24,7 @@
 Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against the threshold as per the following steps:
 
 1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) and the match score(s)
-2. The biometric data is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system retrieves the threshold level configured which is acceptable for a match and then validates if the match score is equal to greater than the threshold level and sets the status as 'Y' for authentication
 4. The system then constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 5. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
@@ -35,7 +35,7 @@ Upon receiving an authentication service request, the system authenticates the f
 
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
 1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
-2. The biometric data is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. System validates if the time period between the current time stamp and the request time stamp is <= time period
 4. System validates that total number of face record(s) should not exceed 1
 5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched
@@ -51,7 +51,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 
-2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system then validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input
@@ -67,7 +67,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 Upon receiving an authentication request, the system authenticates the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold. The system can integrate with Fingerprint scanner and generate match score as per the following steps:
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, UA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType) and the match score
-2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system retrieves the threshold level configured which is acceptable for a match
 4. The system then validates the following if the match score is equal to greater than the threshold level
 5. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
@@ -79,7 +79,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 **E. Support two-finger authentication so that the quality of incoming fingerprints is better**
 
 1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). 
-2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
@@ -104,7 +104,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 Upon receiving an authentication request, the system evaluates the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
 
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
-2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
@@ -126,7 +126,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 The system receives authentication service request with the following parameters: 
 id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) 
 1. The system retrieves generated score match
-2. The biometric is sent in [**Base-64 encoded format**](https://en.wikipedia.org/wiki/Base64)
+2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system then validated the following:
    * Validates if single irisImg records are present in the input
    * Retrieves the threshold level configured which is acceptable for a match
@@ -765,9 +765,4 @@ The system then validates the following:
 Technical story (Architects to contribute)
 
 
-[1](/en.wikipedia.org/wiki/Base64)
 
-[2](//en.wikipedia.org/wiki/Base64)
-
-
-[**data definition**](/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
