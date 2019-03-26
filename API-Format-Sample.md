@@ -13,7 +13,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 # POST /sendotp
 This request will send the OTP to the requested user
 ## Resource URL
-https://mosip.io/v1/prereglogin/sendotp
+https://mosip.io/v1/prereg-login/sendotp
 
 ## Resource Details
 Resource Details | Description
