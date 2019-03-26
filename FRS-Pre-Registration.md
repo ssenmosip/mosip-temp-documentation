@@ -23,16 +23,16 @@
       * [2.4.1.1 Recommended Centers based on Postal Code](#2411-recommended-centers-based-on-postal-code) 
       * [2.4.1.2 Nearby Centers based on User Geo-location](#2412-nearby-centers-based-on-user-geo-location) 
       * [2.4.1.3 Find a Center](#2413-find-a-center) 
-    * [2.4.2 Choosing Appointment Slots](#242-choosing-appointment-slots) _(PRE_FR_4.2)_
-      * [2.4.2.1 Get Slots Availability](#2421-get-slots-availability) 
-    * [2.4.3 Cancel Appointment](#243-cancel-appointment) _(PRE_FR_4.3)_
-    * [2.4.4 Re-book Appointment](#244-re-book-appointment) _(PRE_FR_4.4)_
+    * [2.4.2 Get Appointment for the Day](#242-get-appointment-for-the-day) _(PRE_FR_4.2)_
+    * [2.4.3 Choosing Appointment Slots](#243-choosing-appointment-slots) _(PRE_FR_4.3)_
+      * [2.4.3.1 Get Slots Availability](#2431-get-slots-availability) 
+    * [2.4.4 Cancel Appointment](#244-cancel-appointment) _(PRE_FR_4.4)_
+    * [2.4.5 Re-book Appointment](#245-re-book-appointment) _(PRE_FR_4.5)_
   * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid) _(PRE_FR_5)_
     * [2.5.1 Download Acknowledgement](#251-download-acknowledgement) _(PRE_FR_5.1)_
     * [2.5.2 Send Acknowledgement to Email/Phone](#252-send-acknowledgement-to-emailphone) _(PRE_FR_5.2)_
   * [2.6 Registration Client Services](#26-registration-client-services) _(PRE_FR_6)_
-    * [2.6.1 Get Appointment for the Day](#261-get-appointment-for-the-day) _(PRE_FR_6.1)_
-    * [2.6.2 Retrieve Application Data by PRID](#262-retrieve-application-data-by-prid) _(PRE_FR_6.2)_
+    * [2.6.1 Retrieve Application Data by PRID](#261-retrieve-application-data-by-prid) _(PRE_FR_6.1)_
   * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes) _(PRE_FR_7)_
 # 1. Overview
 The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on a successful booking. This module also has the provision for appointment rescheduling and cancellation.
@@ -157,12 +157,22 @@ It is a contextual search where the individual selects a search criteria and bas
 
 The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
+### 2.4.2 Get Appointment for the Day
+1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
+1. The system presents a  list of Centers to the user to select the required Registration Center 
+1. The Time selection with calendar days along with number of slots available per calendar day will be displayed 
+1. Individual can select any of the calendar day which he\she wishes to Book Appointment.
+1. Time slots of 15 minutes each are displayed.
+1. Each time slot with Available slots will be displayed.
+1. The Individual can select a slot and proceed to Book Appointment or can go back to select another Registration Center
+
+[**Link to design**](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
 
 
 
-### 2.4.2 Choosing Appointment Slots
+### 2.4.3 Choosing Appointment Slots
 
-#### 2.4.2.1 Get Slots Availability
+#### 2.4.3.1 Get Slots Availability
 The user opts to view the available slots for a selected registration center.
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot in the chosen center
 1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
@@ -173,14 +183,14 @@ The user opts to view the available slots for a selected registration center.
 1. An individual can book the appointment for the preferred/chosen time slot – Subsequently the timeslots are locked
 
 
-### 2.4.3 Cancel Appointment
+### 2.4.4 Cancel Appointment
 1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
 1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Registration Center
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
 
-### 2.4.4 Re-book Appointment
+### 2.4.5 Re-book Appointment
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment Slots.
 1. An Individual can select any of the Appointment Date available and any of the Appointment Slot available
 1. The Individual has to select against which Pre-Registration Id the Appointment slot is being booked
@@ -209,17 +219,7 @@ In case of multiple application, the system sends notifications to each applican
 An individual can opt to manually trigger notification\s to the contact details of additional recipients.
 
 ## 2.6 Registration Client Services
-### 2.6.1 Get Appointment for the Day
-1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
-1. The system presents a  list of Centers to the user to select the required Registration Center 
-1. The Time selection with calendar days along with number of slots available per calendar day will be displayed 
-1. Individual can select any of the calendar day which he\she wishes to Book Appointment.
-1. Time slots of 15 minutes each are displayed.
-1. Each time slot with Available slots will be displayed.
-1. The Individual can select a slot and proceed to Book Appointment or can go back to select another Registration Center
-
-[**Link to design**](https://github.com/mosip/mosip/tree/master/docs/design/pre-registration)
-### 2.6.2 Retrieve Application Data by PRID
+### 2.6.1 Retrieve Application Data by PRID
 Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id (Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
 1. The system generates a Transaction Id
 1. The system then Fetches all the Pre-Registrations within the Date Range (Start Range, End Date) and for the Registration Center Id received and calculates the count of the Pre-Registration Ids being sent.
