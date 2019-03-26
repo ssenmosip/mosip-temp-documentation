@@ -3,7 +3,7 @@ Multi modal biometrics (Fingerprint, Iris, Face...) will be a key component in M
 - MOSIP will use CBEFF ISO 19795 - 1 format to store and transfer biometrics data
 - MOSIP will use XML data format of CBEFF to store the biometrics data
 - MOSIP will use OASIS patron format ISO/IEC JTC 1 SC 37 – biometrics , 
-  Patron identified – 257, patron format identifier 7 (Please refer https://www.ibia.org/cbeff/iso/bir-header-identifiers 
+  Patron identified – 257, patron format identifier 11 (Please refer https://www.ibia.org/cbeff/iso/bir-header-identifiers 
   for details)
 - MOSIP will use OASIS Binary Data Block Format Identifiers for Format Type ISO/IEC JTC 1 SC 37-biometrics, Patron identified -257 , BDB patron format identifier such as 7-finger image, 8-face image and 9-iris image(Please refer https://www.ibia.org/cbeff/iso/bdb-format-identifiers for details)
 - All the biometrics data captured for an Individual is stored in a single XML file
