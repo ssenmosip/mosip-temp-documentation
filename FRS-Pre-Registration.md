@@ -57,10 +57,10 @@ If the Individual wishes to logout of the Pre-Registration system, he/she can op
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data
 
-The Individual is provided with Demographic form based on the id [Object Definition](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
+The Individual is provided with Demographic form based on the id [**Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
 Once validated the **Pre-Registration Id is generated** and the Demographic details provided gets mapped to that PRID.
 
-[**Link to design**](pre-registration-individual.md)
+[**Link to design**](mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 ### 2.2.2 Provide Consent
 
