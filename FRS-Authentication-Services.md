@@ -767,7 +767,7 @@ Technical story (Architects to contribute)
 
 [1](/en.wikipedia.org/wiki/Base64)
 
-[2](/en.wikipedia.org/wiki/Base64)
+[2](//en.wikipedia.org/wiki/Base64)
 
 
 [**data definition**](/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
