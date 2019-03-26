@@ -236,4 +236,3 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
     Please refer to section 7.C in Getting started Guide.
 2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
 
-[trial](MOSIP_Processes_Consolidated%20List_External.xlsx)
