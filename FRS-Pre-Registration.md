@@ -5,7 +5,7 @@
   * [2.1 Login/Creating a User Account](#21-logincreating-a-user-account) _(PRE_FR_1)_
     * [2.1.1 Login using Email](#211-login-using-email) _(PRE_FR_1.1)_
     * [2.1.2 Login using Phone Number](#212-login-using-phone-number) _(PRE_FR_1.2)_
-    * [2.1.3 Automatic Account Creation on First Login](#213-automatic-account-creation-on-first-login) _(PRE_FR_1.3)_ 
+    * [2.1.3 Automatic User ID Creation on First Login](#213-automatic-account-creation-on-first-login) _(PRE_FR_1.3)_ 
     * [2.1.4 Logout/Session Timeout](#214-logoutsession-timeout) _(PRE_FR_1.4)_
   * [2.2 Creating an Application](#22-creating-an-application) _(PRE_FR_2)_
     * [2.2.1 Provide Demographic Data](#221-provide-demographic-data) _(PRE_FR_2.1)_
@@ -48,7 +48,7 @@ The Individual can login to the Pre-registration Portal by providing his/her Ema
 ### 2.1.2 Login using Phone Number
 The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The system validates the Mobile Number, once validated sends an OTP to the Mobile Number as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
-### 2.1.3 Automatic Account Creation on First Login
+### 2.1.3 Automatic User ID Creation on First Login
 The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first-time user or not. If the Individual is first-time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
 
 ### 2.1.4 Logout/Session Timeout
