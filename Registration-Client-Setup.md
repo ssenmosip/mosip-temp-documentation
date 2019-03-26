@@ -14,8 +14,9 @@ Registration client has certain prerequisite which is to be completed before ins
 
 The Registration client application is delivered into two parts:  
    1. Zip file - Contains Application Base folder structure with installed derby DB.      
-   2. Application Binaries.  - Contains the application runtime jars.  
-
+   2. Application Binaries.  - Contains the application run time jars.  
+       - Share libraries.
+       - Encrypted client UI and Service jars.
 
 **Installation at Desktop Machine:**   
 ***  
@@ -31,14 +32,16 @@ The Registration client application is delivered into two parts:
    3. Store the DB boot key into the TPM [Trusted Platform Module] [TBD].  
    
 **Application Binaries:**  
-When user clicks on the 'main.jar' it does the following :  
+When user clicks on the 'run.jar' it does the following :  
    1. It loads the binary repository URL from property file.
    2. Communicate with the  JFrog repository through secured connection.  
    3. Download the latest build [TBD] Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
-   4. Compare the checksum of local version of jar files with the data present in Manifest.mf file.    
-   5. Identify the list of binary files to be downloaded and initiate the secured connection to JFrog repo.  
-   6. Download the required jars.  
-   7. Start the application.      
+   4. Compare the checksum of local version of jar files with the data present in latest downloaded Manifest.mf file.    
+   5. Identify the list of binary files and Download the required jars.
+   6. Decrypt the encrypted registration client UI and service jars by using the TPM Symmetric Key[Which is common for all the clients].
+   7. Place the jar to the User temp directory and start the application.      
+
+**Note:** This process is repeatable, for every time execution of the run.jar [Except for the Download; if no update]. After exist of the application we are deleting the decrypted jars from the User's Temp directory.
 
 **Anti Virus:**  
    Installation of Open Source Anti Virus Software [ClamAV]:  
@@ -48,12 +51,13 @@ When user clicks on the 'main.jar' it does the following :
    	2.	Install the downloaded .exe file.  
    	
    ClamAV Config Setup:  
+    1. Please rename the **clamd.conf.sample** to **clamd.conf** from the installed directory of ClamAV.
+        Ex: C:\Program Files\ClamAV\conf_examples\clamd.conf.sample file  
+            save as  C:\Program Files\ClamAV\conf_examples\clamd.conf  
 
-    1.Copy C:\Program Files\ClamAV\conf_examples\clamd.conf.sample file  
-      Paste as C:\Program Files\ClamAV\conf_examples\clamd.conf  
-
-    2.Copy C:\Program Files\ClamAV\conf_examples\ freshclam.conf.sample file  
-      Paste as C:\Program Files\ClamAV\conf_examples\ freshclam.conf  
+    2.Please rename the **freshclam.conf.sample** to **freshclam.conf** from the installed directory of ClamAV.
+        Ex: C:\Program Files\ClamAV\conf_examples\ freshclam.conf.sample file  
+            save as C:\Program Files\ClamAV\conf_examples\ freshclam.conf  
         
     3.Comment the line# 8(Example) in both the files    
 
