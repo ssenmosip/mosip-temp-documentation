@@ -203,15 +203,13 @@ Requires Authentication | Yes
 ```
 
 # 2.7.2 Demographic Service APIs
-This service details used by Pre-Registration portal to create the demographic form by providing his/her basic demographic details.
+This service details used by Pre-Registration portal to maintain the demographic form by providing his/her basic demographic details.
 
 ### Host
 ##### Integration - `http://qa.mosip.io`
 ##### Development - `http://dev.mosip.io`
 ##### Production -
-***
-#### [Swagger API spec 0.9.0 version link](https://github.com/mosip/mosip/tree/0.9.0/docs/design/pre-registration/service/Demographic-Service-API-Spec-090.yaml)
-***
+
 #### HTTP Operation Allowed
 | Method | Allowed |
 | ------------ | ------------ |
@@ -223,7 +221,7 @@ This service details used by Pre-Registration portal to create the demographic f
 #### 2.7.2.1 POST Operation
 #### Path -  `/applications`
 #### Summary
-Create new pre-registration by demographic details or update demographic details by providing pre-registration id.
+Create new pre-registration with demographic details to generate pre-registration id and associate with demographic details.
 
 #### Request Body Parameters
 Name | Required | Description | Comment
@@ -232,11 +230,6 @@ id |Yes|Id of the application|mosip.pre-registration.demographic.create
 version |Yes|version of the application|1.0
 requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.preRegistrationId |Yes|Pre-registration id of the application| <ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign pre-registration id (example: 46532058236716)</li></ul>
-request.createdBy |Yes|created user of the application|987654321
-request.createdDateTime |Yes|created Date & Time of the application|2019-01-17T17:05:48.492Z
-request.updatedBy |Yes|updated user of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign user id (example: 987654321)</li></ul>
-request.updatedDateTime |Yes|updated Date & Time of the application|<ul><li>To create a new pre-registration don't assign any value (example: "")</li><li>To update the existing pre-registration assign updated Date & Time (example: 2019-01-18T17:05:48.492Z)</li></ul>
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
 request.demographicDetails.identity |Yes|identity of the applicant|
@@ -265,261 +258,250 @@ Requires Authentication | Yes
 #### Request:
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.create",
-  "version": "1.0",
-  "requesttime": "2019-01-22T07:22:57.086Z",
-  "request": {
-    "preRegistrationId": "",
-    "createdBy": "9876453738",
-    "updatedBy": "",
-    "langCode": "ENG",
-    "createdDateTime": "2019-01-08T17:05:48.953Z",
-    "updatedDateTime": "",
-    "demographicDetails": {
-      "identity": {
-        "dateOfBirth": "1995/03/24",
-        "gender": [
-          {
-            "language": "eng",
-            "value": "male"
-          },
-          {
-            "language": "ara",
-            "value": "الذكر"
-          }
-        ],
-        "addressLine1": [
-          {
-            "language": "eng",
-            "value": "c-63 South Extension Part-2 New Delhi"
-          },
-          {
-            "language": "ara",
-            "value": "c-63 South Extension Part-2 New Delhi"
-          }
-        ],
-        "addressLine2": [
-          {
-            "language": "eng",
-            "value": "Jammu"
-          },
-          {
-            "language": "ara",
-            "value": "جامو"
-          }
-        ],
-        "addressLine3": [
-          {
-            "language": "eng",
-            "value": "Kashmir"
-          },
-          {
-            "language": "ara",
-            "value": "كشمير"
-          }
-        ],
-        "region": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "BLR"
-          }
-        ],
-        "province": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-        ],
-        "city": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-        ],
-        "localAdministrativeAuthority": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-        ],
-        "residenceStatus":[  
-          {  
-            "language":"fra",
-            "value":"national"
-          },
-          {  
-            "language":"ara",
-            "value":"national"
-          }
-        ],
-        "IDSchemaVersion": 1.0,
-        "fullName": [
-          {
-            "language": "eng",
-            "value": "Sanober"
-          },
-          {
-            "language": "ara",
-            "value": "Sanober"
-          }
-        ],
-        "phone": "9480548558",
-        "CNIENumber": "6789545678912",
-        "postalCode": "570000",
-        "email": "sanober@gmail.com"
+   "id":"mosip.pre-registration.demographic.create",
+   "version":"1.0",
+   "requesttime":"2019-01-22T07:22:57.086Z",
+   "request":{
+      "langCode":"fra",
+      "demographicDetails":{
+         "identity":{
+            "IDSchemaVersion":1,
+            "fullName":[
+               {
+                  "language":"fra",
+                  "value":"Shashank Agrawal"
+               },
+               {
+                  "language":"ara",
+                  "value":"سهَسهَنك َگرَوَل"
+               }
+            ],
+            "dateOfBirth":"1993/12/12",
+            "gender":[
+               {
+                  "language":"fra",
+                  "value":"MLE"
+               },
+               {
+                  "language":"ara",
+                  "value":"MLE"
+               }
+            ],
+            "addressLine1":[
+               {
+                  "language":"fra",
+                  "value":"005-DS Max Silicon"
+               },
+               {
+                  "language":"ara",
+                  "value":"٠٠٥-دس مَكس سِلِكُن"
+               }
+            ],
+            "residenceStatus":[
+               {
+                  "language":"fra",
+                  "value":"NFR"
+               },
+               {
+                  "language":"ara",
+                  "value":"NFR"
+               }
+            ],
+            "addressLine2":[
+               {
+                  "language":"fra",
+                  "value":"Global Village"
+               },
+               {
+                  "language":"ara",
+                  "value":"گلُبَل ڤِللَگِ"
+               }
+            ],
+            "addressLine3":[
+               {
+                  "language":"fra",
+                  "value":"Karnataka"
+               },
+               {
+                  "language":"ara",
+                  "value":"كَرنَتَكَ"
+               }
+            ],
+            "region":[
+               {
+                  "language":"fra",
+                  "value":"RSK"
+               },
+               {
+                  "language":"ara",
+                  "value":"RSK"
+               }
+            ],
+            "province":[
+               {
+                  "language":"fra",
+                  "value":"KTA"
+               },
+               {
+                  "language":"ara",
+                  "value":"KTA"
+               }
+            ],
+            "city":[
+               {
+                  "language":"fra",
+                  "value":"BNMR"
+               },
+               {
+                  "language":"ara",
+                  "value":"BNMR"
+               }
+            ],
+            "localAdministrativeAuthority":[
+               {
+                  "language":"fra",
+                  "value":"14022"
+               },
+               {
+                  "language":"ara",
+                  "value":"14022"
+               }
+            ],
+            "postalCode":"560059",
+            "phone":"8680958812",
+            "email":"test@gmail.com",
+            "CNIENumber":"1234567845678"
+         }
       }
-    } 
-  }
+   }
 }
-
 ```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Pre-Registration Status successfully Creaded
+###### Description: Pre-Registration successfully Created
 ```JSON
-{
-   "id": "mosip.pre-registration.demographic.create",
-   "version": "1.0",
-   "responsetime": "2019-03-15T08:08:13.246Z",
-   "response": [
-    {
-      "preRegistrationId": "64269837502851",
-      "createdBy": "9876453738",
-      "createdDateTime": "2019-01-08T17:05:48.953Z",
-      "updatedBy": null,
-      "updatedDateTime": "2019-02-11T13:37:37.215Z",
-      "statusCode": "Pending_Appointment",
-      "langCode": "ENG",
-      "demographicDetails": {
-      "identity": {
-        "dateOfBirth": "1995/03/24",
-        "gender": [
-          {
-            "language": "eng",
-            "value": "male"
-          },
-          {
-            "language": "ara",
-            "value": "الذكر"
-          }
-        ],
-        "addressLine1": [
-          {
-            "language": "eng",
-            "value": "c-63 South Extension Part-2 New Delhi"
-          },
-          {
-            "language": "ara",
-            "value": "c-63 South Extension Part-2 New Delhi"
-          }
-        ],
-        "addressLine2": [
-          {
-            "language": "eng",
-            "value": "Jammu"
-          },
-          {
-            "language": "ara",
-            "value": "جامو"
-          }
-        ],
-        "addressLine3": [
-          {
-            "language": "eng",
-            "value": "Kashmir"
-          },
-          {
-            "language": "ara",
-            "value": "كشمير"
-          }
-        ],
-        "region": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "BLR"
-          }
-        ],
-        "province": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-        ],
-        "city": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-        ],
-        "localAdministrativeAuthority": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-        ],
-	"residenceStatus":[  
-          {  
-            "language":"fra",
-            "value":"national"
-          },
-          {  
-            "language":"ara",
-            "value":"national"
-          }
-        ],
-        "IDSchemaVersion": 1.0,
-        "fullName": [
-          {
-            "language": "eng",
-            "value": "Sanober"
-          },
-          {
-            "language": "ara",
-            "value": "Sanober"
-          }
-        ],
-        "phone": "9480548558",
-        "CNIENumber": "6789545678912",
-        "postalCode": "570000",
-        "email": "sanober@gmail.com"
+{  
+   "id":"mosip.pre-registration.demographic.create",
+   "version":"1.0",
+   "responsetime":"2019-03-15T08:08:13.246Z",
+   "response":{  
+      "preRegistrationId":"64269837502851",
+      "createdDateTime":"2019-01-08T17:05:48.953Z",
+      "statusCode":"Pending_Appointment",
+      "langCode":"fra",
+      "demographicDetails":{  
+         "identity":{  
+            "IDSchemaVersion":1,
+            "fullName":[  
+               {  
+                  "language":"fra",
+                  "value":"Shashank Agrawal"
+               },
+               {  
+                  "language":"ara",
+                  "value":"سهَسهَنك َگرَوَل"
+               }
+            ],
+            "dateOfBirth":"1993/12/12",
+            "gender":[  
+               {  
+                  "language":"fra",
+                  "value":"MLE"
+               },
+               {  
+                  "language":"ara",
+                  "value":"MLE"
+               }
+            ],
+            "addressLine1":[  
+               {  
+                  "language":"fra",
+                  "value":"005-DS Max Silicon"
+               },
+               {  
+                  "language":"ara",
+                  "value":"٠٠٥-دس مَكس سِلِكُن"
+               }
+            ],
+            "residenceStatus":[  
+               {  
+                  "language":"fra",
+                  "value":"NFR"
+               },
+               {  
+                  "language":"ara",
+                  "value":"NFR"
+               }
+            ],
+            "addressLine2":[  
+               {  
+                  "language":"fra",
+                  "value":"Global Village"
+               },
+               {  
+                  "language":"ara",
+                  "value":"گلُبَل ڤِللَگِ"
+               }
+            ],
+            "addressLine3":[  
+               {  
+                  "language":"fra",
+                  "value":"Karnataka"
+               },
+               {  
+                  "language":"ara",
+                  "value":"كَرنَتَكَ"
+               }
+            ],
+            "region":[  
+               {  
+                  "language":"fra",
+                  "value":"RSK"
+               },
+               {  
+                  "language":"ara",
+                  "value":"RSK"
+               }
+            ],
+            "province":[  
+               {  
+                  "language":"fra",
+                  "value":"KTA"
+               },
+               {  
+                  "language":"ara",
+                  "value":"KTA"
+               }
+            ],
+            "city":[  
+               {  
+                  "language":"fra",
+                  "value":"BNMR"
+               },
+               {  
+                  "language":"ara",
+                  "value":"BNMR"
+               }
+            ],
+            "localAdministrativeAuthority":[  
+               {  
+                  "language":"fra",
+                  "value":"14022"
+               },
+               {  
+                  "language":"ara",
+                  "value":"14022"
+               }
+            ],
+            "postalCode":"560059",
+            "phone":"8680958812",
+            "email":"test@gmail.com",
+            "CNIENumber":"1234567845678"
+         }
       }
-    }
-   }
-  ],
-  "errors":null
+   },
+   "errors":null
 }
 ```
 ##### Failure Response:
@@ -544,21 +526,332 @@ Code|Message|Description
 -----|----------|-------------
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
 PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create a pre-registration.
-PRG_PAM_APP_012|MISSING_REQUEST_PARAMETER|If created by/create date time/updated by/updated date time is empty while creating new pre-registration.
-PRG_PAM_APP_005|INVALID_PRE_REGISTRATION_ID |Invalid pre-registration-id while updating the pre-registration.
-PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id 
-PRG_PAM_APP_008|UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
 
 #### 2.7.2.2 PUT Operation
-#### Path -  `/applications`
+#### Path -  `/applications/<preRegistrationId>`
 #### Summary
-Update the pre-registration status by providing pre-registration id and valid status defined in pre-registration system in request parameter.
+Update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
-#### Request Query Parameters
+#### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-pre_registration_id |Yes|pre-registration id of the application|46532058236716
-status_code |Yes|status code of the application|Booked
+preRegistrationId |Yes|pre-registration id of the application|64269837502851
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.demographic.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.langCode |Yes|primary language code|  value will be derived from UI
+request.demographicDetails |Yes|demographicDetails of the applicant|
+request.demographicDetails.identity |Yes|identity of the applicant|
+request.demographicDetails.identity.gender |Yes|gender of the applicant|
+request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
+request.demographicDetails.identity.fullName |Yes|full name of the applicant|
+request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
+request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
+request.demographicDetails.identity.email |Yes|email Id of the applicant|
+request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
+request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
+request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
+request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
+request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.update",
+  "version": "1.0",
+  "requesttime": "2019-01-22T07:22:57.086Z",
+  "request":{
+      "langCode":"fra",
+      "demographicDetails":{
+         "identity":{
+            "IDSchemaVersion":1,
+            "fullName":[
+               {
+                  "language":"fra",
+                  "value":"Shashank"
+               },
+               {
+                  "language":"ara",
+                  "value":"سهَسهَنك "
+               }
+            ],
+            "dateOfBirth":"1993/12/12",
+            "gender":[
+               {
+                  "language":"fra",
+                  "value":"MLE"
+               },
+               {
+                  "language":"ara",
+                  "value":"MLE"
+               }
+            ],
+            "addressLine1":[
+               {
+                  "language":"fra",
+                  "value":"005-DS Max Silicon"
+               },
+               {
+                  "language":"ara",
+                  "value":"٠٠٥-دس مَكس سِلِكُن"
+               }
+            ],
+            "residenceStatus":[
+               {
+                  "language":"fra",
+                  "value":"NFR"
+               },
+               {
+                  "language":"ara",
+                  "value":"NFR"
+               }
+            ],
+            "addressLine2":[
+               {
+                  "language":"fra",
+                  "value":"Global Village"
+               },
+               {
+                  "language":"ara",
+                  "value":"گلُبَل ڤِللَگِ"
+               }
+            ],
+            "addressLine3":[
+               {
+                  "language":"fra",
+                  "value":"Karnataka"
+               },
+               {
+                  "language":"ara",
+                  "value":"كَرنَتَكَ"
+               }
+            ],
+            "region":[
+               {
+                  "language":"fra",
+                  "value":"RSK"
+               },
+               {
+                  "language":"ara",
+                  "value":"RSK"
+               }
+            ],
+            "province":[
+               {
+                  "language":"fra",
+                  "value":"KTA"
+               },
+               {
+                  "language":"ara",
+                  "value":"KTA"
+               }
+            ],
+            "city":[
+               {
+                  "language":"fra",
+                  "value":"BNMR"
+               },
+               {
+                  "language":"ara",
+                  "value":"BNMR"
+               }
+            ],
+            "localAdministrativeAuthority":[
+               {
+                  "language":"fra",
+                  "value":"14022"
+               },
+               {
+                  "language":"ara",
+                  "value":"14022"
+               }
+            ],
+            "postalCode":"560059",
+            "phone":"8680958812",
+            "email":"test@gmail.com",
+            "CNIENumber":"1234567845678"
+         }
+      }
+   }
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Pre-Registration demographic details successfully updated
+```JSON
+{
+   "id": "mosip.pre-registration.demographic.update",
+   "version": "1.0",
+   "responsetime": "2019-03-15T08:08:13.246Z",
+   "response": {
+      "preRegistrationId": "64269837502851",
+      "updatedDateTime": "2019-02-11T13:37:37.215Z",
+      "statusCode": "Pending_Appointment",
+      "langCode": "eng",
+      "demographicDetails":{
+         "identity":{
+            "IDSchemaVersion":1,
+            "fullName":[
+               {
+                  "language":"fra",
+                  "value":"Shashank"
+               },
+               {
+                  "language":"ara",
+                  "value":"سهَسهَنك "
+               }
+            ],
+            "dateOfBirth":"1993/12/12",
+            "gender":[
+               {
+                  "language":"fra",
+                  "value":"MLE"
+               },
+               {
+                  "language":"ara",
+                  "value":"MLE"
+               }
+            ],
+            "addressLine1":[
+               {
+                  "language":"fra",
+                  "value":"005-DS Max Silicon"
+               },
+               {
+                  "language":"ara",
+                  "value":"٠٠٥-دس مَكس سِلِكُن"
+               }
+            ],
+            "residenceStatus":[
+               {
+                  "language":"fra",
+                  "value":"NFR"
+               },
+               {
+                  "language":"ara",
+                  "value":"NFR"
+               }
+            ],
+            "addressLine2":[
+               {
+                  "language":"fra",
+                  "value":"Global Village"
+               },
+               {
+                  "language":"ara",
+                  "value":"گلُبَل ڤِللَگِ"
+               }
+            ],
+            "addressLine3":[
+               {
+                  "language":"fra",
+                  "value":"Karnataka"
+               },
+               {
+                  "language":"ara",
+                  "value":"كَرنَتَكَ"
+               }
+            ],
+            "region":[
+               {
+                  "language":"fra",
+                  "value":"RSK"
+               },
+               {
+                  "language":"ara",
+                  "value":"RSK"
+               }
+            ],
+            "province":[
+               {
+                  "language":"fra",
+                  "value":"KTA"
+               },
+               {
+                  "language":"ara",
+                  "value":"KTA"
+               }
+            ],
+            "city":[
+               {
+                  "language":"fra",
+                  "value":"BNMR"
+               },
+               {
+                  "language":"ara",
+                  "value":"BNMR"
+               }
+            ],
+            "localAdministrativeAuthority":[
+               {
+                  "language":"fra",
+                  "value":"14022"
+               },
+               {
+                  "language":"ara",
+                  "value":"14022"
+               }
+            ],
+            "postalCode":"560059",
+            "phone":"8680958812",
+            "email":"test@gmail.com",
+            "CNIENumber":"1234567845678"
+         }
+      }
+   },
+  "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Failed to update the pre-registration demographic details. 
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.update",
+  "version":"1.0",
+  "responsetime": "2019-02-11T13:46:00.534Z",
+  "response": null,
+  "errors": [
+        {
+		"errorCode": "PRG_PAM_APP_008",
+		"message": "UNABLE_TO_UPDATE_THE_PRE_REGISTRATION"
+		}
+	]
+}
+```
+###### Other Failure Details:
+Code|Message|Description
+-----|----------|-------------
+PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
+PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id.
+PRG_PAM_APP_008|UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
+
+#### 2.7.2.3 GET Operation
+#### Path -  `/applications/<preRegistrationId>`
+#### Summary
+Retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Id of the application|64269837502851
 
 #### Resource details
 Resource Details | Description
@@ -569,64 +862,160 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Pre-Registration Status successfully updated
+###### Description: Demographic data successfully retrieved
 
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.update",
+  "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
-  "responsetime": "2019-02-11T07:07:09.297Z",
-  "response": {
-        "message": "STATUS_UPDATED_SUCESSFULLY"
-   },
-   "errors":null
+  "responsetime": "2019-02-11T13:46:00.534Z",
+  "response":{
+         "preRegistrationId":"20180396713560",
+         "createdBy":"9900806086",
+         "createdDateTime":"2019-01-11T11:01:21.947Z",
+         "updatedDateTime":"2019-01-15T14:25:56.512Z",
+         "statusCode":"Pending_Appointment",
+         "langCode":"fra",
+         "demographicDetails":{
+         "identity":{
+            "IDSchemaVersion":1,
+            "fullName":[
+               {
+                  "language":"fra",
+                  "value":"Shashank"
+               },
+               {
+                  "language":"ara",
+                  "value":"سهَسهَنك "
+               }
+            ],
+            "dateOfBirth":"1993/12/12",
+            "gender":[
+               {
+                  "language":"fra",
+                  "value":"MLE"
+               },
+               {
+                  "language":"ara",
+                  "value":"MLE"
+               }
+            ],
+            "addressLine1":[
+               {
+                  "language":"fra",
+                  "value":"005-DS Max Silicon"
+               },
+               {
+                  "language":"ara",
+                  "value":"٠٠٥-دس مَكس سِلِكُن"
+               }
+            ],
+            "residenceStatus":[
+               {
+                  "language":"fra",
+                  "value":"NFR"
+               },
+               {
+                  "language":"ara",
+                  "value":"NFR"
+               }
+            ],
+            "addressLine2":[
+               {
+                  "language":"fra",
+                  "value":"Global Village"
+               },
+               {
+                  "language":"ara",
+                  "value":"گلُبَل ڤِللَگِ"
+               }
+            ],
+            "addressLine3":[
+               {
+                  "language":"fra",
+                  "value":"Karnataka"
+               },
+               {
+                  "language":"ara",
+                  "value":"كَرنَتَكَ"
+               }
+            ],
+            "region":[
+               {
+                  "language":"fra",
+                  "value":"RSK"
+               },
+               {
+                  "language":"ara",
+                  "value":"RSK"
+               }
+            ],
+            "province":[
+               {
+                  "language":"fra",
+                  "value":"KTA"
+               },
+               {
+                  "language":"ara",
+                  "value":"KTA"
+               }
+            ],
+            "city":[
+               {
+                  "language":"fra",
+                  "value":"BNMR"
+               },
+               {
+                  "language":"ara",
+                  "value":"BNMR"
+               }
+            ],
+            "localAdministrativeAuthority":[
+               {
+                  "language":"fra",
+                  "value":"14022"
+               },
+               {
+                  "language":"ara",
+                  "value":"14022"
+               }
+            ],
+            "postalCode":"560059",
+            "phone":"8680958812",
+            "email":"test@gmail.com",
+            "CNIENumber":"1234567845678"
+         }
+      },
+ "errors":null
 }
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty status code
+###### Description: unable to fetch the details by pre-registration id.
 ```JSON
 {
-  "id": "mosip.pre-registration.demographic.update",
+  "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
+  "response":null,
   "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_050",
-		"message": "INVALID_STATUS_CODE"
-		}
-	]
+	{
+	"errorCode": "PRG_PAM_APP_006",
+	"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+	}
+   ]
 }
 ```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration id
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.update",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_005",
-		"message": "INVALID_PRE_REGISTRATION_ID"
-		}
-	]
-}
-```
-
-#### 2.7.2.3 DELETE Operation
-#### Path -  `/applications`
+#### 2.7.2.4 DELETE Operation
+#### Path -  `/applications/<preRegistrationId>`
 #### Summary 
-Discard the entire pre-registration details based pre-registration id provided in request parameter.
+Discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
-#### Request Query Parameters
+#### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-pre_registration_id |Yes|pre-registration id of the application|46532058236716
+preRegistrationId |Yes|pre-registration id of the application|64269837502851
 
 #### Resource details
 Resource Details | Description
@@ -646,7 +1035,7 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T07:15:18.565Z",
   "response": [
     {
-      "preRegistrationId": "92689634781039",
+      "preRegistrationId": "64269837502851",
       "deletedBy": "9876453738",
       "deletedDateTime": "2019-02-11T07:15:18.549Z"
     }
@@ -657,7 +1046,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty pre-registration id
+###### Description: Invalid pre-registration id
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.delete",
@@ -666,27 +1055,10 @@ Requires Authentication | Yes
   "response": null,
   "errors": [
 		{
-		"errorCode": "PRG_PAM_APP_005",
-		"message": "INVALID_PRE_REGISTRATION_ID"
+		"errorCode": "PRG_PAM_APP_006",
+		"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
 		}
-    ]		
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: delete operation not allowed based on  roles allowed.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.delete",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_003",
-		"message": "DELETE_OPERATION_NOT_ALLOWED"
-		}
-	]
+    ]
 }
 ```
 ##### Failure Response:
@@ -706,12 +1078,65 @@ Requires Authentication | Yes
 	]
 }
 ```
-#### 2.7.2.4 GET Operation
-#### Path -  `/applications`
-#### Summary
-Retrieve All Pre-Registration id, Full name, Status and Appointment details by user id.
 
-#### Request Query Parameters
+#### 2.7.2.5 GET Operation
+#### Path -  `/applications/status/<preRegistrationId>`
+#### Summary
+Retrieve pre-registration application status by providing the pre-registration id in request path parameter.
+
+#### Request Path Parameter
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Id of the application|62076019780925
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: All applications status fetched successfully
+
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.fetch.status",
+  "version":"1.0",
+  "responsetime": "2019-02-11T13:46:00.534Z",
+  "response":{
+      "statusCode": "Pending_Appointment",
+      "preRegistrationId": "62076019780925"
+    },
+  "errors":null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration id.
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.fetch.status",
+  "version":"1.0",
+  "responsetime": "2019-02-11T13:46:00.534Z",
+  "response": null,
+  "errors": [
+	{
+		"errorCode": "PRG_PAM_APP_006",
+		"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+	}
+   ]
+}
+```
+
+#### 2.7.2.6 GET Operation
+#### Path -  `/applications/<user_id>`
+#### Summary
+Retrieve All Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
+
+#### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 user_id |Yes|User Id of the application|sanober@gmail.com
@@ -726,29 +1151,48 @@ Requires Authentication | Yes
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: All applications fetched successfully
-
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
   "responsetime": "2019-02-11T13:46:00.534Z",
-  "response":[  
-      {  
-         "preId":"50490792462164",
-         "fullname":"Habiba",
+  "response":[
+      {
+         "preRegistrationId":"62076019780925",
+         "fullname":[
+            {
+               "language":"fra",
+               "value":"ashish"
+            },
+            {
+               "language":"ara",
+               "value":"َسهِسه"
+            }
+         ],
          "statusCode":"Pending_Appointment",
-         "appointmentDetails":null
+         "appointmentDetails":null,
+         "postalCode":"767882"
       },
-      {  
-         "preId":"65490792462164",
-         "fullname":"Imane",
+      {
+         "preRegistrationId":"64269837502851",
+         "fullname":[
+            {
+               "language":"fra",
+               "value":"ashish"
+            },
+            {
+               "language":"ara",
+               "value":"َسهِسه"
+            }
+         ],
          "statusCode":"Booked",
-         "appointmentDetails":{  
+         "appointmentDetails":{
             "registration_center_id":"RCG-RC-01",
             "appointment_date":"2018-01-17",
             "time_slot_from":"09:00:00",
             "time_slot_to":"09:30:00"
-         }
+         },
+        "postalCode":"767882"
       }
    ],
    "errors": null
@@ -757,7 +1201,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Unable to fetch the pre-Registration demographic data .
+###### Description: No pre-registration data available for user id.
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
@@ -768,316 +1212,6 @@ Requires Authentication | Yes
 	{
 	 "errorCode": "PRG_PAM_APP_005",
 	 "message": "NO_RECORD_FOUND_FOR_USER_ID"
-	}
-   ]
-}
-```
-
-#### 2.7.2.5 GET Operation
-#### Path -  `/applications/status`
-#### Summary
-Retrieve pre-registration application status by providing the pre-registration id in request parameter.
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-pre_registration_id |Yes|Id of the application|50490792462164
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: All applications status fetched successfully
-
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.status",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": [
-    {
-      "statusCode": "Pending_Appointment",
-      "preRegistrationId": "50490792462164"
-    }
-  ],
-  "errors":null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration id.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.status",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [
-	{
-	 "errorCode": "PRG_PAM_APP_005",
-	 "message": "INVALID_PRE_REGISTRATION_ID"
-	}
-   ]
-}
-```
-#### 2.7.2.6 GET Operation
-#### Path -  `/applications/byDateTime`
-#### Summary 
-Retrieve pre-registration ids between created from and to dates provided in request parameters.
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-from_date |Yes|From date|2019-01-15
-to_date |Yes|To date|2019-01-19
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: All applications status fetched successfully
-
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.byDateTime",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": [
-    "91793240270548",
-    "89470382513069",
-    "38417530829462"
-  ],
-  "errors":null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid requested date formats.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.byDateTime",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [ 
-       {
-	"errorCode": "PRG_PAM_APP_003",
-	"message": "INVALID_REQUEST_DATETIME_FORMAT"
-       }
-  ]
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: no record found between date range.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.byDateTime",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [ 
-	{
-	 "errorCode": "PRG_PAM_APP_010",
-	 "message": "RECORD_NOT_FOUND_FOR_DATE_RANGE"
-	}
-   ]
-}
-```
-#### 2.7.2.7 GET Operation
-#### Path -  `/applications/details`
-#### Summary
-Retrieve Pre-Registration demographic data by pre-Registration id provided in request parameter.
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-pre_registration_id |Yes|Id of the application|82986390537094
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Demographic data successfully retrieved
-
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.details",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response":[
-      {
-         "preRegistrationId":"20180396713560",
-         "createdBy":"9900806086",
-         "createdDateTime":"2019-01-11T11:01:21.947Z",
-         "updatedBy":null,
-         "updatedDateTime":"2019-01-15T14:25:56.512Z",
-         "statusCode":"Pending_Appointment",
-         "langCode":"ENG",
-         "demographicDetails": {
-         "identity": {
-         "dateOfBirth": "1995/03/24",
-         "gender": [
-          {
-            "language": "eng",
-            "value": "male"
-          },
-          {
-            "language": "ara",
-            "value": "الذكر"
-          }
-         ],
-         "addressLine1": [
-          {
-            "language": "eng",
-            "value": "c-63 South Extension Part-2 New Delhi"
-          },
-          {
-            "language": "ara",
-            "value": "c-63 South Extension Part-2 New Delhi"
-          }
-         ],
-         "addressLine2": [
-          {
-            "language": "eng",
-            "value": "Jammu"
-          },
-          {
-            "language": "ara",
-            "value": "جامو"
-          }
-         ],
-         "addressLine3": [
-          {
-            "language": "eng",
-            "value": "Kashmir"
-          },
-          {
-            "language": "ara",
-            "value": "كشمير"
-          }
-         ],
-         "region": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "BLR"
-          }
-         ],
-         "province": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-         ],
-         "city": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-         ],
-         "localAdministrativeAuthority": [
-          {
-            "language": "eng",
-            "value": "Bangalore"
-          },
-          {
-            "language": "ara",
-            "value": "بنغالور"
-          }
-         ],
-         "residenceStatus":[  
-          {  
-            "language":"fra",
-            "value":"national"
-          },
-          {  
-            "language":"ara",
-            "value":"national"
-          }
-         ],
-         "IDSchemaVersion": 1.0,
-         "fullName": [
-          {
-            "language": "eng",
-            "value": "Sanober"
-          },
-          {
-            "language": "ara",
-            "value": "Sanober"
-          }
-         ],
-         "phone": "9480548558",
-         "CNIENumber": "6789545678912",
-         "postalCode": "570000",
-         "email": "sanober@gmail.com"
-      }
-    } 
-  }
- ],
- "errors":null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration id.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.details",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response":null,
-  "errors": [
-       {
-        "errorCode": "PRG_PAM_APP_005",
-        "essage": "INVALID_PRE_REGISTRATION_ID"
-       }
-   ]
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: unable to fetch the details by pre-registration id.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.fetch.details",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response":null,
-  "errors": [
-	{
-	"errorCode": "PRG_PAM_APP_006",
-	"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION_DEMOGRAPHIC_DATA"
 	}
    ]
 }
