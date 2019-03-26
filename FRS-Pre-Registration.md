@@ -119,6 +119,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 1. Based on the parameters (from Config file) for example-The gender, age and residential status(Foreigner, National) from the demographic data applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
+1. Once the documents are uploaded by applicant the system performs virus scan to check the integrity of the document. Once the virus scan is done the document is encrypted and stored in the database
 
 [**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
