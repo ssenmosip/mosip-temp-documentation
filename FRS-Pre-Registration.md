@@ -60,7 +60,7 @@ If the Individual wishes to logout of the Pre-Registration system, he/she can op
 The Individual is provided with Demographic form based on the id [**Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
 Once validated the **Pre-Registration Id is generated** and the Demographic details provided gets mapped to that PRID.
 
-[**Link to design**](mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+[**Link to design**](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 ### 2.2.2 Provide Consent
 
@@ -225,4 +225,28 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
     
     Please refer to section 7.C in Getting started Guide.
-2. [**Configurable Processes**](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx)  
+2. [**Configurable Processes**](https://github.com/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+
+
+
+
+
+[1](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[1](mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[1](mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[1](blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[1](master/docs/design/pre-registration/pre-registration-individual.md) 
+[1](docs/design/pre-registration/pre-registration-individual.md)
+[1](design/pre-registration/pre-registration-individual.md)
+[1](pre-registration/pre-registration-individual.md)
+[1](pre-registration-individual.md)
+
+
+[1](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+[1](/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+[1](/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+[1](/master/docs/design/pre-registration/pre-registration-individual.md)
+[1](/docs/design/pre-registration/pre-registration-individual.md)
+[1](/design/pre-registration/pre-registration-individual.md)
+
+[1](/pre-registration/pre-registration-individual.md)
