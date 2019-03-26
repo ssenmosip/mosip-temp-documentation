@@ -121,6 +121,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 * The POA document could be uploaded or can be referred to an already uploaded POA of an existing applicant
 * The individual could select a particular applicant document to which he wants to refer 
+* When Pre-registering for a family  living at the same address  it is not required to upload same POA ,instead could refer to the document as uploaded by the first family member
 
 
 
