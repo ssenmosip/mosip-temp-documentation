@@ -1,6 +1,6 @@
 *WIP
 ## Table Of Content
-* [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
+* [1. MOSIP-INTRODUCTION](#1-mosip-introduction-)
   * [1.1 Scope](#11scope)
   * [1.2 Intended Audience](#12intended-audience)
 * [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
