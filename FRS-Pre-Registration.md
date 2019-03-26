@@ -194,7 +194,7 @@ The acknowledgement template is language and channel (email, sms, on screen) s
 
 [**Reference Templates**](https://github.com/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration) 
 ### 2.5.2 Send Acknowledgement to Email/Phone
-The system sends an acknowledgement to the  applicant through SMS, Email and on-screens as per the details provided in Demographic details
+The system sends an acknowledgement to the  applicant through SMS, Email and on-screen as per the details provided in Demographic details
 
 In case of multiple application, the system sends notifications to each applicant (as defined in the demographic details of the applicant\s)
 
