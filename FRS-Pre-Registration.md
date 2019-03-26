@@ -91,12 +91,12 @@ The Individual can select his/her language of preference, which is referred as P
 ### 2.2.5 Viewing "My Applications" (covers status)
 The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
 
-|Status|Description|Explanation|User Action|
-|------|-----|-----|-----|
-|**Pending Appointment**|Appointment is yet to be booked|Filled only demographic details|Upload documents and book an appointment|
-| | |Filled demographic details and uploaded documents |Book an appointment|
-|**Booked**|  Appointment is booked successfully| Filled demographic details, uploaded documents, and booked appointment|Visit the registration center on the appointment date and time|
-|**Expired**| Appointed date has passed| -|N/A
+|Status|Explanation|User Action|
+|------|-----|-----|
+|**Pending Appointment**|Filled only demographic details|Upload documents and book an appointment|
+|  |Filled demographic details and uploaded documents |Book an appointment|
+|**Booked**|  Filled demographic details, uploaded documents, and booked appointment|Visit the registration center on the appointment date and time|
+|**Expired**| Appointed date has passed|N/A
 
 If the individual visits the Registration Centre and consumes the appointment, then the application will be removed from the list
 
