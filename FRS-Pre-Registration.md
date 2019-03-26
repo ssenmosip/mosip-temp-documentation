@@ -189,6 +189,7 @@ The user opts to view the available slots for a selected registration center.
 ## 2.5 Appointment Acknowledgement (PRID)
 1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
 1. The acknowledgement contains the following information: Name, Pre-Registration Id, Age/DoB, Mobile Number, Email Id and Registration Center Details, Appointment Date, Appointment Time)
+1. A QR code is generated based on the demographic details and the pre-registration ID.This QR code can be scanned at the registration center to fetch the details of the individual provided during pre-registration process
 
 ### 2.5.1 Download Acknowledgement
 Individual can choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later
