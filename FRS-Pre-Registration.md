@@ -233,36 +233,36 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 
 [1](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
 
-[1](mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[2](mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
 
-[1](mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[3](mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md) 
 
-[1](blob/master/docs/design/pre-registration/pre-registration-individual.md) 
+[4](blob/master/docs/design/pre-registration/pre-registration-individual.md) 
 
-[1](master/docs/design/pre-registration/pre-registration-individual.md) 
+[5](master/docs/design/pre-registration/pre-registration-individual.md) 
 
-[1](docs/design/pre-registration/pre-registration-individual.md)
+[6](docs/design/pre-registration/pre-registration-individual.md)
 
-[1](design/pre-registration/pre-registration-individual.md)
+[7](design/pre-registration/pre-registration-individual.md)
 
-[1](pre-registration/pre-registration-individual.md)
+[8](pre-registration/pre-registration-individual.md)
 
-[1](pre-registration-individual.md)
-
-
+[9](pre-registration-individual.md)
 
 
-[1](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
-
-[1](/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
-
-[1](/blob/master/docs/design/pre-registration/pre-registration-individual.md)
-
-[1](/master/docs/design/pre-registration/pre-registration-individual.md)
-
-[1](/docs/design/pre-registration/pre-registration-individual.md)
-
-[1](/design/pre-registration/pre-registration-individual.md)
 
 
-[1](/pre-registration/pre-registration-individual.md)
+[10](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+
+[11](/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+
+[12](/blob/master/docs/design/pre-registration/pre-registration-individual.md)
+
+[13](/master/docs/design/pre-registration/pre-registration-individual.md)
+
+[14](/docs/design/pre-registration/pre-registration-individual.md)
+
+[15](/design/pre-registration/pre-registration-individual.md)
+
+
+[16](/pre-registration/pre-registration-individual.md)
