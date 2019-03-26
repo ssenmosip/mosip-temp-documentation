@@ -443,7 +443,8 @@ For getting more details about how to use configuration server with our applicat
 
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
-**Global:**
+**A. Global:**
+
 https://github.com/mosip/mosip/blob/master/config/application-dev.properties
 
 **Kernel:**
