@@ -2,35 +2,35 @@ This section details about the service API in the Pre-Registration modules
 
 ## Content
 <!--ts-->
- [2.7.1 Auth Service APIs](#271-auth-service-apis)
+ [Auth Service APIs](#auth-service-apis)
 
- [2.7.2 Demographic Service APIs](#272-demographic-service-apis)
+ [Demographic Service APIs](#demographic-service-apis)
 
- [2.7.3 Document Service APIs](#273-document-service-apis)
+ [Document Service APIs](#document-service-apis)
 
- [2.7.4 Data sync Service APIs](#274-data-sync-service-apis)
+ [Data sync Service APIs](#data-sync-service-apis)
 
- [2.7.5 Booking Service APIs](#275-booking-service-apis)
+ [Booking Service APIs](#booking-service-apis)
 
- [2.7.6 BatchJob Service APIs](#276-batchjob-service-apis)
+ [BatchJob Service APIs](#batchjob-service-apis)
 
- [2.7.7 Notification Service APIs](#277-notification-service-apis)
+ [Notification Service APIs](#notification-service-apis)
 
- [2.7.8 Transliteration Service APIs](#278-transliteration-service-apis)
+ [Transliteration Service APIs](#transliteration-service-apis)
 
 <!--te-->
 
-**Note**: id,version and requesttime, responsetime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
+**Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 
-# 2.7.1 Auth Service APIs
+#Auth Service APIs
 This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
 
 * [POST /login/sendOtp](#post-login-sendotp)
 * [POST /login/validateOtp](#post-login-validateotp)
 * [POST /logout/invalidateToken](#post-logout-invalidatetoken)
 
-### 2.7.1.1 POST /login/sendOtp
+###POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
 #### Resource URL
@@ -97,7 +97,7 @@ request.langcode|Yes|The preferred language code |fra
 }
 ```
 
-### 2.7.1.2 POST /login/validateOtp
+###POST /login/validateOtp
 This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
 
 #### Resource URL
@@ -164,7 +164,7 @@ request.otp|Yes| received OTP  |345674
 }
 ```
 
-### 2.7.1.2 POST /logout/invalidateToken
+###POST /logout/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
