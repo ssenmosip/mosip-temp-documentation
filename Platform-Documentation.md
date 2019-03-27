@@ -135,7 +135,7 @@ ID Authentication provides an API based authentication mechanism for entities to
 This module provides the following capabilities:
 1. Authenticate an Individual in a secure and trusted way
 1. Captures of biometrics data as per the defines standards
-1. Authenticates an Individual based on his basic identity data captured via MOSIP
+1. Authenticates an Individual based on their basic identity data captured via MOSIP
 1. In addition to demographic and biometric authentication, an Individual is also authenticates based on the following parameters:
    * TOTP based 
    * Static pin 
