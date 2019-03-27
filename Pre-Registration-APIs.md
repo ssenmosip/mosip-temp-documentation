@@ -48,8 +48,9 @@ Name | Required | Description | Comment
 id |Yes|id |mosip.pre-registration.auth.sendotp
 version |Yes|version of the application|1.0
 requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-userid |Yes|user id of the applicant(mobile number/email address)|8907654778
-langcode|Yes|The preferred language code |fra
+request |Yes|Request for the application|
+request.userid |Yes|user id of the applicant(mobile number/email address)|8907654778
+request.langcode|Yes|The preferred language code |fra
 
 #### Request:
 ```JSON
@@ -113,9 +114,10 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|id |mosip.pre-registration.auth.useridotp
 version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-userid |Yes|user id of the applicant (mobile number/email address)|8907654778
-otp|Yes| received OTP  |345674
+requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.userid |Yes|user id of the applicant (mobile number/email address)|8907654778
+request.otp|Yes| received OTP  |345674
 
 #### Request:
 ```JSON
@@ -139,7 +141,7 @@ otp|Yes| received OTP  |345674
 	"version": "1.0",
 	"responseTime": "2019-03-15T08:08:13.246Z",
 	"response": {
-	   "message": "Otp Validated Successfully"
+	   "message": "OTP Validated Successfully"
 	},
 	"errors": null
 }
@@ -151,7 +153,7 @@ otp|Yes| received OTP  |345674
 {
     "id": "mosip.pre-registration.auth.useridotp",
     "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
+    "responseTime": "2019-03-27T06:22:19.673Z",
     "response": null,
     "errors": [
         {
@@ -182,7 +184,7 @@ Requires Authentication | Yes
 {
     "id": "mosip.pre-registration.auth.useridotp",
     "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
+    "responseTime": "2019-03-27T06:22:19.673Z",
     "response": {
          "message": "Token has been invalidated successfully"
     },
