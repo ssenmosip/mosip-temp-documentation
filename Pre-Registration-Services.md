@@ -2569,7 +2569,7 @@ request.to_field_lang |Yes|To language code|ara
    "response": null,
    "errors":[
        {
-         "errorcode": "PRG_PAM_TRL_002",
+         "errorCode": "PRG_PAM_TRL_002",
          "message": "Failed to transliterate"
       }
   ]
