@@ -19,54 +19,22 @@ This section details about the service API in the Pre-Registration modules
  [2.7.8 Transliteration Service APIs](#278-transliteration-service-apis)
 
 <!--te-->
-***
-#### Swagger link as below.
-1.      https://qa.mosip.io/pre-registration/v1.0/auth/swagger-ui.html#
-2.      https://qa.mosip.io/pre-registration/v1.0/demographic/swagger-ui.html#/
-3.      https://qa.mosip.io/pre-registration/v1.0/document/swagger-ui.html#/
-4.      https://qa.mosip.io/pre-registration/v1.0/sync/swagger-ui.html#/
-5.      https://qa.mosip.io/pre-registration/v1.0/booking/swagger-ui.html#/
-6.      https://qa.mosip.io/pre-registration/v1.0/batchjob/swagger-ui.html#/
-7.      https://qa.mosip.io/pre-registration/v1.0/notification/swagger-ui.html#/
-8.      https://qa.mosip.io/pre-registration/v1.0/translitration/swagger-ui.html#/
-
-***
-Tobe Done:
-1. Need to seperate response and error resonse
-2. Need to add id,version and timestamp in response body
-3. Need to remove user ids from the request body
 
 **Note**: id,version and requesttime, responsetime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 
 # 2.7.1 Auth Service APIs
-This service details used by Pre-Registration portal to authenticate user by sending otp to the user , validating with userid and otp.
-### Host
-##### QA - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
+This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
 
-***
-#### [Swagger API spec 0.9.0 version link](https://github.com/mosip/mosip/tree/0.9.0/docs/design/pre-registration/service/Auth-Service-API-Spec-090.yaml)
-***
+* [POST /login/sendOtp](#post-login-sendotp)
+* [POST /login/validateOtp](#post-login-validateotp)
+* [POST /logout/invalidateToken](#post-logout-invalidatetoken)
 
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| POST | True |
-#### 2.7.1.1 POST Operation
-#### Path -  `/sendotp`
-#### Summary
-This will send the otp to the requested user in the preferred channel(sms/email)
+### 2.7.1.1 POST /login/sendOtp
+This request will send the OTP to the requested user in the preferred channel(sms/email)
 
-#### Request Part Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.auth.sendotp
-version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-userid |Yes|user id of the applicant|8907654778
-langcode|Yes|The preferred language code |eng
+#### Resource URL
+https://mosip.io/pre-registration/auth/v1.0/login/sendOtp
 
 #### Resource details
 Resource Details | Description
@@ -74,14 +42,23 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.auth.sendotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+userid |Yes|user id of the applicant(mobile number/email address)|8907654778
+langcode|Yes|The preferred language code |fra
+
 #### Request:
 ```JSON
 {
 	"id": "mosip.pre-registration.auth.sendotp",
 	"version": "1.0",
-	"requesttime": "2019-03-15T07:24:47.605Z",
+	"requestTime": "2019-03-15T07:24:47.605Z",
 	"request": {
-		"langCode": "eng",
+		"langCode": "fra",
 		"userId": "8907654778"
 	}
 }
@@ -94,7 +71,7 @@ Requires Authentication | Yes
 {
 	"id": "mosip.pre-registration.auth.sendotp",
 	"version": "1.0",
-	"responsetime": "2019-03-15T07:24:50.246Z",
+	"responseTime": "2019-03-15T07:24:50.246Z",
 	"response": {
 		"message": "Sms Request Sent"
 	},
@@ -104,12 +81,11 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid parameters
-
 ```JSON
 {
 	"id": "mosip.pre-registration.auth.sendotp",
 	"version": "1.0",
-	"responsetime": "2019-03-15T08:09:42.327Z",
+	"responseTime": "2019-03-15T08:09:42.327Z",
 	"response": null,
 	"errors": [
 		{
@@ -119,19 +95,12 @@ Requires Authentication | Yes
 	]	
 }
 ```
-#### 2.7.1.2 POST Operation
-#### Path -  `/useridotp`
-#### Summary
-This will validate  the otp and the userid and provide the accessToken
 
-#### Request Part Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.auth.useridotp
-version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-userid |Yes|user id of the applicant|8907654778
-otp|Yes|The preferred language code |123456
+### 2.7.1.2 POST /login/validateOtp
+This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
+
+#### Resource URL
+https://mosip.io/pre-registration/auth/v1.0/login/validateOtp
 
 #### Resource details
 Resource Details | Description
@@ -139,15 +108,24 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.auth.useridotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+userid |Yes|user id of the applicant (mobile number/email address)|8907654778
+otp|Yes| received OTP  |345674
+
 #### Request:
 ```JSON
 {
 	"id": "mosip.pre-registration.auth.useridotp",
 	"version": "1.0",
-	"requesttime": "2019-03-15T08:28:04.783Z",
+	"requestTime": "2019-03-15T08:28:04.783Z",
 	"request": {
-		"otp": "123456",
-		"userId": "9538895320"
+		"otp": "345674",
+		"userId": "8907654778"
 	}
 }
 ```
@@ -159,7 +137,7 @@ Requires Authentication | Yes
 {
 	"id": "mosip.pre-registration.auth.useridotp",
 	"version": "1.0",
-	"responsetime": "2019-03-15T08:08:13.246Z",
+	"responseTime": "2019-03-15T08:08:13.246Z",
 	"response": {
 		"message": "Otp Validated Successfully"
 	},
@@ -169,15 +147,26 @@ Requires Authentication | Yes
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid parameters
-
 ```JSON
-
+{
+    "id": "mosip.pre-registration.auth.useridotp",
+    "version": "1.0",
+    "responsetime": "2019-03-27T06:22:19.673Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "KER-OTV-005",
+            "message": "Validation can't be performed against this key. Generate OTP first."
+        }
+    ]
+}
 ```
 
-#### 2.7.1.3 POST Operation
-#### Path -  `/invalidatetoken`
-#### Summary
-This will invalidate the access token when force logout is done.
+### 2.7.1.2 POST /logout/invalidateToken
+This request will invalidate the authorization token when force logout is done.
+
+#### Resource URL
+https://mosip.io/pre-registration/auth/v1.0/logout/invalidateToken
 
 #### Resource details
 Resource Details | Description
@@ -185,21 +174,20 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request:
-
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Token invalidated successfully
 ```JSON
-
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid parameters
-
-```JSON
-
+{
+    "id": "mosip.pre-registration.auth.useridotp",
+    "version": "1.0",
+    "responsetime": "2019-03-27T06:22:19.673Z",
+    "response": {
+         "message": "Token has been invalidated successfully"
+    },
+    "errors": null
+}
 ```
 
 # 2.7.2 Demographic Service APIs
