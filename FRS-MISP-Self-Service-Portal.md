@@ -1,15 +1,15 @@
 ## Table Of Content
 * [1. Partner Management - SSP](#1-partner-management---ssp) 
-    * [1.1 Partners - Create/Read/Update/Delete](#11-partners---createreadupdatedelete) _(MSP_FR_1.1)_
-    * [1.2 Policies - Create/Read/Update/Delete](#12-policies---createreadupdatedelete) _(MSP_FR_1.2)_
-    * [1.3 Partner-Policy Mapping - Create/Read/Update/Delete](#13-partner-policy-mapping---createreadupdatedelete) _(MSP_FR_1.3)_
-    * [1.4 MISP-Partner Mapping - Create/Read/Delete](#14-misp-partner-mapping---createreaddelete) _(MSP_FR_1.4)_
-    * [1.5 Validate and Re-issue Digital Certificate to Partner](#15-validate-and-re-issue-digital-certificate-to-partner) _(MSP_FR_1.5)_
-    * [1.6 Distribution of Public Keys to Partners](#16-distribution-of-public-keys-to-partners) _(MSP_FR_1.6)_
+    * [1.1 Partners - Create/Read/Update/Delete](#11-partners---createreadupdatedelete-) _(MSP_FR_1.1)_
+    * [1.2 Policies - Create/Read/Update/Delete](#12-policies---createreadupdatedelete-) _(MSP_FR_1.2)_
+    * [1.3 Partner-Policy Mapping - Create/Read/Update/Delete](#13-partner-policy-mapping---createreadupdatedelete-) _(MSP_FR_1.3)_
+    * [1.4 MISP-Partner Mapping - Create/Read/Delete](#14-misp-partner-mapping---createreaddelete-) _(MSP_FR_1.4)_
+    * [1.5 Validate and Re-issue Digital Certificate to Partner](#15-validate-and-re-issue-digital-certificate-to-partner-) _(MSP_FR_1.5)_
+    * [1.6 Distribution of Public Keys to Partners](#16-distribution-of-public-keys-to-partners-) _(MSP_FR_1.6)_
 
 
 # 1. Partner Management - SSP
-## 1.1 Partners - Create/Read/Update/Delete
+## 1.1 Partners - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 ### A. Create Partner
 Upon receiving request to create a Partner with input parameters (Partner ID, Partner Organization Name, Partner Contact Number, Partner Email ID, Partner Address, IsActive), the system stores the data in the database
 
@@ -38,7 +38,7 @@ Upon receiving a request to delete a Partner with input parameters (Partner ID),
 2. If the mandatory input parameters are missing, throw the appropriate message
 3. In case of exceptions, system triggers relevant error messages
 
-## 1.2 Policies - Create/Read/Update/Delete
+## 1.2 Policies - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 ### A. Create Policy
 Upon receiving a request to create a Policy with input parameters (Policy ID, Policy Name, Policy Description, Policy Json File, IsActive), the system stores the data in the database and responds to the source with the required message
@@ -69,7 +69,7 @@ Upon receiving a request to delete a Policy with input parameters (Policy ID) th
 1. If the mandatory input parameters are missing, throws the appropriate message
 2. In case of exceptions, system triggers relevant error messages.
 
-## 1.3 Partner-Policy Mapping - Create/Read/Update/Delete
+## 1.3 Partner-Policy Mapping - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 ### A. Create Partner-Policy Mapping
 Upon receiving a request to create a Partner-Policy Mapping with input parameters (Partner ID, Policy ID, IsActive), the system stores the data in the database and responds to the source with the required message:
@@ -111,7 +111,7 @@ Upon receiving a request to delete a Partner-Policy Mapping with input parameter
 3. In case of exceptions, system triggers relevant error messages. 
 
 
-## 1.4 MISP-Partner Mapping - Create/Read/Delete
+## 1.4 MISP-Partner Mapping - Create/Read/Delete [**[↑]**](#table-of-content)
 
 ### A. Create Partner-Policy Mapping
 Upon receiving a request to create a MISP-Partner Mapping with input parameters (MISP ID, Partner ID, IsActive), the system store the data in the database and Responds to the source with the required message
@@ -134,7 +134,7 @@ Upon receiving a request to delete a MISP-Partner Mapping with input parameters 
 1. If the mandatory input parameters are missing, throws the appropriate message
 2. In case of exceptions, system triggers relevant error messages.
 
-## 1.5 Validate and Re-issue Digital Certificate to Partner
+## 1.5 Validate and Re-issue Digital Certificate to Partner [**[↑]**](#table-of-content)
 
 Upon receiving a request to validate the Digital Certificate provided by a Partner with Input (Digital Certificate), the system does the following:
 1. Validates the Digital Certificate
@@ -143,7 +143,7 @@ Upon receiving a request to validate the Digital Certificate provided by a Partn
 4. If the mandatory input parameters are missing, throws the appropriate message. 
 5. In case of exceptions, system triggers relevant error messages
 
-## 1.6 Distribution of Public Keys to Partners
+## 1.6 Distribution of Public Keys to Partners [**[↑]**](#table-of-content)
 
 Upon receiving a request to get Public Key with an input parameter (Date Time-stamp) the system performs the following steps:
 1. The system calls the Key Manager Service to get the Public Key with Input Parameter (Application ID, Reference ID, Date Time-Stamp)
