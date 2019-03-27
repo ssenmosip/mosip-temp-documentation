@@ -192,11 +192,11 @@ Requires Authentication | Yes
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
 * [POST /applications](#post-sendotp)
-* [PUT /applications/&lt;preRegistrationId&gt;](#put-applications)
-* [GET /applications/&lt;preRegistrationId&gt;](#get-applications)
-* [DELETE /applications/&lt;preRegistrationId&gt;](#delete-applications)
-* [GET /applications/status/&lt;preRegistrationId&gt;](#get-applications-status)
-* [GET /applications/&lt;userId&gt;](#get-applications-by-userid)
+* [PUT /applications/{preRegistrationId}](#put-applications)
+* [GET /applications/{preRegistrationId}](#get-applications)
+* [DELETE /applications/{preRegistrationId}](#delete-applications)
+* [GET /applications/status/{preRegistrationId}](#get-applications-status)
+* [GET /applications/{userId}](#get-applications-by-userid)
 
 ### POST /applications
 This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
@@ -508,11 +508,11 @@ Error Code|Message Code|Description
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
 PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-registration with demographic data provided.
 
-### PUT /applications/<preRegistrationId>
+### PUT /applications/{preRegistrationId}
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/<preRegistrationId>/ 
+https://mosip.io/pre-registration/demographic/v1.0/applications/{preRegistrationId}/ 
 
 #### Resource details
 Resource Details | Description
@@ -823,11 +823,11 @@ Error Code|Message Code|Description
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
 PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id.
 
-### GET /applications/<preRegistrationId>
+### GET /applications/{preRegistrationId}
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/<preRegistrationId>/ 
+https://mosip.io/pre-registration/demographic/v1.0/applications/{preRegistrationId}/ 
 
 #### Resource details
 Resource Details | Description
@@ -987,11 +987,11 @@ preRegistrationId |Yes|Id of the application|64269837502851
    ]
 }
 ```
-### DELETE  /applications/<preRegistrationId>;
+### DELETE  /applications/{preRegistrationId}
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/<preRegistrationId>/
+https://mosip.io/pre-registration/demographic/v1.0/applications/{preRegistrationId}/
 
 #### Resource details
 Resource Details | Description
@@ -1060,11 +1060,11 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 }
 ```
 
-### GET /applications/status/<preRegistrationId>;
+### GET /applications/status/{preRegistrationId}
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/status/<preRegistrationId>/
+https://mosip.io/pre-registration/demographic/v1.0/applications/status/{preRegistrationId}/
 
 #### Resource details
 Resource Details | Description
@@ -1113,11 +1113,11 @@ preRegistrationId |Yes|Id of the application|62076019780925
 }
 ```
 
-### GET /applications/<userId>/
+### GET /applications/{userId}/
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/<userId>/
+https://mosip.io/pre-registration/demographic/v1.0/applications/{userId}/
 
 #### Resource details
 Resource Details | Description
