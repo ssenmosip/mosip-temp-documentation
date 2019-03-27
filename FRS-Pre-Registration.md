@@ -42,14 +42,14 @@ The pre-registration module enables a user to book an appointment for one or man
 # 2. Features
 ## 2.1 Login/Creating a User Account
 ### 2.1.1 Login using Email
-The Individual can login to the Pre-registration Portal by providing his/her Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
+The Individual can login to the Pre-registration Portal by providing their Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
 
 ### 2.1.2 Login using Phone Number
-The Individual can login to the Pre-registration Portal by providing his/her Mobile Number. The system validates the Mobile Number, once validated sends an OTP to the Mobile Number as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
+The Individual can login to the Pre-registration Portal by providing their Mobile Number. The system validates the Mobile Number, once validated sends an OTP to the Mobile Number as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
 ### 2.1.3 Automatic User ID Creation on First Login
-The Individual logs in to the Pre-Registration portal with his/her Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first-time user or not. If the Individual is first-time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
+The Individual logs in to the Pre-Registration portal with their Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first-time user or not. If the Individual is first-time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
 
 ### 2.1.4 Logout/Session Timeout
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
@@ -67,7 +67,7 @@ Note: Consent is sought from the user for every new application created in the s
 
 ### 2.2.2 Provide Consent
 
-An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide his/her consent for storage and utilization of his/her personal information. The consent is sought from the user for every new application created in the system .On providing his/her consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
+An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide their consent for storage and utilization of their personal information. The consent is sought from the user for every new application created in the system. On providing their consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
 
 In case of closure of the Consent Pop-up, the following scenarios may arise:
 1. First-time login: On closure, then system alerts the user that he will be logged out due to not providing consent.
@@ -84,7 +84,7 @@ Once the Demographic Details are filled and the Documents are uploaded, if the I
 
 ### 2.2.4 Provide Data in Preferred Language
 
-The Individual can select his/her language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated.The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
+The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated.The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
 
@@ -116,7 +116,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types
-1. When an Individual provides his/her Demographic data, the Pre-registration system captures the data. 
+1. When an Individual provides their Demographic data, the Pre-registration system captures the data. 
 1. Based on the parameters (from Config file) for example-The gender, age and residential status(Foreigner, National) from the demographic data applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
@@ -204,7 +204,7 @@ The user opts to view the available slots for a selected registration center.
 ## 2.5 Appointment Acknowledgement (PRID)
 1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
 1. The acknowledgement contains the following information: Name, Pre-Registration Id, Age/DoB, Mobile Number, Email Id and Registration Center Details, Appointment Date, Appointment Time)
-1. A QR code is generated based on the demographic details and the pre-registration ID.This QR code can be scanned at the registration center to fetch the details of the individual provided during pre-registration process
+1. A QR code is generated based on the demographic details and the pre-registration ID. This QR code can be scanned at the registration center to fetch the details of the individual provided during pre-registration process
 
 ### 2.5.1 Download Acknowledgement
 Individual can choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later
