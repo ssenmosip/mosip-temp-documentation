@@ -22,7 +22,6 @@
 
 [12. Individual Types Service](https://github.com/mosip/mosip/wiki/Kernel-APIs#12-individual-types)
 
-[13. UIN acknowledgement service](https://github.com/mosip/mosip/wiki/Kernel-APIs#13-uin-acknowledgement-service)
 
 
 # 1. Key Manager
@@ -2423,48 +2422,5 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ```
 
 
-# 13. UIN acknowledgement service
 
-This service is called when an UIN is assigned to the invidual. 
-
-## 13.1 Acknowledge the usage or UIN
-
-This service is called when an UIN is assigned to the invidual. 
-
-### Resource URL
-### `POST /uinacknowledgement/acknowledgeuinassignment`
-
-### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-### Example Request
-```JSON
-{
-	"id":"mosip.uinacknowledgement.acknowledgeuinassignment",			
-	"version":"1.0",	
-	"requesttime":"2007-12-03T10:15:30Z",
-	"request" : {
-		"uin":"33983987329832"
-	}
-}
-```
-### Example Response
-```JSON
-{
-	"id": "mosip.individualtype.getAllIndividualTypes",
-	"ver": "1.0",
-	"timestamp": "2007-12-03T10:15:30Z",
-	"response": {
-		"result":true
-	}
-}
-```
 
