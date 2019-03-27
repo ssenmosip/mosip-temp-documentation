@@ -215,7 +215,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.demographic.create
 version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
@@ -241,7 +241,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
    "id":"mosip.pre-registration.demographic.create",
    "version":"1.0",
-   "requesttime":"2019-01-22T07:22:57.086Z",
+   "requestTime":"2019-01-22T07:22:57.086Z",
    "request":{
       "langCode":"fra",
       "demographicDetails":{
@@ -365,7 +365,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {  
    "id":"mosip.pre-registration.demographic.create",
    "version":"1.0",
-   "responsetime":"2019-03-15T08:08:13.246Z",
+   "responseTime":"2019-03-15T08:08:13.246Z",
    "response":{  
       "preRegistrationId":"64269837502851",
       "createdDateTime":"2019-01-08T17:05:48.953Z",
@@ -492,7 +492,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
   "id": "mosip.pre-registration.demographic.create",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
         {
@@ -530,7 +530,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.demographic.update
 version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
@@ -556,7 +556,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
   "id": "mosip.pre-registration.demographic.update",
   "version": "1.0",
-  "requesttime": "2019-01-22T07:22:57.086Z",
+  "requestTime": "2019-01-22T07:22:57.086Z",
   "request":{
       "langCode":"fra",
       "demographicDetails":{
@@ -680,7 +680,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
    "id": "mosip.pre-registration.demographic.update",
    "version": "1.0",
-   "responsetime": "2019-03-15T08:08:13.246Z",
+   "responseTime": "2019-03-15T08:08:13.246Z",
    "response": {
       "preRegistrationId": "64269837502851",
       "updatedDateTime": "2019-02-11T13:37:37.215Z",
@@ -807,7 +807,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
   "id": "mosip.pre-registration.demographic.update",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
         {
@@ -848,7 +848,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response":{
          "preRegistrationId":"20180396713560",
          "createdBy":"9900806086",
@@ -977,7 +977,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response":null,
   "errors": [
 		{
@@ -1013,7 +1013,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
-  "responsetime": "2019-02-11T07:15:18.565Z",
+  "responseTime": "2019-02-11T07:15:18.565Z",
   "response": [
     {
       "preRegistrationId": "64269837502851",
@@ -1032,7 +1032,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
 		{
@@ -1049,7 +1049,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
 		{
@@ -1086,7 +1086,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 {
   "id": "mosip.pre-registration.demographic.fetch.status",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response":{
       "statusCode": "Pending_Appointment",
       "preRegistrationId": "62076019780925"
@@ -1102,7 +1102,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 {
   "id": "mosip.pre-registration.demographic.fetch.status",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
 	{
@@ -1138,7 +1138,7 @@ userId |Yes|User Id of the application(Mobile number or email address)|sanober@g
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response":[
       {
          "preRegistrationId":"62076019780925",
@@ -1189,7 +1189,7 @@ userId |Yes|User Id of the application(Mobile number or email address)|sanober@g
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
+  "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
 		{
@@ -1819,7 +1819,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync.store
 version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 
@@ -1873,7 +1873,7 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 }
 ```
 
-# Booking Service
+# Booking Service (Internal)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 * [POST /appointment/{preRegistrationId}](#post-appointment)
@@ -2217,30 +2217,18 @@ toDate |Yes|To Date | 2019-02-14
 }
 ```
 
-# 2.7.6 BatchJob Service APIs
-This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id.
+# BatchJob Service (Internal)
+This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id and master data sync for availability.
 
-### Host
-##### Integration - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
+* [PUT /expired](#put-expired)
+* [PUT /consumned](#put-consumned)
+* [PUT /avilabilitySync](#put-avilabilitySync)
 
-***
-#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/BatchJob-Service-API-Spec.yaml)
-***
+### PUT /expired
+This request is used to update status of appointment expired pre-registration ids to expired status in database.
 
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| GET | False |
-| POST | False |
-| PUT | True |
-| DELETE | False |
-
-#### 2.7.6.1 PUT Operation
-#### Path -  `/expiredStatus`
-#### Summary
-Update status of pre-Registration id to expired in database if booking date is less then current date.
+#### Resource URL
+https://mosip.io/v1/prereg-batchjob/expired
 
 #### Resource details
 Resource Details | Description
@@ -2251,34 +2239,40 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Status updated successfully
-
+###### Description: Expired status updated successfully
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-01-17T13:28:44.595Z",
-  "response": "Status to expired updated successfully"
+   "id": "mosip.pre-registration.batchjob.expired",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+      "message": "Expired status updated successfully"
+	},
+	"errors":null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No pre registration id found to update
+###### Description: No pre registration record found to update expired status
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_BAT_001",
-    "message": "PRG_PAM_BAT_001 --> NO_PRE_REGISTRATION_ID_FOUND_TO_UPDATE_EXPIRED_STATUS"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:09:08.063Z",
-  "response": null
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+         "errorCode": "PRG_PAM_BAT_001",
+         "message": "No pre registration record found to update expired status"
+      }
+	]
 }
 ```
-#### 2.7.6.2 PUT Operation
-#### Path -  `/consumedStatus`
-#### Summary
-Update status of pre-Registration id to consumed in database based on details given by registration client.
+### PUT /consumed
+This request is used to update the consumed status for all pre-Registration ids given by registration processor.
+
+#### Resource URL
+https://mosip.io/v1/prereg-batchjob/consumed
 
 #### Resource details
 Resource Details | Description
@@ -2289,30 +2283,64 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Status updated successfully
-
+###### Description: Consumed status updated successfully
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-01-17T13:28:44.595Z",
-  "response": "Status to consumed updated successfully"
+   "id": "mosip.pre-registration.batchjob.expired",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+      "message":  "Consumed status updated successfully"
+	},
+	"errors":null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No pre registration id found to update
+###### Description: No pre registration record found to update consumed status
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_BAT_001",
-    "message": "PRG_PAM_BAT_001 --> NO_PRE_REGISTRATION_ID_FOUND_TO_UPDATE_CONSUMED_STATUS"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:09:08.063Z",
-  "response": null
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+         "errorCode": "PRG_PAM_BAT_002",
+         "message": "No pre registration record found to update consumed status"
+      }
+	]
 }
 ```
+
+### PUT /availabilitySync
+This request is used to synchronize booking slots availability table with master data.
+
+#### Resource URL
+https://mosip.io/v1/prereg-batchjob/availabilitySync
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Master Data Sync is successful
+```JSON
+{
+   "id": "mosip.pre-registration.batchjob.sync",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+      "message": "Master Data Sync is successful"
+   },
+   "errors":null
+}
+```
+
 # 2.7.7 Notification Service APIs
 This service details used by Pre-Registration portal to trigger notification and get QRCode.
 
@@ -2374,7 +2402,7 @@ Requires Authentication | Yes
 {
   "err": null,
   "id": "string",
-  "responsetime": "2019-02-11T12:51:00.787Z",
+  "responseTime": "2019-02-11T12:51:00.787Z",
   "response": {
     "name": "sanober noor",
     "preId": "1234567890",
@@ -2395,7 +2423,7 @@ Requires Authentication | Yes
     "message": "MOBILE_NUMBER_OR_EMAIL_ADDRESS_NOT_FILLED"
   },
   "id": "string",
-  "responsetime": "2019-02-11T13:00:10.584Z",
+  "responseTime": "2019-02-11T13:00:10.584Z",
   "response": null
 }
 ```
@@ -2409,7 +2437,7 @@ Requires Authentication | Yes
     "message": "PRG_ACK_002 --> INCORRECT_MANDATORY_FIELDS"
   },
   "id": "string",
-  "responsetime": "2019-02-11T13:07:33.215Z",
+  "responseTime": "2019-02-11T13:07:33.215Z",
   "response": null
 }
 ```
@@ -2445,7 +2473,7 @@ Requires Authentication | Yes
 {
 	"err": null,
 	"id": "string",
-	"responsetime": "2019-02-11T13:19:54.099Z",
+	"responseTime": "2019-02-11T13:19:54.099Z",
 	"response": {
 	"qrcode":{ByteCode}
 	}
@@ -2486,7 +2514,7 @@ Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.transliteration.transliterate
 version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.from_field_lang|Yes|From language code|eng
 request.from_field_name |Yes|From filed name|Name1
@@ -2503,7 +2531,7 @@ Requires Authentication | Yes
 ```JSON
 {
   "id": "mosip.pre-registration.transliteration.transliterate",
-  "requesttime": "2018-10-17T07:22:57.086Z",
+  "requestTime": "2018-10-17T07:22:57.086Z",
   "version": "1.0",
   "request": 
   {
@@ -2527,7 +2555,7 @@ Requires Authentication | Yes
 {
   "err": null,
   "id": "string",
-  "responsetime": "2019-03-12T06:48:26.671Z",
+  "responseTime": "2019-03-12T06:48:26.671Z",
   "response": {
     "from_field_name": "Name1",
     "from_field_value": "Kishan",
@@ -2548,7 +2576,7 @@ Requires Authentication | Yes
     "errorcode": "PRG_TRL_APP_002"
   },
   "id": "string",
-  "responsetime": "2019-03-12T06:48:47.891Z",
+  "responseTime": "2019-03-12T06:48:47.891Z",
   "response": null
 }
 ```
