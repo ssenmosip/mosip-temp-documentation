@@ -86,7 +86,7 @@ request.langcode|Yes|The preferred language code |fra
 	"response": null,
 	"errors": [
 		{
-		 "errorCode": "PRG_AUTH_001",
+		 "errorCode": "PRG_PAM_ATH_001",
 		 "message": "OTP failed to send through a specified channel"
 		}
 	]	
@@ -2500,25 +2500,22 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 }
 ```
 
-# 2.7.8 Transliteration Service APIs
+# Transliteration Service (Internal)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
-### Host
-##### Integration - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| GET | False |
-| POST | True |
-| PUT | False |
-| DELETE | False |
+* [POST /transliterate](#post-transliterate)
 
-#### 2.7.8.1 POST Operation
-#### Path -  `/transliterate`
-#### Summary
-Transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
+###  POST /transliterate
+This request is used to transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
+
+#### Resource URL
+https://mosip.io/v1/prereg-transliteration/transliterate
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Example
@@ -2528,66 +2525,54 @@ version |Yes|version of the application|1.0
 requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.from_field_lang|Yes|From language code|eng
-request.from_field_name |Yes|From filed name|Name1
 request.from_field_value |Yes|From field value |Kishan
 request.to_field_lang |Yes|To language code|ara
-request.to_field_name |Yes|From filed name|Name2
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-#### Request:
 
+#### Request:
 ```JSON
 {
   "id": "mosip.pre-registration.transliteration.transliterate",
-  "requestTime": "2018-10-17T07:22:57.086Z",
   "version": "1.0",
-  "request": 
-  {
+  "requestTime": "2019-01-09T15:31:32.957Z",
+  "request": {
     "from_field_lang": "eng",
-    "from_field_name": "Name1",
     "from_field_value": "Kishan",
     "to_field_lang": "ara",
-    "to_field_name": "Name2",
     "to_field_value": ""
   }
-  
 }
 ```
-
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Given key is translitrated successfully
-
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responseTime": "2019-03-12T06:48:26.671Z",
-  "response": {
-    "from_field_name": "Name1",
-    "from_field_value": "Kishan",
+   "id": "mosip.pre-registration.transliteration.transliterate",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
     "from_field_lang": "eng",
-    "to_field_name": "Name2",
-    "to_field_value": "كِسهَن",
+    "from_field_value": "Kishan",
     "to_field_lang": "ara"
+    "to_field_value": "كِسهَن",
   }
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid field
+###### Description: Failed to transliterate
 ```JSON
 {
-  "err": {
-    "message": "INCORRECT_MANDATORY_FIELDS",
-    "errorcode": "PRG_TRL_APP_002"
-  },
-  "id": "string",
-  "responseTime": "2019-03-12T06:48:47.891Z",
-  "response": null
+   "id": "mosip.pre-registration.transliteration.transliterate",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[
+       {
+         "errorcode": "PRG_PAM_TRL_002"
+         "message": "Failed to transliterate",
+      }
+  ]
 }
 ```
