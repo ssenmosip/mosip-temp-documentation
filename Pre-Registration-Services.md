@@ -2341,110 +2341,93 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.7 Notification Service APIs
-This service details used by Pre-Registration portal to trigger notification and get QRCode.
+# Notification Service (Internal)
+This service details used by Pre-Registration portal to trigger notification via SMS or email and get QRCode.
 
-### Host
-##### Integration - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
+* [POST /notify](#post-notify)
+* [POST /generateQRCode](#put-generateQRCode)
 
-***
-#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Notification-Service-API-Spec.yaml)
-***
+### POST /notify
+This request is used to notify the pre-registration acknowledgement via Email and SMS.
 
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| POST | True |
+#### Resource URL
+https://mosip.io/v1/prereg-notification/notify
 
-#### 2.7.7.1 POST Operation
-#### Path -  `/notification`
-#### Summary
-Notify the user via Email and SMS.
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
 
 #### Request Part Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-name |Yes|user name of the application|Sanober Noor
-preId|Yes|Pre Registration of the application|37802950913289
-appointmentDate| Booking appointment date|2019-01-18
-appointmentTime| Booking appointment time| 12:02
-mobNum| user Mobile number on which he will get sms nitification|9480456789
-emailID| user email Id |sanober@gmail.com
-multipart file| pdf file of acknowledgment page|37802950913289.pdf
-LangCode| language code whatever user choose while login|eng
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
+id |Yes|Id of the application|mosip.pre-registration.notification.notify
+version |Yes|version of the application|1.0
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name |Yes|user name of the application|Sanober Noor
+request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
+request.appointmentDate|Yes| Booking appointment date|2019-01-18
+request.appointmentTime| Yes|Booking appointment time| 12:02
+request.mobNum|  Yes| applicant mobile number |9480456789
+request.emailID| Yes|applicant email Id |sanober@gmail.com
+request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
+request.LangCode| Yes| language code whatever user choose while login|eng
 
 #### Request:
 ```JSON
 {
+  "id": "mosip.pre-registration.notification.notify",
+  "version": "1.0",
+  "requestTime": "2019-01-09T15:31:32.957Z",
+  "request": {
 			"name": "sanober noor",
-			"preId": "37802950913289",
+			"preRegistrationId": "37802950913289",
 			"appointmentDate": "2019-01-22",
 			"appointmentTime": "22:57",
 			"mobNum": "9748107386",
 			"emailID": "sanober.noor2@mindtree.com"
+	}
 }
 ```
-
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Email and sms request  successfully submitted retrieved
+###### Description: Email and sms request successfully submitted
+```JSON
+{
+   "id": "mosip.pre-registration.notification.notify",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+      "message": "Email and sms request successfully submitted"
+    },
+	"errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Mobile nubmer or Email Id is missing
+```JSON
+{
+   "id": "mosip.pre-registration.notification.notify",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+       {
+        "errorCode": "PRG_PAM_ACK_001",
+        "message": "Mobile nubmer or Email Id is missing"
+       }
+	]
+}
+```
+### POST  /generateQRCode
+This request is used to generate QR Code of acknowledgement
 
-```JSON
-{
-  "err": null,
-  "id": "string",
-  "responseTime": "2019-02-11T12:51:00.787Z",
-  "response": {
-    "name": "sanober noor",
-    "preId": "1234567890",
-    "appointmentDate": "2019-01-22",
-    "appointmentTime": "22:57",
-    "mobNum": "9748107386",
-    "emailID": "sanober.noor2@mindtree.com"
-  }
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Mobile nubmer or Email Id not given
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_ACK_001",
-    "message": "MOBILE_NUMBER_OR_EMAIL_ADDRESS_NOT_FILLED"
-  },
-  "id": "string",
-  "responseTime": "2019-02-11T13:00:10.584Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: INCORRECT MANDATORY FIELDS
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_ACK_002",
-    "message": "PRG_ACK_002 --> INCORRECT_MANDATORY_FIELDS"
-  },
-  "id": "string",
-  "responseTime": "2019-02-11T13:07:33.215Z",
-  "response": null
-}
-```
-#### 2.7.7.2 POST Operation
-#### Path -  `/generateQRCode`
-#### Summary
-To generate QR Code of acknowledgement
+#### Resource URL
+https://mosip.io/v1/prereg-notification/generateQRCode
 
 #### Resource details
 Resource Details | Description
@@ -2452,31 +2435,51 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.notification.qrCode
+version |Yes|version of the application|1.0
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name |Yes|user name of the application|Sanober Noor
+request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
+request.appointmentDate|Yes| Booking appointment date|2019-01-18
+request.appointmentTime| Yes|Booking appointment time| 12:02
+request.mobNum|  Yes| applicant mobile number |9480456789
+request.emailID| Yes|applicant email Id |sanober@gmail.com
+request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
+request.LangCode| Yes| language code whatever user choose while login|eng
+
 #### Request:
 ```JSON
 {
-	"name": "sanober noor",
-	"preId": "37802950913289",
-	"appointmentDate": "2019-01-22",
-	"appointmentTime": "22:57",
-	"mobNum": "9748107386",
-	"emailID": "sanober.noor2@mindtree.com"
+  "id": "mosip.pre-registration.notification.qrCode",
+  "version": "1.0",
+  "requestTime": "2019-01-09T15:31:32.957Z",
+  "request": {
+		"name": "sanober noor",
+		"preRegistrationId": "37802950913289",
+		"appointmentDate": "2019-01-22",
+		"appointmentTime": "22:57",
+		"mobNum": "9748107386",
+		"emailID": "sanober.noor2@mindtree.com"
+	}
 }
 ```
-
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: QR CODE generated  successfully 
-
+###### Description: QR Code generated  successfully
 ```JSON
 {
-	"err": null,
-	"id": "string",
-	"responseTime": "2019-02-11T13:19:54.099Z",
-	"response": {
-	"qrcode":{ByteCode}
-	}
+   "id": "mosip.pre-registration.notification.qrCode",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+		"qrcode":{ByteCode}
+	},
+	"errors":null
 }
 ```
 ##### Failure Response:
@@ -2484,8 +2487,16 @@ Requires Authentication | Yes
 ###### Description: Failed to generate QR code
 ```JSON
 {
-    "errorCode": "PRG_ACK_006",
-    "message": "QRCODE_FAILED_TO_GENERATE"
+   "id": "mosip.pre-registration.notification.qrCode",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+       {
+    		"errorCode": "PRG_PAM_ACK_006",
+    		"message": " Failed to generate QR code"
+		}
+	]
 }
 ```
 
