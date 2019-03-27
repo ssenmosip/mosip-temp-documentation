@@ -47,7 +47,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|id |mosip.pre-registration.auth.sendotp
 version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 userid |Yes|user id of the applicant(mobile number/email address)|8907654778
 langcode|Yes|The preferred language code |fra
 
@@ -66,14 +66,14 @@ langcode|Yes|The preferred language code |fra
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: sms sent successfully
+###### Description: OTP sent successfully to specified channel
 ```JSON
 {
 	"id": "mosip.pre-registration.auth.sendotp",
 	"version": "1.0",
 	"responseTime": "2019-03-15T07:24:50.246Z",
 	"response": {
-		"message": "Sms Request Sent"
+		"message": "OTP sent successfully to specified channel"
 	},
 	"errors": null
 }
@@ -90,7 +90,7 @@ langcode|Yes|The preferred language code |fra
 	"errors": [
 		{
 		 "errorCode": "PRG_AUTH_001",
-		 "message": "SEND_OTP_FAILED"
+		 "message": "OTP failed to send through a specified channel"
 		}
 	]	
 }
@@ -139,7 +139,7 @@ otp|Yes| received OTP  |345674
 	"version": "1.0",
 	"responseTime": "2019-03-15T08:08:13.246Z",
 	"response": {
-		"message": "Otp Validated Successfully"
+	   "message": "Otp Validated Successfully"
 	},
 	"errors": null
 }
