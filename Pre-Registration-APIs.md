@@ -30,7 +30,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 * [POST /login/validateOtp](#post-login-validateotp)
 * [POST /logout/invalidateToken](#post-logout-invalidatetoken)
 
-###POST /login/sendOtp
+### POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
 #### Resource URL
@@ -97,7 +97,7 @@ request.langcode|Yes|The preferred language code |fra
 }
 ```
 
-###POST /login/validateOtp
+### POST /login/validateOtp
 This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
 
 #### Resource URL
@@ -164,7 +164,7 @@ request.otp|Yes| received OTP  |345674
 }
 ```
 
-###POST /logout/invalidateToken
+### POST /logout/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
