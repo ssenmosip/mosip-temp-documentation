@@ -1933,7 +1933,7 @@ While fetching the attributes of Center and Device Mapping from the history tabl
 
 ### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete [**[↑]**](#table-of-content)
 
-### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata Database
+#### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata Database
 
 Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system stores the Mapping of Center, Machine and Device in the Database
 
