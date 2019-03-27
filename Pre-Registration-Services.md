@@ -188,26 +188,27 @@ Requires Authentication | Yes
 }
 ```
 
-# 2.7.2 Demographic Service APIs
-This service details used by Pre-Registration portal to maintain the demographic form by providing his/her basic demographic details.
+# Demographic Service APIs
+This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
-### Host
-##### Integration - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
+* [POST /applications](#post-sendotp)
+* [PUT /applications/&lt;preRegistrationId&gt;](#put-applications)
+* [GET /applications/&lt;preRegistrationId&gt;](#get-applications)
+* [DELETE /applications/&lt;preRegistrationId&gt;](#delete-applications)
+* [GET /applications/status/&lt;preRegistrationId&gt;](#get-applications-status)
+* [GET /applications/&lt;userId&gt;](#get-applications-by-userid)
 
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| GET | True |
-| POST | True |
-| PUT | True |
-| DELETE | True |
+### POST /applications
+This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
 
-#### 2.7.2.1 POST Operation
-#### Path -  `/applications`
-#### Summary
-Create new pre-registration with demographic details to generate pre-registration id and associate with demographic details.
+#### Resource URL
+https://mosip.io/pre-registration/demographic/v1.0/applications
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
 
 #### Request Body Parameters
 Name | Required | Description | Comment
@@ -234,12 +235,6 @@ request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the appl
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
 
 #### Request:
 ```JSON
@@ -492,7 +487,7 @@ Requires Authentication | Yes
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Failed to create a pre-registration. 
+###### Description: Failed to create the pre-registration with demographic data provided. 
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.create",
@@ -502,21 +497,28 @@ Requires Authentication | Yes
   "errors": [
         {
 		"errorCode": "PRG_PAM_APP_001",
-		"message": "UNABLE_TO_CREATE_THE_PRE_REGISTRATION"
+		"message": "Failed to create the pre-registration with demographic data provided"
 		}
 	]
 }
 ```
 ###### Other Failure Details:
-Code|Message|Description
+Error Code|Message Code|Description
 -----|----------|-------------
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
-PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create a pre-registration.
+PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-registration with demographic data provided.
 
-#### 2.7.2.2 PUT Operation
-#### Path -  `/applications/<preRegistrationId>`
-#### Summary
-Update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
+### PUT `/applications/<preRegistrationId>`
+This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
+
+#### Resource URL
+https://mosip.io/pre-registration/demographic/v1.0/applications/&lt;preRegistrationId&gt;/ 
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
 
 #### Request Path Parameters
 Name | Required | Description | Comment
@@ -548,12 +550,6 @@ request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the appl
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
 
 #### Request:
 ```JSON
@@ -675,7 +671,6 @@ Requires Authentication | Yes
       }
    }
 }
-
 ```
 #### Responses:
 ##### Success Response:
@@ -817,27 +812,22 @@ Requires Authentication | Yes
   "errors": [
         {
 		"errorCode": "PRG_PAM_APP_008",
-		"message": "UNABLE_TO_UPDATE_THE_PRE_REGISTRATION"
+		"message": "Failed to update the pre-registration demographic details"
 		}
 	]
 }
 ```
 ###### Other Failure Details:
-Code|Message|Description
+Error Code|Message Code|Description
 -----|----------|-------------
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
 PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id.
-PRG_PAM_APP_008|UNABLE_TO_UPDATE_THE_PRE_REGISTRATION| unable to update pre-registration demographic detials.
 
-#### 2.7.2.3 GET Operation
-#### Path -  `/applications/<preRegistrationId>`
-#### Summary
-Retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
+### GET `/applications/<preRegistrationId>`
+This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
-#### Request Path Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-preRegistrationId |Yes|Id of the application|64269837502851
+#### Resource URL
+https://mosip.io/pre-registration/demographic/v1.0/applications/&lt;preRegistrationId&gt;/ 
 
 #### Resource details
 Resource Details | Description
@@ -845,11 +835,15 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Id of the application|64269837502851
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Demographic data successfully retrieved
-
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.fetch.details",
@@ -978,7 +972,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: unable to fetch the details by pre-registration id.
+###### Description: No data found for the requested pre-registration id.
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.fetch.details",
@@ -986,28 +980,29 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response":null,
   "errors": [
-	{
-	"errorCode": "PRG_PAM_APP_006",
-	"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-	}
+		{
+			"errorCode": "PRG_PAM_APP_006",
+			"message": "No data found for the requested pre-registration id"
+		}
    ]
 }
 ```
-#### 2.7.2.4 DELETE Operation
-#### Path -  `/applications/<preRegistrationId>`
-#### Summary 
-Discard the entire pre-registration details based pre-registration id provided in request path parameter.
+### DELETE  /applications/&lt;preRegistrationId&gt;
+This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
-#### Request Path Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-preRegistrationId |Yes|pre-registration id of the application|64269837502851
+#### Resource URL
+https://mosip.io/pre-registration/demographic/v1.0/applications/&lt;preRegistrationId&gt;/
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|pre-registration id of the application|64269837502851
 
 #### Responses:
 ##### Success Response:
@@ -1032,7 +1027,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid pre-registration id
+###### Description: No data found for the requested pre-registration id
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.delete",
@@ -1042,7 +1037,7 @@ Requires Authentication | Yes
   "errors": [
 		{
 		"errorCode": "PRG_PAM_APP_006",
-		"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+		"message": "No data found for the requested pre-registration id"
 		}
     ]
 }
@@ -1059,27 +1054,28 @@ Requires Authentication | Yes
   "errors": [
 		{
 		"errorCode": "PRG_PAM_APP_004",
-		"message": "FAILED_TO_DELETE_THE_PRE_REGISTRATION_RECORD"
+		"message": "Falied to delete data for the requested pre-registration id"
 		}
 	]
 }
 ```
 
-#### 2.7.2.5 GET Operation
-#### Path -  `/applications/status/<preRegistrationId>`
-#### Summary
-Retrieve pre-registration application status by providing the pre-registration id in request path parameter.
+### GET /applications/status/&lt;preRegistrationId&gt;
+This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
-#### Request Path Parameter
-Name | Required | Description | Comment
------|----------|-------------|--------
-preRegistrationId |Yes|Id of the application|62076019780925
+#### Resource URL
+https://mosip.io/pre-registration/demographic/v1.0/applications/status/&lt;preRegistrationId&gt;/
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameter
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Id of the application|62076019780925
 
 #### Responses:
 ##### Success Response:
@@ -1101,7 +1097,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty pre-registration id.
+###### Description: No data found for the requested pre-registration id.
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.fetch.status",
@@ -1111,27 +1107,28 @@ Requires Authentication | Yes
   "errors": [
 	{
 		"errorCode": "PRG_PAM_APP_006",
-		"message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
+		"message": "No data found for the requested pre-registration id"
 	}
    ]
 }
 ```
 
-#### 2.7.2.6 GET Operation
-#### Path -  `/applications/<user_id>`
-#### Summary
-Retrieve All Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
+### GET /applications/&lt;userId&gt;/
+This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
 
-#### Request Path Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-user_id |Yes|User Id of the application|sanober@gmail.com
+#### Resource URL
+https://mosip.io/pre-registration/demographic/v1.0/applications/&lt;userId&gt;/
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+userId |Yes|User Id of the application(Mobile number or email address)|sanober@gmail.com
 
 #### Responses:
 ##### Success Response:
@@ -1187,7 +1184,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No pre-registration data available for user id.
+###### Description: No record found for the requested user id.
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
@@ -1195,10 +1192,10 @@ Requires Authentication | Yes
   "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
-	{
-	 "errorCode": "PRG_PAM_APP_005",
-	 "message": "NO_RECORD_FOUND_FOR_USER_ID"
-	}
+		{
+	 		"errorCode": "PRG_PAM_APP_005",
+	 		"message": "No record found for the requested user id"
+		}
    ]
 }
 ```
