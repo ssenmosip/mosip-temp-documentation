@@ -45,13 +45,13 @@ The pre-registration module enables a user to book an appointment for one or man
 The Individual can login to the Pre-registration Portal by providing their Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
 
-### 2.1.2 Login using Phone Number
+### 2.1.2 Login using Phone Number [**[↑]**](#table-of-content)
 The Individual can login to the Pre-registration Portal by providing their Mobile Number. The system validates the Mobile Number, once validated sends an OTP to the Mobile Number as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
-### 2.1.3 Automatic User ID Creation on First Login
+### 2.1.3 Automatic User ID Creation on First Login [**[↑]**](#table-of-content)
 The Individual logs in to the Pre-Registration portal with their Mobile Number or Email Id. After successful Authentication, the system checks if the Individual is first-time user or not. If the Individual is first-time user, the system creates a new record in the database. All the Pre-registration Ids created from there on will be mapped to this User Id.
 
-### 2.1.4 Logout/Session Timeout
+### 2.1.4 Logout/Session Timeout [**[↑]**](#table-of-content)
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
 If the user is inactive for X minutes( X is configurable)the system notifies the user one minute before the configured timeout limit. In case such case the system will not save any user data.
 
@@ -65,7 +65,7 @@ Note: Consent is sought from the user for every new application created in the s
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.2 Provide Consent
+### 2.2.2 Provide Consent [**[↑]**](#table-of-content)
 
 An Individual Logs in to the pre-registration system with Mobile Number or Email ID and then opts to create a new Application form. Before filling the form, the Individual is advised to provide their consent for storage and utilization of their personal information. The consent is sought from the user for every new application created in the system. On providing their consent, the system redirects the Individual to start the Pre-Registration Application (Demographic Details). The data as part of the consent form is rendered as setup by the admin.
 
@@ -82,13 +82,13 @@ Once the Demographic Details are filled and the Documents are uploaded, if the I
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.4 Provide Data in Preferred Language
+### 2.2.4 Provide Data in Preferred Language [**[↑]**](#table-of-content)
 
 The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated.The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
 
-### 2.2.5 Viewing "My Applications" (covers status)
+### 2.2.5 Viewing "My Applications" (covers status) [**[↑]**](#table-of-content)
 The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
 
 |Status|Explanation|User Action|
@@ -102,7 +102,7 @@ If the individual visits the Registration Centre and consumes the appointment, t
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.2.6 Modify Application Data
+### 2.2.6 Modify Application Data [**[↑]**](#table-of-content)
 The individual can modify the pre-registration data by opting to select the “Modify” option for a specific application. The system provides the Demographic form with pre-filled demo details and allows the individual to edit the details as required. The system associates the modified demo details with the Pre-Registration Id for which Modify information is initiated.
 
 Note:Modify application data cannot be done for an expired application
@@ -114,7 +114,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-## 2.3 Attaching Documents to the Application
+## 2.3 Attaching Documents to the Application [**[↑]**](#table-of-content)
 ### 2.3.1 Document Categories and Applicable Document Types
 1. When an Individual provides their Demographic data, the Pre-registration system captures the data. 
 1. Based on the parameters (from Config file) for example-The gender, age and residential status(Foreigner, National) from the demographic data applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
@@ -135,7 +135,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 
-## 2.4 Booking an Appointment
+## 2.4 Booking an Appointment [**[↑]**](#table-of-content)
 ### 2.4.1 Choosing a Registration Center for Appointment
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-service.md)
@@ -146,7 +146,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
-#### 2.4.1.2 Nearby centers based on User Geo-location
+#### 2.4.1.2 Nearby centers based on User Geo-location [**[↑]**](#table-of-content)
 1. An Individual can  enable location services,  in the device/machine in order to select nearby centers
 1. The system checks for Lat-Long values of the Individual and  fetches all the Registration Centers within 2 KM Radius (configurable)
 1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
@@ -158,7 +158,7 @@ It is a contextual search where the individual selects a search criteria and bas
 
 The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
-### 2.4.2 Get Appointment for the Day
+### 2.4.2 Get Appointment for the Day [**[↑]**](#table-of-content)
 1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
 1. The system presents a  list of Centers to the user to select the required Registration Center 
 1. The Time selection with calendar days along with number of slots available per calendar day will be displayed 
@@ -184,7 +184,7 @@ The user opts to view the available slots for a selected registration center.
 1. An individual can book the appointment for the preferred/chosen time slot – Subsequently the timeslots are locked
 
 
-### 2.4.4 Cancel Appointment
+### 2.4.4 Cancel Appointment [**[↑]**](#table-of-content)
 1. An Individual can opt to cancel selected Appointment\s against application which is\are in Booked Status.
 1. In such case the system notifies the user about the successful cancellation 
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Registration Center
@@ -201,12 +201,12 @@ The user opts to view the available slots for a selected registration center.
 1. An Individual cannot  Re-book the Appointment if the appointment Booking is less than 48 hours (configurable) from time of booking
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-re-booking-service.md)
-## 2.5 Appointment Acknowledgement (PRID)
+## 2.5 Appointment Acknowledgement (PRID) [**[↑]**](#table-of-content)
 1. An Acknowledgement is triggered after Successful completion of Pre-Registration (Booking an appointment)
 1. The acknowledgement contains the following information: Name, Pre-Registration Id, Age/DoB, Mobile Number, Email Id and Registration Center Details, Appointment Date, Appointment Time)
 1. A QR code is generated based on the demographic details and the pre-registration ID. This QR code can be scanned at the registration center to fetch the details of the individual provided during pre-registration process
 
-### 2.5.1 Download Acknowledgement
+### 2.5.1 Download Acknowledgement [**[↑]**](#table-of-content)
 Individual can choose to print the Acknowledgement or can Download the Acknowledgement as PDF and print later
 
 The acknowledgement template is language and channel (email, sms, on screen) specific.
