@@ -1211,7 +1211,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 * [DELETE /documents/{preRegistrationId}/{documentId}](#delete-documents)
 
 
-#### POST /documents/{preRegistrationId}
+### POST /documents/{preRegistrationId}
 This request is used to upload document with the metadata which include document cateogry code, document type code and document format for a pre-registration Id.
 
 #### Resource URL
@@ -1464,7 +1464,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
   	]
 }
 ```
-#### DELETE /documents/{preRegsitrationId}
+### DELETE /documents/{preRegsitrationId}
 This request used to delete all the documents which are assosiated with requested pre-registration id.
 
 #### Resource URL
@@ -1597,7 +1597,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
   ]
 }
 ```
-#### DELETE  /documents/{preRegistrationId}/{documentId}
+### DELETE  /documents/{preRegistrationId}/{documentId}
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
@@ -1665,42 +1665,14 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 }
 ```
 
-# 2.7.4 Data sync Service APIs
+# DataSync Service
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
-### Host
-##### Integration - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
+### POST /sync
+This request is used by registration client to retrieve all the pre-registration Ids by date range and registration center Id from the authorize token.
 
-***
-#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Datasync-Service-API-Spec.yaml)
-***
-
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| GET | True |
-| POST | True |
-| PUT | False |
-| DELETE | False |
-
-#### 2.7.4.1 POST Operation
-#### Path -  `/datasync`
-#### Summary
-Retrieve all the pre-registration Ids by date range and registration center Id.
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|Id of the application|mosip.pre-registration.datasync
-version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
-request |Yes|Request for the application|
-request.registration-client-id |Yes|Registration center Id of the application|12
-request.from-date |Yes|From date of the application|2019-01-01 00:00:00
-request.to-date |Yes|To date of the application|2019-01-31 00:00:00
-request.user-id |Yes|user Id of the application|Officer
+#### Resource URL
+https://mosip.io/v1/prereg-datasync/sync/
 
 #### Resource details
 Resource Details | Description
@@ -1708,17 +1680,25 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.datasync
+version |Yes|version of the application|1.0
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.from-date |Yes|From date of the application|2019-02-09
+request.to-date |Yes|To date of the application|2019-02-12
+
 #### Request:
 ```JSON
 {
-  "id": "mosip.pre-registration.datasync",
+  "id": "mosip.pre-registration.datasync.fetch.ids",
   "version": "1.0",
-  "requesttime": "2019-02-11T06:57:29.969Z",
+  "requestTime": "2019-02-11T06:57:29.969Z",
   "request": {
-    "registration-client-id":"10005",
-    "from-date":"2018-02-11 00:00:00",
-    "to-date":"2019-02-12 00:00:00",
-    "user-id":"Officer"
+    "from-date":"2019-02-09",
+    "to-date":"2019-02-12"
   }
 }
 ```
@@ -1728,328 +1708,126 @@ Requires Authentication | Yes
 ###### Description: All Pre-Registration Ids fetched successfully
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-02-11T07:07:24.757Z",
-  "response": {
+   "id": "mosip.pre-registration.datasync.fetch.ids",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response":{
     "transactionId": "aee82061-2dcb-11e9-b69e-b1fffe7cd4d7",
-    "countOfPreRegIds": "12",
+    "countOfPreRegIds": "3",
     "preRegistrationIds": {
-      "69032701821381": "2019-02-11T07:07:24.500Z",
-      "42839738507687": "2019-02-11T07:07:24.612Z",
-      "45219759079506": "2019-02-11T07:07:24.662Z",
-      "40685960418214": "2019-02-11T07:07:24.711Z",
-      "62750730690468": "2019-02-11T07:07:24.270Z",
-      "52948359801624": "2019-02-11T07:07:24.559Z",
-      "54680925863583": "2019-02-11T07:07:24.752Z",
-      "20328697253154": "2019-02-11T07:07:24.320Z",
-      "28304826952645": "2019-02-11T07:07:24.437Z",
-      "38419640168598": "2019-02-11T07:07:24.383Z",
-      "94625367217037": "2019-02-11T07:07:24.203Z",
-      "62457394860916": "2019-02-11T07:07:24.144Z"
+      "69032701821381": "2019-02-09T06:07:24.500Z",
+      "42839738507687": "2019-02-10T07:07:24.612Z",
+      "45219759079506": "2019-02-11T08:07:24.662Z",
     }
-  }
+  },
+  "errors":null
 }
 
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty Request Id
+###### Description: No Records found for the date range
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:50:25.969Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Version
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:39:35.058Z",
-  "response": null
+   "id": "mosip.pre-registration.datasync.fetch.ids",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+    	"errorCode": "PRG_DATA_SYNC_001",
+    	"message": "No Records found for the date range"
+	 }
+	]
 }
 ```
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Date & Time
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:39:35.058Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Body
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message": "INVALID_REQUEST_BODY"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:39:35.058Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Empty registration center Id
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_009",
-    "message": "INVALID_REGISTRATION_CENTER_ID"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:41:35.396Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty from-date or to-date
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_010",
-    "message": "INVALID_REQUESTED_DATE"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:42:16.393Z",
-  "response": null
-}
-```
+### GET /sync/{preRegistrationId}
+This request is used by registration client to retrieve particular pre-registration data based on a pre-registration id.
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Empty user id
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_003",
-    "message": "INVALID_USER_ID"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If appointment is not booked under the registration center Id for the preregistration id
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_BOOK_RCI_013",
-    "message": "BOOKING_DATA_NOT_FOUND"
-  },
-  "id": "string",
-  "version":"1.0",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: If retrieval of booking data fails
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_013",
-    "message": "FAILED_TO_GET_PRE_REG_ID_BY_REG_CLIENT_ID"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: If retrieval of preregistration data fails 
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_007",
-    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If no preregistration data created within the from date & to date
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "RECORD_NOT_FOUND_FOR_DATE_RANGE"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T08:27:36.387Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If retrieval of preregistration data fails 
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_007",
-    "message": "DEMOGRAPHIC_GET_RECORD_FAILED"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: File operation failed 
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_014",
-    "message": "FILE_IO_EXCEPTION"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: When demographic JSON file & documents are not zipped
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_005",
-    "message": "FAILED_TO_CREATE_A_ZIP_FILE"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:45:35.030Z",
-  "response": null
-}
-```
-
-#### 2.7.4.2 GET Operation
-#### Path -  `/datasync`
-#### Summary
-This service enables Pre-Registration to a registration client , request to retrieve particular pre-registration data based on a pre-registration id.
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-pre_registration_id |Yes|Pre Registration id|94625367217037
+#### Resource URL
+https://mosip.io/v1/prereg-datasync/sync/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
-#### Request:
-```JSON
-94625367217037
-```
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Pre Registration id|94625367217037
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Data Sync records fetched
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-02-11T07:54:24.043Z",
-  "response": {
-    "pre-registration-id": "94625367217037",
+   "id": "mosip.pre-registration.datasync.fetch",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
     "registration-client-id": "10005",
     "appointment-date": "2019-02-13",
     "from-time-slot": "09:00",
     "to-time-slot": "09:15",
     "zip-filename": "94625367217037",
     "zip-bytes": "{ByteCode}"
-  }
+   },
+   "errors":null
 }
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If data does not exists for the preregistration id
+###### Description: No data exist for the requested pre-registration id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_APP_005",
-    "message": "UNABLE_TO_FETCH_THE_PRE_REGISTRATION"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T07:58:27.909Z",
-  "response": null
+   "id": "mosip.pre-registration.datasync.fetch.ids",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+   		 "errorCode": "PRG_DATA_SYNC_002",
+   		 "message": "No data exist for the requested pre-registration id"
+     }
 }
 ```
-#### 2.7.4.3 POST Operation
-#### Path -  `/datasync/store`
-#### Summary
-This service enables Pre-Registration to a registration processor , request to retrieve all processed pre-registration ids and store in pre-registration database and update the status code in main table.
+### POST /sync/store
+This request is used by registration processor ,  to reterive all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
 
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|Id of the application|mosip.pre-registration.datasync
-version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
-request |Yes|Request for the application|
-request.createdBy |Yes|Created user of the application|5766477466
-request.createdDateTime |Yes|Created date & time of the application|2019-01-16T06:15:25.721Z
-request.langCode |Yes|Language of the application|AR
-request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
-request.updateBy |Yes|Updated user of the application|5766477466
-request.updateDateTime |Yes|Updated date & time of the application|2019-01-16T06:15:25.721Z
+#### Resource URL
+https://mosip.io/v1/prereg-datasync/sync/store
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.datasync.store
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
+
 #### Request:
 ```JSON
 {
-  "id": "mosip.pre-registration.datasync",
+  "id": "mosip.pre-registration.datasync.store",
   "version": "1.0",
-  "requesttime": "2019-02-11T07:05:08.850Z",
+  "requestTime": "2019-02-11T07:05:08.850Z",
   "request": {
-    "createdBy": "987654321",
-    "createdDateTime": "2019-02-04T08:06:54.230Z",
-    "langCode": "12L",
     "preRegistrationIds": [
       "94625367217037",
       "43526512857302"
-    ],
-    "updateBy": "987654321",
-    "updateDateTime": "2019-02-11T08:06:54.230Z"
+    ]
   }
 }
 ```
@@ -2059,91 +1837,36 @@ Requires Authentication | Yes
 ###### Description: Consumed Pre-Registrations saved
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-02-11T07:05:08.850Z",
-  "response": {
-    "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
-    "countOfPreRegIds": "1",
-    "preRegistrationIds": "1"
-  }
+   "id": "mosip.pre-registration.datasync.store",
+   "version" : "1.0",
+   "responseTime": "2019-02-16T17:31:04.021Z",
+   "response": {
+       "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
+       "countOfPreRegIds": "2",
+       "preRegistrationIds": "2"
+    },
+	"errors":null
 }
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty Request Id
+###### Description: No pre-registration ids passed in request body
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_CORE_REQ_001",
-    "message": "INVALID_REQUEST_ID"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T08:11:42.742Z",
-  "response": null
+   "id": "mosip.pre-registration.datasync.store",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+        { 
+          "errorCode": "PRG_DATA_SYNC_011",
+          "message": "No pre-registration ids passed in request body"
+		}
+    ]
 }
 ```
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Version
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_002",
-    "message": "INVALID_REQUEST_VERSION"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T08:12:48.242Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Date & Time
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_003",
-    "message": "INVALID_REQUEST_DATETIME"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T08:12:48.242Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty Request Body
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_CORE_REQ_004",
-    "message": "INVALID_REQUEST_BODY"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T08:12:48.242Z",
-  "response": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If there are no pre-registration ids passed in request body
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_DATA_SYNC_011",
-    "message": "INVALID_REQUESTED_PRE_REG_ID_LIST"
-  },
-  "id": "string",
-  "responsetime": "2019-02-11T08:16:17.412Z",
-  "response": null
-}
-```
 # 2.7.5 Booking Service APIs
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
