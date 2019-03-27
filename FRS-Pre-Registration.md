@@ -39,7 +39,7 @@ The pre-registration module enables a user to book an appointment for one or man
 
 [**Link to Process View**](Process-view#pre-registration)
 
-# 2. Features
+# 2. Features [**[↑]**](#table-of-content)
 ## 2.1 Login/Creating a User Account
 ### 2.1.1 Login using Email
 The Individual can login to the Pre-registration Portal by providing their Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
@@ -55,7 +55,7 @@ The Individual logs in to the Pre-Registration portal with their Mobile Number o
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
 If the user is inactive for X minutes( X is configurable)the system notifies the user one minute before the configured timeout limit. In case such case the system will not save any user data.
 
-## 2.2 Creating an Application
+## 2.2 Creating an Application [**[↑]**](#table-of-content)
 ### 2.2.1 Provide Demographic Data
 
 The Individual is provided with Demographic form based on the id [**Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
@@ -76,7 +76,7 @@ In case of closure of the Consent Pop-up, the following scenarios may arise:
    * Scenario 2 Add Applicant from Preview Page: On closure, the individual will be redirected to Preview Page.
 
 
-### 2.2.3 Create Multiple Applications
+### 2.2.3 Create Multiple Applications [**[↑]**](#table-of-content)
 
 Once the Demographic Details are filled and the Documents are uploaded, if the Individual wishes to add an applicant, he/she can opt to select 'Add An Applicant' option on the preview page or 'Create New Application' option on the Dashboard. The system provides the Individual with Demographic form based on the defined id Object Definition to fill. The system associates the pre-registration Id to the new Application(s) created.
 
@@ -109,7 +109,7 @@ Note:Modify application data cannot be done for an expired application
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
 
-### 2.2.7 Discard Application
+### 2.2.7 Discard Application [**[↑]**](#table-of-content)
 The Individual can discard the Pre-Registration by clicking on the Delete icon for the Pre-Registration Id for which he/she wishes to discard. The system provides the Individual with two options: ‘Discard entire Application’ or ‘Cancel Appointment.' The Individual choses to discard entire Application. The system deletes all the data mapped to the Pre-Registration Id and cancels the appointment (if any).
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
@@ -124,7 +124,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-### 2.3.2 Referring to already Uploaded Documents
+### 2.3.2 Referring to already Uploaded Documents [**[↑]**](#table-of-content)
 
 * The POA document could be uploaded or can be referred to an already uploaded POA of an existing applicant
 * The individual could select a particular applicant document to which he wants to refer 
@@ -151,7 +151,7 @@ The First Registration Center as per the search criteria is shown to the Individ
 1. The system checks for Lat-Long values of the Individual and  fetches all the Registration Centers within 2 KM Radius (configurable)
 1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
-#### 2.4.1.3 Find a Center
+#### 2.4.1.3 Find a Center [**[↑]**](#table-of-content)
 An Individual may opt to  perform text search to find a center based on which the system displays the registration centers
 
 It is a contextual search where the individual selects a search criteria and based on the selected search criteria enters relevant text. 
@@ -171,7 +171,7 @@ The First Registration Center as per the search criteria is shown to the Individ
 
 
 
-### 2.4.3 Choosing Appointment Slots
+### 2.4.3 Choosing Appointment Slots [**[↑]**](#table-of-content)
 
 #### 2.4.3.1 Get Slots Availability
 The user opts to view the available slots for a selected registration center.
@@ -191,7 +191,7 @@ The user opts to view the available slots for a selected registration center.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-cancel-service.md)
 
-### 2.4.5 Re-book Appointment
+### 2.4.5 Re-book Appointment [**[↑]**](#table-of-content)
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment Slots.
 1. An Individual can select any of the Appointment Date available and any of the Appointment Slot available
 1. The Individual has to select against which Pre-Registration Id the Appointment slot is being booked
@@ -219,7 +219,7 @@ In case of multiple application, the system sends notifications to each applican
 
 An individual can opt to manually trigger notification\s to the contact details of additional recipients.
 
-## 2.6 Registration Client Services
+## 2.6 Registration Client Services [**[↑]**](#table-of-content)
 ### 2.6.1 Retrieve Application Data by PRID
 Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id (Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
 1. The system generates a Transaction Id
@@ -229,7 +229,7 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 1. The system sends the zip file per Pre-Registration Id consisting of Demo Data, Files, and Appointment Time.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-data-sync.md)
-## 2.7 List of Configurable Parameters and Processes
+## 2.7 List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
 
 1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
     
