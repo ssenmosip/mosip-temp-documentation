@@ -1,44 +1,44 @@
 ## Table Of Content
 
   * [1. Master Data Management](#1-master-data-management) 
-    * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete) _(ADM_FR_1.1)_
-    * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete) _(ADM_FR_1.2)_
-    * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createread) _(ADM_FR_1.3)_
-    * [1.4 Biometric Attribute Type - Create/Read](#14-biometric-attribute-type---createread) _(ADM_FR_1.4)_
-    * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete) _(ADM_FR_1.5)_
-    * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete) _(ADM_FR_1.6)_
-    * [1.7 Document Type - Create/Update/Delete](#17-document-type---createupdatedelete) _(ADM_FR_1.7)_
-    * [1.8 Applicant Type - Document Category - Document Type Mapping - Read](#18-applicant-type---document-category---document-type-mapping---read) _(ADM_FR_1.8)_
-    * [1.9 List of Rejection Reasons - Create/Read](#19-list-of-rejection-reasons---createread) _(ADM_FR_1.9)_
-    * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete) _(ADM_FR_1.10)_
-    * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete) _(ADM_FR_1.11)_
-    * [1.12 Template File Format - Create/Update/Delete](#112-template-file-format---createupdatedelete) _(ADM_FR_1.12)_
-    * [1.13 List of Template Types - Create](#113-list-of-template-types---create) _(ADM_FR_1.13)_
-    * [1.14 List of Templates - Create/Read/Update/Delete](#114-list-of-templates---createreadupdatedelete) _(ADM_FR_1.14)_
-    * [1.15 List of Blacklisted Words - Create/Read/Update/Delete](#115-list-of-blacklisted-words---createreadupdatedelete) _(ADM_FR_1.15)_
-    * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---create) _(ADM_FR_1.16)_
-    * [1.17 List of Applications - Create/Read](#117-list-of-applications---createread) _(ADM_FR_1.17)_
-    * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread) _(ADM_FR_1.18)_
+    * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete-) _(ADM_FR_1.1)_
+    * [1.2 List of Holidays - Create/Read/Update/Delete](#12-list-of-holidays---createreadupdatedelete-) _(ADM_FR_1.2)_
+    * [1.3 Biometric Authentication Type - Create/Read](#13-biometric-authentication-type---createread-) _(ADM_FR_1.3)_
+    * [1.4 Biometric Attribute Type - Create/Read](#14-biometric-attribute-type---createread-) _(ADM_FR_1.4)_
+    * [1.5 Gender - Create/Read/Update/Delete](#15-gender---createreadupdatedelete-) _(ADM_FR_1.5)_
+    * [1.6 Document Category - Create/Read/Update/Delete](#16-document-category---createreadupdatedelete-) _(ADM_FR_1.6)_
+    * [1.7 Document Type - Create/Update/Delete](#17-document-type---createupdatedelete-) _(ADM_FR_1.7)_
+    * [1.8 Applicant Type - Document Category - Document Type Mapping - Read](#18-applicant-type---document-category---document-type-mapping---read-) _(ADM_FR_1.8)_
+    * [1.9 List of Rejection Reasons - Create/Read](#19-list-of-rejection-reasons---createread-) _(ADM_FR_1.9)_
+    * [1.10 List of Languages - Create/Read/Update/Delete](#110-list-of-languages---createreadupdatedelete-) _(ADM_FR_1.10)_
+    * [1.11 List of Titles - Create/Read/Update/Delete](#111-list-of-titles---createreadupdatedelete-) _(ADM_FR_1.11)_
+    * [1.12 Template File Format - Create/Update/Delete](#112-template-file-format---createupdatedelete-) _(ADM_FR_1.12)_
+    * [1.13 List of Template Types - Create](#113-list-of-template-types---create-) _(ADM_FR_1.13)_
+    * [1.14 List of Templates - Create/Read/Update/Delete](#114-list-of-templates---createreadupdatedelete-) _(ADM_FR_1.14)_
+    * [1.15 List of Blacklisted Words - Create/Read/Update/Delete](#115-list-of-blacklisted-words---createreadupdatedelete-) _(ADM_FR_1.15)_
+    * [1.16 List of Reason Categories - Create](#116-list-of-reason-categories---create-) _(ADM_FR_1.16)_
+    * [1.17 List of Applications - Create/Read](#117-list-of-applications---createread-) _(ADM_FR_1.17)_
+    * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread-) _(ADM_FR_1.18)_
   * [2. Registration Management](#2-registration-management) 
-    * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete) _(ADM_FR_2.1)_
-    * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete) _(ADM_FR_2.2)_
-    * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create) _(ADM_FR_2.3)_
-    * [2.4 List of Machine Specifications - Create/Update/Delete](#24-list-of-machine-specifications---createupdatedelete) _(ADM_FR_2.4)_
-    * [2.5 List of Machines - Create/Read/Update/Delete](#25-list-of-machines---createreadupdatedelete) _(ADM_FR_2.5)_
-    * [2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete](#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete) _(ADM_FR_2.6)_
-    * [2.7 List of Devices - Create/Read/Update/Delete](#27-list-of-devices---createreadupdatedelete) _(ADM_FR_2.7)_
-    * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete) _(ADM_FR_2.8)_
-    * [2.9 List of Device Types - Create](#29-list-of-device-types---create) _(ADM_FR_2.9)_
-    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete) _(ADM_FR_2.10)_
-    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete) _(ADM_FR_2.11)_
-    * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete) _(ADM_FR_2.12)_
+    * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete-) _(ADM_FR_2.1)_
+    * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete-) _(ADM_FR_2.2)_
+    * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create-) _(ADM_FR_2.3)_
+    * [2.4 List of Machine Specifications - Create/Update/Delete](#24-list-of-machine-specifications---createupdatedelete-) _(ADM_FR_2.4)_
+    * [2.5 List of Machines - Create/Read/Update/Delete](#25-list-of-machines---createreadupdatedelete-) _(ADM_FR_2.5)_
+    * [2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete](#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-) _(ADM_FR_2.6)_
+    * [2.7 List of Devices - Create/Read/Update/Delete](#27-list-of-devices---createreadupdatedelete-) _(ADM_FR_2.7)_
+    * [2.8 List of Device Specifications - Create/Read/Update/Delete](#28-list-of-device-specifications---createreadupdatedelete-) _(ADM_FR_2.8)_
+    * [2.9 List of Device Types - Create](#29-list-of-device-types---create-) _(ADM_FR_2.9)_
+    * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete-) _(ADM_FR_2.10)_
+    * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete-) _(ADM_FR_2.11)_
+    * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete-) _(ADM_FR_2.12)_
   * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
-      * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete) _(ADM_FR_3.2)_ 
+      * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete-) _(ADM_FR_3.2)_ 
   
 # Admin Services
 ## 1. Master Data Management
-### 1.1 Location Hierarchy - Create/Read/Update/Delete
+### 1.1 Location Hierarchy - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Location Hierarchy in the Masterdata Database
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the Database
@@ -160,7 +160,7 @@ The system performs the following steps in order to delete the loaction\s receiv
 7. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 1.2 List of Holidays - Create/Read/Update/Delete
+### 1.2 List of Holidays - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 #### A. Create Holiday data in Masterdata Database
 
 Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system stores the Holiday in the Database. The following steps are performed by the system:
@@ -227,7 +227,7 @@ On receiving a  request to delete a Holiday List with the input parameters (code
 1. Responds with the Location Code, Holiday Date and Holiday Name for the Holiday deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.3 Biometric Authentication Type - Create/Read
+### 1.3 Biometric Authentication Type - Create/Read [**[↑]**](#table-of-content)
 #### A. Create Biometric Authentication Type in Masterdata Database
 On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Biometric Authentication Type in the Database as per the below steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -249,7 +249,7 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 1. Responds to the source with List of Biometric Authentication Type
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.4 Biometric Attribute Type - Create/Read
+### 1.4 Biometric Attribute Type - Create/Read [**[↑]**](#table-of-content)
 
 #### A. Create Biometric Attribute in Masterdata Database
 
@@ -284,7 +284,7 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 6. Responds to the source with the Fetched Data
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.5 Gender - Create/Read/Update/Delete
+### 1.5 Gender - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 #### A. Create Gender Types in Masterdata Database
 
 On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the Database as per the below steps:
@@ -346,7 +346,7 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 4. Responds to the source with the List of Gender Types
 5. In case of Exceptions, system triggers relevant error messages
 
-### 1.6 Document Category - Create/Read/Update/Delete
+### 1.6 Document Category - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Document Category in Master Data
 
@@ -407,7 +407,7 @@ On receiving a request to fetch Document Category Details with the input paramet
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-### 1.7 Document Type - Create/Update/Delete
+### 1.7 Document Type - Create/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Document Type in Master Data
 
@@ -459,7 +459,7 @@ Refer below for the process:
 1. Responds with the Document Category Code for the Document Category deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.8 Applicant Type - Document Category - Document Type Mapping - Read
+### 1.8 Applicant Type - Document Category - Document Type Mapping - Read [**[↑]**](#table-of-content)
 
 #### A. Fetch list of Document Categories based on Applicant Type from Masterdata Database
 
@@ -544,7 +544,7 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 1. If the mapping does not exist, responds with "Invalid".
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.9 List of Rejection Reasons - Create/Read
+### 1.9 List of Rejection Reasons - Create/Read [**[↑]**](#table-of-content)
 #### A. Create a Rejection Reason in Reason List Master Data
 
 Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system stores the Reason in the Database
@@ -587,7 +587,7 @@ The system performs the following steps:
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-### 1.10 List of Languages - Create/Read/Update/Delete
+### 1.10 List of Languages - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create List of Languages in Master Data
 
@@ -647,7 +647,7 @@ The system performs the following steps:
 1. Responds with the Language Code for the language successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.11 List of Titles - Create/Read/Update/Delete
+### 1.11 List of Titles - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A.	Create a Title in Masterdata Database
 
@@ -710,7 +710,7 @@ The system performs the following steps:
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-### 1.12 Template File Format - Create/Update/Delete
+### 1.12 Template File Format - Create/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Template File Format in Master Data
 
@@ -761,7 +761,7 @@ While deleting the Template File Format, the system performs the following steps
 1. Responds with the Template File Format Code for the Template File Format deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.13 List of Template Types - Create
+### 1.13 List of Template Types - Create [**[↑]**](#table-of-content)
 MOSIP system can create Template Type in the Masterdata Database.
 
 Upon receiving a request to add Template Type (e.g., SMS Notification template - New Registration) with the input 
@@ -778,7 +778,7 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
 4. In case of Exceptions, system triggers relevant error messages as listed below.
 
 
-### 1.14 List of Templates - Create/Read/Update/Delete
+### 1.14 List of Templates - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Template in the Masterdata Database
 
@@ -853,7 +853,7 @@ On receiving a request to delete a Template with the input parameters (id), the 
 1. Responds with the Template Id for the Template deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.15 List of Blacklisted Words - Create/Read/Update/Delete
+### 1.15 List of Blacklisted Words - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Blacklisted Words in Masterdata Database
 
@@ -912,7 +912,7 @@ While fetching the black listed words, the system performs the following steps:
    * IsActive
 4. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.16 List of Reason Categories - Create
+### 1.16 List of Reason Categories - Create [**[↑]**](#table-of-content)
 
 MOSIP system can create a Reason Category in Master Data
 
@@ -933,7 +933,7 @@ Upon receiving a request to add Reason Category with the input parameters (code,
 4. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-### 1.17 List of Applications - Create/Read
+### 1.17 List of Applications - Create/Read [**[↑]**](#table-of-content)
 #### A. Create a List of Applications in Master Data
 
 Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the Database
@@ -991,7 +991,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-### 1.18 List of ID Types - Create/Read
+### 1.18 List of ID Types - Create/Read [**[↑]**](#table-of-content)
 #### A. Create an ID type in Master Data
 
 Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the Database
@@ -1034,7 +1034,7 @@ Refer below for the process:
 
 
 ## 2. Registration Management
-### 2.1 Registration Center Type - Create/Update/Delete
+### 2.1 Registration Center Type - Create/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Registration Center Type in Master Data
 
@@ -1092,7 +1092,7 @@ Refer below for the process:
 1. Responds with the Registration Center Type code for the Registration Center Type successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 2.2 Registration Center - Create/Read/Update/Delete
+### 2.2 Registration Center - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 
 #### A. Create a Registration Center record in Masterdata Database
@@ -1351,7 +1351,7 @@ Refer below for the process:
 6. In case of Exceptions, system triggers relevant error messages
 
 
-### 2.3 List of Machine Types - Create
+### 2.3 List of Machine Types - Create [**[↑]**](#table-of-content)
 
 Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Machine Type in the Database
 
@@ -1370,7 +1370,7 @@ Refer below for the process:
 
 5. In case of Exceptions, system triggers error messages as received from the Database.
 
-### 2.4 List of Machine Specifications - Create/Update/Delete
+### 2.4 List of Machine Specifications - Create/Update/Delete [**[↑]**](#table-of-content)
 
 
 #### A. Create Machine Specifications in the Masterdata Database
@@ -1439,7 +1439,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages
 
 
-### 2.5 List of Machines - Create/Read/Update/Delete
+### 2.5 List of Machines - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create a Machine in Masterdata Database
 
@@ -1554,7 +1554,7 @@ Refer below for the process:
 5. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete
+### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete [**[↑]**](#table-of-content)
 
 
 #### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata Database
@@ -1611,7 +1611,7 @@ Refer below for the process:
 4. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.7 List of Devices - Create/Read/Update/Delete
+### 2.7 List of Devices - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create a Device in Masterdata Database
 
@@ -1737,7 +1737,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages
 	
 
-### 2.8 List of Device Specifications - Create/Read/Update/Delete
+### 2.8 List of Device Specifications - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create Device Specifications in Master Data
 
@@ -1833,7 +1833,7 @@ While deleting the device specifications the system performs the following steps
 1. Responds with the Device Specification ID for the Device Specification deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 2.9 List of Device Types - Create
+### 2.9 List of Device Types - Create [**[↑]**](#table-of-content)
 #### A. Create Device Type in Master Data
 
 
@@ -1854,7 +1854,7 @@ Refer below for the process:
 3. Responds with the Device Type Code and Language Code for the Device Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 2.10 Mappings of Registration Center and Machine - Create/Delete
+### 2.10 Mappings of Registration Center and Machine - Create/Delete [**[↑]**](#table-of-content)
 #### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata Database
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the Database
 
@@ -1883,7 +1883,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages .
 
 
-### 2.11 Mappings of Registration Center and Device - Create/Read/Delete
+### 2.11 Mappings of Registration Center and Device - Create/Read/Delete [**[↑]**](#table-of-content)
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata Database
 Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the Database
 
@@ -1931,7 +1931,7 @@ While fetching the attributes of Center and Device Mapping from the history tabl
    * Effective date
 4. In case of Exceptions, system triggers relevant error messages
 
-### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete
+### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete [**[↑]**](#table-of-content)
 
 ### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata Database
 
@@ -1966,7 +1966,7 @@ Refer below for the process:
 
 ## 3. MISP Management 
 ### 3.1 MISP - Create/Read/Update/Delete
-#### 3.1.1 License Key Allocation- Create/Read/Update/Delete
+#### 3.1.1 License Key Allocation- Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 #### A. Create MISP
 1. The system receives a request to create a MISP with input parameters (MISP ID, MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address, MISP User name, MISP Password, MISP License Key, MISP License Key Status, IsActive)
