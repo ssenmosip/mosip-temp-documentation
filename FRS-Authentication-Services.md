@@ -2,23 +2,23 @@
 
 - [Authentication Services](#authentication-services)
 - [1. Single factor Authentication](#1-single-factor-authentication)
-  * [1.1 Biometric Authentication](#11-biometric-authentication) _(IDA_FR_1.1)_
-  * [1.2 Demographic Authentication](#12-demographic-authentication) _(IDA_FR_1.2)_
-  * [1.3 OTP Authentication](#13-otp-authentication) _(IDA_FR_1.3)_
-- [2. Multi-factor Authentication](#2-multi-factor-authentication) _(IDA_FR_2)_
+  * [1.1 Biometric Authentication](#11-biometric-authentication-) _(IDA_FR_1.1)_
+  * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
+  * [1.3 OTP Authentication](#13-otp-authentication-) _(IDA_FR_1.3)_
+- [2. Multi-factor Authentication](#2-multi-factor-authentication-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
-  * [3.1 QR Code based Authentication](#31-qr-code-based-authentication) _(IDA_FR_3.1)_
+  * [3.1 QR Code based Authentication](#31-qr-code-based-authentication-) _(IDA_FR_3.1)_
 - [4. KYC Service](#4-kyc-service)
-  * [4.1 Profile Sharing based on Policy](#41-profile-sharing-based-on-policy) _(IDA_FR_4.1)_
+  * [4.1 Profile Sharing based on Policy](#41-profile-sharing-based-on-policy-) _(IDA_FR_4.1)_
 - [5. Partners Authentication and Authorisation](#5-partners-authentication-and-authorisation)
-    * [5.1 MISP License Authentication](#51-misp-license-authentication) _(IDA_FR_5.1)_
-    * [5.2 Partner Policy Authentication](#52-partner-policy-authentication) _(IDA_FR_5.2)_
+    * [5.1 MISP License Authentication](#51-misp-license-authentication-) _(IDA_FR_5.1)_
+    * [5.2 Partner Policy Authentication](#52-partner-policy-authentication-) _(IDA_FR_5.2)_
 - [6. Authentication Device Support](#6-authentication-device-support)
-  * [6.1 Registered Devices and Open Devices TBD](#61-registered-devices-and-open-devices-tbd) _(IDA_FR_6.1)_
+  * [6.1 Registered Devices and Open Devices TBD](#61-registered-devices-and-open-devices-tbd-) _(IDA_FR_6.1)_
 
 # Authentication Services 
 # 1. Single factor Authentication 
-## 1.1 Biometric Authentication 
+## 1.1 Biometric Authentication [**[↑]**](#table-of-content)
 **A. Authenticate the face of the Individual by comparing the match score of the photo against the threshold**
 
 Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against the threshold as per the following steps:
@@ -147,7 +147,7 @@ _**H. Composite match score (TBD)**_
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
 
-## 1.2 Demographic Authentication
+## 1.2 Demographic Authentication [**[↑]**](#table-of-content)
 
 **A. Strategy for Authentication**
 
@@ -282,7 +282,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 
 
   
-## 1.3 OTP Authentication 
+## 1.3 OTP Authentication [**[↑]**](#table-of-content)
 
 **A. Trigger OTP to an individual so that the individual can be authenticated based on OTP**
 
@@ -379,7 +379,7 @@ Masked e-mail: XXaXXhXXh@gmail.com
 
 [**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/Auth_Request_REST_service.md)
 
-# 2. Multi-factor Authentication
+# 2. Multi-factor Authentication [**[↑]**](#table-of-content)
 
 
 **A. Validate the timestamp of the authentication request**
@@ -421,7 +421,7 @@ The system receives authentication request from TSP with the following parameter
 
 
 The system receives authentication request from TSP with the following parameters:
- id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
 
 The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request
 
@@ -548,9 +548,9 @@ Note: The Authentication is integrated for both successful and failure authentic
 [**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/VID_Generate_REST_Service.md)
 
 # 3. Offline Authentication 
-## 3.1 QR Code based Authentication 
+## 3.1 QR Code based Authentication [**[↑]**](#table-of-content)
 # 4. KYC Service 
-## 4.1 Profile Sharing based on Policy
+## 4.1 Profile Sharing based on Policy [**[↑]**](#table-of-content)
 
 
 **A. Respond back to TSP with KYC details, as configured - KycAuth - Add KycFilter, decode authRequest**
@@ -682,7 +682,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 
 
 # 5. Partners Authentication and Authorisation
-## 5.1 MISP License Authentication
+## 5.1 MISP License Authentication [**[↑]**](#table-of-content)
 
 **Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
 
@@ -697,7 +697,7 @@ MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (
 7. Alerts and warning messages for data type violation are sent as per [**data definition Link](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) _**(Link to be updated)**_
 8. The alert and warning messages are configurable via a configurable file.
 
-## 5.2 Partner Policy Authentication
+## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
 
 **A. Authenticate and authorize Auth Partner**
 
@@ -760,7 +760,7 @@ The system then validates the following:
 3. Once a TSP is authorized, they should ideally have a self-service (TSP Portal) mechanism to get their keys and regenerate them on need basis. In the absence of a Self-service portal, it should be possible for the admin to generate the key and email it to the TSP. This can be done as part of the approval process, as well as on an ad hoc basis when the key needs to be replaced
 
 # 6. Authentication Device Support 
-## 6.1 Registered Devices and Open Devices TBD 
+## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-content)
 
 Technical story (Architects to contribute)
 
