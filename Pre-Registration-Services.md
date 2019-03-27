@@ -30,7 +30,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
 #### Resource URL
-https://mosip.io/pre-registration/auth/v1.0/login/sendOtp
+https://mosip.io/v1/prereg-auth/login/sendOtp
 
 #### Resource details
 Resource Details | Description
@@ -97,7 +97,7 @@ request.langcode|Yes|The preferred language code |fra
 This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
 
 #### Resource URL
-https://mosip.io/pre-registration/auth/v1.0/login/validateOtp
+https://mosip.io/v1/prereg-auth/login/validateOtp
 
 #### Resource details
 Resource Details | Description
@@ -164,7 +164,7 @@ request.otp|Yes| received OTP  |345674
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
-https://mosip.io/pre-registration/auth/v1.0/logout/invalidateToken
+https://mosip.io/v1/prereg-auth/logout/invalidateToken
 
 #### Resource details
 Resource Details | Description
@@ -191,7 +191,7 @@ Requires Authentication | Yes
 # Demographic Service (Internal)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
-* [POST /applications](#post-sendotp)
+* [POST /applications](#post-applications)
 * [PUT /applications/{preRegistrationId}](#put-applications)
 * [GET /applications/{preRegistrationId}](#get-applications)
 * [DELETE /applications/{preRegistrationId}](#delete-applications)
@@ -202,7 +202,7 @@ This service details used by Pre-Registration portal to maintain the demographic
 This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications
+https://mosip.io/v1/prereg-demographic/applications
 
 #### Resource details
 Resource Details | Description
@@ -512,7 +512,7 @@ PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-r
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/{preRegistrationId}/ 
+https://mosip.io/v1/prereg-demographic/applications/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
@@ -827,7 +827,7 @@ PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details bas
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/{preRegistrationId}/ 
+https://mosip.io/v1/prereg-demographic/applications/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
@@ -987,11 +987,11 @@ preRegistrationId |Yes|Id of the application|64269837502851
    ]
 }
 ```
-### DELETE  /applications/{preRegistrationId}
+### DELETE /applications/{preRegistrationId}
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/{preRegistrationId}/
+https://mosip.io/v1/prereg-demographic/applications/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
@@ -1064,7 +1064,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/status/{preRegistrationId}/
+https://mosip.io/v1/prereg-demographic/applications/status/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
@@ -1113,11 +1113,11 @@ preRegistrationId |Yes|Id of the application|62076019780925
 }
 ```
 
-### GET /applications/{userId}/
+### GET /applications/{userId}
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
 
 #### Resource URL
-https://mosip.io/pre-registration/demographic/v1.0/applications/{userId}/
+https://mosip.io/v1/prereg-demographic/applications/{userId}
 
 #### Resource details
 Resource Details | Description
@@ -1200,63 +1200,59 @@ userId |Yes|User Id of the application(Mobile number or email address)|sanober@g
 }
 ```
 
-# 2.7.3 Document Service APIs
+# Document Service (Internal)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
-### Host
-##### QA - `http://qa.mosip.io`
-##### Development - `http://dev.mosip.io`
-##### Production -
+* [POST /documents/{preRegistrationId}](#post-documents)
+* [PUT /documents/{preRegistrationId}](#put-documents)
+* [GET /documents/{preRegistrationId}](#get-documents)
+* [DELETE /documents/{preRegistrationId}](#delete-documents)
+* [GET /documents/{preRegistrationId}/{documentId}](#get-documents)
+* [DELETE /documents/{preRegistrationId}/{documentId}](#delete-documents)
 
-***
-#### [Swagger API spec 0.8.0 version link](https://github.com/mosip/mosip/tree/0.8.0/docs/design/pre-registration/service/Document-Service-API-Spec.yaml)
-***
 
-#### HTTP Operation Allowed
-| Method | Allowed |
-| ------------ | ------------ |
-| GET | True |
-| POST | True |
-| PUT | False |
-| DELETE | True |
+#### POST /documents/{preRegistrationId}
+This request is used to upload document with the metadata which include document cateogry code, document type code and document format for a pre-registration Id.
 
-#### 2.7.3.1 POST Operation
-#### Path -  `/documents`
-#### Summary
-Upload document for a pre-registration Id.
-
-#### Request Part Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|Id of the application|mosip.pre-registration.document.upload
-version |Yes|version of the application|1.0
-requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
-request |Yes|Request for the application|
-request.pre_registration_id |Yes|Pre-registration id of the application|49158360813920
-request.doc_cat_code |Yes|Document category code|POI
-request.doc_typ_code |Yes|Document type code|address
-request.lang_code |Yes|Language code of the application|ENG
-
-```JSON
-{
-		"id": "mosip.pre-registration.document.upload",
-		"version" : "1.0",
-		"requesttime" : "2019-03-13T07:22:57.086Z",
-		"request" :
-		{
-			"pre_registartion_id" : "36732486130976",
-			"doc_cat_code" : "POA",
-			"doc_typ_code" : "address",
-			"lang_code" : "ENG"
-		 }
-}
-```
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Pre-registration id of the application|36732486130976
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.document.upload
+version |Yes|version of the application|1.0
+requestTime |Yes|Request tme of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.docCatCode |Yes|Document category code|POI
+request.docTypCode |Yes|Document type code|address
+request.langCode |Yes|Language code of the application|ENG
+
+#### Request:
+```JSON
+{
+		"id": "mosip.pre-registration.document.upload",
+		"version" : "1.0",
+		"requestTime" : "2019-03-13T07:22:57.086Z",
+		"request" :
+		{
+			"docCatCode" : "POI",
+			"docTypCode" : "identity",
+			"langCode" : "fra"
+		 }
+}
+```
 
 #### Responses:
 ##### Success Response:
@@ -1266,15 +1262,15 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.document.upload",
   "version" : "1.0",
-  "responsetime": "2019-01-16T16:41:06.659Z",
+  "responseTime": "2019-01-16T16:41:06.659Z",
   "response": [
     {
-      "preRegsitrationId": "49158360813920",
-      "documnetId": "2c979c01680905860168091c21970001",
-      "documentName": "passport.PDF",
-      "documentCat": "POI",
-      "documentType": "identity",
-      "resMsg": "DOCUMENT_UPLOAD_SUCCESSFUL"
+      "preRegsitrationId": "36732486130976",
+      "docId": "01964111-4fc0-11e9-ae3b-7d108980d190",
+      "docName": "passport.PDF",
+      "docCatCode": "POI",
+      "docTypCode": "identity",
+      "docFileFormat": "pdf"
     }
   ],
   "errors":null
@@ -1283,51 +1279,62 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty Request Id
+###### Description: Invalid document format supported
 ```JSON
 { 
   "id": "mosip.pre-registration.document.upload",
   "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
+  "responseTime": "2019-01-16T17:31:04.021Z",
   "response":null,
   "errors":[
 		{
-		"errorCode": "PRG_PAM_DOC_007",
-		"message": "DOCUMENT_EXCEEDING_PERMITTED_SIZE"
+		"errorCode": "PRG_PAM_DOC_004",
+		"message": " Invalid document format supported"
 		}
     ]
 }
 ```
 
-###### Other Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_CORE_REQ_004|INVALID_REQUEST_BODY|If the Request Body is empty.
-PRG_PAM_DOC_004|DOCUMENT_INVALID_FORMAT|Invalid document format.
-PRG_PAM_APP_005|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|When preregistration data is not found for the preregistration id in the DB.
-PRG_PAM_DOC_014|MANDATORY_FIELD_NOT_FOUND |If the document & preregistration id, status code, document category code or preregistration data is empty are failed to store in the db.
-PRG_PAM_DOC_010|DOCUMENT_FAILED_IN_VIRUS_SCAN| Document virus scan failed. 
-PRG_PAM_DOC_020|DEMOGRAPHIC_GET_RECORD_FAILED| Retrieval of preregistration data failed.
+##### Failure Response:
+###### Status code: '200'
+###### Description: Document virus scan failed
+```JSON
+{ 
+  "id": "mosip.pre-registration.document.upload",
+  "version" : "1.0",
+  "responseTime": "2019-01-16T17:31:04.021Z",
+  "response":null,
+  "errors":[
+		{
+		"errorCode": "PRG_PAM_DOC_010",
+		"message": "Document virus scan failed"
+		}
+    ]
+}
+```
 
+### PUT /documents/{preRegistrationId}
+This request used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
 
-#### 2.7.3.2 POST Operation
-#### Path -  `/documents/copy`
-#### Summary
-This service enables Pre-Registration portal to request for copy the document from one pre-registration id to another.
-
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-catCode|Yes|Document category code|POA
-destinationPreId |Yes|Destination Pre-registration id of the application|67531403498547
-sourcePrId |Yes|Source Pre-registration id of the application|97285429827016
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/{preRegistrationId}?catCode={doc_cat_code}&sourcePreId={preRegistrationId}
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Destination Pre-registration id of the application|67531403498547
+
+#### Request Query Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+catCode|Yes|Document category code|POA
+sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 
 #### Responses:
 ##### Success Response:
@@ -1337,13 +1344,15 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.document.copy",
   "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
+  "responseTime": "2019-01-16T17:31:04.021Z",
   "response": [
     {
-      "sourcePreRegId": "97285429827016",
-      "sourceDocumnetId": "4028abea68334b510168334e62060001",
-      "destPreRegId": "67531403498547",
-      "destDocumnetId": "2c9180836833aa3101685b88e12f0016"
+      "preRegsitrationId": "67531403498547",
+      "docId": "8196222-5fb0-11e9-rg3b-7d108980f456",
+      "docName": "address.pdf",
+      "docCatCode": "POA",
+      "docTypCode": "address",
+      "docFileFormat": "pdf"
     }
   ],
   "errors":null
@@ -1355,42 +1364,53 @@ Requires Authentication | Yes
 ###### Description: Document not found for the source pre-registration Id
 ```JSON
 {
-  "id": "mosip.pre-registration.document.upload",
+  "id": "mosip.pre-registration.document.copy",
   "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
+  "responseTime": "2019-01-16T17:31:04.021Z",
   "response":null,
   "errors":[
 		{
-        "errorCode": "PRG_PAM_DOC_005",
-        "message": "DOCUMENT_IS_MISSING"
+			"errorCode": "PRG_PAM_DOC_005",
+			"message": "Document not found for the source pre-registration Id"
         }
 	]
 }
 ```
 
-###### Other Failure Details:
-Code|Message|Description
------|----------|-------------
-PRG_PAM_DOC_018|INVALID_REQUEST_PARAMETER|Source preregistration id or Destination preregistration id is empty or invalid.
-PRG_PAM_DOC_009|DOCUMENT_FAILED_TO_UPLOAD|HDFS exception.
-PRG_PAM_DOC_011|DOCUMENT_FAILED_TO_COPY|if the copied document & document details are failed to store in the db.
+##### Failure Response:
+###### Status code: '200'
+###### Description: Document copy failed from source to destination
+```JSON
+{
+  "id": "mosip.pre-registration.document.copy",
+  "version" : "1.0",
+  "responseTime": "2019-01-16T17:31:04.021Z",
+  "response":null,
+  "errors":[
+		{
+			"errorCode": "PRG_PAM_DOC_011",
+			"message": "Document copy failed from source to destination"
+        }
+	]
+}
+```
 
+### GET /documents/{preRegistrationId}
+This request used to retrieve all documents metadata associated with particular pre-registration.
 
-#### 2.7.3.3 GET Operation
-#### Path -  `/documents`
-#### Summary
-This service enables Pre-Registration portal request to retrieve all document associated with particular pre-registration.
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-pre_registration_id |Yes|Pre-registration id of the application|97285429827016
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 
 #### Responses:
 ##### Success Response:
@@ -1398,93 +1418,57 @@ Requires Authentication | Yes
 ###### Description: Documents retrieved successfully
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-01-17T11:31:44.994Z",
+  "id": "mosip.pre-registration.document.fetch.metadata",
+  "version" : "1.0",
+  "responseTime": "2019-01-16T17:31:04.021Z",
   "response": [
     {
-      "pre_registration_id": "97285429827016",
-      "doc_name": "morethan1mb.PDF",
-      "doc_id": "4028abea68334b510168334e62060001",
-      "doc_cat_code": "POA",
-      "doc_typ_code": "address",
-      "doc_file_format": "pdf",
-      "multipartFile": "{ByteCode}"
+      "docName": "morethan1mb.PDF",
+      "docId": "06896ba0-4fa8-11e9-ae3b-0d644a9860e6",
+      "docCatCode": "POA",
+      "docTypeCode": "address",
+      "docFileFormat": "pdf"
     },
     {
-      "prereg_id": "97285429827016",
-      "doc_name": "Doc.pdf",
-      "doc_id": "2c979ec9683c5aaf01683c7807110000",
-      "doc_cat_code": "POB",
-      "doc_typ_code": "address",
-      "doc_file_format": "pdf",
-      "multipartFile": "{ByteCode}"
+      "docName": "Doc.pdf",
+      "docId": "0748c439-4f83-11e9-ae3b-7b0aa1318f48",
+      "docCatCode": "POB",
+      "docTypeCode": "address",
+      "docFileFormat": "pdf"
     },
     {
-      "prereg_id": "97285429827016",
-      "doc_name": "Address.pdf",
-      "doc_id": "2c979ec9683c5aaf01683c7892bc0001",
-      "doc_cat_code": "POI",
-      "doc_typ_code": "address",
-      "doc_file_format": "",
-      "multipartFile": "{ByteCode}"
+      "docName": "Address.pdf",
+      "docId": "1093758a-4f83-11e9-ae3b-cdfde9d4aaca",
+      "docCatCode": "POI",
+      "docTypeCode": "address",
+      "docFileFormat": "pdf",
     }
-  ]
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration Id
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_018",
-    "message": "INVALID_REQUEST_PARAMETER"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
+  ],
+  "errors":null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If the document is not found in the db for the preregistration id
+###### Description: Document is not found for the requested pre-registration id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
+   "id": "mosip.pre-registration.document.fetch.metadata",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response":null,
+   "errors": [
+  		{
+    		"errorCode": "PRG_PAM_DOC_005",
+    		"message": "Documents is not found for the requested pre-registration id"
+  		}
+  	]
 }
 ```
-##### Failure Response:
-###### Status code: '200'
-###### Description:  ceph exception
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_FAILED_TO_FETCH"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
+#### DELETE /documents/{preRegsitrationId}
+This request used to delete all the documents which are assosiated with requested pre-registration id.
 
-#### 2.7.3.4 DELETE Operation
-#### Path -  `/documents`
-#### Summary
-This service enables Pre-Registration portal, request to delete the document for a particular document id.
-
-#### Request Query Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-documentId |Yes|document id of the application|2c9180836833aa31016837aac4c40012
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
@@ -1492,66 +1476,10 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Document successfully deleted
-```JSON
-{
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-01-17T11:46:49.220Z",
-  "response": [
-    {
-      "documnet_Id": "2c9180836833aa31016837aac4c40012",
-      "resMsg": "DOCUMENT_DELETE_SUCCESSFUL"
-    }
-  ]
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: If the document is not found in the db for the preregistration id
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: ceph exception
-```JSON
-{
-  "err": {
-    "errorCode": "PRG_PAM_DOC_006",
-    "message": "DOCUMENT_FAILED_TO_DELETE"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
-}
-```
-#### 2.7.3.5 DELETE Operation
-#### Path -  `/documents/byPreRegId`
-#### Summary
-This service enables Pre-Registration portal, request to delete all the document for a particular pre-registration id.
-
-#### Request Query Parameters
+#### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-pre_registration_id |Yes|pre-registration id of the application|37802950913289
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
+preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 
 #### Responses:
 ##### Success Response:
@@ -1559,18 +1487,29 @@ Requires Authentication | Yes
 ###### Description: Documents successfully deleted
 ```JSON
 {
-  "err": null,
-  "id": "string",
-  "responsetime": "2019-01-17T11:52:22.165Z",
-  "response": [
-    {
-      "documnet_Id": "2c9180836833aa31016833b242c50000",
-      "resMsg": "DOCUMENT_DELETE_SUCCESSFUL"
+   "id": "mosip.pre-registration.document.delete",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+       "message": "All documents assosiated with requested pre-registration id deleted sucessfully"
     },
-	{
-      "documnet_Id": "2c9180836833aa31016833b242c22120",
-      "resMsg": "DOCUMENT_DELETE_SUCCESSFUL"
-    }
+   "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration Id
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+    		"errorCode": "PRG_PAM_DOC_005",
+    		"message": "Documents is not found for the requested pre-registration id"
+      }
   ]
 }
 ```
@@ -1579,41 +1518,150 @@ Requires Authentication | Yes
 ###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_018",
-    "message": "INVALID_REQUEST_PARAMETER"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
+   "id": "mosip.pre-registration.document.delete",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+    		"errorCode": "PRG_PAM_DOC_006",
+    		"message": "Documents failed to delete"
+      }
+  ]
+}
+```
+### GET /documents/{preRegistrationId}/{documentId}
+This request used to reterive the document for a particular document id from the File System server.
+
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/{preRegistrationId}/{documentId}
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegsitrationId |Yes|pre-registration id of the application|37802950913289
+documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318f48
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Document successfully reterived
+```JSON
+{
+   "id": "mosip.pre-registration.document.fetch.content",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response":{
+      "multipartFile": "{ByteCode}"
+    },
+   "errors": null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: if the document & document details are failed to delete from the db
+###### Description: If the document is not found for the preregistration id and document id
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_005",
-    "message": "DOCUMENT_IS_MISSING"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
+   "id": "mosip.pre-registration.document.fetch.content",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+         "errorCode": "PRG_PAM_DOC_005",
+         "message": "document is not found for the requested pre-registration id and document id"
+      }
+   ]
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: ceph exception
+###### Description: Failed to fetch from File System server
 ```JSON
 {
-  "err": {
-    "errorCode": "PRG_PAM_DOC_006",
-    "message": "DOCUMENT_FAILED_TO_DELETE"
-  },
-  "id": "string",
-  "responsetime": "2019-01-16T15:15:05.467Z",
-  "response": null
+   "id": "mosip.pre-registration.document.fetch.content",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+        "errorCode": "PRG_PAM_DOC_006",
+        "message": "Failed to fetch from File System server"
+     }
+  ]
+}
+```
+#### DELETE  /documents/{preRegistrationId}/{documentId}
+This request used to delete the document for a particular document id from database and File System server.
+
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/{preRegistrationId}/{documentId}
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegsitrationId |Yes|pre-registration id of the application|37802950913289
+documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318f48
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Document successfully deleted
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete.specific",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+  "response": {
+      "message": "Document successfully deleted"
+    },
+    "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Document is not found for the pre-registration id and document id
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete.specific",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+         "errorCode": "PRG_PAM_DOC_005",
+         "message": "Document is not found for the pre-registration id and document id"
+      }
+  ]
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Failed to delete from file system server
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete.specific",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+         "errorCode": "PRG_PAM_DOC_006",
+         "message": "Failed to delete from file system server"
+     }
+  ]
 }
 ```
 
