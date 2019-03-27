@@ -204,7 +204,7 @@ Failure response
   "id" : "mosip.registration.sync",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "response" : [
+  "errors" : [
 	  {
 		"registrationId": "1234575",
 		"status": "FAILURE",
