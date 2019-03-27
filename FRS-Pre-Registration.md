@@ -39,9 +39,9 @@ The pre-registration module enables a user to book an appointment for one or man
 
 [**Link to Process View**](Process-view#pre-registration)
 
-# 2. Features [**[↑]**](#table-of-content)
+# 2. Features
 ## 2.1 Login/Creating a User Account
-### 2.1.1 Login using Email
+### 2.1.1 Login using Email [**[↑]**](#table-of-content)
 The Individual can login to the Pre-registration Portal by providing their Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
 
@@ -55,8 +55,8 @@ The Individual logs in to the Pre-Registration portal with their Mobile Number o
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
 If the user is inactive for X minutes( X is configurable)the system notifies the user one minute before the configured timeout limit. In case such case the system will not save any user data.
 
-## 2.2 Creating an Application [**[↑]**](#table-of-content)
-### 2.2.1 Provide Demographic Data
+## 2.2 Creating an Application
+### 2.2.1 Provide Demographic Data [**[↑]**](#table-of-content)
 
 The Individual is provided with Demographic form based on the id [**Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
 Once validated the **Pre-Registration Id is generated** ( Pre-registration Request Id)and the Demographic details provided gets mapped to that PRID.
@@ -114,8 +114,8 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
-## 2.3 Attaching Documents to the Application [**[↑]**](#table-of-content)
-### 2.3.1 Document Categories and Applicable Document Types
+## 2.3 Attaching Documents to the Application
+### 2.3.1 Document Categories and Applicable Document Types [**[↑]**](#table-of-content)
 1. When an Individual provides their Demographic data, the Pre-registration system captures the data. 
 1. Based on the parameters (from Config file) for example-The gender, age and residential status(Foreigner, National) from the demographic data applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
@@ -135,12 +135,12 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-individual.md)
 
 
-## 2.4 Booking an Appointment [**[↑]**](#table-of-content)
-### 2.4.1 Choosing a Registration Center for Appointment
+## 2.4 Booking an Appointment
+### 2.4.1 Choosing a Registration Center for Appointment [**[↑]**](#table-of-content)
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-booking-service.md)
 
-#### 2.4.1.1 Recommended Centers based on Postal Code
+#### 2.4.1.1 Recommended Centers based on Postal Code [**[↑]**](#table-of-content)
 1. The system recommends registration centers based on the postal code(s) of all the applicants for whom the appointment is to be booked
 1. The search results have the following information about the Registration Center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
 
@@ -171,9 +171,9 @@ The First Registration Center as per the search criteria is shown to the Individ
 
 
 
-### 2.4.3 Choosing Appointment Slots [**[↑]**](#table-of-content)
+### 2.4.3 Choosing Appointment Slots
 
-#### 2.4.3.1 Get Slots Availability
+#### 2.4.3.1 Get Slots Availability [**[↑]**](#table-of-content)
 The user opts to view the available slots for a selected registration center.
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot in the chosen center
 1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
@@ -219,8 +219,8 @@ In case of multiple application, the system sends notifications to each applican
 
 An individual can opt to manually trigger notification\s to the contact details of additional recipients.
 
-## 2.6 Registration Client Services [**[↑]**](#table-of-content)
-### 2.6.1 Retrieve Application Data by PRID
+## 2.6 Registration Client Services
+### 2.6.1 Retrieve Application Data by PRID [**[↑]**](#table-of-content)
 Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id (Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
 1. The system generates a Transaction Id
 1. The system then Fetches all the Pre-Registrations within the Date Range (Start Range, End Date) and for the Registration Center Id received and calculates the count of the Pre-Registration Ids being sent.
