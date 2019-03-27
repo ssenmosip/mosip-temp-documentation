@@ -1,25 +1,25 @@
 This section details about the service API in the Pre-Registration modules
 
-* [Auth Service APIs](#auth-service-apis)
+* [Auth Service](#auth-service)
 
-* [Demographic Service APIs](#demographic-service-apis)
+* [Demographic Service](#demographic-service)
 
-* [Document Service APIs](#document-service-apis)
+* [Document Service](#document-service)
 
-* [Data sync Service APIs](#data-sync-service-apis)
+* [Data sync Service](#data-sync-service)
 
-* [Booking Service APIs](#booking-service-apis)
+* [Booking Service](#booking-service)
 
-* [BatchJob Service APIs](#batchjob-service-apis)
+* [BatchJob Service](#batchjob-service)
 
-* [Notification Service APIs](#notification-service-apis)
+* [Notification Service](#notification-service)
 
-* [Transliteration Service APIs](#transliteration-service-apis)
+* [Transliteration Service](#transliteration-service)
 
 **Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 
-# Auth Service APIs
+# Auth Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
 
 * [POST /login/sendOtp](#post-login-sendotp)
