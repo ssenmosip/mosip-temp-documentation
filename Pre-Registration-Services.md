@@ -2044,17 +2044,17 @@ Requires Authentication | Yes
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Appointment canceled successfully
+###### Description: Appointment cancelled successfully
 
 ```JSON
 {
    "id": "mosip.pre-registration.appointment.cancel",
    "version" : "1.0",
    "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": {
-      "message": "Appointment canceled successfully"
+   "response":{
+      "message":"Appointment cancelled successfully"
     },
-	"errors":null
+    "errors":null
 }
 ```
 ##### Failure Response:
@@ -2065,13 +2065,13 @@ Requires Authentication | Yes
    "id": "mosip.pre-registration.appointment.cancel",
    "version" : "1.0",
    "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": null
+   "response": null,
    "errors": [
        {
           "errorCode": "PRG_BOOK_RCI_015",
           "message": "Appointment cancellation failed"
        }
-	] 
+    ] 
 }
 ```
 
