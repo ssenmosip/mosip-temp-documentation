@@ -188,7 +188,7 @@ Requires Authentication | Yes
 }
 ```
 
-# Demographic Service APIs
+# Demographic Service (Internal)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
 * [POST /applications](#post-sendotp)
