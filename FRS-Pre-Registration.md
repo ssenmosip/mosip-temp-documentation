@@ -5,13 +5,13 @@
   * [2.1 Login/Creating a User Account](#21-logincreating-a-user-account) _(PRE_FR_1)_
     * [2.1.1 Login using Email](#211-login-using-email-) _(PRE_FR_1.1)_
     * [2.1.2 Login using Phone Number](#212-login-using-phone-number-) _(PRE_FR_1.2)_
-    * [2.1.3 Automatic User ID Creation on First Login](#213-automatic-account-creation-on-first-login-) _(PRE_FR_1.3)_ 
+    * [2.1.3 Automatic User ID Creation on First Login](#213-automatic-user-id-creation-on-first-login-) _(PRE_FR_1.3)_ 
     * [2.1.4 Logout/Session Timeout](#214-logoutsession-timeout-) _(PRE_FR_1.4)_
   * [2.2 Creating an Application](#22-creating-an-application) _(PRE_FR_2)_
     * [2.2.1 Provide Demographic Data](#221-provide-demographic-data-) _(PRE_FR_2.1)_
     * [2.2.2 Provide Consent](#222-provide-consent-) _(PRE_FR_2.2)_
     * [2.2.3 Create Multiple Applications](#223-create-multiple-applications-) _(PRE_FR_2.3)_
-    * [2.2.4 Provide Data in Preferred Language](#224-provide-data-in-preferred-language-wip-) _(PRE_FR_2.4)_
+    * [2.2.4 Provide Data in Preferred Language](#224-provide-data-in-preferred-language-) _(PRE_FR_2.4)_
     * [2.2.5 Viewing "My Applications" (covers status)](#225-viewing-my-applications-covers-status-) _(PRE_FR_2.5)_
     * [2.2.6 Modify Application Data](#226-modify-application-data-) _(PRE_FR_2.6)_
     * [2.2.7 Discard Application](#227-discard-application-) _(PRE_FR_2.7)_
@@ -22,16 +22,16 @@
     * [2.4.1 Choosing a Registration Center for Appointment](#241-choosing-a-registration-center-for-appointment-) _(PRE_FR_4.1)_
       * [2.4.1.1 Recommended Centers based on Postal Code](#2411-recommended-centers-based-on-postal-code-) 
       * [2.4.1.2 Nearby Centers based on User Geo-location](#2412-nearby-centers-based-on-user-geo-location-) 
-      * [2.4.1.3 Find a Center](#2413-find-a-cente-r) 
+      * [2.4.1.3 Find a Center](#2413-find-a-center-) 
     * [2.4.2 Get Appointment for the Day](#242-get-appointment-for-the-day-) _(PRE_FR_4.2)_
-    * [2.4.3 Choosing Appointment Slots](#243-choosing-appointment-slots-) _(PRE_FR_4.3)_
+    * [2.4.3 Choosing Appointment Slots](#243-choosing-appointment-slots) _(PRE_FR_4.3)_
       * [2.4.3.1 Get Slots Availability](#2431-get-slots-availability-) 
     * [2.4.4 Cancel Appointment](#244-cancel-appointment-) _(PRE_FR_4.4)_
     * [2.4.5 Re-book Appointment](#245-re-book-appointment-) _(PRE_FR_4.5)_
   * [2.5 Appointment Acknowledgement (PRID)](#25-appointment-acknowledgement-prid-) _(PRE_FR_5)_
     * [2.5.1 Download Acknowledgement](#251-download-acknowledgement-) _(PRE_FR_5.1)_
     * [2.5.2 Send Acknowledgement to Email/Phone](#252-send-acknowledgement-to-emailphone-) _(PRE_FR_5.2)_
-  * [2.6 Registration Client Services](#26-registration-client-services-) _(PRE_FR_6)_
+  * [2.6 Registration Client Services](#26-registration-client-services) _(PRE_FR_6)_
     * [2.6.1 Retrieve Application Data by PRID](#261-retrieve-application-data-by-prid-) _(PRE_FR_6.1)_
   * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes-) _(PRE_FR_7)_
 # 1. Overview [**[↑]**](#table-of-content)
