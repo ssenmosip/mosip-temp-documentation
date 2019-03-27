@@ -23,7 +23,7 @@ This section details about the service API in the Pre-Registration modules
 **Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 
-#Auth Service APIs
+# Auth Service APIs
 This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
 
 * [POST /login/sendOtp](#post-login-sendotp)
