@@ -1,24 +1,20 @@
 This section details about the service API in the Pre-Registration modules
 
-## Content
-<!--ts-->
- [Auth Service APIs](#auth-service-apis)
+* [Auth Service APIs](#auth-service-apis)
 
- [Demographic Service APIs](#demographic-service-apis)
+* [Demographic Service APIs](#demographic-service-apis)
 
- [Document Service APIs](#document-service-apis)
+* [Document Service APIs](#document-service-apis)
 
- [Data sync Service APIs](#data-sync-service-apis)
+* [Data sync Service APIs](#data-sync-service-apis)
 
- [Booking Service APIs](#booking-service-apis)
+* [Booking Service APIs](#booking-service-apis)
 
- [BatchJob Service APIs](#batchjob-service-apis)
+* [BatchJob Service APIs](#batchjob-service-apis)
 
- [Notification Service APIs](#notification-service-apis)
+* [Notification Service APIs](#notification-service-apis)
 
- [Transliteration Service APIs](#transliteration-service-apis)
-
-<!--te-->
+* [Transliteration Service APIs](#transliteration-service-apis)
 
 **Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
