@@ -2124,7 +2124,6 @@ registrationCenterId |Yes|Registration Center Id|10004
             "date": "2019-02-14",
             "timeSlots": [
               {
-              {
                 "fromTime": "09:00:00",
                 "toTime": "09:15:00",
                 "availability": 4
@@ -2570,8 +2569,8 @@ request.to_field_lang |Yes|To language code|ara
    "response": null,
    "errors":[
        {
-         "errorcode": "PRG_PAM_TRL_002"
-         "message": "Failed to transliterate",
+         "errorcode": "PRG_PAM_TRL_002",
+         "message": "Failed to transliterate"
       }
   ]
 }
