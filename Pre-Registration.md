@@ -11,7 +11,7 @@ Below is the wiki link for pre registration.
 
 [**Process Flow**](Process-view#Pre-registration)
 ## 1. Use case
-![Use case diagram](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
+![Use case diagram](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
     
    ## 1.1 Fill up demographic details
             Actor- citizen
@@ -60,21 +60,6 @@ Below is the wiki link for pre registration.
 
 ## 2. conceptual view
 Technical flow and logical component
-![technical component and flow](https://github.com/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
+![technical component and flow](/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
 
-![Logical deployment view](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
-
-
-
-![Use case diagram](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
-
-
-![Use case diagram](/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
-
-
-
-![Use case diagram](/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
-
-
-
-![Use case diagram](/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
+![Logical deployment view](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
