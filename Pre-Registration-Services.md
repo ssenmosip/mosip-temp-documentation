@@ -1,6 +1,6 @@
 This section details about the service API in the Pre-Registration modules
 
-* [Auth Service](#auth-service)
+* [Auth Service](#auth-service-public)
 
 * [Demographic Service](#demographic-service)
 
