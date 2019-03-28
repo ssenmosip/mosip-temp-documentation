@@ -1567,7 +1567,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 mailTo |Yes|Mail ID of the recepient| |```mosip@mindtree.com```
-mailCc |No|Mail ID of the recepient| | "mosip@mindtree.com"
+mailCc |No|Mail ID of the recepient| |```mosip@mindtree.com```
 mailSubject |Yes|Mail ID of the recepient| | Sample mail subject
 mailContent |No|Mail ID of the recepient| | Sample mail content
 attachments |No|Mail ID of the recepient| | multipart/formdata
@@ -1993,7 +1993,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 emailBodyTemplate|Yes|The email content with $otp as the placeholder which represents the OTP| |Your OTP is $otp 
-emailId|Yes|Email ID to be notified| |"testmail@tmail.com"
+emailId|Yes|Email ID to be notified| |```testmail@tmail.com```
 emailSubjectTemplate|Yes|Subject for the email to be notified||OTP Notification through Email
 mobileNumber|Yes|Mobile number to be notified||1234567890
 notificationTypes|Yes|When opted for both types of notification,both should be mentioned||sms,email
@@ -2046,7 +2046,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 emailBodyTemplate|Yes|The email content with $otp as the placeholder which represents the OTP| |Your OTP is $otp 
-emailId|Yes|Email ID to be notified| |"testmail@tmail.com"
+emailId|Yes|Email ID to be notified| |```testmail@tmail.com```
 emailSubjectTemplate|Yes|Subject for the email to be notified||OTP Notification through Email
 mobileNumber|No|||
 notificationTypes|Yes|When opted for email notification,only email should be mentioned||email
