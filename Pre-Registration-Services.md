@@ -192,11 +192,11 @@ Requires Authentication | Yes
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
 * [POST /applications](#post-applications)
-* [PUT /applications/:preRegistrationId](#put-applications-preRegistrationId)
-* [GET /applications/:preRegistrationId](#get-applications-preRegistrationId)
-* [GET /applications/status/:preRegistrationId](#get-applications-status-preRegistrationId)
-* [GET /applications/:userId](#get-applications-userid)
-* [DELETE /applications/:preRegistrationId](#delete-applications-preRegistrationId)
+* [PUT /applications/:preRegistrationId](#put-applicationspreRegistrationid)
+* [GET /applications/:preRegistrationId](#get-applicationspreRegistrationid)
+* [GET /applications/status/:preRegistrationId](#get-applicationsstatuspreRegistrationid)
+* [GET /applications/:userId](#get-applicationsuserid)
+* [DELETE /applications/:preRegistrationId](#delete-applicationspreRegistrationid)
 
 ### POST /applications
 This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
