@@ -29,6 +29,7 @@ The Registration client application is delivered into two parts:
       - log : the application log file would be written under this folder.    
       - db : it contains the derby database, tables and few table with the data.  
       - run.jar : Executable jar to download the s/w.
+      - MANIFEST.MF : Third Party libraries information.
    3. Store the DB boot key into the TPM [Trusted Platform Module] [TBD].  
    
 **Application Binaries:**  
