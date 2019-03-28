@@ -46,8 +46,8 @@ When user clicks on the 'run.jar' it does the following :
 
 **Anti Virus:**  
    Installation of Open Source Anti Virus Software [ClamAV]:  
-   1.	Download the ClamAV from the below url  
-   		https://www.clamav.net/downloads  
+   1.	Download the ClamAV using this [**link**](//www.clamav.net/downloads)  
+
    		
    	2.	Install the downloaded .exe file.  
    	
@@ -187,6 +187,3 @@ Through sync process the data would be sync between local machine and server bas
    2. How to load key into TPM? The respective rotation policy?  
    3. How to update the DB password/ encryption key?  
    4. If any db table structure got changed / new table added then how to syncup the same in client machines?  
-  
-  
-   
