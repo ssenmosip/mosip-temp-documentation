@@ -22,9 +22,9 @@ This section details about the service API in the Pre-Registration modules
 # Auth Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
 
-* [POST /login/sendOtp](#post-login-sendOtp)
-* [POST /login/validateOtp](#post-login-validateOtp)
-* [POST /logout/invalidateToken](#post-logout-invalidateToken)
+* [POST /login/sendOtp](#post-loginsendotp)
+* [POST /login/validateOtp](#post-loginvalidateotp)
+* [POST /logout/invalidateToken](#post-logoutinvalidatetoken)
 
 ### POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
