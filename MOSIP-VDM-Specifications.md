@@ -183,7 +183,7 @@ initiated by the Biometric Capture Device.
 protocol over a separate channel. The final captured biometric samples will also be
 delivered using the binary protocol through a separate channel. The request and
 response messages for both video stream and biometric samples will be encoded using
-ASN1 BER. See http://en.wikipedia.org/wiki/Asn1
+ASN1 BER. See [**link**](//en.wikipedia.org/wiki/Asn1)
 
 **API Version Number :**
 
