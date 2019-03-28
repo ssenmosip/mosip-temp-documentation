@@ -25,6 +25,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 * [POST /login/sendOtp](#post-loginsendotp)
 * [POST /login/validateOtp](#post-loginvalidateotp)
 * [POST /logout/invalidateToken](#post-logoutinvalidatetoken)
+* [GET /login/config](#get-loginconfig)
 
 ### POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
@@ -36,7 +37,7 @@ https://mosip.io/v1/prereg-auth/login/sendOtp
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
-Requires Authentication | Yes
+Requires Authentication | No
 
 #### Request Part Parameters
 Name | Required | Description | Comment
@@ -103,7 +104,7 @@ https://mosip.io/v1/prereg-auth/login/validateOtp
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
-Requires Authentication | Yes
+Requires Authentication | No
 
 #### Request Part Parameters
 Name | Required | Description | Comment
@@ -159,7 +160,6 @@ request.otp|Yes| received OTP  |345674
     ]
 }
 ```
-
 ### POST /logout/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
@@ -187,7 +187,65 @@ Requires Authentication | Yes
     "errors": null
 }
 ```
+### GET /login/config
+This request will load the configuration parameters while loading the pre-registration portal page.
 
+#### Resource URL
+https://mosip.io/v1/prereg-auth/login/config
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Config parameter retrieved sucessfully 
+```JSON
+{
+    "id": "mosip.pre-registration.auth.config",
+    "version": "1.0",
+    "responseTime": "2019-03-27T06:22:19.673Z",
+    "response": {
+         "mosip.kernel.otp.default-length": "6",
+         "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{6}$",
+         "mosip.left_to_right_orientation": "eng,fra",
+         "preregistration.recommended.centers.locCode": "4",
+         "mosip.kernel.otp.validation-attempt-threshold": "3",
+         "mosip.primary-language": "ara",
+         "preregistration.timespan.cancel": "24",
+         "mosip.default.dob.month": "01",
+         "preregistration.availability.noOfDays": "7",
+         "mosip.kernel.otp.expiry-time": "120",
+         "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
+         "mosip.supported-languages": "eng,ara,fra",
+         "preregistration.workflow.demographic": "true/false ",
+         "preregistration.workflow.documentupload": "true/false ",
+         "mosip.id.validation.identity.postalCode.length": "6",
+         "mosip.kernel.sms.number.length": "10",
+         "preregistration.availability.sync": "9",
+         "mosip.id.validation.identity.email.length": "50",
+         "preregistration.timespan.rebook": "24",
+         "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
+         "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
+         "mosip.right_to_left_orientation": "ara",
+         "mosip.kernel.pin.length": "6",
+         "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
+         "preregistration.workflow.booking": "true/false ",
+         "mosip.id.validation.identity.CNIENumber.length": "30",
+         "mosip.login.mode": "email,mobile",
+         "mosip.id.validation.identity.phone.length": "10",
+         "preregistration.auto.logout": "10",
+         "mosip.secondary-language": "fra",
+         "preregistration.nearby.centers": "2000",
+         "mosip.default.dob.day": "01",
+         "preregistration.booking.offset": "2"
+      },
+      "errors": null
+}
+```
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
