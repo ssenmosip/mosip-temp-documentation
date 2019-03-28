@@ -43,20 +43,8 @@
   * [Attachments](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)
   * [Testing Attachments - Kernel](https://github.com/mosip/mosip/wiki/Testing-Attachments---Kernel)
 
+* [Overview](wiki)
   * [Principles1](Architecture-Principles-&-Platform-Goals)
 
-  * [Principles2](/Architecture-Principles-&-Platform-Goals)
-
-  * [Principles3](wiki/Architecture-Principles-&-Platform-Goals)
-
-  * [Principles4](/wiki/Architecture-Principles-&-Platform-Goals)
-
-  * [Principles5](mosip/wiki/Architecture-Principles-&-Platform-Goals)
-
-  * [Principles6](/mosip/wiki/Architecture-Principles-&-Platform-Goals)
-
-  * [Principles7](mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
-
-  * [Principles8](/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
 
 
