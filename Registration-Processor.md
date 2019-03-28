@@ -3,7 +3,7 @@ Registration Processor processes the data (demographic and biometric) of an Indi
 - Existing ID system(s) of a country
 
 ## Registration Processor process flow
-Please refer to the following link for the detailed process flow : https://github.com/mosip/mosip/wiki/Process-view#registration-processor
+Please refer to the [link](Process-view#registration-processor) for the detailed process flow
 
 ## Architecturally significant use cases
 ### Registration processor must provide guaranteed packet processing
