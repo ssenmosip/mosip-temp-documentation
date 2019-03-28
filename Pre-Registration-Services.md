@@ -1,6 +1,6 @@
 This section details about the service API in the Pre-Registration modules
 
-* [Auth Service](#auth-service-public)
+* [Login Service](#login-service-public)
 
 * [Demographic Service](#demographic-service-public)
 
@@ -19,7 +19,7 @@ This section details about the service API in the Pre-Registration modules
 **Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 
-# Auth Service (Public)
+# Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
 
 * [POST /login/sendOtp](#post-loginsendotp)
@@ -42,7 +42,7 @@ Requires Authentication | No
 #### Request Part Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.auth.sendotp
+id |Yes|id |mosip.pre-registration.login.sendotp
 version |Yes|version of the application|1.0
 requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
@@ -52,7 +52,7 @@ request.langcode|Yes|The preferred language code |fra
 #### Request:
 ```JSON
 {
-	"id": "mosip.pre-registration.auth.sendotp",
+	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
 	"requestTime": "2019-03-15T07:24:47.605Z",
 	"request": {
@@ -67,7 +67,7 @@ request.langcode|Yes|The preferred language code |fra
 ###### Description: OTP sent successfully to specified channel
 ```JSON
 {
-	"id": "mosip.pre-registration.auth.sendotp",
+	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
 	"responseTime": "2019-03-15T07:24:50.246Z",
 	"response": {
@@ -81,7 +81,7 @@ request.langcode|Yes|The preferred language code |fra
 ###### Description: Invalid parameters
 ```JSON
 {
-	"id": "mosip.pre-registration.auth.sendotp",
+	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
 	"responseTime": "2019-03-15T08:09:42.327Z",
 	"response": null,
@@ -109,7 +109,7 @@ Requires Authentication | No
 #### Request Part Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.auth.useridotp
+id |Yes|id |mosip.pre-registration.login.useridotp
 version |Yes|version of the application|1.0
 requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
@@ -119,7 +119,7 @@ request.otp|Yes| received OTP  |345674
 #### Request:
 ```JSON
 {
-	"id": "mosip.pre-registration.auth.useridotp",
+	"id": "mosip.pre-registration.login.useridotp",
 	"version": "1.0",
 	"requestTime": "2019-03-15T08:28:04.783Z",
 	"request": {
@@ -134,7 +134,7 @@ request.otp|Yes| received OTP  |345674
 ###### Description: sms sent successfully
 ```JSON
 {
-	"id": "mosip.pre-registration.auth.useridotp",
+	"id": "mosip.pre-registration.login.useridotp",
 	"version": "1.0",
 	"responseTime": "2019-03-15T08:08:13.246Z",
 	"response": {
@@ -148,7 +148,7 @@ request.otp|Yes| received OTP  |345674
 ###### Description: Invalid parameters
 ```JSON
 {
-    "id": "mosip.pre-registration.auth.useridotp",
+    "id": "mosip.pre-registration.login.useridotp",
     "version": "1.0",
     "responseTime": "2019-03-27T06:22:19.673Z",
     "response": null,
@@ -178,7 +178,7 @@ Requires Authentication | Yes
 ###### Description: Token invalidated successfully
 ```JSON
 {
-    "id": "mosip.pre-registration.auth.useridotp",
+    "id": "mosip.pre-registration.login.invalidate",
     "version": "1.0",
     "responseTime": "2019-03-27T06:22:19.673Z",
     "response": {
@@ -205,7 +205,7 @@ Requires Authentication | No
 ###### Description: Config parameter retrieved sucessfully 
 ```JSON
 {
-    "id": "mosip.pre-registration.auth.config",
+    "id": "mosip.pre-registration.login.config",
     "version": "1.0",
     "responseTime": "2019-03-27T06:22:19.673Z",
     "response": {
