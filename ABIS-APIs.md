@@ -28,7 +28,7 @@ Code | Reason
 3 | Unexpected error - Unable to access biometric data
 4 | Unable to serve the request
 
-All the below operations send biometric data in CBEFF format. (Please refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications#cbeff-xml-format-sample for sample cbeff data)
+All the below operations send biometric data in CBEFF format. (Please refer to the [**link**](MOSIP-Biometric-Data-Specifications#cbeff-xml) for sample cbeff data)
 ### INSERT (insert biometric data of an Individual)
 ```
 //Request
