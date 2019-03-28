@@ -10,7 +10,9 @@ This section details about the service API in the Pre-Registration modules
 
 * [Booking Service](#booking-service-public)
 
-* [BatchJob Service](#batchjob-service-private )
+* [BatchJob Service](#batchjob-service-private)
+
+* [Generate QR code service](#generate-qr-code-service-public)
 
 * [Notification Service](#notification-service-public)
 
@@ -24,7 +26,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 
 * [POST /login/sendOtp](#post-loginsendotp)
 * [POST /login/validateOtp](#post-loginvalidateotp)
-* [POST /logout/invalidateToken](#post-logoutinvalidatetoken)
+* [POST /login/invalidateToken](#post-logininvalidatetoken)
 * [GET /login/config](#get-loginconfig)
 
 ### POST /login/sendOtp
@@ -160,11 +162,11 @@ request.otp|Yes| received OTP  |345674
     ]
 }
 ```
-### POST /logout/invalidateToken
+### POST /login/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
-https://mosip.io/v1/preregistration/logout/invalidateToken
+https://mosip.io/v1/preregistration/login/invalidateToken
 
 #### Resource details
 Resource Details | Description
@@ -260,7 +262,7 @@ This service details used by Pre-Registration portal to maintain the demographic
 This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications
+https://mosip.io/v1/preregistration/applications
 
 #### Resource details
 Resource Details | Description
@@ -570,7 +572,7 @@ PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-r
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/:preRegistrationId
+https://mosip.io/v1/preregistration/applications/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -885,7 +887,7 @@ PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details bas
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/:preRegistrationId
+https://mosip.io/v1/preregistration/applications/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1049,7 +1051,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/status/{preRegistrationId}
+https://mosip.io/v1/preregistration/applications/status/{preRegistrationId}
 
 #### Resource details
 Resource Details | Description
@@ -1102,7 +1104,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id from authorization token.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications
+https://mosip.io/v1/preregistration/applications
 
 #### Resource details
 Resource Details | Description
@@ -1183,7 +1185,7 @@ Requires Authentication | Yes
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/:preRegistrationId
+https://mosip.io/v1/preregistration/applications/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1266,7 +1268,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 This request is used to upload document with the metadata which include document cateogry code, document type code and document format for a pre-registration Id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/:preRegistrationId
+https://mosip.io/v1/preregistration/douments/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1368,7 +1370,7 @@ request.langCode |Yes|Language code of the application|ENG
 This request used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId
+https://mosip.io/v1/preregistration/douments/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1450,7 +1452,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 This request used to retrieve all documents metadata associated with particular pre-registration.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/:preRegistrationId
+https://mosip.io/v1/preregistration/douments/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1516,7 +1518,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 This request used to reterive the document for a particular document id from the File System server.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/preRegistration/:documentId
+https://mosip.io/v1/preregistration/douments/preRegistration/:documentId
 
 #### Resource details
 Resource Details | Description
@@ -1583,7 +1585,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 This request used to delete all the documents which are assosiated with requested pre-registration id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/:preRegistrationId
+https://mosip.io/v1/preregistration/douments/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1649,7 +1651,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/preRegistration/:documentId
+https://mosip.io/v1/preregistration/douments/preRegistration/:documentId
 
 #### Resource details
 Resource Details | Description
@@ -1931,7 +1933,7 @@ This service details used by Pre-Registration portal to book an appointment by p
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
+https://mosip.io/v1/preregistration/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2025,7 +2027,7 @@ This request used to reterive the appointement details for the specified pre-reg
 if exist update the availability for the solt and delete the record from the table and update the dempgraphic record status "Pending_Appointment".
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
+https://mosip.io/v1/preregistration/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2070,7 +2072,7 @@ Requires Authentication | Yes
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
+https://mosip.io/v1/preregistration/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2122,7 +2124,7 @@ preRegistrationId |Yes|Id of the application|37802950913289
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
+https://mosip.io/v1/preregistration/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2204,7 +2206,7 @@ registrationCenterId |Yes|Registration Center Id|10004
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
+https://mosip.io/v1/preregistration/appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
 
 #### Resource details
 Resource Details | Description
@@ -2260,15 +2262,15 @@ toDate |Yes|To Date | 2019-02-14
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id and master data sync for availability.
 
-* [PUT /expired](#put-expired)
-* [PUT /consumed](#put-consumed)
-* [PUT /availabilitySync](#put-availabilitysync)
+* [PUT batch/expired](#put-expired)
+* [PUT batch/consumed](#put-consumed)
+* [PUT batch/availabilitySync](#put-availabilitysync)
 
 ### PUT /expired
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
 
 #### Resource URL
-https://mosip.io/v1/prereg-batchjob/expired
+https://mosip.io/v1/preregistration/batch/expired
 
 #### Resource details
 Resource Details | Description
@@ -2312,7 +2314,7 @@ Requires Authentication | Yes
 This request is used to update the consumed status for all pre-Registration ids given by registration processor.
 
 #### Resource URL
-https://mosip.io/v1/prereg-batchjob/consumed
+https://mosip.io/v1/preregistration/batch/consumed
 
 #### Resource details
 Resource Details | Description
@@ -2357,7 +2359,7 @@ Requires Authentication | Yes
 This request is used to synchronize booking slots availability table with master data.
 
 #### Resource URL
-https://mosip.io/v1/prereg-batchjob/availabilitySync
+https://mosip.io/v1/preregistration/batch/availabilitySync
 
 #### Resource details
 Resource Details | Description
@@ -2380,18 +2382,98 @@ Requires Authentication | Yes
    "errors":null
 }
 ```
+# Generate QR code service (public)
+This service details used by Pre-Registration portal to generate QRCode.
+
+* [POST qrCode/generate](#post-qrcodegenerate)
+
+### POST  qrCode/generate
+This request is used to generate QR Code for the pre-registration acknowledgement.
+
+#### Resource URL
+https://mosip.io/v1/preregistration/qrCode/generate
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.qrcode.generate
+version |Yes|version of the application|1.0
+requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name |Yes|user name of the application|Sanober Noor
+request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
+request.appointmentDate|Yes| Booking appointment date|2019-01-18
+request.appointmentTime| Yes|Booking appointment time| 12:02
+request.mobNum|  Yes| applicant mobile number |9480456789
+request.emailID| Yes|applicant email Id |sanober@gmail.com
+request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
+request.LangCode| Yes| language code whatever user choose while login|eng
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.qrcode.generate",
+  "version": "1.0",
+  "requestTime": "2019-01-09T15:31:32.957Z",
+  "request": {
+		"name": "sanober noor",
+		"preRegistrationId": "37802950913289",
+		"appointmentDate": "2019-01-22",
+		"appointmentTime": "22:57",
+		"mobNum": "9748107386",
+		"emailID": "sanober.noor2@mindtree.com"
+	}
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: QR Code generated  successfully
+```JSON
+{
+   "id": "mosip.pre-registration.notification.qrCode",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+		"qrcode":{ByteCode}
+	},
+	"errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Failed to generate QR code
+```JSON
+{
+   "id": "mosip.pre-registration.notification.qrCode",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+       {
+    		"errorCode": "PRG_PAM_ACK_006",
+    		"message": " Failed to generate QR code"
+		}
+	]
+}
+```
 
 # Notification Service (public)
 This service details used by Pre-Registration portal to trigger notification via SMS or email and get QRCode.
 
-* [POST /notify](#post-notify)
-* [POST /generateQRCode](#put-generateqrcode)
+* [POST notification/notify](#post-notificationnotify)
 
-### POST /notify
+### POST notification/notify
 This request is used to notify the pre-registration acknowledgement via Email and SMS.
 
 #### Resource URL
-https://mosip.io/v1/prereg-notification/notify
+https://mosip.io/v1/preregistration/notification/notify
 
 #### Resource details
 Resource Details | Description
@@ -2463,93 +2545,17 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 	]
 }
 ```
-### POST  /generateQRCode
-This request is used to generate QR Code of acknowledgement
-
-#### Resource URL
-https://mosip.io/v1/prereg-notification/generateQRCode
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-id |Yes|Id of the application|mosip.pre-registration.notification.qrCode
-version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
-request |Yes|Request for the application|
-request.name |Yes|user name of the application|Sanober Noor
-request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
-request.appointmentDate|Yes| Booking appointment date|2019-01-18
-request.appointmentTime| Yes|Booking appointment time| 12:02
-request.mobNum|  Yes| applicant mobile number |9480456789
-request.emailID| Yes|applicant email Id |sanober@gmail.com
-request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
-request.LangCode| Yes| language code whatever user choose while login|eng
-
-#### Request:
-```JSON
-{
-  "id": "mosip.pre-registration.notification.qrCode",
-  "version": "1.0",
-  "requestTime": "2019-01-09T15:31:32.957Z",
-  "request": {
-		"name": "sanober noor",
-		"preRegistrationId": "37802950913289",
-		"appointmentDate": "2019-01-22",
-		"appointmentTime": "22:57",
-		"mobNum": "9748107386",
-		"emailID": "sanober.noor2@mindtree.com"
-	}
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: QR Code generated  successfully
-```JSON
-{
-   "id": "mosip.pre-registration.notification.qrCode",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": {
-		"qrcode":{ByteCode}
-	},
-	"errors":null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Failed to generate QR code
-```JSON
-{
-   "id": "mosip.pre-registration.notification.qrCode",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-       {
-    		"errorCode": "PRG_PAM_ACK_006",
-    		"message": " Failed to generate QR code"
-		}
-	]
-}
-```
 
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
-* [POST /transliterate](#post-transliterate)
+* [POST /transliteration/transliterate](#post-transliterationtransliterate)
 
-###  POST /transliterate
+###  POST /transliteration/transliterate
 This request is used to transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
 
 #### Resource URL
-https://mosip.io/v1/prereg-transliteration/transliterate
+https://mosip.io/v1/preregistration/transliteration/transliterate
 
 #### Resource details
 Resource Details | Description
