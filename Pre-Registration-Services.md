@@ -31,7 +31,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
 #### Resource URL
-https://mosip.io/v1/prereg-auth/login/sendOtp
+https://mosip.io/v1/preregistration/login/sendOtp
 
 #### Resource details
 Resource Details | Description
@@ -98,7 +98,7 @@ request.langcode|Yes|The preferred language code |fra
 This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
 
 #### Resource URL
-https://mosip.io/v1/prereg-auth/login/validateOtp
+https://mosip.io/v1/preregistration/login/validateOtp
 
 #### Resource details
 Resource Details | Description
@@ -164,7 +164,7 @@ request.otp|Yes| received OTP  |345674
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
-https://mosip.io/v1/prereg-auth/logout/invalidateToken
+https://mosip.io/v1/preregistration/logout/invalidateToken
 
 #### Resource details
 Resource Details | Description
@@ -191,7 +191,7 @@ Requires Authentication | Yes
 This request will load the configuration parameters while loading the pre-registration portal page.
 
 #### Resource URL
-https://mosip.io/v1/prereg-auth/login/config
+https://mosip.io/v1/preregistration/login/config
 
 #### Resource details
 Resource Details | Description
