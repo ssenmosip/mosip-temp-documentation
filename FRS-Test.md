@@ -26,4 +26,4 @@ heloo again
 
 ![test](-images.githubusercontent.com/46673665/53858291-975a5200-3fff-11e9-8369-c7a45ca43056.png)
 
-[test](/home/rise/mosip-projects/wikifi/mosip_dir/AuthN-&-AuthZ-APIs.md)
+[test](/home/rise/mosip-projects/wikifi/mosip_dir/ABIS-APIs.md)
