@@ -2,19 +2,19 @@ This section details about the service API in the Pre-Registration modules
 
 * [Auth Service](#auth-service-public)
 
-* [Demographic Service](#demographic-service)
+* [Demographic Service](#demographic-service-public)
 
-* [Document Service](#document-service)
+* [Document Service](#document-service-public)
 
-* [Data sync Service](#data-sync-service)
+* [Data sync Service](#data-sync-service-external)
 
-* [Booking Service](#booking-service)
+* [Booking Service](#booking-service-public)
 
-* [BatchJob Service](#batchjob-service)
+* [BatchJob Service](#batchjob-service-private )
 
-* [Notification Service](#notification-service)
+* [Notification Service](#notification-service-public)
 
-* [Transliteration Service](#transliteration-service)
+* [Transliteration Service](#transliteration-service-public)
 
 **Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
@@ -188,15 +188,15 @@ Requires Authentication | Yes
 }
 ```
 
-# Demographic Service (Internal)
+# Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
 * [POST /applications](#post-applications)
-* [PUT /applications/{preRegistrationId}](#put-applications)
-* [GET /applications/{preRegistrationId}](#get-applications)
-* [DELETE /applications/{preRegistrationId}](#delete-applications)
-* [GET /applications/status/{preRegistrationId}](#get-applications-status)
-* [GET /applications/{userId}](#get-applications-by-userid)
+* [PUT /applications/:preRegistrationId](#put-applications-preRegistrationId)
+* [GET /applications/:preRegistrationId](#get-applications-preRegistrationId)
+* [GET /applications/status/:preRegistrationId](#get-applications-status-preRegistrationId)
+* [GET /applications/:userId](#get-applications-userid)
+* [DELETE /applications/:preRegistrationId](#delete-applications-preRegistrationId)
 
 ### POST /applications
 This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
@@ -508,11 +508,11 @@ Error Code|Message Code|Description
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
 PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-registration with demographic data provided.
 
-### PUT /applications/{preRegistrationId}
+### PUT /applications/:preRegistrationId
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/{preRegistrationId}
+https://mosip.io/v1/prereg-demographic/applications/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -823,11 +823,11 @@ Error Code|Message Code|Description
 PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
 PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id.
 
-### GET /applications/{preRegistrationId}
+### GET /applications/:preRegistrationId
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/{preRegistrationId}
+https://mosip.io/v1/prereg-demographic/applications/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -987,80 +987,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
    ]
 }
 ```
-### DELETE /applications/{preRegistrationId}
-This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
-
-#### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/{preRegistrationId}
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Path Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-preRegistrationId |Yes|pre-registration id of the application|64269837502851
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Deletion of individual is successfully
-
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.delete",
-  "version":"1.0",
-  "responseTime": "2019-02-11T07:15:18.565Z",
-  "response": [
-    {
-      "preRegistrationId": "64269837502851",
-      "deletedBy": "9876453738",
-      "deletedDateTime": "2019-02-11T07:15:18.549Z"
-    }
-  ],
-  "errors":null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: No data found for the requested pre-registration id
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.delete",
-  "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_006",
-		"message": "No data found for the requested pre-registration id"
-		}
-    ]
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: failed to delete the pre-registration record.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.delete",
-  "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_004",
-		"message": "Falied to delete data for the requested pre-registration id"
-		}
-	]
-}
-```
-
-### GET /applications/status/{preRegistrationId}
+### GET /applications/status/:preRegistrationId
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
 #### Resource URL
@@ -1113,11 +1040,11 @@ preRegistrationId |Yes|Id of the application|62076019780925
 }
 ```
 
-### GET /applications/{userId}
+### GET /applications/:userId
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/{userId}
+https://mosip.io/v1/prereg-demographic/applications/:userId
 
 #### Resource details
 Resource Details | Description
@@ -1199,8 +1126,79 @@ userId |Yes|User Id of the application(Mobile number or email address)|sanober@g
    ]
 }
 ```
+### DELETE /applications/:preRegistrationId
+This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
-# Document Service (Internal)
+#### Resource URL
+https://mosip.io/v1/prereg-demographic/applications/:preRegistrationId
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|pre-registration id of the application|64269837502851
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Deletion of individual is successfully
+
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.delete",
+  "version":"1.0",
+  "responseTime": "2019-02-11T07:15:18.565Z",
+  "response": [
+    {
+      "preRegistrationId": "64269837502851",
+      "deletedBy": "9876453738",
+      "deletedDateTime": "2019-02-11T07:15:18.549Z"
+    }
+  ],
+  "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No data found for the requested pre-registration id
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.delete",
+  "version":"1.0",
+  "responseTime": "2019-02-11T13:46:00.534Z",
+  "response": null,
+  "errors": [
+		{
+		"errorCode": "PRG_PAM_APP_006",
+		"message": "No data found for the requested pre-registration id"
+		}
+    ]
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: failed to delete the pre-registration record.
+```JSON
+{
+  "id": "mosip.pre-registration.demographic.delete",
+  "version":"1.0",
+  "responseTime": "2019-02-11T13:46:00.534Z",
+  "response": null,
+  "errors": [
+		{
+		"errorCode": "PRG_PAM_APP_004",
+		"message": "Falied to delete data for the requested pre-registration id"
+		}
+	]
+}
+```
+
+# Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 * [POST /documents/{preRegistrationId}](#post-documents)
