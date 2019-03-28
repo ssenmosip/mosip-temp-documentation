@@ -1474,25 +1474,22 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
   "responseTime": "2019-01-16T17:31:04.021Z",
   "response": [
     {
-      "docName": "morethan1mb.PDF",
+      "docName": "morethan1mb.pdf",
       "docId": "06896ba0-4fa8-11e9-ae3b-0d644a9860e6",
       "docCatCode": "POA",
-      "docTypeCode": "address",
-      "docFileFormat": "pdf"
+      "docTypeCode": "address"
     },
     {
       "docName": "Doc.pdf",
       "docId": "0748c439-4f83-11e9-ae3b-7b0aa1318f48",
       "docCatCode": "POB",
-      "docTypeCode": "address",
-      "docFileFormat": "pdf"
+      "docTypeCode": "dateOfBirth"
     },
     {
       "docName": "Address.pdf",
       "docId": "1093758a-4f83-11e9-ae3b-cdfde9d4aaca",
       "docCatCode": "POI",
-      "docTypeCode": "address",
-      "docFileFormat": "pdf",
+      "docTypeCode": "identity"
     }
   ],
   "errors":null
@@ -1543,7 +1540,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
    "version" : "1.0",
    "responseTime": "2019-01-16T17:31:04.021Z",
    "response":{
-      "multipartFile": "{ByteCode}"
+      "multipartFile": :ByteArray
     },
    "errors": null
 }
@@ -1719,7 +1716,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 * [POST /sync](#post-sync)
-* [POST /sync/store](#post-syncstore)
+* [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
 * [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
 
 ### POST /sync
@@ -1795,11 +1792,11 @@ request.to-date |Yes|To date of the application|2019-02-12
 	]
 }
 ```
-### POST /sync/store
+### POST /sync/consumedPreRegIds
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
 
 #### Resource URL
-https://mosip.io/v1/prereg-datasync/sync/store
+https://mosip.io/v1/prereg-datasync/sync/consumedPreRegIds
 
 #### Resource details
 Resource Details | Description
@@ -1930,11 +1927,11 @@ This service details used by Pre-Registration portal to book an appointment by p
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
 * [GET /appointment/:registrationCenterId?fromDate=:date&toDate=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
 
-### POST /appointment
+### POST /appointment/:preRegistrationId
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/{preRegistrationId}
+https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2047,8 +2044,8 @@ Requires Authentication | Yes
    "version" : "1.0",
    "responseTime": "2019-01-16T17:31:04.021Z",
    "response":{
-      "message":"Appointment cancelled successfully"
-    },
+        "message":"Appointment cancelled successfully"
+    },
     "errors":null
 }
 ```
@@ -2060,7 +2057,7 @@ Requires Authentication | Yes
    "id": "mosip.pre-registration.appointment.cancel",
    "version" : "1.0",
    "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": null,
+   "response": null,
    "errors": [
        {
           "errorCode": "PRG_BOOK_RCI_015",
