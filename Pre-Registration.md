@@ -67,3 +67,14 @@ Technical flow and logical component
 
 
 ![Use case diagram](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
+
+
+![Use case diagram](/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
+
+
+
+![Use case diagram](/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
+
+
+
+![Use case diagram](/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
