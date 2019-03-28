@@ -5,7 +5,7 @@ Following are the pre-requisites for an entity to do authentication of an indivi
 * The biometric devices used for authentication must be registered with MOSIP
 
 ## ID Authentication Process flow
-Please refer to https://github.com/mosip/mosip/wiki/Process-view#id-authentication for the process flow of ID Authentication
+Please refer to the [**process flow**](Process-view#id-authentication) of ID Authentication
 
 ## Architecturally Significant Use Cases
 ### Authenticate an Individual in a secure and trusted way
@@ -15,7 +15,7 @@ Any entity wishing to provide service to an Individual can make an authenticatio
  - MOSIP should verify the integrity of the message sent to avoid man-in-the-middle attacks
 
 ### Capture of biometrics data must be in a standard way
-An entity that captures data from a biometric device must conform to standards to ensure interoperability. Please refer to the following link for the standards https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications
+An entity that captures data from a biometric device must conform to standards to ensure interoperability. Please refer to the [**link**](MOSIP-Biometric-Data-Specifications) for the standards
 
 
 ### Authenticate an Individual based on his basic identity data captured via MOSIP
@@ -47,7 +47,7 @@ MOSIP should ensure that Authentication API scales out based on the increase in 
 To ensure that the request is coming from a registered TSP and has not been modified during transit, MOSIP must be validate the TSP and integrity of the message, before authenticating an Individual.  
 
 ### Authentication API must be audited for reporting and fraud management checks
-To analyze and generate authentication patterns, all authentication requests should be audited. These reports can then be used to determine any frauds suring authentication process.
+To analyze and generate authentication patterns, all authentication requests should be audited. These reports can then be used to determine any frauds during authentication process.
 
 ## Logical View    
 ![ID Authentication Logical view](_images/arch_diagrams/MOSIP_IDA_Logical_View_v0.4.png)
