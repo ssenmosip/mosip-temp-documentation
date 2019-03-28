@@ -20,7 +20,7 @@ Courtesy : Sasikumar Ganesan
 
 [LGTM1](lgtm.com/)
 
-[LGTM2](https://lgtm.com/)
+[LGTM2](//lgtm.com/)
 
 [LGTM3](/lgtm.com/)
 
