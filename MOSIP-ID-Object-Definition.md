@@ -333,4 +333,4 @@ request body
 	}
 }
 ```
-Also, please refer to ID Repository API on how an ID Object is managed in MOSIP at [**ID Repository API**](ID-Repository-API)
+Also, please refer to [**ID Repository API**](ID-Repository-API) on how an ID Object is managed in MOSIP.
