@@ -1868,14 +1868,14 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 }
 ```
 
-# Booking Service (Internal)
+# Booking Service (Public)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
-* [POST /appointment/{preRegistrationId}](#post-appointment)
-* [GET /appointment/{preRegistrationId}](#get-appointment)
-* [PUT /appointment/{preRegistrationId}](#put-appointment)
-* [GET /appointment/availability/{registrationCenterId}](#get-appointment-availability)
-* [GET /appointment/{registrationCenterId}?fromDate={date}&toDate={date}](#get-appointment-daterange)
+* [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
+* [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
+* [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
+* [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
+* [GET /appointment/:registrationCenterId?fromDate=:date&toDate=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
 
 ### POST /appointment
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
@@ -1970,12 +1970,57 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 	]
 }
 ```
+### PUT /appointment/:preRegistrationId
+This request used to reterive the appointement details for the specified pre-registration id,
+if exist update the availability for the solt and delete the record from the table and update the dempgraphic record status "Pending_Appointment".
 
-### GET /appointment/{preRegistrationId}
+#### Resource URL
+https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Appointment cancelled successfully
+
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.cancel",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response":{
+      "message":"Appointment cancelled successfully"
+    },
+    "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Appointment cancellation failed.
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.cancel",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors": [
+       {
+          "errorCode": "PRG_BOOK_RCI_015",
+          "message": "Appointment cancellation failed"
+       }
+    ] 
+}
+```
+### GET /appointment/:preRegistrationId
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/{preRegistrationId}
+https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2023,58 +2068,11 @@ preRegistrationId |Yes|Id of the application|37802950913289
 	]
 }
 ```
-### PUT /appointment/{preRegistrationId}
-This request used to reterive the appointement details for the specified pre-registration id,
-if exist update the availability for the solt and delete the record from the table and update the dempgraphic record status "Pending_Appointment".
-
-#### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/{preRegistrationId}
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Appointment cancelled successfully
-
-```JSON
-{
-   "id": "mosip.pre-registration.appointment.cancel",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response":{
-      "message":"Appointment cancelled successfully"
-    },
-    "errors":null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Appointment cancellation failed.
-```JSON
-{
-   "id": "mosip.pre-registration.appointment.cancel",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors": [
-       {
-          "errorCode": "PRG_BOOK_RCI_015",
-          "message": "Appointment cancellation failed"
-       }
-    ] 
-}
-```
-
-### GET /appointment/availability/{registrationCenterId}
+### GET /appointment/availability/:registrationCenterId
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/{preRegistrationId}
+https://mosip.io/v1/prereg-booking/appointment/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -2152,12 +2150,11 @@ registrationCenterId |Yes|Registration Center Id|10004
 	]
 }
 ```
-
-### GET /appointment/{registrationCenterId}?fromDate={Date}&toDate={Date}
+### GET /appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
 #### Resource URL
-https://mosip.io/v1/prereg-booking/appointment/{registrationCenterId}?fromDate={Date}&toDate={Date}
+https://mosip.io/v1/prereg-booking/appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
 
 #### Resource details
 Resource Details | Description
@@ -2210,13 +2207,12 @@ toDate |Yes|To Date | 2019-02-14
 	]
 }
 ```
-
-# BatchJob Service (Internal)
-This service is used by Pre-Registration portal to update an exipred pre registration id  and consumed pre registration id and master data sync for availability.
+# BatchJob Service (Private)
+This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id and master data sync for availability.
 
 * [PUT /expired](#put-expired)
-* [PUT /consumned](#put-consumned)
-* [PUT /avilabilitySync](#put-avilabilitySync)
+* [PUT /consumed](#put-consumed)
+* [PUT /availabilitySync](#put-availabilitysync)
 
 ### PUT /expired
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
@@ -2335,11 +2331,11 @@ Requires Authentication | Yes
 }
 ```
 
-# Notification Service (Internal)
+# Notification Service (public)
 This service details used by Pre-Registration portal to trigger notification via SMS or email and get QRCode.
 
 * [POST /notify](#post-notify)
-* [POST /generateQRCode](#put-generateQRCode)
+* [POST /generateQRCode](#put-generateqrcode)
 
 ### POST /notify
 This request is used to notify the pre-registration acknowledgement via Email and SMS.
@@ -2494,7 +2490,7 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 }
 ```
 
-# Transliteration Service (Internal)
+# Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
 * [POST /transliterate](#post-transliterate)
