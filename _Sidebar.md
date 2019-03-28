@@ -29,7 +29,7 @@
   * [ID Repository](https://github.com/mosip/mosip/wiki/ID-Repository-API)
   * [ABIS APIs](https://github.com/mosip/mosip/wiki/ABIS-APIs)
   * [Master Data APIs](https://github.com/mosip/mosip/wiki/Master-data-APIs)
-  * [Pre-Registration APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-Services)
+  * [Pre-Registration](https://github.com/mosip/mosip/wiki/Pre-Registration-Services)
   * [Registration Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
   * [AuthN & AuthZ APIs](https://github.com/mosip/mosip/wiki/AuthN-&-AuthZ-APIs)
 * [Developer Documentation](https://github.com/mosip/mosip/wiki/Developer-Documentation)
