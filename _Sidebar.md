@@ -1,5 +1,5 @@
 ## MOSIP Wiki
-* [Overview](https://github.com/mosip/mosip/wiki)
+* [Overview](wiki)
 * Architecture
   * [Principles](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
   * [Logical view](https://github.com/mosip/mosip/wiki/Logical-Architecture)  
