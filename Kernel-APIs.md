@@ -2425,7 +2425,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ```
 
 
-﻿﻿## 13. Digital signatures
+# 13. Digital signatures
 
 #### Background
 
