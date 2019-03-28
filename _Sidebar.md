@@ -1,5 +1,5 @@
 ## MOSIP Wiki
-* [Overview](https://github.com/mosip/mosip/wiki)
+* [Overview](/mosip/mosip/wiki)
 * Architecture
   * [Principles](https://github.com/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
   * [Logical view](https://github.com/mosip/mosip/wiki/Logical-Architecture)  
@@ -43,13 +43,20 @@
   * [Attachments](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)
   * [Testing Attachments - Kernel](https://github.com/mosip/mosip/wiki/Testing-Attachments---Kernel)
 
-[Overview](https://github.com/mosip/mosip/wiki)
+  * [Principles1](Architecture-Principles-&-Platform-Goals)
 
-[Overview](/wiki)
+  * [Principles2](/Architecture-Principles-&-Platform-Goals)
+
+  * [Principles3](wiki/Architecture-Principles-&-Platform-Goals)
+
+  * [Principles4](/wiki/Architecture-Principles-&-Platform-Goals)
+
+  * [Principles5](mosip/wiki/Architecture-Principles-&-Platform-Goals)
+
+  * [Principles6](/mosip/wiki/Architecture-Principles-&-Platform-Goals)
+
+  * [Principles7](mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
+
+  * [Principles8](/mosip/mosip/wiki/Architecture-Principles-&-Platform-Goals)
 
 
-[Overview](/mosip/wiki)
-
-[Overview](/mosip/mosip/wiki)
-
-[Overview](/github.com/mosip/mosip/wiki)
