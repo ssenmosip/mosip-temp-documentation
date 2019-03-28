@@ -10,7 +10,7 @@ MOSIP platform config is the file a system owner will create that controls which
 ### MOSIP Config server
 MOSIP will have a centralized config server where all the configuration elements will go including the platform config and ID Object schema. MOSIP will use spring cloud config to implement the config server. All the config files will be version controlled in git and the config server will fetch the config values from a git url. Different sets of configurations can be created based on the environment. One set for Pre-Prod and one for Prod etc. so that system administrators need not change the values on the same set of files.
 
-Please refer to [**developer documentation**](https://github.com/mosip/mosip/wiki/3.1--MOSIP-Configuration-Server) for usage steps
+Please refer to [**developer documentation**](MOSIP-Configuration-Server) for usage steps
 
 ![Config Server Setup](_images/arch_diagrams/MOSIP_config_server_setup.png)
 
