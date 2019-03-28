@@ -76,3 +76,8 @@ Attendees: Ramesh, Krishnan, Technoforte Team, Shravan, Romila, John, Amandeep, 
 
 Link: [MoM - MOSIP Full Demo Kernel - Customer Meeting - 31Jan19.docx](_files/MoM_MOSIP_Full_Demo_Kernel_Customer_Meeting_31Jan19.docx)
 
+16) ## MOSIP Security Review Discussion for Registration Processor - Customer Meeting - 28Mar'19
+Attendees: Sasi, Ramesh, Shrikant, Shravan, Romila, Sanjay, John, Karthik, Nasir, Sada, Mono, Omsai, Resham, Vivek, Rounak
+
+Link: [MoM - MOSIP Registration Processor Security Review Discussion - Customer Meeting - 28Mar19.docx] 
+(_files/MoM_MOSIP_Registration_Processor_Security_Review_28Mar19.docx)
