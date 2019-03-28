@@ -13,13 +13,12 @@ This document will provide the specification an ABIS provider must implement to 
 - MOSIP will interact with ABIS only via message queues
 - JSON format will be used for all control messages like INSERT, IDENTIFY etc... to interact with ABIS
 - CBEFF XML format will be used to send biometrics data to ABIS
-  (Please refer https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications#cbeff-xml-format-sample for sample 
-  cbeff data)
+  (Please refer to [**MOSIP Biometric Data Specifications**](MOSIP-Biometric-Data-Specifications) for cbeff data sample)
 - Inside the CBEFF XML individual biometrics data must be in respective ISO format
 
 Biometric data sent to ABIS will follow the below standards.
 
-- CBEFF: ISO/IEC 19785-3 (Please refer to https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications for 
+- CBEFF: ISO/IEC 19785-3 (Please refer to [**MOSIP Biometric Data Specifications**](MOSIP-Biometric-Data-Specifications) for 
   details)
 - Fingerprints
   * Finger Print Minutiae Record (FMR) - ISO/IEC 19794-2
@@ -84,6 +83,4 @@ Target FPIR | score
 
 ## API's to interact with an ABIS system
 
-The following page details the API's that an ABIS system must support 
-
-https://github.com/mosip/mosip/wiki/ABIS-APIs
+[**ABIS APIs**](ABIS-APIs) details the API's that an ABIS system must support
