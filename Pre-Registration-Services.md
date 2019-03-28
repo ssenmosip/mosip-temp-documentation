@@ -2383,11 +2383,11 @@ Requires Authentication | Yes
 }
 ```
 # Generate QR code service (public)
-This service details used by Pre-Registration portal to generate QRCode.
+This service details used by Pre-Registration portal to generate QR Code.
 
 * [POST qrCode/generate](#post-qrcodegenerate)
 
-### POST  qrCode/generate
+### POST qrCode/generate
 This request is used to generate QR Code for the pre-registration acknowledgement.
 
 #### Resource URL
