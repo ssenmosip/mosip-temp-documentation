@@ -1653,7 +1653,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
   ]
 }
 ```
-### DELETE  /documents/preRegistration/:documentId
+### DELETE /documents/preRegistration/:documentId
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
