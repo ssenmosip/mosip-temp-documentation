@@ -39,7 +39,7 @@ This document describes the following aspects
         
         
      **b.  Demographic\_info.json**  
-        - Follwed the Mosip [ID Spec](MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
+        - Follwed the Mosip [**ID Spec**](MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **registration_id.txt**
     -   It contains the generated Registration id which is having the length of 29 digit.  
