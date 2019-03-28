@@ -2597,8 +2597,8 @@ request.to_field_lang |Yes|To language code|ara
    "response": {
     "from_field_lang": "eng",
     "from_field_value": "Kishan",
-    "to_field_lang": "ara"
-    "to_field_value": "كِسهَن",
+    "to_field_lang": "ara",
+    "to_field_value": "كِسهَن"
   }
 }
 ```
