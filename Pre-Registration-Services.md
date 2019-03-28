@@ -1201,19 +1201,19 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
-* [POST /documents/{preRegistrationId}](#post-documents)
-* [PUT /documents/{preRegistrationId}](#put-documents)
-* [GET /documents/{preRegistrationId}](#get-documents)
-* [DELETE /documents/{preRegistrationId}](#delete-documents)
-* [GET /documents/{preRegistrationId}/{documentId}](#get-documents)
-* [DELETE /documents/{preRegistrationId}/{documentId}](#delete-documents)
+* [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
+* [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
+* [GET /documents/:preRegistrationId](#get-documentspreregistrationid)
+* [GET /documents/preRegistration/:documentId](#get-documentspreregistrationdocumentid)
+* [DELETE /documents/:preRegistrationId](#delete-documentspreregistrationid)
+* [DELETE /documents/preRegistration/:documentId](#delete-documentspreregistrationdocumentid)
 
 
-### POST /documents/{preRegistrationId}
+### POST /documents/:preRegistrationId
 This request is used to upload document with the metadata which include document cateogry code, document type code and document format for a pre-registration Id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/{preRegistrationId}
+https://mosip.io/v1/prereg-document/douments/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1311,11 +1311,11 @@ request.langCode |Yes|Language code of the application|ENG
 }
 ```
 
-### PUT /documents/{preRegistrationId}
+### PUT /documents/:preRegistrationId
 This request used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/{preRegistrationId}?catCode={doc_cat_code}&sourcePreId={preRegistrationId}
+https://mosip.io/v1/prereg-document/douments/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1393,11 +1393,11 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 }
 ```
 
-### GET /documents/{preRegistrationId}
+### GET /documents/:preRegistrationId
 This request used to retrieve all documents metadata associated with particular pre-registration.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/{preRegistrationId}
+https://mosip.io/v1/prereg-document/douments/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
@@ -1462,77 +1462,11 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
   	]
 }
 ```
-### DELETE /documents/{preRegsitrationId}
-This request used to delete all the documents which are assosiated with requested pre-registration id.
-
-#### Resource URL
-https://mosip.io/v1/prereg-document/douments/{preRegistrationId}
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Path Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-preRegsitrationId |Yes|pre-registration id of the application|37802950913289
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Documents successfully deleted
-```JSON
-{
-   "id": "mosip.pre-registration.document.delete",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": {
-       "message": "All documents assosiated with requested pre-registration id deleted sucessfully"
-    },
-   "errors":null
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration Id
-```JSON
-{
-   "id": "mosip.pre-registration.document.delete",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-      {
-    		"errorCode": "PRG_PAM_DOC_005",
-    		"message": "Documents is not found for the requested pre-registration id"
-      }
-  ]
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration Id
-```JSON
-{
-   "id": "mosip.pre-registration.document.delete",
-   "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-      {
-    		"errorCode": "PRG_PAM_DOC_006",
-    		"message": "Documents failed to delete"
-      }
-  ]
-}
-```
-### GET /documents/{preRegistrationId}/{documentId}
+### GET /documents/preRegistration/:documentId
 This request used to reterive the document for a particular document id from the File System server.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/{preRegistrationId}/{documentId}
+https://mosip.io/v1/prereg-document/douments/preRegistration/:documentId
 
 #### Resource details
 Resource Details | Description
@@ -1595,11 +1529,77 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
   ]
 }
 ```
-### DELETE  /documents/{preRegistrationId}/{documentId}
+### DELETE /documents/:preRegsitrationId
+This request used to delete all the documents which are assosiated with requested pre-registration id.
+
+#### Resource URL
+https://mosip.io/v1/prereg-document/douments/:preRegistrationId
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegsitrationId |Yes|pre-registration id of the application|37802950913289
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Documents successfully deleted
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": {
+       "message": "All documents assosiated with requested pre-registration id deleted sucessfully"
+    },
+   "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration Id
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+    		"errorCode": "PRG_PAM_DOC_005",
+    		"message": "Documents is not found for the requested pre-registration id"
+      }
+  ]
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid or empty pre-registration Id
+```JSON
+{
+   "id": "mosip.pre-registration.document.delete",
+   "version" : "1.0",
+   "responseTime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+      {
+    		"errorCode": "PRG_PAM_DOC_006",
+    		"message": "Documents failed to delete"
+      }
+  ]
+}
+```
+### DELETE  /documents/preRegistration/:documentId
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
-https://mosip.io/v1/prereg-document/douments/{preRegistrationId}/{documentId}
+https://mosip.io/v1/prereg-document/douments/preRegistration/:documentId
 
 #### Resource details
 Resource Details | Description
@@ -1662,8 +1662,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
   ]
 }
 ```
-
-# DataSync Service
+# DataSync Service (External)
 This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 * [POST /sync](#post-sync)
