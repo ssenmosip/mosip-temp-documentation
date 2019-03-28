@@ -9,7 +9,7 @@ Pre registration is the module which is the web channel of the MOSIP. Following 
 ## Process view *WIP
 Below is the wiki link for pre registration.
 
-[Process Flow](https://github.com/mosip/mosip/wiki/Process-view#Pre-registration)
+[**Process Flow**](Process-view#Pre-registration)
 ## 1. Use case
 ![Use case diagram](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
     
@@ -64,3 +64,6 @@ Technical flow and logical component
 
 ![Logical deployment view](https://github.com/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
 
+
+
+![Use case diagram](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/usecase_preregistration.jpg)
