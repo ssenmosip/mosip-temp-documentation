@@ -22,7 +22,7 @@ This document describes the following aspects
     
     **Biometric Folder:**
     
-    Each folder contains the respective biometric detail in [CBEFF XML](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
+    Each folder contains the respective biometric detail in [**CBEFF XML**](MOSIP-Biometric-Data-Specifications) format.
     It contains the applicant's IRIS, Finger Print and Face bio in XML format.
 
     **Demographic Folder:**
@@ -39,7 +39,7 @@ This document describes the following aspects
         
         
      **b.  Demographic\_info.json**  
-        - Follwed the Mosip [ID Spec](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
+        - Follwed the Mosip [ID Spec](MOSIP-ID-Object-definition) and generated this JSON structure. It contains the entire text data captured in the UI application. 
 	
 3.  **registration_id.txt**
     -   It contains the generated Registration id which is having the length of 29 digit.  
@@ -398,9 +398,9 @@ This document describes the following aspects
     -   HashSequence for both applicant and OSI detail.{It provides the hash created sequence}
 
 7.  **Registration Officer authentication Bio [officer_bio_cbeff.xml]**
-    -   Officer bio should be captured in standard [CBEFF xml](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
+    -   Officer bio should be captured in standard [CBEFF xml](MOSIP-Biometric-Data-Specifications) format.
 7.  **Registration Supervisor authentication Bio [supervisor_bio_cbeff.xml]**
-    -   Supervisor bio should be captured in standard [CBEFF xml](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) format.
+    -   Supervisor bio should be captured in standard [CBEFF xml](MOSIP-Biometric-Data-Specifications) format.
 
 -   Capture the Registration Officer/Supervisor Authentication finger
     image and append to the Zip object.
