@@ -2262,15 +2262,15 @@ toDate |Yes|To Date | 2019-02-14
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id and master data sync for availability.
 
-* [PUT batch/expired](#put-expired)
-* [PUT batch/consumed](#put-consumed)
+* [PUT batch/expiredApplication](#put-expiredapplication)
+* [PUT batch/consumedApplication](#put-consumedapplication)
 * [PUT batch/availabilitySync](#put-availabilitysync)
 
-### PUT /expired
+### PUT /expiredApplication
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
 
 #### Resource URL
-https://mosip.io/v1/preregistration/batch/expired
+https://mosip.io/v1/preregistration/batch/expiredApplication
 
 #### Resource details
 Resource Details | Description
@@ -2310,11 +2310,11 @@ Requires Authentication | Yes
 	]
 }
 ```
-### PUT /consumed
+### PUT /consumedApplication
 This request is used to update the consumed status for all pre-Registration ids given by registration processor.
 
 #### Resource URL
-https://mosip.io/v1/preregistration/batch/consumed
+https://mosip.io/v1/preregistration/batch/consumedApplication
 
 #### Resource details
 Resource Details | Description
