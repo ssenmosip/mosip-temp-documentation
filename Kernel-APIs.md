@@ -2459,7 +2459,7 @@ Digital signatures are needed in various places of the MOSIP system. Few example
 
 
 
-![Module Diagram](_images/kernel-cryptography-digitalsignature.jpeg)
+![Module Diagram](_images/kernel-cryptography-digitalsignature.jpg)
 
 
 
