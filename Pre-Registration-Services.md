@@ -253,7 +253,7 @@ This service details used by Pre-Registration portal to maintain the demographic
 * [PUT /applications/:preRegistrationId](#put-applicationspreRegistrationid)
 * [GET /applications/:preRegistrationId](#get-applicationspreRegistrationid)
 * [GET /applications/status/:preRegistrationId](#get-applicationsstatuspreRegistrationid)
-* [GET /applications/:userId](#get-applicationsuserid)
+* [GET /applications](#get-applications)
 * [DELETE /applications/:preRegistrationId](#delete-applicationspreRegistrationid)
 
 ### POST /applications
@@ -743,7 +743,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
       "preRegistrationId": "64269837502851",
       "updatedDateTime": "2019-02-11T13:37:37.215Z",
       "statusCode": "Pending_Appointment",
-      "langCode": "eng",
+      "langCode": "fra",
       "demographicDetails":{
          "identity":{
             "IDSchemaVersion":1,
@@ -1098,22 +1098,17 @@ preRegistrationId |Yes|Id of the application|62076019780925
 }
 ```
 
-### GET /applications/:userId
-This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id.
+### GET /applications
+This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id from authorization token.
 
 #### Resource URL
-https://mosip.io/v1/prereg-demographic/applications/:userId
+https://mosip.io/v1/prereg-demographic/applications
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
-
-#### Request Path Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-userId |Yes|User Id of the application(Mobile number or email address)|sanober@gmail.com
 
 #### Responses:
 ##### Success Response:
