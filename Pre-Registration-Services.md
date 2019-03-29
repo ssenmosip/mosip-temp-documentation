@@ -33,7 +33,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
 #### Resource URL
-https://mosip.io/preregistration/v1/login/sendOtp
+[**link**](//mosip.io/preregistration/v1/login/sendOtp)
 
 #### Resource details
 Resource Details | Description
@@ -100,7 +100,7 @@ request.langcode|Yes|The preferred language code |fra
 This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/login/validateOtp
+[**link**](//mosip.io/preregistration/v1/login/validateOtp)
 
 #### Resource details
 Resource Details | Description
@@ -166,7 +166,7 @@ request.otp|Yes| received OTP  |345674
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/login/invalidateToken
+[**link**](//mosip.io/preregistration/v1/login/invalidateToken)
 
 #### Resource details
 Resource Details | Description
@@ -193,7 +193,7 @@ Requires Authentication | Yes
 This request will load the configuration parameters while loading the pre-registration portal page.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/login/config
+[**link**](//mosip.io/preregistration/v1/login/config)
 
 #### Resource details
 Resource Details | Description
@@ -262,7 +262,7 @@ This service details used by Pre-Registration portal to maintain the demographic
 This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/applications
+[**link**](//mosip.io/preregistration/v1/applications)
 
 #### Resource details
 Resource Details | Description
@@ -572,7 +572,7 @@ PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-r
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/applications/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/applications/:preRegistrationId
 
 #### Resource details
 Resource Details | Description
