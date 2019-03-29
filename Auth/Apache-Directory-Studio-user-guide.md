@@ -4,7 +4,7 @@ Follow the below guidelines to use Apache Directory Studio.
 
 ## Download Apache Directory Studio
 
-Download apache directory studio from [here](https://directory.apache.org/studio/downloads.html).
+Download apache directory studio from [here](//directory.apache.org/studio/downloads.html).
 Look for a ZIP file or a TAR ball.
 
 ## Install Apache Directory Studio
@@ -54,4 +54,4 @@ Once you are done with the configuration press ctrl+s to save the configurations
 
 ## Object classes
 
-For documentation about Object classes, schemas and it's attributes, click [here](http://directory.apache.org/apacheds/basic-ug/2.3-introducing-schema.html)
+For documentation about Object classes, schemas and it's attributes, click [here](//directory.apache.org/apacheds/basic-ug/2.3-introducing-schema.html)
