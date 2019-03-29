@@ -739,4 +739,4 @@ Reviewed by:     	Avinash.Chandrashekar@mindtree.com, gita.phutane@mindtree.com
 
 ***
 
-![Pre-Registration](https://github.com/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG)
+![Diagram](/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG)
