@@ -732,9 +732,9 @@ The process of this to Test the MOSIP as a system like by considering the real d
 
 Doc_Version: 1.0
 
-Point of Contact/Author: jyoti.kori@mindtree.com, gita.phutane@mindtree.com
+Point of Contact/Author: ```jyoti.kori@mindtree.com, gita.phutane@mindtree.com```
 
-Reviewed by:     	Avinash.Chandrashekar@mindtree.com, gita.phutane@mindtree.com
+Reviewed by:     	```Avinash.Chandrashekar@mindtree.com, gita.phutane@mindtree.com```
 
 
 ***
