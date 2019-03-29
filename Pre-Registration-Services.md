@@ -2411,7 +2411,7 @@ request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
 request.appointmentDate|Yes| Booking appointment date|2019-01-18
 request.appointmentTime| Yes|Booking appointment time| 12:02
 request.mobNum|  Yes| applicant mobile number |9480456789
-request.emailID| Yes|applicant email Id |sanober@gmail.com
+request.emailID| Yes|applicant email Id |```sanober@gmail.com```
 request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
 request.LangCode| Yes| language code whatever user choose while login|eng
 
@@ -2493,7 +2493,7 @@ request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
 request.appointmentDate|Yes| Booking appointment date|2019-01-18
 request.appointmentTime| Yes|Booking appointment time| 12:02
 request.mobNum|  Yes| applicant mobile number |9480456789
-request.emailID| Yes|applicant email Id |sanober@gmail.com
+request.emailID| Yes|applicant email Id |```sanober@gmail.com```
 request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
 request.LangCode| Yes| language code whatever user choose while login|eng
 
