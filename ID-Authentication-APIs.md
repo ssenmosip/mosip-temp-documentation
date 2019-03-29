@@ -1,8 +1,15 @@
-This wiki page details the REST services exposed by ID Authentication. Version 1.0
+This section details about the REST services in ID Authentication module.
+* [Authentication Service]
+* [eKYC Service]
+* [OTP Request Service]
+* [Static Pin Service]
+* [VID Service]
 
-## 1. Authentication
+## 1. Authentication Service (Public)
+
+### POST /identity/auth/
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
-1. OTP based - TOTP (Time based OTP)
+1. OTP based - OTP (Time based OTP)
 2. Demo based - Name, DOB, Age, Gender, Address, FullAddress
 3. Bio based - Fingerprint, IRIS and Face
 
@@ -10,8 +17,8 @@ Users of Authentication service -
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - Auth Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth Partners and sent to MOSIP, via MISP.
 
-### Resource URL
-### `POST /v1/identity/auth/<Auth-Partner-ID>/<MISP-LK>`
+#### Resource URL
+<div>https://mosip.io/v1/identity/auth/<Auth-Partner-ID>/<MISP-LK></div>
 
 ### Resource details
 
@@ -44,10 +51,10 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 request: demographics|N| Demographic data of an Individual| |
 request: biometrics|N| Biometric data of an Individual| |
 
-### Sample Request Header
+### Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
 
-### Sample Request Body
+### Request Body
 ```JSON
 {
   "id": "mosip.identity.auth",
@@ -149,12 +156,13 @@ request: biometrics|N| Biometric data of an Individual| |
 }
 ```
 
-### Sample Response Header     
+### Response Header     
 ##### MOSIP-AuthX = `<MOSIP Digital Signature>`
 
-### Sample Response Body
+### Response Body
 #### Success Scenario :
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : Successfully authenticated an Individual    
 
 ```JSON
 {
@@ -174,7 +182,8 @@ Status Code : 200 (OK)
 ```
 
 #### Failed Response:
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)    
+###### Description : Authentication of an Individual failed
 
 ```JSON
 {
@@ -191,20 +200,23 @@ Status Code : 200 (OK)
   },
   "errors": [
     {
-      "code": "IDA-MLC-002",
-      "message": "Invalid UIN"
+      "errorCode": "IDA-MLC-002",
+      "errorMessage": "Invalid UIN",
+      "actionMessage": "Please retry with the correct UIN"
     }
   ]
 }
 ```
 
-## 2. eKYC
+## 2. eKYC Service (Public)
+
+### POST /identity/kyc/
 This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Auth - 
 1. OTP Auth - OTP
 2. Bio Auth - Fingerprint, IRIS and Face
 
 ### Resource URL
-### `POST /v1/identity/kyc/<eKYC-Partner-ID>/<MISP-LK>`
+<div>https://mosip.io/v1/identity/kyc/<eKYC-Partner-ID>/<MISP-LK></div>
 
 ### Resource details
 
@@ -238,10 +250,10 @@ request: biometrics|N| Biometrics of an Individual| |
 request: transactionID|N| Transaction ID provided by Device Service| |
 
 
-### Sample Request Header
+### Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
 
-### Sample Request
+### Request Body
 ```JSON
 {
   "id": "mosip.identity.kyc",
@@ -296,7 +308,8 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 
 ### Sample Response Body
 #### Success Scenario :
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : KYC Authentication of an Individual successful    
 
 ```JSON
 {
@@ -308,7 +321,7 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   //Auth Response
   "response": {// encoded encrypted KYC info using Partner's public key
-    "authStatus": true,
+    "kycStatus": true,
     "staticToken": "<static_token>",
     "ttl": "time_to_live_for_KYC_Info",
     "identity": {
@@ -368,7 +381,8 @@ Status Code : 200 (OK)
 ```
 
 #### Failed Response:
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : KYC Authentication of an Individual failed    
 
 ```JSON
 {
@@ -380,22 +394,26 @@ Status Code : 200 (OK)
   "transactionID": "txn12345",
   //Auth Response
   "response": {// encoded encrypted KYC info using Partner's public key
-    "authStatus": false,
+    "kycStatus": false,
     "identity": null
   },
   "errors": [
       {
-        "code": "IDA-MLC-002",
-        "message": "Invalid UIN"
+        "errorCode": "IDA-MLC-002",
+        "errorMessage": "Invalid UIN",
+        "actionMessage": "Please retry with the correct UIN"
       }
     ]
 }
 ```
 
-## 3. OTP Request
+## 3. OTP Request Service (Public)
+
+### POST /identity/otp/
 This service enables Partners to request for an OTP for an Individual. The OTP will be send via message or email as requested to the Individual. This OTP can then be used to authenticate an Individual using Authentication or eKYC service.
 
-### Resource URL - `POST /v1/identity/otp/<Partner-ID>/<MISP-LK>`
+### Resource URL 
+<div>https://mosip.io/v1/identity/otp/<Partner-ID>/<MISP-LK></div>
 
 ### Resource details
 
@@ -416,10 +434,10 @@ individualIdType| Y | Allowed Type of Individual ID - VID, UIN | VID
 otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 
 
-### Sample Request Header
+### Request Header
 ##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
 
-### Sample Request
+### Request Body
 ```JSON
 {
   "id": "mosip.identity.otp",
@@ -435,12 +453,13 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 }
 ```
 
-### Sample Response Header     
+### Response Header     
 ##### MOSIP-AuthX = `<MOSIP Digital Signature>`
 
-### Sample Response Body
+### Response Body
 #### Success Scenario:
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : OTP for Authentication or KYC Service was successfully sent to the Individual        
 
 ```JSON
 {
@@ -460,12 +479,13 @@ Status Code : 200 (OK)
 ```
 
 #### Failed Scenario :   
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : Failed to send OTP to the Individual   
 
 ```JSON
 {
   //API Metadata
-  "id": "mosip.identity.kyc",
+  "id": "mosip.identity.otp",
   "version": "1.0",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
@@ -474,17 +494,21 @@ Status Code : 200 (OK)
   "response": null,
   "errors": [
     {
-      "code": "IDA-MLC-003",
-      "message": "Invalid VID"
+      "errorCode": "IDA-MLC-003",
+      "errorMessage": "Invalid VID",
+      "actionMessage": "Please retry with correct VID"
     }
   ]
 }
 ```
 
-## 4. Static Pin Storage
+## 4. Static Pin Storage (Internal)
+
+### POST /identity/staticpin
 This is an internal service to be used by Resident Services to store Static Pin generated by an Individual. This Static Pin should then be used to authenticate an Individual using Authentication service.
 
-### Resource URL - `POST /v1/identity/staticpin`
+### Resource URL
+<div>https://mosip.io/v1/identity/staticpin</div>
 
 ### Resource details
 
@@ -504,7 +528,7 @@ individualIdType| Y | Allowed Type of Individual ID - VID, UIN | |VID
 request: staticPin|Y|Static Pin to be stored||123456
 
 
-### Sample Request
+### Request Body
 ```JSON
 {
   "id": "mosip.identity.staticpin",
@@ -518,10 +542,11 @@ request: staticPin|Y|Static Pin to be stored||123456
 }
 ```
 
-### Sample Response
+### Response Body
 
 #### Success Scenario:
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : Static Pin stored successfully        
 
 ```JSON
 {
@@ -533,7 +558,8 @@ Status Code : 200 (OK)
 ```
 
 #### Failed Scenario :   
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : Static Pin storage failed    
 
 ```JSON
 {
@@ -542,17 +568,20 @@ Status Code : 200 (OK)
   "responseTime": "2019-01-21T07:22:58.086+05:30",
   "errors": [
     {
-      "code": "IDA-SPA-003",
-      "message": "Could not store static pin of the Individual"
+      "errorCode": "IDA-SPA-003",
+      "errorMessage": "Could not store static pin of the Individual"
     }
   ]
 }
 ```
 
-## 5. VID Generator
+## 5. VID Generator Service (Internal)
+
+### POST /identity/vid/:UIN
 This is an internal service to be used by Resident Services to generate VID requested by an Individual. This VID should then act as a proxy ID for an Individual (active for limited duration). This VID could be used to authenticate an Individual (as a replacement for UIN) using Auth service.
 
-### Resource URL - `POST /v1/identity/vid/{uin}`
+### Resource URL 
+<div>https://mosip.io/v1/identity/vid/:UIN/div>
 
 ### Resource details
 
@@ -561,10 +590,11 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-### Sample Response
+### Response Body
 
 #### Success Scenario:
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : VID generated successfully  
 
 ```JSON
 {
@@ -579,7 +609,8 @@ Status Code : 200 (OK)
 ```
 
 #### Failed Scenario :   
-Status Code : 200 (OK)
+###### Status Code : 200 (OK)
+###### Description : VID could not be generated 
 
 ```JSON
 {
@@ -588,8 +619,8 @@ Status Code : 200 (OK)
   "responseTime": "2019-01-21T07:22:58.086+05:30",
   "errors": [
     {
-      "code": "IDA-MLC-002",
-      "message": "Invalid UIN"
+      "errorCode": "IDA-MLC-002",
+      "errorMessage": "Invalid UIN"
     }
   ]
 }
