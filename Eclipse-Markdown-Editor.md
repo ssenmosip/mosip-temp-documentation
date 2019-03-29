@@ -9,7 +9,7 @@ Search and Install **“ Markdown Text Editor “**  form Eclipse Marketplace.
  
  
 
-Web Link:  https://marketplace.eclipse.org/content/markdown-text-editor
+[**Web Link**](//marketplace.eclipse.org/content/markdown-text-editor)
 
 
 ### GitHub Flavored Markdown viewer plugin
@@ -20,19 +20,27 @@ Search and Install **“ GitHub Flavored Markdown “** form Eclipse Marketplace
  ![](_images/ecl_markdown/0_gfm_viewr_plugin.PNG)
 
 
-Web Link:  https://marketplace.eclipse.org/content/github-flavored-markdown-viewer-plugin
+[**Web Link**](//marketplace.eclipse.org/content/github-flavored-markdown-viewer-plugin)
 
 
 
 
 # MOSIP WIKI Local Setup
 
-**MOSIP wiki will have architecture, API specs and developer documentation only. Low level design will be under the design folder in https://github.com/mosip/mosip/tree/DEV/design**
-
-**Step1:** Access MOSIP wiki at https://github.com/mosip/mosip/wiki
+**MOSIP wiki will have architecture, API specs and developer documentation only. Low level design will be under the design [**folder**](/mosip/mosip/tree/DEV/design)**
 
 
-**Step2:** Copy repository URL and Git clone https://github.com/mosip/mosip.wiki.git
+**Step1:** Access MOSIP wiki at [**link**](/mosip/mosip/wiki)
+
+
+
+**Step2:** Copy repository URL and Git clone the [link](//github.com/mosip/mosip.wiki.git)
+
+**Step2:** Copy repository URL and Git clone the [link](/mosip/mosip.wiki.git)
+
+**Step2:** Copy repository URL and Git clone the [link](/mosip.wiki.git)
+
+
 
 
 ![](_images/ecl_markdown/1_mosip_wiki.PNG)
@@ -105,4 +113,5 @@ Remember to delete generated “.xxx.md.html” preview file after using this op
 
 
 
-**Refer https://guides.github.com/features/mastering-markdown for Markdown Syntax guide**
+**Refer to this [**link**](//guides.github.com/features/mastering-markdown) for Markdown Syntax guide**
+
