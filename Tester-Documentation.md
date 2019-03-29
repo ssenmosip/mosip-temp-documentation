@@ -232,7 +232,7 @@ Tools/Technology Used: TestFX, Java, Maven, Junit 5, Eclipse, derby db
 Page Object Model
 The framework customized is Page Object Model (POM), each screen/Object view is treated as an individual page. Input Data, Page locators and test logic are segregated from each other. They are loosely connected to accommodate the future changes with lesser maintenance effort.
 The below diagram depicts the high level view.
-[[https://github.com/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG]]
+[[/mosip/mosip/blob/fd53c0f8343d3d23fb01630b7655a28421e57a39/testing/automation/RegClientAutoFrmwrk.JPG]]
 
 * Core framework – which holds common code for functions, Input Data, the controller script and generic services like logging, exception handling
 * Page Object – These are the pages, which hold info about the pages/object view relative to their locators, values and respective page assertions
@@ -275,7 +275,7 @@ Tests to validate the functionality of each screen either with Successful or Err
 
 **Sample directory structure from the current framework**
 
-[[https://github.com/mosip/mosip/blob/add180c7590ac0d97ae941008a22fc01e0a01de3/testing/automation/RegClientAutoFrmwrk-DirStr.JPG]]
+[[/mosip/mosip/blob/add180c7590ac0d97ae941008a22fc01e0a01de3/testing/automation/RegClientAutoFrmwrk-DirStr.JPG]]
 
 # 9. Data Coverage
 The approach includes creating data generation utilities for specific purposes in testing 
@@ -462,7 +462,7 @@ Number | Test Scenarios | Category|
 27 | verify packet-manager virus scan location when empty  | 	Configuration |
 
 
-[[https://github.com/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG]]
+[[/mosip/mosip-test/blob/master/Registration-Processor-Workflow1.JPG]]
 
 ## 14.4 Pre-requisite for Reg Proc testing
 1.	Create resident test packet from reg client
@@ -686,7 +686,7 @@ QA Analyst is responsible for the sanity testing.  QA Analyst will be executing 
 
 ## 14.9 Test Setup
 Below is the Block diagram / network diagram depicting all the connections and hardware devices.
-<!---[[https://github.com/mosip/mosip-test/blob/master/rptopo.png]]--->
+<!---[[/mosip/mosip-test/blob/master/rptopo.png]]--->
 
 ## 14.10 Hardware – Server configuration
 
