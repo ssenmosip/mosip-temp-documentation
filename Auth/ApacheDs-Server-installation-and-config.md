@@ -12,9 +12,9 @@ Use one of the three methods below to download the binary file of ApacheDs.
     wget http://mirrors.estointernet.in/apache//directory/apacheds/dist/2.0.0.AM25/apacheds-2.0.0.AM25-64bit.bin
     ```
 
-2. Click [here](http://mirrors.estointernet.in/apache//directory/apacheds/dist/2.0.0.AM25/apacheds-2.0.0.AM25-64bit.bin) to download ApacheDs binary file in your system and move it to the VM using tools like [WINSCP](https://winscp.net/eng/download.php), scp command in linux terminals etc.
+2. Click [here](//mirrors.estointernet.in/apache//directory/apacheds/dist/2.0.0.AM25/apacheds-2.0.0.AM25-64bit.bin) to download ApacheDs binary file in your system and move it to the VM using tools like [WINSCP](//winscp.net/eng/download.php), scp command in linux terminals etc.
 
-3. If the download link above doesnot work, visit [ApacheDs downloads](https://directory.apache.org/apacheds/downloads.html) page and select Linux binary installer to download file to your system. Then move it to the VM using tools like [WINSCP](https://winscp.net/eng/download.php), scp command in linux terminals etc.
+3. If the download link above doesnot work, visit [ApacheDs downloads](//directory.apache.org/apacheds/downloads.html) page and select Linux binary installer to download file to your system. Then move it to the VM using tools like [WINSCP](//winscp.net/eng/download.php), scp command in linux terminals etc.
 
 ## Install ApacheDs
 
