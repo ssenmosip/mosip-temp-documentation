@@ -9,14 +9,14 @@ AM: Put auth list here
 * Auth API 2
 
 ## 3. Pre-Registration
-* [Service APIs](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs)
+* [Service APIs](Pre-Registration-APIs)
 
 ## 4. Registration-Processor
-* [Registration-Processor APIs](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs) 
+* [Registration-Processor APIs](Registration-Processor-APIs) 
 
 ## 5. Registration
-* [Registration APIs](https://github.com/mosip/mosip/wiki/Registration-APIs) 
+* [Registration APIs](Registration-APIs) 
 
 # ABIS APIs
 
-https://github.com/mosip/mosip/wiki/ABIS-APIs
+[**link**](ABIS-APIs)
