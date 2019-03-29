@@ -2,7 +2,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**JIRA ID**|
 |:------:|-----|---|---|
-|1.|Crypto Services|Provides services to Encrypt/Decrypt Data|[MOS-38](https://mosipid.atlassian.net/browse/MOS-38), [MOS-40](https://mosipid.atlassian.net/browse/MOS-40), [MOS-787](https://mosipid.atlassian.net/browse/MOS-787), [MOS-989](https://mosipid.atlassian.net/browse/MOS-989), [MOS-9284](https://mosipid.atlassian.net/browse/MOS-9284)|
+|1.|Crypto Services|Provides services to Encrypt/Decrypt Data|[MOS-38](//mosipid.atlassian.net/browse/MOS-38), [MOS-40](https://mosipid.atlassian.net/browse/MOS-40), [MOS-787](https://mosipid.atlassian.net/browse/MOS-787), [MOS-989](https://mosipid.atlassian.net/browse/MOS-989), [MOS-9284](https://mosipid.atlassian.net/browse/MOS-9284)|
 |2.|Key Management|Provides Public/PrivateKeys throughout MOSIP for Encryption/Decryption|[MOS-789](https://mosipid.atlassian.net/browse/MOS-789), [MOS-1910](https://mosipid.atlassian.net/browse/MOS-1910), [MOS-9301](https://mosipid.atlassian.net/browse/MOS-9301), [MOS-13359](https://mosipid.atlassian.net/browse/MOS-13359)|
 |3.|UIN Generation|Generates UIN|[MOS-425](https://mosipid.atlassian.net/browse/MOS-425), [MOS-9738](https://mosipid.atlassian.net/browse/MOS-9738) |
 |4.|Audit Manager|Provides service across MOSIP to store Audit logs|[MOS-8](https://mosipid.atlassian.net/browse/MOS-8), [MOS-441](https://mosipid.atlassian.net/browse/MOS-441), [MOS-829](https://mosipid.atlassian.net/browse/MOS-829), [MOS-12903](https://mosipid.atlassian.net/browse/MOS-12903)|
