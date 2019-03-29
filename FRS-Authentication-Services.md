@@ -362,9 +362,9 @@ Masked phone no: XXXXXX9201
 
 Eg:
 
-Original e-mail: umamahesh@gmail.com
+```Original e-mail: umamahesh@gmail.com
 
-Masked e-mail: XXaXXhXXh@gmail.com
+Masked e-mail: XXaXXhXXh@gmail.com```
 
 **E. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
 
