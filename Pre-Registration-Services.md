@@ -572,7 +572,7 @@ PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-r
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
 #### Resource URL
-[**link**](//mosip.io/preregistration/v1/applications/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/applications/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -887,7 +887,7 @@ PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details bas
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/applications/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/applications/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1051,7 +1051,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/applications/status/{preRegistrationId}
+[**link**](//mosip.io/preregistration/v1/applications/status/{preRegistrationId})
 
 #### Resource details
 Resource Details | Description
@@ -1104,7 +1104,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id from authorization token.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/applications
+[**link**](//mosip.io/preregistration/v1/applications)
 
 #### Resource details
 Resource Details | Description
@@ -1185,7 +1185,7 @@ Requires Authentication | Yes
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/applications/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/applications/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1268,7 +1268,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 This request is used to upload document with the metadata which include document cateogry code, document type code and document format for a pre-registration Id.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/douments/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/douments/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1370,7 +1370,7 @@ request.langCode |Yes|Language code of the application|ENG
 This request used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/douments/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/douments/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1452,7 +1452,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 This request used to retrieve all documents metadata associated with particular pre-registration.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/douments/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/douments/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1518,7 +1518,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 This request used to reterive the document for a particular document id from the File System server.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/douments/preRegistration/:documentId
+[**link**](//mosip.io/preregistration/v1/douments/preRegistration/:documentId)
 
 #### Resource details
 Resource Details | Description
@@ -1585,7 +1585,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 This request used to delete all the documents which are assosiated with requested pre-registration id.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/douments/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/douments/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1651,7 +1651,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/douments/preRegistration/:documentId
+[**link**](//mosip.io/preregistration/v1/douments/preRegistration/:documentId)
 
 #### Resource details
 Resource Details | Description
@@ -1725,7 +1725,7 @@ This service enables Pre-Registration to a registration client , request to retr
 This request is used by registration client to retrieve all the pre-registration Ids by date range and registration center Id from the authorize token.
 
 #### Resource URL
-https://mosip.io/v1/prereg-datasync/sync/
+[**link**](//mosip.io/v1/prereg-datasync/sync/)
 
 #### Resource details
 Resource Details | Description
@@ -1798,7 +1798,7 @@ request.to-date |Yes|To date of the application|2019-02-12
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
 
 #### Resource URL
-https://mosip.io/v1/prereg-datasync/sync/consumedPreRegIds
+[**link**](//mosip.io/v1/prereg-datasync/sync/consumedPreRegIds)
 
 #### Resource details
 Resource Details | Description
@@ -1868,7 +1868,7 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 This request is used by registration client to retrieve particular pre-registration data based on a pre-registration id.
 
 #### Resource URL
-https://mosip.io/v1/prereg-datasync/sync/:preRegistrationId
+[**link**](//mosip.io/v1/prereg-datasync/sync/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -1933,7 +1933,7 @@ This service details used by Pre-Registration portal to book an appointment by p
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/appointment/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/appointment/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -2027,7 +2027,7 @@ This request used to reterive the appointement details for the specified pre-reg
 if exist update the availability for the solt and delete the record from the table and update the dempgraphic record status "Pending_Appointment".
 
 #### Resource URL
-https://mosip.io/preregistration/v1/appointment/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/appointment/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -2072,7 +2072,7 @@ Requires Authentication | Yes
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/appointment/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/appointment/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -2124,7 +2124,7 @@ preRegistrationId |Yes|Id of the application|37802950913289
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/appointment/:preRegistrationId
+[**link**](//mosip.io/preregistration/v1/appointment/:preRegistrationId)
 
 #### Resource details
 Resource Details | Description
@@ -2206,7 +2206,7 @@ registrationCenterId |Yes|Registration Center Id|10004
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
+[**link**](//mosip.io/preregistration/v1/appointment/:registrationCenterId?fromDate=:Date&toDate=:Date)
 
 #### Resource details
 Resource Details | Description
@@ -2270,7 +2270,7 @@ This service is used by Pre-Registration portal to update an expired pre registr
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/batch/expiredApplication
+[**link**](//mosip.io/preregistration/v1/batch/expiredApplication)
 
 #### Resource details
 Resource Details | Description
@@ -2314,7 +2314,7 @@ Requires Authentication | Yes
 This request is used to update the consumed status for all pre-Registration ids given by registration processor.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/batch/consumedApplication
+[**link**](//mosip.io/preregistration/v1/batch/consumedApplication)
 
 #### Resource details
 Resource Details | Description
@@ -2359,7 +2359,7 @@ Requires Authentication | Yes
 This request is used to synchronize booking slots availability table with master data.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/batch/availabilitySync
+[**link**](//mosip.io/preregistration/v1/batch/availabilitySync)
 
 #### Resource details
 Resource Details | Description
@@ -2391,7 +2391,7 @@ This service details used by Pre-Registration portal to generate QR Code.
 This request is used to generate QR Code for the pre-registration acknowledgement.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/qrCode/generate
+[**link**](//mosip.io/preregistration/v1/qrCode/generate)
 
 #### Resource details
 Resource Details | Description
@@ -2473,7 +2473,7 @@ This service details used by Pre-Registration portal to trigger notification via
 This request is used to notify the pre-registration acknowledgement via Email and SMS.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/notification/notify
+[**link**](//mosip.io/preregistration/v1/notification/notify)
 
 #### Resource details
 Resource Details | Description
@@ -2555,7 +2555,7 @@ This service is used by Pre-Registration portal to transliterate given value fro
 This request is used to transliterate from_Field_value to to_field_value based on given valid from_lang_code to to_lang_code.
 
 #### Resource URL
-https://mosip.io/preregistration/v1/transliteration/transliterate
+[**link**](//mosip.io/preregistration/v1/transliteration/transliterate)
 
 #### Resource details
 Resource Details | Description
