@@ -1,16 +1,18 @@
-**Registration Client - Application Setup Process:** 
+**Registration Client - Installation and Configuration:** 
 ***
 
-This document contains the information about the 'Registration client' application initial setup process.     
+This document contains the 'Registration client' application initial setup and configuration process at local machine.     
+
+![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
 Registration client has certain prerequisite which is to be completed before installing the software:  
-• Creation of Windows User Accounts.  
-• Addition of user profiles and credentials in the MOSIP Admin Portal.  
-• Setup the users in IAM.  
-• Map user to the particular center in Admin Portal.  
-• Configure the machine(s) where the Registration client application should be installed and executed.  
-• Download the machine + center specific data from MOSIP after installation completed.  
-• On-boarding of Operator(s) and Supervisor(s)  in order to perform enrollments.  
+â€¢ Creation of Windows User Accounts.  
+â€¢ Addition of user profiles and credentials in the MOSIP Admin Portal.  
+â€¢ Setup the users in IAM.  
+â€¢ Map user to the particular center in Admin Portal.  
+â€¢ Configure the machine(s) where the Registration client application should be installed and executed.  
+â€¢ Download the machine + center specific data from MOSIP after installation completed.  
+â€¢ On-boarding of Operator(s) and Supervisor(s)  in order to perform enrollments.  
 
 The Registration client application is delivered into two parts:  
    1. Zip file - Contains Application Base folder structure with installed derby DB.      
@@ -74,7 +76,7 @@ When user clicks on the 'run.jar' it does the following :
     5.	Checks 24(Line 113)  
     6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
 
-   **Once all the Configurations are done run the “freshclam.exe” and then run “clamd.exe”.**  
+   **Once all the Configurations are done run the â€œfreshclam.exeâ€� and then run â€œclamd.exeâ€�.**  
 **External hardware Driver:**
    This section covers the list of drivers required to communicate with the devices.  
    - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should be installed.    
@@ -128,7 +130,7 @@ The Symmetric key would be generated on runtime and same will be used during the
    **REST Service integration Authentication:**  
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
 Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
-To generate the OAuth token the client secret key / login user id / password would be passed to the â€˜Loginâ€™ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
+To generate the OAuth token the client secret key / login user id / password would be passed to the Ã¢â‚¬ËœLoginÃ¢â‚¬â„¢ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
 
 
    **Trusted Platform Module (TPM):**  
@@ -139,16 +141,14 @@ To generate the OAuth token the client secret key / login user id / password wou
    - on Linux - via /dev/tpm0 or /dev/tpmrm0 device file abstractions  
    
    
-   
-
 **System Prerequisites:**
 *** 
-   -CPU - Dual Core Processor - 2GHZ  
-   -Ram - 8 GB  
-   -Local Storage Disk Space - 500 GB 
-   -USB 2.0 ports or equivalent hub.  
-   -Physical machine with TPM facility.   
- 
+   - CPU - Dual Core Processor - 2GHZ  
+   - Ram - 8 GB  
+   - Local Storage Disk Space - 500 GB 
+   - USB 2.0 ports or equivalent hub.  
+   - Physical machine with TPM 2.0 facility.   
+
 **Data Setup:**  
 ***
 In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be taken care at MOSIP Admin portal.
