@@ -6,16 +6,16 @@ This document contains the 'Registration client' application initial setup and c
 ![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
 Registration client has certain prerequisite which is to be completed before installing the software:  
-â€¢ Creation of Windows User Accounts.  
-â€¢ Addition of user profiles and credentials in the MOSIP Admin Portal.  
-â€¢ Setup the users in IAM.  
-â€¢ Map user to the particular center in Admin Portal.  
-â€¢ Configure the machine(s) where the Registration client application should be installed and executed.  
-â€¢ Download the machine + center specific data from MOSIP after installation completed.  
-â€¢ On-boarding of Operator(s) and Supervisor(s)  in order to perform enrollments.  
+- Creation of Windows User Accounts.  
+- Addition of user profiles and credentials in the MOSIP Admin Portal.  
+- Setup the users in IAM.  
+- Map user to the particular center in Admin Portal.  
+- Configure the machine(s) where the Registration client application should be installed and executed.  
+- Download the machine + center specific data from MOSIP after installation completed.  
+- On-boarding of Operator(s) and Supervisor(s)  in order to perform enrollments.  
 
 The Registration client application is delivered into two parts:  
-   1. Zip file - Contains Application Base folder structure with installed derby DB.      
+   1. Base Zip file 			- Contains Application Base folder structure with installed derby DB.      
    2. Application Binaries.  - Contains the application run time jars.  
        - Share libraries.
        - Encrypted client UI and Service jars.
@@ -32,40 +32,38 @@ The Registration client application is delivered into two parts:
       - db : it contains the derby database, tables and few table with the data.  
       - run.jar : Executable jar to download the s/w.
       - MANIFEST.MF : Third Party libraries information.
-   3. Store the DB boot key into the TPM [Trusted Platform Module] [TBD].  
+   3. Store the DB boot key into the TPM [Trusted Platform Module] **[TBD]**.  
    
 **Application Binaries:**  
 When user clicks on the 'run.jar' it does the following :  
    1. It loads the binary repository URL from property file.
-   2. Communicate with the  JFrog repository through secured connection.  
+   2. Communicate with the  JFrog repository through secured connection.  **[TBD]**  
    3. Download the latest build [TBD] Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
    4. Compare the checksum of local version of jar files with the data present in latest downloaded Manifest.mf file.    
    5. Identify the list of binary files and Download the required jars.
-   6. Decrypt the encrypted registration client UI and service jars by using the TPM Symmetric Key[Which is common for all the clients].
+   6. Once download completed then communicate with TPM to decrypt the key, which is used to decrypt the UI and service jars. 
    7. Place the jar to the User temp directory and start the application.      
-
+   
 **Note:** This process is repeatable, for every time execution of the run.jar [Except for the Download; if no update]. After exist of the application we are deleting the decrypted jars from the User's Temp directory.
 
-**Anti Virus:**  
+**Anti Virus - ClamAV Setup and Configuration:**  
+***  
    Installation of Open Source Anti Virus Software [ClamAV]:  
-   1.	Download the ClamAV using this [**link**](//www.clamav.net/downloads)  
-
-   		
-   	2.	Install the downloaded .exe file.  
+   1.	Download the ClamAV [Version: 0.101.2] Anti Virus Software - [**link**](//www.clamav.net/downloads)  
+   2.	Install the downloaded .exe file.  
    	
-   ClamAV Config Setup:  
-    1. Please rename the **clamd.conf.sample** to **clamd.conf** from the installed directory of ClamAV.
-        Ex: C:\Program Files\ClamAV\conf_examples\clamd.conf.sample file  
-            save as  C:\Program Files\ClamAV\conf_examples\clamd.conf  
-
-    2.Please rename the **freshclam.conf.sample** to **freshclam.conf** from the installed directory of ClamAV.
+   **ClamAV Config Setup:**     
+     1. Rename the **clamd.conf.sample** to **clamd.conf** from the installed directory of ClamAV.   
+        Ex: C:\Program Files\ClamAV\conf_examples\clamd.conf.sample file   
+            save as  C:\Program Files\ClamAV\conf_examples\clamd.conf   
+    2.Rename the **freshclam.conf.sample** to **freshclam.conf** from the installed directory of ClamAV.
         Ex: C:\Program Files\ClamAV\conf_examples\ freshclam.conf.sample file  
             save as C:\Program Files\ClamAV\conf_examples\ freshclam.conf  
-        
-    3.Comment the line# 8(Example) in both the files    
-
+    3.Comment the line# 8(Example) in both the files  
+    4. Update Config files:   
+      
     **clamd.conf file changes:**  
-    1.	Uncomment LogFile "C:\Program Files\ClamAV\clamd.log"(Line 14)
+      1.	Uncomment LogFile "C:\Program Files\ClamAV\clamd.log"(Line 14)
    
     **freshclam.conf file changes:**  
      Uncomment the below mentioned lines in the file,  
@@ -76,8 +74,11 @@ When user clicks on the 'run.jar' it does the following :
     5.	Checks 24(Line 113)  
     6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
 
-   **Once all the Configurations are done run the â€œfreshclam.exeâ€� and then run â€œclamd.exeâ€�.**  
-**External hardware Driver:**
+   **Once all the Configurations are done run the freshclam.exe and then run clamd.exe.**   
+ 
+***  
+   
+**External hardware Driver(s):**
    This section covers the list of drivers required to communicate with the devices.  
    - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should be installed.    
    - The application has been currently tested with CANON LiDE 120.   
@@ -91,34 +92,34 @@ When user clicks on the 'run.jar' it does the following :
 
 **Application Startup:**     
    - Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
+   - Admin user should login to the application, to initiate the initial sync with the MOSIP server.   
    - Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
-   - During initial setup, until the data gets synch from server the user can't use the application.     
+   - During initial setup, the application should have online connectivity with the MOSIP server to synch the configuration detail from server to local machine.       
    - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
 
 
 **Update Process:**
 ***
    **Database update:**  
-   If database to be updated to the next version then update the same in the Docker image [JFROG repository] and that will get downloaded through the respective Docker pull statement. Docker pull only download the updated layer [not all layers]
+   - If database to be updated with latest table or alter the table then the respective SQL file to be provided to the user through Admin portal.   
+   - User should login to the application to run the script files.    
    
-   **Application update:**  
-   Through application the version of Docker Image between the local repository and remote repository will be validated. If there is any difference in the version, then prompt the user to complete the current process [Registration and pushing packet] and initiate the software update process.
+   **Application update:**
+   - The application update would be validated during startup using the Manifest.mf file. If any update then download the respective jar files through secured communication.   
    
 
 **User Mapping to the Local machine:** 
 ***  
    User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id. 
    The existing user configured in Admin portal for a particular registration center can only be tagged to the local machine. 
-
     	
 **Security:** 
 ***
    **Data Security:**  
-   While storing the data into the local database the data would be encrypted and same would be decrypted while retrieving the same from db. The key required for the database encryption/decryption would be stored into the TPM and same will be fetched when the application start up.  
-The packet created during registration process and downloaded from pre-registration application would be encrypted using asymmetric and symmetric key.   
-The asymmetric key received from MOSIP server will be used for encryption of registration packet and it can only be decrypted at server end only. At regular interval the encryption public key at Registration client would be updated.
-The Symmetric key would be generated on runtime and same will be used during the pre-registration packet decryption.  
-   
+   - While storing the data into the local database the data would be encrypted and same would be decrypted while retrieving the same from db. The key required for the database encryption/decryption would be stored into the TPM and same will be fetched when the application start up.  
+   - The packet created during registration process and downloaded from pre-registration application would be encrypted using asymmetric and symmetric key.   
+   - The asymmetric key received from MOSIP server will be used for encryption of registration packet and it can only be decrypted at server end only. At regular interval the encryption public key at Registration client would be updated.
+   - The Symmetric key would be generated on runtime and same will be used during the pre-registration packet decryption.  
    
    **Key management:**  
    The key required for encryption / decryption at different process of an application would be maintained in database [encrypted format] and TPM.
@@ -130,7 +131,7 @@ The Symmetric key would be generated on runtime and same will be used during the
    **REST Service integration Authentication:**  
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
 Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
-To generate the OAuth token the client secret key / login user id / password would be passed to the Ã¢â‚¬ËœLoginÃ¢â‚¬â„¢ REST service. If success it will provide us the valid OAuth token in the http response. The same token would be passed during rest of REST service communication. 
+To generate the OAuth token the client secret key / login user id / password would be passed to the Login REST service. If success it will provide us the valid token in the http response. The same token would be passed during rest of REST service communication.   
 
 
    **Trusted Platform Module (TPM):**  
@@ -149,7 +150,7 @@ To generate the OAuth token the client secret key / login user id / password wou
    - USB 2.0 ports or equivalent hub.  
    - Physical machine with TPM 2.0 facility.   
 
-**Data Setup:**  
+**Initial - Data Setup:**  
 ***
 In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be taken care at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine mac-id and center id.
@@ -187,3 +188,5 @@ Through sync process the data would be sync between local machine and server bas
    2. How to load key into TPM? The respective rotation policy?  
    3. How to update the DB password/ encryption key?  
    4. If any db table structure got changed / new table added then how to syncup the same in client machines?  
+   
+   
