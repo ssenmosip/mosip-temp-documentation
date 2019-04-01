@@ -31,6 +31,10 @@ appid|Yes|This is the application ID of the caller of this service. It should be
 	"request": {
 		"userid": "M392380",
 		"otpchannel": ["MOBILENUMBER", "EMAIL"],
+		"templateParams": {
+			"expiryTime":"20 minutes",
+			"purpose":"Changing password",
+		}
 		"useridtype": "USERID",
 		"appid": "REGISTRATIONCLIENT"
 	}
