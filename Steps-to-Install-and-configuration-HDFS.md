@@ -1,7 +1,7 @@
 ## 1. Setup HDFS version 2.8.1
 ### Before you begin
 1. Create 2 VMs. They’ll be referred to throughout this guide as 
-node-master.southindia.cloudapp.azure.com, node-slave1.southindia.cloudapp.azure.com.
+node-master.example.com, node-slave1.example.com.
 Run the steps in this guide from the node-master unless otherwise specified.
 2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle. For RHEL, follow this:
 https://developers.redhat.com/blog/2018/12/10/install-java-rhel8/
@@ -11,14 +11,14 @@ ifconfig
 ```
 The steps below use below IPs for each node. Adjust /etc/hosts on all nodes according to your configuration:
 ```
-10.0.3.13   node-master.southindia.cloudapp.azure.com
-10.0.3.14   node-slave1.southindia.cloudapp.azure.com
+10.0.3.11   node-master.example.com
+10.0.3.12   node-slave1.example.com
 ```
 ### Architecture of a Hadoop Cluster
 A master node keeps knowledge about the distributed file system. node-master will handle this role in this guide, and it will have:
 - The NameNode: manages the distributed file system and knows where stored data blocks inside the cluster are.
 
-Slave nodes store the actual data and provide processing power to run the jobs. It'll be node-slave1.southindia.cloudapp.azure.com, and will host two daemons:
+Slave nodes store the actual data and provide processing power to run the jobs. It'll be node-slave1.example.com, and will host two daemons:
 - The DataNode manages the actual data physically stored on the node; it’s named, NameNode.
 - The NodeManager manages execution of tasks on the node.
 ### Distribute Authentication Key-pairs for the Hadoop User
@@ -31,8 +31,8 @@ id_rsa.pub will contains the generated public key
 
 2. Copy the public key to all the other nodes.
 ```
-ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-master.southindia.cloudapp.azure.com
-ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.southindia.cloudapp.azure.com
+ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-master.example.com
+ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.example.com
 ```
  or
 
@@ -40,7 +40,7 @@ add manually the ssh public key to each nodes in .ssh/authorized_keys
 and try to ssh other node to see if shh has been configured successfully
 
 ```
-ssh hadoop@node-slave1.southindia.cloudapp.azure.com
+ssh hadoop@node-slave1.example.com
 ```
 
 
@@ -85,7 +85,7 @@ Update ~/hadoop/etc/hadoop/core-site.xml:
 <configuration>
      <property>
             <name>fs.defaultFS</name>
-            <value>hdfs://node-master.southindia.cloudapp.azure.com:51000</value>
+            <value>hdfs://node-master.example:51000</value>
      </property>
 </configuration>
 ```
@@ -156,27 +156,27 @@ mkdir -p /home/hadoop/data/dataNode  [where data node should store its blocks.]
 #### Configure Master
 Edit ~/hadoop/etc/hadoop/masters to be:
 ````
-node-master.southindia.cloudapp.azure.com
+node-master.example.com
 ````
 #### Configure Slaves
 Edit ~/hadoop/etc/hadoop/slaves to be:
 ````
-node-slave1.southindia.cloudapp.azure.com
+node-slave1.example.com
 ````
 ### Duplicate Config Files on Each Node 
 1. Copy the hadoop binaries to slave nodes:
 ```
 cd /home/hadoop/
-scp hadoop-*.tar.gz node-slave1.southindia.cloudapp.azure.com:/home/hadoop
+scp hadoop-*.tar.gz node-slave1.example.com:/home/hadoop
 ```
 
 or copy each configured files to other nodes
 
 2. Connect to node1 via ssh. A password isn’t required, thanks to the ssh keys copied above:
 ```
-ssh node-slave1.southindia.cloudapp.azure.com
+ssh node-slave1.example.com
 ```
-3. Unzip the binaries, rename the directory, and exit node-slave1.southindia.cloudapp.azure.com to get back on the node-master.southindia.cloudapp.azure.com:
+3. Unzip the binaries, rename the directory, and exit node-slave1.example.com to get back on the node-master.example.com:
 ```
 tar -xzf hadoop-2.8.1.tar.gz
 mv hadoop-2.8.1 hadoop
@@ -184,7 +184,7 @@ exit
 ```
 4. Copy the Hadoop configuration files to the slave nodes:
 ``` 
-for node in node-slave1.southindia.cloudapp.azure.com; do
+for node in node-slave1.example.com; do
     scp ~/hadoop/etc/hadoop/* $node:/home/hadoop/hadoop/etc/hadoop/;
 done
 ```
@@ -199,14 +199,14 @@ Your Hadoop installation is now configured and ready to run.
 ```
 start-dfs.sh
 ```
-It’ll start NameNode and SecondaryNameNode on node-master.southindia.cloudapp.azure.com, and DataNode on node-slave1.southindia.cloudapp.azure.com, according to the configuration in the slaves config file.
-2. Check that every process is running with the jps command on each node. You should get on node-master.southindia.cloudapp.azure.com (PID will be different):
+It’ll start NameNode and SecondaryNameNode on node-master.example.com, and DataNode on node-slave1.example.com, according to the configuration in the slaves config file.
+2. Check that every process is running with the jps command on each node. You should get on node-master.example.com (PID will be different):
 ```
 21922 Jps
 21603 NameNode
 21787 SecondaryNameNode
 ```
-and on node-slave1.southindia.cloudapp.azure.com:
+and on node-slave1.example.com:
 ```
 19728 DataNode
 19819 Jps
@@ -264,18 +264,18 @@ includedir /etc/krb5.conf.d/
  forwardable = true
  rdns = false
  pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
- default_realm = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+ default_realm = NODE-MASTER.EXAMPLE.COM
  #default_ccache_name = KEYRING:persistent:%{uid}
 
 [realms]
  NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
-  kdc = node-master.southindia.cloudapp.azure.com:51088
-  admin_server = node-master.southindia.cloudapp.azure.com
+  kdc = node-master.example.com:51088
+  admin_server = node-master.example.com
  }
 
 [domain_realm]
- .node-master.southindia.cloudapp.azure.com = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
- node-master.southindia.cloudapp.azure.com = NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+ .node-master.example.com = NODE-MASTER.EXAMPLE.COM
+ node-master.example.com = NODE-MASTER.EXAMPLE.COM
 ```
 2. Edit /var/kerberos/krb5kdc/kdc.conf
 ```
@@ -284,7 +284,7 @@ includedir /etc/krb5.conf.d/
  kdc_tcp_ports = 51088
 
 [realms]
- NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
+ NODE-MASTER.EXAMPLE.COM = {
   #master_key_type = aes256-cts
   acl_file = /var/kerberos/krb5kdc/kadm5.acl
   dict_file = /usr/share/dict/words
@@ -298,7 +298,7 @@ includedir /etc/krb5.conf.d/
 ```
 4. Edit the /var/kerberos/krb5kdc/kadm5.acl
 ```
-*/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM	*
+*/admin@NODE-MASTER.EXAMPLE.COM	*
 ```
 5. Create the first principal using kadmin.local at the KDC terminal:
 ```
@@ -354,17 +354,17 @@ sudo kadmin.local
 Do the following steps for masternode.
 1. In the kadmin.local or kadmin shell, create the hadoop principal. This principal is used for the NameNode, Secondary NameNode, and DataNodes.
 ```
-kadmin:  addprinc hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc hadoop/admin@NODE-MASTER.EXAMPLE.COM
 ```
 2. Create the HTTP principal.
 ```
-kadmin:  addprinc HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc HTTP/admin@NODE-MASTER.EXAMPLE.COM
 ```
 3. Create principal for all user of hdfs (regprocessor, prereg, idrepo)
 ```
-kadmin:  addprinc regprocessor@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
-kadmin:  addprinc prereg@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
-kadmin:  addprinc idrepo@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM
+kadmin:  addprinc regprocessor@NODE-MASTER.EXAMPLE.COM
+kadmin:  addprinc prereg@NODE-MASTER.EXAMPLE.COM
+kadmin:  addprinc idrepo@NODE-MASTER.EXAMPLE.COM
 ```
 #### To create the Kerberos keytab files
 Create the hdfs keytab file that will contain the hdfs principal and HTTP principal. This keytab file is used for the NameNode, Secondary NameNode, and DataNodes.
@@ -377,22 +377,22 @@ $ klist -k -e -t hadoop.keytab
 Keytab name: FILE:hadoop.keytab
 KVNO Timestamp           Principal
 ---- ------------------- ------------------------------------------------------
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes256-cts-hmac-sha1-96)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes128-cts-hmac-sha1-96)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des3-cbc-sha1)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (arcfour-hmac)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia256-cts-cmac)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia128-cts-cmac)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-hmac-sha1)
-   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-cbc-md5)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes256-cts-hmac-sha1-96)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (aes128-cts-hmac-sha1-96)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des3-cbc-sha1)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (arcfour-hmac)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia256-cts-cmac)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (camellia128-cts-cmac)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-hmac-sha1)
-   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM (des-cbc-md5)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (aes256-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (aes128-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (des3-cbc-sha1)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (arcfour-hmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (camellia256-cts-cmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (camellia128-cts-cmac)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (des-hmac-sha1)
+   1 02/11/2019 08:53:51 hadoop/admin@NODE-MASTER.EXAMPLE.COM (des-cbc-md5)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (aes256-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (aes128-cts-hmac-sha1-96)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (des3-cbc-sha1)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (arcfour-hmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (camellia256-cts-cmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (camellia128-cts-cmac)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (des-hmac-sha1)
+   1 02/11/2019 08:53:51 HTTP/admin@NODE-MASTER.EXAMPLE.COM (des-cbc-md5)
 ```
 #### To deploy the Kerberos keytab file
 On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/etc/hadoop/hadoop.keytab.
@@ -431,7 +431,7 @@ sh hadoop/sbin/stop-dfs.sh
 
 <property>
   <name>hadoop.http.authentication.kerberos.principal</name>
-  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+  <value>HTTP/admin@NODE-MASTER.EXAMPLE.COM</value>
 </property>
 
 <property>
@@ -454,11 +454,11 @@ sh hadoop/sbin/stop-dfs.sh
 </property>
 <property>
   <name>dfs.namenode.kerberos.principal</name>
-  <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+  <value>hadoop/admin@NODE-MASTER.EXAMPLE.COM</value>
 </property>
 <property>
   <name>dfs.namenode.kerberos.internal.spnego.principal</name>
-  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+  <value>HTTP/admin@NODE-MASTER.EXAMPLE.COM</value>
 </property>
 
 <!-- Secondary NameNode security config -->
@@ -468,11 +468,11 @@ sh hadoop/sbin/stop-dfs.sh
 </property>
 <property>
   <name>dfs.secondary.namenode.kerberos.principal</name>
-    <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+    <value>hadoop/admin@NODE-MASTER.EXAMPLE.COM</value>
 </property>
 <property>
   <name>dfs.secondary.namenode.kerberos.internal.spnego.principal</name>
-  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+  <value>HTTP/admin@NODE-MASTER.EXAMPLE.COM</value>
 </property>
 
 <!-- DataNode security config -->
@@ -486,13 +486,13 @@ sh hadoop/sbin/stop-dfs.sh
 </property>
 <property>
   <name>dfs.datanode.kerberos.principal</name>
-  <value>hadoop/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+  <value>hadoop/admin@NODE-MASTER.EXAMPLE.COM</value>
 </property>
 
 <!-- Web Authentication config -->
 <property>
   <name>dfs.web.authentication.kerberos.principal</name>
-  <value>HTTP/admin@NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM</value>
+  <value>HTTP/admin@NODE-MASTER.EXAMPLE.COM</value>
  </property>
 
 <property>
@@ -508,7 +508,7 @@ sh hadoop/sbin/stop-dfs.sh
 ### Deploying HTTPS in HDFS
 #### Generating the key and certificate
 The first step of deploying HTTPS is to generate the key and the certificate for each machine in the cluster. You can use Java’s keytool utility to accomplish this task:
-Ensure that firstname/lastname OR common name (CN) matches exactly with the fully qualified domain name (e.g. node-master.southindia.cloudapp.azure.com) of the server. 
+Ensure that firstname/lastname OR common name (CN) matches exactly with the fully qualified domain name (e.g. node-master.example.com) of the server. 
 ```
 keytool -genkey -alias localhost  -keyalg RSA -keysize 2048 -keystore keystore.jks
 ```
