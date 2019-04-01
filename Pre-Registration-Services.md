@@ -2179,7 +2179,8 @@ registrationCenterId |Yes|Registration Center Id|10004
             "holiday": false
          }
     ]
-  }
+  },
+  "errors":null
 }
 ```
 ##### Failure Response:
@@ -2236,7 +2237,8 @@ toDate |Yes|To Date | 2019-02-14
                        "94625367217037",
                        "43526512857302"
          ]
-    }
+    },
+    "errors":null
 }
 ```
 ##### Failure Response:
@@ -2599,7 +2601,8 @@ request.to_field_lang |Yes|To language code|ara
     "from_field_value": "Kishan",
     "to_field_lang": "ara",
     "to_field_value": "كِسهَن"
-  }
+  },
+  "errors":null
 }
 ```
 ##### Failure Response:
