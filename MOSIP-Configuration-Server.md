@@ -99,7 +99,7 @@ Sample Bootstrap.properties file:<br/>
    `  } `<br/>
 In the above snippet we are using @RefreshScope annotation which will help the client application to get lastest configuration from config server without restarting the application (by calling the refresh API /actuator/refresh on the application endpoint) <br/>
 4. For any other configuration file such as xml/json etc. you can directly get the entire file through the following url:<br/>
-`**http://{mosip-config-server URL}/{spring.cloud.config.name} /{label} /{branch}/{filename}.(xml/json).**` 
+**http://{mosip-config-server URL}/{spring.cloud.config.name} /{label} /{branch}/{filename}.(xml/json).** 
 <br/>
 <br/>
 ### Vert.x client:
