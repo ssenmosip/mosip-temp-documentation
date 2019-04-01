@@ -502,7 +502,7 @@ Special comments are used to give a hint for further development. Following are 
 
  \*
 
- \*      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+ \*      `http://www.apache.org/licenses/LICENSE-2.0`
 
  \*
 
