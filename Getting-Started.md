@@ -86,14 +86,14 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
 ***
 ## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#content)
- For installing and setting up Jfrog, steps [here](//www.jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
+ For installing and setting up Jfrog, steps [here](//jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
 Once the setup is complete, please add following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
 * [**Maven Central**](//repo.maven.apache.org/maven2/)
 * [**Jcentre**](//jcenter.bintray.com)
 * [**Openimaj**](//maven.openimaj.org)
 
 To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home to point to JFrog.<br/>
-To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](//www.jfrog.com/confluence/display/RTF/Maven+Repository)
+To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](//jfrog.com/confluence/display/RTF/Maven+Repository)
 
 **NOTE** JFrog Artifactory setup by Mindtree is open to public for read only access. So if any of the modules are dependent on previous modules, that you don't have built, you need to connect to our JFrog server to pull those dependencies. For doing that, in the settings.xml file that you generated above, replace url of ID with repository snapshot and release to our Jfrog URLs which will be : </br>
 1. `<url>http://devops.mosip.io/artifactory/libs-snapshot</url>` for libs-snapshot 
@@ -804,6 +804,7 @@ B. Continuous deployment
 To be done later
 
 ***
+
 
 
 
