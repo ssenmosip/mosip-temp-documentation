@@ -1121,8 +1121,9 @@ Requires Authentication | Yes
   "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
   "responseTime": "2019-02-11T13:46:00.534Z",
-  "response":[
-      {
+  "response":{
+       "basicDetails":[
+        {
          "preRegistrationId":"62076019780925",
          "fullname":[
             {
@@ -1159,7 +1160,8 @@ Requires Authentication | Yes
          },
         "postalCode":"767882"
       }
-   ],
+    ]
+   },
    "errors": null
 }
 ```
@@ -1208,13 +1210,15 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
   "responseTime": "2019-02-11T07:15:18.565Z",
-  "response": [
-    {
-      "preRegistrationId": "64269837502851",
-      "deletedBy": "9876453738",
-      "deletedDateTime": "2019-02-11T07:15:18.549Z"
-    }
-  ],
+  "response":{
+     "deletedRecords":[
+         {
+           "preRegistrationId": "64269837502851",
+           "deletedBy": "9876453738",
+           "deletedDateTime": "2019-02-11T07:15:18.549Z"
+         }
+      ]
+   },
   "errors":null
 }
 ```
@@ -1295,15 +1299,14 @@ request.langCode |Yes|Language code of the application|ENG
 #### Request:
 ```JSON
 {
-		"id": "mosip.pre-registration.document.upload",
-		"version" : "1.0",
-		"requestTime" : "2019-03-13T07:22:57.086Z",
-		"request" :
-		{
-			"docCatCode" : "POI",
-			"docTypCode" : "identity",
-			"langCode" : "fra"
-		 }
+    "id": "mosip.pre-registration.document.upload",
+    "version" : "1.0",
+    "requestTime" : "2019-03-13T07:22:57.086Z",
+    "request" : {
+	"docCatCode" : "POI",
+	"docTypCode" : "identity",
+	"langCode" : "fra"
+     }
 }
 ```
 
@@ -1316,16 +1319,14 @@ request.langCode |Yes|Language code of the application|ENG
   "id": "mosip.pre-registration.document.upload",
   "version" : "1.0",
   "responseTime": "2019-01-16T16:41:06.659Z",
-  "response": [
-    {
+  "response": {
       "preRegsitrationId": "36732486130976",
       "docId": "01964111-4fc0-11e9-ae3b-7d108980d190",
       "docName": "passport.PDF",
       "docCatCode": "POI",
       "docTypCode": "identity",
       "docFileFormat": "pdf"
-    }
-  ],
+  },
   "errors":null
 }
 ```
@@ -1398,16 +1399,14 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
   "id": "mosip.pre-registration.document.copy",
   "version" : "1.0",
   "responseTime": "2019-01-16T17:31:04.021Z",
-  "response": [
-    {
+  "response": {
       "preRegsitrationId": "67531403498547",
       "docId": "8196222-5fb0-11e9-rg3b-7d108980f456",
       "docName": "address.pdf",
       "docCatCode": "POA",
       "docTypCode": "address",
       "docFileFormat": "pdf"
-    }
-  ],
+  },
   "errors":null
 }
 ```
@@ -1474,7 +1473,8 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
   "id": "mosip.pre-registration.document.fetch.metadata",
   "version" : "1.0",
   "responseTime": "2019-01-16T17:31:04.021Z",
-  "response": [
+  "response": {
+    "documnetsMetaData":[
     {
       "docName": "morethan1mb.pdf",
       "docId": "06896ba0-4fa8-11e9-ae3b-0d644a9860e6",
@@ -1493,7 +1493,8 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
       "docCatCode": "POI",
       "docTypeCode": "identity"
     }
-  ],
+  ]
+  },
   "errors":null
 }
 ```
