@@ -11,7 +11,8 @@ This document covers the coding standards, which are followed by the RESTful web
 The syntax of the URL of the RESTful webservice should be as follows, 
 https://<IP_ADDRESS>:<PORT>/<VERSION>/<RESOURCE_NAME>/<PARAMETERS_AND_VALUES_IF_ANY>
 For example, 
-https://mosip.com/v2/inviduals/ID/23442 
+<div>https://mosip.com/v2/inviduals/ID/23442<div>
+
 The URL is the sentence, the resources are nouns and the HTTP methods are verbs. 
 The URL, before the parameters, should contain only spinal case ( - ). The URL, before the parameters, should not contain snake case ( _ ) or camel case. 
 NOTE: The parameters can contain snake case or camel case. 
@@ -35,17 +36,17 @@ Following should be avoided,
 
 Use the plural nouns in the resource names if there is CRUD operations. For example, 
 
-https://mosip.com/v2/individuals		 Prefer 
+`https://mosip.com/v2/individuals`		 Prefer 
 
-https://mosip.com/v2/individual		 Avoid
+`https://mosip.com/v2/individual`		 Avoid
 
 In other cases, use singulars in the nouns. For example, 
-https://mosip.com/v2/OTP
+<div>https://mosip.com/v2/OTP</div>
 # 5	Resources – actions in the URL
 The actions are added in the URL, wherever applicable. For example, 
-https://mosip.com/v2/OTP/generator
+<div>https://mosip.com/v2/OTP/generator</div>
 
-https://mosip.com/v2/OTP/validator
+<div>https://mosip.com/v2/OTP/validator</div>
 # 6	Appropriate usage of the HTTP methods
 Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource. 
 
@@ -55,26 +56,26 @@ In all the success cases and failure cases, 200 HTTP Status code is returned. Ba
 
 # 8	Identifying a resource
 When the caller want to identify the resource, the path param is used. For example, 
-https://mosip.com/v2/individuals/id1234
+<div>https://mosip.com/v2/individuals/id1234</div>
 
 # 9	Filtering
 The filter has to be applied via the URL parameters. For example,
-https://mosip.com/v2/individuals/id1234?city=someCityName&pincode=473822  
+<div>https://mosip.com/v2/individuals/id1234?city=someCityName&pincode=473822</div>  
 
 # 10	Sorting
 In case if the results have to be sorted, it can be mentioned in the URL parameter named sort. For example, 
-https://mosip.com/v2/individuals/1234?sort=firstName 
+<div>https://mosip.com/v2/individuals/1234?sort=firstName</div>
 
 # 11	Pagination
 In case of pagination, the page number can be mentioned in the parameter by the name “page”. For example, 
-https://mosip.com/v2/individuals/1234?page=15
+<div>https://mosip.com/v2/individuals/1234?page=15</div>
 
 # 12	Always use SSL
 Always use SSL for the services. No services should be exposed without SSL. 
 
 # 13	Versioning
 Always version the service. The version have to be mentioned in the URL of the service after the hostname (and port number, if any). For example,   
-https://mosip.com/individuals/v1.0/1234
+<div>https://mosip.com/individuals/v1.0/1234</div>
 
 # 14	Design first approach
 Always go with the design first approach. First, define the Swagger specification and publish to the Swagger UI after getting it reviewed. The coding should be started after the design is completed and the specification is completed in Swagger. 
