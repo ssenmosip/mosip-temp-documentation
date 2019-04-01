@@ -2,6 +2,6 @@
 
 ## 2.Governance
 
-## 3.[Community Guidelines – Expectation and Recognition](https://github.com/mosip/mosip/wiki/Community-Guidelines-%E2%80%93-Expectation-and-Recognition)
+## 3.[Community Guidelines – Expectation and Recognition](Community-Guidelines-%E2%80%93-Expectation-and-Recognition)
 
 ## 4.Help Needed areas/areas of Development
