@@ -1,6 +1,7 @@
 * **Configuration Server** _(CFG_FR_1)_
 
-MOSIP has a centralized configuration server where all the configuration elements are saved, including the platform configuration and ID Object schema.
+The configuration server provides properties based on which MOSIP renders different functionalities.
+It is a centralized configuration server where all the configuration elements are saved, including the platform configuration and ID Object schema.
 The Central configuration server provides following functionality:
 
 1. It provides functionality to read XML files and Property files
