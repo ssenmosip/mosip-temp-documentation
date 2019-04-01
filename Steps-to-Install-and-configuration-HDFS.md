@@ -3,8 +3,7 @@
 1. Create 2 VMs. They’ll be referred to throughout this guide as 
 node-master.example.com, node-slave1.example.com.
 Run the steps in this guide from the node-master unless otherwise specified.
-2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle. For RHEL, follow this:
-https://developers.redhat.com/blog/2018/12/10/install-java-rhel8/
+2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle. For RHEL, follow this [**link**](//developers.redhat.com/blog/2018/12/10/install-java-rhel8/)
 3. Get the IP of master and slave nodes using:
 ```
 ifconfig
@@ -234,7 +233,7 @@ NOTE: Currently not enabled. `<WIP>`
 
 Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_kerberos
+[**link**](//access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_Kerberos)
 ### Install Kerberos
 Kerberos server(KDC) and the client needs to be installed. Install the client on both master and slave nodes. KDC server will be installed on the master node.
 1. To install packages for a Kerberos server:
@@ -340,11 +339,12 @@ kdestroy -A
 ```
 ###  Install the JCE Policy File
 Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy File on all cluster and Hadoop user machines.
-Follow this link:
-https://dzone.com/articles/install-java-cryptography-extension-jce-unlimited
+Follow this [**link**](//dzone.com/articles/install-java-cryptography-extension-jce-unlimited)
 ### Create and Deploy the Kerberos Principals and Keytab Files
 For more information, check here:
-https://www.cloudera.com/documentation/enterprise/5-16-x/topics/cdh_sg_kerberos_prin_keytab_deploy.html
+[**link**](//cloudera.com/documentation/enterprise/5-16-x/topics/cdh_sg_kerberos_prin_keytab_deploy.html)
+
+
 If you have root access to the KDC machine, use kadmin.local, else use kadmin.
 To start kadmin.local (on the KDC machine), run this command:
 ```
@@ -678,4 +678,4 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.
 
 For you face error during kerberos, check this:
-https://steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html
+[link](//steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html)
