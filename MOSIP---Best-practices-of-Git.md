@@ -40,7 +40,8 @@ Gitbash
 
 Developer and Tech Leads:
 
-1. Clone the Git repository, [https://github.com/mosip/mosip.git](https://github.com/mosip/mosip.git)
+1. Clone the Git repository, [**Git**](/mosip/mosip.git)
+
 2. Give your username and password.
 
 ## 5. Basic flow
