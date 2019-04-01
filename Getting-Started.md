@@ -144,7 +144,7 @@ On a Linux or Mac system, you must have superuser privileges to perform a Postgr
 #### Steps to install Postgresql in RHEL-7.5
 ##### Download and install PostgreSQL. <br/>
 $ sudo yum install 
-</div>https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm</div> 
+<div>https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm</div> 
 <br/>
 
 
@@ -173,7 +173,7 @@ $ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
 $ sudo firewall-cmd --reload <br/>
 Reference link:
 <br/>
-</div>https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
+<div>https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
 <br/>
 <br/>
 ### 6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5
@@ -188,7 +188,7 @@ $sudo yum install nginx <br/>
 Append following for RHEL 7.5 <br/>
 [nginx]   <br/>
 name=nginx repo <br/>
-baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/ <br/>
+baseurl=`http://nginx.org/packages/mainline/rhel/7/$basearch/` <br/>
 gpgcheck=0 <br/>
 enabled=1 <br/>
 $ sudo yum install nginx <br/>
@@ -207,7 +207,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         proxy_set_header X-Real-IP $remote_addr; <br/>
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; <br/>
                         proxy_set_header X-Forwarded-Proto $scheme; <br/>
-                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //endpoint of kubernetes <br/>
+                        proxy_pass `https://mosip-dev-k8.southindia.cloudapp.azure.com/`; //endpoint of kubernetes <br/>
            } <br/>
 
    
@@ -228,7 +228,7 @@ $ sudo firewall-cmd –reload <br/>
 
 #### Steps to install ClamAV in RHEL-7.5
 
-$ sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <br/>
+$ sudo wget `http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm` <br/>
 $ sudo rpm -ivh epel-release-latest-7.noarch.rpm <br/>
 $ sudo yum repolist <br/>
 $ sudo yum update <br/>
@@ -261,7 +261,7 @@ $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent
 $ sudo firewall-cmd –reload
 
 ##### Reference link:
-(https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7)
+<div>https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7</div>
 
 ### 6.4 Steps to Install and configuration CEPH 
 NOTE: Required only if CEPH is used for packet storage.
@@ -275,11 +275,11 @@ Ceph is an open source software that provides massively scalable and distributed
 	cat << EOM > /etc/yum.repos.d/ceph.repo 
 	[ceph-noarch] 
 	name=Ceph noarch packages 
-	baseurl=https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch 
+	baseurl=`https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch`
 	enabled=1  
 	gpgcheck=1 
 	type=rpm-md
-	gpgkey=https://download.ceph.com/keys/release.asc
+	gpgkey=`https://download.ceph.com/keys/release.asc`
 	EOM 
 ##### 4. Update your repository and install ceph-deploy:	
 	$ sudo yum update
@@ -428,7 +428,7 @@ To access, and to utilize full functionality of the dashboard, we need to create
 After these steps, our ceph infrastructure is ready with all the configurations to do some actual input output operations.
 
 ##### Reference link: 
-(http://docs.ceph.com/docs/mimic/start/quick-start-preflight/)
+<div>http://docs.ceph.com/docs/mimic/start/quick-start-preflight/</div>
 
 ### 6.5 Steps to Install and configuration HDFS
 
@@ -437,7 +437,7 @@ NOTE: Required only if HDFS is used for packet storage.
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
 ### 6.6 Steps to install Kernel Key Manager Service
-Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given here - https://github.com/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md. 
+Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md.) 
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
@@ -450,13 +450,13 @@ For getting more details about how to use configuration server with our applicat
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
 **A. Global:**
-https://github.com/mosip/mosip/blob/master/config/application-dev.properties
+[**link**](/mosip/mosip/blob/master/config/application-dev.properties)
 
 **B. Kernel:**
-https://github.com/mosip/mosip/blob/master/config/kernel-dev.properties
+[**link**](/mosip/mosip/blob/master/config/kernel-dev.properties)
 
 **C. Pre-Registration:**
-https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.properties
+[**link**](/mosip/mosip/blob/master/config/pre-registration-dev.properties)
 
 **Properties that need to be changed once the external dependencies are installed**
 1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
@@ -524,7 +524,7 @@ VALUES ('ara', 'eng', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z'
 
 
 
-The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml](https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml) folder.
+The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under <div>https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml</div><div>https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml</div> folder.
 
 The scripts to create the above objects are available under [database](/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
