@@ -678,4 +678,4 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 After restarting the HDFS daemons (NameNode, DataNode and JournalNode), you should have successfully deployed HTTPS in your HDFS cluster.
 
 For you face error during kerberos, check this:
-[link](//steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html)
+[**link**](//steveloughran.gitbooks.io/kerberos_and_hadoop/content/sections/errors.html)
