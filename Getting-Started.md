@@ -275,11 +275,11 @@ Ceph is an open source software that provides massively scalable and distributed
 	cat << EOM > /etc/yum.repos.d/ceph.repo 
 	[ceph-noarch] 
 	name=Ceph noarch packages 
-	baseurl=`https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch`
+	baseurl=https://download.ceph.com/rpm-{ceph-stable-release}/el7/noarch
 	enabled=1  
 	gpgcheck=1 
 	type=rpm-md
-	gpgkey=`https://download.ceph.com/keys/release.asc`
+	gpgkey=https://download.ceph.com/keys/release.asc
 	EOM 
 ##### 4. Update your repository and install ceph-deploy:	
 	$ sudo yum update
