@@ -131,10 +131,10 @@ Following are the roles and permissions given in Git,
 
 ## 10. Contact
 
-Shravan Poorigali ([shravan.poorigali@mindtree.com](mailto:shravan.poorigali@mindtree.com))
+Shravan Poorigali `shravan.poorigali@mindtree.com`
 
-Karthik Ramanan (Karthik.Ramanan@mindtree.com)
+Karthik Ramanan `Karthik.Ramanan@mindtree.com`
 
-Rudra Prasad Tripathy (Rudra.Tripathy@mindtree.com)
+Rudra Prasad Tripathy `Rudra.Tripathy@mindtree.com`
 
-John David (John.Panneerselvam@mindtree.com)
+John David `John.Panneerselvam@mindtree.com`
