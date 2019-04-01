@@ -144,6 +144,8 @@ On a Linux or Mac system, you must have superuser privileges to perform a Postgr
 #### Steps to install Postgresql in RHEL-7.5
 ##### Download and install PostgreSQL. <br/>
 $ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm <br/>
+
+
 *The password that you are prompted to provide during the installation process is for the 'postgres' account, which is the database root-level account, sometimes called the super user ('postgres'). Remember this username and password. You will need it each time you log in to the database.<br/>
 *	The default port for PostgreSQL is 5432. If you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. You will also need to remember to update all further mentions of the database port.<br/>
 
@@ -211,11 +213,12 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
 $ sudo firewall-cmd –reload <br/>
 ##### Bind SSL certificate to work https 
-**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](https://letsencrypt.org/getting-started/)
+**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)
 
 
 ##### Reference link:
-(https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7)
+<div>https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7</div>
+
 
 ### 6.3 Install Clam AntiVirus Version 0.101.0
 
