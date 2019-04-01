@@ -51,7 +51,6 @@ When user clicks on the 'run.jar' it does the following :
    Installation of Open Source Anti Virus Software [ClamAV]:  
    1.	Download the ClamAV [Version: 0.101.2] Anti Virus Software - [**link**](//www.clamav.net/downloads)  
 
-  1.	Download the ClamAV [Version: 0.101.2] Anti Virus Software - [**link**](//clamav.net/downloads) 
    2.	Install the downloaded .exe file.  
    	
    **ClamAV Config Setup:**     
