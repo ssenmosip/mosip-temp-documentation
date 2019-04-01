@@ -247,15 +247,15 @@ $  sudo systemctl start clamd <br/>
 ##### ClamAv port : 3310
 explicitly open the CalmAV port 3310 for that uncommenting "TCPSocket 3310" line in below file then restart the clamd@scan service <br/>
 $ sudo vi /etc/clamd.d/scan.conf <br/>
-$ sudo systemctl restart clamd@scan.service <br/>
+$ sudo systemctl restart `clamd@scan.service` <br/>
 To open the 3310 from VM firewall <br/>
 $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent <br/>
 $ sudo firewall-cmd --reload <br/>
 
 #### Command to check the ClamAV status:
-$ sudo systemctl status clamd@scan.service <br/>
-$ sudo systemctl start clamd@scan.service <br/>
-$ sudo systemctl stop clamd@scan.service <br/>
+$ sudo systemctl status `clamd@scan.service` <br/>
+$ sudo systemctl start `clamd@scan.service` <br/>
+$ sudo systemctl stop `clamd@scan.service` <br/>
 ##### Below command to open the port 3310 from RHEL 7.5 VM
 $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
 $ sudo firewall-cmd –reload
@@ -524,7 +524,7 @@ VALUES ('ara', 'eng', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z'
 
 
 
-The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under <div>https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml</div><div>https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml</div> folder.
+The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](/mosip/mosip/tree/master/scripts/database/mosip_master/dml).
 
 The scripts to create the above objects are available under [database](/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
@@ -545,7 +545,7 @@ B. Continuous deployment
 
 ### A. One time setup of MOSIP in Kubernetes Cluster
 One time setup on Kubernetes involves following Steps <br/>
-I. Setting Up local system to communicate with Kubernetes cluster this can be done via **[kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)**.<br/>
+I. Setting Up local system to communicate with Kubernetes cluster this can be done via [**kubectl**](//kubernetes.io/docs/reference/kubectl/overview/).<br/>
 II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on /scripts/kubernetes/commons directory. following are the files -
 
 ![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
@@ -730,7 +730,7 @@ Once the above deployment is done, we will start deploying MOSIP services. For d
 ###  Firstly Deploy Kernel Configuration server
  The script is inside ( scripts/kubernetes/configuration-server/config-server-deployment-and-service.yml ) <br/> 
 Follow below steps:
-1. Create a ssh key and configure it with your git repository. If you have already configured the ssh key for your repository, you can use that one or else follow [this](https://help.github.com/en/articles/connecting-to-github-with-ssh) <br/>  
+1. Create a ssh key and configure it with your git repository. If you have already configured the ssh key for your repository, you can use that one or else follow [this](//help.github.com/en/articles/connecting-to-github-with-ssh) <br/>  
 2. Create a secret for Config server to connect to GIT repo. This secret contains your **id_rsa key (private key), id_rsa_pub key (public key) and known_hosts** which you generated above. We need this secret because config server connects to your Source code management repository, to get configuration for all the services(If you are using ssh URL for cloning the repo). For generating the required secret give the following command: ( Firstly try to connect to GIT repository from your system using ssh url and the key you created above, so that GIT service provider such as GitHub or GitLab comes in your known hosts file): <br/>
 
 `kubectl create secret generic config-server-secret --from-file=id_rsa=/path/to/.ssh/id_rsa --from-file=id_rsa.pub=/path/to/.ssh/id_rsa.pub --from-file=known_hosts=/path/to/.ssh/known_hosts` <br/>
@@ -742,7 +742,7 @@ Create keystore with following command: <br/>
 
 3. The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
 `keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
-For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing ) <br/>
+For more information look [here](//cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing) <br/>
 <br/>
 4. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/>
 
@@ -782,7 +782,7 @@ data:
 <br/>
 <br/>
 
-More information can be found [here]( https://github.com/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md )
+More information can be found [here](/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md)
 
 
 <br/>
