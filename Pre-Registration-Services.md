@@ -89,7 +89,7 @@ request.langcode|Yes|The preferred language code |fra
 	"response": null,
 	"errors": [
 		{
-		 "errorCode": "PRG_PAM_ATH_001",
+		 "errorCode": "PRG_PAM_LGN_001",
 		 "message": "OTP failed to send through a specified channel"
 		}
 	]	
