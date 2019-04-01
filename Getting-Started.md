@@ -287,7 +287,7 @@ Ceph is an open source software that provides massively scalable and distributed
 	The admin node must have password-less SSH access to Ceph nodes. When ceph-deploy logs in to a Ceph node as a user, that particular user must have passwordless sudo privileges. 
 
 #### INSTALL NTP
-	We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](http://docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details. 
+	We recommend installing NTP on Ceph nodes (especially on Ceph Monitor nodes) to prevent issues arising from clock drift. See  [Clock](//docs.ceph.com/docs/mimic/rados/configuration/mon-config-ref/#clock) for details. 
 	$ sudo yum install ntp ntpdate ntp-doc 
 		Ensure that you enable the NTP service. Ensure that each Ceph Node uses the same NTP time server. 
 	
@@ -432,7 +432,7 @@ After these steps, our ceph infrastructure is ready with all the configurations 
 
 NOTE: Required only if HDFS is used for packet storage.
 
-[Refer - Steps-to-Install-and-configuration-HDFS](https://github.com/mosip/mosip/wiki/Steps-to-Install-and-configuration-HDFS)
+[Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
 ### 6.6 Steps to install Kernel Key Manager Service
 Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given here - https://github.com/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md. 
@@ -442,7 +442,7 @@ Kernel Keymanager Service is setup externally from other setup and is not a part
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 We are storing all applications' configuration in config folder inside our Github Repository.
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
-[**MOSIP CONFIGURATION SERVER**](https://github.com/mosip/mosip/wiki/MOSIP-Configuration-Server)
+[**MOSIP CONFIGURATION SERVER**](MOSIP-Configuration-Server)
 
 
 Application specific configuration for all applications and services are placed in MOSIP config server.
@@ -466,7 +466,7 @@ https://github.com/mosip/mosip/blob/master/config/pre-registration-dev.propertie
 `mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
 `mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/>
 
-For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server]( https://github.com/mosip/mosip/wiki/Getting-Started#firstly-deploy-kernel-configuration-server ) in this document.
+For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server](Getting-Started#firstly-deploy-kernel-configuration-server) in this document.
 
 ### MOSIP database object deployment / configuration
 
@@ -524,7 +524,7 @@ VALUES ('ara', 'eng', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z'
 
 The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml](https://github.com/mosip/mosip/tree/master/scripts/database/mosip_master/dml) folder.
 
-The scripts to create the above objects are available under [https://github.com/mosip/mosip/tree/master/scripts/database](https://github.com/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
+The scripts to create the above objects are available under [database](/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
 **Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
 
@@ -548,7 +548,7 @@ II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In 
 
 ![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
 
-We will now go through each of the file and see what changes we need to perfom. we will be using **[kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)** to do the deployments from local system. 
+We will now go through each of the file and see what changes we need to perform. we will be using [**kubectl**](//kubernetes.io/docs/reference/kubectl/overview/) to do the deployments from local system. 
 
 * DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
 `kubeclt apply -f DeployIngressController.yaml`
