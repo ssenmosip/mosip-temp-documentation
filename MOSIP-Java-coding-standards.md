@@ -502,7 +502,7 @@ Special comments are used to give a hint for further development. Following are 
 
  \*
 
- \*      http://www.apache.org/licenses/LICENSE-2.0
+ \*      <div>http://www.apache.org/licenses/LICENSE-2.0</div>
 
  \*
 
@@ -622,6 +622,6 @@ Special comments are used to give a hint for further development. Following are 
 
 # 1References
 
-[http://www.oracle.com/technetwork/java/codeconventions-150003.pdf](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
+<div>http://www.oracle.com/technetwork/java/codeconventions-150003.pdf</div>
 
-[https://www.jfokus.se/jfokus17/preso/Java-SE-8-best-practices.pdf](https://www.jfokus.se/jfokus17/preso/Java-SE-8-best-practices.pdf)
+<div>https://www.jfokus.se/jfokus17/preso/Java-SE-8-best-practices.pdf</div>
