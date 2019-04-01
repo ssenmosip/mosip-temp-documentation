@@ -143,7 +143,9 @@ Postgresql Prerequisites
 On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.
 #### Steps to install Postgresql in RHEL-7.5
 ##### Download and install PostgreSQL. <br/>
-$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm <br/>
+$ sudo yum install 
+</div>https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm</div> 
+<br/>
 
 
 *The password that you are prompted to provide during the installation process is for the 'postgres' account, which is the database root-level account, sometimes called the super user ('postgres'). Remember this username and password. You will need it each time you log in to the database.<br/>
@@ -171,7 +173,7 @@ $ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
 $ sudo firewall-cmd --reload <br/>
 Reference link:
 <br/>
-(https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora)
+</div>https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
 <br/>
 <br/>
 ### 6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5
