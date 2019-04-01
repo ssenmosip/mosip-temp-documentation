@@ -1211,13 +1211,9 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
   "version":"1.0",
   "responseTime": "2019-02-11T07:15:18.565Z",
   "response":{
-     "deletedRecords":[
-         {
-           "preRegistrationId": "64269837502851",
-           "deletedBy": "9876453738",
-           "deletedDateTime": "2019-02-11T07:15:18.549Z"
-         }
-      ]
+      "preRegistrationId": "64269837502851",
+      "deletedBy": "9876453738",
+      "deletedDateTime": "2019-02-11T07:15:18.549Z"
    },
   "errors":null
 }
@@ -1249,11 +1245,11 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
   "responseTime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_004",
-		"message": "Falied to delete data for the requested pre-registration id"
-		}
-	]
+	{
+	  "errorCode": "PRG_PAM_APP_004",
+	  "message": "Falied to delete data for the requested pre-registration id"
+	}
+    ]
 }
 ```
 
