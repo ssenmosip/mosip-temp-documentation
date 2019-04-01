@@ -42,11 +42,13 @@ Use the plural nouns in the resource names if there is CRUD operations. For exam
 
 In other cases, use singulars in the nouns. For example, 
 <div>https://mosip.com/v2/OTP</div>
+
 # 5	Resources – actions in the URL
 The actions are added in the URL, wherever applicable. For example, 
 <div>https://mosip.com/v2/OTP/generator</div>
 
 <div>https://mosip.com/v2/OTP/validator</div>
+
 # 6	Appropriate usage of the HTTP methods
 Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource. 
 
@@ -167,16 +169,19 @@ Response:
 In case, there is no request payload or path params or URL params, only the version will be present in the URL. 
 
 # References
+
+````
 https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
 https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
 
 https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
 
-https://restfulapi.net/resource-naming/ 
+https://restfulapi.net/resource-naming/
+````
 
 # Contact
-
+````
 Shravan Poorigali (shravan.poorigali@mindtree.com)
 
 Karthik Ramanan (Karthik.Ramanan@mindtree.com)
@@ -184,4 +189,4 @@ Karthik Ramanan (Karthik.Ramanan@mindtree.com)
 Rudra Prasad Tripathy (Rudra.Tripathy@mindtree.com)
 
 John David (John.Panneerselvam@mindtree.com)
-
+````
