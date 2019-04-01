@@ -1,7 +1,7 @@
 # MOSIP Configuration Server
 
 We will be using MOSIP config server (Spring cloud configuration Server) to manage configurations of all the services.<br/><br/>
-**NOTE:** For the documentation purpose I have mentioned the config server URL as http://localhost:8080 in this document, but you have to mention the URL where configuration server is running.
+**NOTE:** For the documentation purpose I have mentioned the config server URL as `http://localhost:8080` in this document, but you have to mention the URL where configuration server is running.
 
 ![Configuration Server](_images/arch_diagrams/MOSIP_config_server_setup.png)
 
@@ -99,7 +99,7 @@ Sample Bootstrap.properties file:<br/>
    `  } `<br/>
 In the above snippet we are using @RefreshScope annotation which will help the client application to get lastest configuration from config server without restarting the application (by calling the refresh API /actuator/refresh on the application endpoint) <br/>
 4. For any other configuration file such as xml/json etc. you can directly get the entire file through the following url:<br/>
-**http://{mosip-config-server URL}/{spring.cloud.config.name} /{label} /{branch}/{filename}.(xml/json).** 
+`**http://{mosip-config-server URL}/{spring.cloud.config.name} /{label} /{branch}/{filename}.(xml/json).**` 
 <br/>
 <br/>
 ### Vert.x client:
@@ -168,9 +168,9 @@ The refresh end point is following:<br/>
 **POST  {Microservice-URL} /actuator/refresh**
 
 
-**For Encryption and Decryption of properties** you need to generate Keystore, For more information look [here]( https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing )
+**For Encryption and Decryption of properties** you need to generate Keystore, For more information look [here](//cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing)
 
-To setup and configure keystore for config server refer to the configuration server [README](https://github.com/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md) (under mosip -> kernel -> kernel-config-server -> README.md)
+To setup and configure keystore for config server refer to the configuration server [README](/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md) (under mosip -> kernel -> kernel-config-server -> README.md)
 
 **To Encrypt any property:** <br/>
 Run the following command : <br/>
