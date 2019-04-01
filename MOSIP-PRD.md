@@ -59,10 +59,10 @@ Fig: 2 Key objectives of the platform
 
 # 3. MOSIP FUNCTIONAL OVERVIEW
 
-[Please Refer wiki](https://github.com/mosip/mosip/wiki)
+[Please Refer wiki](/mosip/mosip/wiki)
 
 
-Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D)
+Fig 3: [MOSIP functional overview](//raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_functional_view.png?token=ArzdLTDTLDsn5CWFkrfbMGV4DOWTXPOTks5cPC5nwA%3D%3D)
 
 
 # 4.MOSIP Technical overview
@@ -70,49 +70,49 @@ Fig 3: [MOSIP functional overview](https://raw.githubusercontent.com/wiki/mosip/
 ## 4.1.MOSIP-SYSTEM ARCHITECTURE-PATTERNS AND PRINCIPLES
 
 MOSIP adopts the following Architectural patterns & principles to achieve modularity, better maintainability, scalability and extensibility.
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Logical-Architecture) for more details
+[Please refer wiki](Logical-Architecture) for more details
 
 
 Fig: 4 MOSIP Architectural patterns and principles
 
 ![MOSIP Architectural patterns and principles](_images/mosip_prd/principles.JPG)
 
-Fig 5: [MOSIP Thick client architecture](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D)
+Fig 5: [MOSIP Thick client architecture](//raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/MOSIP_logical_architecture_v0.1.png?token=ArzdLc8QifbbbyMdB7ODebKgCDl33ajNks5cPC-LwA%3D%3D)
 
 ## 4.2.MOSIP Configuration and Launcher
 
-[Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher)
+[Please Refer wiki](MOSIP-configuration-&-launcher)
 
 # 5.MOSIP PLATFORM FEATURES
 
 ## 5.1.MOSIP ID Object Definition
-[Please Refer wiki](https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition)
+[Please Refer wiki](MOSIP-ID-Object-definition)
 
 ## 5.2.Key Design Considerations
 
 This sections lists out some of the Key design considerations for MOSIP
 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Logical-Architecture)
+[Please refer wiki](Logical-Architecture)
 
 
 ## 5.3.Multi-modal Automated Biometric Identification System (ABIS) Interface
 
-### 5.3.1.[Know more about ABIS interface](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware) 
+### 5.3.1.[Know more about ABIS interface](MOSIP-ABIS-Middleware) 
 
-### 5.3.2.[MOSIP-ABIS middleware ](https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware)
+### 5.3.2.[MOSIP-ABIS middleware ](MOSIP-ABIS-Middleware)
 
 ## 5.4.Biometric Standards for inter-operability
-### [5.4.1.MOSIP biometric data standards](https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications) 
+### [5.4.1.MOSIP biometric data standards](MOSIP-Biometric-Data-Specifications) 
 
 ## 5.5.Device specifications
 
-### 5.5.1.[Vendor Device Specifications](https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications)
+### 5.5.1.[Vendor Device Specifications](MOSIP-VDM-Specifications)
 
 # 6.MOSIP FUNCTIONAL AND NON FUNCTIONAL REQUIREMENT SPECIFICATIONS
 
-## 6.1.[FUNCTIONAL REQUIREMENT SPECIFICATIONS](https://github.com/mosip/mosip/wiki/MOSIP-FUNCTIONAL-REQUIREMENT-SPECIFICATIONS)
+## 6.1.[FUNCTIONAL REQUIREMENT SPECIFICATIONS](MOSIP-FUNCTIONAL-REQUIREMENT-SPECIFICATIONS)
 
-## 6.2.[NON FUNCTIONAL REQUIREMENT SPECIFICATIONS](https://github.com/mosip/mosip/wiki/MOSIP-NON-Functional-Requirements)
+## 6.2.[NON FUNCTIONAL REQUIREMENT SPECIFICATIONS](MOSIP-NON-Functional-Requirements)
 
 # 7.SECURITY
 
@@ -124,37 +124,37 @@ Multiple aspects of security like confidentiality, privacy, integrity of data ar
 * An Individual's Identity data at is always encrypted to ensure confidentiality of data
 * Access controls is implemented on all API's to ensure data privacy  and who can see what
 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Security) for more details.
+[Please refer wiki](Security) for more details.
 
 ## 7.2.Database encryption
 
-[Data encryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/DB_encryption.png?token=ArzdLejO2ylFZXOx0RCrKjGeV0TBtsPKks5cPDLnwA%3D%3D)
+[Data encryption flow](//raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/DB_encryption.png?token=ArzdLejO2ylFZXOx0RCrKjGeV0TBtsPKks5cPDLnwA%3D%3D)
 
 ## 7.3.Key management, Data Encryption & Decryption
 
-[Data encryption and decryption flow](https://raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D)
+[Data encryption and decryption flow](//raw.githubusercontent.com/wiki/mosip/mosip/_images/arch_diagrams/encryption.png?token=ArzdLTtM-3lDHfRe6jimBELKqUrXpwJuks5cPDPZwA%3D%3D)
 
 ## 7.4.Authentication & Authorization 
 
-### [MOSIP Authentication Spec](https://github.com/mosip/mosip/wiki/AuthN-service-specs)
+### [MOSIP Authentication Spec](AuthN-service-specs)
 
 # 8.MOSIP-PRE-REGISTRATION
 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Pre-Registration)
+[Please refer wiki](Pre-Registration)
 
 # 9.MOSIP RESIDENT SERVICES
 
 # 10.MOSIP-REGISTRATION CLIENT
 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Registration-Client)
+[Please refer wiki](Registration-Client)
 
 # 11.MOSIP –REGISTRATION PROCESSOR
 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/Registration-Processor)
+[Please refer wiki](Registration-Processor)
 
 # 12.MOSIP-AUTHENTICATION
 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
+[Please refer wiki](ID-Authentication)
 
 # 13.APIs-THE CRUX OF MOSIP
 
@@ -166,7 +166,7 @@ This sections details out the external APIs of MOSIP that interact with external
 Format: JSON
 
 This section details the REST services exposed by ID Authentication. 
-[Please refer wiki](https://github.com/mosip/mosip/wiki/ID-Authentication)
+[Please refer wiki](ID-Authentication)
 This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
 
 * OTP based - TOTP
@@ -178,7 +178,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 
 Format: JSON
 
-An ABIS system that integrates with MOSIP should support the operations listed in this section [Refer wiki](https://github.com/mosip/mosip/wiki/ABIS-APIs). 
+An ABIS system that integrates with MOSIP should support the operations listed in this section [Refer wiki](ABIS-APIs). 
 All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
 
 This service details the behavior of:
@@ -197,13 +197,13 @@ OTP manager includes APIs for
  
 * OTP generation 
 * OTP validation
-[Please refer wiki](https://github.com/mosip/mosip/wiki/OTP-Manager)
+[Please refer wiki](OTP-Manager)
 
 ### 13.1.4.Pre-Registration APIs
 
 Format: JSON
 
-This section [Refer wiki](https://github.com/mosip/mosip/wiki/Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
+This section [Refer wiki](Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
 
 ### 13.1.5.Registration Processor APIs
 
@@ -213,7 +213,7 @@ This API will support the following features
 * APIs for receiving packets
 * APIs for packet registration status
 * APIs for Manual Verification 
-[Refer wiki for more details](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)
+[Refer wiki for more details](Registration-Processor-APIs)
 
 ## Internal APIs
 This refers to APIs consumed by internal modules.Listed below are a few MOSIP internal APIs
@@ -236,7 +236,7 @@ This API will support the following features
 
 # 14.MOSIP Tool KIT
 
-## 14.1.[DEPLOYMENT GUIDE](https://github.com/mosip/mosip/wiki/MOSIP-Deployment-Guide)
+## 14.1.[DEPLOYMENT GUIDE](MOSIP-Deployment-Guide)
 ## 14.2.PRODUCT DEMO
 ## 14.3.SET UP GUIDE
 
@@ -254,30 +254,28 @@ The growing complexities on the government administrative process and need for s
 # Comments and Revision logs
 1) [RC] ID Object Definition Schema-**covered under platform features**
 - Recommend inclusion of this section
-- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-ID-Object-definition
+- Refer [WiKi](MOSIP-ID-Object-definition) for content
 
 
 2) [RC] MOSIP Configuration and Launcher-**Covered under MOSIP technical overview**
 - Recommend inclusion of this section (Includes Platform Config and Config Server related content)
-- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-configuration-&-launcher
+- Refer [WiKi](MOSIP-configuration-&-launcher) for content
 
 
 3) [RC] Section 12 - API Specs:**Updated API list**
 - Except for below, rest of the APIs are external:
 - Kernel, ID Repository and Master Data APIs
-- Refer WiKi for API content and API format: https://github.com/mosip/mosip/wiki/Kernel-APIs 
+- Refer [WiKi](Kernel-APIs) for API content and API format
 
 
 4) [RC] MOSIP Biometrics Data Specifications (Registration Client and ID-Authentication)**Covered under platform features** In the PDF version of PRD its provided as annexure
 - Include a sub-section for "MOSIP Biometrics Data Specifications" or include a separate section by itself
-- Refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-Biometric-Data-Specifications
-
+- Refer [WiKi](MOSIP-Biometric-Data-Specifications) for content 
 
 5) [RC] VDM Specs-**TBD**
-- Include a section and refer WiKi for content - https://github.com/mosip/mosip/wiki/MOSIP-VDM-Specifications
-
+- Include a section and refer [WiKi](MOSIP-VDM-Specifications) for content
 
 6) [RC] ABIS Middleware and ABIS Interface **Spec Covered under platform features** In the PDF version of PRD its provided as annexure
 - Include sections for the same and refer WiKi for content
-- https://github.com/mosip/mosip/wiki/MOSIP-ABIS-Middleware
-- https://github.com/mosip/mosip/wiki/Automated-Biometric-Identification-System-(ABIS)-Interface
+- [MOSIP ABIS Middleware](MOSIP-ABIS-Middleware)
+- [ABIS Interface](Automated-Biometric-Identification-System-(ABIS)-Interface)
