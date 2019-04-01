@@ -1,6 +1,7 @@
 * **Audit Manager** _(AMG_FR_1)_
 
-The Audit Manager component receives a request to audit and store data, validates if the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). This component will also ensure non-auditable data is not stored.
+The Audit Manager component receives a request to audit and store data, validates if the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). 
+
 Upon receiving a request to store audit logs with the input parameters the audit manager performs the following steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
 
