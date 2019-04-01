@@ -10,7 +10,7 @@
 
 ***
 ## 1. Getting the Source Code [**[↑]**](#content)
-MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the URL [https://github.com/mosip/mosip/](https://github.com/mosip/mosip/). To know more about how to fork code from Github follow this [guide](https://help.github.com/articles/fork-a-repo/).
+MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
 ***
@@ -18,18 +18,18 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
 
 ### A. Installing Jenkins version 2.150.1
-Jenkins installation is pretty standard one(see [How to install Jenkins](https://jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. Also you have to install following list of plugins - 
-* [Github Plugin](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin)
-* [Artifactory Plugin](https://wiki.jenkins.io/display/JENKINS/Artifactory+Plugin)
-* [Credentials Plugin](https://wiki.jenkins.io/display/JENKINS/Credentials+Plugin)
-* [Docker Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Docker+Pipeline+Plugin)
-* [Email Extension Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin)
-* [Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin)
-* [Publish Over SSH Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Publish+Over+SSH+Plugin)
-* [SonarQube Scanner for Jenkins Plugin](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)
-* [SSH Agent Plugin](http://wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin)
-* [Pipeline Utility Steps Plugin](https://wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin)
-* [M2 Release Plugin](https://wiki.jenkins.io/display/JENKINS/M2+Release+Plugin)
+Jenkins installation is pretty standard one(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. Also you have to install following list of plugins - 
+* [Github Plugin](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin)
+* [Artifactory Plugin](//wiki.jenkins.io/display/JENKINS/Artifactory+Plugin)
+* [Credentials Plugin](//wiki.jenkins.io/display/JENKINS/Credentials+Plugin)
+* [Docker Pipeline Plugin](//wiki.jenkins.io/display/JENKINS/Docker+Pipeline+Plugin)
+* [Email Extension Plugin](//wiki.jenkins-ci.org/display/JENKINS/Email-ext+plugin)
+* [Pipeline Plugin](//wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin)
+* [Publish Over SSH Plugin](//wiki.jenkins-ci.org/display/JENKINS/Publish+Over+SSH+Plugin)
+* [SonarQube Scanner for Jenkins Plugin](//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)
+* [SSH Agent Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin)
+* [Pipeline Utility Steps Plugin](//wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin)
+* [M2 Release Plugin](//wiki.jenkins.io/display/JENKINS/M2+Release+Plugin)
 
 Once the plugin installation is complete, we need to run this command in Jenkins Script Console - 
 
@@ -39,10 +39,10 @@ This above command modifies Content Security Policy in Jenkins to enable loading
 
 
 
-* [SSH Credentials Plugin](https://wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
+* [SSH Credentials Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Setting Up Github for/in Jenkins
-Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at [Webhooks](https://developer.github.com/webhooks/) and [Github hook](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling)). After hooks are in place, we need to setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps - 
+Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at [Webhooks](//developer.github.com/webhooks/) and [Github hook](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling)). After hooks are in place, we need to setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps - 
     
     I. Goto Jenkins
     II. Goto Credentials -> System
@@ -86,13 +86,13 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
 ***
 ## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#content)
- For installing and setting up Jfrog, steps [here](https://www.jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
+ For installing and setting up Jfrog, steps [here](//www.jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
 Once the setup is complete, please add following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
 * **Maven Central -** https://repo.maven.apache.org/maven2/
 * **Jcentre -** https://jcenter.bintray.com
 * **Openimaj -** http://maven.openimaj.org<br/>
 To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home to point to JFrog.<br/>
-To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](https://www.jfrog.com/confluence/display/RTF/Maven+Repository)
+To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](//www.jfrog.com/confluence/display/RTF/Maven+Repository)
 
 **NOTE** JFrog Artifactory setup by Mindtree is open to public for read only access. So if any of the modules are dependent on previous modules, that you don't have built, you need to connect to our JFrog server to pull those dependencies. For doing that, in the settings.xml file that you generated above, replace url of ID with repository snapshot and release to our Jfrog URLs which will be : </br>
 1. `<url>http://devops.mosip.io/artifactory/libs-snapshot</url>` for libs-snapshot 
@@ -104,15 +104,15 @@ Also if you are planning to import all versions of the Mosip modules in Jfrog to
 
 ***
 ## 4. Setup and Configure SonarQube version 7.3 [**[↑]**](#content)
-SonarQube server can be setup by following single instructions given [here](https://docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
-For configuring SonarQube with Jenkins, steps given [here](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
+SonarQube server can be setup by following single instructions given [here](//docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
+For configuring SonarQube with Jenkins, steps given [here](//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
 
 ***
 ## 5. Setup and Configure Docker Registry [**[↑]**](#content)
-In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found [here](https://docs.docker.com/registry/configuration/)
-We are deploying Docker registry as Containerized services. For setting up the registry, [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) need to be installed. We have setted up the registry in a machine with Redhat 7.5 installed.<br/>
+In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found [here](//docs.docker.com/registry/configuration/)
+We are deploying Docker registry as Containerized services. For setting up the registry, [Docker](//docs.docker.com/install/) and [Docker Compose](//docs.docker.com/compose/install/) need to be installed. We have setted up the registry in a machine with Redhat 7.5 installed.<br/>
 Once installation is done, the yaml files which we will be using to setup the registry can be found under scripts/docker-registry folder in the source code.
-We are using Registry image : registry:2.5.1, registry with any other version can be deployed from [here](https://hub.docker.com/_/registry). <br/>For routing purpose, we are using HAproxy image dockercloud/haproxy:1.6.2, other options such as ngnix etc. can also be used for the same purpose.<br/>
+We are using Registry image : registry:2.5.1, registry with any other version can be deployed from [here](//hub.docker.com/_/registry). <br/>For routing purpose, we are using HAproxy image dockercloud/haproxy:1.6.2, other options such as ngnix etc. can also be used for the same purpose.<br/>
 We have the following docker-compose files, under scripts/docker-registry folder:<br/>
 1. **registry-docker-compose.yml:**  For basic registry and haproxy setup.
 2. **registry-docker-compose-basic-authentication.yml:**  For securing the docker registry through base authentication.
@@ -125,7 +125,7 @@ For basic authentication, you have to setup a htpasswd file and add a simple use
     specific values.
      
 3. **registry-docker-compose-azure-storage.yml:**  This file is used for configuring azure blob storage. We are assuming that Azure blob has already been configured by you. Replace REGISTRY_STORAGE_AZURE_ACCOUNTNAME, REGISTRY_STORAGE_AZURE_ACCOUNTKEY, REGISTRY_STORAGE_AZURE_CONTAINER with appropriate values configured by you while setting up azure blob storage.
-4. **registry-docker-compose-tls-enabled.yml:**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](https://letsencrypt.org/getting-started/)
+4. **registry-docker-compose-tls-enabled.yml:**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)
   Once Certificates have been generated, replace the <REGISTRY_HTTP_TLS_CERTIFICATE> property and <REGISTRY_HTTP_TLS_KEY> property in registry-docker-compose-tls-enabled.yml with appropriate values.
 After completing all the above changes, use docker-compose tool to bring up the container using the following command:<br/>
 `docker-compose -f registry-docker-compose.yml -f registry-docker-compose-basic-authentication.yml -f registry-docker-compose-azure-storage.yml -f registry-docker-compose-tls-enabled.yml  up -d`<br/>
