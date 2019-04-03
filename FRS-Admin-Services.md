@@ -40,7 +40,7 @@
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Location Hierarchy in the Masterdata Database
+#### A. Create Location Hierarchy in the Master database 
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the Database
 
 While storing the location hierarchy in the database, the system performs the following steps:
@@ -53,7 +53,7 @@ While storing the location hierarchy in the database, the system performs the fo
     * lang_code - character (3) - Mandatory
     * is_active - boolean - Mandatory
 2. Responds with the Location Hierarchy created successfully
-1. The component restricts the bulk creation of Master Data
+1. The component restricts the bulk creation of Master Data through API. However it could be done through a script as need be depending on the requirement of the country.
 1. In case of exceptions, system triggers error messages as received from the Database
 
 #### B. Check the existence of a Location in Master Database
@@ -126,12 +126,12 @@ Upon receiving a request to fetch all the Location Hierarchy Data with input par
 1. Responds to the source with the data fetched
 1. In case of Exceptions, system should trigger an error message. 
 
-#### F. Update and Delete a Location in Location Masterdata Database
+#### F. Update and Delete a Location in Location Master Database
 #### (i) Update
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
 for the code received.
 
-The system performs the following steps to update the location in the Masterdata Database:
+The system performs the following steps to update the location in the Master Database:
  
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code character (36) - Mandatory
@@ -161,7 +161,7 @@ The system performs the following steps in order to delete the loaction\s receiv
 
 
 ### 1.2 List of Holidays - Create/Read/Update/Delete [**[↑]**](#table-of-content)
-#### A. Create Holiday data in Masterdata Database
+#### A. Create Holiday data in Master Database
 
 Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system stores the Holiday in the Database. The following steps are performed by the system:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -192,7 +192,7 @@ On receiving a request to fetch the list of Holidays with the input parameters (
 4. Responds to the source with the List of Holidays
 1. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete List of Holiday in  Masterdata Database
+#### C. Update and Delete List of Holiday in  Master Database
 #### (i) Update
 
 On receiving a  request to update a Holiday list with the input parameters (id, location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system updates the Holiday List in the Holiday Database for the code received as per the below steps:
@@ -228,7 +228,7 @@ On receiving a  request to delete a Holiday List with the input parameters (code
 1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.3 Biometric Authentication Type - Create/Read [**[↑]**](#table-of-content)
-#### A. Create Biometric Authentication Type in Masterdata Database
+#### A. Create Biometric Authentication Type in Master Database
 On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Biometric Authentication Type in the Database as per the below steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
    * code - character (36) - Mandatory
@@ -251,7 +251,7 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 
 ### 1.4 Biometric Attribute Type - Create/Read [**[↑]**](#table-of-content)
 
-#### A. Create Biometric Attribute in Masterdata Database
+#### A. Create Biometric Attribute in Master Database
 
 On receiving a request to add Biometric Attribute (e.g., Right Thumb, Left Thumb) with the input parameters (code, name, descr, bmtyp_code, lang_code and is_active), the system stores the Biometric Attribute in the Database as per the below steps:
 
@@ -285,7 +285,7 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 1. In case of Exceptions, system triggers relevant error messages
 
 ### 1.5 Gender - Create/Read/Update/Delete [**[↑]**](#table-of-content)
-#### A. Create Gender Types in Masterdata Database
+#### A. Create Gender Types in Master Database
 
 On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the Database as per the below steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -298,7 +298,7 @@ On receiving a request to add a Gender Type with the input parameters (code, nam
 1. Responds to the source with the appropriate message
 1. In case of Exceptions, system will trigger error messages as received from the Database.
  
-#### B. Update and Delete a Gender Type in Gender Type Masterdata Database
+#### B. Update and Delete a Gender Type in Gender Type Master Database
 
 #### (i) Update
 
@@ -348,7 +348,7 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 
 ### 1.6 Document Category - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Document Category in Master Data
+#### A. Create Document Category in Master Database
 
 On receiving a request to add Document Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Category in the Database as per the below listed steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -364,7 +364,7 @@ On receiving a request to add Document Category with the input parameters (code,
 1. Responds to the source with the appropriate message.
 1. In case of Exceptions, system triggers relevant error messages
 
-#### B. Update and Delete a Document Category in the Document Category Masterdata Database
+#### B. Update and Delete a Document Category in the Document Category Master Database
 
 #### (i) Update
 
@@ -409,7 +409,7 @@ On receiving a request to fetch Document Category Details with the input paramet
 
 ### 1.7 Document Type - Create/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Document Type in Master Data
+#### A. Create Document Type in Master Database
 
 On receiving a request to add Document Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Document Type in the Database
 
@@ -426,7 +426,7 @@ Refer below for the process:
 3. Responds with the Document Type Code and Language Code for the Document Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-#### B. Update and Delete a Document Type in the Document Type Masterdata Database
+#### B. Update and Delete a Document Type in the Document Type Master Database
 
 #### (i) Update
 
@@ -461,7 +461,7 @@ Refer below for the process:
 
 ### 1.8 Applicant Type - Document Category - Document Type Mapping - Read [**[↑]**](#table-of-content)
 
-#### A. Fetch list of Document Categories based on Applicant Type from Masterdata Database
+#### A. Fetch list of Document Categories based on Applicant Type from Master Database
 
 Upon receiving a request  to fetch List of Document Categories with the input parameters (Applicant Type Code), the system fetches all the Document Categories for the Applicant Type Code Received
 
@@ -504,7 +504,7 @@ While fetching the data, the system performs the following steps:
 7. In case of Exceptions, system triggers relevant error messages
 
 
-#### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Masterdata Database
+#### C. Delete a Document Category-Type mapping in the Document Category-Type mapping Master Database
 
 On receiving a request to delete a Document Category-Type mapping with the input parameters (doccat_code, doctyp_code), the system updates the is_deleted flag to true in the Document Category-Type mapping Database against the input received
 
@@ -545,7 +545,7 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 1. In case of Exceptions, system triggers relevant error messages
 
 ### 1.9 List of Rejection Reasons - Create/Read [**[↑]**](#table-of-content)
-#### A. Create a Rejection Reason in Reason List Master Data
+#### A. Create a Rejection Reason in Reason List Master Database
 
 Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system stores the Reason in the Database
 
@@ -589,7 +589,7 @@ The system performs the following steps:
 
 ### 1.10 List of Languages - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create List of Languages in Master Data
+#### A. Create List of Languages in Master Database
 
 After receiving a request to add Language Details with the input parameters (code, name, family, native_name and is_active), the system stores the Language Details in the Database and performs the following steps:
 
@@ -613,7 +613,7 @@ After receiving a request to fetch the List of Languages, the system fetches the
 2. Responds to the source with the List of Languages
 1. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete a Language in the List of Languages Masterdata Database
+#### C. Update and Delete a Language in the List of Languages Master Database
 
 #### (i) Update
 
@@ -649,7 +649,7 @@ The system performs the following steps:
 
 ### 1.11 List of Titles - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A.	Create a Title in Masterdata Database
+#### A.	Create a Title in Master Database
 
 On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Title in the Database and performs the following steps:
 
@@ -662,7 +662,7 @@ On receiving a request to add a Title (e.g., MR., Mrs.) with the input parameter
 2. Responds with the Title Code and Language Code for the Title created successfully
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
-#### B.	Update and Delete a Title in Title Masterdata Database
+#### B.	Update and Delete a Title in Title Master Database
 
 #### (i) Update
 
@@ -712,7 +712,7 @@ The system performs the following steps:
 
 ### 1.12 Template File Format - Create/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Template File Format in Master Data
+#### A. Create Template File Format in Master Database
 
 On receiving a request to add Template File Format with the input parameters (code, descr, lang_code and is_active), the system stores the Template File Format in the Database and performs the following steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -726,9 +726,9 @@ On receiving a request to add Template File Format with the input parameters (co
 3. Responds with the Template File Format Code and Language Code for the Template File Format created successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-#### B. Create Template File Format in Master Data
+#### B. Create Template File Format in Master Database
 
-Update and Delete a Template File Format in Template File Format Masterdata Database
+Update and Delete a Template File Format in Template File Format Master Database
 
 #### (i) Update
 
@@ -762,7 +762,7 @@ While deleting the Template File Format, the system performs the following steps
 1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.13 List of Template Types - Create [**[↑]**](#table-of-content)
-MOSIP system can create Template Type in the Masterdata Database.
+MOSIP system can create Template Type in the Master Database.
 
 Upon receiving a request to add Template Type (e.g., SMS Notification template - New Registration) with the input 
 parameters (code, descr, lang_code and is_active), the system stores the Template Type in the Database and performs the following steps:
@@ -774,13 +774,13 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
    * is_active - boolean – Mandatory
 
 2. Responds with the Template Type Code and Language Code for the Template Type created successfully
-3. This component also restricts the bulk creation of Master Data
+3. This component also restricts the bulk creation of Master Database
 4. In case of Exceptions, system triggers relevant error messages as listed below.
 
 
 ### 1.14 List of Templates - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Template in the Masterdata Database
+#### A. Create Template in the Master Database
 
 On receiving a request to add a Template with the input parameters (id, name, descr, file_format_code, model, file_txt, module_id, module_name, template_typ_code, lang_code and is_active), the system stores the Template in the Database and performs the following steps:
 
@@ -817,7 +817,7 @@ Refer below for the process:
    * IsActive
 5. In case of Exceptions, system triggers relevant error messages
 
-#### C. Update and Delete a Template in Template Masterdata Database
+#### C. Update and Delete a Template in Template Master Database
 
 #### (i) Update
 
@@ -855,7 +855,7 @@ On receiving a request to delete a Template with the input parameters (id), the 
 
 ### 1.15 List of Blacklisted Words - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Blacklisted Words in Masterdata Database
+#### A. Create Blacklisted Words in Master Database
 
 Upon receiving a request to add a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system stores the Blacklisted Word in the Database and performs the following steps:
 
@@ -865,11 +865,11 @@ Upon receiving a request to add a Blacklisted Word with the input parameters (co
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
 2. Responds with the Device ID and Language Code for the Device created successfully
-1. The component  restricts the bulk creation of Master Data
+1. The component  restricts the bulk creation of Master Database
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Update and Delete a Blacklisted Word in Blacklisted Word Masterdata Database
+#### B. Update and Delete a Blacklisted Word in Blacklisted Word Master Database
 
 
 #### (i) Update
@@ -914,7 +914,7 @@ While fetching the black listed words, the system performs the following steps:
 
 ### 1.16 List of Reason Categories - Create [**[↑]**](#table-of-content)
 
-MOSIP system can create a Reason Category in Master Data
+MOSIP system can create a Reason Category in Master Database
 
 
 Upon receiving a request to add Reason Category with the input parameters (code, name, descr, lang_code and is_active), the system stores the Reason Category in the Database and performs the following steps:
@@ -934,7 +934,7 @@ Upon receiving a request to add Reason Category with the input parameters (code,
 
 
 ### 1.17 List of Applications - Create/Read [**[↑]**](#table-of-content)
-#### A. Create a List of Applications in Master Data
+#### A. Create a List of Applications in Master Database
 
 Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the Database
 
@@ -992,7 +992,7 @@ Refer below for the process:
 
 
 ### 1.18 List of ID Types - Create/Read [**[↑]**](#table-of-content)
-#### A. Create an ID type in Master Data
+#### A. Create an ID type in Master Database
 
 Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the Database
 
@@ -1036,7 +1036,7 @@ Refer below for the process:
 ## 2. Registration Management
 ### 2.1 Registration Center Type - Create/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Registration Center Type in Master Data
+#### A. Create Registration Center Type in Master Database
 
 On receiving a request to add Registration Center Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the Registration Center Type in the Database
 
@@ -1055,7 +1055,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages. 
 
 	
-#### B. Update and Delete a Registration Center Type in the Registration Center Type Masterdata Database
+#### B. Update and Delete a Registration Center Type in the Registration Center Type Master Database
 
 #### (i) Update
 
@@ -1095,7 +1095,7 @@ Refer below for the process:
 ### 2.2 Registration Center - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
 
-#### A. Create a Registration Center record in Masterdata Database
+#### A. Create a Registration Center record in Master Database
 
 Upon receiving a request to add Registration Center with the input parameters (center_id, name, cntrtyp_code, addr_line1, addr_line2, addr_line3, latitude, longitude, location_code, contact_phone, contact_person, number_of_kiosks, working_hours
 per_kiosk_process_time, start_time, end_time, lunch_start_time. lunch_end_time, holiday_loc_code, timezone, lang_code and is_active), the system Stores the Registration Center in the Database
@@ -1129,7 +1129,7 @@ Refer below for the process:
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
-#### B. Update and Delete a Registration Center in the List of Registration Center Masterdata Database
+#### B. Update and Delete a Registration Center in the List of Registration Center Master Database
 #### (i) Update
 
 
@@ -1364,7 +1364,7 @@ Refer below for the process:
    * is_active - boolean - Mandatory
 2. Responds with the Machine Type Code and Language Code for the Machine Type created successfully
 
-3. This feature also restricts the bulk creation of Master Data
+3. This feature also restricts the bulk creation of Master Database
 
 4. Responds to the source with the appropriate message
 
@@ -1373,7 +1373,7 @@ Refer below for the process:
 ### 2.4 List of Machine Specifications - Create/Update/Delete [**[↑]**](#table-of-content)
 
 
-#### A. Create Machine Specifications in the Masterdata Database
+#### A. Create Machine Specifications in the Master Database
 
 
 On receiving a request to add Machine Specifications with the input parameters (name, brand, model, mtyp_code, min_driver_ver, descr, lang_code and is_active), the system stores the Machine Specifications in the Database 
@@ -1394,7 +1394,7 @@ Refer below for the process:
 1. The component restricts the bulk creation of Master Data
 1. In case of Exceptions, system triggers error messages as received from the Database
 
-#### B. Update and Delete a Machine Specification in the Machine Specification Masterdata Database
+#### B. Update and Delete a Machine Specification in the Machine Specification Master Database
 
 #### (i) Update
 
@@ -1441,7 +1441,7 @@ Refer below for the process:
 
 ### 2.5 List of Machines - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create a Machine in Masterdata Database
+#### A. Create a Machine in Master Database
 
 On receiving a request to add Machine with the input parameters (machine_id, name, mac_address, serial_num, ip_address, validity_end_dtimes, mspec_id, lang_code and is_active), the system Stores the Machine Details in the Database
 
@@ -1464,7 +1464,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Update and Delete a Machine in the List of Machines Masterdata Database
+#### B. Update and Delete a Machine in the List of Machines Master Database
 
 #### (i) Update
 
@@ -1557,7 +1557,7 @@ Refer below for the process:
 ### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete [**[↑]**](#table-of-content)
 
 
-#### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Masterdata Database
+#### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Master Database
 
 On receiving a request to add a mapping of Center, User and Machine with the input parameters (regcntr_id, usr_id, machine_id and is_active), the system Stores the Mapping of Center, User and Machine in the Database
 
@@ -1574,7 +1574,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers error messages as received from the Database.
 
 
-#### B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Masterdata Database
+#### B. Delete a Center-Machine-User mapping in the Center-Machine-User mapping Master Database
 
 On receiving a request to delete a Center-Machine-User mapping with the input parameters (regcntr_id, machine_id, usr_id), the system Updates the is_deleted flag to true in the Center-Machine-User mapping Database against the input received
 
@@ -1613,7 +1613,7 @@ Refer below for the process:
 
 ### 2.7 List of Devices - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create a Device in Masterdata Database
+#### A. Create a Device in Master Database
 
 On receiving request to add a device with the input parameters (name, mac_address, serial_num, ip_address, dspec_id, validity_end_date, lang_code and is_active), the system Stores the device in the Database
 
@@ -1697,7 +1697,7 @@ Refer below for the process:
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages. 
 
-#### D. Update and Delete a Device in the List of Devices Masterdata Database
+#### D. Update and Delete a Device in the List of Devices Master Database
 
 #### (i) Update
 
@@ -1739,7 +1739,7 @@ Refer below for the process:
 
 ### 2.8 List of Device Specifications - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Device Specifications in Master Data
+#### A. Create Device Specifications in Master Database
 
 
 On receiving request to add Device Specifications with the input parameters (name, brand, model, dtype_code, min_driver_ver, descr, lang_code and is_active), the system Stores the Device Specifications in the Database
@@ -1794,7 +1794,7 @@ While fetching the List of Device Specifications against the Language Code and/o
 7. In case of Exceptions, system triggers relevant error messages
 
 
-#### C. Update and Delete a Device Specification in the Device Specification Masterdata Database
+#### C. Update and Delete a Device Specification in the Device Specification Master Database
 
 #### (i) Update
 
@@ -1834,7 +1834,7 @@ While deleting the device specifications the system performs the following steps
 1. In case of Exceptions, system triggers relevant error messages. 
 
 ### 2.9 List of Device Types - Create [**[↑]**](#table-of-content)
-#### A. Create Device Type in Master Data
+#### A. Create Device Type in Master Database
 
 
 Upon receiving a request to add Device Type with the input parameters (code, name, descr, lang_code and is_active), the system Stores the Device Type in the Database
@@ -1855,7 +1855,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages
 
 ### 2.10 Mappings of Registration Center and Machine - Create/Delete [**[↑]**](#table-of-content)
-#### A. Create a mapping record of Machine and Center in Machine-Center Mapping Masterdata Database
+#### A. Create a mapping record of Machine and Center in Machine-Center Mapping Master Database
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the Database
 
 Refer below for the process:
@@ -1869,7 +1869,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Delete a Center-Machine mapping in the Center-Machine mapping Masterdata Database
+#### B. Delete a Center-Machine mapping in the Center-Machine mapping Master Database
 
 Upon receiving a request to delete a Center-Machine mapping with the input parameters (regcntr_id, machine_id), the system updates the is_deleted flag to true in the Center-Machine mapping Database against the input received
 
@@ -1884,7 +1884,7 @@ Refer below for the process:
 
 
 ### 2.11 Mappings of Registration Center and Device - Create/Read/Delete [**[↑]**](#table-of-content)
-#### A. Create a mapping record of Device and Center in Device-Center Mapping Masterdata Database
+#### A. Create a mapping record of Device and Center in Device-Center Mapping Master Database
 Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the Database
 
 Refer below for the process:
@@ -1897,7 +1897,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Delete a Center-Device mapping in the Center-Device mapping Masterdata Database
+#### B. Delete a Center-Device mapping in the Center-Device mapping Master Database
 Upon receiving a request to delete a Center-Device mapping with the input parameters (regcntr_id, device_id), the system updates the is_deleted flag to true in the Center-Device mapping Database against the input received
 
 Refer below for the process:
@@ -1933,7 +1933,7 @@ While fetching the attributes of Center and Device Mapping from the history tabl
 
 ### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete [**[↑]**](#table-of-content)
 
-#### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Masterdata Database
+#### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Master Database
 
 Upon receiving a request to add a mapping of Center, Machine and Device with the input parameters (regcntr_id, machine_id, device_id, and is_active), the system stores the Mapping of Center, Machine and Device in the Database
 
@@ -1948,7 +1948,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Masterdata Database
+#### B. Delete a Center-Machine-Device mapping in the Center-Machine-Device mapping Master Database
 Upon receiving a request to delete a Center-Machine-Device mapping with the input parameters (regcntr_id, machine_id, device_id), the system updates the is_deleted flag to true in the Center-Machine-Device mapping Database against the input received
 
 Refer below for the process:

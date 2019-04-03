@@ -84,7 +84,7 @@ Once the Demographic Details are filled and the Documents are uploaded, if the I
 
 ### 2.2.4 Provide Data in Preferred Language [**[↑]**](#table-of-content)
 
-The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated.The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
+The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated. The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
 
@@ -105,7 +105,7 @@ If the individual visits the Registration Centre and consumes the appointment, t
 ### 2.2.6 Modify Application Data [**[↑]**](#table-of-content)
 The individual can modify the pre-registration data by opting to select the “Modify” option for a specific application. The system provides the Demographic form with pre-filled demo details and allows the individual to edit the details as required. The system associates the modified demo details with the Pre-Registration Id for which Modify information is initiated.
 
-Note:Modify application data cannot be done for an expired application
+Note: Modify application data cannot be done for an expired application
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
 
@@ -117,7 +117,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 ## 2.3 Attaching Documents to the Application
 ### 2.3.1 Document Categories and Applicable Document Types [**[↑]**](#table-of-content)
 1. When an Individual provides their Demographic data, the Pre-registration system captures the data. 
-1. Based on the parameters (from Config file) for example-The gender, age and residential status(Foreigner, National) from the demographic data applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
+1. Based on the parameters (from Config file) for example - gender, age and residential status (Foreigner, National) from the demographic data, applicant types are determined. The Pre-Registration system then sends the Id to the mapping.
 1. Based on the Applicant type, the Applicable Document categories are received from the Mapping. The Pre-Registration system then displays only applicable categories.
 1. The Document Category and type of documents in each category to be uploaded varies based on the applicant type. Pre-registration system displays only those types to the applicant.
 1. Once the documents are uploaded by applicant the system performs virus scan to check the integrity of the document. Once the virus scan is done the document is encrypted and stored in the database
@@ -144,7 +144,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 1. The system recommends registration centers based on the postal code(s) of all the applicants for whom the appointment is to be booked
 1. The search results have the following information about the Registration Center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
 
-The First Registration Center as per the search criteria is shown to the Individual on Map by default
+1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 #### 2.4.1.2 Nearby centers based on User Geo-location [**[↑]**](#table-of-content)
 1. An Individual can  enable location services,  in the device/machine in order to select nearby centers
@@ -152,11 +152,11 @@ The First Registration Center as per the search criteria is shown to the Individ
 1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 #### 2.4.1.3 Find a Center [**[↑]**](#table-of-content)
-An Individual may opt to  perform text search to find a center based on which the system displays the registration centers
+1. An Individual may opt to perform text search to find a center based on which the system displays the registration centers
 
-It is a contextual search where the individual selects a search criteria and based on the selected search criteria enters relevant text. 
+1. It is a contextual search where the individual selects a search criteria and based on the selected search criteria enters relevant text. 
 
-The First Registration Center as per the search criteria is shown to the Individual on Map by default
+1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 ### 2.4.2 Get Appointment for the Day [**[↑]**](#table-of-content)
 1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment

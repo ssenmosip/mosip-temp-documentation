@@ -66,16 +66,16 @@
 |13.||Discard Application|PRE_FR_2.7|[MOS-805](//mosipid.atlassian.net/browse/MOS-805))|
 |14.|pre-registration-ui|Document Categories and Applicable Document Types|PRE_FR_3.1|[MOS-13344](//mosipid.atlassian.net/browse/MOS-13344)|
 |15.|pre-registration-ui|Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-814](//mosipid.atlassian.net/browse/MOS-814)|
-|16.|pre-registration-ui|Choosing Appointment Slots|PRE_FR_4.2|[MOS-817](//mosipid.atlassian.net/browse/MOS-817)|
-|17.|pre-registration-booking-service|Choosing Appointment Slots|PRE_FR_4.2|[MOS-664](//mosipid.atlassian.net/browse/MOS-664)|
-|18.|pre-registration-ui|Cancel Appointment|PRE_FR_4.3|[MOS-818](//mosipid.atlassian.net/browse/MOS-818)|
-|19.|pre-registration-booking-service|Cancel Appointment|PRE_FR_4.3|[MOS-665](//mosipid.atlassian.net/browse/MOS-665)|
-|20.|pre-registration-ui|Re-book Appointment|PRE_FR_4.4|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
-|21.|pre-registration-booking-service|Re-book Appointment|PRE_FR_4.4|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
+|16.|pre-registration-ui|Choosing Appointment Slots|PRE_FR_4.3|[MOS-817](//mosipid.atlassian.net/browse/MOS-817)|
+|17.|pre-registration-booking-service|Choosing Appointment Slots|PRE_FR_4.3|[MOS-664](//mosipid.atlassian.net/browse/MOS-664)|
+|18.|pre-registration-ui|Cancel Appointment|PRE_FR_4.4|[MOS-818](//mosipid.atlassian.net/browse/MOS-818)|
+|19.|pre-registration-booking-service|Cancel Appointment|PRE_FR_4.4|[MOS-665](//mosipid.atlassian.net/browse/MOS-665)|
+|20.|pre-registration-ui|Re-book Appointment|PRE_FR_4.5|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
+|21.|pre-registration-booking-service|Re-book Appointment|PRE_FR_4.5|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
 |22.|pre-registration-ui|Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](//mosipid.atlassian.net/browse/MOS-812), [MOS-13142](//mosipid.atlassian.net/browse/MOS-13142), [MOS-13143](//mosipid.atlassian.net/browse/MOS-13143)|
-|23.|pre-registration-ui|Get Appointment for the Day|PRE_FR_6.1|[MOS-816](//mosipid.atlassian.net/browse/MOS-816)|
-|24.|pre-registration-booking-service|Get Appointment for the Day|PRE_FR_6.1|[MOS-663](//mosipid.atlassian.net/browse/MOS-663)|
-|25.|pre-registration-datasync-service|Retrieve Application Data by PRID|PRE_FR_6.2|[MOS-668](//mosipid.atlassian.net/browse/MOS-668), [MOS-1999](//mosipid.atlassian.net/browse/MOS-1999)|
+|23.|pre-registration-ui|Get Appointment for the Day|PRE_FR_4.2|[MOS-816](//mosipid.atlassian.net/browse/MOS-816)|
+|24.|pre-registration-booking-service|Get Appointment for the Day|PRE_FR_4.2|[MOS-663](//mosipid.atlassian.net/browse/MOS-663)|
+|25.|pre-registration-datasync-service|Retrieve Application Data by PRID|PRE_FR_6.1|[MOS-668](//mosipid.atlassian.net/browse/MOS-668), [MOS-1999](//mosipid.atlassian.net/browse/MOS-1999)|
 |26.||List of Configurable Parameters and Processes|PRE_FR_7|[MOS-10291](//mosipid.atlassian.net/browse/MOS-10291), [MOS-14510](//mosipid.atlassian.net/browse/MOS-14510)|
 
 
