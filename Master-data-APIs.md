@@ -1,64 +1,64 @@
 This section details about the service APIs in the Master data modules
  
-[2.3.1 Holiday Master API](#231-holiday-master-api)
+* [Holiday Master API](#231-holiday-master-api)
 
-[2.3.2 Blacklisted words Master API](#232-blacklisted-words-master-api)
+* [Blacklisted words Master API](#232-blacklisted-words-master-api)
 
-[2.3.3 Documents Category Master API](#233-documents-category-master-api)
+* [Documents Category Master API](#233-documents-category-master-api)
 
-[2.3.4 Document formats Master API](#234-document-formats-master-api)
+* [Document formats Master API](#234-document-formats-master-api)
 
-[2.3.5 Machines Master API](#235-machines-master-api)
+* [Machines Master API](#235-machines-master-api)
 
-[2.3.6 Devices Master API](#236-devices-master-api)
+* [Devices Master API](#236-devices-master-api)
 
-[2.3.7 Languages Master API](#237-languages-master-api)
+* [Languages Master API](#237-languages-master-api)
 
-[2.3.8 Gender Master API](#238-gender-master-api)
+* [Gender Master API](#238-gender-master-api)
 
-[2.3.9 Titles Master API](#239-titles-master-api)
+* [Titles Master API](#239-titles-master-api)
 
-[2.3.10 Biometric Types Master API](#2310-biometric-types-master-api)
+* [Biometric Types Master API](#2310-biometric-types-master-api)
 
-[2.3.11 ID Types Master API](#2311-id-types-master-api)
+* [ID Types Master API](#2311-id-types-master-api)
 
-[2.3.12 Application Types Master API](#2312-application-types-master-api)
+* [Application Types Master API](#2312-application-types-master-api)
 
-[2.3.13 Registration Centers Master API](#2313-registration-centers-master-api)
+* [Registration Centers Master API](#2313-registration-centers-master-api)
 
-[2.3.14 Biometrics Attributes Master API](#2314-biometric-attributes-master-api)
+* [Biometrics Attributes Master API](#2314-biometric-attributes-master-api)
 
-[2.3.15 Locations Master API](#2315-locations-master-api)
+* [Locations Master API](#2315-locations-master-api)
 
-[2.3.16 Packet rejection reasons Master API](#2316-packet-rejection-reasons-master-api)
+* [Packet rejection reasons Master API](#2316-packet-rejection-reasons-master-api)
 
-[2.3.17 Packet on hold reasons Master API](#2317-packet-on-hold-reasons-master-api)
+* [Packet on hold reasons Master API](#2317-packet-on-hold-reasons-master-api)
 
-[2.3.18 Documents Types Master API](#2318-documents-types-api)
+* [Documents Types Master API](#2318-documents-types-api)
 
-[2.3.19 Machine Types Master API](#2319-machine-types-master-api)
+* [Machine Types Master API](#2319-machine-types-master-api)
 
-[2.3.20 Machine Specifications Master API](#2320-machine-specifications)
+* [Machine Specifications Master API](#2320-machine-specifications)
 
-[2.3.21 Registration Center User Machine Mapping API](#2321-registration-center-user-machine-mapping-api)
+* [Registration Center User Machine Mapping API](#2321-registration-center-user-machine-mapping-api)
 
-[2.3.22 Registration Center Machine API](#2322-registration-center-machine-api)
+* [Registration Center Machine API](#2322-registration-center-machine-api)
 
-[2.3.23 Registration Center Device API](#2323-registration-center-device-api)
+* [Registration Center Device API](#2323-registration-center-device-api)
 
-[2.3.24 Registration Center Machine Device API](#2324-registration-center-machine-device-api)
+* [Registration Center Machine Device API](#2324-registration-center-machine-device-api)
 
-[2.3.25 Devices Master Type API](#2325-device-types-master-create-service)
+* [Devices Master Type API](#2325-device-types-master-create-service)
 
-[2.3.26 Device Specifications Master API](#2326-device-specifications)
+* [Device Specifications Master API](#2326-device-specifications)
 
-[2.3.27 Template Master API](#2327-template-api)
+* [Template Master API](#2327-template-api)
 
-[2.3.28 Individual Types API](#2328-individual-types-api)
+* [Individual Types API](#2328-individual-types-api)
 
-[2.3.29 Age group Types API](#2329-age-group-types-api)
+* [Age group Types API](#2329-age-group-types-api)
 
-[2.3.30 Template Types Master API](#2330-template-types-api)
+* [Template Types Master API](#2330-template-types-api)
 
 
 # 2.3.1 Holiday Master API
