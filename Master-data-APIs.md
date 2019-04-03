@@ -1,68 +1,72 @@
 This section details about the service APIs in the Master data modules
  
-* [Holiday Master API](#231-holiday-master-api)
+* [Holiday Master API](#holiday-master-api) 
 
-* [Blacklisted words Master API](#232-blacklisted-words-master-api)
+* [Blacklisted words Master API](#blacklisted-words-master-api)
 
-* [Documents Category Master API](#233-documents-category-master-api)
+* [Documents Category Master API](#documents-category-master-api)
 
-* [Document formats Master API](#234-document-formats-master-api)
+* [Document formats Master API](#document-formats-master-api)
 
-* [Machines Master API](#235-machines-master-api)
+* [Machines Master API](#machines-master-api)
 
-* [Devices Master API](#236-devices-master-api)
+* [Devices Master API](#devices-master-api)
 
-* [Languages Master API](#237-languages-master-api)
+* [Languages Master API](#languages-master-api)
 
-* [Gender Master API](#238-gender-master-api)
+* [Gender Master API](#gender-master-api)
 
-* [Titles Master API](#239-titles-master-api)
+* [Titles Master API](#titles-master-api)
 
-* [Biometric Types Master API](#2310-biometric-types-master-api)
+* [Biometric Types Master API](#biometric-types-master-api)
 
-* [ID Types Master API](#2311-id-types-master-api)
+* [ID Types Master API](#id-types-master-api)
 
-* [Application Types Master API](#2312-application-types-master-api)
+* [Application Types Master API](#application-types-master-api)
 
-* [Registration Centers Master API](#2313-registration-centers-master-api)
+* [Registration Centers Master API](#registration-centers-master-api)
 
-* [Biometrics Attributes Master API](#2314-biometric-attributes-master-api)
+* [Biometrics Attributes Master API](#biometric-attributes-master-api)
 
-* [Locations Master API](#2315-locations-master-api)
+* [Locations Master API](#locations-master-api)
 
-* [Packet rejection reasons Master API](#2316-packet-rejection-reasons-master-api)
+* [Packet rejection reasons Master API](#packet-rejection-reasons-master-api)
 
-* [Packet on hold reasons Master API](#2317-packet-on-hold-reasons-master-api)
+* [Packet on hold reasons Master API](#packet-on-hold-reasons-master-api)
 
-* [Documents Types Master API](#2318-documents-types-api)
+* [Documents Types Master API](#documents-types-api)
 
-* [Machine Types Master API](#2319-machine-types-master-api)
+* [Machine Types Master API](#machine-types-master-api)
 
-* [Machine Specifications Master API](#2320-machine-specifications)
+* [Machine Specifications Master API](#machine-specifications)
 
-* [Registration Center User Machine Mapping API](#2321-registration-center-user-machine-mapping-api)
+* [Registration Center User Machine Mapping API](#registration-center-user-machine-mapping-api)
 
-* [Registration Center Machine API](#2322-registration-center-machine-api)
+* [Registration Center Machine API](#registration-center-machine-api)
 
-* [Registration Center Device API](#2323-registration-center-device-api)
+* [Registration Center Device API](#registration-center-device-api)
 
-* [Registration Center Machine Device API](#2324-registration-center-machine-device-api)
+* [Registration Center Machine Device API](#registration-center-machine-device-api)
 
-* [Devices Master Type API](#2325-device-types-master-create-service)
+* [Devices Master Type API](#device-types-master-api)
 
-* [Device Specifications Master API](#2326-device-specifications)
+* [Device Specifications Master API](#device-specifications)
 
-* [Template Master API](#2327-template-api)
+* [Template Master API](#template-api)
 
-* [Individual Types API](#2328-individual-types-api)
+* [Individual Types API](#individual-types-api)
 
-* [Age group Types API](#2329-age-group-types-api)
+* [Age group Types API](#age-group-types-api)
 
-* [Template Types Master API](#2330-template-types-api)
+* [Template Types Master API](#template-types-api)
 
+# Holiday Master API
 
-# 2.3.1 Holiday Master API
-## 2.3.1.1 Holiday Master-create service
+* [POST /holidays](#post-holidays)
+* [GET /holidays](#get-holidays)
+* [GET /holidays/{languagecode}](#get-holidays-languagecode)
+
+## POST /holidays
 Master data is required across the platform. 
 
 This service will create the holiday in the Holiday Master module. 
@@ -116,7 +120,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-## 2.3.1.2 Holiday Master-get service
+## GET /holidays
 Master data is required across the platform. 
 
 This service will provides the service for the List of holidays. 
@@ -170,7 +174,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-## 2.3.1.3 Holiday Master-get by language code service
+## GET /holidays/{languagecode}
 
 This service will provides the service for the List of holidays based on the holiday ID
 It will also ensure audit data stored is archived based on the defined archival policy.
@@ -220,11 +224,19 @@ Description: Unauthorized
 
 404
 
-Description: Not Found
+Description: Not Found 
 
-# 2.3.2 Blacklisted words Master API
+ 
 
-# 2.3.2.1 Blacklisted words Master-create service
+# Blacklisted words Master API
+
+* [POST /blacklistedwords](#post-blacklistedwords)
+* [GET /blacklistedwords](#get-blacklistedwords)
+* [GET /blacklistedwords/{id}/{languagecode}](#get-blacklistedwords-id-languagecode)
+* [PUT /blacklistedwords](#put-blacklistedwords)
+* [DELETE /blacklistedwords/{word}](#delete-blacklistedwords-word)
+
+## POST /blacklistedwords 
 Master data is required across the platform. 
 
 This service will the create the list of blacklisted words in the Blacklisted Master module. 
@@ -281,7 +293,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.2.2 Blacklisted Master-get service
+## GET /blacklistedwords
 Master data is required across the platform. 
 
 This service will provides the service for the List of blacklistedwords. 
@@ -351,7 +363,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.2.3 Blacklisted Master-get by id and languagecode service
+## GET /blacklistedwords/{id}/{languagecode}
 
 This service will provides the service for the List of blacklistedwords based on the id. 
 
@@ -412,7 +424,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.2.4 Blacklisted Master-update blacklisted word service
+# PUT /blacklistedwords
 
 This service will provides the service to update blacklistedwords. 
 
@@ -516,8 +528,14 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.3 Documents Category Master API
-# 2.3.3.1 Documents Category Master-create service
+# Documents Category Master API
+
+* [POST /documentcategories](#post-documentcategories)
+* [GET /documentcategories](#get-documentcategories)
+* [GET /documentcategories/{id}/{languagecode}](#get-documentcategories-id-languagecode)
+* [GET /documentcategories/{applicanttypecode}](#get-documentcategories-applicanttypecode)
+
+# POST /documentcategories
 
 This service will create the list of Documents Category which are used in the MOSIP platform. 
 
@@ -580,7 +598,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.3.2 Documents Category Master-get service
+# GET /documentcategories
 
 This service will provides the service for the List of documents categories. 
 
@@ -627,7 +645,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.3.3 Documents Category Master-get document cateogory based on id and language service
+# GET /documentcategories/{id}/{languagecode}
 
 This service will provides the service for the List of documents categories. 
 
@@ -678,7 +696,7 @@ Description: Not Found
 
 
 
-# 2.3.3.4 Documents Category Master-get document cateogory based on applicant type code 
+# GET /documentcategories/{applicanttypecode} 
 
 This service will provides the service for the List of documents categories based on the passed applicant type code. 
 
@@ -725,8 +743,13 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.4 Document formats Master API
-# 2.3.4.1 Documents Formats Master-create service
+# Document formats Master API
+
+* [POST /documentformats](#post-documentformats)
+* [GET /documentformats](#get-documentformats)
+* [GET /documentformats/{id}/{languagecode}](#get-documentformats-id-languagecode)
+
+# POST /documentformats
 Master data is required across the platform. 
 
 This service will create the list of Documents Formats which are used in the MOSIP platform. 
@@ -790,7 +813,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.4.2 Documents Format Master-get service
+# GET /documentformats
 Master data is required across the platform. 
 
 This service will provides the service for the List of documents formats. 
@@ -840,7 +863,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.4.3 Documents Format Master-get documents format based on language and id service
+# GET /documentformats/{id}/{languagecode}
 
 This service will provides the service for the List of documents formats. 
 
@@ -887,8 +910,17 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.5 Machines Master API
-# 2.3.5.1 Machines Master-create service
+# Machines Master API
+
+* [POST /machines](#post-machines)
+* [GET /machines](#get-machines)
+* [GET /machines/{languagecode}](#get-machines-languagecode)
+* [GET /machineshistory/{id}/{languagecode}/{eff_dtimes}](#get-machineshistory-id-languagecode-eff_dtimes)
+* [DELETE /machines/{id}](#delete-machines-id)
+* [PUT /machines](#put-machines)
+
+
+# POST /machines
 
 This service will create the list of Machines which are used in the MOSIP platform. 
 
@@ -952,7 +984,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.5.2 Machines Master-get service
+# GET /machines
 
 This service will provides the service to fetch the complete List of machines with the machine details. 
 
@@ -1018,7 +1050,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.5.3 Machines Master-get machines based on language service
+# GET /machines/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service to fetch the List of machines with the machine details based on the language.
@@ -1085,7 +1117,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.5.4 Machines Master History-get service
+# GET /machineshistory/{id}/{languagecode}/{eff_dtimes}
 
 This service will provides the service for the List of machines with their history. 
 
@@ -1142,12 +1174,12 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.5.5 Machine Master-delete machines based on id service
+# DELETE /machines/{id}
 
 This service will delete the machines. 
 
 ### Resource URL
-### `DELETE /v1.0/machines/{id}`
+### `DELETE /machines/{id}`
 
 ### Resource details
 
@@ -1191,13 +1223,13 @@ Description: When machine not found
 
 Description: Error occurred while deleting Machine
 
-# 2.3.5.6 Machine Master-update machines
+# PUT /machines
 
 This service will update existing machines. 
 
 
 ### Resource URL
-### `PUT /v1.0/machines`
+### `PUT /machines`
 
 ### Resource details
 
@@ -1267,7 +1299,7 @@ Description: When Machine is not found
 Description: While updating machine any error occurred
 
 
-# 2.3.6 Devices Master API
+# Devices Master API
 # 2.3.6.1 Devices Master-create service
 
 This service will create the list of Devices which are used in the MOSIP platform. 
@@ -1569,7 +1601,7 @@ Description: When Device not found
 
 Description: Error occurred while deleting Device
 
-# 2.3.7 Languages Master API
+# Languages Master API
 # 2.3.7.1 Languages Master-create service
 
 This service will create a Language which is used in the MOSIP platform. 
@@ -1785,7 +1817,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.8 Gender Master API
+# Gender Master API
 # 2.3.8.1 Gender Master-create service
 
 This service will create the list of Gender which are used in the MOSIP platform. 
@@ -2096,7 +2128,7 @@ Description: Success
 
 
 
-# 2.3.9 Titles Master API
+# Titles Master API
 # 2.3.9.1 Title Master-create service
 Master data is required across the platform. 
 
@@ -2391,7 +2423,7 @@ Description: Not Found
 
 
 
-# 2.3.10 Biometric types Master API
+# Biometric types Master API
 # 2.3.10.1 Biometric types Master-create service
 Master data is required across the platform. 
 
@@ -2575,7 +2607,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.11 ID Types Master API
+# ID Types Master API
 # 2.3.11.1 Id Types Master-create service
 Master data is required across the platform. 
 
@@ -2749,7 +2781,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.12 Application Types Master API
+# Application Types Master API
 # 2.3.12.1 ApplicationTypes Master-create service
 Master data is required across the platform. 
 
@@ -2934,7 +2966,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.13 Registration Centers Master API
+# Registration Centers Master API
 # 2.3.13.1 Registration Centers Master-create service
 Master data is required across the platform. 
 
@@ -3644,7 +3676,7 @@ Description: Not Found
 
 
 
-# 2.3.14 Biometric attributes Master API
+# Biometric attributes Master API
 # 2.3.14.1 Biometric attributes Master-create service
 
 This service will create the list of Biometric attributes which are used in the MOSIP platform. 
@@ -3820,7 +3852,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.15 Locations Master API
+# Locations Master API
 # 2.3.15.1 Locations Master-create service
 
 ### Resource URL
@@ -4322,7 +4354,7 @@ locationname|yes|This is the location name. | -NA- |
 Description: Success
 
 
-# 2.3.16 Packet Rejection Reasons Master API
+# Packet Rejection Reasons Master API
 # 2.3.16.1 Packet Rejection Reason-category Master-create service
 
 This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
@@ -4666,7 +4698,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.17 Packet On-hold Reasons Master API
+# Packet On-hold Reasons Master API
 # 2.3.17.1 Packet On-hold Reasons Master-create service
 
 This service will create the list of Packet On-hold Reasons which are used in the MOSIP platform. 
@@ -4849,7 +4881,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.18 Documents Types API
+# Documents Types API
 
 # 2.3.18.1 Documents Type Master-create service
 
@@ -5133,7 +5165,7 @@ documenttypecode |Yes| Code of Document type | |
 ```
 
 
-# 2.3.19 Machine Types Master API
+# Machine Types Master API
 # 2.3.19.1 Machines Types Master-create service
 
 This service will create the list of Machine types which are used in the MOSIP platform. 
@@ -5311,7 +5343,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.20 Machine Specifications
+# Machine Specifications
 
 # 2.3.20.1 Machine Specification Master-create service
 
@@ -5539,7 +5571,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.21 Registration Center User Machine Mapping API
+# Registration Center User Machine Mapping API
 
 ## 2.3.21.1 Registration Center-User-Machine Mapping Master-create service
 
@@ -5747,7 +5779,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.22 Registration Center Machine API
+# Registration Center Machine API
 ## 2.3.22.1 Registration Center Machine-create service
 Master data is required across the platform. 
 
@@ -5857,7 +5889,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.23 Registration Center Device API
+# Registration Center Device API
 ## 2.3.22.1 Registration Center Device-create service
 Master data is required across the platform. 
 
@@ -5968,7 +6000,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.24 Registration Center Machine Device API
+# Registration Center Machine Device API
 ## 2.3.24.1 Registration Center Machine Device-create service
 Master data is required across the platform. 
 
@@ -6086,7 +6118,7 @@ Description: Internal Server Error
 
 
 
-# 2.3.25 Device Types Master API
+# Device Types Master API
 ## 2.3.25.1 Device Types Master-create service
 
 This service will create the list of Device types which are used in the MOSIP platform. 
@@ -6149,7 +6181,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.26 Device Specifications
+# Device Specifications
 
 # 2.3.26.1 Device  Specification Master-create service
 
@@ -6386,7 +6418,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.27 Template API
+# Template API
 
 # 2.3.27.1 Template Master-create service
 
@@ -6522,7 +6554,7 @@ id|Yes|id of the Template|
 }
 ```
 
-# 2.3.28 Individual Types API
+# Individual Types API
 
 # 2.3.28.1 Indivudual Types Master-get all individual types
 
@@ -6570,7 +6602,7 @@ Name | Required | Description | Default Value | Example
 Description: Success
 
 
-# 2.3.29 Age group Types API
+# Age group Types API
 
 # 2.3.29.1 Age group Types Master-get age group based on the age
 
@@ -6618,7 +6650,7 @@ Description: Success
 
 
 
-# 2.3.30 Template Types API
+# Template Types API
 
 # 2.3.30.1 Age group Types Master-get template types
 
