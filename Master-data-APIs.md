@@ -2452,7 +2452,12 @@ Description: Not Found
 
 
 # Biometric types Master API
-# 2.3.10.1 Biometric types Master-create service
+
+* [POST /biometrictypes](#post-biometrictypes)
+* [GET /biometrictypes](#get-biometrictypes)
+* [GET /biometrictypes/{id}/{languagecode}](#get-biometrictypes-id-languagecode)
+
+# POST /biometrictypes
 Master data is required across the platform. 
 
 This service will create the list of Biometric types which are used in the MOSIP platform. 
@@ -2514,8 +2519,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.10.2 Biometrics Master-get service
-Master data is required across the platform. 
+# GET /biometrictypes
 
 This service will provides the service for the List of Biometrics. 
 
@@ -2575,7 +2579,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.10.3 Biometrics Master-get service
+# GET /biometrictypes/{id}/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Biometrics. 
@@ -2636,13 +2640,18 @@ Description: Unauthorized
 Description: Not Found
 
 # ID Types Master API
-# 2.3.11.1 Id Types Master-create service
+
+* [POST /idtypes](#post-idtypes)
+* [GET /idtypes](#get-idtypes)
+* [GET /idtypes/{languagecode}](#get-idtypes-languagecode)
+
+# POST /idtypes
 Master data is required across the platform. 
 
 This service will create the list of Id types which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /idtypes type`
+### `POST /idtypes`
 
 ### Resource details
 
@@ -2696,7 +2705,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.11.2 Ids Master-get service
+# GET /idtypes
 Master data is required across the platform. 
 
 This service will provides the service for the List of Id. 
@@ -2753,7 +2762,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.11.3 Ids Master-get service
+# GET /idtypes/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of id types based on language. 
@@ -2810,7 +2819,12 @@ Description: Unauthorized
 Description: Not Found
 
 # Application Types Master API
-# 2.3.12.1 ApplicationTypes Master-create service
+
+* [POST /applicationtypes](#post-applicationtypes)
+* [GET /applicationtypes](#get-applicationtypes)
+* [GET /applicationtypes/{id}/{languagecode}](#get-applicationtypes-id-languagecode)
+
+# POST /applicationtypes
 Master data is required across the platform. 
 
 This service will create the list of ApplicationTypes which are used in the MOSIP platform. 
@@ -2870,7 +2884,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.12.2 ApplicationTypess Master-get service
+# GET /applicationtypes
 Master data is required across the platform. 
 
 This service will provides the service for the List of ApplicationTypes. 
@@ -2932,7 +2946,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.12.3 ApplicationTypess Master-get service
+# GET /applicationtypes/{id}/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of ApplicationTypes. 
