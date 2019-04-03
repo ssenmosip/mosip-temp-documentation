@@ -75,7 +75,7 @@ Upon receiving a request to generate symmetric key pair the system generates a k
 * The symmetric key generated supports AES algorithm
 * The symmetric key generated is of 256 bit size
 * The symmetric will be returned as a byte array
-System then responds with the Symmetric key
+
 
 #### B. Generate an Asymmetric Key
 
