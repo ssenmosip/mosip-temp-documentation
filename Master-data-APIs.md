@@ -6690,7 +6690,7 @@ code|Yes|This is the template code field|-NA-|auth-email-content
 		"descr": "string",
 		"langCode": "string",
 		"isactive": boolean
-	}
+	} 
 }
 ```
 
