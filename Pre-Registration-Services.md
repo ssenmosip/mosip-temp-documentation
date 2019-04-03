@@ -1259,9 +1259,9 @@ This service enables Pre-Registration portal to request for uploading the docume
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
 * [GET /documents/:preRegistrationId](#get-documentspreregistrationid)
-* [GET /documents/preRegistration/:documentId](#get-documentspreregistrationdocumentid)
+* [GET /documents/:documentId?preRegistrationId=:preRegistrationId](#get-documentspreregistrationdocumentid)
 * [DELETE /documents/:preRegistrationId](#delete-documentspreregistrationid)
-* [DELETE /documents/preRegistration/:documentId](#delete-documentspreregistrationdocumentid)
+* [DELETE /documents/:documentId?preRegistrationId=:preRegistrationId](#delete-documentspreregistrationdocumentid)
 
 
 ### POST /documents/:preRegistrationId
@@ -1511,11 +1511,11 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
     ]
 }
 ```
-### GET /documents/preRegistration/:documentId
+### GET /documents/:documentId?preRegistrationId=:preRegistrationId
 This request used to retrieve the document for a particular document id from the File System server.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/documents/preRegistration/:documentId</div>
+<div>https://mosip.io/preregistration/v1/documents/:documentId?preRegistrationId=:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
@@ -1527,6 +1527,11 @@ Requires Authentication | Yes
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318f48
+
+#### Request Query Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|pre registration id of the application|74843948119371
 
 #### Responses:
 ##### Success Response:
@@ -1643,11 +1648,11 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
     ]
 }
 ```
-### DELETE /documents/preRegistration/:documentId
+### DELETE /documents/:documentId?preRegistrationId=:preRegistrationId
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/documents/preRegistration/:documentId</div>
+<div>https://mosip.io/preregistration/v1/documents/:documentId?preRegistrationId=:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
@@ -1659,6 +1664,11 @@ Requires Authentication | Yes
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318f48
+
+#### Request Query Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|pre registration id of the application|74843948119371
 
 #### Responses:
 ##### Success Response:
