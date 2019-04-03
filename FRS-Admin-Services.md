@@ -53,7 +53,7 @@ While storing the location hierarchy in the database, the system performs the fo
     * lang_code - character (3) - Mandatory
     * is_active - boolean - Mandatory
 2. Responds with the Location Hierarchy created successfully
-1. The component restricts the bulk creation of Master Data
+1. The component restricts the bulk creation of Master Data through API.However it could be done through a script as need be depending on the requirement of the country.
 1. In case of exceptions, system triggers error messages as received from the Database
 
 #### B. Check the existence of a Location in Master Database
