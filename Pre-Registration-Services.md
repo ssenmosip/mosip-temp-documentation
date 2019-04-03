@@ -1259,7 +1259,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
 * [GET /documents/:preRegistrationId](#get-documentspreregistrationid)
-* [GET /documents/:documentId?preRegistrationId=:preRegistrationId](#get-documentsdocumentidpreregistrationidpreregistration)
+* [GET /documents/:documentId?preRegistrationId=:preRegistrationId](#get-documentsdocumentidpreregistrationidpreregistrationid)
 * [DELETE /documents/:preRegistrationId](#delete-documentspreregistrationid)
 * [DELETE /documents/:documentId?preRegistrationId=:preRegistrationId](#delete-documentsdocumentidpreregistrationidpreregistrationid)
 
