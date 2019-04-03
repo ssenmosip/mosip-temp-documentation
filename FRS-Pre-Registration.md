@@ -105,7 +105,7 @@ If the individual visits the Registration Centre and consumes the appointment, t
 ### 2.2.6 Modify Application Data [**[↑]**](#table-of-content)
 The individual can modify the pre-registration data by opting to select the “Modify” option for a specific application. The system provides the Demographic form with pre-filled demo details and allows the individual to edit the details as required. The system associates the modified demo details with the Pre-Registration Id for which Modify information is initiated.
 
-Note:Modify application data cannot be done for an expired application
+Note: Modify application data cannot be done for an expired application
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-update.md)
 
