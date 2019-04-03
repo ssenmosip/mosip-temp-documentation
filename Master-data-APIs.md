@@ -484,7 +484,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.2.35 Blacklisted Master-delete blacklisted word service
+# DELETE /blacklistedwords/{word}
 
 This service will provides the service to delete blacklistedwords. 
 
@@ -1300,7 +1300,14 @@ Description: While updating machine any error occurred
 
 
 # Devices Master API
-# 2.3.6.1 Devices Master-create service
+
+* [POST /devices](#post-devices)
+* [GET /devices](#get-devices)
+* [GET /devices/{id}/{languagecode}](#get-devices-id-languagecode)
+* [PUT /devices](#put-devices)
+* [DELETE /devices/{id}](#delete-devices-id)
+
+# POST /devices
 
 This service will create the list of Devices which are used in the MOSIP platform. 
 
@@ -1370,7 +1377,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.6.2 Devices Master-get service
+# GET /devices
 
 This service will provides the service for the List of devices. 
 
@@ -1424,7 +1431,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.6.3 Devices Master-get devices based on language and id service
+# GET /devices/{id}/{languagecode}
 
 This service will provides the service for the List of devices. 
 
@@ -1477,13 +1484,13 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.6.4 Devices Master-update devices
+# PUT /devices
 
 This service will update existing device. 
 
 
 ### Resource URL
-### `PUT /v1.0/devices`
+### `PUT /devices`
 
 ### Resource details
 
@@ -1552,12 +1559,12 @@ Description: When Device is not found
 
 Description: While updating device any error occurred
 
-# 2.3.6.5 Devices Master-delete devices based on id service
+# DELETE /devices/{id}
 
 This service will delete the devices. 
 
 ### Resource URL
-### `DELETE /v1.0/devices/{id}`
+### `DELETE /devices/{id}`
 
 ### Resource details
 
