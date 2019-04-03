@@ -98,13 +98,14 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 ### Example Request
 
-/keymanager/v1.0/decrypt
+v1/keymanager/decrypt
 
 ```
-{
-	"id": "mosip.keymanager.decrypt",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
+{	
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 	"request": {
 		  "applicationId": "REGISTRATION",
 		  "encryptedSymmetricKey": "encryptedSymmetricKey",
@@ -117,14 +118,20 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 
 ### Example Response
-```JSON
-
+```
 {
-	"id": "mosip.keymanager.decrypt",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
-		"symmetricKey": "decryptedSymmetricKey"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": {
+	    "symmetricKey": "decryptedSymmetricKey"
 	}
 }
 
@@ -137,7 +144,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key. This will respond combined encrypted data and symmetric key having a key splitter.  
 
 ### Resource URL
-### `POST /cryptomanager/v1.0/encrypt`
+### `POST v1/cryptomanager/encrypt`
 
 
 ### Resource details
@@ -152,9 +159,10 @@ Requires Authentication | Yes
 
 ```
 {
-	"id": "mosip.cryptomanager.encrypt",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 	"request": {
 		"applicationId": "REGISTRATION",
 		"data": "string",
@@ -167,10 +175,17 @@ Requires Authentication | Yes
 ### Example Response
 ```
 {
-	"id": "mosip.keymanager.encrypt",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": {
 		"data": "wk4RM2su2lBXuhx3_EtBijXTDp0Y20fJA6tmoONPjr6YBLqwu_YRWiSa10o-bQWesb-IobxPg-KsZq-Gc0L6Rq6besw-rMavg5a5nPU7b3pAug0N6Ek4B7S8v_tc5cu7LBRdBv1mRSS2onxXbT2R4qeEwl_11KtxPs_ek6g4vV6oEQRem2fPhop_21DaoWVEZFovHAAJDqSFj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8LYp-hG3RhR_xC7trAOTqilzLjLfirE3Wjfor5bhLiG9eZyTb52ihKsDV1l2oBAhn9Aao_fYl3UD5QekSNLRVlfU1BMSVRURVIjeKen-3j5KhnE-93Qfe_pBfMBIKEkTJJ7pR-4cO7l-X0"
 	}
 }	
@@ -183,7 +198,7 @@ Requires Authentication | Yes
 This service will dencrypt encryted data along with symmetric key having splitter. 
 
 ### Resource URL
-### `POST /cryptomanager/v1.0/decrypt`
+### `POST v1/cryptomanager/decrypt`
 
 
 ### Resource details
@@ -198,9 +213,10 @@ Requires Authentication | Yes
 
 ```
 {
-	"id": "mosip.cryptomanager.decrypt",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 	"request": {
 		"applicationId": "REGISTRATION",
 		"data": "Fj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8_xC7trAOTqilzLjLfirE3Wjfor5b",
@@ -213,9 +229,16 @@ Requires Authentication | Yes
 ### Example Response
 ```
 {
-	"id": "mosip.cryptomanager.decrypt",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
 	"response": {
 		"data": "string"
 	}
@@ -247,15 +270,22 @@ lastUpdated|No|Date in UTC ISO format| |
 
 ### Example Request
 
-syncdata/v1.0/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
+v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 
 ### Example Response
 ```JSON
 {
-	"id": "mosip.sync.getmasterdata",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+     {
+      "errorCode": "string",
+      "message": "string"
+     }
+     ],
+  "response": {
 		"lastSyncTime": "2019-03-04T12:34:15.477Z",
 		 "registrationCenter": [
     {
@@ -679,6 +709,7 @@ syncdata/v1.0/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
       "effectDateTimes": "2019-02-27T10:50:57.644336"
     }
   ]
+}
 }
 ```
 
@@ -706,15 +737,22 @@ lastUpdated|No|Date in UTC ISO format| |
 
 ### Example Request
 
-syncdata/v1.0/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
+v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 
 ### Example Response
 ```JSON
 {
-	"id": "mosip.sync.getmasterdata",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": {
 		"lastSyncTime": "2019-03-04T12:34:15.477Z",
 		 "registrationCenter": [
     {
@@ -1139,6 +1177,7 @@ syncdata/v1.0/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM53281
     }
   ]
 }
+}
 ```
 
 ## 3.3 Config details-get service
@@ -1162,14 +1201,21 @@ Name | Required | Description | Default Value | Example
 
 ### Example Request
 
-/syncdata/v1.0/configs
+v1/syncdata/configs
 
 ### Example Response
 ```JSON
 {
-	"id": "mosip.sync.getconfig",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
 	"response": {
 	  "registrationConfiguration": {
 		"keyValidityPeriodPreRegPack": "3",
@@ -1254,12 +1300,13 @@ Name | Required | Description | Default Value | Example
 		"auth.role.prefix": "ROLE_",
 		"auth.server.validate.url": "https://integ.mosip.io/authmanager/validate_token",
 		"mosip.kernel.prid.length": "14",
-		"mosip.kernel.syncdata.registration-center-config-file": "registration-${spring.profiles.active}.properties",
+		"mosip.kernel.syncdata.registration-center-config-file": 
+                "registration-${spring.profiles.active}.properties",
 		"mosip.kernel.crypto.asymmetric-algorithm-name": "RSA",
 		"mosip.kernel.uin.length": "12",
 		"mosip.kernel.phone.max-length": "15",
 		"mosip.kernel.prid.repeating-limit": "2",
-	   "mosip.kernel.tokenid.length": "36",
+	        "mosip.kernel.tokenid.length": "36",
 		"mosip.kernel.tspid.length": "4",
 		"mosip.kernel.syncdata.global-config-file": "application-${spring.profiles.active}.properties",
 		"mosip.kernel.prid.not-start-with": "0,1",
@@ -1270,9 +1317,6 @@ Name | Required | Description | Default Value | Example
 	}
 }
 ```
-
-
-
 
 ## 3.4 Get All Roles 
 
@@ -1300,10 +1344,17 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-	"id": "mosip.sync.getroles",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	   "roles": [
 		  {
 		  "roleId": "REGISTRATION_ADMIN",
@@ -1345,11 +1396,19 @@ Name | Required | Description | Default Value | Example
 
 ### Example Response
 ```JSON
+
 {
-	"id": "mosip.sync.userrolesmapping",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	   "userDetails": [
 		 {
 		  "userName": "110001",
@@ -1388,16 +1447,23 @@ referenceId|No|Id of the Machine/TSP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 ### Example Request
-/syncdata/v1.0/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
+v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 
 ### Example Response
 ```JSON
 
 {
-	"id": "mosip.sync.getpublickey",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 		  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
 		  "issuedAt": "2018-01-01T10:00:00",
 		  "expiryAt": "2018-12-10T06:12:51.994"
@@ -1429,15 +1495,22 @@ Name | Required | Description | Default Value | Example
 
 ### Example Request
 
-/uingenerator/v1.0/uin
+v1/uingenerator/uin
 
 ### Example Response
 ```
 {
-	"id": "mosip.uin.getuin",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "uin": "734168915279"
 	}
 }
@@ -1466,16 +1539,17 @@ Name | Required | Description | Default Value | Example
 
 ### Example Request
 
-PUT /uingenerator/v1.0/uin
+PUT v1/uingenerator/uin
 ```
 {
-                "id":"mosip.kernel.uinservice",                                  
-                "version":"1.0", 
-                "requesttime":"2018-12-09T06:39:03.683Z",
-                "request" : {
-                                "uin":"5193698130",
-                                "status":"ASSIGNED"
-                }
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request" : {
+                 "uin":"5193698130",
+                 "status":"ASSIGNED"
+              }
 }
 ```
 
@@ -1483,19 +1557,22 @@ PUT /uingenerator/v1.0/uin
 ### Example Response
 ```
 {
-	"id": "mosip.kernel.uinservice",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
-                      "uin":"5193698130",
-                      "status":"ASSIGNED"
-                }
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": {
+                 "uin":"5193698130",
+                  "status":"ASSIGNED"
+              }
 }
 ```
-
-
-
-
 
 # 5 SMS Notification
 ## 5.1 SMS Notification Post Service
@@ -1522,17 +1599,17 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 
 ### Example Request
 
-/smsnotifier/v1.0/sms/send
+v1/smsnotifier/sms/send
 
 ```
 {
-	"id": "mosip.sms.send",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+   "request": {
 		"message": "Your Booking Request accepted. B-Ref BI56793",
 		"number": "89900074454"
-
 	}
 }
 
@@ -1541,17 +1618,22 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 ### Example Response
 ```
 {
-	"id": "mosip.sms.send",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": {
 	  "message": "Sms Request Sent",
 	  "status": "success"
 	}
 }	
 ```
-
-
 
 # 6 Email Notification
 ## 6.1 Email Notification Post Service
@@ -1582,7 +1664,7 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 
 ### Example Request
 
-/emailnotifier/v1.0/email/send
+v1/emailnotifier/email/send
 
 ```
 -H "Content-Type: multipart/form-data" 
@@ -1596,10 +1678,17 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 ### Example Response
 ```
 {
-	"id": "mosip.email.send",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "message": "Email Request sent",
 	  "status": "success"
 	}
@@ -1635,13 +1724,14 @@ key |Yes|Key| | 9820173642
 
 ### Example Request
 
-/otpmanager/v1.0/otp/generate
+v1/otpmanager/otp/generate
 
 ```
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 	"request": {
 		"key": "9820173642"
 	}	
@@ -1650,13 +1740,20 @@ key |Yes|Key| | 9820173642
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "otp": "849004",
 	  "status": "GENERATION_SUCCESSFUL"
-	}
+	   }
 }
 ```
 
@@ -1685,18 +1782,25 @@ otp|Yes|OTP| | 123456
 
 ### Example Request
 
-/otpmanager/v1.0/validate?key=9820173642&otp=123456
+v1/otpmanager/validate?key=9820173642&otp=123456
 
 ### Example Response
 ```
 {
-	"id": "mosip.authentication.sendotp",
-	"ver": "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "status": "success",
 	  "message": "VALIDATION SUCCESSFUL"
-	}
+	   }
 }	
 ```
 
@@ -1745,10 +1849,11 @@ description|No|Description of the event| |Example description
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"eventId": "string",
 		"eventName": "string",
 		"eventType": "string",
@@ -1771,12 +1876,19 @@ description|No|Description of the event| |Example description
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "status": true
-	}
+	   }
 }
 ```
 
@@ -1809,22 +1921,30 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"licenseExpiryTime": "2019-03-07T10:00:00.000Z",
 		"tspId": "9837"
-	}
+	     }
 }
 ```
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "licenseKey": "gR7Mw7tA7S7qifkf"
 	}
 }
@@ -1852,10 +1972,11 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+   "request": {
 		"licenseKey": "gR7Mw7tA7S7qifkf",
 		"permissions": [
 			"OTP Trigger","OTP Authentication"
@@ -1867,12 +1988,19 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "status": "Mapped License with the permissions"
-	}
+	    }
 }
 ```
 
@@ -1902,15 +2030,22 @@ license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
 ### Example Response
 ```JSON
 {
-	"id": "mosip.license.permission",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"response": {
-	  "permissions": [
-		"OTP Trigger",
-		"OTP Authentication"
-	  ]
-	}
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	     "permissions": [
+		          "OTP Trigger",
+		          "OTP Authentication"
+	                   ]
+	    }
 }
 ```
 
@@ -1937,13 +2072,14 @@ status|Yes|The status of the license key. It is an enumeration {ACTIVE, SUSPENDE
 ### Example Request
 ```
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"licensekey":"gR7Mw7tA7S7qifkf",
 		"status":"ACTIVE"
-	}
+	     }
 }
 ```
 ### Example Response
@@ -1951,12 +2087,19 @@ Sample Success Response:
 
 ```JSON
 {
-	"id":"mosip.license.status",			
-	"version":"1.0",	
-	"responsetime":"2007-12-03T10:15:30Z",	
-	"response" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
 		"message":"The status had been changed successfully. "
-	}
+	     }
 }	
 ```
 
@@ -2009,10 +2152,11 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"emailBodyTemplate": "Your OTP is $otp",
 		"emailId": "testmail@tmail.com",
 		"emailSubjectTemplate": "Test Mail",
@@ -2027,10 +2171,17 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "status": "success",
 	  "message": "Otp notification request submitted"
 	}
@@ -2062,10 +2213,11 @@ smsTemplate|No|||
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"emailBodyTemplate": "Your OTP is $otp",
 		"emailId": "testmail@tmail.com",
 		"emailSubjectTemplate": "Test Mail",
@@ -2080,10 +2232,17 @@ smsTemplate|No|||
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "status": "success",
 	  "message": "Otp notification request submitted"
 	}
@@ -2116,10 +2275,11 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"emailBodyTemplate": "",
 		"emailId": "",
 		"emailSubjectTemplate": "",
@@ -2134,13 +2294,20 @@ smsTemplate|Yes|The SMS content with $otp as the placeholder which represents th
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 	  "status": "success",
 	  "message": "Otp notification request submitted"
-	}
+	   }
 }	
 ```
 
@@ -2173,10 +2340,11 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ### Example Request
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"version": "1.0",
-	"requesttime": "2007-12-03T10:15:30Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 		"attributes": [{
 				"attribute": "IndividualType",
 				"value": "Foreigner"
@@ -2206,10 +2374,17 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getApplicantType",
-	"ver" : "1.0",
-	"responsetime": "2007-12-03T10:15:30Z",
-	"response" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
 		"applicationtypecode": "APP-C-94"
 	}
 }
@@ -2242,10 +2417,17 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getDocCatAndTyp",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"response" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
 		"documentcategories": [
 			{
 				"id": "DOC_CAT_001", 
@@ -2293,10 +2475,17 @@ NA
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.getDocCatAndTyp",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"response" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
 		"documentcategories": [
 			{
 				"id": "DOC_CAT_001", 
@@ -2337,10 +2526,17 @@ docTypeCode|Yes|The code of the document type| -NA- |DOC_TYP_E
 ### Example Response
 ```JSON
 {
-	"id": "mosip.applicanttype.isApplicantTypeExists",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"response" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
 		"isExists":true
 	}
 }
@@ -2376,10 +2572,17 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-	"id": "mosip.individualtype.getAllIndividualTypes",
-	"ver": "1.0",
-	"timestamp": "2007-12-03T10:15:30Z",
-	"response": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
 		"individualtypes": [{
 			"code": "IND-C-94",
 			"name": "Foreign Child",
@@ -2417,10 +2620,17 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ### Example Response
 ```JSON
 {
-	"id": "mosip.individualtype.getIndividualTypes",
-	"ver" : "1.0",
-	"timestamp" : "2007-12-03T10:15:30Z",
-	"response" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
 		"individualtype": {
 			"code": "IND-C-94",
 			"name": "Foreign Child",
