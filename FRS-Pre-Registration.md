@@ -84,7 +84,7 @@ Once the Demographic Details are filled and the Documents are uploaded, if the I
 
 ### 2.2.4 Provide Data in Preferred Language [**[↑]**](#table-of-content)
 
-The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated.The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
+The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated. The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/pre-registration/pre-registration-multi-language.md)
 
