@@ -18,11 +18,11 @@ This section details about the service API in the Pre-Registration modules
 
 * [Transliteration Service](#transliteration-service-public)
 
-**Note**: id,version and requestTime, responseTime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
+**Note**: id,version and requesttime, responsetime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 ***
 
 # Login Service (Public)
-This service details used by Pre-Registration portal to authenticate user by sending otp to the user, validating with userid and otp.
+This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
 
 * [POST /login/sendOtp](#post-loginsendotp)
 * [POST /login/validateOtp](#post-loginvalidateotp)
@@ -46,7 +46,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|id |mosip.pre-registration.login.sendotp
 version |Yes|version of the application|1.0
-requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.userid |Yes|user id of the applicant(mobile number/email address)|8907654778
 request.langcode|Yes|The preferred language code |fra
@@ -56,7 +56,7 @@ request.langcode|Yes|The preferred language code |fra
 {
 	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
-	"requestTime": "2019-03-15T07:24:47.605Z",
+	"requesttime": "2019-03-15T07:24:47.605Z",
 	"request": {
 		"langCode": "fra",
 		"userId": "8907654778"
@@ -71,7 +71,7 @@ request.langcode|Yes|The preferred language code |fra
 {
 	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
-	"responseTime": "2019-03-15T07:24:50.246Z",
+	"responsetime": "2019-03-15T07:24:50.246Z",
 	"response": {
 		"message": "OTP sent successfully to specified channel"
 	},
@@ -85,7 +85,7 @@ request.langcode|Yes|The preferred language code |fra
 {
 	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
-	"responseTime": "2019-03-15T08:09:42.327Z",
+	"responsetime": "2019-03-15T08:09:42.327Z",
 	"response": null,
 	"errors": [
 		{
@@ -97,7 +97,7 @@ request.langcode|Yes|The preferred language code |fra
 ```
 
 ### POST /login/validateOtp
-This request will validate the otp with respect to userid and provide the authorize token in the browser cookies.
+This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/login/validateOtp</div>
@@ -113,19 +113,19 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|id |mosip.pre-registration.login.useridotp
 version |Yes|version of the application|1.0
-requestTime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.userid |Yes|user id of the applicant (mobile number/email address)|8907654778
-request.otp|Yes| received OTP  |345674
+request.OTP|Yes| received OTP  |345674
 
 #### Request:
 ```JSON
 {
 	"id": "mosip.pre-registration.login.useridotp",
 	"version": "1.0",
-	"requestTime": "2019-03-15T08:28:04.783Z",
+	"requesttime": "2019-03-15T08:28:04.783Z",
 	"request": {
-		"otp": "345674",
+		"OTP": "345674",
 		"userId": "8907654778"
 	}
 }
@@ -136,13 +136,13 @@ request.otp|Yes| received OTP  |345674
 ###### Description: sms sent successfully
 ```JSON
 {
-	"id": "mosip.pre-registration.login.useridotp",
-	"version": "1.0",
-	"responseTime": "2019-03-15T08:08:13.246Z",
-	"response": {
-	   "message": "OTP Validated Successfully"
-	},
-	"errors": null
+    "id": "mosip.pre-registration.login.useridotp",
+    "version": "1.0",
+    "responsetime": "2019-03-15T08:08:13.246Z",
+    "response": {
+	  "message": "OTP Validated Successfully"
+     },
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -152,7 +152,7 @@ request.otp|Yes| received OTP  |345674
 {
     "id": "mosip.pre-registration.login.useridotp",
     "version": "1.0",
-    "responseTime": "2019-03-27T06:22:19.673Z",
+    "responsetime": "2019-03-27T06:22:19.673Z",
     "response": null,
     "errors": [
         {
@@ -182,7 +182,7 @@ Requires Authentication | Yes
 {
     "id": "mosip.pre-registration.login.invalidate",
     "version": "1.0",
-    "responseTime": "2019-03-27T06:22:19.673Z",
+    "responsetime": "2019-03-27T06:22:19.673Z",
     "response": {
          "message": "Token has been invalidated successfully"
     },
@@ -209,18 +209,18 @@ Requires Authentication | No
 {
     "id": "mosip.pre-registration.login.config",
     "version": "1.0",
-    "responseTime": "2019-03-27T06:22:19.673Z",
+    "responsetime": "2019-03-27T06:22:19.673Z",
     "response": {
-         "mosip.kernel.otp.default-length": "6",
+         "mosip.kernel.OTP.default-length": "6",
          "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{6}$",
          "mosip.left_to_right_orientation": "eng,fra",
          "preregistration.recommended.centers.locCode": "4",
-         "mosip.kernel.otp.validation-attempt-threshold": "3",
+         "mosip.kernel.OTP.validation-attempt-threshold": "3",
          "mosip.primary-language": "ara",
          "preregistration.timespan.cancel": "24",
          "mosip.default.dob.month": "01",
          "preregistration.availability.noOfDays": "7",
-         "mosip.kernel.otp.expiry-time": "120",
+         "mosip.kernel.OTP.expiry-time": "120",
          "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
          "mosip.supported-languages": "eng,ara,fra",
          "preregistration.workflow.demographic": "true/false ",
@@ -275,7 +275,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.demographic.create
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
@@ -301,7 +301,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
    "id":"mosip.pre-registration.demographic.create",
    "version":"1.0",
-   "requestTime":"2019-01-22T07:22:57.086Z",
+   "requesttime":"2019-01-22T07:22:57.086Z",
    "request":{
       "langCode":"fra",
       "demographicDetails":{
@@ -425,7 +425,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {  
    "id":"mosip.pre-registration.demographic.create",
    "version":"1.0",
-   "responseTime":"2019-03-15T08:08:13.246Z",
+   "responsetime":"2019-03-15T08:08:13.246Z",
    "response":{  
       "preRegistrationId":"64269837502851",
       "createdDateTime":"2019-01-08T17:05:48.953Z",
@@ -552,14 +552,14 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
   "id": "mosip.pre-registration.demographic.create",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
         {
-		"errorCode": "PRG_PAM_APP_001",
-		"message": "Failed to create the pre-registration with demographic data provided"
-		}
-	]
+	   "errorCode": "PRG_PAM_APP_001",
+	   "message": "Failed to create the pre-registration with demographic data provided"
+	}
+   ]
 }
 ```
 ###### Other Failure Details:
@@ -590,7 +590,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.demographic.update
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
@@ -616,7 +616,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
   "id": "mosip.pre-registration.demographic.update",
   "version": "1.0",
-  "requestTime": "2019-01-22T07:22:57.086Z",
+  "requesttime": "2019-01-22T07:22:57.086Z",
   "request":{
       "langCode":"fra",
       "demographicDetails":{
@@ -740,7 +740,7 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
    "id": "mosip.pre-registration.demographic.update",
    "version": "1.0",
-   "responseTime": "2019-03-15T08:08:13.246Z",
+   "responsetime": "2019-03-15T08:08:13.246Z",
    "response": {
       "preRegistrationId": "64269837502851",
       "updatedDateTime": "2019-02-11T13:37:37.215Z",
@@ -867,14 +867,14 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 {
   "id": "mosip.pre-registration.demographic.update",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
         {
-		"errorCode": "PRG_PAM_APP_008",
-		"message": "Failed to update the pre-registration demographic details"
-		}
-	]
+	   "errorCode": "PRG_PAM_APP_008",
+	   "message": "Failed to update the pre-registration demographic details"
+	}
+    ]
 }
 ```
 ###### Other Failure Details:
@@ -908,7 +908,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response":{
          "preRegistrationId":"20180396713560",
          "createdBy":"9900806086",
@@ -1037,13 +1037,13 @@ preRegistrationId |Yes|Id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.fetch.details",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response":null,
   "errors": [
-		{
-			"errorCode": "PRG_PAM_APP_006",
-			"message": "No data found for the requested pre-registration id"
-		}
+	{
+	   "errorCode": "PRG_PAM_APP_006",
+	   "message": "No data found for the requested pre-registration id"
+        }
    ]
 }
 ```
@@ -1073,7 +1073,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 {
   "id": "mosip.pre-registration.demographic.fetch.status",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response":{
       "statusCode": "Pending_Appointment",
       "preRegistrationId": "62076019780925"
@@ -1089,12 +1089,12 @@ preRegistrationId |Yes|Id of the application|62076019780925
 {
   "id": "mosip.pre-registration.demographic.fetch.status",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
 	{
-		"errorCode": "PRG_PAM_APP_006",
-		"message": "No data found for the requested pre-registration id"
+	    "errorCode": "PRG_PAM_APP_006",
+	    "message": "No data found for the requested pre-registration id"
 	}
    ]
 }
@@ -1120,7 +1120,7 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response":{
        "basicDetails":[
         {
@@ -1173,13 +1173,13 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.demographic.fetch.basic",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
-		{
-	 		"errorCode": "PRG_PAM_APP_005",
-	 		"message": "No record found for the requested user id"
-		}
+	{
+	    "errorCode": "PRG_PAM_APP_005",
+	    "message": "No record found for the requested user id"
+	}
    ]
 }
 ```
@@ -1209,7 +1209,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
-  "responseTime": "2019-02-11T07:15:18.565Z",
+  "responsetime": "2019-02-11T07:15:18.565Z",
   "response":{
       "preRegistrationId": "64269837502851",
       "deletedBy": "9876453738",
@@ -1225,13 +1225,13 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
-		{
-		"errorCode": "PRG_PAM_APP_006",
-		"message": "No data found for the requested pre-registration id"
-		}
+	{
+           "errorCode": "PRG_PAM_APP_006",
+	   "message": "No data found for the requested pre-registration id"
+	}
     ]
 }
 ```
@@ -1242,12 +1242,12 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 {
   "id": "mosip.pre-registration.demographic.delete",
   "version":"1.0",
-  "responseTime": "2019-02-11T13:46:00.534Z",
+  "responsetime": "2019-02-11T13:46:00.534Z",
   "response": null,
   "errors": [
 	{
 	  "errorCode": "PRG_PAM_APP_004",
-	  "message": "Falied to delete data for the requested pre-registration id"
+	  "message": "Failed to delete data for the requested pre-registration id"
 	}
     ]
 }
@@ -1286,7 +1286,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.document.upload
 version |Yes|version of the application|1.0
-requestTime |Yes|Request tme of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request tme of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.docCatCode |Yes|Document category code|POI
 request.docTypCode |Yes|Document type code|address
@@ -1297,7 +1297,7 @@ request.langCode |Yes|Language code of the application|ENG
 {
     "id": "mosip.pre-registration.document.upload",
     "version" : "1.0",
-    "requestTime" : "2019-03-13T07:22:57.086Z",
+    "requesttime" : "2019-03-13T07:22:57.086Z",
     "request" : {
 	"docCatCode" : "POI",
 	"docTypCode" : "identity",
@@ -1314,7 +1314,7 @@ request.langCode |Yes|Language code of the application|ENG
 {
   "id": "mosip.pre-registration.document.upload",
   "version" : "1.0",
-  "responseTime": "2019-01-16T16:41:06.659Z",
+  "responsetime": "2019-01-16T16:41:06.659Z",
   "response": {
       "preRegsitrationId": "36732486130976",
       "docId": "01964111-4fc0-11e9-ae3b-7d108980d190",
@@ -1334,13 +1334,13 @@ request.langCode |Yes|Language code of the application|ENG
 { 
   "id": "mosip.pre-registration.document.upload",
   "version" : "1.0",
-  "responseTime": "2019-01-16T17:31:04.021Z",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response":null,
   "errors":[
-		{
-		"errorCode": "PRG_PAM_DOC_004",
-		"message": " Invalid document format supported"
-		}
+	{
+	   "errorCode": "PRG_PAM_DOC_004",
+	   "message": " Invalid document format supported"
+	}
     ]
 }
 ```
@@ -1352,13 +1352,13 @@ request.langCode |Yes|Language code of the application|ENG
 { 
   "id": "mosip.pre-registration.document.upload",
   "version" : "1.0",
-  "responseTime": "2019-01-16T17:31:04.021Z",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response":null,
   "errors":[
-		{
-		"errorCode": "PRG_PAM_DOC_010",
-		"message": "Document virus scan failed"
-		}
+	{
+	   "errorCode": "PRG_PAM_DOC_010",
+	   "message": "Document virus scan failed"
+	}
     ]
 }
 ```
@@ -1394,7 +1394,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 {
   "id": "mosip.pre-registration.document.copy",
   "version" : "1.0",
-  "responseTime": "2019-01-16T17:31:04.021Z",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response": {
       "preRegsitrationId": "67531403498547",
       "docId": "8196222-5fb0-11e9-rg3b-7d108980f456",
@@ -1414,14 +1414,14 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 {
   "id": "mosip.pre-registration.document.copy",
   "version" : "1.0",
-  "responseTime": "2019-01-16T17:31:04.021Z",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response":null,
   "errors":[
-		{
-			"errorCode": "PRG_PAM_DOC_005",
-			"message": "Document not found for the source pre-registration Id"
+        {
+	   "errorCode": "PRG_PAM_DOC_005",
+	   "message": "Document not found for the source pre-registration Id"
         }
-	]
+   ]
 }
 ```
 
@@ -1432,14 +1432,14 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 {
   "id": "mosip.pre-registration.document.copy",
   "version" : "1.0",
-  "responseTime": "2019-01-16T17:31:04.021Z",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response":null,
   "errors":[
-		{
-			"errorCode": "PRG_PAM_DOC_011",
-			"message": "Document copy failed from source to destination"
+	{
+	   "errorCode": "PRG_PAM_DOC_011",
+	   "message": "Document copy failed from source to destination"
         }
-	]
+   ]
 }
 ```
 
@@ -1447,7 +1447,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 This request used to retrieve all documents metadata associated with particular pre-registration.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/douments/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/documents/:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
@@ -1468,7 +1468,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 {
   "id": "mosip.pre-registration.document.fetch.metadata",
   "version" : "1.0",
-  "responseTime": "2019-01-16T17:31:04.021Z",
+  "responsetime": "2019-01-16T17:31:04.021Z",
   "response": {
     "documnetsMetaData":[
     {
@@ -1501,21 +1501,21 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 {
    "id": "mosip.pre-registration.document.fetch.metadata",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response":null,
    "errors": [
-  		{
-    		"errorCode": "PRG_PAM_DOC_005",
-    		"message": "Documents is not found for the requested pre-registration id"
-  		}
-  	]
+  	{
+    	    "errorCode": "PRG_PAM_DOC_005",
+    	    "message": "Documents is not found for the requested pre-registration id"
+        }
+    ]
 }
 ```
 ### GET /documents/preRegistration/:documentId
-This request used to reterive the document for a particular document id from the File System server.
+This request used to retrieve the document for a particular document id from the File System server.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/douments/preRegistration/:documentId</div>
+<div>https://mosip.io/preregistration/v1/documents/preRegistration/:documentId</div>
 
 #### Resource details
 Resource Details | Description
@@ -1526,18 +1526,17 @@ Requires Authentication | Yes
 #### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318f48
 
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Document successfully reterived
+###### Description: Document successfully retrieved
 ```JSON
 {
    "id": "mosip.pre-registration.document.fetch.content",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response":{
       "multipartFile": :ByteArray
     },
@@ -1551,7 +1550,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 {
    "id": "mosip.pre-registration.document.fetch.content",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
       {
@@ -1568,7 +1567,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 {
    "id": "mosip.pre-registration.document.fetch.content",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
       {
@@ -1579,10 +1578,10 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 }
 ```
 ### DELETE /documents/:preRegsitrationId
-This request used to delete all the documents which are assosiated with requested pre-registration id.
+This request used to delete all the documents which are associated with requested pre-registration id.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/douments/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/documents/:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
@@ -1603,7 +1602,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 {
    "id": "mosip.pre-registration.document.delete",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
        "message": "All documents assosiated with requested pre-registration id deleted sucessfully"
     },
@@ -1617,14 +1616,14 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 {
    "id": "mosip.pre-registration.document.delete",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-    		"errorCode": "PRG_PAM_DOC_005",
-    		"message": "Documents is not found for the requested pre-registration id"
-      }
-  ]
+         {
+    	    "errorCode": "PRG_PAM_DOC_005",
+    	    "message": "Documents is not found for the requested pre-registration id"
+         }
+    ]
 }
 ```
 ##### Failure Response:
@@ -1634,21 +1633,21 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 {
    "id": "mosip.pre-registration.document.delete",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-    		"errorCode": "PRG_PAM_DOC_006",
-    		"message": "Documents failed to delete"
-      }
-  ]
+         {
+    	    "errorCode": "PRG_PAM_DOC_006",
+    	    "message": "Documents failed to delete"
+         }
+    ]
 }
 ```
 ### DELETE /documents/preRegistration/:documentId
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/douments/preRegistration/:documentId</div>
+<div>https://mosip.io/preregistration/v1/documents/preRegistration/:documentId</div>
 
 #### Resource details
 Resource Details | Description
@@ -1659,7 +1658,6 @@ Requires Authentication | Yes
 #### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318f48
 
 #### Responses:
@@ -1670,8 +1668,8 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 {
    "id": "mosip.pre-registration.document.delete.specific",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
-  "response": {
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": {
       "message": "Document successfully deleted"
     },
     "errors": null
@@ -1684,14 +1682,14 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 {
    "id": "mosip.pre-registration.document.delete.specific",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_PAM_DOC_005",
-         "message": "Document is not found for the pre-registration id and document id"
-      }
-  ]
+         {
+            "errorCode": "PRG_PAM_DOC_005",
+            "message": "Document is not found for the pre-registration id and document id"
+         }
+    ]
 }
 ```
 ##### Failure Response:
@@ -1701,7 +1699,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 {
    "id": "mosip.pre-registration.document.delete.specific",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
       {
@@ -1712,7 +1710,7 @@ documentId |Yes|document id of the application|0748c439-4f83-11e9-ae3b-7b0aa1318
 }
 ```
 # DataSync Service (External)
-This service enables Pre-Registration to a registration client , request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
+This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 * [POST /sync](#post-sync)
 * [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
@@ -1735,7 +1733,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.from-date |Yes|From date of the application|2019-02-09
 request.to-date |Yes|To date of the application|2019-02-12
@@ -1745,7 +1743,7 @@ request.to-date |Yes|To date of the application|2019-02-12
 {
   "id": "mosip.pre-registration.datasync.fetch.ids",
   "version": "1.0",
-  "requestTime": "2019-02-11T06:57:29.969Z",
+  "requesttime": "2019-02-11T06:57:29.969Z",
   "request": {
     "from-date":"2019-02-09",
     "to-date":"2019-02-12"
@@ -1760,7 +1758,7 @@ request.to-date |Yes|To date of the application|2019-02-12
 {
    "id": "mosip.pre-registration.datasync.fetch.ids",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response":{
     "transactionId": "aee82061-2dcb-11e9-b69e-b1fffe7cd4d7",
     "countOfPreRegIds": "3",
@@ -1781,14 +1779,14 @@ request.to-date |Yes|To date of the application|2019-02-12
 {
    "id": "mosip.pre-registration.datasync.fetch.ids",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-    	"errorCode": "PRG_DATA_SYNC_001",
-    	"message": "No Records found for the date range"
-	 }
-	]
+        {
+    	   "errorCode": "PRG_DATA_SYNC_001",
+    	   "message": "No Records found for the date range"
+	}
+    ]
 }
 ```
 ### POST /sync/consumedPreRegIds
@@ -1808,7 +1806,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.datasync.store
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 
@@ -1817,7 +1815,7 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 {
   "id": "mosip.pre-registration.datasync.store",
   "version": "1.0",
-  "requestTime": "2019-02-11T07:05:08.850Z",
+  "requesttime": "2019-02-11T07:05:08.850Z",
   "request": {
     "preRegistrationIds": [
       "94625367217037",
@@ -1834,13 +1832,13 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 {
    "id": "mosip.pre-registration.datasync.store",
    "version" : "1.0",
-   "responseTime": "2019-02-16T17:31:04.021Z",
+   "responsetime": "2019-02-16T17:31:04.021Z",
    "response": {
        "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
        "countOfPreRegIds": "2",
        "preRegistrationIds": "2"
     },
-	"errors":null
+    "errors":null
 }
 ```
 
@@ -1851,13 +1849,13 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 {
    "id": "mosip.pre-registration.datasync.store",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-        { 
-          "errorCode": "PRG_DATA_SYNC_011",
-          "message": "No pre-registration ids passed in request body"
-		}
+         { 
+            "errorCode": "PRG_DATA_SYNC_011",
+            "message": "No pre-registration ids passed in request body"
+	 }
     ]
 }
 ```
@@ -1886,7 +1884,7 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 {
    "id": "mosip.pre-registration.datasync.fetch",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
     "registration-client-id": "10005",
     "appointment-date": "2019-02-13",
@@ -1906,14 +1904,14 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 {
    "id": "mosip.pre-registration.datasync.fetch.ids",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-   		 "errorCode": "PRG_DATA_SYNC_002",
-   		 "message": "No data exist for the requested pre-registration id"
-     }
-	]
+         {
+            "errorCode": "PRG_DATA_SYNC_002",
+            "message": "No data exist for the requested pre-registration id"
+         }
+   ]
 }
 ```
 
@@ -1948,7 +1946,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.booking.book
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.registration_center_id |Yes|Registration center Id |10005
 request.appointment_date |Yes|Date of the appointment|2019-01-19
@@ -1960,13 +1958,13 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
   "id": "mosip.pre-registration.booking.book",
   "version": "1.0",
-  "requestTime": "2019-01-09T15:31:32.957Z",
+  "requesttime": "2019-01-09T15:31:32.957Z",
   "request": {
         "registration_center_id": "10005",
         "appointment_date": "2019-02-13",
         "time_slot_from": "15:31:00",
         "time_slot_to": "15:44:00"
-      }
+   }
 }
 ```
 
@@ -1978,7 +1976,7 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
    "id": "mosip.pre-registration.booking.book",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
       "message": "Appointment booked successfully"
     },
@@ -1992,14 +1990,14 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
    "id": "mosip.pre-registration.booking.book",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_PAM_APP_005",
-         "message": "INVALID_PRE_REGISTRATION_ID"
-     }
- ]
+         {
+            "errorCode": "PRG_PAM_APP_006",
+            "message": "No data found for the requested pre-registration id"
+         }
+    ]
 }
 ```
 ##### Failure Response:
@@ -2009,19 +2007,19 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
    "id": "mosip.pre-registration.booking.book",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_BOOK_RCI_002",
-         "message": "Slot availability not found for selected time"
-     }
-	]
+         {
+            "errorCode": "PRG_BOOK_RCI_002",
+            "message": "Slot availability not found for selected time"
+         }
+    ]
 }
 ```
 ### PUT /appointment/:preRegistrationId
-This request used to reterive the appointement details for the specified pre-registration id,
-if exist update the availability for the solt and delete the record from the table and update the dempgraphic record status "Pending_Appointment".
+This request used to retrieve the appointment details for the specified pre-registration id,
+if exist update the availability for the slot and delete the record from the table and update the demographic record status "Pending_Appointment".
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/appointment/:preRegistrationId</div>
@@ -2041,7 +2039,7 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.appointment.cancel",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response":{
         "message":"Appointment cancelled successfully"
     },
@@ -2055,13 +2053,13 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.appointment.cancel",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors": [
-       {
-          "errorCode": "PRG_BOOK_RCI_015",
-          "message": "Appointment cancellation failed"
-       }
+          {
+             "errorCode": "PRG_BOOK_RCI_015",
+             "message": "Appointment cancellation failed"
+          }
     ] 
 }
 ```
@@ -2090,7 +2088,7 @@ preRegistrationId |Yes|Id of the application|37802950913289
 {
    "id": "mosip.pre-registration.appointment.fetch",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
     "registration_center_id": "10005",
     "appointment_date": "2019-02-13",
@@ -2107,14 +2105,14 @@ preRegistrationId |Yes|Id of the application|37802950913289
 {
    "id": "mosip.pre-registration.appointment.fetch",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_BOOK_RCI_013",
-         "message": "No Appointment record found for the specified pre-registration id"
-      }
-	]
+         {
+            "errorCode": "PRG_BOOK_RCI_013",
+            "message": "No Appointment record found for the specified pre-registration id"
+         }
+    ]
 }
 ```
 ### GET /appointment/availability/:registrationCenterId
@@ -2142,7 +2140,7 @@ registrationCenterId |Yes|Registration Center Id|10004
 {
    "id": "mosip.pre-registration.appointment.availability",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
         "registrationCenterId": "10004",
         "centerDetails": [
@@ -2190,14 +2188,14 @@ registrationCenterId |Yes|Registration Center Id|10004
 {
    "id": "mosip.pre-registration.appointment.availability",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_BOOK_RCI_015",
-        "message": "No available slots found for specified registration center"
-      }
-	]
+         {
+            "errorCode": "PRG_BOOK_RCI_015",
+            "message": "No available slots found for specified registration center"
+         }
+    ]
 }
 ```
 ### GET /appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
@@ -2231,7 +2229,7 @@ toDate |Yes|To Date | 2019-02-14
 {
    "id": "mosip.pre-registration.appointment.ids",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
         "preRegistrationIds": [
                        "94625367217037",
@@ -2248,14 +2246,14 @@ toDate |Yes|To Date | 2019-02-14
 {
    "id": "mosip.pre-registration.appointment.ids",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_BOOK_RCI_016",
-        "message": "No available slots found for specified registration center with date range"
-      }
-	]
+         {
+            "errorCode": "PRG_BOOK_RCI_016",
+            "message": "No available slots found for specified registration center with date range"
+         }
+    ]
 }
 ```
 # BatchJob Service (Private)
@@ -2285,11 +2283,11 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.batchjob.expired",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-      "message": "Expired status updated successfully"
-	},
-	"errors":null
+        "message": "Expired status updated successfully"
+    },
+   "errors":null
 }
 ```
 ##### Failure Response:
@@ -2299,14 +2297,14 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.booking.book",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_PAM_BAT_001",
-         "message": "No pre registration record found to update expired status"
-      }
-	]
+         {
+            "errorCode": "PRG_PAM_BAT_001",
+            "message": "No pre registration record found to update expired status"
+         } 
+    ]
 }
 ```
 ### PUT /consumedApplication
@@ -2329,11 +2327,11 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.batchjob.expired",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-      "message":  "Consumed status updated successfully"
-	},
-	"errors":null
+        "message":  "Consumed status updated successfully"
+    },
+   "errors":null
 }
 ```
 ##### Failure Response:
@@ -2343,14 +2341,14 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.booking.book",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-      {
-         "errorCode": "PRG_PAM_BAT_002",
-         "message": "No pre registration record found to update consumed status"
-      }
-	]
+         {
+            "errorCode": "PRG_PAM_BAT_002",
+            "message": "No pre registration record found to update consumed status"
+         }
+    ]
 }
 ```
 
@@ -2374,7 +2372,7 @@ Requires Authentication | Yes
 {
    "id": "mosip.pre-registration.batchjob.sync",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
       "message": "Master Data Sync is successful"
    },
@@ -2403,7 +2401,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.qrcode.generate
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.name |Yes|user name of the application|Sanober Noor
 request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
@@ -2419,15 +2417,15 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 {
   "id": "mosip.pre-registration.qrcode.generate",
   "version": "1.0",
-  "requestTime": "2019-01-09T15:31:32.957Z",
+  "requesttime": "2019-01-09T15:31:32.957Z",
   "request": {
-		"name": "sanober noor",
-		"preRegistrationId": "37802950913289",
-		"appointmentDate": "2019-01-22",
-		"appointmentTime": "22:57",
-		"mobNum": "9748107386",
-		"emailID": "sanober.noor2@mindtree.com"
-	}
+	"name": "sanober noor",
+	"preRegistrationId": "37802950913289",
+	"appointmentDate": "2019-01-22",
+	"appointmentTime": "22:57",
+	"mobNum": "9748107386",
+	"emailID": "sanober.noor2@mindtree.com"
+   }
 }
 ```
 #### Responses:
@@ -2438,11 +2436,11 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 {
    "id": "mosip.pre-registration.notification.qrCode",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-		"qrcode":{ByteCode}
-	},
-	"errors":null
+	"qrcode":{ByteCode}
+    },
+   "errors":null
 }
 ```
 ##### Failure Response:
@@ -2452,14 +2450,14 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 {
    "id": "mosip.pre-registration.notification.qrCode",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-       {
-    		"errorCode": "PRG_PAM_ACK_006",
-    		"message": " Failed to generate QR code"
-		}
-	]
+         {
+    	    "errorCode": "PRG_PAM_ACK_006",
+    	    "message": " Failed to generate QR code"
+	 }
+    ]
 }
 ```
 
@@ -2485,7 +2483,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.notification.notify
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.name |Yes|user name of the application|Sanober Noor
 request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
@@ -2501,15 +2499,15 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 {
   "id": "mosip.pre-registration.notification.notify",
   "version": "1.0",
-  "requestTime": "2019-01-09T15:31:32.957Z",
+  "requesttime": "2019-01-09T15:31:32.957Z",
   "request": {
-			"name": "sanober noor",
-			"preRegistrationId": "37802950913289",
-			"appointmentDate": "2019-01-22",
-			"appointmentTime": "22:57",
-			"mobNum": "9748107386",
-			"emailID": "sanober.noor2@mindtree.com"
-	}
+	"name": "sanober noor",
+	"preRegistrationId": "37802950913289",
+	"appointmentDate": "2019-01-22",
+	"appointmentTime": "22:57",
+	"mobNum": "9748107386",
+	"emailID": "sanober.noor2@mindtree.com"
+   }
 }
 ```
 #### Responses:
@@ -2520,28 +2518,28 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 {
    "id": "mosip.pre-registration.notification.notify",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
       "message": "Email and sms request successfully submitted"
     },
-	"errors":null
+   "errors":null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Mobile nubmer or Email Id is missing
+###### Description: Mobile number or Email Id is missing
 ```JSON
 {
    "id": "mosip.pre-registration.notification.notify",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[ 
-       {
-        "errorCode": "PRG_PAM_ACK_001",
-        "message": "Mobile nubmer or Email Id is missing"
-       }
-	]
+         {
+            "errorCode": "PRG_PAM_ACK_001",
+            "message": "Mobile number or Email Id is missing"
+         }
+    ]
 }
 ```
 
@@ -2567,7 +2565,7 @@ Name | Required | Description | Example
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.transliteration.transliterate
 version |Yes|version of the application|1.0
-requestTime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.from_field_lang|Yes|From language code|eng
 request.from_field_value |Yes|From field value |Kishan
@@ -2578,7 +2576,7 @@ request.to_field_lang |Yes|To language code|ara
 {
   "id": "mosip.pre-registration.transliteration.transliterate",
   "version": "1.0",
-  "requestTime": "2019-01-09T15:31:32.957Z",
+  "requesttime": "2019-01-09T15:31:32.957Z",
   "request": {
     "from_field_lang": "eng",
     "from_field_value": "Kishan",
@@ -2595,7 +2593,7 @@ request.to_field_lang |Yes|To language code|ara
 {
    "id": "mosip.pre-registration.transliteration.transliterate",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
     "from_field_lang": "eng",
     "from_field_value": "Kishan",
@@ -2612,13 +2610,13 @@ request.to_field_lang |Yes|To language code|ara
 {
    "id": "mosip.pre-registration.transliteration.transliterate",
    "version" : "1.0",
-   "responseTime": "2019-01-16T17:31:04.021Z",
+   "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
    "errors":[
-       {
-         "errorCode": "PRG_PAM_TRL_002",
-         "message": "Failed to transliterate"
-      }
-  ]
+         {
+            "errorCode": "PRG_PAM_TRL_002",
+            "message": "Failed to transliterate"
+         }
+    ]
 }
 ```
