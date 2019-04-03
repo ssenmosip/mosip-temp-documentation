@@ -1,5 +1,5 @@
 * **Audit Manager** _(AMG_FR_1)_
-
+The audit manager service is responsible for storing the events audited across MOSIP.  The audit manager provides mechanisms to store and retrieve audit information into an audit database securely.  All MOSIP services calls the audit service passing audit events in a standard format.   
 The Audit Manager component receives a request to audit and store data, validates if the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). 
 
 Upon receiving a request to store audit logs with the input parameters the audit manager performs the following steps:
