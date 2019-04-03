@@ -92,7 +92,7 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 1. It receives a request from Crypto Service from Public Key with the Application ID and Timestamp. 
 1. Key Manager Service then sends a valid Public key against the application ID received to Crypto Service. 
 1. In case, the public key is expired against that Application ID, it will generate a new Public Key and respond with it.
-1. For a request to receive private key, The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
+1. When there is a request to decrypt data, the private key of the application id or reference id is used. The Key manager will not respond with Private Key but instead takes the encrypted data from the source and decrypts it itself and responds with decrypted content
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md)
 
