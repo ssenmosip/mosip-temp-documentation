@@ -239,9 +239,9 @@ Requires Authentication | Yes
       "message": "string"
     }
   ],
-	"response": {
-		"data": "string"
-	}
+ "response": {
+ 		"data": "string"
+             }
 }	
 ```
 
@@ -1467,7 +1467,7 @@ v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 		  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
 		  "issuedAt": "2018-01-01T10:00:00",
 		  "expiryAt": "2018-12-10T06:12:51.994"
-	}
+	    }
 }	
 ```
 
@@ -1512,7 +1512,7 @@ v1/uingenerator/uin
   ],
 "response": {
 	  "uin": "734168915279"
-	}
+	    }
 }
 ```
 
