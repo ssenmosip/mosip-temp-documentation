@@ -1609,7 +1609,13 @@ Description: When Device not found
 Description: Error occurred while deleting Device
 
 # Languages Master API
-# 2.3.7.1 Languages Master-create service
+
+* [POST /languages](#post-languages)
+* [GET /languages](#get-languages)
+* [PUT /languages](#put-languages)
+* [DELETE /languages/{code}](#delete-languages-code)
+
+# POST /languages
 
 This service will create a Language which is used in the MOSIP platform. 
 
@@ -1667,7 +1673,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.7.2 Languages Master-get service
+# GET /languages
 
 This service will provides the service for the List of languages. 
 
@@ -1719,12 +1725,12 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.7.3 Languages Master-update service
+# PUT /languages
 
 This service will update a Language which is used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /languages`
+### `PUT /languages`
 
 ### Resource details
 
@@ -1778,12 +1784,12 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.7.4 Languages Master-delete service
+# DELETE /languages/{code}
 
 This service will delete a Language which is used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /languages/{code}`
+### `DELETE /languages/{code}`
 
 ### Resource details
 
@@ -1825,7 +1831,15 @@ Description: Unauthorized
 Description: Forbidden
 
 # Gender Master API
-# 2.3.8.1 Gender Master-create service
+
+* [POST /gendertypes](#post-gendertypes)
+* [PUT/gendertypes](#put-gendertypes)
+* [DELETE/gendertypes/{code}](#delete-gendertypes-code)
+* [GET /gendertypes](#get-gendertypes)
+* [GET /gendertypes/{languagecode}](#get-gendertypes-languagecode)
+* [GET /gendertypes/{gendername}](#get-gendertypes-gendername)
+
+# POST /gendertypes
 
 This service will create the list of Gender which are used in the MOSIP platform. 
 
@@ -1882,7 +1896,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.8.2 Gender Master-update service
+# PUT/gendertypes
 
 This service will update Gender which are used in the MOSIP platform. 
 
@@ -1942,7 +1956,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.8.3 Gender Master-delete service
+# DELETE/gendertypes/{code}
 
 This service will delete Gender which are used in the MOSIP platform. 
 
@@ -1984,7 +1998,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.8.4 Genders Master-get service
+# GET /gendertypes
 Master data is required across the platform. 
 
 This service will provides the service for the List of Genders. 
@@ -2044,7 +2058,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.8.5 Genders Master-get based on language service
+# GET /gendertypes/{languagecode}
 
 This service will provides the service for the List of Genders. 
 
@@ -2097,7 +2111,7 @@ Description: Not Found
 
 
 
-# 2.3.8.5 Genders Master-get gender based on gender name service
+# GET /gendertypes/{gendername}
 Master data is required across the platform. 
 
 This service will provides the gender based on the gender name. 
@@ -2136,7 +2150,14 @@ Description: Success
 
 
 # Titles Master API
-# 2.3.9.1 Title Master-create service
+
+* [POST /title](#post-title)
+* [GET /title](#get-title)
+* [GET /title/{languagecode}](#get-title-languagecode)
+* [PUT /title](#put-title)
+* [DELETE /title/{code}](#delete-title-code)
+
+# POST /title
 Master data is required across the platform. 
 
 This service will create the list of Title which are used in the MOSIP platform. 
@@ -2195,7 +2216,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.9.2 Titles Master-get service
+# GET /title
 Master data is required across the platform. 
 
 This service will provides the service for the List of Titles. 
@@ -2278,7 +2299,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.9.3 Titles Master-get based on language service
+# GET /title/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Titles. 
@@ -2332,7 +2353,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.9.4 Titles Master-put based on language service
+# PUT /title
 Master data is required across the platform. 
 
 This service will provides the service for updating a particular title. 
@@ -2382,7 +2403,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.9.5 Titles Master-delete based on language service
+# DELETE /title/{code}
 Master data is required across the platform. 
 
 This service will provides the service for deleting a particular title. 
