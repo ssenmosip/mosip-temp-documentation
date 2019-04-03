@@ -133,7 +133,7 @@ This service triggers an SMS Notification upon receiving a request to trigger no
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-smsnotification.md)
 
 ### 4.4 PDF Generator [**[↑]**](#table-of-content)
-This utility enables created of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
+This utility enables creation of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md)
 
