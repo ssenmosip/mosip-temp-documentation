@@ -3009,7 +3009,18 @@ Description: Not Found
 
 
 # Registration Centers Master API
-# 2.3.13.1 Registration Centers Master-create service
+
+* [POST /registrationcenters](#post-registrationcenters)
+* [GET /registrationcenters](#get-registrationcenters)
+* [GET /registrationcenters/{id}/{languagecode}](#get-registrationcenters-id-languagecode)
+* [GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}](#get-getregistrationcenterholidays-languagecode-registrationcenterid-year)
+* [GET /getlocspecificregistrationcenters/{langcode}/{locationcode}](#get-getlocspecificregistrationcenters-langcode-locationcode)
+* [GET /getcoordinatespecificregistrationcenters/{languagecode}/{longitude}/{latitude}/{proximitydistance}](#get-getcoordinatespecificregistrationcenters-languagecode-longitude-latitude-proximitydistance)
+* [GET /registrationcentershistory/{id}/{languagecode}/{eff_dtimes}](#get-registrationcentershistory-id-languagecode-eff_dtimes)
+* [GET /getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}](#get-getregistrationmachineusermappinghistory-eff_dtimes-registrationcenterid-machineid-userid)
+* [GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}](#get-getlocspecificregistrationcenters-hierarchylevel-textvalue-languagecode)
+
+# POST /registrationcenters
 Master data is required across the platform. 
 
 This service will create the list of Registration Centers which are used in the MOSIP platform. 
@@ -3111,7 +3122,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.13.2 Registration Centers Master-get service
+# GET /registrationcenters
 Master data is required across the platform. 
 
 This service will provides the service for the List of Registration Centers. 
@@ -3202,7 +3213,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.13.3 Registration Centers Master-get service
+# GET /registrationcenters/{id}/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Registration Centers. 
@@ -3292,7 +3303,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.13.5 Registration Centers Master-get holidays for a year service
+# GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}
 This service will list of holidays for a particular registration center for that particular year. 
 
 ### Resource URL
@@ -3370,7 +3381,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.13.6 Registration Centers Master-get registration center based on location code
+# GET /getlocspecificregistrationcenters/{langcode}/{locationcode}
 This service will return a list of enrollment center details based on the location code 
 
 ### Resource URL
@@ -3436,7 +3447,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.13.7 Registration Centers Master-get registration center based on coordinates
+# GET /getcoordinatespecificregistrationcenters/{languagecode}/{longitude}/{latitude}/{proximitydistance}
 This service will return a list of enrollment center details based on the coordinates
 
 ### Resource URL
@@ -3504,7 +3515,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.13.8 Registration Centers History Master-get service
+# GET /registrationcentershistory/{id}/{languagecode}/{eff_dtimes}
 
 This service will provides the service for the List of Registration Centers History. 
 
@@ -3593,7 +3604,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.13.9 Registration Centers History Master-get service
+# GET /getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}
 
 This service will provides the history of mappings of mapping History of Registration, Machine and User based on Registration Center ID, Machine ID, User ID, Date and Language Code 
 
@@ -3649,7 +3660,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.13.10 Registration Centers Master-get registration center based on hierarchy level, text value and language code
+# GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}
 This service will return a list of enrollment center details based on hierarchy level, text value and language code
 
 ### Resource URL
@@ -3719,7 +3730,12 @@ Description: Not Found
 
 
 # Biometric attributes Master API
-# 2.3.14.1 Biometric attributes Master-create service
+
+* [POST /biometricattributes](#post-biometricattributes)
+* [GET /biometricattributes/{biometricatributeid}/{languagecode}](#get-biometricattributes-biometricatributeid-languagecode)
+* [GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}](#get-getbiometricattributesbyauthtype-languagecode-biometrictypeid)
+
+# POST /biometricattributes
 
 This service will create the list of Biometric attributes which are used in the MOSIP platform. 
 
@@ -3778,7 +3794,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.14.2 Biometrics attributes Master-get service
+# GET /biometricattributes/{biometricatributeid}/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Biometrics. 
@@ -3838,7 +3854,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-# 2.3.14.5 Biometrics attributes Master-get based on biometric authentication type service
+# GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}
 
 This service will provides the service for the List of Biometrics based on the biometric authentication type. 
 
