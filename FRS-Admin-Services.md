@@ -40,7 +40,7 @@
 ## 1. Master Data Management
 ### 1.1 Location Hierarchy - Create/Read/Update/Delete [**[↑]**](#table-of-content)
 
-#### A. Create Location Hierarchy in the Masterdata Database
+#### A. Create Location Hierarchy in the Masterdata 
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the Database
 
 While storing the location hierarchy in the database, the system performs the following steps:
