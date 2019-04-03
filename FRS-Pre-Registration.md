@@ -144,7 +144,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 1. The system recommends registration centers based on the postal code(s) of all the applicants for whom the appointment is to be booked
 1. The search results have the following information about the Registration Center: Name, Address, Working Hours, Contact Person, Center Type, and Contact Number
 
-The First Registration Center as per the search criteria is shown to the Individual on Map by default
+1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 #### 2.4.1.2 Nearby centers based on User Geo-location [**[↑]**](#table-of-content)
 1. An Individual can  enable location services,  in the device/machine in order to select nearby centers
@@ -152,11 +152,11 @@ The First Registration Center as per the search criteria is shown to the Individ
 1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 #### 2.4.1.3 Find a Center [**[↑]**](#table-of-content)
-An Individual may opt to  perform text search to find a center based on which the system displays the registration centers
+1. An Individual may opt to perform text search to find a center based on which the system displays the registration centers
 
-It is a contextual search where the individual selects a search criteria and based on the selected search criteria enters relevant text. 
+1. It is a contextual search where the individual selects a search criteria and based on the selected search criteria enters relevant text. 
 
-The First Registration Center as per the search criteria is shown to the Individual on Map by default
+1. The First Registration Center as per the search criteria is shown to the Individual on Map by default
 
 ### 2.4.2 Get Appointment for the Day [**[↑]**](#table-of-content)
 1. An Individual logs in to the pre-registration system  and opts to Book Appointment for Pre-Registration Application or Modify Appointment
