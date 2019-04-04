@@ -1,7 +1,7 @@
 * **UIN Generation** _(UIG_FR_1)_
 
 MOSIP generates a pool of UINs before the registration process and stores them. 
-The UIN generation policies can be defined \modified by country as per their requirement
+The UIN generation policies can be defined\modified by country as per their requirement
 
 
 The UINs generated follow the following policies:
@@ -19,8 +19,8 @@ The UINs generated follow the following policies:
 1. UIN should not be a cyclic figure 
 1. UIN should be different from the repetition of the first two digits 5 times (E.g. 3434343434)
 1. UIN should not contain three even adjacent digits (E.g. 3948613752)
-1. UIN should not contain ADMIN defined restricted number.
+1. UIN should not contain admin defined restricted number.
 
 Note:
-The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated Pool. 
+The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated pool. 
 When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN.
