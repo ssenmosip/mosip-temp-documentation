@@ -221,7 +221,7 @@ An individual can opt to manually trigger notification\s to the contact details 
 
 ## 2.6 Registration Client Services
 ### 2.6.1 Retrieve Application Data by PRID [**[↑]**](#table-of-content)
-Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id (Registration Officer/Supervisor) from Registration client the Pre-Registration system processes the information.
+Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for the List of Pre-Registrations, User Id (Registration Officer/Supervisor) from Registration client, the Pre-Registration system processes the information.
 1. The system generates a Transaction Id
 1. The system then Fetches all the Pre-Registrations within the Date Range (Start Range, End Date) and for the Registration Center Id received and calculates the count of the Pre-Registration Ids being sent.
 1. The system sends the List of Pre-Registration Ids along with count of Pre-Registrations.

@@ -2108,15 +2108,19 @@ Sample Error Response:
 
 ```JSON
 {
-	"id":"mosip.license.status",			
-	"version":"1.0",	
-	"responsetime":"2007-12-03T10:15:30Z",	
-	"errors":[
-		"errorCode": "PRG_PAM_APP_001",
-		"message": "License key not found"
-	  }	
-	]
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-04-04T05:03:18.287Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_001",
+     "message": "License key not found"
+    }
+  ]
 }
+
 ```
 
 
