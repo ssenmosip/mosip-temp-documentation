@@ -2712,7 +2712,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 UIN|Yes|UIN of the individual.| -NA- |2345346532564566
-partnerID|Yes|ID of the partner.| -NA- |9373
+partnercode|Yes|ID of the partner.| -NA- |9373
 
 ### Example Request
 ```JSON
