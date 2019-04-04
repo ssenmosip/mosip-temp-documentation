@@ -1727,7 +1727,7 @@ This service enables Pre-Registration to a registration client, request to retri
 * [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
 
 ### POST /sync
-This request is used by registration client to retrieve all the pre-registration Ids by date range and registration center Id from the authorize token.
+This request is used by registration client to retrieve all the pre-registration Ids by date range.
 
 #### Resource URL
 <div>https://mosip.io/v1/prereg-datasync/sync/</div>
@@ -1745,8 +1745,9 @@ id |Yes|Id of the application|mosip.pre-registration.datasync
 version |Yes|version of the application|1.0
 requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.from-date |Yes|From date of the application|2019-02-09
-request.to-date |Yes|To date of the application|2019-02-12
+request.registrationCenterId|Yes|Registration Center Id for which the data is required|10001
+request.fromDate |Yes|From date of the application|2019-02-09
+request.toDate |Yes|To date of the application|2019-02-12
 
 #### Request:
 ```JSON
@@ -1755,8 +1756,9 @@ request.to-date |Yes|To date of the application|2019-02-12
   "version": "1.0",
   "requesttime": "2019-02-11T06:57:29.969Z",
   "request": {
-    "from-date":"2019-02-09",
-    "to-date":"2019-02-12"
+    "registrationCenterId":"10001",
+    "fromDate":"2019-02-09",
+    "toDate":"2019-02-12"
   }
 }
 ```
@@ -1896,12 +1898,12 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-    "registration-client-id": "10005",
-    "appointment-date": "2019-02-13",
-    "from-time-slot": "09:00",
-    "to-time-slot": "09:15",
-    "zip-filename": "94625367217037",
-    "zip-bytes": "{ByteCode}"
+    "registrationCenterId": "10005",
+    "appointmentDate": "2019-02-13",
+    "fromTimeSlot": "09:00",
+    "toTimeSlot": "09:15",
+    "zipFilename": "94625367217037",
+    "zipBytes": "{ByteCode}"
    },
    "errors":null
 }
