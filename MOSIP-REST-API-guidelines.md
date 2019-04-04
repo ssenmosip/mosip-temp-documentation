@@ -8,46 +8,64 @@ This document covers the coding standards, which are followed by the RESTful web
 # 2	URL structure
 
 ## 2.1	General structure
-The syntax of the URL of the RESTful webservice should be as follows, 
-https://<IP_ADDRESS>:<PORT>/<VERSION>/<RESOURCE_NAME>/<PARAMETERS_AND_VALUES_IF_ANY>
+The syntax of the URL of the RESTful webservice should be as follows for all the modules except Kernel, 
+
+`https://<IP_ADDRESS>:<PORT>/<MODULE_NAME>/<VERSION>/<RESOURCE_NAME>/<PARAMETERS_AND_VALUES_IF_ANY>`
+
 For example, 
-<div>https://mosip.com/v2/inviduals/ID/23442<div>
+
+`https://dev.mosip.io/pre-registration/v1/document`
+
+
+Only in case of Kernel modules, the <MODULE_NAME> is not included. The format is as follows, 
+
+`https://<IP_ADDRESS>:<PORT>/<VERSION>/<RESOURCE_NAME>/<PARAMETERS_AND_VALUES_IF_ANY>`
+
+
+Following URL is an example for Kernel,
+
+`https://dev.mosip.io/v1/emailnotifier`
+
+The convention is, before <RESOURCE_NAME>, we should have the version number. 
 
 The URL is the sentence, the resources are nouns and the HTTP methods are verbs. 
 The URL, before the parameters, should contain only spinal case ( - ). The URL, before the parameters, should not contain snake case ( _ ) or camel case. 
 NOTE: The parameters can contain snake case or camel case. 
 
-# 3	Resources - Use nouns and not verbs
+# 3	Resources - Usage of nouns and verbs
 
-Use only nouns and do not use verbs for the resources.  
+Use nouns for CRUD operations.  
 Resource	GET
 read	POST
 create	PUT
 update	DELETE
 delete
 /preenrolments	Returns list of pre enrolments	Creates a new pre enrolment	Bulk updates	Delete all preenrolments
-/preenrolments/123	Returns a particular pre enrolment	Method not allowed (405)	Updates a specific car	Deletes a specific car
+/preenrolments/123	Returns a particular pre enrolment	Updates a specific car	Deletes a specific car
 
-Following should be avoided, 
+For operations, wherever applicable the operations can be added as part of the URL itself. For example,  
 /getAllPreenrolments
 /createNewEnrolment
 /deleteAllPreenrolments
+
 # 4	Resources – Usage of plurals in nouns
 
 Use the plural nouns in the resource names if there is CRUD operations. For example, 
 
-`https://mosip.com/v2/individuals`		 Prefer 
+`https://dev.mosip.io/pre-registration/v1/individuals`		 Prefer 
 
-`https://mosip.com/v2/individual`		 Avoid
+`https://dev.mosip.io/pre-registration/v1/individual`		 Avoid
 
 In other cases, use singulars in the nouns. For example, 
-<div>https://mosip.com/v2/OTP</div>
+
+`https://dev.mosip.io/pre-registration/v1/OTP`
 
 # 5	Resources – actions in the URL
 The actions are added in the URL, wherever applicable. For example, 
-<div>https://mosip.com/v2/OTP/generator</div>
 
-<div>https://mosip.com/v2/OTP/validator</div>
+`https://dev.mosip.io/pre-registration/v1/OTP/generator`
+
+`https://dev.mosip.io/pre-registration/v1/OTP/validator`
 
 # 6	Appropriate usage of the HTTP methods
 Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource. 
@@ -58,26 +76,33 @@ In all the success cases and failure cases, 200 HTTP Status code is returned. Ba
 
 # 8	Identifying a resource
 When the caller want to identify the resource, the path param is used. For example, 
-<div>https://mosip.com/v2/individuals/id1234</div>
+
+`https://dev.mosip.io/pre-registration/v1/individuals/id1234`
 
 # 9	Filtering
 The filter has to be applied via the URL parameters. For example,
-<div>https://mosip.com/v2/individuals/id1234?city=someCityName&pincode=473822</div>  
+
+`https://dev.mosip.io/pre-registration/v1/individuals/id1234?city=someCityName&pincode=473822`
 
 # 10	Sorting
 In case if the results have to be sorted, it can be mentioned in the URL parameter named sort. For example, 
-<div>https://mosip.com/v2/individuals/1234?sort=firstName</div>
+
+`https://dev.mosip.io/pre-registration/v1/individuals/1234?sort=firstName`
 
 # 11	Pagination
 In case of pagination, the page number can be mentioned in the parameter by the name “page”. For example, 
-<div>https://mosip.com/v2/individuals/1234?page=15</div>
+
+`https://dev.mosip.io/pre-registration/v1/individuals/1234?page=15`
 
 # 12	Always use SSL
 Always use SSL for the services. No services should be exposed without SSL. 
 
 # 13	Versioning
 Always version the service. The version have to be mentioned in the URL of the service after the hostname (and port number, if any). For example,   
-<div>https://mosip.com/individuals/v1.0/1234</div>
+
+`https://dev.mosip.io/pre-registration/v1/individuals/1234` --> Except Kernel module
+
+`https://dev.mosip.io/v1/individuals/1234` --> Kernel module
 
 # 14	Design first approach
 Always go with the design first approach. First, define the Swagger specification and publish to the Swagger UI after getting it reviewed. The coding should be started after the design is completed and the specification is completed in Swagger. 
@@ -170,7 +195,7 @@ In case, there is no request payload or path params or URL params, only the vers
 
 # References
 
-````
+```
 https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
 https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
@@ -178,10 +203,10 @@ https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-a
 https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9
 
 https://restfulapi.net/resource-naming/
-````
+```
 
 # Contact
-````
+```
 Shravan Poorigali (shravan.poorigali@mindtree.com)
 
 Karthik Ramanan (Karthik.Ramanan@mindtree.com)
@@ -189,4 +214,4 @@ Karthik Ramanan (Karthik.Ramanan@mindtree.com)
 Rudra Prasad Tripathy (Rudra.Tripathy@mindtree.com)
 
 John David (John.Panneerselvam@mindtree.com)
-````
+```
