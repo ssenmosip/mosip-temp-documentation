@@ -3911,7 +3911,16 @@ Description: Not Found
 
 
 # Locations Master API
-# 2.3.15.1 Locations Master-create service
+
+* [POST /locations](#post-locations)
+* [PUT /locations](#put-locations)
+* [DELETE /locations/{locationcode}](#delete-locations-locationcode)
+* [GET /locations/{langcode}](#get-locations-langcode)
+* [GET /locations/{locationcode}/{languagecode}](#get-locations-locationcode-languagecode)
+* [GET /locations/immediatechildren/{locationcode}/{languagecode}](#get-locations-immediatechildren-locationcode-languagecode)
+* [GET /locations/locationhierarchy/{hierarchyname}](#get-locations-locationhierarchy-hierarchyname)
+
+# `POST /locations`
 
 ### Resource URL
 ### `POST /locations`
@@ -3984,7 +3993,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.15.2 Locations Master-update service
+# PUT /locations
 
 ### Resource URL
 ### `PUT /locations`
@@ -4053,7 +4062,7 @@ Description: Forbidden
 
 
 
-# 2.3.15.3 Locations Master-delete service
+# DELETE /locations/{locationcode}
 
 ### Resource URL
 ### `DELETE /locations/{locationcode}`
@@ -4098,7 +4107,7 @@ Description: Forbidden
 
 
 
-# 2.3.15.4 Locations Master-get service
+# GET /locations/{langcode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -4159,7 +4168,7 @@ Description: Internal Server Error
 
 
 
-# 2.3.15.5 Locations Master-get service
+# GET /locations/{locationcode}/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -4225,7 +4234,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.15.6 Locations Master-get service
+# GET /locations/immediatechildren/{locationcode}/{languagecode}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations. 
@@ -4292,7 +4301,7 @@ Description: Not Found
 
 
 
-# 2.3.15.7 Locations Master-get service
+# GET /locations/locationhierarchy/{hierarchyname}
 Master data is required across the platform. 
 
 This service will provides the service for the List of Locations based on the location hierarchy name. 
@@ -4360,7 +4369,7 @@ Description: Not Found
 
 
 
-# 2.3.15.8 Locations Master-get service
+# GET /locations/locationhierarchy/{locationname}
 
 This service will provides the service for the List of Locations based on the location name. 
 
@@ -4413,7 +4422,14 @@ Description: Success
 
 
 # Packet Rejection Reasons Master API
-# 2.3.16.1 Packet Rejection Reason-category Master-create service
+
+* [POST /packetrejectionreasons/reasoncategory](#post-packetrejectionreasons-reasoncategory)
+* [POST /packetrejectionreasons/reasonlist](#post-packetrejectionreasons-reasonlist)
+* [GET /packetrejectionreasons](#get-packetrejectionreasons)
+* [GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}](#get-packetrejectionreasons-reasoncategorycode-languagecode)
+* [GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}](#get-packetrejectionreasons-id-languagecode-locationcode)
+
+# POST /packetrejectionreasons/reasoncategory
 
 This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
 
@@ -4482,7 +4498,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.16.2 Packet Rejection Reason-category Master-create service
+# POST /packetrejectionreasons/reasonlist
 
 This service will create the list of Packet Rejection Reasons which are used in the MOSIP platform. 
 
@@ -4558,7 +4574,7 @@ Description: Unauthorized
 Description: Forbidden
 
 
-# 2.3.16.3 Packet Rejection Reasons Master-get service
+# GET /packetrejectionreasons
 Master data is required across the platform. 
 
 This service will provides the service for the List of Packet Rejection Reasons.
@@ -4630,7 +4646,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.16.4 Packet Rejection Reasons Master-get based on id and language service
+# GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}
 
 This service will provides the service for the List of Packet Rejection Reasons. 
 
@@ -4698,7 +4714,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.16.5 Packet Rejection Reasons Master-get based on id, language and location code service
+# GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}
 
 This service will provides the service for the List of Packet Rejection Reasons based on id, language and location code. 
 
@@ -4757,7 +4773,12 @@ Description: Not Found
 
 
 # Packet On-hold Reasons Master API
-# 2.3.17.1 Packet On-hold Reasons Master-create service
+
+* [POST /packetonholdreasons](#post-packetonholdreasons)
+* [GET /packetonholdreasons](#get-packetonholdreasons)
+* [GET /packetonholdreasons/{id}/{languagecode}](#get-packetonholdreasons-id-languagecode)
+
+# POST /packetonholdreasons
 
 This service will create the list of Packet On-hold Reasons which are used in the MOSIP platform. 
 
@@ -4826,7 +4847,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.17.4 Packet On-hold Reasons Master-get service
+# GET /packetonholdreasons
 Master data is required across the platform. 
 
 This service will provides the service for the List of Packet On-hold Reasons.
@@ -4884,7 +4905,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.17.5 Packet On-hold Reasons Master-get based on id and language service
+# GET /packetonholdreasons/{id}/{languagecode}
 
 This service will provides the service for the List of Packet On-hold Reasons. 
 
@@ -4941,7 +4962,14 @@ Description: Not Found
 
 # Documents Types API
 
-# 2.3.18.1 Documents Type Master-create service
+* [POST /documenttype](#post-documenttype)
+* [PUT /documenttype](#put-documenttype)
+* [GET /documenttypes/{documentcategorycode}/{langcode}](#get-documenttypes-documentcategorycode-langcode)
+* [GET /doccattypes](#get-doccattypes)
+* [GET /checkapptypedoccattypedoctype](#get-checkapptypedoccattypedoctype)
+
+
+# POST /documenttype
 
 This service will create the list of Documents types which are used in the MOSIP platform. There is another service to map the document category and document type.
 
@@ -4986,7 +5014,7 @@ lang_code|Yes|Language code of the document type| |
 }
 ```
 
-# 2.3.18.2 Documents Type Master-update service
+# PUT /documenttype
 
 This service will update the list of Documents types which are used in the MOSIP platform. 
 
@@ -5031,7 +5059,7 @@ lang_code|Yes|Language code of the document type| |
 }
 ```
 
-# 2.3.18.3 Documents Types Master-get service
+# GET /documenttypes/{documentcategorycode}/{langcode}
 
 This service will provides the service for the valid doucment type avialbale for specific Document Category code
 
@@ -5085,7 +5113,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.18.4 Document Types Master-get service
+# GET /documentcategorytypes
 
 This service will provides the service for the List of documents types. 
 
@@ -5121,12 +5149,12 @@ Name | Required | Description | Default Value | Example
 ```
 
 
-# 2.3.18.5 Document Types Master-get document category and it's document types service
+# GET /doccattypes
 
 This service will give back the document category and it's corresponding category types based on Individal type code, Age group type code and Gender type code. 
 
 ### Resource URL
-### `GET /docCatTypes`
+### `GET /doccattypes`
 
 ### Resource details
 
@@ -5181,12 +5209,12 @@ gendertypecode |Yes| Code of Gender type | |
 
 
 
-# 2.3.18.6 Document Types Master-Check the Applicant type code-Document category-Document type mapping
+# GET /checkapptypedoccattypedoctype
 
 This service checks the mapping between the Applicant type code, Document category and the Document type mapping. Result message will be success, if the mapping exists. 
 
 ### Resource URL
-### `GET /checkApptypeDoccattypeDoctype`
+### `GET /checkapptypedoccattypedoctype`
 
 ### Resource details
 
@@ -5224,7 +5252,12 @@ documenttypecode |Yes| Code of Document type | |
 
 
 # Machine Types Master API
-# 2.3.19.1 Machines Types Master-create service
+
+* [POST /machinetypes](#post-machinetypes)
+* [GET /machinetypes](#get-machinetypes)
+* [GET /machinetypes/{languagecode}](#get-machinetypes-languagecode)
+
+# POST /machinetypes
 
 This service will create the list of Machine types which are used in the MOSIP platform. 
 
@@ -5286,7 +5319,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-# 2.3.19.2 Machine types Master-get service
+# GET /machinetypes
 
 This service will provides the service to fetch the complete List of machine types with the machine details. 
 
@@ -5344,7 +5377,7 @@ Description: Unauthorized
 Description: Not Found
 
 
-# 2.3.19.3 Machine types Master-get machines based on language
+# GET /machinetypes/{languagecode}
 
 This service will provides the service to fetch the List of machines with the machine details based on the language code.
 
@@ -5403,7 +5436,14 @@ Description: Not Found
 
 # Machine Specifications
 
-# 2.3.20.1 Machine Specification Master-create service
+* [POST /machinespecifications](#post-machinespecifications)
+* [PUT /machinespecifications](#put-machinespecifications)
+* [DELETE /machinespecifications/{id}](#delete-machinespecifications-id)
+* [GET /machinespecifications](#get-machinespecifications)
+* [GET /machinespecifications/{lang_code](#get-machinespecifications-lang_code)
+
+
+# POST /machinespecifications
 
 This service will create a Machine Specification which are used in the MOSIP platform. 
 
@@ -5456,7 +5496,7 @@ is_active|Yes|Is the Machine Specification active| |
 }
 ```
 
-# 2.3.20.2 Machine Specifications Master-update service
+# PUT /machinespecifications
 
 This service will update a Machine Specification which are used in the MOSIP platform. 
 
@@ -5504,7 +5544,7 @@ lang_code|Yes|Language code of the Machine Specification| |
 ```
 
 
-# 2.3.20.3 Machine Specifications-delete service
+# DELETE /machinespecifications/{id}
 
 This service deletes a Machine Specification from the Machine Specifications master module. 
 
@@ -5531,7 +5571,7 @@ id|Yes|ID of the Machine Specification| |
 }
 ```
 
-# 2.3.20.4 Machine Specifications Master-get service
+# GET /machinespecifications
 
 This service will provides the list of all Machine Specifications in all languages. 
 
@@ -5572,7 +5612,7 @@ Name | Required | Description | Default Value | Example
 ```
 
 
-# 2.3.20.5 Machine Specifications Master-get based on language service
+# GET /machinespecifications/{lang_code}
 
 This service will provides the list of all Machine Specifications in a specific language. 
 
@@ -5631,7 +5671,12 @@ Description: Forbidden
 
 # Registration Center User Machine Mapping API
 
-## 2.3.21.1 Registration Center-User-Machine Mapping Master-create service
+* [POST /registrationmachineusermappings](#post-registrationmachineusermappings)
+* [GET /getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}(#get-getregistrationmachineusermappinghistory-effdtimes-registrationcenterid-machineid-userid)
+* [PUT /registrationmachineusermappings](#put-registrationmachineusermappings)
+
+
+## POST /registrationmachineusermappings
 
 This service will create a Registration Center-User-Machine Mapping which are used in the MOSIP platform. 
 
@@ -5692,7 +5737,7 @@ Description: Unauthorized
 
 Description: Forbidden
 
-## 2.3.21.2 Registration Center-User-Machine Mapping Master-create service
+## GET /getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}
 
 This service will provides the service for the Center-User-Machine with their history. 
 
@@ -5746,7 +5791,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-## 2.3.21.3 Registration Center-User-Machine Mapping Master create or update service
+## PUT /registrationmachineusermappings
 
 This service will create or update a Registration Center-User-Machine Mapping which are used in the MOSIP platform. 
 
@@ -5838,7 +5883,11 @@ Description: Forbidden
 
 
 # Registration Center Machine API
-## 2.3.22.1 Registration Center Machine-create service
+
+* [POST /registrationcentermachine](#post-registrationcentermachine)
+* [DELETE /registrationcentermachine/{regCenterId}/{machineId}](#delete-registrationcentermachine-regcenterid-machineid)
+
+## POST /registrationcentermachine
 Master data is required across the platform. 
 
 This service will create the mapping of registration canter and machine in the RegistrationCenterMachine Master module. 
@@ -5902,13 +5951,13 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
-## 2.3.22.2 Registration Center Machine Mapping Master-delete service
+## DELETE/registrationcentermachine/{regCenterId}/{machineId}
 
 This service will provides the service for delete mapping of  Center-Machine. 
 
 
 ### Resource URL
-### `DELETE/registrationcentermachine/{regCenterId}/{machineId}`
+### `DELETE /registrationcentermachine/{regCenterId}/{machineId}`
 
 ### Resource details
 
@@ -5948,7 +5997,11 @@ Description: Unauthorized
 Description: Not Found
 
 # Registration Center Device API
-## 2.3.22.1 Registration Center Device-create service
+
+* [POST /registrationcenterdevice](#post-registrationcenterdevice)
+* [DELETE /registrationcenterdevice/{regCenterId}/{deviceId}](#delete-registrationcenterdevice-regcenterid-deviceid)
+
+## POST /registrationcenterdevice
 Master data is required across the platform. 
 
 This service will create the mapping of registration canter and device in the RegistrationCenterDevice Master module. 
@@ -6012,13 +6065,13 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
-## 2.3.23.2 Registration Center Device Mapping Master-delete service
+## DELETE/registrationcenterdevice/{regCenterId}/{deviceId}
 
 This service will provides the service for delete mapping of  Device-Machine. 
 
 
 ### Resource URL
-### `DELETE/registrationcenterdevice/{regCenterId}/{deviceId}`
+### `DELETE /registrationcenterdevice/{regCenterId}/{deviceId}`
 
 ### Resource details
 
@@ -6059,7 +6112,11 @@ Description: Not Found
 
 
 # Registration Center Machine Device API
-## 2.3.24.1 Registration Center Machine Device-create service
+
+* [POST /registrationcentermachinedevice](#post-registrationcentermachinedevice)
+* [DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}](#delete-registrationcentermachinedevice-regcenterid-machineid-deviceid)
+
+## POST /registrationcentermachinedevice
 Master data is required across the platform. 
 
 This service will create the mapping of registration canter, machine and device in the RegistrationCenterMachineDevice Master module. 
@@ -6127,7 +6184,7 @@ Description: Forbidden
 Description: Internal Server Error 
 
 
-## 2.3.24.2 Registration Center Machine Device-delete service
+## DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}
 Master data is required across the platform. 
 
 This service will delete the mapping of registration canter, machine and device in the RegistrationCenter-Machine-Device Master module. 
@@ -6177,7 +6234,10 @@ Description: Internal Server Error
 
 
 # Device Types Master API
-## 2.3.25.1 Device Types Master-create service
+
+* [POST /devicetypes](#post-devicetypes)
+
+## POST /devicetypes
 
 This service will create the list of Device types which are used in the MOSIP platform. 
 
@@ -6241,7 +6301,13 @@ Description: Forbidden
 
 # Device Specifications
 
-# 2.3.26.1 Device  Specification Master-create service
+* [POST /devicespecifications](#post-devicespecifications)
+* [PUT /devicespecifications](#put-devicespecifications)
+* [DELETE /devicespecifications/{id}](#delete-devicespecifications-id)
+* [GET /devicespecifications/{langcode}/{devicetypecode}](#get-devicespecifications-langcode-devicetypecode)
+* [GET /devicespecifications/{lang_code}](#get-devicespecifications-lang_code)
+
+# POST /devicespecifications
 
 This service will create a Device Specification which are used in the MOSIP platform. 
 
@@ -6294,7 +6360,7 @@ is_active|Yes|Is the Device Specification active| |
 }
 ```
 
-# 2.3.26.2 Device Specifications Master-update service
+# PUT /devicespecifications
 
 This service will update a Device Specification which are used in the MOSIP platform. 
 
@@ -6341,7 +6407,7 @@ lang_code|Yes|Language code of the Device Specification| |
 }
 ```
 
-# 2.3.26.3 Device Specifications-delete service
+# DELETE /devicespecifications/{id}
 
 This service deletes a Device Specification from the Device Specifications master module. 
 
@@ -6368,7 +6434,7 @@ id|Yes|ID of the Device Specification| |
 }
 ```
 
-# 2.3.26.4 Device Specifications Master-get service
+# GET /devicespecifications/{langcode}/{devicetypecode}
 
 This service will provides the list of all Device Specifications for specified language code and device type code . 
 
@@ -6415,7 +6481,7 @@ dtyp_code|Yes|device type code of the Device specification| |
 ```
 
 
-# 2.3.26.5 Device Specifications Master-get based on language service
+# GET /devicespecifications/{lang_code}
 
 This service will provides the list of all Device Specifications in a specific language. 
 
@@ -6478,12 +6544,16 @@ Description: Forbidden
 
 # Template API
 
-# 2.3.27.1 Template Master-create service
+* [POST /templates](#post-templates)
+* [PUT /templates](#put-templates)
+* [DELETE /templates/{id}](#delete-templates-id)
+
+# POST /templates
 
 This service will create the list of Template  which are used in the MOSIP platform. 
 
 ### Resource URL
-### `POST /temlates
+### `POST /templates`
 
 ### Resource details
 
@@ -6531,7 +6601,7 @@ fileFormatCode | Yes | Code of file formate| |
   "id": "string"
 }
 ```
-# 2.3.27.2 Template  Master-update service
+# PUT /templates
 
 This service will update the list of Template  which are used in the MOSIP platform. 
 
@@ -6583,13 +6653,13 @@ fileFormatCode | Yes | Code of file formate| |
 }
 ```
 
-# 2.3.27.3 Template delete service
+# DELETE /templates/{id}
 Master data is required across the platform. 
 
 This service will deletes a list of Template from the Template master module. 
 
 ### Resource URL
-### `DELETE /templates/{id}
+### `DELETE /templates/{id}`
 
 ### Resource details
 
@@ -6614,7 +6684,9 @@ id|Yes|id of the Template|
 
 # Individual Types API
 
-# 2.3.28.1 Indivudual Types Master-get all individual types
+* [GET /individualtypes](#get-individualtypes)
+
+# GET /individualtypes
 
 This service will provides the complete list of all individual types in the MOSIP platform
 
@@ -6662,7 +6734,9 @@ Description: Success
 
 # Age group Types API
 
-# 2.3.29.1 Age group Types Master-get age group based on the age
+* [GET /agegrouptype/{age}](#get-agegrouptype-age)
+
+# GET /agegrouptype/{age}
 
 This service will provides the age group based on the passed age. 
 
@@ -6710,7 +6784,9 @@ Description: Success
 
 # Template Types API
 
-# 2.3.30.1 Age group Types Master-get template types
+* [GET /templatetype/{code}](#get-templatetype-code)
+
+# GET /templatetype/{code}
 
 This service fetches the template types irrespective of the language. The service returns the results in all the languages. 
 
