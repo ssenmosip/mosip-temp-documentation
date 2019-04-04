@@ -2700,7 +2700,7 @@ Digital signatures are needed in various places of the MOSIP system. Few example
 This service returns a static token for the requested UIN and Partner ID. It will return the same Static Token for every call made with the same UIN and Partner ID. 
 
 ### Resource URL
-### `GET /statictoken/generatestatictoken/{UIN}/{partnerID}`
+### `GET tokenidgenerator/{uin}/{partnercode}`
 
 ### Resource details
 Resource Details | Description
@@ -2727,9 +2727,10 @@ partnerID|Yes|ID of the partner.| -NA- |9373
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "2019-04-04T05:03:18.287Z",
-	"response" : {
-		"tokenID":"893475038645079834509837457092387453"
-	}
+	"response": {
+                  "tokenID": "268177021248100621690339355202974361"
+                     },
+        "errors": []
 }
 ```
 
@@ -2741,11 +2742,12 @@ partnerID|Yes|ID of the partner.| -NA- |9373
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "2019-04-04T05:03:18.287Z",
-	"errors": [
-		{
-			"errorCode": "TKN_GEN__001",
-			"message": "All the mandatory fields are required"
-		}
-	]
+	"response": null,
+        "errors": [
+            {
+             "errorCode": "KER-TIG-010",
+             "message": "UIN and partner code cannot be empty"
+            }
+     ]
 }
 ```
