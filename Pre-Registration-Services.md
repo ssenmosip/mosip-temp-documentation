@@ -1260,7 +1260,7 @@ This service enables Pre-Registration portal to request for uploading the docume
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
 * [GET /documents/:preRegistrationId](#get-documentspreregistrationid)
 * [GET /documents/:documentId?preRegistrationId=:preRegistrationId](#get-documentsdocumentidpreregistrationidpreregistrationid)
-* [DELETE /documents/:preRegistrationId](#delete-documentspreregistrationid)
+* [DELETE /documents/preregistration/:preRegistrationId](#delete-documentspreregistrationpreregistrationid)
 * [DELETE /documents/:documentId?preRegistrationId=:preRegistrationId](#delete-documentsdocumentidpreregistrationidpreregistrationid)
 
 
@@ -1582,11 +1582,11 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
   ]
 }
 ```
-### DELETE /documents/:preRegsitrationId
+### DELETE /documents/preregistration/:preRegsitrationId
 This request used to delete all the documents which are associated with requested pre-registration id.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/documents/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/documents/preregistration/:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
