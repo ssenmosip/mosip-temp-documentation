@@ -90,9 +90,10 @@ holidayName|Yes|Name of the holiday| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.holiday.create",
-	"ver" : "1.0",
-	"timestamp" : "",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 	"request" : { 
 		  "holiday":{ "holidayDate": "string", "holidayName": "string", "languagecode": "string" }
 	}
@@ -100,7 +101,19 @@ holidayName|Yes|Name of the holiday| |
 ```
 ### Example Response
 ```JSON
-  { "holidayID": "string" }
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : { "holidayID": "string" }
+}
 ```
 ### Response codes
 202
