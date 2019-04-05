@@ -4452,10 +4452,11 @@ isActive|Yes|Is this location active| |
 ### Example Request
 ```JSON
 {
-	"id": "string",
-	"ver" : "string",
-	"timestamp" : "2018-12-28T10:56:55.972Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
                       "code": "string",
                       "hierarchyLevel": 0,
                       "hierarchyName": "string",
@@ -4463,17 +4464,25 @@ isActive|Yes|Is this location active| |
                       "langCode": "string",
                       "name": "string",
                       "parentLocCode": "string"
-  }
+              }
 }
 ```
 ### Example Response
 ```JSON
 {
-	
-  "code": "string",
-  "isActive": true,
-  "parentLocCode": "string"
-
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
+             "code": "string",
+             "isActive": true,
+             "parentLocCode": "string"
+             }
 }
 ```
 ### Response codes
@@ -4525,10 +4534,11 @@ isActive|Yes|Is this location active| |
 ### Example Request
 ```JSON
 {
-	"id": "string",
-	"ver" : "string",
-	"timestamp" : "2018-12-28T10:56:55.972Z",
-	"request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
                       "code": "string",
                       "hierarchyLevel": 0,
                       "hierarchyName": "string",
@@ -4536,15 +4546,25 @@ isActive|Yes|Is this location active| |
                       "langCode": "string",
                       "name": "string",
                       "parentLocCode": "string"
-  }
+            }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "code": "string",
-  "langCode:"string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
+               "code": "string",
+               "langCode:"string"
 
+            }
 }
 ```
 ### Response codes
@@ -4589,7 +4609,17 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-   "code": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+                "code": "string"
+               }
 }
 ```
 ### Response codes
@@ -4637,6 +4667,15 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
     "locations": [
         {
             "locationHierarchylevel": number,
@@ -4649,6 +4688,7 @@ Name | Required | Description | Default Value | Example
            "isActive":true
         }
     ]
+  }
 }
 ```
 200
@@ -4698,8 +4738,17 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "locations": [
-		{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
+       "locations": [
+		    {
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
@@ -4708,8 +4757,8 @@ Name | Required | Description | Default Value | Example
 			"langCode":"string",
 			"isActive":"boolean",
 			
-		},
-		{
+		   },
+		   {
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
@@ -4718,8 +4767,9 @@ Name | Required | Description | Default Value | Example
 			"langCode":"string",
 			"isActive":"boolean",
 			
-		}
-	]
+		   }
+	     ] 
+       }
 }
 ```
 200
@@ -4764,28 +4814,36 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "locations": [
-		{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+          "locations": [ 
+                       {
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
 			"hierarchyLevelName":"string",
 			"parentLocCode":"",
 			"langCode":"string",
-			"isActive":"boolean",
-			
-		},
-		{
+			"isActive":"boolean"	
+		      },
+		      {
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
 			"hierarchyLevelName":"string",
 			"parentLocCode":"",
 			"langCode":"string",
-			"isActive":"boolean",
-			
-		}
-	]
+			"isActive":"boolean"
+		      }
+	  ]
+    }
 }
 ```
 200
@@ -4831,28 +4889,36 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "locations": [
-		{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
+           "locations": [
+	         	{
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
 			"hierarchyLevelName":"string",
 			"parentLocCode":"",
 			"langCode":"string",
-			"isActive":"boolean",
-			
-		},
-		{
+			"isActive":"boolean"	
+		        },
+		       {
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
 			"hierarchyLevelName":"string",
 			"parentLocCode":"",
 			"langCode":"string",
-			"isActive":"boolean",
-			
-		}
-	]
+			"isActive":"boolean"
+		       }
+	        ]
+        }
 }
 ```
 200
@@ -4897,8 +4963,17 @@ locationname|yes|This is the location name. | -NA- |
 ### Example Response
 ```JSON
 {
-  "locations": [
-		{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": { 
+        "locations": [
+		       {     
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
@@ -4907,8 +4982,8 @@ locationname|yes|This is the location name. | -NA- |
 			"langCode":"string",
 			"isActive":"boolean",
 			
-		},
-		{
+		      },
+		     {
 			"code":"string",
 			"name":"string",
 			"hierarchyLevel":"number",
@@ -4916,9 +4991,9 @@ locationname|yes|This is the location name. | -NA- |
 			"parentLocCode":"",
 			"langCode":"string",
 			"isActive":"boolean",
-			
-		}
-	]
+		     }
+	    ]
+     }
 }
 ```
 200
@@ -4961,26 +5036,35 @@ langCode|Yes|language code of the reason category| |
 ### Example Request
 ```JSON
 {
-	"id": "String",
-	"ver" : "1.0",
-	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"request" : {
-				"code":"string",
-				"name":"string",
-				"description":"string",
-				"lang_code":"string",
-                                "isActive":true
-		    }
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+		"code":"string",
+		"name":"string",
+		"description":"string",
+		"lang_code":"string",
+                "isActive":true
+            }
 }
 ```
 ### Example Response
 ```JSON
-	
-    {
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
 	"code":"string",
 	"lang_code":"string" 
-				
-    }
+           }
+}
 			
 	
 ```
@@ -5031,10 +5115,11 @@ langCode|Yes|language code of the reason category| |
 ### Example Request
 ```JSON
 {
-	"id": "String",
-	"ver" : "1.0",
-	"timestamp" : "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"request" : 
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 			{
 				"code":"string",
 				"name":"string",
@@ -5045,18 +5130,26 @@ langCode|Yes|language code of the reason category| |
 				
 			}
 			
+             }
 }
 ```
 ### Example Response
-```JSON
-	
-		
-   {
-      "code":"string",
-      "lang_code":"string",
-      "rsnCatCode":"string"
-				
-   }
+```JSON		
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+                "code":"string",
+                "lang_code":"string",
+                "rsnCatCode":"string"
+              }
+}
 			
 	
 ```
@@ -5105,6 +5198,15 @@ NA
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
 	"reasonCategories" : [
 		{
 			"code":"string",
@@ -5132,6 +5234,7 @@ NA
 			]
 		}
 	]	
+   }
 }
 ```
 200
@@ -5175,6 +5278,15 @@ NA
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
 	"reasonCategories" : {
 		"code":"string",
 		"name":"string",
@@ -5200,6 +5312,7 @@ NA
 			}
 		]
 	}
+  }
 }
 ```
 200
@@ -5244,6 +5357,15 @@ packetrejectionreasondesc|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
   "packetrejectionreasons": [
 				{ 
 						"packetrejectionreasonid":"string",
@@ -5258,6 +5380,7 @@ packetrejectionreasondesc|Yes|Name of the language| |
 						"locationcode":"string"
 				}
 			]
+      }
 }
 ```
 200
@@ -5305,10 +5428,11 @@ packetonholdreasondesc|Yes|Name of the packet rejection reason| |
 ### Example Request
 ```JSON
 {
-	"id": "mosip.packetonholdreason.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
 	  "packetonholdreasons": [
 			{ 
 				"packetonholdreasondesc":"string",
@@ -5325,15 +5449,25 @@ packetonholdreasondesc|Yes|Name of the packet rejection reason| |
 ### Example Response
 ```JSON
 {
-  "successfully_created_packetonholdreasons": [
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+      "successfully_created_packetonholdreasons": [
 			{ 
 				"packetonholdreasonid":"string"
 			}, 
 			{ 
 				"packetonholdreasonid":"string"
 			}
-  ]
-}
+                 ]
+             }
+  }
 ```
 ### Response codes
 202
@@ -5379,7 +5513,16 @@ packetonholdreasondesc|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
-  "packetonholdreasons": [
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
+            "packetonholdreasons": [
 				{ 
 					"packetonholdreasonid":"string",
 					"packetonholdreasondesc":"string",
@@ -5391,6 +5534,7 @@ packetonholdreasondesc|Yes|Name of the language| |
 					"languagecode":"string"
 				}
 			]
+         }
 }
 ```
 200
@@ -5435,7 +5579,16 @@ packetonholdreasondesc|Yes|Name of the language| |
 ### Example Response
 ```JSON
 {
-  "packetonholdreasons": [
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":    {
+        "packetonholdreasons": [
 				{ 
 						"packetonholdreasonid":"string",
 						"packetonholdreasondesc":"string",
@@ -5446,8 +5599,9 @@ packetonholdreasondesc|Yes|Name of the language| |
 						"packetonholdreasondesc":"string",
 						"languagecode":"string"
 				}
-			]
-}
+			       ]
+                  }
+  }
 ```
 200
 
@@ -5499,23 +5653,33 @@ lang_code|Yes|Language code of the document type| |
 ### Example Request
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
   "documenttypes": [
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
-	]
+	     ]
+          }
 }
 ```
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
   "successfully_created_documenttypes": [
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
 	]
+       }
 }
 ```
 
@@ -5544,23 +5708,32 @@ lang_code|Yes|Language code of the document type| |
 ### Example Request
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
   "documenttypes": [
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
-	]
+         }
 }
 ```
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
   "successfully_updated_documenttypes": [
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"}
-	]
+	     ]
+         }
 }
 ```
 
@@ -5590,16 +5763,21 @@ langcode | Yes | language code | |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-    "code": "string",
-    "description": "string",
-    "isActive": true,
-    "langCode": "string",
-    "name": "string"
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
+                "code": "string",
+                "description": "string",
+                "isActive": true,
+                "langCode": "string",
+                "name": "string"
+                 }
   }
-}
 ```
 200
 
@@ -5644,13 +5822,23 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
   "documenttypes": [
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
 		{"code": "code", "name": "name", "descr":"descr", "lang_code":"lang_code", "is_active":"is_active"},
-	]
-}
+	          ]
+             }
+  }
 ```
 
 
@@ -5678,10 +5866,15 @@ gendertypecode |Yes| Code of Gender type | |
 ### Example Request
 ```JSON
 {
-  "id": "mosip.master.doccattypesonindtypagegndr",
-  "ver": "1.0",
-  "timestamp": "2018-12-24T05:27:49.183Z",
-  "request": {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
     "individualtypecode": "string",
     "agegrouptypecode": "string",
     "gendertypecode": "string"
@@ -5789,22 +5982,33 @@ isactive|Yes|Is the machine type active?| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-24T05:27:49.183Z",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
-    "code": "string",
-    "description": "string",
-    "isActive": true,
-    "langCode": "string",
-    "name": "string"
+       "code": "string",
+       "description": "string",
+      "isActive": true,
+      "langCode": "string",
+      "name": "string"
   }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "code": "string",
-  "langCode": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+            "code": "string",
+            "langCode": "string"
+             }
 }
 ```
 ### Response codes
@@ -5847,6 +6051,15 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
   "machinetypes": [
 				{ 
 					"machinetypecode":"string",
@@ -5863,6 +6076,7 @@ Name | Required | Description | Default Value | Example
 					"isactive":"string" 
 				}
 			]
+         }
 }
 ```
 200
@@ -5905,7 +6119,16 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "machines": [
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+           "machines": [
 				{ 
 					"machinetypecode":"string",
 					"machinename":"string",	
@@ -5921,7 +6144,8 @@ Name | Required | Description | Default Value | Example
 					"isactive":"string" 
 				}
 			]
-}
+           }
+ }
 ```
 200
 
@@ -5979,8 +6203,9 @@ is_active|Yes|Is the Machine Specification active| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-24T05:33:45.899Z",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
     "brand": "string",
     "description": "string",
@@ -5991,13 +6216,23 @@ is_active|Yes|Is the Machine Specification active| |
     "minDriverversion": "string",
     "model": "string",
     "name": "string"
-  }
+    }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "id": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+              "id": "string"
+               }
 }
 ```
 
@@ -6026,9 +6261,10 @@ lang_code|Yes|Language code of the Machine Specification| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-24T05:36:25.656Z",
-  "request": {
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request":  {
     "brand": "string",
     "description": "string",
     "id": "string",
@@ -6044,7 +6280,17 @@ lang_code|Yes|Language code of the Machine Specification| |
 ### Example Response
 ```JSON
 {
-  "id": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+             "id": "string"
+             }
 }
 ```
 
@@ -6072,8 +6318,18 @@ id|Yes|ID of the Machine Specification| |
 ### Example Response
 ```JSON
 {
-  "id": "string"
-}
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+                "id": "string"
+              }
+ }
 ```
 
 # GET /machinespecifications
@@ -6104,6 +6360,15 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
 	"id":"KJDS9",
 	"name":"Laptop",
 	"brand":"Hewlett Packard",
@@ -6113,6 +6378,7 @@ Name | Required | Description | Default Value | Example
 	"descr":"This is a medium configuration",
 	"lang_code":"eng",
 	"is_active":true
+    }
 }
 ```
 
@@ -6145,6 +6411,15 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
 	"id":"KJDS9",
 	"name":"Laptop",
 	"brand":"Hewlett Packard",
@@ -6154,6 +6429,7 @@ Name | Required | Description | Default Value | Example
 	"descr":"This is a medium configuration",
 	"lang_code":"eng",
 	"is_active":true
+   }
 }
 ```
 
@@ -6207,22 +6483,33 @@ isActive|Yes|Mapping is active or not| |
 ```JSON
 {
   "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
     "cntrId": "RC001",
     "isActive": true,
     "machineId": "MC001",
     "usrId": "QC001"
-  },
-  "timestamp": "2018-12-28T09:21:27.472Z",
-  "ver": "string"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "cntrId": "RC001",
-  "machineId": "MC001",
-  "usrId": "QC001"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+            "cntrId": "RC001",
+            "machineId": "MC001",
+            "usrId": "QC001"
+            }
 }
 ```
 ### Response codes
@@ -6269,15 +6556,26 @@ userid|Yes|User Id|
 ### Example Response
 ```JSON
 {
-  "registrationCenters": [
-    {
-      "cntrId": "RC001",
-      "effectivetimes": "2018-12-28T10:14:49.849Z",
-      "isActive": true,
-      "machineId": "MC001",
-      "usrId": "QC001"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+      "registrationCenters": [
+             {
+              "cntrId": "string",
+              "effectivetimes": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+              "isActive": true,
+              "langCode": "string",
+              "machineId": "string",
+              "usrId": "string"
+             }
+        ]
     }
-  ]
 }
 ```
 200
@@ -6322,52 +6620,46 @@ isActive|Yes|Mapping is active or not| |
 ```JSON
 {
   "id": "string",
-  "request": [
-    {
-      "cntrId": "R011",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+      "cntrId": "RC001",
       "isActive": true,
-      "machineId": "111",
-      "usrId": "qc001"
-    },
-    {
-      "cntrId": "R011",
-      "isActive": true,
-      "machineId": "111",
-      "usrId": "qc002"
-    },	
-    {
-      "cntrId": "R011",
-      "isActive": true,
-      "machineId": "111",
-      "usrId": "qc022"
-    }
-  ],
-  "timestamp": "2019-01-24T10:27:48.628Z",
-  "ver": "string"
+      "langCode": "string",
+      "machineId": "MC001",
+      "usrId": "QC001"
+  }
 }
 ```
 ### Example Response
 ```JSON
 {
-  "mapped": [
-    {
-      "cntrId": "R011",
-      "usrId": "qc001",
-      "machineId": "111"
-    },
-    {
-      "cntrId": "R011",
-      "usrId": "qc002",
-      "machineId": "111"
-    }
-  ],
-  "notmapped": [
-    {
-      "cntrId": "R011",
-      "usrId": "qc022",
-      "machineId": "111"
-    }
-  ]
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+    "mapped": [
+      {
+        "cntrId": "string",
+        "machineId": "string",
+        "usrId": "string"
+      }
+    ],
+    "notmapped": [
+       {
+        "cntrId": "string",
+        "machineId": "string",
+        "usrId": "string"
+      }
+    ]
+  }
+}
 ```
 ### Response codes
 201
@@ -6416,13 +6708,15 @@ regCenterId|Yes|Available registration center| |
 ### Example Request
 ```JSON  
 {
-  "id": "mosip.registrationCenterMachine.create",
-  "ver": "1.0",
-  "timestamp": "2018-12-28T09:26:22.886Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
     "isActive": true,
-    "machineId": "string",
-    "regCenterId": "string"
+    "langCode": "string",
+    "machineId": "MC001",
+    "regCenterId": "RC001"
   }
 }
 
@@ -6430,10 +6724,20 @@ regCenterId|Yes|Available registration center| |
 ```
 ### Example Response
 ```JSON
-  {
-  "machineId": "string",
-  "regCenterId": "string"
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+      "machineId": "string",
+      "regCenterId": "string"
   }
+}
 ```
 ### Response codes
 201
@@ -6481,8 +6785,18 @@ machineId|Yes|Machine Id |
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
   "machineId": "MC001",
   "regCenterId": "RC001"
+   }
 }
 ```
 200
@@ -6530,12 +6844,14 @@ regCenterId|Yes|Available registration center| |
 ### Example Request
 ```JSON  
 {
-  "id": "mosip.registrationCenterDevice.create",
-  "ver": "1.0",
-  "timestamp": "2018-12-28T09:26:22.886Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
+     "deviceId": "string",
     "isActive": true,
-    "deviceId": "string",
+    "langCode": "string",
     "regCenterId": "string"
   }
 }
@@ -6544,10 +6860,20 @@ regCenterId|Yes|Available registration center| |
 ```
 ### Example Response
 ```JSON
-  {
-  "deviceId": "string",
-  "regCenterId": "string"
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
+        "deviceId": "string",
+        "regCenterId": "string"
   }
+}
 ```
 ### Response codes
 201
@@ -6595,8 +6921,18 @@ deviceId|Yes|Device Id |
 ### Example Response
 ```JSON
 {
-  "deviceId": "DV001",
-  "regCenterId": "RC001"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
+           "deviceId": "DV001",
+          "regCenterId": "RC001"
+    }
 }
 ```
 200
@@ -6646,12 +6982,14 @@ deviceId|Yes|Available device id| |
 ### Example Request
 ```JSON  
 {
-  "id": "mosip.registrationCenterMachineDevice.create",
-  "ver": "1.0",
-  "timestamp": "2018-12-28T09:26:22.886Z",
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
     "deviceId": "string",
     "isActive": true,
+    "langCode": "string",
     "machineId": "string",
     "regCenterId": "string"
   }
@@ -6661,11 +6999,21 @@ deviceId|Yes|Available device id| |
 ```
 ### Example Response
 ```JSON
-  {
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
    "deviceId": "string",
    "machineId": "string",
    "regCenterId": "string"
   }
+}
 ```
 ### Response codes
 201
@@ -6712,11 +7060,21 @@ NA
 
 ### Example Response
 ```JSON
-  {
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
    "deviceId": "string",
    "machineId": "string",
    "regCenterId": "string"
   }
+}
 ```
 ### Response codes
 
@@ -6769,9 +7127,10 @@ isactive|Yes|Is the device type active?| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-24T05:27:49.183Z",
-  "request": {
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request":  {
     "code": "string",
     "description": "string",
     "isActive": true,
@@ -6783,8 +7142,18 @@ isactive|Yes|Is the device type active?| |
 ### Example Response
 ```JSON
 {
-  "code": "string",
-  "langCode": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":{
+      "code": "string",
+      "langCode": "string"
+  }
 }
 ```
 ### Response codes
@@ -6843,8 +7212,9 @@ is_active|Yes|Is the Device Specification active| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-24T05:33:45.899Z",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
     "brand": "string",
     "description": "string",
@@ -6890,8 +7260,9 @@ lang_code|Yes|Language code of the Device Specification| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "2018-12-24T05:36:25.656Z",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
     "brand": "string",
     "description": "string",
@@ -6935,7 +7306,17 @@ id|Yes|ID of the Device Specification| |
 ### Example Response
 ```JSON
 {
-  "id": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+          "id": "string"
+   }
 }
 ```
 
@@ -6968,6 +7349,15 @@ dtyp_code|Yes|device type code of the Device specification| |
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
   "devicespecifications": [
     {
       "brand": "string",
@@ -6981,6 +7371,7 @@ dtyp_code|Yes|device type code of the Device specification| |
       "name": "string"
     }
   ]
+}
 }
 
 ```
@@ -7014,6 +7405,15 @@ lang_code|Yes|Language code of the Device Specification| |
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response" : {
   "devicespecifications": [
     {
       "brand": "string",
@@ -7027,6 +7427,7 @@ lang_code|Yes|Language code of the Device Specification| |
       "name": "string"
     }
   ]
+ }
 }
 ```
 
@@ -7082,9 +7483,10 @@ fileFormatCode | Yes | Code of file formate| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request":  {
     "description": "string",
     "fileFormatCode": "string",
     "fileText": "string",
@@ -7103,7 +7505,17 @@ fileFormatCode | Yes | Code of file formate| |
 ### Example Response
 ```JSON
 {
-  "id": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+     "id": "string"
+  }
 }
 ```
 # PUT /templates
@@ -7134,9 +7546,10 @@ fileFormatCode | Yes | Code of file formate| |
 ```JSON
 {
   "id": "string",
-  "ver": "string",
-  "timestamp": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request":  {
     "description": "string",
     "fileFormatCode": "string",
     "fileText": "string",
@@ -7154,7 +7567,17 @@ fileFormatCode | Yes | Code of file formate| |
 ### Example Response
 ```JSON
 {
-  "id": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
+      "id": "string"
+   }
 }
 ```
 
@@ -7183,7 +7606,17 @@ id|Yes|id of the Template|
 ### Example Response
 ```JSON
 {
-  "id": "string"
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response"  : {
+      "id": "string"
+  }
 }
 ```
 
@@ -7219,6 +7652,15 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
   "individualtypes": [
     {
       "individualtypecode": "string",
@@ -7228,6 +7670,7 @@ Name | Required | Description | Default Value | Example
       "isactive": boolean
     }
   ]
+ }
 }
 ```
 
@@ -7269,6 +7712,15 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  {
 	"agegrouptypecode": "string",
 	"name": "string",
 	"description": "string",
@@ -7276,6 +7728,7 @@ Name | Required | Description | Default Value | Example
 	"maximumage": "number",
 	"langCode": "string",
 	"isactive": boolean
+  }
 }
 ```
 
@@ -7319,6 +7772,15 @@ code|Yes|This is the template code field|-NA-|auth-email-content
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   {
 
 	/***** Following is the header information *****/
 	"id":"mosip.applicationtype.getapplicationtype",			
