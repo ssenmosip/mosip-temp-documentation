@@ -55,8 +55,6 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 3. The system then validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration)
    * Validates if duplicate fingers are used in input
-   * Retrieves configuration for priority between fgerMin and fgerImg. Process only priority 1 based on the configuration - only fgerMin is supported
-   * Validates if single fgerMin should not contain more than one finger
    * Validates if total number of fgerMin records should not exceed 2
 4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database 
 5. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
