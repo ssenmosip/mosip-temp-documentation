@@ -267,7 +267,7 @@ includedir /etc/krb5.conf.d/
  #default_ccache_name = KEYRING:persistent:%{uid}
 
 [realms]
- NODE-MASTER.SOUTHINDIA.CLOUDAPP.AZURE.COM = {
+ NODE-MASTER.EXAMPLE.COM = {
   kdc = node-master.example.com:51088
   admin_server = node-master.example.com
  }
@@ -398,6 +398,17 @@ KVNO Timestamp           Principal
 On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/etc/hadoop/hadoop.keytab.
 ### Shut Down the Cluster
 To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties. 
+
+##### Creating keytab [mosip.keytab] file for application to authenticate  with hdfs cluster
+ $sudo kadmin
+   kadmin: xst -norandkey -k mosip.keytab {user1}
+   kadmin: xst -norandkey -k mosip.keytab {user2} 
+
+to view the principals in keytab
+ $Klist -k e -t mosip.keytab
+
+ and so on add all the users to keytab. if you want create the separate keytab file for each application and distribute them
+
 ```
 sh hadoop/sbin/stop-dfs.sh
 ```
