@@ -295,10 +295,11 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
 ### Example Request
 ```JSON
 {
-	"id": "mosip.blacklistedwords.create",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request" : {
 		"blacklistedwords": ["asdf","lkjh","qwer"],
 		"languagecode": "string"
 	}
@@ -307,7 +308,17 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+"response" : {
   "successfully_created_words": ["asdf","lkjh","qwer"]
+            }
 }
 ```
 ### Response codes
@@ -356,22 +367,22 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-	"id": "mosip.blacklistedwords.get",
-	"ver" : "1.0",
-	"timestamp" : "",
-	"request" : {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+ "response" : {
 		"blacklistedwords":[
 			{
 				"id":"string",
 				"value":"asdf",
 				"languagecode":"string",
 			},
-			{
-				"id":"string",
-				"value":"asdf"
-				"languagecode":"string",
-			},
-			{
+	                {
 				"id":"string",
 				"value":"asdf"
 				"languagecode":"string",
@@ -423,12 +434,18 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response":{
 	"blacklistedwords":[
-		{
-			"id":"string",
-			"value":"asdf",
-			"languagecode":"string"
-		},
 		{
 			"id":"string",
 			"value":"asdf",
@@ -440,6 +457,7 @@ Name | Required | Description | Default Value | Example
 			"languagecode":"string"
 		}
 	]
+     }
 }
 ```
 200
@@ -483,7 +501,7 @@ isActive|YES|Blacklisted word is active|||
 
 ### Example Request
 ```JSON
-{
+"request":{
   "id": "string",
   "ver": "string",
   "timestamp": "2018-12-31T10:01:24.578Z",
