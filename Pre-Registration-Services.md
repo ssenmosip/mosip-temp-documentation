@@ -1934,7 +1934,7 @@ This service details used by Pre-Registration portal to book an appointment by p
 * [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
 * [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
-* [GET /appointment/:registrationCenterId?fromDate=:date&toDate=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
+* [GET /appointment/preRegistrationId/:registrationCenterId/?fromDate=:date&toDate=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
 
 ### POST /appointment/:preRegistrationId
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
@@ -1971,12 +1971,12 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
   "id": "mosip.pre-registration.booking.book",
   "version": "1.0",
   "requesttime": "2019-01-09T15:31:32.957Z",
-  "request": {
+  "request": [{
         "registration_center_id": "10005",
         "appointment_date": "2019-02-13",
         "time_slot_from": "15:31:00",
         "time_slot_to": "15:44:00"
-   }
+   }]
 }
 ```
 
