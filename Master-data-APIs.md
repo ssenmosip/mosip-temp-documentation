@@ -157,18 +157,29 @@ Name | Required | Description | Default Value | Example
 ### Example Response
 ```JSON
 {
-  "holidays": [
-	"holiday" : {
-		"holidayID": "string",
-		"holidayDate": "string",
-		"holidayName": "string",
-		"holidayDay": "string",	
-		"holidayMonth": "string",
-		"holidayYear": "string",
-		"languagecode": "string"
-	}
-  ]
-}
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [ {
+             "errorCode": "string",
+             "message": "string"
+             }
+           ],
+ "response" : {
+             "holidays": [
+	                 "holiday" : {
+		                      "holidayID": "string",
+		                      "holidayDate": "string",
+		                      "holidayName": "string",
+		                      "holidayDay": "string",	
+		                      "holidayMonth": "string",
+		                      "holidayYear": "string",
+		                      "languagecode": "string"
+	                             }
+                          ]
+                 }
+ }
 ```
 200
 
@@ -210,17 +221,27 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
 ### Example Response
 ```JSON
 {
-  "holidays": [
-	"holiday" : {
-		"holidayID": "string",
-		"holidayDate": "string",
-		"holidayName": "string",
-		"holidayDay": "string",	
-		"holidayMonth": "string",
-		"holidayYear": "string"		
-		"languagecode": "string"
-	}
-  ]
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{ 
+               "errorCode": "string",
+               "message": "string"
+             }],
+  "response" : {
+           "holidays": [
+	              "holiday" : {
+		                   "holidayID": "string",
+		                   "holidayDate": "string",
+		                   "holidayName": "string",
+		                   "holidayDay": "string",	
+		                   "holidayMonth": "string",
+		                   "holidayYear": "string"		
+		                   "languagecode": "string"
+	                          }
+                         ]
+               }
 }
 ```
 200
