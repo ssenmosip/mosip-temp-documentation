@@ -130,7 +130,7 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 3. The system then validated the following:
    * Validates if single irisImg records are present in the input
    * Retrieves the threshold level configured which is acceptable for a match
-   * Validates if the match score is equal to greater than the threshold level}
+   * Validates if the match score is equal to greater than the threshold level
    * Validates if two irisImg records are present in the input
    * Retrieves the composite threshold level configured which is acceptable for a match
    * Validates if the composite match score is equal to greater than the composite threshold
