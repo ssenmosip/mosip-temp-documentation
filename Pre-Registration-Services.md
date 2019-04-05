@@ -2210,11 +2210,11 @@ registrationCenterId |Yes|Registration Center Id|10004
     ]
 }
 ```
-### GET /appointment/:registrationCenterId?fromDate=:Date&toDate=:Date
+### GET /appointment/preRegistrationId/:registrationCenterId?fromDate=:Date&toDate=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/appointment/:registrationCenterId?fromDate=:Date&toDate=:Date</div>
+<div>https://mosip.io/preregistration/v1/appointment/preRegistrationId/:registrationCenterId?fromDate=:Date&toDate=:Date</div>
 
 #### Resource details
 Resource Details | Description
