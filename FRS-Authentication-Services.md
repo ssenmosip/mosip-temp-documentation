@@ -412,8 +412,7 @@ The system receives authentication request from TSP with the following parameter
 
 1. The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN
 2. The system proceeds to Match UIN as per defined standards
-3. triggers notification as per the defined and configured template and in the default language English
-4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+3. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **D. Trigger SMS to the Individual's mobile for every authentication request**
 
