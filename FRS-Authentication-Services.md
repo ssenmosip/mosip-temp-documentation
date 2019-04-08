@@ -76,7 +76,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 
 **E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-content)
 
-Refer to below process to support two-finger authentication so that the quality of incoming fingerprints is better:
+Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better. Refer to below process:
 
 1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
