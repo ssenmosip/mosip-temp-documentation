@@ -554,7 +554,7 @@ Note: The Authentication is integrated for both successful and failure authentic
 
 Upon receiving a request for authentication from TSP, the system responds back to TSP with KYC details, as configured as per the following steps:
 
-1. The system receives authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request **(Refer MOS-41 for OTP based Authentication request parameters)**
+1. The system receives authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request
 2. Decodes the authentication request and obtain all the input parameters of the auth request
 3. Validates eAuthType and compare the data in the PID block in the auth request
 4. Validates if the MUA has permission for e-KYC
