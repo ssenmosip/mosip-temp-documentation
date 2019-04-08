@@ -595,9 +595,11 @@ Description: Not Found
 # Documents Category Master API
 
 * [POST /documentcategories](#post-documentcategories)
+* [PUT /documentcategories](#put-documentcategories)
 * [GET /documentcategories](#get-documentcategories)
-* [GET /documentcategories/{id}/{languagecode}](#get-documentcategories-id-languagecode)
-* [GET /documentcategories/{applicanttypecode}](#get-documentcategories-applicanttypecode)
+* [GET /documentcategories/{code}/{langcode}](#get-documentcategories-code-langcode)
+* [GET /documentcategories/{languagecode}](#get-documentcategories-languagecode)
+* [DELETE /documentcategories/{code}](#get-documentcategories-code)
 
 # POST /documentcategories
 
@@ -671,12 +673,87 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+-----
+This service will create the list of Documents Category which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT /documentcategories`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+code|Yes|Document category code| |
+description|optional|document description||
+isActive|Yes|is active or not||
+langCode|Yes|language code||
+name|Yes|Document category name|| 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+              "code": "string",
+              "description": "string",
+              "isActive": true,
+              "langCode": "string",
+              "name": "string"
+            }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+              "errorCode": "string",
+              "message": "string"
+             }],
+  "response": {
+               "code": "string",
+               "langCode": "string"
+              }
+ }
+```
+### Response codes
+201
+
+Description: Created
+
+400
+
+Description: Bad request
+
+401
+
+Description: Unauthorized
+
+403
+
+Description: Forbidden
+
+404 
+
+Description: Not Found
 
 
+-----
 # GET /documentcategories
 
 This service will provides the service for the List of documents categories. 
-
 
 ### Resource URL
 ### `GET /documentcategories`
@@ -706,10 +783,13 @@ Name | Required | Description | Default Value | Example
     }], 
   "response": {
              "documentcategories": [
-		                      {"id": id, "value": "POA", "languagecode":"string"},
-		                      {"id": id, "value": "POI", "languagecode":"string"},
-		                      {"id": id, "value": "POR", "languagecode":"string"},
-		                      {"id": id, "value": "POB", "languagecode":"string"}
+                                      {
+		                      "code": "string",
+                                      "description": "string",
+                                      "isActive": true,
+                                      "langCode": "string",
+                                      "name": "string"
+                                      }
 	                           ]
                }
 }
@@ -730,13 +810,13 @@ Description: Unauthorized
 
 Description: Not Found
 
-# GET /documentcategories/{id}/{languagecode}
+# GET /documentcategories/{code}/{langcode}
 
 This service will provides the service for the List of documents categories. 
 
 
 ### Resource URL
-### `GET /documentcategories/{id}/{languagecode}`
+### `GET /documentcategories/{code}/{langcode}`
 
 ### Resource details
 
@@ -763,10 +843,13 @@ Name | Required | Description | Default Value | Example
     }],
   "response": {
                "documentcategories": [
-		                         {"id": id, "value": "POA", "languagecode":"string"},
-		                         {"id": id, "value": "POI", "languagecode":"string"},
-		                         {"id": id, "value": "POR", "languagecode":"string"},
-		                         {"id": id, "value": "POB", "languagecode":"string"}
+		                        { 
+                                          "code": "string",
+                                          "description": "string",
+                                          "isActive": true,
+                                          "langCode": "string",
+                                          "name": "string"
+		                         }
 	                              ]
               }
 }
@@ -788,16 +871,13 @@ Description: Unauthorized
 Description: Not Found
 
 
+# GET /documentcategories/{langcode} 
 
-
-
-# GET /documentcategories/{applicanttypecode} 
-
-This service will provides the service for the List of documents categories based on the passed applicant type code. 
+This service will provides the service for the List of documents categories based on the passed langcode. 
 
 
 ### Resource URL
-### `GET /documentcategories/{applicanttypecode}`
+### `GET /documentcategories/{langcode}`
 
 ### Resource details
 
@@ -822,12 +902,13 @@ Name | Required | Description | Default Value | Example
       "errorCode": "string",
       "message": "string"
     }],
-"response": {
+  "response": {
 	"documentcategories": [{
-		                 "documentcategorycode": "string",
-		                 "documentname": "string",
-		                 "description": "string",
-		                 "languagecode": "string"
+		                 "code": "string",
+                                 "description": "string",
+                                 "isActive": true,
+                                 "langCode": "string",
+                                 "name": "string"
 	                      }]
             }
 }
@@ -845,6 +926,52 @@ Description: Bad request
 Description: Unauthorized
 
 404
+------
+# DELETE /documentcategories/{code} 
+
+This service will provides the service to delete documents categories based on the passed given code. 
+
+
+### Resource URL
+### `DELETE /documentcategories/{code}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": {
+		 "code": "string"
+              }
+}
+```
+204
+
+Description: No Content
+
+401
+
+Description: Unauthorized
+
+404 
 
 Description: Not Found
 
@@ -885,7 +1012,7 @@ documentformats|Yes|List of document formats| |
 	  "documentformats": [
 			          { "documentformat":"pdf", "languagecode":"string" },
 			          { "documentformat":"png", "languagecode":"string" },
-			          { "documentformat":"jpeg", "languagecode":"string" },
+			          { "documentformat":"jpeg", "languagecode":"string"},
 			          { "documentformat":"gif", "languagecode":"string" }
 		           ]
 	      }
