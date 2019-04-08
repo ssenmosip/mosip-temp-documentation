@@ -402,7 +402,7 @@ The system receives authentication request from TSP with the following parameter
 1. The system matches the input UIN from the individual with the UIN in the auth database (Complete match)
 
 2. The system proceeds match Input UIN from the individual matches with the UIN in the auth database
-3. triggers notification as per the defined and configured template and in the default language English
+3. The system proceeds to excecute match depending on the parameter using which the individual has to be authenticated.
 4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx). 
 
 
