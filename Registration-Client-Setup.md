@@ -28,6 +28,7 @@ The Registration client application is delivered into two parts:
       - bin : It contains the client UI and service executable in encrypted format.
       - lib : it contains the library required for the application to start.  
       - prop : it contains the property file that will be used by application.    
+      - cer  : it contains the certificate used to communicate with the MOSIP server.
       - log : the application log file would be written under this folder.    
       - db : it contains the derby database, tables and few table with the data.  
       - run.jar : Executable jar to download the s/w.
