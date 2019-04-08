@@ -67,6 +67,47 @@
 
 # 1. Master Data Sync
 ## 1.1 Master Data, Configuration [**[↑]**](#table-of-content)
+
+#### A. Registration Officer or Supervisor can download and unzip the client application set up kit
+When a Registration Officer or Supervisor opts to download setup kit and selects the OS-specific setup kit to download, the system allows the user to download the setup kit to the storage location chosen by the user
+* User then unzips the setup kit.
+* Extract the files and folders from the zip file to a chosen location.
+* Allows user to verify that the files and folder structure are as described in the design document.
+* System captures and stores the download transaction details for audit purposes. 
+#### B. Enable launching the client application on a specific machine
+When a user chooses to launch the client application, the system performs validations as described below:
+1. Allows the user to initiate launch by double clicking on the MOSIP icon on the dongle.
+1. Validates that the mode of startup is set to ‘Dongle’ and not ‘Machine Install’.
+1. Validates that the machine on which it is launched has been registered.
+1. Reads the config setting that determines if a machine needs to be mapped to a Registration Centre (All the above config settings and mappings are made through the Admin portal).
+   * If yes, validates that the machine is mapped.
+   * If no, skips this validation.
+5. Validates that the machine has sufficient RAM as defined in the design document.
+1. Validates that the machine has sufficient hard disk space available as defined in the design document.
+1. Checks whether updates are available on the server.
+   * If yes, downloads the updates.
+   * If no updates available or unable to connect to the server, proceed to the next step.
+8. Launches the application and display the default landing page.
+1. Displays error messages in case of exceptions for any of the validations identified above.
+1. System captures and stores the launch details for audit purposes.
+
+#### C. Update the client software from the server
+When the Registration Client application is started up (launched), the system checks the server for updates to the client software.
+
+If an update is available, it is automatically downloaded and installed as a part of the startup process.
+
+The system follows the following steps during the update process:
+1. Checks for updates during start up.
+1. The client must be online to check for updates.
+1. If an update is available, downloads and installs it automatically and launch the application.
+1. If no updates are available, launches the application.
+1. The updates are downloaded as patch updates.
+1. When installation is in progress, the user cannot perform any action on the client.
+1. Once installation is completed, the user can start working on the client.
+1. If update is not successful, the client returns to its earlier version.
+1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
+1. System captures and stores the transaction details for audit purpose.
+
 ## 1.2 End of Day Process [**[↑]**](#table-of-content)
 
 # 2. Booking Data Sync
@@ -100,7 +141,7 @@ The following example explains the steps system performs to support remapping a 
    * A one-time background process to push packet IDs, packets, and user onboarding data to the server will happen when the system is online and there are no pending approval packets.
    * It will then delete all the data except audit data. Deletion covers the RC1 master data, Registrations created while in RC1, user on-boarding data of RC1, and pre-registration data of RC1. Audit logs and other data, which might be used for analytics and data retention policy reasons, will not be deleted. The removal of those will be as per policy only.
    * The user from the original registration center cannot login thereafter.
-   * If the one-time process has not yet run, the user will still be able to login and perform sync, end of day approval, re-register updates, export, and upload. The user cannot perform pre-registration download and user on boarding.
+   * If the one-time process has not yet run, the user will still be able to login and perform sync, end of day approval, re-register updates, export, and upload. The user cannot perform pre-registration download and user on-boarding.
 5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
 
 ## 3.7 Biometric Exceptions [**[↑]**](#table-of-content)
@@ -108,8 +149,77 @@ The following example explains the steps system performs to support remapping a 
 
 # 4. User Services
 ## 4.1 User on-boarding [**[↑]**](#table-of-content)
+
+
+#### A. Map registration officers and supervisors to a client machine.
+Initially a machine will have no users on boarded. The first RO/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this RO/Supervisor can onboard other users.
+1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
+1. Allow the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data
+   * Fields selected on the UI include user, status, fingerprints, and irises.
+   * The list of users should include only active users. The system does not show users who are blacklisted or decommissioned.
+   * The list of users does not include users who are already mapped to the machine.
+   * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
+   * The system then validates the fingerprint quality threshold is met.
+   * The system then validates the number of successful fingerprint authentications is greater than or equal to the config setting of fingerprint authentications required.
+   * Unlimited retries are allowed.
+   * Both irises are captured and authenticated with the server. Validate that the iris quality threshold is met.
+   * Validate that the number of successful iris authentications is greater than or equal to the config setting of iris authentications required.
+   * Unlimited retries are allowed.
+3. If validations successful:
+   * Save the mapping locally.
+   * Successfully authenticated fingerprints and irises will be stored locally.
+   * Fingerprints and irises with unsuccessful authentication will not be stored.
+   * The status of the mapping is set to ‘Active’ or ‘Inactive’ as selected.
+   * Mapping will be sent to the server during the next sync.
+   * Biometrics will not be sent to the server.
+4. If not successful: Displays error message.
+5. Multiple users can be mapped to the machine by repeating the above flow. There should be no limitation to the numbers of users mapped.
+
+#### B. Updating the mapping of registration officers and supervisors to a client machine
+1. This features allow the system to receive the request to modify a mapping status from Active to Inactive or from Inactive to Active.
+   * No other fields can be modified.
+   * A mapping cannot be deleted.
+2. Allows the system to save the changes locally. Changes will be sent to the server during the data sync process
+#### C. View mapped registration officers to a client machine.
+1. This feature allows the system to receive a request to view the list of mapped users
+1. Fetches the locally stored details of Registration Officers and Supervisors mapped to this machine.
+1. Constructs a response with the details fetched.
+1. All data in the view page will be in read only mode and will be in the same sequence as defined in the data definition 
+#### D. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
+1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre as the USB dongle. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
+1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
+1. User can request the system to resend OTP if not received earlier.
+1. User enters OTP and submits. System directs the user to the dashboard page with all links disabled except for ‘User on-boarding’.
+1. User navigates to the User on-boarding page.
+1. User marks biometric exceptions if any (system should not mandate capture and authentication of those biometrics that are marked as exceptions).
+1. User scans left slap, right slap and two thumbs. System displays the result of authentication of each finger.
+1. The system validates that the device is registered in the Admin portal, associated to this Registration Centre ID, and the current date lies within the validity dates of the device model.
+1. User scans both irises. System displays the result of authentication of each iris. User scans face and exception photo. System displays the result of authentication of face. Exception photo is not authenticated
+1. User can choose to retry each biometric capture as required. There is no limit to the number of retries.
+1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client dongle and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
+1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers+2 irises+face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-USB dongle mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
+1. The system displays the result of authentication of each biometric - 10 fingers, 2 irises and face - in a list.
+1. User gets access to all links on the client according to their role.
+User can update their biometrics at any time after successful on-boarding by choosing the ‘User on-boarding’ link from the menu. The biometrics provided during update will be authenticated with the server and saved locally if threshold for successful authentication is met. Updated biometrics will overwrite the biometrics stored locally earlier.
+
 ## 4.2 Login/Authentication [**[↑]**](#table-of-content)
 ## 4.3 Logout [**[↑]**](#table-of-content)
+
+When a Registration Officer or Supervisor opts to logout, the system allows them to do so by provisioning the following:
+1. Allows the user to choose appropriate option (button or link) in order to log out
+1. Log the user out of their session.
+   * While logging out, does not allow the user to perform any actions that require them to be logged in.
+3. Alternatively, closing the client window will also log the user out.
+1. Alternatively, if the user has remained inactive for a configured duration he will be automatically logged out.
+   * Inactive/idle time is defined as the time during which the user has not submitted or retrieved data using the client application or navigated to a different page.
+   * Any such action when performed resets the time to zero.
+   * The auto log out duration is configured from Admin. The default value can be taken as 15 minutes.
+   * Alerts the user ‘x’ minutes before reaching the auto logout time limit. Displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
+   * The duration before which to display the alert is configured by Admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
+   * Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+   * Validates that the user has a role or Registration Officer or Supervisor.
+5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
+6. The System also captures and stores the transaction details for audit purpose
 
 # 5. Registration Client Library
 ## 5.1 Local Authentication [**[↑]**](#table-of-content)
