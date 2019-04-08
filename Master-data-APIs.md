@@ -7908,12 +7908,6 @@ code|Yes|This is the template code field|-NA-|auth-email-content
       "message": "string"
     }],
   "response":   {
-
-	/***** Following is the header information *****/
-	"id":"mosip.applicationtype.getapplicationtype",			
-	"version":"1.0",	
-	"responsetime":"2007-12-03T10:15:30Z",
-	"response" : {
 		"code": "string",
 		"descr": "string",
 		"langCode": "string",
