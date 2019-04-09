@@ -19,7 +19,20 @@ A master node keeps knowledge about the distributed file system. node-master wil
 
 Slave nodes store the actual data and provide processing power to run the jobs. It'll be node-slave1.example.com, and will host two daemons:
 - The DataNode manages the actual data physically stored on the node; it’s named, NameNode.
-- The NodeManager manages execution of tasks on the node.
+- The NodeManager manages execution of ta sks on the node.
+
+### Creating Hadoop User
+create a hadoop user in every machine in the cluster to followup the documentation or replace the hadoop user in the documentation with your own user.
+```
+sudo adduser hadoop
+
+```
+if you want to give sudo access to hadoop user.(Optional)
+
+```
+sudo usermod -aG sudo hadoop
+```
+
 ### Distribute Authentication Key-pairs for the Hadoop User
 The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.
 1. Login to node-master as the hadoop user, and generate an ssh-key:
@@ -47,8 +60,11 @@ ssh hadoop@node-slave1.example.com
 Login to node-master as the hadoop user, download the Hadoop tarball from Hadoop project page, and unzip it:
 ```
 cd
+
 wget https://archive.apache.org/dist/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz
+
 tar -xzf hadoop-2.8.1.tar.gz
+
 mv hadoop-2.8.1 hadoop
 ```
 ### Set Environment Variables
@@ -195,8 +211,9 @@ hdfs namenode -format
 Your Hadoop installation is now configured and ready to run.
 ### Start HDFS
 1. Start the HDFS by running the following script from node-master:
+start-dfs.sh , stop-dfs.sh script files will be present in hadoop_Installation_Dir/sbin/start.dfs.sg
 ```
-start-dfs.sh
+hadoop/sbin/start-dfs.sh
 ```
 It’ll start NameNode and SecondaryNameNode on node-master.example.com, and DataNode on node-slave1.example.com, according to the configuration in the slaves config file.
 2. Check that every process is running with the jps command on each node. You should get on node-master.example.com (PID will be different):
@@ -246,7 +263,7 @@ yum install krb5-workstation krb5-libs krb5-auth-dialog
 ```
 ### Configuring the Master KDC Server
 1. Edit the /etc/krb5.conf:
-```
+<pre>
 # Configuration snippets may be placed in this directory as well
 includedir /etc/krb5.conf.d/
 
@@ -256,41 +273,41 @@ includedir /etc/krb5.conf.d/
  admin_server = FILE:/var/log/kadmind.log
 
 [libdefaults]
- udp_preference_limit = 1
+ <b>udp_preference_limit = 1</b>
  dns_lookup_realm = false
  ticket_lifetime = 365d
  renew_lifetime = 365d
  forwardable = true
  rdns = false
  pkinit_anchors = /etc/pki/tls/certs/ca-bundle.crt
- default_realm = NODE-MASTER.EXAMPLE.COM
+ default_realm =  <b>NODE-MASTER.EXAMPLE.COM</b>
  #default_ccache_name = KEYRING:persistent:%{uid}
 
 [realms]
- NODE-MASTER.EXAMPLE.COM = {
-  kdc = node-master.example.com:51088
-  admin_server = node-master.example.com
+   <b>NODE-MASTER.EXAMPLE.COM</b> = {
+   kdc = <b>node-master.example.com:51088</b>
+   admin_server = <b>node-master.example.com</b>
  }
 
 [domain_realm]
- .node-master.example.com = NODE-MASTER.EXAMPLE.COM
- node-master.example.com = NODE-MASTER.EXAMPLE.COM
-```
+   <b>.node-master.example.com = NODE-MASTER.EXAMPLE.COM
+   node-master.example.com = NODE-MASTER.EXAMPLE.COM</b>
+</pre>
 2. Edit /var/kerberos/krb5kdc/kdc.conf
-```
+<pre>
 [kdcdefaults]
- kdc_ports = 51088
- kdc_tcp_ports = 51088
+ kdc_ports = <b>51088</b>
+ kdc_tcp_ports = <b>51088</b>
 
 [realms]
- NODE-MASTER.EXAMPLE.COM = {
+ <b>NODE-MASTER.EXAMPLE.COM</b> = {
   #master_key_type = aes256-cts
   acl_file = /var/kerberos/krb5kdc/kadm5.acl
   dict_file = /usr/share/dict/words
   admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
   supported_enctypes = aes256-cts:normal aes128-cts:normal des3-hmac-sha1:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal des-hmac-sha1:normal des-cbc-md5:normal des-cbc-crc:normal
  }
-```
+</pre>
 3. Create the database using the kdb5_util utility.
 ```
 /usr/sbin/kdb5_util create -s
@@ -452,7 +469,7 @@ sh hadoop/sbin/stop-dfs.sh
 
 <property>
   <name>hadoop.http.authentication.kerberos.keytab</name>
-  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value>
+  <value>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab</value>
 </property>
 
 ```
@@ -466,7 +483,7 @@ sh hadoop/sbin/stop-dfs.sh
 <!-- NameNode security config -->
 <property>
   <name>dfs.namenode.keytab.file</name>
-  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
+  `<value>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
 </property>
 <property>
   <name>dfs.namenode.kerberos.principal</name>
@@ -480,7 +497,7 @@ sh hadoop/sbin/stop-dfs.sh
 <!-- Secondary NameNode security config -->
 <property>
   <name>dfs.secondary.namenode.keytab.file</name>
-  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
+  <value>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab</value> <!-- path to the HDFS keytab -->
 </property>
 <property>
   <name>dfs.secondary.namenode.kerberos.principal</name>
@@ -498,7 +515,7 @@ sh hadoop/sbin/stop-dfs.sh
 </property>
 <property>
   <name>dfs.datanode.keytab.file</name>
-  <value>/home/hadoop/etc/hadoop/hadoop.keytab</value><!-- path to the HDFS keytab -->
+  <value>/home/hadoop/hadoop/etc/hadoop/hadoop.keytab</value><!-- path to the HDFS keytab -->
 </property>
 <property>
   <name>dfs.datanode.kerberos.principal</name>
