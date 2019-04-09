@@ -30,7 +30,7 @@ appid|Yes|This is the application ID of the caller of this service. It should be
 	"requesttime":"2007-12-03T10:15:30Z",
 	"request": {
 		"userid": "M392380",
-		"otpchannel": ["MOBILENUMBER", "EMAIL"],
+		"otpchannel": ["MOBILE", "EMAIL"],
 		"templateParams": {
 			"expiryTime":"20 minutes",
 			"purpose":"Changing password",
@@ -50,6 +50,7 @@ Success Response
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"response": {
+                "status": "success",
 		"message":"OTP had been sent successfully"
 	}
 }
@@ -178,6 +179,7 @@ JSON Response:
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"response": {
+                "status": "success",
 		"message":"OTP validation is successfull"
 	}
 }
@@ -273,6 +275,7 @@ JSON:
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"response": {
+                "status": "success",
 		"message":"Username and password combination had been validated successfully"
 	}
 }
@@ -366,6 +369,7 @@ JSON:
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"response": {
+                "status": "success",
 		"message":"Clientid and Token combination had been validated successfully"
 	}
 }
