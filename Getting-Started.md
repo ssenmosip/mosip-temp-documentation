@@ -195,33 +195,33 @@ $ Sudo vim /var/lib/pgsql/10/data/pg_hba.conf
 
 ###### Default lines are present in pg_hab.conf file <br/>
 
-# TYPE  DATABASE        USER            ADDRESS                 METHOD
+######## TYPE  DATABASE        USER            ADDRESS                 METHOD <br/>
 
-# "local" is for Unix domain socket connections only
-local   all             all                                     peer
-# IPv4 local connections:
+######## # "local" is for Unix domain socket connections only <br/>
+local   all             all                                     peer 
+######## # IPv4 local connections: <br/>
 host    all             all             127.0.0.1/32            ident
-# IPv6 local connections:
+######## # IPv6 local connections: <br/>
 host    all             all             ::1/128                 ident
-# Allow replication connections from localhost, by a user with the
-# replication privilege.
+######## # Allow replication connections from localhost, by a user with the
+######## # replication privilege. <br/>
 local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            ident
 host    replication     all             ::1/128                 ident
 
 
 
-###### Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf  
+###### Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf   
 local   all             all                                     md5
-# IPv4 local connections:
-#host    all             all             127.0.0.1/32            ident
+######## # IPv4 local connections: <br/>
+######## #host    all             all             127.0.0.1/32            ident
 host    all             all             127.0.0.1/32            ident
 host    all             all             0.0.0.0/0               md5
 
-# IPv6 local connections:
+######## # IPv6 local connections: <br/>
 host    all             all             ::1/128                 ident
-# Allow replication connections from localhost, by a user with the
-# replication privilege.
+######## # Allow replication connections from localhost, by a user with the
+######## # replication privilege. <br/>
 local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            ident
 host    replication     all             ::1/128                 ident
