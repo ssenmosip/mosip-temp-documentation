@@ -143,14 +143,7 @@ Postgresql Prerequisites
 On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.
 #### Steps to install Postgresql in RHEL-7.5
 ##### Download and install PostgreSQL. <br/>
-$ sudo yum install 
-<div>https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm</div> 
-<br/>
-
-
-*The password that you are prompted to provide during the installation process is for the 'postgres' account, which is the database root-level account, sometimes called the super user ('postgres'). Remember this username and password. You will need it each time you log in to the database.<br/>
-*	The default port for PostgreSQL is 5432. If you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. You will also need to remember to update all further mentions of the database port.<br/>
-
+$ sudo yum install <div>https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm</div> <br/>
 ##### checking  the postgresql packages  
 $ sudo yum update <br/>
 $ sudo yum list postgresql* <br/>
@@ -162,7 +155,77 @@ $sudo systemctl enable postgresql-10 <br/>
 $ sudo systemctl start postgresql-10 <br/>
 $ sudo systemctl status postgresql-10 <br/>
 $ sudo systemctl stop postgresql-10 <br/>
-To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path
+To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path <br/>
+PostgreSQL is running on default port 5432. <br/>
+you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. <br/>
+
+##### Steps to change the default port :
+
+###### Open the file  and modify the below changes 
+$ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
+listen_addresses = '*'   (changed to * instad of local host )
+port = 9001       ( uncomment port=5432 and change the port number 
+###### Open the port 9001 from the VM 
+$  sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
+$  sudo firewall-cmd --reload
+
+##### To increase the buffer size and number of postgreSql connection  same fine modify the below changes also 
+$ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
+unix_socket_directories = '/var/run/postgresql, /tmp' 
+max_connections = 1000  
+shared_buffers = 2GB  
+
+##### To change the default password 
+Login to postgrsql
+$ sudo su postgres
+bash-4.2$ psql -p 9001
+postgres=# \password postgres
+Enter new password:
+Enter it again:
+postgres=# \q
+
+sudo systemctl restart postgresql-10
+It will ask new password to login to postgresql <br/>
+
+####### example  for sourcing the sql file form command line 
+$ psql --username=postgres --host=10.240.0.66 --port=9001 --dbname=postgres -f mosip_role_regprcuser.sql
+ 
+Open the file <br/>
+$ Sudo vim /var/lib/pgsql/10/data/pg_hba.conf
+
+###### Default lines are present in pg_hab.conf file <br/>
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            ident
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            ident
+host    replication     all             ::1/128                 ident
+
+
+
+###### Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf  
+local   all             all                                     md5
+# IPv4 local connections:
+#host    all             all             127.0.0.1/32            ident
+host    all             all             127.0.0.1/32            ident
+host    all             all             0.0.0.0/0               md5
+
+# IPv6 local connections:
+host    all             all             ::1/128                 ident
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     peer
+host    replication     all             127.0.0.1/32            ident
+host    replication     all             ::1/128                 ident
+
 $ sudo vi /var/lib/pgsql/10/data/postgresql.conf <br/>
 listen_addresses = '*'
 port = 9001 
