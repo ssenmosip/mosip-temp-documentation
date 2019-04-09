@@ -2490,7 +2490,7 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Part Parameters
+#### Request Part DTO Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.notification.notify
@@ -2503,8 +2503,12 @@ request.appointmentDate|Yes| Booking appointment date|2019-01-18
 request.appointmentTime| Yes|Booking appointment time| 12:02
 request.mobNum|  Yes| applicant mobile number |9480456789
 request.emailID| Yes|applicant email Id |`sanober@gmail.com`
-request.multipart file| Yes| pdf file of acknowledgment page|37802950913289.pdf
-request.LangCode| Yes| language code whatever user choose while login|eng
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+attachment| Yes| pdf file of acknowledgment page|37802950913289.pdf
+langCode| Yes| language code whatever user choose while login|eng
 
 #### Request:
 ```JSON
