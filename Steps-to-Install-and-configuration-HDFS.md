@@ -95,7 +95,7 @@ with your actual java installation path. For example on a Debian with open-jdk-8
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre
 ```
 #### Set NameNode
-Update ~/hadoop/etc/hadoop/core-site.xml:
+Update ~/hadoop/etc/hadoop/core-site.xml :
 ```
 <configuration>
      <property>
@@ -105,7 +105,7 @@ Update ~/hadoop/etc/hadoop/core-site.xml:
 </configuration>
 ```
 #### Set path for HDFS
-Edit hdfs-site.conf:
+Edit ~/hadoop/etc/hadoop/hdfs-site.xml :
 ```
 <configuration>
     	<property>
@@ -252,6 +252,10 @@ Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
 [**link**](//access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/managing_smart_cards/using_Kerberos)
 ### Install Kerberos
+###  Before Installing Kerberos Install the JCE Policy File
+Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy File on all cluster and Hadoop user machines.
+Follow this [**link**](//dzone.com/articles/install-java-cryptography-extension-jce-unlimited)
+
 Kerberos server(KDC) and the client needs to be installed. Install the client on both master and slave nodes. KDC server will be installed on the master node.
 1. To install packages for a Kerberos server:
 ```
@@ -354,13 +358,9 @@ Use kdestroy to destroy the cache and the credentials it contains.
 ```
 kdestroy -A
 ```
-###  Install the JCE Policy File
-Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy File on all cluster and Hadoop user machines.
-Follow this [**link**](//dzone.com/articles/install-java-cryptography-extension-jce-unlimited)
 ### Create and Deploy the Kerberos Principals and Keytab Files
 For more information, check here:
 [**link**](//cloudera.com/documentation/enterprise/5-16-x/topics/cdh_sg_kerberos_prin_keytab_deploy.html)
-
 
 If you have root access to the KDC machine, use kadmin.local, else use kadmin.
 To start kadmin.local (on the KDC machine), run this command:
@@ -421,21 +421,21 @@ $sudo kadmin
 
 ##### to view the principals in keytab
 ```
- $Klist -k -e -t mosip.keytab
+ Klist -k -e -t mosip.keytab
 ```
-     and so on add all the users to keytab. if you want create the separate keytab file for each application and distribute them
+and so on add all the users to keytab. if you want create the separate keytab file for each application and distribute them
 
 
 #### To deploy the Kerberos keytab file
-On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/etc/hadoop/hadoop.keytab.
-### Shut Down the Cluster
+On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/hadoop/etc/hadoop/hadoop.keytab.
+### Enable security in hdf
 To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties. 
 
 ```
 sh hadoop/sbin/stop-dfs.sh
 ```
 ### Enable Hadoop Security
-1. To enable Hadoop security, add the following properties to the core-site.xml file on every machine in the cluster:
+1. To enable Hadoop security, add the following properties to the ~/hadoop/etc/hadoop/core-site.xml file on every machine in the cluster:
 ```
 <property>
   <name>hadoop.security.authentication</name>
@@ -473,7 +473,7 @@ sh hadoop/sbin/stop-dfs.sh
 </property>
 
 ```
-2. Add the following properties to the hdfs-site.xml file on every machine in the cluster.
+2. Add the following properties to the ~/hadoop/etc/hadoop/hdfs-site.xml file on every machine in the cluster.
 ```
 <property>
   <name>dfs.block.access.token.enable</name>
@@ -538,7 +538,7 @@ sh hadoop/sbin/stop-dfs.sh
   <value>HTTPS_ONLY</value>
  </property>
 ```
-### Deploying HTTPS in HDFS
+### Configuring https in hdfs
 #### Generating the key and certificate
 The first step of deploying HTTPS is to generate the key and the certificate for each machine in the cluster. You can use Java’s keytool utility to accomplish this task:
 Ensure that firstname/lastname OR common name (CN) matches exactly with the fully qualified domain name (e.g. node-master.example.com) of the server. 
@@ -570,7 +570,7 @@ keytool -keystore keystore.jks -alias localhost -import -file cert-signed.cer
 ```
 #### Configuring Hdfs
 Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the keystore and the truststore
-1. Edit ssl-server.xml
+1. Edit ~/hadoop/etc/hadoop/ssl-server.xml
 ```
 <configuration>
 
@@ -643,7 +643,7 @@ Change the ssl-server.xml and ssl-client.xml on all nodes to tell HDFS about the
 
 </configuration>
 ```
-2. Edit ssl-client.xml
+2. Edit ~/hadoop/etc/hadoop/ssl-client.xml
 ```
 <configuration>
 
