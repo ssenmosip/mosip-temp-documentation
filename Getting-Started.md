@@ -197,22 +197,21 @@ $ Sudo vim /var/lib/pgsql/10/data/pg_hba.conf
 
  TYPE  DATABASE        USER            ADDRESS                 METHOD <br/>
 
- "local" is for Unix domain socket connections only <br/>
-local   all             all                                     peer 
-host    all             all             127.0.0.1/32            ident
-host    all             all             ::1/128                 ident
-local   replication     all                                     peer
-host    replication     all             127.0.0.1/32            ident
-host    replication     all             ::1/128                 ident
+local   all             all                                     peer <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer  <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/>
 
 ###### Modify  with below changes in file  /var/lib/pgsql/10/data/pg_hba.conf   
-local   all             all                                     md5
-host    all             all             127.0.0.1/32            ident
-host    all             all             0.0.0.0/0               md5
-host    all             all             ::1/128                 ident
-local   replication     all                                     peer
-host    replication     all             127.0.0.1/32            ident
-host    replication     all             ::1/128                 ident
+local   all             all                                     md5 <br/>
+host    all             all             127.0.0.1/32            ident <br/>
+host    all             all             0.0.0.0/0               md5 <br/>
+host    all             all             ::1/128                 ident <br/>
+local   replication     all                                     peer <br/>
+host    replication     all             127.0.0.1/32            ident <br/>
+host    replication     all             ::1/128                 ident <br/>
 
 $ sudo vi /var/lib/pgsql/10/data/postgresql.conf <br/>
 listen_addresses = '*'
