@@ -7921,3 +7921,81 @@ code|Yes|This is the template code field|-NA-|auth-email-content
 
 Description: Success
 
+# Template API
+
+* [GET /validdocuments](#get-validdocuments)
+
+### Resource URL
+### `GET /validdocuments/{languagecode}`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+languagecode|Yes|Language code in ISO 639-2|-NA-|fra
+
+### Example Request
+```JSON
+-NA-
+```
+
+### Example Success Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [],
+  "response":   {
+	  "documentcategorytype": [
+		{
+			"code": "string",
+			"description": "string",
+			"isActive": true,
+			"langCode": "string",
+			"name": "string", 
+			"documentcategories": [
+					{
+						"code": "string",
+						"description": "string",
+						"isActive": true,
+						"langCode": "string",
+						"name": "string"
+					}
+			]
+		}
+	  ]
+	}
+}
+```
+
+
+### Example Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+	{
+		"errorCode": "KER-VLDDOC-001",
+		"message": "Mandatory fields are missing"
+	}  
+  ],
+  "response": null
+}
+```
+
+
+### Response codes
+200
+
+Description: Success
