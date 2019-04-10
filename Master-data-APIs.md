@@ -60,6 +60,8 @@ This section details about the service APIs in the Master data modules
 
 * [Template Types Master API](#template-types-api)
 
+* [Valid documents API](#valid-documents-api)
+
 # Holiday Master API
 
 * [POST /holidays](#post-holidays)
@@ -7921,7 +7923,7 @@ code|Yes|This is the template code field|-NA-|auth-email-content
 
 Description: Success
 
-# Template API
+# Valid documents API
 
 * [GET /validdocuments](#get-validdocuments)
 
