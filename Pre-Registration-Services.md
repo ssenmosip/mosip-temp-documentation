@@ -1265,10 +1265,10 @@ This service enables Pre-Registration portal to request for uploading the docume
 
 
 ### POST /documents/:preRegistrationId
-This request is used to upload document with the metadata which include document cateogry code, document type code and document format for a pre-registration Id.
+This request is used to upload document with the metadata which include document category code, document type code and document format for a pre-registration Id.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/douments/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/documents/:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
