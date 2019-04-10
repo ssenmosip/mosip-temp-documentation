@@ -125,7 +125,7 @@ request.OTP|Yes| received OTP  |345674
 	"version": "1.0",
 	"requesttime": "2019-03-15T08:28:04.783Z",
 	"request": {
-		"OTP": "345674",
+		"otp": "345674",
 		"userId": "8907654778"
 	}
 }
