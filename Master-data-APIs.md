@@ -7954,14 +7954,14 @@ languagecode|Yes|Language code in ISO 639-2|-NA-|fra
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": [],
   "response":   {
-	  "documentcategorytype": [
+	  "documentcategories": [
 		{
 			"code": "string",
 			"description": "string",
 			"isActive": true,
 			"langCode": "string",
 			"name": "string", 
-			"documentcategories": [
+			"documenttypes": [
 					{
 						"code": "string",
 						"description": "string",
