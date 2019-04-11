@@ -1,5 +1,4 @@
-* [Key Manager Service](#key-manager)
-
+* [Key Manager Service](#key-manager-public)
 
 * [Crypto Manager Service](#crypto-manager)
 
