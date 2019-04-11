@@ -40,11 +40,9 @@
 
 This service will provide the public key for the specific application. 
 
-### Resource URL
 ### GET /publickey
 
 ### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
