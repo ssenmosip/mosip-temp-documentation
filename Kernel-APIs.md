@@ -1,4 +1,4 @@
-* [Key Manager ](#key-manager)
+* [Key Manager](#key-manager-public)
 
 * [Crypto Manager Service](#crypto-manager)
 
@@ -30,7 +30,7 @@
 
 
 
-# 1. Key Manager
+# 1. Key Manager (Public)
 
 * [GET /publickey](#get-getpublickey)
 * [POST /decrypt](#post-decryptkey)
