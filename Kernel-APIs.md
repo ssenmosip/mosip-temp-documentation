@@ -1496,8 +1496,8 @@ v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 ```
 
 
-# 4 UIN
-## 4.1 UIN-get service
+# UIN
+## UIN-get service
 
 This service will return unused UIN from UIN pool 
 
@@ -1541,7 +1541,7 @@ v1/uingenerator/uin
 ```
 
 
-## 4.2 UIN- Status Update service
+## UIN- Status Update service
 
 This service will update the issued UN status to Assigned or Unassigned(Unused).  
 
@@ -1598,8 +1598,8 @@ PUT v1/uingenerator/uin
 }
 ```
 
-# 5 SMS Notification
-## 5.1 SMS Notification Post Service
+# SMS Notification
+## SMS Notification Post Service
 
 This service will send request to SMS gateway. 
 
