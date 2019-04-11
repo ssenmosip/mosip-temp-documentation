@@ -1,4 +1,4 @@
-* [Key Manager](#key-manager-public)
+* [Key Manager](#key-manager)
 
 * [Crypto Manager Service](#crypto-manager)
 
@@ -30,7 +30,7 @@
 
 
 
-# Key Manager (Public)
+# Key Manager
 
 * [GET /publickey](#get-getpublickey)
 * [POST /decrypt](#post-decryptkey)
@@ -41,7 +41,7 @@
 This service will provide the public key for the specific application. 
 
 ### Resource URL
-### `GET /publickey`
+### GET /publickey
 
 ### Resource details
 
