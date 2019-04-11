@@ -36,7 +36,7 @@
 * [POST /decrypt](#post-decryptkey)
 
 
-## 1.1 Public key-get service
+##  Public key-get service
 
 This service will provide the public key for the specific application. 
 
@@ -83,7 +83,7 @@ v1/keymanager/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 }
 ```
 
-## 1.2 Decrypt Symmetric key
+##  Decrypt Symmetric key
 
 This service will decrypt the encrypted symmetric key 
 
@@ -146,12 +146,12 @@ v1/keymanager/decrypt
 ```
 
 
-# 2 Crypto Manager
+# Crypto Manager
 
 * [POST v1/cryptomanager/encrypt](#crypto-encrypt)
 * [POST v1/cryptomanager/decrypt](#crypto-decrypt)
 
-## 2.1 Encryption Post Service
+##  Encryption Post Service
 
 This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key. This will respond combined encrypted data and symmetric key having a key splitter.  
 
@@ -205,7 +205,7 @@ Requires Authentication | Yes
 
 
 
-## 2.2 Decryption Post Service
+## Decryption Post Service
 
 This service will dencrypt encryted data along with symmetric key having splitter. 
 
@@ -258,7 +258,7 @@ Requires Authentication | Yes
 ```
 
 
-# 3 Sync data
+# Sync data
 
 * [GET /masterdata](#masterdata-getall)
 
@@ -272,7 +272,7 @@ Requires Authentication | Yes
 
 * [GET /publickey](#masterdata-getpublickey)
 
-## 3.1 Sync Master data-get service
+## Sync Master data-get service
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
 
@@ -738,7 +738,7 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 }
 ```
 
-## 3.2 Sync Master data-get service
+##  Sync Master data-get service
 
 This service will provides the list of all master data. This service is used mainly by the Enrollment client module. 
 
@@ -1205,7 +1205,7 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
 }
 ```
 
-## 3.3 Config details-get service
+## Config details-get service
 
 This service will return back the global and registration configuration data of the MOSIP platform. 
 
@@ -1343,7 +1343,7 @@ v1/syncdata/configs
 }
 ```
 
-## 3.4 Get All Roles 
+## Get All Roles 
 
 This service will return back the all roles of the applications. 
 
@@ -1396,7 +1396,7 @@ Name | Required | Description | Default Value | Example
 }		
 ```
 
-## 3.5 Get list of users and role-mapping 
+## Get list of users and role-mapping 
 
 This service will return back the list of users and its role-mapping based on the registration-center-id. 
 
@@ -1450,7 +1450,7 @@ Name | Required | Description | Default Value | Example
 	}
 }	
 ```
-## 3.6 Public key-get service
+## Public key-get service
 
 This service will provide the public key for the specific application fetched from key manager. 
 
