@@ -1666,8 +1666,10 @@ v1/smsnotifier/sms/send
 }	
 ```
 
-# 6 Email Notification
-## 6.1 Email Notification Post Service
+# Email Notification
+
+* [POST /email/send](#post-emailsend)
+## Email Notification Post Service
 
 This service will send request to Email/SMTP Service. 
 
