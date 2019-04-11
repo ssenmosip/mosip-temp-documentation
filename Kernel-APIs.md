@@ -147,6 +147,10 @@ v1/keymanager/decrypt
 
 
 # 2 Crypto Manager
+
+* [POST v1/cryptomanager/encrypt](#crypto-encrypt)
+* [POST v1/cryptomanager/decrypt](#crypto-decrypt)
+
 ## 2.1 Encryption Post Service
 
 This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key. This will respond combined encrypted data and symmetric key having a key splitter.  
@@ -255,6 +259,19 @@ Requires Authentication | Yes
 
 
 # 3 Sync data
+
+* [GET /masterdata](#masterdata-getall)
+
+* [GET /masterdata](#masterdata-getAll)
+
+* [GET /configs](#masterdata-getconfigs)
+
+* [GET /roles](#masterdata-getroles)
+
+* [GET /userdetails/{regid}](#masterdata-getregiddetails)
+
+* [GET /publickey](#masterdata-getpublickey)
+
 ## 3.1 Sync Master data-get service
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
