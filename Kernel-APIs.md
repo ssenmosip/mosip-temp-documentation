@@ -1,30 +1,30 @@
-*[ Key Manager Service](#key-manager)
+* [Key Manager Service](#key-manager)
 
-*[ Crypto Manager Service](#crypto-manager)
+* [Crypto Manager Service](#crypto-manager)
 
-*[ Data Sync Service](#sync-data)
+* [Data Sync Service](#sync-data)
 
-*[ UIN Service](#uin)
+* [UIN Service](#uin)
 
-*[ SMS Notification Service](#sms-notification)
+* [SMS Notification Service](#sms-notification)
 
-*[ Email Notification Service](#email-notification)
+* [Email Notification Service](#email-notification)
 
-*[ OTP Manager Service](#otp-manager)
+* [OTP Manager Service](#otp-manager)
 
-*[ Audit Service](#audit-manager)
+* [Audit Service](#audit-manager)
 
-*[ License Key Service](#license-key-manager)
+* [License Key Service](#license-key-manager)
 
-*[ OTP Notification Service](#otp-notification)
+* [OTP Notification Service](#otp-notification)
 
-*[ Applicant Types Service](#applicant-type)
+* [Applicant Types Service](#applicant-type)
 
-*[ Individual Types Service](#individual-types)
+* [Individual Types Service](#individual-types)
 
-*﻿﻿[ Digital signatures](#digital-signatures)
+*﻿﻿ [Digital signatures](#digital-signatures)
 
-*﻿﻿[ Static Token generator](#static-token-generator)
+* ﻿﻿[Static Token generator](#static-token-generator)
  
 
 
