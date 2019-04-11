@@ -147,15 +147,15 @@ v1/keymanager/decrypt
 
 # Crypto Manager
 
-* [POST v1/cryptomanager/encrypt](#crypto-encrypt)
-* [POST v1/cryptomanager/decrypt](#crypto-decrypt)
+* [POST v1/cryptomanager/encrypt](#crypto-encryption)
+* [POST v1/cryptomanager/decrypt](#crypto-decryption)
 
 ##  Encryption Post Service
 
 This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key. This will respond combined encrypted data and symmetric key having a key splitter.  
 
 ### Resource URL
-### `POST v1/cryptomanager/encrypt`
+### POST v1/cryptomanager/encrypt
 
 
 ### Resource details
@@ -259,9 +259,9 @@ Requires Authentication | Yes
 
 # Sync data
 
-* [GET /masterdata](#masterdata-getall)
+* [GET /masterdata](#masterdata-getservice)
 
-* [GET /masterdata](#masterdata-getAll)
+* [GET /masterdata](#masterdata-getall)
 
 * [GET /configs](#masterdata-getconfigs)
 
@@ -276,7 +276,7 @@ Requires Authentication | Yes
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
 
 ### Resource URL
-### `GET /masterdata`
+### GET /masterdata
 
 ### Resource details
 
@@ -742,7 +742,7 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 This service will provides the list of all master data. This service is used mainly by the Enrollment client module. 
 
 ### Resource URL
-### `GET /masterdata`
+### GET /masterdata
 
 ### Resource details
 
@@ -1209,7 +1209,7 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
 This service will return back the global and registration configuration data of the MOSIP platform. 
 
 ### Resource URL
-### `GET /configs`
+### GET /configs
 
 ### Resource details
 
@@ -1347,7 +1347,7 @@ v1/syncdata/configs
 This service will return back the all roles of the applications. 
 
 ### Resource URL
-### `GET /roles`
+### GET /roles
 
 
 ### Resource details
@@ -1400,7 +1400,7 @@ Name | Required | Description | Default Value | Example
 This service will return back the list of users and its role-mapping based on the registration-center-id. 
 
 ### Resource URL
-### `GET /userdetails/{regid}`
+### GET /userdetails/{regid}
 
 
 ### Resource details
@@ -1454,7 +1454,7 @@ Name | Required | Description | Default Value | Example
 This service will provide the public key for the specific application fetched from key manager. 
 
 ### Resource URL
-### `GET /publickey`
+### GET /publickey
 
 ### Resource details
 
