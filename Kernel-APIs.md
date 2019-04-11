@@ -148,7 +148,7 @@ v1/keymanager/decrypt
 # Crypto Manager
 
 * [POST v1/cryptomanager/encrypt](#post-v1cryptomanagerencrypt)
-* [POST v1/cryptomanager/decrypt](#post-decryption-post-service)
+* [POST v1/cryptomanager/decrypt](#decryption-post-service)
 
 ##  Encryption Post Service
 
