@@ -32,7 +32,7 @@
 
 # Key Manager
 
-* [GET /publickey](#get-getpublickey)
+* [GET /publickey](#get-publickey)
 * [POST /decrypt](#post-decryptkey)
 
 
