@@ -22,7 +22,7 @@
 
 * [Individual Types Service](#individual-types)
 
-*﻿﻿[Digital Signatures](#digital-signatures)
+*﻿﻿ [Digital Signatures](#digital-signatures)
 
 * ﻿﻿[Static Token generator](#static-token-generator)
  
@@ -31,6 +31,11 @@
 
 
 # 1. Key Manager
+
+* [GET /publickey](#get-getpublickey)
+* [POST /decrypt](#post-decryptkey)
+
+
 ## 1.1 Public key-get service
 
 This service will provide the public key for the specific application. 
