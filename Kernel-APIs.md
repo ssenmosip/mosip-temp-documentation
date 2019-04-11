@@ -209,7 +209,7 @@ Requires Authentication | Yes
 This service will dencrypt encryted data along with symmetric key having splitter. 
 
 ### Resource URL
-### `POST v1/cryptomanager/decrypt`
+### POST v1/cryptomanager/decrypt
 
 
 ### Resource details
