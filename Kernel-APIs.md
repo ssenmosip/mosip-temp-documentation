@@ -33,7 +33,7 @@
 # Key Manager
 
 * [GET /publickey](#get-publickey)
-* [POST /decrypt](#post-decryptkey)
+* [POST /decrypt](#post-decrypt)
 
 
 ##  Public key-get service
