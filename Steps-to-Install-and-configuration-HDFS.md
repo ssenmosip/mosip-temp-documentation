@@ -28,10 +28,7 @@ sudo adduser hadoop
 
 ```
 if you want to give sudo access to hadoop user.(Optional)
-
-```
-sudo usermod -aG sudo hadoop
-```
+Follow this [link](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html)
 
 ### Distribute Authentication Key-pairs for the Hadoop User
 The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.
