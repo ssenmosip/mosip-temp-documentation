@@ -1499,6 +1499,10 @@ v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 # UIN
 ## UIN-get service
 
+* [GET /uin](#uin-get-service)
+
+* [PUT /uin](#put-uin)
+
 This service will return unused UIN from UIN pool 
 
 ### Resource URL
@@ -1599,6 +1603,9 @@ PUT v1/uingenerator/uin
 ```
 
 # SMS Notification
+
+* [POST /sms/send](#post-smssend)
+
 ## SMS Notification Post Service
 
 This service will send request to SMS gateway. 
