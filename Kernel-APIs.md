@@ -22,7 +22,7 @@
 
 * [Individual Types Service](#individual-types)
 
-*﻿﻿ [Digital signatures](#digital-signatures)
+*﻿﻿ [Digital Signatures](#digital-signatures)
 
 * ﻿﻿[Static Token generator](#static-token-generator)
  
