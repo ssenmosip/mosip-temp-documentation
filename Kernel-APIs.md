@@ -259,17 +259,17 @@ Requires Authentication | Yes
 
 # Sync data
 
-* [GET /masterdata](#masterdata-getservice)
+* [GET /masterdata](#get-masterdata)
 
-* [GET /masterdata](#masterdata-getall)
+* [GET /masterdata](#get-masterdata-1)
 
-* [GET /configs](#masterdata-getconfigs)
+* [GET /configs](#get-configs)
 
-* [GET /roles](#masterdata-getroles)
+* [GET /roles](#get-roles)
 
-* [GET /userdetails/{regid}](#masterdata-getregiddetails)
+* [GET /userdetails/{regid}](#get-userdetailsregid)
 
-* [GET /publickey](#masterdata-getpublickey)
+* [GET /publickey](#get-publickey-1)
 
 ## Sync Master data-get service
 
