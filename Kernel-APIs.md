@@ -87,7 +87,7 @@ v1/keymanager/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 This service will decrypt the encrypted symmetric key 
 
 ### Resource URL
-### `POST /decrypt`
+### POST /decrypt
 
 ### Resource details
 
