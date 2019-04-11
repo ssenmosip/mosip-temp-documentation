@@ -30,7 +30,7 @@
 
 
 
-# 1. Key Manager (Public)
+# Key Manager (Public)
 
 * [GET /publickey](#get-getpublickey)
 * [POST /decrypt](#post-decryptkey)
