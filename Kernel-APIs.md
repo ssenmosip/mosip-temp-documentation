@@ -2291,6 +2291,10 @@ docTypeCode|Yes|The code of the document type| -NA- |DOC_TYP_E
 
 These set of services does various operations regarding the Individual types.
 
+* [GET /individualtype/getAllIndividualTypes](#get-individualtypegetallindividualtypes)
+
+* [GET /individualtype/getIndividualTypes/{individualTypeCode}/{languagecode}](#get-individualtypegetindividualtypesindividualtypecodelanguagecode)
+
 ## Get all individual types
 
 This service returns all the individual types. 
@@ -2386,7 +2390,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ```
 
 
-# 13. Digital signatures
+# Digital signatures
 
 #### Background
 
