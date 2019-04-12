@@ -1284,6 +1284,11 @@ preRegistrationId |Yes|Pre-registration id of the application|36732486130976
 #### Request Part Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
+file |Yes|Document which we need to upload|
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.document.upload
 version |Yes|version of the application|1.0
 requesttime |Yes|Request tme of the application|2019-01-16T05:23:08.019Z
@@ -2030,8 +2035,7 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 }
 ```
 ### PUT /appointment/:preRegistrationId
-This request used to retrieve the appointment details for the specified pre-registration id,
-if exist update the availability for the slot and delete the record from the table and update the demographic record status "Pending_Appointment".
+This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/appointment/:preRegistrationId</div>
