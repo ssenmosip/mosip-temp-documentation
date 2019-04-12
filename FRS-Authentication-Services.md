@@ -138,7 +138,21 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 
 
 
-_**H. Composite match score (TBD)**_ [**[↑]**](#table-of-content)
+**H. Autenticate based on Composite match score (TBD)** [**[↑]**](#table-of-content)
+
+The system receives authentication service request with the following parameters: 
+id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) 
+1. The system retrieves generated score match
+2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
+3. The system then validated the following:
+   * Validates if two irisImg records are present in the input
+   * Retrieves the composite threshold level configured which is acceptable for a match
+   * Validates if the composite match score is equal to greater than the composite threshold
+4. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg , pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg, pin, OTP), reqTime, fgerMinCn, fgerImgCn, irisImgCn, faceImgCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code 
+5. Integrates the response with the static token generated for the authentication request. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
+6. The system proceeds to execute compare against Iris threshold 
+7. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
 
@@ -341,12 +355,7 @@ Eg:
 5. Triggers notification as per the defined and configured template and in the default language English
 6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
-
-[**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/Auth_Request_REST_service.md)
-
-# 2. Multi-factor Authentication [**[↑]**](#table-of-content)
-
+## 1.4 Common Features for all Authentication [**[↑]**](#table-of-content)
 
 **A. Validate the timestamp of the authentication request**
 
@@ -409,83 +418,7 @@ The system receives authentication request from TSP with the following parameter
 5. The system triggers notification as per the defined and configured template and in the default language English
 6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-
-**F. Store identity data and related documents in MOSIP database** [**[↑]**](#table-of-content)
-
-The system receives request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id, [**identity element**](MOSIP-ID-Object-definition) as per the [**ID object schema**](ID-Repository-API)
-
-The system then performs the following steps to Store identity data and related documents in MOSIP database:
-1. Validates if the request contains “individualBiometrics” or the “parentOrGuardianBiometrics” CBEFF files in the request
-2. The system interacts with biometric SDK to convert the FIR (Fingerprint Image Record) in the CBEFF file to FMR
-3. Appends the FMR (Fingerprint Minutiae Record) to the CBEFF file by using the kernel CBEFF utility service
-4. Stores the files in the distributed file system (DFS)
-5. Stores the references to the file in DFS in the database
-6. Validates if the request contains files corresponding to proofOfAddress, or proofOfIdentity, or proofOfRelationship, or proofOfDateOfBirth attributes.
-7. Stores the files in the distributed file system
-8. Stores the references to the file in DFS in the database
-9. The system validates if the request contains fullName, dateOfBirth, age, gender, addressLine1, addressLine2, addressLine3, region, province, city, postalCode, phone, email, CNIENumber, localAdministrativeAuthority, parentOrGuardianRIDOrUIN and parentOrGuardianNam in the request
-10. Stores the available identity details of the individual in the database securedly.
-11. Validate if at least one identity element is present in the request
-12. Validate if a document is present in the input the corresponding category is present in the identity element
-13. The system sends the response with the following parameters id, version, timestamp, status, and the entity element
-14. The default status is ‘ACTIVATED’. The status is configurable.
-15. The system proceed to trigger notification as per the defined and configured template and in the default language English
-16. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**G. Retrieve the stored identity details and the related documents**
-
-The system receives request to retrieve the UIN details with type as an optional parameter
-
-1. The system retrieves the identity details of the individual corresponding to the UIN in the request
-2. Validates if the type attribute in the request is “demo”
-3. The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response
-4. Validates if the type attribute in the request is “bio”
-5. The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response
-6. Validates if the type attribute in the request is “all”
-7. The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response
-8. The system sends the response with the following parameters: id, version, timestamp, status, and the response element with the appended elements.
-9.  The system proceed to trigger notification as per the defined and configured template and in the default language English
-10.  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-
-**H. Update identity data and related documents in MOSIP database** [**[↑]**](#table-of-content)
-
-The system receives request to update the UIN details with the following parameters: id, UIN, version, timestamp, registration id, status and identity attributes and documents
-
-1. The system updates only the identity attributes corresponding to the UIN in the request. For example if e-mail is present in the input only the e-mail of the UIN in the database will be updated.
-1. Validates if the demographic “documents” are present in the input
-1. The system updates the demographic documents corresponding to the UIN in the DFS
-1. Validates if the biometric “documents” are present in the input
-1. The system updates the biometric documents corresponding to the UIN in the DFS
-1. The system validates if both the demo and biometric documents are present in the input
-1. The system updates the biometric and demographic documents corresponding to the UIN in the DFS
-1. The status of the UIN can also be updated to ‘deactivated’ or ‘blocked’
-1. The system sends the response with the following parameters id, version, timestamp, status, and the response entity
-1. The system proceed to trigger notification as per the defined and configured template and in the default language English
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**I. Generate and store VIDs**
-
-The system receives VID generation and storage request with the parameters: UIN, ver
-
-The system performs the following steps to generate and store VIDs
-
-1. Validates if the UIN in the request is available in the auth database (Complete match) and the status of the UIN is active
-2. Validates if VID is already generated for the mapped UIN and validates if the existing VID is active based on the defined VID expiry policy
-3. The system sends the response with existing VID, err, resTime, ver
-4. Validates if VID is already generated for the mapped UIN and validates if the existing VID has expired based on the defined VID expiry policy
-5. The system generates new VID based on the VID generation policy defined 
-6. The system maps the new VID against the received UIN and sends the response new VID, err, resTime, ver
-7. Validates if VID is not generated for the mapped UIN
-8. The system generates new VID based on the VID generation policy defined 
-9. Responds with the new VID generated
-10. The system maps the new VID against the received UIN
-11. The system sends the response new VID, err, resTime, ver
-12. Captures and stores the transaction details for audit purpose.
-13. The system proceed to trigger notification as per the defined and configured template and in the default language English
-14. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**J. Generate a static token ID for each MOSIP authentication request, to facilitate authentication** [**[↑]**](#table-of-content)
+**F. Generate a static token ID for each MOSIP authentication request, to facilitate authentication** [**[↑]**](#table-of-content)
 
 The system receives authentication service request with the following parameters: 
 id, reqTime, txnId, idType, tspId and other authentication parameters based on the authentication type requested by the Individual 
@@ -510,7 +443,13 @@ The system retrieves the parameters relevant for token Id generation
 Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
 13. The system then captures and stores the transaction details for audit purpose.
 
-[**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/VID_Generate_REST_Service.md)
+
+
+[**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
+
+[**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/Auth_Request_REST_service.md)
+
+# 2. Multi-factor Authentication [**[↑]**](#table-of-content) (WIP)
 
 # 3. Offline Authentication 
 ## 3.1 QR Code based Authentication [**[↑]**](#table-of-content)
