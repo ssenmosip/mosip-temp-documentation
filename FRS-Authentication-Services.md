@@ -5,7 +5,7 @@
   * [1.1 Biometric Authentication](#11-biometric-authentication-) _(IDA_FR_1.1)_
   * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
   * [1.3 OTP Authentication](#13-otp-authentication-) _(IDA_FR_1.3)_
-  * [1.4 Common Features for all Authentication](#14-common-features-for-all-authentication-)
+  * [1.4 Common Features for all Authentication](#14-common-features-for-all-authentication-) _(IDA_FR_1.4)_
 - [2. Multi-factor Authentication](#2-multi-factor-authentication-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
   * [3.1 QR Code based Authentication](#31-qr-code-based-authentication-) _(IDA_FR_3.1)_
@@ -450,7 +450,7 @@ Note: The Authentication is integrated for both successful and failure authentic
 
 [**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/Auth_Request_REST_service.md)
 
-# 2. Multi-factor Authentication [**[↑]**](#table-of-content) (WIP)
+# 2. Multi-factor Authentication (WIP) [**[↑]**](#table-of-content)
 
 # 3. Offline Authentication 
 ## 3.1 QR Code based Authentication [**[↑]**](#table-of-content)
