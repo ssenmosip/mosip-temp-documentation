@@ -162,7 +162,7 @@
 |78.|RC Setup & Update|  File system | REG_FR_5.6| [MOS-16120](//mosipid.atlassian.net/browse/MOS-16120), [MOS-13174](//mosipid.atlassian.net/browse/MOS-13174), [MOS-12088](//mosipid.atlassian.net/browse/MOS-12088), [MOS-13527](//mosipid.atlassian.net/browse/MOS-13527), [MOS-8710](//mosipid.atlassian.net/browse/MOS-8710), [MOS-14](//mosipid.atlassian.net/browse/MOS-14), [MOS-61](//mosipid.atlassian.net/browse/MOS-61) |
 |79.|Packet creation| File system    | REG_FR_5.6| [MOS-11628](//mosipid.atlassian.net/browse/MOS-11628) |
 |80.|Acknowledgement|  Encryption and Decryption   | REG_FR_5.8| [MOS-15835](//mosipid.atlassian.net/browse/MOS-15835) |
-|81.|Sync|  Encryption and Decryption    | REG_FR_5.8| [MOS-11696](//mosipid.atlassian.net/browse/MOS-11696), [MOS-1343](//mosipid.atlassian.net/browse/MOS-1343)  |
+|81.|Sync|  Encryption and Decryption    | REG_FR_5.8| [MOS-11696](//mosipid.atlassian.net/browse/MOS-11696),[MOS-21461](//mosipid.atlassian.net/browse/MOS-21461), [MOS-1343](//mosipid.atlassian.net/browse/MOS-1343)  |
 |82.|Security|  Encryption and Decryption   | REG_FR_5.8| [MOS-8726](//mosipid.atlassian.net/browse/MOS-8726) |
 |83.|Packet creation|  Encryption and Decryption  | REG_FR_5.8| [MOS-65](//mosipid.atlassian.net/browse/MOS-65) |
 |84.|RC Setup & Update| Storage Policies  | REG_FR_5.9| [MOS-11784](//mosipid.atlassian.net/browse/MOS-11784) |
@@ -170,7 +170,6 @@
 |86.|UIN Update|  Registration Client UI  | REG_FR_6| [MOS-14999](//mosipid.atlassian.net/browse/MOS-14999) |
 |87.|New Registration|  Registration Client UI  | REG_FR_6| [MOS-13080](//mosipid.atlassian.net/browse/MOS-13080), [MOS-11678](//mosipid.atlassian.net/browse/MOS-11678), [MOS-21873](//mosipid.atlassian.net/browse/MOS-21873),[MOS-8742](//mosipid.atlassian.net/browse/MOS-8742), [MOS-11713](//mosipid.atlassian.net/browse/MOS-11713), [MOS-21870](//mosipid.atlassian.net/browse/MOS-21870),  [MOS-21860](//mosipid.atlassian.net/browse/MOS-21860), [MOS-15324](//mosipid.atlassian.net/browse/MOS-15324) |
 |88.|Authentication| Login/Authentication| REG_FR_4.2| [MOS-21523](//mosipid.atlassian.net/browse/MOS-21523)|
-|89.|Sync| Encryption and decryption | REG_FR_5.8| [MOS-21461](//mosipid.atlassian.net/browse/MOS-21461) |
 
 
 
