@@ -110,6 +110,55 @@ The system follows the following steps during the update process:
 
 ## 1.2 End of Day Process [**[↑]**](#table-of-content)
 
+#### A. Approval of registrations through an end of day process.
+
+Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
+
+The supervisor may opt to see the details of one or many registration ID .The system should show the display the acknowledgement slip of the registration\s
+
+The supervisor then choses to either approve, reject or keep the registration on hold.
+
+The supervisor must provide a reason in case of reject. Some of the values of Reason for hold are: Gender-photo mismatch, Age-photo mismatch, Name correction required, Address correction required, Date of birth correction required
+
+The supervisor then authenticates the registration by providing any one biometric - fingerprint, iris or face.
+The system then shows a confirmation of successful approval.
+
+1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
+1. The packet status should change only when supervisor completes authentication. Else the packet status should revert to its original status.
+1. The packets which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
+1. The packets which are placed on hold followed by successful authentication are moved from the ‘Pending Approval’ list to the ‘Pending Action’ list.
+1. The approved and rejected packets are placed in the upload location on the client and should be sent to server during the next upload.
+1. If a registration is on hold for more than x days, it is auto-approved by the system. No Supervisor authentication is required for this. The parameter x is configurable
+1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
+
+
+#### B. Registration client allows supervisor to view packets that are in pending approval state
+1. The system allows Supervisor to view packets in “Pending approval” status
+1. The system displays the packets with the fields as shown here ”Registration ID, Registration Type, Resident Name, Operator ID, Operator Name”
+1. The system displays error messages in case of any errors
+
+#### C. Registration client, enables a supervisor to approve data packets.
+1. The system allows a Supervisor to view packets in “Pending approval” status or “On hold”
+1. The supervisor can view the following fields :”(Packet ID, New Status = Approved, Approver ID)”
+1. The supervisor can then change the packet status to “ Approve”, “Reject” or “On hold”
+1. The system displays error messages in case of any errors
+1. The system ensures that the rejected packets and the packets that have been put on hold should not appear in the approval list again
+
+#### D. Supervisor can inform individuals to 'Re-register'
+
+1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
+1. The system displays the list of registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
+1. The supervisor can see the registration details(the acknowledgement slip) for registration ID\s
+1. Supervisor informs the individual by phone, email, physical mail or physical visit to re-register. This is an offline process.
+1. Supervisor also records it in the system that he has ‘Informed’ the individual
+   * If unable to contact the individual, Supervisor records it as ‘Can’t inform'.
+6. The supervisor then  ‘Authenticates by   providing biometric data -fingerprint, iris or face. Further select the specific finger or iris being provided.
+1. Scan the selected biometric.
+1. Authenticate with locally stored biometric and display the result.
+   * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
+   * On unsuccessful authentication, the user can retry his authentication with the same or a different biometric
+
+
 # 2. Booking Data Sync
 ## 2.1 Appointments (PRIDs) [**[↑]**](#table-of-content)
 ## 2.2 PR Packets [**[↑]**](#table-of-content)
