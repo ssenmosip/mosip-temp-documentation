@@ -162,14 +162,14 @@ The system receives authentication service request with the parameters: id, Con,
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
+NOTE:
 
-**C. Multi-System Authentication** [**[↑]**](#table-of-content)
+1. The address attributes will be generalized as location 1, location 2 and location 3 instead of the location hierarchy attributes of India - city, state and country.
+1. The SI has to define and map the address specific attributes against addrLine1, addrLine2, addrLine3 and location specific attributes against loc1, loc2 and loc3 of a country. For example: addrLine1 means House No, addrLine2 means Street No, and addrLine3 means Locality; similarly loc1 means Local Administrative Authority, loc2 means Province and loc3 means Region.
 
-MOSIP sends a positive response only if all configured parameters match
 
-In case of multi-system authentication, MOSIP responds back with e-KYC data based on alternate preferred business rules, as preferred by an SI. It is feasible for a Country/SI to accommodate business rule to send a positive response if 2 out of 3 systems match, to clear authentication – Without Code change by SI
 
-**D. Verify the Age of the individual so that the individual is authenticated**
+**C. Verify the Age of the individual so that the individual is authenticated**
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, age of the Individual.
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
@@ -181,7 +181,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 6. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->age”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->age, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**E. Match Name of the individual in the database so that the individual is authenticated**
+**D. Match Name of the individual in the database so that the individual is authenticated**
 
 The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, namePri, msPri = P (Partial), mtPri= 1 to 100, nameSec, msSec = P (Partial), mtSec= 1 to 100. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
@@ -197,7 +197,7 @@ The system receives authentication service request with the parameters: id, Con,
 11. The system proceeds to execute Notification SMS, E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
 
 
-**F. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
+**E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, phone of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
@@ -208,7 +208,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 
 
 
-**G. Match e-mail ID of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
+**F. Match e-mail ID of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
 The system receives an authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, email of the Individual.
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
@@ -221,7 +221,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 
 
 
-**H. Match gender of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
+**G. Match gender of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, gender of the Individual.
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
@@ -232,7 +232,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 5. The system proceeds to execute Notification - SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
-**I. Match DOB of the individual in the database so that the individual is authenticated**
+**H. Match DOB of the individual in the database so that the individual is authenticated**
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dob of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
@@ -242,36 +242,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
-**J. Support country specific address ID attributes for an individual** [**[↑]**](#table-of-content)
 
-**(i) Complete Address and Exact Match**
-
-The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, Id, ad, fad, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, msPri = E (Exact), langPri, addrSec, msSec = E (Exact), langSec Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
-2. Validates if the addrPri in the i/p parameter is same as the Address (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
-3. Validates if the addrSec in the i/p parameter is same as the Address (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
-4. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
-5. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, fad->addrPri or/and fad->addrSec, etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->Name_Prim” or/and “Id->Name_Second”, fad->addrPri, or/and fad->addrSec, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-6. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**(ii) Address as individual line items and Complete Match**
-
-1. The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, UA_Licensekey, SA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, addrLine1Pri, addrLine2Pri, addrLine3Pri loc1Pri, loc2Pri, loc3Pri, pcPri, msPri = E (Exact), LangPri, addrLine1Sec, addrLine2Sec, addrLine3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, msSec = E (Exact), LangSec
-2. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
-3. The system validates if each of the address line items (addrLine1Pri, addrLine2Pri, addrLine3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri) in the i/p parameter is same as the Address line items (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
-4. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec) in the i/p parameter is same as the Address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
-5. The system constructs the response to the requesting source with Res (Y/N), txnId (same as request), timestamp_Res of response, error code
-6. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->loc1Pri, ad->loc2Pri, ad->loc3Pri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->loc1Sec, ad->loc2Sec, ad->loc3Sec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-7. The system proceeds to execute ‘Notification SMS’ and ‘Notification E-mail’ user stories. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**K. Match DOB Type for an individual in the Auth database so that an individual can be authenticated** [**[↑]**](#table-of-content)
-
-The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dobType of the Individual Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
-2. The system matches the DOB Type in the input parameter with the dobType of the individual in the auth DB based on the mapped UIN/VID
-3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
-4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->dobType”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->dobType, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 [**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/Demo_Auth_Request_REST_Service.md)
 
@@ -632,7 +603,7 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 22. The actor proceeds to execute Notification-SMS/E-mail
 23. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**D. Support returns additional e-KYC data to social protection system (TBD)** [**[↑]**](#table-of-content)
+**D. Supports return of additional e-KYC data to social protection system (TBD)** [**[↑]**](#table-of-content)
 
 MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of a family relationship will be required as a security imperative) and send to Social Protection Data System
 
