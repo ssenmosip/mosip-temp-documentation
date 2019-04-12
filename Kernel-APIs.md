@@ -2434,9 +2434,11 @@ Digital signatures are needed in various places of the MOSIP system. Few example
 **kernel-cryptography-digitalsignature** [README](../../../kernel/kernel-cryptography-digitalsignature/README.md)
 
 
-# 14. Static Token generator
+# Static Token generator
 
-## 14.1 Get static token
+* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
+
+## Get static token
 
 This service returns a static token for the requested UIN and Partner ID. It will return the same Static Token for every call made with the same UIN and Partner ID. 
 
