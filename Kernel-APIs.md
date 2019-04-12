@@ -2053,11 +2053,13 @@ Sample Error Response:
 }
 
 
-# 11. Applicant type
+# Applicant type
 
 These set of services does various operations regarding the applicant type.
 
-## 11.1 Get applicant type
+
+
+## Get applicant type
 
 This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
 
@@ -2285,11 +2287,11 @@ docTypeCode|Yes|The code of the document type| -NA- |DOC_TYP_E
 ```
 
 
-# 12. Individual types
+# Individual types
 
 These set of services does various operations regarding the Individual types.
 
-## 12.1 Get all individual types
+## Get all individual types
 
 This service returns all the individual types. 
 
@@ -2336,7 +2338,7 @@ Name | Required | Description | Default Value | Example
 ```
 
 
-## 12.2 Get all individual types
+## Get all individual types
 
 These set of services does various operations regarding the Individual types.
 
