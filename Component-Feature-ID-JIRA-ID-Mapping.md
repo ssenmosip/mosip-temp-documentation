@@ -168,7 +168,7 @@
 |84.|RC Setup & Update| Storage Policies  | REG_FR_5.9| [MOS-11784](//mosipid.atlassian.net/browse/MOS-11784) |
 |85.|Packet Creation|  Storage Policies  | REG_FR_5.9| [MOS-65](//mosipid.atlassian.net/browse/MOS-65) |
 |86.|UIN Update|  Registration Client UI  | REG_FR_6| [MOS-14999](//mosipid.atlassian.net/browse/MOS-14999) |
-|87.|New Registration|  Registration Client UI  | REG_FR_6| [MOS-13080](//mosipid.atlassian.net/browse/MOS-13080), [MOS-11678](//mosipid.atlassian.net/browse/MOS-11678), [MOS-21873](//mosipid.atlassian.net/browse/MOS-21873),[MOS-8742](//mosipid.atlassian.net/browse/MOS-8742), [MOS-11713](//mosipid.atlassian.net/browse/MOS-11713), [MOS-21873](//mosipid.atlassian.net/browse/MOS-21873), [MOS-15324](//mosipid.atlassian.net/browse/MOS-15324) |
+|87.|New Registration|  Registration Client UI  | REG_FR_6| [MOS-13080](//mosipid.atlassian.net/browse/MOS-13080), [MOS-11678](//mosipid.atlassian.net/browse/MOS-11678), [MOS-21873](//mosipid.atlassian.net/browse/MOS-21873),[MOS-8742](//mosipid.atlassian.net/browse/MOS-8742), [MOS-11713](//mosipid.atlassian.net/browse/MOS-11713), [MOS-21870](//mosipid.atlassian.net/browse/MOS-21870), [MOS-15324](//mosipid.atlassian.net/browse/MOS-15324) |
 
 
 
