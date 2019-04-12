@@ -6,7 +6,7 @@
   * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
   * [1.3 OTP Authentication](#13-otp-authentication-) _(IDA_FR_1.3)_
   * [1.4 Common Features for all Authentication](#14-common-features-for-all-authentication-) _(IDA_FR_1.4)_
-- [2. Multi-factor Authentication](#2-multi-factor-authentication-) _(IDA_FR_2)_
+- [2. Multi-factor Authentication](#2-multi-factor-authentication-wip-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
   * [3.1 QR Code based Authentication](#31-qr-code-based-authentication-) _(IDA_FR_3.1)_
 - [4. KYC Service](#4-kyc-service)
@@ -442,6 +442,7 @@ The system retrieves the parameters relevant for token Id generation
 1. The generated tokenid is integrated to the authentication response along with other parameters.
 
 Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
+
 13. The system then captures and stores the transaction details for audit purpose.
 
 
