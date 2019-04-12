@@ -5,6 +5,7 @@
   * [1.1 Biometric Authentication](#11-biometric-authentication-) _(IDA_FR_1.1)_
   * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
   * [1.3 OTP Authentication](#13-otp-authentication-) _(IDA_FR_1.3)_
+  * [1.4 Common Features for all Authentication](#14-common-features-for-all-authentication-)
 - [2. Multi-factor Authentication](#2-multi-factor-authentication-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
   * [3.1 QR Code based Authentication](#31-qr-code-based-authentication-) _(IDA_FR_3.1)_
