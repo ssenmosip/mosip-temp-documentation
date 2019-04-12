@@ -14,8 +14,6 @@
 
 * [License Key Service](#license-key-manager)
 
-* [OTP Notification Service](#otp-notification)
-
 * [Applicant Types Service](#applicant-type)
 
 * [Individual Types Service](#individual-types)
@@ -1738,6 +1736,8 @@ The Audit Manager component will receive a request to audit and store data, vali
 
 It will also ensure audit data stored is archived based on the defined archival policy.
 
+* [POST /audits](#post-audits)
+
 ### Resource URL
 ### `POST /audits`
 
@@ -1821,9 +1821,18 @@ TSPs call the IDA to authenticate the Individuals. There can be various service 
 
 This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
 
-## 9.1 License Key Generation
+## License Key Generation
 
 This component generates a license key for a specified TSP ID.
+
+* [POST /license/generate](#post-licensegenerate)
+
+* [POST /license/permission](#post-licensepermission)
+
+* [GET /license/permission](#get-licensepermission)
+
+* [PUT /license/status](#put-licensestatus)
+
 
 ### Resource URL
 ### `POST /license/generate`
@@ -1871,7 +1880,7 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
 	}
 }
 ```
-## 9.2 Mapping Permissions
+## Mapping Permissions
 
 This component maps various permissions provided to a specified license key.
 
@@ -1926,7 +1935,7 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 }
 ```
 
-## 9.3 Fetching Permissions 
+## Fetching Permissions 
 
 This component fetches various permission mapped to a license key.
 
@@ -1972,7 +1981,7 @@ license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
 ```
 
 
-## 9.4 Change license key status
+## Change license key status
 
 This service moves the status of the license key to SUSPENDED status.
 
