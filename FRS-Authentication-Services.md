@@ -28,8 +28,8 @@ Upon receiving an authentication service request, the system authenticates the f
 3. The system retrieves the threshold level configured which is acceptable for a match and then validates if the match score is equal to greater than the threshold level and sets the status as 'Y' for authentication
 4. The system then constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 5. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
-6. Alerts and warning messages for data type violation are sent as per data definition
-7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+6. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
 
 **B. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
 
@@ -42,8 +42,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 6. The system then generates a match score based on the level of the match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold
-9. Alerts and warning messages for data type violation are sent as per data definition
-10. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+9. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 **C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server** [**[↑]**](#table-of-content)
 
@@ -58,8 +57,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if total number of fgerMin records should not exceed 2
 4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database 
 5. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
-6. Alerts and warning messages for data type violation are sent as per data definition
-7. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+6. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+ 
 
 **D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold (BioAuthService)**
 
@@ -70,8 +69,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 4. The system then validates the following if the match score is equal to greater than the threshold level
 5. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
 6. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
-7. Alerts and warning messages for data type violation are sent as per data definition
-8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+7. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-content)
@@ -95,8 +93,7 @@ Upon receiving an authentication request, the system support two-finger authenti
 11. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
 12. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 13. The system then proceeds to send notifications
-14. Alerts and warning messages for data type violation are sent as per data definition
-15. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+14. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server** [**[↑]**](#table-of-content)
@@ -117,8 +114,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
-10. Alerts and warning messages for data type violation are sent as per data definition
-11. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+10. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 **G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold** [**[↑]**](#table-of-content)
@@ -137,8 +133,7 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 4. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg , pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg, pin, OTP), reqTime, fgerMinCn, fgerImgCn, irisImgCn, faceImgCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code 
 5. Integrates the response with the static token generated for the authentication request. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 6. The system proceeds to execute compare against Iris threshold 
-7. Alerts and Warning messages for data type violation are sent as per data definition
-8. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+7. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
 
 
 
@@ -552,7 +547,7 @@ Note: The Authentication is integrated for both successful and failure authentic
 ## 4.1 Profile Sharing based on Policy [**[↑]**](#table-of-content)
 
 
-**A. Respond back to TSP with KYC details, as configured - KycAuth - Add KycFilter, decode authRequest**
+**A. E-KYC Service based on OTP Authentication**
 
 Upon receiving a request for authentication from TSP, the system responds back to TSP with KYC details, as configured as per the following steps:
 
@@ -579,18 +574,9 @@ Upon receiving a request for authentication from TSP, the system responds back t
 21. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
 22. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
 23. The system then proceeds to execute Notification SMS/E-mail
-24. Alerts and warning messages for data type violation are sent as per data definition
-25. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+24. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**B. Support returns additional e-KYC data to social protection system (TBD)** [**[↑]**](#table-of-content)
-
-MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of a family relationship will be required as a security imperative) and send to Social Protection Data System
-
-MOSIP to provide a mechanism to record the consent of HoF
-
-This is required to accommodate Household Program of GoM
-
-**C. Integrate Fingerprint Authentication with e-KYC**
+**B. E-KYC Service based on Finger Print Authentication**
 
 Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system performs the following steps:
 
@@ -616,10 +602,9 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
 21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
 22. The system then proceeds to execute Notification-SMS/E-mail
-23. Alerts and warning messages for data type violation are sent as per data definition
-24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+23. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**D. Integrate IRIS Authentication with e-KYC**
+**C. E-KYC Service based on Iris Authentication**
 
 Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system perform the following steps:
 
@@ -645,37 +630,15 @@ Upon receiving an authentication request from TSP with the parameters: reqTime, 
 20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
 21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
 22. The actor proceeds to execute Notification-SMS/E-mail
-23. Alerts and warning messages for data type violation are sent as per data definition
-24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+23. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**E. Integrate static pin authentication with e-KYC** [**[↑]**](#table-of-content)
+**D. Support returns additional e-KYC data to social protection system (TBD)** [**[↑]**](#table-of-content)
 
-Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system performs the following steps:
+MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of a family relationship will be required as a security imperative) and send to Social Protection Data System
 
-1. Decodes the authentication request and obtain all the input parameters of the auth request
-2. Validates eAuthType and compare the data in the PID block in the auth request
-3. Validates if the MUA has permission for e-KYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
-5. The system performs all the validation of the IRIS Validation standards and encodes the auth response
-6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
-7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
-8. Proceeds to execute tokenization user story
-9. Retrieves the configured demVal parameter configured for the country
-10. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the MUA
-11. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
-12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-13. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-14. Retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
-15. Validates the rqSec flag
-16. The system then returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
-17. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
-18. Retrieves the PDF template configured for the Full KYC to construct ePri element
-19. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
-20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
-21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
-22. The system then proceeds to execute Notification -SMS/E-mail
-23. Alerts and warning messages for data type violation are sent as per data definition
-24. All the error and warning messages are configurable via a configurable file. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+MOSIP to provide a mechanism to record the consent of HoF
+
+This is required to accommodate Household Program of GoM
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/eKYC_Auth_Request_REST_service.md)
 
@@ -694,11 +657,11 @@ MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (
 5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
 6. Captures and stores the transaction details for audit purpose.
 7. Alerts and warning messages for data type violation are sent as per [**data definition Link](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) _**(Link to be updated)**_
-8. The alert and warning messages are configurable via a configurable file.
+
 
 ## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
 
-**A. Authenticate and authorize Auth Partner**
+**A. Authenticate and authorize Auth Partner- proxy implementation**
 
 The system receives authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec= E/P, mtSec= 1 to 100, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
@@ -719,7 +682,7 @@ The system then validates the following:
 12. The system also provides id, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Id, Ad, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver.
 13. The system proceeds to execute Notification SMS
 14. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
-15. The alert and warning messages are configurable via a configurable file.
+
 
 **B. Authenticate and authorize e-KYC partner - proxy implementation**
 
@@ -748,15 +711,7 @@ The system then validates the following:
 18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
 19. The system proceeds to execute Notification-SMS
 20. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
-21. The alert and warning messages are configurable via a configurable file.
 
-**C. Support multiple license keys (policies) for a single TSP (Partner) (Feature Roadmap-TBD)**
-
-**License Key Generation** [**[↑]**](#table-of-content)
-
-1. License key generation to be invoked through admin portal with an approval process > Key to be associated to the TSP ID > TSP should have a mechanism to access the key
-2. MOSIP should support multiple license keys per TSP. There will be a separate license key per use case/application with associated policy
-3. Once a TSP is authorized, they should ideally have a self-service (TSP Portal) mechanism to get their keys and regenerate them on need basis. In the absence of a Self-service portal, it should be possible for the admin to generate the key and email it to the TSP. This can be done as part of the approval process, as well as on an ad hoc basis when the key needs to be replaced
 
 # 6. Authentication Device Support 
 ## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-content)
