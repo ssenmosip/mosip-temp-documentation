@@ -252,6 +252,97 @@ Initially a machine will have no users on boarded. The first RO/Supervisor will 
 User can update their biometrics at any time after successful on-boarding by choosing the ‘User on-boarding’ link from the menu. The biometrics provided during update will be authenticated with the server and saved locally if threshold for successful authentication is met. Updated biometrics will overwrite the biometrics stored locally earlier.
 
 ## 4.2 Login/Authentication [**[↑]**](#table-of-content)
+
+#### A. Login with iris and face to registration client
+#### B. A Supervisor, can unlock a user's account on the Registration Client
+
+A Supervisor or Admin can unlock a user’s account that has been locked due to five consecutive unsuccessful login attempts.
+
+A Supervisor or Admin can log in to the Registration Client and views a list of users whose accounts are locked at a given point of time.
+
+#### C. Allows biometric login of the Registration Officer or Supervisor to the client application
+
+MOSIP supports single factor and multi factor login including iris and face capture. An Admin config setting determines the mode of login. 
+
+1. The Registration Officer or Supervisor opts to login to registration client application
+   * System enables user to login by entering username, and submit iris and face photo.
+2. The user enters their username.
+3. The user scans any one iris through the iris capture device.
+4. The user then captures face photo using the face photo capture-device.
+5. On successful authentication, the system logs in the user.
+
+#### D. Enforce multi factor login for Admin users.
+
+When an Admin user opens the registration client by entering his/her username the system recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order
+
+The System enforces multi-factor authentication for Admin users as configured, regardless of the mode of authentication for Registration Officers and Supervisors.
+
+Note: multifactor authentication is the type of authentication where an admin user is authenticated by more than one mode. Some examples could be OTP and Iris, and Finger print and OTP, etc.
+#### E. Temporarily lock the user account after five unsuccessful login attempts.
+1. The MOSIP system temporarily locks the user to login in case the user gives an invalid password for login five times continuously.
+1. Upon the fifth unsuccessful attempt to login, displays an error message 
+1. The temporarily lock lasts for 30 minutes.
+1. The same error message is displayed for any subsequent login attempt within 30 minutes.
+1. After 30 minutes, the lock is released and the count of invalid login attempts should be reset to zero.
+1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
+1. System captures and stores the transaction details for audit purpose.
+
+#### F. Authenticate online/offline login of the Supervisor to the client application
+
+When a supervisor opts to log in to the client machine the systems displays the appropriate options as per the mode of login.
+
+* If the mode of login is username and password, displays the password-based login.
+* If the mode of login is username and OTP, display the OTP based login 
+
+
+**Password-based login**
+1. Allows the user to enter their username and password and submit.
+1. Validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
+1. Validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
+1. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+1. Validates that the user has a role or Registration Officer or Supervisor. 
+**OTP based login**
+
+1. Allows the user to enter their username and submit.
+1. Validates that the username belongs to an on-boarded Registration Officer or Supervisor on that client.
+1. Generate and send an OTP by SMS to the user’s registered mobile number. Use the template defined in Admin for the OTP message. 
+1. Allow the user to enter the OTP and submit.
+   * Alternatively, allow the user to change entered username.
+   * Alternatively, allow the user to request for resending the OTP.
+5. Validates that the OTP submitted matches the one that was generated and is submitted within its validity period.
+6. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+7. Validates that the user has a role of Registration Officer or Supervisor.
+8. On successful validation of all conditions above, display the logged in screen to the user
+
+#### G. Restrict access to each MOSIP feature to authorized users.
+
+In MOSIP system, a user can have a single role only For example, a user can be either a Registration Officer or Supervisor. User to role mapping is done by the admin
+
+When a logged in user tries to access a feature on the registration client the system determines if the requested feature is accessible to the role(s) mapped to the user.
+1. If yes, permits the user to access the requested feature.
+2. If no, displays an error message or hide the link to the feature as applicable. The UX design will drive whether to hide a link or display an error on click of the link.
+3. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
+   * Login
+   * On-board users
+   * On-board devices
+   * New registration
+   * Registration correction
+   * UIN update
+   * UIN de- and re-activation
+   * Lost UIN
+   * Send registration packet IDs to server
+   * Sync data from server to client
+   * Sync data from client to server
+   * Export packets to local folder
+   * Upload packets through FTP
+   * Virus scan
+   * Update client software
+4. Only supervisors can access the following features:
+   * Approve registration
+   * Reports
+5. A Super Admin can access all features.
+1. If a user is not authorized to access a feature, the system notifies the user by a message. 
+
 ## 4.3 Logout [**[↑]**](#table-of-content)
 
 When a Registration Officer or Supervisor opts to logout, the system allows them to do so by provisioning the following:
