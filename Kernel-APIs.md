@@ -2051,7 +2051,7 @@ Sample Error Response:
     }
   ]
 }
-
+```
 
 # Applicant type
 
