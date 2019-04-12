@@ -9,10 +9,13 @@ Run the steps in this guide from the node-master unless otherwise specified.
 ifconfig
 ```
 The steps below use below IPs for each node. Adjust /etc/hosts on all nodes according to your configuration:
+NOTE: while adding same machine ip to /etc/hosts , use private ip that machine instead of public ip. for other machine in the cluster use public ip.
+
 ```
-10.0.3.11   node-master.example.com
-10.0.3.12   node-slave1.example.com
+10.0.22.11 node-master.example.com
+10.0.3.12 node-slave1.example.com
 ```
+
 ### Architecture of a Hadoop Cluster
 A master node keeps knowledge about the distributed file system. node-master will handle this role in this guide, and it will have:
 - The NameNode: manages the distributed file system and knows where stored data blocks inside the cluster are.
