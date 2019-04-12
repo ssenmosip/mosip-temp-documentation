@@ -2057,6 +2057,16 @@ Sample Error Response:
 
 These set of services does various operations regarding the applicant type.
 
+* [GET /applicanttype/getApplicantType](#get-applicanttypegetapplicanttype)
+
+* [GET /applicanttype/getDocCatAndTyp?applicationtypecode=APP-C-94&languages=eng&language=fra](#get-applicanttypegetdoccatandtypapplicationtypecodeapp-c-94languagesenglanguagefra)
+
+* [GET /applicanttype/getDocCategories?applicationtypecode="APP-C-94"](#get-document-categories)
+
+* [GET /applicanttype/isApplicantTypeExists/{applicationtypecode}/{docCategoryCode}/{docTypeCode}](#get-applicanttypeisapplicanttypeexistsapplicationtypecodedoccategorycodedoctypecode)
+
+
+
 
 
 ## Get applicant type
@@ -2064,7 +2074,7 @@ These set of services does various operations regarding the applicant type.
 This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
 
 ### Resource URL
-### `POST /applicanttype/getApplicantType`
+### `GET /applicanttype/getApplicantType`
 
 ### Resource details
 Resource Details | Description
@@ -2135,7 +2145,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ```
 
 
-## 11.2 Get document category and types
+## Get document category and types
 
 This service returns the document category and the document types associated with a particular applicant type. 
 
@@ -2194,7 +2204,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
 
 
 
-## 11.3 Get document categories
+## Get document categories
 
 This service returns the document categories for a particular applicant type. 
 
@@ -2243,7 +2253,7 @@ NA
 
 
 
-## 11.4 Is applicant type combination exists
+## Is applicant type combination exists
 
 This service checks whether the combination exists for a particular Applicanttype code, Document. 
 
