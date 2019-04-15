@@ -170,6 +170,15 @@
 |86.|UIN Update|  Registration Client UI  | REG_FR_6| [MOS-14999](//mosipid.atlassian.net/browse/MOS-14999) |
 |87.|New Registration|  Registration Client UI  | REG_FR_6| [MOS-13080](//mosipid.atlassian.net/browse/MOS-13080), [MOS-11678](//mosipid.atlassian.net/browse/MOS-11678), [MOS-21873](//mosipid.atlassian.net/browse/MOS-21873),[MOS-8742](//mosipid.atlassian.net/browse/MOS-8742), [MOS-11713](//mosipid.atlassian.net/browse/MOS-11713), [MOS-21870](//mosipid.atlassian.net/browse/MOS-21870),  [MOS-21860](//mosipid.atlassian.net/browse/MOS-21860), [MOS-15324](//mosipid.atlassian.net/browse/MOS-15324) |
 |88.|Authentication| Login/Authentication| REG_FR_4.2| [MOS-21523](//mosipid.atlassian.net/browse/MOS-21523)|
+|89.|Acknowledgement|Registration Client UI|REG_FR_6|[MOS-21926](//mosipid.atlassian.net/browse/MOS-21926)|
+|90.|EoD Process|Registration Client UI|REG_FR_6|[MOS-22010](//mosipid.atlassian.net/browse/MOS-22010), [MOS-22008](//mosipid.atlassian.net/browse/MOS-22008), [MOS-22007](//mosipid.atlassian.net/browse/MOS-22007), [MOS-22006](//mosipid.atlassian.net/browse/MOS-22006), [MOS-21928](//mosipid.atlassian.net/browse/MOS-21928)|
+|91.|Login|Login/Authentication|REG_FR_4.2|[MOS-21996](//mosipid.atlassian.net/browse/MOS-21996), [MOS-21997](//mosipid.atlassian.net/browse/MOS-21997)|
+|92.|Packet Creation|Registration Data|REG_FR_5.14|[MOS-22381](//mosipid.atlassian.net/browse/MOS-22381)|
+|93.|Packet Exporter|Registration Client UI|REG_FR_6|[MOS-22013](//mosipid.atlassian.net/browse/MOS-22013), [MOS-22012](//mosipid.atlassian.net/browse/MOS-22012)|
+|94.|Security|Key Management|REG_FR_5.10|[MOS-22405](//mosipid.atlassian.net/browse/MOS-22405)|
+|95.|Security|Master Data|REG_FR_5.12|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
+|96.|Security|Login/Authentication|REG_FR_4.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
+|97.|User Onboarding|Reigstraiton Client UI|REG_FR_6|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
 
 
 
