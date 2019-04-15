@@ -532,8 +532,11 @@ Please refer [**wiki**](ID-Authentication-APIs) for more details on the APIs for
    * The system should enable a Supervisor or Registration Officer to select Device Type = ‘Fingerprint’ or ‘Iris’ or ‘Camera’ or ‘Printer’ or ‘Scanner’ or ‘GPS’ or ‘Barcode reader’.
    * Upon section of a device type, the system shows a list of devices that are registered. Device registration is done through by the Admin. 
    * The available devices list should show only those devices whose model’s validity end date is not a past date.
-   (i) For example, say the validity of xyz model of fingerprint scanner is set from 1 Jan 2018 to 30 Jun 2018. If current date is 15 Oct 2018, system should not show this device under available devices.
-   (ii) During usage of a device, the client will again check if the device is within its validity dates. This validation is covered in other user stories.
+
+      (i) For example, say the validity of xyz model of fingerprint scanner is set from 1 Jan 2018 to 30 Jun 2018. If current date is 15 Oct 2018, system should not show this device under available devices.
+
+      (ii) During usage of a device, the client will again check if the device is within its validity dates. This validation is covered in other user stories.
+
    * User can select one or more device\s, and mark them as ‘mapped’ and submit.
    * The user should also be able to unmap devices by moving from the ‘mapped’ list to the ‘available’ one.
    * The devices must be plugged in at the time of on-boarding.
