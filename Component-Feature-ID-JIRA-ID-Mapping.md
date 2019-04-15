@@ -178,7 +178,7 @@
 |94.|Security|Key Management|REG_FR_5.10|[MOS-22405](//mosipid.atlassian.net/browse/MOS-22405)|
 |95.|Security|Master Data|REG_FR_5.12|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |96.|Security|Login/Authentication|REG_FR_4.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
-|97.|User Onboarding|Reigstraiton Client UI|REG_FR_6|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
+|97.|User Onboarding|Reigstration Client UI|REG_FR_6|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
 
 
 
