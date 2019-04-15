@@ -164,7 +164,7 @@
 |80.|Acknowledgement|  Encryption and Decryption   | REG_FR_5.8| [MOS-15835](//mosipid.atlassian.net/browse/MOS-15835) |
 |81.|Sync|  Encryption and Decryption    | REG_FR_5.8| [MOS-11696](//mosipid.atlassian.net/browse/MOS-11696),[MOS-21461](//mosipid.atlassian.net/browse/MOS-21461), [MOS-1343](//mosipid.atlassian.net/browse/MOS-1343)  |
 |82.|Security|  Encryption and Decryption   | REG_FR_5.8| [MOS-8726](//mosipid.atlassian.net/browse/MOS-8726) |
-|83.|Packet creation|  Encryption and Decryption  | REG_FR_5.8| [MOS-65](//mosipid.atlassian.net/browse/MOS-65) |
+|83.|Packet creation|  Encryption and Decryption  | REG_FR_5.8| [MOS-65](//mosipid.atlassian.net/browse/MOS-65), [MOS-21573](//mosipid.atlassian.net/browse/MOS-21573), [MOS-8658](//mosipid.atlassian.net/browse/MOS-8658), [MOS-561](//mosipid.atlassian.net/browse/MOS-561) |
 |84.|RC Setup & Update| Storage Policies  | REG_FR_5.9| [MOS-11784](//mosipid.atlassian.net/browse/MOS-11784) |
 |85.|Packet Creation|  Storage Policies  | REG_FR_5.9| [MOS-65](//mosipid.atlassian.net/browse/MOS-65) |
 |86.|UIN Update|  Registration Client UI  | REG_FR_6| [MOS-14999](//mosipid.atlassian.net/browse/MOS-14999) |
