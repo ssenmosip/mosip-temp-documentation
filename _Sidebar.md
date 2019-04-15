@@ -30,7 +30,7 @@
   * [ABIS APIs](ABIS-APIs)
   * [Master Data APIs](Master-data-APIs)
   * [Pre-Registration](Pre-Registration-Services)
-  * [Registration Processor APIs](Registration-Processor-APIs)
+  * [Registration Processor](Registration-Processor-APIs)
   * [AuthN & AuthZ APIs](AuthN-&-AuthZ-APIs)
 * [Developer Documentation](Developer-Documentation)
 * [Tester Documentation](Tester-Documentation)
