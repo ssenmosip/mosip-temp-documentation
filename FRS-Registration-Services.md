@@ -515,6 +515,10 @@ Registration Client performs a local duplicate check for irises and face of an i
 1. The number of recapture attempts due to local duplicate check failures is not capped.
 
 ## 5.2 API Client [**[↑]**](#table-of-content)
+
+Please refer [**wiki**](ID-Authentication-APIs) for more details on the APIs for ID authentication.
+
+
 ## 5.3 Biometric Device Manager [**[↑]**](#table-of-content)
 ### 5.3.1 Vendor Device Manager Integration and Support [**[↑]**](#table-of-content)
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
