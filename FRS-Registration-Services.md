@@ -364,6 +364,7 @@ When a supervisor opts to log in to the client machine the systems displays the 
 1. Validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
 1. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
 1. Validates that the user has a role or Registration Officer or Supervisor. 
+
 **OTP based login**
 
 1. Allows the user to enter their username and submit.
