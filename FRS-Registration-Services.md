@@ -27,7 +27,7 @@
     * [5.1.2 Biometric SDK Integration (Extract and Match)](#512-biometric-sdk-integration-extract-and-match-) _(REG_FR_5.2)_
   * [5.2 API Client](#52-api-client-) _(REG_FR_5.3)_
   * [5.3 Biometric Device Manager](#53-biometric-device-manager-)
-    * [5.3.1 Vendor Device Manager Integration and Suuport](#531-vendor-device-manager-integration-and-suuport-) _(REG_FR_5.4)_
+    * [5.3.1 Vendor Device Manager Integration and Support](#531-vendor-device-manager-integration-and-support-) _(REG_FR_5.4)_
   * [5.4 Local Storage](#54-local-storage-) 
     * [5.4.1 Database](#541-database-) _(REG_FR_5.5)_
     * [5.4.2 File system](#542-file-system-) _(REG_FR_5.6)_
@@ -516,7 +516,7 @@ Registration Client performs a local duplicate check for irises and face of an i
 
 ## 5.2 API Client [**[↑]**](#table-of-content)
 ## 5.3 Biometric Device Manager [**[↑]**](#table-of-content)
-### 5.3.1 Vendor Device Manager Integration and Suuport [**[↑]**](#table-of-content)
+### 5.3.1 Vendor Device Manager Integration and Support [**[↑]**](#table-of-content)
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
 ### 5.4.1 Database [**[↑]**](#table-of-content)
 ### 5.4.2 File system [**[↑]**](#table-of-content)
