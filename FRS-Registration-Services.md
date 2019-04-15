@@ -521,6 +521,29 @@ Please refer [**wiki**](ID-Authentication-APIs) for more details on the APIs for
 
 ## 5.3 Biometric Device Manager [**[↑]**](#table-of-content)
 ### 5.3.1 Vendor Device Manager Integration and Support [**[↑]**](#table-of-content)
+
+#### A. On-boarding fingerprint, iris, camera, GPS, printer, scanner, and barcode devices to a registration machine.
+
+1. In MOSIP any Registration Officer or Supervisor can on-board a device.
+2. Every model has a start date and end date associated to it by the admin. Devices of a certain model can only be used for registrations within this configured date range.
+3. A device-machine mapping cannot be created if the end date of the model validity has passed. However it can be created ahead of the validity start date.
+4. The admin user first sets up models in the admin portal, then registers devices by entering their serial number, model number and manufacturer.
+5. While mapping a fingerprint or ‘IRIS’ or 'Camera' or 'Printer' or 'Scanner' or 'GPS' device to the client machine.
+   * The system should enable a Supervisor or Registration Officer to select Device Type = ‘Fingerprint’ or ‘Iris’ or ‘Camera’ or ‘Printer’ or ‘Scanner’ or ‘GPS’ or ‘Barcode reader’.
+   * Upon section of a device type, the system shows a list of devices that are registered. Device registration is done through by the Admin. 
+   * The available devices list should show only those devices whose model’s validity end date is not a past date.
+   (i) For example, say the validity of xyz model of fingerprint scanner is set from 1 Jan 2018 to 30 Jun 2018. If current date is 15 Oct 2018, system should not show this device under available devices.
+   (ii) During usage of a device, the client will again check if the device is within its validity dates. This validation is covered in other user stories.
+   * User can select one or more device\s, and mark them as ‘mapped’ and submit.
+   * The user should also be able to unmap devices by moving from the ‘mapped’ list to the ‘available’ one.
+   * The devices must be plugged in at the time of on-boarding.
+   * The machine need not have internet connectivity at the time of on-boarding.
+6. When the mapping is saved locally, the mapping is sent to the server during the next device mapping sync.
+7. There is  no limitation to the numbers of devices mapped to the machine.
+
+#### B. Virtual device manager 
+Please refer [**wiki**](MOSIP-VDM-Specifications) for more details on Virtual device manager implementation
+
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
 ### 5.4.1 Database [**[↑]**](#table-of-content)
 ### 5.4.2 File system [**[↑]**](#table-of-content)
