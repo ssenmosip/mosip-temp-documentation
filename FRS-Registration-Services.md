@@ -589,6 +589,53 @@ When a logged in user tries to access a feature on the registration client, the 
 
 ## 5.8 Peripherals Management (Scanner, Camera,...) [**[↑]**](#table-of-content)
 ## 5.9 Software Version Upgrade [**[↑]**](#table-of-content)
+
+#### A. Registration Officer or Supervisor can download and unzip the client application set up kit
+
+When a Registration Officer or Supervisor opts to download setup kit and selects the OS-specific setup kit to download, the system allows the user to download the setup kit to the storage location chosen by the user
+
+1. User then unzips the setup kit.
+2. Extract the files and folders from the zip file to a chosen location.
+3. Allows user to verify that the files and folder structure are as described in the design document.
+4. System captures and stores the download transaction details for audit purposes. 
+
+#### B. Enable launching the client application on a specific machine
+
+When a user chooses to launch the client application, the system performs validations as described below:
+
+1. Allows the user to initiate launch by double clicking on the MOSIP icon on the dongle.
+1. Validates that the mode of startup is set to ‘Dongle’ and not ‘Machine Install’.
+1. Validates that the machine on which it is launched has been registered.
+1. Reads the config setting that determines if a machine needs to be mapped to a Registration Centre (All the above config settings and mappings are made through the Admin portal).
+   * If yes, validates that the machine is mapped.
+   * If no, skips this validation.
+5. Validates that the machine has sufficient RAM as defined in the design document.
+1. Validates that the machine has sufficient hard disk space available as defined in the design document.
+1. Checks whether updates are available on the server.
+   * If yes, downloads the updates.
+   * If no updates available or unable to connect to the server, proceed to the next step.
+8. Launches the application and display the default landing page.
+1. Displays error messages in case of exceptions for any of the validations identified above.
+1. System captures and stores the launch details for audit purposes.
+
+#### C. Update the client software from the server
+
+When the Registration Client application is started up (launched), the system checks the server for updates to the client software.
+
+If an update is available, it is automatically downloaded and installed as a part of the startup process.
+
+The system follows the following steps during the update process:
+1. Checks for updates during start up.
+1. The client must be online to check for updates.
+1. If an update is available, downloads and installs it automatically and launch the application.
+1. If no updates are available, launches the application.
+1. The updates are downloaded as patch updates.
+1. When installation is in progress, the user cannot perform any action on the client.
+1. Once installation is completed, the user can start working on the client.
+1. If update is not successful, the client returns to its earlier version.
+1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
+1. System captures and stores the transaction details for audit purpose.
+
 ## 5.10 Cleanup [**[↑]**](#table-of-content)
 ### 5.10.1 Data retention policies [**[↑]**](#table-of-content)
 ### 5.10.2 Device moving to new center [**[↑]**](#table-of-content)
