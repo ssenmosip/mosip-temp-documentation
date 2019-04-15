@@ -67,46 +67,109 @@
 
 # 1. Master Data Sync
 ## 1.1 Master Data, Configuration [**[↑]**](#table-of-content)
+#### A. Turn ON or OFF face capture 
+1. A country may opt to turn ON or OFF the face capture process. It can be done by the admin. 
+1. A Registration Officer logs in to the Registration Client and commences a new registration, enters the demographic data and uploads documents.
+1. If face capture is turned ON, user captures the individual’s face photo.
+1. Alternatively, if face capture is turned OFF, system does not show any provision for face capture and proceeds to the next step.
+1. User captures the other applicable biometrics, authenticates, and completes the registration.
 
-#### A. Registration Officer or Supervisor can download and unzip the client application set up kit
-When a Registration Officer or Supervisor opts to download setup kit and selects the OS-specific setup kit to download, the system allows the user to download the setup kit to the storage location chosen by the user
-* User then unzips the setup kit.
-* Extract the files and folders from the zip file to a chosen location.
-* Allows user to verify that the files and folder structure are as described in the design document.
-* System captures and stores the download transaction details for audit purposes. 
-#### B. Enable launching the client application on a specific machine
-When a user chooses to launch the client application, the system performs validations as described below:
-1. Allows the user to initiate launch by double clicking on the MOSIP icon on the dongle.
-1. Validates that the mode of startup is set to ‘Dongle’ and not ‘Machine Install’.
-1. Validates that the machine on which it is launched has been registered.
-1. Reads the config setting that determines if a machine needs to be mapped to a Registration Centre (All the above config settings and mappings are made through the Admin portal).
-   * If yes, validates that the machine is mapped.
-   * If no, skips this validation.
-5. Validates that the machine has sufficient RAM as defined in the design document.
-1. Validates that the machine has sufficient hard disk space available as defined in the design document.
-1. Checks whether updates are available on the server.
-   * If yes, downloads the updates.
-   * If no updates available or unable to connect to the server, proceed to the next step.
-8. Launches the application and display the default landing page.
-1. Displays error messages in case of exceptions for any of the validations identified above.
-1. System captures and stores the launch details for audit purposes.
+#### B. Turn ON or OFF iris capture 
+1. A country may opt to turn ON or OFF the iris capture process .It can be done by the admin. 
+1. A Registration Officer logs in to the Registration Client and commences a new registration, enters the demographic data and uploads documents
+1. If iris capture is turned ON, user captures the individual’s iris scan
+1. Alternatively, if iris capture is turned OFF, system does not show any provision for iris capture and proceeds to the next step.
+1. User captures the other applicable biometrics, authenticates, and completes the registration.
 
-#### C. Update the client software from the server
-When the Registration Client application is started up (launched), the system checks the server for updates to the client software.
 
-If an update is available, it is automatically downloaded and installed as a part of the startup process.
+#### C. Turn ON or OFF UIN Updates 
+1. A country may opt to turn ON or OFF the UIN update process. It can be done by the admin. 
+1. An individual approaches the Registration Officer for UIN Update.
+1. If UIN Update is turned ON, the registration officer proceeds to capture the individual’s updated details.
+1. Alternatively, if UIN Update is turned OFF, the link for UIN Update will not be available. 
+1. The registration officer will not be able to carry out the UIN Update process.
 
-The system follows the following steps during the update process:
-1. Checks for updates during start up.
-1. The client must be online to check for updates.
-1. If an update is available, downloads and installs it automatically and launch the application.
-1. If no updates are available, launches the application.
-1. The updates are downloaded as patch updates.
-1. When installation is in progress, the user cannot perform any action on the client.
-1. Once installation is completed, the user can start working on the client.
-1. If update is not successful, the client returns to its earlier version.
-1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
-1. System captures and stores the transaction details for audit purpose.
+#### D. Update to UIN data only for configured fields
+
+An admin can configure the fields that will be available for update through the registration client. The configuration applies at a country level.
+
+The Admin can set the following fields to be update-able at a country level 
+* Name
+* Age/DoB
+* Gender
+* Address
+* Contact details
+* CNIE/EC Number
+* Parent/Guardian details
+* Biometrics-Exception
+* Biometrics-Fingerprint
+* Biometrics-Iris
+
+#### E. Turn geo-location capture ON or OFF
+1. A country may opt to turn ON or OFF the geo-location capture process .It can be done by the admin. 
+1. The Registration Officer commences a new registration.
+1. If Geo location capture is turned ON, the system captures the location of the machine to be stored in the registration packet. System validates that the location is within configured limits of the master data.
+1. Alternatively, if Geo location capture is turned OFF, the system does not capture the location of the machine. System does not validate the location.
+1. User proceeds to the next step (demographic data capture).
+
+#### F. Turn ON or OFF Supervisor authentication for biometric exceptions
+
+The 'Supervisor authentication for exceptions' process can be set to ON or OFF at the country level through by admin.
+ 
+1. The Registration Officer completes operator authentication at the end of registering an individual with exceptions.
+1. If supervisor authentication is turned ON, a Supervisor is required to enter their credentials.
+1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option. User proceeds to the next step (acknowledgement).
+ 
+#### G. Sync Registration Centre Setup data with data store servers
+1. Each machine is mapped to a registration center. Server sends only the Registration Centre data for the specific center to the data store server
+1. Registration Centre data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
+1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
+#### H. sync data from client to server
+1. The registration client receives a request to sync data (through manual trigger or scheduled job) from client to server.
+2. Client in turn sends request with the applicable data to server.
+   * User on-boarding data is synced.
+   * Only the additions, deletions, and modifications made since the last sync are sent.
+3. Client receives response from server as a success or failure message.
+4. Client displays a success or failure message on the UI
+5. The following data elements will be synced:
+
+User on-boarding data: User ID, USB device ID, Computer ID
+
+6. Alternatively, if the client machine is not online
+   * Display san error message and does not sync when a user tries to initiate a manual sync.
+   * Does not sync when an automatic sync is triggered.
+
+
+#### I. Sync master data with data store servers
+1. The registration client receives a request (through manual trigger or scheduled job) to sync master data from server to client.
+1. Client in turn requests server for master data sync.
+1. Client receives response from server with incremental changes to master data.
+1. Client saves the data in the local machine making the incremental changes as received.
+1. Client displays a success or failure message on the UI
+1. Alternatively if the client machine is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync
+   * Does not sync when an automatic sync is triggered
+
+
+#### J. Sync Config details with data store servers
+1. The registration client receives a request (through manual trigger or scheduled job) to sync config data from server to client.
+1. Client in turn requests server for config data sync.
+1. Client receives response from server with incremental changes to config data.
+1. Client saves the data in the local machine overwriting previous values of the config settings received.
+1. Client displays a success or failure message on the UI.
+1. Alternatively if the client machine is not online
+1. If the client is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync.
+   * Does not sync when an automatic sync is triggered.
+
+
+#### K. Requirement for document categories and document types to be shown based on the configuration per applicant type.
+1. The Registration Officer commences a new registration, enter demographic details The system then allows a registration officer to upload documents
+1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
+1. User selects Document Types, scans and upload the documents and proceeds with registration.
+1. The categories PoI and PoA are mandatory. The registration officer should select a Document Type under each Category and upload a document.
+1. PoR is optional.
+
 
 ## 1.2 End of Day Process [**[↑]**](#table-of-content)
 
@@ -114,19 +177,19 @@ The system follows the following steps during the update process:
 
 Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
 
-The supervisor may opt to see the details of one or many registration ID .The system should show the display the acknowledgement slip of the registration\s
+The supervisor may opt to see the details of one or many registration ID. The system should show the display the acknowledgement slip of the registration\s
 
 The supervisor then choses to either approve, reject or keep the registration on hold.
 
 The supervisor must provide a reason in case of reject. Some of the values of Reason for hold are: Gender-photo mismatch, Age-photo mismatch, Name correction required, Address correction required, Date of birth correction required
 
-The supervisor then authenticates the registration by providing any one biometric - fingerprint, iris or face.
+The supervisor then authenticates the registration by providing any one biometric - fingerprint, iris, or face.
 The system then shows a confirmation of successful approval.
 
 1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
 1. The packet status should change only when supervisor completes authentication. Else the packet status should revert to its original status.
-1. The packets which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
-1. The packets which are placed on hold followed by successful authentication are moved from the ‘Pending Approval’ list to the ‘Pending Action’ list.
+1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
+1. The packets, which are placed on hold followed by successful authentication, are moved from the ‘Pending Approval’ list to the ‘Pending Action’ list.
 1. The approved and rejected packets are placed in the upload location on the client and should be sent to server during the next upload.
 1. If a registration is on hold for more than x days, it is auto-approved by the system. No Supervisor authentication is required for this. The parameter x is configurable
 1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
@@ -137,10 +200,10 @@ The system then shows a confirmation of successful approval.
 1. The system displays the packets with the fields as shown here ”Registration ID, Registration Type, Resident Name, Operator ID, Operator Name”
 1. The system displays error messages in case of any errors
 
-#### C. Registration client, enables a supervisor to approve data packets.
+#### C. Registration client enables a supervisor to approve data packets.
 1. The system allows a Supervisor to view packets in “Pending approval” status or “On hold”
-1. The supervisor can view the following fields :”(Packet ID, New Status = Approved, Approver ID)”
-1. The supervisor can then change the packet status to “ Approve”, “Reject” or “On hold”
+1. The supervisor can view the following fields: “(Packet ID, New Status = Approved, Approver ID)”
+1. The supervisor can then change the packet status to “Approve”, “Reject” or “On hold”
 1. The system displays error messages in case of any errors
 1. The system ensures that the rejected packets and the packets that have been put on hold should not appear in the approval list again
 
@@ -148,11 +211,11 @@ The system then shows a confirmation of successful approval.
 
 1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
 1. The system displays the list of registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
-1. The supervisor can see the registration details(the acknowledgement slip) for registration ID\s
-1. Supervisor informs the individual by phone, email, physical mail or physical visit to re-register. This is an offline process.
+1. The supervisor can see the registration details (the acknowledgement slip) for registration ID\s
+1. Supervisor informs the individual by phone, email, physical mail, or physical visit to re-register. This is an offline process.
 1. Supervisor also records it in the system that he has ‘Informed’ the individual
    * If unable to contact the individual, Supervisor records it as ‘Can’t inform'.
-6. The supervisor then  ‘Authenticates by   providing biometric data -fingerprint, iris or face. Further select the specific finger or iris being provided.
+6. The supervisor then ‘Authenticates by providing biometric data -fingerprint, Iris, or face. Further, select the specific finger or iris being provided.
 1. Scan the selected biometric.
 1. Authenticate with locally stored biometric and display the result.
    * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
