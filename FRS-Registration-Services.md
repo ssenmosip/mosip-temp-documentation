@@ -428,7 +428,92 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 # 5. Registration Client Library
 ## 5.1 Local Authentication [**[↑]**](#table-of-content)
 ### 5.1.1 Offline Authentication using Biometrics [**[↑]**](#table-of-content)
+
+
+#### A. Authenticate online/offline login of the Supervisor to the client application by Password and OTP based login
+
+When a Registration Officer or Supervisor opts to the login to the registration client application, the system displays the appropriate login option based on admin config.
+
+1. In case of the user opts to log in using the username and password, the system enables them to do so by providing appropriate options
+
+1. The system validates that the username belongs to an on boarded Registration Officer or Supervisor on that client
+1. Validates that the password matches the user’s password stored locally
+1. Validates that the user is not blacklisted
+1. Validates that the user has a role of Registration Officer or Supervisor.
+
+1. Alternatively, if the user wants to log in using OTP, the system allows the user to enter their username and submits. System sends an OTP to the user’s registered mobile number.
+
+1. Validates that the username belongs to an on-boarded Registration Officer or Supervisor on that client.
+1. Generates and send an OTP by SMS to the user’s registered mobile number
+1. Allows the user to enter the OTP and submit.
+   * Alternatively, allows the user to change entered username.
+   * Alternatively, allows the user to request for resending the OTP.
+10. Validates that the OTP submitted matches the one that was generated and is submitted within its validity period.
+11. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+12. Validates that the user has a role of Registration Officer or Supervisor.
+On successful validation of all conditions above, display the logged in home page.
+
+#### B. MOSIP supports single factor and multi factor login including iris and face capture. The mode of login is determined by Admin configuration setting
+
+1. The Registration Officer or Supervisor opts to log in to the registration client.
+1. System enables the Registration Officer or Supervisor to login by entering username, submit iris and face photo.
+1. The Registration Officer or Supervisor enters their username.
+1. The Registration Officer or Supervisor scans any one iris through the iris capture device.
+   * If an on-boarded iris capture device is not found, display an error message.
+   * If more than one on-boarded iris capture device is connected, proceed with the first iris capture device that the system finds as it scans the ports of the machine
+5. The Registration Officer or Supervisor capture face photo using the face photo capture device.
+6. Upon submission the system validates the following
+   * System matches the username entered with the usernames of on-boarded users on that machine and identifies a match.
+   * If a username match is not found, displays an error.
+   * System compares the captured iris with each locally stored iris of the user until a match is identified.
+   * Match score must be equal to or greater than the config setting ‘Authentication quality threshold for irises.
+   * If an iris match is not found, displays an error.
+   * Allows the user to retry by providing the same or different iris.
+   * After five consecutive login failures for a valid username, temporarily locks the user’s account.
+   * Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+7. On successful validation, display the logged-in home page.
+
+#### C. Enforce multi factor login for Admin users
+
+The mode of authentication (single of multifactor) for a user is based on the admin configurations .For admin user its always multifactor authentication
+
+When an admin user opts to log in to the registration client application by entering the user name and password the System recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order to enter biometric data.
+
+#### D. Registration Officer authenticates each registration with password/biometrics/multi factor elements
+
+The registration officer authenticates each registration by providing credentials--biometrics and/or OTP and/or password as configured by the admin
+
+1. In case registration officer’s credentials do not match the locally saved credentials or the OTP, the system allows registration officer to retry unlimited number of times.
+1. If the system is configured for multi factor authentication, the registration officer should provide the credentials (biometric) in the configured order (as defined by the country)
+1. The system allows the registration officer to proceed to the next step only upon successful authentication of all configured credentials
+1. The system validates that the input (registration officer’s credentials) matches with the locally saved credentials for that registration officer.
+   * The system accepts the biometrics match only if the match score is greater than the configured threshold value
+   * In case of OTP, the system matches the input with the OTP on the server.
+   * In case of password, the system does full match.
+5. In case of multi-factor authentication, all inputs provided must match as per the rules defined for each individual parameter
+
 ### 5.1.2 Biometric SDK Integration (Extract and Match) [**[↑]**](#table-of-content)
+
+
+Registration Client performs a local duplicate check for irises and face of an individual against the mapped registration officers' biometrics (Stubbed-WIP)
+1. The Registration Officer captures the irises of the resident and clicks and opts to proceed further in the registration process
+1. The system performs a local duplicate check of the resident’s irises with the irises of all the users on-boarded to the client.
+1. In case of forced capture the system uses only the best capture for local duplicate check
+1. The iris images of the individual are compared with the irises of the users mapped to the Client.
+1. Each iris is matched individually.
+1. The two captured irises are also compared against each other to identify a potential duplicate.
+1. The SDK determines the match score, and this is compared with the threshold match score. If match score >= threshold then it is a match.
+1. If at least one iris match is found, display an alert, set retry count to zero, and require recapture of both irises.
+1. If a match is not found, allows the user to proceed to the face capture step
+1. The Registration Officer captures the face photo and opts to proceed further in the registration process
+1. On force capture/successful capture of face performs a local duplicate check of face of the individual against faces of all users on-boarded to the client.
+1. In case of forced capture uses only the best capture for local duplicate check
+
+1. The system performs a local duplicate check of the resident’s face with the faces of all the users on-boarded to the client.
+1. If a match is found, display an error message and require individual to provide the face scan again.
+1. When no match is found, system proceeds to the next step (Registration Preview).
+1. The number of recapture attempts due to local duplicate check failures is not capped.
+
 ## 5.2 API Client [**[↑]**](#table-of-content)
 ## 5.3 Biometric Device Manager [**[↑]**](#table-of-content)
 ### 5.3.1 Vendor Device Manager Integration and Suuport [**[↑]**](#table-of-content)
