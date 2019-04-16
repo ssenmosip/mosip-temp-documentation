@@ -1737,7 +1737,7 @@ This service enables Pre-Registration to a registration client, request to retri
 This request is used by registration client to retrieve all the pre-registration Ids by date range.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/datasync/sync/</div>
+<div>https://mosip.io/preregistration/v1/sync/</div>
 
 #### Resource details
 Resource Details | Description
@@ -1812,7 +1812,7 @@ request.toDate |Yes|To date of the application|2019-02-12
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/datasync/sync/consumedPreRegIds</div>
+<div>https://mosip.io/preregistration/v1/sync/consumedPreRegIds</div>
 
 #### Resource details
 Resource Details | Description
@@ -1882,7 +1882,7 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 This request is used by registration client to retrieve particular pre-registration data based on a pre-registration id.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/datasync/sync/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/sync/:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
