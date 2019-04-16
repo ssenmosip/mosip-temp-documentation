@@ -213,6 +213,7 @@ The system receives authentication service request with the parameters: id, Con,
 
 
 
+Please refer Git for [**Normalization Rules**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
 
 
 **E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
