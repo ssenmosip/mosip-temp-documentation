@@ -65,6 +65,8 @@
  
 ```diff
 - 5.9 Software Version Upgrade _(REG_FR_5.17)_
+```
+```diff
 - 5.10 Cleanup
 ```
    * [5.10.1 Data retention policies](#5101-data-retention-policies-) _(REG_FR_5.18)_
@@ -773,10 +775,3 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 
 
 # 6. Registration Client UI [**[↑]**](#table-of-content)
-
-
-
-
-```diff
-- WIP
-```
