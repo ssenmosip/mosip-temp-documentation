@@ -58,7 +58,7 @@
     * [5.12.1 Disk Space Check](#5121-disk-space-check-) _(REG_FR_5.26)_
     * [5.12.2 Peripherals Check](#5122-peripherals-check-) _(REG_FR_5.27)_
     * [5.12.3 Virus Scan/Security Scan](#5123-virus-scansecurity-scan-) _(REG_FR_5.28)_
-    * [5.12.4 Reports](#5124-reports-) _(REG_FR_5.29)_
+    * [5.12.4 Reports (WIP)](#5124-reports-wip-) _(REG_FR_5.29)_
 - [6. Registration Client UI](#6-registration-client-ui-) _(REG_FR_6)_
 
 
@@ -678,9 +678,27 @@ The system follows the following steps during the update process:
 ### 5.11.5 Translation?? [**[↑]**](#table-of-content)
 ## 5.12 Health Check [**[↑]**](#table-of-content)
 ### 5.12.1 Disk Space Check [**[↑]**](#table-of-content)
+
+Upon receiving a request from the UI to create an enrolment packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the enrolment packet as follows:
+1. Calculates the size of the enrolment packet based on the data captured.
+   * Data includes demographic, biometric, photographs, OSI authentication, enrolment metadata, audit data, and acknowledgement scan.
+2. Calculates the disk space, which is available in the configured packet storage location.
+1. Validates if the storage location is sufficient to store the enrolment packet.
+1. In case of successful validation, responses with success message and proceed further. 
+1. In case of unsuccessful validation, responses with an appropriate error message.
+1. System captures and stores the transaction details for audit purpose.
+
 ### 5.12.2 Peripherals Check [**[↑]**](#table-of-content)
 ### 5.12.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
-### 5.12.4 Reports [**[↑]**] (WIP) (#table-of-content)
+
+Upon receiving a request to perform a virus scan of the registration packets on the client machine, the system performs the following steps:
+1. When the client application is open, the system scans the registration packets at a configured frequency.
+1. Checks if viruses are available in the registration packets that are stored on the client machine.
+   * All registration packets on the machine will be scanned.
+3. At the end of the scan, displays an alert message (Security scan detected viruses in the following files [List of files]. Please take necessary action or contact the administrator) on screen if a virus is detected.
+1. If the client application is not open at the configured time, the scan will be queued up and runs only when the client application is open.
+
+### 5.12.4 Reports (WIP) [**[↑]**](#table-of-content)
 
 1. Allows the supervisor to generate reports as detailed in the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Reporting_Requirements_18Dec18.xlsx).
 2. All data will be specific to the computer or USB client dongle, which is being accessed.
