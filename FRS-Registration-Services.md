@@ -674,8 +674,40 @@ The system follows the following steps during the update process:
 ### 5.11.1 Language Selection [**[↑]**](#table-of-content)
 ### 5.11.2 Internationalization [**[↑]**](#table-of-content)
 ### 5.11.3 Transliteration [**[↑]**](#table-of-content)
+
+**Registration client enables viewing transliterated data other than French and Arabic**
+
+The registration client application will support two type of languages: Primary (the language in which the registration officer enters data) and secondary language (transliteration language). The secondary language is country specific and is set by the administrator
+
+When a Registration Officer starts a new registration, update or lost UIN process and enters data in the primary language for Full Name, Address Line 1, Address Line 2, Address Line 3, and Parent/Guardian Name.
+
+System transliterates the data and displays in the corresponding secondary language fields.
+
+The following data are transliterated into the secondary language in addition to being shown in the primary language.
+1. Demographic details page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and Parent/Guardian Name.
+1. Registration preview page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and Parent/Guardian Name.
+1. Registration confirmation page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and Parent/Guardian Name.
+
+Registration Officer can invoke the virtual keyboard to edit transliterated data and proceeds with registration. The flowing rules are followed during transliteration.
+1. Editing a transliterated fields does not change the data entered in the primary language field
+1. The system also validates the maximum character length in the transliterated field and ensures that it is same as the limits defined for the primary language field.
+1. If no secondary language is set, system does not do any transliteration and will display empty space instead.
+1. Numeric fields are not transliterated. The same numerals are displayed in the in the secondary language section of the page and are not editable.
+
+Master data selections are not transliterated. Instead, the translated master data values are displayed in the secondary language section of the page and are not editable 
+
+The Registration Officer can then view the preview page
+
+The system then enables a Registration Officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
+
 ### 5.11.4 Virtual Keyboards [**[↑]**](#table-of-content)
 ### 5.11.5 Translation?? [**[↑]**](#table-of-content)
+
+**A registration officer can view static data translated to secondary language**
+1. In MOSIP, the primary and secondary languages are configured by the admin 
+1. All static data (headers, labels, action buttons, and alert messages) is set up by the admin in both languages so that the registration officer can view all pages in the client application in both the default (primary) language and translated (secondary) language. 
+1. If configured translation language is same as default language, the system displays text in default language only.
+
 ## 5.12 Health Check [**[↑]**](#table-of-content)
 ### 5.12.1 Disk Space Check [**[↑]**](#table-of-content)
 
