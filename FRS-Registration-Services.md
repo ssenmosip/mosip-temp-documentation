@@ -25,7 +25,10 @@
   * [5.1 Local Authentication](#51-local-authentication-) 
     * [5.1.1 Offline Authentication using Biometrics](#511-offline-authentication-using-biometrics-) _(REG_FR_5.1)_
     * [5.1.2 Biometric SDK Integration (Extract and Match)](#512-biometric-sdk-integration-extract-and-match-) _(REG_FR_5.2)_
-  * [5.2 API Client](#52-api-client-) _(REG_FR_5.3)_
+
+```diff
+  - * [5.2 API Client](#52-api-client-) _(REG_FR_5.3)_
+```
   * [5.3 Biometric Device Manager](#53-biometric-device-manager-)
     * [5.3.1 Vendor Device Manager Integration and Support](#531-vendor-device-manager-integration-and-support-) _(REG_FR_5.4)_
   * [5.4 Local Storage](#54-local-storage-) 
@@ -748,6 +751,5 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 
 
 ```diff
-+ registration
 - client
 ```
