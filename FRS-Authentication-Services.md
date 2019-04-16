@@ -362,7 +362,7 @@ Eg:
 
 ## 1.4 Common Features for all Authentication [**[↑]**](#table-of-content)
 
-**A. Validate the timestamp of the authentication request**
+#### A. Validate the timestamp of the authentication request
 
 The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
 
@@ -377,7 +377,7 @@ MOSIP supports standard time for timestamps of authentication requests and respo
 2. The TSPs in a country are expected to send the timestamp (reqTime) in the request in UTC with time zone
 3. MOSIP returns the timestamp (resTime) in the response in UTC with Time zone
 
-**B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated**
+#### B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated
 
 The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
 
@@ -388,7 +388,7 @@ The system receives authentication request from TSP with the following parameter
 4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx). 
 
 
-**C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated** [**[↑]**](#table-of-content)
+#### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-content)
 
 The system receives authentication request from TSP with the following parameters: id = VID, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
 
@@ -396,34 +396,7 @@ The system receives authentication request from TSP with the following parameter
 2. The system proceeds to Match UIN as per defined standards
 3. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
-**D. Trigger SMS to the Individual's mobile for every authentication request**
-
-
-The system receives authentication request from TSP with the following parameters:
-id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
-
-The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request
-
-1. Retrieves the mode of communication (i.e) mobile configured for sending the notification
-2. Validates if the configured mode of communication is also registered
-3. Validates the response for Auth Type 
-4. Fetches the notification template as per admin configuration
-5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-
-**E. Trigger e-mail to the Individual's e-mail ID for every authentication request** [**[↑]**](#table-of-content)
-
-The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
-
-1. The system retrieves the mode of communication (i.e) e-mail configured for sending the notification
-2. The system validates if the configured mode of communication is also registered
-3. Validates the response by Auth Type as per the defined standards
-4. Fetches the notification template as per admin configuration
-5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**F. Generate a static token ID for each MOSIP authentication request, to facilitate authentication** [**[↑]**](#table-of-content)
+#### D. Generate a static token ID for each MOSIP authentication request, to facilitate authentication [**[↑]**](#table-of-content)
 
 The system receives authentication service request with the following parameters: 
 id, reqTime, txnId, idType, tspId and other authentication parameters based on the authentication type requested by the Individual 
@@ -449,6 +422,32 @@ Note: The Authentication is integrated for both successful and failure authentic
 
 13. The system then captures and stores the transaction details for audit purpose.
 
+#### E. Trigger SMS to the Individual's mobile for every authentication request
+
+
+The system receives authentication request from TSP with the following parameters:
+id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+
+The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request
+
+1. Retrieves the mode of communication (i.e) mobile configured for sending the notification
+2. Validates if the configured mode of communication is also registered
+3. Validates the response for Auth Type 
+4. Fetches the notification template as per admin configuration
+5. The system triggers notification as per the defined and configured template and in the default language English
+6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
+
+#### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-content)
+
+The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
+
+1. The system retrieves the mode of communication (i.e) e-mail configured for sending the notification
+2. The system validates if the configured mode of communication is also registered
+3. Validates the response by Auth Type as per the defined standards
+4. Fetches the notification template as per admin configuration
+5. The system triggers notification as per the defined and configured template and in the default language English
+6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
