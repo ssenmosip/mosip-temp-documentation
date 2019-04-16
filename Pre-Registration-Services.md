@@ -1286,7 +1286,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 file |Yes|Document which we need to upload|
 
-#### Request Part Parameters
+#### Request Part (Document request) Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.document.upload
@@ -2494,7 +2494,7 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Part DTO Parameters
+#### Request Part (NotificationRequestDTO) Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 id |Yes|Id of the application|mosip.pre-registration.notification.notify
