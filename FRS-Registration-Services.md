@@ -748,6 +748,6 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 
 
 ```diff
-+ this text is highlighted in green
-- this text is highlighted in red
++ registration
+- client
 ```
