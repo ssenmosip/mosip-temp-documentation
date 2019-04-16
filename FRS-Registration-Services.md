@@ -680,6 +680,16 @@ The system follows the following steps during the update process:
 ### 5.12.1 Disk Space Check [**[↑]**](#table-of-content)
 ### 5.12.2 Peripherals Check [**[↑]**](#table-of-content)
 ### 5.12.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
-### 5.12.4 Reports [**[↑]**](#table-of-content)
+### 5.12.4 Reports [**[↑]**] (WIP) (#table-of-content)
+
+1. Allows the supervisor to generate reports as detailed in the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Reporting_Requirements_18Dec18.xlsx).
+2. All data will be specific to the computer or USB client dongle, which is being accessed.
+3. Data reported will not be specific to a certain supervisor. All data across supervisor on the client will be reported.
+4. Allows the supervisor to sort the report data by clicking on the column headers.
+5. Data reported will not be clickable / not support drill down to view individual transactions.
+6. Display '0' for fields whose data is not available on the USB client dongle.
+7. Export the report in csv format.
+8. System captures and stores the transaction details for audit purpose.
+
 
 # 6. Registration Client UI [**[↑]**](#table-of-content)
