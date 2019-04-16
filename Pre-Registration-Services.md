@@ -2137,7 +2137,7 @@ preRegistrationId |Yes|Id of the application|37802950913289
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/appointment/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/appointment/availability/:registrationCenterId</div>
 
 #### Resource details
 Resource Details | Description
