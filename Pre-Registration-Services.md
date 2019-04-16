@@ -191,6 +191,23 @@ Requires Authentication | Yes
     "errors": null
 }
 ```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Token is not present in cookies
+```JSON
+{
+  "id": "mosip.pre-registration.login.invalidate",
+  "version": "1.0",
+  "responsetime": "2019-04-16T14:51:10.026Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-ATH-005",
+      "message": "Token is not present in cookies"
+    }
+  ]
+}
+```
 ### GET /login/config
 This request will load the configuration parameters while loading the pre-registration portal page.
 
