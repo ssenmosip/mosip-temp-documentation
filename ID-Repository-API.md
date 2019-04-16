@@ -3,7 +3,7 @@ Each ID generated for an Individual is uniquely identified by the UIN (Unique Id
 This API will support the following features
  - Creation of a ID record
  - Lookup of an ID record based on the UIN
- - Updation of an ID record based on the UIN
+ - Update an ID record based on given UIN
  - Will not support search based on attributes of an ID
 
 ## 1. Create    
@@ -11,7 +11,7 @@ This API will support the following features
 This operation will create a new ID record in the ID repository and store corresponding demographic and bio-metric documents. 
 
 ### Resource URL
-### `POST /identity/v1.0/{UIN}`
+### `POST /idrepository/v1/identity`
 
 ### Resource details
 
@@ -24,7 +24,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.id.create | 
-version | yes | version of the API | | 1.0
+version | yes | version of the API | | v1
 requesttime | yes | timestamp of the request | | 2018-12-11T06:12:25.288Z
 request | yes | Request Body attributes | | 
 request: registrationId | yes | registration id | | 
@@ -36,10 +36,11 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 ```
 {
   "id": "mosip.id.create",
-  "version": "1.0",
+  "version": "v1",
   "requesttime": "2018-12-11T06:12:25.288Z",
   "request": {
     "registrationId": "12342343200065201812120100555",
+    "biometricReferenceId": "<ABIS Reference ID>",
     "identity": {
       "IDSchemaVersion": 1,
       "UIN": 981576026435,
@@ -212,11 +213,11 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 ```
 {
   "id": "mosip.id.create",
-  "version": "1.0",
+  "version": "v1",
   "responsetime": "2018-12-11T06:13:05.218Z",
   "response": {
     "status": "ACTIVATED",
-    "entity": "http://mosip.io/identity/568469473107"
+    "entity": "http://mosip.io/idrepo/v1/identity/568469473107"
   }
 }
 ```
@@ -231,7 +232,7 @@ This operation will retrieve an ID record from the ID repository for a given UIN
 If no identity type is provided, stored Identity details of the Individual will be returned as a default response.
 
 ### Resource URL
-### `GET /identity/v1.0/{UIN}?type=bio`
+### `GET /idrepository/v1/identity/{UIN}?type=bio`
 
 ### Resource details
 
@@ -245,7 +246,7 @@ Requires Authentication | Yes
 ```
 {
   "id": "mosip.id.read",
-  "version": "1.0",
+  "version": "v1",
   "responsetime": "2018-12-11T06:13:05.218Z",
   "response": {
     //JSON object as per the ID Object Schema defined by the system owner
@@ -406,7 +407,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 ### Resource URL
-### `PATCH /identity/v1.0/{UIN}`
+### `PATCH /idrepository/v1/identity`
 
 ### Resource details
 
@@ -419,11 +420,12 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | Id of the API | mosip.id.update | 
-version | Y | version of the API | | 1.0
+version | Y | version of the API | | v1
 requesttime | Y | timestamp of the request | | 2018-12-11T06:12:25.288Z
 request | Y | Request body attributes | | 
 request: status | N | status of ID | | 
-request: registrationId | Y | registration id | | 
+request: registrationId | Y | Registration id | | 
+request: biometricReferenceId | N | ABIS Reference Id | | 
 request: identity | N | JSON body as per the ID object schema | | 
 request: documents | N | Documents that are to be uploaded for any ID attribute | | 
 
@@ -432,18 +434,19 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 ```
 {
   "id": "mosip.id.update",
-  "version": "1.0",
+  "version": "v1",
   "requesttime": "2018-12-11T06:12:25.288Z",
   "request": {
     //JSON object as per the ID Object Schema defined by the system owner
     "registrationId": "12342343200065201812120100556",
+    "biometricReferenceId": "<ABIS Reference ID>",
     "status": "DEACTIVATED",
     "identity": {
       "email": "sample123@email.com",
       "individualBiometrics": {
         "format": "cbeff",
         "version": 1.0,
-        "value": "updated_bio_doc"
+        "value": "updated_bio_doc_name"
       }
     },
     "documents": [
@@ -461,7 +464,7 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 ```
 {
   "id": "mosip.id.update",
-  "version": "1.0",
+  "version": "v1",
   "responsetime": "2018-12-11T06:13:05.218Z",
   "response": {
     "status": "DEACTIVATED",
