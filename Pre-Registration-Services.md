@@ -1477,7 +1477,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
   "version" : "1.0",
   "responsetime": "2019-01-16T17:31:04.021Z",
   "response": {
-    "documnetsMetaData":[
+    "documentsMetaData":[
     {
       "docName": "morethan1mb.pdf",
       "docId": "06896ba0-4fa8-11e9-ae3b-0d644a9860e6",
