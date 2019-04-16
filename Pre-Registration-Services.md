@@ -1,4 +1,5 @@
-This section details about the service API in the Pre-Registration modules
+This section details about the service API in the Pre-Registration modules.
+
 
 * [Login Service](#login-service-public)
 
@@ -19,6 +20,7 @@ This section details about the service API in the Pre-Registration modules
 * [Transliteration Service](#transliteration-service-public)
 
 **Note**: id,version and requesttime, responsetime in request and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
+Few of the error messages are intended for API consumer, who are mostly SI and developers. User friendly messages need to be mapped.
 ***
 
 # Login Service (Public)
