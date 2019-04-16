@@ -744,9 +744,7 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 
 # 6. Registration Client UI [**[↑]**](#table-of-content)
 
-<span style="color: green"> Some green text </span>
 
-<span style="color: green"> Some green text </span>
 
 
 ```diff
