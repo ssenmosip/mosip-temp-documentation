@@ -1958,7 +1958,7 @@ This service details used by Pre-Registration portal to book an appointment by p
 * [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
 * [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
-* [GET /appointment/preRegistrationId/:registrationCenterId/?fromDate=:date&toDate=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
+* [GET /appointment/preRegistrationId/:registrationCenterId?from_date=:date&to_date=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
 
 ### POST /appointment/:preRegistrationId
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
@@ -2233,11 +2233,11 @@ registrationCenterId |Yes|Registration Center Id|10004
     ]
 }
 ```
-### GET /appointment/preRegistrationId/:registrationCenterId?fromDate=:Date&toDate=:Date
+### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/appointment/preRegistrationId/:registrationCenterId?fromDate=:Date&toDate=:Date</div>
+<div>https://mosip.io/preregistration/v1/appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date</div>
 
 #### Resource details
 Resource Details | Description
