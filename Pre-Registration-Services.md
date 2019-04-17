@@ -1754,7 +1754,7 @@ This service enables Pre-Registration to a registration client, request to retri
 This request is used by registration client to retrieve all the pre-registration Ids by date range.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/sync/</div>
+<div>https://mosip.io/preregistration/v1/sync</div>
 
 #### Resource details
 Resource Details | Description
