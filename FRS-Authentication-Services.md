@@ -8,7 +8,7 @@
   * [1.4 Common Features for all Authentication](#14-common-features-for-all-authentication-) _(IDA_FR_1.4)_
 - [2. Multi-factor Authentication](#2-multi-factor-authentication-wip-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
-  * [3.1 QR Code based Authentication](#31-qr-code-based-authentication-) _(IDA_FR_3.1)_
+  * [3.1 QR Code based Authentication (WIP)](#31-qr-code-based-authentication-wip-) _(IDA_FR_3.1)_
 - [4. KYC Service](#4-kyc-service)
   * [4.1 Profile Sharing based on Policy](#41-profile-sharing-based-on-policy-) _(IDA_FR_4.1)_
 - [5. Partners Authentication and Authorisation](#5-partners-authentication-and-authorisation)
@@ -457,7 +457,7 @@ The system receives authentication request from TSP with the following parameter
 # 2. Multi-factor Authentication (WIP) [**[↑]**](#table-of-content)
 
 # 3. Offline Authentication 
-## 3.1 QR Code based Authentication [**[↑]**](#table-of-content)
+## 3.1 QR Code based Authentication (WIP) [**[↑]**](#table-of-content)
 # 4. KYC Service 
 ## 4.1 Profile Sharing based on Policy [**[↑]**](#table-of-content)
 
