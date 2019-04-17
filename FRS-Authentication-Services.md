@@ -37,9 +37,9 @@ Upon receiving an authentication service request, the system authenticates the f
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
 1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
-3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 4. System validates that total number of face record(s) should not exceed 1
-5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched
+5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 6. The system then generates a match score based on the level of the match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold
@@ -53,10 +53,10 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system then validated the following:
-   * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+   * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input
    * Validates if total number of fgerMin records should not exceed 2
-4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database 
+4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 5. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
 6. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
  
@@ -80,13 +80,13 @@ Upon receiving an authentication request, the system support two-finger authenti
 1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
-   * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+   * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
    * Validates if single fgerMin record contains more than one finger
    * Validates if total number of fgerMin records exceed 2
-4. The system then matches first fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database.
+4. The system then matches first fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 5. Generates a match score (using SDK) based on the level of the match of the fgerMin for the first fingerprint
-6. Matches second fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database.
+6. Matches second fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 7. Then generates a match score (using SDK) based on the level of the match of the fgerMin for the second fingerprint
 8. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 9. The actor retrieves the composite finger threshold configured which is acceptable for a match
@@ -104,14 +104,14 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
-   * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+   * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
    * Validates if total number of Iris records should not exceed 2
    * Validates if single irisImg record is present in the input
-   * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database.
+   * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
 5. The system validates if two irisImg records are present in the input
-6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises.
+6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
@@ -168,9 +168,9 @@ MOSIP supports only exact match for the demographic authentication of the indivi
 No weightage is provided to any field\s but exact match strategy is adopted for demographic address
 
 The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, UA_Licensekey, SA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, addrLine1Pri, addrLine2Pri, addrLine3Pri cityPri, statePri,, countryPri, pcPri, msPri = E (Exact), LangPri, addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec, msSec = E (Exact), LangSec. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
-1. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system validates if each of the address line items (addrLine1Pri, addrLine2Pri, addrLine3Pri, cityPri, statePri, countryPri, pcPri) in the i/p parameter is same as the address line items (saved in the primary language) against the mapped UIN/VID of the resident in the auth database
-3. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec) in the i/p parameter is same as the address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database
+1. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system validates if each of the address line items (addrLine1Pri, addrLine2Pri, addrLine3Pri, cityPri, statePri, countryPri, pcPri) in the i/p parameter is same as the address line items (saved in the primary language) against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+3. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec) in the i/p parameter is same as the address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 4. Constructs the response to the requesting source with Res (Y/N), txnId (same as request), timestamp_Res of response, error code
 5. Provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->cityPri, ad->statePri, ad->countryPri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->citySec, ad->stateSec, ad->countrySec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 6. The system proceeds to send  Notification -SMS and ‘E-mail’ user stories.
@@ -188,8 +188,8 @@ NOTE:
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, age of the Individual.
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system calculates the age of the individual based on the DOB.
 4. Validates if the Age of the individual is greater than or equal to the Age in the i/p parameter
 5. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
@@ -199,7 +199,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 **D. Match Name of the individual in the database so that the individual is authenticated**
 
 The system receives authentication service request with the parameters: id, Con, reqTime, txnId, UA code, API_Version, MUA_Licensekey, MSA_license key, idType, id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, namePri, msPri = P (Partial), mtPri= 1 to 100, nameSec, msSec = P (Partial), mtSec= 1 to 100. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system compares the namePri in the i/p parameter with the Name saved in the primary language ‘Lang’ in the auth database
 3. The system generates the match value
 4. Validates if the match valve calculated in step 3 is equal to or above the match threshold_Prim in the input parameter
@@ -219,8 +219,8 @@ Please refer Git for [**Normalization Rules**](/mosip/mosip/blob/master/docs/req
 **E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, phone of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->phone”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->phone, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
@@ -232,8 +232,8 @@ The system receives authentication request from TSP with the parameters: id, Con
 The system receives an authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, email of the Individual.
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->email”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->email, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 5. The system proceeds to execute Notification -SMS/E-mail. Please refer wiki for to know more about the type error messages based on scenario. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -244,8 +244,8 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, gender of the Individual.
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the Gender in the input parameter with the Gender of the individual in the auth DB based on the mapped UIN/VID
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system matches the Gender in the input parameter with the Gender of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->gender”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->gender, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 5. The system proceeds to execute Notification - SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -254,8 +254,8 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 **H. Match DOB of the individual in the database so that the individual is authenticated**
 
 The system receives authentication request from TSP with the parameters: id, Con, reqTime, transaction id, MUA code, API_Version, MUA_Licensekey, MSA_license key, idType, pi, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, dob of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->dob”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->dob, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 5. The system proceeds to execute Notification SMS/E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -273,7 +273,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 
 The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 
-1. Validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. Validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system generates the OTP for the request. (Use < product_id >_< encoded token_id >_< txn_id > < MUA Code >logic to generate a unique key for this OTP generation request; The system calls the Core kernel OTP generator component by passing the unique key; The system receives the OTP from the Core kernel component)
 3. Retrieves the mode of communication (i.e) e-mail or phone no configured for sending the OTP
 4. The system validates if the configured mode of communication is also registered
@@ -289,7 +289,7 @@ The system receives OTP service request with the parameters: id, session id, req
 
 The system receives OTP based authentication request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, OTP. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. The system validates if the transaction id matches with transaction id value of OTP Generate Request
-2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 3. Validates if the OTP in the i/p parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
 4. The system validates the validity of the OTP (For points 2 and 3 - The system regenerates the unique key using the logic < product_id >_< encoded token_id >_< txn_id > < MUA Code >; The system calls the core kernel validator component by passing OTP and the unique key and receives a validation response)
 5. Constructs the authentication response based on validation results
