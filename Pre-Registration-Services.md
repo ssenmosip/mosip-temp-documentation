@@ -1958,7 +1958,7 @@ This service details used by Pre-Registration portal to book an appointment by p
 * [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
 * [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
-* [GET /appointment/preRegistrationId/:registrationCenterId?from_date=:date&to_date=:date](#get-appointmentregistrationcenteridfromdatedatetodatedate)
+* [GET /appointment/preRegistrationId/:registrationCenterId?from_date=:date&to_date=:date](#get-appointmentpreregistrationidregistrationcenteridfrom_datedateto_datedate)
 
 ### POST /appointment/:preRegistrationId
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
