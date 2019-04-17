@@ -7,7 +7,6 @@
   * [1.2 End of Day Process](#12-end-of-day-process-) _(REG_FR_1.2)_
 - [2. Booking Data Sync](#2-booking-data-sync) 
   * [2.1 Appointments (PRIDs)](#21-appointments-prids-) _(REG_FR_2.1)_
-  * [2.2 PR Packets](#22-pr-packets-) _(REG_FR_2.2)_
 - [3. Registration Data Services](#3-registration-data-services) 
   * [3.1 List of Registrations](#31-list-of-registrations-) _(REG_FR_3.1)_
   * [3.2 Registration Packet Upload](#32-registration-packet-upload-) _(REG_FR_3.2)_
@@ -256,7 +255,47 @@ The system then shows a confirmation of successful approval.
 
 # 2. Booking Data Sync
 ## 2.1 Appointments (PRIDs) [**[↑]**](#table-of-content)
-## 2.2 PR Packets [**[↑]**](#table-of-content)
+
+#### A. Register a pre-registered individual by searching & fetching pre-registration data associated to a pre-registration ID from local system or server
+
+When a registration officer starts a new registration by entering a pre-registration id of an individual, the system checks if an exact match for the ID exists in local database.
+1. If yes, checks if an updated pre-registration packet for that ID is available on the server.
+   * If yes, downloads the pre-registration packet from the server and pre-populate on screen.
+   * If update is not available on server, display data from local database.
+   * If client if offline, displays data from the local database.
+2. If data is not available in local database, checks if data for that ID is available on the server.
+   * If yes, downloads the pre-registration packet from the server and pre-populate on screen.
+   * If data not available on server, displays data from local database.
+3. Based on the availability of data, the system populates the demographic details of the resident and pre-populates the registration form.
+1. The demographic details can still be edited at this stage
+1. The registration officer can then view the documents uploaded during pre-registration
+1. If no matching PRID exists in local system and server, the system displays an error message.
+
+#### B. Scanning a Pre-registration QR code
+1. While starting a new registration, the registration client allows scanning a QR code to populate the pre-registration ID on screen.
+1. A bar code scanner must be connected to the client machine in order to read the pre-registration QR code and pass on the pre-registration ID to the client.
+1. System then populates the rest of the pre-registration data from the locally stored pre-registration details and checking for updates on the server
+1. User proceeds with registration
+#### C. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
+**Real time downloads of Pre-registration data**
+
+1. When a registration officer starts a new registration by entering a pre-registration ID and opts to fetch pre-registration data, the system checks if the pre-registration ID entered has a match in the local system
+1. The system then fetches the demographic details of the resident and pre populate the registration form if there is exactly one match for pre-registration ID in the local system
+
+**Manual downloads of Pre-registration data**
+
+A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of a resident only and the system does not allow to download the documents uploaded by the applicant. 
+
+The system also enables a user to view the progress of download.
+
+The pre-registration data can be downloaded only for that particular registration center, where the pre-registration data download is initiated
+
+It is possible to download the pre-registration data from current date plus 1 to current date plus 7. This date range should be configurable
+
+The downloaded pre-registration data overwrites the previously downloaded data for the same pre-registration ID
+
+The downloaded pre-registration data is stored in its stipulated path as defined
+
 
 
 # 3. Registration Data Services
