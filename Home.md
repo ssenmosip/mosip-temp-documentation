@@ -19,7 +19,7 @@ The key objectives of the platform are to
 MOSIP has the following modules
 
 **Pre-Registration**
-This is the web channel of MOSIP which facilitates capturing individual information, relevant documents and booking an appointment.   application through which Individuals can pre-register, choose a Registration center, book an appointment for   registration. This helps to reduce registration time and optimize the process. MOSIP will provide the necessary back end services and a reference web application. The reference web application can be customized or modified as per the country's requirements. A country can also build a new web/mobile application on top of the back end services that MOSIP provides.
+This is the web channel of MOSIP which facilitates capturing individual information, relevant documents and booking an appointment with a registration center. This helps to reduce registration time and optimize the process.The current web application is highly modular by design and with multi language support.This UI  can be customized or modified as per the country's requirements. A country can also build a new web/mobile application on top of the back end services that MOSIP provides.
 
 **Registration**
 A client application to capture demographic and biometric details of an Individual. This application is a thick client that runs on a desktop or laptop in offline/online mode. This is a reference implementation which can be customized or modified to a country's requirements. A country can build a new client on top of the APIs provided by MOSIP. The APIs are in Java and runs on a JVM.
