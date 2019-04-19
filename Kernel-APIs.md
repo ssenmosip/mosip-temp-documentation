@@ -18,9 +18,9 @@
 
 * [Individual Types Service](#individual-types)
 
-*﻿﻿ [Digital Signatures](#digital-signatures)
+* [Digital Signatures](#digital-signatures)
 
-* ﻿﻿[Static Token generator](#static-token-generator)
+* [Static Token generator](#static-token-generator)
  
 
 
@@ -32,30 +32,33 @@
 * [POST /decrypt](#post-decrypt)
 
 
-##  Public key-get service
+### GET /publickey
 
 This service will provide the public key for the specific application. 
 
-### Resource URL
-### GET /publickey
+#### Resource URL
+<div>https://mosip.io/v1/keymanager/publickey</div>
 
-### Resource details
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
 referenceId|No|Id of the Machine/TSP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
-### Example Request
-v1/keymanager/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
+#### Request
+<div>https://mosip.io/v1/keymanager/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: public key issued successfully
 ```JSON
 
 {
@@ -78,30 +81,28 @@ v1/keymanager/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 }
 ```
 
-##  Decrypt Symmetric key
+### POST /decrypt
 
 This service will decrypt the encrypted symmetric key 
 
-### Resource URL
-### POST /decrypt
+#### Resource URL
+<div>https://mosip.io/v1/keymanager/decrypt </div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
 referenceId|No|Id of the Machine/TSP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
-### Example Request
-
-v1/keymanager/decrypt
+#### Request
 
 ```
 {	
@@ -120,7 +121,10 @@ v1/keymanager/decrypt
 
 
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: decrypt the encrypted symmetric key successfully
 ```
 {
   "id": "string",
@@ -143,18 +147,18 @@ v1/keymanager/decrypt
 
 # Crypto Manager
 
-* [POST v1/cryptomanager/encrypt](#post-v1cryptomanagerencrypt)
-* [POST v1/cryptomanager/decrypt](#decryption-post-service)
+* [POST v1/cryptomanager/encrypt](#post-v1-cryptomanager-encrypt)
+* [POST v1/cryptomanager/decrypt](#post-v1-cryptomanager-decrypt)
 
-##  Encryption Post Service
+### POST v1/cryptomanager/encrypt
 
 This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key. This will respond combined encrypted data and symmetric key having a key splitter.  
 
-### Resource URL
-### POST v1/cryptomanager/encrypt
+#### Resource URL
+<div>https://mosip.io/v1/cryptomanager/encrypt</div>
 
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -162,7 +166,7 @@ Response format | JSON
 Requires Authentication | Yes
 
 
-### Example Request
+#### Request
 
 ```
 {
@@ -179,7 +183,10 @@ Requires Authentication | Yes
 }
 ```
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: encrypted data successfully
 ```
 {
   "id": "string",
@@ -200,15 +207,15 @@ Requires Authentication | Yes
 
 
 
-## Decryption Post Service
-
-This service will dencrypt encryted data along with symmetric key having splitter. 
-
-### Resource URL
 ### POST v1/cryptomanager/decrypt
 
+This service will decrypt encryted data along with symmetric key having splitter. 
 
-### Resource details
+#### Resource URL
+<div>https://mosip.io/v1/cryptomanager/decrypt</div>
+
+
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -216,7 +223,7 @@ Response format | JSON
 Requires Authentication | Yes
 
 
-### Example Request
+#### Request
 
 ```
 {
@@ -233,7 +240,10 @@ Requires Authentication | Yes
 }
 ```
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: decrypt encryted data along with symmetric key having splitter
 ```
 {
   "id": "string",
@@ -257,42 +267,45 @@ Requires Authentication | Yes
 
 * [GET /masterdata](#get-masterdata)
 
-* [GET /masterdata](#get-masterdata-1)
+* [GET /masterdata/{registrationcenterid}](#get-masterdata-registrationcenterid)
 
 * [GET /configs](#get-configs)
 
 * [GET /roles](#get-roles)
 
-* [GET /userdetails/{regid}](#get-userdetailsregid)
+* [GET /userdetails/{regid}](#get-userdetails-registrationcenterid)
 
-* [GET /publickey](#get-publickey-1)
+* [GET /publickey](#get-publickey)
 
-## Sync Master data-get service
+## GET /masterdata
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
 
-### Resource URL
-### GET /masterdata
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/masterdata</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 macaddress|No|MAC address of the machine| | 
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
 
-### Example Request
+#### Request
 
-v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
+<div>https://mosip.io/v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630 </div>
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: latest masterdata for the provided machine.
 ```JSON
 {
   "id": "string",
@@ -342,7 +355,7 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
       "isActive": true,
       "code": "REG",
       "name": "Ordinaire",
-      "descr": "Centre dinscription régulière"
+      "descr": "Centre dinscription rÃ©guliÃ¨re"
     }
   ],
   "machineDetails": [
@@ -362,12 +375,12 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
   "machineSpecification": [
     {
       "id": "1001",
-      "name": "ستر  ",
-      "brand": "دلّ  ",
+      "name": "Ø³ØªØ± Â ",
+      "brand": "Ø¯Ù„Ù‘ Â ",
       "model": "3568",
       "machineTypeCode": "DKS",
       "minDriverversion": "1.454",
-      "description": "لأخذ التسجيلات",
+      "description": "Ù„Ø£Ø®Ø° Ø§Ù„ØªØ³Ø¬ÙŠÙ„Ø§Øª",
       "isDeleted": null,
       "langCode": "ara",
       "isActive": true
@@ -376,8 +389,8 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
   "machineType": [
     {
       "code": "DKS",
-      "name": "الحاسوب",
-      "description": "أجهزة الكمبيوتر المكتبية",
+      "name": "Ø§Ù„Ø­Ø§Ø³ÙˆØ¨",
+      "description": "Ø£Ø¬Ù‡Ø²Ø© Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ± Ø§Ù„Ù…ÙƒØªØ¨ÙŠØ©",
       "isDeleted": null,
       "langCode": "ara",
       "isActive": true
@@ -428,7 +441,7 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
       "holidayDay": "2",
       "holidayMonth": "1",
       "holidayYear": "2019",
-      "holidayName": "Jour de l’an",
+      "holidayName": "Jour de lâ€™an",
       "locationCode": "KTA",
       "isDeleted": null,
       "langCode": "fra",
@@ -534,9 +547,9 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
       "langCode": "ara",
       "isActive": true,
       "code": "MOR",
-      "name": "الْـمَغْرِبُ",
+      "name": "Ø§Ù„Ù’Ù€Ù…ÙŽØºÙ’Ø±Ù�Ø¨Ù�",
       "hierarchyLevel": 0,
-      "hierarchyName": "بلد",
+      "hierarchyName": "Ø¨Ù„Ø¯",
       "parentLocCode": null,
       "createdBy": null,
       "updatedBy": null
@@ -733,21 +746,21 @@ v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 }
 ```
 
-##  Sync Master data-get service
+### GET /masterdata/{registrationcenterid}
 
 This service will provides the list of all master data. This service is used mainly by the Enrollment client module. 
 
-### Resource URL
-### GET /masterdata
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 regcenterId|Yes|Registration center id| |
@@ -755,11 +768,13 @@ macaddress|No|MAC address of the machine| |
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
 
-### Example Request
-
+#### Request
 v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: latest masterdata for the provided machine.
 ```JSON
 {
   "id": "string",
@@ -809,7 +824,7 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
       "isActive": true,
       "code": "REG",
       "name": "Ordinaire",
-      "descr": "Centre dinscription régulière"
+      "descr": "Centre dinscription rÃ©guliÃ¨re"
     }
   ],
   "machineDetails": [
@@ -829,12 +844,12 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
   "machineSpecification": [
     {
       "id": "1001",
-      "name": "ستر  ",
-      "brand": "دلّ  ",
+      "name": "Ø³ØªØ± Â ",
+      "brand": "Ø¯Ù„Ù‘ Â ",
       "model": "3568",
       "machineTypeCode": "DKS",
       "minDriverversion": "1.454",
-      "description": "لأخذ التسجيلات",
+      "description": "Ù„Ø£Ø®Ø° Ø§Ù„ØªØ³Ø¬ÙŠÙ„Ø§Øª",
       "isDeleted": null,
       "langCode": "ara",
       "isActive": true
@@ -843,8 +858,8 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
   "machineType": [
     {
       "code": "DKS",
-      "name": "الحاسوب",
-      "description": "أجهزة الكمبيوتر المكتبية",
+      "name": "Ø§Ù„Ø­Ø§Ø³ÙˆØ¨",
+      "description": "Ø£Ø¬Ù‡Ø²Ø© Ø§Ù„ÙƒÙ…Ø¨ÙŠÙˆØªØ± Ø§Ù„Ù…ÙƒØªØ¨ÙŠØ©",
       "isDeleted": null,
       "langCode": "ara",
       "isActive": true
@@ -895,7 +910,7 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
       "holidayDay": "2",
       "holidayMonth": "1",
       "holidayYear": "2019",
-      "holidayName": "Jour de l’an",
+      "holidayName": "Jour de lâ€™an",
       "locationCode": "KTA",
       "isDeleted": null,
       "langCode": "fra",
@@ -1001,9 +1016,9 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
       "langCode": "ara",
       "isActive": true,
       "code": "MOR",
-      "name": "الْـمَغْرِبُ",
+      "name": "Ø§Ù„Ù’Ù€Ù…ÙŽØºÙ’Ø±Ù�Ø¨Ù�",
       "hierarchyLevel": 0,
-      "hierarchyName": "بلد",
+      "hierarchyName": "Ø¨Ù„Ø¯",
       "parentLocCode": null,
       "createdBy": null,
       "updatedBy": null
@@ -1200,30 +1215,33 @@ v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114
 }
 ```
 
-## Config details-get service
+### GET /configs
 
 This service will return back the global and registration configuration data of the MOSIP platform. 
 
-### Resource URL
-### GET /configs
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/configs </div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-### Example Request
+#### Request
 
-v1/syncdata/configs
+N/A
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: latest configuration details.
 ```JSON
 {
   "id": "string",
@@ -1338,30 +1356,32 @@ v1/syncdata/configs
 }
 ```
 
-## Get All Roles 
+### GET /roles
 
 This service will return back the all roles of the applications. 
 
-### Resource URL
-### GET /roles
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/roles </div>
 
-
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-### Example Request
--NA-
+#### Request
+N/A
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: all roles of the application
 ```JSON
 {
   "id": "string",
@@ -1391,30 +1411,33 @@ Name | Required | Description | Default Value | Example
 }		
 ```
 
-## Get list of users and role-mapping 
+### GET /userdetails/{registrationcenterid} 
 
 This service will return back the list of users and its role-mapping based on the registration-center-id. 
 
-### Resource URL
-### GET /userdetails/{regid}
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/userdetails/{registrationcenterid} </div>
 
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-### Example Request
-/userdetails/10001
+#### Request
+<div>https://mosip.io/v1/syncdata/userdetails/110011 </div>
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: list of users and role-mapping 
 ```JSON
 
 {
@@ -1445,31 +1468,35 @@ Name | Required | Description | Default Value | Example
 	}
 }	
 ```
-## Public key-get service
+### GET /publickey/{applicationId}
+
 
 This service will provide the public key for the specific application fetched from key manager. 
 
-### Resource URL
-### GET /publickey
+#### Resource URL
+<div>https://dev.mosip.io/v1/syncdata/publickey/{applicationId}</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
 referenceId|No|Id of the Machine/TSP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
-### Example Request
-v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
+#### Request
+<div>https://dev.mosip.io/v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: public key for the specified application
 ```JSON
 
 {
@@ -1493,36 +1520,42 @@ v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z
 
 
 # UIN
+
 ## UIN-get service
 
 * [GET /uin](#uin-get-service)
 
 * [PUT /uin](#put-uin)
 
+
+### GET /uin
+
 This service will return unused UIN from UIN pool 
 
-### Resource URL
-### `GET /uin`
+#### Resource URL
+<div>https://mosip.io/v1/uingenerator/uin </div>
  
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-### Example Request
+#### Request
+N/A
 
-v1/uingenerator/uin
-
-### Example Response
-```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: uin generated successfully
+```JSON
 {
   "id": "string",
   "version": "string",
@@ -1543,10 +1576,12 @@ v1/uingenerator/uin
 
 ## UIN- Status Update service
 
+### PUT /uin
+
 This service will update the issued UN status to Assigned or Unassigned(Unused).  
 
-### Resource URL
-### `PUT /uin`
+#### Resource URL
+<div>https://mosip.io/v1/uingenerator/uin</div>
  
 
 ### Resource details
@@ -1556,15 +1591,14 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-### Example Request
+#### Request
 
-PUT v1/uingenerator/uin
-```
+```JSON
 {
   "id": "string",
   "version": "string",
@@ -1578,7 +1612,10 @@ PUT v1/uingenerator/uin
 ```
 
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: uin status updated successfully
 ```
 {
   "id": "string",
@@ -1600,17 +1637,17 @@ PUT v1/uingenerator/uin
 
 # SMS Notification
 
-* [POST /sms/send](#post-smssend)
+* [POST /sms/send](#post-sms-send)
 
-## SMS Notification Post Service
+### POST /sms/send
 
 This service will send request to SMS gateway. 
 
-### Resource URL
-### `POST /sms/send`
+#### Resource URL
+<div>https://mosip.io/v1/smsnotifier/sms/send</div>
 
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -1618,17 +1655,14 @@ Request format | JSON
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 message |Yes|Message in the SMS| | This is the sample SMS message
 number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 
-### Example Request
-
-v1/smsnotifier/sms/send
-
-```
+### Request
+```JSON
 {
   "id": "string",
   "version": "string",
@@ -1642,7 +1676,10 @@ v1/smsnotifier/sms/send
 
 ```
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms send successfully
 ```
 {
   "id": "string",
@@ -1664,16 +1701,17 @@ v1/smsnotifier/sms/send
 
 # Email Notification
 
-* [POST /email/send](#post-emailsend)
-## Email Notification Post Service
+* [POST /email/send](#post-email-send)
+
+### POST /email/send
 
 This service will send request to Email/SMTP Service. 
 
-### Resource URL
-### `POST /email/send`
+#### Resource URL
+<div>https://dev.mosip.io/v1/emailnotifier/email/send </div>
 
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -1681,7 +1719,7 @@ Request format | Form Data
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 mailTo |Yes|Mail ID of the recepient| |```mosip@mindtree.com```
@@ -1691,9 +1729,7 @@ mailContent |No|Mail ID of the recepient| | Sample mail content
 attachments |No|Mail ID of the recepient| | multipart/formdata
 
 
-### Example Request
-
-v1/emailnotifier/email/send
+#### Request
 
 ```
 -H "Content-Type: multipart/form-data" 
@@ -1704,8 +1740,11 @@ v1/emailnotifier/email/send
 -F "mailTo=admin1@gmail.com"
 ```
 
-### Example Response
-```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms send successfully
+```JSON
 {
   "id": "string",
   "version": "string",
@@ -1738,17 +1777,19 @@ It will also ensure audit data stored is archived based on the defined archival 
 
 * [POST /audits](#post-audits)
 
-### Resource URL
-### `POST /audits`
+### POST /audits
 
-### Resource details
+#### Resource URL
+<div>https://mosip.io/v1/auditmanager/audits</div>
+
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 eventId|Yes|ID of the event| | 
@@ -1768,7 +1809,7 @@ moduleName|No|Name of the module| | Schedulor
 moduleId|No|ID of the module| | SCHE93
 description|No|Description of the event| |Example description 
 
-### Example Request
+#### Request
 ```JSON
 {
   "id": "string",
@@ -1795,7 +1836,10 @@ description|No|Description of the event| |Example description
 	}
 }
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: audit request completed successfully
 ```JSON
 {
   "id": "string",
@@ -1825,31 +1869,32 @@ This service facilitates generation of license key, mapping the license key to s
 
 This component generates a license key for a specified TSP ID.
 
-* [POST /license/generate](#post-licensegenerate)
+* [POST /license/generate](#post-license-generate)
 
-* [POST /license/permission](#post-licensepermission)
+* [POST /license/permission](#post-license-permission)
 
-* [GET /license/permission](#get-licensepermission)
+* [GET /license/permission](#get-license-permission)
 
-* [PUT /license/status](#put-licensestatus)
+* [PUT /license/status](#put-license-status)
 
+### POST /license/generate
 
-### Resource URL
-### `POST /license/generate`
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/generate </div>
 
-### Resource details
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseExpiryTime|Yes|The time at which the license will expire| |2019-03-07T10:00:00.000Z 
 tspId|Yes|The TSP ID against which the license key generated will be mapped| |9837
 
-### Example Request
+#### Request
 ```JSON
 {
   "id": "string",
@@ -1862,7 +1907,10 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
 	     }
 }
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key generated successfully
 ```JSON
 {
   "id": "string",
@@ -1880,27 +1928,28 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
 	}
 }
 ```
-## Mapping Permissions
+### POST /license/permission
 
 This component maps various permissions provided to a specified license key.
 
-### `POST /license/permission`
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/permission </div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key to which the permissions will be mapped| |gR7Mw7tA7S7qifkf 
 tspId|Yes|The TSP ID against which the license key is mapped| |9837
 permissions|Yes|The list of permissions that will be mapped to the TSP-licensekey mentioned.| |OTP Trigger
 
-### Example Request
+#### Request
 ```JSON
 {
   "id": "string",
@@ -1916,7 +1965,10 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 	}
 }
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key permission updated successfully
 ```JSON
 {
   "id": "string",
@@ -1935,11 +1987,12 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 }
 ```
 
-## Fetching Permissions 
+### GET /license/permission
 
 This component fetches various permission mapped to a license key.
 
-### `GET /license/permission`
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/permission </div>
 
 ### Resource details
 
@@ -1948,17 +2001,22 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
 tspId|Yes|The TSP ID against which the license key is mapped| |9837
 
-### Example Request
+### Request
+<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837</div>
+
 ```
-license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
+N/A
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key permissions fetched successfully
 ```JSON
 {
   "id": "string",
@@ -1981,26 +2039,27 @@ license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837
 ```
 
 
-## Change license key status
+### PUT /license/status
 
 This service moves the status of the license key to SUSPENDED status.
 
-### `PUT /license/status`
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/status </div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
 status|Yes|The status of the license key. It is an enumeration {ACTIVE, SUSPENDED, BLOCKED}| |ACTIVE
 
-### Example Request
+#### Request
 ```
 {
   "id": "string",
@@ -2013,7 +2072,10 @@ status|Yes|The status of the license key. It is an enumeration {ACTIVE, SUSPENDE
 	     }
 }
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key suspended successfully
 Sample Success Response:
 
 ```JSON
@@ -2033,9 +2095,9 @@ Sample Success Response:
 	     }
 }	
 ```
-
-
-Sample Error Response:
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid license key
 
 ```JSON
 {
@@ -2057,32 +2119,24 @@ Sample Error Response:
 
 These set of services does various operations regarding the applicant type.
 
-* [GET /applicanttype/getApplicantType](#get-applicanttypegetapplicanttype)
+* [GET /applicanttype/getApplicantType](#get-applicanttype-getApplicantType)
 
-* [GET /applicanttype/getDocCatAndTyp?applicationtypecode=APP-C-94&languages=eng&language=fra](#get-applicanttypegetdoccatandtypapplicationtypecodeapp-c-94languagesenglanguagefra)
+* [GET /applicanttype/{applicantid}/languages](#get-applicanttype-applicantid-languages)
 
-* [GET /applicanttype/getDocCategories?applicationtypecode="APP-C-94"](#get-document-categories)
-
-* [GET /applicanttype/isApplicantTypeExists/{applicationtypecode}/{docCategoryCode}/{docTypeCode}](#get-applicanttypeisapplicanttypeexistsapplicationtypecodedoccategorycodedoctypecode)
-
-
-
-
-
-## Get applicant type
+### GET /applicanttype/getApplicantType
 
 This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
 
-### Resource URL
-### `GET /applicanttype/getApplicantType`
+#### Resource URL
+<div>https://dev.mosip.io/v1/applicanttype/getApplicantType</div>
 
-### Resource details
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 individualTypeCode|Yes|The code of the individual type| -NA- |INDTYP_002
@@ -2091,7 +2145,7 @@ dateofbirth|Yes|Date of birth in UTC standard ISO8601 format| -NA- |2008-10-04T0
 biometricAvailable|No|Is the biometric details available| -NA- |true
 languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 
-### Example Request
+#### Request
 ```JSON
 {
   "id": "string",
@@ -2125,7 +2179,10 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 }
 ```
 
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: applicant type code fetched successfully
 ```JSON
 {
   "id": "string",
@@ -2145,30 +2202,33 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 ```
 
 
-## Get document category and types
+## GET /applicanttype/{applicantid}/languages
 
 This service returns the document category and the document types associated with a particular applicant type. 
 
-### Resource URL
-### `GET /applicanttype/getDocCatAndTyp?applicationtypecode=APP-C-94&languages=eng&language=fra'
+#### Resource URL
+<div>https://dev.mosip.io/v1/masterdata/{applicantid}/languages?languages=fra&languages=eng </div>
 
-### Resource details
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
 languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
 
-### Example Request
+#### Request
 ```JSON
 -NA-
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key suspended successfully
 ```JSON
 {
   "id": "string",
@@ -2203,131 +2263,38 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
 ```
 
 
-
-## Get document categories
-
-This service returns the document categories for a particular applicant type. 
-
-### Resource URL
-### `GET /applicanttype/getDocCategories?applicationtypecode="APP-C-94"`
-
-### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
-
-
-### Example Request
-NA
-```
-### Example Response
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response" : {
-		"documentcategories": [
-			{
-				"id": "DOC_CAT_001", 
-				"value": "POA", 
-				"languagecode":"string",
-			}
-		]
-	}
-}
-```
-
-
-
-## Is applicant type combination exists
-
-This service checks whether the combination exists for a particular Applicanttype code, Document. 
-
-### Resource URL
-### `GET /applicanttype/isApplicantTypeExists/{applicationtypecode}/{docCategoryCode}/{docTypeCode}`
-
-### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
-docCategoryCode|Yes|The code of the document category| -NA- |DOC_CAT_2
-docTypeCode|Yes|The code of the document type| -NA- |DOC_TYP_E
-
-### Example Request
-```JSON
--NA-
-```
-### Example Response
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response" : {
-		"isExists":true
-	}
-}
-```
-
-
 # Individual types
 
 These set of services does various operations regarding the Individual types.
 
-* [GET /individualtype/getAllIndividualTypes](#get-individualtypegetallindividualtypes)
+* [GET /individualtype/getAllIndividualTypes](#get-individualtype-getAllIndividualTypes)
 
-* [GET /individualtype/getIndividualTypes/{individualTypeCode}/{languagecode}](#get-individualtypegetindividualtypesindividualtypecodelanguagecode)
-
-## Get all individual types
+### GET /individualtype/getAllIndividualTypes
 
 This service returns all the individual types. 
 
-### Resource URL
-### `GET /individualtype/getAllIndividualTypes`
+#### Resource URL
+<div>ttps://mosip.io/v1/masterdata/individualtypes</div>
 
-### Resource details
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 -NA-
 
-### Example Request
+#### Request
 ```JSON
 -NA-
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: fetched applicant type successfully
 ```JSON
 {
   "id": "string",
@@ -2350,55 +2317,6 @@ Name | Required | Description | Default Value | Example
 	}
 }
 ```
-
-
-## Get all individual types
-
-These set of services does various operations regarding the Individual types.
-
-### Resource URL
-### `GET /individualtype/getIndividualTypes/{individualTypeCode}/{languagecode}`
-
-### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-individualTypeCode|Yes|The code of the individual type| -NA- |IND-C-94
-languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
-
-### Example Request
-```JSON
--NA-
-```
-### Example Response
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response" : {
-		"individualtype": {
-			"code": "IND-C-94",
-			"name": "Foreign Child",
-			"lang_code": "eng",
-			"is_active": true
-		}
-	}
-}
-```
-
 
 # Digital signatures
 
@@ -2446,34 +2364,35 @@ Digital signatures are needed in various places of the MOSIP system. Few example
 
 # Static Token generator
 
-* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
+* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgenerator-uin-partnercode)
 
-## Get static token
+### GET tokenidgenerator/{uin}/{partnercode}
 
 This service returns a static token for the requested UIN and Partner ID. It will return the same Static Token for every call made with the same UIN and Partner ID. 
 
-### Resource URL
-### `GET tokenidgenerator/{uin}/{partnercode}`
+#### Resource URL
+<div>https://dev.mosip.io/v1/tokenidgenerator/{uin}/{partnercode}/</div>
 
-### Resource details
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 UIN|Yes|UIN of the individual.| -NA- |2345346532564566
 partnercode|Yes|ID of the partner.| -NA- |9373
 
-### Example Request
+#### Request
 ```JSON
 -NA-
 ```
-### Example Response
-
-#### Success response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: token id generated successfully
 ```JSON
 {
 	"id": "mosip.kernel.tokenid.generate",
@@ -2487,8 +2406,9 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 }
 ```
 
-
-#### Failure response
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
 ```JSON
 {
 	"id": "mosip.kernel.tokenid.generate",
