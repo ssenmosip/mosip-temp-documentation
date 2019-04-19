@@ -147,8 +147,8 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 # Crypto Manager
 
-* [POST v1/cryptomanager/encrypt](#post-v1-cryptomanager-encrypt)
-* [POST v1/cryptomanager/decrypt](#post-v1-cryptomanager-decrypt)
+* [POST v1/cryptomanager/encrypt](#post-v1cryptomanagerencrypt)
+* [POST v1/cryptomanager/decrypt](#post-v1cryptomanagerdecrypt)
 
 ### POST v1/cryptomanager/encrypt
 
@@ -267,13 +267,13 @@ Requires Authentication | Yes
 
 * [GET /masterdata](#get-masterdata)
 
-* [GET /masterdata/{registrationcenterid}](#get-masterdata-registrationcenterid)
+* [GET /masterdata/{registrationcenterid}](#get-masterdataregistrationcenterid)
 
 * [GET /configs](#get-configs)
 
 * [GET /roles](#get-roles)
 
-* [GET /userdetails/{regid}](#get-userdetails-registrationcenterid)
+* [GET /userdetails/{regid}](#get-userdetailsregistrationcenterid)
 
 * [GET /publickey](#get-publickey)
 
@@ -1869,13 +1869,13 @@ This service facilitates generation of license key, mapping the license key to s
 
 This component generates a license key for a specified TSP ID.
 
-* [POST /license/generate](#post-license-generate)
+* [POST /license/generate](#post-licensegenerate)
 
-* [POST /license/permission](#post-license-permission)
+* [POST /license/permission](#post-licensepermission)
 
-* [GET /license/permission](#get-license-permission)
+* [GET /license/permission](#get-licensepermission)
 
-* [PUT /license/status](#put-license-status)
+* [PUT /license/status](#put-licensestatus)
 
 ### POST /license/generate
 
@@ -2119,9 +2119,9 @@ Sample Success Response:
 
 These set of services does various operations regarding the applicant type.
 
-* [GET /applicanttype/getApplicantType](#get-applicanttype-getApplicantType)
+* [GET /applicanttype/getApplicantType](#get-applicanttypegetApplicantType)
 
-* [GET /applicanttype/{applicantid}/languages](#get-applicanttype-applicantid-languages)
+* [GET /applicanttype/{applicantid}/languages](#get-applicanttypeapplicantidlanguages)
 
 ### GET /applicanttype/getApplicantType
 
@@ -2267,7 +2267,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
 
 These set of services does various operations regarding the Individual types.
 
-* [GET /individualtype/getAllIndividualTypes](#get-individualtype-getAllIndividualTypes)
+* [GET /individualtype/getAllIndividualTypes](#get-individualtypegetAllIndividualTypes)
 
 ### GET /individualtype/getAllIndividualTypes
 
@@ -2364,7 +2364,7 @@ Digital signatures are needed in various places of the MOSIP system. Few example
 
 # Static Token generator
 
-* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgenerator-uin-partnercode)
+* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
 
 ### GET tokenidgenerator/{uin}/{partnercode}
 
