@@ -32,13 +32,13 @@ Upon receiving an authentication service request, the system authenticates the f
 1. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **B. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
 
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
-1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
+1. The authentication service request should have the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements Detailing References/ID-Authentication/Sprint 10/Biometrics Data Definition_V2.docx)
 2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 4. System validates that total number of face record(s) should not exceed 1
@@ -48,13 +48,13 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 8. The system then proceeds to execute compare against face threshold
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 **C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server** [**[↑]**](#table-of-content)
 
 Upon receiving an authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
+1. The authentication service request has the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). Please refer Git for more details on [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements Detailing References/ID-Authentication/Sprint 10/Biometrics Data Definition_V2.docx)
 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. The system then validated the following:
@@ -66,7 +66,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
  
 
 **D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold (BioAuthService)**
@@ -81,7 +81,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 1. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-content)
@@ -107,7 +107,7 @@ Upon receiving an authentication request, the system support two-finger authenti
 
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server** [**[↑]**](#table-of-content)
@@ -130,7 +130,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 9. The system proceeds to execute compare against Iris threshold
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold** [**[↑]**](#table-of-content)
@@ -152,7 +152,7 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 1. The system proceeds to execute compare against Iris threshold
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).  
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+1. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
@@ -175,7 +175,7 @@ The system receives authentication service request with the parameters: id, Con,
 5. Provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->cityPri, ad->statePri, ad->countryPri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->citySec, ad->stateSec, ad->countrySec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 NOTE:
@@ -200,7 +200,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 **D. Match Name of the individual in the database so that the individual is authenticated**
 
@@ -218,7 +218,7 @@ The system receives authentication service request with the parameters: id, Con,
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
 
 
 **E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
@@ -231,7 +231,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
 
 
 
@@ -247,7 +247,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 
@@ -262,7 +262,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **H. Match DOB of the individual in the database so that the individual is authenticated**
@@ -275,7 +275,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 
@@ -300,7 +300,7 @@ The system receives OTP service request with the parameters: id, session id, req
 8. The system proceeds to execute Validate OTP as per the defined standards
 9. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **B. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
@@ -316,7 +316,7 @@ The system receives OTP based authentication request with the parameters: id, Co
 7. Provides UIN token, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Name, DOB, etc, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 8. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 **C. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
 
@@ -324,7 +324,7 @@ The system receives OTP service request with the parameters: id, session id, req
 1. The system retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
 2. Validates if the configured mode of communication is also registered
 3. The system fetches the notification template as per admin configuration
-4. Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+4. Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 **D. Respond with masked e-mail and masked phone no for OTP trigger request so that the TSP can intimate the individual on the mode of communication of the OTP**
@@ -341,7 +341,7 @@ The system follows the following steps to include Masked e-mail and phone in the
    * If Registered mode is none, then
    * Send error code. 
 
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 2. If the communication mode = mobile
 3. Mask the mobile no of the individual as per logic below and include the masked mobile in info object of response
@@ -382,7 +382,7 @@ Eg:
 3. Validates if the configured mode of communication is also registered
 4. Fetches the notification template as per admin configuration
 5. Triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ## 1.4 Common Features for all Authentication [**[↑]**](#table-of-content)
 
@@ -409,7 +409,7 @@ The system receives authentication request from TSP with the following parameter
 
 2. The system proceeds match Input UIN from the individual matches with the UIN in the auth database
 3. The system proceeds to excecute match depending on the parameter using which the individual has to be authenticated.
-4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx). 
+4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx). 
 
 
 #### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-content)
@@ -418,7 +418,7 @@ The system receives authentication request from TSP with the following parameter
 
 1. The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN
 2. The system proceeds to Match UIN as per defined standards
-3. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+3. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 #### D. Generate a static token ID for each MOSIP authentication request, to facilitate authentication [**[↑]**](#table-of-content)
 
@@ -459,7 +459,7 @@ The system then performs the following steps to Trigger SMS to the Individual's 
 3. Validates the response for Auth Type 
 4. Fetches the notification template as per admin configuration
 5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 #### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-content)
@@ -471,7 +471,7 @@ The system receives authentication request from TSP with the following parameter
 3. Validates the response by Auth Type as per the defined standards
 4. Fetches the notification template as per admin configuration
 5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
@@ -511,7 +511,7 @@ The system then validates the following:
 17. Appends the response with the demographic and id fields as per the policy
 18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
 19. The system proceeds to execute Notification-SMS
-20. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
+20. Alerts and Warning messages for data type violation are sent as per [**data definition**]()
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/eKYC_Auth_Request_REST_service.md)
 
@@ -523,13 +523,13 @@ The system then validates the following:
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
 1. Receives a pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, nameSec, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
-**Please refer [**data definition doc**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
+Please refer [**data definition doc**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
 2. Validates if the MISP-LK has not expired
 3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
 4. Validates if the MISP-LK status is active
 5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
 6. Captures and stores the transaction details for audit purpose.
-7. Alerts and warning messages for data type violation are sent as per [**data definition Link](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) _**(Link to be updated)**_
+7. Alerts and warning messages for data type violation are sent as per [**data definition Link](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
 
 
 ## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
@@ -554,7 +554,7 @@ The system then validates the following:
 11. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 12. The system also provides id, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Id, Ad, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver.
 13. The system proceeds to execute Notification SMS
-14. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
+14. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx)
 
 
 # 6. Authentication Device Support 
