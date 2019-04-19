@@ -490,7 +490,7 @@ MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (
 
 ## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
 
-**A. Authenticate and authorize Auth Partner- proxy implementation**
+**Authenticate and authorize Auth Partner- proxy implementation**
 
 The system receives authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec= E/P, mtSec= 1 to 100, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
