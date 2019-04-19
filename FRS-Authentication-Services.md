@@ -30,7 +30,7 @@ Upon receiving an authentication service request, the system authenticates the f
 1. The system retrieves the threshold level configured which is acceptable for a match and then validates if the match score is equal to greater than the threshold level and sets the status as 'Y' for authentication
 1. The system then constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 1. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, FID, pin, OTP), reqTime, fmrCn, firCn, iirCn, fidCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -46,7 +46,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 6. The system then generates a match score based on the level of the match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -63,7 +63,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if total number of fgerMin records should not exceed 2
 4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -79,7 +79,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 1. The system then validates the following if the match score is equal to greater than the threshold level
 1. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
 1. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin or fgerImg, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -105,7 +105,7 @@ Upon receiving an authentication request, the system support two-finger authenti
 11. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
 12. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
 
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -128,7 +128,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -150,7 +150,7 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 5. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg , pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg, pin, OTP), reqTime, fgerMinCn, fgerImgCn, irisImgCn, faceImgCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code 
 1. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
 1. The system proceeds to execute compare against Iris threshold
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).  
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).  
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
 
@@ -173,7 +173,7 @@ The system receives authentication service request with the parameters: id, Con,
 3. The system validates if each of the address line items (addrLine1Sec, addrLine2Sec, addrLine3Sec, citySec, stateSec, countrySec, pcSec) in the i/p parameter is same as the address line items (saved in the secondary language) against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 4. Constructs the response to the requesting source with Res (Y/N), txnId (same as request), timestamp_Res of response, error code
 5. Provides UIN token, idType, indication of type of attribute was used for Auth (“Id->Name_Primary” or/and “Id->Name_Secondary”, ad->Address line 1, ad->Address line 2, ad->city, ad->state, ad->country, ad->pc etc, fad, Bio, Bio_Type, pin, OTP) and what attribute matched (“Id->namePri” or/and “Id->nameSec”, ad->addrLine1Pri, ad->addrLine2Pri, ad->addrLine3Pri, ad->cityPri, ad->statePri, ad->countryPri, ad->pcPri, ad->addrLine1Sec, ad->addrLine2Sec, ad->addrLine3Sec, ad->citySec, ad->stateSec, ad->countrySec, ad->pcSec, fad, Bio, Bio_Type, pin, OTP), reqTime, API_Version, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
 
@@ -197,7 +197,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 4. Validates if the Age of the individual is greater than or equal to the Age in the i/p parameter
 5. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
 6. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->age”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->age, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -215,7 +215,7 @@ The system receives authentication service request with the parameters: id, Con,
 8. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 9. The system also provides UIN token, IdType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), ReqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 10. Encoded Data (48 bit rep of Hexadecimal) will be used to indicate type of attribute was used for Auth and type of attribute matched for Auth
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
@@ -228,7 +228,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->phone”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->phone, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
@@ -244,7 +244,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->email”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->email, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -259,7 +259,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 2. The system matches the Gender in the input parameter with the Gender of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. Provides UIN token, idType, indication of type of attribute was used for Auth (“pi->gender”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->gender, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -272,7 +272,7 @@ The system receives authentication request from TSP with the parameters: id, Con
 2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTimeof response, err
 4. The system also provides UIN token, idType, indication of type of attribute was used for Auth (“pi->dob”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (pi->dob, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
-1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
+1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
@@ -342,6 +342,7 @@ The system follows the following steps to include Masked e-mail and phone in the
    * Send error code. 
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+
 2. If the communication mode = mobile
 3. Mask the mobile no of the individual as per logic below and include the masked mobile in info object of response
 4. If the communication mode = e-mail
