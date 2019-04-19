@@ -137,24 +137,6 @@ id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType,
 7. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
 
 
-
-
-**H. Autenticate based on Composite match score (TBD)** [**[↑]**](#table-of-content)
-
-The system receives authentication service request with the following parameters: 
-id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType) 
-1. The system retrieves generated score match
-2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
-3. The system then validated the following:
-   * Validates if two irisImg records are present in the input
-   * Retrieves the composite threshold level configured which is acceptable for a match
-   * Validates if the composite match score is equal to greater than the composite threshold
-4. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg , pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, irisImg, pin, OTP), reqTime, fgerMinCn, fgerImgCn, irisImgCn, faceImgCn, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code 
-5. Integrates the response with the static token generated for the authentication request. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition).
-6. The system proceeds to execute compare against Iris threshold 
-7. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
-
-
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
 
 ## 1.2 Demographic Authentication [**[↑]**](#table-of-content)
