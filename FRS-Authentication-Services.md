@@ -164,6 +164,8 @@ NOTE:
 1. The address attributes will be generalized as location 1, location 2 and location 3 instead of the location hierarchy attributes of India - city, state and country.
 1. The SI has to define and map the address specific attributes against addrLine1, addrLine2, addrLine3 and location specific attributes against loc1, loc2 and loc3 of a country. For example: addrLine1 means House No, addrLine2 means Street No, and addrLine3 means Locality; similarly loc1 means Local Administrative Authority, loc2 means Province and loc3 means Region.
 
+Please refer Git for the address based [**Normalization Rules**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
+
 
 
 **C. Verify the Age of the individual so that the individual is authenticated**
@@ -192,10 +194,6 @@ The system receives authentication service request with the parameters: id, Con,
 9. The system also provides UIN token, IdType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, Bio, Bio_Type, pin, OTP), ReqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
 10. Encoded Data (48 bit rep of Hexadecimal) will be used to indicate type of attribute was used for Auth and type of attribute matched for Auth
 11. The system proceeds to execute Notification SMS, E-mail. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx)
-
-
-
-Please refer Git for [**Normalization Rules**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
 
 
 **E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
@@ -443,99 +441,33 @@ The system receives authentication request from TSP with the following parameter
 # 4. KYC Service 
 ## 4.1 Profile Sharing based on Policy [**[↑]**](#table-of-content)
 
+**KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.**
 
-**A. E-KYC Service based on OTP Authentication**
+The system receives pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, Signature, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
 
-Upon receiving a request for authentication from TSP, the system responds back to TSP with KYC details, as configured as per the following steps:
 
-1. The system receives authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request
-2. Decodes the authentication request and obtain all the input parameters of the auth request
-3. Validates eAuthType and compare the data in the PID block in the auth request
-4. Validates if the MUA has permission for e-KYC
-5. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
-6. The system performs all the validation of the OTP Validation process and encodes the auth response
-7. Validates the status of the auth response based on auth response and proceed only if the status is successful
-8. The system proceeds to construct the e-KYC response element, which is encoded and encrypted.
-9. The system then proceeds to execute tokenization
-10. Retrieves the configured demVal parameter configured for the country
-11. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the AUA
-12. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
-13. The system retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-14. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-15. The system retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
-16. The system validates the rqSec flag
-17. The system returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
-18. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
-19. The system retrieves the PDF template configured for the Full KYC to construct ePri element
-20. The system retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
-21. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
-22. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
-23. The system then proceeds to execute Notification SMS/E-mail
-24. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
+The system then validates the following:
 
-**B. E-KYC Service based on Finger Print Authentication**
-
-Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system performs the following steps:
-
-1. Decodes the authentication request and obtains all the input parameters of the auth request
-2. Validates eAuthType and compare the data in the PID block in the auth request
-3. Validates if the MUA has permission for e-KYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
-5. The system performs fingerprint validation as per defined standards and encodes the auth response
-6. Validates the status of the auth response based on auth response and proceeds only if the status is successful
-7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
-8. The proceeds to execute tokenization user story
-9. The system then retrieves the configured demVal parameter configured for the country
-10. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the MUA
-11. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
-12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-13. The system retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-14. The actor retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
-15. Validates the rqSec flag
-16. Returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
-17. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
-18. Retrieves the PDF template configured for the Full KYC to construct ePri element
-19. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
-20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
-21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
-22. The system then proceeds to execute Notification-SMS/E-mail
-23. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**C. E-KYC Service based on Iris Authentication**
-
-Upon receiving an authentication request from TSP with the parameters: reqTime, ver, eCon, rqSec, rqPfr, eAuthType and also the encoded version of Auth request, the system perform the following steps:
-
-1. Decodes the authentication request and obtain all the input parameters of the auth request
-2. Validates eAuthType and compares the data in the PID block in the auth request
-3. Validates if the MUA has permission for e-KYC
-4. Validates if the mode of authentication in the input for e-KYC is as per the configuration of a permissible mode of authentication for e-KYC for the MUA
-5. The system performs all the validation of the IRIS Validation Story as per defined standards and encodes the auth response
-6. Validate the status of the auth response based on auth response and proceed only if the status is successful
-7. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
-8. The system proceeds to execute tokenization user story
-9. Retrieves the configured demVal parameter configured for the country
-10. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err. Out of these elements eResp, txnId, resTime, err will also be available out of the encrypted block for audit purpose of the MUA
-11. Validates MUA permissions for e-KYC (if MUA e-KYC permissions = ‘limited KYC’ retrieve the demo fields configured to be part of the response)
-12. Retrieves the PDF template configured for the limited KYC to construct ePri element of the response
-13. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the limited KYC from the admin config to be part of ePri
-14. Retrieves the configured id fields (from id, masked id, tokenid) for the limited KYC from the admin config to be part of the response
-15. Validates the rqSec flag
-16. Returns masked id, tokenid, namePri, gender, DOB, langPri addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, loc1Sec, loc2Sec, loc3Sec, pcSec, signature as per the validations in step 13, 14 and 15
-17. Validates MUA permissions for e-KYC - else (MUA e-KYC permissions = ‘Full KYC')
-18. Retrieves the PDF template configured for the Full KYC to construct ePri element
-19. Retrieves the configured demographic fields (out of name, address, dob, dob Type, gender, phone no, e-mail) for the full KYC from the admin config to be part of ePri
-20. Retrieves the configured id fields (out of id, masked id, tokenid) for the full KYC from the admin config to be part of the response
-21. The system also provides id, tokenId, and the retrieved epi and ead demo fields out of namePri, gender, DOB, langPri, addrline1Pri, addrline2Pri, addrline3Pri, loc1Pri, loc2Pri, loc3Pri, pcPri, ePht, ePri, langSec, nameSec, addrline1Sec, addrline2Sec, addrline3Sec, citySec, stateSec, countrySec, pcSec, signature, as per the validations in step 15, 19, 20
-22. The actor proceeds to execute Notification-SMS/E-mail
-23. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Consolidated%20error%20messages%20V2.1.xlsx).
-
-**D. Supports return of additional e-KYC data to social protection system (TBD)** [**[↑]**](#table-of-content)
-
-MOSIP to provide an additional API to fetch specific data of an individual based on UIN number (evaluate security aspect, as linking of HoF and maintenance of a family relationship will be required as a security imperative) and send to Social Protection Data System
-
-MOSIP to provide a mechanism to record the consent of HoF
-
-This is required to accommodate Household Program of GoM
+1. Validates digital signature in the certificate
+2. Validates the certificate
+3. Validates if the partnerID belongs to a registered partner
+4. Validates if the partner status is active
+5. Retrieves the policy constituting for the partnerID
+6. Validates if the auth type specified in the request is one of the policies retrieved.
+7. Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration
+8. Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)
+9. The system performs all the validation of the "auth" as per standards and encodes the auth response
+10. Validate the status of the auth response and proceed only if the status is successful
+11. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
+12. The system integrates the response with the static token generated for the authentication request 
+13. Retrieves the configured demVal parameter configured for the country
+14. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err.
+15. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
+16. Retrieves the configured id fields as per the e-KYC policy and identifies the id fields configured to be part of the response
+17. Appends the response with the demographic and id fields as per the policy
+18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
+19. The system proceeds to execute Notification-SMS
+20. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/eKYC_Auth_Request_REST_service.md)
 
@@ -579,35 +511,6 @@ The system then validates the following:
 12. The system also provides id, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Id, Ad, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver.
 13. The system proceeds to execute Notification SMS
 14. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
-
-
-**B. Authenticate and authorize e-KYC partner - proxy implementation**
-
-The system receives pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, Signature, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Data%20Definition)
-
-
-The system then validates the following:
-
-1. Validates digital signature in the certificate
-2. Validates the certificate
-3. Validates if the partnerID belongs to a registered partner
-4. Validates if the partner status is active
-5. Retrieves the policy constituting for the partnerID
-6. Validates if the auth type specified in the request is one of the policies retrieved.
-7. Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration
-8. Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)
-9. The system performs all the validation of the "auth" as per standards and encodes the auth response
-10. Validate the status of the auth response and proceed only if the status is successful
-11. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
-12. The system integrates the response with the static token generated for the authentication request 
-13. Retrieves the configured demVal parameter configured for the country
-14. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err.
-15. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
-16. Retrieves the configured id fields as per the e-KYC policy and identifies the id fields configured to be part of the response
-17. Appends the response with the demographic and id fields as per the policy
-18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
-19. The system proceeds to execute Notification-SMS
-20. _**Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%209/Error_Messages_Validate%20MISP%20Partner_MOS-1123_MOS-1129_MOS-1098.docx) (Link to be updated)**_
 
 
 # 6. Authentication Device Support 
