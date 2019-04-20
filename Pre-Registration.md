@@ -63,3 +63,18 @@ Technical flow and logical component
 ![technical component and flow](/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
 
 ![Logical deployment view](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
+
+## 3. Security design consideration
+
+* Exception handlers catch Exception class to support both school of thought to raise RuntimeExcpetion and Exception class. BUt this design doesn't advocate to catch exception like NullPOinterException and should be avoided.
+
+* Exception should be logged into file NOT console.
+
+* capcha  should be present in places where PII like phone number or emial id is being taken. For example, notification screen in acknowledgement page.
+
+* Sanitization of UI scripts.
+
+* Avoidance of implementation of embedded javascript framework.
+
+
+
