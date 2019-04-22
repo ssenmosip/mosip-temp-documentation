@@ -1474,7 +1474,7 @@ Name | Required | Description | Default Value | Example
 This service will provide the public key for the specific application fetched from key manager. 
 
 #### Resource URL
-<div>https://dev.mosip.io/v1/syncdata/publickey/{applicationId}</div>
+<div>https://mosip.io/v1/syncdata/publickey/{applicationId}</div>
 
 #### Resource details
 
@@ -1491,7 +1491,7 @@ referenceId|No|Id of the Machine/TSP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
-<div>https://dev.mosip.io/v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<div>https://mosip.io/v1/syncdata/publickey/REGISTRATION?timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
 
 #### Responses:
 ##### Success Response:
