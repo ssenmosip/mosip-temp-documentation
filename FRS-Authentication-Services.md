@@ -161,11 +161,11 @@ MOSIP supports only exact match for the demographic authentication of the indivi
 
 No weightage is provided to any field\s but exact match strategy is adopted for demographic address
 
-The system receives authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, fullAddress, addressLine1, addressLine2, addressLine3, city, region, province, postalCode and language for each address attribute
+The system receives authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, fullAddress, addressLine1, addressLine2, addressLine3, location1, location2, location3, postalCode and language for each address attribute
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 1. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system validates if each of the address line items  in the i/p parameter is same as the address line items against the mapped UIN/VID of the resident in the auth database in the respective language for each address element. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-3.The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
+3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -173,8 +173,8 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 
 NOTE:
 
-1. The address attributes will be generalized as location 1, location 2 and location 3 instead of the location hierarchy attributes of India - city, state and country.
-1. The SI has to define and map the address specific attributes against addrLine1, addrLine2, addrLine3 and location specific attributes against loc1, loc2 and loc3 of a country. For example: addrLine1 means House No, addrLine2 means Street No, and addrLine3 means Locality; similarly loc1 means Local Administrative Authority, loc2 means Province and loc3 means Region.
+1. The address attributes are generalized as location 1, location 2 and location 3 
+1. The SI has to define and map the address specific attributes against addressLine2, addressLine3,  and location specific attributes against location1, location2, location3 of a country. For example: addrLine1 means House No, addrLine2 means Street No, and addrLine3 means Locality; similarly loc1 means Local Administrative Authority, loc2 means Province and loc3 means Region.
 
 Please refer Git for the address based [**Normalization Rules**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
 
