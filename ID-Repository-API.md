@@ -4,7 +4,7 @@ This section details about the REST services in ID Repository module.
 * [Read By RID Service](#read-id-by-rid)
 * [Update ID Service](#update-id)
 
-Note - Will not support search based on attributes of an ID
+**Note** - ID Repo will not support search based on attributes of an ID.
 ***
 
 ## Create ID    
