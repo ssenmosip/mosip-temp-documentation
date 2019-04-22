@@ -2371,7 +2371,7 @@ Digital signatures are needed in various places of the MOSIP system. Few example
 This service returns a static token for the requested UIN and Partner ID. It will return the same Static Token for every call made with the same UIN and Partner ID. 
 
 #### Resource URL
-<div>https://dev.mosip.io/v1/tokenidgenerator/{uin}/{partnercode}/</div>
+<div>https://mosip.io/v1/tokenidgenerator/{uin}/{partnercode}/</div>
 
 #### Resource details
 Resource Details | Description
