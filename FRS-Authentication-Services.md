@@ -467,7 +467,7 @@ The system receives authentication request from TSP with the following parameter
 
 **KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.**
 
-The system receives pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, Signature, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+The system receives pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType),otp attribute of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
 
 The system then validates the following:
@@ -485,9 +485,8 @@ The system then validates the following:
 11. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
 12. The system integrates the response with the static token generated for the authentication request 
 13. Retrieves the configured demVal parameter configured for the country
-14. Constructs the response with the fields eResp, demVal, actn, txnId, resTime, err.
+14. Constructs the response with the fields kycStatus, ttl, actn, transactionID, responseTime, err.
 15. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
-16. Retrieves the configured id fields as per the e-KYC policy and identifies the id fields configured to be part of the response
 17. Appends the response with the demographic and id fields as per the policy
 18. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
 19. The system proceeds to execute Notification-SMS
@@ -502,7 +501,7 @@ The system then validates the following:
 **Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
-1. Receives a pin based authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, nameSec, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
+1. Receives a pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, <demo/bio/otp> attribute of the Individual 
 Please refer [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 2. Validates if the MISP-LK has not expired
 3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
@@ -516,7 +515,7 @@ Please refer [**data definition**](/mosip/mosip/tree/master/docs/requirements/Re
 
 **Authenticate and authorize Auth Partner- proxy implementation**
 
-The system receives authentication request with the parameters: id, Con, reqTime, txnId, partnerID, ver, MISP-LK, idType, pi, ad, fad, bio, Bio_Type, pin, otp, pin, session key, HMAC Value, signature, otp, namePri, msPri= E/P, mtPri= 1 to 100, nameSec, msSec= E/P, mtSec= 1 to 100, addrPri, addrSec, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec, dCode, mId, Bios (bioType, attriType), pinval of the Individual 
+The system receives authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, <demo/bio/otp> attribute of the Individual 
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
 The system then validates the following:
@@ -530,8 +529,7 @@ The system then validates the following:
 8. Validates if the "authvalue" in the i/p parameter is same "authval" stored in the database for the mapped UIN and VID
 9. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
 10. The system then integrates the response with the static token generated for the authentication request  
-11. The system constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
-12. The system also provides id, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Id, Ad, FAd, Bio, Bio_Type, pin, OTP), reqTime, ver.
+11. he system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 13. The system proceeds to execute Notification SMS
 14. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
