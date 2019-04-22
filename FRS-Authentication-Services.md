@@ -249,7 +249,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 
 **H. Match DOB of the individual in the database so that the individual is authenticated**
 
-The system receives authentication request from TSP with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dob of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+The system receives authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dob of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
@@ -269,15 +269,14 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 
 **A. Trigger OTP to an individual so that the individual can be authenticated based on OTP**
 
-The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+The system receives OTP service request with the parameters: individualId, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, signature and OTP channel. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
 
 1. Validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system generates the OTP for the request. (Use < product_id >_< encoded token_id >_< txn_id > < MUA Code >logic to generate a unique key for this OTP generation request; The system calls the Core kernel OTP generator component by passing the unique key; The system receives the OTP from the Core kernel component)
 3. Retrieves the mode of communication (i.e) e-mail or phone no configured for sending the OTP
 4. The system validates if the configured mode of communication is also registered
 5. The system triggers OTP to the configured and registered mode of the individual
-6. Triggers a response to the requesting source with status (Y/N) for successful trigger of OTP, txnId (same as request), resTime, err - error code and error message
-7. The system also sends additional information on idType of input, reqTime of input, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code, masked mobile and masked e-mail
+6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err, masked mobile and masked e-mail
 8. The system proceeds to execute Validate OTP as per the defined standards
 9. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
@@ -287,21 +286,20 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 **B. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
 
 
-The system receives OTP based authentication request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, Id, Ad, FAd, Bio, Bio_Type, pin, OTP, session key, HMAC Value, signature, OTP. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+The system receives OTP based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, otp. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
 1. The system validates if the transaction id matches with transaction id value of OTP Generate Request
 2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 3. Validates if the OTP in the i/p parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
-4. The system validates the validity of the OTP (For points 2 and 3 - The system regenerates the unique key using the logic < product_id >_< encoded token_id >_< txn_id > < MUA Code >; the system calls the core kernel validator component by passing OTP and the unique key and receives a validation response)
+4. The system validates the validity of the OTP 
 5. Constructs the authentication response based on validation results
-6. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err
-7. Provides UIN token, idType, indication of what type of attribute was used for Auth (Id, Ad, FAd, Bio, Bio_Type, pin, OTP) and what attribute matched (Name, DOB, etc, OTP), reqTime, ver, SHA-256 hash value of MUA code, SHA-256 hash value of MSA code
+6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 8. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 **C. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
 
-The system receives OTP service request with the parameters: id, session id, reqTime, txnId, MUA code, ver, MUA_Licensekey, idType, signature. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+The system receives OTP service request with the parameters: iindividualId, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, signature and OTP channel. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
 1. The system retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
 2. Validates if the configured mode of communication is also registered
 3. The system fetches the notification template as per admin configuration
@@ -358,7 +356,7 @@ Eg:
 
 **E. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
 
-1. The system receives OTP service request with the parameters: id, session id, reqTime , txnId, MUA code, ver, MUA_Licensekey, idType, signature
+1. The system receives OTP service request with the parameters: individualId, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, signature and OTP channel
 2. The system then retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
 3. Validates if the configured mode of communication is also registered
 4. Fetches the notification template as per admin configuration
@@ -369,7 +367,7 @@ Eg:
 
 #### A. Validate the timestamp of the authentication request
 
-The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+The system receives authentication request from partner with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 The system then validates the following:
 1. Validates if the time period between the current time stamp and the request time stamp is <= 20 min
@@ -384,7 +382,8 @@ MOSIP supports standard time for timestamps of authentication requests and respo
 
 #### B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated
 
-The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri= E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+The system receives authentication request from partner with the following parameters:  individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
+
 
 1. The system matches the input UIN from the individual with the UIN in the auth database (Complete match)
 
@@ -395,7 +394,7 @@ The system receives authentication request from TSP with the following parameter
 
 #### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-content)
 
-The system receives authentication request from TSP with the following parameters: id = VID, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
+The system receives authentication request from TSP with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 1. The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN
 2. The system proceeds to Match UIN as per defined standards
@@ -404,7 +403,7 @@ The system receives authentication request from TSP with the following parameter
 #### D. Generate a static token ID for each MOSIP authentication request, to facilitate authentication [**[↑]**](#table-of-content)
 
 The system receives authentication service request with the following parameters: 
-id, reqTime, txnId, idType, tspId and other authentication parameters based on the authentication type requested by the Individual 
+individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 The system then performs the following steps to generate a static token ID
 
@@ -431,7 +430,7 @@ Note: The Authentication is integrated for both successful and failure authentic
 
 
 The system receives authentication request from TSP with the following parameters:
-id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual
+individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request
 
@@ -445,7 +444,7 @@ The system then performs the following steps to Trigger SMS to the Individual's 
 
 #### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-content)
 
-The system receives authentication request from TSP with the following parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, Bio, Bio_Type, pin, otp, session key, HMAC Value, signature, otp, namePri, msPri = E /P, mtPri= 1 to 100, nameSec, msSec = E/P, mtSec= 1 to 100, addrPri, msPri= E/P, mtPri= 1 to 100, addrSec msSec= E/P, mtSec= 1 to 100, addrLine1, addrLine2, city, state, country, pc, phone, email, gender, dob, age, langPri, langSec of the Individual 
+The system receives authentication request from TSP with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 1. The system retrieves the mode of communication (i.e) e-mail configured for sending the notification
 2. The system validates if the configured mode of communication is also registered
