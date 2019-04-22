@@ -84,7 +84,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 
 Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better. Refer to below process:
 
-1. The system receives an authentication service request with the parameters: id, Con, reqTime, txnId, MUA code, ver, MUA_Licensekey, MSA_license key, idType, pi, ad, fad, bio, pin, OTP, session key, HMAC Value, signature, namePri, msPri, mtPri, nameSec, msSec, mtSec, dCode, mId, Bios (bioType, attriType). 
+1. The system receives an authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
@@ -98,8 +98,7 @@ Upon receiving an authentication request, the system support two-finger authenti
 8. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 9. The actor retrieves the composite finger threshold configured which is acceptable for a match
 10. The actor validates if the composite match score is equal to greater than the composite finger threshold
-11. Constructs the response to the requesting source with status (Y/N), txnId (same as request), resTime of response, err, actn
-12. The system also provides id, idType, indication of type of attribute was used for Auth (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP) and what attribute matched (“pi->namePri” or/and “pi->nameSec”, Ad->Address line 1, etc, FAd, fgerMin, pin, OTP), reqTime, API_Version, SHA-256 hash value of UA code, SHA-256 hash value of SA code
+11. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
