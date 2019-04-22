@@ -1,11 +1,11 @@
-Each ID generated for an Individual is uniquely identified by the UIN (Unique Identification Number). This is a central API which all other modules of MOSIP will use to retrieve an ID record.
+This section details about the REST services in ID Repository module.
+* [Create ID Service](#authentication-service-public)
+* [Read By UIN Service](#ekyc-service-public)
+* [Read By RID Service](#otp-request-service-public)
+* [Update ID Service](#static-pin-service-internal)
 
-This API will support the following features
- - Create an ID record
- - Lookup of an ID record based on UIN
- - Lookup of an ID record based on RID
- - Update an ID record based on UIN
- - Will not support search based on attributes of an ID
+Note - Will not support search based on attributes of an ID
+***
 
 ## 1. Create    
 
