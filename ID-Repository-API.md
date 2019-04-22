@@ -1,13 +1,13 @@
 This section details about the REST services in ID Repository module.
-* [Create ID Service](#authentication-service-public)
-* [Read By UIN Service](#ekyc-service-public)
-* [Read By RID Service](#otp-request-service-public)
-* [Update ID Service](#static-pin-service-internal)
+* [Create ID Service](#create-id)
+* [Read By UIN Service](#read-id-by-uin)
+* [Read By RID Service](#read-id-by-rid)
+* [Update ID Service](#update-id)
 
 Note - Will not support search based on attributes of an ID
 ***
 
-## 1. Create    
+## Create ID    
 
 This operation will create a new ID record in ID repository and store corresponding demographic and bio-metric documents. 
 
@@ -224,7 +224,7 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 }
 ```
 
-## 2. Read by UIN         
+## Read ID by UIN         
 
 This operation will retrieve an ID record from ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of the Individual are returned
@@ -404,7 +404,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 3. Read by RID         
+## Read ID by RID         
 
 This operation will retrieve an ID record from ID repository for a given RID (Registration ID) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of Individual are returned
@@ -584,7 +584,7 @@ Requires Authentication | Yes
 }
 ```
 
-## 4. Update   
+## Update ID   
 
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
