@@ -1955,6 +1955,7 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 * [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
+* [POST /appointment](#post-appointmentpreregistrationidMulti)
 * [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
 * [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
@@ -2010,13 +2011,15 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 ###### Description: Appointment booked successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-      "message": "Appointment booked successfully"
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-23T15:18:29.974Z",
+    "response": {
+        "preRegistrationId": "65340187513461",
+        "bookingStatus": "Booked",
+        "bookingMessage": "Appointment booked successfully"
     },
-   "errors":null
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -2053,6 +2056,113 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
     ]
 }
 ```
+### POST /appointment
+This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.booking.book
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.preRegistrationid|Yes|Preregistration Id|51489749326453
+request.registration_center_id |Yes|Registration center Id |10001
+request.appointment_date |Yes|Date of the appointment|2019-04-22
+request.time_slot_from |Yes|Time Slot From|15:30:00
+request.time_slot_from |Yes|Time Slot To|15:45:00
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2019-04-22T15:31:32.957Z",
+  "request": [{
+  		"preRegistrationId":"51489749326453",
+        "registration_center_id": "10001",
+        "appointment_date": "2019-04-22",
+        "time_slot_from": "15:30:00",
+        "time_slot_to": "15:45:00"
+   },
+   {
+  		"preRegistrationId":"94625367217037",
+        "registration_center_id": "10008",
+        "appointment_date": "2019-04-23",
+        "time_slot_from": "15:30:00",
+        "time_slot_to": "15:45:00"
+   }]
+} 
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Appointment booked successfully
+```JSON
+{
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-23T15:16:42.010Z",
+    "response": [
+        {
+            "preRegistrationId": "29487243023716",
+            "bookingStatus": "Booked",
+            "bookingMessage": "Appointment booked successfully"
+        },
+        {
+            "preRegistrationId": "65340187513461",
+            "bookingStatus": "Booked",
+            "bookingMessage": "Appointment booked successfully"
+        }
+    ],
+    "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid Pre Registration Id.
+```JSON
+{
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_PAM_APP_006",
+            "message": "No data found for the requested pre-registration id"
+         }
+    ]
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Slot availability not found for selected time.
+```JSON
+{
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_BOOK_RCI_002",
+            "message": "Slot availability not found for selected time"
+         }
+    ]
+}
+```
+
 ### PUT /appointment/:preRegistrationId
 This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
 
