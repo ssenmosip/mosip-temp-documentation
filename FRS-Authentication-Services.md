@@ -467,7 +467,7 @@ The system receives authentication request from TSP with the following parameter
 
 **KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.**
 
-The system receives pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType),otp attribute of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+The system receives pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType),otp, secondaryLangCode attribute of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
 
 The system then validates the following:
