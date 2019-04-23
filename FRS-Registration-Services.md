@@ -304,28 +304,79 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 ## 3.3 Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) [**[↑]**](#table-of-content)
 ## 3.4 New Registration [**[↑]**](#table-of-content)
 ## 3.5 UIN Updates [**[↑]**](#table-of-content)
+
+#### A. UIN Updates Turn On or Off
+
+The UIN update feature is configurable by a country. Admin can either turn ON or OFF the UIN update feature.
+
+When an individual approaches the Registration Officer for UIN update, the following scenarios may arise:
+
+1. If UIN Update is turned on by a country, the registration officer can proceeds to capture the individual’s updated details.
+1. Alternatively, if UIN Update is turned OFF by a country the RO will not be able to carry out the UIN Update process.
+
+#### B. Registration client allows update to UIN data only for configured fields
+1. An admin can configure the fields that are available for update through the registration client. The configuration applies at a country level.
+2. The Admin can set the following fields to be update-able at a country level through the admin portal:
+   * Name
+   * Age/DoB
+   * Gender
+   * Address
+   * Contact details
+   * CNIE/EC Number
+   * Parent/Guardian details
+   * Biometrics-Exception
+   * Biometrics-Fingerprint
+   * Biometrics-Iris
+3. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
+
+#### C. UIN Update
+1. The Registration Officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
+1. Registration Officer captures the mandatory demographic attributes and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated should be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN .If they are same, displays an error message 
+
+1. Registration Officer then uploads documents. The applicable documents are determined by the system based on configuration
+1. If biometrics were selected for update, Registration Officer marks exceptions and scans all biometrics. Else scans any one biometric.
+1. Registration Officer captures face photo and exception photo.
+1. After capturing all the biometric and demographic details the Registration Officer can see a preview of the data captured and performs operator authentication.
+1. If biometric exceptions were marked, supervisor performs authentication.
+1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services) for more details.
+1. Registration Officer Views and prints acknowledgement. 
+1. SMS and/or email notifications are sent if the contact details are entered during the update process.
+
 ## 3.6 Acknowledgement and Notifications [**[↑]**](#table-of-content)
+#### A. Printing the registration receipt.
+1. Upon completion of a registration the system generates a unique RID 
+1. The system the enables the user to generate the registration receipt.
+1. The registration receipt contains details in a print-friendly format.
+   * Receipt includes labels and data in two languages - the default language and the secondary language as configured. 
+   * All labels and fields are in the default language. Only name and address labels and fields are shown in the secondary language
+   * Receipt displays the 2D bar code.
+4. This print friendly receipt can then be printed using a printer
 
-**Support remapping a machine from one center to another**
+#### B. Acknowledgement receipt sent by email on completion of registration process
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system, sends an acknowledgement email to the resident
+2. The email template is defined by the admin at country level.
+3. Email is sent to the email address entered during registration.
+4. The subject and the body of the acknowledgement email are configured by admin.
+5. No email is sent under the following scenario
+   * If mode of confirmation is not set to ‘email’ or ‘email and SMS’
+   * If an email address is not provided during registration
+   * If the client is not online during registration completion
+#### C. Acknowledgement receipt sent by SMS on completion of registration process
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system sends an acknowledgement email to the resident
+2. The template of the SMS is defined by the admin at the country level.
+3. The “from” id of the SMS will be set up by the system integrator.
+4. The system triggers the SMS to the mobile number provided during registration.
+5. The SMS contains the registration number.
+6. An SMS  is triggered regardless of the applicant being an adult or child as determined by the date of birth.
+7. The system will not be able to send SMS, if the client is not online at the time of registration completion.
 
-When an Admin user changes the mapping of a computer from one Registration Centre (RC) to another, a sync is initiated on the client installed on that computer.
+**Proposed template**
 
-MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer (RO) moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
+SMS content: “Dear [Individual full name], Thank you for registering with Digital Identity platform. Your registration id is [Registration ID]. If there are any corrections to be made in your details, please contact the Registration center within the next 4 days.
 
-The following example explains the steps system performs to support remapping a machine from one center to another:
+#### D. Sending email and SMS acknowledgements to additional recipients
+This feature enables registration client to send SMS and email acknowledgements to additional recipient\s (other than the resident’s primary email id and mobile number)
 
-1. Say a machine M1 is currently mapped to registration center RC1.
-1. M1 contains master data related to RC1, officer on-boarding data for say RO1 and RO2, and pre-registration data, registration packets and audit logs for registrations carried out in RC1.
-1. Now M1 is unmapped from RC1 and mapped to RC2 in the Admin portal.
-1. When M1 comes online, the master and configuration data is synced from server to client. As a result of sync, the following occur:
-   * M1 recognizes that it is mapped to RC2 instead of RC1. An alert is displayed to the user.
-   * Once the client machine receives details of remapping to a new registration center, new registration, UIN update, and lost UIN cannot be initiated. The links to the above should either be hidden, disabled or display error on-click - as per UX guidelines.
-   * In-progress registrations can be completed.
-   * A one-time background process to push packet IDs, packets, and user onboarding data to the server will happen when the system is online and there are no pending approval packets.
-   * It will then delete all the data except audit data. Deletion covers the RC1 master data, Registrations created while in RC1, user on-boarding data of RC1, and pre-registration data of RC1. Audit logs and other data, which might be used for analytics and data retention policy reasons, will not be deleted. The removal of those will be as per policy only.
-   * The user from the original registration center cannot login thereafter.
-   * If the one-time process has not yet run, the user will still be able to login and perform sync, end of day approval, re-register updates, export, and upload. The user cannot perform pre-registration download and user on-boarding.
-5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
 
 ## 3.7 Biometric Exceptions [**[↑]**](#table-of-content)
 ## 3.8 Supervisor Approval [**[↑]**](#table-of-content)
