@@ -1955,7 +1955,7 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 * [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
-* [POST /appointment](#post-appointmentpreregistrationidMulti)
+* [POST /appointment](#post-appointment)
 * [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
 * [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
