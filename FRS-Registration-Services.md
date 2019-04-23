@@ -301,6 +301,54 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 # 3. Registration Data Services
 ## 3.1 List of Registrations [**[↑]**](#table-of-content)
 ## 3.2 Registration Packet Upload [**[↑]**](#table-of-content)
+
+#### A. Views the packets first, selects which ones to upload, and then initiates the packet to upload
+1. When the Registration Officer selects the “Upload Packets” option, a list of packets will be displayed.
+1. Each packet will have a check box for selection and have an option to “Select All” and “Deselect All” the packets. 
+1. When the Registration Officer selects the packet, he/she will be able upload the selected packet to server.
+   NOTE: The ‘Export’ option will be disabled if any packets are selected because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
+
+#### B. Pushes those packets that are marked 'Resend' to the server
+
+1. When the Registration Officer or Supervisor navigates the ‘Upload Packets’ page, the list of RIDs that are pending packets to upload will be displayed.
+   * Pending packets are those packets, which are not sent to the server and have been marked for resending.
+2. When the Registration Officer or Supervisor selects the ‘Upload’ option, the pending packets will be uploaded to the server.
+3. The result of each packet uploaded will be displayed as ‘Success’ or ‘Failure’.
+   * Packets that are successfully sent or resent will not be sent again unless the server requests for them.
+   * Packets for which upload fails will continue to be in pending state.
+4. System captures and stores the transaction details for audit purpose.
+
+#### C. Pushes a registration packet via FTP mode to the server
+
+1. The Registration Officer or Supervisor enters their FTP username and password.
+1. When the user chooses the packets to push it to server, the list of packet RIDs that have been synced to server and exported to the local folder but not yet pushed to server will be displayed.
+1. If applicable, the user selects a different source folder and a destination folder.
+1. When the user selects the packets to push, the system checks that the selected EIDs have been synced to the server prior to pushing.
+1. Then the user copies from the local folder to server and updates the status of the packets to ‘Pushed to Server’.
+1. System captures and stores the transaction details for audit purpose.
+
+#### D. Enables a real time packet upload when system is online upon registration submission
+
+**When EoD process is turned ON**
+
+1. Registration Client checks if the system is online as soon as the assigned approver (such as Supervisor) approves or rejects a new registration or UIN update.
+1. If client is online, the registration client sends registration id to server and then the packets are marked as “Ready to upload” and auto uploaded to server.
+1. If client is offline or on low bandwidth, then when the client next comes online, the registration id’s are sent to server through scheduled or manual sync and the packets are then marked as “ready to upload”.
+1. Once the packets are ready for upload, packets are uploaded in two ways:
+   * The registration officer can initiate upload to server using upload function.
+   * Export to external storage device for subsequent upload as required.
+5. System captures and stores the transaction details for audit purpose.
+
+**When EoD process is turned OFF**
+
+1. Registration Client checks if system is online as soon as the Registration Officer submits a new registration or UIN update.
+1. If client is online, the registration client sends registration id to server and then the packets are marked as “Ready to upload” and auto uploaded to server.
+1. If client is offline or on low bandwidth, then when the client next comes online, the registration id’s are sent to server through scheduled or manual sync and the packets are then marked as “ready to upload”.
+1. Once the packets are ready for upload, packets are uploaded in two ways:
+   * The registration officer can initiate upload to server using client’s upload function.
+   * Export to external storage device for subsequent upload as required.
+5. System captures and stores the transaction details for audit purpose.
+
 ## 3.3 Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) [**[↑]**](#table-of-content)
 ## 3.4 New Registration [**[↑]**](#table-of-content)
 ## 3.5 UIN Updates [**[↑]**](#table-of-content)
