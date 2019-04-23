@@ -338,7 +338,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
 1. Registration Officer captures face photo and exception photo.
 1. After capturing all the biometric and demographic details the Registration Officer can see a preview of the data captured and performs operator authentication.
 1. If biometric exceptions were marked, supervisor performs authentication.
-1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services) for more details.
+1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. Registration Officer Views and prints acknowledgement. 
 1. SMS and/or email notifications are sent if the contact details are entered during the update process.
 
