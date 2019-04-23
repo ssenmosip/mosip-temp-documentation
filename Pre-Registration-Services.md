@@ -2655,7 +2655,9 @@ langCode| Yes| language code whatever user choose while login|eng
 	"appointmentDate": "2019-01-22",
 	"appointmentTime": "22:57",
 	"mobNum": "9748107386",
-	"emailID": "sanober.noor2@mindtree.com"
+	"emailID": "sanober.noor2@mindtree.com",
+         "additionalRecipient":"true"
+
    }
 }
 ```
