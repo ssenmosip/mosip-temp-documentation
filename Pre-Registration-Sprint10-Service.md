@@ -2,6 +2,7 @@ This section details about the service API in the Pre-Registration Document serv
 * [Login Service](#login-service-public)
 * [Demographic Service](#demographic-service-public)
 * [Document Service](#document-service-public)
+* [Booking Service](#booking-service-public)
 
 # Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
@@ -1646,5 +1647,455 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
          "message": "Failed to delete from file system server"
      }
   ]
+}
+```
+# Booking Service (Public)
+This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
+
+* [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
+* [POST /appointment](#post-appointment)
+* [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
+* [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
+* [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
+* [GET /appointment/preRegistrationId/:registrationCenterId?from_date=:date&to_date=:date](#get-appointmentpreregistrationidregistrationcenteridfrom_datedateto_datedate)
+
+### POST /appointment/:preRegistrationId
+This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment/:preRegistrationId</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegsitrationId |Yes|pre-registration id of the application|37802950913289
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.booking.book
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.registration_center_id |Yes|Registration center Id |10005
+request.appointment_date |Yes|Date of the appointment|2019-01-19
+request.time_slot_from |Yes|Time Slot From|12:15:00
+request.time_slot_from |Yes|Time Slot To|12:28:00
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2019-01-09T15:31:32.957Z",
+  "request": [{
+        "registration_center_id": "10005",
+        "appointment_date": "2019-02-13",
+        "time_slot_from": "15:31:00",
+        "time_slot_to": "15:44:00"
+   }]
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Appointment booked successfully
+```JSON
+{
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-23T15:18:29.974Z",
+    "response": {
+        "preRegistrationId": "65340187513461",
+        "bookingStatus": "Booked",
+        "bookingMessage": "Appointment booked successfully"
+    },
+    "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid Pre Registration Id.
+```JSON
+{
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_PAM_APP_006",
+            "message": "No data found for the requested pre-registration id"
+         }
+    ]
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Slot availability not found for selected time.
+```JSON
+{
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_BOOK_RCI_002",
+            "message": "Slot availability not found for selected time"
+         }
+    ]
+}
+```
+### POST /appointment
+This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.booking.book
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.preRegistrationid|Yes|Preregistration Id|51489749326453
+request.registration_center_id |Yes|Registration center Id |10001
+request.appointment_date |Yes|Date of the appointment|2019-04-22
+request.time_slot_from |Yes|Time Slot From|15:30:00
+request.time_slot_from |Yes|Time Slot To|15:45:00
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2019-04-22T15:31:32.957Z",
+  "request": [{
+  		"preRegistrationId":"51489749326453",
+        "registration_center_id": "10001",
+        "appointment_date": "2019-04-22",
+        "time_slot_from": "15:30:00",
+        "time_slot_to": "15:45:00"
+   },
+   {
+  		"preRegistrationId":"94625367217037",
+        "registration_center_id": "10008",
+        "appointment_date": "2019-04-23",
+        "time_slot_from": "15:30:00",
+        "time_slot_to": "15:45:00"
+   }]
+} 
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Appointment booked successfully
+```JSON
+{
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-23T15:16:42.010Z",
+    "response": [
+        {
+            "preRegistrationId": "29487243023716",
+            "bookingStatus": "Booked",
+            "bookingMessage": "Appointment booked successfully"
+        },
+        {
+            "preRegistrationId": "65340187513461",
+            "bookingStatus": "Booked",
+            "bookingMessage": "Appointment booked successfully"
+        }
+    ],
+    "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid Pre Registration Id.
+```JSON
+{
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_PAM_APP_006",
+            "message": "No data found for the requested pre-registration id"
+         }
+    ]
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Slot availability not found for selected time.
+```JSON
+{
+   "id": "mosip.pre-registration.booking.book",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_BOOK_RCI_002",
+            "message": "Slot availability not found for selected time"
+         }
+    ]
+}
+```
+
+### PUT /appointment/:preRegistrationId
+This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment/:preRegistrationId</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Appointment cancelled successfully
+
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.cancel",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response":{
+        "message":"Appointment cancelled successfully"
+    },
+    "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Appointment cancellation failed.
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.cancel",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors": [
+          {
+             "errorCode": "PRG_BOOK_RCI_015",
+             "message": "Appointment cancellation failed"
+          }
+    ] 
+}
+```
+### GET /appointment/:preRegistrationId
+This request is to retrieve Pre-Registration appointment details by pre-Registration id.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment/:preRegistrationId</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Id of the application|37802950913289
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Appointment details successfully retrieved
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.fetch",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": {
+    "registration_center_id": "10005",
+    "appointment_date": "2019-02-13",
+    "time_slot_from": "16:10",
+    "time_slot_to": "16:23"
+  },
+  "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No Appointment record found for the specified pre-registration id
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.fetch",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_BOOK_RCI_013",
+            "message": "No Appointment record found for the specified pre-registration id"
+         }
+    ]
+}
+```
+### GET /appointment/availability/:registrationCenterId
+This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment/availability/:registrationCenterId</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+registrationCenterId |Yes|Registration Center Id|10004
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Availability details fetched successfully
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.availability",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": {
+        "registrationCenterId": "10004",
+        "centerDetails": [
+         {
+            "date": "2019-02-13",
+            "timeSlots": [
+              {
+                "fromTime": "09:00:00",
+                "toTime": "09:15:00",
+                "availability": 4
+              },
+             {
+               "fromTime": "09:15:00",
+               "toTime": "09:30:00",
+                "availability": 3
+             }
+             ],
+            "holiday": false
+         },
+        {
+            "date": "2019-02-14",
+            "timeSlots": [
+              {
+                "fromTime": "09:00:00",
+                "toTime": "09:15:00",
+                "availability": 4
+              },
+             {
+               "fromTime": "09:15:00",
+               "toTime": "09:30:00",
+                "availability": 3
+             }
+             ],
+            "holiday": false
+         }
+    ]
+  },
+  "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No available slots found for specified registration center.
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.availability",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_BOOK_RCI_015",
+            "message": "No available slots found for specified registration center"
+         }
+    ]
+}
+```
+### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
+This request is used to retrieve all pre-registration ids available for specified registration center and date range.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+registrationCenterId |Yes|Registration Center Id|10004
+
+#### Request Query Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+fromDate |Yes|From Date | 2019-02-12
+toDate |Yes|To Date | 2019-02-14
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Availability details fetched successfully
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.ids",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": {
+        "preRegistrationIds": [
+                       "94625367217037",
+                       "43526512857302"
+         ]
+    },
+    "errors":null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No available slots found for specified registration center with date range.
+```JSON
+{
+   "id": "mosip.pre-registration.appointment.ids",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_BOOK_RCI_016",
+            "message": "No available slots found for specified registration center with date range"
+         }
+    ]
 }
 ```
