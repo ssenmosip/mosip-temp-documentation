@@ -250,9 +250,6 @@ Requires Authentication | No
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
-Kindly refer the below link for Sprint 10 deliverable
-https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
-
 * [POST /applications](#post-applications)
 * [PUT /applications/:preRegistrationId](#put-applicationspreRegistrationid)
 * [GET /applications/:preRegistrationId](#get-applicationspreRegistrationid)
