@@ -303,15 +303,15 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 ## 3.2 Registration Packet Upload [**[↑]**](#table-of-content)
 
 #### A. Views the packets first, selects which ones to upload, and then initiates the packet to upload
-1. When the Registration Officer selects the “Upload Packets” option, a list of packets will be displayed.
+1. Once the Registration Officer selects the “Upload Packets” option, a list of packets will be displayed.
 1. Each packet will have a check box for selection and have an option to “Select All” and “Deselect All” the packets. 
-1. When the Registration Officer selects the packet, he/she will be able upload the selected packet to server.
+1. After the Registration Officer selects the packet, he/she can upload the selected packet to server.
 
    NOTE: The ‘Export’ option will be disabled if any packets are selected because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
 
 #### B. Pushes those packets that are marked 'Resend' to the server
 
-1. When the Registration Officer or Supervisor navigates the ‘Upload Packets’ page, the list of RIDs that are pending packets to upload will be displayed.
+1. When the Registration Officer or Supervisor navigates to the ‘Upload Packets’ page, the list of RIDs that are pending packets to upload will be displayed.
    * Pending packets are those packets, which are not sent to the server and have been marked for resending.
 2. When the Registration Officer or Supervisor selects the ‘Upload’ option, the pending packets will be uploaded to the server.
 3. The result of each packet uploaded will be displayed as ‘Success’ or ‘Failure’.
@@ -323,7 +323,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 
 1. The Registration Officer or Supervisor enters their FTP username and password.
 1. When the user chooses the packets to push it to server, the list of packet RIDs that have been synced to server and exported to the local folder but not yet pushed to server will be displayed.
-1. If applicable, the user selects a different source folder and a destination folder.
+1. If applicable, the user can select a different source folder and a destination folder.
 1. When the user selects the packets to push, the system checks that the selected EIDs have been synced to the server prior to pushing.
 1. Then the user copies from the local folder to server and updates the status of the packets to ‘Pushed to Server’.
 1. System captures and stores the transaction details for audit purpose.
