@@ -3,6 +3,7 @@ This section details about the service API in the Pre-Registration Document serv
 * [Demographic Service](#demographic-service-public)
 * [Document Service](#document-service-public)
 * [Booking Service](#booking-service-public)
+* [DataSync Service](#datasync-service-external)
 
 # Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
@@ -2825,3 +2826,209 @@ toDate |Yes|To Date | 2019-02-14
     ]
 }
 ```
+# DataSync Service (External)
+This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
+
+* [POST /sync](#post-sync)
+* [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
+* [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
+
+### POST /sync
+This request is used by registration client to retrieve all the pre-registration Ids by date range.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/sync</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.datasync
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.registrationCenterId|Yes|Registration Center Id for which the data is required|10001
+request.fromDate |Yes|From date of the application|2019-02-09
+request.toDate |Yes|To date of the application|2019-02-12
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.datasync.fetch.ids",
+  "version": "1.0",
+  "requesttime": "2019-02-11T06:57:29.969Z",
+  "request": {
+    "registrationCenterId":"10001",
+    "fromDate":"2019-02-09",
+    "toDate":"2019-02-12"
+  }
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: All Pre-Registration Ids fetched successfully
+```JSON
+{
+   "id": "mosip.pre-registration.datasync.fetch.ids",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response":{
+    "transactionId": "aee82061-2dcb-11e9-b69e-b1fffe7cd4d7",
+    "countOfPreRegIds": "3",
+    "preRegistrationIds": {
+      "69032701821381": "2019-02-09T06:07:24.500Z",
+      "42839738507687": "2019-02-10T07:07:24.612Z",
+      "45219759079506": "2019-02-11T08:07:24.662Z",
+    }
+  },
+  "errors":null
+}
+
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No Records found for the date range
+```JSON
+{
+   "id": "mosip.pre-registration.datasync.fetch.ids",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+        {
+    	   "errorCode": "PRG_DATA_SYNC_001",
+    	   "message": "No Records found for the date range"
+	}
+    ]
+}
+```
+### POST /sync/consumedPreRegIds
+This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/sync/consumedPreRegIds</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|Id of the application|mosip.pre-registration.datasync.store
+version |Yes|version of the application|1.0
+requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
+
+#### Request:
+```JSON
+{
+  "id": "mosip.pre-registration.datasync.store",
+  "version": "1.0",
+  "requesttime": "2019-02-11T07:05:08.850Z",
+  "request": {
+    "preRegistrationIds": [
+      "94625367217037",
+      "43526512857302"
+    ]
+  }
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Consumed Pre-Registrations saved
+```JSON
+{
+   "id": "mosip.pre-registration.datasync.store",
+   "version" : "1.0",
+   "responsetime": "2019-02-16T17:31:04.021Z",
+   "response": {
+       "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
+       "countOfPreRegIds": "2",
+       "preRegistrationIds": "2"
+    },
+    "errors":null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No pre-registration ids passed in request body
+```JSON
+{
+   "id": "mosip.pre-registration.datasync.store",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         { 
+            "errorCode": "PRG_DATA_SYNC_011",
+            "message": "No pre-registration ids passed in request body"
+	 }
+    ]
+}
+```
+### GET /sync/:preRegistrationId
+This request is used by registration client to retrieve particular pre-registration data based on a pre-registration id.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/sync/:preRegistrationId</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+preRegistrationId |Yes|Pre Registration id|94625367217037
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Data Sync records fetched
+```JSON
+{
+   "id": "mosip.pre-registration.datasync.fetch",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": {
+    "registrationCenterId": "10005",
+    "appointmentDate": "2019-02-13",
+    "fromTimeSlot": "09:00",
+    "toTimeSlot": "09:15",
+    "zipFilename": "94625367217037",
+    "zipBytes": "{ByteCode}"
+   },
+   "errors":null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No data exist for the requested pre-registration id
+```JSON
+{
+   "id": "mosip.pre-registration.datasync.fetch.ids",
+   "version" : "1.0",
+   "responsetime": "2019-01-16T17:31:04.021Z",
+   "response": null,
+   "errors":[ 
+         {
+            "errorCode": "PRG_DATA_SYNC_002",
+            "message": "No data exist for the requested pre-registration id"
+         }
+   ]
+}
