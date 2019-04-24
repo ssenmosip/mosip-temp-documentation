@@ -2410,7 +2410,7 @@ This service is used by Pre-Registration portal to update an expired pre registr
 
 * [PUT batch/expiredApplication](#put-expiredapplication)
 * [PUT batch/consumedApplication](#put-consumedapplication)
-* [PUT batch/availabilitySync](#put-availabilitysync)
+* [GET appointment/availability/sync](#get-appointment/availability/sync)
 
 ### PUT /expiredApplication
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
@@ -2501,11 +2501,11 @@ Requires Authentication | Yes
 }
 ```
 
-### PUT /availabilitySync
+### GET appointment/availability/sync
 This request is used to synchronize booking slots availability table with master data.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/batch/availabilitySync</div>
+<div>https://mosip.io/preregistration/v1/appointment/availability/sync</div>
 
 #### Resource details
 Resource Details | Description
