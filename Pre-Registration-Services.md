@@ -1,5 +1,12 @@
 This section details about the service API in the Pre-Registration modules.
 
+**April  Deliverable:**
+
+ 
+
+Future deliverable
+
+Design has been complete, but implementation is still in progress.
 
 * [Login Service](#login-service-public)
 
