@@ -113,7 +113,7 @@
 1. User captures the other applicable biometrics, authenticates, and completes the registration.
 
 
-#### C. Turn ON or OFF UIN Updates 
+#### C. Turn ON or OFF UIN Updates [**[↑]**](#table-of-content)
 1. A country may opt to turn ON or OFF the UIN update process. It can be done by the admin. 
 1. An individual approaches the Registration Officer for UIN Update.
 1. If UIN Update is turned ON, the registration officer proceeds to capture the individual’s updated details.
@@ -143,7 +143,7 @@ The Admin can set the following fields to be update-able at a country level
 1. Alternatively, if Geo location capture is turned OFF, the system does not capture the location of the machine. System does not validate the location.
 1. User proceeds to the next step (demographic data capture).
 
-#### F. Turn ON or OFF Supervisor authentication for biometric exceptions
+#### F. Turn ON or OFF Supervisor authentication for biometric exceptions [**[↑]**](#table-of-content)
 
 The 'Supervisor authentication for exceptions' process can be set to ON or OFF at the country level through by admin.
  
@@ -155,7 +155,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. Each machine is mapped to a registration center. Server sends only the Registration Centre data for the specific center to the data store server
 1. Registration Centre data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
 1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
-#### H. sync data from client to server
+#### H. sync data from client to server [**[↑]**](#table-of-content)
 1. The registration client receives a request to sync data (through manual trigger or scheduled job) from client to server.
 2. Client in turn sends request with the applicable data to server.
    * User on-boarding data is synced.
@@ -182,7 +182,7 @@ User on-boarding data: User ID, USB device ID, Computer ID
    * Does not sync when an automatic sync is triggered
 
 
-#### J. Sync Config details with data store servers
+#### J. Sync Config details with data store servers [**[↑]**](#table-of-content)
 1. The registration client receives a request (through manual trigger or scheduled job) to sync config data from server to client.
 1. Client in turn requests server for config data sync.
 1. Client receives response from server with incremental changes to config data.
@@ -226,7 +226,7 @@ The system then shows a confirmation of successful approval.
 1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
 
 
-#### B. Registration client allows supervisor to view packets that are in pending approval state
+#### B. Registration client allows supervisor to view packets that are in pending approval state [**[↑]**](#table-of-content)
 1. The system allows Supervisor to view packets in “Pending approval” status
 1. The system displays the packets with the fields as shown here ”Registration ID, Registration Type, Resident Name, Operator ID, Operator Name”
 1. The system displays error messages in case of any errors
@@ -271,7 +271,7 @@ When a registration officer starts a new registration by entering a pre-registra
 1. The registration officer can then view the documents uploaded during pre-registration
 1. If no matching PRID exists in local system and server, the system displays an error message.
 
-#### B. Scanning a Pre-registration QR code
+#### B. Scanning a Pre-registration QR code [**[↑]**](#table-of-content)
 1. While starting a new registration, the registration client allows scanning a QR code to populate the pre-registration ID on screen.
 1. A bar code scanner must be connected to the client machine in order to read the pre-registration QR code and pass on the pre-registration ID to the client.
 1. System then populates the rest of the pre-registration data from the locally stored pre-registration details and checking for updates on the server
@@ -318,7 +318,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
    * Packets for which upload fails will continue to be in pending state.
 4. System captures and stores the transaction details for audit purpose.
 
-#### C. Pushes a registration packet via FTP mode to the server
+#### C. Pushes a registration packet via FTP mode to the server [**[↑]**](#table-of-content)
 
 1. The Registration Officer or Supervisor enters their FTP username and password.
 1. When the user chooses the packets to push it to server, the list of packet RIDs that have been synced to server and exported to the local folder but not yet pushed to server will be displayed.
@@ -420,7 +420,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
    * Receipt displays the 2D bar code.
 4. This print friendly receipt can then be printed using a printer
 
-#### B. Acknowledgement receipt sent by email on completion of registration process
+#### B. Acknowledgement receipt sent by email on completion of registration process [**[↑]**](#table-of-content)
 1. When a registration is completed, that is, a Registration ID has been generated and assigned the system, sends an acknowledgement email to the resident
 2. The email template is defined by the admin at country level.
 3. Email is sent to the email address entered during registration.
@@ -505,7 +505,7 @@ Initially a machine will have no users on boarded. The first RO/Supervisor will 
 4. If not successful: Displays error message.
 5. Multiple users can be mapped to the machine by repeating the above flow. There should be no limitation to the numbers of users mapped.
 
-#### B. Updating the mapping of registration officers and supervisors to a client machine
+#### B. Updating the mapping of registration officers and supervisors to a client machine [**[↑]**](#table-of-content)
 1. This features allow the system to receive the request to modify a mapping status from Active to Inactive or from Inactive to Active.
    * No other fields can be modified.
    * A mapping cannot be deleted.
@@ -552,7 +552,7 @@ MOSIP supports single factor and multi factor login including iris and face capt
 4. The user then captures face photo using the face photo capture-device.
 5. On successful authentication, the system logs in the user.
 
-#### D. Enforce multi factor login for Admin users.
+#### D. Enforce multi factor login for Admin users. [**[↑]**](#table-of-content)
 
 When an Admin user opens the registration client by entering his/her username the system recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order
 
@@ -568,7 +568,7 @@ Note: multifactor authentication is the type of authentication where an admin us
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
 1. System captures and stores the transaction details for audit purpose.
 
-#### F. Authenticate online/offline login of the Supervisor to the client application
+#### F. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
 
 When a supervisor opts to log in to the client machine the systems displays the appropriate options as per the mode of login.
 
@@ -596,7 +596,7 @@ When a supervisor opts to log in to the client machine the systems displays the 
 7. Validates that the user has a role of Registration Officer or Supervisor.
 8. On successful validation of all conditions above, display the logged in screen to the user
 
-#### G. Restrict access to each MOSIP feature to authorized users.
+#### G. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
 
 In MOSIP system, a user can have a single role only For example, a user can be either a Registration Officer or Supervisor. User to role mapping is done by the admin
 
@@ -691,7 +691,7 @@ On successful validation of all conditions above, display the logged in home pag
    * Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
 7. On successful validation, display the logged-in home page.
 
-#### C. Enforce multi factor login for Admin users
+#### C. Enforce multi factor login for Admin users [**[↑]**](#table-of-content)
 
 The mode of authentication (single of multifactor) for a user is based on the admin configurations. For admin user its always multifactor authentication
 
@@ -762,7 +762,7 @@ Please refer [**wiki**](ID-Authentication-APIs) for more details on the APIs for
 6. When the mapping is saved locally, the mapping is sent to the server during the next device mapping sync.
 7. There is  no limitation to the numbers of devices mapped to the machine.
 
-#### B. Virtual device manager 
+#### B. Virtual device manager [**[↑]**](#table-of-content)
 Please refer [**wiki**](MOSIP-VDM-Specifications) for more details on Virtual device manager implementation
 
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
