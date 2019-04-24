@@ -1739,18 +1739,18 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Slot availability not found for selected time.
+###### Description: Availability not found for the selected time.
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T10:59:20.511Z",
+    "response": null,
+    "errors": [
+        {
             "errorCode": "PRG_BOOK_RCI_002",
-            "message": "Slot availability not found for selected time"
-         }
+            "message": "Availability not found for the selected time"
+        }
     ]
 }
 ```
@@ -1786,7 +1786,7 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
   "version": "1.0",
   "requesttime": "2019-04-22T15:31:32.957Z",
   "request": [{
-  		"preRegistrationId":"51489749326453",
+  		"preRegistrationId":"36019326031045",
         "registration_center_id": "10001",
         "appointment_date": "2019-04-22",
         "time_slot_from": "15:30:00",
@@ -1848,15 +1848,15 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
 ###### Description: Slot availability not found for selected time.
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:12:23.996Z",
+    "response": null,
+    "errors": [
+        {
             "errorCode": "PRG_BOOK_RCI_002",
-            "message": "Slot availability not found for selected time"
-         }
+            "message": "Availability not found for the selected time"
+        }
     ]
 }
 ```
@@ -1880,13 +1880,14 @@ Requires Authentication | Yes
 
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.cancel",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response":{
-        "message":"Appointment cancelled successfully"
+    "id": null,
+    "version": null,
+    "responsetime": "2019-04-24T11:24:51.920Z",
+    "response": {
+        "transactionId": "93df61b6-6683-11e9-a334-0fb6535e5ce8",
+        "message": "Appointment cancelled successfully"
     },
-    "errors":null
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -1894,16 +1895,16 @@ Requires Authentication | Yes
 ###### Description: Appointment cancellation failed.
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.cancel",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors": [
-          {
-             "errorCode": "PRG_BOOK_RCI_015",
-             "message": "Appointment cancellation failed"
-          }
-    ] 
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:25:33.606Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_BOOK_RCI_018",
+            "message": "Appointment cannot be canceled"
+        }
+    ]
 }
 ```
 ### GET /appointment/:preRegistrationId
@@ -1929,16 +1930,16 @@ preRegistrationId |Yes|Id of the application|37802950913289
 ###### Description: Appointment details successfully retrieved
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.fetch",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-    "registration_center_id": "10005",
-    "appointment_date": "2019-02-13",
-    "time_slot_from": "16:10",
-    "time_slot_to": "16:23"
-  },
-  "errors":null
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:13:58.911Z",
+    "response": {
+        "registration_center_id": "10001",
+        "appointment_date": "2019-04-22",
+        "time_slot_from": "15:30",
+        "time_slot_to": "15:45"
+    },
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -1946,15 +1947,15 @@ preRegistrationId |Yes|Id of the application|37802950913289
 ###### Description: No Appointment record found for the specified pre-registration id
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.fetch",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-            "errorCode": "PRG_BOOK_RCI_013",
-            "message": "No Appointment record found for the specified pre-registration id"
-         }
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:15:22.904Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_PAM_APP_005",
+            "message": "No data found for the requested pre-registration id"
+        }
     ]
 }
 ```
@@ -1981,47 +1982,745 @@ registrationCenterId |Yes|Registration Center Id|10004
 ###### Description: Availability details fetched successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.availability",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-        "registrationCenterId": "10004",
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:17:25.799Z",
+    "response": {
+        "regCenterId": "10001",
         "centerDetails": [
-         {
-            "date": "2019-02-13",
-            "timeSlots": [
-              {
-                "fromTime": "09:00:00",
-                "toTime": "09:15:00",
-                "availability": 4
-              },
-             {
-               "fromTime": "09:15:00",
-               "toTime": "09:30:00",
-                "availability": 3
-             }
-             ],
-            "holiday": false
-         },
-        {
-            "date": "2019-02-14",
-            "timeSlots": [
-              {
-                "fromTime": "09:00:00",
-                "toTime": "09:15:00",
-                "availability": 4
-              },
-             {
-               "fromTime": "09:15:00",
-               "toTime": "09:30:00",
-                "availability": 3
-             }
-             ],
-            "holiday": false
-         }
-    ]
-  },
-  "errors":null
+            {
+                "date": "2019-04-26",
+                "timeSlots": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "09:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:15:00",
+                        "toTime": "09:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:30:00",
+                        "toTime": "09:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:45:00",
+                        "toTime": "10:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "10:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:15:00",
+                        "toTime": "10:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:30:00",
+                        "toTime": "10:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:45:00",
+                        "toTime": "11:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:00:00",
+                        "toTime": "11:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:15:00",
+                        "toTime": "11:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:30:00",
+                        "toTime": "11:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:45:00",
+                        "toTime": "12:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:00:00",
+                        "toTime": "12:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:15:00",
+                        "toTime": "12:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:30:00",
+                        "toTime": "12:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:45:00",
+                        "toTime": "13:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:00:00",
+                        "toTime": "14:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:15:00",
+                        "toTime": "14:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:30:00",
+                        "toTime": "14:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:45:00",
+                        "toTime": "15:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:00:00",
+                        "toTime": "15:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:15:00",
+                        "toTime": "15:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:30:00",
+                        "toTime": "15:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:45:00",
+                        "toTime": "16:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:00:00",
+                        "toTime": "16:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:15:00",
+                        "toTime": "16:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:30:00",
+                        "toTime": "16:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:45:00",
+                        "toTime": "17:00:00",
+                        "availability": 3
+                    }
+                ],
+                "holiday": false
+            },
+            {
+                "date": "2019-04-27",
+                "timeSlots": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "09:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:15:00",
+                        "toTime": "09:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:30:00",
+                        "toTime": "09:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:45:00",
+                        "toTime": "10:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "10:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:15:00",
+                        "toTime": "10:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:30:00",
+                        "toTime": "10:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:45:00",
+                        "toTime": "11:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:00:00",
+                        "toTime": "11:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:15:00",
+                        "toTime": "11:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:30:00",
+                        "toTime": "11:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:45:00",
+                        "toTime": "12:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:00:00",
+                        "toTime": "12:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:15:00",
+                        "toTime": "12:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:30:00",
+                        "toTime": "12:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:45:00",
+                        "toTime": "13:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:00:00",
+                        "toTime": "14:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:15:00",
+                        "toTime": "14:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:30:00",
+                        "toTime": "14:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:45:00",
+                        "toTime": "15:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:00:00",
+                        "toTime": "15:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:15:00",
+                        "toTime": "15:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:30:00",
+                        "toTime": "15:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:45:00",
+                        "toTime": "16:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:00:00",
+                        "toTime": "16:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:15:00",
+                        "toTime": "16:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:30:00",
+                        "toTime": "16:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:45:00",
+                        "toTime": "17:00:00",
+                        "availability": 3
+                    }
+                ],
+                "holiday": false
+            },
+            {
+                "date": "2019-04-28",
+                "timeSlots": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "09:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:15:00",
+                        "toTime": "09:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:30:00",
+                        "toTime": "09:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:45:00",
+                        "toTime": "10:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "10:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:15:00",
+                        "toTime": "10:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:30:00",
+                        "toTime": "10:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:45:00",
+                        "toTime": "11:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:00:00",
+                        "toTime": "11:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:15:00",
+                        "toTime": "11:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:30:00",
+                        "toTime": "11:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:45:00",
+                        "toTime": "12:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:00:00",
+                        "toTime": "12:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:15:00",
+                        "toTime": "12:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:30:00",
+                        "toTime": "12:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:45:00",
+                        "toTime": "13:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:00:00",
+                        "toTime": "14:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:15:00",
+                        "toTime": "14:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:30:00",
+                        "toTime": "14:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:45:00",
+                        "toTime": "15:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:00:00",
+                        "toTime": "15:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:15:00",
+                        "toTime": "15:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:30:00",
+                        "toTime": "15:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:45:00",
+                        "toTime": "16:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:00:00",
+                        "toTime": "16:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:15:00",
+                        "toTime": "16:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:30:00",
+                        "toTime": "16:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:45:00",
+                        "toTime": "17:00:00",
+                        "availability": 3
+                    }
+                ],
+                "holiday": false
+            },
+            {
+                "date": "2019-04-29",
+                "timeSlots": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "09:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:15:00",
+                        "toTime": "09:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:30:00",
+                        "toTime": "09:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:45:00",
+                        "toTime": "10:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "10:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:15:00",
+                        "toTime": "10:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:30:00",
+                        "toTime": "10:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:45:00",
+                        "toTime": "11:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:00:00",
+                        "toTime": "11:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:15:00",
+                        "toTime": "11:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:30:00",
+                        "toTime": "11:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:45:00",
+                        "toTime": "12:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:00:00",
+                        "toTime": "12:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:15:00",
+                        "toTime": "12:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:30:00",
+                        "toTime": "12:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:45:00",
+                        "toTime": "13:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:00:00",
+                        "toTime": "14:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:15:00",
+                        "toTime": "14:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:30:00",
+                        "toTime": "14:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:45:00",
+                        "toTime": "15:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:00:00",
+                        "toTime": "15:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:15:00",
+                        "toTime": "15:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:30:00",
+                        "toTime": "15:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:45:00",
+                        "toTime": "16:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:00:00",
+                        "toTime": "16:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:15:00",
+                        "toTime": "16:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:30:00",
+                        "toTime": "16:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:45:00",
+                        "toTime": "17:00:00",
+                        "availability": 3
+                    }
+                ],
+                "holiday": false
+            },
+            {
+                "date": "2019-04-30",
+                "timeSlots": [
+                    {
+                        "fromTime": "09:00:00",
+                        "toTime": "09:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:15:00",
+                        "toTime": "09:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:30:00",
+                        "toTime": "09:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "09:45:00",
+                        "toTime": "10:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:00:00",
+                        "toTime": "10:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:15:00",
+                        "toTime": "10:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:30:00",
+                        "toTime": "10:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "10:45:00",
+                        "toTime": "11:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:00:00",
+                        "toTime": "11:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:15:00",
+                        "toTime": "11:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:30:00",
+                        "toTime": "11:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "11:45:00",
+                        "toTime": "12:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:00:00",
+                        "toTime": "12:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:15:00",
+                        "toTime": "12:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:30:00",
+                        "toTime": "12:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "12:45:00",
+                        "toTime": "13:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:00:00",
+                        "toTime": "14:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:15:00",
+                        "toTime": "14:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:30:00",
+                        "toTime": "14:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "14:45:00",
+                        "toTime": "15:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:00:00",
+                        "toTime": "15:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:15:00",
+                        "toTime": "15:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:30:00",
+                        "toTime": "15:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "15:45:00",
+                        "toTime": "16:00:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:00:00",
+                        "toTime": "16:15:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:15:00",
+                        "toTime": "16:30:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:30:00",
+                        "toTime": "16:45:00",
+                        "availability": 3
+                    },
+                    {
+                        "fromTime": "16:45:00",
+                        "toTime": "17:00:00",
+                        "availability": 3
+                    }
+                ],
+                "holiday": false
+            }
+        ]
+    },
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -2029,15 +2728,15 @@ registrationCenterId |Yes|Registration Center Id|10004
 ###### Description: No available slots found for specified registration center.
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.availability",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:18:00.802Z",
+    "response": null,
+    "errors": [
+        {
             "errorCode": "PRG_BOOK_RCI_015",
-            "message": "No available slots found for specified registration center"
-         }
+            "message": "PRG_BOOK_RCI_015 --> No time slots assigned to that reg center"
+        }
     ]
 }
 ```
@@ -2070,16 +2769,77 @@ toDate |Yes|To Date | 2019-02-14
 ###### Description: Availability details fetched successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.ids",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-        "preRegistrationIds": [
-                       "94625367217037",
-                       "43526512857302"
-         ]
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:20:15.696Z",
+    "response": {
+        "registration_center_id": "10001",
+        "pre_registration_ids": [
+            "51648718735821",
+            "43069587924925",
+            "26957245731486",
+            "56418391827315",
+            "36825069830953",
+            "40784625076019",
+            "28975913642617",
+            "53827596439236",
+            "64531953267189",
+            "28503273062458",
+            "28642948097542",
+            "28425190681960",
+            "20346374590641",
+            "43806476348916",
+            "34102495613421",
+            "47084156127145",
+            "69384670375273",
+            "26046130437504",
+            "80784057109835",
+            "41941685249147",
+            "58720860169859",
+            "64096148729540",
+            "58051460264028",
+            "37430651935864",
+            "51702865732548",
+            "24175143043905",
+            "52409469510829",
+            "94832914739251",
+            "50754285718412",
+            "58472153829416",
+            "31563109862302",
+            "52037069457241",
+            "49274936412091",
+            "24820649810850",
+            "97641280534751",
+            "20613249510239",
+            "61849150324378",
+            "54293857365967",
+            "26091569136134",
+            "43713271450673",
+            "40574293412679",
+            "63526493103162",
+            "32965935264186",
+            "26873496032879",
+            "65974653026137",
+            "61793162842604",
+            "40176948304820",
+            "47369847260278",
+            "25046285490872",
+            "62069710295368",
+            "21871381528960",
+            "29824395697401",
+            "48237831592412",
+            "69540156172486",
+            "28136745045709",
+            "57386798369785",
+            "64831596457624",
+            "54195042708375",
+            "46709182541675",
+            "63517835265369",
+            "35975403619830",
+            "32963146892458"
+        ]
     },
-    "errors":null
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -2087,15 +2847,15 @@ toDate |Yes|To Date | 2019-02-14
 ###### Description: No available slots found for specified registration center with date range.
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.ids",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-            "errorCode": "PRG_BOOK_RCI_016",
-            "message": "No available slots found for specified registration center with date range"
-         }
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-04-24T11:20:50.434Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_BOOK_RCI_032",
+            "message": "Record not found for date range and reg center id"
+        }
     ]
 }
 ```
