@@ -2830,7 +2830,7 @@ toDate |Yes|To Date | 2019-02-14
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 * [POST /sync](#post-sync)
-* [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
+* [POST /sync/consumedPreRegIds](##post-syncconsumedpreregids)
 * [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
 
 ### POST /sync
