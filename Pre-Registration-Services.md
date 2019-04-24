@@ -1392,7 +1392,7 @@ request.langCode |Yes|Language code of the application|ENG
 This request used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/douments/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/documents/:preRegistrationId?catCode=:doc_cat_code&sourcePreId=:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
