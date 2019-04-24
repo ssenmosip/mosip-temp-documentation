@@ -1,5 +1,251 @@
 This section details about the service API in the Pre-Registration Document service.
+* [Login Service](#login-service-public)
 * [Document Service](#document-service-public)
+
+# Login Service (Public)
+This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
+
+* [POST /login/sendOtp](#post-loginsendotp)
+* [POST /login/validateOtp](#post-loginvalidateotp)
+* [POST /login/invalidateToken](#post-logininvalidatetoken)
+* [GET /login/config](#get-loginconfig)
+
+### POST /login/sendOtp
+This request will send the OTP to the requested user in the preferred channel(sms/email)
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/login/sendOtp</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.login.sendotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.userid |Yes|user id of the applicant(mobile number/email address)|8907654778
+request.langcode|Yes|The preferred language code |fra
+
+#### Request:
+```JSON
+{
+	"id": "mosip.pre-registration.login.sendotp",
+	"version": "1.0",
+	"requesttime": "2019-03-15T07:24:47.605Z",
+	"request": {
+		"langCode": "fra",
+		"userId": "8907654778"
+	}
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: OTP sent successfully to specified channel
+```JSON
+{
+	"id": "mosip.pre-registration.login.sendotp",
+	"version": "1.0",
+	"responsetime": "2019-03-15T07:24:50.246Z",
+	"response": {
+		"message": "OTP sent successfully to specified channel"
+	},
+	"errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+```JSON
+{
+	"id": "mosip.pre-registration.login.sendotp",
+	"version": "1.0",
+	"responsetime": "2019-03-15T08:09:42.327Z",
+	"response": null,
+	"errors": [
+		{
+		 "errorCode": "PRG_PAM_LGN_001",
+		 "message": "OTP failed to send through a specified channel"
+		}
+	]	
+}
+```
+
+### POST /login/validateOtp
+This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/login/validateOtp</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No
+
+#### Request Part Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.pre-registration.login.useridotp
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.userid |Yes|user id of the applicant (mobile number/email address)|8907654778
+request.OTP|Yes| received OTP  |345674
+
+#### Request:
+```JSON
+{
+	"id": "mosip.pre-registration.login.useridotp",
+	"version": "1.0",
+	"requesttime": "2019-03-15T08:28:04.783Z",
+	"request": {
+		"otp": "345674",
+		"userId": "8907654778"
+	}
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms sent successfully
+```JSON
+{
+    "id": "mosip.pre-registration.login.useridotp",
+    "version": "1.0",
+    "responsetime": "2019-03-15T08:08:13.246Z",
+    "response": {
+	  "message": "OTP Validated Successfully"
+     },
+    "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+```JSON
+{
+    "id": "mosip.pre-registration.login.useridotp",
+    "version": "1.0",
+    "responsetime": "2019-03-27T06:22:19.673Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "KER-OTV-005",
+            "message": "Validation can't be performed against this key. Generate OTP first."
+        }
+    ]
+}
+```
+### POST /login/invalidateToken
+This request will invalidate the authorization token when force logout is done.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/login/invalidateToken</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Token invalidated successfully
+```JSON
+{
+    "id": "mosip.pre-registration.login.invalidate",
+    "version": "1.0",
+    "responsetime": "2019-03-27T06:22:19.673Z",
+    "response": {
+         "message": "Token has been invalidated successfully"
+    },
+    "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Token is not present in cookies
+```JSON
+{
+  "id": "mosip.pre-registration.login.invalidate",
+  "version": "1.0",
+  "responsetime": "2019-04-16T14:51:10.026Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-ATH-005",
+      "message": "Token is not present in cookies"
+    }
+  ]
+}
+```
+### GET /login/config
+This request will load the configuration parameters while loading the pre-registration portal page.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/login/config</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Config parameter retrieved sucessfully 
+```JSON
+{
+    "id": "mosip.pre-registration.login.config",
+    "version": "1.0",
+    "responsetime": "2019-03-27T06:22:19.673Z",
+    "response": {
+         "mosip.kernel.OTP.default-length": "6",
+         "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{6}$",
+         "mosip.left_to_right_orientation": "eng,fra",
+         "preregistration.recommended.centers.locCode": "4",
+         "mosip.kernel.OTP.validation-attempt-threshold": "3",
+         "mosip.primary-language": "ara",
+         "preregistration.timespan.cancel": "24",
+         "mosip.default.dob.month": "01",
+         "preregistration.availability.noOfDays": "7",
+         "mosip.kernel.OTP.expiry-time": "120",
+         "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
+         "mosip.supported-languages": "eng,ara,fra",
+         "preregistration.workflow.demographic": "true/false ",
+         "preregistration.workflow.documentupload": "true/false ",
+         "mosip.id.validation.identity.postalCode.length": "6",
+         "mosip.kernel.sms.number.length": "10",
+         "preregistration.availability.sync": "9",
+         "mosip.id.validation.identity.email.length": "50",
+         "preregistration.timespan.rebook": "24",
+         "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
+         "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
+         "mosip.right_to_left_orientation": "ara",
+         "mosip.kernel.pin.length": "6",
+         "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
+         "preregistration.workflow.booking": "true/false ",
+         "mosip.id.validation.identity.CNIENumber.length": "30",
+         "mosip.login.mode": "email,mobile",
+         "mosip.id.validation.identity.phone.length": "10",
+         "preregistration.auto.logout": "10",
+         "mosip.secondary-language": "fra",
+         "preregistration.nearby.centers": "2000",
+         "mosip.default.dob.day": "01",
+         "preregistration.booking.offset": "2"
+      },
+      "errors": null
+}
+```
 
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
