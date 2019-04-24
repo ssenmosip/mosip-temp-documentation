@@ -306,6 +306,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 1. When the Registration Officer selects the “Upload Packets” option, a list of packets will be displayed.
 1. Each packet will have a check box for selection and have an option to “Select All” and “Deselect All” the packets. 
 1. When the Registration Officer selects the packet, he/she will be able upload the selected packet to server.
+
    NOTE: The ‘Export’ option will be disabled if any packets are selected because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
 
 #### B. Pushes those packets that are marked 'Resend' to the server
