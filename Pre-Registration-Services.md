@@ -2410,7 +2410,7 @@ This service is used by Pre-Registration portal to update an expired pre registr
 
 * [PUT batch/expiredApplication](#put-expiredapplication)
 * [PUT batch/consumedApplication](#put-consumedapplication)
-* [GET appointment/availability/sync](#get-appointment/availability/sync)
+* [GET appointment/availability/sync](#get-sync)
 
 ### PUT /expiredApplication
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
@@ -2501,7 +2501,7 @@ Requires Authentication | Yes
 }
 ```
 
-### GET appointment/availability/sync
+### GET sync
 This request is used to synchronize booking slots availability table with master data.
 
 #### Resource URL
