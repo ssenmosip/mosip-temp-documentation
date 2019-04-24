@@ -1467,32 +1467,19 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 ###### Description: Documents retrieved successfully
 ```JSON
 {
-  "id": "mosip.pre-registration.document.fetch.metadata",
-  "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
-  "response": {
-    "documentsMetaData":[
-    {
-      "docName": "morethan1mb.pdf",
-      "docId": "06896ba0-4fa8-11e9-ae3b-0d644a9860e6",
-      "docCatCode": "POA",
-      "docTypeCode": "address"
-    },
-    {
-      "docName": "Doc.pdf",
-      "docId": "0748c439-4f83-11e9-ae3b-7b0aa1318f48",
-      "docCatCode": "POB",
-      "docTypeCode": "dateOfBirth"
-    },
-    {
-      "docName": "Address.pdf",
-      "docId": "1093758a-4f83-11e9-ae3b-cdfde9d4aaca",
-      "docCatCode": "POI",
-      "docTypeCode": "identity"
-    }
-  ]
-  },
-  "errors":null
+    "id": "mosip.pre-registration.document.fetch.metadata",
+    "version": "1.0",
+    "errors": null,
+    "responsetime": "2019-04-24T11:30:00.880Z",
+    "response": [
+        {
+            "docName": "Passport.pdf",
+            "documentId": "a147e0a2-6680-11e9-875d-7742f86a7d68",
+            "docCatCode": "POA",
+            "docTypCode": "passport",
+            "multipartFile": "ByteCode"
+		}
+    ]
 }
 ```
 ##### Failure Response:
@@ -1549,33 +1536,14 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 ###### Description: Invalid or empty pre-registration Id
 ```JSON
 {
-   "id": "mosip.pre-registration.document.delete",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-    	    "errorCode": "PRG_PAM_DOC_005",
-    	    "message": "Documents is not found for the requested pre-registration id"
-         }
-    ]
-}
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid or empty pre-registration Id
-```JSON
-{
-   "id": "mosip.pre-registration.document.delete",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-    	    "errorCode": "PRG_PAM_DOC_006",
-    	    "message": "Documents failed to delete"
-         }
-    ]
+    "id": null,
+    "version": "1.0",
+    "errors": {
+        "errorCode": "PRG_PAM_DOC_005",
+        "message": "DOCUMENT_IS_MISSING"
+    },
+    "responsetime": "2019-04-24T11:44:34.422Z",
+    "response": null
 }
 ```
 ### DELETE /documents/:documentId?preRegistrationId=:preRegistrationId
@@ -1620,16 +1588,14 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ###### Description: Document is not found for the pre-registration id and document id
 ```JSON
 {
-   "id": "mosip.pre-registration.document.delete.specific",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-            "errorCode": "PRG_PAM_DOC_005",
-            "message": "Document is not found for the pre-registration id and document id"
-         }
-    ]
+    "id": null,
+    "version": "1.0",
+    "errors": {
+        "errorCode": "PRG_PAM_DOC_005",
+        "message": "DOCUMENT_IS_MISSING"
+    },
+    "responsetime": "2019-04-24T11:42:11.449Z",
+    "response": null
 }
 ```
 ##### Failure Response:
