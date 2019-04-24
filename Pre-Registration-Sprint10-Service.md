@@ -2830,7 +2830,7 @@ toDate |Yes|To Date | 2019-02-14
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 * [POST /sync](#post-sync)
-* [POST /sync/consumedPreRegIds](#post-syncconsumedpreregids)
+* [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
 * [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
 
 ### POST /sync
@@ -2909,16 +2909,14 @@ request.toDate |Yes|To date of the application|2019-02-12
 ###### Description: No Records found for the date range
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.fetch.ids",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-        {
-    	   "errorCode": "PRG_DATA_SYNC_001",
-    	   "message": "No Records found for the date range"
-	}
-    ]
+    "id": null,
+    "version": null,
+    "errors": {
+        "errorCode": "PRG_BOOK_RCI_032",
+        "message": "Record not found for date range and reg center id"
+    },
+    "responsetime": "2019-04-24T13:33:50.237Z",
+    "response": null
 }
 ```
 ### POST /sync/consumedPreRegIds
