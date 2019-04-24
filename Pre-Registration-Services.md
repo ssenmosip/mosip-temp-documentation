@@ -26,6 +26,9 @@ Few of the error messages are intended for API consumer, who are mostly SI and d
 # Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
 
+Kindly refer the below link for Sprint 10 deliverable
+https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
+
 * [POST /login/sendOtp](#post-loginsendotp)
 * [POST /login/validateOtp](#post-loginvalidateotp)
 * [POST /login/invalidateToken](#post-logininvalidatetoken)
@@ -1276,7 +1279,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
 Kindly refer the below link for Sprint 10 deliverable
-https://github.com/mosip/mosip/wiki/Pre-Registration-Document-Service
+https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
 
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
