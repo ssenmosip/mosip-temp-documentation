@@ -1275,6 +1275,9 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
+Kindly refer the below link for Sprint 10 deliverable
+https://github.com/mosip/mosip/wiki/Pre-Registration-Document-Service
+
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
 * [GET /documents/:preRegistrationId](#get-documentspreregistrationid)
