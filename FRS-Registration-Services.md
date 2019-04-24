@@ -350,6 +350,26 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 5. System captures and stores the transaction details for audit purpose.
 
 ## 3.3 Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) [**[↑]**](#table-of-content)
+
+System exports registration packet data from client machine to an external device as follows:
+1. Allows the Registration Officer to select a destination folder.
+   * The destination folder includes the laptop/desktop, an external hard drive or a remote location.
+   * External storage devices are not necessary to be MOSIP-registered devices.
+2. When the destination folder is selected, user initiates export of packets.
+1. System exports the packets to the selected folder and performs the following steps:
+   * Identifies the packets in ‘Ready to Upload’ state.
+   * If EoD process is turned ON, packets which have been Approved or Rejected and packet ID sync is completed are considered ‘Ready to Upload’.
+   * If EoD process is turned OFF, packets are considered ‘Ready to Upload’ as soon as the registration is submitted and packet ID sync is completed.
+   * Places the packets in the destination folder.
+4. Once the server acknowledges that the packets have been received, the packets in the client will be marked as ‘Uploaded’.
+   * Packets that remain in ‘Ready to Upload’ status will be exported again when the next export is executed.
+   * Packets in ‘Uploaded’ or any other status will not be exported again.
+5. All the Registration Officers and Supervisors on-boarded to the USB client dongle is able to export all packets.
+1. Supports the partial export. If the system is able to export some packets to the folder and not other files due to lack of storage space or unavailability of the folder, the successfully exported packets should remain on the destination folder.
+1. For partial or full failure, the system displays error message.
+1. System captures and stores the transaction details for audit purpose.
+
+
 ## 3.4 New Registration [**[↑]**](#table-of-content)
 ## 3.5 UIN Updates [**[↑]**](#table-of-content)
 
