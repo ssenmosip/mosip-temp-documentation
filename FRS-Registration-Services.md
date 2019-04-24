@@ -155,7 +155,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. Each machine is mapped to a registration center. Server sends only the Registration Centre data for the specific center to the data store server
 1. Registration Centre data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
 1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
-#### H. sync data from client to server [**[↑]**](#table-of-content)
+#### H. Sync data from client to server [**[↑]**](#table-of-content)
 1. The registration client receives a request to sync data (through manual trigger or scheduled job) from client to server.
 2. Client in turn sends request with the applicable data to server.
    * User on-boarding data is synced.
@@ -374,13 +374,13 @@ System exports registration packet data from client machine to an external devic
 ## 3.4 New Registration [**[↑]**](#table-of-content)
 ## 3.5 UIN Updates [**[↑]**](#table-of-content)
 
-#### A. UIN Updates Turn On or Off
+#### A. UIN Updates Turn ON or OFF
 
 The UIN update feature is configurable by a country. Admin can either turn ON or OFF the UIN update feature.
 
 When an individual approaches the Registration Officer for UIN update, the following scenarios may arise:
 
-1. If UIN Update is turned on by a country, the registration officer can proceeds to capture the individual’s updated details.
+1. If UIN update is turned ON by a country, the registration officer can proceeds to capture the individual’s updated details.
 1. Alternatively, if UIN Update is turned OFF by a country the RO will not be able to carry out the UIN Update process.
 
 #### B. Registration client allows update to UIN data only for configured fields
@@ -466,9 +466,9 @@ This feature enables registration client to send SMS and email acknowledgements 
 
 **Supervisor authentication for biometric exceptions**
 
-1. The 'Supervisor authentication for exceptions' process is configurable and can be switched On or Off at a country level by the Admin 
+1. The 'Supervisor authentication for exceptions' process is configurable and can be switched ON or OFF at a country level by the Admin 
 1. A Registration Officer completes operator authentication at the end of registering an individual with exceptions.
-1. If a country has opted to turned on supervisor authentication, a Supervisor is required to enter their credentials
+1. If a country has opted to turned on supervisor authentication, a supervisor is required to enter their credentials
 1. The mode of supervisor authentication is a configurable at the country level. It can be set to password, OTP, fingerprint, or multifactor.
 1. In case of OTP authentication, the client first sends a request to server to generate the OTP, then allows the Supervisor to enter OTP and requests the server to match the input value with the generated OTP.
 1. In case of multifactor authentication, the client prompts the Supervisor to enter credentials in the order configured and authenticates each input before proceeding to the entry of the next credential.
@@ -476,7 +476,7 @@ This feature enables registration client to send SMS and email acknowledgements 
 1. On successful validation the system proceeds to the next step of Registration ID generation and displays of registration acknowledgement.
 1. If the validation fails, the system displays an error message and allows user to try again. Unlimited retries are be allowed.
 1. Based on country-specific requirements, it is also possible for the Registration Officer and Supervisor to be the same person. In this case the user will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for Supervisor authentication of exceptions.
-1. Alternatively, if supervisor authentication is turned off, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement)
+1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement)
 
 # 4. User Services
 ## 4.1 User on-boarding [**[↑]**](#table-of-content)
