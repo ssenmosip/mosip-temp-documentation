@@ -447,7 +447,35 @@ This feature enables registration client to send SMS and email acknowledgements 
 
 
 ## 3.7 Biometric Exceptions [**[↑]**](#table-of-content)
+
+#### A. Low quality biometrics marked as reason for exceptions
+
+1. During a registration process while capturing biometrics, if the configured threshold is not met for fingerprints and/or irises in spite of the x attempts(configurable) to capture the biometrics, then system mandates capture of exception photo 
+1. Also, system automatically flags the reason for exception as ‘_Low Quality of biometrics_’. 
+1. If the individual has missing biometrics AND low quality of biometrics, both the reasons are auto-associated. Here also the system mandates capture of exception photo.
+
+#### B. Mark fingerprint and iris exceptions for an individual
+
+1. During a registration process after the demographic details and documents have been captured the system allow a registration officer to mark biometric exceptions for missing finger(s) and missing iris(es) if the resident has any such exceptions.
+
+2. If ‘Biometric Exception’ is ‘Yes’, at least one missing biometric must be mandatorily marked.
+3. The registration officer can mark the missing finger(s) and missing iris(es).
+
 ## 3.8 Supervisor Approval [**[↑]**](#table-of-content)
+
+**Supervisor authentication for biometric exceptions**
+
+1. The 'Supervisor authentication for exceptions' process is configurable and can be switched On or Off at a country level by the Admin 
+1. A Registration Officer completes operator authentication at the end of registering an individual with exceptions.
+1. If a country has opted to turned on supervisor authentication, a Supervisor is required to enter their credentials
+1. The mode of supervisor authentication is a configurable at the country level. It can be set to password, OTP, fingerprint, or multifactor.
+1. In case of OTP authentication, the client first sends a request to server to generate the OTP, then allows the Supervisor to enter OTP and requests the server to match the input value with the generated OTP.
+1. In case of multifactor authentication, the client prompts the Supervisor to enter credentials in the order configured and authenticates each input before proceeding to the entry of the next credential.
+1. In case of multifactor authentication, the client prompts the Supervisor to enter credentials in the order configured and authenticates each input before proceeding to the entry of the next credential.
+1. On successful validation the system proceeds to the next step of Registration ID generation and displays of registration acknowledgement.
+1. If the validation fails, the system displays an error message and allows user to try again. Unlimited retries are be allowed.
+1. Based on country-specific requirements, it is also possible for the Registration Officer and Supervisor to be the same person. In this case the user will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for Supervisor authentication of exceptions.
+1. Alternatively, if supervisor authentication is turned off, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement)
 
 # 4. User Services
 ## 4.1 User on-boarding [**[↑]**](#table-of-content)
