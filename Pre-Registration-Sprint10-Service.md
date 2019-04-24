@@ -37,26 +37,27 @@ request.langcode|Yes|The preferred language code |fra
 {
 	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
-	"requesttime": "2019-03-15T07:24:47.605Z",
+	"requesttime": "2019-04-24T07:24:47.605Z",
 	"request": {
-		"langCode": "fra",
-		"userId": "8907654778"
+		"langCode": "eng",
+		"userId": "akshay.jain@mindtree.com"
 	}
+}
 }
 ```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: OTP sent successfully to specified channel
+###### Description: Email Request submitted
 ```JSON
 {
-	"id": "mosip.pre-registration.login.sendotp",
-	"version": "1.0",
-	"responsetime": "2019-03-15T07:24:50.246Z",
-	"response": {
-		"message": "OTP sent successfully to specified channel"
-	},
-	"errors": null
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-04-24T09:29:13.546Z",
+  "response": {
+    "message": "Email Request submitted"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -102,13 +103,13 @@ request.OTP|Yes| received OTP  |345674
 #### Request:
 ```JSON
 {
-	"id": "mosip.pre-registration.login.useridotp",
-	"version": "1.0",
-	"requesttime": "2019-03-15T08:28:04.783Z",
-	"request": {
-		"otp": "345674",
-		"userId": "8907654778"
-	}
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "requesttime": "2019-04-24T07:24:47.605Z",
+  "request": {
+    "otp": "854406",
+    "userId": "akshay.jain@mindtree.com"
+  }
 }
 ```
 #### Responses:
@@ -117,13 +118,13 @@ request.OTP|Yes| received OTP  |345674
 ###### Description: sms sent successfully
 ```JSON
 {
-    "id": "mosip.pre-registration.login.useridotp",
-    "version": "1.0",
-    "responsetime": "2019-03-15T08:08:13.246Z",
-    "response": {
-	  "message": "OTP Validated Successfully"
-     },
-    "errors": null
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "responsetime": "2019-04-24T09:42:01.741Z",
+  "response": {
+    "message": "VALIDATION_SUCCESSFUL"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -131,16 +132,16 @@ request.OTP|Yes| received OTP  |345674
 ###### Description: Invalid parameters
 ```JSON
 {
-    "id": "mosip.pre-registration.login.useridotp",
-    "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
-    "response": null,
-    "errors": [
-        {
-            "errorCode": "KER-OTV-005",
-            "message": "Validation can't be performed against this key. Generate OTP first."
-        }
-    ]
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "responsetime": "2019-04-24T09:43:20.359Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-OTV-005",
+      "message": "Validation can't be performed against this key. Generate OTP first."
+    }
+  ]
 }
 ```
 ### POST /login/invalidateToken
@@ -161,13 +162,7 @@ Requires Authentication | Yes
 ###### Description: Token invalidated successfully
 ```JSON
 {
-    "id": "mosip.pre-registration.login.invalidate",
-    "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
-    "response": {
-         "message": "Token has been invalidated successfully"
-    },
-    "errors": null
+  "message": "Token has been invalidated successfully"
 }
 ```
 ##### Failure Response:
@@ -175,16 +170,11 @@ Requires Authentication | Yes
 ###### Description: Token is not present in cookies
 ```JSON
 {
-  "id": "mosip.pre-registration.login.invalidate",
-  "version": "1.0",
-  "responsetime": "2019-04-16T14:51:10.026Z",
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "KER-ATH-005",
-      "message": "Token is not present in cookies"
-    }
-  ]
+  "timestamp": "2019-04-24T09:45:07.972+0000",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "No message available",
+  "path": "/preregistration/v1/login/invalidateToken"
 }
 ```
 ### GET /login/config
@@ -205,45 +195,55 @@ Requires Authentication | No
 ###### Description: Config parameter retrieved sucessfully 
 ```JSON
 {
-    "id": "mosip.pre-registration.login.config",
-    "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
-    "response": {
-         "mosip.kernel.OTP.default-length": "6",
-         "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{6}$",
-         "mosip.left_to_right_orientation": "eng,fra",
-         "preregistration.recommended.centers.locCode": "4",
-         "mosip.kernel.OTP.validation-attempt-threshold": "3",
-         "mosip.primary-language": "ara",
-         "preregistration.timespan.cancel": "24",
-         "mosip.default.dob.month": "01",
-         "preregistration.availability.noOfDays": "7",
-         "mosip.kernel.OTP.expiry-time": "120",
-         "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
-         "mosip.supported-languages": "eng,ara,fra",
-         "preregistration.workflow.demographic": "true/false ",
-         "preregistration.workflow.documentupload": "true/false ",
-         "mosip.id.validation.identity.postalCode.length": "6",
-         "mosip.kernel.sms.number.length": "10",
-         "preregistration.availability.sync": "9",
-         "mosip.id.validation.identity.email.length": "50",
-         "preregistration.timespan.rebook": "24",
-         "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
-         "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
-         "mosip.right_to_left_orientation": "ara",
-         "mosip.kernel.pin.length": "6",
-         "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
-         "preregistration.workflow.booking": "true/false ",
-         "mosip.id.validation.identity.CNIENumber.length": "30",
-         "mosip.login.mode": "email,mobile",
-         "mosip.id.validation.identity.phone.length": "10",
-         "preregistration.auto.logout": "10",
-         "mosip.secondary-language": "fra",
-         "preregistration.nearby.centers": "2000",
-         "mosip.default.dob.day": "01",
-         "preregistration.booking.offset": "2"
-      },
-      "errors": null
+  "id": null,
+  "version": null,
+  "responsetime": "2019-04-24T09:46:38.188Z",
+  "response": {
+    "mosip.kernel.otp.default-length": "6",
+    "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{5}$",
+    "mosip.left_to_right_orientation": "eng,fra",
+    "preregistration.recommended.centers.locCode": "5",
+    "mosip.kernel.otp.validation-attempt-threshold": "3",
+    "mosip.country.code": "MOR",
+    "mosip.primary-language": "fra",
+    "preregistration.timespan.cancel": "1",
+    "mosip.default.dob.month": "01",
+    "preregistration.availability.noOfDays": "4",
+    "mosip.preregistration.auto.logout.timeout": "60",
+    "mosip.kernel.otp.expiry-time": "120",
+    "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
+    "mosip.supported-languages": "eng,ara,fra",
+    "preregistration.workflow.demographic": "true/false",
+    "preregistration.documentupload.allowed.file.nameLength": "50",
+    "preregistration.workflow.documentupload": "true/false",
+    "mosip.id.validation.identity.postalCode.length": "5",
+    "mosip.kernel.sms.number.length": "10",
+    "preregistration.availability.sync": "6",
+    "mosip.id.validation.identity.email.length": "50",
+    "preregistration.timespan.rebook": "1",
+    "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
+    "mosip.id.validation.identity.age": "^(150|1[0-4][0-9]|[1-9]?[0-9])$",
+    "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
+    "mosip.right_to_left_orientation": "ara",
+    "mosip.kernel.pin.length": "6",
+    "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
+    "preregistration.workflow.booking": "true/false ",
+    "mosip.preregistration.auto.logout.ping": "30",
+    "mosip.id.validation.identity.CNIENumber.length": "30",
+    "mosip.id.validation.identity.fullName.[*].value": "^(?=.{0,50}$).*",
+    "mosip.id.validation.identity.addressLine1.[*].value": "^(?=.{0,50}$).*",
+    "mosip.login.mode": "email,mobile",
+    "mosip.id.validation.identity.phone.length": "10",
+    "mosip.preregistration.auto.logout.idle": "180",
+    "preregistration.auto.logout": "2",
+    "mosip.secondary-language": "ara",
+    "preregistration.documentupload.allowed.file.size": "1000000",
+    "preregistration.nearby.centers": "2000",
+    "mosip.default.dob.day": "01",
+    "preregistration.booking.offset": "2",
+    "preregistration.documentupload.allowed.file.type": "application/pdf,image/jpeg,image/png,image/gif"
+  },
+  "errors": null
 }
 ```
 
