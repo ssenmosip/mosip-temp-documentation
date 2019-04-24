@@ -182,7 +182,7 @@ Please refer Git for the address based [**Normalization Rules**](/mosip/mosip/bl
 
 **C. Verify the Age of the individual so that the individual is authenticated**
 
-The system receives authentication request from TSP with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, age
+The system receives authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, age
 Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
@@ -306,7 +306,7 @@ The system receives OTP service request with the parameters: iindividualId, requ
 4. Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
-**D. Respond with masked e-mail and masked phone no for OTP trigger request so that the TSP can intimate the individual on the mode of communication of the OTP**
+**D. Respond with masked e-mail and masked phone no for OTP trigger request so that the partner can intimate the individual on the mode of communication of the OTP**
 
 The system follows the following steps to include masked e-mail and phone in the info object in the response
 1. Retrieves the mode to which OTP will be sent based on the validation for modes 
@@ -377,7 +377,7 @@ The system then validates the following:
 
 MOSIP supports standard time for timestamps of authentication requests and responses
 1. The timestamp of the Authentication, e-KYC, OTP trigger requests and responses will support IS0-8601 standard.
-2. The TSPs in a country are expected to send the timestamp (reqTime) in the request in UTC with time zone
+2. The partners in a country are expected to send the timestamp (reqTime) in the request in UTC with time zone
 3. MOSIP returns the timestamp (resTime) in the response in UTC with Time zone
 
 #### B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated
@@ -394,7 +394,7 @@ The system receives authentication request from partner with the following param
 
 #### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-content)
 
-The system receives authentication request from TSP with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
+The system receives authentication request from partner with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 1. The system then validates if the VID is mapped to an UIN in the database and retrieve the UIN
 2. The system proceeds to Match UIN as per defined standards
@@ -411,12 +411,12 @@ The system retrieves the parameters relevant for token Id generation
 
 1. Validates if idType = VID is used in the input and retrieves the UIN mapped to the VID (id)
 1. Validates if idType = UIN is used in the input and retrieves the UIN (id)
-1. The system retrieves the tspid
+1. The system retrieves the partnerid
 1. Generates tokenID based on the retrieved parameters and based on the defined standards
-1. The tokenID is unique for a UIN and tspId combination. The same id should be returned if any auth request is received from the same UIN and tspId combination
+1. The tokenID is unique for a UIN and partnerId combination. The same id should be returned if any auth request is received from the same UIN and partnerId combination
 1. The tokenID is generated for every authentication request
 1. The length of tokenID is configurable by the ADMIN. The tokenID generated can be of the default length of 36 digits
-1. The UIN and tspid are not be derivable from the tokenId
+1. The UIN and partnerid are not be derivable from the tokenId
 1. The tokenID is a random number generated
 1. The tokenId does not contain any alphanumeric characters and should contain only numeric characters
 1. The number does not contain the restricted numbers defined by the ADMIN
@@ -429,7 +429,7 @@ Note: The Authentication is integrated for both successful and failure authentic
 #### E. Trigger SMS to the Individual's mobile for every authentication request
 
 
-The system receives authentication request from TSP with the following parameters:
+The system receives authentication request from partner with the following parameters:
 individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 The system then performs the following steps to Trigger SMS to the Individual's mobile for every authentication request
@@ -444,7 +444,7 @@ The system then performs the following steps to Trigger SMS to the Individual's 
 
 #### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-content)
 
-The system receives authentication request from TSP with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
+The system receives authentication request from partner with the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, <bio/demo/otp> attribute of the Individual
 
 1. The system retrieves the mode of communication (i.e) e-mail configured for sending the notification
 2. The system validates if the configured mode of communication is also registered
