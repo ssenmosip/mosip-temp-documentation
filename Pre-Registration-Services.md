@@ -584,11 +584,6 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
    ]
 }
 ```
-###### Other Failure Details:
-Error Code|Message Code|Description
------|----------|-------------
-PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
-PRG_PAM_APP_001|UNABLE_TO_CREATE_THE_PRE_REGISTRATION|Failed to create the pre-registration with demographic data provided.
 
 ### PUT /applications/:preRegistrationId
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
