@@ -2875,19 +2875,32 @@ request.toDate |Yes|To date of the application|2019-02-12
 ###### Description: All Pre-Registration Ids fetched successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.fetch.ids",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response":{
-    "transactionId": "aee82061-2dcb-11e9-b69e-b1fffe7cd4d7",
-    "countOfPreRegIds": "3",
-    "preRegistrationIds": {
-      "69032701821381": "2019-02-09T06:07:24.500Z",
-      "42839738507687": "2019-02-10T07:07:24.612Z",
-      "45219759079506": "2019-02-11T08:07:24.662Z",
-    }
-  },
-  "errors":null
+    "id": null,
+    "version": null,
+    "responsetime": "2019-04-24T13:13:15.429Z",
+    "response": {
+        "transactionId": "b844b66d-6692-11e9-9e21-a96692193955",
+        "countOfPreRegIds": "16",
+        "preRegistrationIds": {
+            "21728945805937": "2019-04-22T13:09:38.182",
+            "57128359318508": "2019-04-22T13:45:51.029",
+            "27807168975134": "2019-04-22T07:13:19.696",
+            "48156207857649": "2019-04-23T13:25:32.195",
+            "47619536407427": "2019-04-23T07:33:29.495",
+            "31805269138406": "2019-04-21T13:49:45.607",
+            "37025075316953": "2019-04-23T12:47:14.395",
+            "36058368043843": "2019-04-23T05:19:50.163",
+            "25104860854153": "2019-04-23T13:29:42.664",
+            "25742948395781": "2019-04-23T08:52:19.487",
+            "63196106573148": "2019-04-22T08:42:32.458",
+            "45746897093203": "2019-04-22T05:29:19.288",
+            "83154079450486": "2019-04-22T09:52:37.834",
+            "60597241326438": "2019-04-21T16:54:21.695",
+            "40572697835643": "2019-04-22T10:22:31.634",
+            "29708209769312": "2019-04-22T09:44:02.757"
+        }
+    },
+    "errors": null
 }
 
 ```
@@ -2949,15 +2962,17 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 ###### Description: Consumed Pre-Registrations saved
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.store",
-   "version" : "1.0",
-   "responsetime": "2019-02-16T17:31:04.021Z",
-   "response": {
-       "transactionId": "26fde349-0e56-11e9-99e1-f7683fbbce99",
-       "countOfPreRegIds": "2",
-       "preRegistrationIds": "2"
+    "id": null,
+    "version": null,
+    "responsetime": "2019-04-24T13:24:14.781Z",
+    "response": {
+        "transactionId": "4145fefe-6694-11e9-9e21-c39e2258fc31",
+        "countOfStoredPreRegIds": "1",
+        "preRegistrationIds": [
+            "41342175487213"
+        ]
     },
-    "errors":null
+    "errors": null
 }
 ```
 
@@ -2966,16 +2981,14 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 ###### Description: No pre-registration ids passed in request body
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.store",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         { 
-            "errorCode": "PRG_DATA_SYNC_011",
-            "message": "No pre-registration ids passed in request body"
-	 }
-    ]
+    "id": null,
+    "version": null,
+    "errors": {
+        "errorCode": "PRG_DATA_SYNC_011",
+        "message": "INVALID_REQUESTED_PRE_REG_ID_LIST"
+    },
+    "responsetime": "2019-04-24T13:23:17.378Z",
+    "response": null
 }
 ```
 ### GET /sync/:preRegistrationId
@@ -2993,7 +3006,7 @@ Requires Authentication | Yes
 #### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-preRegistrationId |Yes|Pre Registration id|94625367217037
+preRegistrationId |Yes|Pre Registration id|41342175487213
 
 #### Responses:
 ##### Success Response:
@@ -3001,16 +3014,17 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 ###### Description: Data Sync records fetched
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.fetch",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-    "registrationCenterId": "10005",
-    "appointmentDate": "2019-02-13",
-    "fromTimeSlot": "09:00",
-    "toTimeSlot": "09:15",
-    "zipFilename": "94625367217037",
-    "zipBytes": "{ByteCode}"
+    "id": null,
+    "version": null,
+    "responsetime": "2019-04-24T12:46:18.335Z",
+    "response": {
+        "pre-registration-id": "41342175487213",
+        "registration-client-id": "10008",
+        "appointment-date": "2019-04-26",
+        "from-time-slot": "12:00",
+        "to-time-slot": "12:15",
+        "zip-filename": "41342175487213",
+        "zip-bytes":"{ByteCode}"
    },
    "errors":null
 }
@@ -3021,14 +3035,13 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 ###### Description: No data exist for the requested pre-registration id
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.fetch.ids",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-            "errorCode": "PRG_DATA_SYNC_002",
-            "message": "No data exist for the requested pre-registration id"
-         }
-   ]
+    "id": null,
+    "version": null,
+    "errors": {
+        "errorCode": "PRG_PAM_APP_005",
+        "message": "No data found for the requested pre-registration id"
+    },
+    "responsetime": "2019-04-24T12:14:38.607Z",
+    "response": null
 }
+```
