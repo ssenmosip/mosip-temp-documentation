@@ -20,7 +20,23 @@
 # Authentication Services 
 # 1. Single factor Authentication 
 ## 1.1 Biometric Authentication [**[↑]**](#table-of-content)
-**A. Authenticate the face of the Individual by comparing the match score of the photo against the threshold**
+**A. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
+
+Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
+
+1. The authentication service request should have the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
+3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+4. System validates that total number of face record(s) should not exceed 1
+5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+6. The system then generates a match score based on the level of the match of the face
+7. The one is to one mapping is performed by the SDK and match score is provided
+8. The system then proceeds to execute compare against face threshold
+1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+
+**B. Authenticate the face of the Individual by comparing the match score of the photo against the threshold**
 
 Upon receiving an authentication service request, the system authenticates the face of the Individual by comparing the match score of the photo against the threshold as per the following steps:
 
@@ -30,21 +46,6 @@ Upon receiving an authentication service request, the system authenticates the f
 1. The system retrieves the threshold level configured which is acceptable for a match and then validates if the match score is equal to greater than the threshold level and sets the status as 'Y' for authentication
 1. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
-1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
-
-
-**B. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
-
-Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
-1. The authentication service request should have the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
-3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-4. System validates that total number of face record(s) should not exceed 1
-5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-6. The system then generates a match score based on the level of the match of the face
-7. The one is to one mapping is performed by the SDK and match score is provided
-8. The system then proceeds to execute compare against face threshold
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
