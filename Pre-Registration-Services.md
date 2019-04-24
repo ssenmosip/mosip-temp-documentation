@@ -1759,6 +1759,12 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 # DataSync Service (External)
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
+Kindly refer the below link for current implementation
+https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
+
+**Future implementation**
+Design has been finalized, implementation is in progress.
+
 * [POST /sync](#post-sync)
 * [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
 * [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
