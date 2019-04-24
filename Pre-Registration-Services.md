@@ -29,7 +29,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 Kindly refer the below link for current implementation
 https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
 
-****Future implementation
+**Future implementation**
 Design has been finalized, implementation is in progress.
 
 * [POST /login/sendOtp](#post-loginsendotp)
@@ -276,8 +276,11 @@ Requires Authentication | No
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
-Kindly refer the below link for Sprint 10 deliverable
+Kindly refer the below link for current implementation
 https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
+
+**Future implementation**
+Design has been finalized, implementation is in progress.
 
 * [POST /applications](#post-applications)
 * [PUT /applications/:preRegistrationId](#put-applicationspreRegistrationid)
@@ -1279,8 +1282,11 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
-Kindly refer the below link for Sprint 10 deliverable
+Kindly refer the below link for current implementation
 https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
+
+**Future implementation**
+Design has been finalized, implementation is in progress.
 
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
@@ -1960,6 +1966,12 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 
 # Booking Service (Public)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
+
+Kindly refer the below link for current implementation
+https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
+
+**Future implementation**
+Design has been finalized, implementation is in progress.
 
 * [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
 * [POST /appointment](#post-appointment)
