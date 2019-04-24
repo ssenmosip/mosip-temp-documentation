@@ -303,11 +303,11 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 ## 3.2 Registration Packet Upload [**[↑]**](#table-of-content)
 
 #### A. Views the packets first, selects which ones to upload, and then initiates the packet to upload
-1. Once the Registration Officer selects the “Upload Packets” option, a list of packets will be displayed.
-1. Each packet will have a check box for selection and have an option to “Select All” and “Deselect All” the packets. 
+1. Once the Registration Officer selects the “Upload Packets” option, a list of packets are displayed.
+1. Each packet has a check box for selection and also has an option to “Select All” and “Deselect All” the packets. 
 1. After the Registration Officer selects the packet, he/she can upload the selected packet to server.
 
-   NOTE: The ‘Export’ option will be disabled if any packets are selected because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
+   NOTE: If any packets are selected, the ‘Export’ option gets disable because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
 
 #### B. Pushes those packets that are marked 'Resend' to the server
 
@@ -452,8 +452,8 @@ This feature enables registration client to send SMS and email acknowledgements 
 #### A. Low quality biometrics marked as reason for exceptions
 
 1. During a registration process while capturing biometrics, if the configured threshold is not met for fingerprints and/or irises in spite of the x attempts(configurable) to capture the biometrics, then system mandates capture of exception photo 
-1. Also, system automatically flags the reason for exception as ‘_Low Quality of biometrics_’. 
-1. If the individual has missing biometrics AND low quality of biometrics, both the reasons are auto-associated. Here also the system mandates capture of exception photo.
+1. Also, system automatically flags the reason for exception as ‘Low Quality of biometrics’. 
+1. If the individual has missing biometrics and low quality of biometrics, both the reasons are auto-associated. Here also the system mandates capture of exception photo.
 
 #### B. Mark fingerprint and iris exceptions for an individual
 
