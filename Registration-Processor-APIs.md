@@ -538,7 +538,7 @@ Description : response code is always 200 if server receives the request.
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
 ### Resource URL
-### `POST /registration-processor/packetgenerator/v1.0`
+### `POST /v1/packetgenerator/registrationpacket`
 
 ### Resource details
 
