@@ -41,9 +41,9 @@ MultipartFile|Yes|The encrypted zip file| |
 	"id" : "mosip.registration.packet",
 	"version" : "1.0",
 	"responsetime" : "2019-02-02T06:12:25.288Z",
-	"response" : [{
+	"response" : {
 		"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN"
-	}]
+	}
 }
 ```
 #### Failure response
