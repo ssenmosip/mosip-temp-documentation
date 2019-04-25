@@ -1394,18 +1394,20 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 ###### Description: Document successfully copied
 ```JSON
 {
-  "id": "mosip.pre-registration.document.copy",
-  "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
-  "response": {
-      "preRegsitrationId": "67531403498547",
-      "docId": "8196222-5fb0-11e9-rg3b-7d108980f456",
-      "docName": "address.pdf",
-      "docCatCode": "POA",
-      "docTypCode": "address",
-      "docFileFormat": "pdf"
-  },
-  "errors":null
+    "id": "mosip.pre-registration.document.copy",
+    "version": "1.0",
+    "errors": null,
+    "responsetime": "2019-04-25T12:30:47.893Z",
+    "response": [
+        {
+            "preRegistrationId": "36019326031045",
+            "documentId": "7a16d909-6746-11e9-875d-4f4ef38bd2a2",
+            "docName": "Passport.pdf",
+            "docCatCode": "POA",
+            "docTypCode": "adress",
+            "docFileFormat": "pdf"
+        }
+    ]
 }
 ```
 
