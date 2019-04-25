@@ -155,16 +155,23 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id|Yes|the id for sync| |mosip.registration.sync
-version|Yes|the version for sync| |1.0
-version|Yes|the version for sync| |1.0
-version|Yes|the version for sync| |1.0
-version|Yes|the version for sync| |1.0
-version|Yes|the version for sync| |1.0
-version|Yes|the version for sync| |1.0
+id|Yes|the id for sync|mosip.registration.sync |mosip.registration.sync
+version|Yes|the version for sync|1.0 |1.0
+requesttime|Yes|the requesttime for sync| |2019-02-14T12:40:59.768Z
+request|Yes|the request object| |1.0
+registrationId|Yes|the registration id| |80006444440002520181208094000
+statusComment|No|the registration status comments| |packet created for 
+registrationType|Yes|the type of the registration| |NEW, UPDATE, LOST, ACTIVATE, DEACTIVATE, RES_UPDATE
+packetHashValue|Yes|the hash value of the encrypted packet| |D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB
+packetSize|Yes|size of encrypted packet in bytes| |5242880
+supervisorStatus|Yes|supervisor decision| |APPROVED, REJECTED
+supervisorComment|No|supervisor comments| |rejected because of error
+optionalValues|No|additional values to be passed during sync| |key, value pair
 
+### Example Request Header
+##### Center-Machine-RefId = `10011_10011`
 
-### Example Request
+### Example Request Body
 ```JSON
 {
 	"id": "mosip.registration.sync",
@@ -177,7 +184,7 @@ version|Yes|the version for sync| |1.0
 			"packetHashValue": "D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB",
 			"packetSize": 5242880,
 			"supervisorStatus": "APPROVED",
-			"supervisorStatusComment": "Approved, all good",
+			"supervisorComment": "Approved, all good",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "122223456"
@@ -190,7 +197,7 @@ version|Yes|the version for sync| |1.0
 			"packetHashValue": "D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB",
 			"packetSize": 4242880,
 			"supervisorStatus": "REJECTED",
-			"supervisorStatusComment": "Rejected due to error",
+			"supervisorComment": "Rejected due to error",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "3456789o"
