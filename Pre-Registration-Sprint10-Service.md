@@ -1314,18 +1314,20 @@ request.langCode |Yes|Language code of the application|ENG
 ###### Description: Document uploaded successfully
 ```JSON
 {
-  "id": "mosip.pre-registration.document.upload",
-  "version" : "1.0",
-  "responsetime": "2019-01-16T16:41:06.659Z",
-  "response": {
-      "preRegsitrationId": "36732486130976",
-      "docId": "01964111-4fc0-11e9-ae3b-7d108980d190",
-      "docName": "passport.PDF",
-      "docCatCode": "POI",
-      "docTypCode": "identity",
-      "docFileFormat": "pdf"
-  },
-  "errors":null
+    "id": "mosip.pre-registration.document.upload",
+    "version": "1.0",
+    "errors": null,
+    "responsetime": "2019-04-25T12:43:04.432Z",
+    "response": [
+        {
+            "preRegistrationId": "48064860942061",
+            "documentId": "e7bc9ebb-6755-11e9-875d-dd2016b322c2",
+            "docName": "Passport.pdf",
+            "docCatCode": "POA",
+            "docTypCode": "adress",
+            "docFileFormat": "pdf"
+        }
+    ]
 }
 ```
 
