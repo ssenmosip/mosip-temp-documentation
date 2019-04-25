@@ -160,25 +160,6 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
 ### Example Request
 ```JSON
 {
-  "id" : "mosip.registration.sync",
-  "version" : "1.0",
-  "requesttime": "2019-02-14T12:40:59.768Z",
-  "request" : [
-	  {
-		"langCode": "eng",
-		"parentRegistrationId": null,
-		"registrationId": "80006444440002520181208094000",
-		"statusComment": "string",
-		"syncStatus": "PRE_SYNC",
-		"syncType": "NEW"
-	  }
-	]
-}
-```
-### Example Response
-Success response :
-```JSON
-{
 	"id": "mosip.registration.sync",
 	"version": "1.0",
 	"requesttime": "2019-02-14T12:40:59.768Z",
@@ -211,6 +192,29 @@ Success response :
 	]
 }
 ```
+### Example Response
+Success response :
+```JSON
+{
+  "id" : "mosip.registration.sync",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : [
+	  {
+		"registrationId": "1234575",
+		"status": "SUCCESS"
+	  },
+	  {
+		"registrationId": "12345678901234567890123456789",
+		"status": "SUCCESS"
+	  },
+	  {
+		"registrationId": "27847657360002520181208183052",
+		"status": "SUCCESS"
+	  }
+	]
+}
+```
 Failure response
 ```JSON
 {
@@ -221,30 +225,20 @@ Failure response
 	  {
 		"registrationId": "1234575",
 		"status": "FAILURE",
-		"message": "RegistrationId Length Must Be 29",
-		"parentRegistrationId": "string",
-		"errorCode": "RPR-RGS-009"
+                "errorCode": "RPR-RGS-009",
+		"errorMessage": "RegistrationId Length Must Be 29"
 	  },
 	  {
 		"registrationId": "12345678901234567890123456789",
 		"status": "FAILURE",
-		"message": "Invalid Time Stamp Found in RegistrationId",
-		"parentRegistrationId": "string",
-		"errorCode": "RPR-RGS-007"
+		"errorCode": "RPR-RGS-007",
+                "errorMessage": "Invalid Time Stamp Found in RegistrationId"
 	  },
 	  {
 		"registrationId": "27847657360002520181208183052",
 		"status": "FAILURE",
-		"message": "Parent RegistrationId Length Must Be 29",
-		"parentRegistrationId": "53718436135988",
-		"errorCode": "RPR-RGS-012"
-	  },
-	  {
-		"registrationId": "27847657360002520181208aaaaaa",
-		"status": "FAILURE",
-		"message": "RegistrationId Must Be Numeric Only",
-		"parentRegistrationId": "string",
-		"errorCode": "RPR-RGS-008"
+		"errorCode": "RPR-RGS-012",
+		"errorMessage": "Parent RegistrationId Length Must Be 29"
 	  }
 	]
 }
