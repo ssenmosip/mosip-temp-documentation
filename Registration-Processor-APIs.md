@@ -155,7 +155,14 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
+id|Yes|the id for sync| |mosip.registration.sync
+version|Yes|the version for sync| |1.0
+version|Yes|the version for sync| |1.0
+version|Yes|the version for sync| |1.0
+version|Yes|the version for sync| |1.0
+version|Yes|the version for sync| |1.0
+version|Yes|the version for sync| |1.0
+
 
 ### Example Request
 ```JSON
