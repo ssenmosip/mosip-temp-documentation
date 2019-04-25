@@ -179,22 +179,35 @@ List[SyncRegistrationDto]|Yes|List of SyncRegistrationDto| |
 Success response :
 ```JSON
 {
-  "id" : "mosip.registration.sync",
-  "version" : "1.0",
-  "responsetime": "2019-02-14T12:40:59.768Z",
-  "response" : [
-	  {
-		"registrationId": "80006444440002520181208094000",
-		"status": "SUCCESS",
-		"message": "Registartion Id's are successfully synched in Sync table",
-		"parentRegistrationId": null
-	  },
-	  {
-		"registrationId": "27847657360002520181208183055",
-		"status": "SUCCESS",
-		"message": "Registartion Id's are successfully synched in Sync table",
-		"parentRegistrationId": null
-	  }
+	"id": "mosip.registration.sync",
+	"version": "1.0",
+	"requesttime": "2019-02-14T12:40:59.768Z",
+	"request": [{
+			"registrationId": "80006444440002520181208094000",
+			"statusComment": "string",
+			"registrationType": "NEW",
+			"packetHashValue": "D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB",
+			"packetSize": 5242880,
+			"supervisorStatus": "APPROVED",
+			"supervisorStatusComment": "Approved, all good",
+			"optionalValues": [{
+				"key": "CNIE",
+				"value": "122223456"
+			}]
+		},
+		{
+			"registrationId": "10011100110002520181208094000",
+			"statusComment": "string",
+			"registrationType": "UPDATE",
+			"packetHashValue": "D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB",
+			"packetSize": 4242880,
+			"supervisorStatus": "REJECTED",
+			"supervisorStatusComment": "Rejected due to error",
+			"optionalValues": [{
+				"key": "CNIE",
+				"value": "3456789o"
+			}]
+		}
 	]
 }
 ```
