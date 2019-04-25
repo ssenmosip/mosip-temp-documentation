@@ -1488,16 +1488,14 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 ###### Description: Document is not found for the requested pre-registration id
 ```JSON
 {
-   "id": "mosip.pre-registration.document.fetch.metadata",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response":null,
-   "errors": [
-  	{
-    	    "errorCode": "PRG_PAM_DOC_005",
-    	    "message": "Documents is not found for the requested pre-registration id"
-        }
-    ]
+    "id": null,
+    "version": "1.0",
+    "errors": {
+        "errorCode": "PRG_PAM_DOC_005",
+        "message": "DOCUMENT_IS_MISSING"
+    },
+    "responsetime": "2019-04-25T11:00:45.744Z",
+    "response": null
 }
 ```
 ### DELETE /documents/preregistration/:preRegsitrationId
