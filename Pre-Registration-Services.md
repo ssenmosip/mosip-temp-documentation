@@ -103,7 +103,6 @@ request.langcode|Yes|The preferred language code |fra
 	]	
 }
 ```
-
 ### POST /login/validateOtp
 This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
 
@@ -214,6 +213,7 @@ Requires Authentication | Yes
   ]
 }
 ```
+
 ### GET /login/config
 This request will load the configuration parameters while loading the pre-registration portal page.
 
@@ -2472,11 +2472,17 @@ Requires Authentication | Yes
    "errors":[ 
          {
             "errorCode": "PRG_PAM_BAT_001",
-            "message": "No pre registration record found to update expired status"
+            "message": "No pre registration id found to update status"
          } 
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_BAT_001	|No pre registration id found to update status	|If no pre registration id found to update status
+PRG_PAM_BAT_004|	Demographic table not accessible|	If data is not found found  for preRegistrationId
+PRG_PAM_BAT_005|	Reg appointment table not accessible	|If Reg appointment table not accessible
 ### PUT /consumedApplication
 This request is used to update the consumed status for all pre-Registration ids given by registration processor.
 
@@ -2515,12 +2521,21 @@ Requires Authentication | Yes
    "response": null,
    "errors":[ 
          {
-            "errorCode": "PRG_PAM_BAT_002",
-            "message": "No pre registration record found to update consumed status"
+            "errorCode": "PRG_PAM_BAT_001",
+            "message": "No pre registration id found to update status"
          }
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_BAT_001	|No pre registration id found to update status|	If no preRegistrationId found to update expired status
+PRG_PAM_BAT_004	|Demographic table not accessible|	If data is not found found  for preRegistrationId
+PRG_PAM_BAT_006|	Processed prereg list table not accessible|	If Processed prereg list table not accessible
+PRG_PAM_BAT_009|	Demographic consumed table not accessible|	If Demographic consumed table not accessible
+PRG_PAM_BAT_007	|Document table not accessible|	If document table not accessible
+PRG_PAM_BAT_010	|Document consumed table not accessible|	If document consumed table not accessible
 
 ### GET /appointment/availability/sync
 This request is used to synchronize booking slots availability table with master data.
@@ -2718,6 +2733,15 @@ langCode| Yes| language code whatever user choose while login|eng
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
+PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
+PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid Request Date & Time
+PRG_ACK_001|	Mobile number or Email Id is missing	|If mobile number and email Id is invalid or null
+
+ 
 
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
@@ -2795,3 +2819,12 @@ request.to_field_lang |Yes|To language code|ara
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
+PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
+PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid Request Date & Time
+PRG_TRL_APP_008|	Unsupported language|	Language should be ara ,eng or fra
+PRG_TRL_APP_002|	Incorrect mandatory Fields|	If any of the request is null
+PRG_PAM_TRL_002	|Failed to transliterate|	Failed to transliterate
