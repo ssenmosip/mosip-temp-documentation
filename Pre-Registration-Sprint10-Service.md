@@ -1440,7 +1440,7 @@ PRG_CORE_REQ_011|encryption failed|encryption of document data failed
 PRG_PAM_APP_007|json parsing is failed|document request json parsing failed
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
 PRG_PAM_DOC_010|Document virus scan failed|virus scan of uploaded document is failed
-PRG_PAM_DOC_007|Document exceeding permited size|when uploaded document size is exceeding the configured size
+PRG_PAM_DOC_007|Document exceeding permitted size|when uploaded document size is exceeding the configured size
 PRG_PAM_DOC_018|Document Catagory code is invalid|empty document category code
 PRG_PAM_DOC_018|Document type code is invalid|empty document type code
 PRG_PAM_DOC_018|Language code is invalid|If language code is empty
