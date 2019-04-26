@@ -24,72 +24,40 @@
   * [5.1 Local Authentication](#51-local-authentication-) 
     * [5.1.1 Offline Authentication using Biometrics](#511-offline-authentication-using-biometrics-) _(REG_FR_5.1)_
     * [5.1.2 Biometric SDK Integration (Extract and Match)](#512-biometric-sdk-integration-extract-and-match-) _(REG_FR_5.2)_
-```diff
-- 5.2 API Client _(REG_FR_5.3)_
-```
+  * [5.2 API Client](#52-api-client-) _(REG_FR_5.3)_
   * [5.3 Biometric Device Manager](#53-biometric-device-manager-)
     * [5.3.1 Vendor Device Manager Integration and Support](#531-vendor-device-manager-integration-and-support-) _(REG_FR_5.4)_
-
-```diff
-
-- 5.4 Local Storage 
-
-```
-
-    
-   * [5.4.1 Database](#541-database-) _(REG_FR_5.5)_
-   
-   * [5.4.2 File system](#542-file-system-) _(REG_FR_5.6)_
-
-```diff
-- 5.5 Data Security
-```
-  * [5.5.1 Trust Environment](#551-trust-environment-) _(REG_FR_5.7)_
+  * [5.4 Local Storage](#54-local-storage-) 
+    * [5.4.1 Database](#541-database-) _(REG_FR_5.5)_  
+    * [5.4.2 File system](#542-file-system-) _(REG_FR_5.6)_
+  * [5.5 Data Security (Take Architects Help)](#55-data-security-take-architects-help-)
+    * [5.5.1 Trust Environment](#551-trust-environment-) _(REG_FR_5.7)_
     * [5.5.2 Encryption and Decryption](#552-encryption-and-decryption-) _(REG_FR_5.8)_
     * [5.5.3 Storage Policies](#553-storage-policies-) _(REG_FR_5.9)_
     * [5.5.4 Key Management](#554-key-management-) _(REG_FR_5.10)_
-
-```diff
-- 5.6 Business Validations _(REG_FR_5.11)_
-
-
-- 5.7 Data Sync 
-```
-
-   * [5.7.1 Master Data](#571-master-data-) _(REG_FR_5.12)_
-   * [5.7.2 Pre-registration Data](#572-pre-registration-data-) _(REG_FR_5.13)_
-   * [5.7.3 Registration Data](#573-registration-data-) _(REG_FR_5.14)_
-   * [5.7.4 Analytics and Audit Logs](#574-analytics-and-audit-logs-) _(REG_FR_5.15)_
+  * [5.6 Business Validations](#56-business-validations-) _(REG_FR_5.11)_
+  * [5.7 Data Sync](#57-data-sync-)
+    * [5.7.1 Master Data](#571-master-data-) _(REG_FR_5.12)_
+    * [5.7.2 Pre-registration Data](#572-pre-registration-data-) _(REG_FR_5.13)_
+    * [5.7.3 Registration Data](#573-registration-data-) _(REG_FR_5.14)_
+    * [5.7.4 Analytics and Audit Logs](#574-analytics-and-audit-logs-) _(REG_FR_5.15)_
   * [5.8 Peripherals Management (Scanner, Camera,...)](#58-peripherals-management-scanner-camera-) _(REG_FR_5.16)_
- 
-```diff
-- 5.9 Software Version Upgrade _(REG_FR_5.17)_
-```
-```diff
-- 5.10 Cleanup
-```
-   * [5.10.1 Data retention policies](#5101-data-retention-policies-) _(REG_FR_5.18)_
-   * [5.10.2 Device moving to new center](#5102-device-moving-to-new-center-) _(REG_FR_5.19)_
-   * [5.10.3 Device retirement](#5103-device-retirement-) _(REG_FR_5.20)_
-
-```diff
-- 5.11 Language Support
-```
-
- 
-   * [5.11.1 Language Selection](#5111-language-selection-)  _(REG_FR_5.21)_
-   * [5.11.2 Internationalization (WIP)](#5112-internationalization-wip-) _(REG_FR_5.22)_
-   * [5.11.3 Transliteration](#5113-transliteration-) _(REG_FR_5.23)_
-   * [5.11.4 Virtual Keyboards](#5114-virtual-keyboards-) _(REG_FR_5.24)_
-   * [5.11.5 Translation??](#5115-translation-) _(REG_FR_5.25)_
-```diff
-- 5.12 Health Check 
-```
-
-   * [5.12.1 Disk Space Check](#5121-disk-space-check-) _(REG_FR_5.26)_
-   * [5.12.2 Peripherals Check](#5122-peripherals-check-) _(REG_FR_5.27)_
-   * [5.12.3 Virus Scan/Security Scan](#5123-virus-scansecurity-scan-) _(REG_FR_5.28)_
-   * [5.12.4 Reports (WIP)](#5124-reports-wip-) _(REG_FR_5.29)_
+  * [5.9 Software Version Upgrade](#59-software-version-upgrade-) _(REG_FR_5.17)_
+  * [5.10 Cleanup](#510-cleanup-)
+    * [5.10.1 Data retention policies](#5101-data-retention-policies-) _(REG_FR_5.18)_
+    * [5.10.2 Device moving to new center](#5102-device-moving-to-new-center-) _(REG_FR_5.19)_
+    * [5.10.3 Device retirement](#5103-device-retirement-) _(REG_FR_5.20)_
+  * [5.11 Language Support](#511-language-support-)
+    * [5.11.1 Language Selection](#5111-language-selection-)  _(REG_FR_5.21)_
+    * [5.11.2 Internationalization (WIP)](#5112-internationalization-wip-) _(REG_FR_5.22)_
+    * [5.11.3 Transliteration](#5113-transliteration-) _(REG_FR_5.23)_
+    * [5.11.4 Virtual Keyboards (WIP)](#5114-virtual-keyboards-wip-) _(REG_FR_5.24)_
+    * [5.11.5 Translation??](#5115-translation-) _(REG_FR_5.25)_
+  * [5.12 Health Check](#512-health-check-) 
+    * [5.12.1 Disk Space Check](#5121-disk-space-check-) _(REG_FR_5.26)_
+    * [5.12.2 Peripherals Check](#5122-peripherals-check-) _(REG_FR_5.27)_
+    * [5.12.3 Virus Scan/Security Scan](#5123-virus-scansecurity-scan-) _(REG_FR_5.28)_
+    * [5.12.4 Reports (WIP)](#5124-reports-wip-) _(REG_FR_5.29)_
 - [6. Registration Client UI](#6-registration-client-ui-) _(REG_FR_6)_
 
 
@@ -997,6 +965,20 @@ When a logged in user tries to access a feature on the registration client, the 
 
 
 ## 5.8 Peripherals Management (Scanner, Camera,...) [**[↑]**](#table-of-content)
+
+Upon receiving a request to geotag a registration machine, the system performs the following steps:
+1. Validates that an on-boarded GPS device is connected to the machine.
+   * If an on-boarded GPS device is not found, then displays an error message.
+   * If more than one on-boarded GPS device is connected, then proceeds with the first GPS device that the system finds as it scans the ports of the machine.
+2. Requests the GPS device to capture a location.
+1. Receives the latitude and longitude from the GPS device.
+   * If signal is weak and GPS device is unable to capture location, then displays an error message.
+4. Proceeds to perform following validations:
+   * If location capture is required only at the beginning of day, the co-ordinates are stored and validations are performed when opting to start a new registration.
+   * If location capture is required only at the beginning of day and location could not be captured at beginning of the day, then attempts to capture the location during the first registration of the day.
+   * The latitude and longitude will be stored in the packet when the packet is created.
+5. System captures and stores the transaction details for audit purpose.
+
 ## 5.9 Software Version Upgrade [**[↑]**](#table-of-content)
 
 #### A. Registration Officer or Supervisor can download and unzip the client application set up kit
@@ -1086,7 +1068,7 @@ The Registration Officer can then view the preview page
 
 The system then enables a Registration Officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
 
-### 5.11.4 Virtual Keyboards [**[↑]**](#table-of-content)
+### 5.11.4 Virtual Keyboards (WIP) [**[↑]**](#table-of-content)
 ### 5.11.5 Translation?? [**[↑]**](#table-of-content)
 
 **A registration officer can view static data translated to secondary language**
