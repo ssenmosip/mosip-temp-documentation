@@ -85,7 +85,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request timestamp
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
 PRG_PAM_LGN_008|	Invalid Request userId received|	If otp field is null or invalid
 PRG_AUTH_011|	Error while Parsing the kernel response	|failed to parse kernel response 
 
@@ -160,7 +160,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request timestamp
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
 PRG_AUTH_002|	Authentication failed	|If userId field is null or invalid
 KER-OTV-003|	OTP can't be empty or null.	|If otp field is null
 KER-OTV-004|	OTP consists of only numeric characters. No other characters is allowed.|	If otp contains character other than numeric
