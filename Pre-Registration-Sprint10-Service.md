@@ -1441,8 +1441,8 @@ PRG_PAM_APP_007|json parsing is failed|document request json parsing failed
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
 PRG_PAM_DOC_010|Document virus scan failed|virus scan of uploaded document is failed
 PRG_PAM_DOC_007|Document exceeding permited size|when uploaded document size is exceeding the configured size
-PRG_PAM_DOC_018|Document Catagory code is invalid|if the document & document details are failed to store in the db
-PRG_PAM_DOC_018|Document type code is invalid|When the document virus scan fails
+PRG_PAM_DOC_018|Document Catagory code is invalid|empty document category code
+PRG_PAM_DOC_018|Document type code is invalid|empty document type code
 PRG_PAM_DOC_018|Language code is invalid|If language code is empty
 PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic service failes
 PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
