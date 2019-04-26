@@ -880,7 +880,7 @@ Registration Client performs a local duplicate check for irises and face of an i
 
 ## 5.2 API Client [**[↑]**](#table-of-content)
 
-Please refer [**wiki**](ID-Authentication-APIs) for more details on the APIs for ID authentication.
+Please refer [**Git**](/mosip/mosip/tree/0.10.0/docs/javadocs/registration/apidocs) for more details on the APIs for ID authentication.
 
 
 ## 5.3 Biometric Device Manager [**[↑]**](#table-of-content)
