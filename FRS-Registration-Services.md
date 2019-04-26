@@ -402,13 +402,13 @@ For every new registration, the system provides an option on the demographic det
 If the RO selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
 #### F. Enter the demographic details for registration
 
-   **The Registration Officer opts to initiate a new registration**
+**The Registration Officer opts to initiate a new registration**
 1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the workflow as configured by the admin. 
 1. The system validates the entered demographic fields.
 1. Displays error message in case of validation failure.
 1. On successful validation success, proceeds to next step.
 
-   **The Registration Officer selects a pre-registration for registration**
+**The Registration Officer selects a pre-registration for registration**
 
 1. The Registration Officer enters demographic details or edits pre-filled demographic details.
 1. The Registration Client validates the entered demographic data as per the field definition document attached.
