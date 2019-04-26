@@ -189,7 +189,7 @@ Please refer Git for more details on [**data definition**](/mosip/mosip/tree/mas
 2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system calculates the age of the individual based on the DOB.
 4. Validates if the Age of the individual is greater than or equal to the Age in the i/p parameter
-5.  The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
+5. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 
@@ -530,7 +530,7 @@ The system then validates the following:
 8. Validates if the "authvalue" in the i/p parameter is same "authval" stored in the database for the mapped UIN and VID
 9. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
 10. The system then integrates the response with the static token generated for the authentication request  
-11. he system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
+11. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 13. The system proceeds to execute Notification SMS
 14. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
