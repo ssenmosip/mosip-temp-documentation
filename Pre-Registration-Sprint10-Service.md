@@ -65,7 +65,7 @@ request.langcode|Yes|The preferred language code |fra
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid parameters
+###### Description: If getting 500 response from kernel
 ```JSON
 {
 	"id": "mosip.pre-registration.login.sendotp",
@@ -126,7 +126,7 @@ request.OTP|Yes| received OTP  |345674
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: sms sent successfully
+###### Description: Validation successfully
 ```JSON
 {
   "id": "mosip.pre-registration.login.useridotp",
@@ -140,7 +140,7 @@ request.OTP|Yes| received OTP  |345674
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid parameters
+###### Description: passing Invalid otp 
 ```JSON
 {
   "id": "mosip.pre-registration.login.useridotp",
