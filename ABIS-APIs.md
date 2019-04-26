@@ -96,54 +96,54 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"candidateList" : {
 	 "count" : "",
 	 "candidates" : [
+      {
+	   "referenceId" : "",
+	   "internalScore": "",
+	   "scaledScore" : "",
+	   "analytics": [
+	    {
+	     "key1": "value1",
+	     "key2": "value2"
+	    }
+       ]
+	},
+	{
+	 "referenceId" : "",
+	 "internalScore": "",
+	 "scaledScore" : "",
+	 "analytics": [
+	   {
+		"key1": "value1",
+		"key2": "value2"
+	   }
+	 ],
+	 "scores": [
+	  {
+	   "biometricType": "FIR",
+	   "scaledScore": "",
+	   "internalScore": "",
+	   "analytics": [
 		{
-		 "referenceId" : "",
-		 "internalScore": "",
-		 "scaledScore" : "",
-		 "analytics": [
-			{
-				"key1": "value1",
-				"key2": "value2"
-			}
-		 ]
-		},
-		{
-		 "referenceId" : "",
-		 "internalScore": "",
-		 "scaledScore" : "",
-		 "analytics": [
-		   {
-			"key1": "value1",
-			"key2": "value2"
-		   }
-		],
-		 "scores": [
-			{
-			  "biometricType": "FIR",
-			  "scaledScore": "",
-			  "internalScore": "",
-			  "analytics": [
-				{
-					"key1": "value1",
-					"key2": "value2"
-				}
-			  ]
-			},
-			{
-			 "biometricType": "IIR",
-			 "scaledScore": "",
-			 "internalScore": "",
-			 "analytics": [
-			  {
-				"key1": "value1",
-				"key2": "value2"
-			  }
-			 ]
-			}
-		 ]
+		 "key1": "value1",
+		 "key2": "value2"
 		}
-	  ]
+	   ]
+	  },
+	  {
+	   "biometricType": "IIR",
+	   "scaledScore": "",
+	   "internalScore": "",
+	   "analytics": [
+	    {
+		 "key1": "value1",
+		 "key2": "value2"
+	    }
+	   ]
+	  }
+	 ]
 	}
+   ]
+  }
 }
 
 //Failure response
