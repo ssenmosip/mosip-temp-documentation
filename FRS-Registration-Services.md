@@ -157,7 +157,6 @@ User on-boarding data: User ID, USB device ID, Computer ID
 1. Client saves the data in the local machine overwriting previous values of the config settings received.
 1. Client displays a success or failure message on the UI.
 1. Alternatively if the client machine is not online
-1. If the client is not online
    * Displays an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
@@ -1035,7 +1034,52 @@ Pre-registration and registration data are automatically deleted from the client
 * All deletion is executed by a periodic process after retention of the data for a configured duration.
 
 ### 5.10.1 Data retention policies [**[↑]**](#table-of-content)
+
+#### A. Read packet status and delete packets
+When the registration client receives a request through manual trigger or scheduled job to sync data, the system performs the following steps to read a packet status and delete the packets:
+1. Sends request to server for sync.
+1. Receives response from server with packet statuses.
+   * Server sends status of those Registration packets that were created in the specific machine, and that status that has changed since the last sync.
+3. Saves the statuses ‘Processing’, ‘Processed’ or ‘Resend’ as received for each packet. Statuses of other packets are not updated.
+1. Sends success or failure message to the UI.
+1. Immediately deletes the packets from the local machine whose status is received as ‘Processed’.
+1. Displays an alert in case of sync failure.
+   * The on-screen message is only indicated if the sync was a success or failure.
+   * Detailed errors can be viewed in the transaction logs.
+7. When a sync is running, the system does not allow the end user to perform any other action.
+8. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and executed later. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier then immediately starts the sync.
+9. System captures and stores the transaction details for audit purpose.
+#### B. Delete transaction history (audit logs) post sync with server and the retention period
+When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
+1. Runs on a daily process to identify audit data that has sent to the server and acknowledgement received from the server.
+   * The audit data acknowledgement are received from the server >= x hours ago. X is configured at a country level (default 24 hours).
+2. Deletes the identified audit data from the USB client dongle.
+1. Executes at a time and frequency as configured. 
+   * The process takes place only when the Registration Client is in open and running situation. If the Registration Client is not open during a scheduled run, it is executed as soon as the client is next started up.
+4. Does not delete audit data if that is yet to be sent to the server.
+1. System captures and stores the transaction details.
+
 ### 5.10.2 Device moving to new center [**[↑]**](#table-of-content)
+
+When an Admin user changes the mapping of a computer from one Registration Centre (RC) to another, a sync is initiated on the client installed on that computer.
+
+MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer (RO) moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
+
+The following example explains the steps system performs to support remapping a machine from one center to another:
+
+1. Say a machine M1 is currently mapped to registration center RC1.
+1. M1 contains master data related to RC1, officer on-boarding data for say RO1 and RO2, and pre-registration data, registration packets and audit logs for registrations carried out in RC1.
+1. Now M1 is unmapped from RC1 and mapped to RC2 in the Admin portal.
+1. When M1 comes online, the master and configuration data is synced from server to client. As a result of sync, the following occur:
+   * M1 recognizes that it is mapped to RC2 instead of RC1. An alert is displayed to the user.
+   * Once the client machine receives details of remapping to a new registration center, new registration, UIN update, and lost UIN cannot be initiated. The links to the above should either be hidden, disabled or display error on-click - as per UX guidelines.
+   * In-progress registrations can be completed.
+   * A one-time background process to push packet IDs, packets, and user onboarding data to the server will happen when the system is online and there are no pending approval packets.
+   * It will then delete all the data except audit data. Deletion covers the RC1 master data, Registrations created while in RC1, user on-boarding data of RC1, and pre-registration data of RC1. Audit logs and other data, which might be used for analytics and data retention policy reasons, will not be deleted. The removal of those will be as per policy only.
+   * The user from the original registration center cannot login thereafter.
+   * If the one-time process has not yet run, the user will still be able to login and perform sync, end of day approval, re-register updates, export, and upload. The user cannot perform pre-registration download and user on-boarding.
+5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
+
 ### 5.10.3 Device retirement [**[↑]**](#table-of-content)
 ## 5.11 Language Support [**[↑]**](#table-of-content)
 ### 5.11.1 Language Selection [**[↑]**](#table-of-content)
