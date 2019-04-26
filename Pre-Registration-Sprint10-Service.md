@@ -80,6 +80,14 @@ request.langcode|Yes|The preferred language code |fra
 	]	
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request timestamp
+PRG_PAM_LGN_008|	Invalid Request userId received|	If otp field is null or invalid
+PRG_AUTH_011|	Error while Parsing the kernel response	|failed to parse kernel response 
 
 ### POST /login/validateOtp
 This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
@@ -147,6 +155,16 @@ request.OTP|Yes| received OTP  |345674
   ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request timestamp
+PRG_AUTH_002|	Authentication failed	|If userId field is null or invalid
+KER-OTV-003|	OTP can't be empty or null.	|If otp field is null
+KER-OTV-004|	OTP consists of only numeric characters. No other characters is allowed.|	If otp contains character other than numeric
+PRG_AUTH_011	|Error while Parsing the kernel response|	failed to parse kernel response 
 ### POST /login/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
@@ -249,6 +267,11 @@ Requires Authentication | No
   "errors": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_AUTH_012	|Config file not found in the config server|	If config file not found in the config server
+
 
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
