@@ -2781,7 +2781,7 @@ request.to_field_lang |Yes|To language code|ara
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Given key is translitrated successfully
+###### Description: Given key is transliterated successfully
 ```JSON
 {
    "id": "mosip.pre-registration.transliteration.transliterate",
@@ -2819,5 +2819,5 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
 PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
-PRG_TRL_APP_008|	Unsupported language|	Language should be ara ,eng or fra
+PRG_TRL_APP_008|	Unsupported language|	If langCode is other than ara,eng and fra
 PRG_TRL_APP_002|	Incorrect mandatory Fields|	If any of the request is null
