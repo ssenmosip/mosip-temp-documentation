@@ -402,17 +402,17 @@ For every new registration, the system provides an option on the demographic det
 If the RO selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
 #### F. Enter the demographic details for registration
 
-**The Registration Officer opts to initiate a new registration**
+   **The Registration Officer opts to initiate a new registration**
 1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the workflow as configured by the admin. 
 1. The system validates the entered demographic fields.
 1. Displays error message in case of validation failure.
 1. On successful validation success, proceeds to next step.
 
-**The Registration Officer selects a pre-registration for registration**
+   **The Registration Officer selects a pre-registration for registration**
 
 1. The Registration Officer enters demographic details or edits pre-filled demographic details.
 1. The Registration Client validates the entered demographic data as per the field definition document attached.
-1.Displays error message(s) on screen in case of validation failure.
+1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation success, proceeds to next step.
 #### G. Copy address from the previous registration
 Upon receiving a request to copy address details from the previous registration to the current registration, the system performs the following steps:
@@ -505,7 +505,7 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. In case of failures validation, triggers appropriate error messages.
 1. System sends a success response and allow it to proceed to the next step.
 1. System captures and stores the transaction details for audit purpose.
-#### P. Retrieves a lost UIN
+#### P. Retrieve a lost UIN
 When a Registration Officer navigates to the Lost UIN page then the Registration Officer performs the following steps to retrieve a lost UIN of an individual:
 1. Enters demographic details such as name, age or date of birth, etc. of the individual who has lost their UIN. 
    * None of the demographic fields is mandatory.
