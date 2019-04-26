@@ -46,7 +46,6 @@ request.langcode|Yes|The preferred language code |fra
 		"userId": "akshay.jain@mindtree.com"
 	}
 }
-}
 ```
 #### Responses:
 ##### Success Response:
