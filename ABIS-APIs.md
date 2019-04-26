@@ -27,6 +27,9 @@ Code | Reason
 2 | Aborted
 3 | Unexpected error - Unable to access biometric data
 4 | Unable to serve the request
+5 | Invalid request / Missing mandatory fields
+6 | Unauthorized Access
+7 | Unable to fetch biometric details
 
 All the below operations send biometric data in CBEFF format. (Please refer to the [**link**](MOSIP-Biometric-Data-Specifications#cbeff-xml) for sample cbeff data)
 ### INSERT (insert biometric data of an Individual)
@@ -95,11 +98,49 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 		"candidates" : [
 			{
 				"referenceId" : "",
-				"scaledScore" : ""
+				"internalScore": "",
+				"scaledScore" : "",
+				"analytics": [
+					{
+						"key1": "value1",
+						"key2": "value2"
+					}
+				]
 			},
 			{
 				"referenceId" : "",
-				"scaledScore" : ""
+				"internalScore": "",
+				"scaledScore" : "",
+				"analytics": [
+					{
+						"key1": "value1",
+						"key2": "value2"
+					}
+				],
+				"scores": [
+					{
+							"biometricType": "FIR",
+							"scaledScore": "",
+							"internalScore": "",
+							"analytics": [
+								{
+									"key1": "value1",
+									"key2": "value2"
+								}
+						  ]
+					},
+					{
+							"biometricType": "IIR",
+							"scaledScore": "",
+							"internalScore": "",
+							"analytics": [
+								{
+									"key1": "value1",
+									"key2": "value2"
+								}
+						  ]
+					}
+				]
 			}
 		]
 	}
