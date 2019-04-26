@@ -5,6 +5,14 @@ This section details about the service API in the Pre-Registration Document serv
 * [Booking Service](#booking-service-public)
 * [DataSync Service](#datasync-service-external)
 
+# Login Service (Public)
+This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
+
+* [POST /login/sendOtp](#post-loginsendotp)
+* [POST /login/validateOtp](#post-loginvalidateotp)
+* [POST /login/invalidateToken](#post-logininvalidatetoken)
+* [GET /login/config](#get-loginconfig) 
+
 ### POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
