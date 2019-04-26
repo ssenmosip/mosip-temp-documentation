@@ -78,7 +78,7 @@
 
  
    * [5.11.1 Language Selection](#5111-language-selection-)  _(REG_FR_5.21)_
-   * [5.11.2 Internationalization](#5112-internationalization-) _(REG_FR_5.22)_
+   * [5.11.2 Internationalization](#5112-internationalization-wip-) _(REG_FR_5.22)_
    * [5.11.3 Transliteration](#5113-transliteration-) _(REG_FR_5.23)_
    * [5.11.4 Virtual Keyboards](#5114-virtual-keyboards-) _(REG_FR_5.24)_
    * [5.11.5 Translation??](#5115-translation-) _(REG_FR_5.25)_
@@ -943,7 +943,22 @@ When a Registration Officer sets ‘Biometric Exception’ = ‘Yes’, the syst
 1. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose.
 
 ## 5.6 Business Validations [**[↑]**](#table-of-content)
+Those validations that are performed by the registration client application during each process such as launch, onboarding, login, new registration and end of day process. For instance, when initiating a new registration, UIN update or lost UIN request, the client validates that:
+* The application has checked with the server for software updates
+* Master data has been synced 
+* End of day process has been executed
+* Registration packets created earlier have been uploaded
+* Encryption key expiry date is beyond a configured time duration
+
 ## 5.7 Data Sync [**[↑]**](#table-of-content)
+Since the registration client supports working in offline mode, it must be ensured that there is a regular synchronization of data between the server and client so that any changes made in the server are reflected in the client and vice versa. Data sync covers the following:
+* Master data
+* Configuration data
+* User profile and credentials
+* Registration packet processing status
+* User onboarding details from client to server
+* Registration packet IDs from client to server
+
 ### 5.7.1 Master Data [**[↑]**](#table-of-content)
 ### 5.7.2 Pre-registration Data [**[↑]**](#table-of-content)
 ### 5.7.3 Registration Data [**[↑]**](#table-of-content)
@@ -1031,12 +1046,19 @@ The system follows the following steps during the update process:
 1. System captures and stores the transaction details for audit purpose.
 
 ## 5.10 Cleanup [**[↑]**](#table-of-content)
+Pre-registration and registration data are automatically deleted from the client machine upon consumption and upon intimation from the server respectively. 
+* Pre-registration data is deleted after consumption for a registration.
+* Registration packets that are identified as ‘processed’ are deleted by a periodic process.
+* Audit data is deleted after it is sent to the server.
+* All deletion is executed by a periodic process after retention of the data for a configured duration.
+
 ### 5.10.1 Data retention policies [**[↑]**](#table-of-content)
 ### 5.10.2 Device moving to new center [**[↑]**](#table-of-content)
 ### 5.10.3 Device retirement [**[↑]**](#table-of-content)
 ## 5.11 Language Support [**[↑]**](#table-of-content)
 ### 5.11.1 Language Selection [**[↑]**](#table-of-content)
-### 5.11.2 Internationalization [**[↑]**](#table-of-content)
+The registration client supports two languages, a primary language in which all pages of the application are be rendered, and a secondary language in which select pages such as demographic details are also rendered. French and Arabic are the default primary and secondary languages. Transliteration from the primary to secondary language is supported for user entered text fields.
+### 5.11.2 Internationalization (WIP) [**[↑]**](#table-of-content)
 ### 5.11.3 Transliteration [**[↑]**](#table-of-content)
 
 **Registration client enables viewing transliterated data other than French and Arabic**
