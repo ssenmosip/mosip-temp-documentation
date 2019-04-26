@@ -78,7 +78,7 @@
 
  
    * [5.11.1 Language Selection](#5111-language-selection-)  _(REG_FR_5.21)_
-   * [5.11.2 Internationalization](#5112-internationalization-wip-) _(REG_FR_5.22)_
+   * [5.11.2 Internationalization (WIP)](#5112-internationalization-wip-) _(REG_FR_5.22)_
    * [5.11.3 Transliteration](#5113-transliteration-) _(REG_FR_5.23)_
    * [5.11.4 Virtual Keyboards](#5114-virtual-keyboards-) _(REG_FR_5.24)_
    * [5.11.5 Translation??](#5115-translation-) _(REG_FR_5.25)_
