@@ -372,6 +372,151 @@ System exports registration packet data from client machine to an external devic
 
 
 ## 3.4 New Registration [**[↑]**](#table-of-content)
+
+#### A. Capture consent from the individual for data storage and utilization				
+1. For every registration, the system provides an option for the Registration Officer (RO) to mark an individual's consent as Yes or No
+1. The RO marks consent after confirming with the individual offline.
+1. Whether the consent is marked as Yes/No, it will not have any impact on issuance of UIN for that individual and the system will not execute any validations in this regard during packet processing.
+
+#### B. Transliteration: Virtual keyboard
+
+1. The virtual keyboard icon for the secondary language appears only once on the demographic details page.
+1. The RO enters text by clicking inside the text area, and then invokes the virtual keyboard.
+1. The RO uses the virtual keyboard for primary language too.
+
+#### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
+1. For new registration or UIN update, the system provides an option for the Registration Officer (RO) to mark an individual's date of birth as ‘Verified’.
+1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state should be unchecked. When checked, it indicates that the RO has verified the date of birth of the individual.
+1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
+#### D. Register an individual who is less than 5 years old.
+1. MOSIP system does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth should automatically determine the category of the applicant.
+2. When a registration officer starts a new registration, the system intuitively determines if the registration is for a child using the date of birth.
+3. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists.
+4. The system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
+5. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system should ensure parent/guardian is registered first
+6. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
+7. The system triggers error messages as applicable
+#### E. Mark an individual as Foreigner or Non-Foreigner
+For every new registration, the system provides an option on the demographic details page for the Registration Officer (RO) to mark an individual as either a citizen of that country or a Foreigner. 
+
+If the RO selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
+#### F. Enter the demographic details for registration
+
+**The Registration Officer opts to initiate a new registration**
+1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the workflow as configured by the admin. 
+1. The system validates the entered demographic fields.
+1. Displays error message in case of validation failure.
+1. On successful validation success, proceeds to next step.
+
+**The Registration Officer selects a pre-registration for registration**
+
+1. The Registration Officer enters demographic details or edits pre-filled demographic details.
+1. The Registration Client validates the entered demographic data as per the field definition document attached.
+1.Displays error message(s) on screen in case of validation failure.
+1. On successful validation success, proceeds to next step.
+#### G. Copy address from the previous registration
+Upon receiving a request to copy address details from the previous registration to the current registration, the system performs the following steps:
+1. Fetches the address details such as city, state or province, country and postal code of the previous registration from the cache.
+   * If the cache does not contain any of those address details, responds as an error message. 
+2. The address details will be pre-populated in the respective fields for the current registration and will be further editable. 
+1. This feature is applicable to new registrations, pre-registered and non-pre-registered applicants but does not applies to registration correction such as UIN update, lost UIN and deactivation scenarios.
+1. System captures and stores the transaction details for audit purpose.
+#### H. Scan and upload of POI, POA and POR
+1. The Registration Officer can input three types of documents- POA, POI and POR while registering an individual
+   * POA refers to Proof of address, POI is proof of Identity and POR is proof of relationship
+2. The Registration officer collects these documents from individual and scans them
+1. The scan and upload should work in such a way that copy of documents should not be saved in system or any external device.
+1. The scanner scans the documents and upload them to the registration client machine
+1. The following parameters should be met while document upload
+   * System lists various document categories as configured by admin
+   * For each document category, system enables selection of the list of valid documents
+   * The System does not allow user to upload more than one document per category
+   * The System performs size check after Document upload and revert the user to upload again if the Document Size is more than 1MB (Configurable)
+   * The System displays the name of the document adjacent to the Document Category for which the document is uploaded 
+6. The registration officer can delete files uploaded by mistake.
+1. The System allows to view uploaded file(s)
+1. The System allows to download the uploaded file(s)
+#### I. Capture an individual's finger prints as per specification
+When the registration officer uses finger print capture device to capture the individual left and right hand slap, the left thumb and the right thumb simultaneously, the system performs the following steps:
+1. Displays the quality score and threshold score for each capture.
+1. Allows the registration officer to re-try each capture up to a maximum no. of times (as configured) if threshold score is not met for one or more fingers.
+1. Rejects further capture if the number of capture attempts are greater than the configured limits.
+1. Determines and displays rank for each finger. The finger with the highest quality score is ranked 1 and so on till 10 (excluding exceptions)
+1. Validates all available fingerprints that have been captured, the fingerprints, which are above threshold quality and the maximum retries attempted.
+1. Retains only that capture which has the highest quality score.
+1. Captures and stores the transaction details for audit purpose.
+
+#### J. Capture an individual's face photograph and exception photograph.
+1. When a registration officer opts to capture the face photograph or exception photograph of an individual during the registration process, the system validates that an on-boarded camera is connected to the machine.
+   * If an on-boarded camera is not found, display an error message.
+   * If more than one on-boarded camera is connected, proceed with the first camera that the system finds as it scans the ports of the machine.
+2. Displays the face photo preview before capturing.
+3. Allows the Registration Officer to initiate face capture.
+4. Sends request to the camera for face photo capture.
+5. Receives the face photo from the camera.
+6. Display the face photo on screen.
+7. Allows the Registration Officer to proceed to verify quality score.
+8. Allows exception photo capture only if an exception has been marked.
+   * Step 2 to7 must be performed to capture the exception photo.
+
+9. System captures and stores the transaction details for audit purpose.
+#### K. Retry capture of face photo as configured
+While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
+1. The system displays the quality score and the threshold score for the capture.
+1. The registration officer proceeds to the next step if the quality score >= threshold or if the maximum number of retry attempts as configured is reached.
+1. The system validates that:
+   * the photo has been captured, and
+   * the photo quality score is above threshold quality (or) the maximum retries (as configured) have been attempted.
+4. The system maintains a count of the number of retries of face photo for the current registration.
+1. Every time a retry is captured, the earlier quality score and threshold score are replaced by the current quality score and threshold score on screen.
+1. A retry is allowed only after at least x seconds since the previous capture. The value x is configured configurable (default value is 10 seconds)
+1. The quality score is determined by the sdk and the threshold limits are configured by the admin.
+1. The system does not allow further capture if the number of capture attempts are greater than the configured limits and Displays an alert message that the retry limit is reached and photo of sufficient quality is not obtained.
+1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo should be displayed on screen along with its quality score.
+1. All the above rules apply to exception photo capture as well.
+
+#### L. Capture Iris as per defined specifications
+When the Registration Officer scans the individual’s irises either individually or together, the system performs the following steps:
+1. Displays the quality score and threshold for each iris captured.
+1. Allows the registration officer to re-try each capture up to a maximum no. of times (as configured) if threshold score is not met for one or both irises.
+1. The quality score is determined and the threshold limits are configured.
+1. If the quality score meets threshold, a re-capture is not allowed.
+1. Validates all available irises that have been captured, the irises, which are above threshold quality and the maximum retries attempted.
+1. Retains only that capture which has the highest quality score.
+1. System captures and stores the transaction details for audit purpose
+#### M. Restrict registration if the duration since the last export or upload is more than the configured limit
+When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
+If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If exceeded the configured limit, then system displays an error message.
+
+#### N. Register a non-pre-registered individual 
+When the registration Officer opts to start a new registration, the system ensures that the demographic fields are set up and sequenced in the Admin portal. In addition, Master data and config settings must be synced from the server to client. Then the system identifies the fields to be displayed on the new registration form. 
+
+#### O. Choose the 'Opt to Register' option. 
+
+Upon receiving a request to start a new registration, the system performs the following steps:
+1. Validates that the time since the last sync from server to client has not exceeded the maximum duration permitted (configured from Admin portal).
+   * Sync includes Master data, Login credentials, Pre-registration data, Registration centre config, Registration centre setup, User role setup, Policies, Registration packet status.
+2. Validates that the time since the last export of registration packets from client to server has not exceeded the maximum duration permitted, if applicable (configured from Admin portal).
+1. Validates that the number of registration packets on the client yet to be exported to server has not exceeded the maximum limit, if applicable (configured from Admin portal).
+1. Reads the config setting that determines if the geo-location of the machine needs to be captured before every registration or captured at beginning of day only.
+1. If before every registration, captures geo-location of the machine. Validates that the captured location is within x metres of the Registration Centre location (Both x and the Centre location are configured from the Admin portal).
+1. If captured at beginning of day only, validates that the beginning-of-day location is within x metres of the Registration Centre location.
+1. On successful validation, sends a response and proceeds to the next step of choosing a pre-registered or non pre-registered applicant.
+1. In case of failures validation, triggers appropriate error messages.
+1. System sends a success response and allow it to proceed to the next step.
+1. System captures and stores the transaction details for audit purpose.
+#### P. Retrieves a lost UIN
+When a Registration Officer navigates to the Lost UIN page then the Registration Officer performs the following steps to retrieve a lost UIN of an individual:
+1. Enters demographic details such as name, age or date of birth, etc. of the individual who has lost their UIN. 
+   * None of the demographic fields is mandatory.
+2. Marks biometric exceptions and captures all fingerprints, irises, face photo and exception photo of the individual.
+1. Views a preview of details captured of the individual.
+1. Performs operator authentication by providing credentials in the configured mode.
+1. Supervisor performs supervisor authentication for individuals with exceptions.
+1. Views acknowledgement of Lost UIN request with a Registration ID assigned to it.
+1. Prints acknowledgement of the UIN, then SMS and email notifications are sent if contact details of the individual are entered.
+System captures and stores the transaction details for audit purpose.
+
 ## 3.5 UIN Updates [**[↑]**](#table-of-content)
 
 #### A. UIN Updates Turn ON or OFF
@@ -833,7 +978,7 @@ When a logged in user tries to access a feature on the registration client, the 
    * Reports
 5. A Super Admin can access all features.
  
-1. System should capture and store the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose.
 
 
 ## 5.8 Peripherals Management (Scanner, Camera,...) [**[↑]**](#table-of-content)
