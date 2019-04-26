@@ -2480,7 +2480,6 @@ Requires Authentication | Yes
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_BAT_001	|No pre registration id found to update status	|If no pre registration id found to update status
 PRG_PAM_BAT_004|	Demographic table not accessible|	If data is not found found  for preRegistrationId
 PRG_PAM_BAT_005|	Reg appointment table not accessible	|If Reg appointment table not accessible
 ### PUT /consumedStatus
@@ -2530,8 +2529,7 @@ Requires Authentication | Yes
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_BAT_001	|No pre registration id found to update status|	If no preRegistrationId found to update expired status
-PRG_PAM_BAT_004	|Demographic table not accessible|	If data is not found found  for preRegistrationId
+PRG_PAM_BAT_004	|Demographic table not accessible|	If data is not found for preRegistrationId
 PRG_PAM_BAT_006|	Processed prereg list table not accessible|	If Processed prereg list table not accessible
 PRG_PAM_BAT_009|	Demographic consumed table not accessible|	If Demographic consumed table not accessible
 PRG_PAM_BAT_007	|Document table not accessible|	If document table not accessible
@@ -2738,11 +2736,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
-PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid Request Date & Time
-PRG_ACK_001|	Mobile number or Email Id is missing	|If mobile number and email Id is invalid or null
-
- 
-
+PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
@@ -2824,7 +2818,6 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
-PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid Request Date & Time
+PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
 PRG_TRL_APP_008|	Unsupported language|	Language should be ara ,eng or fra
 PRG_TRL_APP_002|	Incorrect mandatory Fields|	If any of the request is null
-PRG_PAM_TRL_002	|Failed to transliterate|	Failed to transliterate
