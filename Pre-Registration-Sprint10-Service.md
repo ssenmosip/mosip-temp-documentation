@@ -5,14 +5,6 @@ This section details about the service API in the Pre-Registration Document serv
 * [Booking Service](#booking-service-public)
 * [DataSync Service](#datasync-service-external)
 
-# Login Service (Public)
-This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
-
-* [POST /login/sendOtp](#post-loginsendotp)
-* [POST /login/validateOtp](#post-loginvalidateotp)
-* [POST /login/invalidateToken](#post-logininvalidatetoken)
-* [GET /login/config](#get-loginconfig)
-
 ### POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
 
@@ -271,7 +263,6 @@ Requires Authentication | No
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_AUTH_012	|Config file not found in the config server|	If config file not found in the config server
-
 
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
@@ -585,6 +576,21 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
 	}
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_PAM_APP_014|email failed for the regex ^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$|invalid email id format
+PRG_PAM_APP_014|phone failed for the regex ^([6-9]{1})([0-9]{9})$|invalid phone number format
+PRG_PAM_APP_014|dateOfBirth failed for the regex ^\\d{4}/([0]\\d1[0-2])/([0-2]\\d3[01])$|invalid data of birth format
+PRG_PAM_APP_014|CNIENumber failed for the regex ^([0-9]{10,30})$|invalid CNIENumber format
+PRG_PAM_APP_014|postalCode failed for the regex ^[(?i)A-Z0-9]{5}$|Invalid postal code format
+PRG_CORE_REQ_011|encryption failed|encryption of demographic data failed
+PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
+PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
 
 ### PUT /applications/:preRegistrationId
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
@@ -895,6 +901,24 @@ request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applic
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
+PRG_PAM_APP_014|email failed for the regex ^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$|invalid email id
+PRG_PAM_APP_014|phone failed for the regex ^([6-9]{1})([0-9]{9})$|invalid phone number
+PRG_PAM_APP_014|dateOfBirth failed for the regex ^\\d{4}/([0]\\d1[0-2])/([0-2]\\d3[01])$|invalid data of birth format
+PRG_PAM_APP_014|CNIENumber failed for the regex ^([0-9]{10,30})$|invalid CNIENumber
+PRG_PAM_APP_014|postalCode failed for the regex ^[(?i)A-Z0-9]{5}$|Invalid postal code
+PRG_CORE_REQ_011|encryption failed|encryption of demographic data failed
+PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
+PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+
+
 ### GET /applications/:preRegistrationId
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
@@ -1058,6 +1082,13 @@ preRegistrationId |Yes|Id of the application|64269837502851
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
+PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+
 ### GET /applications/status/:preRegistrationId
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
 
@@ -1110,6 +1141,10 @@ preRegistrationId |Yes|Id of the application|29605371807216
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
 
 ### GET /applications
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id from authorization token.
@@ -1206,6 +1241,14 @@ Requires Authentication | Yes
 	}
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
+PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+
+
 ### DELETE /applications/:preRegistrationId
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
 
@@ -1258,6 +1301,14 @@ preRegistrationId |Yes|pre-registration id of the application|29605371807216
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_APP_003|delete operation is not allowed|Deletion of Preregistration fails if its status is neither pending appointment nor booked
+PRG_PAM_APP_014|Document service rest call failed|When rest call to document service fails
+PRG_PAM_DOC_016|failed to delete the booking|If Booking data is failed to delete
+PRG_PAM_APP_004|failed to delete the pre-registration data|If Preregistration data is failed to delete
+
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: failed to delete the pre-registration record.
@@ -1371,24 +1422,24 @@ request.langCode |Yes|Language code of the application|ENG
     ]
 }
 ```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: Document virus scan failed
-```JSON
-{ 
-  "id": "mosip.pre-registration.document.upload",
-  "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
-  "response":null,
-  "errors":[
-	{
-	   "errorCode": "PRG_PAM_DOC_010",
-	   "message": "Document virus scan failed"
-	}
-    ]
-}
-```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_CORE_REQ_011|encryption failed|encryption of document data failed
+PRG_PAM_APP_007|json parsing is failed|document request json parsing failed
+PRG_CORE_REQ_010|hashing failed|document data hashing failed
+PRG_PAM_DOC_010|Document virus scan failed|virus scan of uploaded document is failed
+PRG_PAM_DOC_007|Document exceeding permited size|when uploaded document size is exceeding the configured size
+PRG_PAM_DOC_018|Document Catagory code is invalid|if the document & document details are failed to store in the db
+PRG_PAM_DOC_018|Document type code is invalid|When the document virus scan fails
+PRG_PAM_DOC_018|Language code is invalid|If language code is empty
+PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic service failes
+PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
+PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
 
 ### PUT /documents/:preRegistrationId
 This request used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
@@ -1438,24 +1489,6 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Document not found for the source pre-registration Id
-```JSON
-{
-  "id": "mosip.pre-registration.document.copy",
-  "version" : "1.0",
-  "responsetime": "2019-01-16T17:31:04.021Z",
-  "response":null,
-  "errors":[
-        {
-	   "errorCode": "PRG_PAM_DOC_005",
-	   "message": "Document not found for the source pre-registration Id"
-        }
-   ]
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
 ###### Description: Document copy failed from source to destination
 ```JSON
 {
@@ -1471,6 +1504,22 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
    ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_001|request parameter is missing|If source preregistration id or destination preregistration id is empty
+PRG_PAM_DOC_018|Catagory code is invalid|if document category code is not POA
+PRG_PAM_APP_005|No data found for the requested pre-registration id|If source preregistration id or destination preregistration id is invalid or no preregistration data found for any of the preregistration id
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|when document is not found for the requested source preregistration id
+PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
+PRG_PAM_DOC_011|Document copy failed from source to destination|when document is not copied from source to destination preregistration id
+PRG_CORE_REQ_010|hashing failed|document data hashing failed
+
+
+
+
+
 
 ### GET /documents/:preRegistrationId
 This request used to retrieve all documents metadata associated with particular pre-registration.
@@ -1525,6 +1574,14 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
+PRG_CORE_REQ_012|decryption failes|decryption of document data failed
+PRG_CORE_REQ_010|hashing failed|document data hashing failed
+
 ### DELETE /documents/preregistration/:preRegsitrationId
 This request used to delete all the documents which are associated with requested pre-registration id.
 
@@ -1572,6 +1629,13 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
+PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+
+
 ### DELETE /documents/:documentId?preRegistrationId=:preRegistrationId
 This request used to delete the document for a particular document id from database and File System server.
 
@@ -1624,23 +1688,14 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
     "response": null
 }
 ```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Failed to delete from file system server
-```JSON
-{
-   "id": "mosip.pre-registration.document.delete.specific",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-      {
-         "errorCode": "PRG_PAM_DOC_006",
-         "message": "Failed to delete from file system server"
-     }
-  ]
-}
-```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_DOC_022|DocumentId is not belongs to the pre-registration Id|If the requested document id is not stored with respect to the requested preregistration id
+PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
+PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+
+
 # Booking Service (Public)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
@@ -1729,23 +1784,26 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
     ]
 }
 ```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Availability not found for the selected time.
-```JSON
-{
-    "id": "mosip.pre-registration.booking.book",
-    "version": "1.0",
-    "responsetime": "2019-04-24T10:59:20.511Z",
-    "response": null,
-    "errors": [
-        {
-            "errorCode": "PRG_BOOK_RCI_002",
-            "message": "Availability not found for the selected time"
-        }
-    ]
-}
-```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
+PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
+PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
+PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
+PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
+PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
+PRG_BOOK_RCI_005|Booking table not found|acess to appointment table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
+PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
+PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
+PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, falled to delete old appointment details
+
 ### POST /appointment
 This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
@@ -1835,23 +1893,25 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
     ]
 }
 ```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Slot availability not found for selected time.
-```JSON
-{
-    "id": "mosip.pre-registration.booking.book",
-    "version": "1.0",
-    "responsetime": "2019-04-24T11:12:23.996Z",
-    "response": null,
-    "errors": [
-        {
-            "errorCode": "PRG_BOOK_RCI_002",
-            "message": "Availability not found for the selected time"
-        }
-    ]
-}
-```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
+PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
+PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
+PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
+PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
+PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
+PRG_BOOK_RCI_005|Booking table not found|acess to appointment table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
+PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
+PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
+PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, falled to delete old appointment details
 
 ### PUT /appointment/:preRegistrationId
 This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
@@ -1899,6 +1959,16 @@ Requires Authentication | Yes
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
+PRG_BOOK_RCI_005|Booking table not found|acess to appointment table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
+PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
+
 ### GET /appointment/:preRegistrationId
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
 
@@ -1951,6 +2021,12 @@ preRegistrationId |Yes|Id of the application|37802950913289
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
+
 ### GET /appointment/availability/:registrationCenterId
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
 
@@ -2732,6 +2808,11 @@ registrationCenterId |Yes|Registration Center Id|10004
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
+
 ### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
@@ -2772,18 +2853,6 @@ toDate |Yes|To Date | 2019-02-14
             "26957245731486",
             "56418391827315",
             "36825069830953",
-            "40784625076019",
-            "28975913642617",
-            "53827596439236",
-            "64531953267189",
-            "28503273062458",
-            "28642948097542",
-            "28425190681960",
-            "20346374590641",
-            "43806476348916",
-            "34102495613421",
-            "47084156127145",
-            "69384670375273",
             "26046130437504",
             "80784057109835",
             "41941685249147",
@@ -2791,42 +2860,8 @@ toDate |Yes|To Date | 2019-02-14
             "64096148729540",
             "58051460264028",
             "37430651935864",
-            "51702865732548",
-            "24175143043905",
-            "52409469510829",
-            "94832914739251",
-            "50754285718412",
-            "58472153829416",
-            "31563109862302",
-            "52037069457241",
-            "49274936412091",
-            "24820649810850",
-            "97641280534751",
-            "20613249510239",
-            "61849150324378",
-            "54293857365967",
-            "26091569136134",
-            "43713271450673",
-            "40574293412679",
-            "63526493103162",
-            "32965935264186",
-            "26873496032879",
-            "65974653026137",
-            "61793162842604",
-            "40176948304820",
             "47369847260278",
             "25046285490872",
-            "62069710295368",
-            "21871381528960",
-            "29824395697401",
-            "48237831592412",
-            "69540156172486",
-            "28136745045709",
-            "57386798369785",
-            "64831596457624",
-            "54195042708375",
-            "46709182541675",
-            "63517835265369",
             "35975403619830",
             "32963146892458"
         ]
@@ -2851,6 +2886,11 @@ toDate |Yes|To Date | 2019-02-14
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
+
 # DataSync Service (External)
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
@@ -2931,7 +2971,8 @@ request.toDate |Yes|To date of the application|2019-02-12
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No Records found for the date range
+###### Description: If appointment is not booked under the registration center and requested date range.
+
 ```JSON
 {
     "id": null,
@@ -2944,6 +2985,14 @@ request.toDate |Yes|To date of the application|2019-02-12
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_DATA_SYNC_009|INVALID_REGISTRATION_CENTER_ID|Empty registration center Id
+PRG_DATA_SYNC_010|INVALID_REQUESTED_DATE|Invalid or empty from date or to date
+PRG_DATA_SYNC_007|DEMOGRAPHIC_GET_RECORD_FAILEDwhen rest service to demographic service fails
+PRG_DATA_SYNC_016|BOOKING_NOT_FOUND|when rest service to booking service fails
+
 ### POST /sync/consumedPreRegIds
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
 
@@ -3014,6 +3063,11 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+- -|FAILED_TO_STORE_PRE_REGISTRATION_IDS|access to sync tables fail
+
 ### GET /sync/:preRegistrationId
 This request is used by registration client to retrieve particular pre-registration data based on a pre-registration id.
 
@@ -3068,3 +3122,13 @@ preRegistrationId |Yes|Pre Registration id|41342175487213
     "response": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_013|Booking data not found|If appointment is not booked against the preregistration id
+PRG_DATA_SYNC_007|DEMOGRAPHIC_GET_RECORD_FAILED|when rest service to demographic service fails
+PRG_DATA_SYNC_016|BOOKING_NOT_FOUND|when rest service to booking service fails
+PRG_DATA_SYNC_005|FAILED_TO_CREATE_A_ZIP_FILE|If any error occurs while creating the zip file bytes
+PRG_DATA_SYNC_014|FILE_IO_EXCEPTION|File system exception
+PRG_DATA_SYNC_006|FAILED_TO_FETCH_DOCUMENT|when rest service to document service fails
+
