@@ -8,7 +8,7 @@
 - [2. Booking Data Sync](#2-booking-data-sync) 
   * [2.1 Appointments (PRIDs)](#21-appointments-prids-) _(REG_FR_2.1)_
 - [3. Registration Data Services](#3-registration-data-services) 
-  * [3.1 List of Registrations](#31-list-of-registrations-) _(REG_FR_3.1)_
+  * [3.1 List of Registrations (WIP)](#31-list-of-registrations-wip-) _(REG_FR_3.1)_
   * [3.2 Registration Packet Upload](#32-registration-packet-upload-) _(REG_FR_3.2)_
   * [3.3 Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter)](#33-online--offline-behavioroffline-data-upload-is-covered-under-this-packet-exporter-) _(REG_FR_3.3)_
   * [3.4 New Registration](#34-new-registration-) _(REG_FR_3.4)_
@@ -267,7 +267,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 
 
 # 3. Registration Data Services
-## 3.1 List of Registrations [**[↑]**](#table-of-content)
+## 3.1 List of Registrations (WIP) [**[↑]**](#table-of-content)
 ## 3.2 Registration Packet Upload [**[↑]**](#table-of-content)
 
 #### A. Views the packets first, selects which ones to upload, and then initiates the packet to upload
