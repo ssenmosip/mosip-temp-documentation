@@ -231,6 +231,22 @@ Success response :
 ```
 Failure response
 ```JSON
+// response 1 : decryption failed
+{
+  "id" : "mosip.registration.sync",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "errors" : [
+	  {
+		"status": "FAILURE",
+                "errorCode": "RPR-RGS-001",
+		"errorMessage": "Decryption failed"
+	  }
+	]
+}
+
+// response 2 : validation failed
+
 {
   "id" : "mosip.registration.sync",
   "version" : "1.0",
