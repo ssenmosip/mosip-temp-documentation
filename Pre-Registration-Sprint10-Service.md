@@ -304,7 +304,7 @@ request |Yes|Request for the application|
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
 request.demographicDetails.identity |Yes|identity of the applicant|
-request.demographicDetails.identity.gender |Yes|gender of the applicant|
+request.demographicDetails.identity.gender |Yes|gender of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
@@ -318,7 +318,7 @@ request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the appl
 request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
-request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
+request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 
 #### Request:
 ```JSON
@@ -627,7 +627,7 @@ request |Yes|Request for the application|
 request.langCode |Yes|primary language code|  value will be derived from UI
 request.demographicDetails |Yes|demographicDetails of the applicant|
 request.demographicDetails.identity |Yes|identity of the applicant|
-request.demographicDetails.identity.gender |Yes|gender of the applicant|
+request.demographicDetails.identity.gender |Yes|gender of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.mobileNumber |Yes|mobile number of the applicant|
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
@@ -641,7 +641,7 @@ request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the appl
 request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
-request.demographicDetails.identity.CNEOrPINNumber |Yes|CNE Number of the applicant|
+request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 
 #### Request:
 ```JSON
@@ -1317,22 +1317,6 @@ PRG_PAM_APP_014|Document service rest call failed|When rest call to document ser
 PRG_PAM_DOC_016|failed to delete the booking|If Booking data is failed to delete
 PRG_PAM_APP_004|failed to delete the pre-registration data|If Preregistration data is failed to delete
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: failed to delete the pre-registration record.
-```JSON
-{
-  "id": "mosip.pre-registration.demographic.delete",
-  "version":"1.0",
-  "responsetime": "2019-02-11T13:46:00.534Z",
-  "response": null,
-  "errors": {
-	  "errorCode": "PRG_PAM_APP_004",
-	  "message": "Failed to delete data for the requested pre-registration id"
-	}
-}
-```
-
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
@@ -1444,9 +1428,9 @@ PRG_PAM_DOC_007|Document exceeding permitted size|when uploaded document size is
 PRG_PAM_DOC_018|Document Catagory code is invalid|empty document category code
 PRG_PAM_DOC_018|Document type code is invalid|empty document type code
 PRG_PAM_DOC_018|Language code is invalid|If language code is empty
-PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic service failes
+PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic service fails
 PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
-PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
 
 ### PUT /documents/:preRegistrationId
@@ -1519,7 +1503,7 @@ PRG_CORE_REQ_001|request parameter is missing|If source preregistration id or de
 PRG_PAM_DOC_018|Catagory code is invalid|if document category code is not POA
 PRG_PAM_APP_005|No data found for the requested pre-registration id|If source preregistration id or destination preregistration id is invalid or no preregistration data found for any of the preregistration id
 PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|when document is not found for the requested source preregistration id
-PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
 PRG_PAM_DOC_011|Document copy failed from source to destination|when document is not copied from source to destination preregistration id
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
@@ -1585,7 +1569,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
 PRG_CORE_REQ_012|decryption failes|decryption of document data failed
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
@@ -1641,7 +1625,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
-PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 
 
 ### DELETE /documents/:documentId?preRegistrationId=:preRegistrationId
@@ -1701,7 +1685,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_DOC_022|DocumentId is not belongs to the pre-registration Id|If the requested document id is not stored with respect to the requested preregistration id
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
-PRG_PAM_DOC_012|Document table not accessible|access to document table failes
+PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 
 
 # Booking Service (Public)
@@ -1804,13 +1788,13 @@ PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
-PRG_BOOK_RCI_005|Booking table not found|acess to appointment table fails
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
-PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, falled to delete old appointment details
+PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
 
 ### POST /appointment
 This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
@@ -1844,14 +1828,14 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
   "version": "1.0",
   "requesttime": "2019-04-22T15:31:32.957Z",
   "request": [{
-  		"preRegistrationId":"36019326031045",
+  	"preRegistrationId":"36019326031045",
         "registration_center_id": "10001",
         "appointment_date": "2019-04-22",
         "time_slot_from": "15:30:00",
         "time_slot_to": "15:45:00"
    },
    {
-  		"preRegistrationId":"94625367217037",
+  	"preRegistrationId":"94625367217037",
         "registration_center_id": "10008",
         "appointment_date": "2019-04-23",
         "time_slot_from": "15:30:00",
@@ -1913,13 +1897,13 @@ PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
-PRG_BOOK_RCI_005|Booking table not found|acess to appointment table fails
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
-PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, falled to delete old appointment details
+PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
 
 ### PUT /appointment/:preRegistrationId
 This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
@@ -1971,8 +1955,8 @@ Requires Authentication | Yes
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
-PRG_BOOK_RCI_005|Booking table not found|acess to appointment table fails
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
@@ -2819,7 +2803,7 @@ registrationCenterId |Yes|Registration Center Id|10004
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availibility table fails
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
 
 ### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
@@ -2998,7 +2982,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_DATA_SYNC_009|INVALID_REGISTRATION_CENTER_ID|Empty registration center Id
 PRG_DATA_SYNC_010|INVALID_REQUESTED_DATE|Invalid or empty from date or to date
-PRG_DATA_SYNC_007|DEMOGRAPHIC_GET_RECORD_FAILEDwhen rest service to demographic service fails
+PRG_DATA_SYNC_007|DEMOGRAPHIC_GET_RECORD_FAILED|when rest service to demographic service fails
 PRG_DATA_SYNC_016|BOOKING_NOT_FOUND|when rest service to booking service fails
 
 ### POST /sync/consumedPreRegIds
