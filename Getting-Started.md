@@ -487,7 +487,14 @@ NOTE: Required only if HDFS is used for packet storage.
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
 ### 6.6 Steps to install Kernel Key Manager Service
-Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md.) 
+Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+
+### 6.7 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
+
+mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
+
+mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
+
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
@@ -510,6 +517,7 @@ Application specific configuration for all applications and services are placed 
 
 **Properties that need to be changed once the external dependencies are installed**
 1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
+
 2. To be precise, following are the changes that need to be done:   
 
 `mosip.kernel.virus-scanner.host=<your-clamav-hostname>`  <br/>
@@ -517,6 +525,19 @@ Application specific configuration for all applications and services are placed 
 `mosip.kernel.fsadapter.ceph.access-key=<your-ceph-access-key>`  <br/>
 `mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
 `mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/>
+
+
+3. Following are the changes that need to be done in kernel.properties:
+
+`mosip.kernel.sms.authkey=<your-msg91-authkey>`  <br/>
+
+`spring.mail.username=<your-email-id>`  <br/>
+`spring.mail.password=<your-email-password>`  <br/>
+
+[Configure SMTP details](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) 
+
+
+
 
 For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server](Getting-Started#firstly-deploy-kernel-configuration-server) in this document.
 
