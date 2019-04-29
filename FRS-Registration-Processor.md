@@ -1,7 +1,7 @@
 ## Table Of Content
 - [Registration Processor](#registration-processor)
  - [1. ID Lifecycle Management](#1-id-lifecycle-management) 
-   * [1.1 New UIN Issuance](#11-new-uin-issuance) _(RPR_FR_1.1)_
+   * [1.1 New ID Issuance](#11-new-id-issuance) _(RPR_FR_1.1)_
    * [1.2 UIN Update](#12-uin-update) _(RPR_FR_1.2)_
    * [1.3 De-activate UIN – Manual/Automated](#13-de-activate-uin--manualautomated) _(RPR_FR_1.3)_
    * [1.4 Re-activate UIN](#14-re-activate-uin) _(RPR_FR_1.4)_
@@ -47,7 +47,15 @@
 
 # Registration Processor
 # 1. ID Lifecycle Management
-## 1.1 New UIN Issuance
+
+When an individual goes to the registration center, the registration officer or supervisor captures the Demographic and Biometric details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packages received from the Registration Client must pass the sanity checks and validations to carry out the following processes:
+* New ID Issuance
+* Update individual’s information
+* De-activate individual’s ID
+* Re-activate individual’s ID
+
+## 1.1 New ID Issuance
+After the packets for new ID issuance are received from the Registration Client and has passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 ## 1.2 UIN Update
 ## 1.3 De-activate UIN – Manual/Automated
 ## 1.4 Re-activate UIN
