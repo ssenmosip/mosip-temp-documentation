@@ -2,9 +2,9 @@
 - [Registration Processor](#registration-processor)
  - [1. ID Lifecycle Management](#1-id-lifecycle-management) 
    * [1.1 New ID Issuance](#11-new-id-issuance) _(RPR_FR_1.1)_
-   * [1.2 UIN Update](#12-uin-update) _(RPR_FR_1.2)_
-   * [1.3 De-activate UIN – Manual/Automated](#13-de-activate-uin--manualautomated) _(RPR_FR_1.3)_
-   * [1.4 Re-activate UIN](#14-re-activate-uin) _(RPR_FR_1.4)_
+   * [1.2 Update Individual’s Information](#12-update-individuals-information) _(RPR_FR_1.2)_
+   * [1.3 De-activate Individual’s ID](#13-de-activate-individuals-id) _(RPR_FR_1.3)_
+   * [1.4 Re-activate Individual’s ID](#14-re-activate-individuals-id) _(RPR_FR_1.4)_
  - [2. Configurable Workflow](#2-configurable-workflow) 
    * [2.1 Orchestration](#21-orchestration) _(RPR_FR_2.1)_
    * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures) _(RPR_FR_2.2)_
@@ -56,9 +56,17 @@ When an individual goes to the registration center, the registration officer or 
 
 ## 1.1 New ID Issuance
 After the packets for new ID issuance are received from the Registration Client and has passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
-## 1.2 UIN Update
-## 1.3 De-activate UIN – Manual/Automated
-## 1.4 Re-activate UIN
+## 1.2 Update Individual’s Information
+After the packets for update are received from the Registration Client or Residential Portal and have passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
+1. Packets that are received through Registration Client updates the individual’s Biometric and demographic details.
+1. Packets that are received through Residential Portal updates the individual’s address and contact information.
+
+After the individual’s information is updated, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
+
+## 1.3 De-activate individual’s ID
+When the country chooses to de-activate individual’s ID due to any specific reason, the packets for UIN de-activate will go through the sanity checks and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
+## 1.4 Re-activate individual’s ID
+When the country chooses to re-activate individual’s ID due to any specific reason, the packets for UIN re-activate will go through the sanity checks and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
 # 2. Configurable Workflow
 ## 2.1 Orchestration
 ## 2.2 Retry Processing (In case of exceptions/failures)
