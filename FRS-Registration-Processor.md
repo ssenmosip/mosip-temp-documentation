@@ -116,6 +116,17 @@ The system performs the virus scan in two different stages. Two Stages are liste
 
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
+System validates the registration machine, registration officer, and registration center details to ensure that the packet is received from the verified source. Also validates those devices that are used for packet creation, to ensure that the devices are verified. Refer below the process: 
+1. Fetches the registration machine ID, officer ID, center ID, and GPS from the database. Then validates if machine ID, center ID, GPS, and officer ID are sync in the master databases as follows:
+   * Checks if the center ID was active in center master table when packet was created.
+   * Checks if the machine ID was active in machine master table when packet was created.
+   * Checks if at least one from supervisor/officer ID is present in packet meta info. Checks if officers/supervisor was active in user master table when packet was created.
+   * Checks if the mapping of center-machine-officer was present in center-machine-user mapping table.
+   * Checks if GPS was captured or not.
+2. Validates if the devices were mapped with the center where it was created.
+3. Validate if devices were active when packet was created.
+4. For all the failure scenarios, marks registration status with the corresponding error message. 
+
 ### 3.1.5 GPS Capture Check
 ### 3.1.6 Operator & Supervisor Validation
 ## 3.2 Processing
