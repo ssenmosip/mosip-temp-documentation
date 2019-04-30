@@ -78,6 +78,24 @@ When the country chooses to re-activate individual’s ID due to any specific re
 # 3. Types of Stages
 ## 3.1 Pre-processing Validations
 ### 3.1.1 Sanity Check
+After the packets received from the Registration Client, the system performs the sanity check as follows:
+1. **Authentication** - Authenticates the packet whether it is received from the verified source.
+2. **Virus Scan** - Performs a virus scan of that received packet as follows:
+   * The system sends the byte array of the encrypted packet to the virus scanner.
+   * When virus scanning is successful, the system decrypts the packets in-memory and sends the byte array of the decrypted packet to the virus scanner.
+   * If the virus scanner finds a virus, then the system rejects the packet.
+3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares with that of the hash sequence received from the registration client, to verify that the packet was not tempered during transit. Refer below for the process:
+   * Fetches the hash sequence for the registration id from registration sync list table.
+   * If registration id is not available then responds with an error code.
+   * Calculates the hash sequence using the check sum utility.
+   * Compares the hash sequences and if the hash sequences do not match, then responds with an error code. If the hash sequence matches then the system proceeds further to another step.
+4. **Packet Size Check** - Calculates the size of the packet received and compares with that of the packet size received from the registration client, to verify that the packet was not tempered during transit.
+   * Checks if the packet size is more than the configured size set in the configuration server. If the packet size is more than the configured size, then sends an error response to Registration Client.
+5. **Packet Format Check** - Validates if the packet format is in the configured format i.e. “.zip” (configured by the admin).
+   * Checks if the packet format is not as the configured format i.e. “.zip” set in the configuration server. If the packet format is not like the configured format, then sends an error response to Registration Client.
+6. **Duplicate Check** – Validates if the packet is already available in the system
+   * Checks if the packet is a duplicate request by validating the RID that is available in the Registration Table and the packet is not in RESEND status. If the Packet Request is a Duplicate Request, then send an error response to Registration Client.
+
 ### 3.1.2 Virus Scan
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
