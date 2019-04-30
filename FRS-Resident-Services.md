@@ -15,6 +15,22 @@
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID
+In MOSIP, an individual will initiate a request to track the status of UIN Generation based on a RID.
+
+**Procedure to initiate the track status related to UIN generation follows:**
+1. Individual provides the RID for which he/she wants to track the status of UIN generation.
+2. The system validates the provided RID, checks for the registered mobile number/email ID, and triggers an OTP 
+   notification to the individual.
+3. The individual provides the OTP as received.
+4. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN generation 
+   status (Statuses are configurable).
+1. During the validation of RID and the mobile number/email ID, if the RID is not found or the mobile number/email ID is 
+   not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error 
+   notification.
+
+
+
+
 ## 2. Generate Virtual ID
 ## 3. Download UIN
 ## 4. Retrieve Lost UIN - TBD
