@@ -685,6 +685,7 @@ version | yes | version of the API | | v1
 requesttime | yes | timestamp of the request | | 2019-04-30T06:12:25.288Z
 request | yes | Request Body attributes | | 
 request: vidType | yes | VID Type |  | Perpetual or Temporary 
+request: UIN| yes | Individual's UIN |  | 981576026435
 
 **Example request**
 
@@ -694,7 +695,8 @@ request: vidType | yes | VID Type |  | Perpetual or Temporary
   "version": "v1",
   "requesttime": "2019-04-30T06:12:25.288Z",
   "request": {
-    "vidType": "Perpetual"
+    "vidType": "Perpetual",
+    "UIN": 981576026435
   }
 }
 ```
@@ -708,14 +710,14 @@ request: vidType | yes | VID Type |  | Perpetual or Temporary
   "responsetime": "2019-04-30T06:13:05.218Z",
   "response": {
     "status": "ACTIVE",
-    "vid": "1234512345"
+    "VID": 1234512345
   }
 }
 ```
  
  ### Retrieve UIN by VID    
 
-This service will create a new VID based on VID type provided.
+This service will retrieve associated decrypted UIN for a given VID, once VID is successfully validated.
 
 #### Resource URL
 #### `POST /idrepository/v1/vid/{VID}`
@@ -736,7 +738,7 @@ Requires Authentication | Yes
   "version": "v1",
   "responsetime": "2019-04-30T06:13:05.218Z",
   "response": {
-	  "UIN": "1234512345"
+    "UIN": 981576026435
   }
 }
 ```
