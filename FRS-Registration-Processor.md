@@ -80,7 +80,7 @@ When the country chooses to re-activate individual’s ID due to any specific re
 ### 3.1.1 Sanity Check
 After the packets received from the Registration Client, the system performs the sanity check as follows:
 1. **Authentication** - Authenticates the packet whether it is received from the verified source.
-2. **Virus Scan** - Performs a virus scan of that received packet and  move it to the DMZ file System. Refer to the below process:
+2. **Virus Scan** - Performs a virus scan of that received packet and  move it to the DMZ file System. Refer below for the process:
    * Sends the byte array of the encrypted packet to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the packet.
    * Sends the byte array of the encrypted packet received to decrypt the Packet.
@@ -104,7 +104,7 @@ After the packets received from the Registration Client, the system performs the
 The system performs the virus scan in two different stages. Two Stages are listed below:
 1. Performs virus scan on the packet when the packet is received from Registration Client and move it to DMZ file system.
    * Refer to [**virus scan**](#311-sanity-check) of Sanity Check.
-2. Performs virus scan when the packet is picked from the DMZ file system to store the packet in packet store. Refer to the below process:
+2. Performs virus scan when the packet is picked from the DMZ file system to store the packet in packet store. Refer below for the process:
    * Fetches the packet from DMZ file system.
    * Sends the byte array of the encrypted packet to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the request.
@@ -116,7 +116,7 @@ The system performs the virus scan in two different stages. Two Stages are liste
 
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
-System validates the registration machine, registration officer, and registration center details to ensure that the packet is received from the verified source. Also validates those devices that are used for packet creation, to ensure that the devices are verified. Refer below the process: 
+System validates the registration machine, registration officer, and registration center details to ensure that the packet is received from the verified source. Also validates those devices that are used for packet creation, to ensure that the devices are verified. Refer below for the process: 
 1. Fetches the registration machine ID, officer ID, center ID, and GPS from the database. Then validates if machine ID, center ID, GPS, and officer ID are sync in the master databases as follows:
    * Checks if the center ID was active in center master table when packet was created.
    * Checks if the machine ID was active in machine master table when packet was created.
