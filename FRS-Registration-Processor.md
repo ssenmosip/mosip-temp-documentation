@@ -80,9 +80,12 @@ When the country chooses to re-activate individual’s ID due to any specific re
 ### 3.1.1 Sanity Check
 After the packets received from the Registration Client, the system performs the sanity check as follows:
 1. **Authentication** - Authenticates the packet whether it is received from the verified source.
-2. **Virus Scan** - Performs a virus scan of that received packet and  move it to the DMZ file System. Refer below for the process:
-   * The system sends the byte array of the encrypted packet to the virus scanner.
-   * When virus scanning is successful, the system decrypts the packets in-memory and sends the byte array of the decrypted packet to the virus scanner.
+2. **Virus Scan** - Performs a virus scan of that received packet and  move it to the DMZ file System. Refer to the below process:
+   * Sends the byte array of the encrypted packet to the virus scanner.
+   * If the virus scanner finds a virus, then the system rejects the packet.
+   * Sends the byte array of the encrypted packet received to decrypt the Packet.
+   * If decryption fails, then the system rejects the packet.
+   * Sends the byte array of the decrypted Packet received to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the packet.
    * If the virus scanner do not finds a virus, then the system moves the packet to DMZ file system. 
 3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares with that of the hash sequence received from the registration client, to verify that the packet was not tempered during transit. Refer below for the process:
@@ -98,6 +101,19 @@ After the packets received from the Registration Client, the system performs the
    * Checks if the packet is a duplicate request by validating the RID that is available in the Registration Table and the packet is not in RESEND status. If the Packet Request is a Duplicate Request, then send an error response to Registration Client.
 
 ### 3.1.2 Virus Scan
+The system performs the virus scan in two different stages. Two Stages are listed below:
+1. Performs virus scan on the packet when the packet is received from Registration Client and move it to DMZ file system.
+   * Refer to [**virus scan**](#311-sanity-check) of Sanity Check.
+2. Performs virus scan when the packet is picked from the DMZ file system to store the packet in packet store. Refer to the below process:
+   * Fetches the packet from DMZ file system.
+   * Sends the byte array of the encrypted packet to the virus scanner.
+   * If the virus scanner finds a virus, then the system rejects the request.
+   * Sends the byte array of the encrypted packet received to decrypt the packet.
+   * If Decryption fails, then the system rejects the packet.
+   * Sends the byte array of the decrypted Packet received to the virus scanner.
+   * If the virus scanner finds a virus, then the system rejects the packet.
+   * If the virus scanner do not finds a virus, then the system updates the transaction and status.
+
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
 ### 3.1.5 GPS Capture Check
