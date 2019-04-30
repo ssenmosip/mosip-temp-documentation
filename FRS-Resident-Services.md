@@ -15,9 +15,9 @@
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID
-In MOSIP, an individual will initiate a request to track the status of UIN Generation based on a RID.
+In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an RID.
 
-Procedure to initiate the track status related to UIN generation follows:
+An individual will follow the following procedure to initiate the track status related to UIN generation:
 
 1. An individual provides the RID for which he/she wants to track the status of UIN generation.
 2. The system validates the provided RID, checks for the registered mobile number/email ID, and triggers an OTP 
@@ -33,7 +33,7 @@ Procedure to initiate the track status related to UIN generation follows:
 ## 3. Download UIN
 The system allows an individual to raise a request to download his/her e-UIN.
 
-The following procedures are to be followed to raise a e-UIN download request:
+The following procedure to be followed by an individual to raise a e-UIN download request:
 
 1. An individual provides the UIN/VID, Full Name, Postal Code, and Security Code.
 2. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP 
@@ -49,7 +49,7 @@ The following procedures are to be followed to raise a e-UIN download request:
 ## 4. Retrieve Lost UIN - TBD
 MOSIP allows an individual to process a request to retrieve the RID.
 
-The following procedure to raise a request to retrieve the RID:
+The following procedure to be followed to raise a request to retrieve the RID:
 
 1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
 2. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP 
