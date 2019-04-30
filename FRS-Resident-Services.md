@@ -102,9 +102,10 @@ Procedure to raise request to view the authentication history of the past:
 
 ## 10. Lock/Unlock UIN
 
-A.  ### **Lock the UIN****
+A.  **Lock the UIN****
 
 MOSIP allows an individual to lock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID.
+
 Procedure to be followed by an individual to lock the authentication type(s):
 1. An individual provides the UIN/VID for which he/she wants to lock the authentication type(s).
 2. The system validates the UIN/VID, checks for the registered mobile number/email ID, and triggers OTP notification.
@@ -117,9 +118,10 @@ Procedure to be followed by an individual to lock the authentication type(s):
 9. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-B. ### **Unlock the UIN**
+B.  **Unlock the UIN**
 
 MOSIP allows an individual to unlock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID.
+
 Procedure to be followed by an individual to unlock the authentication type(s):
 
 1. An individual provides the UIN/VID for which he/she wants to unlock the authentication type(s).
