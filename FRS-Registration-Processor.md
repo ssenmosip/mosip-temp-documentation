@@ -80,10 +80,11 @@ When the country chooses to re-activate individual’s ID due to any specific re
 ### 3.1.1 Sanity Check
 After the packets received from the Registration Client, the system performs the sanity check as follows:
 1. **Authentication** - Authenticates the packet whether it is received from the verified source.
-2. **Virus Scan** - Performs a virus scan of that received packet as follows:
+2. **Virus Scan** - Performs a virus scan of that received packet and  move it to the DMZ file System. Refer below for the process:
    * The system sends the byte array of the encrypted packet to the virus scanner.
    * When virus scanning is successful, the system decrypts the packets in-memory and sends the byte array of the decrypted packet to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the packet.
+   * If the virus scanner do not finds a virus, then the system moves the packet to DMZ file system. 
 3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares with that of the hash sequence received from the registration client, to verify that the packet was not tempered during transit. Refer below for the process:
    * Fetches the hash sequence for the registration id from registration sync list table.
    * If registration id is not available then responds with an error code.
