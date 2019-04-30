@@ -197,11 +197,11 @@
 |9. | | Workflow Customization (Ability to plug-in/exclude stages)| RPR_FR_2.5| 
 |10. | | Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)| RPR_FR_2.6| 
 |11. | | Scalability and Throughput| RPR_FR_2.7| 
-|12. | packet-receiver-stage| Sanity Check| RPR_FR_3.1| [MOS-44](//mosipid.atlassian.net/browse/MOS-44), [MOS-45](//mosipid.atlassian.net/browse/MOS-45), [MOS-46](//mosipid.atlassian.net/browse/MOS-46), [MOS-1031](//mosipid.atlassian.net/browse/MOS-1031)
-|13. | virus-scanner-stage| Virus Scan| RPR_FR_3.2| [MOS-49](//mosipid.atlassian.net/browse/MOS-49), [MOS-50](//mosipid.atlassian.net/browse/MOS-50), [MOS-718](//mosipid.atlassian.net/browse/MOS-718), [MOS-11855](//mosipid.atlassian.net/browse/MOS-11855)
+|12. | packet-receiver-stage| Sanity Check| RPR_FR_3.1| [MOS-44](//mosipid.atlassian.net/browse/MOS-44), [MOS-45](//mosipid.atlassian.net/browse/MOS-45), [MOS-46](//mosipid.atlassian.net/browse/MOS-46), [MOS-1031](//mosipid.atlassian.net/browse/MOS-1031), [MOS-21712 (CheckSum Validation)](//https://mosipid.atlassian.net/browse/MOS-21712), [MOS-21715 (Virus Scan)](//mosipid.atlassian.net/browse/MOS-21715)
+|13. | virus-scanner-stage| Virus Scan| RPR_FR_3.2| [MOS-21715 (DMZ Virus Scan)](//mosipid.atlassian.net/browse/MOS-21715), [MOS-21716 (Secure Virus Scan)](//mosipid.atlassian.net/browse/MOS-21716)
 |14. | | Source Authentication| RPR_FR_3.3| 
-|15. | osi-validator-stage| Machine-User-Center Mapping Check| RPR_FR_3.4| [MOS-240](//mosipid.atlassian.net/browse/MOS-240), [MOS-12831](//mosipid.atlassian.net/browse/MOS-12831)
-|16. | osi-validator-stage| GPS Capture Check| RPR_FR_3.5| 
+|15. | osi-validator-stage| Machine-User-Center Mapping Check| RPR_FR_3.4| [MOS-240 (Machine Validation)](//mosipid.atlassian.net/browse/MOS-240), [MOS-12831 (Device Validation)](//mosipid.atlassian.net/browse/MOS-12831)
+|16. | osi-validator-stage| GPS Capture Check| RPR_FR_3.5| [MOS-240 (Machine Validation - Has GPS)](//mosipid.atlassian.net/browse/MOS-240)
 |17. | osi-validator-stage| Operator & Supervisor Validation| RPR_FR_3.6| [MOS-1088](//mosipid.atlassian.net/browse/MOS-1088), [MOS-9129](//mosipid.atlassian.net/browse/MOS-9129), [MOS-246](//mosipid.atlassian.net/browse/MOS-246), [MOS-245](//mosipid.atlassian.net/browse/MOS-245), [MOS-241](//mosipid.atlassian.net/browse/MOS-241), [MOS-14589](//mosipid.atlassian.net/browse/MOS-14589), [MOS-242](//mosipid.atlassian.net/browse/MOS-242), [MOS-17805](//mosipid.atlassian.net/browse/MOS-17805)
 |18. | quality-matchness-checker-stage| Data Quality Check: Photo, Age, Gender Data Check| RPR_FR_3.7| [MOS-1082](//mosipid.atlassian.net/browse/MOS-1082)
 |19. | quality-matchness-checker-stage| Biometrics Quality Check| RPR_FR_3.8| [MOS-1093](//mosipid.atlassian.net/browse/MOS-1093), [MOS-1091](//mosipid.atlassian.net/browse/MOS-1091), [MOS-1084](//mosipid.atlassian.net/browse/MOS-1084), [MOS-17610](//mosipid.atlassian.net/browse/MOS-17610), [MOS-8460](//mosipid.atlassian.net/browse/MOS-8460)
