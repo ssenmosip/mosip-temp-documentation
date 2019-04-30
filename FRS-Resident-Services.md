@@ -17,7 +17,8 @@
 ## 1. Track status of UIN Generation by providing Registration ID
 In MOSIP, an individual will initiate a request to track the status of UIN Generation based on a RID.
 
-**Procedure to initiate the track status related to UIN generation follows:**
+Procedure to initiate the track status related to UIN generation follows:
+
 1. An individual provides the RID for which he/she wants to track the status of UIN generation.
 2. The system validates the provided RID, checks for the registered mobile number/email ID, and triggers an OTP 
    notification to the individual.
@@ -31,7 +32,9 @@ In MOSIP, an individual will initiate a request to track the status of UIN Gener
 ## 2. Generate Virtual ID
 ## 3. Download UIN
 The system allows an individual to raise a request to download his/her e-UIN.
+
 The following procedures are to be followed to raise a e-UIN download request:
+
 1. An individual provides the UIN/VID, Full Name, Postal Code, and Security Code.
 2. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP 
    notification.
@@ -45,7 +48,9 @@ The following procedures are to be followed to raise a e-UIN download request:
 
 ## 4. Retrieve Lost UIN - TBD
 MOSIP allows an individual to process a request to retrieve the RID.
+
 The following procedure to raise a request to retrieve the RID:
+
 1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
 2. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP 
    notification.
@@ -59,6 +64,7 @@ The following procedure to raise a request to retrieve the RID:
 
 ## 5. Initiate UIN Update
 MOSIP allows an individual to process a request to update the UIN.
+
 The procedure for an individual to initiate a request related to UIN updates follows:
 
 1. An individual provides the UIN/VID for which he/she wants to update.
@@ -74,6 +80,7 @@ The procedure for an individual to initiate a request related to UIN updates fol
 
 ## 6. Track Status of UIN Update
 In MOSIP, an individual will raise a request to track the status related to UIN updates based on a registration ID.
+
 Following procedure to be followed by the individual to track the status of UIN updates:
 1. An individual provides the RID for which he/she wants to track the status of UIN updates.
 2. The system validates the provided RID, checks for the registered mobile number/email ID, and triggers an OTP 
@@ -89,6 +96,7 @@ Following procedure to be followed by the individual to track the status of UIN 
 ## 8. Update Static PIN 
 ## 9. View History of Authentication Requests (for Prescribed Days/number of requests)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
+
 Procedure to raise request to view the authentication history of the past:
 
 1. An individual provides the UIN/VID and security code which he/she wants to view.
