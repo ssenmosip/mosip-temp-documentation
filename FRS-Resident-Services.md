@@ -110,7 +110,7 @@ Procedure to raise request to view the authentication history of the past:
 
 ## 10. Lock/Unlock UIN
 
-A.  **Lock the UIN****
+A.  **Lock the UIN**
 
 MOSIP allows an individual to lock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID.
 
