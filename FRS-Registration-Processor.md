@@ -124,7 +124,7 @@ System validates the registration machine, registration officer, and registratio
    * Checks if the mapping of center-machine-officer was present in center-machine-user mapping table.
    * Checks if GPS was captured or not.
 2. Validates if the devices were mapped with the center where it was created.
-3. Validate if devices were active when packet was created.
+3. Validate if the devices were active when packet was created.
 4. For all the failure scenarios, marks registration status with the corresponding error message. 
 
 ### 3.1.5 GPS Capture Check
