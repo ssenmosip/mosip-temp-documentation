@@ -29,7 +29,7 @@ The configuration options given as part of the Admin application have the direct
 
 ## Solution
 ### Platform seed data 
-When the platform got inititalized and setup, there should be initial data should be available in the system. The initial import is done by the database utility which reads a CSV file creates the data in the database. During this import of this data, the quality of data is checked by the SI and a Database administrator. This kind of import happens only one time during the initial setup. 
+When the platform got inititalized and setup, there should be initial data should be available in the system. The initial import is done by the database utility which reads a CSV file creates the data in the database. During this import of this data, the quality of data is checked by the SI and a Database administrator. This kind of import happens only one time during the initial setup. Rest of the addition, edition of the data happens via the front end only. 
 
 ### Service layer
 All the operations done on the Admin modules for the data are done through the Service layer. The authentication is done in the service layer. The validations such as business validation, mandatory validations, length validations etc., are done in the service layer also. 
@@ -41,6 +41,9 @@ The UI layer supports the following salient features,
 3. Client side validations
 
 UI layer is used only as the renderer. No business side functionality is added in the UI layer. 
+
+### Validations
+Every data insert or modifications have to be properly validated via the validator module for the respective entity. For the admin user's comfort and to avoid to and fro traffic, front end validations are added appropriately. 
 
 ## Flow view
 
