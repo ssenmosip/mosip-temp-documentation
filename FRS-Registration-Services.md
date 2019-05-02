@@ -1144,6 +1144,18 @@ Upon receiving a request from the UI to create an enrolment packet at the end of
 1. System captures and stores the transaction details for audit purpose.
 
 ### 5.12.2 Peripherals Check [**[↑]**](#table-of-content)
+
+Registration officer views the status of each biometric device in the header
+
+By clicking on the header, the additional status bar showing status of devices is displayed. To hide the status bar the user needs to click on the header or status bar again. If a fingerprint capture device is connected to the client machine, display the “Fingerprint Scanner” icon in the status bar in green colour. If not connected, display the icon in red.
+
+If fingerprint capture is turned off for the country, do not display any icon. 
+Similarly for iris capture device - display “Iris Scanner” in green / red / no display in the status bar.
+
+Similarly for face camera - display “Face Scanner” in green / red / no display in the status bar.
+
+If the client machine has internet connectivity, display “System Online” in the header green. Else display “System Offline”. 
+
 ### 5.12.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
 
 Upon receiving a request to perform a virus scan of the registration packets on the client machine, the system performs the following steps:
