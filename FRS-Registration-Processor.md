@@ -129,6 +129,21 @@ System validates the registration machine, registration officer, and registratio
 
 ### 3.1.5 GPS Capture Check
 ### 3.1.6 Operator & Supervisor Validation
+
+When the packet is received from the Registration Client, the system first checks the Operator & Supervisor ID using configuration manager. Then validates an operator & a supervisor using biometric authentication such as face image, iris image, and finger print image, OTP based authentication, and password-based authentication to make sure that the Operator & Supervisor is authenticated. Refer below for the process:
+#### A. Authenticate and Validates using Officer and Supervisor ID
+System fetches the officer details and/or supervisor details from the master list using officer and/or supervisor ID and checks if the officer and/or supervisor details is available. Then the system performs the following steps:
+   * If the officer and/or supervisor details is not available, then sends packet for manual adjudication.
+   * If the officer and/or supervisor details is available, then checks if officer and/or supervisor Is active or not.
+   * If officer and/or supervisor is not active, then sends packet for manual adjudication.
+   * If officer and/or supervisor is active, checks the type of authentication required for officer and/or supervisor.
+
+#### B. Authenticate using Biometric
+The system sends the UIN, face image, iris image, and finger print image of the operator and supervisor to ID Authentication and receives a response as "TRUE" or "FALSE" to authenticate the operator and supervisor. If the biometric is valid, then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
+
+#### C. Authenticate using OTP and Password Validation
+The system validates officer with password/OTP authentication if the officer or supervisor ID is available but all biometrics (iris, fingerprint, face, pin) of officer or supervisor are null. In that case, the system checks if any of the officer or supervisor bio-metrics are available and officer or supervisor password/OTP is valid then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
+
 ## 3.2 Processing
 ### 3.2.1 Individual Data Validations
 #### 3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check
