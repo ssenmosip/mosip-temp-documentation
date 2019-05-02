@@ -876,9 +876,15 @@ Please refer [**Git**](/mosip/mosip/tree/0.10.0/docs/javadocs/registration/apido
 Please refer [**wiki**](MOSIP-VDM-Specifications) for more details on Virtual device manager implementation
 
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
+The packets are stored locally. In several remote locations, internet connectivity could be an issue.Hence, if packets are saved locally, the packets can be later uploaded when there is internet connection. ALso, the packets can be transferred from the machine to a USB device and the USB device can be sent through courier.
+
 ### 5.4.1 Database [**[↑]**](#table-of-content)
 ### 5.4.2 File system [**[↑]**](#table-of-content)
-## 5.5 Data Security (Take Architects Help) [**[↑]**](#table-of-content)
+## 5.5 Data Security () [**[↑]**](#table-of-content)
+Registration client integrates with TPM. data integrity.
+
+security purpose. data captured from indiv shld be saved and then integrity. maintain securedly before sharing to server. alld etails in local are to be encrypted for all cases. DB encryption also mandatory
+
 ### 5.5.1 Trust Environment [**[↑]**](#table-of-content)
 ### 5.5.2 Encryption and Decryption [**[↑]**](#table-of-content)
 **Enable capturing an individual's face photograph—Analysis**
