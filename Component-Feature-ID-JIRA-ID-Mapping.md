@@ -179,7 +179,7 @@
 |95.|Security|Master Data|REG_FR_5.12|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |96.|Security|Login/Authentication|REG_FR_4.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |97.|User Onboarding|Registration Client UI|REG_FR_6|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
-|98.|Security|Registration Client UI|REG_FR_5.7|[MOS-18150](//mosipid.atlassian.net/browse/MOS-18150) |
+|98.|Device Onboarding|Peripherals check|REG_FR_5.27|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996) |
 
 
 **10. Registration Processor:**
