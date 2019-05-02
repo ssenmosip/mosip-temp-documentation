@@ -170,6 +170,7 @@ optionalValues|No|additional values to be passed during sync| |key, value pair
 
 ### Example Request Header
 ##### Center-Machine-RefId = `10011_10011`
+##### timestamp = `2019-02-14T12:40:59.768Z`
 
 ### Example Request Body
 ```JSON
