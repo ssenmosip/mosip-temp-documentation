@@ -1,5 +1,5 @@
 This section details about the service APIs in the Master data modules
- 
+
 * [Holiday Master API](#holiday-master-api) 
 
 * [Blacklisted words Master API](#blacklisted-words-master-api)
