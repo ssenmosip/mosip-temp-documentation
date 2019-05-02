@@ -881,9 +881,17 @@ The packets are stored locally. In several remote locations, internet connectivi
 ### 5.4.1 Database [**[↑]**](#table-of-content)
 ### 5.4.2 File system [**[↑]**](#table-of-content)
 ## 5.5 Data Security () [**[↑]**](#table-of-content)
-Registration client integrates with TPM. data integrity.
+Registration client integrates with Trusted Platform Model(TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals should be saved securedly in local system and then shared to server. The details saved in local would be encrypted.DataBase encryption is also mandatory.
 
-security purpose. data captured from indiv shld be saved and then integrity. maintain securedly before sharing to server. alld etails in local are to be encrypted for all cases. DB encryption also mandatory
+We perform the following tasks
+
+1.Signing the data (This process is called as Signature) using Private Key provided by the TPM
+
+This process will ensure that the request to the server had been dispatched from the registered or trusted registration client machine
+
+2. Validate the signature against the actual data using the Public Key or Public PartThe application should not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from the registered or trusted registration client machine
+
+3. Encrypt and decrypt the data using RSA algorithm in TPM
 
 ### 5.5.1 Trust Environment [**[↑]**](#table-of-content)
 ### 5.5.2 Encryption and Decryption [**[↑]**](#table-of-content)
