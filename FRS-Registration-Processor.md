@@ -151,6 +151,19 @@ The system validates officer with password/OTP authentication if the officer or 
 #### 3.2.1.3 Doc. Validation - OCR 
 ### 3.2.2 Functional Validations
 #### 3.2.2.1 File & Document Validation
+When the files that are received from the Registration Client, the system first check the file’s availability in the registration packet. If available, then verifies the documents required for an individual based on the type of registration. Refer below for the process:
+#### A. Validates the File
+The system performs file validation by checking files availability in a packet with the files names available in the MetaInfo file as follows:
+1. Extracts the file names from the meta info file in the packet.
+2. Compares the file names with files extracted in DFS by searching for the files
+3. In case of successful comparison, updates the Registration table with "File Validation Successful".
+4. In case of unsuccessful comparison, updates the Registration table with "File Validation Failed" and marks for retry.
+#### B. Verify the Documents
+1. The system identifies a documents based on application type (new registration) and applicant type (child or adult) from Packet Meta Info
+2. If the applicant is child and application is new registration, the system checks a Proof of Residence (POR) document availability.
+3. If the applicant is adult and application is new registration, the system checks a Proof of Identity (POI) and Proof of Address (POA) documents availability. 
+4. If Proof of Birth (POB) is verified for both the applicant (adult or child) and application is new registration, then system checks a POB documents availability.
+
 #### 3.2.2.2 Introducer Validation
 #### 3.2.2.3 Deduplication – Demographic, Biometrics
 ### 3.2.3 External System Integration: (Elaborate with examples)
