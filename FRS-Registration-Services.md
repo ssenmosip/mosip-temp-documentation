@@ -1092,6 +1092,13 @@ The following example explains the steps system performs to support remapping a 
 5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
 
 ### 5.10.3 Device retirement [**[↑]**](#table-of-content)
+
+Before the machine is decommissioned the following checks must be performed.
+
+1. All packets created must be either uploaded to server/exported to external device.
+2. All data locally saved in the machine must be cleaned up
+
+
 ## 5.11 Language Support [**[↑]**](#table-of-content)
 ### 5.11.1 Language Selection [**[↑]**](#table-of-content)
 The registration client supports two languages, a primary language in which all pages of the application are be rendered, and a secondary language in which select pages such as demographic details are also rendered. French and Arabic are the default primary and secondary languages. Transliteration from the primary to secondary language is supported for user entered text fields.
