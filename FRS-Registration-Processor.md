@@ -172,7 +172,7 @@ When the packet from the Registration Client has gone through the sanity checks,
 2. If a potential match is found, then sends the packet to ABIS to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).
 3. If a potential match is not found in ABIS or Demographic deduplication, then sends the packet to perform biometric deduplication.
 #### B. Biometric deduplication
-1. Performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) biometric match by sending the data to ABIS.
+1. Performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to ABIS.
 2. ABIS compares the biometric data received with the whole set of the data to find a potential matches based on configured threshold.
 3. If a potential match is found in ABIS, then the system sends the packet for manual verification.
 4. If a manual verifier (experts who knows more about biometrics) finds a duplicate, then rejects the packet.
