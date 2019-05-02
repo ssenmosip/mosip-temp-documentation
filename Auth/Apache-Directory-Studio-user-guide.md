@@ -24,6 +24,7 @@ On the dialog that opens enter the following details
 ![Apache-Directory-Studio-2.png](_images/auth/Apache-Directory-Studio-2.png)
 
 Click next and enter the following details in the Auhentication tab
+
 Password for default connection : secret
 ![Apache-Directory-Studio-3.png](_images/auth/Apache-Directory-Studio-3.png)
 
