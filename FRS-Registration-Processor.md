@@ -166,6 +166,18 @@ The system performs file validation by checking files availability in a packet w
 
 #### 3.2.2.2 Introducer Validation
 #### 3.2.2.3 Deduplication – Demographic, Biometrics
+When the packet from the Registration Client has gone through the sanity checks, the system performs the demographic deduplication and then biometric deduplication. Deduplication is the process to find a duplicates by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated. 
+#### A. Demographic deduplication
+1. Compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.
+2. If a potential match is found, then sends the packet to ABIS to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).
+3. If a potential match is not found in ABIS or Demographic deduplication, then sends the packet to perform biometric deduplication.
+#### B. Biometric deduplication
+1. Performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) biometric match by sending the data to ABIS.
+2. ABIS compares the biometric data received with the whole set of the data to find a potential matches based on configured threshold.
+3. If a potential match is found in ABIS, then the system sends the packet for manual verification.
+4. If a manual verifier (experts who knows more about biometrics) finds a duplicate, then rejects the packet.
+5. If the manual verifier or ABIS does not find the duplicate, then moves the packet for UIN generation.
+
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
 #### 3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)
