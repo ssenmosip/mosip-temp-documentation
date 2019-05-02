@@ -49,7 +49,7 @@ Requires Authentication | Yes
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
-referenceId|No|Id of the Machine/TSP|
+referenceId|No|Id of the Machine/MISP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
@@ -99,7 +99,7 @@ Requires Authentication | Yes
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
-referenceId|No|Id of the Machine/TSP|
+referenceId|No|Id of the Machine/MISP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
@@ -1345,7 +1345,7 @@ N/A
 		"mosip.kernel.phone.max-length": "15",
 		"mosip.kernel.prid.repeating-limit": "2",
 	        "mosip.kernel.tokenid.length": "36",
-		"mosip.kernel.tspid.length": "4",
+		"mosip.kernel.MISPid.length": "4",
 		"mosip.kernel.syncdata.global-config-file": "application-${spring.profiles.active}.properties",
 		"mosip.kernel.prid.not-start-with": "0,1",
 		"mosip.kernel.tokenid.sequence-limit": "3",
@@ -1402,8 +1402,8 @@ N/A
 		  "roleDescription": "Registration administrator"
 		},
 		{
-		  "roleId": "TSP",
-		  "roleName": "TSP",
+		  "roleId": "MISP",
+		  "roleName": "MISP",
 		  "roleDescription": "Trusted Service Provider"
 		}
 	  ]
@@ -1487,7 +1487,7 @@ Requires Authentication | Yes
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
-referenceId|No|Id of the Machine/TSP|
+referenceId|No|Id of the Machine/MISP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
@@ -1861,13 +1861,13 @@ description|No|Description of the event| |Example description
 
 
 # License Key Manager
-TSPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
+MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
 
 This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
 
 ## License Key Generation
 
-This component generates a license key for a specified TSP ID.
+This component generates a license key for a specified MISP ID.
 
 * [POST /license/generate](#post-licensegenerate)
 
@@ -1892,7 +1892,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseExpiryTime|Yes|The time at which the license will expire| |2019-03-07T10:00:00.000Z 
-tspId|Yes|The TSP ID against which the license key generated will be mapped| |9837
+MISPId|Yes|The MISP ID against which the license key generated will be mapped| |9837
 
 #### Request
 ```JSON
@@ -1903,7 +1903,7 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
 		"licenseExpiryTime": "2019-03-07T10:00:00.000Z",
-		"tspId": "9837"
+		"MISPId": "9837"
 	     }
 }
 ```
@@ -1946,8 +1946,8 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key to which the permissions will be mapped| |gR7Mw7tA7S7qifkf 
-tspId|Yes|The TSP ID against which the license key is mapped| |9837
-permissions|Yes|The list of permissions that will be mapped to the TSP-licensekey mentioned.| |OTP Trigger
+MISPId|Yes|The MISP ID against which the license key is mapped| |9837
+permissions|Yes|The list of permissions that will be mapped to the MISP-licensekey mentioned.| |OTP Trigger
 
 #### Request
 ```JSON
@@ -1961,7 +1961,7 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 		"permissions": [
 			"OTP Trigger","OTP Authentication"
 		],
-		"tspId": "9837"
+		"MISPId": "9837"
 	}
 }
 ```
@@ -2005,10 +2005,10 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
-tspId|Yes|The TSP ID against which the license key is mapped| |9837
+MISPId|Yes|The MISP ID against which the license key is mapped| |9837
 
 ### Request
-<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837</div>
+<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&MISPId=9837</div>
 
 ```
 N/A
