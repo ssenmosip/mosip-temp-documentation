@@ -193,14 +193,14 @@ The system performs file validation by checking files availability in a packet w
 When the packet from the Registration Client has gone through the sanity checks, the system performs the demographic deduplication and then biometric deduplication. Deduplication is the process to find a duplicates by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated. 
 #### A. Demographic deduplication
 1. Compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.
-2. If a potential match is found, then sends the packet to ABIS to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).
-3. If a potential match is not found in ABIS or Demographic deduplication, then sends the packet to perform biometric deduplication.
+2. If a potential match is found, then sends the packet to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).
+3. If a potential match is not found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) or Demographic deduplication, then sends the packet to perform biometric deduplication.
 #### B. Biometric deduplication
-1. Performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to ABIS.
-2. ABIS compares the biometric data received with the whole set of the data to find a potential matches based on configured threshold.
-3. If a potential match is found in ABIS, then the system sends the packet for manual verification.
+1. Performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)).
+2. [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) compares the biometric data received with the whole set of the data to find a potential matches based on configured threshold.
+3. If a potential match is found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)), then the system sends the packet for manual verification.
 4. If a manual verifier (experts who knows more about biometrics) finds a duplicate, then rejects the packet.
-5. If the manual verifier or ABIS does not find the duplicate, then moves the packet for UIN generation.
+5. If the manual verifier or [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) does not find the duplicate, then moves the packet for UIN generation.
 
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
@@ -210,11 +210,11 @@ MOSIP receives some data from the external system in form of Packet (as per MOSI
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
 When the system verifies the data received with the data captured and finds an issue while comparing the data or a country wants to update the data after manually verifying the data. Then the System Integrator builds a Manual Verification Module for External System data mismatch. 
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
-When Biometric Deduplicates are found in ABIS, the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.
+When Biometric Deduplicates are found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)), the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware)
-The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with one or multiple ABISs (Automated Biometric Identification System). 
+The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with one or multiple ABISs ([**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface))). 
 
-ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by ABIS is used to communicate between MOSIP system and ABIS.
+ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) is used to communicate between MOSIP system and ABIS.
 
 ### 3.2.4 ID Issuance 
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association
