@@ -245,6 +245,22 @@ hdfs dfs -chown -R prereg:prereg  /user/prereg
 hdfs dfs -mkdir /user/idrepo
 hdfs dfs -chown -R idrepo:idrepo  /user/idrepo
 ``` 
+#### enabling configured port through firewall in each machine in cluster
+```ssh
+sudo firewall-cmd --zone=public --add-port=51000/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51090/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51010/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51075/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51020/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51070/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51470/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51100/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=51105/tcp --permanent
+sudo firewall-cmd --reload
+```
+##### NOTE: 
+if different port has been configured , enable those port.
+
 ## 2. Securing HDFS
 NOTE: Currently not enabled. `<WIP>`
 
