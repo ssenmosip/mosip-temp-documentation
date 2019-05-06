@@ -49,7 +49,7 @@ Requires Authentication | Yes
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
-referenceId|No|Id of the Machine/TSP|
+referenceId|No|Id of the Machine/MISP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
@@ -99,7 +99,7 @@ Requires Authentication | Yes
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
-referenceId|No|Id of the Machine/TSP|
+referenceId|No|Id of the Machine/MISP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
@@ -277,6 +277,9 @@ Requires Authentication | Yes
 
 * [GET /publickey](#get-publickey)
 
+* [POST /uploadpublickey](#post-uploadpublickey)
+
+
 ## GET /masterdata
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
@@ -297,10 +300,12 @@ Name | Required | Description | Default Value | Example
 macaddress|No|MAC address of the machine| | 
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
+keyindex|No|Thumbprint of the public key corresponding to this machine| | 
+
 
 #### Request
 
-<div>https://mosip.io/v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630 </div>
+<div>https://mosip.io/v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630&keyindex=ys6823u22 </div>
 
 #### Responses:
 ##### Success Response:
@@ -767,9 +772,11 @@ regcenterId|Yes|Registration center id| |
 macaddress|No|MAC address of the machine| | 
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
+keyindex|No|Thumbprint of the public key corresponding to this machine| | 
+
 
 #### Request
-v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
+v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630&keyindex=ys6823u22
 
 #### Responses:
 ##### Success Response:
@@ -1345,7 +1352,7 @@ N/A
 		"mosip.kernel.phone.max-length": "15",
 		"mosip.kernel.prid.repeating-limit": "2",
 	        "mosip.kernel.tokenid.length": "36",
-		"mosip.kernel.tspid.length": "4",
+		"mosip.kernel.MISPid.length": "4",
 		"mosip.kernel.syncdata.global-config-file": "application-${spring.profiles.active}.properties",
 		"mosip.kernel.prid.not-start-with": "0,1",
 		"mosip.kernel.tokenid.sequence-limit": "3",
@@ -1402,8 +1409,8 @@ N/A
 		  "roleDescription": "Registration administrator"
 		},
 		{
-		  "roleId": "TSP",
-		  "roleName": "TSP",
+		  "roleId": "MISP",
+		  "roleName": "MISP",
 		  "roleDescription": "Trusted Service Provider"
 		}
 	  ]
@@ -1487,7 +1494,7 @@ Requires Authentication | Yes
 Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
-referenceId|No|Id of the Machine/TSP|
+referenceId|No|Id of the Machine/MISP|
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
@@ -1518,6 +1525,60 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 }	
 ```
 
+### POST /uploadpublickey
+
+This service will upload the public key corresponding to a particular machine which are used in the MOSIP platform. This service will be used specifically in the Registration Client machines. 
+
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/uploadpublickey </div> TODO
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | Form Data
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machineName |Yes|Name of the machine| | MDLGE6273
+publickey |Yes|Public key of the passed machine| | multipart/formdata
+
+
+#### Request
+
+```
+-H "Content-Type: multipart/form-data" 
+-F "publickey={}" 
+-F "machineName=MDLGE6273" 
+```
+
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: The public key had been mapped to the machine
+```
+{
+  "id": "mosip.kernel.sync.publickeytomachine",
+  "version": "1.0",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": {
+	    "keyindex": "ThumbprintOfThePublickey"
+	}
+}
+
+```
 
 # UIN
 
@@ -1861,13 +1922,13 @@ description|No|Description of the event| |Example description
 
 
 # License Key Manager
-TSPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
+MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
 
 This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
 
 ## License Key Generation
 
-This component generates a license key for a specified TSP ID.
+This component generates a license key for a specified MISP ID.
 
 * [POST /license/generate](#post-licensegenerate)
 
@@ -1892,7 +1953,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseExpiryTime|Yes|The time at which the license will expire| |2019-03-07T10:00:00.000Z 
-tspId|Yes|The TSP ID against which the license key generated will be mapped| |9837
+MISPId|Yes|The MISP ID against which the license key generated will be mapped| |9837
 
 #### Request
 ```JSON
@@ -1903,7 +1964,7 @@ tspId|Yes|The TSP ID against which the license key generated will be mapped| |98
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
 		"licenseExpiryTime": "2019-03-07T10:00:00.000Z",
-		"tspId": "9837"
+		"MISPId": "9837"
 	     }
 }
 ```
@@ -1946,8 +2007,8 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key to which the permissions will be mapped| |gR7Mw7tA7S7qifkf 
-tspId|Yes|The TSP ID against which the license key is mapped| |9837
-permissions|Yes|The list of permissions that will be mapped to the TSP-licensekey mentioned.| |OTP Trigger
+MISPId|Yes|The MISP ID against which the license key is mapped| |9837
+permissions|Yes|The list of permissions that will be mapped to the MISP-licensekey mentioned.| |OTP Trigger
 
 #### Request
 ```JSON
@@ -1961,7 +2022,7 @@ permissions|Yes|The list of permissions that will be mapped to the TSP-licenseke
 		"permissions": [
 			"OTP Trigger","OTP Authentication"
 		],
-		"tspId": "9837"
+		"MISPId": "9837"
 	}
 }
 ```
@@ -2005,10 +2066,10 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
-tspId|Yes|The TSP ID against which the license key is mapped| |9837
+MISPId|Yes|The MISP ID against which the license key is mapped| |9837
 
 ### Request
-<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&tspId=9837</div>
+<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&MISPId=9837</div>
 
 ```
 N/A

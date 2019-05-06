@@ -876,9 +876,23 @@ Please refer [**Git**](/mosip/mosip/tree/0.10.0/docs/javadocs/registration/apido
 Please refer [**wiki**](MOSIP-VDM-Specifications) for more details on Virtual device manager implementation
 
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
+The packets are stored locally. In several remote locations, internet connectivity could be an issue.Hence, if packets are saved locally, the packets can be later uploaded when there is internet connection. ALso, the packets can be transferred from the machine to a USB device and the USB device can be sent through courier.
+
 ### 5.4.1 Database [**[↑]**](#table-of-content)
 ### 5.4.2 File system [**[↑]**](#table-of-content)
-## 5.5 Data Security (Take Architects Help) [**[↑]**](#table-of-content)
+## 5.5 Data Security () [**[↑]**](#table-of-content)
+Registration client integrates with Trusted Platform Model(TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals should be saved securedly in local system and then shared to server. The details saved in local would be encrypted.DataBase encryption is also mandatory.
+
+We perform the following tasks
+
+1.Signing the data (This process is called as Signature) using Private Key provided by the TPM
+
+This process will ensure that the request to the server had been dispatched from the registered or trusted registration client machine
+
+2. Validate the signature against the actual data using the Public Key or Public PartThe application should not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from the registered or trusted registration client machine
+
+3. Encrypt and decrypt the data using RSA algorithm in TPM
+
 ### 5.5.1 Trust Environment [**[↑]**](#table-of-content)
 ### 5.5.2 Encryption and Decryption [**[↑]**](#table-of-content)
 **Enable capturing an individual's face photograph—Analysis**
@@ -1078,6 +1092,13 @@ The following example explains the steps system performs to support remapping a 
 5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
 
 ### 5.10.3 Device retirement [**[↑]**](#table-of-content)
+
+Before the machine is decommissioned the following checks must be performed.
+
+1. All packets created must be either uploaded to server/exported to external device.
+2. All data locally saved in the machine must be cleaned up
+
+
 ## 5.11 Language Support [**[↑]**](#table-of-content)
 ### 5.11.1 Language Selection [**[↑]**](#table-of-content)
 The registration client supports two languages, a primary language in which all pages of the application are be rendered, and a secondary language in which select pages such as demographic details are also rendered. French and Arabic are the default primary and secondary languages. Transliteration from the primary to secondary language is supported for user entered text fields.
@@ -1130,6 +1151,18 @@ Upon receiving a request from the UI to create an enrolment packet at the end of
 1. System captures and stores the transaction details for audit purpose.
 
 ### 5.12.2 Peripherals Check [**[↑]**](#table-of-content)
+
+Registration officer views the status of each biometric device in the header
+
+By clicking on the header, the additional status bar showing status of devices is displayed. To hide the status bar the user needs to click on the header or status bar again. If a fingerprint capture device is connected to the client machine, display the “Fingerprint Scanner” icon in the status bar in green colour. If not connected, display the icon in red.
+
+If fingerprint capture is turned off for the country, do not display any icon. 
+Similarly for iris capture device - display “Iris Scanner” in green / red / no display in the status bar.
+
+Similarly for face camera - display “Face Scanner” in green / red / no display in the status bar.
+
+If the client machine has internet connectivity, display “System Online” in the header green. Else display “System Offline”. 
+
 ### 5.12.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
 
 Upon receiving a request to perform a virus scan of the registration packets on the client machine, the system performs the following steps:

@@ -1,27 +1,31 @@
 This section details about the REST services in ID Repository module.
+* [ID Services](#id-services)
+* [VID Services](#vid-services)
+
+## ID Services
+These services is used by Registration Processor to store/update during registration process and ID Authentication to retrieve Identity of an Individual for their authentication.
 * [Create ID Service](#create-id)
 * [Read By UIN Service](#read-id-by-uin)
 * [Read By RID Service](#read-id-by-rid)
-* [Update ID Service](#update-id)
+* [Update ID Service](#update-id)     
 
-**Note** - ID Repo will not support search based on attributes of an ID.
-***
+**Note** - Identity Services does not support search based on attributes of an ID.
 
-## Create ID    
+### Create ID    
 
-This operation will create a new ID record in ID repository and store corresponding demographic and bio-metric documents. 
+This service will create a new ID record in ID repository and store corresponding demographic and bio-metric documents. 
 
-### Resource URL
-### `POST /idrepository/v1/identity`
+#### Resource URL
+#### `POST /idrepository/v1/identity`
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.id.create | 
@@ -224,19 +228,19 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 }
 ```
 
-## Read ID by UIN         
+### Read ID by UIN         
 
-This operation will retrieve an ID record from ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
+This service will retrieve an ID record from ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of the Individual are returned
 2. When type=demo is selected, Demographic documents along with Identity details of the Individual are returned
 3. When type=all is selected, both individualBiometrics and demographic documents are returned along with Identity details of the Individual    
 
 If no identity type is provided, stored Identity details of the Individual will be returned as a default response.
 
-### Resource URL
-### `GET /idrepository/v1/identity/UIN/{UIN}?type=bio`
+#### Resource URL
+#### `GET /idrepository/v1/identity/UIN/{UIN}?type=bio`
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -404,7 +408,7 @@ Requires Authentication | Yes
 }
 ```
 
-## Read ID by RID         
+### Read ID by RID         
 
 This operation will retrieve an ID record from ID repository for a given RID (Registration ID) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of Individual are returned
@@ -413,10 +417,10 @@ This operation will retrieve an ID record from ID repository for a given RID (Re
 
 If no identity type is provided, stored latest Identity details of Individual mapped to the UIN of input RID will be returned as a default response.
 
-### Resource URL
-### `GET /idrepository/v1/identity/RID/{RID}?type=bio`
+#### Resource URL
+#### `GET /idrepository/v1/identity/RID/{RID}?type=bio`
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -584,21 +588,21 @@ Requires Authentication | Yes
 }
 ```
 
-## Update ID   
+### Update ID   
 
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
-### Resource URL
-### `PATCH /idrepository/v1/identity`
+#### Resource URL
+#### `PATCH /idrepository/v1/identity`
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | Id of the API | mosip.id.update | 
@@ -651,6 +655,90 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
   "response": {
     "status": "DEACTIVATED",
     "entity": "http://mosip.io/identity/568469473107"
+  }
+}
+```
+
+## VID Services
+* [Create VID Service](#create-vid)
+* [Retrieve UIN By VID Service](#retrieve-uin-by-vid)
+
+### Create VID    
+
+This service will create a new VID based on VID type provided.
+
+#### Resource URL
+#### `POST /idrepository/v1/vid`
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | yes | Id of the API | mosip.vid.create | 
+version | yes | version of the API | | v1
+requesttime | yes | timestamp of the request | | 2019-04-30T06:12:25.288Z
+request | yes | Request Body attributes | | 
+request: vidType | yes | VID Type |  | Perpetual or Temporary 
+request: UIN| yes | Individual's UIN |  | 981576026435
+
+**Example request**
+
+```
+{
+  "id": "mosip.vid.create",
+  "version": "v1",
+  "requesttime": "2019-04-30T06:12:25.288Z",
+  "request": {
+    "vidType": "Perpetual",
+    "UIN": 981576026435
+  }
+}
+```
+
+**Example response**    
+
+```
+{
+  "id": "mosip.vid.create",
+  "version": "v1",
+  "responsetime": "2019-04-30T06:13:05.218Z",
+  "response": {
+    "status": "ACTIVE",
+    "VID": 1234512345
+  }
+}
+```
+ 
+ ### Retrieve UIN by VID    
+
+This service will retrieve associated decrypted UIN for a given VID, once VID is successfully validated.
+
+#### Resource URL
+#### `POST /idrepository/v1/vid/{VID}`
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+**Example response**    
+
+```
+{
+  "id": "mosip.vid.read",
+  "version": "v1",
+  "responsetime": "2019-04-30T06:13:05.218Z",
+  "response": {
+    "UIN": 981576026435
   }
 }
 ```

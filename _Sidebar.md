@@ -17,6 +17,7 @@
   * [Pre-Registration](Pre-Registration)
   * [ID Authentication](ID-Authentication)
   * [Kernel](Kernel)
+  * [Admin](Admin)
   * [Registration Packet Structure](Registration-Packet)  
   * [MOSIP ABIS Middleware](MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](Automated-Biometric-Identification-System-(ABIS)-Interface)

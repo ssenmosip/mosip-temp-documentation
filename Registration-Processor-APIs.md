@@ -172,6 +172,7 @@ langCode|Yes|language code used | | eng or ara
 
 ### Example Request Header
 ##### Center-Machine-RefId = `10011_10011`
+##### timestamp = `2019-02-14T12:40:59.768Z`
 
 ### Example Request Body
 ```JSON
