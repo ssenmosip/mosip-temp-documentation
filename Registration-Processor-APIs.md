@@ -167,6 +167,8 @@ packetSize|Yes|size of encrypted packet in bytes| |5242880
 supervisorStatus|Yes|supervisor decision| |APPROVED, REJECTED
 supervisorComment|No|supervisor comments| |rejected because of error
 optionalValues|No|additional values to be passed during sync| |key, value pair
+langCode|Yes|language code used | | eng or ara
+
 
 ### Example Request Header
 ##### Center-Machine-RefId = `10011_10011`
@@ -179,7 +181,6 @@ optionalValues|No|additional values to be passed during sync| |key, value pair
 	"requesttime": "2019-02-14T12:40:59.768Z",
 	"request": [{
 			"registrationId": "80006444440002520181208094000",
-			"statusComment": "string",
 			"registrationType": "NEW",
 			"packetHashValue": "D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB",
 			"packetSize": 5242880,
