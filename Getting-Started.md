@@ -480,16 +480,22 @@ After these steps, our ceph infrastructure is ready with all the configurations 
 ##### Reference link: 
 <div>http://docs.ceph.com/docs/mimic/start/quick-start-preflight/</div>
 
-### 6.5 Steps to Install and configuration HDFS
+### 6.5 Steps to Install and configuration LDAP
+[ApacheDs Server installation and config](https://github.com/mosip/mosip/wiki/ApacheDs-Server-installation-and-config)
+
+[Apache Directory Studio user guide](https://github.com/mosip/mosip/wiki/Apache-Directory-Studio-user-guide)
+
+
+### 6.6 Steps to Install and configuration HDFS
 
 NOTE: Required only if HDFS is used for packet storage.
 
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
-### 6.6 Steps to install Kernel Key Manager Service
+### 6.7 Steps to install Kernel Key Manager Service
 Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
 
-### 6.7 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
+### 6.8 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
 
 mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
 
