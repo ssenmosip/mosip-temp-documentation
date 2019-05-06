@@ -1299,7 +1299,7 @@ Design has been finalized, implementation is in progress.
 
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
-* [GET /documents/:preRegistrationId](#get-documentspreregistrationid)
+* [GET /documents/preregistration/:preRegistrationId](#get-documentspreregistrationpreregistrationid)
 * [GET /documents/:documentId?preRegistrationId=:preRegistrationId](#get-documentsdocumentidpreregistrationidpreregistrationid)
 * [DELETE /documents/preregistration/:preRegistrationId](#delete-documentspreregistrationpreregsitrationid)
 * [DELETE /documents/:documentId?preRegistrationId=:preRegistrationId](#delete-documentsdocumentidpreregistrationidpreregistrationid)
@@ -1489,11 +1489,11 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 }
 ```
 
-### GET /documents/:preRegistrationId
+### GET /documents/preregistration/:preRegistrationId
 This request used to retrieve all documents metadata associated with particular pre-registration.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/documents/:preRegistrationId</div>
+<div>https://mosip.io/preregistration/v1/documents/preregistration/:preRegistrationId</div>
 
 #### Resource details
 Resource Details | Description
