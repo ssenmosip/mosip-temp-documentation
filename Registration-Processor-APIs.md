@@ -160,7 +160,6 @@ version|Yes|the version for sync|1.0 |1.0
 requesttime|Yes|the requesttime for sync| |2019-02-14T12:40:59.768Z
 request|Yes|the request object| |1.0
 registrationId|Yes|the registration id| |80006444440002520181208094000
-statusComment|No|the registration status comments| |packet created for 
 registrationType|Yes|the type of the registration| |NEW, UPDATE, LOST, ACTIVATE, DEACTIVATE, RES_UPDATE
 packetHashValue|Yes|the hash value of the encrypted packet| |D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB
 packetSize|Yes|size of encrypted packet in bytes| |5242880
@@ -194,7 +193,6 @@ langCode|Yes|language code used | | eng or ara
 		},
 		{
 			"registrationId": "10011100110002520181208094000",
-			"statusComment": "string",
 			"registrationType": "UPDATE",
 			"packetHashValue": "D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB",
 			"packetSize": 4242880,
