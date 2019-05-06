@@ -300,6 +300,8 @@ Name | Required | Description | Default Value | Example
 macaddress|No|MAC address of the machine| | 
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
+keyindex|No|Thumbprint of the public key corresponding to this machine| | 
+
 
 #### Request
 
@@ -770,6 +772,8 @@ regcenterId|Yes|Registration center id| |
 macaddress|No|MAC address of the machine| | 
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
+keyindex|No|Thumbprint of the public key corresponding to this machine| | 
+
 
 #### Request
 v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
