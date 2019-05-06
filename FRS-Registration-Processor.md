@@ -186,9 +186,15 @@ When the packet from the Registration Client has gone through the sanity checks,
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware)
 ### 3.2.4 ID Issuance 
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association
+When all the business validation are done, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the packet data to [**ID repository**](ID-Repository-API).
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)
+The Registration Processor stores or updates ID Repository during registration process and [**ID Authentication**](FRS-Authentication-Services) retrieves identity of an individual for their authentication.
+For more details about ID Repository, click the [**Wiki**](ID-Repository-API).
+
 ### 3.2.5 Capture Audit Trails/Analytics Data
 ## 3.3 Post-Processing
 ### 3.3.1 Notification (Pluggable by SI)
+Notification (SMS/Email as configured) is the final step of all the life cycle processes, which is received for an individual. System sends a notification to the individual for various life cycle scenarios such as, packet failure, UIN issuance, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI)
+After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 ### 3.3.3 Data Seeding to External Functional ID System (Pluggable by SI)
