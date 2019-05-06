@@ -277,6 +277,9 @@ Requires Authentication | Yes
 
 * [GET /publickey](#get-publickey)
 
+* [POST /uploadpublickey](#post-uploadpublickey)
+
+
 ## GET /masterdata
 
 This service will provides the list of all master data. This service is used mainly by the Enrolment client module. 
@@ -1518,6 +1521,60 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 }	
 ```
 
+### POST /uploadpublickey
+
+This service will upload the public key corresponding to a particular machine which are used in the MOSIP platform. This service will be used specifically in the Registration Client machines. 
+
+#### Resource URL
+<div>https://mosip.io/v1/syncdata/uploadpublickey </div> TODO
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | Form Data
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+machineName |Yes|Name of the machine| | MDLGE6273
+publickey |Yes|Public key of the passed machine| | multipart/formdata
+
+
+#### Request
+
+```
+-H "Content-Type: multipart/form-data" 
+-F "publickey={}" 
+-F "machineName=MDLGE6273" 
+```
+
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: The public key had been mapped to the machine
+```
+{
+  "id": "mosip.kernel.sync.publickeytomachine",
+  "version": "1.0",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": {
+	    "keyindex": "ThumbprintOfThePublickey"
+	}
+}
+
+```
 
 # UIN
 
