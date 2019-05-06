@@ -212,7 +212,7 @@ When the system verifies the data received with the data captured and finds an i
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
 When Biometric Deduplicates are found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)), the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware)
-The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with one or multiple ABISs ([**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface))). 
+The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with one or multiple ABISs [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface). 
 
 ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) is used to communicate between MOSIP system and ABIS.
 
