@@ -38,6 +38,7 @@
      * [3.2.4 ID Issuance](#324-id-issuance) 
        * [3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association](#3241-identity-generation-refer-to-uin-generation-service--incl-uin-generation-and-uin-association) _(RPR_FR_3.18)_
        * [3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)](#3242-storeupdate-id-repository-refer-to-id-auth) _(RPR_FR_3.19)_
+       * [3.2.4.3 Data Extractor for ID Authentication](#3243-data-extractor-for-id-authentication)
      * [3.2.5 Capture Audit Trails/Analytics Data](#325-capture-audit-trailsanalytics-data) _(RPR_FR_3.20)_
    * [3.3 Post-Processing](#33-post-processing) 
      * [3.3.1 Notification (Pluggable by SI)](#331-notification-pluggable-by-si) _(RPR_FR_3.21)_
