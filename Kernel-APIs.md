@@ -305,7 +305,7 @@ keyindex|No|Thumbprint of the public key corresponding to this machine| |
 
 #### Request
 
-<div>https://mosip.io/v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630 </div>
+<div>https://mosip.io/v1/syncdata/masterdata?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630&keyindex=ys6823u22 </div>
 
 #### Responses:
 ##### Success Response:
@@ -776,7 +776,7 @@ keyindex|No|Thumbprint of the public key corresponding to this machine| |
 
 
 #### Request
-v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630
+v1/syncdata/masterdata/10001?macaddress=e1:01:2b:c2:1d:b0&serialnumber=NM5328114630&keyindex=ys6823u22
 
 #### Responses:
 ##### Success Response:
