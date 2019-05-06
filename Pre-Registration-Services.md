@@ -1299,7 +1299,7 @@ Design has been finalized, implementation is in progress.
 
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
-* [GET /documents/preregistration/:preRegistrationId](#get-documentspreregistrationid)
+* [GET /documents/preregistration/:preRegistrationId](#get-documentspreregistrationpreregistrationid)
 * [GET /documents/:documentId?preRegistrationId=:preRegistrationId](#get-documentsdocumentidpreregistrationidpreregistrationid)
 * [DELETE /documents/preregistration/:preRegistrationId](#delete-documentspreregistrationpreregsitrationid)
 * [DELETE /documents/:documentId?preRegistrationId=:preRegistrationId](#delete-documentsdocumentidpreregistrationidpreregistrationid)
