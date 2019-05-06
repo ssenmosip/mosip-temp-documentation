@@ -9,10 +9,9 @@
    * [2.1 Orchestration](#21-orchestration) _(RPR_FR_2.1)_
    * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures) _(RPR_FR_2.2)_
    * [2.3 Resume Workflow](#23-resume-workflow) _(RPR_FR_2.3)_
-   * [2.4 Integration (System capability)](#24-integration-system-capability) _(RPR_FR_2.4)_
-   * [2.5 Workflow Customization (Ability to plug-in/exclude stages)](#25-workflow-customization-ability-to-plug-inexclude-stages) _(RPR_FR_2.5)_
-   * [2.6 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)](#26-multiple-workflows-specific-to-lifecycle--eg-new-vs-update-activation-vs-deactivation-applicant-type-specific-workflow) _(RPR_FR_2.6)_
-   * [2.7 Scalability and Throughput](#27-scalability-and-throughput) _(RPR_FR_2.7)_
+   * [2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages)](#24-integration-system-capability--workflow-customization-ability-to-plug-inexclude-stages) _(RPR_FR_2.4)_
+   * [2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)](#25-multiple-workflows-specific-to-lifecycle--eg-new-vs-update-activation-vs-deactivation-applicant-type-specific-workflow) _(RPR_FR_2.6)_
+   * [2.6 Scalability and Throughput](#26-scalability-and-throughput) _(RPR_FR_2.7)_
  - [3. Types of Stages](#3-types-of-stages) 
    * [3.1 Pre-processing Validations](#31-pre-processing-validations) 
      * [3.1.1 Sanity Check](#311-sanity-check) _(RPR_FR_3.1)_
@@ -69,12 +68,30 @@ When the country chooses to de-activate individual’s ID due to any specific re
 When the country chooses to re-activate individual’s ID due to any specific reason, the packets for UIN re-activate will go through the sanity checks and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
 # 2. Configurable Workflow
 ## 2.1 Orchestration
+Provides the flexibility to sequence micro services to achieve certain functionality.  This feature enables System Integrator to plug in micro services as per a country requirement.
+
+Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+
+Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+
 ## 2.2 Retry Processing (In case of exceptions/failures)
+If the system is unable to process a request due to Infrastructure failure or stuck at particular stage, then the system will retry processing the packet for a certain number of times (the threshold limit is configurable).
 ## 2.3 Resume Workflow
-## 2.4 Integration (System capability)
-## 2.5 Workflow Customization (Ability to plug-in/exclude stages)
-## 2.6 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)
-## 2.7 Scalability and Throughput
+If the packets processing is incomplete and is stuck at a particular stage due to some system exception, such as technical, components, and infrastructure failure (database, internal service, queue, etc.) then the system identifies the blocked packets, which are in processing stage and re-sends the packets to the particular stage where it has stopped.
+## 2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages) 
+System Integrator can integrate their system with MOSIP.
+
+Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+
+Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+
+## 2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)
+Multiple workflows increase reusability, readability, and maintainability of different micro services.
+## 2.6 Scalability and Throughput
+MOSIP is scalable so that it can handle any kind of processing load or request in future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is design in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
+
+Link to [**design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-processor/Approach_for_Back_Pressure_Handling.md)
+
 # 3. Types of Stages
 ## 3.1 Pre-processing Validations
 ### 3.1.1 Sanity Check
