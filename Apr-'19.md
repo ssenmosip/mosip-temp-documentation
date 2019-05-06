@@ -12,4 +12,4 @@
 |6.|Pre-registration|Test Execution Report|[Click to view](_files/PreReg_Testexecution_23rd_April.jpg)||
 |7.|Pre-registration|Upcoming Features|Pagination of application, API security, Audit log for booking & Data sync, Integration with Reg client & Reg Proc ||
 |8.|Pre-registration|Additional Prerequisite|SMS subscription for testing sms notifications, EMAIL server configuration for testing email notifications|We will help you configure these if you need help. Point of contact – Raj Kumar Jha |
-|9.|Kernel|Tested Code|[Tag: 10.3](/mosip/mosip/releases/tag/10.3)||
+|9.|Kernel|Tested Code|[Tag: 0.10.3](/mosip/mosip/releases/tag/0.10.3)||
