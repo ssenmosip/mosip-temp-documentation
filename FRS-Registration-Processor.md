@@ -226,9 +226,11 @@ For more details about ID Repository, click the [**Wiki**](ID-Repository-API).
 A stage that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.         
 
 ### 3.2.5 Capture Audit Trails/Analytics Data
+When any transaction is performed in MOSIP system or the packet fails any validations or any system level exception happens, then the same is captured as part of MOSIP Audit Trails.
 ## 3.3 Post-Processing
 ### 3.3.1 Notification (Pluggable by SI)
 Notification (SMS/Email as configured) is the final step of all the life cycle processes, which is received for an individual. System sends a notification to the individual for various life cycle scenarios such as, packet failure, UIN issuance, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI)
 After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 ### 3.3.3 Data Seeding to External Functional ID System (Pluggable by SI)
+If the country wants to Integrate with any External Functional ID Systems, MOSIP provides the capability to integrate with any External System.
