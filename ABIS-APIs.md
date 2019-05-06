@@ -25,10 +25,9 @@ Code | Reason
 -----| ------
 1 | Internal error - Unknown
 2 | Aborted
-3 | Unexpected error - Unable to access biometric data
+3 | Unexpected error
 4 | Unable to serve the request
-5 | Invalid request / Missing mandatory fields
-6 | Unauthorized Access
+5 | Missing reference id
 7 | Unable to fetch biometric details
 
 All the below operations send biometric data in CBEFF format. (Please refer to the [**link**](MOSIP-Biometric-Data-Specifications#cbeff-xml) for sample cbeff data)
@@ -59,6 +58,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "2",
+	"errorCode" : "1"
 	"failureReason" : ""
 }
 ```
@@ -96,17 +96,6 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"candidateList" : {
 	 "count" : "",
 	 "candidates" : [
-      {
-	   "referenceId" : "",
-	   "internalScore": "",
-	   "scaledScore" : "",
-	   "analytics": [
-	    {
-	     "key1": "value1",
-	     "key2": "value2"
-	    }
-       ]
-	},
 	{
 	 "referenceId" : "",
 	 "internalScore": "",
@@ -152,6 +141,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "2",
+	"errorCode" : "7"
 	"failureReason" : ""
 }
 ```
@@ -192,6 +182,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"returnValue" : "",
+	"errorCode" : "1"
 	"failureReason" : ""
 }
 ```
