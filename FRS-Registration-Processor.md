@@ -164,8 +164,14 @@ The system validates officer with password/OTP authentication if the officer or 
 ## 3.2 Processing
 ### 3.2.1 Individual Data Validations
 #### 3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check
+The system checks if the photo, age and gender captured by the registration officer while registering an individual using registration client are in sync. 
 #### 3.2.1.2 Biometrics Quality Check
+The system checks the quality of biometrics (Face Photo, Finger Print Image, and Iris Image) captured by the registration officer while registering an individual using registration client. 
+
+The system also checks the liveliness of the Finger Print Image captured of an individual and validates the photo captured as per ICOA (International Civil Aviation Organization) standards.
+
 #### 3.2.1.3 Doc. Validation - OCR 
+The system checks if some of the data captured while registering an individual using registration client is available in the document, which is uploaded using OCR (Optical Character Recognition).
 ### 3.2.2 Functional Validations
 #### 3.2.2.1 File & Document Validation
 When the files that are received from the Registration Client, the system first check the file’s availability in the registration packet. If available, then verifies the documents required for an individual based on the type of registration. Refer below for the process:
@@ -197,16 +203,26 @@ When the packet from the Registration Client has gone through the sanity checks,
 
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
+The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receives some data. Therefore, the system can verify the data captured during registration with the data received from the external system.
 #### 3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)
+MOSIP receives some data from the external system in form of Packet (as per MOSIP Standards). The MOSIP System has the capability to receive this updated packet and process it with the packet received from Registration Client.
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
+When the system verifies the data received with the data captured and finds an issue while comparing the data or a country wants to update the data after manually verifying the data. Then the System Integrator builds a Manual Verification Module for External System data mismatch. 
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
+When Biometric Deduplicates are found in ABIS, the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware)
+The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with one or multiple ABISs (Automated Biometric Identification System). 
+
+ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by ABIS is used to communicate between MOSIP system and ABIS.
+
 ### 3.2.4 ID Issuance 
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association
 When all the business validation are done, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the packet data to [**ID repository**](ID-Repository-API).
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)
 The Registration Processor stores or updates ID Repository during registration process and [**ID Authentication**](FRS-Authentication-Services) retrieves identity of an individual for their authentication.
 For more details about ID Repository, click the [**Wiki**](ID-Repository-API).
+#### 3.2.4.3 Data Extractor for ID Authentication
+A stage that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.         
 
 ### 3.2.5 Capture Audit Trails/Analytics Data
 ## 3.3 Post-Processing
