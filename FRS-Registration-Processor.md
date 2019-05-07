@@ -98,7 +98,7 @@ Link to [**design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-
 ### 3.1.1 Sanity Check
 After the packets received from the Registration Client, the system performs the sanity check as follows:
 1. **Authentication** - Authenticates the packet whether it is received from the verified source.
-2. **Virus Scan** - Performs a virus scan of that received packet and  move it to the DMZ file System. Refer below for the process:
+2. **Virus Scan** - Performs a virus scan of that received packet and moves the packet to the DMZ file system. Refer below for the process:
    * Sends the byte array of the encrypted packet to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the packet.
    * Sends the byte array of the encrypted packet received to decrypt the Packet.
@@ -120,9 +120,9 @@ After the packets received from the Registration Client, the system performs the
 
 ### 3.1.2 Virus Scan
 The system performs the virus scan in two different stages, which are listed below:
-1. Performs virus scan on the packet when the packet is received from Registration Client and move it to DMZ file system.
+1. When the packet is received from a Registration Client, the system performs virus scan of that packet and moves to the DMZ file system.
    * Refer to [**virus scan**](#311-sanity-check) of Sanity Check.
-2. Performs virus scan when the packet is picked from the DMZ file system to store the packet in packet store. Refer below for the process:
+2. When the packet is picked from the DMZ file system, the system performs virus scan of that packet and store the packet in packet store. Refer below for the process: 
    * Fetches the packet from DMZ file system.
    * Sends the byte array of the encrypted packet to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the request.
