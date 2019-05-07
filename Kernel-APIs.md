@@ -2,6 +2,8 @@
 
 * [Crypto Manager Service](#crypto-manager)
 
+* [OTP Manager Service](#otp-manager)
+
 * [Data Sync Service](#sync-data)
 
 * [UIN Service](#uin)
@@ -16,12 +18,9 @@
 
 * [Applicant Types Service](#applicant-type)
 
-* [Individual Types Service](#individual-types)
+* [Static Token Generator Service](#static-token-generator)
 
-* [Digital Signatures](#digital-signatures)
-
-* [Static Token generator](#static-token-generator)
- 
+* [RID Generator Service](#rid-generator)
 
 
 
@@ -178,6 +177,7 @@ Requires Authentication | Yes
 		"applicationId": "REGISTRATION",
 		"data": "string",
 		"referenceId": "REF01",
+		"salt": null,
 		"timeStamp": "2018-11-10T06:12:52.994Z"
 	}	  
 }
@@ -235,6 +235,7 @@ Requires Authentication | Yes
 		"applicationId": "REGISTRATION",
 		"data": "Fj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8_xC7trAOTqilzLjLfirE3Wjfor5b",
 		"referenceId": "REF01",
+		"salt": null,
 		"timeStamp": "2018-12-10T06:12:52.994Z"
 	}
 }
@@ -262,6 +263,113 @@ Requires Authentication | Yes
 }	
 ```
 
+
+# OTP Manager
+### POST OTP Generator
+This component facilitates generation of OTP for various purposes. EG: Login in Pre-registration
+
+The OTP Generator component will receive a request to generate OTP, validate if the OTP generation request is from an authorized source, call OTP generator API with the input parameters (Key), receive the OTP from the OTP generator API which is generated based on the OTP generation policy and respond to the source with the OTP.
+
+The OTP Generator can also reject a request from a blocked/frozen account and assign a validity to each OTP that is generated, based on the defined policy
+
+### Resource URL
+### `POST /generate`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+key |Yes|Key| | 9820173642
+
+
+
+### Example Request
+
+v1/otpmanager/otp/generate
+
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"request": {
+		"key": "9820173642"
+	}	
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "otp": "849004",
+	  "status": "GENERATION_SUCCESSFUL"
+	   }
+}
+```
+
+### Validator
+This component facilitates basic validation of an OTP. 
+
+This includes: Receiving a request for OTP validation with required input parameters (Key), Validating the pattern of OTP generated based on defined policy, validating if the OTP is active/inactive and responding to the source with a response (Valid/Invalid)
+
+This component also facilitates deletion of every successfully validated OTP when consumed and freezing an account for exceeding the number of retries/wrong input of OTP. 
+
+### Resource URL
+### `GET /validate`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+key |Yes|Key| | 9820173642
+otp|Yes|OTP| | 123456
+
+### Example Request
+
+v1/otpmanager/validate?key=9820173642&otp=123456
+
+### Example Response
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "status": "success",
+	  "message": "VALIDATION SUCCESSFUL"
+	   }
+}	
+```
 
 # Sync data
 
@@ -2182,14 +2290,13 @@ These set of services does various operations regarding the applicant type.
 
 * [GET /applicanttype/getApplicantType](#get-applicanttypegetApplicantType)
 
-* [GET /applicanttype/{applicantid}/languages](#get-applicanttypeapplicantidlanguages)
 
 ### GET /applicanttype/getApplicantType
 
 This service finds the Applicant type for the combination of Individual type code,Gender code ,DOB ,Biometric available and Language code. If there is a combination entry exists for these combinations, the corresponding Applicant Type code is returned. 
 
 #### Resource URL
-<div>https://dev.mosip.io/v1/applicanttype/getApplicantType</div>
+<div>https://mosip.io/v1/applicanttype/getApplicantType</div>
 
 #### Resource details
 Resource Details | Description
@@ -2214,27 +2321,24 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
   "metadata": {},
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "request": {
-		"attributes": [{
-				"attribute": "IndividualType",
-				"value": "Foreigner"
-			},
-			{
-				"attribute": "genderCode",
-				"value": "ML"
-			},
-			{
-				"attribute": "dateofbirth",
-				"value": "2008-10-04T05:00:00.000Z"
-			},
-			{
-				"attribute": "biometricAvailable",
-				"value": true
-			},
-			{
-				"attribute": "languagecode",
-				"value": "eng"
-			}
-		]
+    "attributes": [
+      {
+        "attribute": "individualTypeCode",
+        "value": "FR"
+      },
+      {
+        "attribute": "dateofbirth",
+        "value": "2012-03-08T11:46:12.640Z"
+      },
+      {
+        "attribute": "genderCode",
+        "value": "MLE"
+      },
+      {
+        "attribute": "biometricAvailable",
+        "value": false
+      }
+    ]
 
 	}
 }
@@ -2257,170 +2361,13 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
     }
   ],
 "response" : {
-		"applicationtypecode": "APP-C-94"
+		"applicationtypecode": "002"
 	}
 }
 ```
 
 
-## GET /applicanttype/{applicantid}/languages
 
-This service returns the document category and the document types associated with a particular applicant type. 
-
-#### Resource URL
-<div>https://dev.mosip.io/v1/masterdata/{applicantid}/languages?languages=fra&languages=eng </div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-applicantTypeCode|Yes|The code of the applicant type| -NA- |APP-C-94
-languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng,ara
-
-#### Request
-```JSON
--NA-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: license key suspended successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response" : {
-		"documentcategories": [
-			{
-				"id": "DOC_CAT_001", 
-				"value": "POA", 
-				"languagecode":"string",
-				"documenttypes": [
-					{
-						"code": "code", 
-						"name": "name", 
-						"descr":"descr", 
-						"lang_code":"lang_code", 
-						"is_active":"is_active
-					}
-				]			
-			}
-		]
-	}
-}
-```
-
-
-# Individual types
-
-These set of services does various operations regarding the Individual types.
-
-* [GET /individualtype/getAllIndividualTypes](#get-individualtypegetAllIndividualTypes)
-
-### GET /individualtype/getAllIndividualTypes
-
-This service returns all the individual types. 
-
-#### Resource URL
-<div>ttps://mosip.io/v1/masterdata/individualtypes</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-#### Request
-```JSON
--NA-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: fetched applicant type successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-		"individualtypes": [{
-			"code": "IND-C-94",
-			"name": "Foreign Child",
-			"lang_code": "eng",
-			"is_active": true
-		}]
-	}
-}
-```
-
-# Digital signatures
-
-#### Background
-
-Digital signatures are needed in various places of the MOSIP system. Few example can be, in the Registration client, the operator like to digitally sign the packet. Or, every request from the server can be digitally once again signed by the server. 
-
-#### Solution
-
-
-
-**The key solution considerations are**
-
-- Following are the steps to digitally sign the services in the system, 
-
-1. Create a hash for the web service response using cryptomanager APIs. 
-
-2. Encrypt the hash using the existing "/cryptomanager/v1.0/encrypt" service can be used. In the "referenceId", the value as "HASH" can be passed.
-
-3. Once the has is encrypted, the encrypted hash is sent as part of the header. 
-
-4. The client is supposed to have the latest public key which is active on that date. 
-
-5. Signature have to be enforced in the all the API's which the server hosts. 
-
-- Create a common utility java project which creates the signature. 
-
-- Use this common utility project, attach the signature in all the response. 
-
-
-
-**Module diagram**
-
-
-
-![Module Diagram](_images/kernel-cryptography-digitalsignature.jpeg)
-
-
-
-## Implementation
-
-
-**kernel-cryptography-digitalsignature** [README](../../../kernel/kernel-cryptography-digitalsignature/README.md)
 
 
 # Static Token generator
@@ -2483,5 +2430,49 @@ partnercode|Yes|ID of the partner.| -NA- |9373
              "message": "UIN and partner code cannot be empty"
             }
      ]
+}
+```
+
+
+# RID generator
+
+* [GET /v1/ridgenerator/generate/rid/10002/10032](#get-ridgenerator)
+
+### GET /generate/rid/{centerid}/{machineid}
+
+This service returns a RID for the requested CenterID and MachineID. 
+
+#### Resource URL
+<div>https://mosip.io/v1//generate/rid/{centerid}/{machineid}/</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+centerid|Yes|centerid of registration| -NA- |10002
+machineid|Yes|machineid of registration| -NA- |10032
+
+#### Request
+```JSON
+-NA-
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+```JSON
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2019-05-07T04:30:40.061Z",
+  "metadata": null,
+  "response": {
+    "rid": "10002100320001920190507043040"
+  },
+  "errors": null
 }
 ```
