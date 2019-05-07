@@ -1,7 +1,7 @@
 This section details about the REST services in ID Authentication module.
-* [Authentication Service](#authentication-service-public) - This service can be used by Partners to authenticate an Individual using otp, demo or bio based auth.
-* [eKYC Service](#ekyc-service-public) - This service can be used by Partners to retrieve KYC details of an Individual, after authenticating them using otp or bio based auth.
-* [OTP Request Service](#otp-request-service-public) - This service can be used by Partners to send OTP on behalf of Individual, which can then be used for OTP based auth
+* [Authentication Service](#authentication-service-public) - This service can be used by Partners to authenticate an Individual using OTP, Demographic or Biometric-based authentication.
+* [eKYC Service](#ekyc-service-public) - This service can be used by Partners to retrieve KYC details of an Individual, after authenticating them using OTP or Biometric-based authentication.
+* [OTP Request Service](#otp-request-service-public) - This service can be used by Partners to send OTP on behalf of Individual, which can then be used for OTP-based authentication.
 
 
 ## Authentication Service (Public)
@@ -9,12 +9,12 @@ This section details about the REST services in ID Authentication module.
 ### POST /idauthentication/v1/identity/auth/
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
 1. OTP based - OTP (Time based OTP)
-2. Demo based - Name, DOB, Age, Gender, Address, FullAddress
-3. Bio based - Fingerprint, IRIS and Face
+2. Demographic based - Name, DOB, Age, Gender, Address, FullAddress
+3. Biometric based - Fingerprint, IRIS and Face
 
 ### Users of Authentication service -
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
-2. `Partners` - Auth Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth Partners and sent to MOSIP, via MISP.
+2. `Partners` - Auth-Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth-Partners and sent to MOSIP, via MISP.
 
 #### Resource URL
 <div>https://mosip.io/idauthentication/v1/identity/auth/:Auth-Partner-ID/:MISP-LicenseKey</div>
@@ -215,9 +215,9 @@ Mandatory fields for different types of authentications-
 ## eKYC Service (Public)
 
 ### POST /idauthentication/v1/identity/kyc/
-This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Auth - 
-1. OTP Auth - OTP
-2. Bio Auth - Fingerprint, IRIS and Face
+This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Authentication - 
+1. OTP Authentication - OTP
+2. Biometric Authentication - Fingerprint, IRIS and Face
 
 ### Resource URL
 <div>https://mosip.io/idauthentication/v1/identity/kyc/:eKYC-Partner-ID/:MISP-LicenseKey</div>
