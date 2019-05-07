@@ -479,8 +479,7 @@ The system receives authentication request from partner with the following param
 
 **KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.**
 
-The system receives pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType),otp, secondaryLangCode attribute of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-
+The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 The system then validates the following:
 
@@ -504,6 +503,8 @@ The system then validates the following:
 19. The system proceeds to execute Notification-SMS
 20. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
+Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) for more details.
+
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/eKYC_Auth_Request_REST_service.md)
 
 
@@ -513,8 +514,7 @@ The system then validates the following:
 **Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
-1. Receives a pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, <demo/bio/otp> attribute of the Individual 
-Please refer [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 2. Validates if the MISP-LK has not expired
 3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
 4. Validates if the MISP-LK status is active
