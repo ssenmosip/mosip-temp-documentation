@@ -58,8 +58,8 @@ When an individual goes to the registration center, the registration officer or 
 After the packets for new ID issuance are received from the Registration Client and has passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 ## 1.2 Update Individual’s Information
 After the packets for update are received from the Registration Client or Residential Portal and have passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
-1. Packets that are received through Registration Client updates the individual’s Biometric and demographic details.
-1. Packets that are received through Residential Portal updates the individual’s address and contact information.
+1. Packets that are received through Registration Client, updates the individual’s Biometric and demographic details.
+1. Packets that are received through Residential Portal, updates the individual’s address and contact information.
 
 After the individual’s information is updated, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 
@@ -107,7 +107,7 @@ After the packets received from the Registration Client, the system performs the
    * If the virus scanner finds a virus, then the system rejects the packet.
    * If the virus scanner do not finds a virus, then the system moves the packet to DMZ file system. 
 3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares with that of the hash sequence received from the registration client, to verify that the packet was not tempered during transit. Refer below for the process:
-   * Fetches the hash sequence for the registration id from registration sync list table.
+   * Fetches the hash sequence for the registration id from registration-sync list table.
    * If registration id is not available then responds with an error code.
    * Calculates the hash sequence using the check sum utility.
    * Compares the hash sequences and if the hash sequences do not match, then responds with an error code. If the hash sequence matches then the system proceeds further to another step.
@@ -160,7 +160,7 @@ System fetches the officer details and/or supervisor details from the master lis
 The system sends the UIN, face image, iris image, and finger print image of the operator and supervisor to ID Authentication and receives a response as "TRUE" or "FALSE" to authenticate the operator and supervisor. If the biometric is valid, then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
 
 #### C. Authenticate using OTP and Password Validation
-The system validates officer with password/OTP authentication if the officer or supervisor ID is available but all biometrics (iris, fingerprint, face, pin) of officer or supervisor are null. In that case, the system checks if any of the officer or supervisor bio-metrics are available and officer or supervisor password/OTP is valid then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
+The system validates officer with password/OTP authentication if the officer or supervisor ID is available but all biometrics (iris, fingerprint, face, pin) of officer or supervisor are null. In that case, the system checks if any of the officer or supervisor biometrics are available and officer or supervisor password/OTP is valid then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
 
 ## 3.2 Processing
 ### 3.2.1 Individual Data Validations
