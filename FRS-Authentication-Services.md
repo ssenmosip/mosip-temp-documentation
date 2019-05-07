@@ -520,15 +520,16 @@ MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (
 4. Validates if the MISP-LK status is active
 5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
 6. Captures and stores the transaction details for audit purpose.
-7. Alerts and warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+7. Alerts and warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+
+Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
 
 
 ## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
 
 **Authenticate and authorize Auth Partner- proxy implementation**
 
-The system receives authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, <demo/bio/otp> attribute of the Individual 
-Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 The system then validates the following:
 1. Validates the digital signature in the certificate
