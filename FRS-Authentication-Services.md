@@ -134,10 +134,9 @@ Please refer to the [**Biometric Authentication services API**](ID-Authenticatio
 
 **G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold** [**[↑]**](#table-of-content)
 
-The system receives authentication service request with the following parameters: 
-individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType)
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system retrieves generated score match
-2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
+1. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. The system then validated the following:
    * Validates if single irisImg records are present in the input
@@ -146,12 +145,13 @@ individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, vers
    * Validates if two irisImg records are present in the input
    * Retrieves the composite threshold level configured which is acceptable for a match
    * Validates if the composite match score is equal to greater than the composite threshold
-5. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err 
-1. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err 
 1. The system proceeds to execute compare against Iris threshold
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).  
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
+
+Please refer to the [**Biometric Authentication services API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
