@@ -546,6 +546,8 @@ The system then validates the following:
 13. The system proceeds to execute Notification SMS
 14. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
+Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
+
 
 # 6. Authentication Device Support 
 ## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-content)
