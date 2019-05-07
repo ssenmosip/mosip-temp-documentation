@@ -10,6 +10,10 @@ ifconfig
 ```
 The steps below use below IPs for each node. Adjust /etc/hosts on all nodes according to your configuration:
 NOTE: while adding same machine ip to /etc/hosts , use private ip that machine instead of public ip. for other machine in the cluster use public ip.
+example: Editing the Master node VM /etc/hosts file  use private IP of Master node and public IP of the Slave node
+         Editing the Slave node  VM /etc/hosts file use private IP of Slave node and Public IP of Master node 
+
+
 
 ```
 10.0.22.11 node-master.example.com
