@@ -21,3 +21,7 @@ Since Registration client must work in offline mode, there is a possibility of c
 ## Logical view
 
 ![Registration client Logical View](_images/diagram_source/MOSIP_registration_client_architecture_v0.1.png)
+
+## Component Architecture  
+![Registration client Component View](_images/arch_diagrams/MOSIP_RegistrationClient_Component_Architecture.png)  
+
