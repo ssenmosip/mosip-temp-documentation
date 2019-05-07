@@ -100,7 +100,7 @@ Name | Required | Description |  Example
 -----|----------|-------------|--------
 applicationId |Yes|Id of the application| REGISTRATION,IDA
 referenceId|No|Id of the Machine/MISP|
-timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
+timeStamp (encryption timestamp) |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
 
@@ -152,7 +152,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 ### POST v1/cryptomanager/encrypt
 
-This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key. This will respond combined encrypted data and symmetric key having a key splitter.  
+This service will encrypt provided plain string data with session symmetric key and encrypt symmetric key with application specific public key based on given timestamp(current timestamp of encryption). This will respond combined encrypted data and symmetric key having a key splitter.  
 
 #### Resource URL
 <div>https://mosip.io/v1/cryptomanager/encrypt</div>
@@ -209,7 +209,7 @@ Requires Authentication | Yes
 
 ### POST v1/cryptomanager/decrypt
 
-This service will decrypt encryted data along with symmetric key having splitter. 
+This service will decrypt encryted data along with symmetric key having splitter for given timestamp(encryption timestamp). 
 
 #### Resource URL
 <div>https://mosip.io/v1/cryptomanager/decrypt</div>
