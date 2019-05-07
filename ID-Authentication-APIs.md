@@ -12,7 +12,7 @@ This service details authentication (yes/no auth) that can be used by Partners t
 2. Demo based - Name, DOB, Age, Gender, Address, FullAddress
 3. Bio based - Fingerprint, IRIS and Face
 
-Users of Authentication service - 
+**Users of Authentication service - **
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - Auth Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth Partners and sent to MOSIP, via MISP.
 
