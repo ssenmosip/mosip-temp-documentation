@@ -28,7 +28,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 4. System validates that total number of face record(s) should not exceed 1
-5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+5. The face record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 6. The system then generates a match score based on the level of the match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold
