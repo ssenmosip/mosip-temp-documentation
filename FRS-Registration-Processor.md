@@ -161,7 +161,9 @@ System fetches an officer and/or a supervisor details from the master list using
 The system sends the UIN, face image, iris image, and finger print image of the operator and supervisor to ID Authentication and receives a response as "TRUE" or "FALSE" to authenticate the operator and supervisor. If the biometric is valid, then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
 
 #### C. Authenticate using OTP and Password Validation
-The system validates an officer with a password/OTP authentication if the officer or supervisor ID is available but all biometrics (iris, fingerprint, face, pin) of the officer or the supervisor are null. In that case, the system checks if any of the officer or supervisor bio-metrics are available and officer or supervisor password/OTP is valid then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
+The system validates an officer or a supervisor with a password/OTP authentication only if the officer or supervisor ID is available in the packet.
+1. If the officer or supervisor ID is available in the packet but not the biometrics (iris, fingerprint, face, pin) o details, then the system validates with a password/OTP authentication and response as TRUE for authenticated user.
+1. If any of the officer or supervisor bio-metrics are available and officer or supervisor password/OTP is valid then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
 
 ## 3.2 Processing
 ### 3.2.1 Individual Data Validations
