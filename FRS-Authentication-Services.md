@@ -93,8 +93,8 @@ for more details.
 Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better as per the below process:
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
-2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
-3. The system validated the following:
+1. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
+1. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
    * Validates if single finger print record contains more than one finger
