@@ -104,8 +104,8 @@ Upon receiving an authentication request, the system support two-finger authenti
 1. Matches second finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. Then generates a match score (using SDK) based on the level of the match for the second fingerprint
 1. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
-1. The actor retrieves the composite finger threshold configured which is acceptable for a match
-1. The actor validates if the composite match score is equal to greater than the composite finger threshold
+1. The system retrieves the composite finger threshold configured which is acceptable for a match
+1. The system validates if the composite match score is equal to greater than the composite finger threshold
 1.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
