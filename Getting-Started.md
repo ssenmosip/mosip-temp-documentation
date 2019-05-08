@@ -267,7 +267,10 @@ $ sudo firewall-cmd –reload <br/>
 ##### Bind SSL certificate to work https 
 **  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)
 
+** need to run below command to solve the permisstion issues in nginx reffer blow link
 
+https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx
+setsebool -P httpd_can_network_connect 1
 ##### Reference link:
 <div>https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7</div>
 
