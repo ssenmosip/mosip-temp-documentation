@@ -29,7 +29,7 @@ An individual will execute the following procedure to initiate the track status 
    not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error 
    notification.
 
-## 2. Generate Virtual ID
+## 2. Generate Virtual ID [**[↑]**](#table-of-content)
 ## 3. Download UIN [**[↑]**](#table-of-content)
 The system allows an individual to raise a request to download his/her e-UIN.
 
