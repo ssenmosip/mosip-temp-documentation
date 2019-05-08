@@ -32,5 +32,5 @@
 |4.|Registration|Known Defects and Pending Items|[Click to View](/mosip/mosip/wiki/Deliverables---Attachments)|Refer Section 4 in the linked page|
 |5.|Registration|Test Cases|[Click to view](//mosipid.atlassian.net/browse/MOS-17241?jql=project%20%3D%2010000%20AND%20issuetype%20%3D%20Test%20and%20%22Epic%20Link%22%3DMOS-2)||
 |6.|Registration|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Pre-Registration/Mindmaps)||
-|7.|Registration|[Tag: 0.8.13](/mosip/mosip/releases/tag/0.8.13)||
+|7.|Registration|Tested code|[Tag: 0.8.13](/mosip/mosip/releases/tag/0.8.13)||
 |8.|Registration Api|Test Cases|[Click to View](/mosip/mosip/wiki/Testing-Attachments-PreRegistration-Api)|
