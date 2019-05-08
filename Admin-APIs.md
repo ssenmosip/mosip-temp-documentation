@@ -4,6 +4,8 @@
 
 * [GET /authfactors](#get-authfactors)
 * [POST /useridPwd](#post-useridPwd)
+* [POST /sendotp](#post-sendotp)
+* [POST /useridOTP](#post-useridOTP)
 
 
 ### GET /authfactors
