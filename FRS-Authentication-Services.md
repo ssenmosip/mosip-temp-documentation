@@ -288,10 +288,10 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 1. Upon receiving an authentication request the system validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system generates the OTP for the request. (Use < product_id >_< encoded token_id >_< txn_id > < MUA Code >logic to generate a unique key for this OTP generation request; The system calls the Core kernel OTP generator component by passing the unique key; The system receives the OTP from the Core kernel component)
+2. The system generates the OTP for the request
 3. Retrieves the mode of communication (i.e) e-mail or phone no configured for sending the OTP
 4. The system validates if the configured mode of communication is also registered and triggers and OTP 
-5.  Constructs the authentication response based on validation results with masked mobile and masked e-mail
+5. Constructs the authentication response based on validation results with masked mobile and masked e-mail
 6. The system proceeds to validate OTP as per the defined standards
 7. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -305,7 +305,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 1. Upon receiving an authentication request with required parameters a the system validates if the transaction id matches with transaction id value of OTP Generation Request
 2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 3. Validates if the OTP in the input parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
-4. The system validates the validity of the OTP 
+4. The system checks the validity of the OTP 
 5. Constructs the authentication response based on validation results
 6. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -323,28 +323,23 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
-**D. Respond with masked e-mail and masked phone no for OTP trigger request so that the partner can intimate the individual on the mode of communication of the OTP**
+**D. Respond with masked e-mail and masked phone no for OTP trigger request **
 
-The system follows the following steps to include masked e-mail and phone in the info object in the response
-1. Retrieves the mode to which OTP will be sent based on the validation for modes 
-   * Validates if the configured mode of communication is also registered
-   * If the configured mode is also registered
-   * Send OTP to the configured and registered mode
-   * If the configured mode = e-mail and Registered Mode is Mobile; then
-   * Send OTP to Mobile
-   * If the configured mode = phone and Registered Mode is e-mail; then
-   * Send OTP to e-mail
-   * If registered mode is none, then
-   * Send error code. 
+The system follows the following steps to include masked e-mail and phone in the OTP request response
+1. Retrieves the mode to which OTP will be sent as per the below logic
+   * If the configured mode of communication is also registered sends OTP to the configured and registered mode
+   * If the configured mode = e-mail and Registered Mode is Mobile; then sends OTP to Mobile
+   * If the configured mode = phone and Registered Mode is e-mail; then sends OTP to e-mail
+   * If registered mode is none, then send error code. 
 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 2. If the communication mode = mobile
-3. Mask the mobile no of the individual as per logic below and include the masked mobile in info object of response
+3. Mask the mobile no of the individual as per logic below and include the masked mobile in the OTP request response
 4. If the communication mode = e-mail
-5. Mask the e-mail of the individual as per the logic below and include the masked e-mail in info object of response
+5. Mask the e-mail of the individual as per the logic below and include the masked e-mail in the OTP request response
 6. If the communication mode = mobile and e-mail
-7. Mask both the mobile no and the email as per the logic below and include the both in info object of response
+7. Mask both the mobile no and the email as per the logic below and include the both in the OTP request response
  
 **Logic for masking mobile** [**[↑]**](#table-of-content)
 
