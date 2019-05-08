@@ -14,7 +14,7 @@
   * [11. Revoke/In-activate a Virtual ID](#2-generate-virtual-id) _(RES_FR_11)_
 
 # Resident Services
-## 1. Track status of UIN Generation by providing Registration ID
+## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an RID.
 
 An individual will execute the following procedure to initiate the track status request related to UIN generation:
