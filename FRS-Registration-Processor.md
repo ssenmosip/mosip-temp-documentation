@@ -48,25 +48,25 @@
 # Registration Processor
 # 1. ID Lifecycle Management
 
-When an individual visits the registration center, the registration officer or supervisor captures the Demographic and Biometric details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packets received from the Registration Client must pass the sanity checks and validations to carry out the following processes:
+When an individual visits the registration center, the registration officer or supervisor captures the Demographic and Biometric details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packets received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
 * New ID Issuance
 * Update individual’s information
 * De-activate individual’s ID
 * Re-activate individual’s ID
 
 ## 1.1 New ID Issuance
-After the packets for new ID issuance are received from the Registration Client and has passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
+After the packets for new ID issuance are received from the Registration Client and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 ## 1.2 Update Individual’s Information
-After the packets for update are received from the Registration Client or Residential Portal and have passed the sanity checks and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
+After the packets for update are received from the Registration Client or Residential Portal and have passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
 1. Packets that are received through Registration Client, updates the individual’s Biometric and demographic details.
 1. Packets that are received through Residential Portal, updates the individual’s address and contact information.
 
 After the individual’s information is updated, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 
 ## 1.3 De-activate individual’s ID
-When the country chooses to de-activate individual’s ID due to any specific reason, the packets for UIN de-activate will go through the sanity checks and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
+When the country chooses to de-activate individual’s ID due to any specific reason, the packets for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
 ## 1.4 Re-activate individual’s ID
-When the country chooses to re-activate individual’s ID due to any specific reason, the packets for UIN re-activate will go through the sanity checks and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
+When the country chooses to re-activate individual’s ID due to any specific reason, the packets for UIN re-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
 # 2. Configurable Workflow
 ## 2.1 Orchestration
 MOSIP provides the flexibility to sequence micro services to achieve certain functionality. This feature enables System Integrator to plug in micro services as per a country requirement.
