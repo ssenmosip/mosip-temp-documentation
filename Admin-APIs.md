@@ -159,3 +159,231 @@ Error Responses
 }
 
 ```
+
+### POST /sendotp
+
+This service sends an OTP to the user. The caller of this service have to send the channel in which the OTP will be sent. Based on the application ID, the corresponding channel's recepient address will be found out and the OTP is send accordingly. Note: At this point of time, no Auth Token will be generated. 
+
+#### Resource URL
+<div>https://mosip.io/v1/admin/sendotp</div>
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | A JSON message will be returned. 
+Requires Authentication | no
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+userid|Yes|This is the userid of the user. Based on the useridtype, this will vary.| -NA- | M392380
+otpchannel|Yes|This is the channel in which the OTP will be sent. It is an array of the enumeration {"EMAIL", "MOBILENUMBER"}. If the channel is not found, ChannelNotSupported error will be sent back| -NA- | MOBILENUMBER
+useridtype|Yes|This field is the user id type. It should be one the {"UIN", "USERID"}. Based on the combination of "appid" and "useridtype" the system identifies from which system to pickup the channel's recepient address| -NA- | USERID
+appid|Yes|This is the application ID of the caller of this service. It should be on of the {"PREREGISTRATION", "REGISTRATIONCLIENT", "REGISTRATIONPROCESSOR", "IDA"}| -NA- | PREREGISTRATION
+
+#### Example Request
+```JSON
+{
+	"id": "mosip.admin.authentication.sendotp",
+	"version":"1.0",	
+	"requesttime":"2007-12-03T10:15:30Z",
+	"request": {
+		"userid": "M392380",
+		"otpchannel": ["MOBILE", "EMAIL"],
+		"templateParams": {
+			"expiryTime":"20 minutes",
+			"purpose":"Changing password",
+		}
+		"useridtype": "USERID",
+		"appid": "REGISTRATIONCLIENT"
+	}
+}
+```
+#### Example Response
+
+Success Response 
+
+```JSON
+{
+	"id": "mosip.admin.authentication.sendotp",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+                "status": "success",
+		"message":"OTP had been sent successfully"
+	}
+}
+
+```
+
+Error Response 
+
+1. Invalid Channel: This is the error response in case if the channel is not valid. 
+
+```JSON
+{
+	"id": "mosip.admin.authentication.sendotp",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_AUTH_ERR_CHANNEL_INVALID",
+				"message": "The passed channel is invalid."
+		  }	
+		]
+}
+
+```
+
+2. Multiple channels not supported: In case, if the caller can send only one channel, then this error will be sent. For example, Pre-Registration module cannot have multiple channels. 
+
+```JSON
+{
+	"id": "mosip.admin.authentication.sendotp",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_AUTH_ERR_MULTIPLE_CHANNELS",
+				"message": "Multiple channels are not supported in your module."
+		  }	
+		]
+}
+
+```
+
+
+
+3. User not found: If the passed is not found in the system. 
+
+```JSON
+{
+	"id": "mosip.admin.authentication.sendotp",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_AUTH_ERR_USER_NOT_FOUND",
+				"message": "The passed in user is not found"
+		  }	
+		]
+}
+
+```
+
+
+4. Channel path not found: If the channel's path is not found. For example, if the channel is email and the email ID is not found for that user. 
+
+```JSON
+{
+	"id": "mosip.admin.authentication.sendotp",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_AUTH_ERR_CHANNELPATH_NOT_FOUND",
+				"message": "The passed in user is not found"
+		  }	
+		]
+}
+
+```
+### POST /useridOTP
+
+This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header. 
+
+#### Resource URL
+<div>https://mosip.io/v1/admin/useridOTP</div>
+
+#### `POST /v1.0/admin/useridOTP`
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | The response will be sent in the Response Header and also a JSON message will be returned. 
+Requires Authentication | no
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+userid|Yes|This is the userid of the user against which the OTP had been sent. Based on the useridtype, this will vary.| -NA- | M392380
+otp|Yes|This is OTP which is sent to the userid's preferred channel| -NA- | 6473
+
+
+#### Example Request
+```JSON
+{
+	"id": "mosip.admin.authentication.useridOTP",
+	"version":"1.0",	
+	"requesttime":"2007-12-03T10:15:30Z",
+	"request": {
+		"userid": "M392380",
+		"otp": "6473"
+	}
+}
+```
+#### Example Response
+
+Success Response 
+
+
+```
+Response Cookie:
+
+Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+
+
+JSON Response:
+{
+	"id": "mosip.admin.authentication.useridOTP",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"response": {
+                "status": "success",
+		"message":"OTP validation is successfull"
+	}
+}
+
+```
+
+
+Error Responses
+
+1. Invalid OTP: If the passed OTP is not valid. 
+
+```JSON
+
+{
+	"id": "mosip.admin.authentication.useridOTP",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_AUTH_ERR_INVALIDOTP",
+				"message": "The passed in OTP is invalid"
+		  }	
+		]
+}
+
+```
+
+
+2. Expired OTP: If the passed OTP is expired. 
+
+```JSON
+
+{
+	"id": "mosip.admin.authentication.useridOTP",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN_AUTH_ERR_EXPIREDOTP",
+				"message": "The passed OTP is expired"
+		  }	
+		]
+}
+```
+
