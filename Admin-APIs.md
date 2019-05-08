@@ -35,20 +35,14 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-  "id": "mosip.io.authfactors",
-  "version": "1.0",
-  "metadata": {},
-  "responsetime": "2007-12-03T10:15:30Z",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-			["PASSWORD", "OTP", "FINGERPRINT_TYPE-1"]
-	    }
-	
+	"id": "mosip.admin.authfactors",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors": [],
+	"response": {
+		"authtypes": ["PASSWORD", "OTP", "FINGERPRINT_TYPE-1"]
+	}
 }
 ```
 
@@ -58,13 +52,13 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-  "id": "mosip.io.authfactors",
+  "id": "mosip.admin.authfactors",
   "version": "1.0",
   "metadata": {},
   "responsetime": "2007-12-03T10:15:30Z",
   "errors": [
     {
-      "errorCode": "ADMN-AUTH-001",
+      "errorCode": "ADMN-AUTH-USR-NOTFOUND",
       "message": "The userid is not found in the system"
     }
   ]
@@ -90,7 +84,7 @@ Requires Authentication | no
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 username|Yes|This is the username of the user. | -NA- | M392380
-password|Yes|This is the channel in which the OTP will be sent. It should be one of the {"EMAIL", "MOBILENUMBER"}| -NA- | MOBILENUMBER
+password|Yes|This is the password of the user| -NA- | MOBILENUMBER
 appid|Yes|This is the application ID of the caller of this service.| -NA- | ADMIN
 
 #### Example Request
@@ -102,7 +96,7 @@ appid|Yes|This is the application ID of the caller of this service.| -NA- | ADMI
 	"request": {
 		"username": "M392380",
 		"password": "fdkj943lkj32k32ew$8Kf",
-		"appid": "REGISTRATIONCLIENT"
+		"appid": "ADMIN"
 	}
 }
 ```
@@ -136,12 +130,12 @@ Error Responses
 ```JSON
 
 {
-	"id": "mosip.authentication.useridPwd",
+	"id": "mosip.admin.authentication.useridPwd",
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"errors":[
 			{
-				"errorCode": "AUTH_ERR_INVALIDCREDENTIALS",
+				"errorCode": "ADMN_AUTH_ERR_INVALIDCREDENTIALS",
 				"message": "The passed in credentials is not correct"
 		  }	
 		]
@@ -153,12 +147,12 @@ Error Responses
 ```JSON
 
 {
-	"id": "mosip.authentication.useridPwd",
+	"id": "mosip.admin.authentication.useridPwd",
 	"ver": "1.0",
 	"responsetime": "2007-12-03T10:15:30Z",
 	"errors":[
 			{
-				"errorCode": "AUTH_ERR_INVALIDAPPID",
+				"errorCode": "ADMN_AUTH_ERR_INVALIDAPPID",
 				"message": "The passed in application ID is not correct"
 		  }	
 		]
