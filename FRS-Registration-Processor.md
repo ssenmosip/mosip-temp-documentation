@@ -55,18 +55,18 @@ When an individual visits the registration center, the registration officer or s
 * Re-activate individual’s ID
 
 ## 1.1 New ID Issuance
-After the packet for new ID issuance is received from the Registration Client and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
+After the packet for a new ID issuance is received from the Registration Client and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 ## 1.2 Update Individual’s Information
-After the packet for update is received from the Registration Client or Residential Portal and have passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
+After the packet for update is received from the Registration Client or Residential Portal and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
 1. Packet that is received through Registration Client, updates the individual’s Biometric and demographic details.
 1. Packet that is received through Residential Portal, updates the individual’s address and contact information.
 
 After the individual’s information is updated, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 
 ## 1.3 De-activate individual’s ID
-When the country chooses to de-activate individual’s ID due to any specific reason, the packet for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
+When a country or an individual chooses to de-activate an individual’s ID due to any specific reason, the packet for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
 ## 1.4 Re-activate individual’s ID
-When the country chooses to re-activate individual’s ID due to any specific reason, the packet for UIN re-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
+When a country or an individual chooses to re-activate an individual’s ID due to any specific reason, the packet for UIN re-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
 # 2. Configurable Workflow
 ## 2.1 Orchestration
 MOSIP provides the flexibility to sequence micro services to achieve certain functionality. This feature enables System Integrator to plug in micro services as per a country requirement.
@@ -89,14 +89,14 @@ Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor
 ## 2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)
 Multiple workflows increase reusability, readability and maintainability of different micro services.
 ## 2.6 Scalability and Throughput
-MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is design in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
+MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is designed in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
 
 Link to [**design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-processor/Approach_for_Back_Pressure_Handling.md)
 
 # 3. Types of Stages
 ## 3.1 Pre-processing Validations
 ### 3.1.1 Sanity Check
-After the packet received from the Registration Client, the system performs the sanity check as follows:
+After the packet is received from the Registration Client, the system performs the sanity check as follows:
 1. **Authentication** - Authenticates the packet whether it is received from the verified source.
 2. **Virus Scan** - Performs a virus scan of that received packet and moves the packet to the DMZ file system. Refer below for the process:
    * Sends the byte array of the encrypted packet to the virus scanner.
@@ -106,9 +106,9 @@ After the packet received from the Registration Client, the system performs the 
    * Sends the byte array of the decrypted Packet received to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the packet.
    * If the virus scanner does not find a virus, then the system moves the packet to DMZ file system.
-3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares with that of the hash sequence received from the registration client, to verify that the packet was not tempered during a transit. Refer below for the process:
-   * Fetches the hash sequence for the registration id from registration-sync list table.
-   * If registration id is not available then responds with an error code.
+3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares it with the hash sequence received from the registration client, to verify that the packet was not tempered during a transit. Refer below for the process:
+   * Fetches the hash sequence for the registration ID from registration-sync list table.
+   * If registration ID is not available then responds with an error code.
    * Calculates the hash sequence using the check sum utility.
    * Compares the hash sequences and if the hash sequences do not match, then responds with an error code. If the hash sequence matches then the system proceeds further to another step.
 4. **Packet Size Check** - Calculates the size of the packet received and compares with that of the packet size received from the registration client, to verify that the packet was not tempered during a transit.
@@ -234,4 +234,4 @@ Notification (SMS/Email as configured) is the final step of all the life cycle p
 ### 3.3.2 Print & Post (Pluggable by SI)
 After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 ### 3.3.3 Data Seeding to External Functional ID System (Pluggable by SI)
-If the country wants to Integrate with any External Functional ID Systems, MOSIP provides the capability to integrate with any External System.
+If a country wants to Integrate with any External Functional ID Systems, MOSIP provides the capability to integrate with any External System.
