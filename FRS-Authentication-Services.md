@@ -138,10 +138,10 @@ Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#au
 1. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. The system then validated the following:
-   * Validates if single irisImg records are present in the input
+   * Validates if single iris records are present in the input
    * Retrieves the threshold level configured which is acceptable for a match
    * Validates if the match score is equal to greater than the threshold level
-   * Validates if two irisImg records are present in the input
+   * Validates if two iris records are present in the input
    * Retrieves the composite threshold level configured which is acceptable for a match
    * Validates if the composite match score is equal to greater than the composite threshold
 6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err 
