@@ -48,25 +48,25 @@
 # Registration Processor
 # 1. ID Lifecycle Management
 
-When an individual visits the registration center, the registration officer or supervisor captures the Demographic and Biometric details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packets received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
+When an individual visits the registration center, the registration officer or supervisor captures the Demographic and Biometric details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
 * New ID Issuance
 * Update individual’s information
 * De-activate individual’s ID
 * Re-activate individual’s ID
 
 ## 1.1 New ID Issuance
-After the packets for new ID issuance are received from the Registration Client and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
+After the packet for new ID issuance is received from the Registration Client and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 ## 1.2 Update Individual’s Information
-After the packets for update are received from the Registration Client or Residential Portal and have passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
-1. Packets that are received through Registration Client, updates the individual’s Biometric and demographic details.
-1. Packets that are received through Residential Portal, updates the individual’s address and contact information.
+After the packet for update is received from the Registration Client or Residential Portal and have passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the demographic deduplication (using name, date of birth, and gender) and biometric deduplication (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
+1. Packet that is received through Registration Client, updates the individual’s Biometric and demographic details.
+1. Packet that is received through Residential Portal, updates the individual’s address and contact information.
 
 After the individual’s information is updated, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
 
 ## 1.3 De-activate individual’s ID
-When the country chooses to de-activate individual’s ID due to any specific reason, the packets for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
+When the country chooses to de-activate individual’s ID due to any specific reason, the packet for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
 ## 1.4 Re-activate individual’s ID
-When the country chooses to re-activate individual’s ID due to any specific reason, the packets for UIN re-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
+When the country chooses to re-activate individual’s ID due to any specific reason, the packet for UIN re-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
 # 2. Configurable Workflow
 ## 2.1 Orchestration
 MOSIP provides the flexibility to sequence micro services to achieve certain functionality. This feature enables System Integrator to plug in micro services as per a country requirement.
@@ -78,7 +78,7 @@ Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor
 ## 2.2 Retry Processing (In case of exceptions/failures)
 If the system is unable to process a request due to infrastructure failure or stuck at a particular stage, then the system will retry processing the packet for a certain number of times (the threshold limit is configurable).
 ## 2.3 Resume Workflow
-If the packets processing is incomplete and is stuck at a particular stage due to some system exception, such as technical, components, and infrastructure failure (database, internal service, queue, etc.) then the system identifies the blocked packets, which are in processing stage and re-sends the packets to the particular stage where it has stopped.
+If the packet processing is incomplete and is stuck at a particular stage due to some system exception, such as technical, components, and infrastructure failure (database, internal service, queue, etc.) then the system identifies the blocked packets, which are in processing stage and re-sends the packet to the particular stage where it has stopped.
 ## 2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages) 
 System Integrator can integrate their system with MOSIP.
 
@@ -96,7 +96,7 @@ Link to [**design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-
 # 3. Types of Stages
 ## 3.1 Pre-processing Validations
 ### 3.1.1 Sanity Check
-After the packets received from the Registration Client, the system performs the sanity check as follows:
+After the packet received from the Registration Client, the system performs the sanity check as follows:
 1. **Authentication** - Authenticates the packet whether it is received from the verified source.
 2. **Virus Scan** - Performs a virus scan of that received packet and moves the packet to the DMZ file system. Refer below for the process:
    * Sends the byte array of the encrypted packet to the virus scanner.
