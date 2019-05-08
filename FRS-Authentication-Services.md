@@ -6,7 +6,7 @@
   * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
   * [1.3 OTP Authentication](#13-otp-authentication-) _(IDA_FR_1.3)_
   * [1.4 Common Features for all Authentication Types](#14-common-features-for-all-authentication-types-) _(IDA_FR_1.4)_
-- [2. Multi-factor Authentication](#2-multi-factor-authentication-wip-) _(IDA_FR_2)_
+- [2. Multi-factor Authentication (WIP)](#2-multi-factor-authentication-wip-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
   * [3.1 QR Code based Authentication (WIP)](#31-qr-code-based-authentication-wip-) _(IDA_FR_3.1)_
 - [4. KYC Service](#4-kyc-service)
