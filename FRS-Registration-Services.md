@@ -162,7 +162,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 
 
 #### K. Requirement for document categories and document types to be shown based on the configuration per applicant type.
-1. The Registration Officer commences a [**new registration**](#34-new-registration-), enter demographic details, the system then allows a registration officer to upload documents
+1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
 1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
 1. User selects Document Types, scans and upload the documents and proceeds with registration.
 1. The categories PoI and PoA are mandatory. The registration officer should select a Document Type under each Category and upload a document.
