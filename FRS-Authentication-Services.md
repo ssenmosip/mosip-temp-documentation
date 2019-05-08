@@ -386,24 +386,21 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 1. The system then validates the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= 20 min
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)---> Default value-24 hrs
-   * The system proceeds to execute mode of authentication validation as per the defined standards
+   * The system validates the mode of authentication as per the defined standards
    * Then triggers error messages as configured.
 
 3. MOSIP supports standard time for timestamps of authentication requests and responses
    * The timestamp of the Authentication, e-KYC, OTP trigger requests and responses will support IS0-8601 standard.
-   * The partners in a country are expected to send the timestamp (reqTime) in the request in UTC with time zone
-   * MOSIP returns the timestamp (resTime) in the response in UTC with Time zone
+   * The partners in a country are expected to send the timestamp  in the request in UTC with time zone
+   * MOSIP returns the timestamp in the response in UTC with Time zone
 
 #### B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated
 
 The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 
-1. The system matches the input UIN from the individual with the UIN in the auth database (Complete match)
-
-2. The system proceeds match Input UIN from the individual matches with the UIN in the auth database
-3. The system proceeds to execute match depending on the parameter using which the individual has to be authenticated.
-4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx). 
+1. The system matches the input UIN from the individual with the UIN in the auth database (Complete match) and sends an error message in case of any mismatch
+2. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx). 
 
 
 #### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-content)
