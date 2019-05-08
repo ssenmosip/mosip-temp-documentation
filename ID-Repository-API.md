@@ -742,3 +742,52 @@ Requires Authentication | Yes
   }
 }
 ```
+
+ ### Update VID status   
+
+This service will update status associated with a given VID, if the current status of VID is 'ACTIVE'.
+
+#### Resource URL
+#### `PATCH /idrepository/v1/vid/{VID}`
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | yes | Id of the API | mosip.vid.update | 
+version | yes | version of the API | | v1
+requesttime | yes | timestamp of the request | | 2019-04-30T06:12:25.288Z
+request | yes | Request Body attributes | | 
+request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
+
+**Example request**
+
+```
+{
+  "id": "mosip.vid.update",
+  "version": "v1",
+  "requesttime": "2019-04-30T06:12:25.288Z",
+  "request": {
+    "vidStatus": 'REVOKED'
+  }
+}
+```
+
+**Example response**    
+
+```
+{
+  "id": "mosip.vid.update",
+  "version": "v1",
+  "responsetime": "2019-04-30T06:13:05.218Z",
+  "response": {
+    "vidStatus": 'REVOKED'
+  }
+}
+```

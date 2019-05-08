@@ -18,6 +18,11 @@ Client must have the ability to update itself for patch upgrades (bug fixes/enha
 
 ### Registration client must be secured such that it cannot be tampered and misused
 Since Registration client must work in offline mode, there is a possibility of client software itself being tampered with. There must be enough checks and balances to detect tampering and reject such packets.
+
 ## Logical view
 
 ![Registration client Logical View](_images/diagram_source/MOSIP_registration_client_architecture_v0.1.png)
+
+## Component Architecture  
+![Registration client Component View](_images/arch_diagrams/MOSIP_RegistrationClient_Component_Architecture.png)  
+

@@ -5,8 +5,8 @@
   * [1.1 Biometric Authentication](#11-biometric-authentication-) _(IDA_FR_1.1)_
   * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
   * [1.3 OTP Authentication](#13-otp-authentication-) _(IDA_FR_1.3)_
-  * [1.4 Common Features for all Authentication](#14-common-features-for-all-authentication-) _(IDA_FR_1.4)_
-- [2. Multi-factor Authentication](#2-multi-factor-authentication-wip-) _(IDA_FR_2)_
+  * [1.4 Common Features for all Authentication Types](#14-common-features-for-all-authentication-types-) _(IDA_FR_1.4)_
+- [2. Multi-factor Authentication (WIP)](#2-multi-factor-authentication-wip-) _(IDA_FR_2)_
 - [3. Offline Authentication](#3-offline-authentication)
   * [3.1 QR Code based Authentication (WIP)](#31-qr-code-based-authentication-wip-) _(IDA_FR_3.1)_
 - [4. KYC Service](#4-kyc-service)
@@ -24,17 +24,19 @@
 
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
 
-1. The authentication service request should have the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 2. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 4. System validates that total number of face record(s) should not exceed 1
-5. The faceImg record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+5. The face record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 6. The system then generates a match score based on the level of the match of the face
 7. The one is to one mapping is performed by the SDK and match score is provided
 8. The system then proceeds to execute compare against face threshold
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
+Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
+for more details.
 
 **B. Authenticate the face of the Individual by comparing the match score of the photo against the threshold**
 
@@ -53,19 +55,19 @@ Upon receiving an authentication service request, the system authenticates the f
 
 Upon receiving an authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType). Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. The system then validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input
-   * Validates if total number of fgerMin records should not exceed 2
-4. The system then matches fgerMin records in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+   * Validates if total number of finger print records exceed 2
+4. The system then matches finger print records in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
-
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
  
+Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
+for more details.
 
 **D. Authenticate the fingerprints of the Individual by comparing the match score of the fingerprint against the threshold (BioAuthService)**
 
@@ -74,8 +76,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. The system retrieves the threshold level configured which is acceptable for a match
-1. The system then validates the following if the match score is equal to greater than the threshold level
-1. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
+1. The system then validates  if the match score is equal to greater than the threshold level and sends a response
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -83,19 +84,19 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 
 **E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-content)
 
-Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better. Refer to below process:
+Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better as per the below process:
 
 1. The system receives an authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
-   * Validates if single fgerMin record contains more than one finger
-   * Validates if total number of fgerMin records exceed 2
-4. The system then matches first fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-5. Generates a match score (using SDK) based on the level of the match of the fgerMin for the first fingerprint
-6. Matches second fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-7. Then generates a match score (using SDK) based on the level of the match of the fgerMin for the second fingerprint
+   * Validates if single finger print record contains more than one finger
+   * Validates if total number of finger print records exceed 2
+4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+5. Generates a match score (using SDK) based on the level of the match of for the first fingerprint
+6. Matches second finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+7. Then generates a match score (using SDK) based on the level of the match for the second fingerprint
 8. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 9. The actor retrieves the composite finger threshold configured which is acceptable for a match
 10. The actor validates if the composite match score is equal to greater than the composite finger threshold
@@ -110,44 +111,46 @@ Upon receiving an authentication request, the system support two-finger authenti
 
 Upon receiving an authentication request, the system evaluates the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
 
-1. The authentication service request has the following parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-   * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
-   * Validates if total number of Iris records should not exceed 2
-   * Validates if single irisImg record is present in the input
-   * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+   * Validates if duplicate irises are used in input 
+   * Validates if total number of Iris records exceeds 2
+   * Validates if single iris record is present in the input
+   * The system matches iris record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
-5. The system validates if two irisImg records are present in the input
-6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
+5. The system validates if two iris records are present in the input
+6. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+7. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
+Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
+
 
 **G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold** [**[↑]**](#table-of-content)
 
-The system receives authentication service request with the following parameters: 
-individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType)
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system retrieves generated score match
-2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
+1. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. The system then validated the following:
-   * Validates if single irisImg records are present in the input
+   * Validates if single iris records are present in the input
    * Retrieves the threshold level configured which is acceptable for a match
    * Validates if the match score is equal to greater than the threshold level
-   * Validates if two irisImg records are present in the input
+   * Validates if two iris records are present in the input
    * Retrieves the composite threshold level configured which is acceptable for a match
    * Validates if the composite match score is equal to greater than the composite threshold
-5. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err 
-1. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err 
 1. The system proceeds to execute compare against Iris threshold
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).  
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and Warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
+
+Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
@@ -162,14 +165,16 @@ MOSIP supports only exact match for the demographic authentication of the indivi
 
 No weightage is provided to any field\s but exact match strategy is adopted for demographic address
 
-The system receives authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, fullAddress, addressLine1, addressLine2, addressLine3, location1, location2, location3, postalCode and language for each address attribute
-Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-1. Validate if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system validates if each of the address line items  in the i/p parameter is same as the address line items against the mapped UIN/VID of the resident in the auth database in the respective language for each address element. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+in Git for more details on required parameters.
+1. Upon receving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. The system validates if each of the address line items  in the input parameter is same as the address line items against the mapped UIN/VID of the resident in the auth database in the respective language for each address element. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 NOTE:
@@ -183,82 +188,84 @@ Please refer Git for the address based [**Normalization Rules**](/mosip/mosip/bl
 
 **C. Verify the Age of the individual so that the individual is authenticated**
 
-The system receives authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, age
-Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-3. The system calculates the age of the individual based on the DOB.
-4. Validates if the Age of the individual is greater than or equal to the Age in the i/p parameter
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system calculates the age of the individual based on the DOB.
+4. Validates if the Age of the individual is greater than or equal to the Age in the input parameter
 5. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 **D. Match Name of the individual in the database so that the individual is authenticated**
 
-The system receives authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, name and language. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system compares the name in the i/p parameter with the Name saved in the respective language in the auth database
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+2. The system compares the name in the input parameter with the Name saved in the respective language in the auth database
 3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
 
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 **E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
-The system receives authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, phoneNumber of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
+
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 
 **F. Match e-mail ID of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
-The system receives an authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, emailId of the Individual.
-Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 
 **G. Match gender of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
 
-The system receives authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, gender of the Individual.
-Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system matches the Gender in the input parameter with the Gender of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
-1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
+1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-). 
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 **H. Match DOB of the individual in the database so that the individual is authenticated**
 
-The system receives authentication request from partner with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dob of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
+Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
 
@@ -270,7 +277,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 
 **A. Trigger OTP to an individual so that the individual can be authenticated based on OTP**
 
-The system receives OTP service request with the parameters: individualId, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, signature and OTP channel. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 1. Validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system generates the OTP for the request. (Use < product_id >_< encoded token_id >_< txn_id > < MUA Code >logic to generate a unique key for this OTP generation request; The system calls the Core kernel OTP generator component by passing the unique key; The system receives the OTP from the Core kernel component)
@@ -280,14 +287,14 @@ The system receives OTP service request with the parameters: individualId, reque
 6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err, masked mobile and masked e-mail
 8. The system proceeds to execute Validate OTP as per the defined standards
 9. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
 **B. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
 
-
-The system receives OTP based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, otp. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system validates if the transaction id matches with transaction id value of OTP Generate Request
 2. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 3. Validates if the OTP in the i/p parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
@@ -295,16 +302,19 @@ The system receives OTP based authentication request with the parameters: indivi
 5. Constructs the authentication response based on validation results
 6. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 8. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-
 Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 **C. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
 
-The system receives OTP service request with the parameters: iindividualId, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, signature and OTP channel. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
 2. Validates if the configured mode of communication is also registered
 3. The system fetches the notification template as per admin configuration
 4. Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
 **D. Respond with masked e-mail and masked phone no for OTP trigger request so that the partner can intimate the individual on the mode of communication of the OTP**
@@ -364,7 +374,7 @@ Eg:
 5. Triggers notification as per the defined and configured template and in the default language English
 6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
-## 1.4 Common Features for all Authentication [**[↑]**](#table-of-content)
+## 1.4 Common Features for all Authentication Types [**[↑]**](#table-of-content)
 
 #### A. Validate the timestamp of the authentication request
 
@@ -468,8 +478,7 @@ The system receives authentication request from partner with the following param
 
 **KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.**
 
-The system receives pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType),otp, secondaryLangCode attribute of the Individual. Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
-
+The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 The system then validates the following:
 
@@ -493,6 +502,8 @@ The system then validates the following:
 19. The system proceeds to execute Notification-SMS
 20. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
+Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) for more details.
+
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/eKYC_Auth_Request_REST_service.md)
 
 
@@ -502,22 +513,22 @@ The system then validates the following:
 **Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
-1. Receives a pin based authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, <demo/bio/otp> attribute of the Individual 
-Please refer [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 2. Validates if the MISP-LK has not expired
 3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
 4. Validates if the MISP-LK status is active
 5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
 6. Captures and stores the transaction details for audit purpose.
-7. Alerts and warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+7. Alerts and warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
+
+Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
 
 
 ## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
 
 **Authenticate and authorize Auth Partner- proxy implementation**
 
-The system receives authentication request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio,  otp, requestSessionKey, requestHMAC, signature, dCode, mId, <demo/bio/otp> attribute of the Individual 
-Please refer Git for more details on [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 The system then validates the following:
 1. Validates the digital signature in the certificate
@@ -533,6 +544,8 @@ The system then validates the following:
 11. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
 13. The system proceeds to execute Notification SMS
 14. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
+
+Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
 
 
 # 6. Authentication Device Support 
