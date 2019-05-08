@@ -177,7 +177,7 @@ Supervisor can log in to the registration client application and view a list of 
 
 The supervisor may opt to see the details of one or many registration ID. The supervisor can view the details on the right hand side pane 
 
-The supervisor then choses to either approve, reject or keep the registration on hold.
+The supervisor then chooses to either approve, reject or keep the registration on hold.
 
 The supervisor must provide a reason in case of reject. Some of the values of Reason for hold are: Gender-photo mismatch, Age-photo mismatch, Name correction required, Address correction required, Date of birth correction required
 
