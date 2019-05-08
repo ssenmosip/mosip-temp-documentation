@@ -177,17 +177,17 @@ Supervisor can log in to the registration client application and view a list of 
 
 The supervisor may opt to see the details of one or many registration ID. The supervisor can view the details on the right hand side pane 
 
-The supervisor then chooses to either approve, reject or keep the registration on hold.
+The supervisor then chooses to either approve or reject the registration.
 
-The supervisor must provide a reason in case of reject. Some of the values of Reason for hold are: Gender-photo mismatch, Age-photo mismatch, Name correction required, Address correction required, Date of birth correction required
+The supervisor must provide a reason in case of rejection. 
 
 The supervisor then authenticates the registration by providing any one biometric - fingerprint, iris, or face.
-The system then shows a confirmation of successful approval.
+The system then confirms on successful approval.
 
 1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
-1. The packet status should change only when supervisor completes authentication. Else the packet status should revert to its original status.
+1. The packet status will change only when supervisor completes authentication. Else the packet status will revert to its original status.
 1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
-1. The approved and rejected packets are placed in the upload location on the client and should be sent to server during the next upload.
+1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.
 1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
 
 #### B. Registration client enables a supervisor to approve data packets.
@@ -195,7 +195,8 @@ The system then shows a confirmation of successful approval.
 1. The supervisor can view the following fields: “(Packet ID, New Status = Approved, Approver ID)”
 1. The supervisor can then change the packet status to “Approve” or “Reject”.
 1. The system displays error messages in case of any errors
-1. The system ensures that the rejected packets and the packets should not appear in the approval list again
+1. The system ensures that the packets that have been rejected do not appear as part of the Approval list.
+
 
 #### C. Supervisor can inform individuals to 'Re-register'
 
@@ -206,7 +207,6 @@ The system then shows a confirmation of successful approval.
 1. Supervisor also records it in the system that he has ‘Informed’ the individual
    * If unable to contact the individual, Supervisor records it as ‘Can’t inform'.
 6. The supervisor then ‘Authenticates by providing biometric data -fingerprint, Iris, or face. Further, select the specific finger or iris being provided.
-1. Scan the selected biometric.
 1. Authenticate with locally stored biometric and display the result.
    * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
    * On unsuccessful authentication, the user can retry his authentication with the same or a different biometric
@@ -645,7 +645,7 @@ Note: multifactor authentication is the type of authentication where an admin us
 1. Upon the fifth unsuccessful attempt to login, displays an error message 
 1. The temporarily lock lasts for 30 minutes.
 1. The same error message is displayed for any subsequent login attempt within 30 minutes.
-1. After 30 minutes, the lock is released and the count of invalid login attempts should be reset to zero.
+1. After 30 minutes, the lock is released and the count of invalid login attempts is reset to zero.
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
 1. System captures and stores the transaction details for audit purpose.
 
