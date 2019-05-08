@@ -544,7 +544,7 @@ request: timestamp| N | Timestamp when request block was captured| |
 request: biometrics|N| Biometric data of an Individual| |
 
 ### Request Header
-##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
+##### MOSIP-AuthX = `<Registration Client or Registration Processor Digital Signature>`
 
 ### Request Body
 ```JSON
@@ -554,14 +554,12 @@ request: biometrics|N| Biometric data of an Individual| |
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "transactionID": "1234567890",
   "requestedAuth": {
-    "otp": false,
-    "demo": false,
     "bio": true
   },
   "consentObtained": true,
   "individualId": "9830872690593682",
   "individualIdType": "USERID",
-  "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
+  "keyIndex": "<thumbprint of the public key certificate used for encryption of sessionKey. This is necessary for key rotaion>",
   "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
   "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
   "request": {
@@ -578,15 +576,8 @@ request: biometrics|N| Biometric data of an Individual| |
           "deviceServiceVersion": "",
           "bioType": "FMR",
           "bioSubType": "UNKNOWN",
-          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
-          "transactionID": "1234567890",
-          "timestamp": "2019-02-15T10:01:57.086+05:30",
-          "requestedScore": "<floating point number to represent the minimum required score for the capture>",
-          "qualityScore": "<floating point number representing the score for the current capture>"
-        },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
-        "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-        "signature": "base64 signature of the data and metaData block"
+          "bioValue": "<base64 encoded biometric data>"
+        }
       },
       {
         "data": {
@@ -599,13 +590,8 @@ request: biometrics|N| Biometric data of an Individual| |
           "deviceServiceVersion": "",
           "bioType": "IIR",
           "bioSubType": "RIGHT",
-          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
-          "transactionID": "1234567890",
-          "timestamp": "2019-02-15T10:01:57.086+05:30"
-        },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
-        "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-        "signature": "base64 signature of the data and metaData block"
+          "bioValue": "<base64 encoded biometric data>"
+        }
       }
     ]
   }
@@ -630,8 +616,7 @@ request: biometrics|N| Biometric data of an Individual| |
   "transactionID": "1234567890",
   //Auth Response
   "response": {
-    "authStatus": true,
-    "staticToken": "<static_token>"
+    "authStatus": true
   },
   "errors": null
 }
@@ -651,8 +636,7 @@ request: biometrics|N| Biometric data of an Individual| |
   "transactionID": "1234567890",
   //Auth Response
   "response": {
-    "authStatus": false,
-    "staticToken": null
+    "authStatus": false
   },
   "errors": [
     {
