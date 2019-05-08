@@ -100,7 +100,7 @@ Upon receiving an authentication request, the system support two-finger authenti
    * Validates if single finger print record contains more than one finger
    * Validates if total number of finger print records exceed 2
 4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-1. Generates a match score (using SDK) based on the level of the match of for the first fingerprint
+1. Generates a match score (using SDK) based on the level of the match for the first fingerprint
 1. Matches second finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. Then generates a match score (using SDK) based on the level of the match for the second fingerprint
 1. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
