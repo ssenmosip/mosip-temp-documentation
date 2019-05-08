@@ -111,18 +111,18 @@ After the packet is received from the Registration Client, the system performs t
    * If registration ID is not available then responds with an error code.
    * Calculates the hash sequence using the check sum utility.
    * Compares the hash sequences and if the hash sequences do not match, then responds with an error code. If the hash sequence matches then the system proceeds further to another step.
-4. **Packet Size Check** - Calculates the size of the packet received and compares with that of the packet size received from the registration client, to verify that the packet was not tempered during a transit.
+4. **Packet Size Check** - Calculates the size of the packet received and compares it with the packet size received from the registration client, to verify that the packet was not tempered during a transit.
    * Checks if the packet size is more than the configured size set in the configuration server. If the packet size is more than the configured size, then sends an error response to Registration Client.
 5. **Packet Format Check** - Validates if the packet format is in the configured format i.e. “.zip” (configured by the admin).
    * Checks if the packet format is not as the configured format i.e. “.zip” set in the configuration server. If the packet format is not like the configured format, then sends an error response to Registration Client.
-6. **Duplicate Check** – Validates if the packet is already available in the system
+6. **Duplicate Check** – Validates if the packet is already available in the system.
    * Checks if the packet is a duplicate request by validating the RID that is available in the Registration Table and the packet is not in RESEND status. If the Packet Request is a Duplicate Request, then send an error response to Registration Client.
 
 ### 3.1.2 Virus Scan
 The system performs the virus scan in two different stages, which are listed below:
-1. When the packet is received from a Registration Client, the system performs virus scan of that packet and moves to the DMZ file system.
+1. When the packet is received from the Registration Client, the system performs virus scan of the packet and moves to the DMZ file system.
    * Refer to [**virus scan**](#311-sanity-check) of Sanity Check.
-2. When the packet is picked from the DMZ file system, the system performs virus scan of that packet and store the packet in packet store. Refer below for the process: 
+2. When the packet is picked from the DMZ file system, the system performs virus scan of the packet and stores it in a packet store. Refer below for the process: 
    * Fetches the packet from DMZ file system.
    * Sends the byte array of the encrypted packet to the virus scanner.
    * If the virus scanner finds a virus, then the system rejects the request.
@@ -134,8 +134,8 @@ The system performs the virus scan in two different stages, which are listed bel
 
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
-System validates the registration machine, registration officer, and registration center details to ensure that the packet is received from the verified source. Also, validates those devices that are used for packet creation, to ensure that the devices are verified. Refer below for the process: 
-1. Fetches the registration machine ID, officer ID, center ID and GPS from the database. Then validates if machine ID, center ID, GPS, and officer ID are sync in the master databases as follows:
+System validates the registration machine, registration officer, and registration center details to ensure that the packet is received from the verified source. It also validates those devices that are used for packet creation, to ensure that the devices are verified. Refer below for the process: 
+1. Fetches the registration machine ID, officer ID, center ID and GPS from the database and validates if they are in sync with the master databases as follows:
    * Checks if the center ID was active in center master table when a packet was created.
    * Checks if the machine ID was active in machine master table when a packet was created.
    * Checks if at least one from a supervisor/officer ID is present in packet meta info. Checks if officers/supervisor was active in user master table when a packet was created.
@@ -150,7 +150,7 @@ System validates the registration machine, registration officer, and registratio
 
 When the packet is received from the Registration Client, the system first checks the Operator & Supervisor ID using configuration manager. Then validates an operator & a supervisor using biometric authentication such as face image, iris image, and finger print image, OTP based authentication, and password-based authentication to make sure that the Operator & Supervisor is authenticated. Refer below for the process:
 #### A. Authenticate and Validates using Officer and Supervisor ID
-System fetches an officer details and/or a supervisor details from the master list using officer and/or supervisor ID and checks if the officer and/or supervisor details are available. Then the system performs the following steps:
+System fetches an officer and/or a supervisor details from the master list using officer and/or supervisor ID and checks if their details are available. Then the system performs the following steps:
    * If the officer and/or supervisor details are not available, then sends packet for manual adjudication.
    * If the officer and/or supervisor details are available, then checks if an officer and/or supervisor is active or not.
    * If an officer and/or a supervisor is not active, then sends packet for manual adjudication.
@@ -184,30 +184,31 @@ The system performs file validation by checking files availability in a packet w
 3. In case of successful comparison, updates the Registration table with "File Validation Successful".
 4. In case of unsuccessful comparison, updates the Registration table with "File Validation Failed" and marks for retry.
 #### B. Verify the Documents
-1. The system identifies a document based on application type (new registration) and applicant type (child or adult) from Packet Meta Info
+1. The system identifies a document based on application type (new registration) and applicant type (child or adult) from Packet Meta Info.
 2. If the applicant is a child and application is new registration, the system checks a Proof of Residence (POR) document availability.
 3. If the applicant is an adult and application is new registration, the system checks a Proof of Identity (POI) and Proof of Address (POA) documents availability. 
 4. If Proof of Birth (POB) is verified for both the applicant (adult or child) and application is new registration, then system checks a POB documents availability.
 
 #### 3.2.2.2 Introducer Validation
 #### 3.2.2.3 Deduplication – Demographic, Biometrics
-When the packet from the Registration Client has gone through the sanity checks, the system performs the demographic deduplication and then biometric deduplication. Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated.
+When the packet from the Registration Client has completed the sanity checks, the system performs the demographic deduplication and then biometric deduplication. Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated.
 #### A. Demographic deduplication
-1. Compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.
-2. If a potential match is found, then sends the packet to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).
-3. If a potential match is not found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) or Demographic deduplication, then sends the packet to perform biometric deduplication.
+
+1. The system compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.
+2. If a potential match is found, then the system sends the packet to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) to perform 1:1 biometric match (it is an additional check to confirm that it is a duplicate).
+3. If a potential match is not found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) or Demographic deduplication, then system sends the packet to perform biometric deduplication.
 #### B. Biometric deduplication
-1. Performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface).
+1. The system performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface).
 2. [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) compares the biometric data received with the whole set of the data to find a potential matches based on a configured threshold.
 3. If a potential match is found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface), then the system sends the packet for manual verification.
-4. If a manual verifier (experts who know more about biometrics) finds a duplicate, then rejects the packet.
-5. If the manual verifier or [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) does not find the duplicate, then moves the packet for UIN generation.
+4. If a manual verifier (experts who know more about biometrics) finds a duplicate, then the system rejects the packet.
+5. If the manual verifier or [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) does not find the duplicate, then the system sends the packet for UIN generation.
 
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
 The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receives some data. Therefore, the system can verify the data captured during a registration with the data received from the external system.
 #### 3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)
-MOSIP receives some data from the external system in a form of Packet (as per MOSIP Standards). The MOSIP System has the capability to receive this updated packet and process it with the packet received from Registration Client.
+MOSIP receives some data from the external system in a form of packet (as per MOSIP Standards). The MOSIP system has the capability to receive this updated packet and process it with the packet received from Registration Client.
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
 When the system verifies the data received with the data captured and finds an issue while comparing the data or a country wants to update the data after manually verifying the data. Then the System Integrator builds a Manual Verification Module for External System data mismatch. 
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
@@ -230,7 +231,7 @@ A stage that extracts the latest copy of an individual’s data after the Indivi
 When any transaction is performed in MOSIP system or the packet fails any validations or any system level exception happens, then the same is captured as part of MOSIP Audit Trails.
 ## 3.3 Post-Processing
 ### 3.3.1 Notification (Pluggable by SI)
-Notification (SMS/Email as configured) is the final step of all the life cycle processes, which is received for an individual. System sends a notification to the individual for various life cycle scenarios such as, packet failure, UIN issuance, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
+Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, packet failure, UIN issuance, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI)
 After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 ### 3.3.3 Data Seeding to External Functional ID System (Pluggable by SI)
