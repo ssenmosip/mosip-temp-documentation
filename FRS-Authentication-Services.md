@@ -30,8 +30,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. System validates that total number of face record(s) should not exceed 1
 1. The face record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the face
-1. The one is to one mapping is performed by the SDK and match score is provided
-1. The system then proceeds to execute compare against face threshold
+1. 1:1 mapping is performed by the SDK and match score is provided
+1. The system then proceeds to execute compare against the face threshold
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
@@ -482,7 +482,7 @@ The system then validates the following:
 1. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
 1. Appends the response with the demographic and id fields as per the policy
 1. The system validates the sec_language attribute in the request and appends the response with the demographic fields in language requested.
-1. The system proceeds to execute Notification-SMS
+1. The system proceeds to send SMS Notification
 1. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
 Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) for more details.
@@ -525,7 +525,7 @@ The system then validates the following:
 1. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
 1. The system then integrates the response with the static token generated for the authentication request  
 1.  Constructs the authentication response based on validation results
-1. The system proceeds to execute Notification SMS
+1. The system proceeds to send SMS Notification 
 1. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
 Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
