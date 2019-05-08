@@ -96,7 +96,7 @@ Upon receiving an authentication request, the system support two-finger authenti
 1. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 1. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-   * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
+   * Validates if duplicate fingers are used in input, if duplicate encoded value is used in the input for fingers - updated logic
    * Validates if single finger print record contains more than one finger
    * Validates if total number of finger print records exceed 2
 4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
