@@ -1,4 +1,4 @@
-**Date: 08 Feb 2019** 
+**Date: 08 May 2019** 
 
 **MOSIP**
 
@@ -9,7 +9,7 @@
 
 **Date: 15 Feb 2019**
 
-**Module: Pre-registration, Kernel**
+**Module: Registration**
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
