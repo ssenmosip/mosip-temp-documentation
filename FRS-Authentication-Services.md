@@ -504,9 +504,9 @@ Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) f
 
 MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
-2. Validates if the MISP-LK has not expired
-3. Validates if the MISP-LK belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-LK should belong to one of the registered MISP entities)
-4. Validates if the MISP-LK status is active
+2. Validates if the MISP-license key has not expired
+3. Validates if the MISP-license key belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-license key should belong to one of the registered MISP entities)
+4. Validates if the MISP-license key status is active
 5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
 6. Captures and stores the transaction details for audit purpose.
 7. Alerts and warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
