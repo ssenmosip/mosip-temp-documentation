@@ -385,7 +385,7 @@ v1/otpmanager/validate?key=9820173642&otp=123456
 
 * [GET /publickey](#get-publickey)
 
-* [POST /tpm/publickey](#post-uploadpublickey)
+* [POST /tpm/publickey](#post-tpmpublickey)
 
 
 ## GET /masterdata
