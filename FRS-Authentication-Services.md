@@ -223,7 +223,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the phone number in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+2. The system matches the phone number in the input parameter with the phone number of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
@@ -237,7 +237,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-1. The system matches the e-mail id in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system matches the e-mail id in the input parameter with the phone number of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
@@ -251,7 +251,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-1. The system matches the Gender in the input parameter with the Gender of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system matches the Gender in the input parameter with the Gender of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-). 
@@ -264,7 +264,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-1. The system matches the DOB in the input parameter with the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system matches the DOB in the input parameter with the DOB of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
@@ -423,7 +423,7 @@ The system retrieves the UIN and Partnerid   for token Id generation
 
 Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
 
-13. The system then captures and stores the transaction details for audit purpose.
+10. The system then captures and stores the transaction details for audit purpose.
 
 #### E. Trigger SMS to the Individual's mobile for every authentication request
 
