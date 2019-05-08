@@ -417,15 +417,11 @@ The authentication service request should have a defined set of parameters. Plea
 
 The system then performs the following steps to generate a static token ID
 
-The system retrieves the parameters relevant for token Id generation
-
-1. Validates if idType = VID is used in the input and retrieves the UIN mapped to the VID (id)
-1. Validates if idType = UIN is used in the input and retrieves the UIN (id)
-1. The system retrieves the partnerid
-1. Generates tokenID based on the retrieved parameters and based on the defined standards
+The system retrieves the UIN and Partnerid   for token Id generation
+1. Generates tokenID based on the defined standards
 1. The tokenID is unique for a UIN and partnerId combination. The same id should be returned if any auth request is received from the same UIN and partnerId combination
 1. The tokenID is generated for every authentication request
-1. The length of tokenID is configurable by the ADMIN. The tokenID generated can be of the default length of 36 digits
+1. The length of tokenID is configurable by the ADMIN (the default length of 36 digits)
 1. The UIN and partnerid are not be derivable from the tokenId
 1. The tokenID is a random number generated
 1. The tokenId does not contain any alphanumeric characters and should contain only numeric characters
@@ -445,10 +441,8 @@ The system then performs the following steps to Trigger SMS to the Individual's 
 
 1. Retrieves the mode of communication (i.e) mobile configured for sending the notification
 2. Validates if the configured mode of communication is also registered
-3. Validates the response for Auth Type 
-4. Fetches the notification template as per admin configuration
-5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+3. Fetches the notification template as per admin configuration and triggers notification as per the defined and configured template and in the default language English
+4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 #### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-content)
@@ -457,10 +451,8 @@ The authentication service request should have a defined set of parameters. Plea
 
 1. The system retrieves the mode of communication (i.e) e-mail configured for sending the notification
 2. The system validates if the configured mode of communication is also registered
-3. Validates the response by Auth Type as per the defined standards
-4. Fetches the notification template as per admin configuration
-5. The system triggers notification as per the defined and configured template and in the default language English
-6. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+3. Fetches the notification template as per admin configuration and triggers notification as per the defined and configured template and in the default language English
+4. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/OTP_Request_REST_service.md)
