@@ -1,4 +1,5 @@
 * [Login](#login)
+* [Master Data](#master-data)
 
 # Login
 
@@ -28,7 +29,7 @@ userid |Yes|User id of the user| UDAE423
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
-<div>https://mosip.io/v1/keymanager/publickey/REGISTRATION?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<div>https://mosip.io/v1/admin/authfactors?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
 
 #### Responses:
 ##### Success Response:
@@ -386,6 +387,69 @@ Error Responses
 				"message": "The passed OTP is expired"
 		  }	
 		]
+}
+```
+
+# Master Data
+
+* [GET /mastercards](#get-mastercards)
+
+
+### GET /mastercards
+
+This service will give back the list of master data which was supposed to be displayed as cards in the master data screen. The list of master data are read from the configuration server and returned as an array based on the requested language. 
+
+#### Resource URL
+<div>https://mosip.io/v1/admin/mastercards/{languagecode}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description |  Example
+-----|----------|-------------|--------
+languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
+
+#### Request
+<div>https://mosip.io/v1/admin/mastercards </div>
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: List of master data are returned based on the requested language
+```JSON
+
+{
+	"id": "mosip.admin.mastercards",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors": [],
+	"response": {
+		"masterdata": ["Machines", "Devices", "Registration Centers"]
+	}
+}
+```
+
+##### Error Response:
+###### Status code: '200'
+###### Description: If the user is not found. 
+```JSON
+
+{
+  "id": "mosip.admin.mastercards",
+  "version": "1.0",
+  "metadata": {},
+  "responsetime": "2007-12-03T10:15:30Z",
+  "errors": [
+    {
+      "errorCode": "ADMN-LANG-MISSING",
+      "message": "The data is not found for the passed language code"
+    }
+  ]
 }
 ```
 
