@@ -48,7 +48,7 @@
 # Registration Processor
 # 1. ID Lifecycle Management
 
-When an individual visits the registration center, the registration officer or supervisor captures the Demographic and Biometric details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
+When an individual visits the registration center, the registration officer or supervisor captures the Demographic (name, date of birth, gender, etc.) and Biometric (face, iris, finger print image, etc.) details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
 * New ID Issuance
 * Update individual’s information
 * De-activate individual’s ID
