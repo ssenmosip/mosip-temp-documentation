@@ -175,7 +175,7 @@ No weightage is provided to any field\s but exact match strategy is adopted for 
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 in Git for more details on required parameters.
-1. Upon receving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. The system validates if each of the address line items  in the input parameter is same as the address line items against the mapped UIN/VID of the resident in the auth database in the respective language for each address element. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
@@ -198,7 +198,7 @@ Please refer Git for the address based [**Normalization Rules**](/mosip/mosip/bl
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-1. The system retrieves the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system retrieves the DOB of the individual in the auth database based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system calculates the age of the individual based on the DOB.
 4. Validates if the Age of the individual is greater than or equal to the Age in the input parameter
 5.  Constructs the authentication response based on validation results
@@ -239,7 +239,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the e-mail id in the input parameter with the phone no of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+2. The system matches the e-mail id in the input parameter with the phone number of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
@@ -267,7 +267,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-2. The system matches the DOB in the input parameter with the dob of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+2. The system matches the DOB in the input parameter with the DOB of the individual in the auth DB based on the mapped UIN/VID. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 3.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
@@ -289,7 +289,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 1. Upon receiving an authentication request the system validates if the Timestamp of OTP generation request is older than 20 min. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 2. The system generates the OTP for the request
-3. Retrieves the mode of communication (i.e) e-mail or phone no configured for sending the OTP
+3. Retrieves the mode of communication (i.e) e-mail or phone number configured for sending the OTP
 4. The system validates if the configured mode of communication is also registered and triggers and OTP 
 5. Constructs the authentication response based on validation results with masked mobile and masked e-mail
 6. The system proceeds to validate OTP as per the defined standards
@@ -315,7 +315,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 **C. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
-1. The system retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
+1. The system retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification
 2. Validates if the configured mode of communication is also registered
 3. The system fetches the notification template as per admin configuration
 4. Triggers notification as per the defined and configured template and in the default language English. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -323,7 +323,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
-**D. Respond with masked e-mail and masked phone no for OTP trigger request**
+**D. Respond with masked e-mail and masked phone number for OTP trigger request**
 
 The system follows the following steps to include masked e-mail and phone in the OTP request response
 1. Retrieves the mode to which OTP will be sent as per the below logic
@@ -350,9 +350,9 @@ Note: 50% in case of decimal means rounded to the greatest whole number
 
 Eg:
 
-Original phone no: 8347899201
+Original phone number: 8347899201
 
-Masked phone no: XXXXXX9201
+Masked phone number: XXXXXX9201
 
 **Logic for masking e-mail**
 
@@ -369,7 +369,7 @@ Eg:
 **E. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
-2. The system then retrieves the mode of communication (i.e) e-mail or phone no configured for sending the notification
+2. The system then retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification
 3. Validates if the configured mode of communication is also registered
 4. Fetches the notification template as per admin configuration
 5. Triggers notification as per the defined and configured template and in the default language English
@@ -500,14 +500,14 @@ Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) f
 # 5. Partners Authentication and Authorisation
 ## 5.1 MISP License Authentication [**[↑]**](#table-of-content)
 
-**Authenticate and authorize the MOSIP Infrastructure Service Provider (MISP)**
+**Authenticate and authorise the MOSIP Infrastructure Service Provider (MISP)**
 
-MOSIP can authenticate and authorize the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
+MOSIP can authenticate and authorise the MOSIP Infrastructure Service Provider (MISP) as per the following steps listed below:
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 2. Validates if the MISP-license key has not expired
 3. Validates if the MISP-license key belongs to a registered MISP (Note: All the MISPs will be registered through MOSIP admin portal and the MISP-license key should belong to one of the registered MISP entities)
 4. Validates if the MISP-license key status is active
-5. Proceeds to execute e-KYC/Auth partner authentication and authorization as per defined standards
+5. Proceeds to execute e-KYC/Auth partner authentication and authorisation as per defined standards
 6. Captures and stores the transaction details for audit purpose.
 7. Alerts and warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition).
 
@@ -516,7 +516,7 @@ Please refer to the [**Authentication Service API**](ID-Authentication-APIs#user
 
 ## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
 
-**Authenticate and authorize Auth Partner- proxy implementation**
+**Authenticate and authorise Auth Partner- proxy implementation**
 
 The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
@@ -528,7 +528,7 @@ The system then validates the following:
 5. Retrieves all the policies constituting the partnerID
 6. Validates if the auth type specified in the request is one of the policies retrieved for the partner
 7. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
-8. Validates if the "authvalue" in the i/p parameter is same "authval" stored in the database for the mapped UIN and VID
+8. Validates if the "authvalue" in the input parameter is same "authval" stored in the database for the mapped UIN and VID
 9. The system constructs the authentication response based on validation results and sets the authentication status as 'Y' only if the pinval matches.
 10. The system then integrates the response with the static token generated for the authentication request  
 11.  Constructs the authentication response based on validation results
