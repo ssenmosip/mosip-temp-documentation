@@ -278,16 +278,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
    * Packets for which upload fails will continue to be in pending state.
 4. System captures and stores the transaction details for audit purpose.
 
-#### C. Push a registration packet via FTP mode to the server [**[↑]**](#table-of-content)
-
-1. The Registration Officer or Supervisor enters their FTP username and password.
-1. When the user chooses the packets to push it to server, the list of packet RIDs that have been synced to server and exported to the local folder but not yet pushed to server will be displayed.
-1. If applicable, the user can select a different source folder and a destination folder.
-1. When the user selects the packets to push, the system checks that the selected EIDs have been synced to the server prior to pushing.
-1. Then the user copies from the local folder to server and updates the status of the packets to ‘Pushed to Server’.
-1. System captures and stores the transaction details for audit purpose.
-
-#### D. Enable a real time packet upload when system is online upon registration submission
+#### C. Enable a real time packet upload when system is online upon registration submission
 
 **When EoD process is turned ON**
 
