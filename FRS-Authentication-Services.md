@@ -76,8 +76,7 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64).
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. The system retrieves the threshold level configured which is acceptable for a match
-1. The system then validates the following if the match score is equal to greater than the threshold level
-1. The system then constructs the response to the requesting source with status (true/False), transactionID(same as request), responseTime of response, err
+1. The system then validates  if the match score is equal to greater than the threshold level and sends a response
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-). 
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -85,19 +84,19 @@ Upon receiving an authentication request, the system authenticates the fingerpri
 
 **E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-content)
 
-Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better. Refer to below process:
+Upon receiving an authentication request, the system support two-finger authentication so that the quality of incoming fingerprints gets better as per the below process:
 
 1. The system receives an authentication service request with the parameters: individualId, consentObtained, requestTime, transactionID, Auth-Partner-ID, version, MISP-LicenseKey, individualIdType, demo, bio, Bio_Type, otp, requestSessionKey, requestHMAC, signature, dCode, mId, Bios (bioType, attriType) 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input if duplicate encoded value is used in the input for fingers - updated logic
-   * Validates if single fgerMin record contains more than one finger
-   * Validates if total number of fgerMin records exceed 2
-4. The system then matches first fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-5. Generates a match score (using SDK) based on the level of the match of the fgerMin for the first fingerprint
-6. Matches second fgerMin record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-7. Then generates a match score (using SDK) based on the level of the match of the fgerMin for the second fingerprint
+   * Validates if single finger print record contains more than one finger
+   * Validates if total number of finger print records exceed 2
+4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+5. Generates a match score (using SDK) based on the level of the match of for the first fingerprint
+6. Matches second finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+7. Then generates a match score (using SDK) based on the level of the match for the second fingerprint
 8. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 9. The actor retrieves the composite finger threshold configured which is acceptable for a match
 10. The actor validates if the composite match score is equal to greater than the composite finger threshold
@@ -116,14 +115,14 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 2. The biometric is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 3. The system validated the following:
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-   * Validates if duplicate irises are used in input based on duplicate encoded value is used in the input for IRIS used in the input.
-   * Validates if total number of Iris records should not exceed 2
-   * Validates if single irisImg record is present in the input
-   * The system matches irisImg record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+   * Validates if duplicate irises are used in input 
+   * Validates if total number of Iris records exceeds 2
+   * Validates if single iris record is present in the input
+   * The system matches iris record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
-5. The system validates if two irisImg records are present in the input
-6. The system matches each of the irisImg records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-7. Match score 1 and Match score 2 are generated for each of the images. The SDK provides the match score
+5. The system validates if two iris records are present in the input
+6. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+7. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
 1. The system proceeds to send “Notification SMS” and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
