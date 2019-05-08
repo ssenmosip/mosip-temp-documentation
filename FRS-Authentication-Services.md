@@ -323,7 +323,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
-**D. Respond with masked e-mail and masked phone no for OTP trigger request **
+**D. Respond with masked e-mail and masked phone no for OTP trigger request**
 
 The system follows the following steps to include masked e-mail and phone in the OTP request response
 1. Retrieves the mode to which OTP will be sent as per the below logic
