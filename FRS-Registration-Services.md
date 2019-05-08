@@ -230,12 +230,7 @@ When a registration officer starts a new registration by entering a pre-registra
 1. The registration officer can then view the documents uploaded during pre-registration
 1. If no matching PRID exists in local system and server, the system displays an error message.
 
-#### B. Scanning a Pre-registration QR code [**[↑]**](#table-of-content)
-1. While starting a new registration, the registration client allows scanning a QR code to populate the pre-registration ID on screen.
-1. A bar code scanner must be connected to the client machine in order to read the pre-registration QR code and pass on the pre-registration ID to the client.
-1. System then populates the rest of the pre-registration data from the locally stored pre-registration details and checking for updates on the server
-1. User proceeds with registration
-#### C. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
+#### B. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
 **Real time downloads of Pre-registration data**
 
 1. When a registration officer starts a new registration by entering a pre-registration ID and opts to fetch pre-registration data, the system checks if the pre-registration ID entered has a match in the local system
@@ -601,17 +596,7 @@ Initially a machine will have no users on boarded. The first RO/Supervisor will 
 4. If not successful: Displays error message.
 5. Multiple users can be mapped to the machine by repeating the above flow. There should be no limitation to the numbers of users mapped.
 
-#### B. Updating the mapping of registration officers and supervisors to a client machine [**[↑]**](#table-of-content)
-1. This features allow the system to receive the request to modify a mapping status from Active to Inactive or from Inactive to Active.
-   * No other fields can be modified.
-   * A mapping cannot be deleted.
-2. Allows the system to save the changes locally. Changes will be sent to the server during the data sync process
-#### C. View mapped registration officers to a client machine.
-1. This feature allows the system to receive a request to view the list of mapped users
-1. Fetches the locally stored details of Registration Officers and Supervisors mapped to this machine.
-1. Constructs a response with the details fetched.
-1. All data in the view page will be in read only mode and will be in the same sequence as defined in the data definition 
-#### D. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
+#### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
 1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre as the USB dongle. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
 1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
 1. User can request the system to resend OTP if not received earlier.
