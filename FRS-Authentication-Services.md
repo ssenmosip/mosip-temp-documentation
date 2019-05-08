@@ -28,7 +28,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 1. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. System validates that total number of face record(s) should not exceed 1
-1. The face record in the input parameter against the mapped UIN/VID of the resident in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The face record in the input parameter against the mapped UIN/VID of the individual in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the face
 1. 1:1 mapping is performed by the SDK and match score is provided
 1. The system then proceeds to execute compare against the face threshold
@@ -64,7 +64,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if the time period between the current time stamp and the request time stamp is <= time period (n is an admin configuration). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
    * Validates if duplicate fingers are used in input
    * Validates if total number of finger print records exceed 2
-4. The system then matches finger print records in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+4. The system then matches finger print records in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the fingerprints and proceeds to execute compare against fingerprint threshold 
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -99,9 +99,9 @@ Upon receiving an authentication request, the system supports two-finger authent
    * Validates if duplicate fingers are used in input, if duplicate encoded value is used in the input for fingers - updated logic
    * Validates if single finger print record contains more than one finger
    * Validates if total number of finger print records exceed 2
-4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. Generates a match score (using SDK) based on the level of the match for the first fingerprint
-1. Matches second finger print record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. Matches second finger print record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. Then generates a match score (using SDK) based on the level of the match for the second fingerprint
 1. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
 1. The system retrieves the composite finger threshold configured which is acceptable for a match
@@ -125,10 +125,10 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if duplicate irises are used in input 
    * Validates if total number of Iris records exceeds 2
    * Validates if single iris record is present in the input
-   * The system matches iris record in the input parameter against the mapped UIN/VID of the resident in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+   * The system matches iris record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
 5. The system validates if two iris records are present in the input
-6. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the resident in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+6. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the individual in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 7. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
 8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
 9. The system proceeds to execute compare against Iris threshold
@@ -175,7 +175,7 @@ No weightage is provided to any field\s but exact match strategy is adopted for 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-1. The system validates if each of the address line items  in the input parameter is same as the address line items against the mapped UIN/VID of the resident in the auth database in the respective language for each address element. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. The system validates if each of the address line items  in the input parameter is same as the address line items against the mapped UIN/VID of the individual in the auth database in the respective language for each address element. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1.  Constructs the authentication response based on validation results
 1. Integrates the response with the static token generated for the authentication request. Refer to features related to generate a [**Static Token**]( #d-generate-a-static-token-id-for-each-mosip-authentication-request-to-facilitate-authentication-).
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
@@ -388,7 +388,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
    * The partners in a country are expected to send the timestamp  in the request in UTC with time zone
    * MOSIP returns the timestamp in the response in UTC with Time zone
 
-#### B. Locate the UIN of the resident in the Auth database so that the individual can be authenticated
+#### B. Locate the UIN of the individual in the Auth database so that the individual can be authenticated
 
 The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
