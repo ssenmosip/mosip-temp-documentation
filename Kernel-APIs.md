@@ -1644,7 +1644,7 @@ This service will upload the public key corresponding to a particular machine wh
 
 Resource Details | Description
 ------------ | -------------
-Request format | Form Data
+Request format | application/json
 Response format | JSON
 Requires Authentication | Yes
 
@@ -1652,7 +1652,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 machineName |Yes|Name of the machine| | MDLGE6273
-publickey |Yes|Base 64 encoded Public key of the passed machine| | application/json
+publickey |Yes|Base 64 encoded Public key of the passed machine| | 
 
 
 #### Request
