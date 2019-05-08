@@ -106,6 +106,8 @@ The Admin can set the following fields to be update-able at a country level
 
 #### E. Turn geo-location capture ON or OFF
 1. A country may opt to turn ON or OFF the geo-location capture process. It can be done by the admin. 
+1. The reason to do this is to ensure that all registrations happen in authorized service centers only
+1. The geo location helps indicate where the registrations are happening
 1. The Registration Officer commences a new registration.
 1. If Geo location capture is turned ON, the system captures the location of the machine to be stored in the registration packet. System validates that the location is within configured limits of the master data.
 1. Alternatively, if Geo location capture is turned OFF, the system does not capture the location of the machine. System does not validate the location.
@@ -118,6 +120,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. The Registration Officer completes operator authentication at the end of registering an individual with exceptions.
 1. If supervisor authentication is turned ON, a Supervisor is required to enter their credentials.
 1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option. User proceeds to the next step (acknowledgement).
+1. If there is no supervisor for a particular country, the operator will be configured as a supervisor and he will perform the additional authentication step too in case of exceptions
  
 #### G. Sync Registration Centre Setup data with data store servers
 1. Each machine is mapped to a registration center. Server sends only the Registration Centre data for the specific center to the data store server
@@ -172,7 +175,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 
 Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
 
-The supervisor may opt to see the details of one or many registration ID. The system should show the display the acknowledgement slip of the registration\s
+The supervisor may opt to see the details of one or many registration ID. The supervisor can view the details on the right hand side pane 
 
 The supervisor then choses to either approve, reject or keep the registration on hold.
 
@@ -184,25 +187,17 @@ The system then shows a confirmation of successful approval.
 1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
 1. The packet status should change only when supervisor completes authentication. Else the packet status should revert to its original status.
 1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
-1. The packets, which are placed on hold followed by successful authentication, are moved from the ‘Pending Approval’ list to the ‘Pending Action’ list.
 1. The approved and rejected packets are placed in the upload location on the client and should be sent to server during the next upload.
-1. If a registration is on hold for more than x days, it is auto-approved by the system. No Supervisor authentication is required for this. The parameter x is configurable
 1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
 
-
-#### B. Registration client allows supervisor to view packets that are in pending approval state [**[↑]**](#table-of-content)
-1. The system allows Supervisor to view packets in “Pending approval” status
-1. The system displays the packets with the fields as shown here ”Registration ID, Registration Type, Resident Name, Operator ID, Operator Name”
-1. The system displays error messages in case of any errors
-
-#### C. Registration client enables a supervisor to approve data packets.
-1. The system allows a Supervisor to view packets in “Pending approval” status or “On hold”
+#### B. Registration client enables a supervisor to approve data packets.
+1. The system allows a Supervisor to view packets in “Pending approval” status.
 1. The supervisor can view the following fields: “(Packet ID, New Status = Approved, Approver ID)”
-1. The supervisor can then change the packet status to “Approve”, “Reject” or “On hold”
+1. The supervisor can then change the packet status to “Approve” or “Reject”.
 1. The system displays error messages in case of any errors
-1. The system ensures that the rejected packets and the packets that have been put on hold should not appear in the approval list again
+1. The system ensures that the rejected packets and the packets should not appear in the approval list again
 
-#### D. Supervisor can inform individuals to 'Re-register'
+#### C. Supervisor can inform individuals to 'Re-register'
 
 1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
 1. The system displays the list of registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
