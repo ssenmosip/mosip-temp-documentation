@@ -47,21 +47,24 @@
 
 # Registration Processor
 # 1. ID Lifecycle Management
+When an individual visits a registration center to get a UIN or update his/her UIN information, a registration officer or supervisor captures the individual’s demographic (name, date of birth, gender, etc.) and biometric (face, iris, finger print image, etc.) details. These information are packaged in a secure way (using encrypted packets) by Registration Client and sent to Registration Processor. The various life cycle events that can be processed by Registration Processor are:
 
-When an individual visits the registration center, the registration officer or supervisor captures the Demographic (name, date of birth, gender, etc.) and Biometric (face, iris, finger print image, etc.) details of the Individual. Then Registration Client packages the information in a secure way (encrypted packets) and sends it to the Registration Processor. Registration Processor now processes the data of the Individual for quality and uniqueness and then issues new ID or updates the individual’s details. The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
+The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
 * New ID Issuance
 * Update individual’s information
 * De-activate individual’s ID
 * Re-activate individual’s ID
 
 ## 1.1 New ID Issuance
-After the packet for a new ID issuance is received from the Registration Client and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the [**demographic deduplication**](#a-demographic-deduplication) (using name, date of birth, and gender) and [**biometric deduplication**](#b-biometric-deduplication) (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then issues a new ID to the individual. After issuance of the ID, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
-## 1.2 Update Individual’s Information
-After the packet for update is received from the Registration Client or Residential Portal and has passed the [**sanity checks**](#311-sanity-check) and validations, the system performs the [**demographic deduplication**](#a-demographic-deduplication) (using name, date of birth, and gender) and [**biometric deduplication**](#b-biometric-deduplication) (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)) and then updates the individual’s information via two different ways:
-1. Packet that is received through Registration Client, updates the individual’s Biometric and demographic details.
-1. Packet that is received through Residential Portal, updates the individual’s address and contact information.
 
-After the individual’s information is updated, the system notifies the individual via the configured mode of notification (e-mail or SMS) and sends the ID card to the printing & postal service provider.
+When the Registration Processor receives a packet for registering an individual in the system, it performs various [**sanity checks**](#311-sanity-check) & validations, and identifies demographic duplicates (using demographic data like name, date of birth and gender) and biometric duplicates (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). After all the validations are successful, the system allocates a UIN for the individual. 
+
+## 1.2 Update Individual’s Information
+An individual can update his/her information via two different ways:
+1. **Visiting a Registration Center** – The individual can update their biometric and demographic information.
+1. **Using the Resident Portal** – The individual can update their address and contact information.
+
+When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check) and validations and then updates the individual’s information.
 
 ## 1.3 De-activate individual’s ID
 When a country or an individual chooses to de-activate an individual’s ID due to any specific reason, the packet for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
