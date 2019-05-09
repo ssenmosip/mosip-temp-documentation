@@ -1,20 +1,20 @@
 ## Table Of Content
 - [Resident Services](#resident-services)
-  * [1. Track status of UIN Generation by providing Registration ID](#1-track-status-of-UIN-generation-by-providing -registration-ID) _(RES_FR_1)_
-  * [2. Download e-UIN](#3-download-e-uin) _(RES_FR_2)_
+  * [1. Track status of UIN Generation by providing Registration ID](#1-track-status-of-uin-generation-by-providing-registration-id) _(RES_FR_1)
+  * [2. Download e-UIN](#2-download-e-uin)_(RES_FR_2)_
   * [3. Retrieve Lost RID](#3-retrieve-lost-rid) _(RES_FR_3)_
-  * [4. Retrieve Lost UIN](#4-retrieve-lost-uin---tbd) _(RES_FR_4)_
-  * [5. Request re-print of UIN](#11-lockunlock-kyc-docsdata-sharing) _(RES_FR_5)_
-  * [6. Initiate UIN Update - Address](#5-initiate-uin-update) _(RES_FR_6)_
-  * [7. Track Status of UIN Update](#6-track-status-of-uin-update) _(RES_FR_7)_
-  * [8. View History of Authentication Requests (for Prescribed Days/number of requests)](#9-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests) _(RES_FR_8)_
+  * [4. Retrieve Lost UIN](#5-retrieve-lost-uin---tbd) _(RES_FR_4)_
+  * [5. Request re-print of UIN](#5-request-re-print-of-UIN) _(RES_FR_5)_
+  * [6. Initiate UIN Update - Address](#6-initiate-uin-update) _(RES_FR_6)_
+  * [7. Track Status of UIN Update](#7-track-status-of-uin-update) _(RES_FR_7)_
+  * [8. View History of Authentication Requests (for Prescribed Days/number of requests)](#8-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests) _(RES_FR_9)_
   * [9. Lock/Unlock UIN for each Authentication Type](#10-lockunlock-uin) _(RES_FR_9)_
   * [10. Generate Virtual ID](#2-generate-virtual-id) _(RES_FR_10)_
     * Virtual ID Types
   * [11. Revoke/In-activate a Virtual ID](#2-generate-virtual-id) _(RES_FR_11)_
 
 # Resident Services
-## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
+## 1.Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an RID.
 
 An individual will execute the following procedure to initiate the track status request related to UIN generation:
@@ -28,9 +28,7 @@ An individual will execute the following procedure to initiate the track status 
 1. During the validation of RID and the mobile number/email ID, if the RID is not found or the mobile number/email ID is 
    not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error 
    notification.
-
-## 2. Generate Virtual ID [**[↑]**](#table-of-content)
-## 3. Download UIN [**[↑]**](#table-of-content)
+## 2. Download UIN [**[↑]**](#table-of-content)
 The system allows an individual to raise a request to download his/her e-UIN.
 
 The following procedures to be followed by an individual to raise a e-UIN download request:
@@ -46,7 +44,7 @@ The following procedures to be followed by an individual to raise a e-UIN downlo
    provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not 
    correct, then the system triggers a respective error notification.
 
-## 4. Retrieve Lost UIN - TBD[**[↑]**](#table-of-content)
+## 3. Retrieve Lost UIN - TBD[**[↑]**](#table-of-content)
 
 MOSIP allows an individual to initiate a request to retrieve the RID.
 
@@ -57,11 +55,20 @@ An individual will follow the following procedure to raise a requested related t
    notification.
 3. The individual provides the OTP as received.
 4. The system validates the provided OTP and successfully authenticates the individual.
-1. The system generates the password protected (Password is configurable) RID and provides the RID to the individual along 
+5. The system generates the password protected (Password is configurable) RID and provides the RID to the individual along 
    with notification.
-1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID 
+6. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID 
    and postal code are not associated with the RID or the provided OTP is not correct, then the system triggers a 
    respective error notification.
+## 4. Re-print Request of UIN [**[↑]**](#table-of-content)
+MOSIP allows an individual to raise a reprint request for his/her UIN.
+An individual will follow the following procedure to raise a reprint request: 
+1.The individual provides the UIN/VID for which he/she wants to reprint.
+2.The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
+3.The individual provides the OTP as received.
+4.The system validates the provided OTP and successfully authenticates the individual.
+5.The system will provide the UIN to the registration processor to process the reprint request.
+6.During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ## 5. Initiate UIN Update [**[↑]**](#table-of-content)
 MOSIP allows an individual to process a request to update the UIN.
@@ -127,7 +134,7 @@ The following procedure to be followed by an individual to lock the authenticati
 9. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-B.  **Unlock the UIN**
+ B. **Unlock the UIN**
 
 MOSIP allows an individual to unlock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID.
 
@@ -144,5 +151,5 @@ The following procedure to be followed by an individual to unlock the authentica
 9. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 11. Lock/Unlock KYC Docs/Data Sharing [**[↑]**](#table-of-content)
-## 12. Lock/Unlock Biometric Auth/Other Auth [**[↑]**](#table-of-content)
+## 12. Lock/Unlock KYC Docs/Data Sharing [**[↑]**](#table-of-content)
+## 13. Lock/Unlock Biometric Auth/Other Auth [**[↑]**](#table-of-content)
