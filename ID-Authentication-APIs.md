@@ -1,3 +1,4 @@
+
 This section details about the REST services in ID Authentication module.
 * [Authentication Service](#authentication-service-public) - This service can be used by Partners to authenticate an Individual using OTP, Demographic or Biometric-based authentication.
 * [eKYC Service](#ekyc-service-public) - This service can be used by Partners to retrieve KYC details of an Individual, after authenticating them using OTP or Biometric-based authentication.
@@ -5,28 +6,31 @@ This section details about the REST services in ID Authentication module.
 * [Internal Authentication Service](#authentication-service-internal) - This service can be used by MOSIP modules to authenticate Individual using Biometric-based authentication.
 
 ## Authentication Service (Public)
-
-### POST /idauthentication/v1/identity/auth/
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
 1. OTP based - OTP (Time based OTP)
 2. Demographic based - Name, DOB, Age, Gender, Address, FullAddress
 3. Biometric based - Fingerprint, IRIS and Face
 
-### Users of Authentication service -
+#### Users of Authentication service -
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - Auth-Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth-Partners and sent to MOSIP, via MISP.
+
+* [POST /idauthentication/v1/identity/auth/](#post-idauthenticationv1identityauth) 
+
+### POST /idauthentication/v1/identity/auth/
+This request will authenticate an Individual, based on provided authentication type(s).
 
 #### Resource URL
 <div>https://mosip.io/idauthentication/v1/identity/auth/:Auth-Partner-ID/:MISP-LicenseKey</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | | mosip.identity.auth
@@ -54,10 +58,7 @@ Mandatory fields for different types of authentications-
 2. **Demographic Auth** - request: **demographics**  attribute is mandatory
 2. **Biometric Auth** - request: **biometrics** attribute is mandatory
 
-### Request Header
-##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
-
-### Request Body
+#### Request Body
 ```JSON
 {
   "id": "mosip.identity.auth",
@@ -158,11 +159,8 @@ Mandatory fields for different types of authentications-
 }
 ```
 
-### Response Header     
-##### MOSIP-AuthX = `<MOSIP Digital Signature>`
-
-### Response Body
-#### Success Scenario :
+#### Responses:
+##### Success Response:
 ###### Status Code : 200 (OK)
 ###### Description : Successfully authenticated an Individual    
 
@@ -183,7 +181,7 @@ Mandatory fields for different types of authentications-
 }
 ```
 
-#### Failed Response:
+##### Failed Response:
 ###### Status Code : 200 (OK)    
 ###### Description : Authentication of an Individual failed
 
@@ -211,23 +209,26 @@ Mandatory fields for different types of authentications-
 ```
 
 ## eKYC Service (Public)
-
-### POST /idauthentication/v1/identity/kyc/
 This service details authentication (eKYC auth) that can be used by Partners to authenticate an Individual and send Individual's KYC details as response. Below are various authentication types supported by eKYC Authentication - 
 1. OTP Authentication - OTP
 2. Biometric Authentication - Fingerprint, IRIS and Face
 
-### Resource URL
+* [POST /idauthentication/v1/identity/kyc/](#post-idauthenticationv1identitykyc) 
+
+### POST /idauthentication/v1/identity/kyc/
+This request will provide KYC details of Individual, once an Individual is successfully authenticated.
+
+#### Resource URL
 <div>https://mosip.io/idauthentication/v1/identity/kyc/:eKYC-Partner-ID/:MISP-LicenseKey</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 version | Y | API version |  | v1
@@ -252,10 +253,7 @@ request: biometrics|N| Biometrics of an Individual| |
 request: transactionID|N| Transaction ID provided by Device Service| |
 
 
-### Request Header
-##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
-
-### Request Body
+#### Request Body
 ```JSON
 {
   "id": "mosip.identity.kyc",
@@ -304,11 +302,8 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 }
 ```
 
-### Sample Response Header     
-##### MOSIP-AuthX = `<MOSIP Digital Signature>`
-
-### Sample Response Body
-#### Success Scenario :
+#### Responses:
+##### Success Response:
 ###### Status Code : 200 (OK)
 ###### Description : Successful KYC Authentication of an Individual    
 
@@ -321,10 +316,10 @@ request: transactionID|N| Transaction ID provided by Device Service| |
   //Response Metadata
   "transactionID": "txn12345",
   //Auth Response
-  "response": {// encoded encrypted KYC info using Partner's public key
+  "response": {
     "kycStatus": true,
     "staticToken": "<static_token>",
-    "identity": {
+    "identity": {// encoded encrypted KYC info using Partner's public key
       "name": [
         {
           "language": "ara",
@@ -380,7 +375,7 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 }
 ```
 
-#### Failed Response:
+##### Failed Response:
 ###### Status Code : 200 (OK)
 ###### Description : KYC Authentication of an Individual failed    
 
@@ -408,21 +403,24 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 ```
 
 ## OTP Request Service (Public)
-
-### POST /idauthentication/v1/otp/
 This service enables Partners to request for an OTP for an Individual. The OTP will be send via message or email as requested to the Individual. This OTP can then be used to authenticate an Individual using Authentication or eKYC service.
 
-### Resource URL 
+* [POST /idauthentication/v1/identity/kyc/](#post-idauthenticationv1otp) 
+
+### POST /idauthentication/v1/otp/
+This request will send an OTP to the Individual.
+
+#### Resource URL 
 <div>https://mosip.io/idauthentication/v1/otp/:Partner-ID/:MISP-LicenseKey</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | mosip.identity.otp | 
@@ -434,10 +432,7 @@ individualIdType| Y | Allowed Type of Individual ID - VID, UIN | VID
 otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 
 
-### Request Header
-##### MOSIP-AuthX = `<Partner Digital Signature re-issued by MOSIP>`
-
-### Request Body
+#### Request Body
 ```JSON
 {
   "id": "mosip.identity.otp",
@@ -453,11 +448,8 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 }
 ```
 
-### Response Header     
-##### MOSIP-AuthX = `<MOSIP Digital Signature>`
-
-### Response Body
-#### Success Scenario:
+#### Responses:
+##### Success Response:
 ###### Status Code : 200 (OK)
 ###### Description : OTP for Authentication or KYC Service was successfully sent to the Individual        
 
@@ -478,7 +470,7 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 }
 ```
 
-#### Failed Scenario :   
+##### Failed Response:   
 ###### Status Code : 200 (OK)
 ###### Description : Failed to send OTP to the Individual   
 
@@ -503,29 +495,31 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 ```
 
 ## Authentication Service (Internal)
+This service details authentication (yes/no auth) that can be used by MOSIP modules to authenticate an Individual using UserID/VID/UIN. Below are various authentication types supported by this service - Biometric based - Fingerprint, IRIS and Face
+
+* [POST /idauthentication/v1/identity/auth/internal](#post-idauthenticationv1identityauthinternal) 
 
 ### POST /idauthentication/v1/identity/auth/internal
-This service details authentication (yes/no auth) that can be used by MOSIP modules to authenticate an Individual using UserID/VID/UIN. Below are various authentication types supported by this service - 
-1. Biometric based - Fingerprint, IRIS and Face
+This request will authenticate an Operator/Supervisor using Biometric authentication.
 
-### Users of Internal Authentication service -
+#### Users of Internal Authentication service -
 1. `Registration Client` - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.
 2. `Registration Processor` - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.
 
 #### Resource URL
 <div>https://mosip.io/idauthentication/v1/identity/auth/internal</div>
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id | Y | API Id | | mosip.identity.internalauth
+id | Y | API Id | | mosip.identity.auth.internal
 version | Y | API version | | v1
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
@@ -543,18 +537,17 @@ request| Y | Auth request attributes to be used for authenticating Individual | 
 request: timestamp| N | Timestamp when request block was captured| | 
 request: biometrics|N| Biometric data of an Individual| |
 
-### Request Header
-##### MOSIP-AuthX = `<Registration Client or Registration Processor Digital Signature>`
 
-### Request Body
+#### Request Body
 ```JSON
 {
-  "id": "mosip.identity.internalauth",
+  "id": "mosip.identity.auth.internal",
   "version": "v1",
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "transactionID": "1234567890",
   "requestedAuth": {
-    "bio": true
+    "bio": true,
+    "demo": false
   },
   "consentObtained": true,
   "individualId": "9830872690593682",
@@ -567,13 +560,6 @@ request: biometrics|N| Biometric data of an Individual| |
     "biometrics": [
       {
         "data": {
-          "mosipProcess": "",
-          "environment": "",
-          "version": "",
-          "deviceCode": "",
-          "deviceProviderID": "",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "",
           "bioType": "FMR",
           "bioSubType": "UNKNOWN",
           "bioValue": "<base64 encoded biometric data>"
@@ -581,13 +567,6 @@ request: biometrics|N| Biometric data of an Individual| |
       },
       {
         "data": {
-          "mosipProcess": "",
-          "environment": "",
-          "version": "",
-          "deviceCode": "",
-          "deviceProviderID": "",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "",
           "bioType": "IIR",
           "bioSubType": "RIGHT",
           "bioValue": "<base64 encoded biometric data>"
@@ -598,18 +577,15 @@ request: biometrics|N| Biometric data of an Individual| |
 }
 ```
 
-### Response Header     
-##### MOSIP-AuthX = `<MOSIP Digital Signature>`
-
-### Response Body
-#### Success Scenario :
+#### Responses:
+##### Success Response:
 ###### Status Code : 200 (OK)
 ###### Description : Successfully authenticated an Individual    
 
 ```JSON
 {
   //API Metadata
-  "id": "mosip.identity.internalauth",
+  "id": "mosip.identity.auth.internal",
   "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
@@ -622,14 +598,14 @@ request: biometrics|N| Biometric data of an Individual| |
 }
 ```
 
-#### Failed Response:
+##### Failed Response:
 ###### Status Code : 200 (OK)    
 ###### Description : Authentication of an Individual failed
 
 ```JSON
 {
   //API Metadata
-  "id": "mosip.identity.internalauth",
+  "id": "mosip.identity.auth.internal",
   "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
