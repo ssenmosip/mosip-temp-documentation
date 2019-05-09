@@ -256,12 +256,12 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 ## 3.1 List of Registrations (WIP) [**[↑]**](#table-of-content)
 ## 3.2 Registration Packet Upload [**[↑]**](#table-of-content)
 
-#### A. View the packets first, select which ones to upload, and then initiate the packet to upload
-1. Once the Registration Officer selects the “Upload Packets” option, a list of packets are displayed.
-1. Each packet has a check box for selection and has an option to “Select All” and “Deselect All” the packets. 
-1. After the Registration Officer selects the packet, he/she can upload the selected packet to server.
+#### A. Upload the packet
+1. The Registration Officer views a list of packets.
+1. The Registration Officer may opt to upload one or multiple packets from a list of packets.
+1. After the Registration Officer selects the packet/s, he/she can upload the selected packet/s to server.
 
-   NOTE: If any packets are selected, the ‘Export’ option gets disable because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
+   NOTE: The system doesn't allow Registration Officer to export the packet, if he/she selects any packets to upload.
 
 #### B. Push those packets that are marked 'Resend' to the server
 
@@ -319,36 +319,34 @@ System exports registration packet data from client machine to an external devic
 ## 3.4 New Registration [**[↑]**](#table-of-content)
 
 #### A. Capture consent from the individual for data storage and utilization				
-1. For every registration, the system provides an option for the Registration Officer (RO) to mark an individual's consent as Yes or No
-1. The RO marks consent after confirming with the individual offline.
+1. For every registration, the system provides an option for the Registration Officer to mark an individual's consent as Yes or No
+1. The Registration Officer marks consent after confirming with the individual offline.
 1. Whether the consent is marked as Yes/No, it will not have any impact on issuance of UIN for that individual and the system will not execute any validations in this regard during packet processing.
 
 #### B. Transliteration: Virtual keyboard
 
 1. The virtual keyboard icon for the secondary language appears only once on the demographic details page.
-1. The RO enters text by clicking inside the text area, and then invokes the virtual keyboard.
-1. The RO uses the virtual keyboard for primary language too.
+1. The Registration Officer enters text by clicking inside the text area, and then invokes the virtual keyboard.
+1. The Registration Officer uses the virtual keyboard for primary language too.
 
 #### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
-1. For new registration or UIN update, the system provides an option for the Registration Officer (RO) to mark an individual's date of birth as ‘Verified’.
-1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state should be unchecked. When checked, it indicates that the RO has verified the date of birth of the individual.
+1. For new registration or UIN update, the system provides an option for the Registration Officer to mark an individual's date of birth as ‘Verified’.
+1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state should be unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
 1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
 #### D. Register an individual who is less than 5 years old.
-1. MOSIP system does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth should automatically determine the category of the applicant.
-2. When a registration officer starts a new registration, the system intuitively determines if the registration is for a child using the date of birth.
-3. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists.
-4. The system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
-5. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system should ensure parent/guardian is registered first
-6. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
-7. The system triggers error messages as applicable
+1. MOSIP system does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
+1. When a registration officer starts a new registration, the system intuitively determines if the registration is for a child using the date of birth.
+1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
+1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system should ensure parent/guardian is registered first and at least RID is available.
+1. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
 #### E. Mark an individual as Foreigner or Non-Foreigner
-For every new registration, the system provides an option on the demographic details page for the Registration Officer (RO) to mark an individual as either a citizen of that country or a Foreigner. 
+For every new registration, the system provides an option on the demographic details page for the Registration Officer  to mark an individual as either a citizen of that country or a Foreigner. 
 
-If the RO selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
+If the Registration Officer selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
 #### F. Enter the demographic details for registration
 
 **The Registration Officer opts to initiate a new registration**
-1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the workflow as configured by the admin. 
+1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition) as configured by the admin. 
 1. The system validates the entered demographic fields.
 1. Displays error message in case of validation failure.
 1. On successful validation, proceeds to next step.
@@ -471,7 +469,7 @@ The UIN update feature is configurable by a country. Admin can either turn ON or
 When an individual approaches the Registration Officer for UIN update, the following scenarios may arise:
 
 1. If UIN update is turned ON by a country, the registration officer can proceeds to capture the individual’s updated details.
-1. Alternatively, if UIN Update is turned OFF by a country the RO will not be able to carry out the UIN Update process.
+1. Alternatively, if UIN Update is turned OFF by a country the Registration Officer will not be able to carry out the UIN Update process.
 
 #### B. Registration client allows update to UIN data only for configured fields
 1. An admin can configure the fields that are available for update through the registration client. The configuration applies at a country level.
@@ -573,7 +571,7 @@ This feature enables registration client to send SMS and email acknowledgements 
 
 
 #### A. Map registration officers and supervisors to a client machine.
-Initially a machine will have no users on boarded. The first RO/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this RO/Supervisor can onboard other users.
+Initially a machine will have no users on boarded. The first Registration Officer/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this Registration Officer/Supervisor can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
 1. Allow the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data
    * Fields selected on the UI include user, status, fingerprints, and irises.
@@ -1045,7 +1043,7 @@ When a set of audit data is uploaded to the server and the server has acknowledg
 
 When an Admin user changes the mapping of a computer from one Registration Centre (RC) to another, a sync is initiated on the client installed on that computer.
 
-MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer (RO) moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
+MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
 
 The following example explains the steps system performs to support remapping a machine from one center to another:
 
