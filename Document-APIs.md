@@ -16,9 +16,9 @@ This section details about the service APIs in the Document modules
 * [POST /documentcategories](#post-documentcategories)
 * [PUT /documentcategories](#put-documentcategories)
 * [GET /documentcategories](#get-documentcategories)
-* [GET /documentcategories/{code}/{langcode}](#get-documentcategories-code-langcode)
-* [GET /documentcategories/{languagecode}](#get-documentcategories-languagecode)
-* [DELETE /documentcategories/{code}](#get-documentcategories-code)
+* [GET /documentcategories/{code}/{langcode}](#get-documentcategoriescodelangcode)
+* [GET /documentcategories/{languagecode}](#get-documentcategorieslangcode)
+* [DELETE /documentcategories/{code}](#delete-documentcategoriescode)
 
 # POST /documentcategories
 
@@ -400,7 +400,7 @@ Description: Not Found
 
 * [POST /documentformats](#post-documentformats)
 * [GET /documentformats](#get-documentformats)
-* [GET /documentformats/{id}/{languagecode}](#get-documentformats-id-languagecode)
+* [GET /documentformats/{id}/{languagecode}](#get-documentformatsidlanguagecode)
 
 # POST /documentformats
 Master data is required across the platform. 
@@ -601,7 +601,8 @@ Description: Not Found
 
 * [POST /documenttype](#post-documenttype)
 * [PUT /documenttype](#put-documenttype)
-* [GET /documenttypes/{documentcategorycode}/{langcode}](#get-documenttypes-documentcategorycode-langcode)
+* [GET /documenttypes/{documentcategorycode}/{langcode}](#get-documenttypesdocumentcategorycodelangcode)
+* [GET /documentcategorytypes](#get-documentcategorytypes)
 * [GET /doccattypes](#get-doccattypes)
 * [GET /checkapptypedoccattypedoctype](#get-checkapptypedoccattypedoctype)
 
@@ -929,7 +930,7 @@ documenttypecode |Yes| Code of Document type | |
 
 # Valid documents API
 
-* [GET /validdocuments](#get-validdocuments)
+* [GET /validdocuments/{languagecode}](#get-validdocumentslanguagecode)
 
 ### Resource URL
 ### `GET /validdocuments/{languagecode}`
