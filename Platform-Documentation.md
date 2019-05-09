@@ -312,7 +312,7 @@ OTP manager includes APIs for
 1. OTP generation
 1. OTP validation. 
 
-Please refer [**wiki**](#otp-manager)
+Please refer [**wiki**](Kernel-APIs#otp-manager)
 #### 9.1.4	Pre-Registration APIs [**[↑]**](#table-of-content)
 Format: JSON
 
