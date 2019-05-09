@@ -44,7 +44,7 @@ example:
 ```
 ### Creating Hadoop User
 **create a hadoop user** in every machine in the cluster to followup the documentation <br/> 
-or **replace the hadoop user ** in the documentation with your own user.
+or **replace the hadoop user** in the documentation with your own user.
 ```
 sudo adduser hadoop
 
