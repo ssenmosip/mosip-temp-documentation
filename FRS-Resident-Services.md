@@ -63,12 +63,13 @@ An individual will follow the following procedure to raise a requested related t
 ## 4. Re-print Request of UIN [**[↑]**](#table-of-content)
 MOSIP allows an individual to raise a reprint request for his/her UIN.
 An individual will follow the following procedure to raise a reprint request: 
-1.The individual provides the UIN/VID for which he/she wants to reprint.
-2.The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
-3.The individual provides the OTP as received.
-4.The system validates the provided OTP and successfully authenticates the individual.
-5.The system will provide the UIN to the registration processor to process the reprint request.
-6.During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
+1. The individual provides the UIN/VID for which he/she wants to reprint.
+2. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
+3. The individual provides the OTP as received.
+4. The system validates the provided OTP and successfully authenticates the individual.
+5. The system will provide the UIN to the registration processor to process the reprint request.
+6. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the 
+   UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ## 5. Initiate UIN Update [**[↑]**](#table-of-content)
 MOSIP allows an individual to process a request to update the UIN.
