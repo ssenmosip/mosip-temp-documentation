@@ -1,24 +1,24 @@
 This section details about the service APIs in the common modules
 
-* [Titles Master API](#titles-master-api)
+* [Titles API](#titles-master-api)
 
-* [Gender Master API](#gender-master-api)
+* [Gender API](#gender-master-api)
 
-* [Age group Types API](#age-group-types-api)
+* [Age Groups API](#age-group-types-api)
 
-* [ID Types Master API](#id-types-master-api)
+* [ID Types API](#id-types-master-api)
 
-* [Holiday Master API](#holiday-master-api) 
+* [Holidays API](#holiday-master-api) 
 
-* [Locations Master API](#locations-master-api)
+* [Locations API](#locations-master-api)
 
-* [Languages Master API](#languages-master-api)
+* [Languages API](#languages-master-api)
 
 * [Individual Types API](#individual-types-api)
 
-* [Application Types Master API](#application-types-master-api)
+* [Application Types API](#application-types-master-api)
 
-* [Blacklisted words Master API](#blacklisted-words-master-api)
+* [Blacklisted Words API](#blacklisted-words-master-api)
 
 # Titles Master API
 

@@ -1,11 +1,11 @@
 This section details about the service APIs in the Document modules
 
 
-* [Devices Master API](#devices-master-api)
+* [Devices API](#devices-master-api)
 
-* [Devices Master Type API](#device-types-master-api)
+* [Device Types API](#device-types-master-api)
 
-* [Device Specifications Master API](#device-specifications)
+* [Device Specifications API](#device-specifications)
 
 
 # Devices Master API

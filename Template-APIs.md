@@ -1,8 +1,8 @@
 This section details about the service APIs in the template modules
 
-* [Template Master API](#template-api)
+* [Templates API](#template-api)
 
-* [Template Types Master API](#template-types-api)
+* [Template Types API](#template-types-api)
 
 # Template API
 

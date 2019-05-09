@@ -1,15 +1,16 @@
 This section details about the service APIs in the Biometric types and biometric attributes modules
 
 
-* [Registration Centers Master API](#registration-centers-master-api)
+* [Registration Centers API](#registration-centers-master-api)
 
-* [Registration Center User Machine Mapping API](#registration-center-user-machine-mapping-api)
 
-* [Registration Center Machine API](#registration-center-machine-api)
+* [Registration Center - Device Mapping API](#registration-center-device-api)
 
-* [Registration Center Device API](#registration-center-device-api)
+* [Registration Center - Machine Mapping API](#registration-center-machine-api)
 
-* [Registration Center Machine Device API](#registration-center-machine-device-api)
+* [Registration Center - User - Machine Mapping API](#registration-center-user-machine-mapping-api)
+
+* [Registration Center - Machine - Device API](#registration-center-machine-device-api)
 
 
 

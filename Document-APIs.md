@@ -1,13 +1,13 @@
 This section details about the service APIs in the Document modules
 
 
-* [Documents Category Master API](#documents-category-master-api)
+* [Documents Categories API](#documents-category-master-api)
 
-* [Document formats Master API](#document-formats-master-api)
+* [Document Formats API](#document-formats-master-api)
 
-* [Documents Types Master API](#documents-types-api)
+* [Documents Types API](#documents-types-api)
 
-* [Valid documents API](#valid-documents-api)
+* [Valid Documents API](#valid-documents-api)
 
 
 

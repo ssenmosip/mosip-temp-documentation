@@ -1,8 +1,8 @@
 This section details about the service APIs in the Packet modules
 
-* [Packet rejection reasons Master API](#packet-rejection-reasons-master-api)
+* [Packet Rejection Reasons API](#packet-rejection-reasons-master-api)
 
-* [Packet on hold reasons Master API](#packet-on-hold-reasons-master-api)
+* [Packet On Hold Reasons API](#packet-on-hold-reasons-master-api)
 
 # Packet Rejection Reasons Master API
 

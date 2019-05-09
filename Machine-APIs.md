@@ -1,11 +1,11 @@
 This section details about the service APIs in the Document modules
 
 
-* [Machines Master API](#machines-master-api)
+* [Machines API](#machines-master-api)
 
 * [Machine Types Master API](#machine-types-master-api)
 
-* [Machine Specifications Master API](#machine-specifications)
+* [Machine Specifications API](#machine-specifications)
 
 
 # Machines Master API
