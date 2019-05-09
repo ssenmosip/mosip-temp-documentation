@@ -11,10 +11,10 @@ This section details about the service APIs in the Document modules
 # Devices Master API
 
 * [POST /devices](#post-devices)
-* [GET /devices]/{languagecode}(#get-devices)
-* [GET /devices/{languagecode}/{deviceType}](#get-deviceType-languagecode)
-* [PUT /devices](#put-devices)
-* [DELETE /devices/{id}](#delete-devices-id)
+* [GET /devices/{languagecode}](#get-deviceslanguagecode)
+* [GET /devices/{languagecode}/{deviceType}](#get-deviceslanguagecodedevicetype)
+* [PUT /devices](#put-devices-1)
+* [DELETE /devices/{id}](#delete-devicesid)
 
 # POST /devices
 
@@ -450,9 +450,9 @@ Description: Forbidden
 
 * [POST /devicespecifications](#post-devicespecifications)
 * [PUT /devicespecifications](#put-devicespecifications)
-* [DELETE /devicespecifications/{id}](#delete-devicespecifications-id)
-* [GET /devicespecifications/{langcode}/{devicetypecode}](#get-devicespecifications-langcode-devicetypecode)
-* [GET /devicespecifications/{lang_code}](#get-devicespecifications-lang_code)
+* [DELETE /devicespecifications/{id}](#delete-devicespecificationsid)
+* [GET /devicespecifications/{langcode}/{devicetypecode}](#get-devicespecificationslangcodedevicetypecode)
+* [GET /devicespecifications/{lang_code}](#get-devicespecificationslang_code)
 
 # POST /devicespecifications
 
