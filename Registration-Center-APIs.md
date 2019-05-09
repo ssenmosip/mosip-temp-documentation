@@ -1418,7 +1418,7 @@ Description: Internal Server Error
 ## DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}
 Master data is required across the platform. 
 
-This service will delete the mapping of registration canter, machine and device in the RegistrationCenter-Machine-Device Master module. 
+This service will delete the mapping of registration center, machine and device in the RegistrationCenter-Machine-Device Master module. 
 
 ### Resource URL
 ### `DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}`
