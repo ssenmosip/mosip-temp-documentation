@@ -519,17 +519,13 @@ When an individual approaches the Registration Officer for UIN update, the follo
    * If an email address is not provided during registration
    * If the client is not online during registration completion
 #### C. Acknowledgement receipt sent by SMS on completion of registration process
-1. When a registration is completed, that is, a Registration ID has been generated and assigned the system sends an acknowledgement email to the individual 
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system sends an acknowledgement SMS to the individual 
 2. The template of the SMS is defined by the admin at the country level.
 3. The “from” id of the SMS will be set up by the system integrator.
 4. The system triggers the SMS to the mobile number provided during registration.
-5. The SMS contains the registration number.
+5. The SMS contains the details as per the template configured by a country.
 6. An SMS  is triggered regardless of the applicant being an adult or child as determined by the date of birth.
 7. The system will not be able to send SMS, if the client is not online at the time of registration completion.
-
-**Proposed template**
-
-SMS content: “Dear [Individual full name], Thank you for registering with Digital Identity platform. Your registration id is [Registration ID]. If there are any corrections to be made in your details, please contact the Registration center within the next 4 days.
 
 #### D. Sending email and SMS acknowledgements to additional recipients
 This feature enables registration client to send SMS and email acknowledgements to additional recipient\s (other than the individual’s primary email id and mobile number)
@@ -575,7 +571,7 @@ Initially a machine will have no users on boarded. The first Registration Office
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
 1. Allow the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data
    * Fields selected on the UI include user, status, fingerprints, and irises.
-   * The list of users should include only active users. The system does not show users who are blacklisted or decommissioned.
+   * The list of users will include only active users. The system does not show users who are blacklisted or decommissioned.
    * The list of users does not include users who are already mapped to the machine.
    * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
    * The system then validates the fingerprint quality threshold is met.
@@ -584,15 +580,15 @@ Initially a machine will have no users on boarded. The first Registration Office
    * Both irises are captured and authenticated with the server. Validate that the iris quality threshold is met.
    * Validate that the number of successful iris authentications is greater than or equal to the config setting of iris authentications required.
    * Unlimited retries are allowed.
-3. If validations successful:
+3. If validations are successful, then the system performs the following:
    * Save the mapping locally.
    * Successfully authenticated fingerprints and irises will be stored locally.
    * Fingerprints and irises with unsuccessful authentication will not be stored.
    * The status of the mapping is set to ‘Active’ or ‘Inactive’ as selected.
    * Mapping will be sent to the server during the next sync.
    * Biometrics will not be sent to the server.
-4. If not successful: Displays error message.
-5. Multiple users can be mapped to the machine by repeating the above flow. There should be no limitation to the numbers of users mapped.
+4. If not successful: Triggers an error message.
+5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
 #### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
 1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre as the USB dongle. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
