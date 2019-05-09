@@ -57,7 +57,6 @@
     * [5.12.1 Disk Space Check](#5121-disk-space-check-) _(REG_FR_5.26)_
     * [5.12.2 Peripherals Check](#5122-peripherals-check-) _(REG_FR_5.27)_
     * [5.12.3 Virus Scan/Security Scan](#5123-virus-scansecurity-scan-) _(REG_FR_5.28)_
-    * [5.12.4 Reports (WIP)](#5124-reports-wip-) _(REG_FR_5.29)_
 - [6. Registration Client UI](#6-registration-client-ui-) _(REG_FR_6)_
 
 
@@ -165,7 +164,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
 1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
 1. User selects Document Types, scans and upload the documents and proceeds with registration.
-1. The categories PoI and PoA are mandatory. The registration officer should select a Document Type under each Category and upload a document.
+1. The categories PoI and PoA are mandatory. The registration officer will select a Document Type under each Category and upload a document.
 1. PoR is optional.
 
 
@@ -244,7 +243,7 @@ The system also enables a user to view the progress of download.
 
 The pre-registration data can be downloaded only for that particular registration center, where the pre-registration data download is initiated
 
-It is possible to download the pre-registration data from current date plus 1 to current date plus 7. This date range should be configurable
+It is possible to download the pre-registration data from current date plus 1 to current date plus 7. This date range is  configurable
 
 The downloaded pre-registration data overwrites the previously downloaded data for the same pre-registration ID
 
@@ -311,7 +310,7 @@ System exports registration packet data from client machine to an external devic
    * Packets that remain in ‘Ready to Upload’ status will be exported again when the next export is executed.
    * Packets in ‘Uploaded’ or any other status will not be exported again.
 5. All the Registration Officers and Supervisors on-boarded to the client machine is able to export all packets.
-1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets should remain on the destination folder.
+1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets will remain on the destination folder.
 1. For partial or full failure, the system displays error message.
 1. System captures and stores the transaction details for audit purpose.
 
@@ -331,13 +330,13 @@ System exports registration packet data from client machine to an external devic
 
 #### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
 1. For new registration or UIN update, the system provides an option for the Registration Officer to mark an individual's date of birth as ‘Verified’.
-1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state should be unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
+1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
 1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
 #### D. Register an individual who is less than 5 years old.
 1. MOSIP system does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
 1. When a registration officer starts a new registration, the system intuitively determines if the registration is for a child using the date of birth.
 1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
-1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system should ensure parent/guardian is registered first and at least RID is available.
+1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system ensures parent/guardian is registered first and at least RID is available.
 1. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
 #### E. Mark an individual as Foreigner or Non-Foreigner
 For every new registration, the system provides an option on the demographic details page for the Registration Officer  to mark an individual as either a citizen of that country or a Foreigner. 
@@ -370,7 +369,7 @@ Upon receiving a request to copy address details from the previous registration 
 2. The Registration officer collects these documents from individual and scans them
 1. The scan and upload works in such a way that copy of documents is not saved in system or any external device.
 1. The scanner scans the documents and upload them to the registration client machine
-1. The following parameters should be met while document upload
+1. The following parameters will be met while uploading document
    * System lists various document categories as configured by admin
    * For each document category, system enables selection of the list of valid documents
    * The System does not allow user to upload more than one document per category
@@ -415,7 +414,7 @@ While registering an individual, a registration officer captures the face photo 
 1. A retry is allowed only after at least x seconds since the previous capture. The value x is configured configurable (default value is 10 seconds)
 1. The quality score is determined by the sdk and the threshold limits are configured by the admin.
 1. The system does not allow further capture if the number of capture attempts are greater than the configured limits and Displays an alert message that the retry limit is reached and photo of sufficient quality is not obtained.
-1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo should be displayed on screen along with its quality score.
+1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo will be displayed on screen along with its quality score.
 1. All the above rules apply to exception photo capture as well.
 
 #### L. Capture Iris as per defined specifications
@@ -488,7 +487,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
 
 #### C. UIN Update
 1. The Registration Officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
-1. Registration Officer captures the mandatory demographic attributes and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated should be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN .If they are same, displays an error message 
+1. Registration Officer captures the mandatory demographic attributes and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN .If they are same, displays an error message 
 
 1. Registration Officer then uploads documents. The applicable documents are determined by the system based on configuration
 1. If biometrics were selected for update, Registration Officer marks exceptions and scans all biometrics. Else scans any one biometric.
@@ -591,17 +590,17 @@ Initially a machine will have no users on boarded. The first Registration Office
 5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
 #### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
-1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre's client machine. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
+1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials, the system validates that the user is mapped to the same Registration Centre's client machine. System validates that the user is yet to be on-boarded to the client machine. System directs the user to the password entry page.
 1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
 1. User can request the system to resend OTP if not received earlier.
 1. User enters OTP and submits. System directs the user to the dashboard page with all links disabled except for ‘User on-boarding’.
 1. User navigates to the User on-boarding page.
-1. User marks biometric exceptions if any (system should not mandate capture and authentication of those biometrics that are marked as exceptions).
+1. User marks biometric exceptions if any (system do not mandate capture and authentication of those biometrics that are marked as exceptions).
 1. User scans left slap, right slap and two thumbs. System displays the result of authentication of each finger.
 1. The system validates that the device is registered in the Admin portal, associated to this Registration Centre ID, and the current date lies within the validity dates of the device model.
 1. User scans both irises. System displays the result of authentication of each iris. User scans face and exception photo. System displays the result of authentication of face. Exception photo is not authenticated
 1. User can choose to retry each biometric capture as required. There is no limit to the number of retries.
-1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client dongle and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
+1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client machine and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
 1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-machine mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
 1. The system displays the result of authentication of each biometric - 10 fingers, 2 irises and face - in a list.
 1. User gets access to all links on the client according to their role.
@@ -652,11 +651,11 @@ When a supervisor opts to log in to the client machine the systems displays the 
 
 
 **Password-based login**
-1. Allows the user to enter their username and password and submit.
-1. Validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
-1. Validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
-1. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
-1. Validates that the user has a role or Registration Officer or Supervisor. 
+1. System allows the user to enter their username and password and submit.
+1. System validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
+1. System validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
+1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+1. System validates that the user has a role or Registration Officer or Supervisor. 
 
 **OTP based login**
 
@@ -777,7 +776,7 @@ When an admin user opts to log in to the registration client application by ente
 The registration officer authenticates each registration by providing credentials--biometrics and/or OTP and/or password as configured by the admin
 
 1. In case registration officer’s credentials do not match the locally saved credentials or the OTP, the system allows registration officer to retry unlimited number of times.
-1. If the system is configured for multi factor authentication, the registration officer should provide the credentials (biometric) in the configured order (as defined by the country)
+1. If the system is configured for multi factor authentication, the registration officer will provide the credentials (biometric) in the configured order (as defined by the country)
 1. The system allows the registration officer to proceed to the next step only upon successful authentication of all configured credentials
 1. The system validates that the input (registration officer’s credentials) matches with the locally saved credentials for that registration officer.
    * The system accepts the biometrics match only if the match score is greater than the configured threshold value
@@ -822,16 +821,16 @@ Please refer [**Git**](/mosip/mosip/tree/0.10.0/docs/javadocs/registration/apido
 3. A device-machine mapping cannot be created if the end date of the model validity has passed. However, it can be created ahead of the validity start date.
 4. The admin user first sets up models in the admin portal, then registers devices by entering their serial number, model number and manufacturer.
 5. While mapping a fingerprint or ‘IRIS’ or 'Camera' or 'Printer' or 'Scanner' or 'GPS' device to the client machine.
-   * The system should enable a Supervisor or Registration Officer to select Device Type = ‘Fingerprint’ or ‘Iris’ or ‘Camera’ or ‘Printer’ or ‘Scanner’ or ‘GPS’ or ‘Barcode reader’.
+   * The system will enable a Supervisor or Registration Officer to select Device Type = ‘Fingerprint’ or ‘Iris’ or ‘Camera’ or ‘Printer’ or ‘Scanner’ or ‘GPS’ or ‘Barcode reader’.
    * Upon section of a device type, the system shows a list of devices that are registered. Device registration is done through by the Admin. 
-   * The available devices list should show only those devices whose model’s validity end date is not a past date.
+   * The available devices list will show only those devices whose model’s validity end date is not a past date.
 
-      (i) For example, say the validity of xyz model of fingerprint scanner is set from 1 Jan 2018 to 30 Jun 2018. If current date is 15 Oct 2018, system should not show this device under available devices.
+      (i) For example, say the validity of xyz model of fingerprint scanner is set from 1 Jan 2018 to 30 Jun 2018. If current date is 15 Oct 2018, system do not show this device under available devices.
 
       (ii) During usage of a device, the client will again check if the device is within its validity dates. This validation is covered in other user stories.
 
    * User can select one or more device\s, and mark them as ‘mapped’ and submit.
-   * The user should also be able to unmap devices by moving from the ‘mapped’ list to the ‘available’ one.
+   * The user is able to unmap devices by moving from the ‘mapped’ list to the ‘available’ one.
    * The devices must be plugged in at the time of on-boarding.
    * The machine need not have internet connectivity at the time of on-boarding.
 6. When the mapping is saved locally, the mapping is sent to the server during the next device mapping sync.
@@ -841,20 +840,20 @@ Please refer [**Git**](/mosip/mosip/tree/0.10.0/docs/javadocs/registration/apido
 Please refer [**wiki**](MOSIP-VDM-Specifications) for more details on Virtual device manager implementation
 
 ## 5.4 Local Storage [**[↑]**](#table-of-content)
-The packets are stored locally. In several remote locations, internet connectivity could be an issue.Hence, if packets are saved locally, the packets can be later uploaded when there is internet connection. ALso, the packets can be transferred from the machine to a USB device and the USB device can be sent through courier.
+The registration packets are stored locally in the Registration Client. In several remote locations, internet connectivity could be an issue.Hence, if packets are saved locally, the packets can be later uploaded when there is internet connection. Also, the packets can be transferred from the machine to a USB device and the USB device can be sent through courier. Further on, the packets can be uploaded from the USB device to the server based on network availability.
 
 ### 5.4.1 Database [**[↑]**](#table-of-content)
 ### 5.4.2 File system [**[↑]**](#table-of-content)
 ## 5.5 Data Security () [**[↑]**](#table-of-content)
-Registration client integrates with Trusted Platform Model(TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals should be saved securedly in local system and then shared to server. The details saved in local would be encrypted.DataBase encryption is also mandatory.
+Registration client integrates with Trusted Platform Model(TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals are saved securely in local system and then shared to server. The details saved locally would be encrypted. DataBase encryption is also mandatory.
 
-We perform the following tasks
+MOSIP performs the following:
 
 1.Signing the data (This process is called as Signature) using Private Key provided by the TPM
 
-This process will ensure that the request to the server had been dispatched from the registered or trusted registration client machine
+This process will ensure that the request to the server has been dispatched from a registered or trusted registration client machine
 
-2. Validate the signature against the actual data using the Public Key or Public PartThe application should not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from the registered or trusted registration client machine
+2. Validate the signature against the actual data using the Public Key or Public Part. The application does not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from a registered or trusted registration client machine
 
 3. Encrypt and decrypt the data using RSA algorithm in TPM
 
@@ -886,7 +885,7 @@ When a Registration Officer sets ‘Biometric Exception’ = ‘Yes’, the syst
 1. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose.
 
 ## 5.6 Business Validations [**[↑]**](#table-of-content)
-Those validations that are performed by the registration client application during each process such as launch, onboarding, login, new registration and end of day process. For instance, when initiating a new registration, UIN update or lost UIN request, the client validates that:
+These are validations that are performed by the registration client application during each process such as launch, onboarding, login, new registration and end of day process. For instance, when initiating a new registration, UIN update or lost UIN request, the client validates that:
 * The application has checked with the server for software updates
 * Master data has been synced 
 * End of day process has been executed
@@ -894,7 +893,7 @@ Those validations that are performed by the registration client application duri
 * Encryption key expiry date is beyond a configured time duration
 
 ## 5.7 Data Sync [**[↑]**](#table-of-content)
-Since the registration client supports working in offline mode, it must be ensured that there is a regular synchronization of data between the server and client so that any changes made in the server are reflected in the client and vice versa. Data sync covers the following:
+Since the registration client supports working in offline mode, it ensures that there is a regular synchronization of data between the server and client so that any changes made in the server are reflected in the client and vice versa. Data sync covers the following:
 * Master data
 * Configuration data
 * User profile and credentials
@@ -1027,8 +1026,8 @@ When the registration client receives a request through manual trigger or schedu
 9. System captures and stores the transaction details for audit purpose.
 #### B. Delete transaction history (audit logs) post sync with server and the retention period
 When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
-1. Runs on a daily process to identify audit data that has sent to the server and acknowledgement received from the server.
-   * The audit data acknowledgement are received from the server >= x hours ago. X is configured at a country level.
+1. Runs on a daily process to identify audit data that has been sent to the server and acknowledgement is received from the server.
+   * The audit data acknowledgement received from the server >= x hours ago. X is configured at a country level.
 2. Deletes the identified audit data from the client machine.
 1. Executes at a time and frequency as configured. 
    * The process takes place only when the Registration Client is in open and running situation. If the Registration Client is not open during a scheduled run, it is executed as soon as the client is next started up.
@@ -1039,7 +1038,7 @@ When a set of audit data is uploaded to the server and the server has acknowledg
 
 When an Admin user changes the mapping of a computer from one Registration Centre (RC) to another, a sync is initiated on the client installed on that computer.
 
-MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
+MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer moves with the machine from one center to another. In this case, data relevant to the pervious center mapped is erased completely and a re-sync will be initiated.
 
 The following example explains the steps system performs to support remapping a machine from one center to another:
 
@@ -1048,7 +1047,7 @@ The following example explains the steps system performs to support remapping a 
 1. Now M1 is unmapped from RC1 and mapped to RC2 in the Admin portal.
 1. When M1 comes online, the master and configuration data is synced from server to client. As a result of sync, the following occur:
    * M1 recognizes that it is mapped to RC2 instead of RC1. An alert is displayed to the user.
-   * Once the client machine receives details of remapping to a new registration center, new registration, UIN update, and lost UIN cannot be initiated. The links to the above should either be hidden, disabled or display error on-click - as per UX guidelines.
+   * Once the client machine receives details of remapping to a new registration center, new registration, UIN update, and lost UIN cannot be initiated. The links to the above is either hidden, disabled or display error on-click.
    * In-progress registrations can be completed.
    * A one-time background process to push packet IDs, packets, and user onboarding data to the server will happen when the system is online and there are no pending approval packets.
    * It will then delete all the data except audit data. Deletion covers the RC1 master data, Registrations created while in RC1, user on-boarding data of RC1, and pre-registration data of RC1. Audit logs and other data, which might be used for analytics and data retention policy reasons, will not be deleted. The removal of those will be as per policy only.
@@ -1066,7 +1065,7 @@ Before the machine is decommissioned the following checks must be performed.
 
 ## 5.11 Language Support [**[↑]**](#table-of-content)
 ### 5.11.1 Language Selection [**[↑]**](#table-of-content)
-The registration client supports two languages, a primary language in which all pages of the application are be rendered, and a secondary language in which select pages such as demographic details are also rendered. French and Arabic are the default primary and secondary languages. Transliteration from the primary to secondary language is supported for user entered text fields.
+The registration client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin config and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
 ### 5.11.2 Internationalization (WIP) [**[↑]**](#table-of-content)
 ### 5.11.3 Transliteration [**[↑]**](#table-of-content)
 
@@ -1074,7 +1073,7 @@ The registration client supports two languages, a primary language in which all 
 
 The registration client application will support two type of languages: Primary (the language in which the registration officer enters data) and secondary language (transliteration language). The secondary language is country specific and is set by the administrator
 
-When a Registration Officer starts a new registration, update or lost UIN process and enters data in the primary language for Full Name, Address Line 1, Address Line 2, Address Line 3, and Parent/Guardian Name.
+When a Registration Officer starts a new registration, update or lost UIN process and enters data in the primary language for the demographic fields such as: Full Name, Address Line 1, Address Line 2, Address Line 3, and Parent/Guardian Name.
 
 System transliterates the data and displays in the corresponding secondary language fields.
 
@@ -1087,9 +1086,9 @@ Registration Officer can invoke the virtual keyboard to edit transliterated data
 1. Editing transliterated fields does not change the data entered in the primary language field
 1. The system also validates the maximum character length in the transliterated field and ensures that it is same as the limits defined for the primary language field.
 1. If no secondary language is set, system does not do any transliteration and will display empty space instead.
-1. Numeric fields are not transliterated. The same numerals are displayed in the in the secondary language section of the page and are not editable.
+1. Numeric fields are not transliterated. The same numerals are displayed in the secondary language section of the page and are not editable.
 
-Master data selections are not transliterated. Instead, the translated master data values are displayed in the secondary language section of the page and are not editable 
+Master data selections are not transliterated. Instead, the master data as setup in the secondary language is displayed in the relevant section. 
 
 The Registration Officer can then view the preview page
 
@@ -1111,8 +1110,8 @@ Upon receiving a request from the UI to create an enrolment packet at the end of
    * Data includes demographic, biometric, photographs, OSI authentication, enrolment metadata, audit data, and acknowledgement scan.
 2. Calculates the disk space, which is available in the configured packet storage location.
 1. Validates if the storage location is sufficient to store the enrolment packet.
-1. In case of successful validation, responses with success message and proceed further. 
-1. In case of unsuccessful validation, responses with an appropriate error message.
+1. In case of successful validation, responds with success message and proceed further. 
+1. In case of unsuccessful validation, responds with an appropriate error message.
 1. System captures and stores the transaction details for audit purpose.
 
 ### 5.12.2 Peripherals Check [**[↑]**](#table-of-content)
@@ -1136,18 +1135,6 @@ Upon receiving a request to perform a virus scan of the registration packets on 
    * All registration packets on the machine will be scanned.
 3. At the end of the scan, displays an alert message (Security scan detected viruses in the following files [List of files]. Please take necessary action or contact the administrator) on screen if a virus is detected.
 1. If the client application is not open at the configured time, the scan will be queued up and runs only when the client application is open.
-
-### 5.12.4 Reports (WIP) [**[↑]**](#table-of-content)
-
-1. Allows the supervisor to generate reports as detailed in the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Reporting_Requirements_18Dec18.xlsx).
-2. All data will be specific to the computer or client machine, which is being accessed.
-3. Data reported will not be specific to a certain supervisor. All data across supervisor on the client will be reported.
-4. Allows the supervisor to sort the report data by clicking on the column headers.
-5. Data reported will not be clickable / not support drill down to view individual transactions.
-6. Display '0' for fields whose data is not available on the client machine.
-7. Export the report in csv format.
-8. System captures and stores the transaction details for audit purpose.
-
 
 # 6. Registration Client UI [**[↑]**](#table-of-content)
 
