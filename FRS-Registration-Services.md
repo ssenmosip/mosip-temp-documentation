@@ -346,10 +346,10 @@ If the Registration Officer selects the desired option, indicates that the indiv
 #### F. Enter the demographic details for registration
 
 **The Registration Officer opts to initiate a new registration**
-1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition) as configured by the admin. 
+1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition). 
 1. The system validates the entered demographic fields.
-1. Displays error message in case of validation failure.
-1. On successful validation, proceeds to next step.
+1. If demographic fields validation fails, the system displays an error message.
+1. On successful validation, the system proceeds to next step.
 
 **The Registration Officer selects a pre-registration for registration**
 
@@ -368,7 +368,7 @@ Upon receiving a request to copy address details from the previous registration 
 1. The Registration Officer can input three types of documents- POA, POI and POR while registering an individual
    * POA refers to Proof of address, POI is proof of Identity and POR is proof of relationship
 2. The Registration officer collects these documents from individual and scans them
-1. The scan and upload should work in such a way that copy of documents should not be saved in system or any external device.
+1. The scan and upload works in such a way that copy of documents is not saved in system or any external device.
 1. The scanner scans the documents and upload them to the registration client machine
 1. The following parameters should be met while document upload
    * System lists various document categories as configured by admin
