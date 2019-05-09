@@ -68,12 +68,6 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 				"email": {
 					"$ref": "#/definitions/emailType"
 				},
-				"CNIENumber": {
-					"type": "number"
-				},
-				"localAdministrativeAuthority": {
-					"$ref": "#/definitions/simpleType"
-				},
 				"parentOrGuardianName": {
 					"$ref": "#/definitions/simpleType"
 				},
@@ -264,17 +258,6 @@ Below is a sample JSON as per the schema defined above
     "postalCode": "570004",
     "phone": "9876543210",
     "email": "abc@xyz.com",
-    "CNIENumber": 6789545678909,
-    "localAdministrativeAuthority": [
-      {
-        "language": "ara",
-        "value": "سلمى"
-      },
-      {
-        "language": "fre",
-        "value": "salma"
-      }
-    ],
     "parentOrGuardianRIDOrUIN": 212124324784912,
     "parentOrGuardianName": [
       {
