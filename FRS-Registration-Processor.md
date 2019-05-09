@@ -125,17 +125,7 @@ In Registration Processor, virus scanning is performed twice, which are listed b
 
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
-System validates the registration machine, registration officer, and registration center details to ensure that the packet is received from the verified source. It also validates those devices that are used for packet creation, to ensure that the devices are verified. Refer below for the process: 
-1. Fetches the registration machine ID, officer ID, center ID and GPS from the database and validates if they are in sync with the master databases as follows:
-   * Checks if the center ID was active in center master table when a packet was created.
-   * Checks if the machine ID was active in machine master table when a packet was created.
-   * Checks if at least one from a supervisor/officer ID is present in packet meta info. Checks if officers/supervisor was active in user master table when a packet was created.
-   * Checks if the mapping of center-machine-officer was present in center-machine-user mapping table.
-   * Checks if GPS was captured or not.
-2. Validates if the devices were mapped with the center where it was created.
-3. Validate if the devices were active when a packet was created.
-4. For all the failure scenarios, marks registration status with the corresponding error message. 
-
+The system validates a registration machine, registration officer, registration center details, and devices, which are used for packet creation. This validation is to ensure that the packet received by the Registration Processor is from the authenticated source and/or authenticated device. 
 ### 3.1.5 GPS Capture Check
 ### 3.1.6 Officer & Supervisor Validation
 
