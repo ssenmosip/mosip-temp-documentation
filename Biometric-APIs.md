@@ -220,8 +220,8 @@ Description: Not Found
 # Biometric attributes Master API
 
 * [POST /biometricattributes](#post-biometricattributes)
-* [GET /biometricattributes/{biometricatributeid}/{languagecode}](#get-biometricattributes-biometricatributeid-languagecode)
-* [GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}](#get-getbiometricattributesbyauthtype-languagecode-biometrictypeid)
+* [GET /biometricattributes/{biometricatributeid}/{languagecode}](#get-biometricattributesbiometricatributeidlanguagecode)
+* [GET /getbiometricattributesbyauthtype/{languagecode}/{biometrictypeid}](#get-getbiometricattributesbyauthtypelanguagecodebiometrictypeid)
 
 # POST /biometricattributes
 
