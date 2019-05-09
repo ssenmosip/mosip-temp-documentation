@@ -1,8 +1,8 @@
 ## Table Of Content
 - [Resident Services](#resident-services)
-  * [1. Track status of UIN Generation by providing Registration ID](#1-Track status of UIN Generation by providing Registration ID) _(RES_FR_1)_
-  * [2. Download e-UIN](#3-download e-uin) _(RES_FR_2)_
-  * [3. Retrieve Lost RID](#3-Retrieve Lost RID) _(RES_FR_3)_
+  * [1. Track status of UIN Generation by providing Registration ID](#1-track-status-of-UIN-generation-by-providing -registration-ID) _(RES_FR_1)_
+  * [2. Download e-UIN](#3-download-e-uin) _(RES_FR_2)_
+  * [3. Retrieve Lost RID](#3-retrieve-lost-rid) _(RES_FR_3)_
   * [4. Retrieve Lost UIN](#4-retrieve-lost-uin---tbd) _(RES_FR_4)_
   * [5. Request re-print of UIN](#11-lockunlock-kyc-docsdata-sharing) _(RES_FR_5)_
   * [6. Initiate UIN Update - Address](#5-initiate-uin-update) _(RES_FR_6)_
