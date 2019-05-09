@@ -135,17 +135,6 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
       "postalCode": "570004",
       "phone": "9876543210",
       "email": "abc@xyz.com",
-      "CNIENumber": 6789545678909,
-      "localAdministrativeAuthority": [
-        {
-          "language": "ara",
-          "value": "سلمى"
-        },
-        {
-          "language": "fra",
-          "value": "salma"
-        }
-      ],
       "parentOrGuardianRIDOrUIN": 212124324784912,
       "parentOrGuardianName": [
         {
@@ -345,17 +334,6 @@ Requires Authentication | Yes
       "postalCode": "570004",
       "phone": "9876543210",
       "email": "abc@xyz.com",
-      "CNIENumber": 6789545678909,
-      "localAdministrativeAuthority": [
-        {
-          "language": "ara",
-          "value": "سلمى"
-        },
-        {
-          "language": "fra",
-          "value": "salma"
-        }
-      ],
       "parentOrGuardianRIDOrUIN": 212124324784912,
       "parentOrGuardianName": [
         {
@@ -525,17 +503,6 @@ Requires Authentication | Yes
       "postalCode": "570004",
       "phone": "9876543210",
       "email": "abc@xyz.com",
-      "CNIENumber": 6789545678909,
-      "localAdministrativeAuthority": [
-        {
-          "language": "ara",
-          "value": "سلمى"
-        },
-        {
-          "language": "fra",
-          "value": "salma"
-        }
-      ],
       "parentOrGuardianRIDOrUIN": 212124324784912,
       "parentOrGuardianName": [
         {
