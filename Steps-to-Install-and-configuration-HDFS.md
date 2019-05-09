@@ -1,36 +1,50 @@
 ## 1. Setup HDFS version 2.8.1
+**documentation for setting up hdfs cluster with one namenode and one datanode**
 ### Before you begin
 1. Create 2 VMs. They’ll be referred to throughout this guide as 
-node-master.example.com, node-slave1.example.com.
-Run the steps in this guide from the node-master unless otherwise specified.
-2. Install the JDK using the appropriate guide for your Linux distribution or grab the latest JDK from Oracle. For RHEL, follow this [**link**](//developers.redhat.com/blog/2018/12/10/install-java-rhel8/)
+```
+node-master.example.com
+node-slave1.example.com
+```
+2. Install java (java-8-openjdk) to all the machines in the cluster and setup the JAVA_HOME environment variable for the same.
+```
+sudo yum install java-1.8.0-openjdk-devel
+``` 
+Get your Java installation path.
+```
+update-alternatives --display java
+```
+
+**NOTE :** Take the value of the current link and remove the trailing /bin/java. <br/>
+For example on RHEL 7, the link is /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/bin/java, <br/>
+so JAVA_HOME should be /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre.
+
+#### Edit ~/bashrc.sh or ~/hadoop/etc/hadoop/hadoop-env.sh :
+export JAVA_HOME={path-tojava} <br/>
+with your actual java installation path. For example on a Debian with open-jdk-8:
+```
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre
+```
 3. Get the IP of master and slave nodes using:
 ```
 ifconfig
 ```
-Adjust /etc/hosts on all nodes according to your configuration:
+Adjust /etc/hosts on all nodes according to your configuration:<br/>
 NOTE: while adding same machine ip to /etc/hosts , use private ip that machine instead of public ip. for other machine in the cluster use public ip.
-```
-example: Editing the Master node VM /etc/hosts file  use private IP of Master node and public IP of the Slave node
+
+```text
+NOTE : Editing the Master node VM /etc/hosts file  use private IP of Master node and public IP of the Slave node
          Editing the Slave node  VM /etc/hosts file use private IP of Slave node and Public IP of Master node 
 ```
-
+example:
 
 ```
 10.0.22.11 node-master.example.com
 10.0.3.12 node-slave1.example.com
 ```
-
-### Architecture of a Hadoop Cluster
-A master node keeps knowledge about the distributed file system. node-master will handle this role in this guide, and it will have:
-- The NameNode: manages the distributed file system and knows where stored data blocks inside the cluster are.
-
-Slave nodes store the actual data and provide processing power to run the jobs. It'll be node-slave1.example.com, and will host two daemons:
-- The DataNode manages the actual data physically stored on the node; it’s named, NameNode.
-- The NodeManager manages execution of ta sks on the node.
-
 ### Creating Hadoop User
-create a hadoop user in every machine in the cluster to followup the documentation or replace the hadoop user in the documentation with your own user.
+**create a hadoop user** in every machine in the cluster to followup the documentation <br/> 
+or **replace the hadoop user ** in the documentation with your own user.
 ```
 sudo adduser hadoop
 
@@ -39,7 +53,7 @@ if you want to give sudo access to hadoop user.(Optional)
 Follow this [link](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html)
 
 ### Distribute Authentication Key-pairs for the Hadoop User
-The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.
+The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.<br/>
 1. Login to node-master as the hadoop user, and generate an ssh-key:
 ```
 ssh-keygen -t rsa
@@ -52,9 +66,9 @@ ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-master.example.com
 ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.example.com
 ```
  or
-```
-update the $HOME/.ssh/id_rsa.pub file contents of slave node to Master node $HOME/.ssh/authorized_keys file and also
-update $HOME/.ssh/id_rsa.pub file contents of Master node to Slave node $HOME/.ssh/authorized_keys manually.
+
+update the $HOME/.ssh/id_rsa.pub file contents of slave node to Master node $HOME/.ssh/authorized_keys file <br/> and also
+update $HOME/.ssh/id_rsa.pub file contents of Master node to Slave node $HOME/.ssh/authorized_keys manually.<br/>
 So that we can do ssh from Master node to slave node and vice versa. 
 ```
 ssh hadoop@node-slave1.example.com
@@ -85,20 +99,7 @@ export PATH=$PATH:$HOME/hadoop/bin
 ```
 ### Configure the Master Node
 Configuration will be done on node-master and replicated to other nodes.
-#### Set JAVA_HOME
-1. Get your Java installation path. If you installed open-jdk from your package manager, you can get the path with the command:
-```
-update-alternatives --display java
-```
-Take the value of the current link and remove the trailing /bin/java. For example on RHEL 7, the link is /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre/bin/java, so JAVA_HOME should be /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre.
-2. Edit ~/hadoop/etc/hadoop/hadoop-env.sh and replace this line:
-```
-export JAVA_HOME=${JAVA_HOME}
-```
-with your actual java installation path. For example on a Debian with open-jdk-8:
-```
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64/jre
-```
+
 #### Set NameNode
 Update ~/hadoop/etc/hadoop/core-site.xml :
 ```
@@ -179,7 +180,8 @@ Edit ~/hadoop/etc/hadoop/masters to be:
 node-master.example.com
 ````
 #### Configure Slaves
-Edit ~/hadoop/etc/hadoop/slaves to be:
+Edit ~/hadoop/etc/hadoop/slaves to be:<br/>
+this slaves file will specifies the datanode to be setup in which machine
 ````
 node-slave1.example.com
 ````
@@ -214,13 +216,14 @@ HDFS needs to be formatted like any classical file system. On node-master, run t
 hdfs namenode -format
 ```
 Your Hadoop installation is now configured and ready to run.
+
 ### Start HDFS
 1. Start the HDFS by running the following script from node-master:
 start-dfs.sh , stop-dfs.sh script files will be present in hadoop_Installation_Dir/sbin/start.dfs.sg
 ```
 hadoop/sbin/start-dfs.sh
 ```
-It’ll start NameNode and SecondaryNameNode on node-master.example.com, and DataNode on node-slave1.example.com, according to the configuration in the slaves config file.
+It’ll start NameNode and SecondaryNameNode on node-master.example.com, and DataNode on node-slave1.example.com, according to the configuration in the slaves config file.<br/>
 2. Check that every process is running with the jps command on each node. You should get on node-master.example.com (PID will be different):
 ```
 21922 Jps
@@ -233,6 +236,10 @@ and on node-slave1.example.com:
 19819 Jps
 ```
 Hdfs has been Configured Successfully
+<br/>
+<br/>
+**NOTE :** if datanode and namenode has not started.
+look into hdfs logs to debug: $HOME/hadoop/logs/
 
 ### Create hdfs users
 1. To create users for hdfs (regprocessor, prereg, idrepo), run this command:
