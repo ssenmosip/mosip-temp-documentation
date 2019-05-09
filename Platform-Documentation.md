@@ -130,7 +130,7 @@ This module has the following capabilities:
 Please refer [**wiki**](FRS-Registration-Processor) for detailed functional requirement specifications of Registration Processor
 ### 3.4 ID Authentication [**[↑]**](#table-of-content)
 
-ID Authentication provides an API based authentication mechanism for entities to validate Individuals. ID Authentication is the primary mode for entities to validate an Individual before providing any service.
+ID Authentication in MOSIP provides services through APIs  that validates the authenticity of a resident based on one or more factors (demographic and biometric).  The authentication services are integrated with TSPs (Trusted Service Providers) for delivering eKYC services to citizens via user agencies.
 
 This module provides the following capabilities:
 1. Authenticate an Individual in a secure and trusted way
