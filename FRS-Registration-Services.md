@@ -133,7 +133,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
    * Only the additions, deletions, and modifications made since the last sync are sent.
 3. Client receives response from server as a success or failure message.
 4. Client displays a success or failure message on the UI
-5. User on-boarding data such as User ID, USB device ID, and Computer ID will be synced
+5. User on-boarding data such as User ID, USB device ID and Computer ID will be synced
 6. Alternatively, if the client machine is not online
    * Display an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
@@ -310,7 +310,7 @@ System exports registration packet data from client machine to an external devic
 4. Once the server acknowledges that the packets have been received, the packets in the client will be marked as ‘Uploaded’.
    * Packets that remain in ‘Ready to Upload’ status will be exported again when the next export is executed.
    * Packets in ‘Uploaded’ or any other status will not be exported again.
-5. All the Registration Officers and Supervisors on-boarded to the USB client dongle is able to export all packets.
+5. All the Registration Officers and Supervisors on-boarded to the client machine is able to export all packets.
 1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets should remain on the destination folder.
 1. For partial or full failure, the system displays error message.
 1. System captures and stores the transaction details for audit purpose.
@@ -591,7 +591,7 @@ Initially a machine will have no users on boarded. The first Registration Office
 5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
 #### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
-1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre as the USB dongle. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
+1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre's client machine. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
 1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
 1. User can request the system to resend OTP if not received earlier.
 1. User enters OTP and submits. System directs the user to the dashboard page with all links disabled except for ‘User on-boarding’.
@@ -602,7 +602,7 @@ Initially a machine will have no users on boarded. The first Registration Office
 1. User scans both irises. System displays the result of authentication of each iris. User scans face and exception photo. System displays the result of authentication of face. Exception photo is not authenticated
 1. User can choose to retry each biometric capture as required. There is no limit to the number of retries.
 1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client dongle and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
-1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-USB dongle mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
+1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-machine mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
 1. The system displays the result of authentication of each biometric - 10 fingers, 2 irises and face - in a list.
 1. User gets access to all links on the client according to their role.
 User can update their biometrics at any time after successful on-boarding by choosing the ‘User on-boarding’ link from the menu. The biometrics provided during update will be authenticated with the server and saved locally if threshold for successful authentication is met. Updated biometrics will overwrite the biometrics stored locally earlier.
@@ -1029,7 +1029,7 @@ When the registration client receives a request through manual trigger or schedu
 When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
 1. Runs on a daily process to identify audit data that has sent to the server and acknowledgement received from the server.
    * The audit data acknowledgement are received from the server >= x hours ago. X is configured at a country level.
-2. Deletes the identified audit data from the USB client dongle.
+2. Deletes the identified audit data from the client machine.
 1. Executes at a time and frequency as configured. 
    * The process takes place only when the Registration Client is in open and running situation. If the Registration Client is not open during a scheduled run, it is executed as soon as the client is next started up.
 4. Does not delete audit data if that is yet to be sent to the server.
@@ -1140,11 +1140,11 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 ### 5.12.4 Reports (WIP) [**[↑]**](#table-of-content)
 
 1. Allows the supervisor to generate reports as detailed in the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Reporting_Requirements_18Dec18.xlsx).
-2. All data will be specific to the computer or USB client dongle, which is being accessed.
+2. All data will be specific to the computer or client machine, which is being accessed.
 3. Data reported will not be specific to a certain supervisor. All data across supervisor on the client will be reported.
 4. Allows the supervisor to sort the report data by clicking on the column headers.
 5. Data reported will not be clickable / not support drill down to view individual transactions.
-6. Display '0' for fields whose data is not available on the USB client dongle.
+6. Display '0' for fields whose data is not available on the client machine.
 7. Export the report in csv format.
 8. System captures and stores the transaction details for audit purpose.
 
