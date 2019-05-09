@@ -29,7 +29,7 @@
   * [ID Authentication](ID-Authentication-APIs)
   * [ID Repository](ID-Repository-API)
   * [ABIS APIs](ABIS-APIs)
-  * [Master Data APIs]
+  * Master Data APIs
     * [Biometric APIs](Biometric-APIs)
     * [Document APIs](Document-APIs)
     * [Device APIs](Device-APIs)
