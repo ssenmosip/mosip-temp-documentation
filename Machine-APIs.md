@@ -12,9 +12,9 @@ This section details about the service APIs in the Document modules
 
 * [POST /machines](#post-machines)
 * [GET /machines](#get-machines)
-* [GET /machines/{languagecode}](#get-machines-languagecode)
-* [GET /machineshistory/{id}/{languagecode}/{eff_dtimes}](#get-machineshistory-id-languagecode-eff_dtimes)
-* [DELETE /machines/{id}](#delete-machines-id)
+* [GET /machines/{languagecode}](#get-machineslanguagecode)
+* [GET /machineshistory/{id}/{languagecode}/{eff_dtimes}](#get-machineshistoryidlanguagecodeeff_dtimes)
+* [DELETE /machines/{id}](#delete-machinesid)
 * [PUT /machines](#put-machines)
 
 
@@ -437,7 +437,7 @@ Description: While updating machine any error occurred
 
 * [POST /machinetypes](#post-machinetypes)
 * [GET /machinetypes](#get-machinetypes)
-* [GET /machinetypes/{languagecode}](#get-machinetypes-languagecode)
+* [GET /machinetypes/{languagecode}](#get-machinetypeslanguagecodee)
 
 # POST /machinetypes
 
@@ -652,9 +652,9 @@ Description: Not Found
 
 * [POST /machinespecifications](#post-machinespecifications)
 * [PUT /machinespecifications](#put-machinespecifications)
-* [DELETE /machinespecifications/{id}](#delete-machinespecifications-id)
+* [DELETE /machinespecifications/{id}](#delete-machinespecificationsid)
 * [GET /machinespecifications](#get-machinespecifications)
-* [GET /machinespecifications/{lang_code](#get-machinespecifications-lang_code)
+* [GET /machinespecifications/{lang_code](#get-machinespecificationslang_code)
 
 
 # POST /machinespecifications
