@@ -68,14 +68,14 @@
 ## 1.1 Master Data, Configuration [**[↑]**](#table-of-content)
 #### A. Turn ON or OFF face capture 
 1. A country may opt to turn ON or OFF the face capture process. It can be done by the admin. 
-1. A Registration Officer logs in to the Registration Client and commences a new registration, enters the demographic data and uploads documents.
+1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#34-new-registration-), enters the demographic data and uploads documents.
 1. If face capture is turned ON, user captures the individual’s face photo.
 1. Alternatively, if face capture is turned OFF, system does not show any provision for face capture and proceeds to the next step.
 1. User captures the other applicable biometrics, authenticates, and completes the registration.
 
 #### B. Turn ON or OFF iris capture 
 1. A country may opt to turn ON or OFF the iris capture process. It can be done by the admin. 
-1. A Registration Officer logs in to the Registration Client and commences a new registration, enters the demographic data and uploads documents
+1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#34-new-registration-), enters the demographic data and uploads documents
 1. If iris capture is turned ON, user captures the individual’s iris scan
 1. Alternatively, if iris capture is turned OFF, system does not show any provision for iris capture and proceeds to the next step.
 1. User captures the other applicable biometrics, authenticates, and completes the registration.
@@ -106,7 +106,9 @@ The Admin can set the following fields to be update-able at a country level
 
 #### E. Turn geo-location capture ON or OFF
 1. A country may opt to turn ON or OFF the geo-location capture process. It can be done by the admin. 
-1. The Registration Officer commences a new registration.
+1. The reason to do this is to ensure that all registrations happen in authorized service centers only
+1. The geo location helps indicate where the registrations are happening
+1. The Registration Officer commences a [**new registration**](#34-new-registration-).
 1. If Geo location capture is turned ON, the system captures the location of the machine to be stored in the registration packet. System validates that the location is within configured limits of the master data.
 1. Alternatively, if Geo location capture is turned OFF, the system does not capture the location of the machine. System does not validate the location.
 1. User proceeds to the next step (demographic data capture).
@@ -118,10 +120,11 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. The Registration Officer completes operator authentication at the end of registering an individual with exceptions.
 1. If supervisor authentication is turned ON, a Supervisor is required to enter their credentials.
 1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option. User proceeds to the next step (acknowledgement).
+1. If there is no supervisor for a particular country, the operator will be configured as a supervisor and he will perform the additional authentication step too in case of exceptions
  
 #### G. Sync Registration Centre Setup data with data store servers
-1. Each machine is mapped to a registration center. Server sends only the Registration Centre data for the specific center to the data store server
-1. Registration Centre data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
+1. Registration Centre Setup data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
+1. Each machine is mapped to a registration center. Server sends only the Registration Centre Setup data for the specific center to the data store server
 1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
 #### H. Sync data from client to server [**[↑]**](#table-of-content)
 1. The registration client receives a request to sync data (through manual trigger or scheduled job) from client to server.
@@ -130,7 +133,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
    * Only the additions, deletions, and modifications made since the last sync are sent.
 3. Client receives response from server as a success or failure message.
 4. Client displays a success or failure message on the UI
-5. User on-boarding data such as User ID, USB device ID, and Computer ID will be synced
+5. User on-boarding data such as User ID, USB device ID and Computer ID will be synced
 6. Alternatively, if the client machine is not online
    * Display an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
@@ -159,7 +162,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 
 
 #### K. Requirement for document categories and document types to be shown based on the configuration per applicant type.
-1. The Registration Officer commences a new registration, enter demographic details, the system then allows a registration officer to upload documents
+1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
 1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
 1. User selects Document Types, scans and upload the documents and proceeds with registration.
 1. The categories PoI and PoA are mandatory. The registration officer should select a Document Type under each Category and upload a document.
@@ -172,37 +175,30 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 
 Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
 
-The supervisor may opt to see the details of one or many registration ID. The system should show the display the acknowledgement slip of the registration\s
+The supervisor may opt to see the details of one or many registration ID. The supervisor can view the details on the right hand side pane 
 
-The supervisor then choses to either approve, reject or keep the registration on hold.
+The supervisor then chooses to either approve or reject the registration.
 
-The supervisor must provide a reason in case of reject. Some of the values of Reason for hold are: Gender-photo mismatch, Age-photo mismatch, Name correction required, Address correction required, Date of birth correction required
+The supervisor must provide a reason in case of rejection. 
 
 The supervisor then authenticates the registration by providing any one biometric - fingerprint, iris, or face.
-The system then shows a confirmation of successful approval.
+The system then confirms on successful approval.
 
 1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
-1. The packet status should change only when supervisor completes authentication. Else the packet status should revert to its original status.
+1. The packet status will change only when supervisor completes authentication. Else the packet status will revert to its original status.
 1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
-1. The packets, which are placed on hold followed by successful authentication, are moved from the ‘Pending Approval’ list to the ‘Pending Action’ list.
-1. The approved and rejected packets are placed in the upload location on the client and should be sent to server during the next upload.
-1. If a registration is on hold for more than x days, it is auto-approved by the system. No Supervisor authentication is required for this. The parameter x is configurable
+1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.
 1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
 
-
-#### B. Registration client allows supervisor to view packets that are in pending approval state [**[↑]**](#table-of-content)
-1. The system allows Supervisor to view packets in “Pending approval” status
-1. The system displays the packets with the fields as shown here ”Registration ID, Registration Type, Resident Name, Operator ID, Operator Name”
-1. The system displays error messages in case of any errors
-
-#### C. Registration client enables a supervisor to approve data packets.
-1. The system allows a Supervisor to view packets in “Pending approval” status or “On hold”
+#### B. Registration client enables a supervisor to approve data packets.
+1. The system allows a Supervisor to view packets in “Pending approval” status.
 1. The supervisor can view the following fields: “(Packet ID, New Status = Approved, Approver ID)”
-1. The supervisor can then change the packet status to “Approve”, “Reject” or “On hold”
+1. The supervisor can then change the packet status to “Approve” or “Reject”.
 1. The system displays error messages in case of any errors
-1. The system ensures that the rejected packets and the packets that have been put on hold should not appear in the approval list again
+1. The system ensures that the packets that have been rejected do not appear as part of the Approval list.
 
-#### D. Supervisor can inform individuals to 'Re-register'
+
+#### C. Supervisor can inform individuals to 'Re-register'
 
 1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
 1. The system displays the list of registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
@@ -211,7 +207,6 @@ The system then shows a confirmation of successful approval.
 1. Supervisor also records it in the system that he has ‘Informed’ the individual
    * If unable to contact the individual, Supervisor records it as ‘Can’t inform'.
 6. The supervisor then ‘Authenticates by providing biometric data -fingerprint, Iris, or face. Further, select the specific finger or iris being provided.
-1. Scan the selected biometric.
 1. Authenticate with locally stored biometric and display the result.
    * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
    * On unsuccessful authentication, the user can retry his authentication with the same or a different biometric
@@ -235,12 +230,7 @@ When a registration officer starts a new registration by entering a pre-registra
 1. The registration officer can then view the documents uploaded during pre-registration
 1. If no matching PRID exists in local system and server, the system displays an error message.
 
-#### B. Scanning a Pre-registration QR code [**[↑]**](#table-of-content)
-1. While starting a new registration, the registration client allows scanning a QR code to populate the pre-registration ID on screen.
-1. A bar code scanner must be connected to the client machine in order to read the pre-registration QR code and pass on the pre-registration ID to the client.
-1. System then populates the rest of the pre-registration data from the locally stored pre-registration details and checking for updates on the server
-1. User proceeds with registration
-#### C. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
+#### B. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
 **Real time downloads of Pre-registration data**
 
 1. When a registration officer starts a new registration by entering a pre-registration ID and opts to fetch pre-registration data, the system checks if the pre-registration ID entered has a match in the local system
@@ -266,12 +256,12 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 ## 3.1 List of Registrations (WIP) [**[↑]**](#table-of-content)
 ## 3.2 Registration Packet Upload [**[↑]**](#table-of-content)
 
-#### A. View the packets first, select which ones to upload, and then initiate the packet to upload
-1. Once the Registration Officer selects the “Upload Packets” option, a list of packets are displayed.
-1. Each packet has a check box for selection and has an option to “Select All” and “Deselect All” the packets. 
-1. After the Registration Officer selects the packet, he/she can upload the selected packet to server.
+#### A. Upload the packet
+1. The Registration Officer views a list of packets.
+1. The Registration Officer may opt to upload one or multiple packets from a list of packets.
+1. After the Registration Officer selects the packet/s, he/she can upload the selected packet/s to server.
 
-   NOTE: If any packets are selected, the ‘Export’ option gets disable because the selection of packets is applicable only for ‘Upload’ and not for the ‘Export’ feature.
+   NOTE: The system doesn't allow Registration Officer to export the packet, if he/she selects any packets to upload.
 
 #### B. Push those packets that are marked 'Resend' to the server
 
@@ -283,16 +273,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
    * Packets for which upload fails will continue to be in pending state.
 4. System captures and stores the transaction details for audit purpose.
 
-#### C. Push a registration packet via FTP mode to the server [**[↑]**](#table-of-content)
-
-1. The Registration Officer or Supervisor enters their FTP username and password.
-1. When the user chooses the packets to push it to server, the list of packet RIDs that have been synced to server and exported to the local folder but not yet pushed to server will be displayed.
-1. If applicable, the user can select a different source folder and a destination folder.
-1. When the user selects the packets to push, the system checks that the selected EIDs have been synced to the server prior to pushing.
-1. Then the user copies from the local folder to server and updates the status of the packets to ‘Pushed to Server’.
-1. System captures and stores the transaction details for audit purpose.
-
-#### D. Enable a real time packet upload when system is online upon registration submission
+#### C. Enable a real time packet upload when system is online upon registration submission
 
 **When EoD process is turned ON**
 
@@ -329,7 +310,7 @@ System exports registration packet data from client machine to an external devic
 4. Once the server acknowledges that the packets have been received, the packets in the client will be marked as ‘Uploaded’.
    * Packets that remain in ‘Ready to Upload’ status will be exported again when the next export is executed.
    * Packets in ‘Uploaded’ or any other status will not be exported again.
-5. All the Registration Officers and Supervisors on-boarded to the USB client dongle is able to export all packets.
+5. All the Registration Officers and Supervisors on-boarded to the client machine is able to export all packets.
 1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets should remain on the destination folder.
 1. For partial or full failure, the system displays error message.
 1. System captures and stores the transaction details for audit purpose.
@@ -338,39 +319,37 @@ System exports registration packet data from client machine to an external devic
 ## 3.4 New Registration [**[↑]**](#table-of-content)
 
 #### A. Capture consent from the individual for data storage and utilization				
-1. For every registration, the system provides an option for the Registration Officer (RO) to mark an individual's consent as Yes or No
-1. The RO marks consent after confirming with the individual offline.
+1. For every registration, the system provides an option for the Registration Officer to mark an individual's consent as Yes or No
+1. The Registration Officer marks consent after confirming with the individual offline.
 1. Whether the consent is marked as Yes/No, it will not have any impact on issuance of UIN for that individual and the system will not execute any validations in this regard during packet processing.
 
 #### B. Transliteration: Virtual keyboard
 
 1. The virtual keyboard icon for the secondary language appears only once on the demographic details page.
-1. The RO enters text by clicking inside the text area, and then invokes the virtual keyboard.
-1. The RO uses the virtual keyboard for primary language too.
+1. The Registration Officer enters text by clicking inside the text area, and then invokes the virtual keyboard.
+1. The Registration Officer uses the virtual keyboard for primary language too.
 
 #### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
-1. For new registration or UIN update, the system provides an option for the Registration Officer (RO) to mark an individual's date of birth as ‘Verified’.
-1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state should be unchecked. When checked, it indicates that the RO has verified the date of birth of the individual.
+1. For new registration or UIN update, the system provides an option for the Registration Officer to mark an individual's date of birth as ‘Verified’.
+1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state should be unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
 1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
 #### D. Register an individual who is less than 5 years old.
-1. MOSIP system does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth should automatically determine the category of the applicant.
-2. When a registration officer starts a new registration, the system intuitively determines if the registration is for a child using the date of birth.
-3. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists.
-4. The system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
-5. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system should ensure parent/guardian is registered first
-6. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
-7. The system triggers error messages as applicable
+1. MOSIP system does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
+1. When a registration officer starts a new registration, the system intuitively determines if the registration is for a child using the date of birth.
+1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
+1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system should ensure parent/guardian is registered first and at least RID is available.
+1. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
 #### E. Mark an individual as Foreigner or Non-Foreigner
-For every new registration, the system provides an option on the demographic details page for the Registration Officer (RO) to mark an individual as either a citizen of that country or a Foreigner. 
+For every new registration, the system provides an option on the demographic details page for the Registration Officer  to mark an individual as either a citizen of that country or a Foreigner. 
 
-If the RO selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
+If the Registration Officer selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
 #### F. Enter the demographic details for registration
 
 **The Registration Officer opts to initiate a new registration**
-1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the workflow as configured by the admin. 
+1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition). 
 1. The system validates the entered demographic fields.
-1. Displays error message in case of validation failure.
-1. On successful validation, proceeds to next step.
+1. If demographic fields validation fails, the system displays an error message.
+1. On successful validation, the system proceeds to next step.
 
 **The Registration Officer selects a pre-registration for registration**
 
@@ -389,7 +368,7 @@ Upon receiving a request to copy address details from the previous registration 
 1. The Registration Officer can input three types of documents- POA, POI and POR while registering an individual
    * POA refers to Proof of address, POI is proof of Identity and POR is proof of relationship
 2. The Registration officer collects these documents from individual and scans them
-1. The scan and upload should work in such a way that copy of documents should not be saved in system or any external device.
+1. The scan and upload works in such a way that copy of documents is not saved in system or any external device.
 1. The scanner scans the documents and upload them to the registration client machine
 1. The following parameters should be met while document upload
    * System lists various document categories as configured by admin
@@ -490,7 +469,7 @@ The UIN update feature is configurable by a country. Admin can either turn ON or
 When an individual approaches the Registration Officer for UIN update, the following scenarios may arise:
 
 1. If UIN update is turned ON by a country, the registration officer can proceeds to capture the individual’s updated details.
-1. Alternatively, if UIN Update is turned OFF by a country the RO will not be able to carry out the UIN Update process.
+1. Alternatively, if UIN Update is turned OFF by a country the Registration Officer will not be able to carry out the UIN Update process.
 
 #### B. Registration client allows update to UIN data only for configured fields
 1. An admin can configure the fields that are available for update through the registration client. The configuration applies at a country level.
@@ -540,17 +519,13 @@ When an individual approaches the Registration Officer for UIN update, the follo
    * If an email address is not provided during registration
    * If the client is not online during registration completion
 #### C. Acknowledgement receipt sent by SMS on completion of registration process
-1. When a registration is completed, that is, a Registration ID has been generated and assigned the system sends an acknowledgement email to the individual 
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system sends an acknowledgement SMS to the individual 
 2. The template of the SMS is defined by the admin at the country level.
 3. The “from” id of the SMS will be set up by the system integrator.
 4. The system triggers the SMS to the mobile number provided during registration.
-5. The SMS contains the registration number.
+5. The SMS contains the details as per the template configured by a country.
 6. An SMS  is triggered regardless of the applicant being an adult or child as determined by the date of birth.
 7. The system will not be able to send SMS, if the client is not online at the time of registration completion.
-
-**Proposed template**
-
-SMS content: “Dear [Individual full name], Thank you for registering with Digital Identity platform. Your registration id is [Registration ID]. If there are any corrections to be made in your details, please contact the Registration center within the next 4 days.
 
 #### D. Sending email and SMS acknowledgements to additional recipients
 This feature enables registration client to send SMS and email acknowledgements to additional recipient\s (other than the individual’s primary email id and mobile number)
@@ -592,11 +567,11 @@ This feature enables registration client to send SMS and email acknowledgements 
 
 
 #### A. Map registration officers and supervisors to a client machine.
-Initially a machine will have no users on boarded. The first RO/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this RO/Supervisor can onboard other users.
+Initially a machine will have no users on boarded. The first Registration Officer/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this Registration Officer/Supervisor can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
 1. Allow the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data
    * Fields selected on the UI include user, status, fingerprints, and irises.
-   * The list of users should include only active users. The system does not show users who are blacklisted or decommissioned.
+   * The list of users will include only active users. The system does not show users who are blacklisted or decommissioned.
    * The list of users does not include users who are already mapped to the machine.
    * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
    * The system then validates the fingerprint quality threshold is met.
@@ -605,28 +580,18 @@ Initially a machine will have no users on boarded. The first RO/Supervisor will 
    * Both irises are captured and authenticated with the server. Validate that the iris quality threshold is met.
    * Validate that the number of successful iris authentications is greater than or equal to the config setting of iris authentications required.
    * Unlimited retries are allowed.
-3. If validations successful:
+3. If validations are successful, then the system performs the following:
    * Save the mapping locally.
    * Successfully authenticated fingerprints and irises will be stored locally.
    * Fingerprints and irises with unsuccessful authentication will not be stored.
    * The status of the mapping is set to ‘Active’ or ‘Inactive’ as selected.
    * Mapping will be sent to the server during the next sync.
    * Biometrics will not be sent to the server.
-4. If not successful: Displays error message.
-5. Multiple users can be mapped to the machine by repeating the above flow. There should be no limitation to the numbers of users mapped.
+4. If not successful: Triggers an error message.
+5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
-#### B. Updating the mapping of registration officers and supervisors to a client machine [**[↑]**](#table-of-content)
-1. This features allow the system to receive the request to modify a mapping status from Active to Inactive or from Inactive to Active.
-   * No other fields can be modified.
-   * A mapping cannot be deleted.
-2. Allows the system to save the changes locally. Changes will be sent to the server during the data sync process
-#### C. View mapped registration officers to a client machine.
-1. This feature allows the system to receive a request to view the list of mapped users
-1. Fetches the locally stored details of Registration Officers and Supervisors mapped to this machine.
-1. Constructs a response with the details fetched.
-1. All data in the view page will be in read only mode and will be in the same sequence as defined in the data definition 
-#### D. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
-1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre as the USB dongle. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
+#### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
+1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials the system validates that the user is mapped to the same Registration Centre's client machine. System validates that the user is yet to be on-boarded to the client dongle. System directs the user to the password entry page.
 1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
 1. User can request the system to resend OTP if not received earlier.
 1. User enters OTP and submits. System directs the user to the dashboard page with all links disabled except for ‘User on-boarding’.
@@ -637,7 +602,7 @@ Initially a machine will have no users on boarded. The first RO/Supervisor will 
 1. User scans both irises. System displays the result of authentication of each iris. User scans face and exception photo. System displays the result of authentication of face. Exception photo is not authenticated
 1. User can choose to retry each biometric capture as required. There is no limit to the number of retries.
 1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client dongle and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
-1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-USB dongle mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
+1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-machine mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
 1. The system displays the result of authentication of each biometric - 10 fingers, 2 irises and face - in a list.
 1. User gets access to all links on the client according to their role.
 User can update their biometrics at any time after successful on-boarding by choosing the ‘User on-boarding’ link from the menu. The biometrics provided during update will be authenticated with the server and saved locally if threshold for successful authentication is met. Updated biometrics will overwrite the biometrics stored locally earlier.
@@ -674,7 +639,7 @@ Note: multifactor authentication is the type of authentication where an admin us
 1. Upon the fifth unsuccessful attempt to login, displays an error message 
 1. The temporarily lock lasts for 30 minutes.
 1. The same error message is displayed for any subsequent login attempt within 30 minutes.
-1. After 30 minutes, the lock is released and the count of invalid login attempts should be reset to zero.
+1. After 30 minutes, the lock is released and the count of invalid login attempts is reset to zero.
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
 1. System captures and stores the transaction details for audit purpose.
 
@@ -1064,7 +1029,7 @@ When the registration client receives a request through manual trigger or schedu
 When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
 1. Runs on a daily process to identify audit data that has sent to the server and acknowledgement received from the server.
    * The audit data acknowledgement are received from the server >= x hours ago. X is configured at a country level.
-2. Deletes the identified audit data from the USB client dongle.
+2. Deletes the identified audit data from the client machine.
 1. Executes at a time and frequency as configured. 
    * The process takes place only when the Registration Client is in open and running situation. If the Registration Client is not open during a scheduled run, it is executed as soon as the client is next started up.
 4. Does not delete audit data if that is yet to be sent to the server.
@@ -1074,7 +1039,7 @@ When a set of audit data is uploaded to the server and the server has acknowledg
 
 When an Admin user changes the mapping of a computer from one Registration Centre (RC) to another, a sync is initiated on the client installed on that computer.
 
-MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer (RO) moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
+MOSIP system has the ability of completely erasing/removing data from a machine, which is not specific to the Registration Centre, considering a scenario wherein the Registration Officer moves with the machine from one center to another. In this case, data relevant to the pervious center mapped should also erased completely and a re-sync should be initiated.
 
 The following example explains the steps system performs to support remapping a machine from one center to another:
 
@@ -1175,11 +1140,11 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 ### 5.12.4 Reports (WIP) [**[↑]**](#table-of-content)
 
 1. Allows the supervisor to generate reports as detailed in the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Reporting_Requirements_18Dec18.xlsx).
-2. All data will be specific to the computer or USB client dongle, which is being accessed.
+2. All data will be specific to the computer or client machine, which is being accessed.
 3. Data reported will not be specific to a certain supervisor. All data across supervisor on the client will be reported.
 4. Allows the supervisor to sort the report data by clicking on the column headers.
 5. Data reported will not be clickable / not support drill down to view individual transactions.
-6. Display '0' for fields whose data is not available on the USB client dongle.
+6. Display '0' for fields whose data is not available on the client machine.
 7. Export the report in csv format.
 8. System captures and stores the transaction details for audit purpose.
 

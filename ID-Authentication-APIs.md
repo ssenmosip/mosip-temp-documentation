@@ -2,7 +2,7 @@ This section details about the REST services in ID Authentication module.
 * [Authentication Service](#authentication-service-public) - This service can be used by Partners to authenticate an Individual using OTP, Demographic or Biometric-based authentication.
 * [eKYC Service](#ekyc-service-public) - This service can be used by Partners to retrieve KYC details of an Individual, after authenticating them using OTP or Biometric-based authentication.
 * [OTP Request Service](#otp-request-service-public) - This service can be used by Partners to send OTP on behalf of Individual, which can then be used for OTP-based authentication.
-
+* [Internal Authentication Service](#authentication-service-internal) - This service can be used by MOSIP modules to authenticate Individual using Biometric-based authentication.
 
 ## Authentication Service (Public)
 
@@ -30,7 +30,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | | mosip.identity.auth
-version | Y | API version | | 1.0
+version | Y | API version | | v1
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
 requestedAuth| Y | Authentication Types requested| | 
@@ -46,7 +46,6 @@ requestHMAC| Y | sha256 of request block before encryption and hash is encrypted
 request| Y | Auth request attributes to be used for authenticating Individual | | 
 request: otp| N | OTP | | 
 request: timestamp| N | Timestamp when request block was captured| | 
-request: transactionID|N| Transaction ID provided by Device Service| |
 request: demographics|N| Demographic data of an Individual| |
 request: biometrics|N| Biometric data of an Individual| |
 
@@ -62,7 +61,7 @@ Mandatory fields for different types of authentications-
 ```JSON
 {
   "id": "mosip.identity.auth",
-  "version": "1.0",
+  "version": "v1",
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "transactionID": "1234567890",
   "requestedAuth": {
@@ -78,7 +77,6 @@ Mandatory fields for different types of authentications-
   "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
   "request": {
     "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
-    "transactionID": "1234567890",
     "otp": "123456",
     "demographics": {
       "name": [
@@ -172,7 +170,7 @@ Mandatory fields for different types of authentications-
 {
   //API Metadata
   "id": "mosip.identity.auth",
-  "version": "1.0",
+  "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
   "transactionID": "txn12345",
@@ -193,7 +191,7 @@ Mandatory fields for different types of authentications-
 {
   //API Metadata
   "id": "mosip.identity.auth",
-  "version": "1.0",
+  "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
   "transactionID": "txn12345",
@@ -232,7 +230,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-version | Y | API version | 1.0 | 
+version | Y | API version |  | v1
 partnerId | Y | eKYC Partner ID | |
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
@@ -261,13 +259,13 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 ```JSON
 {
   "id": "mosip.identity.kyc",
-  "version": "1.0",
+  "version": "v1",
   "requestTime": "2019-02-15T10:01:57.086+05:30",
   "transactionID": "1234567890",
   "requestedAuth": {
     "otp": true,
     "demo": false,
-    "bio": false
+    "bio": true
   },
   "consentObtained": true,
   "secondaryLangCode": "<sec-lang-code>",
@@ -278,7 +276,6 @@ request: transactionID|N| Transaction ID provided by Device Service| |
   "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
   "request": {
     "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
-    "transactionID": "1234567890",
     "otp": "123456",
     "biometrics": [
       {
@@ -319,7 +316,7 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 {
   //API Metadata
   "id": "mosip.identity.kyc",
-  "version": "1.0",
+  "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
   "transactionID": "txn12345",
@@ -327,7 +324,6 @@ request: transactionID|N| Transaction ID provided by Device Service| |
   "response": {// encoded encrypted KYC info using Partner's public key
     "kycStatus": true,
     "staticToken": "<static_token>",
-    "ttl": "time_to_live_for_KYC_Info",
     "identity": {
       "name": [
         {
@@ -392,7 +388,7 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 {
   //API Metadata
   "id": "mosip.identity.kyc",
-  "version": "1.0",
+  "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
   "transactionID": "txn12345",
@@ -430,7 +426,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | API Id | mosip.identity.otp | 
-version | Y | API version | 1.0 | 
+version | Y | API version |  | v1 
 transactionID| Y | Transaction ID of request | | 1234567890
 requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
 individualId| Y | VID | | 9830872690593682
@@ -445,7 +441,7 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 ```JSON
 {
   "id": "mosip.identity.otp",
-  "version": "1.0",
+  "version": "v1",
   "requestTime": "2019-02-15T07:22:57.086+05:30",
   "transactionID": "txn12345",
   "individualId": "9830872690593682",
@@ -469,7 +465,7 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 {
   //API Metadata
   "id": "mosip.identity.otp",
-  "version": "1.0",
+  "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
   "transactionID": "txn12345",
@@ -490,7 +486,7 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 {
   //API Metadata
   "id": "mosip.identity.otp",
-  "version": "1.0",
+  "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
   //Response Metadata
   "transactionID": "txn12345",
@@ -501,6 +497,152 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
       "errorCode": "IDA-MLC-003",
       "errorMessage": "Invalid VID",
       "actionMessage": "Please retry with correct VID"
+    }
+  ]
+}
+```
+
+## Authentication Service (Internal)
+
+### POST /idauthentication/v1/identity/auth/internal
+This service details authentication (yes/no auth) that can be used by MOSIP modules to authenticate an Individual using UserID/VID/UIN. Below are various authentication types supported by this service - 
+1. Biometric based - Fingerprint, IRIS and Face
+
+### Users of Internal Authentication service -
+1. `Registration Client` - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.
+2. `Registration Processor` - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.
+
+#### Resource URL
+<div>https://mosip.io/idauthentication/v1/identity/auth/internal</div>
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+id | Y | API Id | | mosip.identity.internalauth
+version | Y | API version | | v1
+transactionID| Y | Transaction ID of request | | 1234567890
+requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
+requestedAuth| Y | Authentication Types requested| | 
+requestedAuth: otp| Y | OTP Authentication Type | false| false
+requestedAuth: demo| Y | Demographic Authentication Type | false| false
+requestedAuth: bio| Y | Biometric Authentication Type | false|false
+individualId| Y | UserID of Operator/Supervisor | | 9830872690593682 
+individualIdType| Y | Allowed Type of Individual ID - USERID, VID, UIN | USERID |
+consentObtained| Y | If consent of Individual is obtained | true
+keyIndex| Y | Thumbprint of public key certificate used for encryption of sessionKey | 
+requestSessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
+requestHMAC| Y | sha256 of request block before encryption and hash is encrypted using requestSessionKey | |
+request| Y | Auth request attributes to be used for authenticating Individual | | 
+request: timestamp| N | Timestamp when request block was captured| | 
+request: biometrics|N| Biometric data of an Individual| |
+
+### Request Header
+##### MOSIP-AuthX = `<Registration Client or Registration Processor Digital Signature>`
+
+### Request Body
+```JSON
+{
+  "id": "mosip.identity.internalauth",
+  "version": "v1",
+  "requestTime": "2019-02-15T10:01:57.086+05:30",
+  "transactionID": "1234567890",
+  "requestedAuth": {
+    "bio": true
+  },
+  "consentObtained": true,
+  "individualId": "9830872690593682",
+  "individualIdType": "USERID",
+  "keyIndex": "<thumbprint of the public key certificate used for encryption of sessionKey. This is necessary for key rotaion>",
+  "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
+  "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
+  "request": {
+    "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
+    "biometrics": [
+      {
+        "data": {
+          "mosipProcess": "",
+          "environment": "",
+          "version": "",
+          "deviceCode": "",
+          "deviceProviderID": "",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "",
+          "bioType": "FMR",
+          "bioSubType": "UNKNOWN",
+          "bioValue": "<base64 encoded biometric data>"
+        }
+      },
+      {
+        "data": {
+          "mosipProcess": "",
+          "environment": "",
+          "version": "",
+          "deviceCode": "",
+          "deviceProviderID": "",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "",
+          "bioType": "IIR",
+          "bioSubType": "RIGHT",
+          "bioValue": "<base64 encoded biometric data>"
+        }
+      }
+    ]
+  }
+}
+```
+
+### Response Header     
+##### MOSIP-AuthX = `<MOSIP Digital Signature>`
+
+### Response Body
+#### Success Scenario :
+###### Status Code : 200 (OK)
+###### Description : Successfully authenticated an Individual    
+
+```JSON
+{
+  //API Metadata
+  "id": "mosip.identity.internalauth",
+  "version": "v1",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  //Response Metadata
+  "transactionID": "1234567890",
+  //Auth Response
+  "response": {
+    "authStatus": true
+  },
+  "errors": null
+}
+```
+
+#### Failed Response:
+###### Status Code : 200 (OK)    
+###### Description : Authentication of an Individual failed
+
+```JSON
+{
+  //API Metadata
+  "id": "mosip.identity.internalauth",
+  "version": "v1",
+  "responseTime": "2019-02-15T07:23:19.590+05:30",
+  //Response Metadata
+  "transactionID": "1234567890",
+  //Auth Response
+  "response": {
+    "authStatus": false
+  },
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid UserId",
+      "actionMessage": "Please retry with the correct UserId"
     }
   ]
 }

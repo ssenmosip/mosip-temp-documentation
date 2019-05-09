@@ -30,6 +30,7 @@ When the platform got inititalized and setup, there should be initial data shoul
 
 ### Service layer
 All the operations done on the Admin modules for the data are done through the Service layer. The authentication is done in the service layer. The validations such as business validation, mandatory validations, length validations etc., are done in the service layer also. 
+The link to the API specifications can be found [**here**](Admin-APIs). 
 
 ### UI layer
 The UI layer supports the following salient features, 

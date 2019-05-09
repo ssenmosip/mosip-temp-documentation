@@ -1589,7 +1589,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response":{
-      "multipartFile": :ByteArray
+      "document": :ByteArray
     },
    "errors": null
 }

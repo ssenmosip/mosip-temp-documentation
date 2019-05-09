@@ -14,7 +14,7 @@
   * [11. Revoke/In-activate a Virtual ID](#2-generate-virtual-id) _(RES_FR_11)_
 
 # Resident Services
-## 1. Track status of UIN Generation by providing Registration ID
+## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an RID.
 
 An individual will execute the following procedure to initiate the track status request related to UIN generation:
@@ -29,8 +29,8 @@ An individual will execute the following procedure to initiate the track status 
    not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error 
    notification.
 
-## 2. Generate Virtual ID
-## 3. Download UIN
+## 2. Generate Virtual ID [**[↑]**](#table-of-content)
+## 3. Download UIN [**[↑]**](#table-of-content)
 The system allows an individual to raise a request to download his/her e-UIN.
 
 The following procedures to be followed by an individual to raise a e-UIN download request:
@@ -46,7 +46,7 @@ The following procedures to be followed by an individual to raise a e-UIN downlo
    provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not 
    correct, then the system triggers a respective error notification.
 
-## 4. Retrieve Lost UIN - TBD
+## 4. Retrieve Lost UIN - TBD[**[↑]**](#table-of-content)
 
 MOSIP allows an individual to initiate a request to retrieve the RID.
 
@@ -63,7 +63,7 @@ An individual will follow the following procedure to raise a requested related t
    and postal code are not associated with the RID or the provided OTP is not correct, then the system triggers a 
    respective error notification.
 
-## 5. Initiate UIN Update
+## 5. Initiate UIN Update [**[↑]**](#table-of-content)
 MOSIP allows an individual to process a request to update the UIN.
 
 The procedure for an individual to initiate a request related to UIN updates follows:
@@ -79,7 +79,7 @@ The procedure for an individual to initiate a request related to UIN updates fol
 8. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID or the provided OTP is not correct, and then the system triggers a respective error notification.
 
-## 6. Track Status of UIN Update
+## 6. Track Status of UIN Update [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to track the status related to UIN updates based on a registration ID.
 
 Following procedure to be followed by the individual to track the status of UIN updates:
@@ -93,9 +93,9 @@ Following procedure to be followed by the individual to track the status of UIN 
    not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error 
    notification.
 
-## 7. Generate Static PIN
-## 8. Update Static PIN 
-## 9. View History of Authentication Requests (for Prescribed Days/number of requests)
+## 7. Generate Static PIN [**[↑]**](#table-of-content)
+## 8. Update Static PIN [**[↑]**](#table-of-content)
+## 9. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
 
 Procedure to raise request to view the authentication history of the past:
@@ -109,7 +109,7 @@ Procedure to raise request to view the authentication history of the past:
 6. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 10. Lock/Unlock UIN
+## 10. Lock/Unlock UIN [**[↑]**](#table-of-content)
 
 A.  **Lock the UIN**
 
@@ -144,5 +144,5 @@ The following procedure to be followed by an individual to unlock the authentica
 9. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 11. Lock/Unlock KYC Docs/Data Sharing 
-## 12. Lock/Unlock Biometric Auth/Other Auth
+## 11. Lock/Unlock KYC Docs/Data Sharing [**[↑]**](#table-of-content)
+## 12. Lock/Unlock Biometric Auth/Other Auth [**[↑]**](#table-of-content)

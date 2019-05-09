@@ -385,7 +385,7 @@ v1/otpmanager/validate?key=9820173642&otp=123456
 
 * [GET /publickey](#get-publickey)
 
-* [POST /uploadpublickey](#post-uploadpublickey)
+* [POST /tpm/publickey](#post-tpmpublickey)
 
 
 ## GET /masterdata
@@ -1633,18 +1633,18 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 }	
 ```
 
-### POST /uploadpublickey
+### POST /tpm/publickey
 
 This service will upload the public key corresponding to a particular machine which are used in the MOSIP platform. This service will be used specifically in the Registration Client machines. 
 
 #### Resource URL
-<div>https://mosip.io/v1/syncdata/uploadpublickey </div> TODO
+<div>https://mosip.io/v1/syncdata/tpm/publickey </div> TODO
 
 #### Resource details
 
 Resource Details | Description
 ------------ | -------------
-Request format | Form Data
+Request format | application/json
 Response format | JSON
 Requires Authentication | Yes
 
@@ -1652,15 +1652,22 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 machineName |Yes|Name of the machine| | MDLGE6273
-publickey |Yes|Public key of the passed machine| | multipart/formdata
+publickey |Yes|Base 64 encoded Public key of the passed machine| | 
 
 
 #### Request
 
 ```
--H "Content-Type: multipart/form-data" 
--F "publickey={}" 
--F "machineName=MDLGE6273" 
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "machineName": "Machine name",
+    "publicKey": "Base 64 encoded public key"
+  },
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "version": "string"
+}
 ```
 
 
@@ -1682,7 +1689,7 @@ publickey |Yes|Public key of the passed machine| | multipart/formdata
     }
   ],
  "response": {
-	    "keyindex": "ThumbprintOfThePublickey"
+	    "keyIndex": "ThumbprintOfThePublickey"
 	}
 }
 
