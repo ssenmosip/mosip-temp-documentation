@@ -316,7 +316,7 @@ Please refer [**wiki**](#otp-manager)
 #### 9.1.4	Pre-Registration APIs [**[↑]**](#table-of-content)
 Format: JSON
 
-This [**wiki**](Pre-Registration-APIs) details about the service APIs in the Pre-Registration modules
+This [**wiki**](Pre-Registration-Services) details about the service APIs in the Pre-Registration modules
 #### 9.1.5	Registration Processor APIs [**[↑]**](#table-of-content)
 Format: JSON
 
