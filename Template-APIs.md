@@ -8,7 +8,7 @@ This section details about the service APIs in the template modules
 
 * [POST /templates](#post-templates)
 * [PUT /templates](#put-templates)
-* [DELETE /templates/{id}](#delete-templates-id)
+* [DELETE /templates/{id}](#delete-templatesid)
 
 # POST /templates
 
@@ -178,7 +178,7 @@ id|Yes|id of the Template|
 
 # Template Types API
 
-* [GET /templatetype/{code}](#get-templatetype-code)
+* [GET /templatetype/{code}](#get-templatetypecode)
 
 # GET /templatetype/{code}
 

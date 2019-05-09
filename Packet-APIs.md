@@ -6,11 +6,11 @@ This section details about the service APIs in the Packet modules
 
 # Packet Rejection Reasons Master API
 
-* [POST /packetrejectionreasons/reasoncategory](#post-packetrejectionreasons-reasoncategory)
-* [POST /packetrejectionreasons/reasonlist](#post-packetrejectionreasons-reasonlist)
+* [POST /packetrejectionreasons/reasoncategory](#post-packetrejectionreasonsreasoncategory)
+* [POST /packetrejectionreasons/reasonlist](#post-packetrejectionreasonsreasonlist)
 * [GET /packetrejectionreasons](#get-packetrejectionreasons)
-* [GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}](#get-packetrejectionreasons-reasoncategorycode-languagecode)
-* [GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}](#get-packetrejectionreasons-id-languagecode-locationcode)
+* [GET /packetrejectionreasons/{reasoncategorycode}/{languagecode}](#get-packetrejectionreasonsreasoncategorycodelanguagecode)
+* [GET /packetrejectionreasons/{id}/{languagecode}/{locationcode}](#get-packetrejectionreasonsidlanguagecodelocationcode)
 
 # POST /packetrejectionreasons/reasoncategory
 
@@ -407,7 +407,7 @@ Description: Not Found
 
 * [POST /packetonholdreasons](#post-packetonholdreasons)
 * [GET /packetonholdreasons](#get-packetonholdreasons)
-* [GET /packetonholdreasons/{id}/{languagecode}](#get-packetonholdreasons-id-languagecode)
+* [GET /packetonholdreasons/{id}/{languagecode}](#get-packetonholdreasonsidlanguagecode)
 
 # POST /packetonholdreasons
 

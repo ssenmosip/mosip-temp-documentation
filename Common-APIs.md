@@ -24,9 +24,9 @@ This section details about the service APIs in the common modules
 
 * [POST /title](#post-title)
 * [GET /title](#get-title)
-* [GET /title/{languagecode}](#get-title-languagecode)
+* [GET /title/{languagecode}](#get-titlelanguagecode)
 * [PUT /title](#put-title)
-* [DELETE /title/{code}](#delete-title-code)
+* [DELETE /title/{code}](#delete-titlecode)
 
 # POST /title
 Master data is required across the platform. 
@@ -322,11 +322,11 @@ Description: Not Found
 # Gender Master API
 
 * [POST /gendertypes](#post-gendertypes)
-* [PUT/gendertypes](#put-gendertypes)
-* [DELETE/gendertypes/{code}](#delete-gendertypes-code)
+* [PUT/gendertypes](#putgendertypes)
+* [DELETE/gendertypes/{code}](#deletegendertypescode)
 * [GET /gendertypes](#get-gendertypes)
-* [GET /gendertypes/{languagecode}](#get-gendertypes-languagecode)
-* [GET /gendertypes/{gendername}](#get-gendertypes-gendername)
+* [GET /gendertypes/{languagecode}](#get-gendertypeslanguagecode)
+* [GET /gendertypes/{gendername}](#get-gendertypesgendername)
 
 # POST /gendertypes
 
@@ -689,7 +689,7 @@ Description: Success
 
 # Age group Types API
 
-* [GET /agegrouptype/{age}](#get-agegrouptype-age)
+* [GET /agegrouptype/{age}](#get-agegrouptypeage)
 
 # GET /agegrouptype/{age}
 
@@ -749,7 +749,7 @@ Description: Success
 
 * [POST /idtypes](#post-idtypes)
 * [GET /idtypes](#get-idtypes)
-* [GET /idtypes/{languagecode}](#get-idtypes-languagecode)
+* [GET /idtypes/{languagecode}](#get-idtypeslanguagecode)
 
 # POST /idtypes
 Master data is required across the platform. 
@@ -948,7 +948,7 @@ Description: Not Found
 
 * [POST /holidays](#post-holidays)
 * [GET /holidays](#get-holidays)
-* [GET /holidays/{languagecode}](#get-holidays-languagecode)
+* [GET /holidays/{languagecode}](#get-holidayslanguagecode)
 
 ## POST /holidays
 Master data is required across the platform. 
@@ -1149,11 +1149,11 @@ Description: Not Found
 
 * [POST /locations](#post-locations)
 * [PUT /locations](#put-locations)
-* [DELETE /locations/{locationcode}](#delete-locations-locationcode)
-* [GET /locations/{langcode}](#get-locations-langcode)
-* [GET /locations/{locationcode}/{languagecode}](#get-locations-locationcode-languagecode)
-* [GET /locations/immediatechildren/{locationcode}/{languagecode}](#get-locations-immediatechildren-locationcode-languagecode)
-* [GET /locations/locationhierarchy/{hierarchyname}](#get-locations-locationhierarchy-hierarchyname)
+* [DELETE /locations/{locationcode}](#delete-locationslocationcode)
+* [GET /locations/{langcode}](#get-locationslangcode)
+* [GET /locations/{locationcode}/{languagecode}](#get-locationslocationcodelanguagecode)
+* [GET /locations/immediatechildren/{locationcode}/{languagecode}](#get-locationsimmediatechildrenlocationcodelanguagecode)
+* [GET /locations/locationhierarchy/{hierarchyname}](#get-locationslocationhierarchyhierarchyname)
 
 # `POST /locations`
 
@@ -1736,7 +1736,7 @@ Description: Success
 * [POST /languages](#post-languages)
 * [GET /languages](#get-languages)
 * [PUT /languages](#put-languages)
-* [DELETE /languages/{code}](#delete-languages-code)
+* [DELETE /languages/{code}](#delete-languagescode)
 
 # POST /languages
 
@@ -2059,7 +2059,7 @@ Description: Success
 
 * [POST /applicationtypes](#post-applicationtypes)
 * [GET /applicationtypes](#get-applicationtypes)
-* [GET /applicationtypes/{id}/{languagecode}](#get-applicationtypes-id-languagecode)
+* [GET /applicationtypes/{id}/{languagecode}](#get-applicationtypesidlanguagecode)
 
 # POST /applicationtypes
 Master data is required across the platform. 
@@ -2280,9 +2280,9 @@ Description: Not Found
 
 * [POST /blacklistedwords](#post-blacklistedwords)
 * [GET /blacklistedwords](#get-blacklistedwords)
-* [GET /blacklistedwords/{id}/{languagecode}](#get-blacklistedwords-id-languagecode)
+* [GET /blacklistedwords/{id}/{languagecode}](#get-blacklistedwordsidlanguagecode-1)
 * [PUT /blacklistedwords](#put-blacklistedwords)
-* [DELETE /blacklistedwords/{word}](#delete-blacklistedwords-word)
+* [DELETE /blacklistedwords/{word}](#delete-blacklistedwordsword)
 
 ## POST /blacklistedwords 
 Master data is required across the platform. 

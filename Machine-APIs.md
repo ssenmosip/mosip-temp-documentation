@@ -654,7 +654,7 @@ Description: Not Found
 * [PUT /machinespecifications](#put-machinespecifications)
 * [DELETE /machinespecifications/{id}](#delete-machinespecificationsid)
 * [GET /machinespecifications](#get-machinespecifications)
-* [GET /machinespecifications/{lang_code](#get-machinespecificationslang_code)
+* [GET /machinespecifications/{lang_code}](#get-machinespecificationslang_code)
 
 
 # POST /machinespecifications

@@ -1,8 +1,6 @@
-This section details about the service APIs in the Biometric types and biometric attributes modules
-
+This section details about the service APIs in the Registration center modules
 
 * [Registration Centers API](#registration-centers-master-api)
-
 
 * [Registration Center - Device Mapping API](#registration-center-device-api)
 
@@ -18,13 +16,13 @@ This section details about the service APIs in the Biometric types and biometric
 
 * [POST /registrationcenters](#post-registrationcenters)
 * [GET /registrationcenters](#get-registrationcenters)
-* [GET /registrationcenters/{id}/{languagecode}](#get-registrationcenters-id-languagecode)
-* [GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}](#get-getregistrationcenterholidays-languagecode-registrationcenterid-year)
-* [GET /getlocspecificregistrationcenters/{langcode}/{locationcode}](#get-getlocspecificregistrationcenters-langcode-locationcode)
-* [GET /getcoordinatespecificregistrationcenters/{languagecode}/{longitude}/{latitude}/{proximitydistance}](#get-getcoordinatespecificregistrationcenters-languagecode-longitude-latitude-proximitydistance)
-* [GET /registrationcentershistory/{id}/{languagecode}/{eff_dtimes}](#get-registrationcentershistory-id-languagecode-eff_dtimes)
-* [GET /getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}](#get-getregistrationmachineusermappinghistory-eff_dtimes-registrationcenterid-machineid-userid)
-* [GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}](#get-getlocspecificregistrationcenters-hierarchylevel-textvalue-languagecode)
+* [GET /registrationcenters/{id}/{languagecode}](#get-registrationcentersidlanguagecode)
+* [GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}](#get-getregistrationcenterholidayslanguagecoderegistrationcenteridyear)
+* [GET /getlocspecificregistrationcenters/{langcode}/{locationcode}](#get-getlocspecificregistrationcenterslangcodelocationcode)
+* [GET /getcoordinatespecificregistrationcenters/{languagecode}/{longitude}/{latitude}/{proximitydistance}](#get-getcoordinatespecificregistrationcenterslanguagecodelongitudelatitudeproximitydistance)
+* [GET /registrationcentershistory/{id}/{languagecode}/{eff_dtimes}](#get-registrationcentershistoryidlanguagecodeeff_dtimes)
+* [GET /getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}](#get-getregistrationmachineusermappinghistoryeff_dtimesregistrationcenteridmachineiduserid)
+* [GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}](#get-getlocspecificregistrationcentershierarchyleveltextvaluelanguagecode)
 
 # POST /registrationcenters
 Master data is required across the platform. 
@@ -829,8 +827,8 @@ Description: Not Found
 # Registration Center User Machine Mapping API
 
 * [POST /registrationmachineusermappings](#post-registrationmachineusermappings)
-* [GET /getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}(#get-getregistrationmachineusermappinghistory-effdtimes-registrationcenterid-machineid-userid)
-* [PUT /registrationmachineusermappings](#put-registrationmachineusermappings)
+* [GET /getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}](#get-getregistrationmachineusermappinghistoryeffdtimesregistrationcenteridmachineiduserid-1)
+* [PUT /registrationmachineusermappings](#put-registrationmachineusermappings-1)
 
 
 ## POST /registrationmachineusermappings
@@ -1059,7 +1057,7 @@ Description: Forbidden
 # Registration Center Machine API
 
 * [POST /registrationcentermachine](#post-registrationcentermachine)
-* [DELETE /registrationcentermachine/{regCenterId}/{machineId}](#delete-registrationcentermachine-regcenterid-machineid)
+* [DELETE /registrationcentermachine/{regCenterId}/{machineId}](#deleteregistrationcentermachineregcenteridmachineid)
 
 ## POST /registrationcentermachine
 Master data is required across the platform. 
@@ -1196,7 +1194,7 @@ Description: Not Found
 # Registration Center Device API
 
 * [POST /registrationcenterdevice](#post-registrationcenterdevice)
-* [DELETE /registrationcenterdevice/{regCenterId}/{deviceId}](#delete-registrationcenterdevice-regcenterid-deviceid)
+* [DELETE /registrationcenterdevice/{regCenterId}/{deviceId}](#deleteregistrationcenterdeviceregcenteriddeviceid)
 
 ## POST /registrationcenterdevice
 Master data is required across the platform. 
@@ -1334,12 +1332,12 @@ Description: Not Found
 # Registration Center Machine Device API
 
 * [POST /registrationcentermachinedevice](#post-registrationcentermachinedevice)
-* [DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}](#delete-registrationcentermachinedevice-regcenterid-machineid-deviceid)
+* [DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}](#delete-registrationcentermachinedeviceregcenteridmachineiddeviceid)
 
 ## POST /registrationcentermachinedevice
 Master data is required across the platform. 
 
-This service will create the mapping of registration canter, machine and device in the RegistrationCenterMachineDevice Master module. 
+This service will create the mapping of registration center, machine and device in the RegistrationCenterMachineDevice Master module. 
 
 ### Resource URL
 ### `POST /registrationcentermachinedevice`
