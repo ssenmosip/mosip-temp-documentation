@@ -13,7 +13,7 @@ This service details authentication (yes/no auth) that can be used by Partners t
 
 #### Users of Authentication service -
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
-2. `Partners` - Auth-Partners register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth-Partners and sent to MOSIP, via MISP.
+2. `Partners` - *Auth-Partners* register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth-Partners and sent to MOSIP, via MISP.
 
 * [POST /idauthentication/v1/identity/auth/](#post-idauthenticationv1identityauth) 
 
@@ -213,6 +213,10 @@ This service details authentication (eKYC auth) that can be used by Partners to 
 1. OTP Authentication - OTP
 2. Biometric Authentication - Fingerprint, IRIS and Face
 
+#### Users of KYC service -
+1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all KYC requests sent to this service. The MISP is also responsible for policy creation on the MOSIP servers so their partners will follow the set policy.
+2. `Partners` - *eKYC-Partners* register themselves with MOSIP, under a MISP. KYC requests are captured by eKYC-Partners and sent to MOSIP, via MISP.
+
 * [POST /idauthentication/v1/identity/kyc/](#post-idauthenticationv1identitykyc) 
 
 ### POST /idauthentication/v1/identity/kyc/
@@ -405,6 +409,10 @@ request: transactionID|N| Transaction ID provided by Device Service| |
 ## OTP Request Service (Public)
 This service enables Partners to request for an OTP for an Individual. The OTP will be send via message or email as requested to the Individual. This OTP can then be used to authenticate an Individual using Authentication or eKYC service.
 
+#### Users of OTP Request service -
+1. `MISP (MOSIP Infrastructure Service Provider)` - MISP acts as a gate keeper for any OTP requests sent to this service. MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
+2. `Partners` - *Auth-Partners* and *eKYC-Partners* can send OTP Request to MOSIP on behalf of Individual for Authentication and eKYC requests respectively, via MISP.
+
 * [POST /idauthentication/v1/identity/kyc/](#post-idauthenticationv1otp) 
 
 ### POST /idauthentication/v1/otp/
@@ -497,14 +505,14 @@ otpChannel| Y | Allowed OTP Channels - EMAIL, PHONE| | true
 ## Authentication Service (Internal)
 This service details authentication (yes/no auth) that can be used by MOSIP modules to authenticate an Individual using UserID/VID/UIN. Below are various authentication types supported by this service - Biometric based - Fingerprint, IRIS and Face
 
+#### Users of Internal Authentication service -
+1. `Registration Client` - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.
+2. `Registration Processor` - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.
+
 * [POST /idauthentication/v1/identity/auth/internal](#post-idauthenticationv1identityauthinternal) 
 
 ### POST /idauthentication/v1/identity/auth/internal
 This request will authenticate an Operator/Supervisor using Biometric authentication.
-
-#### Users of Internal Authentication service -
-1. `Registration Client` - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.
-2. `Registration Processor` - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.
 
 #### Resource URL
 <div>https://mosip.io/idauthentication/v1/identity/auth/internal</div>
