@@ -19,7 +19,7 @@
      * [3.1.3 Source Authentication](#313-source-authentication) _(RPR_FR_3.3)_
      * [3.1.4 Machine-User-Center-Device Checks](#314-machine-user-center-mapping-check) _(RPR_FR_3.4)_
      * [3.1.5 GPS Capture Check](#315-gps-capture-check) _(RPR_FR_3.5)_
-     * [3.1.6 Operator & Supervisor Validation](#316-operator--supervisor-validation) _(RPR_FR_3.6)_
+     * [3.1.6 Officer & Supervisor Validation](#316-officer--supervisor-validation) _(RPR_FR_3.6)_
    * [3.2 Processing](#32-processing) 
      * [3.2.1 Individual Data Validations](#321-individual-data-validations) 
        * [3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check](#3211-data-quality-check-photo-age-gender-data-check) _(RPR_FR_3.7)_
@@ -108,41 +108,20 @@ Link to [**design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-
 # 3. Types of Stages
 ## 3.1 Pre-processing Validations
 ### 3.1.1 Sanity Check
-After the packet is received from the Registration Client, the system performs the sanity check as follows:
-1. **Authentication** - Authenticates the packet whether it is received from the verified source.
-2. **Virus Scan** - Performs a virus scan of that received packet and moves the packet to the DMZ file system. Refer below for the process:
-   * Sends the byte array of the encrypted packet to the virus scanner.
-   * If the virus scanner finds a virus, then the system rejects the packet.
-   * Sends the byte array of the encrypted packet received to decrypt the Packet.
-   * If decryption fails, then the system rejects the packet.
-   * Sends the byte array of the decrypted Packet received to the virus scanner.
-   * If the virus scanner finds a virus, then the system rejects the packet.
-   * If the virus scanner does not find a virus, then the system moves the packet to DMZ file system.
-3. **Packet Integrity Check** - Calculates a hash sequence of the packet and compares it with the hash sequence received from the registration client, to verify that the packet was not tempered during a transit. Refer below for the process:
-   * Fetches the hash sequence for the registration ID from registration-sync list table.
-   * If registration ID is not available then responds with an error code.
-   * Calculates the hash sequence using the check sum utility.
-   * Compares the hash sequences and if the hash sequences do not match, then responds with an error code. If the hash sequence matches then the system proceeds further to another step.
-4. **Packet Size Check** - Calculates the size of the packet received and compares it with the packet size received from the registration client, to verify that the packet was not tempered during a transit.
-   * Checks if the packet size is more than the configured size set in the configuration server. If the packet size is more than the configured size, then sends an error response to Registration Client.
-5. **Packet Format Check** - Validates if the packet format is in the configured format i.e. “.zip” (configured by the admin).
-   * Checks if the packet format is not as the configured format i.e. “.zip” set in the configuration server. If the packet format is not like the configured format, then sends an error response to Registration Client.
-6. **Duplicate Check** – Validates if the packet is already available in the system.
-   * Checks if the packet is a duplicate request by validating the RID that is available in the Registration Table and the packet is not in RESEND status. If the Packet Request is a Duplicate Request, then send an error response to Registration Client.
+When Registration Processor receives a packet, the system performs various sanity checks, such as:
+1. **Authentication** - The system authenticates if the requestor is an verified user.
+1. **Virus Scan** - The system performs in-memory virus scan of the packet received.
+1. **Packet Integrity Check** - The system validates if the packet received was not tampered during transit by performing check sum validation.
+1. **Packet Size Check** - The system validates if the packet received was not tampered during transit by validating the size of the packet.
+1. **Packet Format Check** - The system validates if the packet format is per the configured format.
+1. **Duplicate Check** – The system validates if the request received is not a duplicate request.
 
 ### 3.1.2 Virus Scan
-The system performs the virus scan in two different stages, which are listed below:
-1. When the packet is received from the Registration Client, the system performs virus scan of the packet and moves to the DMZ file system.
-   * Refer to [**virus scan**](#311-sanity-check) of Sanity Check.
-2. When the packet is picked from the DMZ file system, the system performs virus scan of the packet and stores it in a packet store. Refer below for the process: 
-   * Fetches the packet from DMZ file system.
-   * Sends the byte array of the encrypted packet to the virus scanner.
-   * If the virus scanner finds a virus, then the system rejects the request.
-   * Sends the byte array of the encrypted packet received to decrypt the packet.
-   * If Decryption fails, then the system rejects the packet.
-   * Sends the byte array of the decrypted Packet received to the virus scanner.
-   * If the virus scanner finds a virus, then the system rejects the packet.
-   * If the virus scanner does not find a virus, then the system updates the transaction and status.
+Virus Scanning is an important process which helps to remove virus infected files from the system. 
+
+In Registration Processor, virus scanning is performed twice, which are listed below:
+1. When a packet is received by Registration Processor.
+2. When Registration Processor stores the packet in its internal secure file system.
 
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
@@ -158,25 +137,14 @@ System validates the registration machine, registration officer, and registratio
 4. For all the failure scenarios, marks registration status with the corresponding error message. 
 
 ### 3.1.5 GPS Capture Check
-### 3.1.6 Operator & Supervisor Validation
+### 3.1.6 Officer & Supervisor Validation
 
-When the packet is received from the Registration Client, the system first checks the Operator & Supervisor ID using configuration manager. Then validates an operator & a supervisor using biometric authentication such as face image, iris image, and finger print image, OTP based authentication, and password-based authentication to make sure that the Operator & Supervisor is authenticated. Refer below for the process:
-#### A. Authenticate and Validates using Officer and Supervisor ID
-System fetches an officer and/or a supervisor details from the master list using officer and/or supervisor ID and checks if their details are available. Then the system performs the following steps:
-   * If the officer and/or supervisor details are not available, then sends packet for manual adjudication.
-   * If the officer and/or supervisor details are available, then checks if an officer and/or supervisor is active or not.
-   * If an officer and/or a supervisor is not active, then sends packet for manual adjudication.
-   * If an officer and/or a supervisor is active, checks the type of authentication required for the officer and/or the supervisor.
+When a packet is created in registration client, the officer or supervisor IDs and mode of authentication is captured in the packet. The information captured can be used to perform the same validation in Registration Processor. 
 
-
-#### B. Authenticate using Biometric
-The system sends the UIN, face image, iris image, and finger print image of the operator and supervisor to ID Authentication and receives a response as "TRUE" or "FALSE" to authenticate the operator and supervisor. If the biometric is valid, then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
-
-#### C. Authenticate using OTP and Password Validation
-The system validates an officer or a supervisor with a password/OTP authentication only if the officer or supervisor ID is available in the packet.
-1. If the officer or supervisor ID is available in the packet but not the biometrics (iris, fingerprint, face, pin) o details, then the system validates with a password/OTP authentication and response as TRUE for authenticated user.
-1. If any of the officer or supervisor bio-metrics are available and officer or supervisor password/OTP is valid then responds is received as "TRUE", which indicates that officer or supervisor is authenticated.
-
+The modalities used for authenticating an officer or supervisor are:
+1. Biometric Authentication (Biometrics such as Iris, Face or Finger Prints)
+1. Password Authentication 
+1. OTP Based Authentication
 ## 3.2 Processing
 ### 3.2.1 Individual Data Validations
 #### 3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check
@@ -205,7 +173,7 @@ The system performs file validation by checking files availability in a packet w
 
 #### 3.2.2.2 Introducer Validation
 #### 3.2.2.3 Deduplication – Demographic, Biometrics
-When the packet from the Registration Client has completed the sanity checks, the system performs the demographic deduplication and then biometric deduplication. Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated.
+Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated.
 #### A. Demographic deduplication
 
 1. The system compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.
@@ -213,14 +181,14 @@ When the packet from the Registration Client has completed the sanity checks, th
 3. If a potential match is not found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) or Demographic deduplication, then system sends the packet to perform biometric deduplication.
 #### B. Biometric deduplication
 1. The system performs Biometric deduplication (1:N, where N indicates the whole set of biometric available in the system) by sending the data to [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface).
-2. [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) compares the biometric data received with the whole set of the data to find a potential matches based on a configured threshold.
+2. [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) compares the biometric data received with the whole set of the data to find a potential match based on a configured threshold.
 3. If a potential match is found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface), then the system sends the packet for manual verification.
 4. If a manual verifier (experts who know more about biometrics) finds a duplicate, then the system rejects the packet.
 5. If the manual verifier or [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) does not find the duplicate, then the system sends the packet for UIN generation.
 
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
-The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receives some data. Therefore, the system can verify the data captured during a registration with the data received from the external system.
+The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receives some data. Therefore, the system can verify the data captured during registration with the data received from the external system.
 #### 3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)
 MOSIP receives some data from the external system in a form of packet (as per MOSIP Standards). The MOSIP system has the capability to receive this updated packet and process it with the packet received from Registration Client.
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
@@ -234,12 +202,11 @@ ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [*
 
 ### 3.2.4 ID Issuance 
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association
-After all the business validation are completed, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the packet data to [**ID repository**](ID-Repository-API).
+After all the business validation are completed, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)
-The Registration Processor stores or updates ID Repository during registration process and [**ID Authentication**](FRS-Authentication-Services) retrieves identity of an individual for their authentication.
-For more details about ID Repository, click the [**Wiki**](ID-Repository-API).
+After all the business validations are performed for a new ID issuance or updating an individual’s information, this information is sent to [**ID repository**](ID-Repository-API) for storing or updating the information respectively.  
 #### 3.2.4.3 Data Extractor for ID Authentication
-A stage that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.         
+The system that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.         
 
 ### 3.2.5 Capture Audit Trails/Analytics Data
 When any transaction is performed in MOSIP system or the packet fails any validations or any system level exception happens, then the same is captured as part of MOSIP Audit Trails.
