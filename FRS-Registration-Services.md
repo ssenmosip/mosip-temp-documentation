@@ -134,7 +134,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 4. Client displays a success or failure message on the UI
 5. User on-boarding data such as User ID, USB device ID and Computer ID will be synced
 6. Alternatively, if the client machine is not online
-   * Display an error message and does not sync when a user tries to initiate a manual sync.
+   * Displays an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
 
