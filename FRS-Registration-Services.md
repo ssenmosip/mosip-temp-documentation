@@ -25,38 +25,36 @@
     * [5.1.1 Offline Authentication using Biometrics](#511-offline-authentication-using-biometrics-) _(REG_FR_5.1)_
     * [5.1.2 Biometric SDK Integration (Extract and Match)](#512-biometric-sdk-integration-extract-and-match-) _(REG_FR_5.2)_
   * [5.2 API Client](#52-api-client-) _(REG_FR_5.3)_
-  * [5.3 Biometric Device Manager](#53-biometric-device-manager-)
-    * [5.3.1 Vendor Device Manager Integration and Support](#531-vendor-device-manager-integration-and-support-) _(REG_FR_5.4)_
-  * [5.4 Local Storage](#54-local-storage-) 
-    * [5.4.1 Database](#541-database-) _(REG_FR_5.5)_  
-    * [5.4.2 File system](#542-file-system-) _(REG_FR_5.6)_
-  * [5.5 Data Security (Take Architects Help)](#55-data-security-take-architects-help-)
-    * [5.5.1 Trust Environment](#551-trust-environment-) _(REG_FR_5.7)_
-    * [5.5.2 Encryption and Decryption](#552-encryption-and-decryption-) _(REG_FR_5.8)_
-    * [5.5.3 Storage Policies](#553-storage-policies-) _(REG_FR_5.9)_
-    * [5.5.4 Key Management](#554-key-management-) _(REG_FR_5.10)_
-  * [5.6 Business Validations](#56-business-validations-) _(REG_FR_5.11)_
-  * [5.7 Data Sync](#57-data-sync-)
-    * [5.7.1 Master Data](#571-master-data-) _(REG_FR_5.12)_
-    * [5.7.2 Pre-registration Data](#572-pre-registration-data-) _(REG_FR_5.13)_
-    * [5.7.3 Registration Data](#573-registration-data-) _(REG_FR_5.14)_
-    * [5.7.4 Analytics and Audit Logs](#574-analytics-and-audit-logs-) _(REG_FR_5.15)_
-  * [5.8 Peripherals Management (Scanner, Camera,...)](#58-peripherals-management-scanner-camera-) _(REG_FR_5.16)_
-  * [5.9 Software Version Upgrade](#59-software-version-upgrade-) _(REG_FR_5.17)_
-  * [5.10 Cleanup](#510-cleanup-)
-    * [5.10.1 Data retention policies](#5101-data-retention-policies-) _(REG_FR_5.18)_
-    * [5.10.2 Device moving to new center](#5102-device-moving-to-new-center-) _(REG_FR_5.19)_
-    * [5.10.3 Device retirement](#5103-device-retirement-) _(REG_FR_5.20)_
-  * [5.11 Language Support](#511-language-support-)
-    * [5.11.1 Language Selection](#5111-language-selection-)  _(REG_FR_5.21)_
-    * [5.11.2 Internationalization (WIP)](#5112-internationalization-wip-) _(REG_FR_5.22)_
-    * [5.11.3 Transliteration](#5113-transliteration-) _(REG_FR_5.23)_
-    * [5.11.4 Virtual Keyboards (WIP)](#5114-virtual-keyboards-wip-) _(REG_FR_5.24)_
-    * [5.11.5 Translation??](#5115-translation-) _(REG_FR_5.25)_
-  * [5.12 Health Check](#512-health-check-) 
-    * [5.12.1 Disk Space Check](#5121-disk-space-check-) _(REG_FR_5.26)_
-    * [5.12.2 Peripherals Check](#5122-peripherals-check-) _(REG_FR_5.27)_
-    * [5.12.3 Virus Scan/Security Scan](#5123-virus-scansecurity-scan-) _(REG_FR_5.28)_
+  * [5.3 Local Storage](#53-local-storage-) 
+    * [5.3.1 Database](#531-database-) _(REG_FR_5.5)_  
+    * [5.3.2 File system](#532-file-system-) _(REG_FR_5.6)_
+  * [5.4 Data Security (Take Architects Help)](#54-data-security-take-architects-help-)
+    * [5.4.1 Trust Environment](#541-trust-environment-) _(REG_FR_5.7)_
+    * [5.4.2 Encryption and Decryption](#542-encryption-and-decryption-) _(REG_FR_5.8)_
+    * [5.4.3 Storage Policies](#543-storage-policies-) _(REG_FR_5.9)_
+    * [5.4.4 Key Management](#544-key-management-) _(REG_FR_5.10)_
+  * [5.5 Business Validations](#55-business-validations-) _(REG_FR_5.11)_
+  * [5.6 Data Sync](#56-data-sync-)
+    * [5.6.1 Master Data](#561-master-data-) _(REG_FR_5.12)_
+    * [5.6.2 Pre-registration Data](#562-pre-registration-data-) _(REG_FR_5.13)_
+    * [5.6.3 Registration Data](#563-registration-data-) _(REG_FR_5.14)_
+    * [5.6.4 Analytics and Audit Logs](#564-analytics-and-audit-logs-) _(REG_FR_5.15)_
+  * [5.7 Peripherals Management (Scanner, Camera,...)](#57-peripherals-management-scanner-camera-) _(REG_FR_5.16)_
+  * [5.8 Software Version Upgrade](#58-software-version-upgrade-) _(REG_FR_5.17)_
+  * [5.9 Cleanup](#59-cleanup-)
+    * [5.9.1 Data retention policies](#591-data-retention-policies-) _(REG_FR_5.18)_
+    * [5.9.2 Device moving to new center](#592-device-moving-to-new-center-) _(REG_FR_5.19)_
+    * [5.9.3 Device retirement](#593-device-retirement-) _(REG_FR_5.20)_
+  * [5.10 Language Support](#510-language-support-)
+    * [5.10.1 Language Selection](#5101-language-selection-)  _(REG_FR_5.21)_
+    * [5.10.2 Internationalization (WIP)](#5102-internationalization-wip-) _(REG_FR_5.22)_
+    * [5.10.3 Transliteration](#5103-transliteration-) _(REG_FR_5.23)_
+    * [5.10.4 Virtual Keyboards (WIP)](#5104-virtual-keyboards-wip-) _(REG_FR_5.24)_
+    * [5.10.5 Translation??](#5105-translation-) _(REG_FR_5.25)_
+  * [5.11 Health Check](#511-health-check-) 
+    * [5.11.1 Disk Space Check](#5111-disk-space-check-) _(REG_FR_5.26)_
+    * [5.11.2 Peripherals Check](#5112-peripherals-check-) _(REG_FR_5.27)_
+    * [5.11.3 Virus Scan/Security Scan](#5113-virus-scansecurity-scan-) _(REG_FR_5.28)_
 - [6. Registration Client UI](#6-registration-client-ui-) _(REG_FR_6)_
 
 
@@ -811,40 +809,12 @@ Registration Client performs a local duplicate check for irises and face of an i
 Please refer [**Git**](/mosip/mosip/tree/0.10.0/docs/javadocs/registration/apidocs) for more details on the APIs for ID authentication.
 
 
-## 5.3 Biometric Device Manager [**[↑]**](#table-of-content)
-### 5.3.1 Vendor Device Manager Integration and Support [**[↑]**](#table-of-content)
-
-#### A. On-boarding fingerprint, iris, camera, GPS, printer, scanner, and barcode devices to a registration machine.
-
-1. In MOSIP any Registration Officer or Supervisor can on-board a device.
-2. Every model has a start date and end date associated to it by the admin. Devices of a certain model can only be used for registrations within this configured date range.
-3. A device-machine mapping cannot be created if the end date of the model validity has passed. However, it can be created ahead of the validity start date.
-4. The admin user first sets up models in the admin portal, then registers devices by entering their serial number, model number and manufacturer.
-5. While mapping a fingerprint or ‘IRIS’ or 'Camera' or 'Printer' or 'Scanner' or 'GPS' device to the client machine.
-   * The system will enable a Supervisor or Registration Officer to select Device Type = ‘Fingerprint’ or ‘Iris’ or ‘Camera’ or ‘Printer’ or ‘Scanner’ or ‘GPS’ or ‘Barcode reader’.
-   * Upon section of a device type, the system shows a list of devices that are registered. Device registration is done through by the Admin. 
-   * The available devices list will show only those devices whose model’s validity end date is not a past date.
-
-      (i) For example, say the validity of xyz model of fingerprint scanner is set from 1 Jan 2018 to 30 Jun 2018. If current date is 15 Oct 2018, system do not show this device under available devices.
-
-      (ii) During usage of a device, the client will again check if the device is within its validity dates. This validation is covered in other user stories.
-
-   * User can select one or more device\s, and mark them as ‘mapped’ and submit.
-   * The user is able to unmap devices by moving from the ‘mapped’ list to the ‘available’ one.
-   * The devices must be plugged in at the time of on-boarding.
-   * The machine need not have internet connectivity at the time of on-boarding.
-6. When the mapping is saved locally, the mapping is sent to the server during the next device mapping sync.
-7. There is no limitation to the numbers of devices mapped to the machine.
-
-#### B. Virtual device manager [**[↑]**](#table-of-content)
-Please refer [**wiki**](MOSIP-VDM-Specifications) for more details on Virtual device manager implementation
-
-## 5.4 Local Storage [**[↑]**](#table-of-content)
+## 5.3 Local Storage [**[↑]**](#table-of-content)
 The registration packets are stored locally in the Registration Client. In several remote locations, internet connectivity could be an issue.Hence, if packets are saved locally, the packets can be later uploaded when there is internet connection. Also, the packets can be transferred from the machine to a USB device and the USB device can be sent through courier. Further on, the packets can be uploaded from the USB device to the server based on network availability.
 
-### 5.4.1 Database [**[↑]**](#table-of-content)
-### 5.4.2 File system [**[↑]**](#table-of-content)
-## 5.5 Data Security () [**[↑]**](#table-of-content)
+### 5.3.1 Database [**[↑]**](#table-of-content)
+### 5.3.2 File system [**[↑]**](#table-of-content)
+## 5.4 Data Security () [**[↑]**](#table-of-content)
 Registration client integrates with Trusted Platform Model(TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals are saved securely in local system and then shared to server. The details saved locally would be encrypted. DataBase encryption is also mandatory.
 
 MOSIP performs the following:
@@ -857,8 +827,8 @@ This process will ensure that the request to the server has been dispatched from
 
 3. Encrypt and decrypt the data using RSA algorithm in TPM
 
-### 5.5.1 Trust Environment [**[↑]**](#table-of-content)
-### 5.5.2 Encryption and Decryption [**[↑]**](#table-of-content)
+### 5.4.1 Trust Environment [**[↑]**](#table-of-content)
+### 5.4.2 Encryption and Decryption [**[↑]**](#table-of-content)
 **Enable capturing an individual's face photograph—Analysis**
 
 When a Registration Officer opts to capture photo of an individual, the system initiates a photo capture and validates the following:
@@ -873,8 +843,8 @@ When a Registration Officer opts to capture photo of an individual, the system i
 7. Allows the Registration Officer to proceed to verify quality score.
 8. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose. 
 
-### 5.5.3 Storage Policies [**[↑]**](#table-of-content)
-### 5.5.4 Key Management [**[↑]**](#table-of-content)
+### 5.4.3 Storage Policies [**[↑]**](#table-of-content)
+### 5.4.4 Key Management [**[↑]**](#table-of-content)
 
 **Enable selecting the 'Fingerprint Exception' option**
 
@@ -884,7 +854,7 @@ When a Registration Officer sets ‘Biometric Exception’ = ‘Yes’, the syst
 1. If ‘Biometric Exception’ = ‘No’, the Biometric Exception capture is skipped and exceptions cannot be marked.
 1. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose.
 
-## 5.6 Business Validations [**[↑]**](#table-of-content)
+## 5.5 Business Validations [**[↑]**](#table-of-content)
 These are validations that are performed by the registration client application during each process such as launch, onboarding, login, new registration and end of day process. For instance, when initiating a new registration, UIN update or lost UIN request, the client validates that:
 * The application has checked with the server for software updates
 * Master data has been synced 
@@ -892,7 +862,7 @@ These are validations that are performed by the registration client application 
 * Registration packets created earlier have been uploaded
 * Encryption key expiry date is beyond a configured time duration
 
-## 5.7 Data Sync [**[↑]**](#table-of-content)
+## 5.6 Data Sync [**[↑]**](#table-of-content)
 Since the registration client supports working in offline mode, it ensures that there is a regular synchronization of data between the server and client so that any changes made in the server are reflected in the client and vice versa. Data sync covers the following:
 * Master data
 * Configuration data
@@ -901,10 +871,10 @@ Since the registration client supports working in offline mode, it ensures that 
 * User onboarding details from client to server
 * Registration packet IDs from client to server
 
-### 5.7.1 Master Data [**[↑]**](#table-of-content)
-### 5.7.2 Pre-registration Data [**[↑]**](#table-of-content)
-### 5.7.3 Registration Data [**[↑]**](#table-of-content)
-### 5.7.4 Analytics and Audit Logs [**[↑]**](#table-of-content)
+### 5.6.1 Master Data [**[↑]**](#table-of-content)
+### 5.6.2 Pre-registration Data [**[↑]**](#table-of-content)
+### 5.6.3 Registration Data [**[↑]**](#table-of-content)
+### 5.6.4 Analytics and Audit Logs [**[↑]**](#table-of-content)
 
 **Restrict access to each MOSIP feature to authorized users**
 
@@ -938,7 +908,7 @@ When a logged in user tries to access a feature on the registration client, the 
 1. System captures and stores the transaction details for audit purpose.
 
 
-## 5.8 Peripherals Management (Scanner, Camera,...) [**[↑]**](#table-of-content)
+## 5.7 Peripherals Management (Scanner, Camera,...) [**[↑]**](#table-of-content)
 
 Upon receiving a request to geotag a registration machine, the system performs the following steps:
 1. Validates that an on-boarded GPS device is connected to the machine.
@@ -953,7 +923,7 @@ Upon receiving a request to geotag a registration machine, the system performs t
    * The latitude and longitude will be stored in the packet when the packet is created.
 5. System captures and stores the transaction details for audit purpose.
 
-## 5.9 Software Version Upgrade [**[↑]**](#table-of-content)
+## 5.8 Software Version Upgrade [**[↑]**](#table-of-content)
 
 #### A. Registration Officer or Supervisor can download and unzip the client application set up kit
 
@@ -1001,14 +971,14 @@ The system follows the following steps during the update process:
 1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
 1. System captures and stores the transaction details for audit purpose.
 
-## 5.10 Cleanup [**[↑]**](#table-of-content)
+## 5.9 Cleanup [**[↑]**](#table-of-content)
 Pre-registration and registration data are automatically deleted from the client machine upon consumption and upon intimation from the server respectively. 
 * Pre-registration data is deleted after consumption for a registration.
 * Registration packets that are identified as ‘processed’ are deleted by a periodic process.
 * Audit data is deleted after it is sent to the server.
 * All deletion is executed by a periodic process after retention of the data for a configured duration.
 
-### 5.10.1 Data retention policies [**[↑]**](#table-of-content)
+### 5.9.1 Data retention policies [**[↑]**](#table-of-content)
 
 #### A. Read packet status and delete packets
 When the registration client receives a request through manual trigger or scheduled job to sync data, the system performs the following steps to read a packet status and delete the packets:
@@ -1034,7 +1004,7 @@ When a set of audit data is uploaded to the server and the server has acknowledg
 4. Does not delete audit data if that is yet to be sent to the server.
 1. System captures and stores the transaction details.
 
-### 5.10.2 Device moving to new center [**[↑]**](#table-of-content)
+### 5.9.2 Device moving to new center [**[↑]**](#table-of-content)
 
 When an Admin user changes the mapping of a computer from one Registration Centre (RC) to another, a sync is initiated on the client installed on that computer.
 
@@ -1055,7 +1025,7 @@ The following example explains the steps system performs to support remapping a 
    * If the one-time process has not yet run, the user will still be able to login and perform sync, end of day approval, re-register updates, export, and upload. The user cannot perform pre-registration download and user on-boarding.
 5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
 
-### 5.10.3 Device retirement [**[↑]**](#table-of-content)
+### 5.9.3 Device retirement [**[↑]**](#table-of-content)
 
 Before the machine is decommissioned the following checks must be performed.
 
@@ -1063,11 +1033,11 @@ Before the machine is decommissioned the following checks must be performed.
 2. All data locally saved in the machine must be cleaned up
 
 
-## 5.11 Language Support [**[↑]**](#table-of-content)
-### 5.11.1 Language Selection [**[↑]**](#table-of-content)
+## 5.10 Language Support [**[↑]**](#table-of-content)
+### 5.10.1 Language Selection [**[↑]**](#table-of-content)
 The registration client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin config and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
-### 5.11.2 Internationalization (WIP) [**[↑]**](#table-of-content)
-### 5.11.3 Transliteration [**[↑]**](#table-of-content)
+### 5.10.2 Internationalization (WIP) [**[↑]**](#table-of-content)
+### 5.10.3 Transliteration [**[↑]**](#table-of-content)
 
 **Registration client enables viewing transliterated data other than French and Arabic**
 
@@ -1094,16 +1064,16 @@ The Registration Officer can then view the preview page
 
 The system then enables a Registration Officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
 
-### 5.11.4 Virtual Keyboards (WIP) [**[↑]**](#table-of-content)
-### 5.11.5 Translation?? [**[↑]**](#table-of-content)
+### 5.10.4 Virtual Keyboards (WIP) [**[↑]**](#table-of-content)
+### 5.10.5 Translation?? [**[↑]**](#table-of-content)
 
 **A registration officer can view static data translated to secondary language**
 1. In MOSIP, the primary and secondary languages are configured by the admin 
 1. All static data (headers, labels, action buttons, and alert messages) is set up by the admin in both languages so that the registration officer can view all pages in the client application in both the default (primary) language and translated (secondary) language. 
 1. If configured translation language is same as default language, the system displays text in default language only.
 
-## 5.12 Health Check [**[↑]**](#table-of-content)
-### 5.12.1 Disk Space Check [**[↑]**](#table-of-content)
+## 5.11 Health Check [**[↑]**](#table-of-content)
+### 5.11.1 Disk Space Check [**[↑]**](#table-of-content)
 
 Upon receiving a request from the UI to create an enrolment packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the enrolment packet as follows:
 1. Calculates the size of the enrolment packet based on the data captured.
@@ -1114,7 +1084,7 @@ Upon receiving a request from the UI to create an enrolment packet at the end of
 1. In case of unsuccessful validation, responds with an appropriate error message.
 1. System captures and stores the transaction details for audit purpose.
 
-### 5.12.2 Peripherals Check [**[↑]**](#table-of-content)
+### 5.11.2 Peripherals Check [**[↑]**](#table-of-content)
 
 Registration officer views the status of each biometric device in the header
 
@@ -1127,7 +1097,7 @@ Similarly for face camera - display “Face Scanner” in green / red / no displ
 
 If the client machine has internet connectivity, display “System Online” in the header green. Else display “System Offline”. 
 
-### 5.12.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
+### 5.11.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
 
 Upon receiving a request to perform a virus scan of the registration packets on the client machine, the system performs the following steps:
 1. When the client application is open, the system scans the registration packets at a configured frequency.

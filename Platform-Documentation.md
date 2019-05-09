@@ -270,7 +270,8 @@ Please refer [**wiki**](Security) for more details.
 ### 8.8 Core Data Management [**[↑]**](#table-of-content)
 ### 8.9 Test Rig Design [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
-Navigate to wiki for further details.
+
+Please refer to [**wiki**](Tester-Documentation) for more details.
 ### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system – WIP.
 
