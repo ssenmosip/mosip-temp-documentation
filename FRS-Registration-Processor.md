@@ -9,8 +9,8 @@
    * [2.1 Orchestration](#21-orchestration) _(RPR_FR_2.1)_
    * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures) _(RPR_FR_2.2)_
    * [2.3 Resume Workflow](#23-resume-workflow) _(RPR_FR_2.3)_
-   * [2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages)](#24-integration-system-capability--workflow-customization-ability-to-plug-inexclude-stages) _(RPR_FR_2.4)_
-   * [2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)](#25-multiple-workflows-specific-to-lifecycle--eg-new-vs-update-activation-vs-deactivation-applicant-type-specific-workflow) _(RPR_FR_2.6)_
+   * [2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages)](#24-integration-system-capability--workflow-customization-ability-to-plug-inexclude-stages-wip) _(RPR_FR_2.4)_
+   * [2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)](#25-multiple-workflows-specific-to-lifecycle--eg-new-vs-update-activation-vs-deactivation-applicant-type-specific-workflow-wip) _(RPR_FR_2.6)_
    * [2.6 Scalability and Throughput](#26-scalability-and-throughput) _(RPR_FR_2.7)_
  - [3. Types of Stages](#3-types-of-stages) 
    * [3.1 Pre-processing Validations](#31-pre-processing-validations) 
@@ -67,29 +67,38 @@ An individual can update his/her information via two different ways:
 When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check) and validations and then updates the individual’s information.
 
 ## 1.3 De-activate individual’s ID
-When a country or an individual chooses to de-activate an individual’s ID due to any specific reason, the packet for UIN de-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in activated state or not. If in activated state, the system de-activates the individual’s ID.
+If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed.
 ## 1.4 Re-activate individual’s ID
-When a country or an individual chooses to re-activate an individual’s ID due to any specific reason, the packet for UIN re-activate will go through the [**sanity checks**](#311-sanity-check) and validations. Then the system checks if the status of the UIN is in de-activated state or not. If in de-activated state, the system re-activates the individual’s ID.
+If a country wants to re-activate a deactivated individual’s ID, the system provides a feature to do so after certain validations are performed.
 # 2. Configurable Workflow
 ## 2.1 Orchestration
-MOSIP provides the flexibility to sequence micro services to achieve certain functionality. This feature enables System Integrator to plug in micro services as per a country requirement.
+
+Orchestration is the process of configuring various services which will be coordinated and managed to achieve a business goal. 
+
+In Registration Processor, there are various independent components which are connected in a workflow to perform various Identity Lifecycle events. 
+
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 ## 2.2 Retry Processing (In case of exceptions/failures)
-If the system is unable to process a request due to infrastructure failure or stuck at a particular stage, then the system will retry processing the packet for a certain number of times (the threshold limit is configurable).
+Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time.
+
+To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
+
 ## 2.3 Resume Workflow
-If the packet processing is incomplete and is stuck at a particular stage due to some system exception, such as technical, components, and infrastructure failure (database, internal service, queue, etc.) then the system identifies the blocked packets, which are in processing stage and re-sends the packet to the particular stage where it has stopped.
-## 2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages) 
+Registration Processor, even after retrying multiple time fails to communicate or there is a system error, the system stops processing the packets. 
+
+These packets are later picked up by a module in Registration Processor called the Re-Processor based on a configurable logic which resumes the workflow.
+## 2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages) (WIP)
 System Integrator can integrate their system with MOSIP.
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
-## 2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)
+## 2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow) (WIP)
 Multiple workflows increase reusability, readability and maintainability of different micro services.
 ## 2.6 Scalability and Throughput
 MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is designed in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
