@@ -5,18 +5,18 @@
 
 # Login
 
-* [GET /authfactors](#get-authfactors)
+* [GET /security/authfactors](#get-securityauthfactors)
 * [POST /useridPwd](#post-useridPwd)
 * [POST /sendotp](#post-sendotp)
 * [POST /useridOTP](#post-useridOTP)
 
 
-### GET /authfactors
+### GET /security/authfactors
 
 This service will give back the authentication factors for the login of the user. It will accept the username and find the user's groups. Based on the groups, the auth factors are decided and send back. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/authfactors</div>
+<div>https://mosip.io/v1/admin/security/authfactors/{userId}</div>
 
 #### Resource details
 Resource Details | Description
@@ -31,7 +31,7 @@ userid |Yes|User id of the user| UDAE423
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
-<div>https://mosip.io/v1/admin/authfactors?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<div>https://mosip.io/v1/admin/security/authfactors/UDAE423?timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
 
 #### Responses:
 ##### Success Response:
@@ -40,7 +40,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-	"id": "mosip.admin.authfactors",
+	"id": "mosip.admin.security.authfactors",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "2007-12-03T10:15:30Z",
@@ -57,7 +57,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 ```JSON
 
 {
-  "id": "mosip.admin.authfactors",
+  "id": "mosip.admin.security.authfactors",
   "version": "1.0",
   "metadata": {},
   "responsetime": "2007-12-03T10:15:30Z",
