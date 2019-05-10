@@ -15,7 +15,7 @@ This section details about the service APIs in the Registration-Processor module
 This service receives the registration packet and puts it to landing zone.
 
 ### Resource URL
-### `POST /v1/packetreceiver/registrationpackets`
+### `POST /registrationprocessor/v1/packetreceiver/registrationpackets`
 
 ### Resource details
 
@@ -71,7 +71,7 @@ Description: Packet successfully uploaded to landing zone
 This service return the registration current status for list of input registration ids.
 
 ### Resource URL
-### `GET /v1/registrationstatus/search`
+### `GET /registrationprocessor/v1/registrationstatus/search`
 
 ### Resource details
 
@@ -142,7 +142,7 @@ Description: Successfully retrieved information
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
 
 ### Resource URL
-### `POST /v1/registrationstatus/sync`
+### `POST /registrationprocessor/v1/registrationstatus/sync`
 
 ### Resource details
 
@@ -286,7 +286,7 @@ Description: Successfully synced
 This service is used to assign one single unassigned applicant record to the input user.
 
 ### Resource URL
-### `POST /v1/manualverification/assignment`
+### `POST /registrationprocessor/v1/manualverification/assignment`
 
 ### Resource details
 
@@ -351,7 +351,7 @@ Description : response code is always 200 if server receives the request.
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
 
 ### Resource URL
-### `POST /v1/manualverification/decision`
+### `POST /registrationprocessor/v1/manualverification/decision`
 
 ### Resource details
 
@@ -422,7 +422,7 @@ Description : response code is always 200 if server receives the request.
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
 
 ### Resource URL
-### `POST /v1/manualverification/applicantBiometric`
+### `POST /registrationprocessor/v1/manualverification/applicantBiometric`
 
 ### Resource details
 
@@ -484,7 +484,7 @@ Description : response code is always 200 if server receives the request.
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.
 
 ### Resource URL
-### `POST /v1/manualverification/applicantDemographic`
+### `POST /registrationprocessor/v1/manualverification/applicantDemographic`
 
 ### Resource details
 
@@ -545,7 +545,7 @@ Description : response code is always 200 if server receives the request.
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
 ### Resource URL
-### `POST /v1/bio-dedupe/{referenceid}`
+### `POST /registrationprocessor/v1/bio-dedupe/{referenceid}`
 
 ### Resource details
 
@@ -575,7 +575,7 @@ Description : response code is always 200 if server receives the request.
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
 ### Resource URL
-### `POST /v1/packetgenerator/registrationpacket`
+### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
 
 ### Resource details
 
