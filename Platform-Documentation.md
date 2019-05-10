@@ -279,7 +279,7 @@ Test Rig represents a one click automation to build, deploy and test a software 
 Please refer to [**wiki**](Tester-Documentation) for more details.
 ### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system – WIP.
-
+Please refer to [**wiki**](External System Integration Stage) for more details.
 ## 9. MOSIP APIs
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 9.1	External APIs [**[↑]**](#table-of-content)
