@@ -268,6 +268,11 @@ Multiple aspects of Security like Confidentiality, Privacy, and Integrity of dat
 
 Please refer [**wiki**](Security) for more details.
 ### 8.8 Core Data Management [**[↑]**](#table-of-content)
+ID Repository module contains the golden record of Identity for an Individual. Once new/update packets are processed by Registration Processor, the Identity details of an Individual are added/updated in ID Repository. The Identity information available in ID Repository is then used by ID Authentication to authenticate an Individual.
+
+This module exposes few REST APIs which can be used to create/update/retrieve Identity of an Individual. Please refer [**wiki**](ID-Repository-API) for more details.
+
+
 ### 8.9 Test Rig Design [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
@@ -287,10 +292,10 @@ This section details the REST services exposed by ID Authentication.
 Please refer [**wiki**](ID-Authentication). 
 
 This service details Auth Request to be used by TSPs to authenticate an Individual. Below are various authentication types supported by this service:
-1. OTP based - TOTP
-1. Pin based - Static Pin
-1. Demo based - PersonalIdentity, Address, FullAddress
-1. Bio based - Fingerprint, IRIS and Face
+1. OTP based - Time-based OTP
+2. Demo based - Personal Identity, Address
+3. Bio based - Fingerprint, IRIS and Face
+
 #### 9.1.2	ABIS APIs [**[↑]**](#table-of-content)
 Format: JSON
 
