@@ -38,6 +38,10 @@
   * [8.5 MOSIP Biometric Data Standards](#85-mosip-biometric-data-standards-)
   * [8.6 Vendor Device Specifications](#86-vendor-device-specifications-)
   * [8.7 Security](#87-security-)
+
+
+
+
   * [8.8 Core Data Management](#88-core-data-management-)
   * [8.9 Test Rig Design](#89-test-rig-design-)
   * [8.10 Integration with External System](#810-integration-with-external-systems-)
@@ -279,7 +283,7 @@ Test Rig represents a one click automation to build, deploy and test a software 
 Please refer to [**wiki**](Tester-Documentation) for more details.
 ### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system – WIP.
-Please refer to [**wiki**](External System Integration Stage) for more details.
+Please refer to [**wiki**](https://github.com/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md) for more details.
 ## 9. MOSIP APIs
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 9.1	External APIs [**[↑]**](#table-of-content)
