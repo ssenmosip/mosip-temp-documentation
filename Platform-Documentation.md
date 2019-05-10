@@ -280,7 +280,7 @@ This module exposes few REST APIs which can be used to create/update/retrieve Id
 ### 8.9 Test Rig Design [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
-Please refer to [**wiki**](Test Rig Design) for more details.
+Please refer to [**wiki**](https://github.com/mosip/mosip/wiki/Test-Rig-Design) for more details.
 ### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system – WIP.
 Please refer to [**wiki**](https://github.com/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md) for more details.
