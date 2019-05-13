@@ -15,7 +15,7 @@
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
-In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an Registration ID.
+In MOSIP, an individual will initiate a request to track the status of UIN Generation based on a Registration ID.
 
 An individual will execute the following procedure to initiate the track status request related to UIN generation:
 
