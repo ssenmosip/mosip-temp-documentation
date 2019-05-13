@@ -13,19 +13,19 @@
 - [3. Security Policy Configuration](#3-security-policy-configuration) _(ASR_FR_3)_
 - [4. Notification (v1.5) (WIP)](#4-notification--v15---wip-) _(ASR_FR_4)_
   * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
-  * [4.2 Country Specific News/Notifications](#42-country-specific-news-notifications) _(ASR_FR_4.2)_
+  * [4.2 Country Specific News/Notifications](#42-country-specific-newsnotifications) _(ASR_FR_4.2)_
 - [5. Resource Management](#5-resource-management) _(ASR_FR_5)_
   * [5.1 Center Management](#51-center-management)
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivate-decommission-center) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
     * [5.2.3 Update Machine](#523-update-machine) _(ASR_FR_5.7)_
-    * [5.2.4 Activate/Deactivate/Decommission Machine](#524-activatedeactivate-decommission-machine) _(ASR_FR_5.8)_
-    * [5.2.5 Map/Un-map/Re-map Machine to a Center](#525-map-un-map-re-map-machine-to-a-center) _(ASR_FR_5.9)_
+    * [5.2.4 Activate/Deactivate/Decommission Machine](#524-activatedeactivatedecommission-machine) _(ASR_FR_5.8)_
+    * [5.2.5 Map/Un-map/Re-map Machine to a Center](#525-mapun-mapre-map-machine-to-a-center) _(ASR_FR_5.9)_
   * [5.3 Device Management](#53-device-management)
     * [5.3.1 View Device](#531-view-device) _(ASR_FR_5.10)_
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
