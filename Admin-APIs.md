@@ -431,7 +431,20 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 	"responsetime": "2007-12-03T10:15:30Z",
 	"errors": [],
 	"response": {
-		"masterdata": ["Machines", "Devices", "Registration Centers"]
+		"masterdata": [
+                               {
+                                 "dataCode": "machines",
+                                 "displayName": "Machines"
+                               },
+                               {
+                                 "dataCode": "devices",
+                                 "displayName": "Devices"
+                               },
+                               {
+                                 "dataCode": "centers",
+                                 "displayName": "Registration Centers"
+                               }
+                              ]
 	}
 }
 ```
