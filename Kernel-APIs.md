@@ -880,7 +880,7 @@ regcenterId|Yes|Registration center id| |
 macaddress|No|MAC address of the machine| | 
 serialnumber|No|serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
-keyindex|No|Thumbprint of the public key corresponding to this machine| | 
+keyindex|Yes|Thumbprint of the public key corresponding to this machine| | 
 
 
 #### Request
