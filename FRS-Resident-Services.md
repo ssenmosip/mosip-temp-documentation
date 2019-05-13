@@ -15,15 +15,15 @@
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
-In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an RID.
+In MOSIP, an individual will initiate a request to track the status of UIN Generation based on an Registration ID.
 
 An individual will execute the following procedure to initiate the track status request related to UIN generation:
 
-1. An individual provides the RID for which he/she wants to track the status of UIN generation.
-1. The system validates the provided RID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
+1. An individual provides the Registration ID for which he/she wants to track the status of UIN generation.
+1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN generation status (Statuses are configurable).
-1. During the validation of RID and the mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error notification.
+1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers a respective error notification.
 ## 2. Download UIN [**[↑]**](#table-of-content)
 The system allows an individual to raise a request to download their e-UIN.
 
@@ -38,16 +38,16 @@ The following procedures to be followed by an individual to raise an e-UIN downl
 
 ## 3. Retrieve Lost UIN - TBD [**[↑]**](#table-of-content)
 
-MOSIP allows an individual to initiate a request to retrieve the RID.
+MOSIP allows an individual to initiate a request to retrieve the Registration ID.
 
-An individual will follow the following procedure to raise a requested related to retrieve the RID: 
+An individual will follow the following procedure to raise a requested related to retrieve the Registration ID: 
 
 1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
 1. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP and successfully authenticates the individual.
-1. The system generates the password protected (Password is configurable) RID and provides the RID to the individual along with notification.
-1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the RID or the provided OTP is not correct, then the system triggers a respective error notification.
+1. The system generates the password protected (Password is configurable) Registration ID and provides the Registration ID to the individual along with notification.
+1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the Registration ID or the provided OTP is not correct, then the system triggers a respective error notification.
 ## 4. Re-print Request of UIN [**[↑]**](#table-of-content)
 MOSIP allows an individual to raise a reprint request for their UIN.
 An individual will follow the following procedure to raise a reprint request: 
@@ -77,11 +77,11 @@ triggers an OTP notification.
 In MOSIP, an individual will raise a request to track the status related to UIN updates based on a registration ID.
 
 Following procedure to be followed by the individual to track the status of UIN updates:
-1. An individual provides the RID for which he/she wants to track the status of UIN updates.
-1. The system validates the provided RID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
+1. An individual provides the Registration ID for which he/she wants to track the status of UIN updates.
+1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status (Update statuses are configurable).
-1. During the validation of RID and the mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error notification.
+1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ## 7. Generate Static PIN (WIP) [**[↑]**](#table-of-content)
 ## 8. Update Static PIN (WIP) [**[↑]**](#table-of-content)
@@ -109,7 +109,7 @@ The following procedure to be followed by an individual to lock the authenticati
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP and successfully authenticates the individual.
 1. The system provides the individual with lock information related to authentication type(s).
-1. The individual will lock the authentication type(s), which he wishes.
+1. The individual will lock the authentication type(s), which he/she wishes.
 1. The system will disable the authentication type(s) as provided by the individual.
 1. The system will also trigger a confirmation notification on successful locking.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
