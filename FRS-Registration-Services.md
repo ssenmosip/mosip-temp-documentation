@@ -204,7 +204,7 @@ The system then confirms on successful approval.
 1. Supervisor also records it in the system that he has ‘Informed’ the individual
    * If unable to contact the individual, Supervisor records it as ‘Can’t inform'.
 6. The supervisor then ‘Authenticates by providing biometric data -fingerprint, Iris, or face. Further, select the specific finger or iris being provided.
-1. Authenticate with locally stored biometric and display the result.
+1. The supervisor authenticates with locally stored biometric and with the results.
    * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
    * On unsuccessful authentication, the user can retry his authentication with the same or a different biometric
 
