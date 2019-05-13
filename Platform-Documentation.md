@@ -38,10 +38,6 @@
   * [8.5 MOSIP Biometric Data Standards](#85-mosip-biometric-data-standards-)
   * [8.6 Vendor Device Specifications](#86-vendor-device-specifications-)
   * [8.7 Security](#87-security-)
-
-
-
-
   * [8.8 Core Data Management](#88-core-data-management-)
   * [8.9 Test Rig Design](#89-test-rig-design-)
   * [8.10 Integration with External System](#810-integration-with-external-systems-)
