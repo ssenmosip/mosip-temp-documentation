@@ -5,7 +5,7 @@
 This service sends an OTP to the user. The caller of this service have to send the channel in which the OTP will be sent. Based on the application ID, the corresponding channel's recepient address will be found out and the OTP is send accordingly. Note: At this point of time, no Auth Token will be generated. 
 
 ### Resource URL
-### `POST /v1.0/authenticate/sendotp`
+### `POST /v1/authenticate/sendotp`
 
 ### Resource details
 
@@ -18,26 +18,29 @@ Requires Authentication | no
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 userid|Yes|This is the userid of the user. Based on the useridtype, this will vary.| -NA- | M392380
-otpchannel|Yes|This is the channel in which the OTP will be sent. It is an array of the enumeration {"EMAIL", "MOBILENUMBER"}. If the channel is not found, ChannelNotSupported error will be sent back| -NA- | MOBILENUMBER
+otpchannel|Yes|This is the channel in which the OTP will be sent. It is an array of the enumeration {"EMAIL", "MOBILE"}. If the channel is not found, ChannelNotSupported error will be sent back| -NA- | MOBILENUMBER
 useridtype|Yes|This field is the user id type. It should be one the {"UIN", "USERID"}. Based on the combination of "appid" and "useridtype" the system identifies from which system to pickup the channel's recepient address| -NA- | USERID
 appid|Yes|This is the application ID of the caller of this service. It should be on of the {"PREREGISTRATION", "REGISTRATIONCLIENT", "REGISTRATIONPROCESSOR", "IDA"}| -NA- | PREREGISTRATION
+templateVariables|No|This is the map of custom template variables|-NA-|{"UIN":"2530192395"}
+context|Yes|This shows the purpose of the sending otp like Login,notification etc|"auth-otp" for default OTP|auth-otp,auth-login-otp
 
 ### Example Request
 ```JSON
 {
-	"id": "mosip.authentication.sendotp",
-	"version":"1.0",	
-	"requesttime":"2007-12-03T10:15:30Z",
-	"request": {
-		"userid": "M392380",
-		"otpchannel": ["MOBILE", "EMAIL"],
-		"templateParams": {
-			"expiryTime":"20 minutes",
-			"purpose":"Changing password",
-		}
-		"useridtype": "USERID",
-		"appid": "REGISTRATIONCLIENT"
-	}
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "appId": "ida",
+    "otpChannel": [
+      "email"
+    ],
+    "context":"auth-otp",
+    "templateVariables":{"UIN":"2530192395"},
+    "userId": "2530192395",
+    "useridtype": "UIN"
+  },
+  "requesttime": "2019-04-29T07:01:24.692Z",
+  "version": "string"
 }
 ```
 ### Example Response
@@ -129,12 +132,13 @@ Error Response
 }
 
 ```
+```
 ## 1.2 Authenticate UserId and OTP
 
 This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header. 
 
 ### Resource URL
-### `POST /v1.0/authenticate/useridOTP`
+### `POST /v1/authenticate/useridOTP`
 
 ### Resource details
 
@@ -230,7 +234,7 @@ Error Responses
 This service will authenticate the username and password. 
 
 ### Resource URL
-### `POST /v1.0/authenticate/useridPwd`
+### `POST /v/1authenticate/useridPwd`
 
 ### Resource details
 
@@ -326,7 +330,7 @@ This service will authenticate the clientid and secret key. When an application 
 The clientid would have provided to the caller application before hand using another procedure. So, before making this call, the caller application have to have the clientid and the secret key.  
 
 ### Resource URL
-### `POST /v1.0/authenticate/clientidsecretkey`
+### `POST /v1/authenticate/clientidsecretkey`
 
 ### Resource details
 
@@ -404,9 +408,9 @@ Error Responses
 This service checks the validity of the Auth token.
 
 ### Resource URL
-### `POST /v1.0/authorize/validateToken`
+### `POST /v1/authorize/validateToken`
 
-### Resource details
+### Resource detail
 
 Resource Details | Description
 ------------ | -------------
@@ -416,12 +420,12 @@ Requires Authentication | no
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-Authorization|Yes|AuthToken passed in the request cookie| | eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Authorization|Yes|AuthToken passed in the request cookie| | Mosip-TokeneyeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
 
 ### Example Request
 ```
 Request Cookie:
-Authorization eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Authorization=Mosip-TokeneyeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
 ```
 ### Example Response
 
@@ -465,7 +469,7 @@ Error Responses
 This service invalidates the token
 
 ### Resource URL
-### `POST /v1.0/authorize/invalidateToken`
+### `POST /v1/authorize/invalidateToken`
 
 ### Resource details
 
@@ -482,7 +486,7 @@ Authorization|Yes|AuthToken passed in the request cookie| | eyJ0eXAiOiJKV1QiLCJh
 ### Example Request
 ```
 Request Cookie:
-Authorization eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM
+Authorization=Mosip-TokeneyeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM 
 ```
 ### Example Response
 
@@ -513,7 +517,7 @@ The OTP Generator component will receive a request to generate OTP, validate if 
 The OTP Generator can also reject a request from a blocked/frozen account and assign a validity to each OTP that is generated, based on the defined policy
 
 ### Resource URL
-### `POST /v1.0/otp/generateOTP`
+### `POST /v1/otp/generate`
 
 ### Resource details
 
@@ -567,7 +571,7 @@ This includes: Receiving a request for OTP validation with required input parame
 This component also facilitates deletion of every successfully validated OTP when consumed and freezing an account for exceeding the number of retries/wrong input of OTP.
 
 ### Resource URL
-### `POST /v1.0/otp/validateOTP`
+### `POST /v1/otp/validate`
 
 ### Resource details
 
@@ -647,4 +651,3 @@ Error Responses
 }
 
 ```
-
