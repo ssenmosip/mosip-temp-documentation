@@ -1,15 +1,15 @@
 ## Table Of Content
-- [1. Login](#1-login)
-  * [1.1 Login](#11-login)
+- [1. Login](#1-login) _(ASR_FR_1)_
+  * [1.1 Login](#11-login) _(ASR_FR_1.1)_
   * [1.2 Logout](#12-logout)
-    * [1.2.1 Manual](#121-manual)
-    * [1.2.2 Auto](#122-auto)
-- [2. Account Management](#2-account-management)
-  * [2.1 Edit Personal Details](#21-edit-personal-details)
-  * [2.2 Change Password](#22-change-password)
-  * [2.3 Reset Password](#23-reset-password)
-  * [2.4 Forgot Username](#24-forgot-username)
-  * [2.5 Account Unlock](#25-account-unlock)
+    * [1.2.1 Manual](#121-manual) _(ASR_FR_1.2)_
+    * [1.2.2 Auto](#122-auto) _(ASR_FR_1.3)_
+- [2. Account Management](#2-account-management) _(ASR_FR_2)_
+  * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
+  * [2.2 Change Password](#22-change-password) _(ASR_FR_2.2)_
+  * [2.3 Reset Password](#23-reset-password) _(ASR_FR_2.3)_
+  * [2.4 Forgot Username](#24-forgot-username) _(ASR_FR_2.4)_
+  * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration](#3-security-policy-configuration)
 - [4. Notification (v1.5) (WIP)](#4-notification--v15---wip-)
   * [4.1 Approval Notifications](#41-approval-notifications)
