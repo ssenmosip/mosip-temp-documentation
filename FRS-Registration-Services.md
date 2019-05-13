@@ -626,7 +626,7 @@ MOSIP supports single factor and multi factor login including iris and face capt
 
 #### D. Enforce multi factor login for Admin users. [**[↑]**](#table-of-content)
 
-When an Admin user opens the registration client by entering his/her username the system recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order
+When an Admin user opens the registration client by entering their username the system recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order
 
 The System enforces multi-factor authentication for Admin users as configured, regardless of the mode of authentication for Registration Officers and Supervisors.
 
