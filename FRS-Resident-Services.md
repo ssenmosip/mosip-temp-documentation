@@ -6,12 +6,12 @@
   * [4. Re-print Request of UIN](#4-re-print-request-of-uin-) _(RES_FR_4)_
   * [5. Initiate UIN Update](#5-initiate-uin-update-) _(RES_FR_5)_
   * [6. Track Status of UIN Update](#6-track-status-of-uin-update-) _(RES_FR_6)_
-  * [7. Generate Static PIN](#7-generate-static-pin-) _(RES_FR_7)_
-  * [8. Update Static PIN](#8-update-static-pin-) _(RES_FR_8)_
+  * [7. Generate Static PIN (WIP)](#7-generate-static-pin-wip-) _(RES_FR_7)_
+  * [8. Update Static PIN (WIP)](#8-update-static-pin-wip-) _(RES_FR_8)_
   * [9. View History of Authentication Requests (for Prescribed Days/number of requests)](#9-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_9)_
   * [10. Lock/Unlock UIN](#10-lockunlock-uin-) _(RES_FR_10)_
-  * [11. Lock/Unlock KYC Docs/Data Sharing (WIP)](#11-lockunlock-kyc-docsdata-sharing-) _(RES_FR_11)_
-  * [12. Lock/Unlock Biometric Auth/Other Auth (WIP)](#12-lockunlock-biometric-authother-auth-) _(RES_FR_12)_
+  * [11. Lock/Unlock KYC Docs/Data Sharing (WIP)](#11-lockunlock-kyc-docsdata-sharing-wip-) _(RES_FR_11)_
+  * [12. Lock/Unlock Biometric Auth/Other Auth (WIP)](#12-lockunlock-biometric-authother-auth-wip-) _(RES_FR_12)_
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
@@ -83,8 +83,8 @@ Following procedure to be followed by the individual to track the status of UIN 
 1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status (Update statuses are configurable).
 1. During the validation of RID and the mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 7. Generate Static PIN [**[↑]**](#table-of-content)
-## 8. Update Static PIN [**[↑]**](#table-of-content)
+## 7. Generate Static PIN (WIP) [**[↑]**](#table-of-content)
+## 8. Update Static PIN (WIP) [**[↑]**](#table-of-content)
 ## 9. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
 
