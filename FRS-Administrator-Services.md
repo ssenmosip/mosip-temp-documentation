@@ -68,15 +68,85 @@
 
 ## 1. Login
 ### 1.1 Login
+MOSIP Admin portal will support single factor and multi factor login including biometrics. Admin will configure the login setting related to single factor or multi-factor based on the country.
+MOSIP Admin Application allows the user to login to the portal to perform the following:
+1. MOSIP Admin will login the portal with valid credentials (User Name and Password). Specific to country, the password is 
+   configurable to single factor or multi factor.
+2. MOSIP validates the credentials and allows admin to land in main page on successful validation.
+3. Credentials are blocked after unsuccessful attempt of X times (number of attempt is configurable) login.
+4. Once the credentials are blocked, only the relevant user or super admin can unblock the user. Refer to section 9 Forgot 
+   Password.
+
 ### 1.2 Logout
 #### 1.2.1 Manual
+MOSIP allows the user to log out from the active session.
+User will perform the following to log out from MOSIP:
+1. User will be in active session and on the main page.
+2. Logout attributes should be always in active mood for the active session.
+3. User performs logout actions from the main page.
+4. The system verifies the active session and provides the logout related message within 350 milliseconds.
+
 #### 1.2.2 Auto
+MOSIP Admin Application provides the capability to auto-logout the user as configured. For example, if system becomes idle for sometimes (idle time is configurable), then user will be auto-logout. 
 ## 2. Account Management
 ### 2.1 Edit Personal Details
+Using MOSIP, user will  manage his/her profile.
+
+Procedure to manage the profile follows:
+1. User will provide the valid credential in the relevant portal to login.
+2. The system validates the credentials and allows user to login after successful validation.
+3. The system allows user to land on Home page.
+4. The Home Page contains the permitted functionalities to the user and those functionalities are available in the main 
+   page in active mode.
+5. The system allows users to perform the profile management activities (updating user’s personal details and Account 
+   Management). 
+
 ### 2.2 Change Password
+Using MOSIP, users will change the password. Based on the country, single factor or multi-factor authentication will be configured. 
+Procedure to follow to change the password:
+1. User visits the Reg. Client Login Page or Admin Portal Login Page and raises a request for Change Password.
+2. The system provides a facility to the user to change the password.
+3. User provides the information related to Old Password, New Password and, Confirm New Password as the system required. 
+   During the password creation, user should follow a password creation rule (combination of characters, special 
+   character, and min and max length etc.) which is configurable.
+4. On successful validation, the system provides a notification to the user as “You have changed the password 
+   successfully.”
+
 ### 2.3 Reset Password
+MOSIP allows users to reset the password. Based on the country, single factor or multi-factor authentication will be configured. If requested through Zonal Admin, then system performs only OTP authentication.
+To reset the password, the user performs the following:
+
+1. User visits to the Reg. Client Login page or Admin Portal Login Page and requests for Forgot Password.
+2. The system allows user to provide the User Name.
+3. The system checks the User Name and sends an OTP notification to the registered mobile number of this User Name.
+4. User provides the OTP as received.
+5. The system validates the provided OTP and successfully authenticates the user.
+6. The system allows user to provide the Old Password, New Password, and Confirm New Password (Password policy is 
+   configurable).
+7. The system sends a notification to the user related to the password update status.
+
 ### 2.4 Forgot Username
+Using MOSIP, user can retrieve the username. Based on the country, multi-factor authentication will be configured. 
+To retrieve the user name, the user performs the following:
+
+1. User visits the Reg. Client Login page or Admin Portal Login Page and requests for Forgot Password.
+2. User provides the registered mobile number as require by the system.
+3. The system validates the registered mobile number associated with the user and sends the User Name through an OTP 
+   notification.
+4. The system prompts to enter the registered mobile number.
+5. Admin will enter the OTP as received.
+6. System sends the user name through SMS notification to the concerned user.
+
 ### 2.5 Account Unlock
+MOSIP allows Admin to unlock the account of other MOSIP users (Registration Officer/supervisor). Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
+
+Procedure to unblock the account:
+
+1. MOSIP user navigates to the login page of the portal and clicks “Unblock Account Page”.
+2. User provides the registered mobile when the system requires.
+3. User will enter the OTP as received
+4. On successful validation, system sends SMS notification related to the unblocking of account.
+
 ## 3. Security Policy Configuration
 ## 4. Notification (v1.5) (WIP)
 ### 4.1 Approval Notifications
