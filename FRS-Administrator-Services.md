@@ -30,13 +30,13 @@
     * [5.3.1 View Device](#531-view-device) _(ASR_FR_5.10)_
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
     * [5.3.3 Update Device](#533-update-device) _(ASR_FR_5.12)_
-    * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivate-decommission-device) _(ASR_FR_5.13)_
-    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-map-un-map-re-map-device-to-a-center) _(ASR_FR_5.14)_
+    * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device) _(ASR_FR_5.13)_
+    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center) _(ASR_FR_5.14)_
   * [5.4 User Management](#54-user-management)
     * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
     * [5.4.2 Create User](#542-create-user) _(ASR_FR_5.16)_
-    * [5.4.3 Activate/Deactivate/Blacklist/Whitelist User](#543-activatedeactivate-blacklist-whitelist-user) _(ASR_FR_5.17)_
-    * [5.4.4 Map/Un-map/Re-map User to a Center](#544-map-un-map-re-map-user-to-a-center) _(ASR_FR_5.18)_
+    * [5.4.3 Activate/Deactivate/Blacklist/Whitelist User](#543-activatedeactivateblacklistwhitelist-user) _(ASR_FR_5.17)_
+    * [5.4.4 Map/Un-map/Re-map User to a Center](#544-mapun-mapre-map-user-to-a-center) _(ASR_FR_5.18)_
 - [6. Masterdata Management](#6-masterdata-management) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
@@ -63,7 +63,7 @@
     * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
     * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
   * [7.2 Approval for Masterdata Creation (WIP)](#72-approval-for-masterdata-creation--wip-) _(ASR_FR_7.5)_
-- [8. UIN Activation/Deactivation](#8-uin-activation-deactivation) _(ASR_FR_8)_
+- [8. UIN Activation/Deactivation](#8-uin-activationdeactivation) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)](#9-packet-status-check--based-on-rid-) _(ASR_FR_9)_
 
 ## 1. Login
