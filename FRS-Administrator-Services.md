@@ -11,7 +11,7 @@
   * [2.4 Forgot Username](#24-forgot-username) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration](#3-security-policy-configuration) _(ASR_FR_3)_
-- [4. Notification (v1.5) (WIP)](#4-notification--v15---wip-) _(ASR_FR_4)_
+- [4. Notification (WIP)](#4-notification-wip-) _(ASR_FR_4)_
   * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
   * [4.2 Country Specific News/Notifications](#42-country-specific-newsnotifications) _(ASR_FR_4.2)_
 - [5. Resource Management](#5-resource-management) _(ASR_FR_5)_
