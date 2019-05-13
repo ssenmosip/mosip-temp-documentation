@@ -43,7 +43,7 @@
   * [6.3 Manage Document Type](#63-manage-document-type)
     * [6.3.1 Create Document Type](#631-create-document-type) _(ASR_FR_6.3)_
     * [6.3.2 Update Document Type](#632-update-document-type) _(ASR_FR_6.4)_
-    * [6.3.3 Activate/Deactivate Document Type](#633-activate-deactivate-document-type) _(ASR_FR_6.5)_
+    * [6.3.3 Activate/Deactivate Document Type](#633-activatedeactivate-document-type) _(ASR_FR_6.5)_
   * [6.4 Manage Document Category to Document Types Mapping](#64-manage-document-category-to-document-types-mapping)
     * [6.4.1 Create Document Category to Document Types Mapping](#641-create-document-category-to-document-types-mapping) _(ASR_FR_6.6)_
     * [6.4.2 Update Document Category to Document Types Mapping](#642-update-document-category-to-document-types-mapping) _(ASR_FR_6.7)_
