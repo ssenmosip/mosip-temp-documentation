@@ -1,42 +1,66 @@
 ## Table of Contents
 [Admin Services](#admin-services) 
--  [1. MOSIP Platform Setup](#1-mosip-platform-setup)
--  [2. ID Definition Setup](#2-id-definition-setup)
--  [3. ID Definition Validator](#3-id-definition-validator)
--  [4. Configuration Setup](#4-configuration-setup) 
+-  [1. MOSIP Platform Setup](#1-mosip-platform-setup-)
+-  [2. ID Definition Setup](#2-id-definition-setup-)
+-  [3. ID Definition Validator](#3-id-definition-validator-)
+-  [4. Configuration Setup](#4-configuration-setup-) 
       * [4.1 Initial Setup](#41-initial-setup) _(ASR_FR_4.1)_
       * [4.2 Configuration Validator](#42-configuration-validator) _(ASR_FR_4.2)_ 
       * [4.3 Update](#43-Update) _(ASR_FR_4.3)
       * [4.4 View Configurations](#44-view-configurations) _(ASR_FR_4.4)
--  [5. Process Flow Setup](#5-process-flow-setup)
+-  [5. Process Flow Setup](#5-process-flow-setup-)
       * [5.1 Initial Setup-Backend](#51-initial-setup-backend) _(ASR_FR_5.1)
       * [5.2 Initial Setup-UI](#52-initial-setup-ui) _(ASR_FR_5.2)
       * [5.3 Process Flow Configuration Validator](#53-process-flow-configuration-validator) _(ASR_FR_5.3)
-      * [5.4 Update-Backend](#54-update-backend) _(ASR_FR_5.4)
-      * [5.5 View-UI](#54-view-ui) _(ASR_FR_5.5)
--  [6. Master Data Setu](#6-master-data-setup)
+      * [5.4 Update-Backend](#54-update-backend) _(ASR_FR_5.5)
+      * [5.5 View-UI](#55-view-ui) _(ASR_FR_5.5)
+-  [6. Master Data Setu](#6-master-data-setup-)
       * [6.1 Creation-Initial Setup-Backend](#61-creation-initial-setup-backend) _(ASR_FR_6.1)
 
           [6.1.1 Creation-Subsequent additions-UI](#611-creation-subsequent-additions-ui) _(ASR_FR_6.1.1)
       * [6.2 View-UI](#62-view-ui) _(ASR_FR_6.2)
       * [6.3 List to make Updates-Activate/Deactivate-UI](#63-list-to-make-updates-activate-deactivate-ui) _(ASR_FR_6.3)
-      * [6.4 Updates-Incremental Data Updates-UI](#64-updates-incremental-data-updates-ui) _(ASR_FR_6.5)
-      * [6.5 View-UI](#66-view-ui) _(ASR_FR_6.5)
--  [7. Navigation](#7-Navigation) 
+      * [6.4 Updates-Incremental Data Updates-UI](#64-updates-incremental-data-updates-ui) _(ASR_FR_6.4)
+   
+-  [7. Navigation](#7-Navigation-) 
      * [7.1 Login-API-UI](#71-login-api-ui) _(ASR_FR_7.1)
      * [7.2 Logout-UI](#72-logout-ui) _(ASR_FR_7.2)
      * [7.3 Auto-Logout-UI](#73-Auto-logout-ui) _(ASR_FR_7.3)
      * [7.4 Home Page Dashboard UI](#74-home-page-dashboard-ui) _(ASR_FR_7.4)
      * [7.5 Profile Management-UI](#75-profile-management-ui) _(ASR_FR_7.5)
 
--  [8. User Management](#8-user-management)
-      * [8.1 User Registration](#81-uswer-registration) _(ASR_FR_8.1)
--  [9. Account Management](#9-account-management)
--  [10. Asset Management](#10-asset-management)
--  [11. Security Policy Configuration-Backend](#11-security-policy-configuration-backend)
--  [12. UIN Activation-UI](#12-uin-activation-ui)
+-  [8. User Management](#8-user-management-)
+      * [8.1 User Registration](#81-user-registration) _(ASR_FR_8.1)
+      * [8.2 User Registration Approval](#82-user-registration-approval) _(ASR_FR_8.2)
+      * [8.3 View](#83-View) _(ASR_FR_8.3)
+      * [8.4 Update-User Blocking/Blacklisting](#84-update-user-blocking-blacklisting) _(ASR_FR_8.4)
+      * [8.5 Whitelisting/Activating Password](#85-whitelisting-activating-password) _(ASR_FR_8.5)
+-  [9. Account Management](#9-account-management-)
+      * [9.1 Change Password-UI](#91-change-password-ui) _(ASR_FR_9.1)
+      * [9.2 Reset Password-UI](#92-change-password-ui) _(ASR_FR_9.2)
+      * [9.3 Forgot User Name](#93-forgot-user-name) _(ASR_FR_9.3)
+      * [9.4 Account Unblocking-UI](#94-account-unblocking-ui) _(ASR_FR_9.4)
+-  [10. Asset Management](#10-asset-management-)
+      * [10.1 Registration Center Initial Creation-Setup-Backend](#101-registration-center-initial creation-setup-backend) _(ASR_FR_10.1)
+     * [10.2 Machines-Subsequent-Additions-UI](#102-machines-subsequent-additions-ui) _(ASR_FR_10.2)
+     * [10.3 View Registration Center-UI](#103-view-registration-center-ui) _(ASR_FR_10.3)
+     * [10.4 Machines-Initial/Creation Setup-Backend](#104-machines-initial-creation-setup-backend) _(ASR_FR_10.4)
+     * [10.5 Machines-Initial/Creation Setup-UI](#105-machines-initial-creation-setup-ui) _(ASR_FR_10.5)
+     * [10.6 Machines-View-UI](#106-machines-view-ui) _(ASR_FR_10.6)
+     * [10.7 Updating Machines Related Details](#107-updating-machine-related-details) _(ASR_FR_10.7)
+     * [10.8 Devices-Initial Creation Setup Backend](#108-devices-initial-creation-sethup-backend) _(ASR_FR_10.8)
+     * [10.9 Machines-Subsequent-Additions-UI](#109-machines-subsequent-additions-ui) _(ASR_FR_10.9)
+     * [10.10 Viewing Devices](#1010-viewing-devices) _(ASR_FR_10.10)
+     * [10.11 Updating Devices Related Details](#1011-updating-devices-related-details) _(ASR_FR_10.11)
+     * [10.12 View & Map Machines to Center-UI](#1012-view-&-map-machines-to-center-ui) _(ASR_FR_10.12)
+     * [10.13 View & Map Devices to Center-UI](#1013-view-&-map-devices-to-center-ui) _(ASR_FR_10.13)
+     * [10.14 Update Mapping Center to Machines UI](#1014-update-mapping-center-to-machines-ui) _(ASR_FR_10.14)
+     * [10.15 Update Mapping Center to User UI](#1015-update-mapping-center-to-user-ui) _(ASR_FR_10.15)
+     * [10.16 Asset Management Approval UI](#1016-uasset-management-approval-ui) _(ASR_FR_10.16)
+-  [11. Security Policy Configuration-Backend](#11-security-policy-configuration-backend-)
+-  [12. UIN Activation-UI](#12-uin-activation-ui-)
 # Admin Services
-# 1. MOSIP Platform Setup [**[↑]**](#table-of-content)
+# 1. MOSIP Platform Setup [**[↑]**](#table-of-contents)
 MOSIP Admin should be able to set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
 
  For more information about platform data setup, refer 
@@ -44,26 +68,26 @@ MOSIP Admin should be able to set up platform data such as list of template type
 
  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#19-list-of-rejection-reasons---createread-
 
-# 2. ID Definition Setup [**[↑]**](#table-of-content)
+# 2. ID Definition Setup [**[↑]**](#table-of-contents)
 MOSIP Admin should be able to set up ID Definition. Setup activity allows the country admin to mark attributes that formulate the id for a country. For example, demographic data fields and biometric data capture attributes.
 Configured through backend.
 
-# 3. ID Definition Validator [**[↑]**](#table-of-content)
+# 3. ID Definition Validator [**[↑]**](#table-of-contents)
 Configured through backend
-# 4. Configuration Setup [**[↑]**](#table-of-content)
+# 4. Configuration Setup [**[↑]**](#table-of-contents)
 Configured through backend
 ## 4.1 Initial Setup
 ## 4.2 Configuration Validator
 ## 4.3 Update
 ## 4.4 View Configurations
-# 5. Process Flow Setup [**[↑]**](#table-of-content)
+# 5. Process Flow Setup [**[↑]**](#table-of-contents)
 Configured through backend process.
 ## 5.1 Initial Setup-Backend
 ## 5.2 Initial Setup-UI
 ## 5.3 Process Flow Configuration Validator
 ## 5.4 Update-Backend
 ## 5.5 View-UI
-# 6. Master Data Setup [**[↑]**](#table-of-content)
+# 6. Master Data Setup [**[↑]**](#table-of-contents)
 ## 6.1 Creation-Initial Setup-Backend
 For more information about MDM creation, refer 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#1-master-data-management
@@ -73,7 +97,7 @@ https://github.com/mosip/mosip/wiki/FRS-Admin-Services#1-master-data-management
 ## 6.3 List to make Updates-Activate/Deactivate-UI
 ## 6.4 List to make Updates-Activate/Deactivate-UI-TBD
 ## 6.5 Updates - Incremental data updates-UI
-# 7. Navigation [**[↑]**](#table-of-content)
+# 7. Navigation [**[↑]**](#table-of-contents)
 ## 7.1 Login-API/UI
 
 MOSIP Admin portal will support single factor and multi factor login including biometrics. Admin will configure the login setting related to single factor or multi-factor based on the country.
@@ -117,7 +141,7 @@ Procedure to manage the profile follows:
 5. The system allows users to perform the profile management activities (updating user’s personal details and Account 
    Management).
 
-# 8. User Management [**[↑]**](#table-of-content)
+# 8. User Management [**[↑]**](#table-of-contents)
 ## 8.1 User Registration
 Using MOSIP, Zonal Admin will register the users (registration officer, supervisor) on portal by providing the following details of the user:
 1. Zonal Admin will provide the following personal details of user:
@@ -198,7 +222,7 @@ Procedure to whitelist/activate the password:
    password by accessing the link.
 
 
-# 9. Account Management [**[↑]**](#table-of-content)
+# 9. Account Management [**[↑]**](#table-of-contents)
 ## 9.1 Change Password-UI
 Using MOSIP, users will change the password. Based on the country, single factor or multi-factor authentication will be configured. 
 Procedure to follow to change the password:
@@ -323,10 +347,10 @@ MOSIP allows Zonal Admin to view the list of devices through UI.
 MOSIP provides the capabilities for Zonal Admin to update the device related details.
 Procedure to update the devices related details, the Zonal Admin will:
 1. Update the device details such as Serial Number and Mac-Address
-2. Update the zone of a device (If a device is being moved to a new zone or accidently assigned to a wrong zone).
+2. Update the zone of a device (If a device is being moved to a new zone or accidentally assigned to a wrong zone).
 3. The system does make the device visible to the Zonal Admin, if previously assigned to other zone.
 4. Remove the mapping of the Center and device  (if already mapped to a Center of another zone)
-5. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the 
+5. Assign a machine to the new zone (In case of accidentally assigning the wrong zone, Zonal Admin will contact with the 
    Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone)
    For more information about updating devices related details in admin zone through UI, refer to 
    https://github.com/mosip/mosip/wiki/FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-
@@ -387,7 +411,7 @@ The approver tasks include:
    Center-User (Actions carried out by Zonal Admins).
 4. Zonal Approver can only approve changes done in his/her zone.
 
-# 11. Security Policy Configuration-Backend [**[↑]**](#table-of-content)
+# 11. Security Policy Configuration-Backend [**[↑]**](#table-of-contents)
 Using MOSIP, Zonal Admin will be able to set up security policies for each applications, which includes the following:
 
   * Session Time out policies
@@ -403,7 +427,7 @@ Using MOSIP, Zonal Admin will be able to set up security policies for each appli
   * Minimum number of factors of Auth (Non-Bio/Bio)
   * Feature Specific authentication overrides Role Specific Behavior for Reset Password/Forgot Username)
 
-# 12. UIN Activation/De-activation-UI [**[↑]**](#table-of-content)
+# 12. UIN Activation/De-activation-UI [**[↑]**](#table-of-contents)
 Using MOSIP, Zonal Admin/users will activate/deactivate the UIN of user based on the request by the family member due to any reason. If a UIN is deactivated, the respective VID (If created) will also be deactivated.
 
 
