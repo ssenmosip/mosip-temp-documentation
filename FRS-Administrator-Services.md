@@ -49,13 +49,13 @@
     * [6.4.2 Update Document Category to Document Types Mapping](#642-update-document-category-to-document-types-mapping)
     * [6.4.3 Activate/Deactivate Document Category to Document Types Mapping](#643-activate-deactivate-document-category-to-document-types-mapping)
   * [6.5 Manage Location Data](#65-manage-location-data)
-    * [6.5.1 Create](#651-create)
-    * [6.5.2 Update](#652-update)
-    * [6.5.3 Activate/Deactivate](#653-activate-deactivate)
+    * [6.5.1 Create Location Data](#651-create-location-data)
+    * [6.5.2 Update Location Data](#652-update-location-data)
+    * [6.5.3 Activate/Deactivate Location Data](#653-activate-deactivate-location-data)
   * [6.6 Manage Blacklisted Words](#66-manage-blacklisted-words)
-    * [6.6.1 Create](#661-create)
-    * [6.6.2 Update](#662-update)
-    * [6.6.3 Activate/Deactivate](#663-activate-deactivate)
+    * [6.6.1 Create Blacklisted Words](#661-create-blacklisted-words)
+    * [6.6.2 Update Blacklisted Words](#662-update-blacklisted-words)
+    * [6.6.3 Activate/Deactivate Blacklisted Words](#663-activate-deactivate-blacklisted-words)
 - [7. Approval Process](#7-approval-process)
   * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation--wip-)
     * [7.1.1 Center](#711-center)
@@ -116,13 +116,13 @@
 #### 6.4.2 Update Document Category to Document Types Mapping
 #### 6.4.3 Activate/Deactivate Document Category to Document Types Mapping
 ### 6.5 Manage Location Data
-#### 6.5.1 Create 
-#### 6.5.2 Update 
-#### 6.5.3 Activate/Deactivate
+#### 6.5.1 Create Location Data
+#### 6.5.2 Update Location Data
+#### 6.5.3 Activate/Deactivate Location Data
 ### 6.6 Manage Blacklisted Words
-#### 6.6.1 Create 
-#### 6.6.2 Update
-#### 6.6.3 Activate/Deactivate 
+#### 6.6.1 Create Blacklisted Words
+#### 6.6.2 Update Blacklisted Words
+#### 6.6.3 Activate/Deactivate Blacklisted Words
 ## 7. Approval Process
 ### 7.1 Approval for Resource Creation (WIP)
 #### 7.1.1 Center 
