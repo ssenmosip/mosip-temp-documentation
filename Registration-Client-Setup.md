@@ -5,53 +5,32 @@ This document contains the 'Registration client' application initial setup and c
 
 ![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
-Registration client has certain prerequisite which is to be completed before installing the software:  
-- Creation of Windows User Accounts.  
+**System Prerequisites:**
+*** 
+   - CPU - Dual Core Processor - 2GHZ  
+   - Ram - 8 GB  
+   - Local Storage Disk Space - 500 GB 
+   - USB 2.0 ports or equivalent hub.  
+   - Physical machine with TPM 2.0 facility.   
+
+Registration client has certain **prerequisite** which is to be completed before installing the software:  
+- Creation of Windows User Accounts in local desktop machines.  
 - Addition of user profiles and credentials in the MOSIP Admin Portal.  
 - Setup the users in IAM.  
-- Map user to the particular center in Admin Portal.  
-- Configure the machine(s) where the Registration client application should be installed and executed.  
-- Download the machine + center specific data from MOSIP after installation completed.  
-- On-boarding of Operator(s) and Supervisor(s)  in order to perform enrollments.  
+- Machine with center mapping in Admin Portal.  
+
 
 The Registration client application is delivered into two parts:  
    1. Base Zip file 			- Contains Application Base folder structure with installed derby DB.      
-   2. Application Binaries.  - Contains the application run time jars.  
-       - Share libraries.
+   2. Application Binaries.  - Contains the application binary classes and the db scripts .  
+       - Shared libraries.
        - Encrypted client UI and Service jars.
+       - DB scripts.  
 
-**Installation at Desktop Machine:**   
-***  
-**Zip file:**  
-   1. User login to the Admin portal and download the client application ZIP file.  
-   2. Once downloaded then unzip the file into a particular location. It contains the following structure.  
-      - bin : It contains the client UI and service executable in encrypted format.
-      - lib : it contains the library required for the application to start.  
-      - prop : it contains the property file that will be used by application.    
-      - cer  : it contains the certificate used to communicate with the MOSIP server.
-      - log : the application log file would be written under this folder.    
-      - db : it contains the derby database, tables and few table with the data.  
-      - run.jar : Executable jar to download the s/w.
-      - MANIFEST.MF : Third Party libraries information.
-   3. Store the DB boot key into the TPM [Trusted Platform Module] **[TBD]**.  
-   
-**Application Binaries:**  
-When user clicks on the 'run.jar' it does the following :  
-   1. It loads the binary repository URL from property file.
-   2. Communicate with the  JFrog repository through secured connection.  **[TBD]**  
-   3. Download the latest build [TBD] Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
-   4. Compare the checksum of local version of jar files with the data present in latest downloaded Manifest.mf file.    
-   5. Identify the list of binary files and Download the required jars.
-   6. Once download completed then communicate with TPM to decrypt the key, which is used to decrypt the UI and service jars. 
-   7. Place the jar to the User temp directory and start the application.      
-   
-**Note:** This process is repeatable, for every time execution of the run.jar [Except for the Download; if no update]. After exist of the application we are deleting the decrypted jars from the User's Temp directory.
-
-**Anti Virus - ClamAV Setup and Configuration:**  
+**Anti Virus - ClamAV Setup and Configuration in local machine:**  
 ***  
    Installation of Open Source Anti Virus Software [ClamAV]:  
-   1.	Download the ClamAV [Version: 0.101.2] Anti Virus Software - [**link**](//www.clamav.net/downloads)  
-
+   1.	Download the ClamAV (Version: 0.101.2) Anti Virus Software - [link](http://www.clamav.net/downloads)  
    2.	Install the downloaded .exe file.  
    	
    **ClamAV Config Setup:**     
@@ -78,7 +57,38 @@ When user clicks on the 'run.jar' it does the following :
 
    **Once all the Configurations are done run the freshclam.exe and then run clamd.exe.**   
  
+
+**Installation at Desktop Machine:**   
 ***  
+**Zip file:**  
+   1. User login to the Admin portal and download the client application ZIP file.  
+   2. Once downloaded then unzip the file into a particular location. It contains the following structure.  
+      - bin : It contains the client UI and service executable in encrypted format.
+      - lib : it contains the library required for the application to start.  
+      - prop : it contains the property file that will be used by application.    
+      - cer  : it contains the certificate used to communicate with the MOSIP server.
+      - log : the application log file would be written under this folder.    
+      - db : it contains the derby database, tables and few table with the data.  
+      - run.jar : Executable jar to download the s/w.
+      - MANIFEST.MF : Third Party libraries information.
+   3. Click the 'run.jar' to initiate the process.  
+   
+   When user clicks on the 'run.jar' it does the following :  
+   1. It loads the binary repository URL from property file.  
+   2. Communicate with the  JFrog repository through secured connection and download the maven-metadata.xml file to identify the latest jar versions.    
+   3. Download the latest build Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
+   4. Compare the checksum of local version of jar files with the data present in latest downloaded Manifest.mf file.    
+   5. Identify the list of binary files and Download the required jars.  
+   6. Once download completed then communicate with TPM to decrypt the key, which is used to decrypt the UI and service jars.  
+   7. Place the jar to the User temp directory and start the application.  
+   
+**Application Startup:**  
+   - Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
+   - User should initially be online to validate their authentication against the MOSIP server. Post which, the sync process would be initiated.     
+   - Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
+   - During initial setup, the application should have online connectivity with the MOSIP server to synch the configuration detail from server to local machine.       
+   - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
+
    
 **External hardware Driver(s):**
    This section covers the list of drivers required to communicate with the devices.  
@@ -87,33 +97,25 @@ When user clicks on the 'run.jar' it does the following :
 
 **Database:**  
    - The Derby database will be used to store the local transaction information along with Master and configuration data.   
-   - The data stored into the database would be encrypted using a particular boot key password.   
-   - The key would be maintained in TPM and same will be used during communication with database from application.   
-   - Initial provided DB contains all the required tables with few are only having data.    
-   - During sync process the data will be updated into the local database.  
-
-**Application Startup:**     
-   - Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
-   - Admin user should login to the application, to initiate the initial sync with the MOSIP server.   
-   - Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
-   - During initial setup, the application should have online connectivity with the MOSIP server to synch the configuration detail from server to local machine.       
-   - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
-
+   - The data stored into the database would be encrypted using a particular boot key password, which is secured in TPM.     
+   - The initial DB contains all the required empty tables along with few tables are having data.    
+   - Through sync process the data would be updated into the local database from server.  
+   - The user mapped to the local machine would be pushed to the server through sync process.  
+   
 
 **Update Process:**
 ***
-   **Database update:**  
-   - If database to be updated with latest table or alter the table then the respective SQL file to be provided to the user through Admin portal.   
-   - User should login to the application to run the script files.    
-   
    **Application update:**
-   - The application update would be validated during startup using the Manifest.mf file. If any update then download the respective jar files through secured communication.   
+   - The application binary update is validated during startup of the application by downloading maven-metadata.xml file from JFROG repository. If any library version difference found with the version available at the local system then display the message to the user to initiate the update process. User can either choose the 'Update Now' or 'Update Later' option to initiate the update process or postponed to implement it later.    
    
+   **Database update:**  
+   - The database update would be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside registration-service/resource/sql this folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.   
 
-**User Mapping to the Local machine:** 
+**User Mapping to the Local machine:**  
 ***  
-   User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id. 
-   The existing user configured in Admin portal for a particular registration center can only be tagged to the local machine. 
+   - User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id.  
+   During initial setup, the application should be online and the user entered credential would be validated against the online system and post which user would be allowed to onboard into the system.   
+
     	
 **Security:** 
 ***
@@ -126,32 +128,16 @@ When user clicks on the 'run.jar' it does the following :
    **Key management:**  
    The key required for encryption / decryption at different process of an application would be maintained in database [encrypted format] and TPM.
    
-   TPM  - it will hold the DB encryption and decryption key.
-   DB 	- it will hold the pre-registration symmetric key, which is generated during runtime and it will not be downloaded from server.  
-       - it will also hold the center specific public key to encrypt the Registration packet, which is downloaded and refreshed from server at a regular interval.      
- 
    **REST Service integration Authentication:**  
    When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
 Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
 To generate the OAuth token the client secret key / login user id / password would be passed to the Login REST service. If success it will provide us the valid token in the http response. The same token would be passed during rest of REST service communication.   
 
-
    **Trusted Platform Module (TPM):**  
-   - Secure non-volatile storage  
-   - Secure logging 
-   - Windows 10 requires TPM 2.0 to be enabled in all its desktop editions (Home, Pro, Enterprise, and Education)  
-   - On Windows TPM 2.0 is avilable via TPM Base Services (TBS) API  
-   - on Linux - via /dev/tpm0 or /dev/tpmrm0 device file abstractions  
+   - TPM device would be used to secure the information stored into the local machine.  
+   - Windows 10 with TPM 2.0 to be enabled in all its desktop editions (Home, Pro, Enterprise, and Education).    
+   - Application integrate with the TPM using the respective API and secure the data.  
    
-   
-**System Prerequisites:**
-*** 
-   - CPU - Dual Core Processor - 2GHZ  
-   - Ram - 8 GB  
-   - Local Storage Disk Space - 500 GB 
-   - USB 2.0 ports or equivalent hub.  
-   - Physical machine with TPM 2.0 facility.   
-
 **Initial - Data Setup:**  
 ***
 In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be taken care at MOSIP Admin portal.
@@ -184,11 +170,3 @@ Through sync process the data would be sync between local machine and server bas
    4.	Generated Registration and Pre-Registration packet.
 
 
-**To Be Discussed:**   
-***  
-   1. Need to decide whether we need to follow the Auto update/ manual update approach?  	
-   2. How to load key into TPM? The respective rotation policy?  
-   3. How to update the DB password/ encryption key?  
-   4. If any db table structure got changed / new table added then how to syncup the same in client machines?  
-   
-   
