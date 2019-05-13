@@ -10,10 +10,10 @@
   * [2.3 Reset Password](#23-reset-password) _(ASR_FR_2.3)_
   * [2.4 Forgot Username](#24-forgot-username) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
-- [3. Security Policy Configuration](#3-security-policy-configuration)
-- [4. Notification (v1.5) (WIP)](#4-notification--v15---wip-)
-  * [4.1 Approval Notifications](#41-approval-notifications)
-  * [4.2 Country Specific News/Notifications](#42-country-specific-news-notifications)
+- [3. Security Policy Configuration](#3-security-policy-configuration) _(ASR_FR_3)_
+- [4. Notification (v1.5) (WIP)](#4-notification--v15---wip-) _(ASR_FR_4)_
+  * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
+  * [4.2 Country Specific News/Notifications](#42-country-specific-news-notifications) _(ASR_FR_4.2)_
 - [5. Resource Management](#5-resource-management) _(ASR_FR_5)_
   * [5.1 Center Management](#51-center-management)
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
@@ -56,15 +56,15 @@
     * [6.6.1 Create Blacklisted Words](#661-create-blacklisted-words) _(ASR_FR_6.12)_
     * [6.6.2 Update Blacklisted Words](#662-update-blacklisted-words) _(ASR_FR_6.13)_
     * [6.6.3 Activate/Deactivate Blacklisted Words](#663-activate-deactivate-blacklisted-words) _(ASR_FR_6.14)_
-- [7. Approval Process](#7-approval-process)
+- [7. Approval Process](#7-approval-process) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation--wip-)
-    * [7.1.1 Center](#711-center)
-    * [7.1.2 Machine](#712-machine)
-    * [7.1.3 Device](#713-device)
-    * [7.1.4 User](#714-user)
-  * [7.2 Approval for Masterdata Creation (WIP)](#72-approval-for-masterdata-creation--wip-)
-- [8. UIN Activation/Deactivation](#8-uin-activation-deactivation)
-- [9. Packet Status Check (based on RID)](#9-packet-status-check--based-on-rid-)
+    * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
+    * [7.1.2 Machine](#712-machine) _(ASR_FR_7.2)_
+    * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
+    * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
+  * [7.2 Approval for Masterdata Creation (WIP)](#72-approval-for-masterdata-creation--wip-) _(ASR_FR_7.5)_
+- [8. UIN Activation/Deactivation](#8-uin-activation-deactivation) _(ASR_FR_8)_
+- [9. Packet Status Check (based on RID)](#9-packet-status-check--based-on-rid-) _(ASR_FR_9)_
 
 ## 1. Login
 ### 1.1 Login
@@ -106,7 +106,7 @@
 #### 5.4.4 Map/Un-map/Re-map User to a Center
 ## 6. Masterdata Management
 ### 6.1 View Master Data Types
-### 6.2 View Master data for each table (15)
+### 6.2 View Master data for each table
 ### 6.3 Manage Document Type
 #### 6.3.1 Create Document Type
 #### 6.3.2 Update Document Type
