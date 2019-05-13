@@ -2,7 +2,7 @@
 * [Resident Services](#resident-services)
   * [1. Track status of UIN Generation by providing Registration ID](#1-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
   * [2. Download UIN](#2-download-uin-) _(RES_FR_2)_
-  * [3. Retrieve Lost UIN - TBD](#3-retrieve-lost-uin---tbd) _(RES_FR_3)_
+  * [3. Retrieve Lost UIN - TBD](#3-retrieve-lost-uin---tbd-) _(RES_FR_3)_
   * [4. Re-print Request of UIN](#4-re-print-request-of-uin-) _(RES_FR_4)_
   * [5. Initiate UIN Update](#5-initiate-uin-update-) _(RES_FR_5)_
   * [6. Track Status of UIN Update](#6-track-status-of-uin-update-) _(RES_FR_6)_
