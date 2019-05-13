@@ -1,5 +1,5 @@
 ## Table Of Content
-- [Resident Services](#resident-services)
+* [Resident Services](#resident-services)
   * [1. Track status of UIN Generation by providing Registration ID](#1track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)
   * [2. Download e-UIN](#2-download-uin-)_(RES_FR_2)_
   * [3. Retrieve Lost UIN - TBD](#3-retrieve-lost-uin---tbd) _(RES_FR_3)_
