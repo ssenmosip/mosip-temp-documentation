@@ -64,7 +64,7 @@
     * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
   * [7.2 Approval for Masterdata Creation (WIP)](#72-approval-for-masterdata-creation--wip-) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation) _(ASR_FR_8)_
-- [9. Packet Status Check (based on RID)](#9-packet-status-check--based-on-rid-) _(ASR_FR_9)_
+- [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid) _(ASR_FR_9)_
 
 ## 1. Login
 ### 1.1 Login
