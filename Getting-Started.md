@@ -258,10 +258,9 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; <br/>
                         proxy_set_header X-Forwarded-Proto $scheme; <br/>
                         proxy_pass `https://mosip-dev-k8.southindia.cloudapp.azure.com/`; //endpoint of kubernetes <br/>
-                        proxy_connect_timeout                   3600s;<br/>
-                        proxy_send_timeout                      3600s;<br/>
-                        proxy_read_timeout                      3600s;<br/>
-
+                        proxy_connect_timeout                   3600s; <br/>
+                        proxy_send_timeout                      3600s; <br/>
+                        proxy_read_timeout                      3600s; <br/>
            } <br/>
 
    
