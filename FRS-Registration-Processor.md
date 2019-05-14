@@ -77,6 +77,7 @@ Orchestration is the process of configuring various services which will be coord
 
 In Registration Processor, there are various independent components which are connected in a workflow to perform various Identity Lifecycle events. 
 
+For more details about Orchestration, refer to the below link.
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
@@ -189,7 +190,8 @@ Deduplication is the process to find a duplicate by comparing the individual’s
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
 
-The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receive some data. 
+The System Integrator can plug-in a stage in the workflow, where the stage can communicate with any other external system and receive some data. 
+
 Data verification is a process in which the system verifies the data captured during a registration with the data received from the external system to ensure accuracy and consistency. It helps to determine whether data was accurately translated, is complete and supports the interoperability standards.
 
 #### 3.2.3.2 Data Enrichment 
