@@ -32,28 +32,59 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|Data mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|[DAT_FR_1](FRS-Common-Services)|[MOS-957](//mosipid.atlassian.net/browse/MOS-957)|
-|2.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|[DAT_FR_2](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-31), [MOS-987](//mosipid.atlassian.net/browse/MOS-32), [MOS-14007](//mosipid.atlassian.net/browse/MOS-14007)|
-|3.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|[DAT_FR_3](FRS-Common-Services)|[MOS-994](//mosipid.atlassian.net/browse/MOS-994),[MOS-997](//mosipid.atlassian.net/browse/MOS-997),[MOS-996](//mosipid.atlassian.net/browse/MOS-996),[MOS-12079](//mosipid.atlassian.net/browse/MOS-12079),[MOS-12944](//mosipid.atlassian.net/browse/MOS-12944),[MOS-12945](//mosipid.atlassian.net/browse/MOS-12945),[MOS-12946](//mosipid.atlassian.net/browse/MOS-12946),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-12889](//mosipid.atlassian.net/browse/MOS-12889),[MOS-13945](//mosipid.atlassian.net/browse/MOS-13945),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-13976](//mosipid.atlassian.net/browse/MOS-987),[MOS-15408](//mosipid.atlassian.net/browse/MOS-987)|
-|4.|Machine ID Generator|Generates Machine ID|[DAT_FR_4.1](FRS-Common-Services)|[MOS-9711](//mosipid.atlassian.net/browse/MOS-9711)|
-|5.|Registration Center ID Generator|Generates Registration Center ID|[DAT_FR_4.2](FRS-Common-Services)|[MOS-1102](//mosipid.atlassian.net/browse/MOS-1102)|
-|6.|RID Generator|Generates Registration ID|[DAT_FR_4.3](FRS-Common-Services)|[MOS-431](//mosipid.atlassian.net/browse/MOS-431),[MOS-5191](//mosipid.atlassian.net/browse/MOS-5191),[MOS-13171](//mosipid.atlassian.net/browse/MOS-13171),[MOS-12082](//mosipid.atlassian.net/browse/MOS-12082)|
-|7.|MISP ID Generator|Generates MISP ID|[DAT_FR_4.4](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|8.|PRID Generator|Generates PRID|[DAT_FR_4.5](FRS-Common-Services)|[MOS-12095](//mosipid.atlassian.net/browse/MOS-12095), [MOS-735](//mosipid.atlassian.net/browse/MOS-735)|
-|9.|VID Generator|Generates VID |[DAT_FR_4.6](FRS-Common-Services)|[MOS-1070](//mosipid.atlassian.net/browse/MOS-1070)|
-|10.|Token ID Generator|Generates Token ID|[DAT_FR_4.7](FRS-Common-Services)|[MOS-21930](//mosipid.atlassian.net/browse/MOS-21930),[MOS-12898](//mosipid.atlassian.net/browse/MOS-12898),[MOS-8321](//mosipid.atlassian.net/browse/MOS-8321)|
-|11.|Partner ID Generator|Generates Partner ID|[DAT_FR_4.8](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|12.|MISP License Key Generator|Generates MISP License Key|[DAT_FR_4.9](FRS-Common-Services)|[MOS-16828](//mosipid.atlassian.net/browse/MOS-16828)|
-|13.|UIN Validator|Validates UIN|[DAT_FR_4.10](FRS-Common-Services)|[MOS-595](//mosipid.atlassian.net/browse/MOS-595),[MOS-9743](//mosipid.atlassian.net/browse/MOS-9743)|
-|14.|PRID Validator|Validates PRID|[DAT_FR_4.11](FRS-Common-Services)|[MOS-1007](//mosipid.atlassian.net/browse/MOS-1007)|
-|15.|VID Validator|Validates VID|[DAT_FR_4.12](FRS-Common-Services)|[MOS-714](//mosipid.atlassian.net/browse/MOS-714)|
-|16.|RID Validator|Validates RID|[DAT_FR_4.13](FRS-Common-Services)|[MOS-1591](//mosipid.atlassian.net/browse/MOS-1591),[MOS-10415](//mosipid.atlassian.net/browse/MOS-10415),[MOS-12093](//mosipid.atlassian.net/browse/MOS-12093),[MOS-13172](//mosipid.atlassian.net/browse/MOS-13172)|
+|1.|Data mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|[DAT_FR_1](FRS-Data-Services)|[MOS-957](//mosipid.atlassian.net/browse/MOS-957)|
+|2.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|[DAT_FR_2](FRS-Data-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-31), [MOS-987](//mosipid.atlassian.net/browse/MOS-32), [MOS-14007](//mosipid.atlassian.net/browse/MOS-14007)|
+|3.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|[DAT_FR_3](FRS-Data-Services)|[MOS-994](//mosipid.atlassian.net/browse/MOS-994),[MOS-997](//mosipid.atlassian.net/browse/MOS-997),[MOS-996](//mosipid.atlassian.net/browse/MOS-996),[MOS-12079](//mosipid.atlassian.net/browse/MOS-12079),[MOS-12944](//mosipid.atlassian.net/browse/MOS-12944),[MOS-12945](//mosipid.atlassian.net/browse/MOS-12945),[MOS-12946](//mosipid.atlassian.net/browse/MOS-12946),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-12889](//mosipid.atlassian.net/browse/MOS-12889),[MOS-13945](//mosipid.atlassian.net/browse/MOS-13945),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-13976](//mosipid.atlassian.net/browse/MOS-987),[MOS-15408](//mosipid.atlassian.net/browse/MOS-987)|
+|4.|Machine ID Generator|Generates Machine ID|[DAT_FR_4.1](FRS-Data-Services)|[MOS-9711](//mosipid.atlassian.net/browse/MOS-9711)|
+|5.|Registration Center ID Generator|Generates Registration Center ID|[DAT_FR_4.2](FRS-Data-Services)|[MOS-1102](//mosipid.atlassian.net/browse/MOS-1102)|
+|6.|RID Generator|Generates Registration ID|[DAT_FR_4.3](FRS-Data-Services)|[MOS-431](//mosipid.atlassian.net/browse/MOS-431),[MOS-5191](//mosipid.atlassian.net/browse/MOS-5191),[MOS-13171](//mosipid.atlassian.net/browse/MOS-13171),[MOS-12082](//mosipid.atlassian.net/browse/MOS-12082)|
+|7.|MISP ID Generator|Generates MISP ID|[DAT_FR_4.4](FRS-Data-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|8.|PRID Generator|Generates PRID|[DAT_FR_4.5](FRS-Data-Services)|[MOS-12095](//mosipid.atlassian.net/browse/MOS-12095), [MOS-735](//mosipid.atlassian.net/browse/MOS-735)|
+|9.|VID Generator|Generates VID |[DAT_FR_4.6](FRS-Data-Services)|[MOS-1070](//mosipid.atlassian.net/browse/MOS-1070)|
+|10.|Token ID Generator|Generates Token ID|[DAT_FR_4.7](FRS-Data-Services)|[MOS-21930](//mosipid.atlassian.net/browse/MOS-21930),[MOS-12898](//mosipid.atlassian.net/browse/MOS-12898),[MOS-8321](//mosipid.atlassian.net/browse/MOS-8321)|
+|11.|Partner ID Generator|Generates Partner ID|[DAT_FR_4.8](FRS-Data-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|12.|MISP License Key Generator|Generates MISP License Key|[DAT_FR_4.9](FRS-Data-Services)|[MOS-16828](//mosipid.atlassian.net/browse/MOS-16828)|
+|13.|UIN Validator|Validates UIN|[DAT_FR_4.10](FRS-Data-Services)|[MOS-595](//mosipid.atlassian.net/browse/MOS-595),[MOS-9743](//mosipid.atlassian.net/browse/MOS-9743)|
+|14.|PRID Validator|Validates PRID|[DAT_FR_4.11](FRS-Data-Services)|[MOS-1007](//mosipid.atlassian.net/browse/MOS-1007)|
+|15.|VID Validator|Validates VID|[DAT_FR_4.12](FRS-Data-Services)|[MOS-714](//mosipid.atlassian.net/browse/MOS-714)|
+|16.|RID Validator|Validates RID|[DAT_FR_4.13](FRS-Data-Services)|[MOS-1591](//mosipid.atlassian.net/browse/MOS-1591),[MOS-10415](//mosipid.atlassian.net/browse/MOS-10415),[MOS-12093](//mosipid.atlassian.net/browse/MOS-12093),[MOS-13172](//mosipid.atlassian.net/browse/MOS-13172)|
 
 **3. Admin Services:**
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.|Registration Management|Registration Center Type - Create/Update/Delete|[ADM_FR_2.1](FRS-Admin-Services)|
+|2.|Registration Management|Registration Center - Create/Read/Update/Delete|ADM_FR_2.2](FRS-Admin-Services)|
+|3.|Registration Management|List of Machine Types - Create|ADM_FR_2.3](FRS-Admin-Services)|
+|4.|Registration Management|List of Machine Specifications - Create/Update/Delete|ADM_FR_2.4](FRS-Admin-Services)|
+|5.|Registration Management|List of Machines - Create/Read/Update/Delete|ADM_FR_2.5](FRS-Admin-Services)|
+|6.|Registration Management|Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete|ADM_FR_2.6](FRS-Admin-Services)|
+|7.|Registration Management|List of Devices - Create/Read/Update/Delete|ADM_FR_2.7](FRS-Admin-Services)|
+|8.|Registration Management|List of Device Specifications - Create/Read/Update/Delete|ADM_FR_2.8](FRS-Admin-Services)|
+|9.|Registration Management|List of Device Types - Create/Update/Delete|ADM_FR_2.9](FRS-Admin-Services)|
+|10.|Registration Management|Mappings of Registration Center and Machine - Create/Read/Delete|ADM_FR_2.10](FRS-Admin-Services)|
+|11.|Registration Management|Mappings of Registration Center and Device - Create/Read/Delete|ADM_FR_2.11](FRS-Admin-Services)|
+|12.|Registration Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|ADM_FR_2.12](FRS-Admin-Services)|
+|13.|Masterdata Management|Create/Read/Update/Delete - Location Hierarchy|ADM_FR_1.1](FRS-Admin-Services)|
+|14.|Masterdata Management|List of Holidays - Create/Read/Update/Delete|ADM_FR_1.2](FRS-Admin-Services)|
+|15.|Masterdata Management|Biometric Authentication Type - Create/Read|ADM_FR_1.3](FRS-Admin-Services)|
+|16.|Masterdata Management|Biometric Attirbute Type - Create/Read|ADM_FR_1.4](FRS-Admin-Services)|
+|17.|Masterdata Management|Gender - Create/Read/Update/Delete|ADM_FR_1.5](FRS-Admin-Services)|
+|18.|Masterdata Management|Document Category - Create/Read/Update/Delete|ADM_FR_1.6](FRS-Admin-Services)|
+|19.|Masterdata Management|Document Type - Create/Update/Delete|ADM_FR_1.7](FRS-Admin-Services)|
+|20.|Masterdata Management|Applicant Type-Document Category-Document Type Mapping - Read|ADM_FR_1.8](FRS-Admin-Services)|
+|21.|Masterdata Management|List of Languages - Create/Read/Update/Delete|ADM_FR_1.9](FRS-Admin-Services)|
+|22.|Masterdata Management|List of Titles - Create/Read/Update/Delete|ADM_FR_1.10](FRS-Admin-Services)|
+|23.|Masterdata Management|Template File Format - Create/Update/Delete|ADM_FR_1.11](FRS-Admin-Services)|
+|24.|Masterdata Management|List of Template Types - Create|ADM_FR_1.12](FRS-Admin-Services)|
+|25.|Masterdata Management|List of Templates - Create/Read/Update/Delete|ADM_FR_1.13](FRS-Admin-Services)|
+|26.|Masterdata Management|List of Blacklisted Words - Create/Read/Update/Delete|ADM_FR_1.14](FRS-Admin-Services)|
+|27.|Masterdata Management|List of Reason Categories - Create|ADM_FR_1.15](FRS-Admin-Services)|
+|28.|Masterdata Management|List of Rejection Reasons - Create/Read|ADM_FR_1.16](FRS-Admin-Services)|
+|29.|Masterdata Management|List of Applications - Create/Read|ADM_FR_1.17](FRS-Admin-Services)|
+|30.|Masterdata Management|List of ID Types - Create/Read|ADM_FR_1.18](FRS-Admin-Services)|
+|31.|Masterdata Management|Individual Type Management - Read|ADM_FR_1.19](FRS-Admin-Services)|
+
 
 **4. UIN  Generation:**
 
