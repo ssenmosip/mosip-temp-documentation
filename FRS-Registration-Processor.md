@@ -188,9 +188,15 @@ Deduplication is the process to find a duplicate by comparing the individual’s
 
 ### 3.2.3 External System Integration: (Elaborate with examples)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)
-The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receives some data. Therefore, the system can verify the data captured during registration with the data received from the external system.
-#### 3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)
-MOSIP receives some data from the external system in a form of packet (as per MOSIP Standards). The MOSIP system has the capability to receive this updated packet and process it with the packet received from Registration Client.
+
+The System Integrator can plug-in a stage in the workflow where the stage can communicate with any other external system and receive some data. 
+Data verification is a process in which the system verifies the data captured during a registration with the data received from the external system to ensure accuracy and consistency. It helps to determine whether data was accurately translated, is complete and supports the interoperability standards.
+
+#### 3.2.3.2 Data Enrichment 
+
+Data enrichment is a value adding process, where external data from multiple sources is added to the existing data sets in MOSIP to enhance the quality and richness of the data.
+MOSIP receives some data from the external system in the form of Packet (as per MOSIP Standards). The System has the capability to receive this updated packet from external sources and process it with the packet received from Registration Client.
+
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
 When the system verifies the data received with the data captured and finds an issue while comparing the data or a country wants to update the data after manually verifying the data. Then the System Integrator builds a Manual Verification Module for External System data mismatch. 
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
