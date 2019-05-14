@@ -57,9 +57,9 @@ An individual will follow the following procedure to raise a reprint request:
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ## 5. Initiate UIN Update [**[↑]**](#table-of-content)
-MOSIP allows an individual to process a request to update the UIN.
+MOSIP allows an individual to process a request to update the demographic data of the UIN.
 
-The procedure for an individual to initiate a request related to UIN updates follows:
+The procedure for an individual to update the demographic data follows:
 
 1. An individual provides the UIN/VID for which he/she wants to update.
 1. The system validates the provided UIN/VID, checks for the registered mobile number/email ID associated with and 
@@ -81,9 +81,7 @@ Following procedure to be followed by the individual to track the status of UIN 
 1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status (Update statuses are configurable).
 1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 7. Generate Static PIN (WIP) [**[↑]**](#table-of-content)
-## 8. Update Static PIN (WIP) [**[↑]**](#table-of-content)
-## 9. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
+## 7. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
 
 Procedure to raise request to view the authentication history of the past:
@@ -95,7 +93,7 @@ Procedure to raise request to view the authentication history of the past:
 1. The system provides the history of authentication for all the authentication modalities.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 10. Lock/Unlock UIN [**[↑]**](#table-of-content)
+## 8. Lock/Unlock UIN [**[↑]**](#table-of-content)
 
 ### A. Lock the UIN
 
