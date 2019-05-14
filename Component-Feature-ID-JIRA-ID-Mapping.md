@@ -34,13 +34,7 @@
 |:------:|-----|---|---|---|
 |1.|Data mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|[DAT_FR_1](FRS-Common-Services)|[MOS-957](//mosipid.atlassian.net/browse/MOS-957)|
 |2.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|[DAT_FR_2](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-31), [MOS-987](//mosipid.atlassian.net/browse/MOS-32), [MOS-14007](//mosipid.atlassian.net/browse/MOS-14007)|
-|3.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|[DAT_FR_3](FRS-Common-Services)|[MOS-994](//mosipid.atlassian.net/browse/MOS-994), 
-[MOS-997](//mosipid.atlassian.net/browse/MOS-997), [MOS-996](//mosipid.atlassian.net/browse/MOS-996), 
-[MOS-12079](//mosipid.atlassian.net/browse/MOS-12079), [MOS-12944](//mosipid.atlassian.net/browse/MOS-12944), 
-[MOS-12945](//mosipid.atlassian.net/browse/MOS-12945), [MOS-12946](//mosipid.atlassian.net/browse/MOS-12946),  
-[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902), [MOS-12889](//mosipid.atlassian.net/browse/MOS-12889), 
-[MOS-13945](//mosipid.atlassian.net/browse/MOS-13945), [MOS-12902](//mosipid.atlassian.net/browse/MOS-12902), 
-[MOS-13976](//mosipid.atlassian.net/browse/MOS-987), [MOS-15408](//mosipid.atlassian.net/browse/MOS-987),|
+|3.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|[DAT_FR_3](FRS-Common-Services)|[MOS-994](//mosipid.atlassian.net/browse/MOS-994),[MOS-997](//mosipid.atlassian.net/browse/MOS-997),[MOS-996](//mosipid.atlassian.net/browse/MOS-996),[MOS-12079](//mosipid.atlassian.net/browse/MOS-12079),[MOS-12944](//mosipid.atlassian.net/browse/MOS-12944),[MOS-12945](//mosipid.atlassian.net/browse/MOS-12945),[MOS-12946](//mosipid.atlassian.net/browse/MOS-12946),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-12889](//mosipid.atlassian.net/browse/MOS-12889),[MOS-13945](//mosipid.atlassian.net/browse/MOS-13945),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-13976](//mosipid.atlassian.net/browse/MOS-987),[MOS-15408](//mosipid.atlassian.net/browse/MOS-987)|
 |4.|Machine ID Generator|Zip-Unzip Utility|[DAT_FR_4.1](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
 |5.|Registration Center ID Generator|Zip-Unzip Utility|[DAT_FR_4.2](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
 |6.|MISP ID Generator|Zip-Unzip Utility|[DAT_FR_4.3](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
