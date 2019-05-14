@@ -125,7 +125,7 @@ In Registration Processor, virus scanning is performed twice, which are listed b
 
 ### 3.1.3 Source Authentication
 ### 3.1.4 Machine-User-Center Mapping Check
-The system validates a registration machine, registration officer, registration center details, and devices, which are used for packet creation. This validation is to ensure that the packet received by the Registration Processor is from the authenticated source and/or authenticated device. 
+The system validates a registration machine, registration officer, registration center details, and devices, which are used for packet creation. This validation is to ensure that the packet received by the Registration Processor was created in a authenticated device by a authentic Officer or superviser. 
 ### 3.1.5 GPS Capture Check
 ### 3.1.6 Officer & Supervisor Validation
 
