@@ -162,7 +162,6 @@ The system also checks the liveliness of the Finger Print Image captured of an i
 The system checks if some data captured while registering an individual using registration client is available in the document, which is uploaded using OCR (Optical Character Recognition).
 ### 3.2.2 Functional Validations
 #### 3.2.2.1 File & Document Validation
-File & Document Validation
 
 When the Registration Packets are received from Registration Client, the system checks if all the files listed in the packet are available. If available, the system verifies if the documents required for an individual are present in the packet as per the data captured. In order to perform this validation, the mapping of the data captured and mandatory document required can be configured by the country. 
 For Example:
@@ -170,6 +169,9 @@ For Example:
 2. If Address is captured the country can add a validation for Proof of Address.
 
 #### 3.2.2.2 Introducer Validation
+
+When a Minor needs to be registered, the system mandates the capture of the UIN or RID and biometrics of an Introducer (Parent or Guardian). In Registration Processor, this data is used to Authenticate the Introducer.
+
 #### 3.2.2.3 Deduplication – Demographic, Biometrics
 Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated.
 #### A. Demographic deduplication
