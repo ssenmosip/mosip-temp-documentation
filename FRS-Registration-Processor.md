@@ -91,8 +91,13 @@ To handle such issues, the system has the capability to retry communicating with
 Registration Processor, even after retrying multiple time fails to communicate or there is a system error, the system stops processing the packets. 
 
 These packets are later picked up by a module in Registration Processor called the Re-Processor based on a configurable logic which resumes the workflow.
-## 2.4 Integration (System capability) & Workflow Customization (Ability to plug-in/exclude stages) (WIP)
-System Integrator can integrate their system with MOSIP.
+## 2.4 Integration (System Integrator can integrate their system with MOSIP)
+System Integrator can integrate their system with MOSIP. Which in turn  allows them to
+* Customize their workflow   
+* Plug-in stages
+* Exclude stages 
+ 
+Please refer to the design links below to understand how system integrator can integrate their system\s with MOSIP 
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
