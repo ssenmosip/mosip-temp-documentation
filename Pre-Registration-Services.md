@@ -2646,7 +2646,7 @@ request.LangCode| Yes| language code whatever user choose while login|eng
    "response": null,
    "errors":[ 
          {
-    	    "errorCode": "PRG_PAM_ACK_006",
+    	    "errorCode": "PRG_QRC_002",
     	    "message": " Failed to generate QR code"
 	 }
     ]
@@ -2816,7 +2816,7 @@ request.to_field_lang |Yes|To language code|ara
    "response": null,
    "errors":[
          {
-            "errorCode": "PRG_PAM_TRL_002",
+            "errorCode": "PRG_TRL_APP_001",
             "message": "Failed to transliterate"
          }
     ]
