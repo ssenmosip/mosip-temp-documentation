@@ -35,19 +35,18 @@
 |1.|Data mapper|Facilitate data mapping between DTO (Data Transfer Object) and entity|[DAT_FR_1](FRS-Common-Services)|[MOS-957](//mosipid.atlassian.net/browse/MOS-957)|
 |2.|Data Access Manager|Provides an implementation for DAM (Data Access Manager) interface|[DAT_FR_2](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-31), [MOS-987](//mosipid.atlassian.net/browse/MOS-32), [MOS-14007](//mosipid.atlassian.net/browse/MOS-14007)|
 |3.|Sync Handler|Enables Registration Client to sync Master data, List of Users, User-Role Mapping and Configurations|[DAT_FR_3](FRS-Common-Services)|[MOS-994](//mosipid.atlassian.net/browse/MOS-994),[MOS-997](//mosipid.atlassian.net/browse/MOS-997),[MOS-996](//mosipid.atlassian.net/browse/MOS-996),[MOS-12079](//mosipid.atlassian.net/browse/MOS-12079),[MOS-12944](//mosipid.atlassian.net/browse/MOS-12944),[MOS-12945](//mosipid.atlassian.net/browse/MOS-12945),[MOS-12946](//mosipid.atlassian.net/browse/MOS-12946),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-12889](//mosipid.atlassian.net/browse/MOS-12889),[MOS-13945](//mosipid.atlassian.net/browse/MOS-13945),[MOS-12902](//mosipid.atlassian.net/browse/MOS-12902),[MOS-13976](//mosipid.atlassian.net/browse/MOS-987),[MOS-15408](//mosipid.atlassian.net/browse/MOS-987)|
-|4.|Machine ID Generator|Zip-Unzip Utility|[DAT_FR_4.1](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|5.|Registration Center ID Generator|Zip-Unzip Utility|[DAT_FR_4.2](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|6.|MISP ID Generator|Zip-Unzip Utility|[DAT_FR_4.3](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|7.|PRID Generator|Zip-Unzip Utility|[DAT_FR_4.4](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|8.|VID Generator|Zip-Unzip Utility|[DAT_FR_4.5](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|9.|Token ID Generator|Zip-Unzip Utility|[DAT_FR_4.6](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|10.|Partner ID Generator|Zip-Unzip Utility|[DAT_FR_4.7](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|11.|MISP License Key Generator|Zip-Unzip Utility|[DAT_FR_4.8](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|12.|Static Pin Validator|Zip-Unzip Utility|[DAT_FR_4.9](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|13.|UIN Validator|Zip-Unzip Utility|[DAT_FR_4.10](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|14.|PRID Validator|Zip-Unzip Utility|[DAT_FR_4.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|15.|VID Validator|Zip-Unzip Utility|[DAT_FR_4.12](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
-|16.|RID Validator|Zip-Unzip Utility|[DAT_FR_4.13](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|4.|Machine ID Generator|Generates Machine ID|[DAT_FR_4.1](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|5.|Registration Center ID Generator|Generates Registration Center ID|[DAT_FR_4.2](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|6.|MISP ID Generator|Generates MISP ID|[DAT_FR_4.3](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|7.|PRID Generator|Generates PRID|[DAT_FR_4.4](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|8.|VID Generator|Generates VID |[DAT_FR_4.5](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|9.|Token ID Generator|Generates Token ID|[DAT_FR_4.6](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|10.|Partner ID Generator|Generates Partner ID|[DAT_FR_4.7](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|11.|MISP License Key Generator|Generates MISP License Key|[DAT_FR_4.8](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|11.|UIN Validator|Validates UIN|[DAT_FR_4.10](FRS-Common-Services)|[MOS-595](//mosipid.atlassian.net/browse/MOS-595),[MOS-9743](//mosipid.atlassian.net/browse/MOS-9743)|
+|12.|PRID Validator|Validates PRID|[DAT_FR_4.11](FRS-Common-Services)|[MOS-1007](//mosipid.atlassian.net/browse/MOS-1007),[MOS-12093](//mosipid.atlassian.net/browse/MOS-12093)|
+|13.|VID Validator|Validates VID|[DAT_FR_4.12](FRS-Common-Services)|[MOS-917](//mosipid.atlassian.net/browse/MOS-917)|
+|14.|RID Validator|Validates RID|[DAT_FR_4.13](FRS-Common-Services)|[MOS-1591](//mosipid.atlassian.net/browse/MOS-1591),[MOS-10415](//mosipid.atlassian.net/browse/MOS-10415),[MOS-12093](//mosipid.atlassian.net/browse/MOS-12093),[MOS-13172](//mosipid.atlassian.net/browse/MOS-13172)|
 
 **3. Admin Services:**
 
