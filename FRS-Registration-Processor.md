@@ -9,8 +9,8 @@
    * [2.1 Orchestration](#21-orchestration) _(RPR_FR_2.1)_
    * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures) _(RPR_FR_2.2)_
    * [2.3 Resume Workflow](#23-resume-workflow) _(RPR_FR_2.3)_
-   * [2.4 Integration (System Integrator can integrate their system with MOSIP)](#24-integration-system-integrator-can-integrate-their-system-with-mosip)_(RPR_FR_2.4)_
-   * [2.5 Multiple Workflows (RPR_FR_2.6)_
+   * [2.4 Integration (System Integrator can integrate their system with MOSIP)](#24-integration-system-integrator-can-integrate-their-system-with-mosip) _(RPR_FR_2.4)_
+   * [2.5 Multiple Workflows](#25-multiple-workflows) (RPR_FR_2.6)_
    * [2.6 Scalability and Throughput](#26-scalability-and-throughput) _(RPR_FR_2.7)_
  - [3. Types of Stages](#3-types-of-stages) 
    * [3.1 Pre-processing Validations](#31-pre-processing-validations) 
@@ -105,11 +105,11 @@ Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor
 
 ## 2.5 Multiple Workflows 
 
-MOSIP provides different workflows for different life cycle events .For example
-* ID issuance
-* Update UIN data
-* Deactivate UIN
-* Re-activate UIN
+MOSIP provides different workflows for different life cycle events. For example
+* New ID Issuance
+* Update individual’s information
+* De-activate individual’s ID
+* Re-activate individual’s ID
 
 These workflows use a common set of components (micro services)
 
