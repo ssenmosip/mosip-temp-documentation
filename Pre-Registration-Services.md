@@ -2652,9 +2652,15 @@ request.LangCode| Yes| language code whatever user choose while login|eng
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
+PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
+PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
 
 # Notification Service (public)
-This service details used by Pre-Registration portal to trigger notification via SMS or email and get QRCode.
+This service details used by Pre-Registration portal to trigger notification via SMS or email.
 
 * [POST notification/notify](#post-notificationnotify)
 
@@ -2746,6 +2752,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
 PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_ACK_002|	Incorrect mandatory Fields|	If any of the request is null
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
