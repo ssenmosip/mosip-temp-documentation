@@ -2658,6 +2658,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
 PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_QRC_001|	File input output exception|	when there is any input / output file operation issues
 
 # Notification Service (public)
 This service details used by Pre-Registration portal to trigger notification via SMS or email.
