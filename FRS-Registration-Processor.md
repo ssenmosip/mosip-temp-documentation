@@ -198,7 +198,10 @@ Data enrichment is a value adding process, where external data from multiple sou
 MOSIP receives some data from the external system in the form of Packet (as per MOSIP Standards). The System has the capability to receive this updated packet from external sources and process it with the packet received from Registration Client.
 
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
-When the system verifies the data received with the data captured and finds an issue while comparing the data or a country wants to update the data after manually verifying the data. Then the System Integrator builds a Manual Verification Module for External System data mismatch. 
+
+When there are any discrepancies between the data received from external system vs.the data captured during registration, a country may opt to manually verify the data. 
+The System Integrator in such case may build a Manual Verification Module for External System data mismatch. MOSIP will enable the system integrator to integrate the manual verification system with MOSIP platform
+
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
 When Biometric Deduplicates are found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface), the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware)
