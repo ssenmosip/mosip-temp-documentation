@@ -307,7 +307,7 @@ System exports registration packet data from client machine to an external devic
    * If EoD process is turned ON, packets that have been approved or rejected and packet ID sync is completed are considered ‘Ready to Upload’.
    * If EoD process is turned OFF, packets are considered ‘Ready to Upload’ as soon as the registration is submitted and packet ID sync is completed.
    * Places the packets in the destination folder.
-4. Once the server acknowledges that the packets have been received, the packets in the client will be marked as ‘Uploaded’.
+4. Once the server acknowledges that the packets have been received, which is uploaded from the external device to the server, the packets in the client will be marked as ‘Uploaded’.
    * Packets that remain in ‘Ready to Upload’ status will be exported again when the next export is executed.
    * Packets in ‘Uploaded’ or any other status will not be exported again.
 5. All the Registration Officers and Supervisors on-boarded to the client machine is able to export all packets.
