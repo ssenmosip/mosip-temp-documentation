@@ -209,7 +209,7 @@ The MOSIP System, in-order to perform Biometric Deduplication (validate if there
 
 ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) is used to communicate between MOSIP system and ABIS.
 
-### 3.2.4 ID Issuance  [**[↑]**](#table-of-content)
+### 3.2.4 ID Issuance [**[↑]**](#table-of-content)
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association [**[↑]**](#table-of-content)
 After all the business validations are completed, the system gets a Unique Identification Number (UIN) from the [**UIN Generation**](UIN-Generation) API and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth) [**[↑]**](#table-of-content)
