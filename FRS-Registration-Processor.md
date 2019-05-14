@@ -16,8 +16,8 @@
    * [3.1 Pre-processing Validations](#31-pre-processing-validations) 
      * [3.1.1 Sanity Check](#311-sanity-check) _(RPR_FR_3.1)_
      * [3.1.2 Virus Scan](#312-virus-scan) _(RPR_FR_3.2)_
-     * [3.1.3 Machine-User-Center-Device Checks](#314-machine-user-center-mapping-check) _(RPR_FR_3.4)_
-     * [3.1.4 Officer & Supervisor Validation](#316-officer--supervisor-validation) _(RPR_FR_3.6)_
+     * [3.1.3 Machine-User-Center-Device Checks](#313-machine-user-center-mapping-check) _(RPR_FR_3.4)_
+     * [3.1.4 Officer & Supervisor Validation](#314-officer--supervisor-validation) _(RPR_FR_3.6)_
    * [3.2 Processing](#32-processing) 
      * [3.2.1 Individual Data Validations](#321-individual-data-validations) 
        * [3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check](#3211-data-quality-check-photo-age-gender-data-check) _(RPR_FR_3.7)_
