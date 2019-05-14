@@ -211,7 +211,7 @@ ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [*
 
 ### 3.2.4 ID Issuance 
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association
-After all the business validations are completed, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
+After all the business validations are completed, the system gets a Unique Identification Number (UIN) from the [**UIN Generation**](UIN-Generation) API and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)
 After all the business validations are performed for a new ID issuance or updating an individual’s information, this information is sent to [**ID repository**](ID-Repository-API) for storing or updating the information respectively.  
 #### 3.2.4.3 Data Extractor for ID Authentication
