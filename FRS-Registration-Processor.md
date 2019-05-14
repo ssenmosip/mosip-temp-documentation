@@ -198,7 +198,7 @@ MOSIP receives some data from the external system in the form of Packet (as per 
 
 #### 3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)
 
-When there are any discrepancies between the data received from external system vs.the data captured during registration, a country may opt to manually verify the data. 
+When there are any discrepancies between the data received from external system vs. the data captured during registration, a country may opt to manually verify the data. 
 The System Integrator in such case may build a Manual Verification Module for External System data mismatch. MOSIP will enable the system integrator to integrate the manual verification system with MOSIP platform
 
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI)
