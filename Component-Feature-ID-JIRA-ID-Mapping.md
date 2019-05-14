@@ -44,7 +44,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.|UIN Generator|Generates UIN|[UIG_FR_1](Audit Manager)|[MOS-425](//mosipid.atlassian.net/browse/MOS-425),[MOS-9738](//mosipid.atlassian.net/browse/MOS-9738), [MOS-22036](//mosipid.atlassian.net/browse/MOS-22036)|
 
 **5. Configuration Server:**
 
@@ -56,13 +56,13 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.|Audit Manager|Provides service across MOSIP to store Audit logs|[AMG_FR_1](Audit Manager)|[MOS-8](//mosipid.atlassian.net/browse/MOS-8),[MOS-441](//mosipid.atlassian.net/browse/MOS-441), [MOS-829](//mosipid.atlassian.net/browse/MOS-829), [MOS-12903](//mosipid.atlassian.net/browse/MOS-12903)|
 
 **7. Authentication and Authorization:**
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.|Authentication and Authorization|Provides authenticaiton and Authorization across MOSIP|[AUT_FR_1](Authentication and Authorization(WIP)|[MOS-1000](//mosipid.atlassian.net/browse/MOS-1000)|
 
 **8. Pre-registration:**
 
