@@ -165,8 +165,8 @@ The system checks if some data captured while registering an individual using re
 
 When the Registration Packets are received from Registration Client, the system checks if all the files listed in the packet are available. If available, the system verifies if the documents required for an individual are present in the packet as per the data captured. In order to perform this validation, the mapping of the data captured and mandatory document required can be configured by the country. 
 For Example:
-1. If Name is captured the country can add a validation for Proof of Identity.
-2. If Address is captured the country can add a validation for Proof of Address.
+1. If name is captured, the country can add a validation for Proof of Identity.
+2. If address is captured, the country can add a validation for Proof of Address.
 
 #### 3.2.2.2 Introducer Validation
 
