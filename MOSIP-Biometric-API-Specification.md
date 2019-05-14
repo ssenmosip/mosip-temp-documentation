@@ -2,7 +2,8 @@
 MOSIP uses biometrics in Registration and ID Authentication modules. This wiki page defines Biometric API interface which provides functional support for processing biometrics. 
 A Device Provider can provide implementation for the methods present in Biometric API interface. 
 
-Below are the methods that Biometric API interface exposes - 
+Below are the methods that Biometric API interface exposes -     
+
 **1.  Quality Checker -** This method checks the quality of input biometrics and returns quality score for the same.
 ***Method Signature -*** QualityScore _checkQuality_(BiometricRecord sample, KeyValuePair[] flags)
 
