@@ -32,7 +32,23 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
 
 **3. Admin Services:**
 
