@@ -103,8 +103,17 @@ Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor
 
 Link to [**design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
-## 2.5 Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow) (WIP)
-Multiple workflows increase reusability, readability and maintainability of different micro services.
+## 2.5 Multiple Workflows 
+
+MOSIP provides different workflows for different life cycle events .For example
+* ID issuance
+* Update UIN data
+* Deactivate UIN
+* Re-activate UIN
+
+These workflows use a common set of components (micro services)
+
+Multiple workflows increase reusability, readability and maintainability of different components (micro services).
 ## 2.6 Scalability and Throughput
 MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is designed in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
 
