@@ -168,6 +168,8 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 
 #### A. Approval of registrations through an end of day process.
 
+As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration processor to prevent fraudulent.
+
 Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
 
 The supervisor may opt to see the details of one or many registration ID. The supervisor can view the details on the right hand side pane 
@@ -183,7 +185,6 @@ The system then confirms on successful approval.
 1. The packet status will change only when supervisor completes authentication. Else the packet status will revert to its original status.
 1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
 1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.
-1. ‘Authenticated' registrations report: Allow the supervisor to view a report of approved registrations for the past 15 days.
 
 #### B. Registration client enables a supervisor to approve data packets.
 1. The system allows a Supervisor to view packets in “Pending approval” status.
@@ -205,6 +206,10 @@ The system then confirms on successful approval.
 1. The supervisor authenticates with locally stored biometric and with the results.
    * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
    * On unsuccessful authentication, the user can retry his authentication with the same or a different biometric
+
+#### D. Authenticated registrations report (WIP)
+The system allows the supervisor to view a report of approved registrations for the past 15 days.
+
 
 
 # 2. Booking Data Sync
@@ -266,7 +271,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 3. The result of each packet uploaded will be displayed as ‘Success’ or ‘Failure’.
    * Packets that are successfully sent or resent will not be sent again unless the server requests for them.
    * Packets for which upload fails will continue to be in pending state.
-4. System captures and stores the transaction details for audit purpose.
+4. System captures and stores the transaction details for audit purpose (except PII data).
 
 #### C. Enable a real time packet upload when system is online upon registration submission
 
@@ -278,7 +283,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 1. Once the packets are ready for upload, packets are uploaded in two ways:
    * The registration officer can initiate upload to server using upload function.
    * Export to external storage device for subsequent upload as required.
-5. System captures and stores the transaction details for audit purpose.
+5. System captures and stores the transaction details for audit purpose (except PII data).
 
 **When EoD process is turned OFF**
 
@@ -288,7 +293,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 1. Once the packets are ready for upload, packets are uploaded in two ways:
    * The registration officer can initiate upload to server using client’s upload function.
    * Export to external storage device for subsequent upload as required.
-5. System captures and stores the transaction details for audit purpose.
+5. System captures and stores the transaction details for audit purpose (except PII data).
 
 ## 3.3 Online / Offline Behavior(Offline data upload is covered under this) (Packet Exporter) [**[↑]**](#table-of-content)
 
@@ -308,7 +313,7 @@ System exports registration packet data from client machine to an external devic
 5. All the Registration Officers and Supervisors on-boarded to the client machine is able to export all packets.
 1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets will remain on the destination folder.
 1. For partial or full failure, the system displays error message.
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 
 
 ## 3.4 New Registration [**[↑]**](#table-of-content)
@@ -358,7 +363,7 @@ Upon receiving a request to copy address details from the previous registration 
    * If the cache does not contain any of those address details, responds as an error message. 
 2. The address details will be pre-populated in the respective fields for the current registration and will be further editable. 
 1. This feature is applicable to new registrations, pre-registered and non-pre-registered applicants but does not applies to registration correction such as UIN update, lost UIN and deactivation scenarios.
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 #### H. Scan and upload of POI, POA and POR
 1. The Registration Officer can input three types of documents- POA, POI and POR while registering an individual
    * POA refers to Proof of address, POI is proof of Identity and POR is proof of relationship
@@ -382,7 +387,7 @@ When the registration officer uses finger print capture device to capture the in
 1. Determines and displays rank for each finger. The finger with the highest quality score is ranked 1 and so on till 10 (excluding exceptions)
 1. Validates all available fingerprints that have been captured, the fingerprints, which are above threshold quality and the maximum retries attempted.
 1. Retains only that capture which has the highest quality score.
-1. Captures and stores the transaction details for audit purpose.
+1. Captures and stores the transaction details for audit purpose (except PII data).
 
 #### J. Capture an individual's face photograph and exception photograph.
 1. When a registration officer opts to capture the face photograph or exception photograph of an individual during the registration process, the system validates that an on-boarded camera is connected to the machine.
@@ -397,7 +402,7 @@ When the registration officer uses finger print capture device to capture the in
 8. Allows exception photo capture only if an exception has been marked.
    * Step 2 to7 must be performed to capture the exception photo.
 
-9. System captures and stores the transaction details for audit purpose.
+9. System captures and stores the transaction details for audit purpose (except PII data).
 #### K. Retry capture of face photo as configured
 While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
 1. The system displays the quality score and the threshold score for the capture.
@@ -421,7 +426,7 @@ When the Registration Officer scans the individual’s irises either individuall
 1. If the quality score meets threshold, a re-capture is not allowed.
 1. Validates all available irises that have been captured, the irises, which are above threshold quality and the maximum retries attempted.
 1. Retains only that capture which has the highest quality score.
-1. System captures and stores the transaction details for audit purpose
+1. System captures and stores the transaction details for audit purpose (except PII data).
 #### M. Restrict registration if the duration since the last export or upload is more than the configured limit
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If exceeded the configured limit, then system displays an error message.
@@ -442,7 +447,7 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. On successful validation, sends a response and proceeds to the next step of choosing a pre-registered or non pre-registered applicant.
 1. In case of failures validation, triggers appropriate error messages.
 1. System sends a success response and allow it to proceed to the next step.
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 #### P. Retrieve a lost UIN
 When a Registration Officer navigates to the Lost UIN page then the Registration Officer performs the following steps to retrieve a lost UIN of an individual:
 1. Enters demographic details such as name, age or date of birth, etc. of the individual who has lost their UIN. 
@@ -453,7 +458,7 @@ When a Registration Officer navigates to the Lost UIN page then the Registration
 1. Supervisor performs supervisor authentication for individuals with exceptions.
 1. Views acknowledgement of Lost UIN request with a Registration ID assigned to it.
 1. Prints acknowledgement of the UIN, then SMS and email notifications are sent if contact details of the individual are entered.
-System captures and stores the transaction details for audit purpose.
+System captures and stores the transaction details for audit purpose (except PII data).
 
 ## 3.5 UIN Updates [**[↑]**](#table-of-content)
 
@@ -636,7 +641,7 @@ Note: multifactor authentication is the type of authentication where an admin us
 1. The same error message is displayed for any subsequent login attempt within 30 minutes.
 1. After 30 minutes, the lock is released and the count of invalid login attempts is reset to zero.
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 
 #### F. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
 
@@ -711,7 +716,7 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
    * Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
    * Validates that the user has a role or Registration Officer or Supervisor.
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
-6. The System also captures and stores the transaction details for audit purpose
+6. The System also captures and stores the transaction details for audit purpose (except PII data).
 
 # 5. Registration Client Library
 ## 5.1 Local Authentication [**[↑]**](#table-of-content)
@@ -839,7 +844,7 @@ When a Registration Officer opts to capture photo of an individual, the system i
 5. Receives the photo from the camera.
 6. Displays the photo on screen.
 7. Allows the Registration Officer to proceed to verify quality score.
-8. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose. 
+8. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose (except PII data). 
 
 ### 5.4.3 Storage Policies [**[↑]**](#table-of-content)
 ### 5.4.4 Key Management [**[↑]**](#table-of-content)
@@ -850,7 +855,7 @@ When a Registration Officer sets ‘Biometric Exception’ = ‘Yes’, the syst
 1. The system allows the user to mark the missing finger(s) and/or missing iris(es).
 1. If ‘Biometric Exception’ = ‘Yes’, at least one missing biometric must be mandatorily marked.
 1. If ‘Biometric Exception’ = ‘No’, the Biometric Exception capture is skipped and exceptions cannot be marked.
-1. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose.
+1. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose (except PII data).
 
 ## 5.5 Business Validations [**[↑]**](#table-of-content)
 These are validations that are performed by the registration client application during each process such as launch, onboarding, login, new registration and end of day process. For instance, when initiating a new registration, UIN update or lost UIN request, the client validates that:
@@ -903,7 +908,7 @@ When a logged in user tries to access a feature on the registration client, the 
    * Reports
 5. A Super Admin can access all features.
  
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 
 
 ## 5.7 Peripherals Management (Scanner, Camera,...) [**[↑]**](#table-of-content)
@@ -919,7 +924,7 @@ Upon receiving a request to geotag a registration machine, the system performs t
    * If location capture is required only at the beginning of day, the co-ordinates are stored and validations are performed when opting to start a new registration.
    * If location capture is required only at the beginning of day and location could not be captured at beginning of the day, then attempts to capture the location during the first registration of the day.
    * The latitude and longitude will be stored in the packet when the packet is created.
-5. System captures and stores the transaction details for audit purpose.
+5. System captures and stores the transaction details for audit purpose (except PII data).
 
 ## 5.8 Software Version Upgrade [**[↑]**](#table-of-content)
 
@@ -930,7 +935,7 @@ When a Registration Officer or Supervisor opts to download setup kit and selects
 1. User then unzips the setup kit.
 2. Extract the files and folders from the zip file to a chosen location.
 3. Allows user to verify that the files and folder structure are as described in the design document.
-4. System captures and stores the download transaction details for audit purposes. 
+4. System captures and stores the download transaction details for audit purpose (except PII data). 
 
 #### B. Enable launching the client application on a specific machine
 
@@ -949,7 +954,7 @@ When a user chooses to launch the client application, the system performs valida
    * If no updates available or unable to connect to the server, proceed to the next step.
 8. Launches the application and display the default landing page.
 1. Displays error messages in case of exceptions for any of the validations identified above.
-1. System captures and stores the launch details for audit purposes.
+1. System captures and stores the launch details for audit purpose (except PII data).
 
 #### C. Update the client software from the server
 
@@ -967,7 +972,7 @@ The system follows the following steps during the update process:
 1. Once installation is completed, the user can start working on the client.
 1. If update is not successful, the client returns to its earlier version.
 1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ## 5.9 Cleanup [**[↑]**](#table-of-content)
 Pre-registration and registration data are automatically deleted from the client machine upon consumption and upon intimation from the server respectively. 
@@ -991,7 +996,7 @@ When the registration client receives a request through manual trigger or schedu
    * Detailed errors can be viewed in the transaction logs.
 7. When a sync is running, the system does not allow the end user to perform any other action.
 8. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and executed later. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier then immediately starts the sync.
-9. System captures and stores the transaction details for audit purpose.
+9. System captures and stores the transaction details for audit purpose (except PII data).
 #### B. Delete transaction history (audit logs) post sync with server and the retention period
 When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
 1. Runs on a daily process to identify audit data that has been sent to the server and acknowledgement is received from the server.
@@ -1080,7 +1085,7 @@ Upon receiving a request from the UI to create an enrolment packet at the end of
 1. Validates if the storage location is sufficient to store the enrolment packet.
 1. In case of successful validation, responds with success message and proceed further. 
 1. In case of unsuccessful validation, responds with an appropriate error message.
-1. System captures and stores the transaction details for audit purpose.
+1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ### 5.11.2 Peripherals Check [**[↑]**](#table-of-content)
 
