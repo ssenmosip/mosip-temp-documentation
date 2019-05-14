@@ -9,6 +9,10 @@
 |5.|Crypto Services|Crypto Utility|[CMN_FR_3.3](FRS-Common-Services)|[MOS-9301](//mosipid.atlassian.net/browse/MOS-9301)|
 |6.|Crypto Services|Hash Utility|[CMN_FR_3.4](FRS-Common-Services)|[MOS-20](//mosipid.atlassian.net/browse/MOS-20)|
 |7.|Crypto Services|HMAC Utility/Checksum Utility|[CMN_FR_3.5](FRS-Common-Services)|[MOS-481](//mosipid.atlassian.net/browse/MOS-481)|
+|8.|Email Notification|Generates and sends an Email using a third party vendor|[CMN_FR_4.2](FRS-Common-Services)|[MOS-973](//mosipid.atlassian.net/browse/MOS-973)|
+|9.|SMS Notification|Generates and sends an SMS using a third party vendor|[CMN_FR_4.3](FRS-Common-Services)|[MOS-961](//mosipid.atlassian.net/browse/MOS-961)|
+|10.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|[CMN_FR_4.4](FRS-Common-Services)|[MOS-960](//mosipid.atlassian.net/browse/MOS-960), [MOS-12900](//mosipid.atlassian.net/browse/MOS-12900)|
+|11.|Template Merger|Merges a pre-configured template with dynamic values|[CMN_FR_4.5](FRS-Common-Services)|[MOS-786](//mosipid.atlassian.net/browse/MOS-786)|
 
 
 **2. Data Services:**
