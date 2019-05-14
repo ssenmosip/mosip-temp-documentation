@@ -162,18 +162,12 @@ The system also checks the liveliness of the Finger Print Image captured of an i
 The system checks if some data captured while registering an individual using registration client is available in the document, which is uploaded using OCR (Optical Character Recognition).
 ### 3.2.2 Functional Validations
 #### 3.2.2.1 File & Document Validation
-When the files that are received from the Registration Client, the system first check the file’s availability in the registration packet. If available, then verifies the documents required for an individual based on the type of registration. Refer below for the process:
-#### A. Validates the File
-The system performs file validation by checking files availability in a packet with the file names available in the MetaInfo file as follows:
-1. Extracts the file names from the meta info file in the packet.
-2. Compares the file names with files extracted in DFS by searching for the files
-3. In case of successful comparison, updates the Registration table with "File Validation Successful".
-4. In case of unsuccessful comparison, updates the Registration table with "File Validation Failed" and marks for retry.
-#### B. Verify the Documents
-1. The system identifies a document based on application type (new registration) and applicant type (child or adult) from Packet Meta Info.
-2. If the applicant is a child and application is new registration, the system checks a Proof of Residence (POR) document availability.
-3. If the applicant is an adult and application is new registration, the system checks a Proof of Identity (POI) and Proof of Address (POA) documents availability. 
-4. If Proof of Birth (POB) is verified for both the applicant (adult or child) and application is new registration, then system checks a POB documents availability.
+File & Document Validation
+
+When the Registration Packets are received from Registration Client, the system checks if all the files listed in the packet are available. If available, the system verifies if the documents required for an individual are present in the packet as per the data captured. In order to perform this validation, the mapping of the data captured and mandatory document required can be configured by the country. 
+For Example:
+1. If Name is captured the country can add a validation for Proof of Identity.
+2. If Address is captured the country can add a validation for Proof of Address.
 
 #### 3.2.2.2 Introducer Validation
 #### 3.2.2.3 Deduplication – Demographic, Biometrics
