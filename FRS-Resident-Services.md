@@ -2,7 +2,7 @@
 * [Resident Services](#resident-services)
   * [1. Track Status of UIN Generation by providing Registration ID](#1-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
   * [2. Download UIN](#2-download-uin-) _(RES_FR_2)_
-  * [3. Retrieve Lost RID](#3-retrieve-lost-uin-) _(RES_FR_3)_
+  * [3. Retrieve Lost RID](#3-retrieve-lost-rid-) _(RES_FR_3)_
   * [4. Retrieve Lost UIN](#4-retrieve-lost-uin-) _(RES_FR_4)_
   * [5. Re-print Request of UIN](#5-re-print-request-of-uin-) _(RES_FR_5)_
   * [6. Initiate UIN Update](#6-initiate-uin-update-) _(RES_FR_6)_
@@ -49,7 +49,7 @@ An individual will follow the following procedure to raise a requested related t
 1. The system generates the password protected (Password is configurable) RID and provides the RID to the individual along with notification.
 1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the RID or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 4. Retrieve Lost UIN[**[↑]**](#table-of-content)
+## 4. Retrieve Lost UIN [**[↑]**](#table-of-content)
 
 MOSIP allows an individual to initiate a request to retrieve the Registration ID.
 
