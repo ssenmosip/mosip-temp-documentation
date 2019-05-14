@@ -67,7 +67,7 @@ An individual can update his/her information via two different ways:
 When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check) and validations and then updates the individual’s information.
 
 ## 1.3 De-activate individual’s ID
-If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed.
+If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed. As a result of de-activation of UIN, the individual can not authenticate themselves by using UIN or VID. 
 ## 1.4 Re-activate individual’s ID
 If a country wants to re-activate a deactivated individual’s ID, the system provides a feature to do so after certain validations are performed.
 # 2. Configurable Workflow
@@ -192,17 +192,17 @@ ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [*
 
 ### 3.2.4 ID Issuance 
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association
-After all the business validation are completed, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
+After all the business validations are completed, the system gets a Unique Identification Number (UIN) from the kernel [**UIN Generation**](UIN-Generation) and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth)
 After all the business validations are performed for a new ID issuance or updating an individual’s information, this information is sent to [**ID repository**](ID-Repository-API) for storing or updating the information respectively.  
 #### 3.2.4.3 Data Extractor for ID Authentication
 The system that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.         
 
 ### 3.2.5 Capture Audit Trails/Analytics Data
-When any transaction is performed in MOSIP system or the packet fails any validations or any system level exception happens, then the same is captured as part of MOSIP Audit Trails.
+When any transaction is performed in MOSIP system or the packet fails any validations or any system level exception happens, then the same is captured as part of MOSIP Audit Trails, which can be further used for Reporting/Analytics as required.
 ## 3.3 Post-Processing
 ### 3.3.1 Notification (Pluggable by SI)
-Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, packet failure, UIN issuance, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
+Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, successful or un-successful issuance of UIN, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI)
 After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 ### 3.3.3 Data Seeding to External Functional ID System (Pluggable by SI)
