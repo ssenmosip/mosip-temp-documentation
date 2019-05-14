@@ -6,12 +6,9 @@
   * [4. Re-print Request of UIN](#4-re-print-request-of-uin-) _(RES_FR_4)_
   * [5. Initiate UIN Update](#5-initiate-uin-update-) _(RES_FR_5)_
   * [6. Track Status of UIN Update](#6-track-status-of-uin-update-) _(RES_FR_6)_
-  * [7. Generate Static PIN (WIP)](#7-generate-static-pin-wip-) _(RES_FR_7)_
-  * [8. Update Static PIN (WIP)](#8-update-static-pin-wip-) _(RES_FR_8)_
-  * [9. View History of Authentication Requests (for Prescribed Days/number of requests)](#9-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_9)_
-  * [10. Lock/Unlock UIN](#10-lockunlock-uin-) _(RES_FR_10)_
-  * [11. Lock/Unlock KYC Docs/Data Sharing (WIP)](#11-lockunlock-kyc-docsdata-sharing-wip-) _(RES_FR_11)_
-  * [12. Lock/Unlock Biometric Auth/Other Auth (WIP)](#12-lockunlock-biometric-authother-auth-wip-) _(RES_FR_12)_
+  * [7. View History of Authentication Requests (for Prescribed Days/number of requests)](#7-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_7)_
+  * [8. Lock/Unlock UIN](#8-lockunlock-uin-) _(RES_FR_8)_
+
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
@@ -130,5 +127,4 @@ The following procedure to be followed by an individual to unlock the authentica
 1. The system will also trigger a confirmation notification on successful unlocking.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 11. Lock/Unlock KYC Docs/Data Sharing (WIP) [**[↑]**](#table-of-content)
-## 12. Lock/Unlock Biometric Auth/Other Auth (WIP) [**[↑]**](#table-of-content)
+
