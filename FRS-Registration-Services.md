@@ -1,6 +1,5 @@
 ## Table Of Content
 
-- [Registration Client](#registration-client)
 - [Registration Services](#registration-services)
 - [1. Master Data Sync](#1-master-data-sync) 
   * [1.1 Master Data, Configuration](#11-master-data-configuration-) _(REG_FR_1.1)_
@@ -58,7 +57,6 @@
 - [6. Registration Client UI](#6-registration-client-ui-) _(REG_FR_6)_
 
 
-# Registration Client
 # Registration Services
 
 # 1. Master Data Sync
