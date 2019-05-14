@@ -2,13 +2,14 @@
 * [Resident Services](#resident-services)
   * [1. Track Status of UIN Generation by providing Registration ID](#1-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
   * [2. Download UIN](#2-download-uin-) _(RES_FR_2)_
-  * [3. Retrieve Lost UIN - TBD](#3-retrieve-lost-uin---tbd-) _(RES_FR_3)_
-  * [4. Re-print Request of UIN](#4-re-print-request-of-uin-) _(RES_FR_4)_
-  * [5. Initiate UIN Update](#5-initiate-uin-update-) _(RES_FR_5)_
-  * [6. Track Status of UIN Update](#6-track-status-of-uin-update-) _(RES_FR_6)_
-  * [7. View History of Authentication Requests (for Prescribed Days/number of requests)](#7-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_7)_
-  * [8. Lock/Unlock UIN](#8-lockunlock-uin-) _(RES_FR_8)_
-  * [9. OTP Authentication](#9-otp-authentication-) _(RES_FR_9)_
+  * [3. Retrieve Lost RID](#3-retrieve-lost-uin-) _(RES_FR_3)_
+  * [4. Retrieve Lost UIN](#4-retrieve-lost-uin-) _(RES_FR_4)_
+  * [5. Re-print Request of UIN](#5-re-print-request-of-uin-) _(RES_FR_5)_
+  * [6. Initiate UIN Update](#6-initiate-uin-update-) _(RES_FR_6)_
+  * [7. Track Status of UIN Update](#7-track-status-of-uin-update-) _(RES_FR_7)_
+  * [8. View History of Authentication Requests (for Prescribed Days/number of requests)](#8-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_8)_
+  * [9. Lock/Unlock UIN](#9-lockunlock-uin-) _(RES_FR_9)_
+  * [10. OTP Authentication](#10-otp-authentication-) _(RES_FR_10)_
 
 
 # Resident Services
@@ -37,7 +38,18 @@ The following procedures to be followed by an individual to raise an e-UIN downl
   notification.
 1. During the validation of UIN/VID, Full Name, Postal Code, and Security Code and the mobile number/email ID, if the provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 3. Retrieve Lost UIN - TBD [**[↑]**](#table-of-content)
+## 3. Retrieve Lost RID [**[↑]**](#table-of-content)
+MOSIP allows an individual to initiate a request to retrieve the RID.
+An individual will follow the following procedure to raise a requested related to retrieve the RID:
+1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
+2. The system validates the provided data, checks for the registered mobile number/email ID and the system  triggers an OTP notification.
+1. The individual provides the OTP as received.
+1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
+   authentication, refer section 9 OTP Authentication.
+1. The system generates the password protected (Password is configurable) RID and provides the RID to the individual along with notification.
+1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the RID or the provided OTP is not correct, then the system triggers a respective error notification.
+
+## 4. Retrieve Lost UIN[**[↑]**](#table-of-content)
 
 MOSIP allows an individual to initiate a request to retrieve the Registration ID.
 
@@ -49,7 +61,7 @@ An individual will follow the following procedure to raise a requested related t
 1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP authentication, refer section 9 OTP Authentication.
 1. The system generates the password protected (Password is configurable) Registration ID and provides the Registration ID to the individual along with notification.
 1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the Registration ID or the provided OTP is not correct, then the system triggers a respective error notification.
-## 4. Re-print Request of UIN [**[↑]**](#table-of-content)
+## 5. Re-print Request of UIN [**[↑]**](#table-of-content)
 MOSIP allows an individual to raise a reprint request for their UIN.
 An individual will follow the following procedure to raise a reprint request: 
 1. The individual provides the UIN/VID for which he/she wants to reprint.
@@ -60,7 +72,7 @@ An individual will follow the following procedure to raise a reprint request:
 1. The system will provide the UIN to the registration processor to process the reprint request.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 5. Initiate UIN Update [**[↑]**](#table-of-content)
+## 6. Initiate UIN Update [**[↑]**](#table-of-content)
 MOSIP allows an individual to process a request to update the demographic data of the UIN.
 
 The procedure for an individual to update the demographic data follows:
@@ -80,7 +92,7 @@ triggers an OTP notification.
    section 7 Track Status of UIN Update.
 
 
-## 6. Track Status of UIN Update [**[↑]**](#table-of-content)
+## 7. Track Status of UIN Update [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to track the status related to UIN updates based on a registration ID.
 
 Following procedure to be followed by the individual to track the status of UIN updates:
@@ -95,7 +107,7 @@ Following procedure to be followed by the individual to track the status of UIN 
    triggers a respective error notification.
 9. Status of an update request can further be tracked by an individual. For more information on this feature, refer 
    section 7 Track Status of UIN Update.
-## 7. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
+## 8. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
 
 Procedure to raise request to view the authentication history of the past:
@@ -110,7 +122,7 @@ Procedure to raise request to view the authentication history of the past:
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 8. Lock/Unlock UIN [**[↑]**](#table-of-content)
+## 9. Lock/Unlock UIN [**[↑]**](#table-of-content)
 
 ### A. Lock the UIN
 
@@ -147,6 +159,6 @@ The following procedure to be followed by an individual to unlock the authentica
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
-## 9. OTP Authentication [**[↑]**](#table-of-content)
+## 10. OTP Authentication [**[↑]**](#table-of-content)
 At the time of registration, if a mobile number is registered with more than X number (X number is configurable based on policy of a country) of UIN/VID, then the system considers OTP as weak OTP authentication at the time of OTP authentication and does not initiate any further process. System provides the notification to the respective individual to visit the registration center.
 
