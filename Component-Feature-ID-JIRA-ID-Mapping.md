@@ -13,6 +13,19 @@
 |9.|SMS Notification|Generates and sends an SMS using a third party vendor|[CMN_FR_4.3](FRS-Common-Services)|[MOS-961](//mosipid.atlassian.net/browse/MOS-961)|
 |10.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|[CMN_FR_4.4](FRS-Common-Services)|[MOS-960](//mosipid.atlassian.net/browse/MOS-960), [MOS-12900](//mosipid.atlassian.net/browse/MOS-12900)|
 |11.|Template Merger|Merges a pre-configured template with dynamic values|[CMN_FR_4.5](FRS-Common-Services)|[MOS-786](//mosipid.atlassian.net/browse/MOS-786)|
+|12.|Transliteration|Performs Transliteration from one language to another|[CMN_FR_5](FRS-Common-Services)|[MOS-975](//mosipid.atlassian.net/browse/MOS-975)|
+|13.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|[CMN_FR_6.1](FRS-Common-Services)|[MOS-1028](//mosipid.atlassian.net/browse/MOS-1028)|
+|14.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|[CMN_FR_6.2](FRS-Common-Services)|[MOS-1029](//mosipid.atlassian.net/browse/MOS-1029)|
+|15.|Exception Framework|Provides base exception framework|[CMN_FR_6.3](FRS-Common-Services)|[MOS-30](//mosipid.atlassian.net/browse/MOS-30)|
+|16.|Calendar Utility|Calendar Utility|[CMN_FR_6.4](FRS-Common-Services)|[MOS-20](//mosipid.atlassian.net/browse/MOS-20)|
+|17.|Date Utility|Date Utility|[CMN_FR_6.5](FRS-Common-Services)|[MOS-23](//mosipid.atlassian.net/browse/MOS-23), [MOS-1988](//mosipid.atlassian.net/browse/MOS-1988)|
+|18.|File Utility|File Utility|[CMN_FR_6.6](FRS-Common-Services)|[MOS-21](//mosipid.atlassian.net/browse/MOS-21)|
+|19.|Json Utility|Json Utility|[CMN_FR_6.7](FRS-Common-Services)|[MOS-28](//mosipid.atlassian.net/browse/MOS-28)|
+|20.|Math Utility|Math Utility|[CMN_FR_6.8](FRS-Common-Services)|[MOS-19](//mosipid.atlassian.net/browse/MOS-19)|
+|21.|String Utility|String Utility|[CMN_FR_6.9](FRS-Common-Services)|[MOS-18](//mosipid.atlassian.net/browse/MOS-18)|
+|22.|UUID Utility|UUID Utility|[CMN_FR_6.10](FRS-Common-Services)|[MOS-1986](//mosipid.atlassian.net/browse/MOS-1986)|
+|23.|Zip-Unzip Utility|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+
 
 
 **2. Data Services:**
