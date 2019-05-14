@@ -69,29 +69,40 @@ triggers an OTP notification.
 1. The system allows the individual to update the respective demographic data.
 1. The individual provides the supporting documents related to the details, which are being updated. 
 1. The system provides an acknowledgement notification. 
-1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, and then the system triggers a respective error notification.
+1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
+   UIN/VID or the provided OTP is not correct, and then the system triggers a respective error notification.
+9. Status of an update request can further be tracked by an individual. For more information on this feature, refer 
+   section 7 Track Status of UIN Update.
+
 
 ## 6. Track Status of UIN Update [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to track the status related to UIN updates based on a registration ID.
 
 Following procedure to be followed by the individual to track the status of UIN updates:
 1. An individual provides the Registration ID for which he/she wants to track the status of UIN updates.
-1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
+1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an 
+   OTP notification to the individual.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status (Update statuses are configurable).
-1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers a respective error notification.
-
+1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status 
+   (Update statuses are configurable).
+1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the 
+   mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system 
+   triggers a respective error notification.
+9. Status of an update request can further be tracked by an individual. For more information on this feature, refer 
+   section 7 Track Status of UIN Update.
 ## 7. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
 
 Procedure to raise request to view the authentication history of the past:
 
 1. An individual provides the UIN/VID and security code which he/she wants to view.
-1. The system validates the provided UIN/VID and security code; checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
+1. The system validates the provided UIN/VID and security code; checks for the registered mobile number/email ID, and 
+   triggers an OTP notification to the individual.
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP, successfully authenticates the individual
 1. The system provides the history of authentication for all the authentication modalities.
-1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
+1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
+   UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ## 8. Lock/Unlock UIN [**[↑]**](#table-of-content)
 
@@ -108,7 +119,8 @@ The following procedure to be followed by an individual to lock the authenticati
 1. The individual will lock the authentication type(s), which he/she wishes.
 1. The system will disable the authentication type(s) as provided by the individual.
 1. The system will also trigger a confirmation notification on successful locking.
-1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
+1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
+   UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ### B. Unlock the UIN
 
@@ -124,6 +136,7 @@ The following procedure to be followed by an individual to unlock the authentica
 1. The individual will unlock the authentication type(s), which he/she requires.
 1. The system will enable the authentication type(s) as provided by the individual.
 1. The system will also trigger a confirmation notification on successful unlocking.
-1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
+1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
+   UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
 
 
