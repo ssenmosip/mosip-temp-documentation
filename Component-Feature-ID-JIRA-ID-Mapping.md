@@ -3,7 +3,7 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|OTP Manager|Generates and Validates OTP as per the defined policies|[CMN_FR_1](FRS-Common-Services)|[MOS-33](//mosipid.atlassian.net/browse/MOS-33), [MOS-34](//mosipid.atlassian.net/browse/MOS-34), [MOS-35](//mosipid.atlassian.net/browse/MOS-35), [MOS-36](//mosipid.atlassian.net/browse/MOS-36), [MOS-423](//mosipid.atlassian.net/browse/MOS-423), [MOS-991](//mosipid.atlassian.net/browse/MOS-991), [MOS-1056](//mosipid.atlassian.net/browse/MOS-1056), [MOS-1985](//mosipid.atlassian.net/browse/MOS-1985), [MOS-5486](//mosipid.atlassian.net/browse/MOS-5486)|
-|2.|QR Code Generator|Description|[CMN_FR_2](FRS-Common-Services)|MOS-xxx|
+|2.|QR Code Generator|Description|[CMN_FR_2](FRS-Common-Services)|[MOS-979](//mosipid.atlassian.net/browse/MOS-979)|
 |3.|Crypto Services|Key Generator|[CMN_FR_3.1](FRS-Common-Services)|MOS-xxx|
 |4.|Crypto Services|Key Management|[CMN_FR_3.2](FRS-Common-Services)|MOS-xxx|
 |5.|Crypto Services|Crypto Utility|[CMN_FR_3.3](FRS-Common-Services)|MOS-xxx|
