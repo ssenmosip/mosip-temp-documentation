@@ -31,7 +31,7 @@
        * [3.2.2.3 Deduplication – Demographic, Biometrics](#3223-deduplication--demographic-biometrics) _(RPR_FR_3.12)_
      * [3.2.3 External System Integration: (Elaborate with examples)](#323-external-system-integration-elaborate-with-examples) 
        * [3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP)](#3231-data-verification-pluggable-by-si--not-part-of-mosip) _(RPR_FR_3.13)_
-       * [3.2.3.2 Data Enrichment (Incl. receipt of Update Packet from ext. system and process thereafter, in terms of MOSIP’s capability)](#3232-data-enrichment-incl-receipt-of-update-packet-from-ext-system-and-process-thereafter-in-terms-of-mosips-capability) _(RPR_FR_3.14)_
+       * [3.2.3.2 Data Enrichment _(RPR_FR_3.14)_
        * [3.2.3.3 Manual Verification for ext. system data update (Pluggable by SI)](#3233-manual-verification-for-ext-system-data-update-pluggable-by-si) _(RPR_FR_3.15)_
        * [3.2.3.4 Manual Adjudication (Pluggable by SI)](#3234-manual-adjudication-pluggable-by-si) _(RPR_FR_3.16)_
        * [3.2.3.5 ABIS Integration (Incl. ABIS Middleware)](#3235-abis-integration-incl-abis-middleware) _(RPR_FR_3.17)_
