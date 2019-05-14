@@ -17,7 +17,8 @@ In MOSIP, an individual will initiate a request to track the status of UIN Gener
 An individual will execute the following procedure to initiate the track status request related to UIN generation:
 
 1. An individual provides the Registration ID for which he/she wants to track the status of UIN generation.
-1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.
+1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an 
+   OTP notification to the individual.
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN generation status (Statuses are configurable).
 1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers a respective error notification.
@@ -98,7 +99,7 @@ Procedure to raise request to view the authentication history of the past:
 
 ### A. Lock the UIN
 
-MOSIP allows an individual to lock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID.
+MOSIP allows an individual to lock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID. The locked authentication type(s) cannot be used for any authentication purpose.
 
 The following procedure to be followed by an individual to lock the authentication type(s):
 1. An individual provides the UIN/VID for which he/she wants to lock the authentication type(s).
@@ -113,7 +114,7 @@ The following procedure to be followed by an individual to lock the authenticati
 
 ### B. Unlock the UIN
 
-MOSIP allows an individual to unlock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID.
+MOSIP allows an individual to unlock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID. The unlocked authentication type(s) of demographic and biometric can be used for any required validation or verification.
 
 The following procedure to be followed by an individual to unlock the authentication type(s):
 
