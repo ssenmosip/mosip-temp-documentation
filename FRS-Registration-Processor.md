@@ -87,7 +87,7 @@ Registration Processor interacts with multiple external and internal systems, he
 To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
 
 ## 2.3 Resume Workflow
-Registration Processor, even after retrying multiple time fails to communicate or there is a system error, the system stops processing the packets. 
+When Registration Processor fails to communicate (with external or internal system) even after retrying multiple times or there is a system error, the system stops processing the packets. 
 
 These packets are later picked up by a module in Registration Processor called the Re-Processor based on a configurable logic which resumes the workflow.
 ## 2.4 Integration (System Integrator can integrate their system with MOSIP)
