@@ -138,7 +138,8 @@ The following procedure to be followed by an individual to unlock the authentica
 1. An individual provides the UIN/VID for which he/she wants to unlock the authentication type(s).
 1. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual.
+1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
+   authentication, refer section 9 OTP Authentication.
 1. The system provides the individual with unlock information related to authentication type(s).
 1. The individual will unlock the authentication type(s), which he/she requires.
 1. The system will enable the authentication type(s) as provided by the individual.
