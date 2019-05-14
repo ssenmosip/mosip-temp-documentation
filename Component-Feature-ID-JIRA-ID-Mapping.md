@@ -53,37 +53,37 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|Registration Management|Registration Center Type - Create/Update/Delete|[ADM_FR_2.1](FRS-Admin-Services)|
-|2.|Registration Management|Registration Center - Create/Read/Update/Delete|ADM_FR_2.2](FRS-Admin-Services)|
-|3.|Registration Management|List of Machine Types - Create|ADM_FR_2.3](FRS-Admin-Services)|
-|4.|Registration Management|List of Machine Specifications - Create/Update/Delete|ADM_FR_2.4](FRS-Admin-Services)|
-|5.|Registration Management|List of Machines - Create/Read/Update/Delete|ADM_FR_2.5](FRS-Admin-Services)|
-|6.|Registration Management|Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete|ADM_FR_2.6](FRS-Admin-Services)|
-|7.|Registration Management|List of Devices - Create/Read/Update/Delete|ADM_FR_2.7](FRS-Admin-Services)|
-|8.|Registration Management|List of Device Specifications - Create/Read/Update/Delete|ADM_FR_2.8](FRS-Admin-Services)|
-|9.|Registration Management|List of Device Types - Create/Update/Delete|ADM_FR_2.9](FRS-Admin-Services)|
-|10.|Registration Management|Mappings of Registration Center and Machine - Create/Read/Delete|ADM_FR_2.10](FRS-Admin-Services)|
-|11.|Registration Management|Mappings of Registration Center and Device - Create/Read/Delete|ADM_FR_2.11](FRS-Admin-Services)|
-|12.|Registration Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|ADM_FR_2.12](FRS-Admin-Services)|
-|13.|Masterdata Management|Create/Read/Update/Delete - Location Hierarchy|ADM_FR_1.1](FRS-Admin-Services)|
-|14.|Masterdata Management|List of Holidays - Create/Read/Update/Delete|ADM_FR_1.2](FRS-Admin-Services)|
-|15.|Masterdata Management|Biometric Authentication Type - Create/Read|ADM_FR_1.3](FRS-Admin-Services)|
-|16.|Masterdata Management|Biometric Attirbute Type - Create/Read|ADM_FR_1.4](FRS-Admin-Services)|
-|17.|Masterdata Management|Gender - Create/Read/Update/Delete|ADM_FR_1.5](FRS-Admin-Services)|
-|18.|Masterdata Management|Document Category - Create/Read/Update/Delete|ADM_FR_1.6](FRS-Admin-Services)|
-|19.|Masterdata Management|Document Type - Create/Update/Delete|ADM_FR_1.7](FRS-Admin-Services)|
-|20.|Masterdata Management|Applicant Type-Document Category-Document Type Mapping - Read|ADM_FR_1.8](FRS-Admin-Services)|
-|21.|Masterdata Management|List of Languages - Create/Read/Update/Delete|ADM_FR_1.9](FRS-Admin-Services)|
-|22.|Masterdata Management|List of Titles - Create/Read/Update/Delete|ADM_FR_1.10](FRS-Admin-Services)|
-|23.|Masterdata Management|Template File Format - Create/Update/Delete|ADM_FR_1.11](FRS-Admin-Services)|
-|24.|Masterdata Management|List of Template Types - Create|ADM_FR_1.12](FRS-Admin-Services)|
-|25.|Masterdata Management|List of Templates - Create/Read/Update/Delete|ADM_FR_1.13](FRS-Admin-Services)|
-|26.|Masterdata Management|List of Blacklisted Words - Create/Read/Update/Delete|ADM_FR_1.14](FRS-Admin-Services)|
-|27.|Masterdata Management|List of Reason Categories - Create|ADM_FR_1.15](FRS-Admin-Services)|
-|28.|Masterdata Management|List of Rejection Reasons - Create/Read|ADM_FR_1.16](FRS-Admin-Services)|
-|29.|Masterdata Management|List of Applications - Create/Read|ADM_FR_1.17](FRS-Admin-Services)|
-|30.|Masterdata Management|List of ID Types - Create/Read|ADM_FR_1.18](FRS-Admin-Services)|
-|31.|Masterdata Management|Individual Type Management - Read|ADM_FR_1.19](FRS-Admin-Services)|
+|36.|Master Data Management|Registration Center Type - Create/Update/Delete|ADM_FR_2.1(FRS-Admin-Services)|[MOS-539](//mosipid.atlassian.net/browse/MOS-539), [MOS-10558](//mosipid.atlassian.net/browse/MOS-10558), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|37.|Master Data Management|Registration Center - Create/Read/Update/Delete|ADM_FR_2.2(FRS-Admin-Services)[MOS-8220](//mosipid.atlassian.net/browse/MOS-8220), [MOS-8221](//mosipid.atlassian.net/browse/MOS-8221), [MOS-8236](//mosipid.atlassian.net/browse/MOS-8236), [MOS-8244](//mosipid.atlassian.net/browse/MOS-8244), [MOS-9529](//mosipid.atlassian.net/browse/MOS-9529), [MOS-9722](//mosipid.atlassian.net/browse/MOS-9722), [MOS-10560](//mosipid.atlassian.net/browse/MOS-10560), [MOS-11924](//mosipid.atlassian.net/browse/MOS-11924), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|38.|Master Data Management|List of Machine Types - Create|ADM_FR_2.3(FRS-Admin-Services)[MOS-547](//mosipid.atlassian.net/browse/MOS-547), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|39.|Master Data Management|List of Machine Specifications - Create/Update/Delete|ADM_FR_2.4(FRS-Admin-Services)[MOS-551](//mosipid.atlassian.net/browse/MOS-551), [MOS-10565](//mosipid.atlassian.net/browse/MOS-10565), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|40.|Master Data Management|List of Machines - Create/Read/Update/Delete|ADM_FR_2.5(FRS-Admin-Services)[MOS-8222](//mosipid.atlassian.net/browse/MOS-8222), [MOS-8229](//mosipid.atlassian.net/browse/MOS-8229), [MOS-9723](//mosipid.atlassian.net/browse/MOS-9723), [MOS-10566](//mosipid.atlassian.net/browse/MOS-10566), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|41.|Master Data Management|Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete|ADM_FR_2.6(FRS-Admin-Services)[MOS-8232](//mosipid.atlassian.net/browse/MOS-8232), [MOS-10306](//mosipid.atlassian.net/browse/MOS-10306), [MOS-10589](//mosipid.atlassian.net/browse/MOS-10589), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|42.|Master Data Management|Create/Read/Update/Delete - Location Hierarchy|ADM_FR_1.1(FRS-Admin-Services)|[MOS-8233](//mosipid.atlassian.net/browse/MOS-8233), [MOS-8234](//mosipid.atlassian.net/browse/MOS-8234), [MOS-550](//mosipid.atlassian.net/browse/MOS-550), [MOS-12155](//mosipid.atlassian.net/browse/MOS-12155), [MOS-13943](//mosipid.atlassian.net/browse/MOS-13943), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076), [MOS-10591](//mosipid.atlassian.net/browse/MOS-10591)|
+|43.|Master Data Management|List of Holidays - Create/Read/Update/Delete|ADM_FR_1.2(FRS-Admin-Services)|[MOS-8235](//mosipid.atlassian.net/browse/MOS-8235), [MOS-549](//mosipid.atlassian.net/browse/MOS-549), [MOS-8565](//mosipid.atlassian.net/browse/MOS-8565), [MOS-10593](//mosipid.atlassian.net/browse/MOS-10593), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|44.|Master Data Management|Biometric Authentication Type - Create/Read|ADM_FR_1.3(FRS-Admin-Services)|[MOS-8245](//mosipid.atlassian.net/browse/MOS-8245), [MOS-9622](//mosipid.atlassian.net/browse/MOS-9622), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|45.|Master Data Management|Biometric Attirbute Type - Create/Read|ADM_FR_1.4(FRS-Admin-Services)|[MOS-8246](//mosipid.atlassian.net/browse/MOS-8246), [MOS-9623](//mosipid.atlassian.net/browse/MOS-9623), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|46.|Master Data Management|Gender - Create/Read/Update/Delete|ADM_FR_1.5(FRS-Admin-Services)|[MOS-8266](//mosipid.atlassian.net/browse/MOS-8266), [MOS-9624](//mosipid.atlassian.net/browse/MOS-9624), [MOS-988](//mosipid.atlassian.net/browse/MOS-988), [MOS-13944](//mosipid.atlassian.net/browse/MOS-13944), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|47.|Master Data Management|Document Category - Create/Read/Update/Delete|ADM_FR_1.6(FRS-Admin-Services)|[MOS-8269](//mosipid.atlassian.net/browse/MOS-8269), [MOS-9683](//mosipid.atlassian.net/browse/MOS-9683), [MOS-10567](//mosipid.atlassian.net/browse/MOS-10567), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|48.|Master Data Management|Document Type - Create/Update/Delete|ADM_FR_1.7(FRS-Admin-Services)|[MOS-9684](//mosipid.atlassian.net/browse/MOS-9684), [MOS-10569](//mosipid.atlassian.net/browse/MOS-10569), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|49.|Master Data Management|Applicant Type-Document Category-Document Type Mapping - Read|ADM_FR_1.8(FRS-Admin-Services)|[MOS-12060](//mosipid.atlassian.net/browse/MOS-12060), [MOS-13962](//mosipid.atlassian.net/browse/MOS-13962), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076), [MOS-12068](//mosipid.atlassian.net/browse/MOS-12068), [MOS-13591](//mosipid.atlassian.net/browse/MOS-13591)|
+|50.|Master Data Management|List of Devices - Create/Read/Update/Delete|ADM_FR_2.7(FRS-Admin-Services)[MOS-8263](//mosipid.atlassian.net/browse/MOS-8263), [MOS-9695](//mosipid.atlassian.net/browse/MOS-9695), [MOS-12057](//mosipid.atlassian.net/browse/MOS-12057), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076), [MOS-10563](//mosipid.atlassian.net/browse/MOS-10563)|
+|51.|Master Data Management|List of Device Specifications - Create/Read/Update/Delete|ADM_FR_2.8(FRS-Admin-Services)[MOS-8264](//mosipid.atlassian.net/browse/MOS-8264), [MOS-9788](//mosipid.atlassian.net/browse/MOS-9788), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076), [MOS-10562](//mosipid.atlassian.net/browse/MOS-10562)|
+|52.|Master Data Management|List of Device Types - Create/Update/Delete|ADM_FR_2.9(FRS-Admin-Services)[MOS-9787](//mosipid.atlassian.net/browse/MOS-9787), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|53.|Master Data Management|List of Languages - Create/Read/Update/Delete|ADM_FR_1.9(FRS-Admin-Services)|[MOS-8265](//mosipid.atlassian.net/browse/MOS-8265), [MOS-1075](//mosipid.atlassian.net/browse/MOS-1075), [MOS-10554](//mosipid.atlassian.net/browse/MOS-10554), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|54.|Master Data Management|List of Titles - Create/Read/Update/Delete|ADM_FR_1.10(FRS-Admin-Services)|[MOS-8267](//mosipid.atlassian.net/browse/MOS-8267), [MOS-9696](//mosipid.atlassian.net/browse/MOS-9696), [MOS-992](//mosipid.atlassian.net/browse/MOS-992), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|55.|Master Data Management|Template File Format - Create/Update/Delete|ADM_FR_1.11(FRS-Admin-Services)|[MOS-9687](//mosipid.atlassian.net/browse/MOS-9687), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076), [MOS-10573](//mosipid.atlassian.net/browse/MOS-10573)|
+|56.|Master Data Management|List of Template Types - Create|ADM_FR_1.12(FRS-Admin-Services)|[MOS-586](//mosipid.atlassian.net/browse/MOS-586), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|57.|Master Data Management|List of Templates - Create/Read/Update/Delete|ADM_FR_1.13(FRS-Admin-Services)|[MOS-8271](//mosipid.atlassian.net/browse/MOS-8271), [MOS-995](//mosipid.atlassian.net/browse/MOS-995), [MOS-10590](//mosipid.atlassian.net/browse/MOS-10590), [MOS-15461](//mosipid.atlassian.net/browse/MOS-15461), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|58.|Master Data Management|List of Blacklisted Words - Create/Read/Update/Delete|ADM_FR_1.14(FRS-Admin-Services)|[MOS-8268](//mosipid.atlassian.net/browse/MOS-8268), [MOS-9697](//mosipid.atlassian.net/browse/MOS-9697), [MOS-1054](//mosipid.atlassian.net/browse/MOS-1054), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|59.|Master Data Management|List of Reason Categories - Create|ADM_FR_1.15(FRS-Admin-Services)|[MOS-9689](//mosipid.atlassian.net/browse/MOS-9689), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|60.|Master Data Management|List of Rejection Reasons - Create/Read|ADM_FR_1.16(FRS-Admin-Services)|[MOS-8551](//mosipid.atlassian.net/browse/MOS-8551), [MOS-9690](//mosipid.atlassian.net/browse/MOS-9690),[MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|61.|Master Data Management|List of Applications - Create/Read|ADM_FR_1.17(FRS-Admin-Services)|[MOS-8888](//mosipid.atlassian.net/browse/MOS-8888), [MOS-9688](//mosipid.atlassian.net/browse/MOS-9688), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|62.|Master Data Management|List of ID Types - Create/Read|ADM_FR_1.18(FRS-Admin-Services)|[MOS-8247](//mosipid.atlassian.net/browse/MOS-8247), [MOS-9691](//mosipid.atlassian.net/browse/MOS-9691),[MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|63.|Master Data Management|Mappings of Registration Center and Machine - Create/Read/Delete|ADM_FR_2.10(FRS-Admin-Services)|[MOS-9728](//mosipid.atlassian.net/browse/MOS-9728), [MOS-9712](//mosipid.atlassian.net/browse/MOS-9712), [MOS-1053](//mosipid.atlassian.net/browse/MOS-1053), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|64.|Master Data Management|Mappings of Registration Center and Device - Create/Read/Delete|ADM_FR_2.11(FRS-Admin-Services)|[MOS-9729](//mosipid.atlassian.net/browse/MOS-9729), [MOS-9712](//mosipid.atlassian.net/browse/MOS-9712), [MOS-10561](//mosipid.atlassian.net/browse/MOS-10561), [MOS-12058](//mosipid.atlassian.net/browse/MOS-12058), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|ADM_FR_2.12(FRS-Admin-Services)|[MOS-9730](//mosipid.atlassian.net/browse/MOS-9730), [MOS-9712](//mosipid.atlassian.net/browse/MOS-9712), [MOS-10564](//mosipid.atlassian.net/browse/MOS-10564), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
+|66.|Master Data Management|Individual Type Management - Read|ADM_FR_1.19(FRS-Admin-Services)|[MOS-13950](//mosipid.atlassian.net/browse/MOS-13950)|
 
 
 **4. UIN  Generation:**
