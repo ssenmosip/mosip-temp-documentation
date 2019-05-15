@@ -90,16 +90,17 @@ User will perform the following to log out from MOSIP:
 MOSIP Admin Application provides the capability to auto-logout the user as configured. For example, if system becomes idle for sometimes (idle time is configurable), then user will be auto-logout. 
 ## 2. Account Management
 ### 2.1 Edit Personal Details
-Using MOSIP, user will  manage his/her profile.
+Using MOSIP, user will  manage his/her profile. Generally MOSIP users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
 Procedure to manage the profile follows:
 1. User will provide the valid credential in the relevant portal to login.
 2. The system validates the credentials and allows user to login after successful validation.
 3. The system allows user to land on Home page.
-4. The Home Page contains the permitted functionalities to the user and those functionalities are available in the main 
+4. The Home Page contains the permitted functionalities of the user and those functionalities are available in the main 
    page in active mode.
 5. The system allows users to perform the profile management activities (updating user’s personal details and Account 
-   Management). 
+   Management).
+On successful submission the updates, the system provides the notification about the updates. 
 
 ### 2.2 Change Password
 Using MOSIP, users will change the password. Based on the country, single factor or multi-factor authentication will be configured. 
