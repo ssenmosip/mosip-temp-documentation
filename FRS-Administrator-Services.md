@@ -67,9 +67,9 @@
 - [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid) _(ASR_FR_9)_
 - [10.Multi-language Support)](#10-multi-language-support) _(ASR_FR_10)_
     * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
-    * [10.2 Implementation in English (Labels etc)](#102-implementation-in-English-(Labels-etc)) _(ASR_FR_10.2)_
-    * [10.3 Language Specific Setup](#103-10.1-language-specific-setup) _(ASR_FR_10.3)_
-
+    * [10.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_10.2)_
+    * [10.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_10.3)_
+- [11. Responsive UI](#11-responsive-ui) _(ASR_FR_11)
 ## 1. Login
 ### 1.1 Login
 MOSIP Admin portal will support single factor and multi factor login including biometrics. Admin will configure the login setting related to single factor or multi-factor based on the country.
@@ -182,11 +182,9 @@ Procedure to unblock the account:
 ## 6. Masterdata Management
 ### 6.1 View Master Data Types
 ### 6.2 View Master data for each table
-### 6.3 Manage Document Type
-#### 6.3.1 Create Document Type
-#### 6.3.2 Update Document Type
-#### 6.3.3 Activate/Deactivate Document Type
-### 6.4 Manage Document Category to Document Types Mapping
+### 6.3 Manage Masterdata
+#### 6.3.1 Manage Document Type(Create,update,activate,deactivate)
+#### 6.3.2 Manage Document Category to Document Types Mapping
 #### 6.4.1 Create Document Category to Document Types Mapping
 #### 6.4.2 Update Document Category to Document Types Mapping
 #### 6.4.3 Activate/Deactivate Document Category to Document Types Mapping
@@ -207,4 +205,8 @@ Procedure to unblock the account:
 ### 7.2 Approval for Masterdata Creation (WIP)
 ## 8. UIN Activation/Deactivation
 ## 9. Packet Status Check (based on RID)
-## 10.Multi-language Support
+## 10. Multi-language Support
+### 10.1 i18N
+### 10.2 Implementation in English (Labels etc)
+### 10.3 Language Specific Setup
+## 11. Responsive UI
