@@ -52,10 +52,10 @@
      * [6.3.9 Manage Device Specifications (View)](#639-manage-device-specifications-view) _(ASR_FR_6.11)_ 
      * [6.3.10 Manage Individual Types (View)](#6310-manage-individual-types-view) _(ASR_FR_6.12)_ 
      * [6.3.11 Manage Document Type to Document Category Mapping (View)](#6311-manage-document-type-to-document-category-mapping-view) _(ASR_FR_6.13)_ 
-     * [6.3.12 Manage Individual Types (View)](#612-manage-individual-types-view) _(ASR_FR_6.14)_ 
-     * [6.3.13 Manage List of Templates (View)](#613-manage-list-of-templates-view) _(ASR_FR_6.15)_ 
-     * [6.3.14 Manage List of Holidays (View)](#614-manage-list-of-holidays-view) _(ASR_FR_6.16)_ 
-     * [6.3.15 Manage Gender Types (View)](#615-manage-gender-types-view) _(ASR_FR_6.17)_ 
+     * [6.3.12 Manage List of Holidays (View)](#6312-manage-list-of-holidays-view) _(ASR_FR_6.14)_ 
+     * [6.3.13 Manage List of Templates (View)](#6313-manage-list-of-templates-view) _(ASR_FR_6.15)_ 
+      * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.16)_ 
+     * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view) _(ASR_FR_6.17)_ 
 - [7. Approval Process](#7-approval-process) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation-wip-)
     * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
@@ -199,10 +199,10 @@ Procedure to unblock the account:
 #### 6.3.9 Manage Device Specifications (View)
 #### 6.3.10 Manage Individual Types (View)
 #### 6.3.11 Manage Document Type to Document Category Mapping (View)
-#### 6.3.12 Manage List of Templates (View)
-#### 6.3.13 Manage List of Holidays (View)
-#### 6.3.14 Manage Gender Types (View)
-#### 6.3.15 Manage List of Titles (View)
+#### 6.3.12 Manage List of Holidays (View)
+#### 6.3.13 Manage List of Templates (View)
+#### 6.3.14 Manage List of Titles (View)
+#### 6.3.15 Manage Gender Types (View)
 ## 7. Approval Process
 ### 7.1 Approval for Resource Creation (WIP)
 #### 7.1.1 Center 
