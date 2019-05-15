@@ -40,37 +40,26 @@
 - [6. Master Data Management](#6-master-data-management) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
-  * [6.3 Manage Document Type](#63-manage-document-type)
-    * [6.3.1 Create Document Type](#631-create-document-type) _(ASR_FR_6.3)_
-    * [6.3.2 Update Document Type](#632-update-document-type) _(ASR_FR_6.4)_
-    * [6.3.3 Activate/Deactivate Document Type](#633-activatedeactivate-document-type) _(ASR_FR_6.5)_
-    * [6.4 Manage Document Category to Document Types Mapping](#64-manage-document-category-to-document-types-mapping)
-    * [6.4.1 Create Document Category to Document Types Mapping](#641-create-document-category-to-document-types-mapping) _(ASR_FR_6.6)_
-    * [6.4.2 Update Document Category to Document Types Mapping](#642-update-document-category-to-document-types-mapping) _(ASR_FR_6.7)_
-    * [6.4.3 Activate/Deactivate Document Category to Document Types Mapping](#643-activatedeactivate-document-category-to-document-types-mapping) _(ASR_FR_6.8)_
-  * [6.5 Manage Location Data](#65-manage-location-data)
-    * [6.5.1 Create Location Data](#651-create-location-data) _(ASR_FR_6.9)_
-    * [6.5.2 Update Location Data](#652-update-location-data) _(ASR_FR_6.10)_
-    * [6.5.3 Activate/Deactivate Location Data](#653-activatedeactivate-location-data) _(ASR_FR_6.11)_
-  * [6.6 Manage Blacklisted Words](#66-manage-blacklisted-words)
-    * [6.6.1 Create Blacklisted Words](#661-create-blacklisted-words) _(ASR_FR_6.12)_
-    * [6.6.2 Update Blacklisted Words](#662-update-blacklisted-words) _(ASR_FR_6.13)_
-    * [6.6.3 Activate/Deactivate Blacklisted Words](#663-activate-deactivate-blacklisted-words) _(ASR_FR_6.14)_
-  * [6.7 Table 5](#67-table-5)
-    * [6.7.1 View Table 5) _(ASR_FR_6.14)_
-  * [6.8 Table 6](#68-table-6)
-    * [6.8.1 View Table 6) _(ASR_FR_6.15)_ 
- * [6.9 Table 7](#69-table-7)
-    * [6.9.1 View Table 8) _(ASR_FR_6.16)_
- * [6.10 Table 8](#610-table-8)
-    * [6.10.1 View Table 8) _(ASR_FR_6.17)_
-* [6.11 Table 9](#611-table-9)
-    * [6.11.1 View Table 9) _(ASR_FR_6.18)_
-* [6.12 Table 10](#612-table-10)
-    * [6.12.1 View Table 10) _(ASR_FR_6.19)_
-* [6.13 Table 11](#613-table-11)
-    * [6.13.1 View Table 11) _(ASR_FR_6.20)_
-
+  * [6.3 Manage Master Data](#63-manage-master-data)
+    * [6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)](#631-manage-document-type) _(ASR_FR_6.3)_
+    * [6.3.2 Manage Document Category (Create, Update, Activate, Deactivate)](#632-manage-document-category) 
+    _(ASR_FR_6.4)_
+    * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data) 
+    _(ASR_FR_6.5)_
+    * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words) 
+    _(ASR_FR_6.6)_
+< The following are the place holder and name will get changed>
+     * [6.3.5 Manage Table 5 (View)](#635-manage-table-5) _(ASR_FR_6.7)_ 
+     * [6.3.6 Manage Table 6 (View)](#636-manage-table-6) _(ASR_FR_6.8)_ 
+     * [6.3.7 Manage Table 7 (View)](#637-manage-table-7) _(ASR_FR_6.9)_ 
+     * [6.3.8 Manage Table 8 (View)](#638-manage-table-8) _(ASR_FR_6.10)_ 
+     * [6.3.9 Manage Table 9 (View)](#639-manage-table-9) _(ASR_FR_6.11)_ 
+     * [6.3.10 Manage Table 10 (View)](#610-manage-table-10) _(ASR_FR_6.12)_ 
+     * [6.3.11 Manage Table 11 (View)](#611-manage-table-11) _(ASR_FR_6.13)_ 
+     * [6.3.12 Manage Table 12 (View)](#612-manage-table-12) _(ASR_FR_6.14)_ 
+     * [6.3.13 Manage Table 13 (View)](#613-manage-table-13) _(ASR_FR_6.15)_ 
+     * [6.3.14 Manage Table 14 (View)](#614-manage-table-14) _(ASR_FR_6.16)_ 
+     * [6.3.15 Manage Table 15 (View)](#615-manage-table-15) _(ASR_FR_6.17)_ 
 - [7. Approval Process](#7-approval-process) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation--wip-)
     * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
@@ -234,3 +223,8 @@ Procedure to unblock the account:
 ### 10.2 Implementation in English (Labels etc)
 ### 10.3 Language Specific Setup
 ## 11. Responsive UI
+## 12. MOSIP Platform Setup
+## 13. ID Definition Setup
+### 13.1 ID Definition Validator
+## 14. Configuration Setup
+## 15. Process Flow Setup
