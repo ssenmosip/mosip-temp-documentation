@@ -984,11 +984,6 @@ appid|Yes|This is the application ID of the caller of this service.| -NA- | ADMI
 Success Response 
 
 ```
-Response Cookie:
-
-Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
-
-
 JSON:
 {
 	"id": "mosip.admin.authentication.resetpassword",
@@ -1063,7 +1058,6 @@ Error Responses
 * [POST /rid](#post-rid)
 * [POST /password](#post-password)
 
-```
 ### POST /register
 
 This service will register a new user.
@@ -1166,7 +1160,6 @@ Error Responses
 }
 
 ```
-```
 ### POST /rid
 
 This service will check for the rid with the user.
@@ -1257,7 +1250,6 @@ Error Responses
 }
 
 ```
-```
 
 3. Invalid application ID: If the passed in application is not correct. 
 ```JSON
@@ -1274,7 +1266,6 @@ Error Responses
 		]
 }
 
-```
 ```
 ### POST /password
 
@@ -1385,7 +1376,6 @@ Error Responses
 		]
 }
 
-```
 ```
 
 4. Password policy rule not met: If the new password is not meeting the password policy. 
