@@ -15,20 +15,10 @@
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 
-An individual can track the stats of UIN generation by providing a Registration ID(RID). The system validates the provided RID and the mobile number/email ID associated with it and sends an OTP notifications if successfully validated. An individual provides the OTP as received; the system authenticates the individual and sends the status of UIN generation through OTP notification (UIN statuses are configurable) . For more information on OTP   authentication, refer section 10 OTP Authentication. During the validation of RID and mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers an error notification.
+An individual can track the stats of UIN generation by providing a Registration ID(RID). The system validates the provided RID and the mobile number/email ID associated with it and sends an OTP notifications if successfully validated. Individual provides the OTP as received; the system authenticates the individual and sends the status of UIN generation through OTP notification (UIN statuses are configurable) . For more information on OTP   authentication, refer section 10 OTP Authentication. During the validation of RID and mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers an error message.
 ## 2. Download UIN [**[↑]**](#table-of-content)
-The system allows an individual to raise a request to download their e-UIN.
 
-The following procedures to be followed by an individual to raise an e-UIN download request:
-
-1. An individual provides the UIN/VID, Full Name, Postal Code, and Security Code.
-1. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.
-1. The Individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
-   authentication, refer section 10 OTP Authentication.
-1. The system will generate the password protected (Password is configurable) e-UIN and successfully provides a 
-  notification.
-1. During the validation of UIN/VID, Full Name, Postal Code, and Security Code and the mobile number/email ID, if the provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
+An individual raises a request to download his/her e-UIN by providing the UIN/VID, full name, postal code, and security code.The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.The Individual provides the OTP as received.The system validates the provided OTP and successfully authenticates the individual. For more information on OTP authentication, refer section 10 OTP Authentication.The system will generate the password protected (Password is configurable) e-UIN and sends a notification.During the validation of UIN/VID, Full Name, Postal Code, and Security Code and the mobile number/email ID, if the provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers an error message.
 
 ## 3. Retrieve Lost RID [**[↑]**](#table-of-content)
 MOSIP allows an individual to initiate a request to retrieve the RID.
