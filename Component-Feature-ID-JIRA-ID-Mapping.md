@@ -1,6 +1,6 @@
 ## Table Of Content
 
-* [1. Common Services](#1-common-services-)
+- [1. Common Services](#1-common-services-)
 - [2. Data Services](#2-data-services-)
 - [3. Admin Services](#3-admin-services-)
 - [4. UIN  Generation](#4-uin--generation-)
