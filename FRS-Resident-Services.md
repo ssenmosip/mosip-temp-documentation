@@ -14,16 +14,8 @@
 
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
-In MOSIP, an individual will initiate a request to track the status of UIN Generation based on a Registration ID.
 
-An individual will execute the following procedure to initiate the track status request related to UIN generation:
-
-1. An individual provides the Registration ID for which he/she wants to track the status of UIN generation.
-1. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an 
-   OTP notification to the individual.
-1. The individual provides the OTP as received.
-1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN generation status (Statuses are configurable). For more information on OTP authentication, refer section 10 OTP Authentication.
-1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers a respective error notification.
+An individual can track the stats of UIN generation by providing a Registration ID(RID). The system validates the provided RID and the mobile number/email ID associated with it and sends an OTP notifications if successfully validated. An individual provides the OTP as received; the system authenticates the individual and sends the status of UIN generation through OTP notification (UIN statuses are configurable) . For more information on OTP   authentication, refer section 10 OTP Authentication. During the validation of RID and mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers an error notification.
 ## 2. Download UIN [**[↑]**](#table-of-content)
 The system allows an individual to raise a request to download their e-UIN.
 
