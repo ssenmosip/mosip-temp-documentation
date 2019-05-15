@@ -12,7 +12,7 @@ This section details about the service APIs in the Registration-Processor module
 
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
-This service receives the registration packet and puts it to landing zone.
+This service receives the registration packet. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated.
 
 ### Resource URL
 ### `POST /registrationprocessor/v1/packetreceiver/registrationpackets`
@@ -42,7 +42,7 @@ MultipartFile|Yes|The encrypted zip file| |
 	"version" : "1.0",
 	"responsetime" : "2019-02-02T06:12:25.288Z",
 	"response" : {
-		"status" : "PACKET_UPLOADED_TO_VIRUS_SCAN"
+		"status" : "Packet is in PACKET_RECEIVED status"
 	}
 }
 ```
@@ -186,6 +186,7 @@ langCode|Yes|language code used | | eng or ara
 			"packetSize": 5242880,
 			"supervisorStatus": "APPROVED",
 			"supervisorComment": "Approved, all good",
+			"longCode": "eng",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "122223456"
@@ -198,6 +199,7 @@ langCode|Yes|language code used | | eng or ara
 			"packetSize": 4242880,
 			"supervisorStatus": "REJECTED",
 			"supervisorComment": "Rejected due to error",
+			"longCode": "eng",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "3456789o"
