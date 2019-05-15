@@ -324,7 +324,7 @@ System exports registration packet data from client machine to an external devic
 
 #### B. Transliteration: Virtual keyboard
 
-Refer to the section related to[**Transliteration**](#5103-transliteration-).
+Refer to the section related to [**Transliteration and Virtual Keyboard**](#5103-transliteration-and-virtual-keyboard-).
 #### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
 1. For new registration or UIN update, the system provides an option for the Registration Officer to mark an individual's date of birth as ‘Verified’.
 1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
