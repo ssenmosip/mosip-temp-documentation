@@ -105,7 +105,6 @@ Following procedure to be followed by the individual to track the status of UIN 
 1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the 
    mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system 
    triggers a respective error notification.
-9. Status of an update request can further be tracked by an individual. 
 ## 8. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
 
