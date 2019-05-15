@@ -63,7 +63,7 @@ version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.userid |Yes|user id of the applicant(mobile number/email address)|8907654778
-request.langcode|Yes|The preferred language code |fra
+
 
 #### Request:
 ```JSON
