@@ -65,6 +65,10 @@
   * [7.2 Approval for Masterdata Creation (WIP)](#72-approval-for-masterdata-creation-wip) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid) _(ASR_FR_9)_
+- [10.Multi-language Support)](#10-multi-language-support) _(ASR_FR_10)_
+    * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
+    * [10.2 Implementation in English (Labels etc)](#102-implementation-in-English-(Labels-etc)) _(ASR_FR_10.2)_
+    * [10.3 Language Specific Setup](#103-10.1-language-specific-setup) _(ASR_FR_10.3)_
 
 ## 1. Login
 ### 1.1 Login
@@ -203,3 +207,4 @@ Procedure to unblock the account:
 ### 7.2 Approval for Masterdata Creation (WIP)
 ## 8. UIN Activation/Deactivation
 ## 9. Packet Status Check (based on RID)
+## 10.Multi-language Support
