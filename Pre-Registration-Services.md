@@ -2653,10 +2653,8 @@ Requires Authentication | Yes
     "id": "mosip.pre-registration.appointment.availability",
     "version": "1.0",
     "responsetime": "2019-05-15T08:47:25.523Z",
-   "response": {
-      "message": "MASTER_DATA_SYNCED_SUCCESSFULLY"
-   },
-   "errors":null
+    "response": "MASTER_DATA_SYNCED_SUCCESSFULLY",
+    "errors":null
 }
 ```
 #### Other Failure details
