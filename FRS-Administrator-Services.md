@@ -42,25 +42,22 @@
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data)
     * [6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)](#631-manage-document-type-create-update-activate-deactivate)) _(ASR_FR_6.3)_
-    * [6.3.2 Manage Document Category to Document Mapping(Create, Update, Activate, Deactivate)](#632-manage-document- 
-     category-to-document-mapping-create-update-activate-deactivate)) _(ASR_FR_6.4)_
-    * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data) 
-    _(ASR_FR_6.5)_
-    * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words) 
-    _(ASR_FR_6.6)_
-     * [6.3.5 Registration Center Types (View)](#635-manage-registration-center-types) _(ASR_FR_6.7)_ 
-     * [6.3.6 Manage Machine Types (View)](#636-manage-machine-types) _(ASR_FR_6.8)_ 
-     * [6.3.7 Manage Machine Specifications (View)](#637-manage-machine-specifications) _(ASR_FR_6.9)_ 
-     * [6.3.8 Manage Device Types (View)](#638-manage-device-types) _(ASR_FR_6.10)_ 
-     * [6.3.9 Manage Device Specifications (View)](#639-manage-device-specifications) _(ASR_FR_6.11)_ 
-     * [6.3.10 Manage Individual Types (View)](#610-manage-individual-types) _(ASR_FR_6.12)_ 
-     * [6.3.11 Manage Document Type Document Category Mapping (View)](#611-manage-document-types-document category- mapping) _(ASR_FR_6.13)_ 
-     * [6.3.12 Manage Individual Types (View)](#612-manage-individual-types) _(ASR_FR_6.14)_ 
-     * [6.3.13 Manage List of Templates (View)](#613-manage-list-of-templates) _(ASR_FR_6.15)_ 
-     * [6.3.14 Manage List of Holidays (View)](#614-manage-list-of-holidays) _(ASR_FR_6.16)_ 
-     * [6.3.15 Manage Gender Types (View)](#615-manage-gender-types) _(ASR_FR_6.17)_ 
+    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate)) _(ASR_FR_6.4)_
+    * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
+    * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
+     * [6.3.5 Registration Center Types (View)](#635-manage-registration-center-types-view) _(ASR_FR_6.7)_ 
+     * [6.3.6 Manage Machine Types (View)](#636-manage-machine-types-view) _(ASR_FR_6.8)_ 
+     * [6.3.7 Manage Machine Specifications (View)](#637-manage-machine-specifications-view) _(ASR_FR_6.9)_ 
+     * [6.3.8 Manage Device Types (View)](#638-manage-device-types-view) _(ASR_FR_6.10)_ 
+     * [6.3.9 Manage Device Specifications (View)](#639-manage-device-specifications-view) _(ASR_FR_6.11)_ 
+     * [6.3.10 Manage Individual Types (View)](#6310-manage-individual-types-view) _(ASR_FR_6.12)_ 
+     * [6.3.11 Manage Document Type to Document Category Mapping (View)](#6311-manage-document-type-to-document-category-mapping-view) _(ASR_FR_6.13)_ 
+     * [6.3.12 Manage Individual Types (View)](#612-manage-individual-types-view) _(ASR_FR_6.14)_ 
+     * [6.3.13 Manage List of Templates (View)](#613-manage-list-of-templates-view) _(ASR_FR_6.15)_ 
+     * [6.3.14 Manage List of Holidays (View)](#614-manage-list-of-holidays-view) _(ASR_FR_6.16)_ 
+     * [6.3.15 Manage Gender Types (View)](#615-manage-gender-types-view) _(ASR_FR_6.17)_ 
 - [7. Approval Process](#7-approval-process) _(ASR_FR_7)_
-  * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation--wip-)
+  * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation-wip-)
     * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
     * [7.1.2 Machine](#712-machine) _(ASR_FR_7.2)_
     * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
@@ -77,7 +74,7 @@
 - [13. ID Definition Setup](#13-id-definition-setup) _(ASR_FR_13)
     * [13.1 ID Definition Validator](#131-id-definition-validator) _(ASR_FR_13.1)_
 - [14. Configuration Setup](#14-configuration-setup) _(ASR_FR_14)
-- [15. Process Flow Setup](#15-responsive-ui) _(ASR_FR_11)
+- [15. Process Flow Setup](#15-process-flow-setup) _(ASR_FR_15)
 ## 1. Login
 ### 1.1 Login
 MOSIP Admin portal will support single factor and multi factor login including biometrics. Admin will configure the login setting related to single factor or multi-factor based on the country.
@@ -191,17 +188,17 @@ Procedure to unblock the account:
 ### 6.1 View Master Data Types
 ### 6.2 View Master Data for Each Table
 ### 6.3 Manage Master Data
-#### 6.3.1 Manage Document Type (Create,update,activate,deactivate)
-#### 6.3.2 Manage Document Category (Create,update,activate,deactivate)
-#### 6.3.3 Manage Location Data (Create,update,activate,deactivate)
-#### 6.3.4 Manage Blacklisted Words (Create,update,activate,deactivate)
+#### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
+#### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)
+#### 6.3.3 Manage Location Data (Create, Update, Activate, Deactivate) 
+#### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 #### 6.3.5 Manage Registration Center Types (View)
 #### 6.3.6 Manage Machine Types (View)
 #### 6.3.7 Manage Machine Specifications (View)
 #### 6.3.8 Manage Device Types (View)
 #### 6.3.9 Manage Device Specifications (View)
 #### 6.3.10 Manage Individual Types (View)
-#### 6.3.11 Manage Document Type - Document Category Mapping (View)
+#### 6.3.11 Manage Document Type to Document Category Mapping (View)
 #### 6.3.12 Manage List of Templates (View)
 #### 6.3.13 Manage List of Holidays (View)
 #### 6.3.14 Manage Gender Types (View)
