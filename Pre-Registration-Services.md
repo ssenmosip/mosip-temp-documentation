@@ -2184,18 +2184,18 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
 {
   "id": "mosip.pre-registration.booking.book",
   "version": "1.0",
-  "requesttime": "2019-05-15T15:31:32.957Z",
+  "requesttime": "2019-05-15T10:52:04.737Z",
   "request": {
     "bookingRequest": [
       {
-        "preRegistrationId": "29487243023716",
+        "preRegistrationId": "20167403769842",
         "registration_center_id": "10001",
         "appointment_date": "2019-04-22",
         "time_slot_from": "15:30:00",
         "time_slot_to": "15:45:00"
       },
       {
-        "preRegistrationId": "65340187513461",
+        "preRegistrationId": "94625367217037",
         "registration_center_id": "10008",
         "appointment_date": "2019-04-23",
         "time_slot_from": "15:30:00",
@@ -2215,19 +2215,17 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
 {
     "id": "mosip.pre-registration.booking.book",
     "version": "1.0",
-    "responsetime": "2019-04-23T15:16:42.010Z",
-    "response": [
-        {
-            "preRegistrationId": "29487243023716",
-            "bookingStatus": "Booked",
-            "bookingMessage": "Appointment booked successfully"
-        },
-        {
-            "preRegistrationId": "65340187513461",
-            "bookingStatus": "Booked",
-            "bookingMessage": "Appointment booked successfully"
-        }
-    ],
+    "responsetime": "2019-05-15T10:58:35.546Z",
+    "response": {
+        "bookingStatusResponse": [
+            {
+                "bookingMessage": "Appointment booked successfully"
+            },
+            {
+                "bookingMessage": "Appointment booked successfully"
+            }
+        ]
+    },
     "errors": null
 }
 ```
@@ -2260,7 +2258,7 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
    "errors":[ 
          {
             "errorCode": "PRG_BOOK_RCI_002",
-            "message": "Slot availability not found for selected time"
+            "message": "Availability not found for the selected time"
          }
     ]
 }
@@ -2271,7 +2269,6 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
 PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
-PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
@@ -2281,7 +2278,7 @@ PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table f
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
-PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
+PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the database
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
 PRG_PAM_APP_017|Requested preregistration id does not belong to the user|If the preregistration id does not belongs to the user
@@ -2305,13 +2302,14 @@ Requires Authentication | Yes
 
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.cancel",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response":{
-        "message":"Appointment cancelled successfully"
+    "id": "mosip.pre-registration.appointment.cancel",
+    "version": "1.0",
+    "responsetime": "2019-05-15T11:04:41.312Z",
+    "response": {
+        "transactionId": "3ce712c7-7701-11e9-967a-530860351daf",
+        "message": "Appointment cancelled successfully"
     },
-    "errors":null
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -2319,16 +2317,16 @@ Requires Authentication | Yes
 ###### Description: Appointment cancellation failed.
 ```JSON
 {
-   "id": "mosip.pre-registration.appointment.cancel",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors": [
-          {
-             "errorCode": "PRG_BOOK_RCI_015",
-             "message": "Appointment cancellation failed"
-          }
-    ] 
+    "id": "mosip.pre-registration.appointment.cancel",
+    "version": "1.0",
+    "responsetime": "2019-05-15T11:05:30.680Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_BOOK_RCI_018",
+            "message": "Appointment cannot be canceled"
+        }
+    ]
 }
 ```
 #### Other Failure details
@@ -2340,6 +2338,8 @@ PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
+PRG_BOOK_RCI_018|Appointment cannot be canceled|If status is other than booked
+PRG_PAM_APP_005 |No data found for the requested pre-registration id | If no data found for the requested preregistration id
 ### GET /appointment/:preRegistrationId
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
 
@@ -2387,7 +2387,7 @@ preRegistrationId |Yes|Id of the application|37802950913289
    "errors":[ 
          {
             "errorCode": "PRG_BOOK_RCI_013",
-            "message": "No Appointment record found for the specified pre-registration id"
+            "message": "Booking data not found"
          }
     ]
 }
@@ -2425,7 +2425,7 @@ registrationCenterId |Yes|Registration Center Id|10004
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-        "registrationCenterId": "10004",
+        "regCenterId": "10004",
         "centerDetails": [
          {
             "date": "2019-02-13",
@@ -2500,30 +2500,31 @@ Requires Authentication | Yes
 #### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-registrationCenterId |Yes|Registration Center Id|10004
+registrationCenterId |Yes|Registration Center Id|10002
 
 #### Request Query Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 fromDate |Yes|From Date | 2019-02-12
-toDate |Yes|To Date | 2019-02-14
+toDate |Yes|To Date | 2019-06-15
 
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
 ###### Description: Availability details fetched successfully
 ```JSON
+
 {
-   "id": "mosip.pre-registration.appointment.ids",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-        "preRegistrationIds": [
-                       "94625367217037",
-                       "43526512857302"
-         ]
+    "id": "mosip.pre-registration.appointment.ids",
+    "version": "1.0",
+    "responsetime": "2019-05-15T11:21:39.328Z",
+    "response": {
+        "registration_center_id": "10002",
+        "pre_registration_ids": [
+            "76426186439718"
+        ]
     },
-    "errors":null
+    "errors": null
 }
 ```
 ##### Failure Response:
@@ -2537,8 +2538,8 @@ toDate |Yes|To Date | 2019-02-14
    "response": null,
    "errors":[ 
          {
-            "errorCode": "PRG_BOOK_RCI_016",
-            "message": "No available slots found for specified registration center with date range"
+            "errorCode": "PRG_BOOK_RCI_032",
+            "message": "Record not found for date range and reg center id"
          }
     ]
 }
