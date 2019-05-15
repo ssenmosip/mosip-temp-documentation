@@ -316,11 +316,7 @@ PRG_AUTH_012|	Config file not found in the config server|	If config file is miss
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
-Kindly refer the below link for current implementation
-https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
 
-**Future implementation**
-Design has been finalized, implementation is in progress.
 
 * [POST /applications](#post-applications)
 * [PUT /applications/:preRegistrationId](#put-applicationspreRegistrationid)
@@ -1322,11 +1318,7 @@ preRegistrationId |Yes|pre-registration id of the application|64269837502851
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
 
-Kindly refer the below link for current implementation
-https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
 
-**Future implementation**
-Design has been finalized, implementation is in progress.
 
 * [POST /documents/:preRegistrationId](#post-documentspreregistrationid)
 * [PUT /documents/:preRegistrationId](#put-documentspreregistrationid)
@@ -1799,11 +1791,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 # DataSync Service (External)
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
-Kindly refer the below link for current implementation
-https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
 
-**Future implementation**
-Design has been finalized, implementation is in progress.
 
 * [POST /sync](#post-sync)
 * [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
@@ -2013,11 +2001,6 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 # Booking Service (Public)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
-Kindly refer the below link for current implementation
-https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
-
-**Future implementation**
-Design has been finalized, implementation is in progress.
 
 * [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
 * [POST /appointment](#post-appointment)
