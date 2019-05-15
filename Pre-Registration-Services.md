@@ -2526,6 +2526,7 @@ This service is used by Pre-Registration portal to update an expired pre registr
 * [PUT batch/consumedStatus](#put-consumedstatus)
 * [GET appointment/availability/sync](#get-appointmentavailabilitysync)
 
+
 ### PUT /expiredStatus
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
 
@@ -2544,11 +2545,11 @@ Requires Authentication | Yes
 ###### Description: Expired status updated successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.batchjob.expired",
+   "id": "mosip.pre-registration.batchjob.service.expired",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-        "message": "Expired status updated successfully"
+        "message": "Registration appointment status updated to expired successfully"
     },
    "errors":null
 }
@@ -2558,7 +2559,7 @@ Requires Authentication | Yes
 ###### Description: No pre registration record found to update expired status
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
+   "id": "mosip.pre-registration.batchjob.service.expired",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
@@ -2593,11 +2594,11 @@ Requires Authentication | Yes
 ###### Description: Consumed status updated successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.batchjob.expired",
+   "id": "mosip.pre-registration.batchjob.service.consumed",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-        "message":  "Consumed status updated successfully"
+        "message":  "Demographic status to consumed updated successfully"
     },
    "errors":null
 }
@@ -2607,26 +2608,29 @@ Requires Authentication | Yes
 ###### Description: No pre registration record found to update consumed status
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-            "errorCode": "PRG_PAM_BAT_001",
-            "message": "No pre registration id found to update status"
-         }
-    ]
+  "id": "mosip.pre-registration.batchjob.service.consumed",
+  "version": "1.0",
+  "responsetime": "2019-05-14T12:15:53.753Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_BAT_001",
+      "message": "No pre registration id found to update status"
+    }
+  ]
 }
 ```
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_BAT_004	|Demographic table not accessible|	If data is not found for preRegistrationId
+PRG_PAM_BAT_005	|Reg appointment table not accessible|	If Reg appointment table not accessible
 PRG_PAM_BAT_006|	Processed prereg list table not accessible|	If Processed prereg list table not accessible
-PRG_PAM_BAT_009|	Demographic consumed table not accessible|	If Demographic consumed table not accessible
 PRG_PAM_BAT_007	|Document table not accessible|	If document table not accessible
+PRG_PAM_BAT_008	|Reg appointment consumed table not accessible|	If Reg appointment consumed table not accessible
+PRG_PAM_BAT_009|	Demographic consumed table not accessible|	If Demographic consumed table not accessible
 PRG_PAM_BAT_010	|Document consumed table not accessible|	If document consumed table not accessible
+
 
 ### GET /appointment/availability/sync
 This request is used to synchronize booking slots availability table with master data.
@@ -2646,15 +2650,19 @@ Requires Authentication | Yes
 ###### Description: Master Data Sync is successful
 ```JSON
 {
-   "id": "mosip.pre-registration.batchjob.sync",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
+    "id": "mosip.pre-registration.appointment.availability",
+    "version": "1.0",
+    "responsetime": "2019-05-15T08:47:25.523Z",
    "response": {
       "message": "Master Data Sync is successful"
    },
    "errors":null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_015|No available slots found for specified registration center| If no slots are available in the specified registration center
 # Generate QR code service (public)
 This service details used by Pre-Registration portal to generate QR Code.
 
