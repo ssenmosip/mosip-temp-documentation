@@ -53,12 +53,12 @@ Developer:
 1. Developer checkout the branch from DEV and creates the feature branch.
   1. git checkout
 2. The naming convention for the feature branch is as follows,
-  1. DEV\_\&lt;_sprint number_\&gt;\_\&lt;_developer name_\&gt;\_\&lt;JIRA id\&gt;
-  2. For example, _DEV\_SPRINT3\_URVIL\_MOS-424_
+  1. DEV\_<_sprint number_>\_<_developer name_>\_<JIRA id>
+  2. For example, _DEV_SPRINT3_URVIL_MOS-424_
 3. Developer develops the code in the newly created branch.
 4. Daily morning, the developer have to **pull** from the Git or whenever possibile.
 5. Whenever needed, the developer can **push** their feature branch to Git.
-6. Developer can do multiple **commit** s in between.
+6. Developer can do multiple **commit** s in between based on the logical breakpoints.
 
 Tech Lead:
 
@@ -92,8 +92,8 @@ This is a stable branch. Only the tested code should be pushed to this branch.
 While naming the feature branches, make sure to follow the standard.
 
 The naming convention for the feature branch is as follows, 
-  1. DEV\_&lt;_sprint number_&gt;_&lt;_developer name_&gt;_&lt;JIRA id&gt;
-  2. For example, _DEV\_SPRINT3\_URVIL\_MOS-424_
+  1. DEV_&lt;_sprint number_&gt;_&lt;_developer name_&gt;_&lt;JIRA id&gt;
+  2. For example, _DEV_SPRINT3_URVIL_MOS-424_
 
 ### 7.2 House keeping
 
