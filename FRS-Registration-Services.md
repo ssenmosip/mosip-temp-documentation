@@ -364,12 +364,14 @@ Upon receiving a request to copy address details from the previous registration 
 #### H. Scan and upload of POI, POA and POR
 1. The Registration Officer can input three types of documents- POA, POI and POR while registering an individual
    * POA refers to Proof of address, POI is proof of Identity and POR is proof of relationship
+   * Document type is configurable by admin based on the country level.
 2. The Registration officer collects these documents from individual and scans them
 1. The scan and upload works in such a way that copy of documents is not saved in system or any external device.
 1. The scanner scans the documents and upload them to the registration client machine
 1. The following parameters will be met while uploading document
    * System lists various document categories as configured by admin
    * For each document category, system enables selection of the list of valid documents
+   * The system validates if the document is pdf file format.
    * The System does not allow user to upload more than one document per category
    * The System performs size check after Document upload and revert the user to upload again if the Document Size is more than 1MB (Configurable)
    * The System displays the name of the document adjacent to the Document Category for which the document is uploaded 
