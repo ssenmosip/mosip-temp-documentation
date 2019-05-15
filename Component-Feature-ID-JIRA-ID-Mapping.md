@@ -1,4 +1,4 @@
-**1. Common Services:**
+## 1. Common Services:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -28,7 +28,7 @@
 
 
 
-**2. Data Services:**
+## 2. Data Services:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -49,7 +49,7 @@
 |15.|VID Validator|Validates VID|[DAT_FR_4.12](FRS-Data-Services)|[MOS-714](//mosipid.atlassian.net/browse/MOS-714)|
 |16.|RID Validator|Validates RID|[DAT_FR_4.13](FRS-Data-Services)|[MOS-1591](//mosipid.atlassian.net/browse/MOS-1591),[MOS-10415](//mosipid.atlassian.net/browse/MOS-10415),[MOS-12093](//mosipid.atlassian.net/browse/MOS-12093),[MOS-13172](//mosipid.atlassian.net/browse/MOS-13172)|
 
-**3. Admin Services:**
+## 3. Admin Services:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -86,31 +86,31 @@
 |66.|Master Data Management|Individual Type Management - Read|[ADM_FR_1.19](FRS-Admin-Services)|[MOS-13950](//mosipid.atlassian.net/browse/MOS-13950)|
 
 
-**4. UIN  Generation:**
+## 4. UIN  Generation:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|UIN Generator|Generates UIN|[UIG_FR_1](Audit Manager)|[MOS-425](//mosipid.atlassian.net/browse/MOS-425),[MOS-9738](//mosipid.atlassian.net/browse/MOS-9738), [MOS-22036](//mosipid.atlassian.net/browse/MOS-22036)|
 
-**5. Configuration Server:**
+## 5. Configuration Server:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
 
-**6. Audit Manager:**
+## 6. Audit Manager:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|Audit Manager|Provides service across MOSIP to store Audit logs|[AMG_FR_1](Audit Manager)|[MOS-8](//mosipid.atlassian.net/browse/MOS-8),[MOS-441](//mosipid.atlassian.net/browse/MOS-441), [MOS-829](//mosipid.atlassian.net/browse/MOS-829), [MOS-12903](//mosipid.atlassian.net/browse/MOS-12903)|
 
-**7. Authentication and Authorization:**
+## 7. Authentication and Authorization:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|Authentication and Authorization|Provides authenticaiton and Authorization across MOSIP|[AUT_FR_1](Authentication and Authorization(WIP)|[MOS-1000](//mosipid.atlassian.net/browse/MOS-1000)|
 
-**8. Pre-registration:**
+## 8. Pre-registration:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -141,7 +141,7 @@
 |25.||List of Configurable Parameters and Processes|PRE_FR_7|[MOS-10291](//mosipid.atlassian.net/browse/MOS-10291), [MOS-14510](//mosipid.atlassian.net/browse/MOS-14510)|
 
 
-**9. Registration:**
+## 9. Registration:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -245,7 +245,7 @@
 |98.|Device Onboarding|Peripherals check|REG_FR_5.27|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996) |
 
 
-**10. Registration Processor:**
+## 10. Registration Processor:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -285,7 +285,7 @@
 |34. | | Data Seeding to External Functional ID System (Pluggable by SI)| RPR_FR_3.23| 
 
 
-**11. Authentication:** 
+## 11. Authentication:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
@@ -300,19 +300,19 @@
 |9.|MPA Authenticator|Partner Policy Authentication |IDA_FR_5.2|[MOS-1129](//mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](//mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](//mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](//mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](//mosipid.atlassian.net/browse/MOS-1099) |
 |10.|To be planned|Registered Devices and Open Devices |IDA_FR_6.1||
 
-**12. Resident Services:** 
+## 12. Resident Services:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
 
-**13. Administration:** 
+## 13. Administration:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
 
-**14. Partner Management:** 
+## 14. Partner Management:
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
