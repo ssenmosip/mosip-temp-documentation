@@ -35,11 +35,8 @@ API testing Prerequisites
 # Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
 
-Kindly refer the below link for current implementation
-https://github.com/mosip/mosip/wiki/Pre-Registration-Sprint10-Service
 
-**Future implementation**
-Design has been finalized, implementation is in progress.
+
 
 * [POST /login/sendOtp](#post-loginsendotp)
 * [POST /login/validateOtp](#post-loginvalidateotp)
