@@ -99,31 +99,31 @@ Please refer the section 10.12
 
 Following is the order of elements inside the class declaration
 
-### 3.1.1Class comment for documentation
+### 3.1.1 Class comment for documentation
 
 This comment will be going in to the Javadocs
 
-### 3.1.2Class or interface statement
+### 3.1.2 Class or interface statement
 
 Class of interface statement
 
-### 3.1.3Class or interface implementation comment
+### 3.1.3 Class or interface implementation comment
 
 Additional comments to the Class comment
 
-### 3.1.4Instance variables
+### 3.1.4 Instance variables
 
 The public class variables are followed by the protected and the private variables.
 
-### 3.1.5Constructors
+### 3.1.5 Constructors
 
 The constructor declarations ordered by the number of parameters.
 
-### 3.1.6Method declarations
+### 3.1.6 Method declarations
 
 The methods are ordered by the functionality. The methods need not to be in the order of scope or accessibility.
 
-# 4Indentation
+# 4 Indentation
 
 The indentation unit it TAB.
 
@@ -152,7 +152,7 @@ Both the comment types are used in the source code of MOSIP.
 
 This is the comment type used for better understanding of the code. Most of the times, the source code will be maintained by different people. The programmer writes these comments so that the other programmers will come to know the functionality of the code in plain English language. Following lines are used.
 
-### 5.1.1Block Comments
+### 5.1.1 Block Comments
 
 When the developer needs to explain in detail about some functionality, block comments are used. Block comments are used anywhere in the code. It can be for the class or interface declarations or it can be within the java methods also. Example of block comments,
 
@@ -166,7 +166,7 @@ When the developer needs to explain in detail about some functionality, block co
 
                 */
 
-### 5.1.2Single-Line Comments
+### 5.1.2 Single-Line Comments
 
 Single line comments are used for short description. For example,
 
@@ -178,7 +178,7 @@ Single line comments are used for short description. For example,
 
                 }
 
-### 5.1.3Trailing Comments
+### 5.1.3 Trailing Comments
 
 Trailing comments are given in the same line where the source code resides. For example,
 
@@ -188,7 +188,7 @@ Trailing comments are given in the same line where the source code resides. For 
 
                 }
 
-### 5.1.4End-Of-Line comments
+### 5.1.4 End-Of-Line comments
 
 The end-of-line comments are also used in the source file. For example,
 
@@ -204,7 +204,7 @@ The end-of-line comments are also used in the source file. For example,
 
 Documentation comments are used to generate the javadoc files. 
 
-# 6Declarations
+# 6 Declarations
 
 ## 6.1 Number Per Line
 
@@ -221,7 +221,7 @@ Variables are declared at the beginning of the code block.
 3. Closing brace "}" is in a new line and should match the open braces in the indentation.
 4. An empty line is there in between the method declarations.
 
-# 7Statements
+# 7 Statements
 
 ## 7.1 Simple Statements
 
@@ -241,7 +241,7 @@ Always curly braces are used in the if-else statements. Even though there is a s
 
                 }
 
-# 8White Space
+# 8 White Space
 
 ## 8.1 Blank Lines
 
@@ -327,7 +327,7 @@ Avoid multiple assignments in the same line. For example,
                 MAX_CALC = (RETIREMENT_AGE = MAX_YEARS + THRESHOLD);                // AVOID
 
 ## 10.5 Lambdas
-### 10.5.1Parameter type inference
+### 10.5.1 Parameter type inference
 
 Always use parameter type inference. For example,
 
@@ -337,11 +337,11 @@ Always use parameter type inference. For example,
 
 }// PREFER
 
-### 10.5.2Parenthesis when optional
+### 10.5.2 Parenthesis when optional
 
 Do not use the parenthesis wherever it is optional
 
-### 10.5.3Expression lambdas
+### 10.5.3 Expression lambdas
 
 Avoid using the block lambdas wherever an expression lambda are used. For example,
 
@@ -370,7 +370,7 @@ Whenever calling the functional interface, place them at last in the parameter l
         public Foo parse( **Function<Locale,Foo> fn** , Locale locale);
 
 ## 10.7 Exceptions
-### 10.7.1Specific exceptions
+### 10.7.1 Specific exceptions
 
 Throw specific exceptions are caught, rather than generic exceptions. For example,
 
@@ -378,7 +378,7 @@ Throw specific exceptions are caught, rather than generic exceptions. For exampl
 
                 public void**myMethod()**throws** NumberFormatException{        // PREFER
 
-### 10.7.2Documenting exceptions
+### 10.7.2 Documenting exceptions
 
 The exceptions are documented clearly. For example,
 
@@ -398,7 +398,7 @@ The exceptions are documented clearly. For example,
 
                 public void**myMethod(String someInput)**throws**PacketNotValidException {
 
-### 10.7.3Error and Throwable
+### 10.7.3 Error and Throwable
 
 Error and Throwable are never caught in MOSIP. For example,
 
@@ -410,12 +410,12 @@ Error and Throwable are never caught in MOSIP. For example,
 
                 }
 
-### 10.7.4Exception hierarchy
+### 10.7.4 Exception hierarchy
 
 All the exceptions in MOSIP extends from the exception module from the mosip-core
 
 ## 10.8 Logs
-### 10.8.1Log levels
+### 10.8.1 Log levels
 
 Logs are classified and logged accordingly. Following are the various log levels used in the MOSIP application.
 
@@ -427,15 +427,15 @@ Logs are classified and logged accordingly. Following are the various log levels
 
 The log levels are configured according to the environment such as Development, Testing, UAT or Production. For example, the log levels in production is from WARN. Whereas in Development and Testing environment, it is from TRACE.
 
-### 10.8.2MOSIP log component
+### 10.8.2 MOSIP log component
 
 MOSIP's log component from the core-kernel is used to log entries.
 
-### 10.8.3Always use core-kernel log module
+### 10.8.3 Always use core-kernel log module
 
 The log module in the core-kernel is used to log all the log entries.
 
-### 1.1.1MOSIP log format
+### 1.1.1 MOSIP log format
 
 Every log entry contains the following format,
 
@@ -445,7 +445,7 @@ For example,
 
 2008-09-15T15:53:00+05:00 - ENROLMENT – PACKET_VALIDATOR - VALIDATE – EnrolmentId - 829329 – Packet validator had been called and now we are going to validate the packets.
 
-### 1.1.1No sensitive information is logged
+### 1.1.1 No sensitive information is logged
 
 Care is taken, not to log any sensitive information is logged. Modules leads review the code to ensure that no sensitive information is logged.
 
@@ -465,21 +465,21 @@ In case if Apache Commons doesn't have the necessary utilities, the util project
 
 Following are the miscellaneous practices which are followed in MOSIS.
 
-### 10.11.1Parentheses
+### 10.11.1 Parentheses
 
 Parentheses are used in the code liberally to improve the readability and for precedence clarity.
 
-### 10.11.2Returning Values
+### 10.11.2 Returning Values
 
 The return values are made sure that it is understandable.
 
-### 10.11.3Expressions before '?' in the Conditional Operator
+### 10.11.3 Expressions before '?' in the Conditional Operator
 
 If any binary operator is used before "?" in the ternary operator, then parentheses is used.
 
 (age >= 25) ? true : false ;
 
-### 10.11.4Special Comments
+### 10.11.4 Special Comments
 
 Special comments are used to give a hint for further development. Following are the special comments used in MOSIP project,
 
