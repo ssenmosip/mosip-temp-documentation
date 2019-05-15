@@ -2091,10 +2091,8 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
     "id": "mosip.pre-registration.booking.book",
     "version": "1.0",
-    "responsetime": "2019-04-23T15:18:29.974Z",
+    "responsetime": "2019-05-15T10:10:26.429Z",
     "response": {
-        "preRegistrationId": "65340187513461",
-        "bookingStatus": "Booked",
         "bookingMessage": "Appointment booked successfully"
     },
     "errors": null
@@ -2122,15 +2120,15 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 ###### Description: Slot availability not found for selected time.
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-05-15T10:12:07.623Z",
+    "response": null,
+    "errors": [
+        {
             "errorCode": "PRG_BOOK_RCI_002",
-            "message": "Slot availability not found for selected time"
-         }
+            "message": "Availability not found for the selected time"
+        }
     ]
 }
 ```
