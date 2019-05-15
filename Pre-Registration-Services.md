@@ -2044,12 +2044,12 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
   "id": "mosip.pre-registration.booking.book",
   "version": "1.0",
   "requesttime": "2019-01-09T15:31:32.957Z",
-  "request": [{
+  "request": {
         "registration_center_id": "10005",
         "appointment_date": "2019-02-13",
         "time_slot_from": "15:31:00",
         "time_slot_to": "15:44:00"
-   }]
+   }
 }
 ```
 
@@ -2104,6 +2104,28 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
+PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
+PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
+PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
+PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
+PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
+PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
+PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
+PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
+PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|If the preregistrationId does not belongs to the user
+
 ### POST /appointment
 This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
@@ -2134,22 +2156,27 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
 {
   "id": "mosip.pre-registration.booking.book",
   "version": "1.0",
-  "requesttime": "2019-04-22T15:31:32.957Z",
-  "request": [{
-  		"preRegistrationId":"51489749326453",
+  "requesttime": "2019-05-15T15:31:32.957Z",
+  "request": {
+    "bookingRequest": [
+      {
+        "preRegistrationId": "20167403769842",
         "registration_center_id": "10001",
         "appointment_date": "2019-04-22",
         "time_slot_from": "15:30:00",
         "time_slot_to": "15:45:00"
-   },
-   {
-  		"preRegistrationId":"94625367217037",
+      },
+      {
+        "preRegistrationId": "94625367217037",
         "registration_center_id": "10008",
         "appointment_date": "2019-04-23",
         "time_slot_from": "15:30:00",
         "time_slot_to": "15:45:00"
-   }]
-} 
+      }
+    ]
+  }
+}
+
 ```
 
 #### Responses:
@@ -2210,6 +2237,26 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
+PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
+PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
+PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
+PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
+PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
+PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
+PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
+PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|If the preregistration id does not belongs to the user
 
 ### PUT /appointment/:preRegistrationId
 This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
@@ -2256,6 +2303,15 @@ Requires Authentication | Yes
     ] 
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
+PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
 ### GET /appointment/:preRegistrationId
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
 
@@ -2308,6 +2364,12 @@ preRegistrationId |Yes|Id of the application|37802950913289
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
+
 ### GET /appointment/availability/:registrationCenterId
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
 
@@ -2391,6 +2453,10 @@ registrationCenterId |Yes|Registration Center Id|10004
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
 ### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
@@ -2449,6 +2515,10 @@ toDate |Yes|To Date | 2019-02-14
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id and master data sync for availability.
 
