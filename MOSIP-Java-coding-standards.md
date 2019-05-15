@@ -34,15 +34,15 @@ When a java file is written, the following order is maintained,
 The beginning comment should be in a C-style comment. Following is the format of the comment.
 
 
-				/*
+			/*
 
-				 * Firstname Lastname
+			 * Firstname Lastname
 
-				 *
+			 *
 
-				 * Copyright notice
+			 * Copyright notice
 
-				 */
+			 */
 
 
 ### 2.3.2 Package statement
