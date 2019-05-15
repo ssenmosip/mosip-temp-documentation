@@ -19,7 +19,7 @@
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activate-fdeactivate-decommission-center) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
@@ -62,7 +62,7 @@
     * [7.1.2 Machine](#712-machine) _(ASR_FR_7.2)_
     * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
     * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
-  * [7.2 Approval for Masterdata Creation (WIP)](#72-approval-for-masterdata-creation-wip) _(ASR_FR_7.5)_
+  * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation-wip) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid) _(ASR_FR_9)_
 - [10.Multi-language Support)](#10-multi-language-support) _(ASR_FR_10)_
@@ -209,7 +209,7 @@ Procedure to unblock the account:
 #### 7.1.2 Machine 
 #### 7.1.3 Device
 #### 7.1.4 User
-### 7.2 Approval for Masterdata Creation (WIP)
+### 7.2 Approval for Master Data Creation (WIP)
 ## 8. UIN Activation/Deactivation
 ## 9. Packet Status Check (based on RID)
 ## 10. Multi-language Support
