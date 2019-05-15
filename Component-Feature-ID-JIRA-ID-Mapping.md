@@ -305,3 +305,15 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
+
+**13. Administration:** 
+
+|**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
+|:------:|-----|---|---|---|
+|1.|||||
+
+**14. Partner Management:** 
+
+|**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
+|:------:|-----|---|---|---|
+|1.|||||
