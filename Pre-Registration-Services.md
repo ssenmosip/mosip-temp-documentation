@@ -2160,14 +2160,14 @@ request.time_slot_from |Yes|Time Slot To|15:45:00
   "request": {
     "bookingRequest": [
       {
-        "preRegistrationId": "20167403769842",
+        "preRegistrationId": "29487243023716",
         "registration_center_id": "10001",
         "appointment_date": "2019-04-22",
         "time_slot_from": "15:30:00",
         "time_slot_to": "15:45:00"
       },
       {
-        "preRegistrationId": "94625367217037",
+        "preRegistrationId": "65340187513461",
         "registration_center_id": "10008",
         "appointment_date": "2019-04-23",
         "time_slot_from": "15:30:00",
