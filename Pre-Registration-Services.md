@@ -2654,7 +2654,7 @@ Requires Authentication | Yes
     "version": "1.0",
     "responsetime": "2019-05-15T08:47:25.523Z",
    "response": {
-      "message": "Master Data Sync is successful"
+      "message": "MASTER_DATA_SYNCED_SUCCESSFULLY"
    },
    "errors":null
 }
