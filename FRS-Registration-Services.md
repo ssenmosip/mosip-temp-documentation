@@ -47,9 +47,8 @@
   * [5.10 Language Support](#510-language-support-)
     * [5.10.1 Language Selection](#5101-language-selection-)  _(REG_FR_5.21)_
     * [5.10.2 Internationalization (WIP)](#5102-internationalization-wip-) _(REG_FR_5.22)_
-    * [5.10.3 Transliteration](#5103-transliteration-) _(REG_FR_5.23)_
-    * [5.10.4 Virtual Keyboards (WIP)](#5104-virtual-keyboards-wip-) _(REG_FR_5.24)_
-    * [5.10.5 Translation??](#5105-translation-) _(REG_FR_5.25)_
+    * [5.10.3 Transliteration and Virtual Keyboard](#5103-transliteration-and-virtual-keyboard-) _(REG_FR_5.23)_
+    * [5.10.4 Translation](#5104-translation-) _(REG_FR_5.25)_
   * [5.11 Health Check](#511-health-check-) 
     * [5.11.1 Disk Space Check](#5111-disk-space-check-) _(REG_FR_5.26)_
     * [5.11.2 Peripherals Check](#5112-peripherals-check-) _(REG_FR_5.27)_
@@ -325,10 +324,7 @@ System exports registration packet data from client machine to an external devic
 
 #### B. Transliteration: Virtual keyboard
 
-1. The virtual keyboard icon for the secondary language appears only once on the demographic details page.
-1. The Registration Officer enters text by clicking inside the text area, and then invokes the virtual keyboard.
-1. The Registration Officer uses the virtual keyboard for primary language too.
-
+Refer to the section related to [**Transliteration and Virtual Keyboard**](#5103-transliteration-and-virtual-keyboard-).
 #### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
 1. For new registration or UIN update, the system provides an option for the Registration Officer to mark an individual's date of birth as ‘Verified’.
 1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
@@ -1040,7 +1036,7 @@ Before the machine is decommissioned the following checks must be performed.
 ### 5.10.1 Language Selection [**[↑]**](#table-of-content)
 The registration client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin config and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
 ### 5.10.2 Internationalization (WIP) [**[↑]**](#table-of-content)
-### 5.10.3 Transliteration [**[↑]**](#table-of-content)
+### 5.10.3 Transliteration and Virtual Keyboard [**[↑]**](#table-of-content)
 
 **Registration client enables viewing transliterated data other than French and Arabic**
 
@@ -1067,8 +1063,8 @@ The Registration Officer can then view the preview page
 
 The system then enables a Registration Officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
 
-### 5.10.4 Virtual Keyboards (WIP) [**[↑]**](#table-of-content)
-### 5.10.5 Translation?? [**[↑]**](#table-of-content)
+
+### 5.10.4 Translation [**[↑]**](#table-of-content)
 
 **A registration officer can view static data translated to secondary language**
 1. In MOSIP, the primary and secondary languages are configured by the admin 

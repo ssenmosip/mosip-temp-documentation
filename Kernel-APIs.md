@@ -1,26 +1,25 @@
-* [Key Manager](#key-manager)
 
-* [Crypto Manager Service](#crypto-manager)
+Security APIs
+- [Key Manager Service](#key-manager)
+- [Crypto Manager Service](#crypto-manager)
+- [License Key Service](#license-key-manager)
 
-* [OTP Manager Service](#otp-manager)
+Notification APIs
+- [SMS Notification Service](#sms-notification)
+- [Email Notification Service](#email-notification)
 
-* [Data Sync Service](#sync-data)
+ID Generator APIs
+- [UIN Service](#uin)
+- [RID Service](#rid-generator)
+- [Static Token Service](#static-token-generator)
 
-* [UIN Service](#uin)
+Common APIs
+- [Audit Service](#audit-manager)
+- [Data Sync Service](#sync-data)
+- [Applicant Types Service](#applicant-type)
+- [OTP Manager Service](#otp-manager)
 
-* [SMS Notification Service](#sms-notification)
 
-* [Email Notification Service](#email-notification)
-
-* [Audit Service](#audit-manager)
-
-* [License Key Service](#license-key-manager)
-
-* [Applicant Types Service](#applicant-type)
-
-* [Static Token Generator Service](#static-token-generator)
-
-* [RID Generator Service](#rid-generator)
 
 
 
@@ -264,47 +263,57 @@ Requires Authentication | Yes
 ```
 
 
-# OTP Manager
-### POST OTP Generator
-This component facilitates generation of OTP for various purposes. EG: Login in Pre-registration
+# License Key Manager
+MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
 
-The OTP Generator component will receive a request to generate OTP, validate if the OTP generation request is from an authorized source, call OTP generator API with the input parameters (Key), receive the OTP from the OTP generator API which is generated based on the OTP generation policy and respond to the source with the OTP.
+This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
 
-The OTP Generator can also reject a request from a blocked/frozen account and assign a validity to each OTP that is generated, based on the defined policy
+## License Key Generation
 
-### Resource URL
-### `POST /generate`
+This component generates a license key for a specified MISP ID.
 
-### Resource details
+* [POST /license/generate](#post-licensegenerate)
 
+* [POST /license/permission](#post-licensepermission)
+
+* [GET /license/permission](#get-licensepermission)
+
+* [PUT /license/status](#put-licensestatus)
+
+### POST /license/generate
+
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/generate </div>
+
+#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-key |Yes|Key| | 9820173642
+licenseExpiryTime|Yes|The time at which the license will expire| |2019-03-07T10:00:00.000Z 
+MISPId|Yes|The MISP ID against which the license key generated will be mapped| |9837
 
-
-
-### Example Request
-
-v1/otpmanager/otp/generate
-
-```
+#### Request
+```JSON
 {
   "id": "string",
   "version": "string",
   "metadata": {},
   "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"request": {
-		"key": "9820173642"
-	}	
+  "request": {
+		"licenseExpiryTime": "2019-03-07T10:00:00.000Z",
+		"MISPId": "9837"
+	     }
 }
 ```
-### Example Response
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key generated successfully
 ```JSON
 {
   "id": "string",
@@ -318,41 +327,52 @@ v1/otpmanager/otp/generate
     }
   ],
 "response": {
-	  "otp": "849004",
-	  "status": "GENERATION_SUCCESSFUL"
-	   }
+	  "licenseKey": "gR7Mw7tA7S7qifkf"
+	}
 }
 ```
+### POST /license/permission
 
-### Validator
-This component facilitates basic validation of an OTP. 
+This component maps various permissions provided to a specified license key.
 
-This includes: Receiving a request for OTP validation with required input parameters (Key), Validating the pattern of OTP generated based on defined policy, validating if the OTP is active/inactive and responding to the source with a response (Valid/Invalid)
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/permission </div>
 
-This component also facilitates deletion of every successfully validated OTP when consumed and freezing an account for exceeding the number of retries/wrong input of OTP. 
-
-### Resource URL
-### `GET /validate`
-
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
+#### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-key |Yes|Key| | 9820173642
-otp|Yes|OTP| | 123456
+licenseKey|Yes|The license key to which the permissions will be mapped| |gR7Mw7tA7S7qifkf 
+MISPId|Yes|The MISP ID against which the license key is mapped| |9837
+permissions|Yes|The list of permissions that will be mapped to the MISP-licensekey mentioned.| |OTP Trigger
 
-### Example Request
-
-v1/otpmanager/validate?key=9820173642&otp=123456
-
-### Example Response
+#### Request
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+   "request": {
+		"licenseKey": "gR7Mw7tA7S7qifkf",
+		"permissions": [
+			"OTP Trigger","OTP Authentication"
+		],
+		"MISPId": "9837"
+	}
+}
 ```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key permission updated successfully
+```JSON
 {
   "id": "string",
   "version": "string",
@@ -365,11 +385,592 @@ v1/otpmanager/validate?key=9820173642&otp=123456
     }
   ],
 "response": {
-	  "status": "success",
-	  "message": "VALIDATION SUCCESSFUL"
-	   }
+	  "status": "Mapped License with the permissions"
+	    }
+}
+```
+
+### GET /license/permission
+
+This component fetches various permission mapped to a license key.
+
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/permission </div>
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
+MISPId|Yes|The MISP ID against which the license key is mapped| |9837
+
+### Request
+<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&MISPId=9837</div>
+
+```
+N/A
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key permissions fetched successfully
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	     "permissions": [
+		          "OTP Trigger",
+		          "OTP Authentication"
+	                   ]
+	    }
+}
+```
+
+
+### PUT /license/status
+
+This service moves the status of the license key to SUSPENDED status.
+
+#### Resource URL
+<div>https://mosip.io/v1/licensekeymanager/license/status </div>
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
+status|Yes|The status of the license key. It is an enumeration {ACTIVE, SUSPENDED, BLOCKED}| |ACTIVE
+
+#### Request
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+		"licensekey":"gR7Mw7tA7S7qifkf",
+		"status":"ACTIVE"
+	     }
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: license key suspended successfully
+Sample Success Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : {
+		"message":"The status had been changed successfully. "
+	     }
 }	
 ```
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid license key
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2019-04-04T05:03:18.287Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_001",
+     "message": "License key not found"
+    }
+  ]
+}
+```
+
+
+# SMS Notification
+
+* [POST /sms/send](#post-sms-send)
+
+### POST /sms/send
+
+This service will send request to SMS gateway. 
+
+#### Resource URL
+<div>https://mosip.io/v1/smsnotifier/sms/send</div>
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes
+
+### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+message |Yes|Message in the SMS| | This is the sample SMS message
+number |Yes|Mobile number to which the SMS have to be sent| | 743764398
+
+### Request
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+   "request": {
+		"message": "Your Booking Request accepted. B-Ref BI56793",
+		"number": "89900074454"
+	}
+}
+
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms send successfully
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": {
+	  "message": "Sms Request Sent",
+	  "status": "success"
+	}
+}	
+```
+
+# Email Notification
+
+* [POST /email/send](#post-email-send)
+
+### POST /email/send
+
+This service will send request to Email/SMTP Service. 
+
+#### Resource URL
+<div>https://dev.mosip.io/v1/emailnotifier/email/send </div>
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | Form Data
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+mailTo |Yes|Mail ID of the recepient| |```mosip@mindtree.com```
+mailCc |No|Mail ID of the recepient| |```mosip@mindtree.com```
+mailSubject |Yes|Mail ID of the recepient| | Sample mail subject
+mailContent |No|Mail ID of the recepient| | Sample mail content
+attachments |No|Mail ID of the recepient| | multipart/formdata
+
+
+#### Request
+
+```
+-H "Content-Type: multipart/form-data" 
+-F "attachments={}" 
+-F "mailCc=user1@gmail.com" 
+-F "mailContent=OTP for Auth" 
+-F "mailSubject=OTP" 
+-F "mailTo=admin1@gmail.com"
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms send successfully
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "message": "Email Request sent",
+	  "status": "success"
+	}
+}	
+```
+
+
+
+# UIN
+
+## UIN-get service
+
+* [GET /uin](#uin-get-service)
+
+* [PUT /uin](#put-uin)
+
+
+### GET /uin
+
+This service will return unused UIN from UIN pool 
+
+#### Resource URL
+<div>https://mosip.io/v1/uingenerator/uin </div>
+ 
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+#### Request
+N/A
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: uin generated successfully
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "uin": "734168915279"
+	    }
+}
+```
+
+
+## UIN- Status Update service
+
+### PUT /uin
+
+This service will update the issued UN status to Assigned or Unassigned(Unused).  
+
+#### Resource URL
+<div>https://mosip.io/v1/uingenerator/uin</div>
+ 
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+-NA-
+
+#### Request
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request" : {
+                 "uin":"5193698130",
+                 "status":"ASSIGNED"
+              }
+}
+```
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: uin status updated successfully
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": {
+                 "uin":"5193698130",
+                  "status":"ASSIGNED"
+              }
+}
+```
+
+# RID generator
+
+* [GET /v1/ridgenerator/generate/rid/10002/10032](#get-ridgenerator)
+
+### GET /generate/rid/{centerid}/{machineid}
+
+This service returns a RID for the requested CenterID and MachineID. 
+
+#### Resource URL
+<div>https://mosip.io/v1//generate/rid/{centerid}/{machineid}/</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+centerid|Yes|centerid of registration| -NA- |10002
+machineid|Yes|machineid of registration| -NA- |10032
+
+#### Request
+```JSON
+-NA-
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+```JSON
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2019-05-07T04:30:40.061Z",
+  "metadata": null,
+  "response": {
+    "rid": "10002100320001920190507043040"
+  },
+  "errors": null
+}
+```
+
+
+
+# Static Token generator
+
+* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
+
+### GET tokenidgenerator/{uin}/{partnercode}
+
+This service returns a static token for the requested UIN and Partner ID. It will return the same Static Token for every call made with the same UIN and Partner ID. 
+
+#### Resource URL
+<div>https://mosip.io/v1/tokenidgenerator/{uin}/{partnercode}/</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+UIN|Yes|UIN of the individual.| -NA- |2345346532564566
+partnercode|Yes|ID of the partner.| -NA- |9373
+
+#### Request
+```JSON
+-NA-
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: token id generated successfully
+```JSON
+{
+	"id": "mosip.kernel.tokenid.generate",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "2019-04-04T05:03:18.287Z",
+	"response": {
+                  "tokenID": "268177021248100621690339355202974361"
+                     },
+        "errors": []
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Invalid parameters
+```JSON
+{
+	"id": "mosip.kernel.tokenid.generate",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "2019-04-04T05:03:18.287Z",
+	"response": null,
+        "errors": [
+            {
+             "errorCode": "KER-TIG-010",
+             "message": "UIN and partner code cannot be empty"
+            }
+     ]
+}
+```
+
+
+# Audit Manager
+Audits are events/transactions which need to be captured and stored to facilitate auditing. This data could further be used for reporting by the business.
+
+This includes auditing various event types like System events (Periodic scans), Business events/transactions (Change in demo data), Security Events etc.
+
+The Audit Manager component will receive a request to audit and store data, validate the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). This component will also ensure non-auditable data is not stored.
+
+It will also ensure audit data stored is archived based on the defined archival policy.
+
+* [POST /audits](#post-audits)
+
+### POST /audits
+
+#### Resource URL
+<div>https://mosip.io/v1/auditmanager/audits</div>
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+eventId|Yes|ID of the event| | 
+eventName|Yes|Name of the event| | Periodic Scan
+eventType|Yes|Type of the event| | System Event
+actionTimeStamp|Yes|Timestamp of the event| | 2018-10-04T05:57:20.929Z
+hostName|Yes|Hostname| | Hostname
+hostIp|Yes|IP of the host| | 2018-10-04T05:57:20.929Z
+applicationId|Yes|ID of the Application| | 1
+applicationName|Yes|Name of the event| | Registration
+sessionUserId|Yes|Session User Id| | 
+sessionUserName|Yes|Session User name| | 
+id|Yes|ID| | 15426388761562
+idType|Yes|ID Type| | Unique Id
+createdBy|Yes|Actor of the event| | 
+moduleName|No|Name of the module| | Schedulor
+moduleId|No|ID of the module| | SCHE93
+description|No|Description of the event| |Example description 
+
+#### Request
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+		"eventId": "string",
+		"eventName": "string",
+		"eventType": "string",
+		"actionTimeStamp": "2018-10-04T05:57:20.929Z",
+		"hostName": "string",
+		"hostIp": "string",
+		"applicationId": "string",
+		"applicationName": "string",
+		"sessionUserId": "string",
+		"sessionUserName": "string",
+		"id": "string",
+		"idType": "string",
+		"createdBy": "string",
+		"moduleName": "string",
+		"moduleId": "string",
+		"description": "string"
+	}
+}
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: audit request completed successfully
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "status": true
+	   }
+}
+```
+
+
+
+
+
+
 
 # Sync data
 
@@ -1695,602 +2296,6 @@ publickey |Yes|Base 64 encoded Public key of the passed machine| |
 
 ```
 
-# UIN
-
-## UIN-get service
-
-* [GET /uin](#uin-get-service)
-
-* [PUT /uin](#put-uin)
-
-
-### GET /uin
-
-This service will return unused UIN from UIN pool 
-
-#### Resource URL
-<div>https://mosip.io/v1/uingenerator/uin </div>
- 
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-#### Request
-N/A
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: uin generated successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-	  "uin": "734168915279"
-	    }
-}
-```
-
-
-## UIN- Status Update service
-
-### PUT /uin
-
-This service will update the issued UN status to Assigned or Unassigned(Unused).  
-
-#### Resource URL
-<div>https://mosip.io/v1/uingenerator/uin</div>
- 
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-#### Request
-
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request" : {
-                 "uin":"5193698130",
-                 "status":"ASSIGNED"
-              }
-}
-```
-
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: uin status updated successfully
-```
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-  "response": {
-                 "uin":"5193698130",
-                  "status":"ASSIGNED"
-              }
-}
-```
-
-# SMS Notification
-
-* [POST /sms/send](#post-sms-send)
-
-### POST /sms/send
-
-This service will send request to SMS gateway. 
-
-#### Resource URL
-<div>https://mosip.io/v1/smsnotifier/sms/send</div>
-
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Request format | JSON
-Response format | JSON
-Requires Authentication | Yes
-
-### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-message |Yes|Message in the SMS| | This is the sample SMS message
-number |Yes|Mobile number to which the SMS have to be sent| | 743764398
-
-### Request
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-   "request": {
-		"message": "Your Booking Request accepted. B-Ref BI56793",
-		"number": "89900074454"
-	}
-}
-
-```
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: sms send successfully
-```
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-  "response": {
-	  "message": "Sms Request Sent",
-	  "status": "success"
-	}
-}	
-```
-
-# Email Notification
-
-* [POST /email/send](#post-email-send)
-
-### POST /email/send
-
-This service will send request to Email/SMTP Service. 
-
-#### Resource URL
-<div>https://dev.mosip.io/v1/emailnotifier/email/send </div>
-
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Request format | Form Data
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-mailTo |Yes|Mail ID of the recepient| |```mosip@mindtree.com```
-mailCc |No|Mail ID of the recepient| |```mosip@mindtree.com```
-mailSubject |Yes|Mail ID of the recepient| | Sample mail subject
-mailContent |No|Mail ID of the recepient| | Sample mail content
-attachments |No|Mail ID of the recepient| | multipart/formdata
-
-
-#### Request
-
-```
--H "Content-Type: multipart/form-data" 
--F "attachments={}" 
--F "mailCc=user1@gmail.com" 
--F "mailContent=OTP for Auth" 
--F "mailSubject=OTP" 
--F "mailTo=admin1@gmail.com"
-```
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: sms send successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-	  "message": "Email Request sent",
-	  "status": "success"
-	}
-}	
-```
-
-
-
-
-# Audit Manager
-Audits are events/transactions which need to be captured and stored to facilitate auditing. This data could further be used for reporting by the business.
-
-This includes auditing various event types like System events (Periodic scans), Business events/transactions (Change in demo data), Security Events etc.
-
-The Audit Manager component will receive a request to audit and store data, validate the request is from an authorized source, securely store the requested data and respond back with an acknowledgement of storage (Success/Failure). This component will also ensure non-auditable data is not stored.
-
-It will also ensure audit data stored is archived based on the defined archival policy.
-
-* [POST /audits](#post-audits)
-
-### POST /audits
-
-#### Resource URL
-<div>https://mosip.io/v1/auditmanager/audits</div>
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-eventId|Yes|ID of the event| | 
-eventName|Yes|Name of the event| | Periodic Scan
-eventType|Yes|Type of the event| | System Event
-actionTimeStamp|Yes|Timestamp of the event| | 2018-10-04T05:57:20.929Z
-hostName|Yes|Hostname| | Hostname
-hostIp|Yes|IP of the host| | 2018-10-04T05:57:20.929Z
-applicationId|Yes|ID of the Application| | 1
-applicationName|Yes|Name of the event| | Registration
-sessionUserId|Yes|Session User Id| | 
-sessionUserName|Yes|Session User name| | 
-id|Yes|ID| | 15426388761562
-idType|Yes|ID Type| | Unique Id
-createdBy|Yes|Actor of the event| | 
-moduleName|No|Name of the module| | Schedulor
-moduleId|No|ID of the module| | SCHE93
-description|No|Description of the event| |Example description 
-
-#### Request
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-		"eventId": "string",
-		"eventName": "string",
-		"eventType": "string",
-		"actionTimeStamp": "2018-10-04T05:57:20.929Z",
-		"hostName": "string",
-		"hostIp": "string",
-		"applicationId": "string",
-		"applicationName": "string",
-		"sessionUserId": "string",
-		"sessionUserName": "string",
-		"id": "string",
-		"idType": "string",
-		"createdBy": "string",
-		"moduleName": "string",
-		"moduleId": "string",
-		"description": "string"
-	}
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: audit request completed successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-	  "status": true
-	   }
-}
-```
-
-
-
-# License Key Manager
-MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
-
-This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
-
-## License Key Generation
-
-This component generates a license key for a specified MISP ID.
-
-* [POST /license/generate](#post-licensegenerate)
-
-* [POST /license/permission](#post-licensepermission)
-
-* [GET /license/permission](#get-licensepermission)
-
-* [PUT /license/status](#put-licensestatus)
-
-### POST /license/generate
-
-#### Resource URL
-<div>https://mosip.io/v1/licensekeymanager/license/generate </div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-licenseExpiryTime|Yes|The time at which the license will expire| |2019-03-07T10:00:00.000Z 
-MISPId|Yes|The MISP ID against which the license key generated will be mapped| |9837
-
-#### Request
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-		"licenseExpiryTime": "2019-03-07T10:00:00.000Z",
-		"MISPId": "9837"
-	     }
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: license key generated successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-	  "licenseKey": "gR7Mw7tA7S7qifkf"
-	}
-}
-```
-### POST /license/permission
-
-This component maps various permissions provided to a specified license key.
-
-#### Resource URL
-<div>https://mosip.io/v1/licensekeymanager/license/permission </div>
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-licenseKey|Yes|The license key to which the permissions will be mapped| |gR7Mw7tA7S7qifkf 
-MISPId|Yes|The MISP ID against which the license key is mapped| |9837
-permissions|Yes|The list of permissions that will be mapped to the MISP-licensekey mentioned.| |OTP Trigger
-
-#### Request
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-   "request": {
-		"licenseKey": "gR7Mw7tA7S7qifkf",
-		"permissions": [
-			"OTP Trigger","OTP Authentication"
-		],
-		"MISPId": "9837"
-	}
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: license key permission updated successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-	  "status": "Mapped License with the permissions"
-	    }
-}
-```
-
-### GET /license/permission
-
-This component fetches various permission mapped to a license key.
-
-#### Resource URL
-<div>https://mosip.io/v1/licensekeymanager/license/permission </div>
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
-MISPId|Yes|The MISP ID against which the license key is mapped| |9837
-
-### Request
-<div>https://mosip.io/v1/licensekeymanager/license/permission?licenseKey=gR7Mw7tA7S7qifkf&MISPId=9837</div>
-
-```
-N/A
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: license key permissions fetched successfully
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response": {
-	     "permissions": [
-		          "OTP Trigger",
-		          "OTP Authentication"
-	                   ]
-	    }
-}
-```
-
-
-### PUT /license/status
-
-This service moves the status of the license key to SUSPENDED status.
-
-#### Resource URL
-<div>https://mosip.io/v1/licensekeymanager/license/status </div>
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Part Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-licenseKey|Yes|The license key for which the permissions need to be fetched| |gR7Mw7tA7S7qifkf 
-status|Yes|The status of the license key. It is an enumeration {ACTIVE, SUSPENDED, BLOCKED}| |ACTIVE
-
-#### Request
-```
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-		"licensekey":"gR7Mw7tA7S7qifkf",
-		"status":"ACTIVE"
-	     }
-}
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: license key suspended successfully
-Sample Success Response:
-
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"response" : {
-		"message":"The status had been changed successfully. "
-	     }
-}	
-```
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid license key
-
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "responsetime": "2019-04-04T05:03:18.287Z",
-  "metadata": null,
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "PRG_PAM_APP_001",
-     "message": "License key not found"
-    }
-  ]
-}
-```
-
 # Applicant type
 
 These set of services does various operations regarding the applicant type.
@@ -2376,110 +2381,109 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 
 
 
+# OTP Manager
+### POST OTP Generator
+This component facilitates generation of OTP for various purposes. EG: Login in Pre-registration
 
-# Static Token generator
+The OTP Generator component will receive a request to generate OTP, validate if the OTP generation request is from an authorized source, call OTP generator API with the input parameters (Key), receive the OTP from the OTP generator API which is generated based on the OTP generation policy and respond to the source with the OTP.
 
-* [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
+The OTP Generator can also reject a request from a blocked/frozen account and assign a validity to each OTP that is generated, based on the defined policy
 
-### GET tokenidgenerator/{uin}/{partnercode}
+### Resource URL
+### `POST /generate`
 
-This service returns a static token for the requested UIN and Partner ID. It will return the same Static Token for every call made with the same UIN and Partner ID. 
+### Resource details
 
-#### Resource URL
-<div>https://mosip.io/v1/tokenidgenerator/{uin}/{partnercode}/</div>
-
-#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Part Parameters
+### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-UIN|Yes|UIN of the individual.| -NA- |2345346532564566
-partnercode|Yes|ID of the partner.| -NA- |9373
+key |Yes|Key| | 9820173642
 
-#### Request
-```JSON
--NA-
+
+
+### Example Request
+
+v1/otpmanager/otp/generate
+
 ```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: token id generated successfully
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"request": {
+		"key": "9820173642"
+	}	
+}
+```
+### Example Response
 ```JSON
 {
-	"id": "mosip.kernel.tokenid.generate",
-	"version": "1.0",
-	"metadata": {},
-	"responsetime": "2019-04-04T05:03:18.287Z",
-	"response": {
-                  "tokenID": "268177021248100621690339355202974361"
-                     },
-        "errors": []
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "otp": "849004",
+	  "status": "GENERATION_SUCCESSFUL"
+	   }
 }
 ```
 
-##### Failure Response:
-###### Status code: '200'
-###### Description: Invalid parameters
-```JSON
-{
-	"id": "mosip.kernel.tokenid.generate",
-	"version": "1.0",
-	"metadata": {},
-	"responsetime": "2019-04-04T05:03:18.287Z",
-	"response": null,
-        "errors": [
-            {
-             "errorCode": "KER-TIG-010",
-             "message": "UIN and partner code cannot be empty"
-            }
-     ]
-}
-```
+### Validator
+This component facilitates basic validation of an OTP. 
 
+This includes: Receiving a request for OTP validation with required input parameters (Key), Validating the pattern of OTP generated based on defined policy, validating if the OTP is active/inactive and responding to the source with a response (Valid/Invalid)
 
-# RID generator
+This component also facilitates deletion of every successfully validated OTP when consumed and freezing an account for exceeding the number of retries/wrong input of OTP. 
 
-* [GET /v1/ridgenerator/generate/rid/10002/10032](#get-ridgenerator)
+### Resource URL
+### `GET /validate`
 
-### GET /generate/rid/{centerid}/{machineid}
+### Resource details
 
-This service returns a RID for the requested CenterID and MachineID. 
-
-#### Resource URL
-<div>https://mosip.io/v1//generate/rid/{centerid}/{machineid}/</div>
-
-#### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Part Parameters
+### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-centerid|Yes|centerid of registration| -NA- |10002
-machineid|Yes|machineid of registration| -NA- |10032
+key |Yes|Key| | 9820173642
+otp|Yes|OTP| | 123456
 
-#### Request
-```JSON
--NA-
+### Example Request
+
+v1/otpmanager/validate?key=9820173642&otp=123456
+
+### Example Response
 ```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-```JSON
 {
-  "id": null,
-  "version": null,
-  "responsetime": "2019-05-07T04:30:40.061Z",
-  "metadata": null,
-  "response": {
-    "rid": "10002100320001920190507043040"
-  },
-  "errors": null
-}
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": {
+	  "status": "success",
+	  "message": "VALIDATION SUCCESSFUL"
+	   }
+}	
 ```

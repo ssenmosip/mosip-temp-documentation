@@ -29,3 +29,8 @@ Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Pre-regist
 Artefact: Known Defects and Pending Items
 
 Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Kernel_25Feb19.docx)
+
+6) ## Module: Registration client<15Feb'19>
+Artefact: Known Defects and Pending Items
+
+Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Kernel.docx)
