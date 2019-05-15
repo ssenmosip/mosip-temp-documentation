@@ -33,15 +33,17 @@ When a java file is written, the following order is maintained,
 
 The beginning comment should be in a C-style comment. Following is the format of the comment.
 
-/*
 
- * Firstname Lastname
+				/*
 
- *
+				 * Firstname Lastname
 
- * Copyright notice
+				 *
 
- */
+				 * Copyright notice
+
+				 */
+
 
 ### 2.3.2 Package statement
 
@@ -51,17 +53,20 @@ The first non-comment line is the package statement.
 
 - After a line-break below the package statement, import statements are placed. The import statements are grouped and segregated by a line-break. For example,
 
-import java.util.List;
 
-import java.util.Map;
+			import java.util.List;
 
-import java.time.zone.ZoneRulesException;
+			import java.util.Map;
 
-import org.mosip.kernel.core.authn.LoginInfo;
+			import java.time.zone.ZoneRulesException;
 
-import org.mosip.kernel.core.exception.InvalidInputException;
+			import org.mosip.kernel.core.authn.LoginInfo;
 
-import org.mosip.kernel.core.exception.UnauthenticatedException;
+			import org.mosip.kernel.core.exception.InvalidInputException;
+
+			import org.mosip.kernel.core.exception.UnauthenticatedException;
+
+
 
 - Do not use asterisk symbol while importing packages.
 
@@ -69,19 +74,22 @@ import org.mosip.kernel.core.exception.UnauthenticatedException;
 
 - Class comment goes in the order of class description, version and author. For example,
 
-/*
 
- * Class description goes here
+			/*
 
- *
+			 * Class description goes here
 
- * @version 2.4 05 July 2018
+			 *
 
- * @author Rajkumar Mahanty
+			 * @version 2.4 05 July 2018
 
- *
+			 * @author Rajkumar Mahanty
 
- */
+			 *
+
+			 */
+ 
+ 
 
 ### 2.3.5 Public class or interface definition
 
@@ -135,11 +143,11 @@ The number of characters in a line should not exceed 80 characters
 
 When the number of characters exceed the limit, the line should be broken into multiple lines. The following standard is used during the line breaks,
 
-- --Break the line after the comma
-- --Break before the operator
-- --From higher-level breaks go to the lower-level breaks.
+- Break the line after the comma
+- Break before the operator
+- From higher-level breaks go to the lower-level breaks.
 
-5Comments
+#5 Comments
 
 There are 2 types of comments in Java.
 
@@ -263,11 +271,13 @@ Under the following circumstances, blank space are used,
 
 1. When a keyword followed by parenthesis, a blank space should be given after the keyword. For example,
 
+
 while(age > 60)  {
+
 
 2. In the argument list, the parameters are given a space after comma.
 
-# 9Naming Conventions
+# 9 Naming Conventions
 ## 9.1 Package names
 
 All the package name in MOSIP application starts with org.mosip
@@ -294,7 +304,7 @@ The variable names are short and meaningful. Any new observer can understand the
 
 The constants are given the name in capital letters. The words in the names are separated by underscore("_").
 
-# 10Programming Practices
+# 10 Programming Practices
 
 ## 10.1 Providing Access to Instance and Class Variables
 
@@ -304,38 +314,41 @@ The instance variables should not be made public unless you have a specific reas
 
 Always use the class name to call the static method. For example,
 
-LogFactory.getLogger();
+			LogFactory.getLogger();
 
 ## 10.3 Constants
 
 Numerical values should not used in the code directly. Declare them and use it in the code. For example,
 
-                int MAX_AGE = 60;
 
-                **while** (age > MAX_AGE) {
+			int MAX_AGE = 60;
 
-                        ...
+			while (age > MAX_AGE) {
 
-                }
+					...
+
+			}
+				
 
 ## 10.4 Variable Assignments
 
 Avoid multiple assignments in the same line. For example,
 
-                int MAX_AGE = MAX_YEARS = 10;                // AVOID
+			int MAX_AGE = MAX_YEARS = 10;                // AVOID
 
-                MAX_CALC = (RETIREMENT_AGE = MAX_YEARS + THRESHOLD);                // AVOID
+			MAX_CALC = (RETIREMENT_AGE = MAX_YEARS + THRESHOLD);                // AVOID
 
 ## 10.5 Lambdas
 ### 10.5.1 Parameter type inference
 
 Always use parameter type inference. For example,
 
+
 (employee, requesterEmployee) -> employee.name.compareTo(requesterEmployee.name)// PREFER
 
-(Employee employee, Employee requesterEmployee) -> {employee.name.compareTo(requesterEmployee.name)
+(Employee employee, Employee requesterEmployee) -> {employee.name.compareTo(requesterEmployee.name)}// PREFER
 
-}// PREFER
+
 
 ### 10.5.2 Parenthesis when optional
 
@@ -345,70 +358,70 @@ Do not use the parenthesis wherever it is optional
 
 Avoid using the block lambdas wherever an expression lambda are used. For example,
 
-                // PREFER
+			// PREFER
 
-                someVar -> someVar.toUpperCase(Constants.SOME_CONST);
+			someVar -> someVar.toUpperCase(Constants.SOME_CONST);
 
-                // AVOID
+			// AVOID
 
-                someVar -> {
+			someVar -> {
 
-                        **return** someVar.toUpperCase(Constants.SOME_CONST);
+					**return** someVar.toUpperCase(Constants.SOME_CONST);
 
-                }
+			}
 
 ## 10.6 Functional Interfaces
 
 Whenever calling the functional interface, place them at last in the parameter list. For example,
 
-        // PREFER
+			// PREFER
 
-        public Foo parse(Locale locale, **Function<Locale,Foo> fn** );
+			public Foo parse(Locale locale, **Function<Locale,Foo> fn** );
 
-        // AVOID
+			// AVOID
 
-        public Foo parse( **Function<Locale,Foo> fn** , Locale locale);
+			public Foo parse( **Function<Locale,Foo> fn** , Locale locale);
 
 ## 10.7 Exceptions
 ### 10.7.1 Specific exceptions
 
 Throw specific exceptions are caught, rather than generic exceptions. For example,
 
-                public void**myMethod()**throws** Exception{        // AVOID
+			public void myMethod()throws Exception{        // AVOID
 
-                public void**myMethod()**throws** NumberFormatException{        // PREFER
+			public void myMethod()throws NumberFormatException{        // PREFER
 
 ### 10.7.2 Documenting exceptions
 
 The exceptions are documented clearly. For example,
 
-                /**
+			/**
 
-                * The method description goes here ...
+			* The method description goes here ...
 
-                *
+			*
 
-                * @param input
+			* @param input
 
-                * **@throws** PacketNotValidException
+			* @throws PacketNotValidException
 
-                *             **if so and so... happens**
+			* if so and so... happens
 
-                */
+			*/
 
-                public void**myMethod(String someInput)**throws**PacketNotValidException {
+			public void myMethod(String someInput) throws PacketNotValidException {
 
 ### 10.7.3 Error and Throwable
 
 Error and Throwable are never caught in MOSIP. For example,
 
-                **try** {
+			try {
 
-                        // some code
+					// some code
 
-                } **catch** (Error e) {
+			} catch (Error e) {
 
-                }
+			}
 
 ### 10.7.4 Exception hierarchy
 
@@ -435,17 +448,17 @@ MOSIP's log component from the core-kernel is used to log entries.
 
 The log module in the core-kernel is used to log all the log entries.
 
-### 1.1.1 MOSIP log format
+### 10.8.4 MOSIP log format
 
 Every log entry contains the following format,
 
-<date> - <application_id> - <module_id> - <component_id> - <id_type> - <id> - <description>
+<date_iso> - <application_id> - <module_id> - <component_id> - <id_type> - <idvalue> - <description>
 
 For example,
 
 2008-09-15T15:53:00+05:00 - ENROLMENT – PACKET_VALIDATOR - VALIDATE – EnrolmentId - 829329 – Packet validator had been called and now we are going to validate the packets.
 
-### 1.1.1 No sensitive information is logged
+### 10.8.5 No sensitive information is logged
 
 Care is taken, not to log any sensitive information is logged. Modules leads review the code to ensure that no sensitive information is logged.
 
@@ -477,7 +490,10 @@ The return values are made sure that it is understandable.
 
 If any binary operator is used before "?" in the ternary operator, then parentheses is used.
 
-(age >= 25) ? true : false ;
+
+			(age >= 25) ? true : false ;
+
+
 
 ### 10.11.4 Special Comments
 
@@ -490,139 +506,140 @@ Special comments are used to give a hint for further development. Following are 
 
 ## 10.12 Sample Java code
 
-/*
+			/*
 
- * Copyright 2002-2018 the original author or authors.
+			 * Copyright 2002-2018 the original author or authors.
 
- *
+			 *
 
- * Licensed under the Apache License, Version 2.0 (the "License");
+			 * Licensed under the Apache License, Version 2.0 (the "License");
 
- * you may not use this file except in compliance with the License.
+			 * you may not use this file except in compliance with the License.
 
- * You may obtain a copy of the License at
+			 * You may obtain a copy of the License at
 
- *
+			 *
 
- *      `http://www.apache.org/licenses/LICENSE-2.0`
+			 *      http://www.apache.org/licenses/LICENSE-2.0
 
- *
+			 *
 
- * Unless required by applicable law or agreed to in writing, software
+			 * Unless required by applicable law or agreed to in writing, software
 
- * distributed under the License is distributed on an "AS IS" BASIS,
+			 * distributed under the License is distributed on an "AS IS" BASIS,
 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+			 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
- * See the License for the specific language governing permissions and
+			 * See the License for the specific language governing permissions and
 
- * limitations under the License.
+			 * limitations under the License.
 
- */
+			 */
 
-package org.mosip.orm;
+			package org.mosip.orm;
 
-import org.mosip.dao.SomeDAO;
+			import org.mosip.dao.SomeDAO;
 
-import org.mosip.exception.SMSException;
+			import org.mosip.exception.SMSException;
 
-/**
+			/**
 
- * This class does the so and so activity. And more description goes here. And
+			 * This class does the so and so activity. And more description goes here. And
 
- * more description goes here. And more description goes here. And more
+			 * more description goes here. And more description goes here. And more
 
- * description goes here. And more description goes here.
+			 * description goes here. And more description goes here.
 
- *
+			 *
 
- * @author SadanandGowda
+			 * @author SadanandGowda
 
- * @since v1.0
+			 * @since v1.0
 
- */
+			 */
 
-public class SampleReference extends SomeSuperClass {
+			public class SampleReference extends SomeSuperClass {
 
-        /**
+					/**
 
-        * someClass is used for so and so purpose
+					* someClass is used for so and so purpose
 
-        */
+					*/
 
-        @Nullable
+					@Nullable
 
-        private final Object someClass;
+					private final Object someClass;
 
-        /**
+					/**
 
-        * someIdentifier is used to identify something
+					* someIdentifier is used to identify something
 
-        */
+					*/
 
-        @Nullable
+					@Nullable
 
-        private final Object someidentifier;
+					private final Object someidentifier;
 
-        /**
+					/**
 
-        * Create some functionality with the with the given message, unless so and so
+					* Create some functionality with the with the given message, unless so and so
 
-        * functionality.
+					* functionality.
 
-        *
+					*
 
-        * @param msg
+					* @param msg
 
-        *            the display message
+					*            the display message
 
-        * @param cause
+					* @param cause
 
-        *            the source exception
+					*            the source exception
 
-        */
+					*/
 
-        public SampleReference(String message, Throwable cause) {
+					public SampleReference(String message, Throwable cause) {
 
-                super (message, cause);
+							super (message, cause);
 
-                this.someClass = null ;
+							this.someClass = null ;
 
-                this.someidentifier = null ;
+							this.someidentifier = null ;
 
-        }
+					}
 
-        /**
+					/**
 
-        * Sends the SMS to the given phone number
+					* Sends the SMS to the given phone number
 
-        *
+					*
 
-        * @param someClass
+					* @param someClass
 
-        *            this is for this purpose
+					*            this is for this purpose
 
-        * @param mobileNumber
+					* @param mobileNumber
 
-        *            the mobile number to which the SMS have to be sent
+					*            the mobile number to which the SMS have to be sent
 
-        * @param msg
+					* @param msg
 
-        *            the message sent to the phone number
+					*            the message sent to the phone number
 
-        * **@return**
+					* @return
 
-        */
+					*/
 
-        public String sendSMS(Class<?> someClass, int mobileNumber, String msg) {
+					public String sendSMS(Class<?> someClass, int mobileNumber, String msg) {
 
-                // the SMS sending code comes here.
+							// the SMS sending code comes here.
 
-        }
+					}
 
-}
+			}
 
-# 1References
+
+# References
 
 <div>http://www.oracle.com/technetwork/java/codeconventions-150003.pdf</div>
 
