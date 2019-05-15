@@ -349,7 +349,8 @@ If the Registration Officer selects the desired option, indicates that the indiv
 
 **The Registration Officer selects a pre-registration for registration**
 
-1. The Registration Officer enters demographic details or edits pre-filled demographic details.
+1. Registration Officer enters the PRID provided by a pre-registered individual. 
+1. The Registration Officer enters demographic details or edits pre-filled demographic details (details rendered from the provided PRID).
 1. The Registration Client validates the entered demographic data as per the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx).
 1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation, proceeds to next step.
