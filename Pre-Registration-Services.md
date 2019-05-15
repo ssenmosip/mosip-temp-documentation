@@ -2001,7 +2001,7 @@ preRegistrationId |Yes|Pre Registration id|94625367217037
 # Booking Service (Public)
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
-
+* [GET appointment/availability/sync](#get-appointmentavailabilitysync)
 * [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
 * [POST /appointment](#post-appointment)
 * [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
@@ -2009,6 +2009,36 @@ This service details used by Pre-Registration portal to book an appointment by p
 * [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
 * [GET /appointment/preRegistrationId/:registrationCenterId?from_date=:date&to_date=:date](#get-appointmentpreregistrationidregistrationcenteridfrom_datedateto_datedate)
 
+### GET /appointment/availability/sync
+This request is used to synchronize booking slots availability table with master data.
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/appointment/availability/sync</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Master Data Sync is successful
+
+```JSON
+{
+    "id": "mosip.pre-registration.appointment.availability",
+    "version": "1.0",
+    "responsetime": "2019-05-15T08:47:25.523Z",
+    "response": "MASTER_DATA_SYNCED_SUCCESSFULLY",
+    "errors":null
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_BOOK_RCI_015|No available slots found for specified registration center| If no slots are available in the specified registration center
 ### POST /appointment/:preRegistrationId
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
@@ -2520,12 +2550,10 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 # BatchJob Service (Private)
-This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id and master data sync for availability.
+This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id.
 
 * [PUT batch/expiredStatus](#put-expiredstatus)
 * [PUT batch/consumedStatus](#put-consumedstatus)
-* [GET appointment/availability/sync](#get-appointmentavailabilitysync)
-
 
 ### PUT /expiredStatus
 This request is used to update status of appointment expired pre-registration ids to expired status in database.
@@ -2631,36 +2659,6 @@ PRG_PAM_BAT_008	|Reg appointment consumed table not accessible|	If Reg appointme
 PRG_PAM_BAT_009|	Demographic consumed table not accessible|	If Demographic consumed table not accessible
 PRG_PAM_BAT_010	|Document consumed table not accessible|	If document consumed table not accessible
 
-
-### GET /appointment/availability/sync
-This request is used to synchronize booking slots availability table with master data.
-
-#### Resource URL
-<div>https://mosip.io/preregistration/v1/appointment/availability/sync</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: Master Data Sync is successful
-```JSON
-{
-    "id": "mosip.pre-registration.appointment.availability",
-    "version": "1.0",
-    "responsetime": "2019-05-15T08:47:25.523Z",
-    "response": "MASTER_DATA_SYNCED_SUCCESSFULLY",
-    "errors":null
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-PRG_BOOK_RCI_015|No available slots found for specified registration center| If no slots are available in the specified registration center
 # Generate QR code service (public)
 This service details used by Pre-Registration portal to generate QR Code.
 
