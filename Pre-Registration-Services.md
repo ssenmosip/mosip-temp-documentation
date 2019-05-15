@@ -73,9 +73,8 @@ request.langcode|Yes|The preferred language code |fra
 {
 	"id": "mosip.pre-registration.login.sendotp",
 	"version": "1.0",
-	"requesttime": "2019-03-15T07:24:47.605Z",
-	"request": {
-		"langCode": "fra",
+	"requesttime": "2019-05-14T07:24:47.605Z",
+	"request": {	
 		"userId": "8907654778"
 	}
 }
@@ -86,13 +85,14 @@ request.langcode|Yes|The preferred language code |fra
 ###### Description: OTP sent successfully to specified channel
 ```JSON
 {
-	"id": "mosip.pre-registration.login.sendotp",
-	"version": "1.0",
-	"responsetime": "2019-03-15T07:24:50.246Z",
-	"response": {
-		"message": "OTP sent successfully to specified channel"
-	},
-	"errors": null
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-05-14T07:25:00.803Z",
+  "response": {
+    "message": "Email Request submitted",
+    "status": "success"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -100,18 +100,25 @@ request.langcode|Yes|The preferred language code |fra
 ###### Description: Invalid parameters
 ```JSON
 {
-	"id": "mosip.pre-registration.login.sendotp",
-	"version": "1.0",
-	"responsetime": "2019-03-15T08:09:42.327Z",
-	"response": null,
-	"errors": [
-		{
-		 "errorCode": "PRG_PAM_LGN_001",
-		 "message": "OTP failed to send through a specified channel"
-		}
-	]	
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-05-14T16:46:39.582Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PRG_AUTH_001",
+      "message": "OTP failed to send through a specified channel"
+    }
+  ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_LGN_008|	Invalid Request userId recieved|	If requested userId is invalid
+PRG_PAM_CORE_001|   Request id is invalid|  Invalid or empty Request Id
+PRG_PAM_CORE_002 |   Request version is invalid |Invalid or empty Request version
+PRG_PAM_CORE_003    | Request timestamp is invalid |Invalid or empty Request time
 ### POST /login/validateOtp
 This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
 
@@ -152,13 +159,14 @@ request.OTP|Yes| received OTP  |345674
 ###### Description: sms sent successfully
 ```JSON
 {
-    "id": "mosip.pre-registration.login.useridotp",
-    "version": "1.0",
-    "responsetime": "2019-03-15T08:08:13.246Z",
-    "response": {
-	  "message": "OTP Validated Successfully"
-     },
-    "errors": null
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "responsetime": "",
+  "response": {
+    "message": "VALIDATION_SUCCESSFUL",
+    "status": "success"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -166,18 +174,30 @@ request.OTP|Yes| received OTP  |345674
 ###### Description: Invalid parameters
 ```JSON
 {
-    "id": "mosip.pre-registration.login.useridotp",
-    "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
-    "response": null,
-    "errors": [
-        {
-            "errorCode": "KER-OTV-005",
-            "message": "Validation can't be performed against this key. Generate OTP first."
-        }
-    ]
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "responsetime": "2019-05-14T18:03:12.305Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "KER-OTV-005",
+      "message": "Validation can't be performed against this key. Generate OTP first."
+    }
+  ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_PAM_LGN_013|	OTP_EXPIRED|	If otp expired
+PRG_PAM_CORE_001|   Request id is invalid|  Invalid or empty Request Id
+PRG_PAM_CORE_002 |   Request version is invalid |Invalid or empty Request version
+PRG_PAM_CORE_003    | Request timestamp is invalid |Invalid or empty Request time
+PRG_CORE_REQ_013  | Request date should be current date | If the date is not current date
+PRG_AUTH_002    |   Authentication failed   | If userId field is null or invalid
+KER-OTV-003 |	OTP can't be empty or null.	|   If otp field is null
+KER-OTV-004 |   OTP consists of only numeric characters. No other characters is allowed. | If otp contains character other than numeric
+PRG_PAM_LGN_008 |   Invalid Request userId recieved | if request id is invalid or empty
 ### POST /login/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
@@ -198,7 +218,7 @@ Requires Authentication | Yes
 {
     "id": "mosip.pre-registration.login.invalidate",
     "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
+    "responsetime": "2019-05-14T18:14:25.546Z",
     "response": {
          "message": "Token has been invalidated successfully"
     },
@@ -212,7 +232,7 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.login.invalidate",
   "version": "1.0",
-  "responsetime": "2019-04-16T14:51:10.026Z",
+  "responsetime": "2019-05-14T18:14:25.546Z",
   "response": null,
   "errors": [
     {
@@ -241,47 +261,61 @@ Requires Authentication | No
 ###### Description: Config parameter retrieved sucessfully 
 ```JSON
 {
-    "id": "mosip.pre-registration.login.config",
-    "version": "1.0",
-    "responsetime": "2019-03-27T06:22:19.673Z",
-    "response": {
-         "mosip.kernel.OTP.default-length": "6",
-         "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{6}$",
-         "mosip.left_to_right_orientation": "eng,fra",
-         "preregistration.recommended.centers.locCode": "4",
-         "mosip.kernel.OTP.validation-attempt-threshold": "3",
-         "mosip.primary-language": "ara",
-         "preregistration.timespan.cancel": "24",
-         "mosip.default.dob.month": "01",
-         "preregistration.availability.noOfDays": "7",
-         "mosip.kernel.OTP.expiry-time": "120",
-         "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
-         "mosip.supported-languages": "eng,ara,fra",
-         "preregistration.workflow.demographic": "true/false ",
-         "preregistration.workflow.documentupload": "true/false ",
-         "mosip.id.validation.identity.postalCode.length": "6",
-         "mosip.kernel.sms.number.length": "10",
-         "preregistration.availability.sync": "9",
-         "mosip.id.validation.identity.email.length": "50",
-         "preregistration.timespan.rebook": "24",
-         "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
-         "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
-         "mosip.right_to_left_orientation": "ara",
-         "mosip.kernel.pin.length": "6",
-         "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
-         "preregistration.workflow.booking": "true/false ",
-         "mosip.id.validation.identity.CNIENumber.length": "30",
-         "mosip.login.mode": "email,mobile",
-         "mosip.id.validation.identity.phone.length": "10",
-         "preregistration.auto.logout": "10",
-         "mosip.secondary-language": "fra",
-         "preregistration.nearby.centers": "2000",
-         "mosip.default.dob.day": "01",
-         "preregistration.booking.offset": "2"
-      },
-      "errors": null
+  "id": "mosip.pre-registration.login.config",
+  "version": "1.0",
+  "responsetime": "2019-05-14T16:01:20.534Z",
+  "response": {
+    "mosip.kernel.otp.default-length": "6",
+    "mosip.id.validation.identity.postalCode": "^[(?i)A-Z0-9]{5}$",
+    "mosip.left_to_right_orientation": "eng,fra",
+    "preregistration.recommended.centers.locCode": "5",
+    "mosip.kernel.otp.validation-attempt-threshold": "10",
+    "mosip.country.code": "MOR",
+    "mosip.primary-language": "fra",
+    "preregistration.timespan.cancel": "1",
+    "mosip.default.dob.month": "01",
+    "mosip.preregistration.auto.logout.timeout": "60",
+    "preregistration.availability.noOfDays": "5",
+    "mosip.kernel.otp.expiry-time": "180",
+    "mosip.id.validation.identity.dateOfBirth": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$",
+    "mosip.supported-languages": "eng,ara,fra",
+    "preregistration.workflow.documentupload": "true/false",
+    "preregistration.workflow.demographic": "true/false",
+    "preregistration.documentupload.allowed.file.nameLength": "50",
+    "mosip.id.validation.identity.postalCode.length": "5",
+    "mosip.kernel.sms.number.length": "10",
+    "preregistration.availability.sync": "6",
+    "mosip.id.validation.identity.email.length": "50",
+    "preregistration.timespan.rebook": "1",
+    "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
+    "mosip.id.validation.identity.age": "^(150|1[0-4][0-9]|[1-9]?[0-9])$",
+    "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
+    "mosip.right_to_left_orientation": "ara",
+    "mosip.kernel.pin.length": "6",
+    "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
+    "preregistration.workflow.booking": "true/false",
+    "mosip.preregistration.auto.logout.ping": "30 ",
+    "mosip.id.validation.identity.CNIENumber.length": "30",
+    "mosip.id.validation.identity.fullName.[*].value": "^(?=.{0,50}$).*",
+    "mosip.id.validation.identity.addressLine1.[*].value": "^(?=.{0,50}$).*",
+    "mosip.login.mode": "email,mobile",
+    "mosip.id.validation.identity.phone.length": "10",
+    "mosip.preregistration.auto.logout.idle": "180",
+    "preregistration.auto.logout": "10",
+    "mosip.secondary-language": "ara",
+    "preregistration.nearby.centers": "2000",
+    "preregistration.documentupload.allowed.file.size": "1000000",
+    "mosip.default.dob.day": "01",
+    "preregistration.booking.offset": "1",
+    "preregistration.documentupload.allowed.file.type": "application/pdf,image/jpeg,image/png,image/gif"
+  },
+  "errors": null
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_AUTH_012|	Config file not found in the config server|	If config file is missing in the config server
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
