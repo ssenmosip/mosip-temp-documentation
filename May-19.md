@@ -29,5 +29,5 @@
 |1.|Registration|Platform Document and Functional Requirement Specification|[Platform Documentation-Section 5.1](Platform-Documentation)|WIP|
 |2.|Registration|Tested Code|[Tag: 0.8.13](/mosip/mosip/releases/tag/0.8.13)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](//104.215.158.154:9000/dashboard?id=io.mosip.preregistration%3Apre-registration-parent)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
 |3.|Registration|Test Cases|[Click to view](//mosipid.atlassian.net/projects/MOS?version.id=10016&cycle.id=3ecb8208-a6f8-4ce0-9c07-1b87e1842e97&selectedItem=com.thed.zephyr.je__project-centric-view-tests-page&testsTab=test-cycles-tab)||
-|4.|Registration|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration Client/Mindmaps)|
-|5.|Registration Api|Test Cases|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration Client/Mindmaps)|
+|4.|Registration|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/RegistrationClient/Mindmaps)|
+|5.|Registration Api|Test Cases|[Click to View](/mosip/mosip/tree/master/docs/testing/RegistrationClient/Mindmaps)|
