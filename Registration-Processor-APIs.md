@@ -450,7 +450,7 @@ Name | Required | Description | Comment
 -----|----------|-------------|---------------|
 FileRequestDto|Yes|Dto containing registration id and file name|
 
-#### Example Request
+#### Request
 ```JSON
 {
   "id" : "mosip.manual.verification.biometric",
@@ -462,7 +462,7 @@ FileRequestDto|Yes|Dto containing registration id and file name|
 	}
 }
 ```
-#### Example Response
+#### Response
 ###### Status Code: 200
 ###### Description : response code is always 200 if server receives the request.
 
