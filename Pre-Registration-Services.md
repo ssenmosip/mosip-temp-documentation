@@ -212,13 +212,14 @@ Requires Authentication | Yes
 ###### Description: Token invalidated successfully
 ```JSON
 {
-    "id": "mosip.pre-registration.login.invalidate",
-    "version": "1.0",
-    "responsetime": "2019-05-14T18:14:25.546Z",
-    "response": {
-         "message": "Token has been invalidated successfully"
-    },
-    "errors": null
+  "id": "mosip.pre-registration.login.invalidate",
+  "version": "1.0",
+  "responsetime": "2019-05-16T09:37:04.941Z",
+  "response": {
+    "message": "Token has been invalidated successfully",
+    "status": "success"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -238,6 +239,10 @@ Requires Authentication | Yes
   ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-007| Token is not present in datastore,Please try with new token | If token is not present in database
 
 ### GET /login/config
 This request will load the configuration parameters while loading the pre-registration portal page.
