@@ -229,7 +229,7 @@ In case of multiple application, the system sends notifications to each applican
 
 An individual can opt to manually trigger notification\s to the contact details of additional recipients.
 
-[**Link to design for notification**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-notification-service.md)
+[**Link to design for notification**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-notification-service.md)<br>
 [**Link to design for QR code**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-generate-qr-code-service.md)
 
 
