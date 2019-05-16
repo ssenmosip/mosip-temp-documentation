@@ -183,15 +183,17 @@ request.OTP|Yes| received OTP  |345674
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_LGN_013|	OTP_EXPIRED|	If otp expired
+KER-OTV-003 |	OTP can't be empty or null.	|   If otp field is null
+KER-OTV-004 |   OTP consists of only numeric characters. No other characters is allowed. | If otp contains character other than numeric
+KER-OTV-005|Validation can't be performed against this key. Generate OTP first.|If validation has already done against the generated otp
+PRG_AUTH_002    |   Authentication failed   | If userId field is null or invalid
 PRG_PAM_CORE_001|   Request id is invalid|  Invalid or empty Request Id
 PRG_PAM_CORE_002 |   Request version is invalid |Invalid or empty Request version
 PRG_PAM_CORE_003    | Request timestamp is invalid |Invalid or empty Request time
 PRG_CORE_REQ_013  | Request date should be current date | If the date is not current date
-PRG_AUTH_002    |   Authentication failed   | If userId field is null or invalid
-KER-OTV-003 |	OTP can't be empty or null.	|   If otp field is null
-KER-OTV-004 |   OTP consists of only numeric characters. No other characters is allowed. | If otp contains character other than numeric
-PRG_PAM_LGN_008 |   Invalid Request userId recieved | if request id is invalid or empty
+PRG_PAM_LGN_013|	OTP_EXPIRED|	If otp expired
+PRG_PAM_LGN_008 |   Invalid Request userId received | if request id is invalid or empty
+
 ### POST /login/invalidateToken
 This request will invalidate the authorization token when force logout is done.
 
