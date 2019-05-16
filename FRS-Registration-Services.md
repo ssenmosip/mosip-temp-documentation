@@ -43,7 +43,7 @@
   * [5.9 Cleanup](#59-cleanup-)
     * [5.9.1 Data retention policies](#591-data-retention-policies-) _(REG_FR_5.18)_
     * [5.9.2 Device moving to new center](#592-device-moving-to-new-center-) _(REG_FR_5.19)_
-    * [5.9.3 Device retirement](#593-device-retirement-) _(REG_FR_5.20)_
+    * [5.9.3 Machine retirement](#593-machine-retirement-) _(REG_FR_5.20)_
   * [5.10 Language Support](#510-language-support-)
     * [5.10.1 Language Selection](#5101-language-selection-)  _(REG_FR_5.21)_
     * [5.10.2 Internationalization (WIP)](#5102-internationalization-wip-) _(REG_FR_5.22)_
@@ -998,7 +998,7 @@ The following example explains the steps system performs to support remapping a 
    * If the one-time process has not yet run, the user will still be able to login and perform sync, end of day approval, re-register updates, export, and upload. The user cannot perform pre-registration download and user on-boarding.
 5. As part of sync M1 receives the list of RC2 users. RC2 can users proceed to on-board themselves.
 
-### 5.9.3 Device retirement [**[↑]**](#table-of-content)
+### 5.9.3 Machine retirement [**[↑]**](#table-of-content)
 
 Before the machine is decommissioned the following checks must be performed.
 
