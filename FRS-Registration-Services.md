@@ -27,7 +27,7 @@
   * [5.3 Local Storage](#53-local-storage-) 
     * [5.3.1 Database](#531-database-) _(REG_FR_5.5)_  
     * [5.3.2 File system](#532-file-system-) _(REG_FR_5.6)_
-  * [5.4 Data Security (Take Architects Help)](#54-data-security-take-architects-help-)
+  * [5.4 Data Security](#54-data-security-)
     * [5.4.1 Trust Environment](#541-trust-environment-) _(REG_FR_5.7)_
     * [5.4.2 Encryption and Decryption](#542-encryption-and-decryption-) _(REG_FR_5.8)_
     * [5.4.3 Storage Policies](#543-storage-policies-) _(REG_FR_5.9)_
@@ -798,18 +798,15 @@ The registration packets are stored locally in the Registration Client. In sever
 
 ### 5.3.1 Database [**[↑]**](#table-of-content)
 ### 5.3.2 File system [**[↑]**](#table-of-content)
-## 5.4 Data Security () [**[↑]**](#table-of-content)
-Registration client integrates with Trusted Platform Model(TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals are saved securely in local system and then shared to server. The details saved locally would be encrypted. DataBase encryption is also mandatory.
+## 5.4 Data Security [**[↑]**](#table-of-content)
+Registration client integrates with Trusted Platform Model (TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals are saved securely in local system and then shared to server. The details saved locally would be encrypted. DataBase encryption is also mandatory.
 
 MOSIP performs the following:
 
-1.Signing the data (This process is called as Signature) using Private Key provided by the TPM
-
-This process will ensure that the request to the server has been dispatched from a registered or trusted registration client machine
-
+1. Signing the data (This process is called as Signature) using Private Key provided by the TPM
+   * This process will ensure that the request to the server has been dispatched from a registered or trusted registration client machine
 2. Validate the signature against the actual data using the Public Key or Public Part. The application does not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from a registered or trusted registration client machine
-
-3. Encrypt and decrypt the data using RSA algorithm in TPM
+1. Encrypt and decrypt the data using RSA algorithm in TPM
 
 ### 5.4.1 Trust Environment [**[↑]**](#table-of-content)
 ### 5.4.2 Encryption and Decryption [**[↑]**](#table-of-content)
