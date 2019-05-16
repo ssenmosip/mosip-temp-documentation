@@ -388,7 +388,20 @@ When the registration officer uses finger print capture device to capture the in
 1. Retains only that capture which has the highest quality score.
 1. Captures and stores the transaction details for audit purpose (except PII data).
 
-#### J. Capture an individual's face photograph and exception photograph.
+##J. Enable capturing an individual's face photograph
+
+When a Registration Officer opts to capture photo of an individual, the system initiates a photo capture and validates the following:
+1. Validates that an on-boarded camera is connected to the machine.
+   * If an on-boarded camera is not found, displays an error message.
+   * If more than one on-boarded camera is connected, proceeds with the first camera that the system finds as it scans the ports of the machine.
+2. Displays the photo preview before capturing.
+3. Allows the Registration Officer to initiate capture.
+4. Sends request to the camera for photo capture.
+5. Receives the photo from the camera.
+6. Displays the photo on screen.
+7. Allows the Registration Officer to proceed to verify quality score.
+8. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose (except PII data). 
+#### K. Capture an individual's face photograph and exception photograph.
 1. When a registration officer opts to capture the face photograph or exception photograph of an individual during the registration process, the system validates that an on-boarded camera is connected to the machine.
    * If an on-boarded camera is not found, display an error message.
    * If more than one on-boarded camera is connected, proceed with the first camera that the system finds as it scans the ports of the machine.
@@ -402,7 +415,7 @@ When the registration officer uses finger print capture device to capture the in
    * Step 2 to 7 must be performed to capture the exception photo.
 
 9. System captures and stores the transaction details for audit purpose (except PII data).
-#### K. Retry capture of face photo as configured
+#### L. Retry capture of face photo as configured
 While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
 1. The system displays the quality score and the threshold score for the capture.
 1. The registration officer proceeds to the next step if the quality score >= threshold or if the maximum number of retry attempts as configured is reached.
@@ -417,7 +430,7 @@ While registering an individual, a registration officer captures the face photo 
 1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo will be displayed on screen along with its quality score.
 1. All the above rules apply to exception photo capture as well.
 
-#### L. Capture Iris as per defined specifications
+#### M. Capture Iris as per defined specifications
 When the Registration Officer scans the individual’s irises either individually or together, the system performs the following steps:
 1. Displays the quality score and threshold for each iris captured.
 1. Allows the registration officer to re-try each capture up to a maximum no. of times (as configured) if threshold score is not met for one or both irises.
@@ -426,14 +439,14 @@ When the Registration Officer scans the individual’s irises either individuall
 1. Validates all available irises that have been captured, the irises, which are above threshold quality and the maximum retries attempted.
 1. Retains only that capture which has the highest quality score.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### M. Restrict registration if the duration since the last export or upload is more than the configured limit
+#### N. Restrict registration if the duration since the last export or upload is more than the configured limit
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If exceeded the configured limit, then system displays an error message.
 
-#### N. Register a non-pre-registered individual 
+#### O. Register a non-pre-registered individual 
 When the registration Officer opts to start a new registration, the system ensures that the demographic fields are set up and sequenced in the Admin portal. In addition, Master data and config settings must be synced from the server to client. Then the system identifies the fields to be displayed on the new registration form. 
 
-#### O. Choose the 'Opt to Register' option. 
+#### P. Choose the 'Opt to Register' option. 
 
 Upon receiving a request to start a new registration, the system performs the following steps:
 1. Validates that the time since the last sync from server to client has not exceeded the maximum duration permitted (configured from Admin portal).
@@ -447,7 +460,7 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. In case of failures validation, triggers appropriate error messages.
 1. System sends a success response and allow it to proceed to the next step.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### P. Retrieve a lost UIN
+#### Q. Retrieve a lost UIN
 When a Registration Officer navigates to the Lost UIN page then the Registration Officer performs the following steps to retrieve a lost UIN of an individual:
 1. Enters demographic details such as name, age or date of birth, etc. of the individual who has lost their UIN. 
    * None of the demographic fields is mandatory.
