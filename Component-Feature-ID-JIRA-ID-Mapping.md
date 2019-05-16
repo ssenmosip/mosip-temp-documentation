@@ -58,7 +58,7 @@
 |7.|MISP ID Generator|Generates MISP ID|[DAT_FR_4.4](FRS-Data-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
 |8.|PRID Generator|Generates PRID|[DAT_FR_4.5](FRS-Data-Services)|[MOS-12095](//mosipid.atlassian.net/browse/MOS-12095), [MOS-735](//mosipid.atlassian.net/browse/MOS-735)|
 |9.|VID Generator|Generates VID |[DAT_FR_4.6](FRS-Data-Services)|[MOS-1070](//mosipid.atlassian.net/browse/MOS-1070)|
-|10.|Token ID Generator|Generates Token ID|[DAT_FR_4.7](FRS-Data-Services)|[MOS-21930](//mosipid.atlassian.net/browse/MOS-21930),[MOS-12898](//mosipid.atlassian.net/browse/MOS-12898),[MOS-8321](//mosipid.atlassian.net/browse/MOS-8321)|
+|10.|Token ID Generator|Generates Token ID|[DAT_FR_4.7](FRS-Data-Services)|[MOS-21930](//mosipid.atlassian.net/browse/MOS-21930),[MOS-12898](//mosipid.atlassian.net/browse/MOS-12898),[MOS-8321](//mosipid.atlassian.net/browse/MOS-8321),[MOS-21930](//mosipid.atlassian.net/browse/MOS-21930)|
 |11.|Partner ID Generator|Generates Partner ID|[DAT_FR_4.8](FRS-Data-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
 |12.|MISP License Key Generator|Generates MISP License Key|[DAT_FR_4.9](FRS-Data-Services)|[MOS-16828](//mosipid.atlassian.net/browse/MOS-16828)|
 |13.|UIN Validator|Validates UIN|[DAT_FR_4.10](FRS-Data-Services)|[MOS-595](//mosipid.atlassian.net/browse/MOS-595),[MOS-9743](//mosipid.atlassian.net/browse/MOS-9743)|
