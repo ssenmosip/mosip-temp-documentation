@@ -385,8 +385,8 @@ Failure response
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
 	"errors" : [{
-		"errorCode" : "RPR-MVS-003"",
-		"message" : "Invalid status update""
+		"errorCode" : "RPR-MVS-003",
+		"message" : "Invalid status update"
 	}]
 }
 ```
@@ -573,9 +573,9 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
   "version": "1.0",
   "responsetime": "2019-02-02T06:12:25.288Z",
   "response": {
-    "registrationId": "10031100110005020190313110030",
-    "status": "RECEIVED",
-    "message": "Packet created and uploaded"
-  }
+    "registrationId": "10031100110005020190313110030",
+    "status": "RECEIVED",
+    "message": "Packet created and uploaded"
+  }
 }
 ```
