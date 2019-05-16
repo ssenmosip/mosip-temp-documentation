@@ -83,9 +83,7 @@ MOSIP Admin Application allows the user to login to the portal to perform the fo
    configurable to single factor or multi factor.
 2. MOSIP validates the credentials and allows admin to land in main page on successful validation.
 3. Credentials are blocked after unsuccessful attempt of X times (number of attempt is configurable) login.
-4. Once the credentials are blocked, only the relevant user or super admin can unblock the user. Refer to section 9 Forgot 
-   Password.
-
+4. Once the credentials are blocked, only the relevant user or super admin can unblock the user. 
 ### 1.2 Logout
 #### 1.2.1 Manual
 MOSIP allows the user to log out from the active session.
