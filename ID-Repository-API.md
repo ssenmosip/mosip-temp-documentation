@@ -633,6 +633,13 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 ```
 
 ## VID Services (Private)
+These services can be used to create VID, update VID status, re-generate VID.
+
+#### Users of VID services -
+1. `Registration Processor` - *Registration Processor* will create a new perpetual VID once UIN is generated successfully.
+2. `Resident Services` - Individual can use *Resident Services* to create or re-generate a new temporary VID.
+3. `ID Authentication` - *ID Authentication* can retrieve UIN for a given VID for authenticating Individual using VID.
+
 * [POST /idrepository/v1/vid](#post-idrepositoryv1vid)
 * [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vidvid)
 
