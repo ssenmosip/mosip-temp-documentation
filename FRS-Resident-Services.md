@@ -15,10 +15,10 @@
 # Resident Services
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 
-An individual can track the stats of UIN generation by providing a Registration ID(RID). The system validates the provided RID and the mobile number/email ID associated with it and sends an OTP notifications if successfully validated. Individual provides the OTP as received; the system authenticates the individual and sends the status of UIN generation through OTP notification (UIN statuses are configurable) . For more information on OTP   authentication, refer [section 10 OTP Authentication](#10-otp-authentication-). During the validation of RID and mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers an error message.
+An individual can track the stats of UIN generation by providing a Registration ID(RID). The system validates the provided RID and the mobile number/email ID associated with it and sends an OTP notifications if successfully validated. Individual provides the OTP as received; the system authenticates the individual and sends the status of UIN generation through OTP notification (UIN statuses are configurable) . Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details. During the validation of RID and mobile number/email ID, if the RID is not found or the mobile number/email ID is not associated with the RID, or the provided OTP is not correct, then the system triggers an error message.
 ## 2. Download UIN [**[↑]**](#table-of-content)
 
-An individual raises a request to download his/her e-UIN by providing the UIN/VID, full name, postal code, and security code.The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.The Individual provides the OTP as received.The system validates the provided OTP and successfully authenticates the individual. For more information on OTP authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).The system will generate the password protected (Password is configurable) e-UIN and sends a notification.During the validation of UIN/VID, Full Name, Postal Code, and Security Code and the mobile number/email ID, if the provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers an error message.
+An individual raises a request to download his/her e-UIN by providing the UIN/VID, full name, postal code, and security code.The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.The Individual provides the OTP as received.The system validates the provided OTP and successfully authenticates the individual.Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details. The system will generate the password protected (Password is configurable) e-UIN and sends a notification.During the validation of UIN/VID, Full Name, Postal Code, and Security Code and the mobile number/email ID, if the provided data are not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers an error message.
 
 ## 3. Retrieve Lost RID [**[↑]**](#table-of-content)
 MOSIP allows an individual to initiate a request to retrieve the RID.
@@ -26,8 +26,7 @@ An individual will follow the following procedure to raise a requested related t
 1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
 2. The system validates the provided data, checks for the registered mobile number/email ID and the system  triggers an OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
-   authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system generates the password protected (Password is configurable) RID and provides the RID to the individual along with notification.
 1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the RID or the provided OTP is not correct, then the system triggers a respective error notification.
 
@@ -40,7 +39,7 @@ An individual will follow the following procedure to raise a requested related t
 1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
 1. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system generates the password protected (Password is configurable) Registration ID and provides the Registration ID to the individual along with notification.
 1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the Registration ID or the provided OTP is not correct, then the system triggers a respective error notification.
 ## 5. Re-print Request of UIN [**[↑]**](#table-of-content)
@@ -49,8 +48,7 @@ An individual will follow the following procedure to raise a reprint request:
 1. The individual provides the UIN/VID for which he/she wants to reprint.
 1. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
-  authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system will provide the UIN to the registration processor to process the reprint request.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
 
@@ -63,15 +61,14 @@ The procedure for an individual to update the demographic data follows:
 1. The system validates the provided UIN/VID, checks for the registered mobile number/email ID associated with and 
 triggers an OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
-  authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system allows the individual to update the respective demographic data.
 1. The individual provides the supporting documents related to the details, which are being updated. 
 1. The system provides an acknowledgement notification. 
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID or the provided OTP is not correct, and then the system triggers a respective error notification.
-9. Status of an update request can further be tracked by an individual. For more information on this feature, refer to
-   [section 7 Track Status of UIN Update](#7-track-status-of-uin-update-).
+9. Status of an update request can further be tracked by an individual. Please refer to the
+   [**Track Status of UIN Update**](#7-track-status-of-uin-update-) for more details.
 
 
 ## 7. Track Status of UIN Update [**[↑]**](#table-of-content)
@@ -83,7 +80,7 @@ Following procedure to be followed by the individual to track the status of UIN 
    OTP notification to the individual.
 1. The individual provides the OTP as received.
 1. The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status 
-   (Update statuses are configurable). For more information on OTP authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+   (Update statuses are configurable). Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the 
    mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system 
    triggers a respective error notification.
@@ -96,8 +93,7 @@ Procedure to raise request to view the authentication history of the past:
 1. The system validates the provided UIN/VID and security code; checks for the registered mobile number/email ID, and 
    triggers an OTP notification to the individual.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP, successfully authenticates the individual. For more information on OTP 
-  authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP, successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system provides the history of authentication for all the authentication modalities.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
    UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
@@ -112,8 +108,7 @@ The following procedure to be followed by an individual to lock the authenticati
 1. An individual provides the UIN/VID for which he/she wants to lock the authentication type(s).
 1. The system validates the UIN/VID, checks for the registered mobile number/email ID, and triggers OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
- authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system provides the individual with lock information related to authentication type(s).
 1. The individual will lock the authentication type(s), which he/she wishes.
 1. The system will disable the authentication type(s) as provided by the individual.
@@ -130,8 +125,7 @@ The following procedure to be followed by an individual to unlock the authentica
 1. An individual provides the UIN/VID for which he/she wants to unlock the authentication type(s).
 1. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. For more information on OTP 
-   authentication, refer to [section 10 OTP Authentication](#10-otp-authentication-).
+1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
 1. The system provides the individual with unlock information related to authentication type(s).
 1. The individual will unlock the authentication type(s), which he/she requires.
 1. The system will enable the authentication type(s) as provided by the individual.
