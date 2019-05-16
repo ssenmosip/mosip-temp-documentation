@@ -9,11 +9,11 @@ Please refer to the [**process flow**](TBD) of ID Repository
 
 ## Architecturally Significant Use Cases
 ### Ensure Identity is stored and retrieved in a secured and trusted way
-ID Repository APIs must be accessed only by MOSIP modules internally, and must not be exposed outside. MOSIP should also ensure that Identity stored in ID Repository cryptographically encrypted to ensure that data is not seen by others, including UIN.
+ID Repository APIs must be accessed only by MOSIP modules internally, and must not be exposed outside. MOSIP should also ensure that Identity stored in ID Repository is cryptographically encrypted to ensure that data is not seen by others, including UIN.
 
 
 ### Ensure captured biometrics data must be in a standard way
-Biometrics stored or updated in ID Repository must conform to standards to ensure interoperability. Please refer to the [**link**](MOSIP-Biometric-Data-Specifications) for the standards.
+Biometrics stored or updated in ID Repository must conform to standards to ensure interoperability. Please refer to the [Biometric-Data-Specifications](MOSIP-Biometric-Data-Specifications) for the standards.
 
 
 ### Ensure captured Identity must be in format defined in MOSIP ID Schema
