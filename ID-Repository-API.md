@@ -1,31 +1,35 @@
 This section details about the REST services in ID Repository module.
-* [ID Services](#id-services)
-* [VID Services](#vid-services)
+* [ID Services](#id-services-private)
+* [VID Services](#vid-services-private)
 
-## ID Services
+## Identity Services (Private)
 These services is used by Registration Processor to store/update during registration process and ID Authentication to retrieve Identity of an Individual for their authentication.
-* [Create ID Service](#create-id)
-* [Read By UIN Service](#read-id-by-uin)
-* [Read By RID Service](#read-id-by-rid)
-* [Update ID Service](#update-id)     
+
+#### Users of Identity service -
+1. `Registration Processor` - *Registration Processor* will create a new ID record or update an existing ID record in ID repository and store corresponding demographic and bio-metric documents. *Registration Processor* can also retrieve Identity details of an Individual using RID.
+2. `ID Authentication` - *ID Authentication* can retrieve Identity details of an Individual using UIN for authenticating purpose.
+
+* [POST /idrepository/v1/identity](#post-idrepositoryv1identity)
+* [GET /idrepository/v1/identity/UIN/{UIN}?type=bio](#get-idrepositoryv1identityUIN{UIN}type=bio)
+* [GET /idrepository/v1/identity/RID/{RID}?type=bio](#read-id-by-rid)
+* [PATCH /idrepository/v1/identity](#patch-idrepositoryv1identity)     
 
 **Note** - Identity Services does not support search based on attributes of an ID.
 
-### Create ID    
+### POST /idrepository/v1/identity     
 
 This service will create a new ID record in ID repository and store corresponding demographic and bio-metric documents. 
 
 #### Resource URL
-#### `POST /idrepository/v1/identity`
+<div>https://mosip.io/idrepository/v1/identity</div>
 
 #### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.id.create | 
@@ -37,9 +41,8 @@ request: biometricReferenceId | yes | ABIS Reference ID | |
 request: identity | yes | JSON body as per ID object schema | | 
 request: documents | yes | Documents that are to be uploaded for any ID attribute | | 
 
-**Example request**
-
-```
+#### Request:
+```JSON
 {
   "id": "mosip.id.create",
   "version": "v1",
@@ -203,9 +206,11 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 }
 ```
 
-**Example response**    
-
-```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Identity stored successfully
+```JSON
 {
   "id": "mosip.id.create",
   "version": "v1",
@@ -217,7 +222,7 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 }
 ```
 
-### Read ID by UIN         
+### GET /idrepository/v1/identity/UIN/{UIN}?type=bio         
 
 This service will retrieve an ID record from ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of the Individual are returned
@@ -227,18 +232,19 @@ This service will retrieve an ID record from ID repository for a given UIN (Uniq
 If no identity type is provided, stored Identity details of the Individual will be returned as a default response.
 
 #### Resource URL
-#### `GET /idrepository/v1/identity/UIN/{UIN}?type=bio`
+<div>https://mosip.io/idrepository/v1/identity/UIN/{UIN}?type=bio</div>
 
 #### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-**Example response**     
-
-```
+#### Responses: 
+##### Success Response:
+###### Status code: '200'
+###### Description: Identity retrieved successfully 
+```JSON
 {
   "id": "mosip.id.read",
   "version": "v1",
@@ -386,7 +392,7 @@ Requires Authentication | Yes
 }
 ```
 
-### Read ID by RID         
+### GET /idrepository/v1/identity/RID/{RID}?type=bio         
 
 This operation will retrieve an ID record from ID repository for a given RID (Registration ID) and identity type as bio/demo/all. 
 1. When type=bio is selected, individualBiometrics along with Identity details of Individual are returned
@@ -396,18 +402,19 @@ This operation will retrieve an ID record from ID repository for a given RID (Re
 If no identity type is provided, stored latest Identity details of Individual mapped to the UIN of input RID will be returned as a default response.
 
 #### Resource URL
-#### `GET /idrepository/v1/identity/RID/{RID}?type=bio`
+<div>https://mosip.io/idrepository/v1/identity/RID/{RID}?type=bio</div>
 
 #### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-**Example response**     
-
-```
+#### Responses: 
+##### Success Response:
+###### Status code: '200'
+###### Description: Identity retrieved successfully 
+```JSON
 {
   "id": "mosip.id.read",
   "version": "v1",
@@ -555,21 +562,19 @@ Requires Authentication | Yes
 }
 ```
 
-### Update ID   
-
+### PATCH /idrepository/v1/identity      
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 #### Resource URL
-#### `PATCH /idrepository/v1/identity`
+<div>https://mosip.io/idrepository/v1/identity/RID/{RID}?type=bio</div>
 
 #### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | Y | Id of the API | mosip.id.update | 
@@ -582,9 +587,8 @@ request: biometricReferenceId | N | ABIS Reference Id | |
 request: identity | N | JSON body as per the ID object schema | | 
 request: documents | N | Documents that are to be uploaded for any ID attribute | | 
 
-**Example Request**     
-
-```
+#### Request:
+```JSON
 {
   "id": "mosip.id.update",
   "version": "v1",
@@ -612,9 +616,11 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 }
 ```
 
-**Example response**    
-
-```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Identity updated successfully
+```JSON
 {
   "id": "mosip.id.update",
   "version": "v1",
@@ -626,25 +632,23 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 }
 ```
 
-## VID Services
-* [Create VID Service](#create-vid)
-* [Retrieve UIN By VID Service](#retrieve-uin-by-vid)
+## VID Services (Private)
+* [POST /idrepository/v1/vid](#post-idrpositoryv1vid)
+* [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vid)
 
-### Create VID    
-
+### POST /idrepository/v1/vid        
 This service will create a new VID based on VID type provided.
 
 #### Resource URL
-#### `POST /idrepository/v1/vid`
+<div>https://mosip.io/idrepository/v1/vid</div>
 
-#### Resource details
-
+#### Resource details     
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.vid.create | 
@@ -654,9 +658,8 @@ request | yes | Request Body attributes | |
 request: vidType | yes | VID Type |  | Perpetual or Temporary 
 request: UIN| yes | Individual's UIN |  | 981576026435
 
-**Example request**
-
-```
+#### Request:
+```JSON
 {
   "id": "mosip.vid.create",
   "version": "v1",
@@ -668,8 +671,10 @@ request: UIN| yes | Individual's UIN |  | 981576026435
 }
 ```
 
-**Example response**    
-
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: VID created successfully
 ```
 {
   "id": "mosip.vid.create",
@@ -682,23 +687,23 @@ request: UIN| yes | Individual's UIN |  | 981576026435
 }
 ```
  
- ### Retrieve UIN by VID    
-
+ ### GET /idrepository/v1/vid/{VID}        
 This service will retrieve associated decrypted UIN for a given VID, once VID is successfully validated.
 
 #### Resource URL
-#### `POST /idrepository/v1/vid/{VID}`
+<div>https://mosip.io/idrepository/v1/vid/{VID}</div>
 
 #### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
 
-**Example response**    
-
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: UIN for a given VID retrieved successfully
 ```
 {
   "id": "mosip.vid.read",
@@ -710,21 +715,19 @@ Requires Authentication | Yes
 }
 ```
 
- ### Update VID status   
-
+ ### PATCH /idrepository/v1/vid/{VID}   
 This service will update status associated with a given VID, if the current status of VID is 'ACTIVE'.
 
 #### Resource URL
-#### `PATCH /idrepository/v1/vid/{VID}`
+<div>https://mosip.io/idrepository/v1/vid/{VID}</div>
 
 #### Resource details
-
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
 
-#### Parameters
+#### Request Body Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id | yes | Id of the API | mosip.vid.update | 
@@ -733,9 +736,8 @@ requesttime | yes | timestamp of the request | | 2019-04-30T06:12:25.288Z
 request | yes | Request Body attributes | | 
 request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
 
-**Example request**
-
-```
+#### Request:
+```JSON
 {
   "id": "mosip.vid.update",
   "version": "v1",
@@ -746,9 +748,11 @@ request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
 }
 ```
 
-**Example response**    
-
-```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: VID status updated successfully
+```JSON
 {
   "id": "mosip.vid.update",
   "version": "v1",
