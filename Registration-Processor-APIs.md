@@ -60,12 +60,6 @@ MultipartFile|Yes|The encrypted zip file| |
 }
 ```
 
-### Response codes
-200
-
-Description: Packet successfully uploaded to landing zone
-
-
 # 2 Registration Status Service
 ## 2.1 Packet-status service
 This service return the registration current status for list of input registration ids.
@@ -130,13 +124,6 @@ Record not found :
   "response" : []
 }
 ```
-
-### Response codes
-200
-
-Description: Successfully retrieved information
-
-
 
 ## 2.2 Sync-registration service
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
@@ -276,12 +263,6 @@ Failure response
 }
 ```
 
-### Response codes
-200
-
-Description: Successfully synced
-
-
 
 # 3 Manual Adjudication Service
 ## 3.1 manual-adjudication-assignment service
@@ -344,10 +325,6 @@ Failure response
 }
 ```
 
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
 
 ## 3.2 manual-adjudication-decision service
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
@@ -414,11 +391,6 @@ Failure response
 }
 ```
 
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
-
 
 ## 3.3 manual-adjudication-applicant-biometric service
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
@@ -476,11 +448,6 @@ Failure :
 }
 ```
 
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
-
 
 ## 3.4 manual-adjudication-applicant-demographic service
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.
@@ -537,10 +504,6 @@ Failure :
 }
 ```
 
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
 
 # 4 Bio Dedupe Service
 ## 4.1 Bio Dedupe service
@@ -567,10 +530,6 @@ byte[]|Yes|byte array of CBEFF file| |
 // byte array of CBEFF xml file
 ```
 
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
 
 # 5 Packet Generator Service
 ## 4.1 Packet Generator Service
@@ -620,9 +579,3 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
   }
 }
 ```
-
-
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
