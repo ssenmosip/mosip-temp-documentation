@@ -19,7 +19,7 @@ This section details about the service API in the Pre-Registration modules.
 
 * [Transliteration Service](#transliteration-service-public)
 
-**Note**: id, version and requesttime in request and responsetime and response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
+**Note**: id, version and requesttime in request and responsetime in response bodies are optional fields and not consumed by pre registration application unless defined. Though we need to pass these as part of the request, it should not be tested.
 Few of the error messages are intended for API consumer, who are mostly SI and developers. User friendly messages need to be mapped in the UI reference implementation. 
 
 API testing Prerequisites
@@ -34,9 +34,6 @@ API testing Prerequisites
 
 # Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
-
-
-
 
 * [POST /login/sendOtp](#post-loginsendotp)
 * [POST /login/validateOtp](#post-loginvalidateotp)
@@ -325,7 +322,7 @@ This service details used by Pre-Registration portal to maintain the demographic
 * [DELETE /applications/:preRegistrationId](#delete-applicationspreRegistrationid)
 
 ### POST /applications
-This request will used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
+This request will be used to create new pre-registration with demographic details, which generate pre-registration id and associate with demographic details.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/applications</div>
@@ -1887,6 +1884,8 @@ Error Code | Error Message | Error Description
 PRG_PAM_DOC_022|DocumentId is not belongs to the pre-registration Id|If the requested document id is not stored with respect to the requested preregistration id
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
+
+
 # DataSync Service (External)
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
@@ -1922,11 +1921,11 @@ request.toDate |Yes|To date of the application|2019-02-12
 {
   "id": "mosip.pre-registration.datasync.fetch.ids",
   "version": "1.0",
-  "requesttime": "2019-02-11T06:57:29.969Z",
+  "requesttime": "2019-05-16T06:57:29.969Z",
   "request": {
     "registrationCenterId":"10001",
-    "fromDate":"2019-02-09",
-    "toDate":"2019-02-12"
+    "fromDate":"2019-05-09",
+    "toDate":"2019-05-20"
   }
 }
 ```
@@ -1938,27 +1937,13 @@ request.toDate |Yes|To date of the application|2019-02-12
 {
     "id": "mosip.pre-registration.datasync.fetch.ids",
     "version": "1.0",
-    "responsetime": "2019-04-24T13:13:15.429Z",
+    "responsetime": "2019-05-16T08:34:01.315",
     "response": {
-        "transactionId": "b844b66d-6692-11e9-9e21-a96692193955",
-        "countOfPreRegIds": "16",
+        "transactionId": "5afbfbae-77b5-11e9-8dea-e342188bfd4e",
+        "countOfPreRegIds": "2",
         "preRegistrationIds": {
-            "21728945805937": "2019-04-22T13:09:38.182",
-            "57128359318508": "2019-04-22T13:45:51.029",
-            "27807168975134": "2019-04-22T07:13:19.696",
-            "48156207857649": "2019-04-23T13:25:32.195",
-            "47619536407427": "2019-04-23T07:33:29.495",
-            "31805269138406": "2019-04-21T13:49:45.607",
-            "37025075316953": "2019-04-23T12:47:14.395",
-            "36058368043843": "2019-04-23T05:19:50.163",
-            "25104860854153": "2019-04-23T13:29:42.664",
-            "25742948395781": "2019-04-23T08:52:19.487",
-            "63196106573148": "2019-04-22T08:42:32.458",
-            "45746897093203": "2019-04-22T05:29:19.288",
-            "83154079450486": "2019-04-22T09:52:37.834",
-            "60597241326438": "2019-04-21T16:54:21.695",
-            "40572697835643": "2019-04-22T10:22:31.634",
-            "29708209769312": "2019-04-22T09:44:02.757"
+            "47184958619749": "2019-05-15T11:44:28.966",
+            "76426186439718": "2019-05-16T05:54:01.999"
         }
     },
     "errors": null
@@ -1971,23 +1956,26 @@ request.toDate |Yes|To date of the application|2019-02-12
 
 ```JSON
 {
-    "id": null,
-    "version": null,
-    "errors": {
-        "errorCode": "PRG_BOOK_RCI_032",
-        "message": "Record not found for date range and reg center id"
-    },
-    "responsetime": "2019-04-24T13:33:50.237Z",
-    "response": null
+    "id": "mosip.pre-registration.datasync.fetch.ids",
+    "version": "1.0",
+    "responsetime": "2019-05-16T08:32:19.732Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_BOOK_RCI_032",
+            "message": "Record not found for date range and reg center id"
+        }
+    ]
 }
 ```
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_DATA_SYNC_009|registration center id is invalid|Empty registration center Id
-PRG_DATA_SYNC_010|requested date is invalid|Invalid or empty from date or to date
+PRG_CORE_REQ_013|Request date should be current date|Invalid or empty from date or to date
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 PRG_DATA_SYNC_016|booking data not found|when rest service to booking service fails
+
 ### POST /sync/consumedPreRegIds
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
 
@@ -2043,21 +2031,27 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No pre-registration ids passed in request body
+###### Description: No pre-registration ids passed in request body or all the preregistration ids are invalid
 ```JSON
 {
-   "id": "mosip.pre-registration.datasync.store",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         { 
+    "id": "mosip.pre-registration.datasync.store",
+    "version": "1.0",
+    "responsetime": "2019-05-16T08:41:48.546Z",
+    "response": null,
+    "errors": [
+        {
             "errorCode": "PRG_DATA_SYNC_011",
-            "message": "No pre-registration ids passed in request body"
-	 }
+            "message": "requested preregistration ids are not valid"
+        }
     ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_013|Request date should be current date|Invalid or empty requesttime
+PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
+
 ### GET /sync/:preRegistrationId
 This request is used by registration client to retrieve particular pre-registration data based on a pre-registration id.
 
@@ -2084,19 +2078,19 @@ preRegistrationId |Yes|Pre Registration id|41342175487213
 
 ```JSON
 {
-    "id": null,
-    "version": null,
-    "responsetime": "2019-04-24T12:46:18.335Z",
+    "id": "mosip.pre-registration.datasync.fetch",
+    "version": "1.0",
+    "responsetime": "2019-05-16T08:34:56.440",
     "response": {
-        "pre-registration-id": "41342175487213",
-        "registration-client-id": "10008",
-        "appointment-date": "2019-04-26",
-        "from-time-slot": "12:00",
-        "to-time-slot": "12:15",
-        "zip-filename": "41342175487213",
-        "zip-bytes":"{ByteCode}"
-   },
-   "errors":null
+        "pre-registration-id": "47184958619749",
+        "registration-client-id": "10001",
+        "appointment-date": "2019-05-17",
+        "from-time-slot": "09:00",
+        "to-time-slot": "09:15",
+        "zip-filename": "47184958619749",
+        "zip-bytes": ByteCode
+    },
+    "errors": null
 }
 ```
 
@@ -2105,14 +2099,16 @@ preRegistrationId |Yes|Pre Registration id|41342175487213
 ###### Description: No data exist for the requested pre-registration id
 ```JSON
 {
-    "id": null,
-    "version": null,
-    "errors": {
-        "errorCode": "PRG_PAM_APP_005",
-        "message": "No data found for the requested pre-registration id"
-    },
-    "responsetime": "2019-04-24T12:14:38.607Z",
-    "response": null
+    "id": "mosip.pre-registration.datasync.fetch",
+    "version": "1.0",
+    "responsetime": "2019-05-16T08:35:37.021Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_PAM_APP_005",
+            "message": "No data found for the requested pre-registration id"
+        }
+    ]
 }
 ```
 #### Other Failure details
