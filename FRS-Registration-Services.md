@@ -758,7 +758,7 @@ On successful validation of all conditions above, display the logged in home pag
 The registration officer authenticates each registration by providing credentials--biometrics and/or OTP and/or password as configured by the admin
 
 1. In case registration officer’s credentials do not match the locally saved credentials or the OTP, the system allows registration officer to retry unlimited number of times.
-1. If the system is configured for multi factor authentication, the registration officer will provide the credentials (biometric) in the configured order (as defined by the country)
+1. If the system is configured for multi factor authentication, the registration officer will provide two or more credentials (biometric, OTP, password, etc.) in the configured order (as defined by the country)
 1. The system allows the registration officer to proceed to the next step only upon successful authentication of all configured credentials
 1. The system validates that the input (registration officer’s credentials) matches with the locally saved credentials for that registration officer.
    * The system accepts the biometrics match only if the match score is greater than the configured threshold value
