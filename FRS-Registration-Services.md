@@ -626,7 +626,7 @@ MOSIP supports single factor and multi factor login including iris and face capt
 #### B. Temporarily lock the user account after five unsuccessful login attempts.
 1. The MOSIP system temporarily locks the user to login in case the user gives an invalid password for login five times continuously.
 1. Upon the fifth unsuccessful attempt to login, displays an error message 
-1. The temporarily lock lasts for 30 minutes.
+1. The temporarily lock lasts for 30 minutes (configured by an admin).
 1. The same error message is displayed for any subsequent login attempt within 30 minutes.
 1. After 30 minutes, the lock is released and the count of invalid login attempts is reset to zero.
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
