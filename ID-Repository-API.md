@@ -633,8 +633,8 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 ```
 
 ## VID Services (Private)
-* [POST /idrepository/v1/vid](#post-idrpositoryv1vid)
-* [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vid)
+* [POST /idrepository/v1/vid](#post-idrepositoryv1vid)
+* [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vidvid)
 
 ### POST /idrepository/v1/vid        
 This service will create a new VID based on VID type provided.
