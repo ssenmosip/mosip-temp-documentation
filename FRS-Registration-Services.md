@@ -702,8 +702,6 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
    * The auto log out duration is configured from Admin. The default value can be taken as 15 minutes.
    * Alerts the user ‘x’ minutes before reaching the auto logout time limit. Displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
    * The duration before which to display the alert is configured by Admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
-   * Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
-   * Validates that the user has a role or Registration Officer or Supervisor.
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 6. The System also captures and stores the transaction details for audit purpose (except PII data).
 
