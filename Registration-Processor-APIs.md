@@ -40,9 +40,8 @@ MultipartFile|Yes|The encrypted zip file|
 #### Response
 
 ##### Success response
-
-######Status Code: 200
-######Description: Packet is in PACKET_RECEIVED status
+###### Status Code: 200
+###### Description: Packet is in PACKET_RECEIVED status
 
 ```JSON
 {
@@ -57,7 +56,7 @@ MultipartFile|Yes|The encrypted zip file|
 #### Failure response
 
 ###### Status Code: 200
-######Description: The request received is a duplicate request to upload a Packet
+###### Description: The request received is a duplicate request to upload a Packet
 
 ```JSON
 {
@@ -112,8 +111,8 @@ registrationIds|Yes|List of registration ids|
 ```
 #### Response
 Record found :
-######Status Code: 200
-######Description: Successfully retrieved information
+###### Status Code: 200
+###### Description: Successfully retrieved information
 
 ```JSON
 {
@@ -133,8 +132,9 @@ Record found :
 }
 ```
 Record not found :
-######Status Code: 200
-######Description: Successfully retrieved information
+###### Status Code: 200
+###### Description: Successfully retrieved information
+
 ```JSON
 {
   "id" : "mosip.registration.status",
@@ -220,7 +220,7 @@ langCode|Yes|language code used |eng or ara
 #### Response
 
 ######Response Code: 200
-######Description: Successfully synced
+###### Description: Successfully synced
 
 Success response :
 ```JSON
@@ -323,8 +323,8 @@ String|Yes|The user id|
 }
 ```
 #### Response
-######Status Code: 200
-######Description : response code is always 200 if server receives the request.
+###### Status Code: 200
+###### Description : response code is always 200 if server receives the request.
 
 Success response
 ```JSON
@@ -395,8 +395,8 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info|
 }
 ```
 #### Response
-######Status Code: 200
-######Description : response code is always 200 if server receives the request.
+###### Status Code: 200
+###### Description : response code is always 200 if server receives the request.
 
 Success response
 ```JSON
@@ -463,8 +463,8 @@ FileRequestDto|Yes|Dto containing registration id and file name|
 }
 ```
 #### Example Response
-######Status Code: 200
-######Description : response code is always 200 if server receives the request.
+###### Status Code: 200
+###### Description : response code is always 200 if server receives the request.
 
 Success :
 ```JSON
@@ -526,8 +526,9 @@ FileRequestDto|Yes|Dto containing registration id and file name|
 }
 ```
 #### Response
-######Status Code: 200
-######Description : response code is always 200 if server receives the request.
+###### Status Code: 200
+###### Description : response code is always 200 if server receives the request.
+
 ```JSON
 {
   "id" : "mosip.manual.verification.biometric",
@@ -577,7 +578,7 @@ byte[]|Yes|byte array of CBEFF file|
 
 #### Response
 ###### Status codes: 200
-######Description : response code is always 200 if server receives the request.
+###### Description : response code is always 200 if server receives the request.
 
 ```JSON
 // byte array of CBEFF xml file
@@ -620,8 +621,8 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
 }
 ```
 #### Response
-######Status Code:200
-######Description : response code is always 200 if server receives the request.
+###### Status Code:200
+###### Description : response code is always 200 if server receives the request.
 
 ```JSON
 {
