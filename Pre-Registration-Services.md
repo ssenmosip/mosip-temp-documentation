@@ -1794,7 +1794,7 @@ This service enables Pre-Registration to a registration client, request to retri
 
 
 * [POST /sync](#post-sync)
-* [POST /sync/consumedPreRegIds](#post-consumedpreRegIds)
+* [POST /sync/consumedPreRegIds](#post-syncconsumedPreRegIds)
 * [GET /sync/:preRegistrationId](#get-syncpreregistrationid)
 
 ### POST /sync
