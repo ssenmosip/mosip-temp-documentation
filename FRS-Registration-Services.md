@@ -753,13 +753,7 @@ On successful validation of all conditions above, display the logged in home pag
    * Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
 7. On successful validation, display the logged-in home page.
 
-#### C. Enforce multi factor login for Admin users [**[↑]**](#table-of-content)
-
-The mode of authentication (single of multifactor) for a user is based on the admin configurations. For admin user its always multifactor authentication
-
-When an admin user opts to log in to the registration client application by entering the user name and password the System recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order to enter biometric data.
-
-#### D. Registration Officer authenticates each registration with password/biometrics/multi factor elements
+#### C. Registration Officer authenticates each registration with password/biometrics/multi factor elements
 
 The registration officer authenticates each registration by providing credentials--biometrics and/or OTP and/or password as configured by the admin
 
