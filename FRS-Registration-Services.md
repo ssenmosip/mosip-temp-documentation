@@ -496,12 +496,12 @@ When an individual approaches the Registration Officer for UIN update, the follo
 1. If biometric exceptions were marked, supervisor performs authentication.
 1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. Registration Officer Views and prints acknowledgement. 
-1. SMS and/or email notifications are sent if the contact details are entered during the update process.
+1. SMS and/or email notifications are sent to the individual if the contact details are entered during the update process.
 
 ## 3.6 Acknowledgement and Notifications [**[↑]**](#table-of-content)
 #### A. Printing the registration receipt.
 1. Upon completion of a registration the system generates a unique RID 
-1. The system the enables the user to generate the registration receipt.
+1. The system generates the registration receipt.
 1. The registration receipt contains details in a print-friendly format.
    * Receipt includes labels and data in two languages - the default language and the secondary language as configured. 
    * All labels and fields are in the default language. Only name and address labels and fields are shown in the secondary language
@@ -509,7 +509,8 @@ When an individual approaches the Registration Officer for UIN update, the follo
 4. This print friendly receipt can then be printed using a printer
 
 #### B. Acknowledgement receipt sent by email on completion of registration process [**[↑]**](#table-of-content)
-1. When a registration is completed, that is, a Registration ID has been generated and assigned the system, sends an acknowledgement email to the individual 
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement email to the individual.
+   * Notification language is a global configuration setting 
 2. The email template is defined by the admin at country level.
 3. Email is sent to the email address entered during registration.
 4. The subject and the body of the acknowledgement email are configured by admin.
