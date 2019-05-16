@@ -31,7 +31,7 @@ Requires Authentication | Yes
 
 #### Request Path Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 MultipartFile|Yes|The encrypted zip file| 
 
 #### Request
@@ -91,7 +91,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment |
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 registrationIds|Yes|List of registration ids|
 
 #### Request
@@ -163,7 +163,7 @@ Requires Authentication | Yes
 
 ### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 id|Yes|the id for sync|mosip.registration.sync
 version|Yes|the version for sync|1.0
 requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
@@ -308,7 +308,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 String|Yes|The user id|
 
 #### Request
@@ -375,7 +375,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 ManualVerificationDTO|Yes|Dto containing manual adjudication info|
 
 #### Request
@@ -447,7 +447,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 FileRequestDto|Yes|Dto containing registration id and file name|
 
 #### Example Request
@@ -510,7 +510,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 FileRequestDto|Yes|Dto containing registration id and file name|
 
 #### Request
@@ -572,7 +572,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 byte[]|Yes|byte array of CBEFF file|
 
 #### Response
@@ -600,7 +600,7 @@ Requires Authentication | Yes
 
 #### Parameters
 Name | Required | Description | Comment
------|----------|-------------|---------------|--------
+-----|----------|-------------|---------------|
 PacketGeneratorRequestDto|Yes|Dto containing information required for activate or deactivate packet|
 
 #### Request
