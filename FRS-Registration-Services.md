@@ -399,7 +399,7 @@ When the registration officer uses finger print capture device to capture the in
 6. Display the face photo on screen.
 7. Allows the Registration Officer to proceed to verify quality score.
 8. Allows exception photo capture only if an exception has been marked.
-   * Step 2 to7 must be performed to capture the exception photo.
+   * Step 2 to 7 must be performed to capture the exception photo.
 
 9. System captures and stores the transaction details for audit purpose (except PII data).
 #### K. Retry capture of face photo as configured
@@ -810,19 +810,6 @@ MOSIP performs the following:
 
 ### 5.4.1 Trust Environment [**[↑]**](#table-of-content)
 ### 5.4.2 Encryption and Decryption [**[↑]**](#table-of-content)
-**Enable capturing an individual's face photograph—Analysis**
-
-When a Registration Officer opts to capture photo of an individual, the system initiates a photo capture and validates the following:
-1. Validates that an on-boarded camera is connected to the machine.
-   * If an on-boarded camera is not found, displays an error message.
-   * If more than one on-boarded camera is connected, proceeds with the first camera that the system finds as it scans the ports of the machine.
-2. Displays the photo preview before capturing.
-3. Allows the Registration Officer to initiate capture.
-4. Sends request to the camera for photo capture.
-5. Receives the photo from the camera.
-6. Displays the photo on screen.
-7. Allows the Registration Officer to proceed to verify quality score.
-8. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose (except PII data). 
 
 ### 5.4.3 Storage Policies [**[↑]**](#table-of-content)
 ### 5.4.4 Key Management [**[↑]**](#table-of-content)
