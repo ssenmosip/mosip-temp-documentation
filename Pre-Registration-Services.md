@@ -965,12 +965,6 @@ PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
 PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
 
-###### Other Failure Details:
-Error Code|Message Code|Description
------|----------|-------------
-PRG_CORE_REQ_004|INVALID_REQUEST_BODY|Invalid or empty Request Body.
-PRG_PAM_APP_006|UNABLE_TO_FETCH_THE_PRE_REGISTRATION|unable to fetch details based on pre-registration-id.
-
 ### GET /applications/:preRegistrationId
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
 
@@ -1287,7 +1281,7 @@ Requires Authentication | Yes
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
-PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_CORE_REQ_012|decryption failed|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 
 ### With pagination:
@@ -1380,7 +1374,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_APP_016|no record found for the requested page index|if no demographic data found for the requested page index
 PRG_PAM_APP_015|Page size must be greater than zero|if page size is defined 0 or less than 0 in config
 PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
-PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_CORE_REQ_012|decryption failed|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 
 ### DELETE /applications/:preRegistrationId
@@ -1550,7 +1544,7 @@ PRG_PAM_APP_007|json parsing is failed|document request json parsing failed
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
 PRG_PAM_DOC_010|Document virus scan failed|virus scan of uploaded document is failed
 PRG_PAM_DOC_007|Document exceeding permitted size|when uploaded document size is exceeding the configured size
-PRG_PAM_DOC_018|Document Catagory code is invalid|empty document category code
+PRG_PAM_DOC_018|Document Category code is invalid|empty document category code
 PRG_PAM_DOC_018|Document type code is invalid|empty document type code
 PRG_PAM_DOC_018|Language code is invalid|If language code is empty
 PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic service fails
@@ -1766,7 +1760,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
-PRG_CORE_REQ_012|decryption failes|decryption of document data failed
+PRG_CORE_REQ_012|decryption failed|decryption of document data failed
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
 
 ### DELETE /documents/preregistration/:preRegsitrationId
@@ -2267,9 +2261,9 @@ PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_016|Availability table not accessible|access to availability table fails
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
-PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_024|Availability update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
@@ -2397,9 +2391,9 @@ PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_016|Availability table not accessible|access to availability table fails
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
-PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_024|Availability update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the database
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
@@ -2456,9 +2450,9 @@ Requires Authentication | Yes
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_016|Availability table not accessible|access to availability table fails
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
-PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
+PRG_BOOK_RCI_024|Availability update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
 PRG_BOOK_RCI_018|Appointment cannot be canceled|If status is other than booked
@@ -2607,7 +2601,8 @@ registrationCenterId |Yes|Registration Center Id|10004
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_016|Availability table not accessible|access to availability table fails
+
 ### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
 
@@ -2671,6 +2666,7 @@ toDate |Yes|To Date | 2019-06-15
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
+
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id.
 
@@ -2724,8 +2720,9 @@ Requires Authentication | Yes
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_BAT_004|	Demographic table not accessible|	If data is not found found  for preRegistrationId
-PRG_PAM_BAT_005|	Reg appointment table not accessible	|If Reg appointment table not accessible
+PRG_PAM_BAT_004|Demographic table not accessible|If data is not found found  for preRegistrationId
+PRG_PAM_BAT_005|Reg appointment table not accessible|If Reg appointment table not accessible
+
 ### PUT /consumedStatus
 This request is used to update the consumed status for all pre-Registration ids given by registration processor.
 
@@ -2773,13 +2770,13 @@ Requires Authentication | Yes
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_BAT_004	|Demographic table not accessible|	If data is not found for preRegistrationId
-PRG_PAM_BAT_005	|Reg appointment table not accessible|	If Reg appointment table not accessible
-PRG_PAM_BAT_006|	Processed prereg list table not accessible|	If Processed prereg list table not accessible
+PRG_PAM_BAT_004	|Demographic table not accessible|If data is not found for preRegistrationId
+PRG_PAM_BAT_005	|Reg appointment table not accessible|If Reg appointment table not accessible
+PRG_PAM_BAT_006|Processed prereg list table not accessible|If Processed prereg list table not accessible
 PRG_PAM_BAT_007	|Document table not accessible|	If document table not accessible
-PRG_PAM_BAT_008	|Reg appointment consumed table not accessible|	If Reg appointment consumed table not accessible
-PRG_PAM_BAT_009|	Demographic consumed table not accessible|	If Demographic consumed table not accessible
-PRG_PAM_BAT_010	|Document consumed table not accessible|	If document consumed table not accessible
+PRG_PAM_BAT_008	|Reg appointment consumed table not accessible|If Reg appointment consumed table not accessible
+PRG_PAM_BAT_009|Demographic consumed table not accessible|If Demographic consumed table not accessible
+PRG_PAM_BAT_010	|Document consumed table not accessible|If document consumed table not accessible
 
 # Generate QR code service (public)
 This service details used by Pre-Registration portal to generate QR Code.
@@ -2866,8 +2863,8 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
-PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
-PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
 PRG_QRC_001|	File input output exception|	when there is any input / output file operation issues
 
 # Notification Service (public)
@@ -2961,9 +2958,10 @@ langCode| Yes| language code whatever user choose while login|eng
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
-PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
-PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
-PRG_ACK_002|	Incorrect mandatory Fields|	If any of the request is null
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_ACK_002|Incorrect mandatory Fields|	If any of the request is null
+
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
 
@@ -3044,7 +3042,7 @@ request.to_field_lang |Yes|To language code|ara
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
-PRG_PAM_CORE_002|	Request version is invalid|	Invalid or empty Request Version
-PRG_PAM_CORE_003|	Request timestamp is invalid|	Invalid or empty Request DateTime and when the date is not current or future date 
-PRG_TRL_APP_008|	Unsupported language|	If langCode is other than ara,eng and fra
-PRG_TRL_APP_002|	Incorrect mandatory Fields|	If any of the request is null
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_TRL_APP_008|Unsupported language|If langCode is other than ara,eng and fra
+PRG_TRL_APP_002|Incorrect mandatory Fields|If any of the request is null
