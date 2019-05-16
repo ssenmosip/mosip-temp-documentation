@@ -1047,6 +1047,7 @@ The system then enables a Registration Officer to view the registration confirma
 
 ## 5.11 Health Check [**[↑]**](#table-of-content)
 ### 5.11.1 Disk Space Check [**[↑]**](#table-of-content)
+If disk space is insufficient, system displays an error message and data entered by registration officer will be not be save. Then Registration officer will clean up to make sufficient space on the client machine and tries the registration again.
 
 Upon receiving a request from the UI to create an enrolment packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the enrolment packet as follows:
 1. Calculates the size of the enrolment packet based on the data captured.
