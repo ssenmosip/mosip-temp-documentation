@@ -826,15 +826,7 @@ MOSIP performs the following:
 
 ### 5.4.3 Storage Policies [**[↑]**](#table-of-content)
 ### 5.4.4 Key Management [**[↑]**](#table-of-content)
-
-**Enable selecting the 'Fingerprint Exception' option**
-
-When a Registration Officer sets ‘Biometric Exception’ = ‘Yes’, the system enables him/her to specify biometric exceptions.
-1. The system allows the user to mark the missing finger(s) and/or missing iris(es).
-1. If ‘Biometric Exception’ = ‘Yes’, at least one missing biometric must be mandatorily marked.
-1. If ‘Biometric Exception’ = ‘No’, the Biometric Exception capture is skipped and exceptions cannot be marked.
-1. System captures and stores the transaction (User id or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose (except PII data).
-
+The data captured and stored in to the client machine during different process [such as new registration, update UIN, lost UIN, pre-registration] will be encrypted with the different set of keys. The keys have a different set of expiry policies and based on which it will be refreshed. The keys are securely managed into the database.
 ## 5.5 Business Validations [**[↑]**](#table-of-content)
 These are validations that are performed by the registration client application during each process such as launch, onboarding, login, new registration and end of day process. For instance, when initiating a new registration, UIN update or lost UIN request, the client validates that:
 * The application has checked with the server for software updates
