@@ -482,7 +482,7 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 The user can unblock himself using this service. Once authenticated via OTP, the user will be unblocked. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/unblockuser</div>
+<div>https://mosip.io/v1/admin/actmgmt/unblockuser</div>
 
 #### Resource details
 Resource Details | Description
@@ -497,7 +497,7 @@ userid |Yes|User id of the user| UDAE423
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
-<div>https://mosip.io/v1/admin/unblockuser?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<div>https://mosip.io/v1/admin/actmgmt/unblockuser?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
 
 #### Responses:
 ##### Success Response:
@@ -543,7 +543,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 This service will change the password to new value. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/changepassword</div>
+<div>https://mosip.io/v1/admin/actmgmt/changepassword</div>
 
 #### Resource details
 
@@ -658,7 +658,7 @@ Error Responses
 This service will reset the password to new value. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/resetpassword</div>
+<div>https://mosip.io/v1/admin/actmgmt/resetpassword</div>
 
 #### Resource details
 
@@ -770,7 +770,7 @@ Error Responses
 The user can get user-name from mobile number.
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/username/{mobilenumber}</div>
+<div>https://mosip.io/v1/admin/actmgmt/username/{mobilenumber}</div>
 
 #### Resource details
 Resource Details | Description
@@ -850,7 +850,7 @@ userid |Yes|User id of the user| UDAE423
 timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 
 #### Request
-<div>https://mosip.io/v1/admin/unblockuser?userid=UDAE423&timeStamp=2018-12-09T06%3A39%3A03.683Z </div>
+<div>https://mosip.io/v1/admin/usermgmt/register </div>
 
 #### Responses:
 ##### Success Response:
@@ -896,7 +896,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 This service will change the password to new value. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/changepassword</div>
+<div>https://mosip.io/v1/admin/actmgmt/changepassword</div>
 
 #### Resource details
 
@@ -1010,7 +1010,7 @@ Error Responses
 This service will reset the password to new value. 
 
 #### Resource URL
-<div>https://mosip.io/v1/admin/resetpassword</div>
+<div>https://mosip.io/v1/admin/actmgmt/resetpassword</div>
 
 #### Resource details
 
@@ -1223,7 +1223,7 @@ Error Responses
 ```
 ### POST /rid
 
-This service will check for the rid with the user.
+This service will check for the rid mapped with the user.
 
 #### Resource URL
 <div>https://mosip.io/v1/admin/usermgmt/rid</div>
@@ -1370,7 +1370,6 @@ appid|Yes|This is the application ID of the caller of this service.| -NA- | ADMI
 Success Response 
 
 ```
-
 JSON:
 {
 	"id": "mosip.admin.usermanagement.password",
@@ -1474,8 +1473,7 @@ Requires Authentication | Yes
 #### Request Part Parameters
 Name | Required | Description |  Example
 -----|----------|-------------|--------
-mobilenumber |Yes|mobile number of the user| 325624646
-timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
+uin|Yes|User Identification Number of the user| 42646466
 
 #### Request
 <div>https://mosip.io/v1/admin/uinmgmt/status/458575535</div>
