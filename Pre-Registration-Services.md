@@ -2197,12 +2197,12 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
   "id": "mosip.pre-registration.booking.book",
   "version": "1.0",
-  "requesttime": "2019-01-09T15:31:32.957Z",
+  "requesttime": "2019-05-16T15:31:32.957Z",
   "request": {
-        "registration_center_id": "10005",
-        "appointment_date": "2019-02-13",
-        "time_slot_from": "15:31:00",
-        "time_slot_to": "15:44:00"
+        "registration_center_id": "10001",
+        "appointment_date": "2019-05-17",
+        "time_slot_from": "09:30:00",
+        "time_slot_to": "09:45:00"
    }
 }
 ```
@@ -2215,7 +2215,7 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 {
     "id": "mosip.pre-registration.booking.book",
     "version": "1.0",
-    "responsetime": "2019-05-15T10:10:26.429Z",
+    "responsetime": "2019-05-16T09:57:38.433Z",
     "response": {
         "bookingMessage": "Appointment booked successfully"
     },
@@ -2227,15 +2227,15 @@ request.time_slot_from |Yes|Time Slot To|12:28:00
 ###### Description: Invalid Pre Registration Id.
 ```JSON
 {
-   "id": "mosip.pre-registration.booking.book",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-            "errorCode": "PRG_PAM_APP_006",
+    "id": "mosip.pre-registration.booking.book",
+    "version": "1.0",
+    "responsetime": "2019-05-16T09:58:41.110Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_PAM_APP_005",
             "message": "No data found for the requested pre-registration id"
-         }
+        }
     ]
 }
 ```
@@ -2262,21 +2262,20 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
 PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
+PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
+PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
-PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
-PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
-PRG_BOOK_RCI_016|Availability table not accessible|access to availability table fails
-PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
-PRG_BOOK_RCI_024|Availability update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
+PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
-PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
-PRG_PAM_APP_017|Requested preregistration id does not belong to the user|If the preregistrationId does not belongs to the user
 
 ### POST /appointment
 This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
