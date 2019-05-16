@@ -510,7 +510,8 @@ When an individual approaches the Registration Officer for UIN update, the follo
 
 #### B. Acknowledgement receipt sent by email on completion of registration process [**[↑]**](#table-of-content)
 1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement email to the individual.
-   * Notification language is a global configuration setting 
+   * Notification language is set by a country's admin, who determines in which language, a notification is sent to the individual. Notification language can either be primary language or combination of both primary and secondary language.
+   * In case of UIN Update or Lost UIN, the system sends a notification to the individual.
 2. The email template is defined by the admin at country level.
 3. Email is sent to the email address entered during registration.
 4. The subject and the body of the acknowledgement email are configured by admin.
@@ -519,7 +520,9 @@ When an individual approaches the Registration Officer for UIN update, the follo
    * If an email address is not provided during registration
    * If the client is not online during registration completion
 #### C. Acknowledgement receipt sent by SMS on completion of registration process
-1. When a registration is completed, that is, a Registration ID has been generated and assigned the system sends an acknowledgement SMS to the individual 
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement SMS to the individual.
+   * Notification language is set by a country's admin, who determines in which language, a notification is sent to the individual. Notification language can either be primary language or combination of both primary and secondary language.
+   * In case of UIN Update or Lost UIN, the system sends a notification to the individual.
 2. The template of the SMS is defined by the admin at the country level.
 3. The “from” id of the SMS will be set up by the system integrator.
 4. The system triggers the SMS to the mobile number provided during registration.
