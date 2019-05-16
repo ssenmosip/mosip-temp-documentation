@@ -7,7 +7,7 @@ These services is used by Registration Processor to store/update during registra
 
 #### Users of Identity service -
 1. `Registration Processor` - *Registration Processor* will create a new ID record or update an existing ID record in ID repository and store corresponding demographic and bio-metric documents. *Registration Processor* can also retrieve Identity details of an Individual using RID.
-2. `ID Authentication` - *ID Authentication* can retrieve Identity details of an Individual using UIN for authenticating purpose.
+2. `ID Authentication` - *ID Authentication* can retrieve Identity details of an Individual using UIN for authentication purpose.
 
 * [POST /idrepository/v1/identity](#post-idrepositoryv1identity)
 * [GET /idrepository/v1/identity/UIN/{UIN}?type=bio](#get-idrepositoryv1identityuinuintypebio)
