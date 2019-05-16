@@ -16,6 +16,7 @@
   * [Registration Processor](Registration-Processor)
   * [Pre-Registration](Pre-Registration)
   * [ID Authentication](ID-Authentication)
+  * [ID Repository](ID-Repository)
   * [Kernel](Kernel)
   * [Admin](Admin)
   * [Registration Packet Structure](Registration-Packet)  
