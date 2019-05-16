@@ -12,12 +12,16 @@ This section details about the service APIs in the Registration-Processor module
 
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
-This service receives the registration packet. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated.
 
-### Resource URL
-### `POST /registrationprocessor/v1/packetreceiver/registrationpackets`
+- ### `POST /registrationprocessor/v1/packetreceiver/registrationpackets`
 
-### Resource details
+This service receives the registration packet frm client. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated using hashvalue and size.
+
+
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/packetreceiver/registrationpackets
+
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -25,17 +29,21 @@ Request format | MULTIPART
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Request Path Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-MultipartFile|Yes|The encrypted zip file| |
+MultipartFile|Yes|The encrypted zip file| 
 
-### Example Request
+#### Request
 ![Request](_images/reg_processor/packet_receiver_sample_input.PNG)
 
-### Example Response
+#### Response
 
-#### Success response
+##### Success response
+
+######Status Code: 200
+######Description: Packet is in PACKET_RECEIVED status
+
 ```JSON
 {
 	"id" : "mosip.registration.packet",
@@ -47,6 +55,9 @@ MultipartFile|Yes|The encrypted zip file| |
 }
 ```
 #### Failure response
+
+###### Status Code: 200
+######Description: The request received is a duplicate request to upload a Packet
 
 ```JSON
 {
@@ -62,12 +73,15 @@ MultipartFile|Yes|The encrypted zip file| |
 
 # 2 Registration Status Service
 ## 2.1 Packet-status service
+
+- ### `GET /registrationprocessor/v1/registrationstatus/search`
+
 This service return the registration current status for list of input registration ids.
 
-### Resource URL
-### `GET /registrationprocessor/v1/registrationstatus/search`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/registrationstatus/search
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -75,12 +89,12 @@ Request format | JSON
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment |
 -----|----------|-------------|---------------|--------
-registrationIds|Yes|List of registration ids| |
+registrationIds|Yes|List of registration ids|
 
-### Example Request
+#### Request
 ```JSON
 {
   "id" : "mosip.registration.status",
@@ -96,8 +110,11 @@ registrationIds|Yes|List of registration ids| |
   ]
 }
 ```
-### Example Response
+#### Response
 Record found :
+######Status Code: 200
+######Description: Successfully retrieved information
+
 ```JSON
 {
   "id" : "mosip.registration.status",
@@ -116,6 +133,8 @@ Record found :
 }
 ```
 Record not found :
+######Status Code: 200
+######Description: Successfully retrieved information
 ```JSON
 {
   "id" : "mosip.registration.status",
@@ -125,13 +144,16 @@ Record not found :
 }
 ```
 
+
 ## 2.2 Sync-registration service
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
 
-### Resource URL
-### `POST /registrationprocessor/v1/registrationstatus/sync`
+- #### `POST /registrationprocessor/v1/registrationstatus/sync`
 
-### Resource details
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/registrationstatus/sync
+
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -140,27 +162,27 @@ Response format | JSON
 Requires Authentication | Yes
 
 ### Parameters
-Name | Required | Description | Default Value | Example
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-id|Yes|the id for sync|mosip.registration.sync |mosip.registration.sync
-version|Yes|the version for sync|1.0 |1.0
-requesttime|Yes|the requesttime for sync| |2019-02-14T12:40:59.768Z
-request|Yes|the request object| |1.0
-registrationId|Yes|the registration id| |80006444440002520181208094000
-registrationType|Yes|the type of the registration| |NEW, UPDATE, LOST, ACTIVATE, DEACTIVATE, RES_UPDATE
-packetHashValue|Yes|the hash value of the encrypted packet| |D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB
-packetSize|Yes|size of encrypted packet in bytes| |5242880
-supervisorStatus|Yes|supervisor decision| |APPROVED, REJECTED
-supervisorComment|No|supervisor comments| |rejected because of error
-optionalValues|No|additional values to be passed during sync| |key, value pair
-langCode|Yes|language code used | | eng or ara
+id|Yes|the id for sync|mosip.registration.sync
+version|Yes|the version for sync|1.0
+requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
+request|Yes|the request object|1.0
+registrationId|Yes|the registration id|80006444440002520181208094000
+registrationType|Yes|the type of the registration|NEW, UPDATE, LOST, ACTIVATE, DEACTIVATE, RES_UPDATE
+packetHashValue|Yes|the hash value of the encrypted packet|D7C87DC5D3A759D77433B02B80435CFAB5087F1A942543F51A5075BC441BF7EB
+packetSize|Yes|size of encrypted packet in bytes|5242880
+supervisorStatus|Yes|supervisor decision|APPROVED, REJECTED
+supervisorComment|No|supervisor comments|rejected because of error
+optionalValues|No|additional values to be passed during sync|key, value pair
+langCode|Yes|language code used |eng or ara
 
 
-### Example Request Header
+#### Request Header
 ##### Center-Machine-RefId = `10011_10011`
 ##### timestamp = `2019-02-14T12:40:59.768Z`
 
-### Example Request Body
+#### Request
 ```JSON
 {
 	"id": "mosip.registration.sync",
@@ -195,7 +217,11 @@ langCode|Yes|language code used | | eng or ara
 	]
 }
 ```
-### Example Response
+#### Response
+
+######Response Code: 200
+######Description: Successfully synced
+
 Success response :
 ```JSON
 {
@@ -263,15 +289,16 @@ Failure response
 }
 ```
 
-
 # 3 Manual Adjudication Service
 ## 3.1 manual-adjudication-assignment service
+
+- #### `POST /registrationprocessor/v1/manualverification/assignment`
 This service is used to assign one single unassigned applicant record to the input user.
 
-### Resource URL
-### `POST /registrationprocessor/v1/manualverification/assignment`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/manualverification/assignment
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -279,12 +306,12 @@ Request format | JSON
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-String|Yes|The user id| |
+String|Yes|The user id|
 
-### Example Request
+#### Request
 ```JSON
 {
   "id" : "mosip.manual.verification.assignment",
@@ -295,7 +322,10 @@ String|Yes|The user id| |
   }
 }
 ```
-### Example Response
+#### Response
+######Status Code: 200
+######Description : response code is always 200 if server receives the request.
+
 Success response
 ```JSON
 {
@@ -327,12 +357,15 @@ Failure response
 
 
 ## 3.2 manual-adjudication-decision service
+
+- #### `POST /registrationprocessor/v1/manualverification/decision`
+
 This service is used to get the decision from manual adjudicator for an applicant and update the decision in table.
 
-### Resource URL
-### `POST /registrationprocessor/v1/manualverification/decision`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/manualverification/decision
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -340,12 +373,12 @@ Request format | JSON
 Response format | JSON
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
+ManualVerificationDTO|Yes|Dto containing manual adjudication info|
 
-### Example Request
+#### Request
 ```JSON
 {
   "id" : "mosip.manual.verification.decision",
@@ -361,7 +394,10 @@ ManualVerificationDTO|Yes|Dto containing manual adjudication info| |
 	}
 }
 ```
-### Example Response
+#### Response
+######Status Code: 200
+######Description : response code is always 200 if server receives the request.
+
 Success response
 ```JSON
 {
@@ -385,20 +421,23 @@ Failure response
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
 	"errors" : [{
-		"errorCode" : "RPR-MVS-003",
+		"errorCode" : "RPR-MVS-003"",
 		"message" : "Invalid status update"
 	}]
 }
 ```
 
-
 ## 3.3 manual-adjudication-applicant-biometric service
+
+- #### `POST /registrationprocessor/v1/manualverification/applicantBiometric`
+
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant biometric from packet store by registration id.
 
-### Resource URL
-### `POST /registrationprocessor/v1/manualverification/applicantBiometric`
+#### Resource URL
 
-### Resource details
+https://mosip.io/registrationprocessor/v1/manualverification/applicantBiometric
+
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -406,12 +445,12 @@ Request format | JSON
 Response format | byte[]
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-FileRequestDto|Yes|Dto containing registration id and file name| |
+FileRequestDto|Yes|Dto containing registration id and file name|
 
-### Example Request
+#### Example Request
 ```JSON
 {
   "id" : "mosip.manual.verification.biometric",
@@ -423,7 +462,10 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 	}
 }
 ```
-### Example Response
+#### Example Response
+######Status Code: 200
+######Description : response code is always 200 if server receives the request.
+
 Success :
 ```JSON
 {
@@ -448,14 +490,17 @@ Failure :
 }
 ```
 
-
 ## 3.4 manual-adjudication-applicant-demographic service
+
+- #### `POST /registrationprocessor/v1/manualverification/applicantDemographic`
+
 The manual adjudicator would need to verify the applicant biometric and demographic records. This service is used to get the applicant demographic from packet store by registration id.
 
-### Resource URL
-### `POST /registrationprocessor/v1/manualverification/applicantDemographic`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/manualverification/applicantDemographic
 
-### Resource details
+
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -463,12 +508,12 @@ Request format | JSON
 Response format | byte[]
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-FileRequestDto|Yes|Dto containing registration id and file name| |
+FileRequestDto|Yes|Dto containing registration id and file name|
 
-### Example Request
+#### Request
 ```JSON
 {
   "id" : "mosip.manual.verification.demographic",
@@ -480,7 +525,9 @@ FileRequestDto|Yes|Dto containing registration id and file name| |
 	}
 }
 ```
-### Example Response
+#### Response
+######Status Code: 200
+######Description : response code is always 200 if server receives the request.
 ```JSON
 {
   "id" : "mosip.manual.verification.biometric",
@@ -507,12 +554,15 @@ Failure :
 
 # 4 Bio Dedupe Service
 ## 4.1 Bio Dedupe service
+
+- #### `POST /registrationprocessor/v1/bio-dedupe/{referenceid}`
+
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
-### Resource URL
-### `POST /registrationprocessor/v1/bio-dedupe/{referenceid}`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/bio-dedupe/{referenceid}
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -520,25 +570,27 @@ Request format | JSON
 Response format | byte[]
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-byte[]|Yes|byte array of CBEFF file| |
+byte[]|Yes|byte array of CBEFF file|
 
-### Example Response
+#### Response
+###### Status codes: 200
+######Description : response code is always 200 if server receives the request.
 ```JSON
 // byte array of CBEFF xml file
 ```
 
-
 # 5 Packet Generator Service
 ## 4.1 Packet Generator Service
+- #### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
-### Resource URL
-### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/packetgenerator/registrationpacket
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -546,12 +598,12 @@ Request format | JSON
 Response format | byte[]
 Requires Authentication | Yes
 
-### Parameters
-Name | Required | Description | Default Value | Example
+#### Parameters
+Name | Required | Description | Comment
 -----|----------|-------------|---------------|--------
-PacketGeneratorRequestDto|Yes|Dto containing information required for activate or deactivate packet| |
+PacketGeneratorRequestDto|Yes|Dto containing information required for activate or deactivate packet|
 
-### Example Request
+#### Request
 ```JSON
 {
   "id": "mosip.packet.generator",
@@ -566,16 +618,20 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
   }
 }
 ```
-### Example Response
+#### Response
+######Status Code:200
+######Description : response code is always 200 if server receives the request.
+
 ```JSON
 {
   "id": "mosip.packet.generator",
   "version": "1.0",
   "responsetime": "2019-02-02T06:12:25.288Z",
-  "response": {
-    "registrationId": "10031100110005020190313110030",
-    "status": "RECEIVED",
-    "message": "Packet created and uploaded"
-  }
+  "response": {
+    "registrationId": "10031100110005020190313110030",
+    "status": "RECEIVED",
+    "message": "Packet created and uploaded"
+  }
 }
 ```
+
