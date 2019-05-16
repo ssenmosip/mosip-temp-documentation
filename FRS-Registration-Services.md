@@ -612,14 +612,7 @@ User can update their biometrics at any time after successful on-boarding by cho
 
 ## 4.2 Login/Authentication [**[↑]**](#table-of-content)
 
-#### A. Login with iris and face to registration client
-#### B. A Supervisor, can unlock a user's account on the Registration Client
-
-A Supervisor or Admin can unlock a user’s account that has been locked due to five consecutive unsuccessful login attempts.
-
-A Supervisor or Admin can log in to the Registration Client and views a list of users whose accounts are locked at a given point of time.
-
-#### C. Allows biometric login of the Registration Officer or Supervisor to the client application
+#### A. Allows biometric login of the Registration Officer or Supervisor to the client application
 
 MOSIP supports single factor and multi factor login including iris and face capture. An Admin config setting determines the mode of login. 
 
@@ -630,14 +623,7 @@ MOSIP supports single factor and multi factor login including iris and face capt
 4. The user then captures face photo using the face photo capture-device.
 5. On successful authentication, the system logs in the user.
 
-#### D. Enforce multi factor login for Admin users. [**[↑]**](#table-of-content)
-
-When an Admin user opens the registration client by entering their username the system recognizes the username as that of an Admin and enforces multi-factor authentication in the configured order
-
-The System enforces multi-factor authentication for Admin users as configured, regardless of the mode of authentication for Registration Officers and Supervisors.
-
-Note: multifactor authentication is the type of authentication where an admin user is authenticated by more than one mode. Some examples could be OTP and Iris, and Finger print and OTP, etc.
-#### E. Temporarily lock the user account after five unsuccessful login attempts.
+#### B. Temporarily lock the user account after five unsuccessful login attempts.
 1. The MOSIP system temporarily locks the user to login in case the user gives an invalid password for login five times continuously.
 1. Upon the fifth unsuccessful attempt to login, displays an error message 
 1. The temporarily lock lasts for 30 minutes.
@@ -646,7 +632,7 @@ Note: multifactor authentication is the type of authentication where an admin us
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
-#### F. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
+#### C. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
 
 When a supervisor opts to log in to the client machine the systems displays the appropriate options as per the mode of login.
 
@@ -674,7 +660,7 @@ When a supervisor opts to log in to the client machine the systems displays the 
 7. Validates that the user has a role of Registration Officer or Supervisor.
 8. On successful validation of all conditions above, display the logged in screen to the user
 
-#### G. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
+#### D. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
 
 In MOSIP system, a user can have a single role only For example, a user can be either a Registration Officer or Supervisor. User to role mapping is done by the admin
 
