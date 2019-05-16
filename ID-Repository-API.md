@@ -4,15 +4,14 @@ This section details about the REST services in ID Repository module.
 
 ## Identity Services (Private)
 These services is used by Registration Processor to store/update during registration process and ID Authentication to retrieve Identity of an Individual for their authentication.
-
-#### Users of Identity service -
-1. `Registration Processor` - *Registration Processor* will create a new ID record or update an existing ID record in ID repository and store corresponding demographic and bio-metric documents. *Registration Processor* can also retrieve Identity details of an Individual using RID.
-2. `ID Authentication` - *ID Authentication* can retrieve Identity details of an Individual using UIN for authentication purpose.
-
 * [POST /idrepository/v1/identity](#post-idrepositoryv1identity)
 * [GET /idrepository/v1/identity/UIN/{UIN}?type=bio](#get-idrepositoryv1identityuinuintypebio)
 * [GET /idrepository/v1/identity/RID/{RID}?type=bio](#get-idrepositoryv1identityridridtypebio)
 * [PATCH /idrepository/v1/identity](#patch-idrepositoryv1identity)     
+
+#### Users of Identity service -
+1. `Registration Processor` - *Registration Processor* will create a new ID record or update an existing ID record in ID repository and store corresponding demographic and bio-metric documents. *Registration Processor* can also retrieve Identity details of an Individual using RID.
+2. `ID Authentication` - *ID Authentication* can retrieve Identity details of an Individual using UIN for authentication purpose.
 
 **Note** - Identity Services does not support search based on attributes of an ID.
 
@@ -634,14 +633,13 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 
 ## VID Services (Private)
 These services can be used to create VID, update VID status, re-generate VID.
+* [POST /idrepository/v1/vid](#post-idrepositoryv1vid)
+* [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vidvid)
 
 #### Users of VID services -
 1. `Registration Processor` - *Registration Processor* will create a new perpetual VID once UIN is generated successfully.
 2. `Resident Services` - Individual can use *Resident Services* to create or re-generate a new temporary VID.
 3. `ID Authentication` - *ID Authentication* can retrieve UIN for a given VID for authenticating Individual using VID.
-
-* [POST /idrepository/v1/vid](#post-idrepositoryv1vid)
-* [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vidvid)
 
 ### POST /idrepository/v1/vid        
 This service will create a new VID based on VID type provided.
