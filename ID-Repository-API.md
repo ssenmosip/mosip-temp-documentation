@@ -1,5 +1,5 @@
 This section details about the REST services in ID Repository module.
-* [ID Services](#id-services-private)
+* [ID Services](#identity-services-private)
 * [VID Services](#vid-services-private)
 
 ## Identity Services (Private)
@@ -10,8 +10,8 @@ These services is used by Registration Processor to store/update during registra
 2. `ID Authentication` - *ID Authentication* can retrieve Identity details of an Individual using UIN for authenticating purpose.
 
 * [POST /idrepository/v1/identity](#post-idrepositoryv1identity)
-* [GET /idrepository/v1/identity/UIN/{UIN}?type=bio](#get-idrepositoryv1identityUIN{UIN}type=bio)
-* [GET /idrepository/v1/identity/RID/{RID}?type=bio](#read-id-by-rid)
+* [GET /idrepository/v1/identity/UIN/{UIN}?type=bio](#get-idrepositoryv1identityuinuintypebio)
+* [GET /idrepository/v1/identity/RID/{RID}?type=bio](#get-idrepositoryv1identityridridtypebio)
 * [PATCH /idrepository/v1/identity](#patch-idrepositoryv1identity)     
 
 **Note** - Identity Services does not support search based on attributes of an ID.
