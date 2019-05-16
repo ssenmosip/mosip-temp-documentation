@@ -946,7 +946,7 @@ The system follows the following steps during the update process:
 
 ## 5.9 Cleanup [**[↑]**](#table-of-content)
 Pre-registration and registration data are automatically deleted from the client machine upon consumption and upon intimation from the server respectively. 
-* Pre-registration data is deleted after consumption for a registration.
+* Pre-registration data is deleted from the client machine immediately after consumption for a registration.
 * Registration packets that are identified as ‘processed’ are deleted by a periodic process.
 * Audit data is deleted after it is sent to the server.
 * All deletion is executed by a periodic process after retention of the data for a configured duration.
