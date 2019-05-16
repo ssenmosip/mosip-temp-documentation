@@ -487,7 +487,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
 
 #### C. UIN Update
 1. The Registration Officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
-1. Registration Officer captures the mandatory demographic attributes and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN .If they are same, displays an error message 
+1. Registration Officer captures the mandatory demographic attributes (individual's name is captured) and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN. If they are same, displays an error message 
 
 1. Registration Officer then uploads documents. The applicable documents are determined by the system based on configuration
 1. If biometrics were selected for update, Registration Officer marks exceptions and scans all biometrics. Else scans any one biometric.
