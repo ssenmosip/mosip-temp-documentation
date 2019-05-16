@@ -94,7 +94,7 @@ Once the Demographic Details are filled and the Documents are uploaded, if the I
 
 The Individual can select their language of preference, which is referred as Primary (from a list of 2 languages as set by Admin) from the Login screen, the other language from the list is considered as secondary. The Individual can then provide data in the preferred language (primary) as selected. The data in the right side of the Demographic page will be Transliterated to secondary language. The labels in the right hand side will be translated. The Individual can verify Transliterated data and edit if required. The data will be stored in the database along with language codes.
 
-[**Link to design**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-demographic-service.md)
+[**Link to design**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-transliteration-service.md)
 
 ### 2.2.5 Viewing "My Applications" (covers status) [**[↑]**](#table-of-content)
 The Pre-Registrations created will be associated with User Id. The Individual can view all the Pre-Registrations created by him/her in the Dashboard. The Pre-Registration can be in 3 different status (Pending Appointment, Booked, Expired)
