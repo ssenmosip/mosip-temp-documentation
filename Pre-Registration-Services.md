@@ -112,7 +112,7 @@ request.userid |Yes|user id of the applicant(mobile number/email address)|890765
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_LGN_008|	Invalid Request userId recieved|	If requested userId is invalid
+PRG_PAM_LGN_008|	Invalid Request userId received|	If requested userId is invalid
 PRG_PAM_CORE_001|   Request id is invalid|  Invalid or empty Request Id
 PRG_PAM_CORE_002 |   Request version is invalid |Invalid or empty Request version
 PRG_PAM_CORE_003    | Request timestamp is invalid |Invalid or empty Request time
