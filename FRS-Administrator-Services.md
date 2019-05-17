@@ -45,7 +45,7 @@
     * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate)) _(ASR_FR_6.4)_
     * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
     * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
-     * [6.3.5 Registration Center Types (View)](#635-manage-registration-center-types-view) _(ASR_FR_6.7)_ 
+     * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view) _(ASR_FR_6.7)_ 
      * [6.3.6 Manage Machine Types (View)](#636-manage-machine-types-view) _(ASR_FR_6.8)_ 
      * [6.3.7 Manage Machine Specifications (View)](#637-manage-machine-specifications-view) _(ASR_FR_6.9)_ 
      * [6.3.8 Manage Device Types (View)](#638-manage-device-types-view) _(ASR_FR_6.10)_ 
