@@ -101,7 +101,8 @@
 |63.|Master Data Management|Mappings of Registration Center and Machine - Create/Read/Delete|[ADM_FR_2.10](FRS-Admin-Services)|[MOS-9728](//mosipid.atlassian.net/browse/MOS-9728), [MOS-9712](//mosipid.atlassian.net/browse/MOS-9712), [MOS-1053](//mosipid.atlassian.net/browse/MOS-1053), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
 |64.|Master Data Management|Mappings of Registration Center and Device - Create/Read/Delete|[ADM_FR_2.11](FRS-Admin-Services)|[MOS-9729](//mosipid.atlassian.net/browse/MOS-9729), [MOS-9712](//mosipid.atlassian.net/browse/MOS-9712), [MOS-10561](//mosipid.atlassian.net/browse/MOS-10561), [MOS-12058](//mosipid.atlassian.net/browse/MOS-12058), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
 |65.|Master Data Management|Mappings of Registration Center, Machine and Device - Create/Read/Delete|[ADM_FR_2.12](FRS-Admin-Services)|[MOS-9730](//mosipid.atlassian.net/browse/MOS-9730), [MOS-9712](//mosipid.atlassian.net/browse/MOS-9712), [MOS-10564](//mosipid.atlassian.net/browse/MOS-10564), [MOS-12076](//mosipid.atlassian.net/browse/MOS-12076)|
-|66.|Master Data Management|Individual Type Management - Read|[ADM_FR_1.19](FRS-Admin-Services)|[MOS-13950](//mosipid.atlassian.net/browse/MOS-13950)|
+|66.|Master Data Management|User History - Read|[ADM_FR_1.19](FRS-Admin-Services)|[MOS-22415](//mosipid.atlassian.net/browse/MOS-22415)|
+|67.|Master Data Management|Individual Type Management - Read|[ADM_FR_1.20](FRS-Admin-Services)|[MOS-13950](//mosipid.atlassian.net/browse/MOS-13950)|
 
 
 ## 4. UIN  Generation: [**[↑]**](#table-of-content)
