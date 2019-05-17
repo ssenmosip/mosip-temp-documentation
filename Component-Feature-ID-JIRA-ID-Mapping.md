@@ -21,27 +21,28 @@
 |:------:|-----|---|---|---|
 |1.|OTP Manager|Generates and Validates OTP as per the defined policies|[CMN_FR_1](FRS-Common-Services)|[MOS-33](//mosipid.atlassian.net/browse/MOS-33), [MOS-34](//mosipid.atlassian.net/browse/MOS-34), [MOS-35](//mosipid.atlassian.net/browse/MOS-35), [MOS-36](//mosipid.atlassian.net/browse/MOS-36), [MOS-423](//mosipid.atlassian.net/browse/MOS-423), [MOS-991](//mosipid.atlassian.net/browse/MOS-991), [MOS-1056](//mosipid.atlassian.net/browse/MOS-1056), [MOS-1985](//mosipid.atlassian.net/browse/MOS-1985), [MOS-5486](//mosipid.atlassian.net/browse/MOS-5486)|
 |2.|QR Code Generator|This utility enables QR code generation for pre-registration, registration and UIN acknowledgment|[CMN_FR_2](FRS-Common-Services)|[MOS-979](//mosipid.atlassian.net/browse/MOS-979)|
-|3.|Crypto Services|Key Generator|[CMN_FR_3.1](FRS-Common-Services)|[MOS-788](//mosipid.atlassian.net/browse/MOS-788), [MOS-1431](//mosipid.atlassian.net/browse/MOS-1431)|
-|4.|Crypto Services|Key Management|[CMN_FR_3.2](FRS-Common-Services)|[MOS-9284](//mosipid.atlassian.net/browse/MOS-9284)|
-|5.|Crypto Services|Crypto Utility|[CMN_FR_3.3](FRS-Common-Services)|[MOS-9301](//mosipid.atlassian.net/browse/MOS-9301)|
-|6.|Crypto Services|Hash Utility|[CMN_FR_3.4](FRS-Common-Services)|[MOS-20](//mosipid.atlassian.net/browse/MOS-20)|
-|7.|Crypto Services|HMAC Utility/Checksum Utility|[CMN_FR_3.5](FRS-Common-Services)|[MOS-481](//mosipid.atlassian.net/browse/MOS-481)|
-|8.|Email Notification|Generates and sends an Email using a third party vendor|[CMN_FR_4.2](FRS-Common-Services)|[MOS-973](//mosipid.atlassian.net/browse/MOS-973)|
-|9.|SMS Notification|Generates and sends an SMS using a third party vendor|[CMN_FR_4.3](FRS-Common-Services)|[MOS-961](//mosipid.atlassian.net/browse/MOS-961)|
-|10.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|[CMN_FR_4.4](FRS-Common-Services)|[MOS-960](//mosipid.atlassian.net/browse/MOS-960), [MOS-12900](//mosipid.atlassian.net/browse/MOS-12900)|
-|11.|Template Merger|Merges a pre-configured template with dynamic values|[CMN_FR_4.5](FRS-Common-Services)|[MOS-786](//mosipid.atlassian.net/browse/MOS-786)|
-|12.|Transliteration|Performs Transliteration from one language to another|[CMN_FR_5](FRS-Common-Services)|[MOS-975](//mosipid.atlassian.net/browse/MOS-975)|
-|13.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|[CMN_FR_6.1](FRS-Common-Services)|[MOS-1028](//mosipid.atlassian.net/browse/MOS-1028)|
-|14.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|[CMN_FR_6.2](FRS-Common-Services)|[MOS-1029](//mosipid.atlassian.net/browse/MOS-1029)|
-|15.|Exception Framework|Provides base exception framework|[CMN_FR_6.3](FRS-Common-Services)|[MOS-30](//mosipid.atlassian.net/browse/MOS-30)|
-|16.|Utilities|Calendar Utility|[CMN_FR_6.4](FRS-Common-Services)|[MOS-20](//mosipid.atlassian.net/browse/MOS-20)|
-|17.|Utilities|Date Utility|[CMN_FR_6.5](FRS-Common-Services)|[MOS-23](//mosipid.atlassian.net/browse/MOS-23), [MOS-1988](//mosipid.atlassian.net/browse/MOS-1988), [MOS-20086](//mosipid.atlassian.net/browse/MOS-20086)|
-|18.|Utilities|File Utility|[CMN_FR_6.6](FRS-Common-Services)|[MOS-21](//mosipid.atlassian.net/browse/MOS-21)|
-|19.|Utilities|Json Utility|[CMN_FR_6.7](FRS-Common-Services)|[MOS-28](//mosipid.atlassian.net/browse/MOS-28)|
-|20.|Utilities|Math Utility|[CMN_FR_6.8](FRS-Common-Services)|[MOS-19](//mosipid.atlassian.net/browse/MOS-19)|
-|21.|Utilities|String Utility|[CMN_FR_6.9](FRS-Common-Services)|[MOS-18](//mosipid.atlassian.net/browse/MOS-18)|
-|22.|Utilities|UUID Utility|[CMN_FR_6.10](FRS-Common-Services)|[MOS-1986](//mosipid.atlassian.net/browse/MOS-1986)|
-|23.|Utilities|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
+|3.|Crypto Services|Cryptography Services|[CMN_FR_3.1](FRS-Common-Services)|[MOS-9301](//mosipid.atlassian.net/browse/MOS-9301)|
+|3.|Crypto Services|Key Generator|[CMN_FR_3.2](FRS-Common-Services)|[MOS-788](//mosipid.atlassian.net/browse/MOS-788), [MOS-1431](//mosipid.atlassian.net/browse/MOS-1431)|
+|5.|Crypto Services|Key Management|[CMN_FR_3.3](FRS-Common-Services)|[MOS-9284](//mosipid.atlassian.net/browse/MOS-9284)|
+|6.|Crypto Services|Crypto Utility|[CMN_FR_3.4](FRS-Common-Services)|[MOS-9301](//mosipid.atlassian.net/browse/MOS-9301)|
+|7.|Crypto Services|Hash Utility|[CMN_FR_3.5](FRS-Common-Services)|[MOS-20](//mosipid.atlassian.net/browse/MOS-20)|
+|8.|Crypto Services|HMAC Utility/Checksum Utility|[CMN_FR_3.6](FRS-Common-Services)|[MOS-481](//mosipid.atlassian.net/browse/MOS-481)|
+|9.|Email Notification|Generates and sends an Email using a third party vendor|[CMN_FR_4.2](FRS-Common-Services)|[MOS-973](//mosipid.atlassian.net/browse/MOS-973)|
+|10.|SMS Notification|Generates and sends an SMS using a third party vendor|[CMN_FR_4.3](FRS-Common-Services)|[MOS-961](//mosipid.atlassian.net/browse/MOS-961)|
+|11.|PDF Generator|This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)|[CMN_FR_4.4](FRS-Common-Services)|[MOS-960](//mosipid.atlassian.net/browse/MOS-960), [MOS-12900](//mosipid.atlassian.net/browse/MOS-12900)|
+|12.|Template Merger|Merges a pre-configured template with dynamic values|[CMN_FR_4.5](FRS-Common-Services)|[MOS-786](//mosipid.atlassian.net/browse/MOS-786)|
+|13.|Transliteration|Performs Transliteration from one language to another|[CMN_FR_5](FRS-Common-Services)|[MOS-975](//mosipid.atlassian.net/browse/MOS-975)|
+|14.|Mobile Data Validator|Performs the pattern validation on the mobile number based on the configured length|[CMN_FR_6.1](FRS-Common-Services)|[MOS-1028](//mosipid.atlassian.net/browse/MOS-1028)|
+|15.|Email Data Validator|Performs the pattern validation on Email ID based on the configured parameters|[CMN_FR_6.2](FRS-Common-Services)|[MOS-1029](//mosipid.atlassian.net/browse/MOS-1029)|
+|16.|Exception Framework|Provides base exception framework|[CMN_FR_6.3](FRS-Common-Services)|[MOS-30](//mosipid.atlassian.net/browse/MOS-30)|
+|17.|Utilities|Calendar Utility|[CMN_FR_6.4](FRS-Common-Services)|[MOS-20](//mosipid.atlassian.net/browse/MOS-20)|
+|18.|Utilities|Date Utility|[CMN_FR_6.5](FRS-Common-Services)|[MOS-23](//mosipid.atlassian.net/browse/MOS-23), [MOS-1988](//mosipid.atlassian.net/browse/MOS-1988), [MOS-20086](//mosipid.atlassian.net/browse/MOS-20086)|
+|19.|Utilities|File Utility|[CMN_FR_6.6](FRS-Common-Services)|[MOS-21](//mosipid.atlassian.net/browse/MOS-21)|
+|20.|Utilities|Json Utility|[CMN_FR_6.7](FRS-Common-Services)|[MOS-28](//mosipid.atlassian.net/browse/MOS-28)|
+|21.|Utilities|Math Utility|[CMN_FR_6.8](FRS-Common-Services)|[MOS-19](//mosipid.atlassian.net/browse/MOS-19)|
+|22.|Utilities|String Utility|[CMN_FR_6.9](FRS-Common-Services)|[MOS-18](//mosipid.atlassian.net/browse/MOS-18)|
+|23.|Utilities|UUID Utility|[CMN_FR_6.10](FRS-Common-Services)|[MOS-1986](//mosipid.atlassian.net/browse/MOS-1986)|
+|24.|Utilities|Zip-Unzip Utility|[CMN_FR_6.11](FRS-Common-Services)|[MOS-987](//mosipid.atlassian.net/browse/MOS-987)|
 
 
 
