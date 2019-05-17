@@ -1034,6 +1034,18 @@ Refer below for the process:
 4. In case of Exceptions, system triggers relevant error messages. 
 
 ### 1.19 User History [**[↑]**](#table-of-content)
+
+Upon receiving a request to fetch the user history record with input parameters (User ID and Date Timestamp), the system
+fetches all the attributes of the user from the history table and performs the following steps:
+
+1. Validates if all required input parameters have been received as listed below for each specific request.
+   * User ID - Mandatory
+   * Date Timestamp - Mandatory
+2. The record fetched are the latest record existing on or before the date received in the input parameter.
+1. If the mandatory input parameters are missing, then the system triggers the appropriate message.
+1. Response will contain all the attributes for the user including the Active/Inactive status.
+1. In case of exceptions, system triggers relevant error messages.
+
 ## 2. Registration Management
 ### 2.1 Registration Center Type - Create/Update/Delete [**[↑]**](#table-of-content)
 
