@@ -211,12 +211,7 @@ Requires Authentication | Yes
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
  "response": {
 		"data": "wk4RM2su2lBXuhx3_EtBijXTDp0Y20fJA6tmoONPjr6YBLqwu_YRWiSa10o-bQWesb-IobxPg-KsZq-Gc0L6Rq6besw-rMavg5a5nPU7b3pAug0N6Ek4B7S8v_tc5cu7LBRdBv1mRSS2onxXbT2R4qeEwl_11KtxPs_ek6g4vV6oEQRem2fPhop_21DaoWVEZFovHAAJDqSFj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8LYp-hG3RhR_xC7trAOTqilzLjLfirE3Wjfor5bhLiG9eZyTb52ihKsDV1l2oBAhn9Aao_fYl3UD5QekSNLRVlfU1BMSVRURVIjeKen-3j5KhnE-93Qfe_pBfMBIKEkTJJ7pR-4cO7l-X0"
 	}
@@ -269,18 +264,43 @@ Requires Authentication | Yes
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
  "response": {
  		"data": "string"
              }
 }	
 ```
 
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-CRY-001 |	No Such algorithm is supported	|   No Such algorithm is supported
+KER-CRY-002 | public key is invalid | public key is invalid
+KER-CRY-003 | data sent to decrypt is without key splitter or invalid | invalid data without key breaker
+KER-CRY-003 | or not base64 encoded | Invalid data
+KER-CRY-004 | should not be null or empty | Invalid request
+KER-CRY-005 | cannot connect to keymanager service | cannot connect to key manager service
+KER-CRY-006 | Keymanager Service has replied with following error | keymanager service error
+KER-CRY-008 | Error occur while parsing error from response | Response Parse Error
+KER-CRY-007 | timestamp should be in ISO 8601 format yyyy-MM-ddTHH::mm:ss.SZ | DateTime Parse Exception
+KER-CRY-500 | Internal server error | Internal server error
 
 # License Key Manager (Private)
 MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
@@ -339,12 +359,7 @@ MISPId|Yes|The MISP ID against which the license key generated will be mapped| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "licenseKey": "gR7Mw7tA7S7qifkf"
 	}
@@ -397,12 +412,7 @@ permissions|Yes|The list of permissions that will be mapped to the MISP-licensek
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "status": "Mapped License with the permissions"
 	    }
@@ -445,12 +455,7 @@ N/A
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	     "permissions": [
 		          "OTP Trigger",
@@ -506,12 +511,7 @@ Sample Success Response:
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response" : {
 		"message":"The status had been changed successfully. "
 	     }
@@ -536,6 +536,19 @@ Sample Success Response:
   ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-LKM-001 |	TSP entered is null or empty	|   Illegal TSP
+KER-LKM-002 | The length of license key generated was not of the specified length | Invalid generated license key
+KER-LKM-003 | Permission value entered is not accepted | Not acceptable permission
+KER-LKM-004 | LicenseKey Not Found. | LicenseKey Not Found
+KER-LKM-005 | LicenseKey Expired. | LicenseKey Expired
+KER-LKM-006 | License Key entered is null or empty. | Illegal license key
+KER-LKM-007 | Permission entered is an empty string. | Illegal Permission
+KER-LKM-008 | Expiry DateTime should be ahead of current DateTime. | Date expired
+KER-LKM-009 | No Permissions has been mapped to the entered TSP-LicenseKey Pair. | No Permissions mapped
 
 
 # SMS Notification (Private)
@@ -589,18 +602,38 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
   "response": {
 	  "message": "Sms Request Sent",
 	  "status": "success"
 	}
 }	
 ```
+
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-NOS-001 |	Number and message can't be empty, null	|   SMS Illegal Input
+KER-NOS-002 | Contact number cannot contains alphabet,special character or less than or more than | SMS Invalid Contact Number
+KER-NOS-500 | Internal server error | Internal server error
+
 
 # Email Notification (Private)
 
@@ -653,12 +686,7 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "message": "Email Request sent",
 	  "status": "success"
@@ -666,6 +694,34 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 }	
 ```
 
+##### Erroe Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-NOE-001 | To must be valid. It can't be empty or null. | Receiver Address not found
+KER-NOE-002 | Subject must be valid. It can't be empty or null. | Subject not found
+KER-NOE-003 | Content must be valid. It can't be empty or null. | Content not found
+KER-NOE-004 | | Mail Send Exception Code
+KER-NOE-005 | | Mail Authentication Exception Code
+KER-NOE-006 | | Mail Exception Code
+KER-NOE-999 | Data not valid | Request Data not valid
+KER-NOE-500 |  | Internal Server Error
 
 
 # UIN  (External)
@@ -710,12 +766,7 @@ N/A
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "uin": "734168915279"
 	    }
@@ -771,18 +822,40 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
   "response": {
                  "uin":"5193698130",
                   "status":"ASSIGNED"
               }
 }
 ```
+
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-UIG-001 | UIN could not be found | UIN could not be found
+KER-UIG-003 | Given UIN status not found | UIN Status not found
+KER-UIG-004 | Given UIN is not in ISSUED status | UIN Not Issued
+KER-UIG-005 | Internal Server Error | Internal Server Error
+KER-UIG-006 | Error in retrieving from config server | Config Server Fetch failed
+
 
 # RID generator (Private)
 
@@ -827,6 +900,34 @@ machineid|Yes|machineid of registration| -NA- |10032
 }
 ```
 
+##### Error Response:
+```JSON
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2019-05-07T04:30:40.061Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ]
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-RIG-002 | Empty input entered | Empty Input Error Code
+KER-RIG-003 | input length is not valid | Input length error code
+KER-RIG-004 | Timestamp length should be greater than zero | Invalid CenterID or MachineID Timestamp Length
+KER-RIG-005 | Error occured while fetching rid | RID Fetch Exception
+KER-RIG-006 | Error occured while storing rid | RID Update Exception
+KER-RIG-007 | Sequence length should be greater than zero | Invalid SEQ_Length Exception
+KER-RIG-999 | | HTTP Message Not Readable
+KER-RIG-500 | | Runtime Exception
 
 
 # Static Token generator (Private)
@@ -862,14 +963,14 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 ###### Description: token id generated successfully
 ```JSON
 {
-	"id": "mosip.kernel.tokenid.generate",
-	"version": "1.0",
-	"metadata": {},
+	"id": "mosip.kernel.tokenid.generate",,
+	"version": "1.0",,
+	"metadata": {},,
 	"responsetime": "2019-04-04T05:03:18.287Z",
-	"response": {
+	"response": {{
                   "tokenID": "268177021248100621690339355202974361"
-                     },
-        "errors": []
+                     },,
+        "errors": null]
 }
 ```
 
