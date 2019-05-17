@@ -132,30 +132,34 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|pre-registration-ui|Login/Creating a User Account|PRE_FR_1|[MOS-17](//mosipid.atlassian.net/browse/MOS-17), [MOS-26](//mosipid.atlassian.net/browse/MOS-26), [MOS-980](//mosipid.atlassian.net/browse/MOS-980), [MOS-13173](//mosipid.atlassian.net/browse/MOS-13173)|
-|2.|pre-registration-ui|Logout/Session Timeout|PRE_FR_1.4|[MOS-205](//mosipid.atlassian.net/browse/MOS-205), [MOS-10485](//mosipid.atlassian.net/browse/MOS-10485), [MOS-17869](//mosipid.atlassian.net/browse/MOS-17869)|
-|3.|pre-registration-ui|Creating an Application|PRE_FR_2|[MOS-792](//mosipid.atlassian.net/browse/MOS-792), [MOS-793](//mosipid.atlassian.net/browse/MOS-793), [MOS-14511](//mosipid.atlassian.net/browse/MOS-14511)|
-|4.|pre-registration-demographic-service, pre-registration-document-service|Creating an Application|PRE_FR_2|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
-|5.|pre-registration-ui|Provide Consent|PRE_FR_2.2|[MOS-13682](//mosipid.atlassian.net/browse/MOS-13682)|
-|6.|pre-registration-ui|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-666](//mosipid.atlassian.net/browse/MOS-666), [MOS-13144](//mosipid.atlassian.net/browse/MOS-13144),[MOS-13965](//mosipid.atlassian.net/browse/MOS-13965)|
-|7.|pre-registration-translitration-service|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-667](//mosipid.atlassian.net/browse/MOS-667)|
-|8.|pre-registration-ui|Viewing "My Applications"|PRE_FR_2.5|[MOS-794](//mosipid.atlassian.net/browse/MOS-794)|
-|9.||Viewing "My Applications"|PRE_FR_2.5|[MOS-626](//mosipid.atlassian.net/browse/MOS-626)|
-|10.|pre-registration-ui|Modify Application Data|PRE_FR_2.6|[MOS-797](//mosipid.atlassian.net/browse/MOS-797)|
-|11.|pre-registration-demographic-service, pre-registration-document-service|Modify Application Data|PRE_FR_2.6|[MOS-628](//mosipid.atlassian.net/browse/MOS-628)|
-|12.|pre-registration-ui|Discard Application|PRE_FR_2.7|[MOS-806](//mosipid.atlassian.net/browse/MOS-806)|
-|13.||Discard Application|PRE_FR_2.7|[MOS-805](//mosipid.atlassian.net/browse/MOS-805))|
-|14.|pre-registration-ui|Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-814](//mosipid.atlassian.net/browse/MOS-814)|
-|15.|pre-registration-ui|Choosing Appointment Slots|PRE_FR_4.3|[MOS-817](//mosipid.atlassian.net/browse/MOS-817)|
-|16.|pre-registration-booking-service|Choosing Appointment Slots|PRE_FR_4.3|[MOS-664](//mosipid.atlassian.net/browse/MOS-664)|
-|17.|pre-registration-ui|Cancel Appointment|PRE_FR_4.4|[MOS-818](//mosipid.atlassian.net/browse/MOS-818)|
-|18.|pre-registration-booking-service|Cancel Appointment|PRE_FR_4.4|[MOS-665](//mosipid.atlassian.net/browse/MOS-665)|
-|19.|pre-registration-ui|Re-book Appointment|PRE_FR_4.5|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
-|20.|pre-registration-booking-service|Re-book Appointment|PRE_FR_4.5|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
-|21.|pre-registration-ui|Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](//mosipid.atlassian.net/browse/MOS-812), [MOS-13142](//mosipid.atlassian.net/browse/MOS-13142), [MOS-13143](//mosipid.atlassian.net/browse/MOS-13143)|
-|22.|pre-registration-ui|Get Appointment for the Day|PRE_FR_4.2|[MOS-816](//mosipid.atlassian.net/browse/MOS-816)|
-|23.|pre-registration-booking-service|Get Appointment for the Day|PRE_FR_4.2|[MOS-663](//mosipid.atlassian.net/browse/MOS-663)|
-|24.|pre-registration-datasync-service|Retrieve Application Data by PRID|PRE_FR_6.1|[MOS-668](//mosipid.atlassian.net/browse/MOS-668), [MOS-1999](//mosipid.atlassian.net/browse/MOS-1999)|
-|25.||List of Configurable Parameters and Processes|PRE_FR_7|[MOS-10291](//mosipid.atlassian.net/browse/MOS-10291), [MOS-14510](//mosipid.atlassian.net/browse/MOS-14510)|
+|2.|pre-registration-ui|Login/Creating a User Account|PRE_FR_1.1|[MOS-26](//mosipid.atlassian.net/browse/MOS-26)|
+|3.|pre-registration-ui|Login/Creating a User Account|PRE_FR_1.2|[MOS-17](//mosipid.atlassian.net/browse/MOS-17)|
+|4.|pre-registration-ui|Logout/Session Timeout|PRE_FR_1.4|[MOS-205](//mosipid.atlassian.net/browse/MOS-205), [MOS-10485](//mosipid.atlassian.net/browse/MOS-10485), [MOS-17869](//mosipid.atlassian.net/browse/MOS-17869)|
+|5.|pre-registration-ui|Creating an Application|PRE_FR_2|[MOS-792](//mosipid.atlassian.net/browse/MOS-792), [MOS-793](//mosipid.atlassian.net/browse/MOS-793), [MOS-14511](//mosipid.atlassian.net/browse/MOS-14511)|
+|6.|pre-registration-demographic-service, pre-registration-document-service|Creating an Application|PRE_FR_2|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
+|7.|pre-registration-ui|Provide Consent|PRE_FR_2.2|[MOS-13682](//mosipid.atlassian.net/browse/MOS-13682)|
+|8.|pre-registration-ui|Provide Consent|PRE_FR_2.3|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
+|9.|pre-registration-ui|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-666](//mosipid.atlassian.net/browse/MOS-666), [MOS-13144](//mosipid.atlassian.net/browse/MOS-13144),[MOS-13965](//mosipid.atlassian.net/browse/MOS-13965)|
+|10.|pre-registration-translitration-service|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-667](//mosipid.atlassian.net/browse/MOS-667)|
+|11.|pre-registration-ui|Viewing "My Applications"|PRE_FR_2.5|[MOS-794](//mosipid.atlassian.net/browse/MOS-794)|
+|12.||Viewing "My Applications"|PRE_FR_2.5|[MOS-626](//mosipid.atlassian.net/browse/MOS-626)|
+|13.|pre-registration-ui|Modify Application Data|PRE_FR_2.6|[MOS-797](//mosipid.atlassian.net/browse/MOS-797)|
+|14.|pre-registration-demographic-service, pre-registration-document-service|Modify Application Data|PRE_FR_2.6|[MOS-628](//mosipid.atlassian.net/browse/MOS-628)|
+|15.|pre-registration-ui|Discard Application|PRE_FR_2.7|[MOS-806](//mosipid.atlassian.net/browse/MOS-806)|
+|16.||Discard Application|PRE_FR_2.7|[MOS-805](//mosipid.atlassian.net/browse/MOS-805))|
+|17.|pre-registration-document-service|Attaching Documents for Reference|PRE_FR_3|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
+|18.|pre-registration-ui|Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-814](//mosipid.atlassian.net/browse/MOS-814)|
+|19.|pre-registration-ui|Choosing Appointment Slots|PRE_FR_4.3|[MOS-817](//mosipid.atlassian.net/browse/MOS-817)|
+|20.|pre-registration-booking-service|Choosing Appointment Slots|PRE_FR_4.3|[MOS-664](//mosipid.atlassian.net/browse/MOS-664)|
+|21.|pre-registration-ui|Cancel Appointment|PRE_FR_4.4|[MOS-818](//mosipid.atlassian.net/browse/MOS-818)|
+|22.|pre-registration-booking-service|Cancel Appointment|PRE_FR_4.4|[MOS-665](//mosipid.atlassian.net/browse/MOS-665)|
+|23.|pre-registration-ui|Re-book Appointment|PRE_FR_4.5|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
+|24.|pre-registration-booking-service|Re-book Appointment|PRE_FR_4.5|[MOS-978](//mosipid.atlassian.net/browse/MOS-978)|
+|25.|pre-registration-ui|Appointment Acknowledgement (PRID)|PRE_FR_5|[MOS-812](//mosipid.atlassian.net/browse/MOS-812), [MOS-13142](//mosipid.atlassian.net/browse/MOS-13142), [MOS-13143](//mosipid.atlassian.net/browse/MOS-13143)|
+|26.|pre-registration-ui|Get Appointment for the Day|PRE_FR_4.2|[MOS-816](//mosipid.atlassian.net/browse/MOS-816)|
+|27.|pre-registration-booking-service|Get Appointment for the Day|PRE_FR_4.2|[MOS-663](//mosipid.atlassian.net/browse/MOS-663)|
+|28.|pre-registration-datasync-service|Retrieve Application Data by PRID|PRE_FR_6.1|[MOS-668](//mosipid.atlassian.net/browse/MOS-668), [MOS-1999](//mosipid.atlassian.net/browse/MOS-1999)|
+|29.||List of Configurable Parameters and Processes|PRE_FR_7|[MOS-10291](//mosipid.atlassian.net/browse/MOS-10291), [MOS-14510](//mosipid.atlassian.net/browse/MOS-14510)|
 
 
 ## 9. Registration: [**[↑]**](#table-of-content)
