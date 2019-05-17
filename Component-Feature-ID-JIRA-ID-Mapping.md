@@ -147,7 +147,7 @@
 |14.|pre-registration-demographic-service, pre-registration-document-service|Modify Application Data|PRE_FR_2.6|[MOS-628](//mosipid.atlassian.net/browse/MOS-628)|
 |15.|pre-registration-ui|Discard Application|PRE_FR_2.7|[MOS-806](//mosipid.atlassian.net/browse/MOS-806)|
 |16.||Discard Application|PRE_FR_2.7|[MOS-805](//mosipid.atlassian.net/browse/MOS-805))|
-|17.||Discard Application|PRE_FR_3|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
+|17.|pre-registration-document-service|Attaching Documents for Reference|PRE_FR_3|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
 |18.|pre-registration-ui|Choosing a Registration Center for Appointment|PRE_FR_4.1|[MOS-814](//mosipid.atlassian.net/browse/MOS-814)|
 |19.|pre-registration-ui|Choosing Appointment Slots|PRE_FR_4.3|[MOS-817](//mosipid.atlassian.net/browse/MOS-817)|
 |20.|pre-registration-booking-service|Choosing Appointment Slots|PRE_FR_4.3|[MOS-664](//mosipid.atlassian.net/browse/MOS-664)|
