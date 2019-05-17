@@ -13,13 +13,13 @@
 - [3. Health Check](#3-health-check-)
   * [3.1 Peripherals Check](#31-peripherals-check-) _(REG_FR_3.1)_
   * [3.2 Disk Space Check](#32-disk-space-check-) _(REG_FR_3.2)_
-  * [3.3 Virus Scan/Security Scan](#33-virusscan-security-scan-) _(REG_FR_3.3)_
+  * [3.3 Virus Scan/Security Scan](#33-virus-scansecurity-scan-) _(REG_FR_3.3)_
 - [4. Registration Data Services](#4-registration-data-services-)
   * [4.1 New Registration](#41-new-registration-) _(REG_FR_4.1)_
   * [4.2 UIN Update](#42-uin-update-) _(REG_FR_4.2)_
   * [4.3 Lost UIN](#43-lost-uin-) _(REG_FR_4.3)_
   * [4.4 Acknowledgement and Notifications](#44-acknowledgement-and-notifications-) _(REG_FR_4.4)_
-  * [4.5 Biometric Capture (SDK Integration, Extract and Match)](#45-biometric-capture-sdk-integration--extract-and-match-) _(REG_FR_4.5)_
+  * [4.5 Biometric Capture (SDK Integration, Extract and Match)](#45-biometric-capture-sdk-integration-extract-and-match-) _(REG_FR_4.5)_
   * [4.6 Biometric Exceptions](#46-biometric-exceptions-) _(REG_FR_4.6)_
   * [4.7 Operator and Supervisor Approval](#47-operator-and-supervisor-approval-) _(REG_FR_4.7)_
   * [4.8 End of Day Process](#48-end-of-day-process-) _(REG_FR_4.8)_
