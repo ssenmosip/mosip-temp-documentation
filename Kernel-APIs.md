@@ -24,7 +24,7 @@ Common APIs
 
 
 
-# Key Manager
+# Key Manager (Private)
 
 * [GET /publickey](#get-publickey)
 * [POST /decrypt](#post-decrypt)
@@ -143,7 +143,7 @@ timeStamp (encryption timestamp) |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:
 ```
 
 
-# Crypto Manager
+# Crypto Manager (Private)
 
 * [POST v1/cryptomanager/encrypt](#post-v1cryptomanagerencrypt)
 * [POST v1/cryptomanager/decrypt](#post-v1cryptomanagerdecrypt)
@@ -263,7 +263,7 @@ Requires Authentication | Yes
 ```
 
 
-# License Key Manager
+# License Key Manager (Private)
 MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
 
 This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
@@ -519,7 +519,7 @@ Sample Success Response:
 ```
 
 
-# SMS Notification
+# SMS Notification (Private)
 
 * [POST /sms/send](#post-sms-send)
 
@@ -583,7 +583,7 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 }	
 ```
 
-# Email Notification
+# Email Notification (Private)
 
 * [POST /email/send](#post-email-send)
 
@@ -649,7 +649,7 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 
 
 
-# UIN
+# UIN  (External)
 
 ## UIN-get service
 
@@ -765,7 +765,7 @@ Name | Required | Description | Default Value | Example
 }
 ```
 
-# RID generator
+# RID generator (Private)
 
 * [GET /v1/ridgenerator/generate/rid/10002/10032](#get-ridgenerator)
 
@@ -810,7 +810,7 @@ machineid|Yes|machineid of registration| -NA- |10032
 
 
 
-# Static Token generator
+# Static Token generator (Private)
 
 * [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
 
@@ -874,7 +874,8 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 ```
 
 
-# Audit Manager
+# Audit Manager (Private)
+
 Audits are events/transactions which need to be captured and stored to facilitate auditing. This data could further be used for reporting by the business.
 
 This includes auditing various event types like System events (Periodic scans), Business events/transactions (Change in demo data), Security Events etc.
@@ -972,7 +973,7 @@ description|No|Description of the event| |Example description
 
 
 
-# Sync data
+# Sync data (Public)
 
 * [GET /masterdata](#get-masterdata)
 
@@ -2296,7 +2297,7 @@ publickey |Yes|Base 64 encoded Public key of the passed machine| |
 
 ```
 
-# Applicant type
+# Applicant type (Public)
 
 These set of services does various operations regarding the applicant type.
 
@@ -2381,7 +2382,8 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
 
 
 
-# OTP Manager
+# OTP Manager (Private)
+
 ### POST OTP Generator
 This component facilitates generation of OTP for various purposes. EG: Login in Pre-registration
 
