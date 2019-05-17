@@ -64,12 +64,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 		  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
 		  "issuedAt": "2018-01-01T10:00:00",
@@ -129,12 +124,7 @@ timeStamp (encryption timestamp) |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
  "response": {
 	    "symmetricKey": "decryptedSymmetricKey"
 	}
@@ -142,6 +132,35 @@ timeStamp (encryption timestamp) |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:
 
 ```
 
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-KMS-001 |	Certificate is not valid	|   validity check fail
+KER-KMS-002 |   ApplicationId not found in Key Policy | ApplicationId not valid
+KER-KMS-003 | No unique alias is found| No unique alias
+KER-KMS-004 | No Such algorithm is supported| No such algorithm exception
+KER-KMS-005 | Invalid request | Invalid request
+KER-KMS-006 | timestamp should be in ISO 8601 format yyyy-MM-ddTHH::mm:ss.SSSZ | date time parse exception
+KER-KMS-007 | Exception occured in cypto library | Crypto exception
+KER-KMS-500 | Internal server error | Internal server error
 
 # Crypto Manager (Private)
 
