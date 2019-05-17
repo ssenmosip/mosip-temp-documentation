@@ -11,32 +11,32 @@
   * [2.4 Packet Status Sync](#24-packet-status-sync-) _(REG_FR_2.4)_
   * [2.5 Pre-registration Data Download](#25-pre-registration-data-download-) _(REG_FR_2.5)_
 - [3. Health Check](#3-health-check-)
-  * [3.1 Peripherals Check](#31-peripherals-check-)
-  * [3.2 Disk Space Check](#32-disk-space-check-)
-  * [3.3 Virus Scan/Security Scan](#33-virus-scan-security-scan-)
+  * [3.1 Peripherals Check](#31-peripherals-check-) _(REG_FR_3.1)_
+  * [3.2 Disk Space Check](#32-disk-space-check-) _(REG_FR_3.2)_
+  * [3.3 Virus Scan/Security Scan](#33-virus-scan-security-scan-) _(REG_FR_3.3)_
 - [4. Registration Data Services](#4-registration-data-services-)
-  * [4.1 New Registration](#41-new-registration-)
-  * [4.2 UIN Updates](#42-uin-updates-)
-  * [4.3 Lost UIN](#43-lost-uin-)
-  * [4.4 Acknowledgement and Notifications](#44-acknowledgement-and-notifications-)
-  * [4.5 Biometric Capture (SDK Integration, Extract and Match)](#45-biometric-capture--sdk-integration--extract-and-match-)
-  * [4.6 Biometric Exceptions](#46-biometric-exceptions-)
-  * [4.7 Operator and Supervisor Approval](#47-operator-and-supervisor-approval-)
-  * [4.8 End of Day Process](#48-end-of-day-process-)
-- [5. Geo-location](#5-geo-location-)
+  * [4.1 New Registration](#41-new-registration-) _(REG_FR_4.1)_
+  * [4.2 UIN Updates](#42-uin-updates-) _(REG_FR_4.2)_
+  * [4.3 Lost UIN](#43-lost-uin-) _(REG_FR_4.3)_
+  * [4.4 Acknowledgement and Notifications](#44-acknowledgement-and-notifications-) _(REG_FR_4.4)_
+  * [4.5 Biometric Capture (SDK Integration, Extract and Match)](#45-biometric-capture--sdk-integration--extract-and-match-) _(REG_FR_4.5)_
+  * [4.6 Biometric Exceptions](#46-biometric-exceptions-) _(REG_FR_4.6)_
+  * [4.7 Operator and Supervisor Approval](#47-operator-and-supervisor-approval-) _(REG_FR_4.7)_
+  * [4.8 End of Day Process](#48-end-of-day-process-) _(REG_FR_4.8)_
+- [5. Geo-location](#5-geo-location-) _(REG_FR_5)_
 - [6. Language Support](#6-language-support-)
-  * [6.1 Translation](#61-translation-)
-  * [6.2 Transliteration](#62-transliteration-)
+  * [6.1 Translation](#61-translation-) _(REG_FR_6.1)_
+  * [6.2 Transliteration](#62-transliteration-) _(REG_FR_6.2)_
 - [7. Packet Upload](#7-packet-upload-)
-  * [7.1 Registration Packet Upload](#71-registration-packet-upload-)
-  * [7.2 Offline upload (Packet Exporter)](#72-offline-upload--packet-exporter-)
-- [8. Analytics and Audit Logs](#8-analytics-and-audit-logs-)
+  * [7.1 Registration Packet Upload](#71-registration-packet-upload-) _(REG_FR_7.1)_
+  * [7.2 Offline upload (Packet Exporter)](#72-offline-upload--packet-exporter-) _(REG_FR_7.2)_
+- [8. Analytics and Audit Logs](#8-analytics-and-audit-logs-) _(REG_FR_8)_
 - [9. Data Security](#9-data-security-)
-  * [9.1 Key Management](#91-key-management-)
-- [10. Software Version Upgrade](#10-software-version-upgrade-)
+  * [9.1 Key Management](#91-key-management-) _(REG_FR_9.1)_
+- [10. Software Version Upgrade](#10-software-version-upgrade-) _(REG_FR_10)_
 - [11. Clean up](#11-clean-up-)
-  * [11.1 Data retention policies](#111-data-retention-policies-)
-  * [11.2 Machine Retirement](#112-machine-retirement-)
+  * [11.1 Data retention policies](#111-data-retention-policies-) _(REG_FR_11.1)_
+  * [11.2 Machine Retirement](#112-machine-retirement-) _(REG_FR_11.2)_
 
 ## 1. User Services [**[↑]**](#table-of-content)
 ### 1.1 User on-boarding [**[↑]**](#table-of-content)
