@@ -19,7 +19,7 @@
   * [4.2 UIN Update](#42-uin-update-) _(REG_FR_4.2)_
   * [4.3 Lost UIN](#43-lost-uin-) _(REG_FR_4.3)_
   * [4.4 Acknowledgement and Notifications](#44-acknowledgement-and-notifications-) _(REG_FR_4.4)_
-  * [4.5 Biometric Capture (SDK Integration, Extract and Match)](#45-biometric-capture-sdk-integration-extract-and-match-) _(REG_FR_4.5)_
+  * [4.5 Biometric Capture (SDK Integration, Extract and Match) (WIP)](#45-biometric-capture-sdk-integration-extract-and-match-wip-) _(REG_FR_4.5)_
   * [4.6 Biometric Exceptions](#46-biometric-exceptions-) _(REG_FR_4.6)_
   * [4.7 Operator and Supervisor Approval](#47-operator-and-supervisor-approval-) _(REG_FR_4.7)_
   * [4.8 End of Day Process](#48-end-of-day-process-) _(REG_FR_4.8)_
@@ -435,8 +435,75 @@ The Registration Officer performs the following steps to retrieve a lost UIN of 
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ### 4.4 Acknowledgement and Notifications [**[↑]**](#table-of-content)
-### 4.5 Biometric Capture (SDK Integration, Extract and Match) [**[↑]**](#table-of-content)
+
+#### A. Printing the registration receipt.
+1. Upon completion of a registration, the system generates a unique RID 
+1. The system generates the registration receipt.
+1. The registration receipt contains details in a print-friendly format.
+   * Receipt includes labels and data in two languages - the default language and the secondary language as configured. 
+   * All labels and fields are in the default language. Only name and address labels and fields are shown in the secondary language
+   * Receipt displays the 2D bar code.
+4. This print friendly receipt can then be printed using a printer
+
+#### B. Acknowledgement receipt sent by email on completion of registration process [**[↑]**](#table-of-content)
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement email to the individual.
+   * Notification language is set by a country's admin, who determines in which language, a notification is sent to the individual. Notification language can be either primary language or combination of both primary and secondary language.
+   * In case of UIN Update or Lost UIN, the system sends a notification to the individual.
+2. The email template is defined by the admin at country level.
+3. Email is sent to the email address entered during registration.
+4. The subject and the body of the acknowledgement email are configured by admin.
+5. No email is sent under the following scenario
+   * If mode of confirmation is not set to ‘email’ or ‘email and SMS’
+   * If an email address is not provided during registration
+   * If the client is not online during registration completion
+#### C. Acknowledgement receipt sent by SMS on completion of registration process
+1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement SMS to the individual.
+   * Notification language is set by a country's admin, who determines in which language, a notification is sent to the individual. Notification language can be either primary language or combination of both primary and secondary language.
+   * In case of UIN Update or Lost UIN, the system sends a notification to the individual.
+2. The template of the SMS is defined by the admin at the country level.
+3. The “from” id of the SMS will be set up by the system integrator.
+4. The system triggers the SMS to the mobile number provided during registration.
+5. The SMS contains the details as per the template configured by a country.
+6. An SMS is triggered regardless of the applicant being an adult or child as determined by the date of birth.
+7. The system will not be able to send SMS, if the client is not online at the time of registration completion.
+
+#### D. Sending email and SMS acknowledgements to additional recipients
+This feature enables registration client to send SMS and email acknowledgements to additional recipient\s (other than the individual’s primary email id and mobile number)
+
+### 4.5 Biometric Capture (SDK Integration, Extract and Match) (WIP) [**[↑]**](#table-of-content)
+
+Registration Client performs a local duplicate check for irises and face of an individual against the mapped registration officers' biometrics
+1. The Registration Officer captures the irises of the individual and opts to proceed further in the registration process
+1. The system performs a local duplicate check of the individual’s irises with the irises of all the users on-boarded to the client.
+1. In case of forced capture, the system uses only the best capture for local duplicate check
+1. The iris images of the individual are compared with the irises of the users mapped to the Client.
+1. Each iris is matched individually.
+1. The two captured irises are also compared against each other to identify a potential duplicate.
+1. The SDK determines the match score, and this is compared with the threshold match score. If match score >= threshold then it is a match.
+1. If at least one iris match is found, display an alert, set retry count to zero, and require recapture of both irises.
+1. If a match is not found, allows the user to proceed to the face capture step
+1. The Registration Officer captures the face photo and opts to proceed further in the registration process
+1. On force capture/successful capture of face performs a local duplicate check of face of the individual against faces of all users on-boarded to the client.
+1. In case of forced capture uses only the best capture for local duplicate check
+1. The system performs a local duplicate check of the individual’s face with the faces of all the users on-boarded to the client.
+1. If a match is found, display an error message and require individual to provide the face scan again.
+1. When no match is found, system proceeds to the next step (Registration Preview).
+1. The number of recapture attempts due to local duplicate check failures is not capped.
+
 ### 4.6 Biometric Exceptions [**[↑]**](#table-of-content)
+If the required biometric quality is not achieved while a Registration Officer is capturing biometrics of an individual (e.g., missing finger(s), missing iris(es), etc.), then the system mandates to capture a biometric exception to that individual. Refer below for the process:
+#### A. Low quality biometrics marked as reason for exceptions
+
+1. During a registration process while capturing biometrics, if the configured threshold is not met for fingerprints and/or irises in spite of the x attempts (configurable) to capture the biometrics, then system mandates capture of exception photo 
+1. Also, system automatically flags the reason for exception as ‘Low Quality of biometrics’. 
+1. If the individual has missing biometrics and low quality of biometrics, both the reasons are auto-associated. Here also the system mandates capture of exception photo.
+
+#### B. Mark fingerprint and iris exceptions for an individual
+
+1. During a registration process after the demographic details and documents have been captured the system allow a registration officer to mark biometric exceptions for missing finger(s) and missing iris(es) if the individual has any such exceptions.
+1. If ‘Biometric Exception’ is ‘Yes’, at least one missing biometric must be mandatorily marked.
+1. The registration officer can mark the missing finger(s) and missing iris(es).
+
 ### 4.7 Operator and Supervisor Approval [**[↑]**](#table-of-content)
 ### 4.8 End of Day Process [**[↑]**](#table-of-content)
 ## 5. Geo-location [**[↑]**](#table-of-content)
