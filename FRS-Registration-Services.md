@@ -613,7 +613,66 @@ The system then enables a Registration Officer to view the registration confirma
 
 ## 7. Packet Upload [**[↑]**](#table-of-content)
 ### 7.1 Registration Packet Upload [**[↑]**](#table-of-content) 
+
+#### A. Upload the packet
+1. The Registration Officer views a list of packets.
+1. The Registration Officer may opt to upload one or multiple packets from a list of packets.
+1. After the Registration Officer selects the packet/s, he/she can upload the selected packet/s to server.
+
+   NOTE: If any packets are selected, the ‘Export’ feature will be disable because the selection of packets is applicable only for ‘Upload’ feature.
+
+#### B. Push those packets that are marked 'Resend' to the server
+
+1. When the Registration Officer or Supervisor navigates to the ‘Upload Packets’ page, the list of RIDs that are pending packets to upload will be displayed.
+   * Pending packets are those packets, which are not sent to the server due to various reasons (e.g. Sanity Check and Validation failure in the Registration Processor) and have been marked for resending.
+2. When the Registration Officer or Supervisor selects the ‘Upload’ option, the pending packets will be uploaded to the server.
+3. The result of each packet uploaded will be displayed as ‘Success’ or ‘Failure’.
+   * Packets that are successfully sent or resent will not be sent again unless the server requests for them.
+   * Packets for which upload fails will continue to be in pending state.
+4. System captures and stores the transaction details for audit purpose (except PII data).
+
+#### C. Enable a real time packet upload when system is online upon registration submission
+
+**When EoD process is turned ON**
+
+1. Registration Client checks if the system is online as soon as the assigned approver (such as Supervisor) approves or rejects a new registration or UIN update.
+1. If client is online, the registration client sends registration id to server and then the packets are marked as “Ready to upload” and auto uploaded to server.
+1. If client is offline or on low bandwidth, then when the client next comes online, the registration id’s are sent to server through scheduled or manual sync and the packets are then marked as “ready to upload”.
+1. Once the packets are ready for upload, packets are uploaded in two ways:
+   * The registration officer can initiate upload to server using upload function.
+   * Export to external storage device for subsequent upload as required.
+5. System captures and stores the transaction details for audit purpose (except PII data).
+
+**When EoD process is turned OFF**
+
+1. Registration Client checks if system is online as soon as the Registration Officer submits a new registration or UIN update.
+1. If client is online, the registration client sends registration id to server and then the packets are marked as “Ready to upload” and auto uploaded to server.
+1. If client is offline or on low bandwidth, then when the client next comes online, the registration id’s are sent to server through scheduled or manual sync and the packets are then marked as “ready to upload”.
+1. Once the packets are ready for upload, packets are uploaded in two ways:
+   * The registration officer can initiate upload to server using client’s upload function.
+   * Export to external storage device for subsequent upload as required.
+5. System captures and stores the transaction details for audit purpose (except PII data).
+
 ### 7.2 Offline upload (Packet Exporter) [**[↑]**](#table-of-content)
+
+System exports registration packet data from client machine to an external device as follows:
+1. Allows the Registration Officer to select a destination folder.
+   * The destination folder includes the laptop/desktop, an external hard drive or a remote location.
+   * External storage devices are not necessary to be MOSIP-registered devices.
+2. When the destination folder is selected, user initiates export of packets.
+1. System exports the packets to the selected folder and performs the following steps:
+   * Identifies the packets in ‘Ready to Upload’ state.
+   * If EoD process is turned ON, packets that have been approved or rejected and packet ID sync is completed are considered ‘Ready to Upload’.
+   * If EoD process is turned OFF, packets are considered ‘Ready to Upload’ as soon as the registration is submitted and packet ID sync is completed.
+   * Places the packets in the destination folder.
+4. Once the server acknowledges that the packets have been received, which is uploaded from the external device to the server, the packets in the client will be marked as ‘Uploaded’.
+   * Packets that remain in ‘Ready to Upload’ status will be exported again when the next export is executed.
+   * Packets in ‘Uploaded’ or any other status will not be exported again.
+5. All the Registration Officers and Supervisors on-boarded to the client machine is able to export all packets.
+1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets will remain on the destination folder.
+1. For partial or full failure, the system displays error message.
+1. System captures and stores the transaction details for audit purpose (except PII data).
+
 ## 8. Analytics and Audit Logs [**[↑]**](#table-of-content) 
 ## 9. Data Security [**[↑]**](#table-of-content)
 ### 9.1 Key Management [**[↑]**](#table-of-content)
