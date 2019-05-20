@@ -164,8 +164,36 @@ Procedure to unblock the account:
 #### 5.1.4 Activate/Deactivate/Decommission Center
 ### 5.2 Machine Management
 #### 5.2.1 View Machine
+MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data and provides the list of machines available in the registration center. During the validation of registration center ID, if the registration ID not found, then the system triggers an error notification.
 #### 5.2.2 Create Machine
+Using MOSIP, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
+Procedure to register machines follows:
+1. Zonal admin will select a Machine Type and Machine Specification for the new Machine
+1. Zonal admin will enter the following required details for the new machine:
+ * Machine Name
+ * Mac Address
+ * IP Address
+ * Serial Number
+ * Machine Spec ID
+ * Location Zone (Zone a Machine will belong based on Zonal Admins zone, currently not in DB)
+1. Machines will be mapped to Admin Zone.
+1. Zonal Admin will map the machine to the existing registration center under the jurisdiction of Admin zone.
+Machines uniqueness will be maintained through device serial number.
+
+Zonal Admin will register the machines importing CSV/XLS. For more information about registering machines, please refer to  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#23-list-of-machine-types---create-
+
 #### 5.2.3 Update Machine
+MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
+Procedure to update the machine related details, the Zonal Admin will:
+1. Update the machine details such as Serial Number and Mac-Address
+1. Update the zone of a machine (If a Machine is being moved to a new zone or accidently assigned to a wrong zone).
+1. The system does make the machine visible to the Zonal Admin, if previously assigned to other zone.
+1. Remove the mapping of the Center and Machine  (if already mapped to a Center of another zone)
+1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone)
+
+For more information about updating machine, please refer to 
+https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-
+
 #### 5.2.4 Activate/Deactivate/Decommission Machine
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center
 MOSIP allows Zonal Admin to map the machine to the registration center based on admin zone. If the machine is not mapped with the registration center, it cannot be recognized by MOSIP to perform any operation in that center. The system track the machine by serial number and other attributes of the machine.
