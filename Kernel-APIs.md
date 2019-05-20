@@ -3,7 +3,7 @@ Security APIs
 - [Key Manager Service](#key-manager)
 - [Crypto Manager Service](#crypto-manager)
 - [License Key Service](#license-key-manager)
-- [Crypto Signature Service](#crypto-signature-service)
+- [Crypto Signature Service](#crypto-manager-private)
 
 Notification APIs
 - [SMS Notification Service](#sms-notification)
