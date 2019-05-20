@@ -675,8 +675,49 @@ System exports registration packet data from client machine to an external devic
 
 ## 8. Analytics and Audit Logs [**[↑]**](#table-of-content) 
 ## 9. Data Security [**[↑]**](#table-of-content)
+Registration client integrates with Trusted Platform Model (TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals are saved securely in local system and then shared to server. The details saved locally would be encrypted. DataBase encryption is also mandatory.
+
+MOSIP performs the following:
+
+1. Signing the data (This process is called as Signature) using Private Key provided by the TPM
+   * This process will ensure that the request to the server has been dispatched from a registered or trusted registration client machine
+2. Validate the signature against the actual data using the Public Key or Public Part. The application does not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from a registered or trusted registration client machine
+1. Encrypt and decrypt the data using RSA algorithm in TPM
+
 ### 9.1 Key Management [**[↑]**](#table-of-content)
+
+The data captured and stored in to the client machine during different process [such as new registration, update UIN, lost UIN, pre-registration] will be encrypted with the different set of keys. The keys have a different set of expiry policies and based on which it will be refreshed. The keys are securely managed into the database.
 ## 10. Software Version Upgrade [**[↑]**](#table-of-content)
+
+#### A. Registration Officer or Supervisor can download and unzip the client application set up kit
+
+Initial installation of the client software on a particular machine, supervisor or registration officer will download an installable software (setup kit) from an admin portal. Then unzip the setup kit and install it in the client machine.
+
+When a Registration Officer or Supervisor opts to download setup kit and selects the OS-specific setup kit to download, the system allows the user to download the setup kit to the storage location chosen by the user
+
+1. User then unzips the setup kit.
+1. Extract the files and folders from the zip file to a chosen location.
+1. Allows user to verify that the files and folder structure are as described in the design document.
+1. System captures and stores the download transaction details for audit purpose (except PII data). 
+
+#### B. Update the client software from the server
+If a software update is available, then the system will give a supervisor or registration officer a choice to either update immediately or later. If the maximum number of days without software update has been exceeded, then the system will force a user to update the software.
+
+
+ it is automatically downloaded and installed as a part of the startup process.
+
+The system follows the following steps during the update process:
+1. Checks for updates during start up.
+1. The client must be online to check for updates.
+1. If an update is available, downloads and installs it automatically and launch the application.
+1. If no updates are available, launches the application.
+1. The updates are downloaded as patch updates.
+1. When installation is in progress, the user cannot perform any action on the client.
+1. Once installation is completed, the user can start working on the client.
+1. If update is not successful, the client returns to its earlier version.
+1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
+1. System captures and stores the transaction details for audit purpose (except PII data).
+
 ## 11. Clean up [**[↑]**](#table-of-content)
 ### 11.1 Data retention policies [**[↑]**](#table-of-content)
 ### 11.2 Machine Retirement [**[↑]**](#table-of-content)
