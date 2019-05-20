@@ -223,9 +223,9 @@ Registration Officer initiates a new registration for a non pre-registered indiv
 1. The Registration Officer marks consent after confirming with the individual offline.
 1. Whether the consent is marked as Yes/No, it will not have any impact on issuance of UIN for that individual and the system will not execute any validations in this regard during packet processing.
 
-#### B. Transliteration: Virtual keyboard
+#### B. Transliteration
 
-Refer to the section related to [**Transliteration and Virtual Keyboard**](#5103-transliteration-and-virtual-keyboard-).
+Refer to the section related to [**Transliteration**](#62-transliteration-).
 #### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
 1. For new registration or UIN update, the system provides an option for the Registration Officer to mark an individual's date of birth as ‘Verified’.
 1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the Registration Officer has verified the date of birth of the individual.
