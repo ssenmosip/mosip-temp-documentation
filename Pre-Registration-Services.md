@@ -1887,7 +1887,7 @@ PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
 
 * [POST /sync](#post-sync)
-* [POST /sync/consumedPreRegIds](##post-syncconsumedpreregids)
+* [POST /sync/consumedPreRegIds](#post-syncconsumedpreregids)
 * [GET /sync/{preRegistrationId}](#get-syncpreregistrationid)
 
 ### POST /sync
