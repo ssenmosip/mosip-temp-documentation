@@ -170,6 +170,20 @@ When a logged in user tries to access a feature on the registration client the s
 1. If a user is not authorized to access a feature, the system notifies the user by a message. 
 
 ### 1.3 Logout [**[↑]**](#table-of-content)
+When a Registration Officer or Supervisor opts to logout, the system allows them to do so by provisioning the following:
+1. Allows the user to choose appropriate option (button or link) in order to log out
+1. Log the user out of their session.
+   * While logging out, does not allow the user to perform any actions that require them to be logged in.
+3. Alternatively, closing the client window will also log the user out.
+1. Alternatively, if the user has remained inactive for a configured duration he will be automatically logged out.
+   * Inactive/idle time is defined as the time during which the user has not submitted or retrieved data using the client application or navigated to a different page.
+   * Any such action when performed resets the time to zero.
+   * The auto log out duration is configured from Admin. The default value can be taken as 15 minutes.
+   * Alerts the user ‘x’ minutes before reaching the auto logout time limit. Displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
+   * The duration before which to display the alert is configured by Admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
+5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
+1. The System also captures and stores the transaction details for audit purpose (except PII data).
+
 ## 2. Data Sync [**[↑]**](#table-of-content)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
