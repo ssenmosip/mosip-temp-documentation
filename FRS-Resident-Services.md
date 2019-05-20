@@ -41,7 +41,7 @@ MOSIP allows an individual to process a request to update the demographic data o
 An individual can track the status related to UIN updates based on a registration ID.An individual provides the Registration ID for which he/she wants to track the status of UIN updates.The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual.The individual provides the OTP as received.The system validates the provided OTP, successfully authenticates the individual, and provides the UIN updating status (Update statuses are configurable). Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers an error notification.
 
 ## 8. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
-In MOSIP, an individual will raise a request to view authentication- requests history for a specific UIN/VID. The system will fetch for past 6 months record from current date or maximum 50 transactions (configurable). 
+An individual can view authentication- requests history for a specific UIN/VID. The system will fetch data for past 6 months record from current date or maximum 50 transactions (configurable). 
 
 Procedure to raise request to view the authentication history of the past:
 
