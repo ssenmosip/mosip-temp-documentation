@@ -323,11 +323,11 @@ PRG_AUTH_012|	Config file not found in the config server|	If config file is miss
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
 * [POST /applications](#post-applications)
-* [PUT /applications/:preRegistrationId](#put-applicationspreRegistrationid)
-* [GET /applications/:preRegistrationId](#get-applicationspreRegistrationid)
-* [GET /applications/status/:preRegistrationId](#get-applicationsstatuspreRegistrationid)
+* [PUT /applications/{preRegistrationId}](#put-applicationspreRegistrationid)
+* [GET /applications/{preRegistrationId}](#get-applicationspreRegistrationid)
+* [GET /applications/status/{preRegistrationId}](#get-applicationsstatuspreRegistrationid)
 * [GET /applications](#get-applications)
-* [DELETE /applications/:preRegistrationId](#delete-applicationspreRegistrationid)
+* [DELETE /applications/{preRegistrationId}](#delete-applicationspreRegistrationid)
 
 ### POST /applications
 This request is used to create new pre-registration with demographic details, which generates pre-registration id and associates it with demographic details.
