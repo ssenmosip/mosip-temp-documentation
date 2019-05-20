@@ -33,21 +33,7 @@ MOSIP allows an individual to initiate a request to retrieve the Registration ID
 MOSIP allows an individual to raise a reprint request for their UIN. The individual provides the UIN/VID for which he/she wants to reprint. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification. The individual provides the OTP as received. The system validates the provided OTP and successfully authenticates the individual. Please refer to the OTP Authentication for more details. The system will provide the UIN to the registration processor to process the reprint request. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers an error notification.
 
 ## 6. Initiate UIN Update [**[↑]**](#table-of-content)
-MOSIP allows an individual to process a request to update the demographic data of the UIN.
-
-The procedure for an individual to update the demographic data follows:
-
-1. An individual provides the UIN/VID for which he/she wants to update.
-1. The system validates the provided UIN/VID, checks for the registered mobile number/email ID associated with and 
-triggers an OTP notification.
-1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
-1. The system allows the individual to update the respective demographic data.
-1. The individual provides the supporting documents related to the details, which are being updated. 
-1. The system provides an acknowledgement notification. 
-1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
-   UIN/VID or the provided OTP is not correct, and then the system triggers a respective error notification.
-9. Status of an update request can further be tracked by an individual. Please refer to the
+MOSIP allows an individual to process a request to update the demographic data of the UIN. An individual provides the UIN/VID for which he/she wants to update.The system validates the provided UIN/VID, checks for the registered mobile number/email ID associated with and triggers an OTP notification.The individual provides the OTP as received.The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.The system allows the individual to update the respective demographic data.The individual provides the supporting documents related to the details, which are being updated.The system provides an acknowledgement notification.During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, and then the system triggers a respective error notification.Status of an update request can further be tracked by an individual. Please refer to the
    [**Track Status of UIN Update**](#7-track-status-of-uin-update-) for more details.
 
 
