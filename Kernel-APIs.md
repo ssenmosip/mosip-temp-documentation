@@ -3,7 +3,7 @@ Security APIs
 - [Key Manager Service](#key-manager)
 - [Crypto Manager Service](#crypto-manager)
 - [License Key Service](#license-key-manager)
-- [Crypto Signature Service](#crypto-manager-private)
+- [Crypto Signature Service](#crypto-signature-service-private)
 
 Notification APIs
 - [SMS Notification Service](#sms-notification)
@@ -548,7 +548,7 @@ KER-LKM-008 | Expiry DateTime should be ahead of current DateTime. | Date expire
 KER-LKM-009 | No Permissions has been mapped to the entered TSP-LicenseKey Pair. | No Permissions mapped
 
 
-# Crypto Signature service (Private)
+# Crypto Signature Service (Private)
 
 * [POST v1/signature/sign](#post-sign)
 * [POST v1/signature/validate](#post-validate)
