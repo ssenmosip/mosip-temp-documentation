@@ -40,7 +40,129 @@
 
 ## 1. User Services [**[↑]**](#table-of-content)
 ### 1.1 User on-boarding [**[↑]**](#table-of-content)
+
+Initially, when a Registration Officer or Supervisor logs in to a client machine, the Registration Officer or Supervisor provides their biometric details, which will be stored and mapped to the client machine locally. Which in further, helps Registration Officer or Supervisor to work when the server is offline.
+
+#### A. Map registration officers and supervisors to a client machine.
+Initially a machine will have no users on boarded. The first Registration Officer/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this Registration Officer/Supervisor can onboard other users.
+1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
+1. Allow the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data
+   * Fields selected on the UI include user, status, fingerprints, and irises.
+   * The list of users will include only active users. The system does not show users who are blacklisted or decommissioned.
+   * The list of users does not include users who are already mapped to the machine.
+   * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
+   * The system then validates the fingerprint quality threshold is met.
+   * The system then validates the number of successful fingerprint authentications is greater than or equal to the config setting of fingerprint authentications required.
+   * Unlimited retries are allowed.
+   * Both irises are captured and authenticated with the server. Validate that the iris quality threshold is met.
+   * Validate that the number of successful iris authentications is greater than or equal to the config setting of iris authentications required.
+   * Unlimited retries are allowed.
+3. If validations are successful, then the system performs the following:
+   * Save the mapping locally.
+   * Successfully authenticated fingerprints and irises will be stored locally.
+   * Fingerprints and irises with unsuccessful authentication will not be stored.
+   * The status of the mapping is set to ‘Active’ or ‘Inactive’ as selected.
+   * Mapping will be sent to the server during the next sync.
+   * Biometrics will not be sent to the server.
+4. If not successful: Triggers an error message.
+5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
+
+#### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
+1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials, the system validates that the user is mapped to the same Registration Centre's client machine. System validates that the user is yet to be on-boarded to the client machine. System directs the user to the password entry page.
+1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
+1. User can request the system to resend OTP if not received earlier.
+1. User enters OTP and submits. System directs the user to the dashboard page with all links disabled except for ‘User on-boarding’.
+1. User navigates to the User on-boarding page.
+1. User marks biometric exceptions if any (system do not mandate capture and authentication of those biometrics that are marked as exceptions).
+1. User scans left slap, right slap and two thumbs. System displays the result of authentication of each finger.
+1. The system validates that the device is registered in the Admin portal, associated to this Registration Centre ID, and the current date lies within the validity dates of the device model.
+1. User scans both irises. System displays the result of authentication of each iris. User scans face and exception photo. System displays the result of authentication of face. Exception photo is not authenticated
+1. User can choose to retry each biometric capture as required. There is no limit to the number of retries.
+1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client machine and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
+1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-machine mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
+1. The system displays the result of authentication of each biometric - 10 fingers, 2 irises and face - in a list.
+1. User gets access to all links on the client according to their role.
+User can update their biometrics at any time after successful on-boarding by choosing the ‘User on-boarding’ link from the menu. The biometrics provided during update will be authenticated with the server and saved locally if threshold for successful authentication is met. Updated biometrics will overwrite the biometrics stored locally earlier.
+
 ### 1.2 Login/Authentication [**[↑]**](#table-of-content)
+
+#### A. Allows biometric login of the Registration Officer or Supervisor to the client application
+
+MOSIP supports single factor and multi factor login including iris and face capture. An Admin config setting determines the mode of login. 
+
+1. The Registration Officer or Supervisor opts to login to registration client application
+   * System enables user to login by entering username, and submit iris and face photo.
+2. The user enters their username.
+3. The user scans any one iris through the iris capture device.
+4. The user then captures face photo using the face photo capture-device.
+5. On successful authentication, the system logs in the user.
+
+#### B. Temporarily lock the user account after five unsuccessful login attempts.
+1. The MOSIP system temporarily locks the user to login in case the user gives an invalid password for login five times continuously.
+1. Upon the fifth unsuccessful attempt to login, displays an error message 
+1. The temporarily lock lasts for 30 minutes (configured by an admin).
+1. The same error message is displayed for any subsequent login attempt within 30 minutes.
+1. After 30 minutes, the lock is released and the count of invalid login attempts is reset to zero.
+1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
+1. System captures and stores the transaction details for audit purpose (except PII data).
+
+#### C. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
+
+When a supervisor opts to log in to the client machine the systems displays the appropriate options as per the mode of login.
+
+* If the mode of login is username and password, displays the password-based login.
+* If the mode of login is username and OTP, display the OTP based login 
+
+
+**Password-based login**
+1. System allows the user to enter their username and password and submit.
+1. System validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
+1. System validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
+1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+1. System validates that the user has a role or Registration Officer or Supervisor. 
+
+**OTP based login**
+
+1. Allows the user to enter their username and submit.
+1. Validates that the username belongs to an on-boarded Registration Officer or Supervisor on that client.
+1. Generate and send an OTP by SMS to the user’s registered mobile number. Use the template defined in Admin for the OTP message. 
+1. Allow the user to enter the OTP and submit.
+   * Alternatively, allow the user to change entered username.
+   * Alternatively, allow the user to request for resending the OTP.
+5. Validates that the OTP submitted matches the one that was generated and is submitted within its validity period.
+6. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+7. Validates that the user has a role of Registration Officer or Supervisor.
+8. On successful validation of all conditions above, display the logged in screen to the user
+
+#### D. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
+
+In MOSIP system, a user can have a single role only For example, a user can be either a Registration Officer or Supervisor. User to role mapping is done by the admin
+
+When a logged in user tries to access a feature on the registration client the system determines if the requested feature is accessible to the role(s) mapped to the user.
+1. If yes, permits the user to access the requested feature.
+1. If no, displays an error message or hide the link to the feature as applicable. The UX design will drive whether to hide a link or display an error on click of the link.
+1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
+   * Login
+   * On-board users
+   * On-board devices
+   * New registration
+   * Registration correction
+   * UIN update
+   * UIN de- and re-activation
+   * Lost UIN
+   * Send registration packet IDs to server
+   * Sync data from server to client
+   * Sync data from client to server
+   * Export packets to local folder
+   * Upload packets through FTP
+   * Virus scan
+   * Update client software
+4. Only supervisors can access the following features:
+   * Approve registration
+   * Reports
+5. A Super Admin can access all features.
+1. If a user is not authorized to access a feature, the system notifies the user by a message. 
+
 ### 1.3 Logout [**[↑]**](#table-of-content)
 ## 2. Data Sync [**[↑]**](#table-of-content)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
