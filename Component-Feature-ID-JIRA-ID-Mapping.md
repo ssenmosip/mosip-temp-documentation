@@ -261,7 +261,7 @@
 |91.|Security|Master Data Sync|REG_FR_2.1|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |92.|Security|Login/Authentication|REG_FR_1.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |93.|User Onboarding|User On-boarding|REG_FR_1.1|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
-|94.|Device Onboarding|Peripherals check|REG_FR_3.1|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996) |
+|94.|Device Onboarding|Peripherals check|REG_FR_3.1|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996), [MOS-13562](//mosipid.atlassian.net/browse/MOS-13562) |
 
 
 
