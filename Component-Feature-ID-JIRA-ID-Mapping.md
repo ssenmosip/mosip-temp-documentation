@@ -196,7 +196,7 @@
 |26.|Authentication| Operator and Supervisor Approval | REG_FR_4.7| [MOS-13523](//mosipid.atlassian.net/browse/MOS-13523), [MOS-1310](//mosipid.atlassian.net/browse/MOS-1310), [MOS-1307](//mosipid.atlassian.net/browse/MOS-1307), [MOS-1320](//mosipid.atlassian.net/browse/MOS-1320)  |
 |27.|User Onboarding| User On-boarding | REG_FR_1.1| [MOS-19001](//mosipid.atlassian.net/browse/MOS-19001), [MOS-1330](//mosipid.atlassian.net/browse/MOS-1330), [MOS-1206](//mosipid.atlassian.net/browse/MOS-1206), [MOS-1012](//mosipid.atlassian.net/browse/MOS-1012), [MOS-1011](//mosipid.atlassian.net/browse/MOS-1011), [MOS-1010](//mosipid.atlassian.net/browse/MOS-1010), [MOS-1009](//mosipid.atlassian.net/browse/MOS-1009), [MOS-1008](//mosipid.atlassian.net/browse/MOS-1008),  [MOS-1006](//mosipid.atlassian.net/browse/MOS-1006), [MOS-22161](//mosipid.atlassian.net/browse/MOS-22161), [MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-22000](//mosipid.atlassian.net/browse/MOS-22000), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999), [MOS-21998](//mosipid.atlassian.net/browse/MOS-21998)|
 |28.|Authentication| Login/Authentication  | REG_FR_1.2| [MOS-18483](//mosipid.atlassian.net/browse/MOS-18483), [MOS-16809](//mosipid.atlassian.net/browse/MOS-16809), [MOS-15833](//mosipid.atlassian.net/browse/MOS-15833) |
-|29.|New Registration| User On-boarding | REG_FR_1.1| [MOS-16829](//mosipid.atlassian.net/browse/MOS-16829) |
+|29.|New Registratio| Login/Authentication | REG_FR_1.2| [MOS-16829](//mosipid.atlassian.net/browse/MOS-16829) |
 |30.|Login| User On-boarding | REG_FR_1.1| [MOS-16040](//mosipid.atlassian.net/browse/MOS-16040), [MOS-12199](//mosipid.atlassian.net/browse/MOS-12199), [MOS-12185](//mosipid.atlassian.net/browse/MOS-12185), [MOS-12135](//mosipid.atlassian.net/browse/MOS-12135), [MOS-12118](//mosipid.atlassian.net/browse/MOS-12118), [MOS-8368](//mosipid.atlassian.net/browse/MOS-8368), [MOS-1186](//mosipid.atlassian.net/browse/MOS-1186), [MOS-553](//mosipid.atlassian.net/browse/MOS-553) |
 |31.|RC Setup & Update | User On-boarding | REG_FR_1.1| [MOS-14225](//mosipid.atlassian.net/browse/MOS-14225), [MOS-13179](//mosipid.atlassian.net/browse/MOS-13179), [MOS-9054](//mosipid.atlassian.net/browse/MOS-9054) |
 |32.|Authorization | User On-boarding | REG_FR_1.1| [MOS-1111](//mosipid.atlassian.net/browse/MOS-1111) |
@@ -260,7 +260,7 @@
 |90.|Security|Key Management|REG_FR_9.1|[MOS-22405](//mosipid.atlassian.net/browse/MOS-22405)|
 |91.|Security|Master Data Sync|REG_FR_2.1|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |92.|Security|Login/Authentication|REG_FR_1.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
-|93.|User Onboarding|New Registration |REG_FR_4.1|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
+|93.|User Onboarding|User On-boarding|REG_FR_1.1|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
 |94.|Device Onboarding|Peripherals check|REG_FR_3.1|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996) |
 
 
