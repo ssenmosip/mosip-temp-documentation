@@ -694,7 +694,7 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 }	
 ```
 
-##### Erroe Response:
+##### Error Response:
 ```JSON
 {
   "id": "string",
@@ -919,7 +919,7 @@ machineid|Yes|machineid of registration| -NA- |10032
 
 #### Failure details
 Error Code | Error Message | Error Description
------|----------|-------------
+------------|----------|-------------
 KER-RIG-002 | Empty input entered | Empty Input Error Code
 KER-RIG-003 | input length is not valid | Input length error code
 KER-RIG-004 | Timestamp length should be greater than zero | Invalid CenterID or MachineID Timestamp Length
@@ -964,13 +964,13 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 ```JSON
 {
 	"id": "mosip.kernel.tokenid.generate",,
-	"version": "1.0",,
-	"metadata": {},,
+	"version": "1.0",
+	"metadata": {},
 	"responsetime": "2019-04-04T05:03:18.287Z",
-	"response": {{
+	"response": {
                   "tokenID": "268177021248100621690339355202974361"
-                     },,
-        "errors": null]
+                     },
+        "errors": null
 }
 ```
 
@@ -992,6 +992,13 @@ partnercode|Yes|ID of the partner.| -NA- |9373
      ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-UIG-005 | Internal Server Error | Internal Server Error
+KER-TIG-010 | UIN and partner code cannot be empty | Empty UIN or PARTNERCODE Exception
+KER-RIG-500 | | Runtime Exception
 
 
 # Audit Manager (Private)
@@ -1075,23 +1082,36 @@ description|No|Description of the event| |Example description
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "status": true
 	   }
 }
 ```
 
+##### Error Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": null
+}
+```
 
-
-
-
-
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-AUD-001 | Invalid Audit Request. Required parameters must be present | Handler Exception
+KER-AUD-002 | Invalid Audit Request. Format is incorrect. | Invalid Format
+KER-AUD-500 | Internal server error | Internal server error
 
 # Sync data (Public)
 
@@ -2417,6 +2437,86 @@ publickey |Yes|Base 64 encoded Public key of the passed machine| |
 
 ```
 
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": null
+}		
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-SNC-100 | Error occurred while parsing lastUpdated timesatamp | last updated parse exception
+KER-SNC-101 | Error occurred while fetching Applications | application fetch exception
+KER-SNC-102 | Error occurred while fetching Machine Details | machine detail  fetch  exception
+KER-SNC-103 | Error occurred while fetching Machine Registration Center | machine reg center fetch exception
+KER-SNC-104 | Error occurred while fetching Registration Center | reg  center  fetch  exception
+KER-SNC-105 | Error occurred while fetching Registration Center Type | reg  center  type  fetch  exception
+KER-SNC-106 | Error occurred while fetching Templates | template  fetch  exception
+KER-SNC-107 | Error occurred while fetching Template Types | template  type  fetch  exception
+KER-SNC-108 | Error occurred while fetching Reason Category | reason  category  fetch  exception
+KER-SNC-109 | Error occurred while fetching Holidays | holiday  fetch  exception
+KER-SNC-110 | Error occurred while fetching Blacklisted Words | blacklisted  words  fetch  exception
+KER-SNC-111 | Error occurred while fetching Biometric types | biometric type  fetch  exception
+KER-SNC-112 | Error occurred while fetching Biometric Attribute types | biometric attr type fetch exception
+KER-SNC-113 | Error occurred while fetching Titles | title  fetch  exception
+KER-SNC-114 | Error occurred while fetching Languages | language  fetch  exception
+KER-SNC-115 | Error occurred while fetching Genders | gender  fetch  exception
+KER-SNC-116 | Error occurred while fetching Registration Center Devices | registartion  center  devices  fetch  exception
+KER-SNC-117 | Error occurred while fetching Devices | devices  fetch  exception
+KER-SNC-118 | Error occurred while fetching Document Category | document  category  fetch  exception
+KER-SNC-119 | Error occurred while fetching Document Types | document  type  fetch  exception
+KER-SNC-120 | Error occurred while fetching Id Type | id  type  fetch  exception
+KER-SNC-121 | Error occurred while fetching Device Specification | device  specification  fetch  exception
+KER-SNC-122 | Error occurred while fetching Machine Specification | machine  specification  fetch  exception
+KER-SNC-123 | Error occurred while fetching Machine Type | machine  type  fetch  exception
+KER-SNC-124 | Error occurred while fetching Location | location  fetch  exception
+KER-SNC-125 | Error occurred while fetching Device Type | device  type  fetch  exception
+KER-SNC-126 | Error occurred while fetching Valid Document Type | valid  document  fetch  exception
+KER-SNC-127 | Error occurred while fetching Valid Document Type | reason  list  fetch  exception
+KER-SNC-128 | Error occurred while fetching data | thread  interrupted  while  fetch  exception
+KER-SNC-999 | Request Data not valid | Request Data Not Valid
+KER-SNC-129 | Error occurred while fetching Registration Center Machine | REG  CENTER  MACHINE Fetch Exception
+KER-SNC-130 | Error occurred while fetching Registration Center Device | REG  CENTER  DEVICE Fetch Exception
+KER-SNC-131 | Error occurred while fetching Registration Center Machine Device | REG  CENTER  MACHINE  DEVICE Fetch Exception
+KER-SNC-132 | Error occurred while fetching Registration Center Machine Device | REG  CENTER  USER  MACHINE  DEVICE Fetch Exception
+KER-SNC-133 | Error occurred while fetching Registration Center User | REG  CENTER  USER Fetch Exception
+KER-SNC-134 | Machine id not found | MACHINE  ID  Not found Exception
+KER-SNC-500 | Internal server error | Internal server error
+KER-SNC-135 | Timestamp cannot be future date | Invalid Timestamp
+KER-SNC-136 | Error occurred while fetching Registration Center User History | REG  CENTER  USER  HISTORY Fetch Exception
+KER-SNC-137 | Error occurred while fetching Registration Center Machine User History | REG  CENTER  MACHINE  USER  HISTORY Fetch Exception
+KER-SNC-138 | Error occurred while fetching Registration Center Device History | REG  CENTER  DEVICE  HISTORY Fetch Exception
+KER-SNC-139 | Error occurred while fetching Registration Center Machine History | REG  CENTER  MACHINE  HISTORY Fetch Exception
+KER-SNC-140 | Mac-Address and Serial Number cannot be empty | Empty  MAC  OR  SERIAL  Number
+KER-SNC-141 | Registration center not found | REGISTRATION  CENTER Not Found
+KER-SNC-142 | Error occurred while fetching app authorization methods | APP  AUTHORIZATION  METHOD Fetch Exception
+KER-SNC-143 | Error occurred while fetching app details | APP  DETAIL Fetch Exception
+KER-SNC-144 | Error occurred while fetching app role priorities | APP  ROLE  PRIORITY Fetch Exception
+KER-SNC-145 | Error occurred while fetching processList | PROCESS  LIST Fetch Exception
+KER-SNC-146 | Error occurred while fetching screen authorizations | SCREEN  AUTHORIZATION Fetch Exception
+KER-SNC-147 | Error occurred while fetching Individual types | Individual types Fetch Exception
+KER-SNC-148 | Mac-Address and/or Serial Number does not exist | INVALID  MAC  OR  SERIAL  Number
+KER-SNC-149 | Registration Center has been updated for the received Machine ID | REG CENTER  Updated
+KER-SNC-150 | Error occured while fetching screen detail | SCREEN  DETAIL Fetch Exception
+KER-SNC-151 | Error occurred while fetching ApplicantValidDocument | APPLICANT  VALID  DOCUMENT Fetch Exception
+KER-SNC-152 | Error occurred while fetching Registration Center Machine Device History | REG  CENTER  MACHINE  DEVICE  HISTORY Fetch Exception
+KER-SNC-153 | Error occured while fetching sync job definitons | SYNC  JOB  DEF Fetch Exception
+KER-SNC-154 | Error occured while parsing the response | SYNC  JOB  DEF  Parse Exception
+
+
 # Applicant type (Public)
 
 These set of services does various operations regarding the applicant type.
@@ -2487,19 +2587,35 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response" : {
 		"applicationtypecode": "002"
 	}
 }
 ```
 
+##### Failure Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-MSD-147 | Applicant Type data does not exist | No Application Found
+KER-MSD-148 | One or more input parameter is invalid or does not exist | Invalid Request
 
 
 # OTP Manager (Private)
@@ -2543,7 +2659,23 @@ v1/otpmanager/otp/generate
 	}	
 }
 ```
-### Example Response
+### Example:
+##### Success Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+"response": {
+	  "otp": "849004",
+	  "status": "GENERATION_SUCCESSFUL"
+	   }
+}
+```
+
+##### Failure Response
 ```JSON
 {
   "id": "string",
@@ -2556,10 +2688,7 @@ v1/otpmanager/otp/generate
       "message": "string"
     }
   ],
-"response": {
-	  "otp": "849004",
-	  "status": "GENERATION_SUCCESSFUL"
-	   }
+"response": null
 }
 ```
 
@@ -2609,3 +2738,18 @@ v1/otpmanager/validate?key=9820173642&otp=123456
 	   }
 }	
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-OTG-001 | Key length should be in the range of 3-64. | Illegal Key Input
+KER-OTV-001 | Key can't be empty or null. | Invalid Key Input
+KER-OTV-002 | Length of key should be in the range of 3-64. | Illegal Key Input
+KER-OTV-003 | OTP can't be empty or null. | Invalid OTP Input
+KER-OTV-004 | OTP consists of only numeric characters. No other characters is allowed. | Ileegal OTP Input
+KER-OTV-005 | Validation can't be performed against this key. Generate OTP first. | key not found
+KER-OTV-500 | Internal server error | Internal server error
+KER-OTV-999 | HTTP Message Not Readable Exception | Http Message Not Readable
+KER-OTG-002 | Crypto failure | Crypto failure
+KER-OTG-003 | Invalid key or algorithm found | Algorithm Failure
+KER-OTG-004 | IO exception found | IO Failure
