@@ -29,14 +29,8 @@ An individual can retrieve the RID by providing the Full Name, Mobile Number/E-M
 MOSIP allows an individual to initiate a request to retrieve the Registration ID by providing the Full Name, Mobile Number/E-Mail ID, Postal Code. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification. The individual provides the OTP as received. The system validates the provided OTP and successfully authenticates the individual. Please refer to the OTP Authentication for more details. The system generates the password protected (Password is configurable) Registration ID and sends Registration ID to the individual along with notification. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the Registration ID or the provided OTP is not correct, then the system triggers a respective error notification.
 
 ## 5. Re-print Request of UIN [**[↑]**](#table-of-content)
-MOSIP allows an individual to raise a reprint request for their UIN.
-An individual will follow the following procedure to raise a reprint request: 
-1. The individual provides the UIN/VID for which he/she wants to reprint.
-1. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
-1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
-1. The system will provide the UIN to the registration processor to process the reprint request.
-1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers a respective error notification.
+
+MOSIP allows an individual to raise a reprint request for their UIN. The individual provides the UIN/VID for which he/she wants to reprint. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification. The individual provides the OTP as received. The system validates the provided OTP and successfully authenticates the individual. Please refer to the OTP Authentication for more details. The system will provide the UIN to the registration processor to process the reprint request. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email, ID is not associated with the UIN/VID or the provided OTP is not correct, then the system triggers an error notification.
 
 ## 6. Initiate UIN Update [**[↑]**](#table-of-content)
 MOSIP allows an individual to process a request to update the demographic data of the UIN.
