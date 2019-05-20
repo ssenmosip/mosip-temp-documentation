@@ -2943,7 +2943,7 @@ langCode| Yes| language code whatever user choose while login|eng
    "response": null,
    "errors":[ 
          {
-            "errorCode": "PRG_PAM_ACK_001",
+            "errorCode": "PRG_ACK_001",
             "message": "Mobile number or Email Id is missing"
          }
     ]
