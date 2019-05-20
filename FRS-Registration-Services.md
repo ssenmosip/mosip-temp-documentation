@@ -562,6 +562,19 @@ When the Registration Processor finds some error in the packet such as registrat
 The system allows the supervisor to view a report of approved registrations for the past 15 days.
 
 ## 5. Geo-location [**[↑]**](#table-of-content)
+Upon receiving a request to geotag a registration machine, the system performs the following steps:
+1. Validates that an on-boarded GPS device is connected to the machine.
+   * If an on-boarded GPS device is not found, then displays an error message.
+   * If more than one on-boarded GPS device is connected, then proceeds with the first GPS device that the system finds as it scans the ports of the machine.
+2. Requests the GPS device to capture a location.
+1. Receives the latitude and longitude from the GPS device.
+   * If signal is weak and GPS device is unable to capture location, then displays an error message.
+4. Proceeds to perform following validations:
+   * If location capture is required only at the beginning of day, the co-ordinates are stored and validations are performed when opting to start a new registration.
+   * If location capture is required only at the beginning of day and location could not be captured at beginning of the day, then attempts to capture the location during the first registration of the day.
+   * The latitude and longitude will be stored in the packet when the packet is created.
+5. System captures and stores the transaction details for audit purpose (except PII data).
+
 ## 6. Language Support [**[↑]**](#table-of-content)
 ### 6.1 Translation [**[↑]**](#table-of-content)
 ### 6.2 Transliteration [**[↑]**](#table-of-content)
