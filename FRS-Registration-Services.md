@@ -216,6 +216,8 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 ## 4. Registration Data Services [**[↑]**](#table-of-content)
 ### 4.1 New Registration [**[↑]**](#table-of-content)
 
+Registration Officer initiates a new registration for a non pre-registered individual or a pre-registered individual by entering the PRID and follows the below process to complete registration:
+
 #### A. Capture consent from the individual for data storage and utilization				
 1. For every registration, the system provides an option for the Registration Officer to mark an individual's consent as Yes or No
 1. The Registration Officer marks consent after confirming with the individual offline.
@@ -254,6 +256,8 @@ If the Registration Officer selects the desired option, indicates that the indiv
 1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation, proceeds to next step.
 #### G. Copy address from the previous registration
+When the address details of the previous registration and the current registration is same, the system allows the Registration Officer to copy the same address as previous registration. This feature helps the Registration Officer to save the time while registering the individual who has the same address as previous registration.
+
 Upon receiving a request to copy address details from the previous registration to the current registration, the system performs the following steps:
 1. Fetches the address details such as city, state or province, country and postal code of the previous registration from the cache.
    * If the cache does not contain any of those address details, responds as an error message. 
@@ -278,6 +282,15 @@ Upon receiving a request to copy address details from the previous registration 
 1. The System allows to view uploaded file(s)
 1. The System allows to download the uploaded file(s)
 #### I. Capture an individual's finger prints as per specification
+
+Registration Officer captures an individual’s finger prints using finger print device which is configurable by the admin at the country level. This process is required to authenticate the individual.
+
+**Turn ON or OFF finger prints capture**
+
+1. A country may opt to turn ON or OFF the finger prints capture process which is configurable by the admin at the country level.
+1. If finger prints capture is turned ON, Registration Officer captures the individual’s finger prints using finger print device.
+1. Alternatively, if finger print capture is turned OFF, system does not show any provision for iris capture and proceeds to the next step.
+
 When the registration officer uses finger print capture device to capture the individual left and right hand slap, the left thumb and the right thumb simultaneously, the system performs the following steps:
 1. Displays the quality score and threshold score for each capture.
 1. Allows the registration officer to re-try each capture up to a maximum no. of times (as configured) if threshold score is not met for one or more fingers.
@@ -287,7 +300,7 @@ When the registration officer uses finger print capture device to capture the in
 1. Retains only that capture which has the highest quality score.
 1. Captures and stores the transaction details for audit purpose (except PII data).
 
-##J. Enable capturing an individual's face photograph
+## J. Enable capturing an individual's face photograph
 
 When a Registration Officer opts to capture photo of an individual, the system initiates a photo capture and validates the following:
 1. Validates that an on-boarded camera is connected to the machine.
@@ -343,7 +356,8 @@ When the registration officer opts to start a new registration or UIN update. Th
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If exceeded the configured limit, then system displays an error message.
 
 #### O. Register a non-pre-registered individual 
-When the registration Officer opts to start a new registration, the system ensures that the demographic fields are set up and sequenced in the Admin portal. In addition, Master data and config settings must be synced from the server to client. Then the system identifies the fields to be displayed on the new registration form. 
+When a registration officer starts a new registration for a non-pre-registered individual (an individual who does not have PRID), the registration officer will capture the demographic and biometric details to register the individuals.
+If Registration Officer determines that the non-pre-registered individual’s date of birth is less than 5 years old, then refer to the feature related to [**Register an individual who is less than 5 years old**](#d-register-an-individual-who-is-less-than-5-years-old).
 
 #### P. Choose the 'Opt to Register' option. 
 
