@@ -3,6 +3,7 @@ Security APIs
 - [Key Manager Service](#key-manager)
 - [Crypto Manager Service](#crypto-manager)
 - [License Key Service](#license-key-manager)
+- [Crypto Signature Service](#crypto-signature-service)
 
 Notification APIs
 - [SMS Notification Service](#sms-notification)
@@ -18,10 +19,6 @@ Common APIs
 - [Data Sync Service](#sync-data)
 - [Applicant Types Service](#applicant-type)
 - [OTP Manager Service](#otp-manager)
-
-
-
-
 
 
 # Key Manager (Private)
@@ -549,6 +546,135 @@ KER-LKM-006 | License Key entered is null or empty. | Illegal license key
 KER-LKM-007 | Permission entered is an empty string. | Illegal Permission
 KER-LKM-008 | Expiry DateTime should be ahead of current DateTime. | Date expired
 KER-LKM-009 | No Permissions has been mapped to the entered TSP-LicenseKey Pair. | No Permissions mapped
+
+
+# Crypto Signature service (Private)
+
+* [POST v1/signature/sign](#post-sign)
+* [POST v1/signature/validate](#post-validate)
+
+### POST v1/signature/sign
+
+This service will sign  provided plain string data.  
+
+#### Resource URL
+<div>https://mosip.io/v1/signature/sign</div>
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+#### Request
+
+```
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+  "data": "test"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+```
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2019-05-20T10:12:43.624Z",
+    "metadata": null,
+    "response": {
+        "signature": "DrgkF2vm4WvBe04UNe-RePRcrg77uQpsH3GENRcglBsid-K0UDReeeZVKwimOdwV7Ht1j-_D1BFf2sCrM8ni7ztE5Xc_3TEaniOAnOgZDRSI0GG-uSqjH51AwTSl1PYdStfXtOn6HEfEU68JG7TdAliDI5C7thJ1YNmPnHusIsZzX6sW_VfvSpLeA_RzCqnUDH_VaEzZt_5zRYiQv9van4wt0P7HTfIBlQ5zaeO3wXOc3Pogct3ssKwqdaMmZdc7QTDOFqDZZVceMTIXKyiH-ZVs_u3QXRysiLVdXoz7d7yXHdWxQtzsfMjY7alMJNgbmu4X26LYNRemn65Mmn6ixA",
+        "timestamp": "2019-05-20T10:12:43.082Z"
+    },
+    "errors": null
+}	
+```
+
+
+
+### POST v1/signature/validate
+
+This service will decrypt encryted data along with symmetric key having splitter for given timestamp(encryption timestamp). 
+
+#### Resource URL
+<div>https://mosip.io/v1/signature/validate</div>
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+#### Request
+
+```
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "signature": "DrgkF2vm4WvBe04UNe-RePRcrg77uQpsH3GENRcglBsid-K0UDReeeZVKwimOdwV7Ht1j-_D1BFf2sCrM8ni7ztE5Xc_3TEaniOAnOgZDRSI0GG-uSqjH51AwTSl1PYdStfXtOn6HEfEU68JG7TdAliDI5C7thJ1YNmPnHusIsZzX6sW_VfvSpLeA_RzCqnUDH_VaEzZt_5zRYiQv9van4wt0P7HTfIBlQ5zaeO3wXOc3Pogct3ssKwqdaMmZdc7QTDOFqDZZVceMTIXKyiH-ZVs_u3QXRysiLVdXoz7d7yXHdWxQtzsfMjY7alMJNgbmu4X26LYNRemn65Mmn6ixA",
+    "data": "test",
+    "timestamp": "2019-05-20T10:12:43.082Z"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: decrypt encryted data along with symmetric key having splitter
+```
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2019-05-20T10:21:02.027Z",
+    "metadata": null,
+    "response": {
+        "status": "success",
+        "message": "Validation Successful"
+    },
+    "errors": null
+}	
+```
+
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-CSS-999 | Invalid request input
+KER-CSS-101 | Validation Unsuccessful
+KER-CSS-102 | Internal server error
 
 
 # SMS Notification (Private)
