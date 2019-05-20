@@ -719,7 +719,47 @@ The system follows the following steps during the update process:
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ## 11. Clean up [**[↑]**](#table-of-content)
+
+Pre-registration and registration data are automatically deleted from the client machine upon consumption and upon intimation from the server respectively. 
+* Pre-registration data is deleted from the client machine immediately after consumption for a registration.
+* Registration packets that are identified as ‘processed’ are deleted by a periodic process.
+* Audit data is deleted after it is sent to the server.
+* All deletion is executed by a periodic process after retention of the data for a configured duration.
+
 ### 11.1 Data retention policies [**[↑]**](#table-of-content)
+
+#### A. Read packet status and delete packets
+When the registration client receives a request through manual trigger or scheduled job to sync data, the system performs the following steps to read a packet status and delete the packets:
+1. Sends request to server for sync.
+1. Receives response from server with packet statuses.
+   * Server sends status of those Registration packets that were created in the specific machine, and that status that has changed since the last sync.
+3. Saves the statuses ‘Processing’, ‘Processed’ or ‘Resend’ as received for each packet. Statuses of other packets are not updated.
+1. Sends success or failure message to the UI.
+1. Immediately deletes the packets from the local machine whose status is received as ‘Processed’.
+1. Displays an alert in case of sync failure.
+   * The on-screen message is only indicated if the sync was a success or failure.
+   * Detailed errors can be viewed in the transaction logs.
+7. When a sync is running, the system does not allow the end user to perform any other action.
+8. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and executed later. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier then immediately starts the sync.
+9. System captures and stores the transaction details for audit purpose (except PII data).
+#### B. Delete transaction history (audit logs) post sync with server and the retention period
+When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
+1. Runs on a daily process to identify audit data that has been sent to the server and acknowledgement is received from the server.
+   * The audit data acknowledgement received from the server >= x hours ago. X is configured at a country level.
+2. Deletes the identified audit data from the client machine.
+1. Executes at a time and frequency as configured. 
+   * The process takes place only when the Registration Client is in open and running situation. If the Registration Client is not open during a scheduled run, it is executed as soon as the client is next started up.
+4. Does not delete audit data if that is yet to be sent to the server.
+1. System captures and stores the transaction details.
+
 ### 11.2 Machine Retirement [**[↑]**](#table-of-content)
 
+Machine is termed as machine retirement due to following reason:
+* If the machine has obsolete specification.
+* When the machine is moved from one center to another, then the machine will retire from that old center.
+
+Before the machine is decommissioned the following checks must be performed.
+
+1. All packets created must be either uploaded to server/exported to external device.
+2. All data locally saved in the machine must be cleaned up
 
