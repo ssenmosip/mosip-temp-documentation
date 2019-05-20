@@ -2154,11 +2154,11 @@ Requires Authentication | Yes
 
 ```JSON
 {
-    "id": "mosip.pre-registration.appointment.availability",
+    "id": "mosip.pre-registration.batchjob.sync",
     "version": "1.0",
-    "responsetime": "2019-05-15T08:47:25.523Z",
+    "responsetime": "2019-05-20T09:48:43.394Z",
     "response": "MASTER_DATA_SYNCED_SUCCESSFULLY",
-    "errors":null
+    "errors": null
 }
 ```
 #### Other Failure details
