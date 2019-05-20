@@ -168,12 +168,63 @@ Procedure to unblock the account:
 #### 5.2.3 Update Machine
 #### 5.2.4 Activate/Deactivate/Decommission Machine
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center
+MOSIP allows Zonal Admin to map the machine to the registration center based on admin zone. If the machine is not mapped with the registration center, it cannot be recognized by MOSIP to perform any operation in that center. The system track the machine by serial number and other attributes of the machine.
+
+Procedure to map the registration center to the machine:
+1. Zonal Admin will select the registration center belongs to his/her zone.
+2. The system displays the list of available devices when Zonal Admin selects the machine option.
+1. Zonal Admin will view the list of machine available in his/zone.
+1. Zonal Admin will select the machine to map.
+1. The system maps that machine to the selected registration center and once the device is mapped to the registration 
+   center, it is not displayed in the list of available machine until un-mapped.
+
+ For more information about mapping machines to registration center, please refer to 
+ https://github.com/mosip/mosip/wiki/FRS-Admin-Services#210-mappings-of-registration-center-and-machine---createdelete-
 ### 5.3 Device Management
 #### 5.3.1 View Device
+MOSIP allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the list of devices available in the registration center. During the validation of registration center ID and privileges of zonal Admin, if the registration ID is not found, then the system triggers an error notification.
 #### 5.3.2 Create Device
+Zonal Admin will register the devices for his/her zone using MOSIP. If the device is not allocated to the specific zone, the Zonal Admin will not map the devices to any registration center under his/her zone.
+Procedure to register device follows:
+1. Zonal admin will select a Device Type and Device Specification for the new device.
+1. The system allows Zonal admin to enter the following required details for the new devices:
+ * Device Name
+ * Mac Address
+ * IP Address
+ * Serial Number
+ * Device Spec ID
+ * Location Zone (Zone a Device will belong based on Zonal Admins zone, currently not in DB)
+1. Zonal Admin will map the devices to the existing registration center under the jurisdiction of his/her Admin zone.
+1. Devices uniqueness will be maintained through device serial number.	
+For more information about register devices in admin zone, please refer tohttps://github.com/mosip/mosip/wiki/FRS-Admin-Services#29-list-of-device-types---create-
+
+Zonal Admin will register the devices in backend to his/her admin zone by importing CSV/XLS.
+For more information about registering device in admin zone through importing, please refer to <Link to be provided after discussing with Aman>
+
 #### 5.3.3 Update Device
+MOSIP provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason, 
+Procedure to update the devices related details, the Zonal Admin will:
+1. Update the device details such as Serial Number and Mac-Address.
+1. Update the zone of a device (If a device is being moved to a new zone or accidently assigned to a wrong zone).
+1. The system does make the device visible to the Zonal Admin, if previously assigned to other zone.
+1. Remove the mapping of the Center and device  (if already mapped to a Center of another zone).
+1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone).
+
+For more information about updating devices related details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-
+
 #### 5.3.4 Activate/Deactivate/Decommission Device
+
 #### 5.3.5 Map/Un-map/Re-map Device to a Center
+MOSIP allows Zonal Admin to map the devices to the registration center by providing the device ID and registration center ID. The registration center must be under the jurisdiction of the Zonal Admin based on admin zone.
+
+Procedure to map the registration center with the devices:
+1. Zonal Admin will select the registration center belongs to his/her zone.
+1. The system displays the list of available devices when Zonal Admin clicks the devices to be mapped.
+1. Zonal Admin will select the devices to be mapped.
+1. The system maps that devices to selected registration center and once the device is mapped to the registration center, it is not displayed in the list until un-mapped.
+
+For more information about mapping devices to registration center, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
+
 ### 5.4 User Management
 #### 5.4.1 View User
 MOSIP allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, the privileges allocated to user and provides the list of user already mapped to the specified registration center on successful validation.
@@ -222,6 +273,9 @@ Procedure to block/blacklist:
 6. The system will also send a link to the registered mobile number or email ID, so that the related user will reset the 
    password by visiting the link. Please refer to the [**Reset Password**](#23-reset-password-) for more details
 #### 5.4.4 Map/Un-map/Re-map User to a Center
+MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the registration center ID. The system validates the registration ID and the privileges of the user and provides the capability to map/un-map-re-map the user to the registration on successful validation.
+
+For more information about mapping registration center with users, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
 ## 6. Master Data Management
 ### 6.1 View Master Data Types
 ### 6.2 View Master Data for Each Table
