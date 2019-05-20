@@ -701,7 +701,7 @@ When a Registration Officer or Supervisor opts to download setup kit and selects
 1. System captures and stores the download transaction details for audit purpose (except PII data). 
 
 #### B. Update the client software from the server
-If a software update is available, then the system will give a supervisor or registration officer a choice to either update immediately or later. If the maximum number of days without software update has been exceeded, then the system will force a user to update the software.
+If a software update is available, then the system will give a supervisor or registration officer a choice to either update immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate a user to update the software.
 
 
  it is automatically downloaded and installed as a part of the startup process.
