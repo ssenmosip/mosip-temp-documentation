@@ -26,16 +26,8 @@ An individual can retrieve the RID by providing the Full Name, Mobile Number/E-M
 
 ## 4. Retrieve Lost UIN [**[↑]**](#table-of-content)
 
-MOSIP allows an individual to initiate a request to retrieve the Registration ID.
+MOSIP allows an individual to initiate a request to retrieve the Registration ID by providing the Full Name, Mobile Number/E-Mail ID, Postal Code. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification. The individual provides the OTP as received. The system validates the provided OTP and successfully authenticates the individual. Please refer to the OTP Authentication for more details. The system generates the password protected (Password is configurable) Registration ID and sends Registration ID to the individual along with notification. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the Registration ID or the provided OTP is not correct, then the system triggers a respective error notification.
 
-An individual will follow the following procedure to raise a requested related to retrieve the Registration ID: 
-
-1. An individual provides the Full Name, Mobile Number/E-Mail ID, Postal Code.
-1. The system validates the provided data, checks for the registered mobile number/email ID, and triggers an OTP notification.
-1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual. Please refer to the [**OTP Authentication**](#10-otp-authentication-) for more details.
-1. The system generates the password protected (Password is configurable) Registration ID and provides the Registration ID to the individual along with notification.
-1. During the validation of Full Name, mobile number/email ID, and postal code, if the full name, mobile number/email ID and postal code are not associated with the Registration ID or the provided OTP is not correct, then the system triggers a respective error notification.
 ## 5. Re-print Request of UIN [**[↑]**](#table-of-content)
 MOSIP allows an individual to raise a reprint request for their UIN.
 An individual will follow the following procedure to raise a reprint request: 
