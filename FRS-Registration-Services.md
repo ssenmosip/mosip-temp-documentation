@@ -372,7 +372,51 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. In case of failures validation, triggers appropriate error messages.
 1. System sends a success response and allow it to proceed to the next step.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### Q. Retrieve a lost UIN
+
+### 4.2 UIN Update [**[↑]**](#table-of-content)
+When an individual visits the registration to update their demographic or biometric details, the Registration Officer captures the desired modified data from the individual and updates their UIN in the system. Refer below for the process: 
+#### A. UIN Updates Turn ON or OFF
+
+The UIN update feature is configurable by a country. Admin can either turn ON or OFF the UIN update feature.
+
+When an individual approaches the Registration Officer for UIN update, the following scenarios may arise:
+
+1. If UIN update is turned ON by a country, the registration officer can proceeds to capture the individual’s updated details.
+1. Alternatively, if UIN Update is turned OFF by a country the Registration Officer will not be able to carry out the UIN Update process.
+
+#### B. Registration client allows update to UIN data only for configured fields
+1. An admin can configure the fields that are available for update through the registration client. The configuration applies at a country level.
+2. The Admin can set the following fields to be update-able at a country level through the admin portal:
+   * Name
+   * Age/DoB
+   * Gender
+   * Address
+   * Contact details
+   * CNIE/EC Number
+   * Parent/Guardian details
+   * Biometrics-Exception
+   * Biometrics-Fingerprint
+   * Biometrics-Iris
+3. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
+
+#### C. UIN Update
+1. The Registration Officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
+1. Registration Officer captures the mandatory demographic attributes (individual's name is captured) and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN. If they are same, displays an error message 
+
+1. Registration Officer then uploads documents. The applicable documents are determined by the system based on configuration
+1. If biometrics were selected for update, Registration Officer marks exceptions and scans all biometrics. Else scans any one biometric.
+1. Registration Officer captures face photo and exception photo.
+1. After capturing all the biometric and demographic details the Registration Officer can see a preview of the data captured and performs operator authentication.
+1. If biometric exceptions were marked, supervisor performs authentication.
+1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
+1. System initiates the process to update UIN after the RID is generated.
+   * Receiving a RID do not mean UIN update is successful.
+8. Registration Officer Views and prints acknowledgement. 
+1. SMS and/or email notifications are sent to the individual if the contact details are entered during the update process.
+1. Refer to the [**Track Status of UIN Update**] (FRS-Resident-Services#7-track-status-of-uin-update-) in Resident Services.
+
+### 4.3 Lost UIN [**[↑]**](#table-of-content)
+
 When an individual have lost their UIN and visits registration center for retrieval of UIN request, then the Registration Officer will capture the biometric and demographic details of the individual and process a request to retrieve a lost UIN. After completing the capturing process, the system sends a notification to the individual.
 
 The Registration Officer performs the following steps to retrieve a lost UIN of the individual:
@@ -390,8 +434,6 @@ The Registration Officer performs the following steps to retrieve a lost UIN of 
 1. The individual will be informed after a Lost UIN gets retrieve. Refer to [**Notification**](FRS-Registration-Processor#331-notification-pluggable-by-si-)
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
-### 4.2 UIN Update [**[↑]**](#table-of-content)
-### 4.3 Lost UIN [**[↑]**](#table-of-content)
 ### 4.4 Acknowledgement and Notifications [**[↑]**](#table-of-content)
 ### 4.5 Biometric Capture (SDK Integration, Extract and Match) [**[↑]**](#table-of-content)
 ### 4.6 Biometric Exceptions [**[↑]**](#table-of-content)
