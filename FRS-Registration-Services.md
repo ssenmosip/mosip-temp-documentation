@@ -68,21 +68,12 @@ Initially a machine will have no users on boarded. The first Registration Office
 5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
 #### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
-1. When a Registration Officer or Supervisor enters his/her log in to registration client with their credentials, the system validates that the user is mapped to the same Registration Centre's client machine. System validates that the user is yet to be on-boarded to the client machine. System directs the user to the password entry page.
-1. User enters password and submits. System sends OTP to the user and directs to the OTP entry page. Lock the user account for 30 minutes if an incorrect credential (password or OTP) is entered 5 times in succession.
-1. User can request the system to resend OTP if not received earlier.
-1. User enters OTP and submits. System directs the user to the dashboard page with all links disabled except for ‘User on-boarding’.
-1. User navigates to the User on-boarding page.
-1. User marks biometric exceptions if any (system do not mandate capture and authentication of those biometrics that are marked as exceptions).
-1. User scans left slap, right slap and two thumbs. System displays the result of authentication of each finger.
-1. The system validates that the device is registered in the Admin portal, associated to this Registration Centre ID, and the current date lies within the validity dates of the device model.
-1. User scans both irises. System displays the result of authentication of each iris. User scans face and exception photo. System displays the result of authentication of face. Exception photo is not authenticated
-1. User can choose to retry each biometric capture as required. There is no limit to the number of retries.
-1. User submits then opts to submit the data. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. System maps the user to the client machine and displays a pop-up confirmation message. System saves the successfully authenticated biometrics locally.
-1. System validates that the total number of successful authentications is greater than or equal to the threshold value configured. For example, if 9 fingers + 2 irises + face are successfully authenticated, the total number of authentications is 9+2+1=12. Validate that 12 is greater than or equal to the threshold configured (say 10). Then save the user-machine mapping and the authenticated biometrics locally. Do not save the biometrics that are not authenticated.
-1. The system displays the result of authentication of each biometric - 10 fingers, 2 irises and face - in a list.
-1. User gets access to all links on the client according to their role.
-User can update their biometrics at any time after successful on-boarding by choosing the ‘User on-boarding’ link from the menu. The biometrics provided during update will be authenticated with the server and saved locally if threshold for successful authentication is met. Updated biometrics will overwrite the biometrics stored locally earlier.
+The system performs the following steps:
+1. Captures all the biometrics of the officer's biometrics as an input.
+1. Generates a match score for each individual biometric
+1. Generates an average match score
+1. Compares the average match score with the configured threshold match score 
+1. Returns one single response i.e. return success if average >= threshold 
 
 ### 1.2 Login/Authentication [**[↑]**](#table-of-content)
 
