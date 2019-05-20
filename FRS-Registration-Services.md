@@ -193,7 +193,26 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
 ### 3.2 Disk Space Check [**[↑]**](#table-of-content)
+If disk space is insufficient, system displays an error message and data entered by registration officer will be not be save. Then Registration officer will clean up to make sufficient space on the client machine and tries the registration again.
+
+Upon receiving a request from the UI to create an enrolment packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the enrolment packet as follows:
+1. Calculates the size of the enrolment packet based on the data captured.
+   * Data includes demographic, biometric, photographs, OSI authentication, enrolment metadata, audit data, and acknowledgement scan.
+2. Calculates the disk space, which is available in the configured packet storage location.
+1. Validates if the storage location is sufficient to store the enrolment packet.
+1. In case of successful validation, responds with success message and proceed further. 
+1. In case of unsuccessful validation, responds with an appropriate error message.
+1. System captures and stores the transaction details for audit purpose (except PII data).
+
 ### 3.3 Virus Scan/Security Scan [**[↑]**](#table-of-content)
+
+Upon receiving a request to perform a virus scan of the registration packets on the client machine, the system performs the following steps:
+1. When the client application is open, the system scans the registration packets at a configured frequency.
+1. Checks if viruses are available in the registration packets that are stored on the client machine.
+   * All registration packets on the machine will be scanned.
+3. At the end of the scan, displays an alert message (Security scan detected viruses in the following files [List of files]. Please take necessary action or contact the administrator) on screen if a virus is detected.
+1. If the client application is not open at the configured time, the scan will be queued up and runs only when the client application is open.
+
 ## 4. Registration Data Services [**[↑]**](#table-of-content)
 ### 4.1 New Registration [**[↑]**](#table-of-content)
 ### 4.2 UIN Update [**[↑]**](#table-of-content)
