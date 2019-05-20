@@ -140,7 +140,7 @@
 |5.|pre-registration-ui|Creating an Application|PRE_FR_2|[MOS-792](//mosipid.atlassian.net/browse/MOS-792), [MOS-793](//mosipid.atlassian.net/browse/MOS-793), [MOS-14511](//mosipid.atlassian.net/browse/MOS-14511)|
 |6.|pre-registration-demographic-service, pre-registration-document-service|Creating an Application|PRE_FR_2|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
 |7.|pre-registration-ui|Provide Consent|PRE_FR_2.2|[MOS-13682](//mosipid.atlassian.net/browse/MOS-13682)|
-|8.|pre-registration-ui|Provide Consent|PRE_FR_2.3|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
+|8.|pre-registration-ui|Create Multiple Applications|PRE_FR_2.3|[MOS-623](//mosipid.atlassian.net/browse/MOS-623), [MOS-625](//mosipid.atlassian.net/browse/MOS-625)|
 |9.|pre-registration-ui|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-666](//mosipid.atlassian.net/browse/MOS-666), [MOS-13144](//mosipid.atlassian.net/browse/MOS-13144),[MOS-13965](//mosipid.atlassian.net/browse/MOS-13965)|
 |10.|pre-registration-translitration-service|Provide Data in Preferred Language|PRE_FR_2.4|[MOS-667](//mosipid.atlassian.net/browse/MOS-667)|
 |11.|pre-registration-ui|Viewing "My Applications"|PRE_FR_2.5|[MOS-794](//mosipid.atlassian.net/browse/MOS-794)|
