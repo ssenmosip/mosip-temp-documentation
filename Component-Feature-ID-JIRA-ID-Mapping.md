@@ -208,7 +208,7 @@
 |38.|Security Scan| Key Management  | REG_FR_9.1| [MOS-18150](//mosipid.atlassian.net/browse/MOS-18150) |
 |39.|New Registration| Key Management  | REG_FR_9.1| [MOS-15112](//mosipid.atlassian.net/browse/MOS-15112) |
 |40.|Sync| Key Management  | REG_FR_9.1| [MOS-13665](//mosipid.atlassian.net/browse/MOS-13665),[MOS-11696](//mosipid.atlassian.net/browse/MOS-11696), [MOS-1244](//mosipid.atlassian.net/browse/MOS-1244), [MOS-22148](//mosipid.atlassian.net/browse/MOS-22148)|
-|41.|RC Setup & Update| Business validations | REG_FR_5.11| [MOS-19006](//mosipid.atlassian.net/browse/MOS-19006) |
+|41.|RC Setup & Update| Geo-location | REG_FR_5| [MOS-19006](//mosipid.atlassian.net/browse/MOS-19006) |
 |42.|EOD Process| End of day process | REG_FR_4.8| [MOS-12867](//mosipid.atlassian.net/browse/MOS-12867), [MOS-12874](//mosipid.atlassian.net/browse/MOS-12874) |
 |43.|Packet Creation | New Registration | REG_FR_4.1| [MOS-12112](//mosipid.atlassian.net/browse/MOS-12112) |
 |44.|Login| Login/Authentication  | REG_FR_1.2| [MOS-11661](//mosipid.atlassian.net/browse/MOS-11661) |
