@@ -25,6 +25,7 @@
   * [MOSIP Biometric Data Spec](MOSIP-Biometric-Data-Specifications)
   * [MOSIP VDM Spec](MOSIP-VDM-Specifications)
   * [MOSIP Device Integration Spec](Device-Integration-Specifications)
+  * [Partner Management](Partner-Management)
 * MOSIP APIs
   * [Kernel](Kernel-APIs)
   * [ID Authentication](ID-Authentication-APIs)
