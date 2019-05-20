@@ -636,15 +636,10 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
 PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
 PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
-PRG_PAM_APP_014|email failed for the regex ^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$|invalid email id format
-PRG_PAM_APP_014|phone failed for the regex ^([6-9]{1})([0-9]{9})$|invalid phone number format
-PRG_PAM_APP_014|dateOfBirth failed for the regex ^\\d{4}/([0]\\d1[0-2])/([0-2]\\d3[01])$|invalid data of birth format
-PRG_PAM_APP_014|CNIENumber failed for the regex ^([0-9]{10,30})$|invalid CNIENumber format
-PRG_PAM_APP_014|postalCode failed for the regex ^[(?i)A-Z0-9]{5}$|Invalid postal code format
-PRG_CORE_REQ_011|encryption failed|encryption of demographic data failed
+PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
-PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
-PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
+PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
 
 ### PUT /applications/:preRegistrationId
 This request used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
@@ -940,7 +935,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Failed to update the pre-registration demographic details. 
+###### Description: Invalid preregistration id or data is not found for that preregistration id.
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.update",
@@ -949,8 +944,8 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
   "response": null,
   "errors": [
         {
-	   "errorCode": "PRG_PAM_APP_008",
-	   "message": "Failed to update the pre-registration demographic details"
+	   "errorCode": "PRG_PAM_APP_005",
+	   "message": "No data found for the requested pre-registration id"
 	}
     ]
 }
@@ -958,19 +953,13 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
-PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
-PRG_PAM_APP_014|email failed for the regex ^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$|invalid email id
-PRG_PAM_APP_014|phone failed for the regex ^([6-9]{1})([0-9]{9})$|invalid phone number
-PRG_PAM_APP_014|dateOfBirth failed for the regex ^\\d{4}/([0]\\d1[0-2])/([0-2]\\d3[01])$|invalid data of birth format
-PRG_PAM_APP_014|CNIENumber failed for the regex ^([0-9]{10,30})$|invalid CNIENumber
-PRG_PAM_APP_014|postalCode failed for the regex ^[(?i)A-Z0-9]{5}$|Invalid postal code
-PRG_CORE_REQ_011|encryption failed|encryption of demographic data failed
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
+PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
+PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
-PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
-PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
+PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
 
 ### GET /applications/:preRegistrationId
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
@@ -1142,7 +1131,7 @@ preRegistrationId |Yes|Id of the application|64269837502851
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_CORE_REQ_010|hashing failed|demographic data hashing failed
-PRG_CORE_REQ_012|decryption failes|decryption of demographic data failed
+PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 
 ### GET /applications/status/:preRegistrationId
@@ -2954,7 +2943,7 @@ langCode| Yes| language code whatever user choose while login|eng
    "response": null,
    "errors":[ 
          {
-            "errorCode": "PRG_PAM_ACK_001",
+            "errorCode": "PRG_ACK_001",
             "message": "Mobile number or Email Id is missing"
          }
     ]
