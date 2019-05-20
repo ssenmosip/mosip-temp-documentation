@@ -505,7 +505,63 @@ If the required biometric quality is not achieved while a Registration Officer i
 1. The registration officer can mark the missing finger(s) and missing iris(es).
 
 ### 4.7 Operator and Supervisor Approval [**[↑]**](#table-of-content)
+
+When a Registration Officer captures biometric exceptions of an individual, then a supervisor has to validate/approve that biometric exception. This approval is required to authenticate the captured biometric exception of the individual.
+
+**Supervisor authentication for biometric exceptions**
+
+1. The 'Supervisor authentication for exceptions' process is configurable and can be switched ON or OFF at a country level by the Admin 
+1. A Registration Officer completes operator authentication at the end of registering an individual with exceptions.
+1. If a country has opted to turned on supervisor authentication, a supervisor is required to enter their credentials
+1. The mode of supervisor authentication is a configurable at the country level. It can be set to password, OTP, fingerprint, or multifactor.
+1. In case of OTP authentication, the client first sends a request to server to generate the OTP, then allows the Supervisor to enter OTP and requests the server to match the input value with the generated OTP.
+1. In case of multifactor authentication, the client prompts the Supervisor to enter credentials in the order configured and authenticates each input before proceeding to the entry of the next credential.
+1. In case of multifactor authentication, the client prompts the Supervisor to enter credentials in the order configured and authenticates each input before proceeding to the entry of the next credential.
+1. On successful validation, the system proceeds to the next step of Registration ID generation and displays of registration acknowledgement.
+1. If the validation fails, the system displays an error message and allows user to try again. Unlimited retries are be allowed.
+1. Based on country-specific requirements, it is also possible for the Registration Officer and Supervisor to be the same person. In this case, the user will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for Supervisor authentication of exceptions.
+1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement)
+
 ### 4.8 End of Day Process [**[↑]**](#table-of-content)
+As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration processor. This process is done to prevent fraudulent of the packets.
+
+#### A. Approval of registrations through an end of day process.
+
+As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration processor to prevent fraudulent.
+
+Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
+
+The supervisor may opt to see the details of one or many registration ID. The supervisor can view the details on the right hand side pane 
+
+The supervisor then chooses to either approve or reject the registration.
+
+The supervisor must provide a reason in case of rejection. 
+
+The supervisor then authenticates the registration by providing any one biometric - fingerprint, iris, or face.
+The system then confirms on successful approval.
+
+1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
+1. The packet status will change only when supervisor completes authentication. Else the packet status will revert to its original status.
+1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
+1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.
+
+#### B. Supervisor can inform individuals to 'Re-register'
+When the Registration Processor finds some error in the packet such as registration failure (incorrect or duplicate demographic and biometric information), then Registration Processor marks that packet as Re-register and notifies the Registration client. Which in further, a supervisor informs an individual to re-register. Refer below for the process:
+
+1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
+1. The system displays the list of registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
+1. The supervisor can see the registration details (the acknowledgement slip) for registration ID\s
+1. Supervisor informs the individual by phone, email, physical mail, or physical visit to re-register. This is an offline process.
+1. Supervisor also records it in the system that he has ‘Informed’ the individual
+   * If unable to contact the individual, Supervisor records it as ‘Can’t inform'.
+6. The supervisor then ‘Authenticates by providing biometric data -fingerprint, Iris, or face. Further, select the specific finger or iris being provided.
+1. The supervisor authenticates with locally stored biometric and with the results.
+   * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
+   * On unsuccessful authentication, the user can retry his authentication with the same or a different biometric
+
+#### C. Authenticated registrations report (WIP)
+The system allows the supervisor to view a report of approved registrations for the past 15 days.
+
 ## 5. Geo-location [**[↑]**](#table-of-content)
 ## 6. Language Support [**[↑]**](#table-of-content)
 ### 6.1 Translation [**[↑]**](#table-of-content)
