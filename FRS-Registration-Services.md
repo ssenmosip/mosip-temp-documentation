@@ -107,6 +107,7 @@ MOSIP supports single factor and multi factor login including iris and face capt
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 #### C. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
+If the Registration Client is offline, then system allows the supervisor to log in to the client machine only with a password-based login. Whereas, if the Registration Client is online, the supervisor can log in to the client machine with all various type of login such as Password-based login, OTP based login, etc.
 
 When a supervisor opts to log in to the client machine the systems displays the appropriate options as per the mode of login.
 
@@ -115,6 +116,9 @@ When a supervisor opts to log in to the client machine the systems displays the 
 
 
 **Password-based login**
+
+The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor can login to the client machine in both online and offline mode.
+
 1. System allows the user to enter their username and password and submit.
 1. System validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
 1. System validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
@@ -122,6 +126,8 @@ When a supervisor opts to log in to the client machine the systems displays the 
 1. System validates that the user has a role or Registration Officer or Supervisor. 
 
 **OTP based login**
+
+If the client machine is online and is mapped with the supervisor, then the system allows supervisor to login with the OTP-based login. The system allows supervisor to enter their username and authenticate himself or herself with OTP.
 
 1. Allows the user to enter their username and submit.
 1. Validates that the username belongs to an on-boarded Registration Officer or Supervisor on that client.
@@ -136,7 +142,7 @@ When a supervisor opts to log in to the client machine the systems displays the 
 
 #### D. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
 
-In MOSIP system, a user can have a single role only For example, a user can be either a Registration Officer or Supervisor. User to role mapping is done by the admin
+In MOSIP system, a user can have multiple role. When a user is registered on admin portal, the system allows user to assign multiple roles.
 
 When a logged in user tries to access a feature on the registration client the system determines if the requested feature is accessible to the role(s) mapped to the user.
 1. If yes, permits the user to access the requested feature.
