@@ -523,11 +523,10 @@ When a Registration Officer captures biometric exceptions of an individual, then
 1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement)
 
 ### 4.8 End of Day Process [**[↑]**](#table-of-content)
-As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration processor. This process is done to prevent fraudulent of the packets.
 
 #### A. Approval of registrations through an end of day process.
 
-As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration processor to prevent fraudulent.
+As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration processor. This process is done to prevent fraudulent of the packets.
 
 Supervisor can log in to the registration client application and view a list of registration ID that are awaiting approval
 
