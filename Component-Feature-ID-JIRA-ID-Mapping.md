@@ -213,13 +213,13 @@
 |43.|Packet Creation | New Registration | REG_FR_4.1| [MOS-12112](//mosipid.atlassian.net/browse/MOS-12112) |
 |44.|Login| Login/Authentication  | REG_FR_1.2| [MOS-11661](//mosipid.atlassian.net/browse/MOS-11661) |
 |45.|New registration| New Registration | REG_FR_4.1| [MOS-10406](//mosipid.atlassian.net/browse/MOS-10406), [MOS-13624](//mosipid.atlassian.net/browse/MOS-13624), [MOS-12187](//mosipid.atlassian.net/browse/MOS-12187), [MOS-12167](//mosipid.atlassian.net/browse/MOS-12167), [MOS-11750](//mosipid.atlassian.net/browse/MOS-11750), [MOS-11732](//mosipid.atlassian.net/browse/MOS-11732), [MOS-11678](//mosipid.atlassian.net/browse/MOS-11678), [MOS-10408](//mosipid.atlassian.net/browse/MOS-10408), [MOS-1015](//mosipid.atlassian.net/browse/MOS-1015), [MOS-1018](//mosipid.atlassian.net/browse/MOS-1018), [MOS-554](//mosipid.atlassian.net/browse/MOS-554), [MOS-236](//mosipid.atlassian.net/browse/MOS-236) |
-|46.|Device onboarding|  Master data Sync | REG_FR_2.1| [MOS-11597](//mosipid.atlassian.net/browse/MOS-11597) |
+|46.|Device onboarding|  Master data Sync | REG_FR_2.1| [MOS-10537](//mosipid.atlassian.net/browse/MOS-10537) |
 |47.|New registration|  Pre-registration Data download| REG_FR_2.5| [MOS-16784](//mosipid.atlassian.net/browse/MOS-16784) |
-|48.|New registration|  New Registration | REG_FR_4.1| [MOS-11597](//mosipid.atlassian.net/browse/MOS-11597) |
+|48.|Sync|  Master data Sync | REG_FR_2.1| [MOS-11597](//mosipid.atlassian.net/browse/MOS-11597) |
 |49.|Sync|  Registration Data | REG_FR_5.14| [MOS-16544](//mosipid.atlassian.net/browse/MOS-16544), [MOS-8641](//mosipid.atlassian.net/browse/MOS-8641), [MOS-8942](//mosipid.atlassian.net/browse/MOS-8942), [MOS-8572](//mosipid.atlassian.net/browse/MOS-8572), [MOS-1381](//mosipid.atlassian.net/browse/MOS-1381), [MOS-1014](//mosipid.atlassian.net/browse/MOS-1014), [MOS-1013](//mosipid.atlassian.net/browse/MOS-1013)  |
 |50.|EoD process| Analytics and Audit Logs  | REG_FR_8| [MOS-16712](//mosipid.atlassian.net/browse/MOS-16712) |
 |51.|Security Scan| Analytics and Audit Logs  | REG_FR_8| [MOS-15832](//mosipid.atlassian.net/browse/MOS-15832) |
-|52.|Sync|  Analytics and Audit Logs  | REG_FR_8| [MOS-13184](//mosipid.atlassian.net/browse/MOS-13184), [MOS-11597](//mosipid.atlassian.net/browse/MOS-11597) |
+|52.|Sync|  Analytics and Audit Logs  | REG_FR_8| [MOS-13184](//mosipid.atlassian.net/browse/MOS-13184) |
 |53.|Packet Creation| Analytics and Audit Logs  | REG_FR_8| [MOS-8761](//mosipid.atlassian.net/browse/MOS-8761) |
 |54.|New Registration| Peripherals Check   | REG_FR_3.1| [MOS-11612](//mosipid.atlassian.net/browse/MOS-11612), [MOS-10407](//mosipid.atlassian.net/browse/MOS-10407), [MOS-1219](//mosipid.atlassian.net/browse/MOS-1219), |
 |55.|RC Setup & Update| Software Version Upgrade   | REG_FR_10| [MOS-13527](//mosipid.atlassian.net/browse/MOS-13527), [MOS-67](//mosipid.atlassian.net/browse/MOS-67)  |
