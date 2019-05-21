@@ -166,20 +166,27 @@ Using MOSIP, Zonal Admin will search for the registration center to be updated, 
 MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID and Zonal Admin's privileges, if the registration ID/Zonal Admin's privileges are not found, then the system triggers an error notification
 #### 5.2.2 Create Machine
 Using MOSIP, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
-Procedure to register machines follows:
-1. Zonal admin will select a Machine Type and Machine Specification for the new Machine
+
+Procedure to register the machine follows:
+1. Zonal admin will select a Machine Type and Machine Specification for the new Machine.
 1. Zonal admin will enter the following required details for the new machine:
+ * Machine ID
  * Machine Name
  * Mac Address
- * IP Address
  * Serial Number
+ * IP Address
  * Machine Spec ID
- * Location Zone (Zone a Machine will belong based on Zonal Admins zone, currently not in DB)
-1. Machines will be mapped to Admin Zone.
-1. Zonal Admin will map the machine to the existing registration center under the jurisdiction of Admin zone.
+ * Language Code
+ * Active (Boolean)
+ * Created by
+ * Created Date and Time
+1. Zonal Admin creates the machine by providing all the required information related to the machine.
+
 Machines uniqueness will be maintained through device serial number.
 
-Zonal Admin will register the machines importing CSV/XLS. For more information about registering machines, please refer to  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#23-list-of-machine-types---create-
+Zonal Admin will register the machines to his/her admin zone by importing CSV/XLS.
+For more details, please refer to  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#23-list-of-machine-types---create-
+
 
 #### 5.2.3 Update Machine [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
