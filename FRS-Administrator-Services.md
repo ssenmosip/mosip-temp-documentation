@@ -326,6 +326,7 @@ Zonal Admin will register the document types  by importing CSV/XLS.
 
 #### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate) [**[↑]**](#table-of-content)
 #### 6.3.3 Manage Location Data (Create, Update, Activate, Deactivate) 
+**Create/Update Location Data**
 Using MOSIP, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the privileges of Zonal Admin. During validation, if system does not find the provided data or the respective Zonal Admin’s privileges, then throws an error notification On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
 
 Following are the mandatory location data to be provided by Zonal Admin to create the location data:
@@ -340,6 +341,8 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
+**Create/Update**
+Using MOSIP, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges  and allows to create the words in the database after successful validation.  During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an error notification.   
 #### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
 #### 6.3.6 Manage Machine Types (View)
 #### 6.3.7 Manage Machine Specifications (View) [**[↑]**](#table-of-content)
