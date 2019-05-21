@@ -708,7 +708,7 @@ The system follows the following steps during the update process:
    * If the freeze period has not been reached, the system allows the registration officer to continue with registration
    * If freeze period has been reached, the system do not allows the registration officer for registration without updating the software.
    * The client will be locked for registration, if x days (configuration setting) have passed since the last check for updates and mandates the Registration officer to update the software.
-1. If no updates are available, launch the application directly.
+1. If updates are not available, the system launches the application.
 1. If update is not successful, the client returns to its earlier version.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
