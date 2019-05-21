@@ -421,13 +421,13 @@ Upon receiving a request to copy address details from the previous registration 
 1. The System allows to download the uploaded file(s)
 #### J. Capture an individual's finger prints as per specification
 
-Registration Officer captures an individual’s finger prints using finger print device which is configurable by the admin at the country level. This process is required to authenticate the individual.
+Registration Officer captures an individual’s finger prints using finger print device. Finger print capture process is configurable by the admin at the country level. This process is required to authenticate the individual.
 
 **Turn ON or OFF finger prints capture**
 
 1. A country may opt to turn ON or OFF the finger prints capture process which is configurable by the admin at the country level.
 1. If finger prints capture is turned ON, Registration Officer captures the individual’s finger prints using finger print device.
-1. Alternatively, if finger print capture is turned OFF, system does not show any provision for iris capture and proceeds to the next step.
+1. Alternatively, if finger print capture is turned OFF, system does not show any provision for finger print capture and proceeds to the next step.
 
 When the registration officer uses finger print capture device to capture the individual left and right hand slap, the left thumb and the right thumb simultaneously, the system performs the following steps:
 1. Displays the quality score and threshold score for each capture.
