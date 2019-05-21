@@ -327,14 +327,14 @@ The system also has the provision to show if the client machine has internet con
 
 
 ### 3.2 Disk Space Check [**[↑]**](#table-of-content)
-If disk space is insufficient, system displays an error message and data entered by registration officer will be not be save. Then Registration officer will clean up to make sufficient space on the client machine and tries the registration again.
+If disk space is insufficient, system displays an error message and data entered by registration officer will be not be save. Then Registration officer will clean up to make sufficient space on the client machine and try the registration again.
 
-Upon receiving a request from the UI to create an enrolment packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the enrolment packet as follows:
-1. Calculates the size of the enrolment packet based on the data captured.
-   * Data includes demographic, biometric, photographs, OSI authentication, enrolment metadata, audit data, and acknowledgement scan.
+Upon receiving a request to create an registration packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the registration packet as follows:
+1. Calculates the size of the registration packet based on the data captured.
+   * Data includes demographic, biometric, photographs, OSI authentication, registration metadata, audit data, and acknowledgement scan.
 2. Calculates the disk space, which is available in the configured packet storage location.
-1. Validates if the storage location is sufficient to store the enrolment packet.
-1. In case of successful validation, responds with success message and proceed further. 
+1. Validates if the storage location is sufficient to store the registration packet.
+1. In case of successful validation, responds with success message and proceeds further. 
 1. In case of unsuccessful validation, responds with an appropriate error message.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
