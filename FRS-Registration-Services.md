@@ -291,6 +291,43 @@ The system performs the following steps to ensure packet status sync from server
 1. The system displays the status of the operation to pull Registration packet IDs from Registration server - in progress/completed.
 
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
+
+
+#### A. Register a pre-registered individual by searching & fetching pre-registration data associated to a pre-registration ID from local system or server
+
+When a registration officer starts a new registration by entering a pre-registration id of an individual, the system checks if an exact match for the ID exists in local database.
+1. If yes, checks if an updated pre-registration packet for that ID is available on the server.
+   * If yes, downloads the pre-registration packet from the server and pre-populate on screen.
+   * If update is not available on server, display data from local database.
+   * If client if offline, displays data from the local database.
+2. If data is not available in local database, checks if data for that ID is available on the server.
+   * If yes, downloads the pre-registration packet from the server and pre-populate on screen.
+   * If data not available on server, displays data from local database.
+3. Based on the availability of data, the system populates the demographic details of the individual and pre-populates the registration form.
+1. The demographic details can still be edited at this stage
+1. The registration officer can then view the documents uploaded during pre-registration
+1. If no matching PRID exists in local system and server, the system displays an error message.
+
+#### B. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
+**Real time downloads of Pre-registration data**
+
+1. When a registration officer starts a new registration by entering a pre-registration ID and opts to fetch pre-registration data, the system checks if the pre-registration ID entered has a match in the local system
+1. The system then fetches the demographic details of the individual and pre populate the registration form if there is exactly one match for pre-registration ID in the local system
+
+**Manual downloads of Pre-registration data**
+
+A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of an individual only and the system does not allow to download the documents uploaded by the applicant. 
+
+The system also enables a user to view the progress of download.
+
+The pre-registration data can be downloaded only for that particular registration center, where the pre-registration data download is initiated
+
+It is possible to download the pre-registration data from current date plus 1 to current date plus 7. This date range is  configurable
+
+The downloaded pre-registration data overwrites the previously downloaded data for the same pre-registration ID
+
+The downloaded pre-registration data is stored in its stipulated path as defined
+
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
 ### 3.2 Disk Space Check [**[↑]**](#table-of-content)
