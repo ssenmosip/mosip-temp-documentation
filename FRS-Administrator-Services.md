@@ -1,10 +1,10 @@
 ## Table Of Content
-- [1. Login](#1-login) _(ASR_FR_1)_
+- [1. Login](#1-login-) _(ASR_FR_1)_
   * [1.1 Login](#11-login) _(ASR_FR_1.1)_
   * [1.2 Logout](#12-logout)
-    * [1.2.1 Manual Logout](#121-manual-logout-) _(ASR_FR_1.2)_
-    * [1.2.2 Auto Logout](#122-auto-logout-) _(ASR_FR_1.3)_
-- [2. Account Management](#2-account-management) _(ASR_FR_2)_
+    * [1.2.1 Manual Logout](#121-manual-logout) _(ASR_FR_1.2)_
+    * [1.2.2 Auto Logout](#122-auto-logout) _(ASR_FR_1.3)_
+- [2. Account Management](#2-account-management-) _(ASR_FR_2)_
   * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
   * [2.2 Change Password](#22-change-password) _(ASR_FR_2.2)_
   * [2.3 Reset Password](#23-reset-password) _(ASR_FR_2.3)_
