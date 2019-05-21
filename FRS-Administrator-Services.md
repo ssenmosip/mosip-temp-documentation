@@ -191,7 +191,7 @@ Procedure to update the machine related details, the Zonal Admin will:
 1. Zonal Admin provides the mandatory information (Machine ID, Machine Name, and Zon ID).
 1. The system validates the provided data and privileges of zonal Admin. On successful validation, the system allows Zonal Admin to update the required details. For example, if a Machine has been moved to a new zone or accidentally assigned to a wrong zone.
 1. When the machine related information is updated, the system captures the date, date & time, Zonal Admin details who has updated the machine.
-1. If the Zonal Admin select the Delete flag, the information is updated when the registration center is updated. 
+1. If the Zonal Admin selects the Delete flag, the information is updated when the registration center is updated. 
 For more details, please refer to 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-
 
@@ -343,7 +343,9 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 **Create/Update**
 
-Using MOSIP, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges  and allows to create the words in the database after successful validation.  During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an error notification.   
+Using MOSIP, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
+During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an respective error notification.   
+ 
 #### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
 #### 6.3.6 Manage Machine Types (View)
 #### 6.3.7 Manage Machine Specifications (View) [**[↑]**](#table-of-content)
