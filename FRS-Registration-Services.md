@@ -507,7 +507,7 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ### 4.2 UIN Update [**[↑]**](#table-of-content)
-When an individual visits the registration to update their demographic or biometric details, the Registration Officer captures the desired modified data from the individual and updates their UIN in the system. Refer below for the process: 
+When an individual visits the registration center to update their demographic or biometric details, the Registration Officer captures the updated data as provided by the individual in the system. Refer below for the process: 
 #### A. UIN Updates Turn ON or OFF
 
 The UIN update feature is configurable by a country. Admin can either turn ON or OFF the UIN update feature.
