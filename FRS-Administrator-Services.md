@@ -121,16 +121,7 @@ To reset the password, the user performs the following:
 
 
 ### 2.4 Forgot Username [**[↑]**](#table-of-content)
-Using MOSIP, user can retrieve the username. Based on the country, multi-factor authentication will be configured. 
-To retrieve the user name, the user performs the following:
-
-1. User visits the Reg. Client Login page or Admin Portal Login Page and requests for Forgot Password.
-2. User provides the registered mobile number as require by the system.
-3. The system validates the registered mobile number associated with the user and sends the User Name through an OTP 
-   notification.
-4. The system prompts to enter the registered mobile number.
-5. Admin will enter the OTP as received.
-6. System sends the user name through SMS notification to the concerned user.
+Using MOSIP, user can retrieve the username. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the registered mobile number associated with the user. On successful validation, the system provides the User Name to the registered mobile number through an OTP notification else provides the respective error notification.
 
 ### 2.5 Account Unlock
 MOSIP allows Admin to unlock the account of other MOSIP users (Registration Officer/supervisor). Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
