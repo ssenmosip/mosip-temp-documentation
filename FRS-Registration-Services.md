@@ -106,7 +106,7 @@ When a supervisor opts to log in to the client machine the systems displays the 
 * If the mode of login is username and OTP, display the OTP based login 
 
 
-**Password-based login**
+**(i) Password-based login**
 
 The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor can login to the client machine in both online and offline mode.
 
@@ -116,7 +116,7 @@ The mode of login is configured by admin, if the login is configured as Password
 1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
 1. System validates that the user has a role or Registration Officer or Supervisor. 
 
-**OTP based login**
+**(ii) OTP based login**
 
 If the client machine is online and is mapped with the supervisor, then the system allows supervisor to login with the OTP-based login. The system allows supervisor to enter their username and authenticate himself or herself with OTP.
 
