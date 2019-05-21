@@ -321,8 +321,9 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
-The system allows a registration officer or supervisor to view the whether a  biometric devices (such as fingerprint & iris capture devices, face camera) is connected correctly or not connected to the client machine. If a biometric device is turned OFF by admin, then the system doesn't display the availability  of the device.
-The system has the provision to show if the client machine has internet connectivity or not. 
+The system allows a registration officer or supervisor to view whether a  biometric devices (such as fingerprint & iris capture devices, face camera) is connected correctly or not connected to the client machine. If a biometric device is turned OFF by admin, then the system doesn't display the availability  of the device.
+
+The system also has the provision to show if the client machine has internet connectivity or not. 
 
 
 ### 3.2 Disk Space Check [**[↑]**](#table-of-content)
