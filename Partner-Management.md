@@ -13,7 +13,7 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 * IDA Admin will be able to generate unblock/activate MISP request, further to that MISP will be able to do all transactions in PMP
 * IDA Admin will be able to generate new lisence key request for MISP, in case expiration of existing MISP license key
 * Partner Management module will utilize Kernel-IAM Module service for Authentication and Authorization
-![MOSIP Infrastructure Service Provider Management](_images/arch_diagrams/PM-MISP-Management.png)
+![MOSIP Infrastructure Service Provider Management](_images/arch_diagrams/PMMISPMgmt.png)
 
 **Partner Management**
 * MISP will be able to register partner/s with following details - Partner Name, Partner Contact Name, Partner Phone, Partner emailId
@@ -23,7 +23,7 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 * MISP will be able to generate block/deactivate partner request, further to that partner will not be able to do any transaction in PM module
 * MISP will be able to generate unblock/activate partner request, further to that partner/s will be able to do all transactions in PM module, as per applicable policy for the partner
 * MISP will be able to share partner policy details, based on requested partner ID for ID Authentication module
-![MOSIP Infrastructure Service Provider (MISP) Management](_images/arch_diagrams/PM-Partner-Management.png)
+![MOSIP Infrastructure Service Provider (MISP) Management](_images/arch_diagrams/PMPartnerManagement.png)
 
 **Digital Certificate Management**
 * Partners will be able to procure digital certificate from recognised Certification Authority (CA)
