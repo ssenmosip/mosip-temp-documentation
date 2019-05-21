@@ -112,12 +112,12 @@ MOSIP allows users to reset the password. Based on the country, single factor or
 
 To reset the password, the user performs the following:
 
-1.	User provides the User Name and Mobile number to reset the password. 
-2.	The system checks the User Name, Mobile number and sends an OTP notification to the registered mobile number of this User Name.
-3.	User provides the OTP as received.
-4.	The system validates the provided OTP and the security policy of reset password, successfully authenticates the user.
-5.	The system allows user to provide the Old Password, New Password, and Confirm New Password (Password policy is configurable).
-6.	The system sends a notification to the user related to the password reset status.
+1. User provides the User Name and Mobile number to reset the password. 
+1. The system checks the User Name, Mobile number and sends an OTP notification to the registered mobile number on successful validation.
+1. User provides the OTP as received.
+1. The system validates the provided OTP and the security policy of reset password, successfully authenticates the user.
+1. The system allows user to provide the Old Password, New Password, and Confirm New Password (Password policy is configurable).
+1. The system sends a notification to the user related to the password reset status.
 
 
 ### 2.4 Forgot Username [**[↑]**](#table-of-content)
