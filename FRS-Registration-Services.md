@@ -692,22 +692,26 @@ When a Registration Officer or Supervisor opts to download setup kit and selects
 1. System captures and stores the download transaction details for audit purpose (except PII data). 
 
 #### B. Update the client software from the server
-If a software update is available, then the system will give a supervisor or registration officer a choice to either update immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate a user to update the software.
-
-
- it is automatically downloaded and installed as a part of the startup process.
+If a software update is available, then the system will provide an option to supervisor or registration officer to either update immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate a user to update the software.
 
 The system follows the following steps during the update process:
-1. Checks for updates during start up.
-1. The client must be online to check for updates.
-1. If an update is available, downloads and installs it automatically and launch the application.
-1. If no updates are available, launches the application.
+1. When the client is online, the system automatically check for updates if available.
+1. If an update is available, the system displays a message “Updates are available” and provides two options to the registration officer 
+   * Update now or 
+   * Update later.
+1. If the registration officer opt to select “Update now” option, then the registration officer can download and install software and launch the application.
 1. The updates are downloaded as patch updates.
 1. When installation is in progress, the user cannot perform any action on the client.
 1. Once installation is completed, the user can start working on the client.
+1. If update is not successful, the system provides error message and provides both the options (Update Now or Update Later) again.
+1. If the registration officer opts to select “Update later” option, then the system checks if the freeze period has been reached.
+   * If the freeze period has not been reached, the system allows the registration officer to continue with registration
+   * If freeze period has been reached, the system do not allows the registration officer for registration without updating the software.
+   * The client will be locked for registration, if x days (configuration setting) have passed since the last check for updates and mandates the Registration officer to update the software.
+1. If no updates are available, launch the application directly.
 1. If update is not successful, the client returns to its earlier version.
-1. The client is locked for registration if x days (configuration setting) have passed since the last check for updates.
 1. System captures and stores the transaction details for audit purpose (except PII data).
+
 
 ## 11. Clean up [**[↑]**](#table-of-content)
 
