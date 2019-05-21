@@ -318,7 +318,8 @@ String|Yes|The user id|
   "version" : "1.0",
   "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
-	"userId": "mono29"
+	"userId": "mono29",
+        "matchType" : "all"
   }
 }
 ```
