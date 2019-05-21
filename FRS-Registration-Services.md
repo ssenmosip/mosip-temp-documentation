@@ -7,7 +7,7 @@
 - [2. Data Sync](#2-data-sync-)
   * [2.1 Master Data Sync](#21-master-data-sync-) _(REG_FR_2.1)_
   * [2.2 Configuration Sync](#22-configuration-sync-) _(REG_FR_2.2)_
-  * [2.3 Packet ID Sync](#23-packet-id-sync-) _(REG_FR_2.3)_
+  * [2.3 Client to Server Sync](#23-client-to-server-sync-) _(REG_FR_2.3)_
   * [2.4 Packet Status Sync](#24-packet-status-sync-) _(REG_FR_2.4)_
   * [2.5 Pre-registration Data Download](#25-pre-registration-data-download-) _(REG_FR_2.5)_
 - [3. Health Check](#3-health-check-)
@@ -239,7 +239,39 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. Registration Centre Setup data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
 1. Each machine is mapped to a registration center. Server sends only the Registration Centre Setup data for the specific center to the data store server
 1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
-#### H. Sync data from client to server [**[↑]**](#table-of-content)
+
+
+#### H. Sync master data with data store servers
+1. The registration client receives a request (through manual trigger or scheduled job) to sync master data from server to client.
+1. Client in turn requests server for master data sync.
+1. Client receives response from server with incremental changes to master data.
+1. Client saves the data in the local machine making the incremental changes as received.
+1. Client displays a success or failure message on the UI
+1. Alternatively if the client machine is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync
+   * Does not sync when an automatic sync is triggered
+
+
+#### I. Sync Config details with data store servers [**[↑]**](#table-of-content)
+1. The registration client receives a request (through manual trigger or scheduled job) to sync config data from server to client.
+1. Client in turn requests server for config data sync.
+1. Client receives response from server with incremental changes to config data.
+1. Client saves the data in the local machine overwriting previous values of the config settings received.
+1. Client displays a success or failure message on the UI.
+1. Alternatively if the client machine is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync.
+   * Does not sync when an automatic sync is triggered.
+
+
+#### J. Requirement for document categories and document types to be shown based on the configuration per applicant type.
+1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
+1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
+1. User selects Document Types, scans and upload the documents and proceeds with registration.
+1. The categories PoI and PoA are mandatory. The registration officer will select a Document Type under each Category and upload a document.
+1. PoR is optional.
+
+### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
+
 1. The registration client receives a request to sync data (through manual trigger or scheduled job) from client to server.
 2. Client in turn sends request with the applicable data to server.
    * User on-boarding data is synced.
@@ -251,37 +283,6 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
    * Displays an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
-
-#### I. Sync master data with data store servers
-1. The registration client receives a request (through manual trigger or scheduled job) to sync master data from server to client.
-1. Client in turn requests server for master data sync.
-1. Client receives response from server with incremental changes to master data.
-1. Client saves the data in the local machine making the incremental changes as received.
-1. Client displays a success or failure message on the UI
-1. Alternatively if the client machine is not online
-   * Displays an error message and does not sync when a user tries to initiate a manual sync
-   * Does not sync when an automatic sync is triggered
-
-
-#### J. Sync Config details with data store servers [**[↑]**](#table-of-content)
-1. The registration client receives a request (through manual trigger or scheduled job) to sync config data from server to client.
-1. Client in turn requests server for config data sync.
-1. Client receives response from server with incremental changes to config data.
-1. Client saves the data in the local machine overwriting previous values of the config settings received.
-1. Client displays a success or failure message on the UI.
-1. Alternatively if the client machine is not online
-   * Displays an error message and does not sync when a user tries to initiate a manual sync.
-   * Does not sync when an automatic sync is triggered.
-
-
-#### K. Requirement for document categories and document types to be shown based on the configuration per applicant type.
-1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
-1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
-1. User selects Document Types, scans and upload the documents and proceeds with registration.
-1. The categories PoI and PoA are mandatory. The registration officer will select a Document Type under each Category and upload a document.
-1. PoR is optional.
-
-### 2.3 Packet ID Sync [**[↑]**](#table-of-content)
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
 ## 3. Health Check [**[↑]**](#table-of-content)
