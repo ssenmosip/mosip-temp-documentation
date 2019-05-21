@@ -195,7 +195,7 @@ https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---cre
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
-MOSIP allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, Zonal Admin’s privileges. On successful validation, The system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machine until un-mapped. 
+MOSIP allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, Zonal Admin’s privileges. On successful validation, The system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines until un-mapped. 
 
 If the machine is not mapped with the registration center, it cannot be recognized by MOSIP to perform any operation in that center. The system track the machine by serial number and other attributes of the machine. If the machine is already mapped with another registration center, Zonal Admin must un-map the machine first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification. 
  
@@ -234,15 +234,10 @@ For more  details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-content)
-MOSIP allows Zonal Admin to map the devices to the registration center by providing the device ID and registration center ID. The registration center must be under the jurisdiction of the Zonal Admin based on admin zone.
+MOSIP allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and privileges of Zonal Admin. On successful validation, The system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices until un-mapped. 
 
-Procedure to map the registration center with the devices:
-1. Zonal Admin will select the registration center belongs to his/her zone.
-1. The system displays the list of available devices when Zonal Admin clicks the devices to be mapped.
-1. Zonal Admin will select the devices to be mapped.
-1. The system maps that devices to selected registration center and once the device is mapped to the registration center, it is not displayed in the list until un-mapped.
+If the device is not mapped with the registration center, it cannot be recognized by MOSIP to perform any operation in that center. The system track the device by serial number and other attributes of the device. If the device is already mapped with another registration center, Zonal Admin must un-map the device first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification. 
 
-For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
 
 ### 5.4 User Management [**[↑]**](#table-of-content)
 #### 5.4.1 View User
