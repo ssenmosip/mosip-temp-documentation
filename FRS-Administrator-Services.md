@@ -304,6 +304,26 @@ MOSIP allows Zonal Admin to view the master data type. The master data types are
 ### 6.2 View Master Data for Each Table
 ### 6.3 Manage Master Data [**[↑]**](#table-of-content)
 #### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
+**Create Document Type**
+
+Using MOSIP, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and the privileges of Zonal Admin. On successful validation, the system allows the Zonal Admin to create the document type. 
+
+Procedure to create document type follows:
+
+
+1. Zonal Admin will provide the following required details for the new document type:
+ * Document Code
+ * Document  Name
+ * Language Code
+ * Active (Boolean)
+ * Created by
+ * Created Date and Time
+2. Zonal Admin creates the document type by providing all the required information related to the document type.
+Machines uniqueness will be maintained through machine’s serial number.
+
+Zonal Admin will register the document types  by importing CSV/XLS.
+
+
 #### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate) [**[↑]**](#table-of-content)
 #### 6.3.3 Manage Location Data (Create, Update, Activate, Deactivate) 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
