@@ -250,18 +250,25 @@ If the device is not mapped with the registration center, it cannot be recognize
 #### 5.4.1 View User
 MOSIP allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, the privileges allocated to user and provides user’s details (ID, Name, Last Name, Role, Registration Center ID, Date of Birth, Gender, Contact Number, Email ID etc…) already mapped to the specified registration center on successful validation.
 #### 5.4.2 Create User
-Using MOSIP, Zonal Admin will register the users (registration officer, supervisor) on portal by providing the following details of the user:
-1. Zonal Admin will provide the following personal details of user:
+Using MOSIP, Zonal Admin/Central Admin will register the user (registration officer, supervisor) on portal by providing the following required details of the user:
+ * User ID
  * First Name
- * Last Name
+ * Date of Birth
+ * Gender
  * Contact Number
  * Email ID
- * Date of Birth
- * VID
-2. Zonal Admin will provide the username as per approved standard of a country.
-3. Zonal Admin will provide activation link to the user along with username, mobile number and email ID.
-4. Once the user receives the link, he/she can set up the password as mentioned in the following:
-   Procedure to set up User Password for  first time:
+ * Address
+ * Activation Status
+ * Blacklisted Status
+ * Created by
+ * Created Time Stamp
+1. Zonal Admin will provide the username as per approved standard of a country.
+1. The system triggers an activation link to the newly created user after the user is successfully created. The activation link will 
+    expire after certain times (Expire time is configurable).
+1. Once the user receives the link, he/she can set up the password as mentioned in the following:
+
+ **  Procedure to set up User Password for  first time**: This featre to be checked with Aman
+
 1. Once the user receives the link, he/she will generate the password by accessing the link.
 2. User will provide his/her VID/UIN as required by the system.
 3. The system allows the user to provide the registered mobile number and receives an OTP.
