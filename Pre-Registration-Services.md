@@ -2676,8 +2676,8 @@ This service is used by Pre-Registration portal to update an expired pre registr
 * [PUT batch/consumedStatus](#put-consumedstatus)
 
 ### PUT /expiredStatus
-This request is used to update status of appointment expired pre-registration ids to expired status in database.
-
+This request is used to update status of pre-registration ids appointment to expired status in database.
+Batch job will expire all the appointments older than current date.
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/batch/expiredStatus</div>
 
@@ -2693,13 +2693,11 @@ Requires Authentication | Yes
 ###### Description: Expired status updated successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.batchjob.service.expired",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-        "message": "Registration appointment status updated to expired successfully"
-    },
-   "errors":null
+  "id": "mosip.pre-registration.batchjob.service.expired",
+  "version": "1.0",
+  "responsetime": "2019-05-20T07:26:55.303Z",
+  "response": "Registration appointment status updated to expired successfully",
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -2746,9 +2744,7 @@ Requires Authentication | Yes
    "id": "mosip.pre-registration.batchjob.service.consumed",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": {
-        "message":  "Demographic status to consumed updated successfully"
-    },
+   "response": "Demographic status to consumed updated successfully",
    "errors":null
 }
 ```
@@ -2759,7 +2755,7 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.batchjob.service.consumed",
   "version": "1.0",
-  "responsetime": "2019-05-14T12:15:53.753Z",
+  "responsetime": "2019-05-20T07:33:21.232Z",
   "response": null,
   "errors": [
     {
