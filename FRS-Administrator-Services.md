@@ -326,6 +326,19 @@ Zonal Admin will register the document types  by importing CSV/XLS.
 
 #### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate) [**[↑]**](#table-of-content)
 #### 6.3.3 Manage Location Data (Create, Update, Activate, Deactivate) 
+Using MOSIP, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the privileges of Zonal Admin. During validation, if system does not find the provided data or the respective Zonal Admin’s privileges, then throws an error notification On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
+
+Following are the mandatory location data to be provided by Zonal Admin to create the location data:
+ * Location Code
+ * Location Name
+ * Location Hierarchy Level 
+ * Location Hierarchy Level Name
+ * Language Code
+ * Active (Boolean)
+ * Created by
+ * Created Date and Time
+
+
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 #### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
 #### 6.3.6 Manage Machine Types (View)
