@@ -159,12 +159,16 @@ Procedure to unblock the account:
 ## 5. Resource Management
 ### 5.1 Center Management
 #### 5.1.1 View Center
+MOSIP allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the details of registration center else the respective error notification (error notification are configurable and predefined) are triggered
+
+For more details, please refer to <Link to be updated>
+
 #### 5.1.2 Create Center
 Using MOSIP, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the privileges allocated to Zonal Admin  if validated successfully; the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else trigger a respective error message. 
 
  The registration centers are also created though the backend. For more details, please refer to <Link will be provided for backend registration center creation> 
 	
-For more details, please refer to MDM https://github.com/mosip/mosip/wiki/FRS-Admin-Services#21-registration-center-type---createupdatedelete-
+For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#21-registration-center-type---createupdatedelete-
 
 #### 5.1.3 Update Center
 Using MOSIP, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the Registration Center and provides an acknowledgement notification about the updates status else trigger a respective error message. 
@@ -198,7 +202,7 @@ Procedure to update the machine related details, the Zonal Admin will:
 1. Remove the mapping of the Center and Machine  (if already mapped to a Center of another zone)
 1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone)
 
-For more information about updating machine, please refer to 
+For more details, please refer to 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine
@@ -213,7 +217,7 @@ Procedure to map the registration center to the machine:
 1. The system maps that machine to the selected registration center and once the device is mapped to the registration 
    center, it is not displayed in the list of available machine until un-mapped.
 
- For more information about mapping machines to registration center, please refer to 
+ For more details, please refer to 
  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#210-mappings-of-registration-center-and-machine---createdelete-
 ### 5.3 Device Management
 #### 5.3.1 View Device
@@ -234,7 +238,7 @@ Procedure to register device follows:
 For more information about register devices in admin zone, please refer tohttps://github.com/mosip/mosip/wiki/FRS-Admin-Services#29-list-of-device-types---create-
 
 Zonal Admin will register the devices in backend to his/her admin zone by importing CSV/XLS.
-For more information about registering device in admin zone through importing, please refer to <Link to be provided after discussing with Aman>
+For more details, please refer to <Link to be provided after discussing with Aman>
 
 #### 5.3.3 Update Device
 MOSIP provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason, 
@@ -258,7 +262,7 @@ Procedure to map the registration center with the devices:
 1. Zonal Admin will select the devices to be mapped.
 1. The system maps that devices to selected registration center and once the device is mapped to the registration center, it is not displayed in the list until un-mapped.
 
-For more information about mapping devices to registration center, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
+For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
 
 ### 5.4 User Management
 #### 5.4.1 View User
