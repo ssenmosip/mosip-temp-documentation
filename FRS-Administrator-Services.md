@@ -160,7 +160,14 @@ Procedure to unblock the account:
 ### 5.1 Center Management
 #### 5.1.1 View Center
 #### 5.1.2 Create Center
+Using MOSIP, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the privileges allocated to Zonal Admin  if validated successfully; the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else trigger a respective error message. 
+
+ The registration centers are also created though the backend. For more details, please refer to <Link will be provided for backend registration center creation> 
+	
+For more details, please refer to MDM https://github.com/mosip/mosip/wiki/FRS-Admin-Services#21-registration-center-type---createupdatedelete-
+
 #### 5.1.3 Update Center
+Using MOSIP, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the Registration Center and provides an acknowledgement notification about the updates status else trigger a respective error message. 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 ### 5.2 Machine Management
 #### 5.2.1 View Machine
@@ -186,7 +193,7 @@ Zonal Admin will register the machines importing CSV/XLS. For more information a
 MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 Procedure to update the machine related details, the Zonal Admin will:
 1. Update the machine details such as Serial Number and Mac-Address
-1. Update the zone of a machine (If a Machine is being moved to a new zone or accidently assigned to a wrong zone).
+1. Update the zone of a machine (If a Machine is being moved to a new zone or accidenatlly assigned to a wrong zone).
 1. The system does make the machine visible to the Zonal Admin, if previously assigned to other zone.
 1. Remove the mapping of the Center and Machine  (if already mapped to a Center of another zone)
 1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone)
@@ -238,7 +245,7 @@ Procedure to update the devices related details, the Zonal Admin will:
 1. Remove the mapping of the Center and device  (if already mapped to a Center of another zone).
 1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone).
 
-For more information about updating devices related details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-
+For more  details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-
 
 #### 5.3.4 Activate/Deactivate/Decommission Device
 
@@ -299,11 +306,12 @@ Procedure to block/blacklist:
 5. Super Admin has authorization to reset the password and bio authentication of the supervisor on request by the 
   respective user.
 6. The system will also send a link to the registered mobile number or email ID, so that the related user will reset the 
-   password by visiting the link. Please refer to the [**Reset Password**](#23-reset-password-) for more details
+   password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
+
 #### 5.4.4 Map/Un-map/Re-map User to a Center
 MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the registration center ID. The system validates the registration ID and the privileges of the user and provides the capability to map/un-map-re-map the user to the registration on successful validation.
 
-For more information about mapping registration center with users, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
+For more details, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
 ## 6. Master Data Management
 ### 6.1 View Master Data Types
 ### 6.2 View Master Data for Each Table
