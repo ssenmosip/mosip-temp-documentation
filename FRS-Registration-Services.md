@@ -41,8 +41,7 @@
 ## 1. User Services [**[↑]**](#table-of-content)
 ### 1.1 User on-boarding [**[↑]**](#table-of-content)
 
-Initially, when a Registration Officer or Supervisor logs in to a client machine, the Registration Officer or Supervisor provides their biometric details, which will be stored and mapped to the client machine locally. Which in further, helps Registration Officer or Supervisor to work when the server is offline.
-
+When a Registration Officer or Supervisor logs in to a client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or Registration officer when to work in offline mode (when the client is not connected to the server)
 #### A. Map registration officers and supervisors to a client machine.
 Initially a machine will have no users on boarded. The first Registration Officer/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this Registration Officer/Supervisor can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
