@@ -107,7 +107,7 @@ When a supervisor opts to log in to the client machine the systems displays the 
 
 **(i) Password-based login**
 
-The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor can login to the client machine in both online and offline mode.
+The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor will be able login to the client machine in both online and offline mode using their password.
 
 1. System allows the user to enter their username and password and submit.
 1. System validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
@@ -117,7 +117,7 @@ The mode of login is configured by admin, if the login is configured as Password
 
 **(ii) OTP based login**
 
-If the client machine is online and is mapped with the supervisor, then the system allows supervisor to login with the OTP-based login. The system allows supervisor to enter their username and authenticate himself or herself with OTP.
+If the client machine is online and the supervisor is mapped to the client machine, then the system allows supervisor to login with the OTP. The system allows supervisor to enter their username and authenticate himself or herself with OTP.
 
 1. Allows the user to enter their username and submit.
 1. Validates that the username belongs to an on-boarded Registration Officer or Supervisor on that client.
