@@ -624,7 +624,7 @@ Registration Client performs a local duplicate check for irises and face of an i
 1. The number of recapture attempts due to local duplicate check failures is not capped.
 
 ### 4.6 Biometric Exceptions [**[↑]**](#table-of-content)
-If the required biometric quality is not achieved while a Registration Officer is capturing biometrics of an individual (e.g., missing finger(s), missing iris(es), etc.), then the system mandates to capture a biometric exception to that individual. Refer below for the process:
+If the required biometric quality is not achieved while a Registration Officer is capturing biometrics of an individual (e.g., missing finger(s), missing iris(es), etc.), then the system mandates to capture a biometric exception for that individual. Refer below for the process:
 #### A. Low quality biometrics marked as reason for exceptions
 
 1. During a registration process while capturing biometrics, if the configured threshold is not met for fingerprints and/or irises in spite of the x attempts (configurable) to capture the biometrics, then system mandates capture of exception photo 
