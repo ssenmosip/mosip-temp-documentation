@@ -148,9 +148,8 @@ Procedure to unblock the account:
 ## 5. Resource Management [**[↑]**](#table-of-content)
 ### 5.1 Center Management 
 #### 5.1.1 View Center
-MOSIP allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the details of registration center else the respective error notification (error notification are configurable and predefined) are triggered
+MOSIP allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the details of registration center else triggers the respective error notification (error notification are configurable and predefined).
 
-For more details, please refer to <Link to be updated>
 
 #### 5.1.2 Create Center
 Using MOSIP, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the privileges allocated to Zonal Admin  if validated successfully; the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else trigger a respective error message. 
