@@ -163,7 +163,7 @@ Using MOSIP, Zonal Admin will search for the registration center to be updated, 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 ### 5.2 Machine Management [**[↑]**](#table-of-content)
 #### 5.2.1 View Machine
-MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data and provides the list of machines available in the registration center. During the validation of registration center ID, if the registration ID not found, then the system triggers an error notification.
+MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…) those are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID, if the registration ID not found, then the system triggers an error notification
 #### 5.2.2 Create Machine
 Using MOSIP, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
 Procedure to register machines follows:
