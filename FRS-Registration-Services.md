@@ -178,6 +178,109 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 ## 2. Data Sync [**[↑]**](#table-of-content)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
+
+#### A. Turn ON or OFF face capture 
+1. A country may opt to turn ON or OFF the face capture process. It can be done by the admin. 
+1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#34-new-registration-), enters the demographic data and uploads documents.
+1. If face capture is turned ON, user captures the individual’s face photo.
+1. Alternatively, if face capture is turned OFF, system does not show any provision for face capture and proceeds to the next step.
+1. User captures the other applicable biometrics, authenticates, and completes the registration.
+
+#### B. Turn ON or OFF iris capture 
+1. A country may opt to turn ON or OFF the iris capture process. It can be done by the admin. 
+1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#34-new-registration-), enters the demographic data and uploads documents
+1. If iris capture is turned ON, user captures the individual’s iris scan
+1. Alternatively, if iris capture is turned OFF, system does not show any provision for iris capture and proceeds to the next step.
+1. User captures the other applicable biometrics, authenticates, and completes the registration.
+
+
+#### C. Turn ON or OFF UIN Updates [**[↑]**](#table-of-content)
+1. A country may opt to turn ON or OFF the UIN update process. It can be done by the admin. 
+1. An individual approaches the Registration Officer for UIN Update.
+1. If UIN Update is turned ON, the registration officer proceeds to capture the individual’s updated details.
+1. Alternatively, if UIN Update is turned OFF, the link for UIN Update will not be available. 
+1. The registration officer will not be able to carry out the UIN Update process.
+
+#### D. Update to UIN data only for configured fields
+
+An admin can configure the fields that will be available for update through the registration client. The configuration applies at a country level.
+
+The Admin can set the following fields to be update-able at a country level 
+* Name
+* Age/DoB
+* Gender
+* Address
+* Contact details
+* CNIE/EC Number
+* Parent/Guardian details
+* Biometrics-Exception
+* Biometrics-Fingerprint
+* Biometrics-Iris
+
+#### E. Turn geo-location capture ON or OFF
+1. A country may opt to turn ON or OFF the geo-location capture process. It can be done by the admin. 
+1. The reason to do this is to ensure that all registrations happen in authorized service centers only
+1. The geo location helps indicate where the registrations are happening
+1. The Registration Officer commences a [**new registration**](#34-new-registration-).
+1. If Geo location capture is turned ON, the system captures the location of the machine to be stored in the registration packet. System validates that the location is within configured limits of the master data.
+1. Alternatively, if Geo location capture is turned OFF, the system does not capture the location of the machine. System does not validate the location.
+1. User proceeds to the next step (demographic data capture).
+
+#### F. Turn ON or OFF Supervisor authentication for biometric exceptions [**[↑]**](#table-of-content)
+
+The 'Supervisor authentication for exceptions' process can be set to ON or OFF at the country level through by admin.
+ 
+1. The Registration Officer completes operator authentication at the end of registering an individual with exceptions.
+1. If supervisor authentication is turned ON, a Supervisor is required to enter their credentials.
+1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option. User proceeds to the next step (acknowledgement).
+1. If there is no supervisor for a particular country, the operator will be configured as a supervisor and he will perform the additional authentication step too in case of exceptions
+ 
+#### G. Sync Registration Centre Setup data with data store servers
+1. Registration Centre Setup data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
+1. Each machine is mapped to a registration center. Server sends only the Registration Centre Setup data for the specific center to the data store server
+1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
+#### H. Sync data from client to server [**[↑]**](#table-of-content)
+1. The registration client receives a request to sync data (through manual trigger or scheduled job) from client to server.
+2. Client in turn sends request with the applicable data to server.
+   * User on-boarding data is synced.
+   * Only the additions, deletions, and modifications made since the last sync are sent.
+3. Client receives response from server as a success or failure message.
+4. Client displays a success or failure message on the UI
+5. User on-boarding data such as User ID, USB device ID and Computer ID will be synced
+6. Alternatively, if the client machine is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync.
+   * Does not sync when an automatic sync is triggered.
+
+
+#### I. Sync master data with data store servers
+1. The registration client receives a request (through manual trigger or scheduled job) to sync master data from server to client.
+1. Client in turn requests server for master data sync.
+1. Client receives response from server with incremental changes to master data.
+1. Client saves the data in the local machine making the incremental changes as received.
+1. Client displays a success or failure message on the UI
+1. Alternatively if the client machine is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync
+   * Does not sync when an automatic sync is triggered
+
+
+#### J. Sync Config details with data store servers [**[↑]**](#table-of-content)
+1. The registration client receives a request (through manual trigger or scheduled job) to sync config data from server to client.
+1. Client in turn requests server for config data sync.
+1. Client receives response from server with incremental changes to config data.
+1. Client saves the data in the local machine overwriting previous values of the config settings received.
+1. Client displays a success or failure message on the UI.
+1. Alternatively if the client machine is not online
+   * Displays an error message and does not sync when a user tries to initiate a manual sync.
+   * Does not sync when an automatic sync is triggered.
+
+
+#### K. Requirement for document categories and document types to be shown based on the configuration per applicant type.
+1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
+1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
+1. User selects Document Types, scans and upload the documents and proceeds with registration.
+1. The categories PoI and PoA are mandatory. The registration officer will select a Document Type under each Category and upload a document.
+1. PoR is optional.
+
 ### 2.3 Packet ID Sync [**[↑]**](#table-of-content)
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
