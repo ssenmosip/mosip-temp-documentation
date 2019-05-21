@@ -31,12 +31,13 @@
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
     * [5.3.3 Update Device](#533-update-device) _(ASR_FR_5.12)_
     * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device) _(ASR_FR_5.13)_
-    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center) _(ASR_FR_5.14)_
+    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-map-un-mapre-map-device-to-a-center) _(ASR_FR_5.14)_
   * [5.4 User Management](#54-user-management)
     * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
     * [5.4.2 Create User](#542-create-user) _(ASR_FR_5.16)_
-    * [5.4.3 Activate/Deactivate/Blacklist/Whitelist User](#543-activatedeactivateblacklistwhitelist-user) _(ASR_FR_5.17)_
-    * [5.4.4 Map/Un-map/Re-map User to a Center](#544-mapun-mapre-map-user-to-a-center) _(ASR_FR_5.18)_
+    * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
+    * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user) _(ASR_FR_5.18)_
+    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-map-un-map-re-map-user-to-a-center) _(ASR_FR_5.19)_
 - [6. Master Data Management](#6-master-data-management) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
@@ -285,8 +286,12 @@ Using MOSIP, Zonal Admin/Central Admin will register the user (registration offi
     the username and password (Multi-factor login supported).
 11. If activation link expires (expiry time configurable), the system resends the link through a batch process.
 
+#### 5.4.3 Update User
+MOSIP allows its users (Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer) to update the user details. The use will provide the User ID/User Name. The system validates the provided data and privileges of user. On successful validation, the system allows updating the required user details. When the user saves the updated user details, the system captures the date & time and user’s detail who has updated the user record.
 
-#### 5.4.3 Activate/Deactivate/Blacklist/Whitelist User [**[↑]**](#table-of-content)
+If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
+
+#### 5.4.4 Activate/Deactivate/Blacklist/Whitelist User [**[↑]**](#table-of-content)
 MOSIP allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
 Procedure to block/blacklist:
 1. Zonal Admin has authorization to block or blacklist the users for any reason.
@@ -301,7 +306,7 @@ Procedure to block/blacklist:
 6. The system will also send a link to the registered mobile number or email ID, so that the related user will reset the 
    password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
 
-#### 5.4.4 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
+#### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
 MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the privileges of the Zonal Admin and on successful validation, provides the capability to map/un-map-re-map the user to the registration.
 
 For more details, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
