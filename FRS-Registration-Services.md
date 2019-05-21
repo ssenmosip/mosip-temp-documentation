@@ -350,7 +350,7 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 ## 4. Registration Data Services [**[↑]**](#table-of-content)
 ### 4.1 New Registration [**[↑]**](#table-of-content)
 
-Registration Officer initiates a new registration for a non pre-registered individual or a pre-registered individual by entering the PRID and follows the below process to complete registration:
+Registration Officer initiates a new registration for a non pre-registered individual or a pre-registered individual (by entering the PRID) and follows the below process to complete registration:
 
 #### A. Capture consent from the individual for data storage and utilization				
 1. For every registration, the system provides an option for the Registration Officer to mark an individual's consent as Yes or No
