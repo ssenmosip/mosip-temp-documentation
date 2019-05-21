@@ -177,7 +177,7 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 ## 2. Data Sync [**[↑]**](#table-of-content)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
 
-The Registration client can work in both in online and offline mode. When the client machine is switching from offline to online mode, the locally saved data will be synced with the server.
+The Registration client can work both in online and offline mode. When the client machine is switching from offline to online mode, the locally saved data will be synced with the server.
 The data sync can happen through an automated process at a set frequency or a user can manually initiate a sync.
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
