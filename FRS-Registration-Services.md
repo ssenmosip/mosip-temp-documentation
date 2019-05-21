@@ -321,13 +321,9 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
-The system allows a registration officer or supervisor to view the status of biometric devices (such as fingerprint & iris capture devices, face camera) and internet connectivity to a client machine in the header (displayed as red or green indicator). Refer below for more details:
+The system allows a registration officer or supervisor to view the whether a  biometric devices (such as fingerprint & iris capture devices, face camera) is connected correctly or not connected to the client machine. If a biometric device is turned OFF by admin, then the system doesn't display the availability  of the device.
+The system has the provision to show if the client machine has internet connectivity or not. 
 
-NOTE: The system do not display any icon (icon of their respective device) in the header if a specific biometric device(s) is turned OFF by a country admin.
-1. If a biometric device(s) are correctly connected to a client machine, then the system displays their respective icon in green color in the header.
-1. If a biometric device(s) are not connected to a client machine, then the system displays their respective icon in red color in the header.
-1. If the client machine has internet connectivity, then the system displays as “System Online” in green color in the header.
-1. If the client machine has no internet connectivity, then the system displays as “System Offline” in red color in the header.
 
 ### 3.2 Disk Space Check [**[↑]**](#table-of-content)
 If disk space is insufficient, system displays an error message and data entered by registration officer will be not be save. Then Registration officer will clean up to make sufficient space on the client machine and tries the registration again.
