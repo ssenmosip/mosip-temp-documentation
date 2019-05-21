@@ -215,7 +215,7 @@
 |45.|Device onboarding|  Master data Sync | REG_FR_2.1| [MOS-10537](//mosipid.atlassian.net/browse/MOS-10537) |
 |46.|New registration|  Pre-registration Data download| REG_FR_2.5| [MOS-16784](//mosipid.atlassian.net/browse/MOS-16784) |
 |47.|Sync|  Master data Sync | REG_FR_2.1| [MOS-11597](//mosipid.atlassian.net/browse/MOS-11597) |
-|48.|Sync|  Registration Data | REG_FR_5.14| [MOS-16544](//mosipid.atlassian.net/browse/MOS-16544), [MOS-8641](//mosipid.atlassian.net/browse/MOS-8641), [MOS-8942](//mosipid.atlassian.net/browse/MOS-8942), [MOS-8572](//mosipid.atlassian.net/browse/MOS-8572), [MOS-1381](//mosipid.atlassian.net/browse/MOS-1381), [MOS-1014](//mosipid.atlassian.net/browse/MOS-1014), [MOS-1013](//mosipid.atlassian.net/browse/MOS-1013)  |
+|48.|Sync|Packet Status Sync| REG_FR_2.4|[MOS-8641](//mosipid.atlassian.net/browse/MOS-8641), [MOS-8942](//mosipid.atlassian.net/browse/MOS-8942), [MOS-8572](//mosipid.atlassian.net/browse/MOS-8572), [MOS-1381](//mosipid.atlassian.net/browse/MOS-1381), [MOS-1014](//mosipid.atlassian.net/browse/MOS-1014), [MOS-1013](//mosipid.atlassian.net/browse/MOS-1013)  |
 |49.|EoD process| Analytics and Audit Logs  | REG_FR_8| [MOS-16712](//mosipid.atlassian.net/browse/MOS-16712) |
 |50.|Security Scan| Analytics and Audit Logs  | REG_FR_8| [MOS-15832](//mosipid.atlassian.net/browse/MOS-15832) |
 |51.|Sync|  Analytics and Audit Logs  | REG_FR_8| [MOS-13184](//mosipid.atlassian.net/browse/MOS-13184) |
