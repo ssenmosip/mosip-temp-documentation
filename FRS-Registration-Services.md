@@ -425,7 +425,6 @@ Registration Officer captures an individual’s finger prints using finger print
 
 **Turn ON or OFF finger prints capture**
 
-1. A country may opt to turn ON or OFF the finger prints capture process which is configurable by the admin at the country level.
 1. If finger prints capture is turned ON, Registration Officer captures the individual’s finger prints using finger print device.
 1. Alternatively, if finger print capture is turned OFF, system does not show any provision for finger print capture and proceeds to the next step.
 
