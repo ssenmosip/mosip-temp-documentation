@@ -77,28 +77,17 @@
 - [15. Process Flow Setup](#15-process-flow-setup) _(ASR_FR_15)
 ## 1. Login
 ### 1.1 Login
-MOSIP Admin portal will support single factor and multi factor login including biometrics. Admin will configure the login setting related to single factor or multi-factor based on the country.
-MOSIP Admin Application allows the user to login to the portal to perform the following:
-1. MOSIP Admin will login the portal with valid credentials (User Name and Password). Specific to country, the password is 
-   configurable to single factor or multi factor.
-2. MOSIP validates the credentials and allows admin to land in main page on successful validation.
-3. Credentials are blocked after unsuccessful attempt of X times (number of attempt is configurable) login.
-4. Once the credentials are blocked, only the relevant user or super admin can unblock the user. 
+MOSIP allows user to provide the credential to login. Based on country, single factor or multi-factor credentials are configured. The system validates the credentials (User Name and Password) and the privileges of user. On successful validation, the system allows user to land in main page. User account is blocked if X number of (X number is configurable)
+unsuccessful attempt is made to login and a respective notification is sent t the user. Once the user account is blocked, only the relevant user or super admin can unblock the user account.
+For more details, please refer to <Reset Password, and Forgot Password link to be provided here>
 ### 1.2 Logout
 #### 1.2.1 Manual Logout
-MOSIP allows the user to log out from the active session.
-User will perform the following to log out from MOSIP:
-1. User will be in active session and on the main page.
-2. Logout attributes should be always in active mood for the active session.
-3. User performs logout actions from the main page.
-4. The system verifies if the user is in  active session and provides the logout related message within 350 milliseconds.
-
+MOSIP allows user to log out from the active session of the main page by selecting the logout attributes. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (Error notification is configurable and pre-defined). 
 #### 1.2.2 Auto Logout
 MOSIP Admin Application provides the capability to auto-logout the user as configured. For example, if system becomes idle for sometimes (idle time is configurable), then user will be auto-logout. 
 ## 2. Account Management
 ### 2.1 Edit Personal Details
 Using MOSIP, user will  manage his/her profile. Generally MOSIP users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
-
 Procedure to manage the profile follows:
 1. User will provide the valid credential in the relevant portal to login.
 2. The system validates the credentials and allows user to login after successful validation.
