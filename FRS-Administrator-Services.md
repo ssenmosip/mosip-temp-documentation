@@ -75,7 +75,7 @@
     * [13.1 ID Definition Validator](#131-id-definition-validator) _(ASR_FR_13.1)_
 - [14. Configuration Setup](#14-configuration-setup) _(ASR_FR_14)
 - [15. Process Flow Setup](#15-process-flow-setup) _(ASR_FR_15)
-## 1. Login
+## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
 MOSIP allows user to provide the credential to login. Based on country, single factor or multi-factor credentials are configured. The system validates the credentials (User Name and Password) and the privileges of user. On successful validation, the system allows user to land in main page. User account is blocked if X number of (X number is configurable)
 unsuccessful attempt is made to login and a respective notification is sent t the user. Once the user account is blocked, only the relevant user or super admin can unblock the user account.
@@ -85,7 +85,7 @@ For more details, please refer to <Reset Password, and Forgot Password link to b
 MOSIP allows user to log out from the active session of the main page by selecting the logout attributes. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (Error notification is configurable and pre-defined). 
 #### 1.2.2 Auto Logout
 MOSIP Admin Application provides the capability to auto-logout the user as configured. For example, if system becomes idle for sometimes (idle time is configurable), then user will be auto-logout. 
-## 2. Account Management
+## 2. Account Management [**[↑]**](#table-of-content)
 ### 2.1 Edit Personal Details
 Using MOSIP, user will  manage his/her profile. Generally MOSIP users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 Procedure to manage the profile follows:
@@ -98,7 +98,7 @@ Procedure to manage the profile follows:
    Management).
 On successful submission the updates, the system provides the notification about the updates. 
 
-### 2.2 Change Password
+### 2.2 Change Password [**[↑]**](#table-of-content)
 MOSIP allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User will select the change password, the system allows the user to land in Change Password Page and performs the following: 
 1.	User provides the credential in MOSIP and selects the option of Change Password.
 2.	The system allows user to land in Change Password page.
@@ -106,7 +106,7 @@ MOSIP allows user to change the password. Based on the country, single factor or
 4.	  During the password creation, user should follow the password creation rule (combination of characters, special character, and min and max length etc.) which is configurable. 
 
 
-### 2.3 Reset Password
+### 2.3 Reset Password [**[↑]**](#table-of-content)
 MOSIP allows users to reset the password. Based on the country, single factor or multi-factor authentication will be configured. If requested through Zonal Admin, then system performs only OTP authentication.
 
 To reset the password, the user performs the following:
@@ -119,7 +119,7 @@ To reset the password, the user performs the following:
 6.	The system sends a notification to the user related to the password reset status.
 
 
-### 2.4 Forgot Username
+### 2.4 Forgot Username [**[↑]**](#table-of-content)
 Using MOSIP, user can retrieve the username. Based on the country, multi-factor authentication will be configured. 
 To retrieve the user name, the user performs the following:
 
@@ -141,12 +141,12 @@ Procedure to unblock the account:
 3. User will enter the OTP as received
 4. On successful validation, system sends SMS notification related to the unblocking of account.
 
-## 3. Security Policy Configuration
-## 4. Notification (v1.5) (WIP)
+## 3. Security Policy Configuration [**[↑]**](#table-of-content)
+## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-content)
 ### 4.1 Approval Notifications
 ### 4.2 Country Specific News/Notifications
-## 5. Resource Management
-### 5.1 Center Management
+## 5. Resource Management [**[↑]**](#table-of-content)
+### 5.1 Center Management 
 #### 5.1.1 View Center
 MOSIP allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the details of registration center else the respective error notification (error notification are configurable and predefined) are triggered
 
@@ -159,10 +159,10 @@ Using MOSIP, Zonal Admin will provide all the mandatory data (ID, Name, Type, an
 	
 For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#21-registration-center-type---createupdatedelete-
 
-#### 5.1.3 Update Center
+#### 5.1.3 Update Center [**[↑]**](#table-of-content)
 Using MOSIP, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the Registration Center and provides an acknowledgement notification about the updates status else trigger a respective error message. 
 #### 5.1.4 Activate/Deactivate/Decommission Center
-### 5.2 Machine Management
+### 5.2 Machine Management [**[↑]**](#table-of-content)
 #### 5.2.1 View Machine
 MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data and provides the list of machines available in the registration center. During the validation of registration center ID, if the registration ID not found, then the system triggers an error notification.
 #### 5.2.2 Create Machine
@@ -182,7 +182,7 @@ Machines uniqueness will be maintained through device serial number.
 
 Zonal Admin will register the machines importing CSV/XLS. For more information about registering machines, please refer to  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#23-list-of-machine-types---create-
 
-#### 5.2.3 Update Machine
+#### 5.2.3 Update Machine [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 Procedure to update the machine related details, the Zonal Admin will:
 1. Update the machine details such as Serial Number and Mac-Address
@@ -194,8 +194,8 @@ Procedure to update the machine related details, the Zonal Admin will:
 For more details, please refer to 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-
 
-#### 5.2.4 Activate/Deactivate/Decommission Machine
-#### 5.2.5 Map/Un-map/Re-map Machine to a Center
+#### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
+#### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
 MOSIP allows Zonal Admin to map the machine to the registration center based on admin zone. If the machine is not mapped with the registration center, it cannot be recognized by MOSIP to perform any operation in that center. The system track the machine by serial number and other attributes of the machine.
 
 Procedure to map the registration center to the machine:
@@ -208,7 +208,7 @@ Procedure to map the registration center to the machine:
 
  For more details, please refer to 
  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#210-mappings-of-registration-center-and-machine---createdelete-
-### 5.3 Device Management
+### 5.3 Device Management [**[↑]**](#table-of-content)
 #### 5.3.1 View Device
 MOSIP allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the list of devices available in the registration center. During the validation of registration center ID and privileges of zonal Admin, if the registration ID is not found, then the system triggers an error notification.
 #### 5.3.2 Create Device
@@ -229,7 +229,7 @@ For more information about register devices in admin zone, please refer tohttps:
 Zonal Admin will register the devices in backend to his/her admin zone by importing CSV/XLS.
 For more details, please refer to <Link to be provided after discussing with Aman>
 
-#### 5.3.3 Update Device
+#### 5.3.3 Update Device [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason, 
 Procedure to update the devices related details, the Zonal Admin will:
 1. Update the device details such as Serial Number and Mac-Address.
@@ -240,9 +240,9 @@ Procedure to update the devices related details, the Zonal Admin will:
 
 For more  details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-
 
-#### 5.3.4 Activate/Deactivate/Decommission Device
+#### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
 
-#### 5.3.5 Map/Un-map/Re-map Device to a Center
+#### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-content)
 MOSIP allows Zonal Admin to map the devices to the registration center by providing the device ID and registration center ID. The registration center must be under the jurisdiction of the Zonal Admin based on admin zone.
 
 Procedure to map the registration center with the devices:
@@ -253,7 +253,7 @@ Procedure to map the registration center with the devices:
 
 For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
 
-### 5.4 User Management
+### 5.4 User Management [**[↑]**](#table-of-content)
 #### 5.4.1 View User
 MOSIP allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, the privileges allocated to user and provides the list of user already mapped to the specified registration center on successful validation.
 #### 5.4.2 Create User
@@ -286,7 +286,7 @@ Using MOSIP, Zonal Admin will register the users (registration officer, supervis
 11. If activation link expires (expiry time configurable), the system resends the link through a batch process.
 
 
-#### 5.4.3 Activate/Deactivate/Blacklist/Whitelist User
+#### 5.4.3 Activate/Deactivate/Blacklist/Whitelist User [**[↑]**](#table-of-content)
 MOSIP allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
 Procedure to block/blacklist:
 1. Zonal Admin has authorization to block or blacklist the users for any reason.
@@ -301,30 +301,30 @@ Procedure to block/blacklist:
 6. The system will also send a link to the registered mobile number or email ID, so that the related user will reset the 
    password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
 
-#### 5.4.4 Map/Un-map/Re-map User to a Center
+#### 5.4.4 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
 MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the registration center ID. The system validates the registration ID and the privileges of the user and provides the capability to map/un-map-re-map the user to the registration on successful validation.
 
 For more details, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
-## 6. Master Data Management
+## 6. Master Data Management [**[↑]**](#table-of-content)
 ### 6.1 View Master Data Types
 ### 6.2 View Master Data for Each Table
-### 6.3 Manage Master Data
+### 6.3 Manage Master Data [**[↑]**](#table-of-content)
 #### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
-#### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)
+#### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate) [**[↑]**](#table-of-content)
 #### 6.3.3 Manage Location Data (Create, Update, Activate, Deactivate) 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
-#### 6.3.5 Manage Registration Center Types (View)
+#### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
 #### 6.3.6 Manage Machine Types (View)
-#### 6.3.7 Manage Machine Specifications (View)
+#### 6.3.7 Manage Machine Specifications (View) [**[↑]**](#table-of-content)
 #### 6.3.8 Manage Device Types (View)
-#### 6.3.9 Manage Device Specifications (View)
+#### 6.3.9 Manage Device Specifications (View) [**[↑]**](#table-of-content)
 #### 6.3.10 Manage Individual Types (View)
-#### 6.3.11 Manage Document Type to Document Category Mapping (View)
+#### 6.3.11 Manage Document Type to Document Category Mapping (View) [**[↑]**](#table-of-content)
 #### 6.3.12 Manage List of Holidays (View)
-#### 6.3.13 Manage List of Templates (View)
+#### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-content)
 #### 6.3.14 Manage List of Titles (View)
-#### 6.3.15 Manage Gender Types (View)
-## 7. Approval Process
+#### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-content)
+## 7. Approval Process [**[↑]**](#table-of-content)
 ### 7.1 Approval for Resource Creation (WIP)
 #### 7.1.1 Center 
 #### 7.1.2 Machine 
@@ -343,16 +343,16 @@ d) Escalation Mail
 e) Reports
 
 ### 7.2 Approval for Master Data Creation (WIP)
-## 8. UIN Activation/Deactivation
+## 8. UIN Activation/Deactivation [**[↑]**](#table-of-content)
 Using MOSIP, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/Inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
-## 9. Packet Status Check (based on RID)
-## 10. Multi-language Support
+## 9. Packet Status Check (based on RID) [**[↑]**](#table-of-content)
+## 10. Multi-language Support [**[↑]**](#table-of-content)
 ### 10.1 i18N
 ### 10.2 Implementation in English (Labels etc)
 ### 10.3 Language Specific Setup
-## 11. Responsive UI
-## 12. MOSIP Platform Setup
-## 13. ID Definition Setup
+## 11. Responsive UI [**[↑]**](#table-of-content)
+## 12. MOSIP Platform Setup [**[↑]**](#table-of-content)
+## 13. ID Definition Setup [**[↑]**](#table-of-content)
 ### 13.1 ID Definition Validator
-## 14. Configuration Setup
-## 15. Process Flow Setup
+## 14. Configuration Setup [**[↑]**](#table-of-content)
+## 15. Process Flow Setup [**[↑]**](#table-of-content)
