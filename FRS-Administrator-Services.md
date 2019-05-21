@@ -163,7 +163,7 @@ Using MOSIP, Zonal Admin will search for the registration center to be updated, 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 ### 5.2 Machine Management [**[↑]**](#table-of-content)
 #### 5.2.1 View Machine
-MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…) those are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID, if the registration ID not found, then the system triggers an error notification
+MOSIP allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID and Zonal Admin's privileges, if the registration ID/Zonal Admin's privileges are not found, then the system triggers an error notification
 #### 5.2.2 Create Machine
 Using MOSIP, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
 Procedure to register machines follows:
@@ -201,7 +201,7 @@ If the machine is not mapped with the registration center, it cannot be recogniz
  
 ### 5.3 Device Management [**[↑]**](#table-of-content)
 #### 5.3.1 View Device
-MOSIP allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the list of devices available in the registration center. During the validation of registration center ID and privileges of zonal Admin, if the registration ID is not found, then the system triggers an error notification.
+MOSIP allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of devices details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the devices` without providing the registration center ID, then the system provides all the devices registered in the country.  During the validation of registration center ID and Zonal Admins privileges, if the registration ID/Zonal Admin’s privileges are not found, then the system triggers an error notification.
 #### 5.3.2 Create Device
 Zonal Admin will register the devices for his/her zone using MOSIP. If the device is not allocated to the specific zone, the Zonal Admin will not map the devices to any registration center under his/her zone.
 Procedure to register device follows:
