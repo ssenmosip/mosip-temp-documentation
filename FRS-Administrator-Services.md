@@ -167,7 +167,7 @@ MOSIP allows Zonal Admin to view the machines by providing the registration cent
 #### 5.2.2 Create Machine
 Using MOSIP, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
 
-Procedure to register the machine follows:
+Procedure to register machines follows:
 1. Zonal admin will select a Machine Type and Machine Specification for the new Machine.
 1. Zonal admin will enter the following required details for the new machine:
  * Machine ID
@@ -181,13 +181,10 @@ Procedure to register the machine follows:
  * Created by
  * Created Date and Time
 1. Zonal Admin creates the machine by providing all the required information related to the machine.
+Machines uniqueness will be maintained through machine’s serial number.
 
-Machines uniqueness will be maintained through device serial number.
-
-Zonal Admin will register the machines to his/her admin zone by importing CSV/XLS.
+Zonal Admin will also register the machines by importing the CSV/XLS.
 For more details, please refer to  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#23-list-of-machine-types---create-
-
-
 #### 5.2.3 Update Machine [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 Procedure to update the machine related details, the Zonal Admin will:
@@ -208,22 +205,27 @@ If the machine is not mapped with the registration center, it cannot be recogniz
 #### 5.3.1 View Device
 MOSIP allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of devices details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the devices` without providing the registration center ID, then the system provides all the devices registered in the country.  During the validation of registration center ID and Zonal Admins privileges, if the registration ID/Zonal Admin’s privileges are not found, then the system triggers an error notification.
 #### 5.3.2 Create Device
-Zonal Admin will register the devices for his/her zone using MOSIP. If the device is not allocated to the specific zone, the Zonal Admin will not map the devices to any registration center under his/her zone.
-Procedure to register device follows:
+Using MOSIP, Zonal Admin will register the devices for his/her zone. The device cannot be used in zone, if it is not registered.
+
+Procedure to register the device follows:
+
 1. Zonal admin will select a Device Type and Device Specification for the new device.
-1. The system allows Zonal admin to enter the following required details for the new devices:
+1. Zonal admin will provide the following required details for the new device:
+ * Device ID
  * Device Name
  * Mac Address
- * IP Address
  * Serial Number
+ * IP Address
  * Device Spec ID
- * Location Zone (Zone a Device will belong based on Zonal Admins zone, currently not in DB)
-1. Zonal Admin will map the devices to the existing registration center under the jurisdiction of his/her Admin zone.
-1. Devices uniqueness will be maintained through device serial number.	
-For more information about register devices in admin zone, please refer tohttps://github.com/mosip/mosip/wiki/FRS-Admin-Services#29-list-of-device-types---create-
+ * Language Code
+ * Active (Boolean)
+ * Created by
+ * Created Date and Time
+1. Zonal Admin creates the device by providing all the required information related to the device.
 
-Zonal Admin will register the devices in backend to his/her admin zone by importing CSV/XLS.
-For more details, please refer to <Link to be provided after discussing with Aman>
+Device uniqueness will be maintained through device’s serial number.
+
+Zonal Admin will also register the machines by importing the CSV/XLS.
 
 #### 5.3.3 Update Device [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason, 
