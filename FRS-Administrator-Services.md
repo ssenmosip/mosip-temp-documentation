@@ -301,7 +301,7 @@ Procedure to block/blacklist:
    password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
 
 #### 5.4.4 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
-MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the registration center ID. The system validates the registration ID and the privileges of the user and provides the capability to map/un-map-re-map the user to the registration on successful validation.
+MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the privileges of the Zonal Admin and on successful validation, provides the capability to map/un-map-re-map the user to the registration.
 
 For more details, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
 ## 6. Master Data Management [**[↑]**](#table-of-content)
