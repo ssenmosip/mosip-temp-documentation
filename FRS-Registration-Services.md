@@ -733,6 +733,7 @@ System exports registration packet data from client machine to an external devic
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ## 8. Analytics and Audit Logs [**[↑]**](#table-of-content) 
+System captures and stores details of each transaction during registration process for audit purpose (except PII data). The audit data is stored in the audit database. When the client machine is working in an offline mode, the audit log is synced with the server as when the client machine is online. 
 ## 9. Data Security [**[↑]**](#table-of-content)
 Registration client integrates with Trusted Platform Model (TPM) data integrity. For enhanced security and integrity purposes, data captured from individuals are saved securely in local system and then shared to server. The details saved locally would be encrypted. DataBase encryption is also mandatory.
 
