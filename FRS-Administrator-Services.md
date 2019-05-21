@@ -342,6 +342,7 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 **Create/Update**
+
 Using MOSIP, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges  and allows to create the words in the database after successful validation.  During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an error notification.   
 #### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
 #### 6.3.6 Manage Machine Types (View)
