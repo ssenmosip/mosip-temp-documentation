@@ -238,7 +238,9 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 #### G. Sync Registration Centre Setup data with data store servers
 1. Registration Centre Setup data includes the following attributes: Registration Centre ID, Registration Centre Name, Latitude, Longitude, Is Active, Centre Type, Address with Postal Code, Working Hours, Contact Number.
 1. Each machine is mapped to a registration center. Server sends only the Registration Centre Setup data for the specific center to the data store server
-1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
+1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: 
+
+“Sync successful. Please restart the application to finish updating.”
 
 
 
