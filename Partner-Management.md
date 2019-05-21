@@ -35,7 +35,6 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 * Partners will be able to share/upload partner public key with PM module. PM module / ID Authentication module will use this public key for encrypting response for partners.
 * Partner public keys are stored in Kernel, refernece to public keys are maintained in PM module
 * Based on Key rotation and expiration property, partners will be able to share/upload new public key with PM module.
-
 ![MOSIP Infrastructure Service Provider Management](_images/arch_diagrams/PMKeyCertificateMgmt.png)
 ## Logical View
 ![Partner Management Logical View](_images/arch_diagrams/PMLogicalDiagram.png)
