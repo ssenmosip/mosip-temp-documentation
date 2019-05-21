@@ -241,18 +241,8 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 1. The system determines if a restart is required in order to apply the updates. If restart is required, notify the registration officer as a part of the sync success message: “Sync successful. Please restart the application to finish updating.”
 
 
-#### H. Sync master data with data store servers
-1. The registration client receives a request (through manual trigger or scheduled job) to sync master data from server to client.
-1. Client in turn requests server for master data sync.
-1. Client receives response from server with incremental changes to master data.
-1. Client saves the data in the local machine making the incremental changes as received.
-1. Client displays a success or failure message on the UI
-1. Alternatively if the client machine is not online
-   * Displays an error message and does not sync when a user tries to initiate a manual sync
-   * Does not sync when an automatic sync is triggered
 
-
-#### I. Sync Config details with data store servers [**[↑]**](#table-of-content)
+#### H. Sync Config details with data store servers [**[↑]**](#table-of-content)
 1. The registration client receives a request (through manual trigger or scheduled job) to sync config data from server to client.
 1. Client in turn requests server for config data sync.
 1. Client receives response from server with incremental changes to config data.
@@ -263,7 +253,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
    * Does not sync when an automatic sync is triggered.
 
 
-#### J. Requirement for document categories and document types to be shown based on the configuration per applicant type.
+#### I. Requirement for document categories and document types to be shown based on the configuration per applicant type.
 1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
 1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
 1. User selects Document Types, scans and upload the documents and proceeds with registration.
