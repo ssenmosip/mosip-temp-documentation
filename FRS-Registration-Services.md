@@ -321,6 +321,7 @@ The downloaded pre-registration data is stored in its stipulated path as defined
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
 The system allows a registration officer or supervisor to view the status of biometric devices (such as fingerprint & iris capture devices, face camera) and internet connectivity to a client machine in the header (displayed as red or green indicator). Refer below for more details:
+
 NOTE: The system do not display any icon (icon of their respective device) in the header if a specific biometric device(s) is turned OFF by a country admin.
 1. If a biometric device(s) are correctly connected to a client machine, then the system displays their respective icon in green color in the header.
 1. If a biometric device(s) are not connected to a client machine, then the system displays their respective icon in red color in the header.
