@@ -35,6 +35,6 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 * Based on Key rotation and expiration property, partners will be able to share/upload new public key with PM module.
 
 ## Logical View
-![Partner Management Logical View](_images/arch_diagrams/partner-management/Logical Diagram V0.1.png)
+![Partner Management Logical View](_images\arch_diagrams\partner-management\_images\Logical Diagram V0.1.png)
 
 
