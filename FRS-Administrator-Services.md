@@ -254,7 +254,7 @@ For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-
 
 ### 5.4 User Management [**[↑]**](#table-of-content)
 #### 5.4.1 View User
-MOSIP allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, the privileges allocated to user and provides the list of user already mapped to the specified registration center on successful validation.
+MOSIP allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, the privileges allocated to user and provides user’s details (ID, Name, Last Name, Role, Registration Center ID, Date of Birth, Gender, Contact Number, Email ID etc…) already mapped to the specified registration center on successful validation.
 #### 5.4.2 Create User
 Using MOSIP, Zonal Admin will register the users (registration officer, supervisor) on portal by providing the following details of the user:
 1. Zonal Admin will provide the following personal details of user:
