@@ -284,6 +284,12 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
    * Does not sync when an automatic sync is triggered.
 
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
+
+The system performs the following steps to ensure packet status sync from server to client to read the status of the registration packets sent:
+1. The system allows a registration officer to either sync manually or automatically based on configured frequency.
+1. The system allows the application to request using Registration packet ID and receive the Registration packet status from the server
+1. The system displays the status of the operation to pull Registration packet IDs from Registration server - in progress/completed.
+
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
