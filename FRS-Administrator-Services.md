@@ -184,12 +184,10 @@ Zonal Admin will register the machines importing CSV/XLS. For more information a
 #### 5.2.3 Update Machine [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 Procedure to update the machine related details, the Zonal Admin will:
-1. Update the machine details such as Serial Number and Mac-Address
-1. Update the zone of a machine (If a Machine is being moved to a new zone or accidenatlly assigned to a wrong zone).
-1. The system does make the machine visible to the Zonal Admin, if previously assigned to other zone.
-1. Remove the mapping of the Center and Machine  (if already mapped to a Center of another zone)
-1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone)
-
+1. Zonal Admin provides the mandatory information (Machine ID, Machine Name, and Zon ID).
+1. The system validates the provided data and privileges of zonal Admin. On successful validation, the system allows Zonal Admin to update the required details. For example, if a Machine has been moved to a new zone or accidentally assigned to a wrong zone.
+1. When the machine related information is updated, the system captures the date, date & time, Zonal Admin details who has updated the machine.
+1. If the Zonal Admin select the Delete flag, the information is updated when the registration center is updated. 
 For more details, please refer to 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-
 
