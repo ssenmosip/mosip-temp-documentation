@@ -181,14 +181,14 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 
 #### A. Turn ON or OFF face capture 
 1. A country may opt to turn ON or OFF the face capture process. It can be done by the admin. 
-1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#34-new-registration-), enters the demographic data and uploads documents.
+1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#41-new-registration-), enters the demographic data and uploads documents.
 1. If face capture is turned ON, user captures the individual’s face photo.
 1. Alternatively, if face capture is turned OFF, system does not show any provision for face capture and proceeds to the next step.
 1. User captures the other applicable biometrics, authenticates, and completes the registration.
 
 #### B. Turn ON or OFF iris capture 
 1. A country may opt to turn ON or OFF the iris capture process. It can be done by the admin. 
-1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#34-new-registration-), enters the demographic data and uploads documents
+1. A Registration Officer logs in to the Registration Client and commences a [**new registration**](#41-new-registration-), enters the demographic data and uploads documents
 1. If iris capture is turned ON, user captures the individual’s iris scan
 1. Alternatively, if iris capture is turned OFF, system does not show any provision for iris capture and proceeds to the next step.
 1. User captures the other applicable biometrics, authenticates, and completes the registration.
@@ -221,7 +221,7 @@ The Admin can set the following fields to be update-able at a country level
 1. A country may opt to turn ON or OFF the geo-location capture process. It can be done by the admin. 
 1. The reason to do this is to ensure that all registrations happen in authorized service centers only
 1. The geo location helps indicate where the registrations are happening
-1. The Registration Officer commences a [**new registration**](#34-new-registration-).
+1. The Registration Officer commences a [**new registration**](#41-new-registration-).
 1. If Geo location capture is turned ON, the system captures the location of the machine to be stored in the registration packet. System validates that the location is within configured limits of the master data.
 1. Alternatively, if Geo location capture is turned OFF, the system does not capture the location of the machine. System does not validate the location.
 1. User proceeds to the next step (demographic data capture).
@@ -256,7 +256,7 @@ The 'Supervisor authentication for exceptions' process can be set to ON or OFF a
 
 
 #### I. Requirement for document categories and document types to be shown based on the configuration per applicant type.
-1. The Registration Officer commences a [**new registration**](#34-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
+1. The Registration Officer commences a [**new registration**](#41-new-registration-), enters demographic details, the system then allows a registration officer to upload documents
 1. User views the applicable document categories based on the demographic data entered. For each category, the applicable document types are displayed in the UI. In case of new registration or UIN update, the Document Categories and their respective Document Types will be configured by MOSIP admin.
 1. User selects Document Types, scans and upload the documents and proceeds with registration.
 1. The categories PoI and PoA are mandatory. The registration officer will select a Document Type under each Category and upload a document.
