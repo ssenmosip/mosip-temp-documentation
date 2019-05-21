@@ -550,7 +550,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
 
 ### 4.3 Lost UIN [**[↑]**](#table-of-content)
 
-When an individual have lost their UIN and visits registration center for retrieval of UIN request, then the Registration Officer will capture the biometric and demographic details of the individual and process a request to retrieve a lost UIN. After completing the capturing process, the system sends a notification to the individual.
+When an individual has lost his UIN and visits registration center for retrieval of UIN, the Registration Officer captures the biometric and demographic details of the individual and processes a request to retrieve the lost UIN. The system sends a notification to the individual upon successful creation of the UIN retrieval request.
 
 The Registration Officer performs the following steps to retrieve a lost UIN of the individual:
 
