@@ -262,7 +262,7 @@
 |92.|Device Onboarding|Peripherals check|REG_FR_3.1|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996), [MOS-13562](//mosipid.atlassian.net/browse/MOS-13562) |
 |93.|Sync|Configuration Sync|REG_FR_2.2|[MOS-1227](//mosipid.atlassian.net/browse/MOS-1227), [MOS-12984](//mosipid.atlassian.net/browse/MOS-12984), [MOS-13557](//mosipid.atlassian.net/browse/MOS-13557), [MOS-13657](//mosipid.atlassian.net/browse/MOS-13657), [MOS-13659](//mosipid.atlassian.net/browse/MOS-13659), [MOS-13660](//mosipid.atlassian.net/browse/MOS-13660), [MOS-13661](//mosipid.atlassian.net/browse/MOS-13661)|
 |94.|Sync|Client to Server Sync|REG_FR_2.3|[MOS-1243](//mosipid.atlassian.net/browse/MOS-1243)|
-|94.|New registratiom|Biometric Exceptions |REG_FR_4.6|[MOS-23288](//mosipid.atlassian.net/browse/MOS-23288)|
+|94.|New registration|Biometric Exceptions |REG_FR_4.6|[MOS-23288](//mosipid.atlassian.net/browse/MOS-23288),[MOS-23904](//mosipid.atlassian.net/browse/MOS-23904)|
 
 
 
