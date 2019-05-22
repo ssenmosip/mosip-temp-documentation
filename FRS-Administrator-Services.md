@@ -43,39 +43,39 @@
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-)
     * [6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)](#631-manage-document-type-create-update-activate-deactivate)) _(ASR_FR_6.3)_
-    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate--) _(ASR_FR_6.4)_
+    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate-) _(ASR_FR_6.4)_
     * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
     * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
      * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view-) _(ASR_FR_6.7)_ 
      * [6.3.6 Manage Machine Types (View)](#636-manage-machine-types-view) _(ASR_FR_6.8)_ 
-     * [6.3.7 Manage Machine Specifications (View)](#637-manage-machine-specifications-view) _(ASR_FR_6.9)_ 
+     * [6.3.7 Manage Machine Specifications (View)](#637-manage-machine-specifications-view-) _(ASR_FR_6.9)_ 
      * [6.3.8 Manage Device Types (View)](#638-manage-device-types-view) _(ASR_FR_6.10)_ 
-     * [6.3.9 Manage Device Specifications (View)](#639-manage-device-specifications-view) _(ASR_FR_6.11)_ 
+     * [6.3.9 Manage Device Specifications (View)](#639-manage-device-specifications-view-) _(ASR_FR_6.11)_ 
      * [6.3.10 Manage Individual Types (View)](#6310-manage-individual-types-view) _(ASR_FR_6.12)_ 
-     * [6.3.11 Manage Document Type to Document Category Mapping (View)](#6311-manage-document-type-to-document-category-mapping-view) _(ASR_FR_6.13)_ 
+     * [6.3.11 Manage Document Type to Document Category Mapping (View)](#6311-manage-document-type-to-document-category-mapping-view-) _(ASR_FR_6.13)_ 
      * [6.3.12 Manage List of Holidays (View)](#6312-manage-list-of-holidays-view) _(ASR_FR_6.14)_ 
-     * [6.3.13 Manage List of Templates (View)](#6313-manage-list-of-templates-view) _(ASR_FR_6.15)_ 
-      * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.16)_ 
-     * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view) _(ASR_FR_6.17)_ 
-- [7. Approval Process](#7-approval-process) _(ASR_FR_7)_
+     * [6.3.13 Manage List of Templates (View)](#6313-manage-list-of-templates-view-) _(ASR_FR_6.15)_ 
+     * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.16)_ 
+     * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.17)_ 
+- [7. Approval Process](#7-approval-process-) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation-wip-)
     * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
     * [7.1.2 Machine](#712-machine) _(ASR_FR_7.2)_
     * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
     * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
   * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation-wip) _(ASR_FR_7.5)_
-- [8. UIN Activation/Deactivation](#8-uin-activationdeactivation) _(ASR_FR_8)_
-- [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid) _(ASR_FR_9)_
-- [10.Multi-language Support)](#10-multi-language-support) _(ASR_FR_10)_
+- [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-) _(ASR_FR_8)_
+- [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid-) _(ASR_FR_9)_
+- [10.Multi-language Support)](#10-multi-language-support-) _(ASR_FR_10)_
     * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
     * [10.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_10.2)_
     * [10.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_10.3)_
-- [11. Responsive UI](#11-responsive-ui) _(ASR_FR_11)
-- [12. MOSIP Platform Setup](#12-mosip-platform-setup) _(ASR_FR_12)
-- [13. ID Definition Setup](#13-id-definition-setup) _(ASR_FR_13)
+- [11. Responsive UI](#11-responsive-ui-) _(ASR_FR_11)
+- [12. MOSIP Platform Setup](#12-mosip-platform-setup-) _(ASR_FR_12)
+- [13. ID Definition Setup](#13-id-definition-setup-) _(ASR_FR_13)
     * [13.1 ID Definition Validator](#131-id-definition-validator) _(ASR_FR_13.1)_
-- [14. Configuration Setup](#14-configuration-setup) _(ASR_FR_14)
-- [15. Process Flow Setup](#15-process-flow-setup) _(ASR_FR_15)
+- [14. Configuration Setup](#14-configuration-setup-) _(ASR_FR_14)
+- [15. Process Flow Setup](#15-process-flow-setup-) _(ASR_FR_15)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
 MOSIP allows user to provide the credential to login. Based on country, single factor or multi-factor credentials are configured. The system validates the credentials (User Name and Password) and the privileges of user. On successful validation, the system allows user to land in main page. User account is blocked if X number of (X number is configurable)
