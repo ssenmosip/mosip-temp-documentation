@@ -226,12 +226,12 @@ When a registration officer starts a new registration by entering a pre-registra
 1. If no matching PRID exists in local system and server, the system displays an error message.
 
 #### B. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
-**Real time downloads of Pre-registration data**
+**(i) Real time downloads of Pre-registration data**
 
 1. When a registration officer starts a new registration by entering a pre-registration ID and opts to fetch pre-registration data, the system checks if the pre-registration ID entered has a match in the local system
 1. The system then fetches the demographic details of the individual and pre populate the registration form if there is exactly one match for pre-registration ID in the local system
 
-**Manual downloads of Pre-registration data**
+**(ii) Manual downloads of Pre-registration data**
 
 A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of an individual only and the system does not allow to download the documents uploaded by the applicant. 
 
@@ -306,13 +306,13 @@ When a registration officer starts a new registration for a non-pre-registered i
 If Registration Officer determines that the non-pre-registered individual’s date of birth is less than 5 years old, then refer to the feature related to [**Register an individual who is less than 5 years old**](#d-register-an-individual-who-is-less-than-5-years-old).
 #### G. Enter the demographic details for registration
 
-**The Registration Officer opts to initiate a new registration**
+**(i) The Registration Officer opts to initiate a new registration**
 1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition). 
 1. The system validates the entered demographic fields.
 1. If demographic fields validation fails, the system displays an error message.
 1. On successful validation, the system proceeds to next step.
 
-**The Registration Officer selects a pre-registration for registration**
+**(ii) The Registration Officer selects a pre-registration for registration**
 
 1. Registration Officer enters the PRID provided by a pre-registered individual. 
 1. The Registration Officer enters demographic details or edits pre-filled demographic details (details rendered from the provided PRID).
@@ -639,6 +639,7 @@ The registration client supports two languages, a primary language in which all 
 ### 6.1 Translation [**[↑]**](#table-of-content)
 
 **A registration officer can view static data translated to secondary language**
+
 1. In MOSIP, the primary and secondary languages are configured by the admin 
 1. All static data (headers, labels, action buttons, and alert messages) is set up by the admin in both languages so that the registration officer can view all pages in the client application in both the default (primary) language and translated (secondary) language. 
 1. If configured translation language is same as default language, the system displays text in default language only.
@@ -658,7 +659,7 @@ The following data are transliterated into the secondary language in addition to
 1. Registration preview page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and Parent/Guardian Name.
 1. Registration confirmation page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and Parent/Guardian Name.
 
-Registration Officer can invoke the virtual keyboard to edit transliterated data and proceeds with registration. The flowing rules are followed during transliteration.
+Registration Officer can invoke the virtual keyboard to edit transliterated data and proceeds with registration. The following rules are followed during transliteration.
 1. Editing transliterated fields does not change the data entered in the primary language field
 1. The system also validates the maximum character length in the transliterated field and ensures that it is same as the limits defined for the primary language field.
 1. If no secondary language is set, system does not do any transliteration and will display empty space instead.
@@ -692,7 +693,7 @@ The system then enables a Registration Officer to view the registration confirma
 
 #### C. Enable a real time packet upload when system is online upon registration submission
 
-**When EoD process is turned ON**
+**(i) When EoD process is turned ON**
 
 1. Registration Client checks if the system is online as soon as the assigned approver (such as Supervisor) approves or rejects a new registration or UIN update.
 1. If client is online, the registration client sends registration id to server and then the packets are marked as “Ready to upload” and auto uploaded to server.
@@ -702,7 +703,7 @@ The system then enables a Registration Officer to view the registration confirma
    * Export to external storage device for subsequent upload as required.
 5. System captures and stores the transaction details for audit purpose (except PII data).
 
-**When EoD process is turned OFF**
+**(ii) When EoD process is turned OFF**
 
 1. Registration Client checks if system is online as soon as the Registration Officer submits a new registration or UIN update.
 1. If client is online, the registration client sends registration id to server and then the packets are marked as “Ready to upload” and auto uploaded to server.
