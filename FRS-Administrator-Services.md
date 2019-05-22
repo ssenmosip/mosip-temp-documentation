@@ -11,15 +11,15 @@
   * [2.4 Forgot Username](#24-forgot-username-) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration](#3-security-policy-configuration-) _(ASR_FR_3)_
-- [4. Notification (WIP)](#4-notification-wip) _(ASR_FR_4)_
+- [4. Notification V1.5 (WIP)](#4-notification-v15-wip-) _(ASR_FR_4)_
   * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
   * [4.2 Country Specific News/Notifications](#42-country-specific-newsnotifications) _(ASR_FR_4.2)_
-- [5. Resource Management](#5-resource-management) _(ASR_FR_5)_
-  * [5.1 Center Management](#51-center-management-)
+- [5. Resource Management](#5-resource-management-) _(ASR_FR_5)_
+  * [5.1 Center Management](#51-center-management)
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activate-fdeactivate-decommission-center-) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management-)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
@@ -31,22 +31,22 @@
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
     * [5.3.3 Update Device](#533-update-device-) _(ASR_FR_5.12)_
     * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device-) _(ASR_FR_5.13)_
-    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-map-un-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
+    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
   * [5.4 User Management](#54-user-management-)
     * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
     * [5.4.2 Create User](#542-create-user) _(ASR_FR_5.16)_
     * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
     * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-) _(ASR_FR_5.18)_
-    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-map-un-map-re-map-user-to-a-center-) _(ASR_FR_5.19)_
-- [6. Master Data Management](#6-master-data-management) _(ASR_FR_6)_
+    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
+- [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
-  * [6.3 Manage Master Data](#63-manage-master-data)
+  * [6.3 Manage Master Data](#63-manage-master-data-)
     * [6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)](#631-manage-document-type-create-update-activate-deactivate)) _(ASR_FR_6.3)_
-    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate)) _(ASR_FR_6.4)_
+    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate--) _(ASR_FR_6.4)_
     * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
     * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
-     * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view) _(ASR_FR_6.7)_ 
+     * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view-) _(ASR_FR_6.7)_ 
      * [6.3.6 Manage Machine Types (View)](#636-manage-machine-types-view) _(ASR_FR_6.8)_ 
      * [6.3.7 Manage Machine Specifications (View)](#637-manage-machine-specifications-view) _(ASR_FR_6.9)_ 
      * [6.3.8 Manage Device Types (View)](#638-manage-device-types-view) _(ASR_FR_6.10)_ 
