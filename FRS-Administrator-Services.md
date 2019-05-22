@@ -100,11 +100,11 @@ Procedure to manage the profile follows:
 On successful submission the updates, the system provides the notification about the updates. 
 
 ### 2.2 Change Password [**[↑]**](#table-of-content)
-MOSIP allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User will select the change password, the system allows the user to land in Change Password Page and performs the following: 
-1.	User provides the credential in MOSIP and selects the option of Change Password.
-2.	The system allows user to land in Change Password page.
-3.	User provides the information related to Old Password, New Password and, Confirm New Password as the system required. The system validates the provided data and sends a notification related to the status of password changes.
-4.	  During the password creation, user should follow the password creation rule (combination of characters, special character, and min and max length etc.) which is configurable. 
+MOSIP allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
+1. User selects the option of Change Password.
+1. The system allows user to land in Change Password page.
+1. User provides the information related to Old Password, New Password and, Confirm New Password as the system required. The system validates and authenticates with the policy related to password creation/change policy and sends a notification related to the status of password changes.
+
 
 
 ### 2.3 Reset Password [**[↑]**](#table-of-content)
@@ -124,14 +124,15 @@ To reset the password, the user performs the following:
 Using MOSIP, user can retrieve the username. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the registered mobile number associated with the user. On successful validation, the system provides the User Name to the registered mobile number through an OTP notification else provides the respective error notification.
 
 ### 2.5 Account Unlock
-MOSIP allows Admin to unlock the account of other MOSIP users (Registration Officer/supervisor). Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
+MOSIP allows user to unlock his/her locked account.  The user account is locked due to various reason such as multiple time of wrong entry of user name or and password. Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
 
-Procedure to unblock the account:
+Procedure to unlock the account:
 
-1. MOSIP user navigates to the login page of the portal and clicks “Unblock Account Page”.
-2. User provides the registered mobile when the system requires.
-3. User will enter the OTP as received
-4. On successful validation, system sends SMS notification related to the unblocking of account.
+1. User provides the User Name in the system.
+1. The system validates and authenticates if the mobile number is registered against this user name.
+1. On successful validation, the system provides the active link through notification. 
+1. User accesses the provided link
+
 
 ## 3. Security Policy Configuration [**[↑]**](#table-of-content)
 ## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-content)
