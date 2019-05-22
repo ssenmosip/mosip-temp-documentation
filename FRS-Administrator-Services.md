@@ -6,38 +6,38 @@
     * [1.2.2 Auto Logout](#122-auto-logout) _(ASR_FR_1.3)_
 - [2. Account Management](#2-account-management-) _(ASR_FR_2)_
   * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
-  * [2.2 Change Password](#22-change-password) _(ASR_FR_2.2)_
-  * [2.3 Reset Password](#23-reset-password) _(ASR_FR_2.3)_
-  * [2.4 Forgot Username](#24-forgot-username) _(ASR_FR_2.4)_
+  * [2.2 Change Password](#22-change-password-) _(ASR_FR_2.2)_
+  * [2.3 Reset Password](#23-reset-password-) _(ASR_FR_2.3)_
+  * [2.4 Forgot Username](#24-forgot-username-) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
-- [3. Security Policy Configuration](#3-security-policy-configuration) _(ASR_FR_3)_
-- [4. Notification (WIP)](#4-notification-wip-) _(ASR_FR_4)_
+- [3. Security Policy Configuration](#3-security-policy-configuration-) _(ASR_FR_3)_
+- [4. Notification (WIP)](#4-notification-wip) _(ASR_FR_4)_
   * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
   * [4.2 Country Specific News/Notifications](#42-country-specific-newsnotifications) _(ASR_FR_4.2)_
 - [5. Resource Management](#5-resource-management) _(ASR_FR_5)_
-  * [5.1 Center Management](#51-center-management)
+  * [5.1 Center Management](#51-center-management-)
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
-    * [5.1.3 Update Center](#513-update-center) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activate-fdeactivate-decommission-center) _(ASR_FR_5.4)_
-  * [5.2 Machine Management](#52-machine-management)
+    * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activate-fdeactivate-decommission-center-) _(ASR_FR_5.4)_
+  * [5.2 Machine Management](#52-machine-management-)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
-    * [5.2.3 Update Machine](#523-update-machine) _(ASR_FR_5.7)_
-    * [5.2.4 Activate/Deactivate/Decommission Machine](#524-activatedeactivatedecommission-machine) _(ASR_FR_5.8)_
-    * [5.2.5 Map/Un-map/Re-map Machine to a Center](#525-mapun-mapre-map-machine-to-a-center) _(ASR_FR_5.9)_
-  * [5.3 Device Management](#53-device-management)
+    * [5.2.3 Update Machine](#523-update-machine-) _(ASR_FR_5.7)_
+    * [5.2.4 Activate/Deactivate/Decommission Machine](#524-activatedeactivatedecommission-machine-) _(ASR_FR_5.8)_
+    * [5.2.5 Map/Un-map/Re-map Machine to a Center](#525-mapun-mapre-map-machine-to-a-center-) _(ASR_FR_5.9)_
+  * [5.3 Device Management](#53-device-management-)
     * [5.3.1 View Device](#531-view-device) _(ASR_FR_5.10)_
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
-    * [5.3.3 Update Device](#533-update-device) _(ASR_FR_5.12)_
-    * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device) _(ASR_FR_5.13)_
-    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-map-un-mapre-map-device-to-a-center) _(ASR_FR_5.14)_
-  * [5.4 User Management](#54-user-management)
+    * [5.3.3 Update Device](#533-update-device-) _(ASR_FR_5.12)_
+    * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device-) _(ASR_FR_5.13)_
+    * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-map-un-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
+  * [5.4 User Management](#54-user-management-)
     * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
     * [5.4.2 Create User](#542-create-user) _(ASR_FR_5.16)_
     * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
-    * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user) _(ASR_FR_5.18)_
-    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-map-un-map-re-map-user-to-a-center) _(ASR_FR_5.19)_
+    * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-) _(ASR_FR_5.18)_
+    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-map-un-map-re-map-user-to-a-center-) _(ASR_FR_5.19)_
 - [6. Master Data Management](#6-master-data-management) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
