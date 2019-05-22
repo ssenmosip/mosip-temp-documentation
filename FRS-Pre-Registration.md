@@ -66,8 +66,8 @@ If the user is inactive for X minutes( X is configurable)the system notifies the
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data [**[↑]**](#table-of-content)
 
-The Individual is provided with Demographic form based on the [**ID Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
-Once validated the **Pre-Registration Id is generated** ( Pre-registration Request Id)and the Demographic details provided gets mapped to that PRID.
+The Individual is provided with Demographic form based on the [**ID Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the fields entered, the system also checks for the Mandatory fields. 
+Once validated the **Pre-Registration Id is generated** (Pre-registration Request Id) and the Demographic details provided gets mapped to that PRID.
 
 Note: Consent is sought from the user for every new application created in the system
 
