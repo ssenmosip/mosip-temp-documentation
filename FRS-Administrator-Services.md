@@ -88,7 +88,7 @@ For more details, please refer to <Reset Password, and Forgot Password link to b
 
 ### 1.2 Logout
 #### 1.2.1 Manual Logout
-MOSIP allows user to log out from the active session of the main page by selecting the logout attributes. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (Error notification is configurable and pre-defined). 
+If a user wishes to logout of the Admin Portal, he/she can opt to select the Logout option. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (error notification is configurable and pre-defined).
 #### 1.2.2 Auto Logout
 MOSIP Admin Application provides the capability to auto-logout the user as configured. For example, if system becomes idle for sometimes (idle time is configurable), then user will be auto-logout. 
 ## 2. Account Management [**[↑]**](#table-of-content)
