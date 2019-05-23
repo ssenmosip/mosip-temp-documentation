@@ -11,9 +11,10 @@
 - [9. Registration](#9-registration-)
 - [10. Registration Processor](#10-registration-processor-)
 - [11. Authentication](#11-authentication-)
-- [12. Resident Services](#12-resident-services-)
-- [13. Administration](#13-administration-)
-- [14. Partner Management](#14-partner-management-)
+- [12. ID Repository[()
+- [13. Resident Services](#12-resident-services-)
+- [14. Administration](#13-administration-)
+- [15. Partner Management](#14-partner-management-)
 
 ## 1. Common Services: [**[↑]**](#table-of-content)
 
@@ -322,19 +323,25 @@
 |9.|MPA Authenticator|Partner Policy Authentication |IDA_FR_5.2|[MOS-1129](//mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](//mosipid.atlassian.net/browse/MOS-1123), [MOS-13157](//mosipid.atlassian.net/browse/MOS-13157), [MOS-13156](//mosipid.atlassian.net/browse/MOS-13156), [MOS-1099](//mosipid.atlassian.net/browse/MOS-1099) |
 |10.|To be planned|Registered Devices and Open Devices |IDA_FR_6.1||
 
-## 12. Resident Services: [**[↑]**](#table-of-content)
+## 12. ID Repository: [**[↑]**](#table-of-content)
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
 
-## 13. Administration: [**[↑]**](#table-of-content)
+## 13. Resident Services: [**[↑]**](#table-of-content)
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|||||
 
-## 14. Partner Management: [**[↑]**](#table-of-content)
+## 14. Administration: [**[↑]**](#table-of-content)
+
+|**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
+|:------:|-----|---|---|---|
+|1.|||||
+
+## 15. Partner Management: [**[↑]**](#table-of-content)
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
