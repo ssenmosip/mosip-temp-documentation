@@ -295,18 +295,19 @@ After completion of above steps, we need to configure installed ClamAV. This can
 ```
 $ sed -i '/^Example/d' /etc/clamd.d/scan.conf
 ```
-Another this we need to do in this file is to define our TCP server type. Open this file using 
+Another thing we need to do in this file is to define our TCP server type. Open this file using - 
 ```
 $ vim /etc/clamd.d/scan.conf
 ```
 here this we need to uncomment line with `#LocalSocket /var/run/clamd.scan/clamd.sock`. Just remove **#** symbol from the beginning of the line.
 
-Now we need to configure FreshClam so that it can update ClamAV db automatically. For doing that follow below steps - 
+Now we need to configure FreshClam so that it can update ClamAV db automatically. For doing that follow below steps -
+ 
 First create a backup of original FreshClam Configuration file - 
 ```
 $ cp /etc/freshclam.conf /etc/freshclam.conf.bak
 ```
-In this **freshclam.conf** Here also we need to remove **Example** line from the file. Run following command to delete all **Example** lines- 
+In this **freshclam.conf** file, Here also we need to remove **Example** line from the file. Run following command to delete all `Example` lines- 
 ```
 $ sed -i '/^Example/d' /etc/freshclam.conf
 ```
@@ -392,7 +393,7 @@ Restart = on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-Now finall start the ClamAV service. 
+Now finally start the ClamAV service. 
 ```
 $ systemctl start clamd.service
 ```
@@ -423,7 +424,7 @@ $ sudo firewall-cmd –reload
 
 
 ##### Reference link:
-<div>https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7</div>
+<div>https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
 
 ### 6.4 Steps to Install and configuration CEPH 
 NOTE: Required only if CEPH is used for packet storage.
