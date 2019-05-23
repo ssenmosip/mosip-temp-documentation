@@ -335,6 +335,12 @@
 |:------:|-----|---|---|---|
 |1.|Track Status|Track Status of UIN Generation |RES_FR_1|[MOS-23861](//mosipid.atlassian.net/browse/MOS-23861)|
 |2.|Download UIN|Download UIN|RES_FR_2|[MOS-23862](//mosipid.atlassian.net/browse/MOS-23862)|
+|3.|Retrieve Lost RID|Retrieve Lost RID|RES_FR_3|[MOS-23856](//mosipid.atlassian.net/browse/MOS-23856)|
+|4.|Retrieve Lost UIN|Retrieve Lost UIN|RES_FR_4|[MOS-23858](//mosipid.atlassian.net/browse/MOS-23858)|
+|5.|Re-print Request of UIN|Re-print Request of UIN|RES_FR_5|[MOS-23746](//mosipid.atlassian.net/browse/MOS-23746)|
+|6.|Initiate UIN Update|Initiate UIN Update|RES_FR_6|[MOS-23859](//mosipid.atlassian.net/browse/MOS-23859)|
+|7.|Track Status|Track Status of UIN Update|RES_FR_7|[MOS-23860](//mosipid.atlassian.net/browse/MOS-23860)|
+
 
 ## 14. Administration: [**[↑]**](#table-of-content)
 
