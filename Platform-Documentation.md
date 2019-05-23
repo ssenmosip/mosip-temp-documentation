@@ -171,8 +171,11 @@ Please refer wiki for detailed functional specification of the following service
 * [**Admin Services**](FRS-Admin-Services)
 
 ### 3.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-Administrator-Services) for detailed functional specifications of administrator services module.
 ### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-Resident-Services) for detailed functional specifications of resident services module.
 ### 3.8 Partner Management (WIP) [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-Partner-Management) for detailed functional specifications of Partner Management module.
 ## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
