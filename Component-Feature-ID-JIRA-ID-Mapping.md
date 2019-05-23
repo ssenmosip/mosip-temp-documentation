@@ -11,7 +11,7 @@
 - [9. Registration](#9-registration-)
 - [10. Registration Processor](#10-registration-processor-)
 - [11. Authentication](#11-authentication-)
-- [12. ID Repository[()
+- [12. ID Repository]
 - [13. Resident Services](#12-resident-services-)
 - [14. Administration](#13-administration-)
 - [15. Partner Management](#14-partner-management-)
