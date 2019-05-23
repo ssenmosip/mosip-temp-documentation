@@ -672,9 +672,9 @@ Requires Authentication | Yes
 #### Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-KER-CSS-999 | Invalid request input
-KER-CSS-101 | Validation Unsuccessful
-KER-CSS-102 | Internal server error
+KER-CSS-999 | Invalid request input | while passing Invalid input request
+KER-CSS-101 | Validation Unsuccessful| while sign response in not valid
+KER-CSS-102 | Internal server error  | Internal server error
 
 
 # SMS Notification (Private)
