@@ -257,7 +257,7 @@
 |87.|Packet Creation|New Registration | REG_FR_4.1|[MOS-22381](//mosipid.atlassian.net/browse/MOS-22381)|
 |88.|Packet Exporter|New Registration| REG_FR_4.1|[MOS-22013](//mosipid.atlassian.net/browse/MOS-22013), [MOS-22012](//mosipid.atlassian.net/browse/MOS-22012)|
 |89.|Security|Key Management|REG_FR_9.1|[MOS-22405](//mosipid.atlassian.net/browse/MOS-22405)|
-|90.|Security|Sync|REG_FR_1.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
+|90.|Security|Login/Authentication|REG_FR_1.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |91.|User Onboarding|User On-boarding|REG_FR_1.1|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
 |92.|Device Onboarding|Peripherals check|REG_FR_3.1|[MOS-15996](//mosipid.atlassian.net/browse/MOS-15996), [MOS-13562](//mosipid.atlassian.net/browse/MOS-13562) |
 |93.|Sync|Configuration Sync|REG_FR_2.2|[MOS-1227](//mosipid.atlassian.net/browse/MOS-1227), [MOS-12984](//mosipid.atlassian.net/browse/MOS-12984), [MOS-13557](//mosipid.atlassian.net/browse/MOS-13557), [MOS-13657](//mosipid.atlassian.net/browse/MOS-13657), [MOS-13659](//mosipid.atlassian.net/browse/MOS-13659), [MOS-13660](//mosipid.atlassian.net/browse/MOS-13660), [MOS-13661](//mosipid.atlassian.net/browse/MOS-13661)|
