@@ -13,8 +13,9 @@
   * [3.3 Registration Processor](#33-registration-Processor-)
   * [3.4 ID Authentication](#34-id-authentication-)
   * [3.5 Kernel](#35-kernel-)
-  * [3.6 Administration (WIP)](#36-administration-wip-)
+  * [3.6 Administrator Services (WIP)](#36-administrator-services-wip-)
   * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
+  * [3.8 Partner Management (WIP)](#38-partner-management-wip-)
  * [4. MOSIP SCOPE](#4mosip-scope-)
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
@@ -169,8 +170,12 @@ Please refer wiki for detailed functional specification of the following service
 * [**Data Services**](FRS-Data-Services)
 * [**Admin Services**](FRS-Admin-Services)
 
-### 3.6 Administration (WIP) [**[↑]**](#table-of-content)
+### 3.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-Administrator-Services) for detailed functional specifications of administrator services module.
 ### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-Resident-Services) for detailed functional specifications of resident services module.
+### 3.8 Partner Management (WIP) [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-Partner-Management) for detailed functional specifications of Partner Management module.
 ## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
@@ -187,6 +192,8 @@ This section provides a detailed functional requirement specification for each m
 #### 5.1.10 [Registration Processor](FRS-Registration-Processor)
 #### 5.1.11 [Authentication Services](FRS-Authentication-Services)
 #### 5.1.12 [Resident Services](FRS-Resident-Services)
+#### 5.1.13 [Administrator Services](FRS-Administrator-Services)
+#### 5.1.14 [Partner Management](FRS-Partner-Management)
 ### 5.2 Non-Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section details out the non-functional requirements of MOSIP platform
 
@@ -278,8 +285,8 @@ Test Rig represents a one click automation to build, deploy and test a software 
 
 Please refer to [**wiki**](https://github.com/mosip/mosip/wiki/Test-Rig-Design) for more details.
 ### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
-This section illustrates the integrational specifications of MOSIP with an external system – WIP.
-Please refer to [**wiki**](https://github.com/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md) for more details.
+This section illustrates the integrational specifications of MOSIP with an external system.
+Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
 ## 9. MOSIP APIs
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 9.1	External APIs [**[↑]**](#table-of-content)

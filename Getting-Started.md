@@ -278,46 +278,153 @@ setsebool -P httpd_can_network_connect 1
 <div>https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7</div>
 
 
-### 6.3 Install Clam AntiVirus Version 0.101.0
-
- ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
+### 6.3 Clam AntiVirus Version 0.101.0
+ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
 
 #### Steps to install ClamAV in RHEL-7.5
+To install clamAV first we need to install EPEL Repository:
+```
+$ yum install epel-release
+```
+After that we need to install ClamAV and its related tools. 
+```
+$ yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
+```
 
-$ sudo wget `http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm` <br/>
-$ sudo rpm -ivh epel-release-latest-7.noarch.rpm <br/>
-$ sudo yum repolist <br/>
-$ sudo yum update <br/>
-$ yum --enablerepo=epel info clamav <br/>
-$ sudo yum --enablerepo=epel install clamav clamav-scanner clamav-update <br/>
-$ sudo yum --enablerepo=epel install clamav-daemon <br/>
-$ sudo yum --enablerepo=epel install clamd <br/>
-$ sudo yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd <br/>
-$ sudo freshclam <br/>
-$  sudo systemctl  clamd status <br/>
-$  sudo systemctl freshclam stauts <br/>
-$  sudo systemctl start freshclam <br/>
-$  sudo systemctl status clamd <br/>
-$  sudo systemctl start clamd <br/>
+After completion of above steps, we need to configure installed ClamAV. This can be done via editing __/etc/clamd.d/scan.conf__. In this file we have to remove `Example` lines. So that ClamAV can use this file's configurations. We can easily do it via running following command - 
+```
+$ sed -i '/^Example/d' /etc/clamd.d/scan.conf
+```
+Another thing we need to do in this file is to define our TCP server type. Open this file using - 
+```
+$ vim /etc/clamd.d/scan.conf
+```
+here this we need to uncomment line with `#LocalSocket /var/run/clamd.scan/clamd.sock`. Just remove **#** symbol from the beginning of the line.
 
-##### ClamAv port : 3310
-explicitly open the CalmAV port 3310 for that uncommenting "TCPSocket 3310" line in below file then restart the clamd@scan service <br/>
-$ sudo vi /etc/clamd.d/scan.conf <br/>
-$ sudo systemctl restart `clamd@scan.service` <br/>
-To open the 3310 from VM firewall <br/>
-$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent <br/>
-$ sudo firewall-cmd --reload <br/>
+Now we need to configure FreshClam so that it can update ClamAV db automatically. For doing that follow below steps -
+ 
+First create a backup of original FreshClam Configuration file - 
+```
+$ cp /etc/freshclam.conf /etc/freshclam.conf.bak
+```
+In this **freshclam.conf** file, Here also we need to remove **Example** line from the file. Run following command to delete all `Example` lines- 
+```
+$ sed -i '/^Example/d' /etc/freshclam.conf
+```
+Test freshclam via running- 
+```
+$ freshclam
+```
+After running above command you should see an output similar to this - 
+```
+ClamAV update process started at Thu May 23 07:25:44 2019
+.
+.
+.
+.
+main.cvd is up to date (version: 58, sigs: 4566249, f-level: 60, builder: sigmgr)
+daily.cld is up to date (version: 25457, sigs: 1578165, f-level: 63, builder: raynman)
+bytecode.cvd is up to date (version: 328, sigs: 94, f-level: 63, builder: neo)
+```
+We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam - 
+```
+$ vim /usr/lib/systemd/system/clam-freshclam.service
+```
+And add below content - 
+```
+[Unit]
+Description = freshclam scanner
+After = network.target
 
-#### Command to check the ClamAV status:
-$ sudo systemctl status `clamd@scan.service` <br/>
-$ sudo systemctl start `clamd@scan.service` <br/>
-$ sudo systemctl stop `clamd@scan.service` <br/>
-##### Below command to open the port 3310 from RHEL 7.5 VM
+[Service]
+Type = forking
+ExecStart = /usr/bin/freshclam -d -c 4
+Restart = on-failure
+PrivateTmp = true
+RestartSec = 20sec
+
+[Install]
+WantedBy=multi-user.target
+```
+Now save and quit. Also reload the systemd daemon to refresh the changes - 
+```
+$ systemctl daemon-reload
+```
+Next start and enable the freshclam service - 
+```
+$ systemctl start clam-freshclam.service
+
+$ systemctl enable clam-freshclam.service
+```
+Now freshclam setup is complete and our ClamAV db is upto date. We can continue setting up ClamAV. Now we will copy ClamAV service file to system service folder.
+```
+$ mv /usr/lib/systemd/system/clamd@.service /usr/lib/systemd/system/clamd.service
+```
+Since we have changed the name, we need to change it at the file that uses this service as well - 
+```
+$ vim /usr/lib/systemd/system/clamd@scan.service
+```
+Remove @ symbol from `.include /lib/systemd/system/clamd@.service` line and save the file.
+
+We will edit Clamd service file now - 
+```
+$ vim /usr/lib/systemd/system/clamd.service
+```
+Add following lines at the end of clamd.service file.
+```
+[Install]
+WantedBy=multi-user.target
+```
+And also remove `%i` symbol from various locations. Note that at the end of the editing the service file should look something like this - 
+```
+[Unit]
+Description = clamd scanner daemon
+Documentation=man:clamd(8) man:clamd.conf(5) https://www.clamav.net/documents/
+# Check for database existence
+# ConditionPathExistsGlob=@DBDIR@/main.{c[vl]d,inc}
+# ConditionPathExistsGlob=@DBDIR@/daily.{c[vl]d,inc}
+After = syslog.target nss-lookup.target network.target
+
+[Service]
+Type = forking
+ExecStart = /usr/sbin/clamd -c /etc/clamd.d/scan.conf
+Restart = on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Now finally start the ClamAV service. 
+```
+$ systemctl start clamd.service
+```
+
+If it works fine, then enable this service and test the status of ClamAV service - 
+```
+$ systemctl enable clamd.service
+
+$ systemctl status clamd.service
+```
+
+Now in MOSIP we require ClamAV to be available on Port 3310. To expose ClamAV service on Port 3310, edit `scan.conf`
+```
+$ vi /etc/clamd.d/scan.conf
+```
+and Uncomment `#TCPSocket 3310` by removing **#**. After that restart the clamd@scan service - 
+```
+$ systemctl restart clamd@scan.service
+```
+Since we are exposing ClamAV on 3310 port, we need to allow incoming traffic through this port. In RHEL 7 run below command to add firewall rule - 
+```
 $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
 $ sudo firewall-cmd –reload
+```
+
+
+
+
 
 ##### Reference link:
-<div>https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7</div>
+<div>https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
 
 ### 6.4 Steps to Install and configuration CEPH 
 NOTE: Required only if CEPH is used for packet storage.

@@ -59,15 +59,15 @@ The Individual logs in to the Pre-Registration portal with their Mobile Number o
 
 ### 2.1.4 Logout/Session Timeout [**[↑]**](#table-of-content)
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
-If the user is inactive for X minutes( X is configurable)the system notifies the user one minute before the configured timeout limit. In case such case the system will not save any user data.
+If the user is inactive for X minutes (X is configurable), the system notifies the user one minute before the configured timeout limit. In such case, the system will not save any user data.
 
 [**Link to design**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-login-service.md)
 
 ## 2.2 Creating an Application
 ### 2.2.1 Provide Demographic Data [**[↑]**](#table-of-content)
 
-The Individual is provided with Demographic form based on the [**ID Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the Fields entered, the system also checks for the Mandatory fields. 
-Once validated the **Pre-Registration Id is generated** ( Pre-registration Request Id)and the Demographic details provided gets mapped to that PRID.
+The Individual is provided with Demographic form based on the [**ID Object Definition**](MOSIP-ID-Object-definition) for new pre-registration application, Individual Fills Demographic Details (e.g., Full Name, Age/DOB, Gender, Residential status, Address, Mobile Number, Email Id, etc.). The system validates the fields entered, the system also checks for the Mandatory fields. 
+Once validated the **Pre-Registration Id is generated** (Pre-registration Request Id) and the Demographic details provided gets mapped to that PRID.
 
 Note: Consent is sought from the user for every new application created in the system
 
