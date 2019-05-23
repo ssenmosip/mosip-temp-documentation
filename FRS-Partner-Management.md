@@ -16,20 +16,20 @@
 - [6. Partner Public key Distribution and Retrieval](#6-partner-public-key-distribution-and-retrieval-)
   * [6.1 Partner Public key Distribution](#61-partner-public-key-distribution-)
   * [6.2 Partner Public key Retrieval](#62-partner-public-key-retrieval-)
-# 1. MISP Registration and Authentication	 
-## 1.1 MISP Registration
-## 1.2 MISP License Key Management
-## 1.3 MISP Authentication
-# 2. Partner Registration and Authentication	 
-## 2.1 Partner Registration
-## 2.2 Partner Authentication
-# 3. Partner Policy Management
-# 4. MISP-Partner Mapping	 
-## 4.1 MISP-Partner Mapping Setup
-## 4.2 MISP-Partner Mapping Validation
-# 5. Partner Certificate Signing and Validation	 
-## 5.1 Partner Certificate Signing
-## 5.2 Partner Certificate Validation
-# 6. Partner Public key Distribution and Retrieval	 
-## 6.1 Partner Public key Distribution
-## 6.2 Partner Public key Retrieval
+# 1. MISP Registration and Authentication [**[↑]**](#table-of-content)	 
+## 1.1 MISP Registration [**[↑]**](#table-of-content)
+## 1.2 MISP License Key Management [**[↑]**](#table-of-content)
+## 1.3 MISP Authentication [**[↑]**](#table-of-content)
+# 2. Partner Registration and Authentication [**[↑]**](#table-of-content)	 
+## 2.1 Partner Registration [**[↑]**](#table-of-content)
+## 2.2 Partner Authentication [**[↑]**](#table-of-content)
+# 3. Partner Policy Management [**[↑]**](#table-of-content)
+# 4. MISP-Partner Mapping [**[↑]**](#table-of-content)	 
+## 4.1 MISP-Partner Mapping Setup [**[↑]**](#table-of-content)
+## 4.2 MISP-Partner Mapping Validation [**[↑]**](#table-of-content)
+# 5. Partner Certificate Signing and Validation [**[↑]**](#table-of-content)	 
+## 5.1 Partner Certificate Signing [**[↑]**](#table-of-content)
+## 5.2 Partner Certificate Validation [**[↑]**](#table-of-content)
+# 6. Partner Public key Distribution and Retrieval [**[↑]**](#table-of-content)	 
+## 6.1 Partner Public key Distribution [**[↑]**](#table-of-content)
+## 6.2 Partner Public key Retrieval [**[↑]**](#table-of-content)
