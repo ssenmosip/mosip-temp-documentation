@@ -189,6 +189,8 @@ This section provides a detailed functional requirement specification for each m
 #### 5.1.10 [Registration Processor](FRS-Registration-Processor)
 #### 5.1.11 [Authentication Services](FRS-Authentication-Services)
 #### 5.1.12 [Resident Services](FRS-Resident-Services)
+#### 5.1.13 [Administrator Services](FRS-Administrator-Services)
+#### 5.1.14 [Partner Management](FRS-Partner-Management)
 ### 5.2 Non-Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section details out the non-functional requirements of MOSIP platform
 
