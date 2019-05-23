@@ -15,7 +15,7 @@
   * [3.5 Kernel](#35-kernel-)
   * [3.6 Administrator Services (WIP)](#36-administrator-services-wip-)
   * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
-  * [3.8 Partner Management (WIP)](#37-partner-management-wip-)
+  * [3.8 Partner Management (WIP)](#38-partner-management-wip-)
  * [4. MOSIP SCOPE](#4mosip-scope-)
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
