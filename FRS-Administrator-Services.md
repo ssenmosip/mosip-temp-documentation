@@ -154,7 +154,7 @@ Using MOSIP, Zonal Admin will provide all the mandatory data (ID, Name, Type, an
 
  The registration centers are also created though the backend. For more details, please refer to <Link will be provided for backend registration center creation> 
 	
-For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#21-registration-center-type---createupdatedelete-
+For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-content)
 Using MOSIP, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the Registration Center and provides an acknowledgement notification about the updates status else trigger a respective error message. 
@@ -182,7 +182,7 @@ Procedure to register machines follows:
 Machines uniqueness will be maintained through machine’s serial number.
 
 Zonal Admin will also register the machines by importing the CSV/XLS.
-For more details, please refer to  https://github.com/mosip/mosip/wiki/FRS-Admin-Services#23-list-of-machine-types---create-
+For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-machine-types---create-) in Admin Service.
 #### 5.2.3 Update Machine [**[↑]**](#table-of-content)
 MOSIP provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 Procedure to update the machine related details, the Zonal Admin will:
@@ -190,8 +190,7 @@ Procedure to update the machine related details, the Zonal Admin will:
 1. The system validates the provided data and privileges of zonal Admin. On successful validation, the system allows Zonal Admin to update the required details. For example, if a Machine has been moved to a new zone or accidentally assigned to a wrong zone.
 1. When the machine related information is updated, the system captures the date, date & time, Zonal Admin details who has updated the machine.
 1. If the Zonal Admin selects the Delete flag, the information is updated when the registration center is updated. 
-For more details, please refer to 
-https://github.com/mosip/mosip/wiki/FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-
+For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
@@ -234,7 +233,7 @@ Procedure to update the devices related details, the Zonal Admin will:
 1. Remove the mapping of the Center and device  (if already mapped to a Center of another zone).
 1. Assign a machine to the new zone (In case of accidently assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone).
 
-For more  details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-
+For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
 
@@ -306,7 +305,7 @@ Procedure to block/blacklist:
 #### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
 MOSIP allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the privileges of the Zonal Admin and on successful validation, provides the capability to map/un-map-re-map the user to the registration.
 
-For more details, please please refer to: https://github.com/mosip/mosip/wiki/FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-
+For more details, please please refer to [**section**](FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-)
 ## 6. Master Data Management [**[↑]**](#table-of-content)
 ### 6.1 View Master Data Types
 MOSIP allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the privileges of Zonal Admin who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the allocated privileges to the user, then throws an error notification.
