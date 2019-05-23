@@ -82,7 +82,7 @@ The user can login to the Admin Portal by providing their credential such as Use
 
 Note: Based on a country requirement, single factor or multi-factor credentials can be configured.
 
-If X number (X number is configurable) of unsuccessful attempt is made for login, then user account will be blocked and a respective notification will be sent to the user. If the user account is blocked, the system allows only to the relevant user or super admin to unblock the user account. 
+If X number (X number is configurable) of unsuccessful attempt is made for login, then user account will be blocked and a respective notification will be sent to the user. If the user account is blocked, the system allows the relevant user or super admin to unblock the user account. 
 
 For more details, please refer to <Reset Password, and Forgot Password link to be provided here>
 
