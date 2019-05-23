@@ -78,9 +78,14 @@
 - [15. Process Flow Setup](#15-process-flow-setup-) _(ASR_FR_15)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
-MOSIP allows user to provide the credential to login. Based on country, single factor or multi-factor credentials are configured. The system validates the credentials (User Name and Password) and the privileges of user. On successful validation, the system allows user to land in main page. User account is blocked if X number of (X number is configurable)
-unsuccessful attempt is made to login and a respective notification is sent t the user. Once the user account is blocked, only the relevant user or super admin can unblock the user account.
+The user can login to the Admin Portal by providing their credential such as Username and Password. The system validates the provided credentials and the privileges of the user. On successful validation, the system allows user to proceed further. 
+
+Note: Based on a country requirement, single factor or multi-factor credentials can be configured.
+
+If X number (X number is configurable) of unsuccessful attempt is made for login, then user account will be blocked and a respective notification will be sent to the user. If the user account is blocked, the system allows only to the relevant user or super admin to unblock the user account. 
+
 For more details, please refer to <Reset Password, and Forgot Password link to be provided here>
+
 ### 1.2 Logout
 #### 1.2.1 Manual Logout
 MOSIP allows user to log out from the active session of the main page by selecting the logout attributes. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (Error notification is configurable and pre-defined). 
