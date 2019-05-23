@@ -19,3 +19,5 @@ There will be one Test Rig for each of the below modules that be triggered via t
 
 There will also be an end to end system level Test Rig covering the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
 ![Configure Pipelines](_images/test_rig_automation/E2ETestRigDesign.jpg)
+
+![Configure Pipelines](_images/test_rig_automation/E2ETestRigDesign.drawio.jpg)

@@ -2508,6 +2508,7 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 word |YES|Blacklisted word| |abc|
+newword | No | If the word have to be updated, the user passes this field | |
 description|YES|Description of the blacklisted word|||
 langCode|YES|Language Code of the blacklisted word|||
 isActive|YES|Blacklisted word is active|||
@@ -2530,37 +2531,24 @@ isActive|YES|Blacklisted word is active|||
 ### Example Response
 ```JSON
 {
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
-"resonpse" : {
-              "langCode": "string",
-              "word": "string"
-             }
+	"id": "string",
+	"version": "string",
+	"metadata": {},
+	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	"errors": [{
+		"errorCode": "string",
+		"message": "string"
+	}],
+	"response": {
+		"langCode": "string",
+		"word": "string"
+	}
 }
 ```
 200
 
 Description: Success
 
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-404
-
-Description: Not Found
 
 # DELETE /blacklistedwords/{word}
 
