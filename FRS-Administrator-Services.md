@@ -90,7 +90,7 @@ For more details, please refer to <Reset Password, and Forgot Password link to b
 #### 1.2.1 Manual Logout
 If a user wishes to logout of the Admin Portal, he/she can opt to select the Logout option. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (error notification is configurable and pre-defined).
 #### 1.2.2 Auto Logout
-MOSIP Admin Application provides the capability to auto-logout the user as configured. For example, if system becomes idle for sometimes (idle time is configurable), then user will be auto-logout. 
+If the user is inactive for X minutes (X is configurable), the system logs out the user automatically. In such case, the system will not save any user’s data.
 ## 2. Account Management [**[↑]**](#table-of-content)
 ### 2.1 Edit Personal Details
 Using MOSIP, user will  manage his/her profile. Generally MOSIP users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
