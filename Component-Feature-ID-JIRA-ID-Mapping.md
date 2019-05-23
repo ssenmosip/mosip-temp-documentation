@@ -283,7 +283,7 @@
 |9. | | Workflow Customization (Ability to plug-in/exclude stages)| RPR_FR_2.5| 
 |10. | | Multiple Workflows (Specific to lifecycle – E.G.: New vs. Update, Activation vs. Deactivation, Applicant Type specific workflow)| RPR_FR_2.6| 
 |11. | | Scalability and Throughput| RPR_FR_2.7| 
-|12. | packet-receiver-stage| Sanity Check| RPR_FR_3.1| [MOS-44](//mosipid.atlassian.net/browse/MOS-44), [MOS-45](//mosipid.atlassian.net/browse/MOS-45), [MOS-46](//mosipid.atlassian.net/browse/MOS-46), [MOS-1031](//mosipid.atlassian.net/browse/MOS-1031), [MOS-21712 (CheckSum Validation)](//https://mosipid.atlassian.net/browse/MOS-21712), [MOS-21715 (Virus Scan)](//mosipid.atlassian.net/browse/MOS-21715)
+|12. | packet-receiver-stage| Sanity Check| RPR_FR_3.1| [MOS-44](//mosipid.atlassian.net/browse/MOS-44), [MOS-45](//mosipid.atlassian.net/browse/MOS-45), [MOS-46](//mosipid.atlassian.net/browse/MOS-46), [MOS-1031](//mosipid.atlassian.net/browse/MOS-1031), [MOS-21712 (CheckSum Validation)](//mosipid.atlassian.net/browse/MOS-21712), [MOS-21715 (Virus Scan)](//mosipid.atlassian.net/browse/MOS-21715)
 |13. | virus-scanner-stage| Virus Scan| RPR_FR_3.2| [MOS-21715 (DMZ Virus Scan)](//mosipid.atlassian.net/browse/MOS-21715), [MOS-21716 (Secure Virus Scan)](//mosipid.atlassian.net/browse/MOS-21716)
 |14. | | Source Authentication| RPR_FR_3.3| 
 |15. | osi-validator-stage| Machine-User-Center Mapping Check| RPR_FR_3.4| [MOS-240 (Machine Validation)](//mosipid.atlassian.net/browse/MOS-240), [MOS-12831 (Device Validation)](//mosipid.atlassian.net/browse/MOS-12831)
