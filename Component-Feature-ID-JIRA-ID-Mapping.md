@@ -334,6 +334,7 @@
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
 |1.|Track Status|Track Status of UIN Generation |RES_FR_1|[MOS-23861](//mosipid.atlassian.net/browse/MOS-23861)|
+|2.|Download UIN|Download UIN||RES_FR_2|[MOS-23862](//mosipid.atlassian.net/browse/MOS-23862)|
 
 ## 14. Administration: [**[↑]**](#table-of-content)
 
