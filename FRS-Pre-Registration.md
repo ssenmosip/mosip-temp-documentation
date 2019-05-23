@@ -59,7 +59,7 @@ The Individual logs in to the Pre-Registration portal with their Mobile Number o
 
 ### 2.1.4 Logout/Session Timeout [**[↑]**](#table-of-content)
 If the Individual wishes to logout of the Pre-Registration system, he/she can opt to select the Logout option. The Token issued during the Authentication of User Login is deleted and the user gets logged out of the system.
-If the user is inactive for X minutes (X is configurable), the system notifies the user one minute before the configured timeout limit. In case such case the system will not save any user data.
+If the user is inactive for X minutes (X is configurable), the system notifies the user one minute before the configured timeout limit. In such case, the system will not save any user data.
 
 [**Link to design**](/mosip/mosip/blob/0.11.0/docs/design/pre-registration/pre-registration-login-service.md)
 
