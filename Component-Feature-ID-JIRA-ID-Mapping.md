@@ -341,7 +341,7 @@
 |6.|Initiate UIN Update|Initiate UIN Update|RES_FR_6|[MOS-23859](//mosipid.atlassian.net/browse/MOS-23859)|
 |7.|Track Status|Track Status of UIN Update|RES_FR_7|[MOS-23860](//mosipid.atlassian.net/browse/MOS-23860)|
 |8.|View History|View History of Authentication Requests (for Prescribed Days/number of requests)|RES_FR_8|[MOS-23863](//mosipid.atlassian.net/browse/MOS-23863)|
-|9.|Lock/Unlock UIN|Lock/Unlock UIN|RES_FR_9|[MOS-23745](//mosipid.atlassian.net/browse/MOS-23745)|
+|9.|Lock/Unlock UIN|Lock/Unlock UIN|RES_FR_9|[MOS-23744](//mosipid.atlassian.net/browse/MOS-23744), [MOS-23745](//mosipid.atlassian.net/browse/MOS-23745)|
 
 
 ## 14. Administration: [**[↑]**](#table-of-content)
