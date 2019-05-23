@@ -13,8 +13,9 @@
   * [3.3 Registration Processor](#33-registration-Processor-)
   * [3.4 ID Authentication](#34-id-authentication-)
   * [3.5 Kernel](#35-kernel-)
-  * [3.6 Administration (WIP)](#36-administration-wip-)
+  * [3.6 Administrator Services (WIP)](#36-administrator-services-wip-)
   * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
+  * [3.8 Partner Management (WIP)](#37-partner-management-wip-)
  * [4. MOSIP SCOPE](#4mosip-scope-)
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
@@ -169,8 +170,9 @@ Please refer wiki for detailed functional specification of the following service
 * [**Data Services**](FRS-Data-Services)
 * [**Admin Services**](FRS-Admin-Services)
 
-### 3.6 Administration (WIP) [**[↑]**](#table-of-content)
+### 3.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
 ### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
+### 3.8 Partner Management (WIP) [**[↑]**](#table-of-content)
 ## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
