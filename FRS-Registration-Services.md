@@ -180,7 +180,7 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 1. The System also captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
 
 ## 2. Data Sync [**[↑]**](#table-of-content)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
@@ -190,12 +190,20 @@ The data sync can happen through an automated process at a set frequency or a us
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
-[**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-master-data-Sync.md)
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-master-data-Sync.md)
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
 Please refer [**Git**]() for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a [**new registration**](#41-new-registration-).
 Based on the configuration (turn on or turn off), the system allows a user to capture applicable biometrics, authenticates, and completes the registration. 
+
+[**Link to design for Center Configuration Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-center_config_sync.md)
+
+[**Link to design for Login Credentials Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-login-credentials-sync.md)
+
+[**Link to design for Policy Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-policy-sync.md)
+
+[**Link to design for User Salts Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-user-salts-sync.md)
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
 
@@ -210,12 +218,16 @@ Based on the configuration (turn on or turn off), the system allows a user to c
    * Displays an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-sync_user_mapping_client_to_server.md)
+
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
 
 The system performs the following steps to ensure packet status sync from server to client to read the status of the registration packets sent:
 1. The system allows a registration officer to either sync manually or automatically based on configured frequency.
 1. The system allows the application to request using Registration packet ID and receive the Registration packet status from the server
 1. The system displays the status of the operation to pull Registration packet IDs from Registration server - in progress/completed.
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-packetstatusreader.md)
 
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
 
@@ -255,11 +267,15 @@ The downloaded pre-registration data overwrites the previously downloaded data f
 
 The downloaded pre-registration data is stored in its stipulated path as defined
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-Pre-Registration-Sync.md)
+
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
 The system allows a registration officer or supervisor to view whether a  biometric devices (such as fingerprint & iris capture devices, face camera) is connected correctly or not connected to the client machine. If a biometric device is configured as "turned OFF" by admin, then the system doesn't display the availability of the device.
 
 The system also has the provision to show if the client machine has internet connectivity or not. 
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-device-integration.md)
 
 
 ### 3.2 Disk Space Check [**[↑]**](#table-of-content)
@@ -282,6 +298,8 @@ Upon receiving a request to perform a virus scan of the registration packets on 
    * All registration packets on the machine will be scanned.
 3. At the end of the scan, displays an alert message (Security scan detected viruses in the following files [List of files]. Please take necessary action or contact the administrator) on screen if a virus is detected.
 1. If the client application is not open at the configured time, the scan will be queued up and runs only when the client application is open.
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-virus-scanner.md)
 
 ## 4. Registration Data Services [**[↑]**](#table-of-content)
 ### 4.1 New Registration [**[↑]**](#table-of-content)
@@ -442,6 +460,8 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. System sends a success response and allow it to proceed to the next step.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
+
 ### 4.2 UIN Update [**[↑]**](#table-of-content)
 When an individual visits the registration center to update their demographic or biometric details, the Registration Officer captures the updated data as provided by the individual in the system. Refer below for the process: 
 #### A. UIN Updates Turn ON or OFF
@@ -484,6 +504,8 @@ When an individual approaches the Registration Officer for UIN update, the follo
 1. SMS and/or email notifications are sent to the individual if the contact details are entered during the update process.
 1. Refer to the [**Track Status of UIN Update**] (FRS-Resident-Services#7-track-status-of-uin-update-) in Resident Services.
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-update-UIN.md)
+
 ### 4.3 Lost UIN [**[↑]**](#table-of-content)
 
 When an individual has lost his UIN and visits registration center for retrieval of UIN, the Registration Officer captures the biometric and demographic details of the individual and processes a request to retrieve the lost UIN. The system sends a notification to the individual upon successful creation of the UIN retrieval request.
@@ -502,6 +524,8 @@ The Registration Officer performs the following steps to retrieve a lost UIN of 
 8. Prints acknowledgement of the UIN, then SMS and email notifications are sent to the individual if contact details of the individual are entered.
 1. The individual will be informed after a Lost UIN gets retrieve. Refer to [**Notification**](FRS-Registration-Processor#331-notification-pluggable-by-si-)
 1. System captures and stores the transaction details for audit purpose (except PII data).
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-lost-UIN.md)
 
 ### 4.4 Acknowledgement and Notifications [**[↑]**](#table-of-content)
 
@@ -537,7 +561,9 @@ The Registration Officer performs the following steps to retrieve a lost UIN of 
 7. The system will not be able to send SMS, if the client is not online at the time of registration completion.
 
 #### D. Sending email and SMS acknowledgements to additional recipients
-This feature enables registration client to send SMS and email acknowledgements to additional recipient\s (other than the individual’s primary email id and mobile number)
+This feature enables registration client to send SMS and email acknowledgements to additional recipient\s (other than the individual’s primary email id and mobile number).
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-acknowledgement-notification.md)
 
 ### 4.5 Biometric Capture (SDK Integration, Extract and Match) (WIP) [**[↑]**](#table-of-content)
 
@@ -573,6 +599,8 @@ If the required biometric quality is not achieved while a Registration Officer i
 1. If ‘Biometric Exception’ is ‘Yes’, at least one missing biometric must be mandatorily marked.
 1. The registration officer can mark the missing finger(s) and missing iris(es).
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
+
 ### 4.7 Operator and Supervisor Approval [**[↑]**](#table-of-content)
 
 When a Registration Officer captures biometric exceptions of an individual, then a supervisor has to validate/approve that biometric exception. This approval is required to authenticate the captured biometric exception of the individual.
@@ -589,7 +617,9 @@ When a Registration Officer captures biometric exceptions of an individual, then
 1. On successful validation, the system proceeds to the next step of Registration ID generation and displays of registration acknowledgement.
 1. If the validation fails, the system displays an error message and allows user to try again. Unlimited retries are be allowed.
 1. Based on country-specific requirements, it is also possible for the Registration Officer and Supervisor to be the same person. In this case, the user will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for Supervisor authentication of exceptions.
-1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement)
+1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement).
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
 
 ### 4.8 End of Day Process [**[↑]**](#table-of-content)
 
@@ -629,6 +659,8 @@ When the Registration Processor finds some error in the packet such as registrat
 
 #### C. Authenticated registrations report (WIP)
 The system allows the supervisor to view a report of approved registrations for the past 15 days.
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-eod-process.md)
 
 ## 5. Geo-location [**[↑]**](#table-of-content)
 Upon receiving a request to geotag a registration machine, the system performs the following steps:
@@ -723,6 +755,8 @@ The system then enables a Registration Officer to view the registration confirma
    * Export to external storage device for subsequent upload as required.
 5. System captures and stores the transaction details for audit purpose (except PII data).
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-packetupload.md)
+
 ### 7.2 Offline upload (Packet Exporter) [**[↑]**](#table-of-content)
 
 System exports registration packet data from client machine to an external device as follows:
@@ -742,6 +776,8 @@ System exports registration packet data from client machine to an external devic
 1. Supports the partial export. If the system is able to export some packets to the folder and no other files due to lack of storage space or unavailability of the folder, the successfully exported packets will remain on the destination folder.
 1. For partial or full failure, the system displays error message.
 1. System captures and stores the transaction details for audit purpose (except PII data).
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registrtaion-packet_export.md)
 
 ## 8. Analytics and Audit Logs [**[↑]**](#table-of-content) 
 System captures and stores details of each transaction during registration process for audit purpose (except PII data). The audit data is stored in the audit database. When the client machine is working in an offline mode, the audit log is synced with the server as when the client machine is online. 
@@ -791,6 +827,8 @@ The system follows the following steps during the update process:
 1. If updates are not available, the system launches the application.
 1. If update is not successful, the client returns to its earlier version.
 1. System captures and stores the transaction details for audit purpose (except PII data).
+
+Refer to WIKRegistration-Client-Setup
 
 
 ## 11. Clean up [**[↑]**](#table-of-content)
