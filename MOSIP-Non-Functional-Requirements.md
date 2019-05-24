@@ -24,7 +24,7 @@
 ## 1. Demand Capacity and Performance [**[↑]**](#table-of-content)
 The solution should have capacities to cater to the following workload while meeting the performance levels indicated below:
 
-# ### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_** [**[↑]**](#table-of-content)
+### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_** [**[↑]**](#table-of-content)
 
 
 |**S. No.**| **Item**| **Description**|
