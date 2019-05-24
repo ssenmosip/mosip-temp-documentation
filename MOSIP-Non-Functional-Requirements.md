@@ -248,7 +248,7 @@ This section provides the details of the data size required to be handled in the
 |6.|Peak Enrolment packet to be uploaded per day (incl. backlog)|60,000 |
 |7.|Peak Enrolment batch process per hour (Phase-I)| 1500|
 |8.|Peak Enrolment batch process per hour (Phase-II)| 2500|
-|9.|1. Pre-enrolment during peak hour (Phase-I):<ol value=1> 8 million enrolments in 2 years <li value=X> Peak hour will see double of average requests <li value=X> 90% of registration happens in 8 hour window|2,600 Users |
+|9.|1. Pre-enrolment during peak hour (Phase-I):<li=1> 8 million enrolments in 2 years <li value=X> Peak hour will see double of average requests <li value=X> 90% of registration happens in 8 hour window|2,600 Users |
 
 
 
