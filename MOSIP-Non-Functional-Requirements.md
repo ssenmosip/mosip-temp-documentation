@@ -165,9 +165,12 @@ This section provides the details of the data size required to be handled in the
 |**S.No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
 |1.|Total User|Total Number of Users|150 Users|
-|2.|Kit Operators|<li> Field Operators <li> Working Hours|<li> 2000 <li> 8 hours x 22 working days per month
-|3.|Verification|<li>  CNIE Verification <li> Working Hours |<li> 10 per shift <li> 8 hours per shift x 2 Shift
-|4.|Adjudicators|<li> Manual Adjudication <li> Working Hours|<li> 10 per shift <li> 8 hours per shift x 2 Shift|
+|2.|Kit Operators|Field Operators | 2000 
+||| Working Hours| 8 hours x 22 working days per month
+|3.|Verification| CNIE Verification |10 per shift 
+|||Working Hours|8 hours per shift x 2 Shift
+|4.|Adjudicators|Manual Adjudication | 10 per shift |
+|||Working Hours|8 hours per shift x 2 Shift|
 |5.|Contact Centre| Helpdesk Personnel|10 x 2 Shift 
 ||| Number of Supervisors|1 (First Shift) + 1 (Second Shift) 
 ||| Contact Centre Seats|11 (minimum) 
