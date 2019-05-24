@@ -426,7 +426,18 @@ Using the system, Zonal Admin will provide the UIN to activate/deactivate based 
 ### 10.3 Language Specific Setup
 ## 11. Responsive UI [**[↑]**](#table-of-content)
 ## 12. MOSIP Platform Setup [**[↑]**](#table-of-content)
-## 13. ID Definition Setup [**[↑]**](#table-of-content)
+The system admin will set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
+
+For more details, please refer to
+ https://github.com/mosip/mosip/wiki/FRS-Admin-Services#113-list-of-template-types---create-
+
+https://github.com/mosip/mosip/wiki/FRS-Admin-Services#19-list-of-rejection-reasons---createread-
+
+## 13. ID Definition Setup [**[↑]**](#table-of-content)The system admin should be able to set up ID Definition. Setup activity allows the country admin to mark attributes that formulate the id for a country. For example, demographic data fields and biometric data capture attributes.
+
+Configured through backend.
+
+
 ### 13.1 ID Definition Validator
 ## 14. Configuration Setup [**[↑]**](#table-of-content)
 ## 15. Process Flow Setup [**[↑]**](#table-of-content)
