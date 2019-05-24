@@ -327,9 +327,8 @@ Procedure to create document type follows:
  * Created by
  * Created Date and Time
 2. Zonal Admin creates the document type by providing all the required information related to the document type.
-Machines uniqueness will be maintained through machine’s serial number.
+   Zonal Admin will register the document types  by importing CSV/XLS.
 
-Zonal Admin will register the document types  by importing CSV/XLS.
 **Map/un-Map-Re-map Document Type to Document Category**
 
 The system allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data, Zonal Admin’s privileges. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user, then throws an error notification.
