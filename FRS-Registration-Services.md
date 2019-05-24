@@ -161,6 +161,10 @@ When a logged in user tries to access a feature on the registration client the s
 5. A Super Admin can access all features.
 1. If a user is not authorized to access a feature, the system notifies the user by a message. 
 
+[**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
+[**Link to design for Multi-authentication**](/mosip/mosip/tree/master/docs/design/registration/registration-multi-authentication.md)
+[**Link to design for authorization**](/mosip/mosip/tree/master/docs/design/registration/registration-authorization.md)
+
 ### 1.3 Logout [**[↑]**](#table-of-content)
 When a Registration Officer or Supervisor opts to logout, the system allows them to do so by provisioning the following:
 1. Allows the user to choose appropriate option (button or link) in order to log out
@@ -176,6 +180,8 @@ When a Registration Officer or Supervisor opts to logout, the system allows them
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 1. The System also captures and stores the transaction details for audit purpose (except PII data).
 
+[**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
+
 ## 2. Data Sync [**[↑]**](#table-of-content)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
 
@@ -183,6 +189,8 @@ The Registration client can work both in online and offline mode. When the clien
 The data sync can happen through an automated process at a set frequency or a user can manually initiate a sync.
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
+
+[**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-master-data-Sync.md)
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
