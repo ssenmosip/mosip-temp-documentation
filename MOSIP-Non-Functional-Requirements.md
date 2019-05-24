@@ -16,7 +16,7 @@ The solution should have capacities to cater to the following workload while mee
 ### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_** [**[↑]**](#table-of-content)
 
 
-|**S. No.**| **Item**| **Description**|
+|**S.No.**| **Item**| **Description**|
 |:------:|-----|---|
 |1.|Biometric Gallery size| Scalable to peak capacity 40 million records|
 |2.|Biometric Gallery size (Phase-I)| At peak capacity nearly 8.00 million|
