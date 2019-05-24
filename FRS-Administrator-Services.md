@@ -19,7 +19,7 @@
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center (WIP)](#514-activatedeactivatedecommission-center-wip-) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center-) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management-)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
@@ -43,7 +43,7 @@
   * [6.2 View Master data for each table (WIP)](#62-view-master-data-for-each-table-wip-) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-)
     * [6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)](#631-manage-document-type-create-update-activate-deactivate)) _(ASR_FR_6.3)_
-    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)(WIP)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate-wip-) _(ASR_FR_6.4)_
+    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)(WIP) (WIP)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate-wip-) _(ASR_FR_6.4)_
     * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
     * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
      * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view-) _(ASR_FR_6.7)_ 
@@ -159,7 +159,7 @@ For more details, please refer to [**section**](FRS-Admin-Services#21-registrati
 #### 5.1.3 Update Center [**[↑]**](#table-of-content)
 Using the system, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the registration center and provides an acknowledgement notification about the updates status else triggers a respective error message. 
 
-#### 5.1.4 Activate/Deactivate/Decommission Center (WIP)
+#### 5.1.4 Activate/Deactivate/Decommission Center
 
 #### A. Activate the Registration Center
 
@@ -206,7 +206,7 @@ Procedure to update the machine related details, the Zonal Admin will:
 1. If the Zonal Admin selects the Delete flag, the information is updated when the registration center is updated. 
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
-#### 5.2.4 Activate/Deactivate/Decommission Machine (WIP) [**[↑]**](#table-of-content)
+#### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### A. Activate Machine
 
 The System allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
@@ -360,7 +360,7 @@ For more details, please please refer to [**section**](FRS-Admin-Services#26-map
 The system allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the privileges of Zonal Admin who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the allocated privileges to the user, then throws an error notification.
 ### 6.2 View Master Data for Each Table (WIP)
 ### 6.3 Manage Master Data [**[↑]**](#table-of-content)
-#### 6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)
+#### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
 #### A. Create/Update Document Types
 
 Using the system, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and the privileges of Zonal Admin. On successful validation, the system allows the Zonal Admin to create the document type. 
@@ -390,7 +390,8 @@ The System allows Zonal Admin to deactivate the document type, which are already
 
 The system allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data, Zonal Admin’s privileges. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user, then throws an error notification.
 
-#### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
+#### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
+
 #### 6.3.3 Manage Location Data (Create, Update, Activate/Deactivate) 
 #### A. Create/Update Location Data
 Using the system, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the privileges of Zonal Admin. During validation, if system does not find the provided data or the respective Zonal Admin’s privileges, then throws an error notification On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
@@ -404,6 +405,13 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
  * Active (Boolean)
  * Created by
  * Created Date and Time
+#### B.Activate the Location data
+
+The system allows Zonal Admin to activate the location data, which are already deactivated due to any reasons. When the location data is created and approved, it is activated automatically. The Zonal Admin selects the location data then all the location data of that Zone are displayed. The Zonal Admin can select one deactivated location data or multiple deactivated location data at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected location data(s). On successful validation, the system provides a notification.
+
+#### C. Deactivate the Location data
+
+The System allows Zonal Admin to deactivate the location data, which are already deactivated due to any reasons. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected location data(s), and the system provides a notification.
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
