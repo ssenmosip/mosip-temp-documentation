@@ -234,22 +234,3 @@ This section provides the details of the data size required to be handled in the
 |8.|NOC|Medium|~ZERO|~24 hrs.|**RTO**: It is understood that NOC is an important process to monitor the availability of service
 ||||||**RPO (Ticketing database etc.)**: Ticketing database is not a critical database and hence loss of 24 hrs. of tickets can be afforded
 |9.|Office|Medium|24-48 hours|N/A (No data is stored)	
-
-
-### <p align="center"> **Table 5: _Indicative Transaction Volumes_** [**[↑]**](#table-of-content)
-|**S.No.**| **Parameters**| **Indicative Units**|
-|:------:|-----|---|
-|**A.**|**Enrolments**| |
-|1.|Total number of enrolments till October 2021| 8.00 million|
-|2.|Total number of enrolments till July 2023| 30.48 Million|
-|3.|Size of Enrolment Packet| 3 MB|
-|4.|Peak enrolment per day (Phase-I)|30,000 |
-|5.|Peak enrolment per day (Phase-II)|50,000 |
-|6.|Peak Enrolment packet to be uploaded per day (incl. backlog)|60,000 |
-|7.|Peak Enrolment batch process per hour (Phase-I)| 1500|
-|8.|Peak Enrolment batch process per hour (Phase-II)| 2500|
-|9.|1. Pre-enrolment during peak hour (Phase-I):<li=1> 8 million enrolments in 2 years <li value=X> Peak hour will see double of average requests <li value=X> 90% of registration happens in 8 hour window|2,600 Users |
-
-
-
-<li value=X>
