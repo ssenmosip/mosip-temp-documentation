@@ -132,7 +132,7 @@ Error Response
 }
 
 ```
-```
+
 ## 1.2 Authenticate UserId and OTP
 
 This service authenticates the use ID and the OTP. If the authentication is successfull, an AuthToken will be sent in the Response header. 
@@ -175,9 +175,9 @@ Success Response
 Response Cookie:
 
 Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+```
 
-
-JSON Response:
+```JSON
 {
 	"id": "mosip.authentication.useridOTP",
 	"ver": "1.0",
@@ -189,7 +189,6 @@ JSON Response:
 }
 
 ```
-
 
 Error Responses
 
@@ -247,7 +246,7 @@ Requires Authentication | no
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 username|Yes|This is the username of the user. | -NA- | M392380
-password|Yes|This is the channel in which the OTP will be sent. It should be one of the {"EMAIL", "MOBILENUMBER"}| -NA- | MOBILENUMBER
+password|Yes|This is the password of the user.| -NA- | ADGDAGADFF
 appid|Yes|This is the application ID of the caller of this service. It should be on of the {"PREREGISTRATION", "REGISTRATIONCLIENT", "REGISTRATIONPROCESSOR", "IDA"}| -NA- | PREREGISTRATION
 
 ### Example Request
@@ -366,8 +365,9 @@ Success Response
 Response Cookie:
 
 Set-Cookie →Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbmRpdmlkdWFsIiwibW9iaWxlIjoiOTY2MzE3NTkyOCIsIm1haWwiOiJpbmRpdmlkdWFsQGdtYWlsLmNvbSIsInJvbGUiOiJwZXJzb24iLCJpYXQiOjE1NTEzNDU1NjUsImV4cCI6MTU1MTM1MTU2NX0.pCyibViXo31enOgRD60BnKjEpEA-78yzbWnZGChxCIZ5lTpYnhgm-0dtoT3neFebTJ8eAI7-o8jDWMCMqq6uSw; Max-Age=6000000; Expires=Wed, 08-May-2019 19:59:43 GMT; Path=/; Secure; HttpOnly
+```
 
-JSON:
+```JSON
 {
 	"id": "mosip.authentication.clientidsecretkey",
 	"ver": "1.0",
@@ -505,7 +505,23 @@ Success Response
 ```
 
 Error Responses
--NA-
+
+1. Empty Cookie: If the passed Cookie is empty. 
+
+```JSON
+{
+	"id": "mosip.authentication.invalidatetoken",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "AUTH_ERR_COOKIEEMPTY",
+				"message": "The passed in Cookie is empty"
+		  }	
+		]
+}
+
+```
 
 
 # 3. OTP services
