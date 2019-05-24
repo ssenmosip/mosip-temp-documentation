@@ -115,10 +115,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |7.|Peak Enrolment batch process per hour (Phase-I)| 1500|
 |8.|Peak Enrolment batch process per hour (Phase-II)| 2500|
 |9.|Pre-enrolment during peak hour (Phase-I):<li> 8 million enrolments in 2 years <li> Peak hour will see double of average requests <li> 90% of registration happens in 8 hour window|2,600 Users |
-|10.|Pre-enrolment during peak hour (Phase-II):| 6,750 Users|
-|| (a) 22.5 million enrolments in 2 years
-|| (b) Peak hour will see double of average requests
-|| (c) 90% of registration happens in 8 hour window
+|10.|Pre-enrolment during peak hour (Phase-II):<li> 22.5 million enrolments in 2 years <li> Peak hour will see double of average requests <li> 90% of registration happens in 8 hour window| 6,750 Users|
 |**B.**|**Authentication and E-KYC**| |
 |1.|Number of authentication requests (At peak load during Phase-I)| 0.50 million per day|
 |2.|Number of e-KYC requests (At peak load during Phase-I)|0.10 million per day |
@@ -131,8 +128,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |4.|Number of Concurrent internet users|5,62,500|
 |5.|Average no. of hits by same users during the same login on web page|2|
 |6.|Web users during peak hour|100,969|
-|7.|Web users during peak hour| (a) 2.5% users/day| 
-||| (b) Peak hour will see double of average requests|
+|7.|Web users during peak hour| <li> 2.5% users/day <li> Peak hour will see double of average requests| 
 |**D.**|**Miscellaneous**
 |1.|Number of sessions during peak load |36 million per annum|
 |2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
