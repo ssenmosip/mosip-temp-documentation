@@ -234,3 +234,9 @@ This section provides the details of the data size required to be handled in the
 |8.|NOC|Medium|~ZERO|~24 hrs.|**RTO**: It is understood that NOC is an important process to monitor the availability of service
 ||||||**RPO (Ticketing database etc.)**: Ticketing database is not a critical database and hence loss of 24 hrs. of tickets can be afforded
 |9.|Office|Medium|24-48 hours|N/A (No data is stored)	
+
+
+
+
+
+<li value=X>
