@@ -196,6 +196,7 @@ For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-ma
 A.**Activate Machine**
 
 The System allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
+
 B.** Deactivate Machine**
 
 The System allows Zonal Admin to deactivate the machine, which are already deactivated due to any reasons. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machine at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
@@ -250,6 +251,7 @@ For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-d
 A.**Activate Device**
 
 The System allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select one deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected device(s). On successful validation, the system provides a notification.
+
 B. **Deactivate Device**
 
 The System allows Zonal Admin to deactivate the device, which are already deactivated due to any reasons. The Zonal Admin selects the device and the all the device of that zone are displayed. The Zonal Admin can select one active device or multiple active devices at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected device(s), and the system provides a notification.
@@ -310,15 +312,19 @@ If the user selects the Delete flag at the time of updating user’s record, the
 
 #### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-content)
 A. **Activate User**
-Blacklist
+
 The system allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that Zone are displayed. The Zonal Admin can select one deactivated user or multiple deactivated users at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected user(s). On successful validation, the system provides a notification.
+
 B. **Deactivate User**
+
 The System allows Zonal Admin to deactivate the user, which are already deactivated due to any reasons. The Zonal Admin selects the user and the all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
 
 C. **Blacklist User**
 
 The system allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
+
 Procedure to block/blacklist:
+
 1. Zonal Admin has authorization to block or blacklist the users for any reason.
 2. Once blocked/blacklisted, the system does not allow the users to login the system and notification related to 
    block/blacklist is sent to the respective user.
@@ -357,6 +363,7 @@ Procedure to create document type follows:
  * Created Date and Time
 2. Zonal Admin creates the document type by providing all the required information related to the document type.
    Zonal Admin will register the document types  by importing CSV/XLS.
+
 B. **Activate the Document types**
 
 The System allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select one deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected document type(s). On successful validation, the system provides a notification.
