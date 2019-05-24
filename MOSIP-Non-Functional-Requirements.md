@@ -209,7 +209,7 @@ This section provides the details of the data size required to be handled in the
 ||||10 Medium Report Type,
 ||||10 Simple Report Type
 |6.|Communication with External Systems|External interfaces that are likely to interact with the RNP System|Social Benefit Programs (RAMED, TAYSSIR, DAAM, etc.), Financial Switch for Social Benefit Disbursement, Validation with CNIE and Civil Registration, etc.
-|7.|RTO and RPO |For Pilot, the DC-DR will be in same city. Subsequently, the DC and DR will be more than 100 KMs apart| Refer to Section 28.
+|7.|RTO and RPO |For Pilot, the DC-DR will be in same city. Subsequently, the DC and DR will be more than 100 KMs apart| Refer to [**Section 7**](#7-rto-and-rpo-).
 |8.|Online data retention| NID Data|Always
 |||Biometric Centre data| Always
 |9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
