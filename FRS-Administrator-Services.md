@@ -169,7 +169,7 @@ The System allows Zonal Admin to activate the registration centers, which are al
 
 The System allows Zonal Admin to deactivate the registration centers, which are already deactivated due to any reasons. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one activate center or multiple active centers at a time then selects the Deactive option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
 
-#### C.Decommission the Registration Center
+#### C. Decommission the Registration Center
 
 Decommissioning a center means removing the center from the zone permanently. The system allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected center(s). Once the center is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
