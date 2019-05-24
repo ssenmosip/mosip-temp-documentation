@@ -156,7 +156,7 @@ This section provides the details of the data size required to be handled in the
 
 ### <p align="center"> **Table 6: _Data Size_** [**[↑]**](#table-of-content)
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
-|:----:||----|----|:----:|
+|:----:|----|----|:----:|
 |1.|Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
 |2.|Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
 |3.|e-KYC Packet|OTP, Iris or Facial|30 KB
