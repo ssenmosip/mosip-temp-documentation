@@ -10,10 +10,10 @@
 - [6. Technical Parameters](#6-technical-parameters-)
 - [7. RTO and RPO](#7-rto-and-rpo-)
 
-## 1. Demand Capacity and Performance
+## 1. Demand Capacity and Performance [**[↑]**](#table-of-content)
 The solution should have capacities to cater to the following workload while meeting the performance levels indicated below:
 
-### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_**
+### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_** [**[↑]**](#table-of-content)
 
 
 |**S. No.**| **Item**| **Description**|
@@ -31,7 +31,7 @@ The solution should have capacities to cater to the following workload while mee
 
 The solution shall cater to at least the following indicative performance level: 
 
-### <p align="center"> **Table 2: _Demand Capacity and Performance Requirements_**
+### <p align="center"> **Table 2: _Demand Capacity and Performance Requirements_** [**[↑]**](#table-of-content)
 
 
 |**S. No.**| **Item**| **Description**|
@@ -48,11 +48,11 @@ The solution shall cater to at least the following indicative performance level:
 |1.|De-duplication|99.5 % uptime evaluated on monthly basis on 24*7 service window |
 |2.|Authentication Services| 99.99% uptime evaluated on monthly basis on 24*7 service window|
 
-## 2. Estimated Enrolment Volumes
+## 2. Estimated Enrolment Volumes [**[↑]**](#table-of-content)
 
 A tabular representation of the estimated volumes in the overall project implementation is given below:
 
-### <p align="center"> **Table 3: _Enrolment Volume Estimates_**
+### <p align="center"> **Table 3: _Enrolment Volume Estimates_** [**[↑]**](#table-of-content)
 
 
 |**S. No.**| **Item**| **Volumes (in million)**|
@@ -75,7 +75,7 @@ The table given above is an estimated of the enrolment and updated volumes under
 1. For the purpose of enrolment of all the citizens and foreign Residents of Morocco, a figure of 95% of the total population is considered. It is estimated that 85% of the population will be enrolled in Phase-I and Phase-II of implementation. Considering this, the total enrolment volumes in Phase-II come out to be 22.86 million till July 2023. Thereafter, an additional 10% of the population i.e. nearly 3.63 million will be covered August 2023 onward. 
 1. In addition to the enrolment volumes as mentioned above, the continuous enrolment of the annual increment in the population (new born children) will be carried out. Moreover, the updates in demographic information such as mobile number, address, email address, etc. will also be carried out. Similarly, the update in biometric information will be carried out at the age of 5 years, 15 years and on demand basis for other registered individuals.
 
-## 3. Estimated Authentication Volumes
+## 3. Estimated Authentication Volumes [**[↑]**](#table-of-content)
 
 The estimated volume of authentication services are provided in this section. 
 
@@ -87,7 +87,7 @@ In the Phase-I (between Aug 2019 to Oct 2021), there is expected to be a one-tim
 
 The above information is summarized in the table given below:
 
-### <p align="center"> **Table 4: _Authentication and e-KYC volume estimates during Phase-I_**
+### <p align="center"> **Table 4: _Authentication and e-KYC volume estimates during Phase-I_** [**[↑]**](#table-of-content)
 |**S. No.**| **Parameter**| **Description**| **Sizing Estimations**
 |:------:|-----|---|:-----:|
 |**A.**|**Authentication**|
@@ -101,8 +101,8 @@ The above information is summarized in the table given below:
 
 After the end of Phase-I of the implementation, the authentication services and the corresponding authentication volumes would start growing. During peak usage under the Phase-II, it is estimated that 10% of the total population of Morocco would use authentication services on a daily basis. In other words, it is estimated that authentication transactions during Phase-II would be in the range of 3.6 million per day. Thus, the total volumes are estimated to be 650 Million transactions per annum during Phase-II. 
 
-## 4. Transaction Volumes
-### <p align="center"> **Table 5: _Indicative Transaction Volumes_**
+## 4. Transaction Volumes [**[↑]**](#table-of-content)
+### <p align="center"> **Table 5: _Indicative Transaction Volumes_** [**[↑]**](#table-of-content)
 |**S. No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|:---:|
 |**A.**|**Enrolments**| |
@@ -140,7 +140,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |1.|Number of sessions during peak load |36 million per annum|
 |2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
 |3.|Bandwidth at each center|2 MBPS|
-### 4.1. Assumptions for Server Sizing
+### 4.1. Assumptions for Server Sizing [**[↑]**](#table-of-content)
 1. All production and non-production servers will be hosted at common Data Centre
 1. Baring certain citizen facing applications, DC-DR will be in active passive configuration
 1. All servers will be based on x86 architecture
@@ -148,7 +148,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Optimized Data Centre space utilization
 1. More compute and memory power per server 
 1. High compute and memory consuming workloads should use Blades 
-### 4.2. Usage Factors for Storage and Tape Library
+### 4.2. Usage Factors for Storage and Tape Library [**[↑]**](#table-of-content)
 1. Host mount points for blade servers
 1. Provides support for storage array based replication to meet DR requirements 
 1. Host IO intensive workloads like database, data analytics and data warehouse 
@@ -158,17 +158,17 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Provides data retention for longer duration
 1. Provides cost effective way of retaining data for longer duration
 1. Enables department to meet data compliance requirements
-### 4.3. Data Size
+### 4.3. Data Size [**[↑]**](#table-of-content)
 This section provides the details of the data size required to be handled in the RNP information system
 
-### <p align="center"> **Table 6: _Data Size_**
+### <p align="center"> **Table 6: _Data Size_** [**[↑]**](#table-of-content)
 |**Parameter**|**Description**|**Sizing Estimations**|
 |----|----|:----:|
 Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
 Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
 e-KYC Packet|OTP, Iris or Facial|30 KB
-## 5. Estimation of Users 
-### <p align="center"> **Table 7: _Estimation of Users_**
+## 5. Estimation of Users [**[↑]**](#table-of-content) 
+### <p align="center"> **Table 7: _Estimation of Users_** [**[↑]**](#table-of-content)
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
 |1.|Total User|Total Number of Users|150 Users|
@@ -199,8 +199,8 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
 |13.| Permanent Service Centers|Citizen Service Centers|2000
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
-## 6. Technical Parameters
-### <p align="center"> **Table 8: _Technical Parameters_**
+## 6. Technical Parameters [**[↑]**](#table-of-content)
+### <p align="center"> **Table 8: _Technical Parameters_** [**[↑]**](#table-of-content)
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
 |1.|Network Connectivity |Network Connectivity (DC-DR Replication Link)| Dual links of 1 Gbps capacity
@@ -220,8 +220,8 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |8.|Online data retention| NID Data|Always
 |||Biometric Centre data| Always
 |9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
-## 7. RTO and RPO
-### <p align="center"> **Table 9: _RTO and RPO_**
+## 7. RTO and RPO [**[↑]**](#table-of-content)
+### <p align="center"> **Table 9: _RTO and RPO_** [**[↑]**](#table-of-content)
 |**S. No.**|**Process**|**Criticality**|**RTO**| **RPO**|**Business Rationale for RPO and RTO**|
 |:----:|----|----|----|----|----|
 |1.|Enrolment|High|24 hours|~ZERO|**RTO**: Enrolment is an offline process and officers are required to upload packets once a day hence 24 hrs. is affordable 
