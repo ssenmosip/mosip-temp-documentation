@@ -104,7 +104,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 ## 4. Transaction Volumes [**[↑]**](#table-of-content)
 ### <p align="center"> **Table 5: _Indicative Transaction Volumes_** [**[↑]**](#table-of-content)
 |**S. No.**| **Parameters**| **Indicative Units**|
-|:------:|-----|:---:|
+|:------:|-----|---|
 |**A.**|**Enrolments**| |
 |1.|Total number of enrolments till October 2021| 8.00 million|
 |2.|Total number of enrolments till July 2023| 30.48 Million|
