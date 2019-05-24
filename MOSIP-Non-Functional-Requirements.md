@@ -1,126 +1,4 @@
-## 1. Audit Manager
-### 1.1 Audit Manager
-1. Ability to store the audit logs
-1. Ability to store the audit logs locally (in case of offline)
-1. Ability to archive audit data based on defined archival policy
-## 2. Exception Manager (MOSIP-Exception)
-### 2.1 Exception Handler 
-1. Ability to provide base exception framework
-1. Framework to include base exception parameters (message, throwable, cause)
-## 3. Log Manager (MOSIP-Logging)
-### 3.1 Logging
-Provide the following logging utility
-1. Generate logs for implementation events across the application
-1. Stores the generated logs in configured location
-1. Each log can be generated as a file/console
-1. Raise an alert in case of listed exceptions (file not found, no such file exists, to be identified)
-1. Links various logs associated to one applicant
-## 4. MOSIP-Utils
-### 4.1 Util
-MOSIP provides the following utilities
-1. String utility
-1. Calendar utility
-1. Math utility
-1. File utility
-1. Hash utility
-## 5. Data Access Manager
-### 5.1 Data Access-Hibernate
-Provides an implementation for DAM (Data Access Manager) interface 
-## 6. OTP Manager
-### 6.1 OTP Generator
-Generates OTP for unique key, the length and expiry of the OTP is configurable
-### 6.2 OTP Validator
-Validates the OTP against a unique key
-## 7. Key Management
-### 7.1 Key Generator
-1. Generates key pair for encryption and decryption 
-1. Store key pairs in DB 
-1. Update validity status of the key-pair
-1. Audit with common attributes
-### 7.2 Certificate Generator
-1. Generate a certificate for new machines, devices and users through a batch job using a defined algorithm
-1. Stores certificate in a password protected Key Store
-1. Update validity status of the Key-pair
-1. Audit with common attributes
-### 7.3 Key Services
-Track usage and validity of key-pair/certificate
-## 8. Security
-### 8.1 File Encryptor
-Encrypts the data packets to secure the data
-### 8.2 File Decryptor
-Decrypts the data packets for further processing
-### 8.3 Authentication
-Authenticates the internal and external communications across the platform
-### 8.4 Authorization
-Authorizes the user as per the privileges
-## 9. Data Mapper (MOSIP-Beanmapper)
-### 9.1 Data Mapper
-Facilitate data mapping between DTO (Data Transfer Object) and entity
-## 10. Data Validator 
-### 10.1 Mobile Validator
-Performs the pattern validation on the mobile number based on the configured length
-### 10.2 Email Validator
-Performs the pattern validation on email ID based on the configured parameters
-### 10.3 Blacklisted Words Validator
-Performs word to word validation against a configured list of blacklisted words
-## 11. Master Data Manager
-### 11.1 Master Data
-Performs CRUD (Create, Read, Update, Delete) operations on the master data
-## 12. UIN Generator
-### 12.1 UIN Generator
-Generates and validates UIN as per defined logic
-## 13. ID Manager
-### 13.1 RID Generator
-Generates and validates RID (Registration ID) as per defined logic
-### 13.2 PRID Generator
-Generates and validates PRID (Pre-Registration ID) as per defined logic
-### 13.3 VID Generator
-Generates and validates VID (Virtual ID) as per defined logic
-### 13.4 Token ID Generator
-Generates and validates token ID as per defined logic for TSPs (Third party Service Provider)
-### 13.5 Static PIN Generator
-Generates and validates static PIN for user authentication
-### 13.6 Registration Center ID Generator
-Generates a registration center ID
-### 13.7 Machine ID Generator
-Generates a machine ID of the client machine
-### 13.8 TSP ID Generator
-Generates and validates a TSP ID
-## 14. Virus Scanner
-### 14.1 ClamAV Virus Scanner
-Performs virus scan on registration and pre-registration packet
-## 15. Template Merger
-### 15.1 Template Merger
-Merges a pre-configured template with dynamic values
-## 16. PDF Generator
-### 16.1 PDF Generator
-This utility enables PDF file creation of received content (e.g., acknowledge and notification templates)
-## 17. Notification Manager
-### 17.1 Notification-SMS
-Provides an interface to send an SMS notification
-### 17.2 Notification-Email
-Provides an interface to send an email notification
-## 18. Sync Handler
-### 18.1 Master data
-Syncs master data between the MOSIP master data server and the client local database
-### 18.2 Public Keys
-Syncs public keys between the MOSIP DB and client DB
-### 18.3 Configuration Changes
-Syncs the configurations stored in MOSIP configuration server with the locally stored configuration of client
-### 18.4 List of Roles and users
-Syncs user role data between the MOSIP server and the client local database
-## 19. Multi-Language Manager
-### 19.1 Translation
-Provides multi language support through translation for an admin configured primary and secondary languages for a country
-### 19.2 Transliteration
-Provides multi language support through transliteration for an admin configured primary and secondary languages for a country
-## 20. QR Code Generator
-### 20.1 QR Code Generator
-This utility enable QR code generation for pre-registration, registration and UIN acknowledgment
-## 21. FTP\Packet Uploader
-### 21.1 FTP - Upload Packet
-Provides an upload portal for registration client to upload packets for sending it to registration processor
-## 22. Demand Capacity and Performance
+## 1. Demand Capacity and Performance
 The solution should have capacities to cater to the following workload while meeting the performance levels indicated below:
 
 ### <p align="center"> **Table 1: _Demand Capacity and Performance Requirements_**
@@ -158,7 +36,7 @@ The solution shall cater to at least the following indicative performance level:
 |1.|De-duplication|99.5 % uptime evaluated on monthly basis on 24*7 service window |
 |2.|Authentication Services| 99.99% uptime evaluated on monthly basis on 24*7 service window|
 
-## 23. Estimated Enrolment Volumes
+## 2. Estimated Enrolment Volumes
 
 A tabular representation of the estimated volumes in the overall project implementation is given below:
 
@@ -185,7 +63,7 @@ The table given above is an estimated of the enrolment and updated volumes under
 1. For the purpose of enrolment of all the citizens and foreign Residents of Morocco, a figure of 95% of the total population is considered. It is estimated that 85% of the population will be enrolled in Phase-I and Phase-II of implementation. Considering this, the total enrolment volumes in Phase-II come out to be 22.86 million till July 2023. Thereafter, an additional 10% of the population i.e. nearly 3.63 million will be covered August 2023 onward. 
 1. In addition to the enrolment volumes as mentioned above, the continuous enrolment of the annual increment in the population (new born children) will be carried out. Moreover, the updates in demographic information such as mobile number, address, email address, etc. will also be carried out. Similarly, the update in biometric information will be carried out at the age of 5 years, 15 years and on demand basis for other registered individuals.
 
-## 24. Estimated Authentication Volumes
+## 3. Estimated Authentication Volumes
 
 The estimated volume of authentication services are provided in this section. 
 
@@ -211,7 +89,7 @@ The above information is summarized in the table given below:
 
 After the end of Phase-I of the implementation, the authentication services and the corresponding authentication volumes would start growing. During peak usage under the Phase-II, it is estimated that 10% of the total population of Morocco would use authentication services on a daily basis. In other words, it is estimated that authentication transactions during Phase-II would be in the range of 3.6 million per day. Thus, the total volumes are estimated to be 650 Million transactions per annum during Phase-II. 
 
-## 25. Transaction Volumes
+## 4. Transaction Volumes
 ### <p align="center"> **Table 5: _Indicative Transaction Volumes_**
 |**S. No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|:---:|
@@ -250,7 +128,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |1.|Number of sessions during peak load |36 million per annum|
 |2.|Assumed CPU and memory Utilization for Non-ABIS Application|60%|
 |3.|Bandwidth at each center|2 MBPS|
-### 25.1. Assumptions for Server Sizing
+### 4.1. Assumptions for Server Sizing
 1. All production and non-production servers will be hosted at common Data Centre
 1. Baring certain citizen facing applications, DC-DR will be in active passive configuration
 1. All servers will be based on x86 architecture
@@ -258,7 +136,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Optimized Data Centre space utilization
 1. More compute and memory power per server 
 1. High compute and memory consuming workloads should use Blades 
-### 25.2. Usage Factors for Storage and Tape Library
+### 4.2. Usage Factors for Storage and Tape Library
 1. Host mount points for blade servers
 1. Provides support for storage array based replication to meet DR requirements 
 1. Host IO intensive workloads like database, data analytics and data warehouse 
@@ -268,7 +146,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 1. Provides data retention for longer duration
 1. Provides cost effective way of retaining data for longer duration
 1. Enables department to meet data compliance requirements
-### 25.3. Data Size
+### 4.3. Data Size
 This section provides the details of the data size required to be handled in the RNP information system
 
 ### <p align="center"> **Table 6: _Data Size_**
@@ -277,7 +155,7 @@ This section provides the details of the data size required to be handled in the
 Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
 Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
 e-KYC Packet|OTP, Iris or Facial|30 KB
-## 26. Estimation of Users 
+## 5. Estimation of Users 
 ### <p align="center"> **Table 7: _Estimation of Users_**
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
@@ -309,7 +187,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |12.|Concurrency Citizen| Concurrency of Internet Users|2.5% of estimated users
 |13.| Permanent Service Centers|Citizen Service Centers|2000
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
-## 27. Technical Parameters
+## 6. Technical Parameters
 ### <p align="center"> **Table 8: _Technical Parameters_**
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
@@ -330,7 +208,7 @@ e-KYC Packet|OTP, Iris or Facial|30 KB
 |8.|Online data retention| NID Data|Always
 |||Biometric Centre data| Always
 |9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
-## 28. RTO and RPO
+## 7. RTO and RPO
 ### <p align="center"> **Table 9: _RTO and RPO_**
 |**S. No.**|**Process**|**Criticality**|**RTO**| **RPO**|**Business Rationale for RPO and RTO**|
 |:----:|----|----|----|----|----|
