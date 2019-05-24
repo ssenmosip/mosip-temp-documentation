@@ -1,13 +1,4 @@
-**Date: 08 May 2019** 
-
-**MOSIP**
-
-|**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
-|:------:|-----|---|---|
-|1.|MOSIP - High Level Design Document|[Click to View](Deliverables---Attachments)|Refer attachment 1 in the linked page - Attachment Name: MOSIP_HLD_v2 - Delivered on 05Feb'19|
-
-
-**Date: 8 May 2019**
+**Date: 6 June 2019**
 
 **Module: ID Authentication**
 
