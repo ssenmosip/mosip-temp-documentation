@@ -287,7 +287,15 @@ The system allows its users (Central Admin, Central Approver, Zonal Admin, Zonal
 
 If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
 
-#### 5.4.4 Activate/Deactivate/Blacklist/Whitelist User [**[↑]**](#table-of-content)
+#### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-content)
+A. **Activate User**
+Blacklist
+The system allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that Zone are displayed. The Zonal Admin can select one deactivated user or multiple deactivated users at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected user(s). On successful validation, the system provides a notification.
+B. **Deactivate User**
+The System allows Zonal Admin to deactivate the user, which are already deactivated due to any reasons. The Zonal Admin selects the user and the all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
+
+C. **Blacklist User**
+
 The system allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
 Procedure to block/blacklist:
 1. Zonal Admin has authorization to block or blacklist the users for any reason.
@@ -311,8 +319,8 @@ For more details, please please refer to [**section**](FRS-Admin-Services#26-map
 The system allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the privileges of Zonal Admin who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the allocated privileges to the user, then throws an error notification.
 ### 6.2 View Master Data for Each Table (WIP)
 ### 6.3 Manage Master Data [**[↑]**](#table-of-content)
-#### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
-**Create/Update Document Type**
+#### 6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)
+A. **Create/Update Document Type**
 
 Using the system, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and the privileges of Zonal Admin. On successful validation, the system allows the Zonal Admin to create the document type. 
 
@@ -328,14 +336,21 @@ Procedure to create document type follows:
  * Created Date and Time
 2. Zonal Admin creates the document type by providing all the required information related to the document type.
    Zonal Admin will register the document types  by importing CSV/XLS.
+B. **Activate the Document types**
 
-**Map/un-Map-Re-map Document Type to Document Category**
+The System allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select one deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected document type(s). On successful validation, the system provides a notification.
+
+C. **Deactivate the Document type**
+
+The System allows Zonal Admin to deactivate the document type, which are already deactivated due to any reasons. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document type at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected document type(s), and the system provides a notification.
+
+D. **Map/un-Map-Re-map Document Type to Document Category**
 
 The system allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data, Zonal Admin’s privileges. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user, then throws an error notification.
 
-#### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate) [**[↑]**](#table-of-content)
-#### 6.3.3 Manage Location Data (Create, Update, Activate, Deactivate) 
-**Create/Update Location Data**
+#### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
+#### 6.3.3 Manage Location Data (Create, Update, Activate/Deactivate) 
+A. **Create/Update Location Data**
 Using the system, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the privileges of Zonal Admin. During validation, if system does not find the provided data or the respective Zonal Admin’s privileges, then throws an error notification On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
 
 Following are the mandatory location data to be provided by Zonal Admin to create the location data:
@@ -350,10 +365,23 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
-**Create/Update**
+A. **Create/Update Blacklisted Word**
 
 Using the system, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
 During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an respective error notification.   
+
+B. **Activate the Blacklisted Word**
+
+The System allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
+
+C. **Deactivate the Blacklisted Word**
+
+The System allows Zonal Admin to deactivate the blacklisted Word, which are already deactivated due to any reasons. The Zonal Admin selects the blacklisted Word and the all the blacklisted Word of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
+
+D. **Decommission the Blacklisted Word**
+
+Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The system allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
+
  
 #### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
 The system allows Zonal Admin to view the registration center types by selecting the master data. Once the user selects the master data types, all the r features associated with the master data are displayed. Again the user will select the Registration Center Type and the available registration center types are available to view.  The registration center types are configured in the backend process. The system validates the privileges of user who raised the request to view the registration center types and provides the registration center types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
