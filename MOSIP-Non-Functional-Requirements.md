@@ -205,9 +205,7 @@ This section provides the details of the data size required to be handled in the
 |3.|Re-size/ headroom|Virtual Cores, Memory, and Storage Seamlessly|25% of the base capacity, only for non-ABIS components in permanent Data Centre
 |4.|Storage|Static & Transaction data|2,600 TB
 |5.|Reports|Total|25 types of reports
-|||Break-up|5 Complex Report Type,
-||||10 Medium Report Type,
-||||10 Simple Report Type
+|||Break-up|<li> 5 Complex Report Type, <li> 10 Medium Report Type, <li> 10 Simple Report Type
 |6.|Communication with External Systems|External interfaces that are likely to interact with the RNP System|Social Benefit Programs (RAMED, TAYSSIR, DAAM, etc.), Financial Switch for Social Benefit Disbursement, Validation with CNIE and Civil Registration, etc.
 |7.|RTO and RPO |For Pilot, the DC-DR will be in same city. Subsequently, the DC and DR will be more than 100 KMs apart| Refer to [**Section 7**](#7-rto-and-rpo-).
 |8.|Online data retention| NID Data|Always
