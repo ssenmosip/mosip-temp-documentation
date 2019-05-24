@@ -162,7 +162,9 @@ When a logged in user tries to access a feature on the registration client the s
 1. If a user is not authorized to access a feature, the system notifies the user by a message. 
 
 [**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
+
 [**Link to design for Multi-authentication**](/mosip/mosip/tree/master/docs/design/registration/registration-multi-authentication.md)
+
 [**Link to design for authorization**](/mosip/mosip/tree/master/docs/design/registration/registration-authorization.md)
 
 ### 1.3 Logout [**[↑]**](#table-of-content)
@@ -502,7 +504,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
    * Receiving a RID do not mean UIN update is successful.
 8. Registration Officer Views and prints acknowledgement. 
 1. SMS and/or email notifications are sent to the individual if the contact details are entered during the update process.
-1. Refer to the [**Track Status of UIN Update**] (FRS-Resident-Services#7-track-status-of-uin-update-) in Resident Services.
+1. Refer to the [**Track Status of UIN Update**](FRS-Resident-Services#7-track-status-of-uin-update-) in Resident Services.
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-update-UIN.md)
 
@@ -793,7 +795,7 @@ MOSIP performs the following:
 
 ### 9.1 Key Management [**[↑]**](#table-of-content)
 
-The data captured and stored in to the client machine during different process [such as new registration, update UIN, lost UIN, pre-registration] will be encrypted with the different set of keys. The keys have a different set of expiry policies and based on which it will be refreshed. The keys are securely managed into the database.
+The data captured and stored in to the client machine during different process (such as new registration, update UIN, lost UIN, pre-registration) will be encrypted with the different set of keys. The keys have a different set of expiry policies and based on which it will be refreshed. The keys are securely managed into the database.
 ## 10. Software Version Upgrade [**[↑]**](#table-of-content)
 
 #### A. Registration Officer or Supervisor can download and unzip the client application set up kit
