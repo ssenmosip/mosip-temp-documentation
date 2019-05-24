@@ -155,11 +155,11 @@ After the end of Phase-I of the implementation, the authentication services and 
 This section provides the details of the data size required to be handled in the RNP information system
 
 ### <p align="center"> **Table 6: _Data Size_** [**[↑]**](#table-of-content)
-|**Parameter**|**Description**|**Sizing Estimations**|
-|----|----|:----:|
-Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
-Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
-e-KYC Packet|OTP, Iris or Facial|30 KB
+|**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
+|:----:||----|----|:----:|
+|1.|Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
+|2.|Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
+|3.|e-KYC Packet|OTP, Iris or Facial|30 KB
 ## 5. Estimation of Users [**[↑]**](#table-of-content) 
 ### <p align="center"> **Table 7: _Estimation of Users_** [**[↑]**](#table-of-content)
 |**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
