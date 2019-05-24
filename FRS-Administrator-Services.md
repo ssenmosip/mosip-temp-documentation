@@ -157,7 +157,7 @@ Using the system, Zonal Admin will provide all the mandatory data (ID, Name, Typ
 For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-content)
-Using the system, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the Registration Center and provides an acknowledgement notification about the updates status else trigger a respective error message. 
+Using the system, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the registration center and provides an acknowledgement notification about the updates status else triggers a respective error message. 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 ### 5.2 Machine Management [**[↑]**](#table-of-content)
 #### 5.2.1 View Machine
