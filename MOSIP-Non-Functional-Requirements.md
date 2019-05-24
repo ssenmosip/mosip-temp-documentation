@@ -114,10 +114,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 |6.|Peak Enrolment packet to be uploaded per day (incl. backlog)|60,000 |
 |7.|Peak Enrolment batch process per hour (Phase-I)| 1500|
 |8.|Peak Enrolment batch process per hour (Phase-II)| 2500|
-|9.|Pre-enrolment during peak hour (Phase-I):|2,600 Users |
-||(a) 8 million enrolments in 2 years
-||(b) Peak hour will see double of average requests
-||(c) 90% of registration happens in 8 hour window 
+|9.|Pre-enrolment during peak hour (Phase-I):<li> 8 million enrolments in 2 years <li> Peak hour will see double of average requests <li> 90% of registration happens in 8 hour window|2,600 Users |
 |10.|Pre-enrolment during peak hour (Phase-II):| 6,750 Users|
 || (a) 22.5 million enrolments in 2 years
 || (b) Peak hour will see double of average requests
