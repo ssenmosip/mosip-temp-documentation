@@ -828,7 +828,7 @@ The system follows the following steps during the update process:
 1. If update is not successful, the client returns to its earlier version.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
-Refer to WIKRegistration-Client-Setup
+Refer to [**Wiki**](Registration-Client-Setup) for more details.
 
 
 ## 11. Clean up [**[↑]**](#table-of-content)
@@ -865,6 +865,8 @@ When a set of audit data is uploaded to the server and the server has acknowledg
 4. Does not delete audit data if that is yet to be sent to the server.
 1. System captures and stores the transaction details.
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration_packet_deletion_job.md)
+
 ### 11.2 Machine Retirement [**[↑]**](#table-of-content)
 
 Machine is termed as machine retirement due to following reason:
@@ -874,5 +876,6 @@ Machine is termed as machine retirement due to following reason:
 Before the machine is decommissioned the following checks must be performed.
 
 1. All packets created must be either uploaded to server/exported to external device.
-2. All data locally saved in the machine must be cleaned up
+2. All data locally saved in the machine must be cleaned up.
+
 
