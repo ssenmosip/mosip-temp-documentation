@@ -10,7 +10,7 @@
   * [2.3 Reset Password](#23-reset-password-) _(ASR_FR_2.3)_
   * [2.4 Forgot Username](#24-forgot-username-) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
-- [3. Security Policy Configuration](#3-security-policy-configuration-) _(ASR_FR_3)_
+- [3. Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-) _(ASR_FR_3)_
 - [4. Notification V1.5 (WIP)](#4-notification-v15-wip-) _(ASR_FR_4)_
   * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
   * [4.2 Country Specific News/Notifications](#42-country-specific-newsnotifications) _(ASR_FR_4.2)_
@@ -19,7 +19,7 @@
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center (WIP)](#514-activatedeactivatedecommission-center-wip-) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management-)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
@@ -30,7 +30,7 @@
     * [5.3.1 View Device](#531-view-device) _(ASR_FR_5.10)_
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
     * [5.3.3 Update Device](#533-update-device-) _(ASR_FR_5.12)_
-    * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device-) _(ASR_FR_5.13)_
+    * [5.3.4 Activate/Deactivate/Decommission Device (WIP)](#534-activatedeactivatedecommission-device-wip) _(ASR_FR_5.13)_
     * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
   * [5.4 User Management](#54-user-management-)
     * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
@@ -40,10 +40,10 @@
     * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
-  * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
+  * [6.2 View Master data for each table (WIP)](#62-view-master-data-for-each-table-wip-) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-)
     * [6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)](#631-manage-document-type-create-update-activate-deactivate)) _(ASR_FR_6.3)_
-    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate-) _(ASR_FR_6.4)_
+    * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate, Deactivate)(WIP)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate-wip-) _(ASR_FR_6.4)_
     * [6.3.3 Manage Location Data (Create, Update, Activate, Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
     * [6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
      * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view-) _(ASR_FR_6.7)_ 
@@ -65,17 +65,17 @@
     * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
   * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation-wip) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-) _(ASR_FR_8)_
-- [9. Packet Status Check (based on RID)](#9-packet-status-check-based-on-rid-) _(ASR_FR_9)_
-- [10.Multi-language Support)](#10-multi-language-support-) _(ASR_FR_10)_
+- [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip) _(ASR_FR_9)_
+- [10.Multi-language Support (WIP)](#10-multi-language-support-wip-) _(ASR_FR_10)_
     * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
     * [10.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_10.2)_
     * [10.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_10.3)_
 - [11. Responsive UI](#11-responsive-ui-) _(ASR_FR_11)
-- [12. MOSIP Platform Setup](#12-mosip-platform-setup-) _(ASR_FR_12)
+- [12. MOSIP Platform Setup (WIP)](#12-mosip-platform-setup-wip-) _(ASR_FR_12)
 - [13. ID Definition Setup](#13-id-definition-setup-) _(ASR_FR_13)
     * [13.1 ID Definition Validator](#131-id-definition-validator) _(ASR_FR_13.1)_
-- [14. Configuration Setup](#14-configuration-setup-) _(ASR_FR_14)
-- [15. Process Flow Setup](#15-process-flow-setup-) _(ASR_FR_15)
+- [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
+- [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
 The user can login to the Admin Portal by providing their credential such as Username and Password. The system validates the provided credentials and the privileges of the user. On successful validation, the system allows user to proceed further. 
@@ -139,7 +139,7 @@ Procedure to unlock the account:
 1. User accesses the provided link
 
 
-## 3. Security Policy Configuration [**[↑]**](#table-of-content)
+## 3. Security Policy Configuration (WIP)[**[↑]**](#table-of-content)
 ## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-content)
 ### 4.1 Approval Notifications
 ### 4.2 Country Specific News/Notifications
@@ -158,7 +158,7 @@ For more details, please refer to [**section**](FRS-Admin-Services#21-registrati
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-content)
 Using the system, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the registration center and provides an acknowledgement notification about the updates status else triggers a respective error message. 
-#### 5.1.4 Activate/Deactivate/Decommission Center
+#### 5.1.4 Activate/Deactivate/Decommission Center (WIP)
 ### 5.2 Machine Management [**[↑]**](#table-of-content)
 #### 5.2.1 View Machine
 The system allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID and Zonal Admin's privileges, if the registration ID/Zonal Admin's privileges are not found, then the system triggers an error notification
@@ -192,7 +192,7 @@ Procedure to update the machine related details, the Zonal Admin will:
 1. If the Zonal Admin selects the Delete flag, the information is updated when the registration center is updated. 
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
-#### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
+#### 5.2.4 Activate/Deactivate/Decommission Machine (WIP) [**[↑]**](#table-of-content)
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
 The system allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, Zonal Admin’s privileges. On successful validation, The system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines until un-mapped. 
 
@@ -309,7 +309,7 @@ For more details, please please refer to [**section**](FRS-Admin-Services#26-map
 ## 6. Master Data Management [**[↑]**](#table-of-content)
 ### 6.1 View Master Data Types
 The system allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the privileges of Zonal Admin who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the allocated privileges to the user, then throws an error notification.
-### 6.2 View Master Data for Each Table
+### 6.2 View Master Data for Each Table (WIP)
 ### 6.3 Manage Master Data [**[↑]**](#table-of-content)
 #### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
 **Create/Update Document Type**
@@ -420,13 +420,13 @@ e) Reports
 ### 7.2 Approval for Master Data Creation (WIP)
 ## 8. UIN Activation/Deactivation [**[↑]**](#table-of-content)
 Using the system, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/Inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
-## 9. Packet Status Check (based on RID) [**[↑]**](#table-of-content)
-## 10. Multi-language Support [**[↑]**](#table-of-content)
+## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-content)
+## 10. Multi-language Support (WIP) [**[↑]**](#table-of-content)
 ### 10.1 i18N
 ### 10.2 Implementation in English (Labels etc)
 ### 10.3 Language Specific Setup
-## 11. Responsive UI [**[↑]**](#table-of-content)
-## 12. MOSIP Platform Setup [**[↑]**](#table-of-content)
+## 11. Responsive UI (WIP) [**[↑]**](#table-of-content)
+## 12. MOSIP Platform Setup (WIP) [**[↑]**](#table-of-content)
 The system admin will set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
 
 For more details, please refer to
@@ -442,5 +442,5 @@ Configured through backend.
 
 
 ### 13.1 ID Definition Validator
-## 14. Configuration Setup [**[↑]**](#table-of-content)
-## 15. Process Flow Setup [**[↑]**](#table-of-content)
+## 14. Configuration Setup (WIP) [**[↑]**](#table-of-content)
+## 15. Process Flow Setup (WIP) [**[↑]**](#table-of-content)
