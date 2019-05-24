@@ -193,6 +193,17 @@ Procedure to update the machine related details, the Zonal Admin will:
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine (WIP) [**[↑]**](#table-of-content)
+A.**Activate Machine**
+
+The System allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
+B.** Deactivate Machine**
+
+The System allows Zonal Admin to deactivate the machine, which are already deactivated due to any reasons. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machine at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+
+C. **Decommission  Machine**
+
+Decommissioning a machine means removing the machine from the zone permanently. The system allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
+
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
 The system allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, Zonal Admin’s privileges. On successful validation, The system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines until un-mapped. 
 
@@ -236,6 +247,16 @@ Procedure to update the devices related details, the Zonal Admin will:
 For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
+A.**Activate Device**
+
+The System allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select one deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected device(s). On successful validation, the system provides a notification.
+B. **Deactivate Device**
+
+The System allows Zonal Admin to deactivate the device, which are already deactivated due to any reasons. The Zonal Admin selects the device and the all the device of that zone are displayed. The Zonal Admin can select one active device or multiple active devices at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected device(s), and the system provides a notification.
+
+C.**Decommission Device**
+
+Decommissioning a device means removing the device from the zone permanently. The system allows the Zonal Admin to decommission the device. The Zonal Admin can un-map the device associated with the registration center before decommissioning the device, but he/she can also decommission the device  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected device(s). Once the device is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-content)
 The system allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and privileges of Zonal Admin. On successful validation, The system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices until un-mapped. 
