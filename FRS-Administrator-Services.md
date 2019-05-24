@@ -433,7 +433,9 @@ For more details, please refer to
 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#19-list-of-rejection-reasons---createread-
 
-## 13. ID Definition Setup [**[↑]**](#table-of-content)The system admin should be able to set up ID Definition. Setup activity allows the country admin to mark attributes that formulate the id for a country. For example, demographic data fields and biometric data capture attributes.
+## 13. ID Definition Setup [**[↑]**](#table-of-content)
+
+The system admin should be able to set up ID Definition. Setup activity allows the country admin to mark attributes that formulate the id for a country. For example, demographic data fields and biometric data capture attributes.
 
 Configured through backend.
 
