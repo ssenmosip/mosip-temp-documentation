@@ -493,7 +493,6 @@ When an individual approaches the Registration Officer for UIN update, the follo
 #### C. UIN Update
 1. The Registration Officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
 1. Registration Officer captures the mandatory demographic attributes (individual's name is captured) and other demographic fields selected for update. In case of update of Parent/Guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the Parent/Guardian’s UIN is different from the individual’s UIN. If they are same, displays an error message 
-
 1. Registration Officer then uploads documents. The applicable documents are determined by the system based on configuration
 1. If biometrics were selected for update, Registration Officer marks exceptions and scans all biometrics. Else scans any one biometric.
 1. Registration Officer captures face photo and exception photo.
@@ -502,7 +501,7 @@ When an individual approaches the Registration Officer for UIN update, the follo
 1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. System initiates the process to update UIN after the RID is generated.
    * Receiving a RID do not mean UIN update is successful.
-8. Registration Officer Views and prints acknowledgement. 
+1. Registration Officer Views and prints acknowledgement. 
 1. SMS and/or email notifications are sent to the individual if the contact details are entered during the update process.
 1. Refer to the [**Track Status of UIN Update**](FRS-Resident-Services#7-track-status-of-uin-update-) in Resident Services.
 
