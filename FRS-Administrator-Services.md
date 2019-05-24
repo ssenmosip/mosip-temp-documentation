@@ -161,15 +161,15 @@ Using the system, Zonal Admin will search for the registration center to be upda
 
 #### 5.1.4 Activate/Deactivate/Decommission Center (WIP)
 
-**A. Activate the Registration Center**
+#### A. Activate the Registration Center
 
 The System allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected center(s). On successful validation, the system provides a notification.
 
-**B. Deactivate the Registration Center**
+#### B. Deactivate the Registration Center
 
 The System allows Zonal Admin to deactivate the registration centers, which are already deactivated due to any reasons. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one activate center or multiple active centers at a time then selects the Deactive option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
 
-**C.Decommission the Registration Center**
+#### C.Decommission the Registration Center
 
 Decommissioning a center means removing the center from the zone permanently. The system allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected center(s). Once the center is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
@@ -207,15 +207,15 @@ Procedure to update the machine related details, the Zonal Admin will:
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine (WIP) [**[↑]**](#table-of-content)
-**A. Activate Machine**
+#### A. Activate Machine
 
 The System allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
 
-**A. Deactivate Machine**
+#### B. Deactivate Machine
 
 The System allows Zonal Admin to deactivate the machine, which are already deactivated due to any reasons. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machine at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
-**C. Decommission  Machine**
+#### C. Decommission  Machine
 
 Decommissioning a machine means removing the machine from the zone permanently. The system allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
@@ -262,15 +262,15 @@ Procedure to update the devices related details, the Zonal Admin will:
 For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
-A.**Activate Device**
+#### A. Activate Device
 
 The System allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select one deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected device(s). On successful validation, the system provides a notification.
 
-B. **Deactivate Device**
+#### B. Deactivate Device
 
 The System allows Zonal Admin to deactivate the device, which are already deactivated due to any reasons. The Zonal Admin selects the device and the all the device of that zone are displayed. The Zonal Admin can select one active device or multiple active devices at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected device(s), and the system provides a notification.
 
-C.**Decommission Device**
+#### C. Decommission Device
 
 Decommissioning a device means removing the device from the zone permanently. The system allows the Zonal Admin to decommission the device. The Zonal Admin can un-map the device associated with the registration center before decommissioning the device, but he/she can also decommission the device  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected device(s). Once the device is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
@@ -325,15 +325,15 @@ The system allows its users (Central Admin, Central Approver, Zonal Admin, Zonal
 If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
 
 #### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-content)
-A. **Activate User**
+#### A. Activate User
 
 The system allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that Zone are displayed. The Zonal Admin can select one deactivated user or multiple deactivated users at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected user(s). On successful validation, the system provides a notification.
 
-B. **Deactivate User**
+#### B. Deactivate User
 
 The System allows Zonal Admin to deactivate the user, which are already deactivated due to any reasons. The Zonal Admin selects the user and the all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
 
-C. **Blacklist User**
+#### C. Blacklist User
 
 The system allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
 
@@ -361,7 +361,7 @@ The system allows Zonal Admin to view the master data type. The master data type
 ### 6.2 View Master Data for Each Table (WIP)
 ### 6.3 Manage Master Data [**[↑]**](#table-of-content)
 #### 6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)
-A. **Create/Update Document Type**
+#### A. Create/Update Document Types
 
 Using the system, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and the privileges of Zonal Admin. On successful validation, the system allows the Zonal Admin to create the document type. 
 
@@ -378,21 +378,21 @@ Procedure to create document type follows:
 2. Zonal Admin creates the document type by providing all the required information related to the document type.
    Zonal Admin will register the document types  by importing CSV/XLS.
 
-B. **Activate the Document types**
+#### B. Activate the Document types
 
 The System allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select one deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected document type(s). On successful validation, the system provides a notification.
 
-C. **Deactivate the Document type**
+#### C. Deactivate the Document type
 
 The System allows Zonal Admin to deactivate the document type, which are already deactivated due to any reasons. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document type at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected document type(s), and the system provides a notification.
 
-D. **Map/un-Map-Re-map Document Type to Document Category**
+#### D. Map/un-Map-Re-map Document Type to Document Category
 
 The system allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data, Zonal Admin’s privileges. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user, then throws an error notification.
 
 #### 6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
 #### 6.3.3 Manage Location Data (Create, Update, Activate/Deactivate) 
-A. **Create/Update Location Data**
+#### A. Create/Update Location Data
 Using the system, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the privileges of Zonal Admin. During validation, if system does not find the provided data or the respective Zonal Admin’s privileges, then throws an error notification On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
 
 Following are the mandatory location data to be provided by Zonal Admin to create the location data:
@@ -407,20 +407,20 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
-A. **Create/Update Blacklisted Word**
+#### B. Create/Update Blacklisted Word
 
 Using the system, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
 During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an respective error notification.   
 
-B. **Activate the Blacklisted Word**
+#### C. Activate the Blacklisted Word
 
 The System allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
 
-C. **Deactivate the Blacklisted Word**
+#### D. Deactivate the Blacklisted Word
 
 The System allows Zonal Admin to deactivate the blacklisted Word, which are already deactivated due to any reasons. The Zonal Admin selects the blacklisted Word and the all the blacklisted Word of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
 
-D. **Decommission the Blacklisted Word**
+#### E. Decommission the Blacklisted Word
 
 Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The system allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
