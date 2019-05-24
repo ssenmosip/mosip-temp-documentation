@@ -34,7 +34,7 @@ The solution shall cater to at least the following indicative performance level:
 ### <p align="center"> **Table 2: _Demand Capacity and Performance Requirements_** [**[↑]**](#table-of-content)
 
 
-|**S. No.**| **Item**| **Description**|
+|**S.No.**| **Item**| **Description**|
 |:------:|-----|---|
 |**A.**| **Response time**||
 |1.|Enrolment Request (at ABIS Level)| No daily backlog i.e. maximum of 24 hours at peak load|
@@ -55,7 +55,7 @@ A tabular representation of the estimated volumes in the overall project impleme
 ### <p align="center"> **Table 3: _Enrolment Volume Estimates_** [**[↑]**](#table-of-content)
 
 
-|**S. No.**| **Item**| **Volumes (in million)**|
+|**S.No.**| **Item**| **Volumes (in million)**|
 |:------:|-----|:------:|
 |**A.**| **Phase-I [Social Sector Beneficiaries in RAMED, DAAM and TAYSSIR]**|**8.00**|
 |1.|Stage-I (Rabat Prefecture)| 0.04|
@@ -88,7 +88,7 @@ In the Phase-I (between Aug 2019 to Oct 2021), there is expected to be a one-tim
 The above information is summarized in the table given below:
 
 ### <p align="center"> **Table 4: _Authentication and e-KYC volume estimates during Phase-I_** [**[↑]**](#table-of-content)
-|**S. No.**| **Parameter**| **Description**| **Sizing Estimations**
+|**S.No.**| **Parameter**| **Description**| **Sizing Estimations**
 |:------:|-----|---|:-----:|
 |**A.**|**Authentication**|
 |1.|Authentication Example 1| TAYSSIR Authentications in schools on a daily basis|77 million per annum [estimated as 0.74 million (per day) x 250 working days]|
@@ -103,7 +103,7 @@ After the end of Phase-I of the implementation, the authentication services and 
 
 ## 4. Transaction Volumes [**[↑]**](#table-of-content)
 ### <p align="center"> **Table 5: _Indicative Transaction Volumes_** [**[↑]**](#table-of-content)
-|**S. No.**| **Parameters**| **Indicative Units**|
+|**S.No.**| **Parameters**| **Indicative Units**|
 |:------:|-----|---|
 |**A.**|**Enrolments**| |
 |1.|Total number of enrolments till October 2021| 8.00 million|
@@ -155,14 +155,14 @@ After the end of Phase-I of the implementation, the authentication services and 
 This section provides the details of the data size required to be handled in the RNP information system
 
 ### <p align="center"> **Table 6: _Data Size_** [**[↑]**](#table-of-content)
-|**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
+|**S.No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|:----:|
 |1.|Size of Enrolment Packet|Demographic, Photograph, 2 Iris and Documents |3 MB Raw Packet |
 |2.|Authentication Packet|Demographic, OTP, Iris or Facial|3-5 KB|
 |3.|e-KYC Packet|OTP, Iris or Facial|30 KB
 ## 5. Estimation of Users [**[↑]**](#table-of-content) 
 ### <p align="center"> **Table 7: _Estimation of Users_** [**[↑]**](#table-of-content)
-|**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
+|**S.No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
 |1.|Total User|Total Number of Users|150 Users|
 |2.|Kit Operators| Field Operators|2000 
@@ -194,7 +194,7 @@ This section provides the details of the data size required to be handled in the
 |14.| Workload Volume| 	Number of Registrations Per Day Per Kit	|15 enrolments during Phase-I and 25 enrolments during Phase-II|
 ## 6. Technical Parameters [**[↑]**](#table-of-content)
 ### <p align="center"> **Table 8: _Technical Parameters_** [**[↑]**](#table-of-content)
-|**S. No.**|**Parameter**|**Description**|**Sizing Estimations**|
+|**S.No.**|**Parameter**|**Description**|**Sizing Estimations**|
 |:----:|----|----|----|
 |1.|Network Connectivity |Network Connectivity (DC-DR Replication Link)| Dual links of 1 Gbps capacity
 ||*(For future usage the router sized for 2-5 Gbps is recommended)|Network Connectivity (DC-NDC-DR Replication Link)|Dual links of 150 Mbps capacity
@@ -215,7 +215,7 @@ This section provides the details of the data size required to be handled in the
 |9.|Backup window| Incremental data back up every day and full back up every week| 6-8 hrs
 ## 7. RTO and RPO [**[↑]**](#table-of-content)
 ### <p align="center"> **Table 9: _RTO and RPO_** [**[↑]**](#table-of-content)
-|**S. No.**|**Process**|**Criticality**|**RTO**| **RPO**|**Business Rationale for RPO and RTO**|
+|**S.No.**|**Process**|**Criticality**|**RTO**| **RPO**|**Business Rationale for RPO and RTO**|
 |:----:|----|----|----|----|----|
 |1.|Enrolment|High|24 hours|~ZERO|**RTO**: Enrolment is an offline process and officers are required to upload packets once a day hence 24 hrs. is affordable 
 ||||||**RPO (Enrolment Databases)**: It is a business requirement that no data shall be lost in the ecosystem (IDMS and CSC)
