@@ -2272,6 +2272,7 @@ PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table f
 PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is failed to update
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
+PRG_BOOK_RCI_031| Invalid Booking Date Time found for preregistration id - 37513708391357| If appointment date is past date and also when appointment date is present date but the appointment time is past.
 
 ### POST /appointment
 This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
@@ -2401,6 +2402,7 @@ PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistratio
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
 PRG_PAM_APP_017|Requested preregistration id does not belong to the user|If the preregistration id does not belongs to the user
+PRG_BOOK_RCI_031| Invalid Booking Date Time found for preregistration id - 37513708391357| If appointment date is past date and also when appointment date is present date but the appointment time is past.
 
 ### PUT /appointment/:preRegistrationId
 This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
