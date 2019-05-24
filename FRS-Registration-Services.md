@@ -74,6 +74,8 @@ The system performs the following steps:
 1. Compares the average match score with the configured threshold match score 
 1. Returns one single response i.e. return success if average >= threshold 
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registrtaion-on-board-user.md)
+
 ### 1.2 Login/Authentication [**[↑]**](#table-of-content)
 
 #### A. Allows biometric login of the Registration Officer or Supervisor to the client application
