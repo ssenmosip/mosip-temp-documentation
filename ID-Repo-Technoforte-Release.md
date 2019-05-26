@@ -11,7 +11,7 @@
 |5.|ID Authentication|Code Drop|[Tag: 0.11.1](/mosip/mosip/releases/tag/0.11.1)||
 |6.|ID Authentication|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 8 in the linked page|
 
-**Date: 8 May 2019**
+**Date: 6 June 2019**
 
 **Module: ID Authentication**
 
