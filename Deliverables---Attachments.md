@@ -35,7 +35,12 @@ Artefact: Known Defects and Pending Items
 
 Link: [Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/MOSIP_KnownDefects_PendingFeatures_Items_RegistrationClient.docx)
 
-7) ## Module: ID Authentication<Date to be specified>
+7) ## Module: ID Authentication<6Jun'19>
+Artefact: Known Defects and Pending Items
+
+Link: [Click to View](To be added)
+
+8) ## Module: ID Repo<6Jun'19>
 Artefact: Known Defects and Pending Items
 
 Link: [Click to View](To be added)
