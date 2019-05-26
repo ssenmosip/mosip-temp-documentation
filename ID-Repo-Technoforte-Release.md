@@ -13,7 +13,7 @@
 
 **Date: 6 June 2019**
 
-**Module: ID Authentication**
+**Module: ID Repo**
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
