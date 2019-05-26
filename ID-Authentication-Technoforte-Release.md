@@ -6,7 +6,7 @@
 |:------:|-----|---|---|---|
 |1.|NA|Getting Started Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
 |2.|ID Authentication|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#11-authentication-)|
-|3.|ID Authentication|High Level Design Document|[Click to View](Platform-Documentation)|(Deliverables---Attachments)|Refer Section 6 in the linked page|
+|3.|ID Authentication|High Level Design Document|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
 |4.|ID Authentication|API Specifications Document|NA|NA|
 |5.|ID Authentication|Code Drop|[Tag: 0.11.1](/mosip/mosip/releases/tag/0.11.1)||
 |6.|ID Authentication|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
