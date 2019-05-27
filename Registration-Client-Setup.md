@@ -21,7 +21,7 @@ Registration client has certain **prerequisite** which is to be completed before
 
 
 The Registration client application is delivered into two parts:  
-   1. Base Zip file 			- Contains Application Base folder structure with installed derby DB.      
+   1. Initial Zip file 		 - Contains Application Base folder structure with installed derby DB.      
    2. Application Binaries.  - Contains the application binary classes and the db scripts .  
        - Shared libraries.
        - Encrypted client UI and Service jars.
@@ -57,12 +57,11 @@ The Registration client application is delivered into two parts:
 
    **Once all the Configurations are done run the freshclam.exe and then run clamd.exe.**   
  
-
 **Installation at Desktop Machine:**   
 ***  
 **Zip file:**  
-   1. User login to the Admin portal and download the client application ZIP file.  
-   2. Once downloaded then unzip the file into a particular location. It contains the following structure.  
+   1. User login to the JFROG Binary portal and download the client application ZIP file [mosip-sw-0.*.*.zip].   
+   2. Once downloaded then unzip the file into a particular location. It contains the following folder structure.  
       - bin : It contains the client UI and service executable in encrypted format.
       - lib : it contains the library required for the application to start.  
       - prop : it contains the property file that will be used by application.    
@@ -106,41 +105,15 @@ The Registration client application is delivered into two parts:
 **Update Process:**
 ***
    **Application update:**
-   - The application binary update is validated during startup of the application by downloading maven-metadata.xml file from JFROG repository. If any library version difference found with the version available at the local system then display the message to the user to initiate the update process. User can either choose the 'Update Now' or 'Update Later' option to initiate the update process or postponed to implement it later.    
+   - The application binary update is validated during startup of the application by downloading maven-metadata.xml file from JFROG repository. If any library version difference found with the version available at the local system then display the message to the user to initiate the update process. User can either choose the 'Update Now' or 'Update Later' option to initiate the update process or postponed to implement it later. User can initiate the 'Update' process post login to the application.  
    
    **Database update:**  
-   - The database update would be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside registration-service/resource/sql this folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.   
-
-**User Mapping to the Local machine:**  
-***  
-   - User can do the self-mapping to the local machine by using their user id and password [which is provided by admin user] and OTP shared to their mobile/ email id.  
-   During initial setup, the application should be online and the user entered credential would be validated against the online system and post which user would be allowed to onboard into the system.   
+   - The database update would be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside registration-service/resource/sql this folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error. 
 
     	
-**Security:** 
-***
-   **Data Security:**  
-   - While storing the data into the local database the data would be encrypted and same would be decrypted while retrieving the same from db. The key required for the database encryption/decryption would be stored into the TPM and same will be fetched when the application start up.  
-   - The packet created during registration process and downloaded from pre-registration application would be encrypted using asymmetric and symmetric key.   
-   - The asymmetric key received from MOSIP server will be used for encryption of registration packet and it can only be decrypted at server end only. At regular interval the encryption public key at Registration client would be updated.
-   - The Symmetric key would be generated on runtime and same will be used during the pre-registration packet decryption.  
-   
-   **Key management:**  
-   The key required for encryption / decryption at different process of an application would be maintained in database [encrypted format] and TPM.
-   
-   **REST Service integration Authentication:**  
-   When application is having online connectivity, it may need to push and pull the packet and the respective status from server.
-Whenever communication happening with online services the OAuth token need to be generated and should be attached to the header of the http request. 
-To generate the OAuth token the client secret key / login user id / password would be passed to the Login REST service. If success it will provide us the valid token in the http response. The same token would be passed during rest of REST service communication.   
-
-   **Trusted Platform Module (TPM):**  
-   - TPM device would be used to secure the information stored into the local machine.  
-   - Windows 10 with TPM 2.0 to be enabled in all its desktop editions (Home, Pro, Enterprise, and Education).    
-   - Application integrate with the TPM using the respective API and secure the data.  
-   
 **Initial - Data Setup:**  
 ***
-In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be taken care at MOSIP Admin portal.
+In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine mac-id and center id.
 
    **Sync Service :**  
@@ -156,6 +129,7 @@ Through sync process the data would be sync between local machine and server bas
    8.	Machine Configuration. 
    9.	Center to Machine mapping. 
    10.	Center User mapping. 
+   11.  Policy sync.  
 
 
 **Archival Policy:**
