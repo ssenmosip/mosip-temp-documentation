@@ -449,7 +449,7 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. System sends a success response and allow it to proceed to the next step.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-New.md)
 
 ### 4.2 UIN Update [**[↑]**](#table-of-content)
 When an individual visits the registration center to update their demographic or biometric details, the Registration Officer captures the updated data as provided by the individual in the system. Refer below for the process: 
