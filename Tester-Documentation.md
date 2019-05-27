@@ -2,6 +2,9 @@
 ***
 **# **MOSIP - Test Strategy (Work in progress copy)****
 
+Test Automation
+Generic Test Automation Design - API Testing
+
 Kernel Test Automation Suite - User Guide
 1. How to add test cases for a new API?
 
