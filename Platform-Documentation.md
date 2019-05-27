@@ -174,6 +174,23 @@ Please refer wiki for detailed functional specification of the following service
 ### 3.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
 Please refer [**wiki**](FRS-Administrator-Services) for detailed functional specifications of administrator services module.
 ### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
+
+Resident Services module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. The list of services a user can avail are outlined below:
+
+1. Download e-UIN.
+2. Retrieve lost UIN.
+3. Initiate UIN Update.
+4. Request re-print UIN.
+5. Track status of UIN update.
+6. View history of Authentication Requests.
+7. Lock or Unlock UIN/VID for each ‘Auth’ type(s).
+
+Additionally a user can also track status of his/her UIN generation after registration. 
+These services include:
+
+1. Retrieve Lost RID (registration ID).
+2. Track Status of UIN Generation via RID.
+
 Please refer [**wiki**](FRS-Resident-Services) for detailed functional specifications of resident services module.
 ### 3.8 Partner Management (WIP) [**[↑]**](#table-of-content)
 
