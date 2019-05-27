@@ -86,7 +86,7 @@ MOSIP (Modular Open Source Identity Platform) helps government countries to buil
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
-                      Fig: 1 Basic features of MOSIP
+                      Fig 1: Basic features of MOSIP
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
