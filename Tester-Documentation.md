@@ -1,6 +1,6 @@
 
 ***
-**# **MOSIP - Test Strategy (Work in progress copy)****
+**MOSIP - Test Strategy (Work in progress copy)**
 
 Test Automation
 Generic Test Automation Design - API Testing
