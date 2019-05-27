@@ -327,7 +327,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.| Identity Service ||||
+|1.| Identity Service |||[MOS-13161](//mosipid.atlassian.net/browse/MOS-13161), [MOS-1119](//mosipid.atlassian.net/browse/MOS-1119)|
 
 ## 13. Resident Services: [**[↑]**](#table-of-content)
 
