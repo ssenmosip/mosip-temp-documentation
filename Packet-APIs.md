@@ -59,10 +59,7 @@ langCode|Yes|language code of the reason category| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
 	"code":"string",
 	"lang_code":"string" 
@@ -143,10 +140,7 @@ langCode|Yes|language code of the reason category| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
                 "code":"string",
                 "lang_code":"string",
@@ -205,10 +199,7 @@ NA
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
 	"reasonCategories" : [
 		{
@@ -285,10 +276,7 @@ NA
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
 	"reasonCategories" : {
 		"code":"string",
@@ -364,10 +352,7 @@ packetrejectionreasondesc|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
   "packetrejectionreasons": [
 				{ 
@@ -401,6 +386,29 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-035 | Error occurred while fetching Reasons | Fetch Issue
+KER-MSD-057 | Error occurred while inserting reason details | Insertion Issue
+KER-MSD-036 | Reason not found | Data Not Found
+KER-MSD-058 | Error occurred while inserting reason details | List Insertion Issue
 
 
 # Packet On-hold Reasons Master API
@@ -456,10 +464,7 @@ packetonholdreasondesc|Yes|Name of the packet rejection reason| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
       "successfully_created_packetonholdreasons": [
 			{ 
@@ -520,10 +525,7 @@ packetonholdreasondesc|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
             "packetonholdreasons": [
 				{ 
@@ -586,10 +588,7 @@ packetonholdreasondesc|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":    {
         "packetonholdreasons": [
 				{ 
@@ -621,3 +620,18 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": null
+  }
+```

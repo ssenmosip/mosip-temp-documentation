@@ -11,7 +11,6 @@ This section details about the service APIs in the Registration center modules
 * [Registration Center - Machine - Device API](#registration-center-machine-device-api)
 
 
-
 # Registration Centers Master API
 
 * [POST /registrationcenters](#post-registrationcenters)
@@ -103,10 +102,7 @@ locationcode|Yes|Code of the location of the registration center| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	        "id":"string"
              }
@@ -165,10 +161,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
   "registrationcenters": [
 	{
@@ -266,10 +259,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
   "registrationcenters": [
 	{
@@ -365,10 +355,7 @@ year|Yes|The year for which the list of holidays is listed| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
   "registrationcenter": [
 	{
@@ -452,10 +439,7 @@ locationcode|Yes|The location code for which the list of enrollment centers are 
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
   "registrationCenters": [
     {
@@ -531,10 +515,7 @@ proximitydistance|Yes|The proximity diameter in meter| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
   "registrationcenter": [
 	{
@@ -607,10 +588,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
   "registrationcenters": [
 	{
@@ -708,10 +686,7 @@ machineid|Yes|ID of the machine| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
   "registrationcenters": [
 	{
@@ -773,10 +748,7 @@ languagecode|Yes|The enrollment center description will be returned in this lang
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
   "registrationcenter": [
 	{
@@ -822,7 +794,33 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-041 | Error occured while fetching Registration Centers | registration center fetch exception
+KER-MSD-111 | Error occurred while updating Registration Center details | registration center update exception
+KER-MSD-112 | Error occurred while deleting Registration Center details | registration center delete exception
+KER-MSD-042 | Registration Center not found | registration center not found
+KER-MSD-149 | Cannot delete as dependency found | dependency exception
+KER-MSD-043 | Invalid date format | date time parse exception
+KER-MSD-XXX | start/end time Data not configured in database | data to be validated with not found
 
 # Registration Center User Machine Mapping API
 
@@ -875,10 +873,7 @@ isActive|Yes|Mapping is active or not| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
             "cntrId": "RC001",
             "machineId": "MC001",
@@ -934,10 +929,7 @@ userid|Yes|User Id|
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
       "registrationCenters": [
              {
@@ -1013,10 +1005,7 @@ isActive|Yes|Mapping is active or not| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
     "mapped": [
       {
@@ -1052,8 +1041,32 @@ Description: Unauthorized
 
 Description: Forbidden
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
 
-
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-078 | Error occurred while inserting mapping of Center, User and Machine details | registration center user machine mapping insert exception
+KER-MSD-131 | Registration Center, Machine and User Mapping not found | registration center user machine not found
+KER-MSD-108 | Error occurred while deleting mapping of Center, User and Machine details | registration center user machine delete exception
+KER-MSD-136 | Error occurred while updating mapping of Center, User and Machine details | registration center user machine update exception
+			
+			
 # Registration Center Machine API
 
 * [POST /registrationcentermachine](#post-registrationcentermachine)
@@ -1190,6 +1203,29 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-074 | Error occurred while inserting a mapping of Machine and Center | registration center machine create exception
+KER-MSD-114 | Mapping for Machine and Center not found | registration center machine data not found
+KER-MSD-106 | Error occurred while deleting a mapping of Machine and Center | registration center machine delete exception
 
 # Registration Center Device API
 
@@ -1327,7 +1363,29 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-075 | Error occurred while inserting a mapping of Device and Center | registration center device create exception
+KER-MSD-115 | Mapping for Device and Center not found | registration center device data not found
+KER-MSD-105 | Error occurred while deleting a mapping of Device and Center | registration center device delete exception
 
 # Registration Center Machine Device API
 
@@ -1471,3 +1529,26 @@ Description: Forbidden
 
 Description: Internal Server Error 
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-076 | Error occurred while inserting a mapping of Center, Machine and Device | registration center machine device create exception
+KER-MSD-107 | Error occurred while deleting a mapping of Center, Machine and Device | registration center machine device delete exception
+KER-MSD-116 | Mapping for Center, Machine and Device not found | registration center machine device data not found exception

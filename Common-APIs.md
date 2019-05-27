@@ -101,9 +101,7 @@ Description: Forbidden
 # GET /title
 Master data is required across the platform. 
 
-This service will provides the service for the List of Titles. 
-
-
+This service will provides the service for the List of Titles.
 
 ### Resource URL
 ### `GET /title`
@@ -318,6 +316,29 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [ {
+      "errorCode": "string",
+      "message": "string"
+    } ],
+  "response": null
+}
+```
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-047 | Error occured while fetching Titles | Fetch Issue
+KER-MSD-XXX | Error occurred while inserting Title details | Insertion Issue
+KER-MSD-048 | Title not found | Data Not Found
+KER-MSD-103 | Error occurred while updating Title details | Update Issue
+KER-MSD-104 | Error occurred while deleting Title details | Deletion Issue
+
 
 # Gender Master API
 
@@ -369,10 +390,7 @@ gendertype|Yes|Name of the gender| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
                "code": "GC002",
                "langCode": "ENG"
@@ -440,10 +458,7 @@ code|Yes|language code of gender| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-                "errorCode": "string",
-                "message": "string"
-           }],
+  "errors": null,
   "response": {
                  "code": "GC001",
                  "langCode": "ENG"
@@ -493,10 +508,7 @@ code|Yes|Code of gender type| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-               "errorCode": "string",
-               "message": "string"
-            }],
+  "errors": null,
   "response": {
                "code": "GC001",
               }
@@ -550,10 +562,7 @@ gendertype|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-              "errorCode": "string",
-              "message": "string"
-            }],
+  "errors": null,
   "response": {  
                "genderType": [{
                                "code": "GC001",
@@ -609,10 +618,7 @@ gendertype|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
              "genderType": [{
                            "code": "GC002",
@@ -671,10 +677,7 @@ gendername|Yes|Name of the gender| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	       "code": "GC001",
 	       "genderName": "Female",
@@ -686,6 +689,31 @@ gendername|Yes|Name of the gender| |
 200
 
 Description: Success
+
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response": null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-017 | Error occured while fetching gender types | Fetch Issue
+KER-MSD-018 | Gender Type not found | Not Found
+KER-MSD-068 | Could not insert Gender Data | Insert Issue
+KER-MSD-101 | Error occurred while updating Gender Type details | Update Issue
+KER-MSD-102 | Error occurred while deleting Gender Type details | Delete Issue
+
 
 # Age group Types API
 
@@ -745,6 +773,22 @@ Name | Required | Description | Default Value | Example
 Description: Success
 
 
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  null
+}
+```
+
+
 # ID Types Master API
 
 * [POST /idtypes](#post-idtypes)
@@ -795,10 +839,7 @@ languagecode|Yes|Language of the id type| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    } ],
+  "errors": null,
   "response": {
                 "code": "string",
                "langCode": "string"
@@ -853,10 +894,7 @@ descr|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-               "errorCode": "string",
-               "message": "string"
-            }],
+  "errors": null,
   "response": {
 	"idtypes": [{
 			"code": "string",
@@ -914,10 +952,7 @@ descr|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-             "errorCode": "string",
-             "message": "string"
-           }],
+  "errors": null,
   "response": {
 	"idtypes": [{
 			"code": "string",
@@ -942,6 +977,28 @@ Description: Unauthorized
 404
 
 Description: Not Found
+
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+             "errorCode": "string",
+             "message": "string"
+           }],
+  "response": null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-022 | ID Type not found. | Not Found
+KER-MSD-021 | Error occurred while fetching ID Types |Fetch Issue
+KER-MSD-059 | Error occurred while inserting ID Type details. | Insert Issue
 
 
 # Holiday Master API
@@ -990,12 +1047,7 @@ holidayName|Yes|Name of the holiday| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
   "response" : { "holidayID": "string" }
 }
 ```
@@ -1045,11 +1097,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [ {
-             "errorCode": "string",
-             "message": "string"
-             }
-           ],
+  "errors": null,
  "response" : {
              "holidays": [
 	                 "holiday" : {
@@ -1109,10 +1157,7 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{ 
-               "errorCode": "string",
-               "message": "string"
-             }],
+  "errors": null,
   "response" : {
            "holidays": [
 	              "holiday" : {
@@ -1144,7 +1189,23 @@ Description: Unauthorized
 
 Description: Not Found 
 
- 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
 # Locations Master API
 
 * [POST /locations](#post-locations)
@@ -1204,10 +1265,7 @@ isActive|Yes|Is this location active| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
              "code": "string",
              "isActive": true,
@@ -1286,10 +1344,7 @@ isActive|Yes|Is this location active| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
                "code": "string",
                "langCode:"string"
@@ -1343,10 +1398,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
                 "code": "string"
                }
@@ -1401,10 +1453,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
     "locations": [
         {
@@ -1472,10 +1521,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
        "locations": [
 		    {
@@ -1548,10 +1594,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
           "locations": [ 
                        {
@@ -1623,10 +1666,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
            "locations": [
 	         	{
@@ -1697,10 +1737,7 @@ locationname|yes|This is the location name. | -NA- |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": { 
         "locations": [
 		       {     
@@ -1729,6 +1766,35 @@ locationname|yes|This is the location name. | -NA- |
 200
 
 Description: Success
+
+
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-025 | Error occured while fetching Location Hierarchy | location fetch exception
+KER-MSD-026 | Location Hierarchy not found | location_not found exception
+KER-MSD-027 | Error occured while fetching Location Hierarchy Levels | location  level  fetch  exception
+KER-MSD-064 | Error occured while inserting location hierarchy details | location  insert  exception
+KER-MSD-097 | Error occured wihile updating location hierarchy details | location  update  exception
+KER-MSD-098 | Error occured wihile deleting location hierarchy details | location  delete  exception
+KER-MSD-028 | Location Hierarchy Level not found | location  level  not  found exception
 
 
 # Languages Master API
@@ -1781,10 +1847,7 @@ languagename|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	"code": "string"
 }
@@ -1837,10 +1900,7 @@ languagename|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	"languages": [{
 		      "code": "string",
@@ -1911,10 +1971,7 @@ languagename|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	       "code": "string"
               }
@@ -1968,10 +2025,7 @@ code|Yes|Code of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-               "errorCode": "string",
-               "message": "string"
-            }],
+  "errors": null,
   "response": {
 	      "code": "string"
               }
@@ -1993,6 +2047,32 @@ Description: Unauthorized
 403
 
 Description: Forbidden
+
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-24 | Language not found | no language found exception
+KER-MSD-23 | Error occured while fetching Languages | language fetch exception
+KER-MSD-049 | Error occurred while inserting Language details | language create exception
+KER-MSD-XXX | Error occured while updating Language | language update exception
+KER-MSD-XXX | Error occured while deleting Language | language delete exception
 
 
 # Individual Types API
@@ -2031,10 +2111,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":   {
   "individualtypes": [
     {
@@ -2054,7 +2131,29 @@ Name | Required | Description | Default Value | Example
 
 Description: Success
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-151 | Individual Type not found | no individual type found exception
+KER-MSD-152 | Error occurred while fetching Individual Type | individual type fetch exception
+	
 # Application Types Master API
 
 * [POST /applicationtypes](#post-applicationtypes)
@@ -2275,6 +2374,31 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-001 | Error occurred while fetching Applications | application fetch exception 
+KER-MSD-101 | Error occurred while inserting application details | application insert exception
+KER-MSD-002 | Application not found | application not found exception
+KER-MSD-201 | Bad Request Found | application request exception
+
 
 # Blacklisted words Master API
 
@@ -2326,10 +2450,7 @@ languagecode|Yes|Language code in ISO 639-2 Code of the holiday| | eng
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
 "response" : {
   "successfully_created_words": ["asdf","lkjh","qwer"]
             }
@@ -2385,10 +2506,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
  "response" : {
 		"blacklistedwords":[
 			{
@@ -2452,12 +2570,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response":{
 	"blacklistedwords":[
 		{
@@ -2535,10 +2648,7 @@ isActive|YES|Blacklisted word is active|||
 	"version": "string",
 	"metadata": {},
 	"responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-	"errors": [{
-		"errorCode": "string",
-		"message": "string"
-	}],
+	"errors": null,
 	"response": {
 		"langCode": "string",
 		"word": "string"
@@ -2594,3 +2704,30 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response:
+```JSON
+ {
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-008 | Blacklisted word not found | no blacklisted words found
+KER-MSD-007 | Error occurred while fetching Blacklisted words | blacklisted words fetch exception
+KER-MSD-070 | Error occurred while inserting Blacklisted words | blacklisted words insert exception
+KER-MSD-105 | Error occurred while updating Blacklisted Word | blacklisted words update exception
+KER-MSD-106 | Error occurred while deleting Blacklisted Word | blacklisted words delete exception
+	
+	

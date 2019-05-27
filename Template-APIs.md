@@ -65,10 +65,7 @@ fileFormatCode | Yes | Code of file formate| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
      "id": "string"
   }
@@ -127,10 +124,7 @@ fileFormatCode | Yes | Code of file formate| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
       "id": "string"
    }
@@ -159,6 +153,20 @@ id|Yes|id of the Template|
 
 
 
+### Success Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response"  : {
+      "id": "string"
+  }
+}
+```
+
 ### Example Response
 ```JSON
 {
@@ -170,11 +178,18 @@ id|Yes|id of the Template|
       "errorCode": "string",
       "message": "string"
     }],
-  "response"  : {
-      "id": "string"
-  }
+  "response":  null
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-045 | Error occurred while fetching Templates | Fetch Issue
+KER-MSD-145 | Exception during inserting data into db | Insertion Issue
+KER-MSD-046 | Template not found. | Data Not Found
+KER-MSD-095 | Error occurred while updating Template | Update Issue
+KER-MSD-096 | Error occurred while deleting Template | Delete Issue
 
 # Template Types API
 
@@ -229,3 +244,8 @@ code|Yes|This is the template code field|-NA-|auth-email-content
 200
 
 Description: Success
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-072 | Error occurred while inserting Template Type details into db | Insertion Issue
