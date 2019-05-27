@@ -20,7 +20,7 @@
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
   * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
-* [6. PRODUCT DEMO (VDs)](#6-product-demo-vds-)
+* [6. Visual Designs](#6-visual-designs)
 * [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
   * [7.1 Principles](#71-principles-)
   * [7.2 Platform Features](#72-platform-features-)
@@ -41,7 +41,8 @@
   * [8.7 Security](#87-security-)
   * [8.8 Core Data Management](#88-core-data-management-)
   * [8.9 Test Rig Design](#89-test-rig-design-)
-  * [8.10 Integration with External System](#810-integration-with-external-systems-)
+  * [8.10 Tester Documentation (WIP)](#810-tester-documentation-wip-)
+  * [8.11 Integration with External System](#811-integration-with-external-systems-)
 * [9. MOSIP APIs](#9-mosip-apis)
   * [9.1 External APIs](#91external-apis-)
     * [9.1.1 ID Authentication APIs](#911-id-authentication-apis-)
@@ -86,7 +87,7 @@ MOSIP (Modular Open Source Identity Platform) helps government countries to buil
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
-                      Fig: 1 Basic features of MOSIP
+                      Fig 1: Basic features of MOSIP
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
@@ -173,8 +174,34 @@ Please refer wiki for detailed functional specification of the following service
 ### 3.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
 Please refer [**wiki**](FRS-Administrator-Services) for detailed functional specifications of administrator services module.
 ### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
+
+Resident Services module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. The list of services a user can avail are outlined below:
+
+1. Download e-UIN.
+2. Retrieve lost UIN.
+3. Initiate UIN Update.
+4. Request re-print UIN.
+5. Track status of UIN update.
+6. View history of Authentication Requests.
+7. Lock or Unlock UIN/VID for each ‘Auth’ type(s).
+
+Additionally a user can also track status of his/her UIN generation after registration. 
+These services include:
+
+1. Retrieve Lost RID (registration ID).
+2. Track Status of UIN Generation via RID.
+
 Please refer [**wiki**](FRS-Resident-Services) for detailed functional specifications of resident services module.
 ### 3.8 Partner Management (WIP) [**[↑]**](#table-of-content)
+
+Partner Management provides services for Partner and MISP (MOSIP Infrastructure Service Provider) Registration and Authentication. Registered Partners and MISP are only allowed to access MOSIP Authentication services. Partners and MISP are registered using Partner Management Services.  Authentication services of MOSIP will internally use the Partner Management Services to authenticate Partner and MISP and validate if only the registered entities are accessing the services.
+
+Partner Management also involves policy management for Partners. Each partner can access Authentication services only based on a defined policy. Authentication services of MOSIP will internally use the Partner Management Services to authenticate a partner based on the policy.
+
+Partners send authentication request and receive authentication responses in a secured setup. Public/Private keys are used for encryption/decryption/signing the request/response. A few of the key management activities are managed in the Partner Management Services.
+
+Further Certificates are used by Partners for signing the authentication request.  Partner Management Services is used for a few of the signature related services.
+
 Please refer [**wiki**](FRS-Partner-Management) for detailed functional specifications of Partner Management module.
 ## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
@@ -198,7 +225,7 @@ This section provides a detailed functional requirement specification for each m
 This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
-## 6. PRODUCT DEMO (VDs) [**[↑]**](#table-of-content)
+## 6. Visual Designs
 ## 7.	MOSIP ARCHITECTURE OVERVIEW
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
@@ -283,8 +310,11 @@ This module exposes few REST APIs which can be used to create/update/retrieve Id
 ### 8.9 Test Rig Design [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
-Please refer to [**wiki**](https://github.com/mosip/mosip/wiki/Test-Rig-Design) for more details.
-### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
+Please refer to [**wiki**](Test-Rig-Design) for more details.
+### 8.10 Tester Documentation (WIP) [**[↑]**](#table-of-content)
+
+Please refer to [**wiki**](Tester-Documentation) for more details.
+### 8.11 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system.
 Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
 ## 9. MOSIP APIs

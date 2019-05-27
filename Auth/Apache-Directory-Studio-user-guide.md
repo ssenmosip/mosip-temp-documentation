@@ -35,7 +35,15 @@ Now your connection is configured.
 Select the connection and click on connect/disconnect as shown in the figure below.
 ![Apache-Directory-Studio-4.png](_images/auth/Apache-Directory-Studio-4.png)
 
-## Create a partition
+
+## Import schemas
+
+* To import entries, select your parent node, right click on it and select import > LDIF import...
+* Now select a ldif file which has the entries that you require.
+* A sample ldif file for initial entries is [here](_files/auth/mosip.ldif) for reference.
+
+
+## Create a partition (Not Required, Sample LDIF has this already created)
 
 To create a partition, select the connection and right click to select Open Configuration option.
 ![Apache-Directory-Studio-5.png](_images/auth/Apache-Directory-Studio-5.png)
@@ -47,14 +55,7 @@ Once you are done with the configuration press ctrl+s to save the configurations
 
 **Note:** When ever the configuration of the connection is changed, restart the LDAP server for the changes to take place.
 
-## Import schemas
-
-* To import entries, select your parent node, right click on it and select import > LDIF import...
-* Now select a ldif file which has the entries that you require.
-* A sample ldif file for initial entries is [here](_files/auth/mosip.ldif) for reference.
-* A sample ldif file for sub entries used for authorization are [here](_files/auth/mosip_auth.ldif)
-
-## Add Custom Attributes in LDAP
+## Add Custom Attributes in LDAP (Not Required, Sample LDIF has this already created)
 * Create new LDIF file [ file -> new -> LDIF file ] in Apache Directory Studio.
 * Follow the below given template to create a custom attribute.
       
@@ -100,6 +101,7 @@ allow to create custom attribute in an existing object class.
 * Try to add objectclass and attribute to the created user entry. In the attribute search list, now you will be able to see the newly introduced custom attributes.
 
 For more info [Follow](https://directory.apache.org/apacheds/basic-ug/2.3.1-adding-schema-elements.html) this link.
+
 
 ## Object classes
 

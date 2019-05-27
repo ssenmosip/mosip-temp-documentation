@@ -1747,14 +1747,14 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ###### Description: If the document is not found for the preregistration id and document id
 ```JSON
 {
-    "id": "mosip.pre-registration.document.fetch.content",
+    "id": "mosip.pre-registration.document.delete.specific",
     "version": "1.0",
-    "responsetime": "2019-05-20T11:56:43.321Z",
+    "responsetime": "2019-05-27T12:57:17.508Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_005",
-            "message": "DOCUMENT_IS_MISSING"
+            "errorCode": "PRG_PAM_DOC_022",
+            "message": "DocumentId is not belongs to the pre-registration Id"
         }
     ]
 }
@@ -1866,12 +1866,12 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 {
     "id": "mosip.pre-registration.document.delete.specific",
     "version": "1.0",
-    "responsetime": "2019-05-20T12:01:20.435Z",
+    "responsetime": "2019-05-27T12:57:17.508Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_005",
-            "message": "DOCUMENT_IS_MISSING"
+            "errorCode": "PRG_PAM_DOC_022",
+            "message": "DocumentId is not belongs to the pre-registration Id"
         }
     ]
 }
@@ -1881,7 +1881,6 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
-
 
 # DataSync Service (External)
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
