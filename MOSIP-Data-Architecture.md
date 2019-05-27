@@ -66,12 +66,14 @@ Below is the list of databases in MOSIP
 |---------|---------|------------|
 |1|mosip_kernel|Kernel database maintains common / system configurations, data related to kernel services like sync process, OTP, etc.|
 |2|mosip_master|All the master data that is defined and related to an organization is stored in this database. Including User management, authentication and authorization services related data is also be stored in this db|
-|3|mosip_uin|UIN database stores all the data related to an individual for which an UIN is generated|
+|3|mosip_idrepo|ID repository database stores all the data related to an individual for which an UIN is generated|
 |4|mosip_prereg|Pre-registration database to store the data that is captured as part of pre-registration process|
 |5|mosip_reg|Registration client database to capture registration related data. The needed data from MOSIP system will be synched with this database.|
 |6|mosip_regprc|The data related to Registration process flows and transaction will be maintained in this database. This database also maintains data that is needed to perform deduplication.|
 |7|mosip_ida|ID Authentication related requests, transactions and mapping related data like virtual ids, tokens, etc. will be stored in this database|
 |8|mosip_audit|Audit related logs and the data is stored in this database|
+|9|mosip_iam|The user management related data of MOSIP application is stored in various storages, the database related users are stored in this database|
+|10|mosip_idmap|Database to store and manage all the data related to mapping between various IDs, like vid with UIN of an individual|
 
 # Data Model Naming Standards
 
