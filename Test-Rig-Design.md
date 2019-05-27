@@ -17,6 +17,8 @@ There will be one Test Rig for each of the below modules that be triggered via t
 1. Registration Processor
 1. IDA
 
+![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
+
 There will also be an end to end system level Test Rig covering the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
 
 
