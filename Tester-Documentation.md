@@ -1,5 +1,4 @@
 
-***
 **MOSIP - Test Strategy (Work in progress copy)**
 
 Test Automation
