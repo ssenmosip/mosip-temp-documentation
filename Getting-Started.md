@@ -689,6 +689,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 |ID Repository|postgresql|mosip_idrepo|idrepo|
 |Audit|postgresql|mosip_audit|audit|
 |IAM|postgresql|mosip_iam|iam|
+|idmap|postgresql|mosip_idmap|idmap|
 
 **Note:** These databases can be deployed on single or separate database servers / instances.
 
