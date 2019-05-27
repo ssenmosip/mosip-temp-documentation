@@ -1303,7 +1303,7 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Path Parameter
+#### Request Query Parameter
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 pageIndex |Yes|page index of the application|0
