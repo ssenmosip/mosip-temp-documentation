@@ -41,7 +41,7 @@
   * [8.7 Security](#87-security-)
   * [8.8 Core Data Management](#88-core-data-management-)
   * [8.9 Test Rig Design](#89-test-rig-design-)
-  * [8.10 Tester Documentation](#810-tester-documentation-)
+  * [8.10 Tester Documentation (WIP)](#810-tester-documentation-wip-)
   * [8.11 Integration with External System](#811-integration-with-external-systems-)
 * [9. MOSIP APIs](#9-mosip-apis)
   * [9.1 External APIs](#91external-apis-)
@@ -294,7 +294,7 @@ This module exposes few REST APIs which can be used to create/update/retrieve Id
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Please refer to [**wiki**](Test-Rig-Design) for more details.
-### 8.10 Tester Documentation [**[↑]**](#table-of-content)
+### 8.10 Tester Documentation (WIP) [**[↑]**](#table-of-content)
 
 Please refer to [**wiki**](Tester-Documentation) for more details.
 ### 8.11 Integration with External Systems [**[↑]**](#table-of-content)
