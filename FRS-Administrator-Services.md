@@ -163,11 +163,11 @@ Using the system, Zonal Admin will search for the registration center to be upda
 
 #### A. Activate the Registration Center
 
-The System allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected center(s). On successful validation, the system provides a notification.
+The system allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected center(s). On successful validation, the system provides a notification.
 
 #### B. Deactivate the Registration Center
 
-The System allows Zonal Admin to deactivate the registration centers, which are already activated. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
 
 #### C. Decommission the Registration Center
 
@@ -209,11 +209,11 @@ For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-ma
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### A. Activate Machine
 
-The System allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
+The system allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
 
 #### B. Deactivate Machine
 
-The System allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
 #### C. Decommission  Machine
 
@@ -331,7 +331,7 @@ The system allows Zonal Admin to activate the user, who is already deactivated d
 
 #### B. Deactivate User
 
-The System allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
 
 #### C. Blacklist User
 
@@ -380,7 +380,7 @@ Procedure to create document type follows:
 
 #### B. Activate the Document types
 
-The System allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select one deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected document type(s). On successful validation, the system provides a notification.
+The system allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select one deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected document type(s). On successful validation, the system provides a notification.
 
 #### C. Deactivate the Document type
 
@@ -411,7 +411,7 @@ The system allows Zonal Admin to activate the location data, which are already d
 
 #### C. Deactivate the Location data
 
-The System allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected location data(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected location data(s), and the system provides a notification.
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
@@ -422,11 +422,11 @@ During validation, if system does not find the provided data or the respective u
 
 #### C. Activate the Blacklisted Word
 
-The System allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
+The system allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
 
 #### D. Deactivate the Blacklisted Word
 
-The System allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
 
 #### E. Decommission the Blacklisted Word
 
