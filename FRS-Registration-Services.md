@@ -668,6 +668,8 @@ Upon receiving a request to geotag a registration machine, the system performs t
    * The latitude and longitude will be stored in the packet when the packet is created.
 5. System captures and stores the transaction details for audit purpose (except PII data).
 
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-device-integration.md)
+
 ## 6. Language Support [**[↑]**](#table-of-content)
 The registration client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin config and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
 ### 6.1 Translation [**[↑]**](#table-of-content)
@@ -704,6 +706,8 @@ Master data selections are not transliterated. Instead, the master data as setup
 The Registration Officer can then view the preview page
 
 The system then enables a Registration Officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-muti-lingual-support.md)
 
 ## 7. Packet Upload [**[↑]**](#table-of-content)
 ### 7.1 Registration Packet Upload [**[↑]**](#table-of-content) 
