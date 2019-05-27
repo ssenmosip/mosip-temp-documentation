@@ -295,7 +295,6 @@ Test Rig represents a one click automation to build, deploy and test a software 
 
 Please refer to [**wiki**](Test-Rig-Design) for more details.
 ### 8.10 Tester Documentation [**[↑]**](#table-of-content)
-Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Please refer to [**wiki**](Tester-Documentation) for more details.
 ### 8.11 Integration with External Systems [**[↑]**](#table-of-content)
