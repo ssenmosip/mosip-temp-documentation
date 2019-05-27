@@ -335,7 +335,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|Track Status|Track Status of UIN Generation |RES_FR_1|[MOS-23861](//mosipid.atlassian.net/browse/MOS-23861)|
+|1.|Track Status|Track Status of UIN Generation by providing Registration ID |RES_FR_1|[MOS-23861](//mosipid.atlassian.net/browse/MOS-23861)|
 |2.|Download UIN|Download UIN|RES_FR_2|[MOS-23862](//mosipid.atlassian.net/browse/MOS-23862)|
 |3.|Retrieve Lost RID|Retrieve Lost RID|RES_FR_3|[MOS-23856](//mosipid.atlassian.net/browse/MOS-23856)|
 |4.|Retrieve Lost UIN|Retrieve Lost UIN|RES_FR_4|[MOS-23858](//mosipid.atlassian.net/browse/MOS-23858)|
