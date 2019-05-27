@@ -192,20 +192,11 @@ The data sync can happen through an automated process at a set frequency or a us
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-master-data-Sync.md)
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
 Please refer [**Git**]() for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a [**new registration**](#41-new-registration-).
 Based on the configuration (turn on or turn off), the system allows a user to capture applicable biometrics, authenticates, and completes the registration. 
-
-[**Link to design for Center Configuration Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-center_config_sync.md)
-
-[**Link to design for Login Credentials Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-login-credentials-sync.md)
-
-[**Link to design for Policy Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-policy-sync.md)
-
-[**Link to design for User Salts Sync**](/mosip/mosip/tree/master/docs/design/registration/registration-user-salts-sync.md)
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
 
@@ -220,16 +211,12 @@ Based on the configuration (turn on or turn off), the system allows a user to c
    * Displays an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-sync_user_mapping_client_to_server.md)
-
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
 
 The system performs the following steps to ensure packet status sync from server to client to read the status of the registration packets sent:
 1. The system allows a registration officer to either sync manually or automatically based on configured frequency.
 1. The system allows the application to request using Registration packet ID and receive the Registration packet status from the server
 1. The system displays the status of the operation to pull Registration packet IDs from Registration server - in progress/completed.
-
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-packetstatusreader.md)
 
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
 
@@ -269,7 +256,7 @@ The downloaded pre-registration data overwrites the previously downloaded data f
 
 The downloaded pre-registration data is stored in its stipulated path as defined
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-Pre-Registration-Sync.md)
+[**Link to design**](/mosip/mosip/blob/master/docs/design/registration/registration-sync-job.md)
 
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
