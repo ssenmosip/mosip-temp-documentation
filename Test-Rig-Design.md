@@ -22,4 +22,4 @@ There will also be an end to end system level Test Rig covering the functionalit
 
 ![Configure Pipelines](_images/test_rig_automation/E2ETestRigDesign.drawio.jpg)
 
-                      Fig 1: Configure Pipelines
+                      Fig 2: Configure Pipelines
