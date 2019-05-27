@@ -178,8 +178,11 @@ Please refer [**wiki**](FRS-Resident-Services) for detailed functional specifica
 ### 3.8 Partner Management (WIP) [**[↑]**](#table-of-content)
 
 Partner Management provides services for Partner and MISP (MOSIP Infrastructure Service Provider) Registration and Authentication. Registered Partners and MISP are only allowed to access MOSIP Authentication services. Partners and MISP are registered using Partner Management Services.  Authentication services of MOSIP will internally use the Partner Management Services to authenticate Partner and MISP and validate if only the registered entities are accessing the services.
+
 Partner Management also involves policy management for Partners. Each partner can access Authentication services only based on a defined policy. Authentication services of MOSIP will internally use the Partner Management Services to authenticate a partner based on the policy.
+
 Partners send authentication request and receive authentication responses in a secured setup. Public/Private keys are used for encryption/decryption/signing the request/response. A few of the key management activities are managed in the Partner Management Services.
+
 Further Certificates are used by Partners for signing the authentication request.  Partner Management Services is used for a few of the signature related services.
 
 Please refer [**wiki**](FRS-Partner-Management) for detailed functional specifications of Partner Management module.
