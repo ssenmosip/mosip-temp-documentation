@@ -167,7 +167,7 @@ The System allows Zonal Admin to activate the registration centers, which are al
 
 #### B. Deactivate the Registration Center
 
-The System allows Zonal Admin to deactivate the registration centers, which are already activated. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one activated center or multiple activated centers at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
+The System allows Zonal Admin to deactivate the registration centers, which are already activated. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
 
 #### C. Decommission the Registration Center
 
@@ -213,7 +213,7 @@ The System allows Zonal Admin to activate the machine, which are already deactiv
 
 #### B. Deactivate Machine
 
-The System allows Zonal Admin to deactivate the machine, which are already activated. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one activated machine or multiple activated machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+The System allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
 #### C. Decommission  Machine
 
@@ -268,7 +268,7 @@ The System allows Zonal Admin to activate the device, which are already deactiva
 
 #### B. Deactivate Device
 
-The System allows Zonal Admin to  select the deactivated device, which are already activated. The Zonal Admin selects the device and the all the device of that zone are displayed. The Zonal Admin can select one active device or multiple active devices at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected device(s), and the system provides a notification.
+The system allows Zonal Admin to  select the active device. The Zonal Admin selects the device and the all the device of that zone are displayed. The Zonal Admin can select one active device or multiple active devices at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected device(s), and the system provides a notification.
 
 #### C. Decommission Device
 
@@ -331,7 +331,7 @@ The system allows Zonal Admin to activate the user, who is already deactivated d
 
 #### B. Deactivate User
 
-The System allows Zonal Admin to deactivate the user, which are already activated. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
+The System allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
 
 #### C. Blacklist User
 
@@ -384,7 +384,7 @@ The System allows Zonal Admin to activate the document types, which are already 
 
 #### C. Deactivate the Document type
 
-The System allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected document type(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected document type(s), and the system provides a notification.
 
 #### D. Map/un-Map-Re-map Document Type to Document Category
 
@@ -411,7 +411,7 @@ The system allows Zonal Admin to activate the location data, which are already d
 
 #### C. Deactivate the Location data
 
-The System allows Zonal Admin to deactivate the location data, which are already in active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected location data(s), and the system provides a notification.
+The System allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected location data(s), and the system provides a notification.
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
@@ -426,7 +426,7 @@ The System allows Zonal Admin to activate the blacklisted Word, which are alread
 
 #### D. Deactivate the Blacklisted Word
 
-The System allows Zonal Admin to deactivate the blacklisted Word, which are already in active status. The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
+The System allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
 
 #### E. Decommission the Blacklisted Word
 
@@ -497,7 +497,7 @@ e) Reports
 
 ### 7.2 Approval for Master Data Creation (WIP)
 ## 8. UIN Activation/Deactivation [**[↑]**](#table-of-content)
-Using the system, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/Inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
+Using the system, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
 ## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-content)
 ## 10. Multi-language Support (WIP) [**[↑]**](#table-of-content)
 ### 10.1 i18N
