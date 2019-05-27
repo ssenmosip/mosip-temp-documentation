@@ -30,7 +30,7 @@
     * [5.3.1 View Device](#531-view-device) _(ASR_FR_5.10)_
     * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
     * [5.3.3 Update Device](#533-update-device-) _(ASR_FR_5.12)_
-    * [5.3.4 Activate/Deactivate/Decommission Device (WIP)](#534-activatedeactivatedecommission-device-wip) _(ASR_FR_5.13)_
+    * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device-) _(ASR_FR_5.13)_
     * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
   * [5.4 User Management](#54-user-management-)
     * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
@@ -58,7 +58,7 @@
      * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.16)_ 
      * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.17)_ 
 - [7. Approval Process](#7-approval-process-) _(ASR_FR_7)_
-  * [7.1 Approval for Resource Creation (WIP)](#71-approval-for-resource-creation-wip-)
+  * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation-)
     * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
     * [7.1.2 Machine](#712-machine) _(ASR_FR_7.2)_
     * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
@@ -405,7 +405,7 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
  * Active (Boolean)
  * Created by
  * Created Date and Time
-#### B.Activate the Location data
+#### B. Activate the Location data
 
 The system allows Zonal Admin to activate the location data, which are already deactivated due to any reasons. When the location data is created and approved, it is activated automatically. The Zonal Admin selects the location data then all the location data of that Zone are displayed. The Zonal Admin can select one deactivated location data or multiple deactivated location data at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected location data(s). On successful validation, the system provides a notification.
 
@@ -457,7 +457,7 @@ The system allows Zonal Admin to view the list of titles by selecting the master
 #### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-content)
 The system allows Zonal Admin to view the gender types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Gender Types and the available gender types are displayed. The gender types are configured in the backend process. The system validates the privileges of user who raised the request to view the gender types and provides the gender types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
 ## 7. Approval Process [**[↑]**](#table-of-content)
-### 7.1 Approval for Resource Creation (WIP)
+### 7.1 Approval for Resource Creation
 #### 7.1.1 Center 
 Using the system, Zonal Approver will approve the registered centers. The Zonal Admin who registered the center cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the center is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
