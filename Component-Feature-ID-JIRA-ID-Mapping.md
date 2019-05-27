@@ -327,7 +327,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.|||||
+|1.| Identity Service ||||
 
 ## 13. Resident Services: [**[↑]**](#table-of-content)
 
