@@ -20,7 +20,7 @@
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
   * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
-* [6. PRODUCT DEMO (VDs)](#6-product-demo-vds-)
+* [6. Visual Designs](#6-Visual Designs)
 * [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
   * [7.1 Principles](#71-principles-)
   * [7.2 Platform Features](#72-platform-features-)
@@ -208,7 +208,7 @@ This section provides a detailed functional requirement specification for each m
 This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
-## 6. PRODUCT DEMO (VDs) [**[↑]**](#table-of-content)
+## 6. Visual Designs [**[↑]**](#table-of-content)
 ## 7.	MOSIP ARCHITECTURE OVERVIEW
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
