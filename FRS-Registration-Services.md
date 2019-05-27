@@ -573,6 +573,10 @@ Registration Client performs a local duplicate check for irises and face of an i
 1. When no match is found, system proceeds to the next step (Registration Preview).
 1. The number of recapture attempts due to local duplicate check failures is not capped.
 
+Please refer to [**Wiki**](MOSIP-Biometric-APIs) for more details on the MOSIP Biometric APIs.
+
+[**Link to design**](/mosip/mosip/blob/master/docs/design/registration/registration-MOSIP-bio-device-integration.md)
+
 ### 4.6 Biometric Exceptions [**[↑]**](#table-of-content)
 If the required biometric quality is not achieved while a Registration Officer is capturing biometrics of an individual (e.g., missing finger(s), missing iris(es), etc.), then the system mandates to capture a biometric exception for that individual. Refer below for the process:
 #### A. Low quality biometrics marked as reason for exceptions
