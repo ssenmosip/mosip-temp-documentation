@@ -327,7 +327,9 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1.| Identity Service |||[MOS-13161](//mosipid.atlassian.net/browse/MOS-13161), [MOS-1119](//mosipid.atlassian.net/browse/MOS-1119)|
+|1.| Identity Service |||[MOS-12231](//mosipid.atlassian.net/browse/MOS-12231), [MOS-13299](//mosipid.atlassian.net/browse/MOS-13299), [MOS-1423](//mosipid.atlassian.net/browse/MOS-1423), [MOS-22932](//mosipid.atlassian.net/browse/MOS-22932)|
+|2.| Identity Repository Core |||[MOS-22929](//mosipid.atlassian.net/browse/MOS-22929), [MOS-22930](//mosipid.atlassian.net/browse/MOS-22930), [MOS-22931](//mosipid.atlassian.net/browse/MOS-22931)|
+|3.| VID Service |||[MOS-23405](//mosipid.atlassian.net/browse/MOS-23405), [MOS-23406](//mosipid.atlassian.net/browse/MOS-23406), [MOS-23407](//mosipid.atlassian.net/browse/MOS-23407), [MOS-23408](//mosipid.atlassian.net/browse/MOS-23408), [MOS-23409](//mosipid.atlassian.net/browse/MOS-23409), [MOS-23410](//mosipid.atlassian.net/browse/MOS-23410)|
 
 ## 13. Resident Services: [**[↑]**](#table-of-content)
 
