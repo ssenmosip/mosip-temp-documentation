@@ -47,7 +47,7 @@
 # 1. ID Lifecycle Management [**[↑]**](#table-of-content)
 When an individual visits a registration center to get a UIN or update his/her UIN information, a registration officer or supervisor captures the individual’s demographic (name, date of birth, gender, etc.) and biometric (face, iris, finger print image, etc.) details. These information are packaged in a secure way (using encrypted packets) by Registration Client and sent to Registration Processor. The various life cycle events that can be processed by Registration Processor are:
 
-The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check) and validations to carry out the following processes:
+The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check-) and validations to carry out the following processes:
 * New ID Issuance
 * Update individual’s information
 * De-activate individual’s ID
@@ -55,14 +55,14 @@ The packet received from the Registration Client must pass the [**sanity checks*
 
 ## 1.1 New ID Issuance [**[↑]**](#table-of-content)
 
-When the Registration Processor receives a packet for registering an individual in the system, it performs various [**sanity checks**](#311-sanity-check) & validations, and identifies demographic duplicates (using demographic data like name, date of birth and gender) and biometric duplicates (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). After all the validations are successful, the system allocates a UIN for the individual. 
+When the Registration Processor receives a packet for registering an individual in the system, it performs various [**sanity checks**](#311-sanity-check-) & validations, and identifies demographic duplicates (using demographic data like name, date of birth and gender) and biometric duplicates (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). After all the validations are successful, the system allocates a UIN for the individual. 
 
 ## 1.2 Update Individual’s Information [**[↑]**](#table-of-content)
 An individual can update his/her information via two different ways:
 1. **Visiting a Registration Center** – The individual can update their biometric and demographic information.
 1. **Using the Resident Portal** – The individual can update their address and contact information.
 
-When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check) and validations and then updates the individual’s information.
+When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check-) and validations and then updates the individual’s information.
 
 ## 1.3 De-activate individual’s ID [**[↑]**](#table-of-content)
 If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed. As a result of de-activation of UIN, the individual can not authenticate themselves by using UIN or VID. 
