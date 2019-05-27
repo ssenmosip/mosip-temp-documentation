@@ -790,7 +790,6 @@ MOSIP performs the following:
 
 The data captured and stored in to the client machine during different process (such as new registration, update UIN, lost UIN, pre-registration) will be encrypted with the different set of keys. The keys have a different set of expiry policies and based on which it will be refreshed. The keys are securely managed into the database.
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-key-management.md)
 ## 10. Software Version Upgrade [**[↑]**](#table-of-content)
 
 #### A. Registration Officer or Supervisor can download and unzip the client application set up kit
