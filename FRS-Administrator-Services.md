@@ -213,7 +213,7 @@ The System allows Zonal Admin to activate the machine, which are already deactiv
 
 #### B. Deactivate Machine
 
-The System allows Zonal Admin to deactivate the machine, which are already deactivated due to any reasons. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machine at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+The System allows Zonal Admin to deactivate the machine, which are already activated. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one activated machine or multiple activated machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
 #### C. Decommission  Machine
 
