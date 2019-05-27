@@ -170,3 +170,6 @@ Through sync process the data would be sync between local machine and server bas
    4.	Generated Registration and Pre-Registration packet.
 
 
+**Class Diagram [Initial Setup and Update Process]:**
+
+![Initial Setup and Update Process](_images/registration/application-setup-update.jpg)  
