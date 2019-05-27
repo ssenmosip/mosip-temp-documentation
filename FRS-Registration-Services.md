@@ -707,7 +707,6 @@ The Registration Officer can then view the preview page
 
 The system then enables a Registration Officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-muti-lingual-support.md)
 
 ## 7. Packet Upload [**[↑]**](#table-of-content)
 ### 7.1 Registration Packet Upload [**[↑]**](#table-of-content) 
@@ -790,6 +789,8 @@ MOSIP performs the following:
 ### 9.1 Key Management [**[↑]**](#table-of-content)
 
 The data captured and stored in to the client machine during different process (such as new registration, update UIN, lost UIN, pre-registration) will be encrypted with the different set of keys. The keys have a different set of expiry policies and based on which it will be refreshed. The keys are securely managed into the database.
+
+[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-key-management.md)
 ## 10. Software Version Upgrade [**[↑]**](#table-of-content)
 
 #### A. Registration Officer or Supervisor can download and unzip the client application set up kit
