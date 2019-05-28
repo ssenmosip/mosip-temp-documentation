@@ -36,14 +36,9 @@ Select the connection and click on connect/disconnect as shown in the figure bel
 ![Apache-Directory-Studio-4.png](_images/auth/Apache-Directory-Studio-4.png)
 
 
-## Import schemas
-
-* To import entries, select your parent node, right click on it and select import > LDIF import...
-* Now select a ldif file which has the entries that you require.
-* A sample ldif file for initial entries is [here](_files/auth/mosip.ldif) for reference.
+## Create a partition
 
 
-## Create a partition (Not Required, Sample LDIF has this already created)
 
 To create a partition, select the connection and right click to select Open Configuration option.
 ![Apache-Directory-Studio-5.png](_images/auth/Apache-Directory-Studio-5.png)
@@ -53,34 +48,70 @@ In the window opened in the center of the screen, select the partitions tab in t
 
 Once you are done with the configuration press ctrl+s to save the configurations.
 
-**Note:** When ever the configuration of the connection is changed, restart the LDAP server for the changes to take place.
+**Note:**  Delete existing partition if want to import latest ldif.  When ever the configuration of the connection is changed, restart the LDAP server for the changes to take place.
+
+
+## Import schemas
+
+* To import entries, select your parent node, right click on it and select import > LDIF import...
+* Now select a ldif file which has the entries that you require.
+* Import mosip-schema-extn.ldif for custom mosip objectClass and attributes [here](_files/auth/mosip-schema-extn.ldif).
+* Import mosip-entires.ldif for initial entries [here](_files/auth/mosip-entires.ldif).
+
+
 
 ## Add Custom Attributes in LDAP (Not Required, Sample LDIF has this already created)
 * Create new LDIF file [ file -> new -> LDIF file ] in Apache Directory Studio.
 * Follow the below given template to create a custom attribute.
       
-      ```
-      dn: cn=schema
-      changetype: modify
-      add: attributeTypes
-       attributeTypes: ( 1.2.840.113556.1.8000.2554.12865.17093.34908.18682.41797.31809.44595.29324
-        NAME 'rid'
-        EQUALITY caseIgnoreMatch
-        SUBSTR caseIgnoreSubstringsMatch
-        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
-        -
-        add: objectClasses
-        objectClasses:1.2.840.113556.1.8000.2554.44227.5563.64568.17995.39112.51716.43355.13724
-       NAME 'regid'
-       DESC 'regid'
-       SUP inetOrgPerson
-       STRUCTURAL
-       MAY  (rid)
-       Note : LDIF record must be ended with empty line.
-       
-      )
+```
       
-      ```
+dn: cn=schema
+changetype: modify
+add: attributeTypes
+attributeTypes: (  1.2.840.113556.1.8000.2554.54546.18890.37580.16565.48169.34440.63500.20900
+       NAME 'dob'
+       EQUALITY caseIgnoreMatch
+       SUBSTR caseIgnoreSubstringsMatch
+       SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+attributeTypes: ( 1.2.840.113556.1.8000.2554.32298.14993.64180.19515.36478.12550.7623.31318
+       NAME 'genderCode'
+       EQUALITY caseIgnoreMatch
+       SUBSTR caseIgnoreSubstringsMatch
+       SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+attributeTypes: ( 1.2.840.113556.1.8000.2554.41584.39755.10371.18440.44317.44977.32952.60155
+       NAME 'firstName'
+       EQUALITY caseIgnoreMatch
+       SUBSTR caseIgnoreSubstringsMatch
+       SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+attributeTypes: ( 1.2.840.113556.1.8000.2554.64183.29326.62104.16882.47322.52880.7487.43435
+       NAME 'lastName'
+       EQUALITY caseIgnoreMatch
+       SUBSTR caseIgnoreSubstringsMatch
+       SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+attributeTypes: ( 1.2.840.113556.1.8000.2554.38419.62933.46259.18864.47652.31092.22359.63105
+       NAME 'rid'
+       EQUALITY caseIgnoreMatch
+       SUBSTR caseIgnoreSubstringsMatch
+       SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} ) 
+attributeTypes: ( 1.2.840.113556.1.8000.2554.52069.14393.50258.17382.33911.47260.27965.41246
+       NAME 'isActive'
+       SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 )                      
+              
+-
+add: objectClasses
+objectClasses: ( 1.2.840.113556.1.8000.2554.4819.13991.55685.16487.47941.21082.30640.10477
+   NAME 'userDetails'
+   DESC 'userDetails'
+   SUP inetOrgPerson
+   STRUCTURAL
+   MAY  (dob $ genderCode $ firstName $ lastName $ rid $ isActive)
+   )
+   
+      
+```
+
+
 **Description**
 
 * Here, we have created one object class named regid & added custom attribute rid.LDAP does not
