@@ -16,6 +16,7 @@
   * [3.6 Administrator Services (WIP)](#36-administrator-services-wip-)
   * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
   * [3.8 Partner Management (WIP)](#38-partner-management-wip-)
+  * [3.9 ID Repository](#39-id-repository-)
  * [4. MOSIP SCOPE](#4mosip-scope-)
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
@@ -203,6 +204,9 @@ Partners send authentication request and receive authentication responses in a s
 Further Certificates are used by Partners for signing the authentication request.  Partner Management Services is used for a few of the signature related services.
 
 Please refer [**wiki**](FRS-Partner-Management) for detailed functional specifications of Partner Management module.
+
+### 3.9 ID Repository [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-ID-Repository) for detailed functional specifications of ID Repository.
 ## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
 ## 5. MOSIP REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
