@@ -225,7 +225,17 @@ This section provides a detailed functional requirement specification for each m
 This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
-## 6. Visual Designs
+
+## 6. Visual Designs [**[↑]**](#table-of-content)
+
+This section provides links to the Clickable Prototypes/Visual Designs of the reference implementation (Reference screens) provided by MOSIP for the following modules: _Pre-registration, Registration Client_ and _Admin_.
+
+_Pre-Registration_ - https://xd.adobe.com/view/3139bfc4-5338-48f0-4ffe-5efca5fdcb72-4708/
+
+_Registration_ - https://xd.adobe.com/view/dbb0c028-0959-475f-6aea-a9c4d7c57cdf-ad81/
+
+_Admin_ - WIP
+
 ## 7.	MOSIP ARCHITECTURE OVERVIEW
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
