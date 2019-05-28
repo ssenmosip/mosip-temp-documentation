@@ -79,6 +79,23 @@ Upon receiving a request to update the UIN details with the following parameters
 
 ## 2. VID Service [**[↑]**](#table-of-content)
 ### 2.1 Create VID in the defined policy [**[↑]**](#table-of-content)
+
+Upon receiving a VID generation and storage request with the parameters: UIN, ver, requestTime, vidType, the system performs the following steps to create VID in the defined policy:
+1. Validates if the UIN in the request is available in the auth database (Complete match) and the status of the UIN is active.
+1. Retrieves the policy for the VID type in the request. 
+   * VID policy constitutes time validity, number of instances, number of transactions, regeneration mode.
+1. Validates the number of active instances of the VID type as follows:
+   * If more than one instances are configured for the VID type and the maximum count hasn’t been reached, then a new VID will be issued. If maximum count is exceeded it will report an error.
+   * If an active VID of the requested VID type is not found, the system will generate a new VID for the requested VID type.
+1. Creates the VID as per the defined policy. 
+1. Updates the status of the VID as ‘Active’.
+1. Sends the response new VID, err, responseTime, ver
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements Detailing References/ID-Authentication/Sprint 11/Consolidated error messages V2.5.xlsx).
+
+Note:
+   * Instances are the number of active instances (not expired/used/revoked/deactivated).
+   * If maximum count is exceeded, it will report an error. No VID will be returned in the response.
+
 ### 2.2 Maintain the appropriate status of a VID based on the attribute value of a VID [**[↑]**](#table-of-content)
 ### 2.3 Regenerate a specific type of VID [**[↑]**](#table-of-content)	
 ### 2.4 Revoke a VID based on the type [**[↑]**](#table-of-content)
