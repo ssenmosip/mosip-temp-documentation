@@ -4,7 +4,7 @@
   * [1.1 Store identity data and related documents in MOSIP database](#11-store-identity-data-and-related-documents-in-mosip-database-)
   * [1.2 Retrieve the stored identity details and the related documents](#12-retrieve-the-stored-identity-details-and-the-related-documents-)
   * [1.3 Retrieve identity data in ID-Repo by RID](#13-retrieve-identity-data-in-id-repo-by-rid-)
-  * [1.4 Store identity data and related documents in MOSIP database](#14-store-identity-data-and-related-documents-in-mosip-database-)
+  * [1.4 Update identity data and related documents in MOSIP database](#14-update-identity-data-and-related-documents-in-mosip-database-)
 - [2. VID Service](#2-vid-service-)
   * [2.1 Create VID in the defined policy](#21-create-vid-in-the-defined-policy-)
   * [2.2 Maintain the appropriate status of a VID based on the attribute value of a VID](#22-maintain-the-appropriate-status-of-a-vid-based-on-the-attribute-value-of-a-vid-)
@@ -36,18 +36,47 @@ Upon receiving a request (from Registration Processor) with the following parame
 ### 1.2 Retrieve the stored identity details and the related documents [**[↑]**](#table-of-content)
 
 Upon receiving a request to retrieve the UIN details with type as an optional parameter, the system performs the following steps to retrieve the stored identity details and the related documents:
-1. Retrieves the identity details of the individual corresponding to the UIN in the request
-1. Validates if the type attribute in the request is “demo”
+1. Retrieves the identity details of the individual corresponding to the UIN in the request.
+1. Validates if the type attribute in the request is “demo”.
    * The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response.
-1. Validates if the type attribute in the request is “bio”
+1. Validates if the type attribute in the request is “bio”.
    * The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response.
-1. Validates if the type attribute in the request is “all”
+1. Validates if the type attribute in the request is “all”.
    * The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response.
 1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 1.3 Retrieve identity data in ID-Repo by RID [**[↑]**](#table-of-content)	
-### 1.4 Store identity data and related documents in MOSIP database [**[↑]**](#table-of-content)
+
+Upon receiving a request to retrieve the UIN details with type as an optional parameter, the system performs the following steps to retrieve identity data in ID-Repo by RID:
+1. Retrieves the identity details of the individual corresponding to the RID in the request.
+1. Validates if the type attribute in the request is “demo”.
+   * The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response.
+1. Validates if the type attribute in the request is “bio”.
+   * The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response.
+1. Validates if the type attribute in the request is “all”.
+   * The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response.
+1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+### 1.4 Update identity data and related documents in MOSIP database [**[↑]**](#table-of-content)
+
+Upon receiving a request to update the UIN details with the following parameters: id, UIN, version, timestamp, registration id, status and identity attributes and documents, the system performs the following steps to update identity data and related documents in MOSIP database:
+1. Updates only the identity attributes corresponding to the UIN in the request. 
+   * E.g., if e-mail is available in the input, only then the e-mail of the UIN in the database will be updated/replaced.
+1. Validates if the demo “documents” are available in the input.
+   * The system updates the demographic documents corresponding to the UIN in the DFS.
+1. Validates if the biometric “documents” are available in the input.
+   * The system updates the biometric documents corresponding to the UIN in the DFS.
+1. Validates if both the demo and biometric documents are available in the input.
+   * The system updates the biometric and demographic documents corresponding to the UIN in the DFS.
+1. The status of the UIN can also be updated to ‘deactivated’ or ‘blocked’.
+1. Sends the response with the following parameters id, version, timestamp, status, and the response entity.
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+
+[Refer to Wiki for more details on **Identity Services**](ID-Repository-API#identity-services-private).
+
 ## 2. VID Service [**[↑]**](#table-of-content)
 ### 2.1 Create VID in the defined policy [**[↑]**](#table-of-content)
 ### 2.2 Maintain the appropriate status of a VID based on the attribute value of a VID [**[↑]**](#table-of-content)
