@@ -362,8 +362,8 @@ request.demographicDetails.identity.email |Yes|email Id of the applicant|
 request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
 request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
-request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
-request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
+request.demographicDetails.identity.addressLine2 |Optional|address Line 2 of the applicant|
+request.demographicDetails.identity.addressLine3 |Optional|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
@@ -684,8 +684,8 @@ request.demographicDetails.identity.email |Yes|email Id of the applicant|
 request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
 request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
-request.demographicDetails.identity.addressLine2 |Yes|address Line 2 of the applicant|
-request.demographicDetails.identity.addressLine3 |Yes|address Line 3 of the applicant|
+request.demographicDetails.identity.addressLine2 |Optional|address Line 2 of the applicant|
+request.demographicDetails.identity.addressLine3 |Optional|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
