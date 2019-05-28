@@ -56,7 +56,7 @@ Once you are done with the configuration press ctrl+s to save the configurations
 * To import entries, select your parent node, right click on it and select import > LDIF import...
 * Now select a ldif file which has the entries that you require.
 * Import mosip-schema-extn.ldif for custom mosip objectClass and attributes [here](_files/auth/mosip-schema-extn.ldif).
-* Import mosip-entires.ldif for initial entries [here](_files/auth/mosip-entires.ldif).
+* Import mosip-entries.ldif for initial entries [here](_files/auth/mosip-entries.ldif).
 
 
 
