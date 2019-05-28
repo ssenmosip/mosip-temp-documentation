@@ -113,6 +113,7 @@ Upon receiving a request with the parameter: VID, ver, the system performs the f
 1. Regenerates the VID as per the defined policy.
 1. The status of the VID will be updated as ‘Active’
 1. Sends the response new VID, err, responseTime, ver
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 Note:
    * VID, which is invalid due to usage or expiry, can be regenerated.
@@ -128,4 +129,18 @@ Upon receiving a request with the parameter: VID, ver to revoke a VID based on t
 1. Please refer Git for more details on the type of [error messages](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 ### 2.5 Auto-restore a VID on revocation and with auto-restore policy [**[↑]**](#table-of-content)  
+
+The system performs the following steps to auto-restore a revoked VID: 
+1. Retrieves the policy for the revoked VID.
+1. Validates the regeneration policy for the revoked VID (‘Auto-restore’).
+1. Creates a new VID for the revoked VID as per the VID policy of the VID type associated to the revoked VID.
+1. Updates the status of the new VID as ‘active’.
+
 ### 2.6 Retrieve the UIN corresponding to a VID [**[↑]**](#table-of-content)	
+
+Upon receiving a request with the parameter (VID), the system performs the following steps to retrieve the UIN corresponding to a VID: 
+1. Validates if the VID is valid as per policy.
+1. Retrieves the UIN corresponding to the VID.
+1. Sends the response UIN, responseTime, err, ver
+1. Responds with error message if the system is unable to retrieve the UIN as per policy.
+1. Please refer Git for more details on the type of [**error messages**]( mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
