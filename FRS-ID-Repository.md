@@ -31,9 +31,21 @@ Upon receiving a request (from Registration Processor) with the following parame
 1. Validate if a document is present in the input the corresponding category is present in the identity element.
 1. The system sends the response with the following parameters id, version, timestamp, status, and the entity element.
 1. The default status is ‘ACTIVATED’. The status is configurable.
-1. Please refer Git for more details on the type of error messages.
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 1.2 Retrieve the stored identity details and the related documents [**[↑]**](#table-of-content)
+
+Upon receiving a request to retrieve the UIN details with type as an optional parameter, the system performs the following steps to retrieve the stored identity details and the related documents:
+1. Retrieves the identity details of the individual corresponding to the UIN in the request
+1. Validates if the type attribute in the request is “demo”
+   * The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response.
+1. Validates if the type attribute in the request is “bio”
+   * The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response.
+1. Validates if the type attribute in the request is “all”
+   * The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response.
+1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
 ### 1.3 Retrieve identity data in ID-Repo by RID [**[↑]**](#table-of-content)	
 ### 1.4 Store identity data and related documents in MOSIP database [**[↑]**](#table-of-content)
 ## 2. VID Service [**[↑]**](#table-of-content)
