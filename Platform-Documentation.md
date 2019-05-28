@@ -20,7 +20,7 @@
 * [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
   * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
-* [6. Visual Designs](#6-visual-designs)
+* [6. Visual Designs](#6-visual-designs-)
 * [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
   * [7.1 Principles](#71-principles-)
   * [7.2 Platform Features](#72-platform-features-)
