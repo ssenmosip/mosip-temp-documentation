@@ -13,6 +13,8 @@
 MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
+**NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-configuration repository from this [URL](https://github.com/mosip/mosip-configuration.git). All the configuration files will be stored under config folder under this repository.
+
 ***
 ## 2. Setup and Configure Jenkins [**[↑]**](#content)
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
@@ -618,7 +620,7 @@ mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
-We are storing all applications' configuration in config folder inside our Github Repository.
+We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-configuration.git).
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
 [**MOSIP CONFIGURATION SERVER**](MOSIP-Configuration-Server)
 
