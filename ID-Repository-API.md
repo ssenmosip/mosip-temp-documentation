@@ -765,7 +765,11 @@ request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
   "version": "v1",
   "responsetime": "2019-04-30T06:13:05.218Z",
   "response": {
-    "vidStatus": 'REVOKED'
+    "vidStatus": "REVOKED",
+    "restoredVidDetails": {
+      "vidStatus": "ACTIVE",
+      "VID": 1234512345
+    }
   }
 }
 ```
