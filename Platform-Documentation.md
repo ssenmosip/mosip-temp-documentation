@@ -230,9 +230,9 @@ Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed func
 
 This section provides links to the Clickable Prototypes/Visual Designs of the reference implementation (Reference screens) provided by MOSIP for the following modules: _Pre-registration, Registration Client_ and _Admin_.
 
-_Pre-Registration_ - https://xd.adobe.com/view/3139bfc4-5338-48f0-4ffe-5efca5fdcb72-4708/
+_Pre-Registration_ - [**visual design**](//xd.adobe.com/view/3139bfc4-5338-48f0-4ffe-5efca5fdcb72-4708/)
 
-_Registration_ - https://xd.adobe.com/view/dbb0c028-0959-475f-6aea-a9c4d7c57cdf-ad81/
+_Registration_ - [**visual design**](//xd.adobe.com/view/dbb0c028-0959-475f-6aea-a9c4d7c57cdf-ad81/)
 
 _Admin_ - WIP
 
