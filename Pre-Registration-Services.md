@@ -373,120 +373,119 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 {
   "id": "mosip.pre-registration.demographic.create",
   "version": "1.0",
-  "requesttime": "2019-05-20T07:22:57.086Z",
-  "request":{
-      "langCode":"fra",
-      "demographicDetails":{
-         "identity":{
-            "IDSchemaVersion":1,
-            "fullName":[
-               {
-                  "language":"fra",
-                  "value":"Shashank"
-               },
-               {
-                  "language":"ara",
-                  "value":"سهَسهَنك "
-               }
-            ],
-            "dateOfBirth":"1993/12/12",
-            "gender":[
-               {
-                  "language":"fra",
-                  "value":"MLE"
-               },
-               {
-                  "language":"ara",
-                  "value":"MLE"
-               }
-            ],
-            "addressLine1":[
-               {
-                  "language":"fra",
-                  "value":"005-DS Max Silicon"
-               },
-               {
-                  "language":"ara",
-                  "value":"٠٠٥-دس مَكس سِلِكُن"
-               }
-            ],
-            "residenceStatus":[
-               {
-                  "language":"fra",
-                  "value":"NFR"
-               },
-               {
-                  "language":"ara",
-                  "value":"NFR"
-               }
-            ],
-            "addressLine2":[
-               {
-                  "language":"fra",
-                  "value":"Global Village"
-               },
-               {
-                  "language":"ara",
-                  "value":"گلُبَل ڤِللَگِ"
-               }
-            ],
-            "addressLine3":[
-               {
-                  "language":"fra",
-                  "value":"Karnataka"
-               },
-               {
-                  "language":"ara",
-                  "value":"كَرنَتَكَ"
-               }
-            ],
-            "region":[
-               {
-                  "language":"fra",
-                  "value":"RSK"
-               },
-               {
-                  "language":"ara",
-                  "value":"RSK"
-               }
-            ],
-            "province":[
-               {
-                  "language":"fra",
-                  "value":"KTA"
-               },
-               {
-                  "language":"ara",
-                  "value":"KTA"
-               }
-            ],
-            "city":[
-               {
-                  "language":"fra",
-                  "value":"BNMR"
-               },
-               {
-                  "language":"ara",
-                  "value":"BNMR"
-               }
-            ],
-            "localAdministrativeAuthority":[
-               {
-                  "language":"fra",
-                  "value":"14022"
-               },
-               {
-                  "language":"ara",
-                  "value":"14022"
-               }
-            ],
-            "postalCode":"56059",
-            "phone":"8680958812",
-            "email":"shashank@gmail.com",
-            "CNIENumber":"9182345678456"
-         }
+  "requesttime": "2019-05-28T19:46:13.502Z",
+  "request": {
+    "langCode": "fra",
+    "demographicDetails": {
+      "identity": {
+        "IDSchemaVersion": 1,
+        "fullName": [
+          {
+            "language": "fra",
+            "value": "jagadishwari s"
+          },
+          {
+            "language": "ara",
+            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+          }
+        ],
+        "dateOfBirth": "1996/01/01",
+        "gender": [
+          {
+            "language": "fra",
+            "value": "MLE"
+          },
+          {
+            "language": "ara",
+            "value": "MLE"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "fra",
+            "value": "FR"
+          },
+          {
+            "language": "ara",
+            "value": "FR"
+          }
+        ],
+        "addressLine1": [
+          {
+            "language": "fra",
+            "value": "mindtree phase 2, global village"
+          },
+          {
+            "language": "ara",
+            "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
+          }
+        ],
+        "addressLine2": [
+          {
+            "language": "fra",
+            "value": "Karnataka"
+          },
+          {
+            "language": "ara",
+            "value": "كَرنَتَكَ"
+          }
+        ],
+        "addressLine3": [
+          {
+            "language": "fra",
+            "value": ""
+          },
+          {
+            "language": "ara",
+            "value": ""
+          }
+        ],
+        "region": [
+          {
+            "language": "fra",
+            "value": "RSK"
+          },
+          {
+            "language": "ara",
+            "value": "RSK"
+          }
+        ],
+        "province": [
+          {
+            "language": "fra",
+            "value": "KTA"
+          },
+          {
+            "language": "ara",
+            "value": "KTA"
+          }
+        ],
+        "city": [
+          {
+            "language": "fra",
+            "value": "KNT"
+          },
+          {
+            "language": "ara",
+            "value": "KNT"
+          }
+        ],
+        "localAdministrativeAuthority": [
+          {
+            "language": "fra",
+            "value": "SATZ"
+          },
+          {
+            "language": "ara",
+            "value": "SATZ"
+          }
+        ],
+        "postalCode": "14022",
+        "email": "jagadishwari.selvaraj@mindtree.com",
+        "CNIENumber": "2864123456765432"
       }
-   }
+    }
+  }
 }
 ```
 #### Responses:
@@ -497,15 +496,15 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 {
     "id": "mosip.pre-registration.demographic.create",
     "version": "1.0",
-    "responsetime": "2019-05-20T05:51:41.253Z",
+    "responsetime": "2019-05-28T09:43:44.089Z",
     "response": {
-        "preRegistrationId": "37149356189473",
-        "createdDateTime": "2019-05-20T05:51:41.085Z",
+        "preRegistrationId": "25106205209350",
+        "createdDateTime": "2019-05-28T09:43:43.949Z",
         "statusCode": "Pending_Appointment",
         "langCode": "fra",
         "demographicDetails": {
             "identity": {
-                "CNIENumber": "9182345678456",
+                "CNIENumber": "2864123456765432",
                 "gender": [
                     {
                         "language": "fra",
@@ -519,35 +518,35 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                 "city": [
                     {
                         "language": "fra",
-                        "value": "BNMR"
+                        "value": "KNT"
                     },
                     {
                         "language": "ara",
-                        "value": "BNMR"
+                        "value": "KNT"
                     }
                 ],
-                "postalCode": "56059",
+                "postalCode": "14022",
                 "fullName": [
                     {
                         "language": "fra",
-                        "value": "Shashank"
+                        "value": "jagadishwari s"
                     },
                     {
                         "language": "ara",
-                        "value": "سهَسهَنك "
+                        "value": "جَگَدِسهوَرِ سِلڤَرَج"
                     }
                 ],
                 "localAdministrativeAuthority": [
                     {
                         "language": "fra",
-                        "value": "14022"
+                        "value": "SATZ"
                     },
                     {
                         "language": "ara",
-                        "value": "14022"
+                        "value": "SATZ"
                     }
                 ],
-                "dateOfBirth": "1993/12/12",
+                "dateOfBirth": "1996/01/01",
                 "IDSchemaVersion": 1,
                 "province": [
                     {
@@ -559,38 +558,27 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "KTA"
                     }
                 ],
-                "phone": "8680958812",
                 "addressLine1": [
                     {
                         "language": "fra",
-                        "value": "005-DS Max Silicon"
+                        "value": "mindtree phase 2, global village"
                     },
                     {
                         "language": "ara",
-                        "value": "٠٠٥-دس مَكس سِلِكُن"
+                        "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
                     }
                 ],
                 "residenceStatus": [
                     {
                         "language": "fra",
-                        "value": "NFR"
+                        "value": "FR"
                     },
                     {
                         "language": "ara",
-                        "value": "NFR"
+                        "value": "FR"
                     }
                 ],
                 "addressLine2": [
-                    {
-                        "language": "fra",
-                        "value": "Global Village"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "گلُبَل ڤِللَگِ"
-                    }
-                ],
-                "addressLine3": [
                     {
                         "language": "fra",
                         "value": "Karnataka"
@@ -598,6 +586,16 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                     {
                         "language": "ara",
                         "value": "كَرنَتَكَ"
+                    }
+                ],
+                "addressLine3": [
+                    {
+                        "language": "fra",
+                        "value": ""
+                    },
+                    {
+                        "language": "ara",
+                        "value": ""
                     }
                 ],
                 "region": [
@@ -610,7 +608,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "RSK"
                     }
                 ],
-                "email": "shashank@gmail.com"
+                "email": "jagadishwari.selvaraj@mindtree.com"
             }
         }
     },
@@ -695,120 +693,119 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 {
   "id": "mosip.pre-registration.demographic.update",
   "version": "1.0",
-  "requesttime": "2019-05-20T07:22:57.086Z",
-  "request":{
-      "langCode":"fra",
-      "demographicDetails":{
-         "identity":{
-            "IDSchemaVersion":1,
-            "fullName":[
-               {
-                  "language":"fra",
-                  "value":"Rakesh P"
-               },
-               {
-                  "language":"ara",
-                  "value":"سهَسهَنك "
-               }
-            ],
-            "dateOfBirth":"1993/12/12",
-            "gender":[
-               {
-                  "language":"fra",
-                  "value":"MLE"
-               },
-               {
-                  "language":"ara",
-                  "value":"MLE"
-               }
-            ],
-            "addressLine1":[
-               {
-                  "language":"fra",
-                  "value":"005-DS Max Silicon"
-               },
-               {
-                  "language":"ara",
-                  "value":"٠٠٥-دس مَكس سِلِكُن"
-               }
-            ],
-            "residenceStatus":[
-               {
-                  "language":"fra",
-                  "value":"NFR"
-               },
-               {
-                  "language":"ara",
-                  "value":"NFR"
-               }
-            ],
-            "addressLine2":[
-               {
-                  "language":"fra",
-                  "value":"Global Village"
-               },
-               {
-                  "language":"ara",
-                  "value":"گلُبَل ڤِللَگِ"
-               }
-            ],
-            "addressLine3":[
-               {
-                  "language":"fra",
-                  "value":"Karnataka"
-               },
-               {
-                  "language":"ara",
-                  "value":"كَرنَتَكَ"
-               }
-            ],
-            "region":[
-               {
-                  "language":"fra",
-                  "value":"RSK"
-               },
-               {
-                  "language":"ara",
-                  "value":"RSK"
-               }
-            ],
-            "province":[
-               {
-                  "language":"fra",
-                  "value":"KTA"
-               },
-               {
-                  "language":"ara",
-                  "value":"KTA"
-               }
-            ],
-            "city":[
-               {
-                  "language":"fra",
-                  "value":"BNMR"
-               },
-               {
-                  "language":"ara",
-                  "value":"BNMR"
-               }
-            ],
-            "localAdministrativeAuthority":[
-               {
-                  "language":"fra",
-                  "value":"14022"
-               },
-               {
-                  "language":"ara",
-                  "value":"14022"
-               }
-            ],
-            "postalCode":"56059",
-            "phone":"9680958812",
-            "email":"rak@gmail.com",
-            "CNIENumber":"9182345678456"
-         }
+  "requesttime": "2019-05-28T19:46:13.502Z",
+  "request": {
+    "langCode": "fra",
+    "demographicDetails": {
+      "identity": {
+        "IDSchemaVersion": 1,
+        "fullName": [
+          {
+            "language": "fra",
+            "value": "jagadishwari s"
+          },
+          {
+            "language": "ara",
+            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+          }
+        ],
+        "dateOfBirth": "1996/01/01",
+        "gender": [
+          {
+            "language": "fra",
+            "value": "MLE"
+          },
+          {
+            "language": "ara",
+            "value": "MLE"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "fra",
+            "value": "FR"
+          },
+          {
+            "language": "ara",
+            "value": "FR"
+          }
+        ],
+        "addressLine1": [
+          {
+            "language": "fra",
+            "value": "mindtree phase 2, global village"
+          },
+          {
+            "language": "ara",
+            "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
+          }
+        ],
+        "addressLine2": [
+          {
+            "language": "fra",
+            "value": "Karnataka"
+          },
+          {
+            "language": "ara",
+            "value": "كَرنَتَكَ"
+          }
+        ],
+        "addressLine3": [
+          {
+            "language": "fra",
+            "value": ""
+          },
+          {
+            "language": "ara",
+            "value": ""
+          }
+        ],
+        "region": [
+          {
+            "language": "fra",
+            "value": "RSK"
+          },
+          {
+            "language": "ara",
+            "value": "RSK"
+          }
+        ],
+        "province": [
+          {
+            "language": "fra",
+            "value": "KTA"
+          },
+          {
+            "language": "ara",
+            "value": "KTA"
+          }
+        ],
+        "city": [
+          {
+            "language": "fra",
+            "value": "KNT"
+          },
+          {
+            "language": "ara",
+            "value": "KNT"
+          }
+        ],
+        "localAdministrativeAuthority": [
+          {
+            "language": "fra",
+            "value": "SATZ"
+          },
+          {
+            "language": "ara",
+            "value": "SATZ"
+          }
+        ],
+        "postalCode": "14022",
+        "email": "jagadishwari.selvaraj@mindtree.com",
+        "CNIENumber": "2864123456765432"
       }
-   }
+    }
+  }
 }
 ```
 #### Responses:
@@ -819,15 +816,15 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 {
     "id": "mosip.pre-registration.demographic.update",
     "version": "1.0",
-    "responsetime": "2019-05-20T06:30:38.091Z",
+    "responsetime": "2019-05-28T09:49:11.259Z",
     "response": {
-        "preRegistrationId": "32042841521591",
-        "updatedDateTime": "2019-05-20T06:25:00.262Z",
+        "preRegistrationId": "25106205209350",
+        "updatedDateTime": "2019-05-28T09:43:43.949Z",
         "statusCode": "Pending_Appointment",
         "langCode": "fra",
         "demographicDetails": {
             "identity": {
-                "CNIENumber": "9182345678456",
+                "CNIENumber": "2864123456765432",
                 "gender": [
                     {
                         "language": "fra",
@@ -841,35 +838,35 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                 "city": [
                     {
                         "language": "fra",
-                        "value": "BNMR"
+                        "value": "KNT"
                     },
                     {
                         "language": "ara",
-                        "value": "BNMR"
+                        "value": "KNT"
                     }
                 ],
-                "postalCode": "56059",
+                "postalCode": "14022",
                 "fullName": [
                     {
                         "language": "fra",
-                        "value": "Rakesh P"
+                        "value": "jagadishwari s"
                     },
                     {
                         "language": "ara",
-                        "value": "سهَسهَنك "
+                        "value": "جَگَدِسهوَرِ سِلڤَرَج"
                     }
                 ],
                 "localAdministrativeAuthority": [
                     {
                         "language": "fra",
-                        "value": "14022"
+                        "value": "SATZ"
                     },
                     {
                         "language": "ara",
-                        "value": "14022"
+                        "value": "SATZ"
                     }
                 ],
-                "dateOfBirth": "1993/12/12",
+                "dateOfBirth": "1996/01/01",
                 "IDSchemaVersion": 1,
                 "province": [
                     {
@@ -881,38 +878,27 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "KTA"
                     }
                 ],
-                "phone": "9680958812",
                 "addressLine1": [
                     {
                         "language": "fra",
-                        "value": "005-DS Max Silicon"
+                        "value": "mindtree phase 2, global village"
                     },
                     {
                         "language": "ara",
-                        "value": "٠٠٥-دس مَكس سِلِكُن"
+                        "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
                     }
                 ],
                 "residenceStatus": [
                     {
                         "language": "fra",
-                        "value": "NFR"
+                        "value": "FR"
                     },
                     {
                         "language": "ara",
-                        "value": "NFR"
+                        "value": "FR"
                     }
                 ],
                 "addressLine2": [
-                    {
-                        "language": "fra",
-                        "value": "Global Village"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "گلُبَل ڤِللَگِ"
-                    }
-                ],
-                "addressLine3": [
                     {
                         "language": "fra",
                         "value": "Karnataka"
@@ -920,6 +906,16 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                     {
                         "language": "ara",
                         "value": "كَرنَتَكَ"
+                    }
+                ],
+                "addressLine3": [
+                    {
+                        "language": "fra",
+                        "value": ""
+                    },
+                    {
+                        "language": "ara",
+                        "value": ""
                     }
                 ],
                 "region": [
@@ -932,7 +928,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "RSK"
                     }
                 ],
-                "email": "rak@gmail.com"
+                "email": "jagadishwari.selvaraj@mindtree.com"
             }
         }
     },
