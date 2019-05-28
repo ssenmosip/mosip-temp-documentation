@@ -15,6 +15,24 @@
 
 ## 1. Identity Service [**[↑]**](#table-of-content)
 ### 1.1 Store identity data and related documents in MOSIP database [**[↑]**](#table-of-content)
+
+Upon receiving a request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id. The system performs the following steps to store identity data and related documents in MOSIP database:
+1. Validates if the request contains “individualBiometrics” or the “parentOrGuardianBiometrics” CBEFF files in the request.
+1. The system interacts with biometric SDK to convert the FIR (Fingerprint Image Record) in the CBEFF file to FMR.
+1. Appends the FMR (Fingerprint Minutiae Record) to the CBEFF file by using the kernel CBEFF utility service.
+1. Stores the files in the distributed file system (DFS).
+1. Stores the references to the file in DFS in the database.
+1. Validates if the request contains files corresponding to proofOfAddress, or proofOfIdentity, or proofOfRelationship, or proofOfDateOfBirth attributes.
+1. Stores the files in the distributed file system.
+1. Stores the references to the file in DFS in the database.
+1. The system validates if the request contains fullName, dateOfBirth, age, gender, addressLine1, addressLine2, addressLine3, region, province, city, postalCode, phone, email, CNIENumber, localAdministrativeAuthority, parentOrGuardianRIDOrUIN and parentOrGuardianNam in the request.
+1. Stores the available identity details of the individual in the database securely.
+1. Validate if at least one identity element is present in the request.
+1. Validate if a document is present in the input the corresponding category is present in the identity element.
+1. The system sends the response with the following parameters id, version, timestamp, status, and the entity element.
+1. The default status is ‘ACTIVATED’. The status is configurable.
+1. Please refer Git for more details on the type of error messages.
+
 ### 1.2 Retrieve the stored identity details and the related documents [**[↑]**](#table-of-content)
 ### 1.3 Retrieve identity data in ID-Repo by RID [**[↑]**](#table-of-content)	
 ### 1.4 Store identity data and related documents in MOSIP database [**[↑]**](#table-of-content)
