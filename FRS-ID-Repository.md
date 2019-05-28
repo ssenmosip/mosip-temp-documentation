@@ -126,7 +126,7 @@ Upon receiving a request with the parameter: VID, ver to revoke a VID based on t
 1. Updates the status of the VID as ‘revoked’.
 1. Sends the response Revoke status, responseTime, err, ver.
 1. Responds with error message if the system is unable to revoke a VID.
-1. Please refer Git for more details on the type of [error messages](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 ### 2.5 Auto-restore a VID on revocation and with auto-restore policy [**[↑]**](#table-of-content)  
 
