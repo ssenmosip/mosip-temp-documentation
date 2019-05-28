@@ -225,6 +225,7 @@ This section provides a detailed functional requirement specification for each m
 #### 5.1.12 [Resident Services](FRS-Resident-Services)
 #### 5.1.13 [Administrator Services](FRS-Administrator-Services)
 #### 5.1.14 [Partner Management](FRS-Partner-Management)
+#### 5.1.15 [ID Repository](FRS-ID-Repository)
 ### 5.2 Non-Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section details out the non-functional requirements of MOSIP platform
 
