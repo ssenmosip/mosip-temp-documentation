@@ -90,7 +90,7 @@ Upon receiving a VID generation and storage request with the parameters: UIN, ve
 1. Creates the VID as per the defined policy. 
 1. Updates the status of the VID as ‘Active’.
 1. Sends the response new VID, err, responseTime, ver
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements Detailing References/ID-Authentication/Sprint 11/Consolidated error messages V2.5.xlsx).
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.5.xlsx).
 
 Note:
    * Instances are the number of active instances (not expired/used/revoked/deactivated).
