@@ -643,7 +643,6 @@ PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
-
 KER-IOV-005|Missing input parameter - identity/fullName|If fullName attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/dateOfBirth&#124;identity/age|If dateOfBirth attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/gender|If gender attribute is not found in the identity request
