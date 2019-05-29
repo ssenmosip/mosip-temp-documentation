@@ -78,11 +78,11 @@
 - [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
-The portal allows user to provide by providing the credential to login. Based on country, single factor or multi-factor credentials (For example, Password, OTP, Fingerprint, iris etc.) are configured.  The system validates the provided credentials and the role of the user. On successful validation, the system allows user to proceed further. 
+The portal allows user to provide the credential to login. Based on country, single factor or multi-factor credentials (For example, Password, OTP, Fingerprint, iris etc.) are configured.  The system validates the provided credentials and the user's role. On successful validation, the system allows user to proceed further. 
 
-If X number (X number is configurable) of unsuccessful attempts ares made for login, then user account will be locked and a respective notification will be sent to the user. If the user account is locked, the system allows the relevant user or super admin to unlock the user account. 
+If X number (X number is configurable) of unsuccessful attempts are made to login, then user account will be locked and a respective notification will be sent to the user. If the user account is locked, the system allows the relevant user or super admin to unlock the user account. 
 
-For more details, please refer to <Reset Password, and Forgot Password link to be provided here>
+For more details, please refer to [Reset Password](#23-reset-password-) and Forgot Password link to be provided here>
 
 ### 1.2 Logout
 #### 1.2.1 Manual Logout
@@ -90,7 +90,7 @@ If a user wishes to logout of the Admin Portal, he/she can opt to select the Log
 #### 1.2.2 Auto Logout
 If the user is inactive for X minutes (X is configurable), the system logs out the user automatically. In such case, the system will not save any user’s data.
 ## 2. Account Management [**[↑]**](#table-of-content)
-Using the portal, user will  manage his/her profile. Generally, the  users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
+Using the portal, user will  manage his/her profile. The  portal users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
 ### 2.1 Edit Personal Details
 Procedure to edit the profile follows:
@@ -98,14 +98,14 @@ Procedure to edit the profile follows:
 2. The system validates the credentials and allows user to login after successful validation.
 3. The system allows user to land on Home page.
 4. The Home Page contains the permitted functionalities of the user.
-5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates else provides a respective error message.
+5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates else provides a respective error notification.
 
 ### 2.2 Change Password [**[↑]**](#table-of-content)
 The portal allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
 1. User selects the option of Change Password.
 1. The system allows user to proceed further.
 1. The user  provides the values in Old Password, New Password, and Confirm New Password.
-1. The system validates and authenticates the provided data and respective user's role as per the [Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-). On successful, the password is successfully changed, the system provides a notification to the respective user conveying " Password has been changed successfully" else a respective error notification is sent to user.
+1. The system validates and authenticates the provided data and respective user's role as per the [Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-). On successful validation, the password is successfully changed, the system provides a notification to the respective user conveying " Password has been changed successfully" else provides a respective error notification.
 
 ### 2.3 Reset Password [**[↑]**](#table-of-content)
 The portal allows user to reset the password. Based on the country, single factor or multi-factor authentication will be configured.
