@@ -644,6 +644,18 @@ PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
 
+KER-IOV-005|Missing input parameter - identity/fullName|If fullName attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/dateOfBirth&#124;identity/age|If dateOfBirth attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/gender|If gender attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/residenceStatus|If residenceStatus attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/addressLine1|If addressLine1 attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/region|If region attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/province|If province attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/city|If city attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/localAdministrativeAuthority|If localAdministrativeAuthority attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
+
 ### PUT /applications/{preRegistrationId}
 This request is used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
 
@@ -964,6 +976,17 @@ PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
 PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
+KER-IOV-005|Missing input parameter - identity/fullName|If fullName attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/dateOfBirth&#124;identity/age|If dateOfBirth attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/gender|If gender attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/residenceStatus|If residenceStatus attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/addressLine1|If addressLine1 attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/region|If region attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/province|If province attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/city|If city attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/localAdministrativeAuthority|If localAdministrativeAuthority attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
 
 ### GET /applications/{preRegistrationId}
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
@@ -2396,7 +2419,6 @@ PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic s
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the database
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
-PRG_PAM_APP_017|Requested preregistration id does not belong to the user|If the preregistration id does not belongs to the user
 PRG_BOOK_RCI_031| Invalid Booking Date Time found for preregistration id - 37513708391357| If appointment date is past date and also when appointment date is present date but the appointment time is past.
 
 ### PUT /appointment/:preRegistrationId
