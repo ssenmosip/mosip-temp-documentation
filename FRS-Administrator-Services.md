@@ -90,17 +90,15 @@ If a user wishes to logout of the Admin Portal, he/she can opt to select the Log
 #### 1.2.2 Auto Logout
 If the user is inactive for X minutes (X is configurable), the system logs out the user automatically. In such case, the system will not save any user’s data.
 ## 2. Account Management [**[↑]**](#table-of-content)
+Using the portal, user will  manage his/her profile. Generally, the  users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
+
 ### 2.1 Edit Personal Details
-Using the portal, user will  manage his/her profile. Generally, the system users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
-Procedure to manage the profile follows:
+Procedure to edit the profile follows:
 1. User will provide the valid credential in the relevant portal to login.
 2. The system validates the credentials and allows user to login after successful validation.
 3. The system allows user to land on Home page.
-4. The Home Page contains the permitted functionalities of the user and those functionalities are available in the main 
-   page in active mode.
-5. The system allows users to perform the profile management activities (updating user’s personal details and Account 
-   Management).
-On successful submission the updates, the system provides the notification about the updates. 
+4. The Home Page contains the permitted functionalities of the user.
+5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates ec.
 
 ### 2.2 Change Password [**[↑]**](#table-of-content)
 The portal allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
