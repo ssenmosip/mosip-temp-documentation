@@ -23,5 +23,5 @@ All the service calls should be audited properly for the later review purpose. S
 
 ## Logical view
 
-![Logical Diagram](_images/arch_diagrams/ResidentServices_component.jpg)
+![Logical Diagram](_images/resident_services/ResidentServices_LogicalDiagram.jpg)
 
