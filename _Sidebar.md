@@ -19,6 +19,7 @@
   * [ID Repository](ID-Repository)
   * [Kernel](Kernel)
   * [Admin](Admin)
+  * [Resident services](Resident-Services)
   * [Registration Packet Structure](Registration-Packet)  
   * [MOSIP ABIS Middleware](MOSIP-ABIS-Middleware)
   * [ABIS Interface Spec](Automated-Biometric-Identification-System-(ABIS)-Interface)
