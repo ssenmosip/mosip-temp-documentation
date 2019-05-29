@@ -98,7 +98,7 @@ Procedure to edit the profile follows:
 2. The system validates the credentials and allows user to login after successful validation.
 3. The system allows user to land on Home page.
 4. The Home Page contains the permitted functionalities of the user.
-5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates ec.
+5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates else provides a respective error message.
 
 ### 2.2 Change Password [**[↑]**](#table-of-content)
 The portal allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
