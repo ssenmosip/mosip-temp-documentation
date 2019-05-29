@@ -8,7 +8,7 @@
   * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
   * [2.2 Change Password](#22-change-password-) _(ASR_FR_2.2)_
   * [2.3 Reset Password](#23-reset-password-) _(ASR_FR_2.3)_
-  * [2.4 Forgot Username](#24-forgot-username-) _(ASR_FR_2.4)_
+  * [2.4 Forgot User Name](#24-forgot-user-name-) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-) _(ASR_FR_3)_
 - [4. Notification V1.5 (WIP)](#4-notification-v15-wip-) _(ASR_FR_4)_
@@ -119,7 +119,7 @@ To reset the password, the user performs the following:
 1. The system provides a notification to the user related to the password reset status.
 
 
-### 2.4 Forgot Username [**[↑]**](#table-of-content)
+### 2.4 Forgot User Name [**[↑]**](#table-of-content)
 Using the portal, user can retrieve the user name. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the provided mobile number and fetches the configured security policy against the Forgot User Name feature and thus provides the user credentials as per the security policy. On successful validation, the system provides the User Name to the registered mobile number through an SMS notification else provides the respective error notification.
 
 ### 2.5 Account Unlock
@@ -151,7 +151,7 @@ Default Policy:
  * What type of Authentication
  * Which would be compulsory in case of multi factor authentication
  * Minimum number of factors of Auth (Non-Bio/Bio)
- * Feature Specific authentication overrides Role Specific Behavior for Reset Password/Forgot Username)
+ * Feature Specific authentication overrides Role Specific Behavior for Reset Password/Forgot User Name)
 
 
 ## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-content)
@@ -310,7 +310,7 @@ Using the portal, Zonal Admin/Central Admin will register the user (registration
  * Blacklisted Status
  * Created by
  * Created Time Stamp
-1. Zonal Admin will provide the username as per approved standard of a country.
+1. Zonal Admin will provide the user name as per approved standard of a country.
 1. The system triggers an activation link to the newly created user after the user is successfully created. The activation link will expire after certain times (Expire time is configurable).
 1. Once the user receives the link, he/she can set up the password as mentioned in the following:
 
@@ -326,10 +326,10 @@ Using the portal, Zonal Admin/Central Admin will register the user (registration
    The system validates the password based on the password policy (Password policy is configurable).
 8. On successful validation, the system maps the RID with the user in IAM. If the user has multiple VID, the VID, which is 
    mapped by the system, is considered as the latest VID of user.
-9. User receives the notification along with username and link to the portal on password generation activities completed 
+9. User receives the notification along with user name and link to the portal on password generation activities completed 
    successfully. 
 10. User can start using his/her account by visiting to Reg. Client/Admin portal as applicable and logging in by providing 
-    the username and password (Multi-factor login supported).
+    the user name and password (Multi-factor login supported).
 11. If activation link expires (expiry time configurable), the system resends the link through a batch process.
 
 #### 5.4.3 Update User
