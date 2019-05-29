@@ -120,7 +120,7 @@ To reset the password, the user performs the following:
 
 
 ### 2.4 Forgot Username [**[↑]**](#table-of-content)
-Using the portal, user can retrieve the user name. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the provided mobile number and fetches the configured security policy against the Forgot User Name feature and thus provides the user credentials as per the security policy.. On successful validation, the system provides the User Name to the registered mobile number through an SMS notification else provides the respective error notification.
+Using the portal, user can retrieve the user name. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the provided mobile number and fetches the configured security policy against the Forgot User Name feature and thus provides the user credentials as per the security policy. On successful validation, the system provides the User Name to the registered mobile number through an SMS notification else provides the respective error notification.
 
 ### 2.5 Account Unlock
 The portal allows user to unlock his/her locked account.  The user account is locked due to various reason such as multiple time of wrong password entry. Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
@@ -164,24 +164,24 @@ The portal allows  Zonal Admin to provide the name of the zone or registration c
 
 
 #### 5.1.2 Create Center
-Using the portal, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the user's role . On successful validation, the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else triggers a respective error message. 
+Using the portal, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the user's role . On successful validation, the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else triggers a respective error notification. 
 
  The registration centers are also created though the backend. For more details, please refer to <Link will be provided for backend registration center creation> 
 	
 For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-content)
-Using the portal, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, user's role, and the the date and time stamp. On successful validation, the system updates the data of the registration center and provides an acknowledgement notification about the updates status else triggers a respective error message. 
+Using the portal, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, user's role, and the the date and time stamp. On successful validation, the system updates the data of the registration center and provides an acknowledgement notification about the updates status else triggers a respective error notification. 
 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 
 #### A. Activate the Registration Center
 
-The portal allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers of selected zone are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates User's roles and activates the selected center(s). On successful validation, the system provides a notification else triggers a respective error message. 
+The portal allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers of selected zone are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates User's roles and activates the selected center(s). On successful validation, the system provides a notification else triggers a respective error notification. 
 
 #### B. Deactivate the Registration Center
 
-The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error message. .
+The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error notification.
 
 #### C. Decommission the Registration Center
 
@@ -227,7 +227,7 @@ The portal allows Zonal Admin to activate the machine, which are already deactiv
 
 #### B. Deactivate Machine
 
-The portal allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
 #### C. Decommission  Machine
 
@@ -240,7 +240,7 @@ If the machine is not mapped with the registration center, it cannot be recogniz
  
 ### 5.3 Device Management [**[↑]**](#table-of-content)
 #### 5.3.1 View Device
-The portal allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of devices details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the devices` without providing the registration center ID, then the system provides all the devices registered in the country.  During the validation of registration center ID and user's role, if the registration ID/Zonal Admin’s privileges are not found, then the system triggers an error notification.
+The portal allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, user's role. On successful validation, the system provides the list of devices details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the devices` without providing the registration center ID, then the system provides all the devices registered in the country.  During the validation of registration center ID and user's role, if the registration ID/Zonal user's role are not found, then the system triggers an error notification.
 #### 5.3.2 Create Device
 Using the portal, Zonal Admin will register the devices for his/her zone. The device cannot be used in zone, if it is not registered.
 
@@ -278,7 +278,7 @@ For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-d
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
 #### A. Activate Device
 
-The portal allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select a deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates user's role and activates the selected device(s). On successful validation, the system provides a notification else provides a respective error message.
+The portal allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select a deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates user's role and activates the selected device(s). On successful validation, the system provides a notification else provides a respective error notification.
 
 #### B. Deactivate Device
 
@@ -289,16 +289,16 @@ The portal allows Zonal Admin to  select the active device. The Zonal Admin sele
 Decommissioning a device means removing the device from the zone permanently. The portal allows the Zonal Admin to decommission the device. The Zonal Admin can un-map the device associated with the registration center before decommissioning the device, but he/she can also decommission the device  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected device(s). Once the device is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-content)
-The portal allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and privileges of Zonal Admin. On successful validation, The system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices until un-mapped. 
+The portal allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and user's role. On successful validation, the system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices until it is un-mapped. 
 
-If the device is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the device by serial number and other attributes of the device. If the device is already mapped with another registration center, Zonal Admin must un-map the device first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification. 
+If the device is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the device by serial number and other attributes of the device. If the device is already mapped with another registration center, Zonal Admin must un-map the device first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification else provides an respective error notification. 
 
 
 ### 5.4 User Management [**[↑]**](#table-of-content)
 #### 5.4.1 View User
-The system allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, the privileges allocated to user and provides user’s details (ID, Name, Last Name, Role, Registration Center ID, Date of Birth, Gender, Contact Number, Email ID etc…) already mapped to the specified registration center on successful validation.
+The portal allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, user's role, and provides user’s details (ID, Name, Last Name, Role, Registration Center ID, Date of Birth, Gender, Contact Number, Email ID etc…) already mapped to the specified registration center on successful validation.
 #### 5.4.2 Create User
-Using the system, Zonal Admin/Central Admin will register the user (registration officer, supervisor) on portal by providing the following required details of the user:
+Using the portal, Zonal Admin/Central Admin will register the user (registration officer, supervisor) on portal by providing the following required details of the user:
  * User ID
  * First Name
  * Date of Birth
@@ -311,11 +311,10 @@ Using the system, Zonal Admin/Central Admin will register the user (registration
  * Created by
  * Created Time Stamp
 1. Zonal Admin will provide the username as per approved standard of a country.
-1. The system triggers an activation link to the newly created user after the user is successfully created. The activation link will 
-    expire after certain times (Expire time is configurable).
+1. The system triggers an activation link to the newly created user after the user is successfully created. The activation link will expire after certain times (Expire time is configurable).
 1. Once the user receives the link, he/she can set up the password as mentioned in the following:
 
- **  Procedure to set up User Password for  first time**: This featre to be checked with Aman
+ **  Procedure to set up User Password for  first time**: This feature to be checked with Aman
 
 1. Once the user receives the link, he/she will generate the password by accessing the link.
 2. User will provide his/her VID/UIN as required by the system.
@@ -334,18 +333,18 @@ Using the system, Zonal Admin/Central Admin will register the user (registration
 11. If activation link expires (expiry time configurable), the system resends the link through a batch process.
 
 #### 5.4.3 Update User
-The system allows its users (Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer) to update the user details. The use will provide the User ID/User Name. The system validates the provided data and privileges of user. On successful validation, the system allows updating the required user details. When the user saves the updated user details, the system captures the date & time and user’s detail who has updated the user record.
+The system allows its users (Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer) to update the user details. The use will provide the User ID/User Name. The system validates the provided data and user's role. On successful validation, the system allows updating the required user details. When the user saves the updated user details, the system captures the date & time and user’s detail who has updated the user record.
 
 If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
 
 #### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-content)
 #### A. Activate User
 
-The system allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that Zone are displayed. The Zonal Admin can select one deactivated user or multiple deactivated users at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected user(s). On successful validation, the system provides a notification.
+The portal allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that zone are displayed. The Zonal Admin can select a deactivated user or multiple deactivated users at a time and selects Activate option. The system validates user's role and activates the selected user(s). On successful validation, the system provides a notification.
 
 #### B. Deactivate User
 
-The system allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected user(s), and the system provides a notification.
+The system allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected user(s), and the system provides a notification.
 
 #### C. Blacklist User
 
@@ -366,18 +365,18 @@ Procedure to block/blacklist:
    password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
 
 #### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
-The system allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the privileges of the Zonal Admin and on successful validation, provides the capability to map/un-map-re-map the user to the registration.
+The portal allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role and on successful validation, provides the capability to map/un-map-re-map the user to the registration.
 
 For more details, please please refer to [**section**](FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-)
 ## 6. Master Data Management [**[↑]**](#table-of-content)
 ### 6.1 View Master Data Types
-The system allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the privileges of Zonal Admin who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the allocated privileges to the user, then throws an error notification.
+The portal allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
 ### 6.2 View Master Data for Each Table (WIP)
 ### 6.3 Manage Master Data [**[↑]**](#table-of-content)
 #### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
 #### A. Create/Update Document Types
 
-Using the system, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and the privileges of Zonal Admin. On successful validation, the system allows the Zonal Admin to create the document type. 
+Using the portal, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and user's role. On successful validation, the system allows the Zonal Admin to create the document type. 
 
 Procedure to create document type follows:
 
@@ -394,21 +393,21 @@ Procedure to create document type follows:
 
 #### B. Activate the Document types
 
-The system allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select one deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected document type(s). On successful validation, the system provides a notification.
+The system allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select a deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates user's role and activates the selected document type(s). On successful validation, the system provides a notification.
 
 #### C. Deactivate the Document type
 
-The system allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected document type(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected document type(s), and the system provides a notification.
 
 #### D. Map/un-Map-Re-map Document Type to Document Category
 
-The system allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data, Zonal Admin’s privileges. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
 
 #### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
 
 #### 6.3.3 Manage Location Data (Create, Update, Activate/Deactivate) 
 #### A. Create/Update Location Data
-Using the system, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the privileges of Zonal Admin. During validation, if system does not find the provided data or the respective Zonal Admin’s privileges, then throws an error notification On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
+Using the portal, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the user's role. During validation, if system does not find the provided data or the respective user's role, then provides a respective error notification. On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
 
 Following are the mandatory location data to be provided by Zonal Admin to create the location data:
  * Location Code
@@ -421,59 +420,59 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
  * Created Date and Time
 #### B. Activate the Location data
 
-The system allows Zonal Admin to activate the location data, which are already deactivated due to any reasons. When the location data is created and approved, it is activated automatically. The Zonal Admin selects the location data then all the location data of that Zone are displayed. The Zonal Admin can select one deactivated location data or multiple deactivated location data at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected location data(s). On successful validation, the system provides a notification.
+The portal allows Zonal Admin to activate the location data, which are already deactivated due to any reasons. When the location data is created and approved, it is activated automatically. The Zonal Admin selects the location data then all the location data of that Zone are displayed. The Zonal Admin can select one deactivated location data or multiple deactivated location data at a time and selects Activate option. The system validates user's role and activates the selected location data(s). On successful validation, the system provides a notification.
 
 #### C. Deactivate the Location data
 
-The system allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected location data(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected location data(s), and the system provides a notification.
 
 
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 #### B. Create/Update Blacklisted Word
 
-Using the system, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s privileges and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
-During validation, if system does not find the provided data or the respective user’s privileges, then the system provides an respective error notification.   
+Using the system, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s role and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
+During validation, if system does not find the provided data or the respective user’s role, then the system provides a respective error notification.   
 
 #### C. Activate the Blacklisted Word
 
-The system allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
+The portal allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates user’s role and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
 
 #### D. Deactivate the Blacklisted Word
 
-The system allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates user's roles, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
 
 #### E. Decommission the Blacklisted Word
 
-Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The system allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
+Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The portal allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
  
 #### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
-The system allows Zonal Admin to view the registration center types by selecting the master data. Once the user selects the master data types, all the r features associated with the master data are displayed. Again the user will select the Registration Center Type and the available registration center types are available to view.  The registration center types are configured in the backend process. The system validates the privileges of user who raised the request to view the registration center types and provides the registration center types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the registration center types by selecting the master data. Once the user selects the master data types, all the r features associated with the master data are displayed. Again the user will select the Registration Center Type and the available registration center types are available to view.  The registration center types are configured in the backend process. The system validates the user's role who raised the request to view the registration center types and provides the registration center types on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
 #### 6.3.6 Manage Machine Types (View)
-The system allows Zonal Admin to view the machine types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again the user will select the Machine Types and the available machine types are displayed.  The machine types are configured in the backend process. The system validates the privileges of user who raised the request to view the machine types and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the machine types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again the user will select the Machine Types and the available machine types are displayed.  The machine types are configured in the backend process. The system validates the user's who raised the request to view the machine types and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides an error notification.
 #### 6.3.7 Manage Machine Specifications (View) [**[↑]**](#table-of-content)
-The system allows Zonal Admin to view the machine specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Machine Specification and the available machine specifications are displayed. The machine specifications are configured in the backend process. The system validates the privileges of user who raised the request to view the machine specification and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the machine specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Machine Specification and the available machine specifications are displayed. The machine specifications are configured in the backend process. The system validates user's role who raised the request to view the machine specification and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 #### 6.3.8 Manage Device Types (View)
-The system allows Zonal Admin to view the device types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Types and the available Device Types are displayed.  Device Types are configured in the backend process. The system validates the privileges of user who raised the request to view the device types and provides the device types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the device types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Types and the available Device Types are displayed.  Device Types are configured in the backend process. The system validates the user's role who raised the request to view the device types and provides the device types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 #### 6.3.9 Manage Device Specifications (View) [**[↑]**](#table-of-content)
-The system allows Zonal Admin to view the device specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Specification and the available device specifications are displayed. The device specifications are configured in the backend process. The system validates the privileges of user who raised the request to view the device specification and provides the device specification on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the device specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Specification and the available device specifications are displayed. The device specifications are configured in the backend process. The system validates the user's who raised the request to view the device specification and provides the device specification on successful validation. During the validation, if system fails to validate and authenticate user's role, then provides a respective error notification.
 #### 6.3.10 Manage Individual Types (View)
-The system allows Zonal Admin to view the individual types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Individual Types and the available individual types are displayed. The individual types are configured in the backend process. The system validates the privileges of user who raised the request to view the individual types and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the individual types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Individual Types and the available individual types are displayed. The individual types are configured in the backend process. The system validates the user's role who raised the request to view the individual types and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 #### 6.3.11 Manage Document Type to Document Category Mapping (View) [**[↑]**](#table-of-content)
-The system allows Zonal Admin to view the document type to document category mapping by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Document Type to Document Category Mapping and the available document type to document mapping are displayed. The document type to document category mapping are configured in the backend process. The system validates the privileges of user who raised the request to view the document type to document category mapping and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the document type to document category mapping by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Document Type to Document Category Mapping and the available document type to document mapping are displayed. The document type to document category mapping are configured in the backend process. The system validates the user's role who raised the request to view the document type to document category mapping and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 
 #### 6.3.12 Manage List of Holidays (View)
-The system allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Holidays and the available lists of holidays are displayed. The lists of holidays are configured in the backend process. The system validates the privileges of user who raised the request to view the lists of holidays and provides the lists of holiday on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Holidays and the available lists of holidays are displayed. The lists of holidays are configured in the backend process. The system validates the user's role who raised the request to view the lists of holidays and provides the lists of holiday on successful validation. During the validation, if system fails to validate and authenticate the user' role, then provides a respective error notification.
 #### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-content)
-The system allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Templates and the available lists of templates are displayed. The lists of templates are configured in the backend process. The system validates the privileges of user who raised the request to view the lists of templates and provides the lists of templates on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Templates and the available lists of templates are displayed. The lists of templates are configured in the backend process. The system validates the user's role who raised the request to view the lists of templates and provides the lists of templates on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
 #### 6.3.14 Manage List of Titles (View)
-The system allows Zonal Admin to view the list of titles by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Titles and the available lists of titles are displayed. The lists of titles are configured in the backend process. The system validates the privileges of user who raised the request to view the lists of titles and provides the lists of titles on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the list of titles by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Titles and the available lists of titles are displayed. The lists of titles are configured in the backend process. The system validates the user's role who raised the request to view the lists of titles and provides the lists of titles on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 #### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-content)
-The system allows Zonal Admin to view the gender types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Gender Types and the available gender types are displayed. The gender types are configured in the backend process. The system validates the privileges of user who raised the request to view the gender types and provides the gender types on successful validation. During the validation, if system fails to validate and authenticate the allocated privileges of the user, then throws an error notification.
+The portal allows Zonal Admin to view the gender types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Gender Types and the available gender types are displayed. The gender types are configured in the backend process. The system validates the user's role who raised the request to view the gender types and provides the gender types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 ## 7. Approval Process [**[↑]**](#table-of-content)
 ### 7.1 Approval for Resource Creation
 #### 7.1.1 Center 
-Using the system, Zonal Approver will approve the registered centers. The Zonal Admin who registered the center cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the center is registered and this validation does not applicable for updates. 
+Using the portal, Zonal Approver will approve the registered centers. The Zonal Admin who registered the center cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the center is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the center, the record will be available for the approver (approver is configurable) 
    for the approval.
@@ -481,7 +480,7 @@ The approver will follow the following procedure:
 1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
 
 #### 7.1.2 Machine 
-Using the system, Zonal Approver will approve the registered machines. The Zonal Admin who registered the machines cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the machine is registered and this validation does not applicable for updates. 
+Using the portal, Zonal Approver will approve the registered machines. The Zonal Admin who registered the machines cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the machine is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the machines, the record will be available for the approver (approver is configurable) for 
    the approval.
@@ -489,7 +488,7 @@ The approver will follow the following procedure:
 1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
 
 #### 7.1.3 Device
-Using the system, Zonal Approver will approve the registered devices. The Zonal Admin who registered the devices cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the device is registered and this validation does not applicable for updates. 
+Using the portal, Zonal Approver will approve the registered devices. The Zonal Admin who registered the devices cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the device is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the devices, the record will be available for the approver (approver is configurable) for 
    the approval.
@@ -497,7 +496,7 @@ The approver will follow the following procedure:
 1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
 
 #### 7.1.4 User
-Using the system, Zonal Approver will approve the created user on the portal. The Zonal Admin who created the users cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when user is created and validation does not applicable for updates. 
+Using the portal, Zonal Approver will approve the created user on the portal. The Zonal Admin who created the users cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when user is created and validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the users (RO/Supervisor), the record will available for the approver (approver is configurable) for the approval.
 1. Approver will approve the users within schedule time (Time is configurable).
@@ -511,7 +510,7 @@ e) Reports
 
 ### 7.2 Approval for Master Data Creation (WIP)
 ## 8. UIN Activation/Deactivation [**[↑]**](#table-of-content)
-Using the system, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
+Using the portal, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
 ## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-content)
 ## 10. Multi-language Support (WIP) [**[↑]**](#table-of-content)
 ### 10.1 i18N
