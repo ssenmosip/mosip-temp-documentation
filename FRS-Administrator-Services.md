@@ -91,7 +91,7 @@ If a user wishes to logout of the Admin Portal, he/she can opt to select the Log
 If the user is inactive for X minutes (X is configurable), the system logs out the user automatically. In such case, the system will not save any user’s data.
 ## 2. Account Management [**[↑]**](#table-of-content)
 ### 2.1 Edit Personal Details
-Using the system, user will  manage his/her profile. Generally, the system users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
+Using the portal, user will  manage his/her profile. Generally, the system users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 Procedure to manage the profile follows:
 1. User will provide the valid credential in the relevant portal to login.
 2. The system validates the credentials and allows user to login after successful validation.
@@ -162,38 +162,38 @@ Default Policy:
 ## 5. Resource Management [**[↑]**](#table-of-content)
 ### 5.1 Center Management 
 #### 5.1.1 View Center
-The system allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, privileges allocated to Zonal Admin, and on successful validation, provides the details of registration center else triggers the respective error notification (error notification are configurable and predefined).
+The portal allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, user's role, and on successful validation, provides the details of registration center else triggers the respective error notification (error notification are configurable and predefined).
 
 
 #### 5.1.2 Create Center
-Using the system, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the privileges allocated to Zonal Admin  if validated successfully; the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else trigger a respective error message. 
+Using the portal, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the user's role . On successful validation, the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else triggers a respective error message. 
 
  The registration centers are also created though the backend. For more details, please refer to <Link will be provided for backend registration center creation> 
 	
 For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-content)
-Using the system, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, privileges allocated to Zonal Admin, and the the date and time stamp, if validated successfully; the system updates the data related to the registration center and provides an acknowledgement notification about the updates status else triggers a respective error message. 
+Using the portal, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, user's role, and the the date and time stamp. On successful validation, the system updates the data of the registration center and provides an acknowledgement notification about the updates status else triggers a respective error message. 
 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 
 #### A. Activate the Registration Center
 
-The system allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected center(s). On successful validation, the system provides a notification.
+The portal allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers of selected zone are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates User's roles and activates the selected center(s). On successful validation, the system provides a notification else triggers a respective error message. 
 
 #### B. Deactivate the Registration Center
 
-The system allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected center(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error message. .
 
 #### C. Decommission the Registration Center
 
-Decommissioning a center means removing the center from the zone permanently. The system allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected center(s). Once the center is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
+Decommissioning a center means removing the center from the zone permanently. The portal allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources of the registration center are automatically un-mapped. The system validates user's role and decommissions the selected center(s) and provides a notification on successful validation. Once the center is decommissioned, it cannot be retrieved.
 
 ### 5.2 Machine Management [**[↑]**](#table-of-content)
 #### 5.2.1 View Machine
-The system allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data, privileges of Zonal Admin. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID and Zonal Admin's privileges, if the registration ID/Zonal Admin's privileges are not found, then the system triggers an error notification
+The portal allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data and user's role. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID and user's role, if the registration ID/user's role is not found, then the system triggers an error notification
 #### 5.2.2 Create Machine
-Using the system, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
+Using the portal, Zonal Admin will register the machines for his/her zone. The machine cannot be used in zone, if it is not registered.
 
 Procedure to register machines follows:
 1. Zonal admin will select a Machine Type and Machine Specification for the new Machine.
@@ -214,26 +214,26 @@ Machines uniqueness will be maintained through machine’s serial number.
 Zonal Admin will also register the machines by importing the CSV/XLS.
 For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-machine-types---create-) in Admin Service.
 #### 5.2.3 Update Machine [**[↑]**](#table-of-content)
-The system provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
+The portal provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 Procedure to update the machine related details, the Zonal Admin will:
 1. Zonal Admin provides the mandatory information (Machine ID, Machine Name, and Zon ID).
-1. The system validates the provided data and privileges of zonal Admin. On successful validation, the system allows Zonal Admin to update the required details. For example, if a Machine has been moved to a new zone or accidentally assigned to a wrong zone.
-1. When the machine related information is updated, the system captures the date, date & time, Zonal Admin details who has updated the machine.
+1. The system validates the provided data and user's roles. On successful validation, the system allows Zonal Admin to update the required details. For example, if a Machine has been moved to a new zone or accidentally assigned to a wrong zone.
+1. When the machine related information is updated, the system captures the date & time, Zonal Admin details who has updated the machine.
 1. If the Zonal Admin selects the Delete flag, the information is updated when the registration center is updated. 
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### A. Activate Machine
 
-The system allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates Zonal Admin’s privileges and activates the selected machine(s). On successful validation, the system provides a notification.
+The portal allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates user's role and activates the selected machine(s). On successful validation, the system provides a notification else triggers an error notification.
 
 #### B. Deactivate Machine
 
-The system allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates Zonal Admin’s privileges, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
 #### C. Decommission  Machine
 
-Decommissioning a machine means removing the machine from the zone permanently. The system allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates Zonal Admin’s privileges and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
+Decommissioning a machine means removing the machine from the zone permanently. The portal allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates the user's role and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
 The system allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, Zonal Admin’s privileges. On successful validation, The system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines until un-mapped. 
