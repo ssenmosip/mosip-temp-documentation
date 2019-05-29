@@ -78,11 +78,9 @@
 - [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
-The user can login to the Admin Portal by providing their credential such as Username and Password. The system validates the provided credentials and the privileges of the user. On successful validation, the system allows user to proceed further. 
+The portal allows user to provide by providing the credential to login. Based on country, single factor or multi-factor credentials (For example, Password, OTP, Fingerprint, iris etc.) are configured.  The system validates the provided credentials and the role of the user. On successful validation, the system allows user to proceed further. 
 
-Note: Based on a country requirement, single factor or multi-factor credentials can be configured.
-
-If X number (X number is configurable) of unsuccessful attempt is made for login, then user account will be blocked and a respective notification will be sent to the user. If the user account is blocked, the system allows the relevant user or super admin to unblock the user account. 
+If X number (X number is configurable) of unsuccessful attempts ares made for login, then user account will be locked and a respective notification will be sent to the user. If the user account is locked, the system allows the relevant user or super admin to unlock the user account. 
 
 For more details, please refer to <Reset Password, and Forgot Password link to be provided here>
 
