@@ -103,12 +103,11 @@ Procedure to manage the profile follows:
 On successful submission the updates, the system provides the notification about the updates. 
 
 ### 2.2 Change Password [**[↑]**](#table-of-content)
-The system allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
+The portal allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
 1. User selects the option of Change Password.
-1. The system allows user to land in Change Password page.
-1. User provides the information related to Old Password, New Password and, Confirm New Password as the system required. The system validates and authenticates with the policy related to password creation/change policy and sends a notification related to the status of password changes.
-
-
+1. The system allows user to proceed further.
+1. The user  provides the values in Old Password, New Password, and Confirm New Password.
+1. The system validates and authenticates the provided data and respective user's role as per the [Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-). On successful, the password is successfully changed, the system provides a notification to the respective user conveying " Password has been changed successfully" else a respective error notification is sent to user.
 
 ### 2.3 Reset Password [**[↑]**](#table-of-content)
 The system allows users to reset the password. Based on the country, single factor or multi-factor authentication will be configured. If requested through Zonal Admin, then system performs only OTP authentication.
