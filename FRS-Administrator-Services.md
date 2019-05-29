@@ -110,33 +110,52 @@ The portal allows user to change the password. Based on the country, single fact
 1. The system validates and authenticates the provided data and respective user's role as per the [Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-). On successful, the password is successfully changed, the system provides a notification to the respective user conveying " Password has been changed successfully" else a respective error notification is sent to user.
 
 ### 2.3 Reset Password [**[↑]**](#table-of-content)
-The system allows users to reset the password. Based on the country, single factor or multi-factor authentication will be configured. If requested through Zonal Admin, then system performs only OTP authentication.
+The portal allows user to reset the password. Based on the country, single factor or multi-factor authentication will be configured.
 
 To reset the password, the user performs the following:
 
-1. User provides the User Name and Mobile number to reset the password. 
-1. The system checks the User Name, Mobile number and sends an OTP notification to the registered mobile number on successful validation.
+1. User provides the User Name to reset the password. 
+1. The system checks the User Name and sends an OTP notification to the registered mobile number on successful validation.
 1. User provides the OTP as received.
-1. The system validates the provided OTP and the security policy of reset password, successfully authenticates the user.
-1. The system allows user to provide the Old Password, New Password, and Confirm New Password (Password policy is configurable).
-1. The system sends a notification to the user related to the password reset status.
+1. The system validates the provided OTP and fetches the configured security policy against the Reset Password feature and thus asks the user for credentials as per the security policy. 
+1. The system provides a notification to the user related to the password reset status.
 
 
 ### 2.4 Forgot Username [**[↑]**](#table-of-content)
-Using the system, user can retrieve the username. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the registered mobile number associated with the user. On successful validation, the system provides the User Name to the registered mobile number through an OTP notification else provides the respective error notification.
+Using the portal, user can retrieve the user name. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the provided mobile number and fetches the configured security policy against the Forgot User Name feature and thus provides the user credentials as per the security policy.. On successful validation, the system provides the User Name to the registered mobile number through an SMS notification else provides the respective error notification.
 
 ### 2.5 Account Unlock
-The system allows user to unlock his/her locked account.  The user account is locked due to various reason such as multiple time of wrong entry of user name or and password. Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
+The portal allows user to unlock his/her locked account.  The user account is locked due to various reason such as multiple time of wrong password entry. Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
 
 Procedure to unlock the account:
 
 1. User provides the User Name in the system.
-1. The system validates and authenticates if the mobile number is registered against this user name.
-1. On successful validation, the system provides the active link through notification. 
-1. User accesses the provided link
-
+1. The system validates and authenticates if the mobile number is registered against the respective user name.
+1. 2.3.	On successful validation, the system provides an SMS notification conveying the unlocking of account. 
 
 ## 3. Security Policy Configuration (WIP)[**[↑]**](#table-of-content)
+Using the portal, Zonal Admin will be able to set up security policies for each applications, which includes the following:
+ * Session Time out policies
+ * Password policies
+    * Use of both upper-case and lower-case letters atleast once
+    * Use of at least one numerical digit
+    * Use of at least one of the special characters, such as @, #, $
+    * Restriction on passwords with words found in the User Name and Emaid ID
+    * Should not match last three old passwords
+    * Minimum character length should be 8
+ * Multi-factor authentication policies (wherever applicable)
+ * Admin Portal will only be accessed through Whitelisted IP Address
+ * Authenticates Users accessing the portal
+ * At Role Level : Configure Level of Auth
+
+Default Policy:
+
+ * What type of Authentication
+ * Which would be compulsory in case of multi factor authentication
+ * Minimum number of factors of Auth (Non-Bio/Bio)
+ * Feature Specific authentication overrides Role Specific Behavior for Reset Password/Forgot Username)
+
+
 ## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-content)
 ### 4.1 Approval Notifications
 ### 4.2 Country Specific News/Notifications
