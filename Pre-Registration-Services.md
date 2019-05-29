@@ -354,7 +354,7 @@ request.demographicDetails.identity |Yes|identity of the applicant|
 request.demographicDetails.identity.gender |Yes|gender of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.phone |Yes|mobile number of the applicant|
-request.demographicDetails.identity.IDSchemaVersion|Yes|id schema version|1
+request.demographicDetails.identity.IDSchemaVersion|Optional|id schema version|1
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
 request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
@@ -674,7 +674,7 @@ request.demographicDetails.identity |Yes|identity of the applicant|
 request.demographicDetails.identity.gender |Yes|gender of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.phone |Yes|mobile number of the applicant|
-request.demographicDetails.identity.IDSchemaVersion|Yes|id schema version|1
+request.demographicDetails.identity.IDSchemaVersion|Optional|id schema version|1
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
 request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
