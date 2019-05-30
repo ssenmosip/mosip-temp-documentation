@@ -114,7 +114,7 @@ The Registration client application is delivered into two parts:
 **Initial - Data Setup:**  
 ***
 In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
-Through sync process the data would be sync between local machine and server based on machine mac-id and center id.
+Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.
 
    **Sync Service :**  
    The following data would be sync from Server to local db through the multiple sync jobs and the same to be setup at server by Admin.   
@@ -146,4 +146,4 @@ Through sync process the data would be sync between local machine and server bas
 
 **Class Diagram [Initial Setup and Update Process]:**
 
-![Initial Setup and Update Process](_images/registration/application-setup-update.jpg)  
+![Initial Setup and Update Process](_images/registration/application-setup-update_class.png)  
