@@ -127,7 +127,7 @@ Multiple workflows increase reusability, readability and maintainability of diff
 ## 2.6 Scalability and Throughput [**[↑]**](#table-of-content)
 MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is designed in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
 
-Link to [**design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-processor/Approach_for_Back_Pressure_Handling.md)
+[**Link to design**](/mosip/mosip/blob/0.9.0_MOS-15017/docs/design/registration-processor/Approach_for_Back_Pressure_Handling.md)
 
 # 3. Types of Stages [**[↑]**](#table-of-content)
 ## 3.1 Pre-processing Validations [**[↑]**](#table-of-content)
