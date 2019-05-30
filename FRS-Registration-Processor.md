@@ -64,6 +64,13 @@ An individual can update his/her information via two different ways:
 
 When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check-) and validations and then updates the individual’s information.
 
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
+
+[**Link to design**](/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
+
+
+[**Link to design**](/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
+
 ## 1.3 De-activate individual’s ID [**[↑]**](#table-of-content)
 If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed. As a result of de-activation of UIN, the individual can not authenticate themselves by using UIN or VID. 
 ## 1.4 Re-activate individual’s ID [**[↑]**](#table-of-content)
