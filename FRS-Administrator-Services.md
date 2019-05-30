@@ -82,7 +82,7 @@ The portal allows user to provide the credential to login. Based on country, sin
 
 If X number (X number is configurable) of unsuccessful attempts are made to login, then user account will be locked and a respective notification will be sent to the user. If the user account is locked, the system allows the relevant user or super admin to unlock the user account. 
 
-For more details, please refer to [Reset Password](#23-reset-password-) and Forgot Password link to be provided here>
+For more details, please refer to [Reset Password](#23-reset-password-).
 
 ### 1.2 Logout
 #### 1.2.1 Manual Logout
