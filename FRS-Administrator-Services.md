@@ -59,10 +59,10 @@
      * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.17)_ 
 - [7. Approval Process](#7-approval-process-) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation-)
-    * [7.1.1 Center](#711-center) _(ASR_FR_7.1)_
-    * [7.1.2 Machine](#712-machine) _(ASR_FR_7.2)_
-    * [7.1.3 Device](#713-device) _(ASR_FR_7.3)_
-    * [7.1.4 User](#714-user) _(ASR_FR_7.4)_
+    * [7.1.1 Approval of Center](#711-approval-of-center) _(ASR_FR_7.1)_
+    * [7.1.2 Approval of Machine](#712-approval-of-machine) _(ASR_FR_7.2)_
+    * [7.1.3 Approval of Device](#713-approval-of-device) _(ASR_FR_7.3)_
+    * [7.1.4 Approval of User](#714-approval-of-user) _(ASR_FR_7.4)_
   * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation-wip) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip) _(ASR_FR_9)_
@@ -175,7 +175,7 @@ Using the portal, Zonal Admin will search for the registration center to be upda
 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 
-#### A. Activate the Registration Center
+#### A. Activate Registration Center
 
 The portal allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers of selected zone are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates User's roles and activates the selected center(s). On successful validation, the system provides a notification else triggers a respective error notification. 
 
@@ -183,7 +183,7 @@ The portal allows Zonal Admin to activate the registration centers, which are al
 
 The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select an active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error notification.
 
-#### C. Decommission the Registration Center
+#### C. Decommission Registration Center
 
 Decommissioning a center means removing the center from the zone permanently. The portal allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources of the registration center are automatically un-mapped. The system validates user's role and decommissions the selected center(s) and provides a notification on successful validation. Once the center is decommissioned, it cannot be retrieved.
 
@@ -424,11 +424,11 @@ Procedure to create document type follows:
 2. Zonal Admin creates the document type by providing all the required information related to the document type.
    Zonal Admin will register the document types  by importing CSV/XLS.
 
-#### B. Activate the Document types
+#### B. Activate Document types
 
 The portal allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select a deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates user's role and activates the selected document type(s). On successful validation, the system provides a notification.
 
-#### C. Deactivate the Document type
+#### C. Deactivate Document type
 
 The portal allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected document type(s), and the system provides a notification.
 
@@ -450,11 +450,11 @@ Following are the mandatory location data to be provided by Zonal Admin to creat
  * Active (Boolean)
  * Created by
  * Created Date and Time
-#### B. Activate the Location data
+#### B. Activate Location data
 
 The portal allows Zonal Admin to activate the location data, which are already deactivated due to any reasons. When the location data is created and approved, it is activated automatically. The Zonal Admin selects the location data then all the location data of that Zone are displayed. The Zonal Admin can select one deactivated location data or multiple deactivated location data at a time and selects Activate option. The system validates user's role and activates the selected location data(s). On successful validation, the system provides a notification.
 
-#### C. Deactivate the Location data
+#### C. Deactivate Location data
 
 The portal allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected location data(s), and the system provides a notification.
 
@@ -465,15 +465,15 @@ The portal allows Zonal Admin to deactivate the location data, which are already
 Using the portal, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s role and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
 During validation, if system does not find the provided data or the respective user’s role, then the system provides a respective error notification.   
 
-#### C. Activate the Blacklisted Word
+#### C. Activate Blacklisted Word
 
 The portal allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates user’s role and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
 
-#### D. Deactivate the Blacklisted Word
+#### D. Deactivate Blacklisted Word
 
 The portal allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates user's roles, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
 
-#### E. Decommission the Blacklisted Word
+#### E. Decommission Blacklisted Word
 
 Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The portal allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
@@ -503,7 +503,7 @@ The portal allows Zonal Admin to view the list of titles by selecting the master
 The portal allows Zonal Admin to view the gender types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Gender Types and the available gender types are displayed. The gender types are configured in the backend process. The system validates the user's role who raised the request to view the gender types and provides the gender types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 ## 7. Approval Process [**[↑]**](#table-of-content)
 ### 7.1 Approval for Resource Creation
-#### 7.1.1 Center 
+#### 7.1.1 Approval of Center 
 Using the portal, Zonal Approver will approve the registered centers. The Zonal Admin who registered the center cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the center is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the center, the record will be available for the approver (approver is configurable) 
@@ -511,7 +511,7 @@ The approver will follow the following procedure:
 1. Approver will approve/reject the center.
 1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
 
-#### 7.1.2 Machine 
+#### 7.1.2 Approval of Machine 
 Using the portal, Zonal Approver will approve the registered machines. The Zonal Admin who registered the machines cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the machine is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the machines, the record will be available for the approver (approver is configurable) for 
@@ -519,7 +519,7 @@ The approver will follow the following procedure:
 1. Approver will approve/reject the device.
 1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
 
-#### 7.1.3 Device
+#### 7.1.3 Approval of Device
 Using the portal, Zonal Approver will approve the registered devices. The Zonal Admin who registered the devices cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the device is registered and this validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the devices, the record will be available for the approver (approver is configurable) for 
@@ -527,13 +527,13 @@ The approver will follow the following procedure:
 1. Approver will approve/reject the device.
 1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
 
-#### 7.1.4 User
+#### 7.1.4 Approval of User
 Using the portal, Zonal Approver will approve the created user on the portal. The Zonal Admin who created the users cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when user is created and validation does not applicable for updates. 
 The approver will follow the following procedure:
 1. Once the Zonal Admin creates the users (RO/Supervisor), the record will available for the approver (approver is configurable) for the approval.
 1. Approver will approve the users within schedule time (Time is configurable).
 1. If approver does not approve within the scheduled time, the system sends a reminder notification (configurable) for the approval.
-<The following functionalities are under WIP in the and to be updated once confirmed>
+The following functionalities are under WIP in the and to be updated once confirmed
 a) Change the approver (what happens if we have only one zonal approver for that zone)
 b) Auto-Approve
 c) Reject
