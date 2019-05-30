@@ -223,11 +223,11 @@ For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-ma
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### A. Activate Machine
 
-The portal allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select one deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates user's role and activates the selected machine(s). On successful validation, the system provides a notification else triggers an error notification.
+The portal allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select a deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates user's role and activates the selected machine(s). On successful validation, the system provides a notification else triggers an error notification.
 
 #### B. Deactivate Machine
 
-The portal allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select one active machine or multiple active machines at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected machine(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the machine, which are already active. The Zonal Admin selects the machine and the all the machine of that zone are displayed. The Zonal Admin can select an active machine or multiple active machines at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected machine(s), and the system provides a notification.
 
 #### C. Decommission  Machine
 
