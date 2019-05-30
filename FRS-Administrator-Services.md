@@ -333,7 +333,7 @@ Using the portal, Zonal Admin/Central Admin will register the user (registration
 11. If activation link expires (expiry time configurable), the system resends the link through a batch process.
 
 #### 5.4.3 Update User
-The system allows its users (Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer) to update the user details. The use will provide the User ID/User Name. The system validates the provided data and user's role. On successful validation, the system allows updating the required user details. When the user saves the updated user details, the system captures the date & time and user’s detail who has updated the user record.
+The portal allows its users (Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer) to update the user details. The use will provide the User ID/User Name. The system validates the provided data and user's role. On successful validation, the system allows updating the required user details. When the user saves the updated user details, the system captures the date & time and user’s detail who has updated the user record.
 
 If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
 
@@ -344,11 +344,11 @@ The portal allows Zonal Admin to activate the user, who is already deactivated d
 
 #### B. Deactivate User
 
-The system allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected user(s), and the system provides a notification.
+The portal allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected user(s), and the system provides a notification.
 
 #### C. Blacklist User
 
-The system allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
+The portal allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
 
 Procedure to block/blacklist:
 
@@ -393,7 +393,7 @@ Procedure to create document type follows:
 
 #### B. Activate the Document types
 
-The system allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select a deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates user's role and activates the selected document type(s). On successful validation, the system provides a notification.
+The portal allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select a deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates user's role and activates the selected document type(s). On successful validation, the system provides a notification.
 
 #### C. Deactivate the Document type
 
