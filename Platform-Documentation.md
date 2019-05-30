@@ -173,6 +173,20 @@ Please refer wiki for detailed functional specification of the following service
 * [**Admin Services**](FRS-Admin-Services)
 
 ### 3.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
+MOSIP Admin manages the functional and non-functional activities of MOSIP on Admin Portal through either the backend process or the UI screens. 
+
+Admin will be able to:
+
+ * Set up Platform Data, Process Flows, ID Definition, Configuration, and Security Policy (Through backend process).
+ * Manage (Create, Update, View, Activate/Deactivate, Map/Un-map/Re-map/Decommission) the resources.
+ * Map the resources (Users, Machines, and Devices) to a registration center.
+ * Manage the master data (Create/Update/Activate/Deactivate).
+ * Manage approval requests for creation and updation of resources and master data.
+ * Manage personal account details (Reset Password, Forgot User Name, Change Password, Unlock Account, and Edit Personal 
+   Details.
+ * Activate/deactivate UIN
+ * View status of packets
+
 Please refer [**wiki**](FRS-Administrator-Services) for detailed functional specifications of administrator services module.
 ### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
 
