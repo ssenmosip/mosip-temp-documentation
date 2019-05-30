@@ -1224,6 +1224,7 @@ Error Responses
 # UIN Services
 
 * [GET /status/{uin}](#get-status)
+* [GET /ridstatus/{rid}](#get-ridstatus)
 
 ### GET /status/{uin}
 
@@ -1294,6 +1295,62 @@ Error Responses
 			{
 				"errorCode": "ADMN_AUTH_ERR_INVALIDAPPID",
 				"message": "The passed in application ID is not correct"
+		  }	
+		]
+}
+
+```
+### GET /ridstatus/{rid}
+
+The user can get packet status of the rid
+
+#### Resource URL
+<div>https://mosip.io/v1/admin/uinmgmt/ridstatus/{rid}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Part Parameters
+Name | Required | Description |  Example
+-----|----------|-------------|--------
+rid |Yes|rid of the user| 12434314315353513
+
+#### Request
+<div>https://mosip.io/v1/admin/uinmgmt/ridstatus/12434314315353513</div>
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: returns status of uin
+```JSON
+
+{
+	"id": "mosip.admin.uinmgmt.ridstatus",
+	"version": "1.0",
+	"metadata": {},
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors": [],
+	"response": {
+		"Status":"Processed",
+	}
+}
+```
+Error Responses
+
+1. Invalid credentials: If the passed credentials is not correct. 
+```JSON
+
+{
+	"id": "mosip.admin.uinmgmt.ridstatus",
+	"ver": "1.0",
+	"responsetime": "2007-12-03T10:15:30Z",
+	"errors":[
+			{
+				"errorCode": "ADMN-ACC-INVLD-CRDNTIALS",
+				"message": "The passed in credentials is not correct"
 		  }	
 		]
 }
