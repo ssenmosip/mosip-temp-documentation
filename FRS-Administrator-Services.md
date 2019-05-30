@@ -181,7 +181,7 @@ The portal allows Zonal Admin to activate the registration centers, which are al
 
 #### B. Deactivate the Registration Center
 
-The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select one active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error notification.
+The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select an active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error notification.
 
 #### C. Decommission the Registration Center
 
@@ -213,7 +213,9 @@ Zonal Admin will also register the machines by importing the CSV/XLS.
 For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-machine-types---create-) in Admin Service.
 #### 5.2.3 Update Machine [**[↑]**](#table-of-content)
 The portal provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
+
 Procedure to update the machine related details, the Zonal Admin will:
+
 1. Zonal Admin provides the mandatory information (Machine ID, Machine Name, and Zon ID).
 1. The system validates the provided data and user's roles. On successful validation, the system allows Zonal Admin to update the required details. For example, if a Machine has been moved to a new zone or accidentally assigned to a wrong zone.
 1. When the machine related information is updated, the system captures the date & time, Zonal Admin details who has updated the machine.
@@ -223,7 +225,7 @@ For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-ma
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
 #### A. Activate Machine
 
-The portal allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that Zone are displayed. The Zonal Admin can select a deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates user's role and activates the selected machine(s). On successful validation, the system provides a notification else triggers an error notification.
+The portal allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that zone are displayed. The Zonal Admin can select a deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates user's role and activates the selected machine(s). On successful validation, the system provides a notification else triggers an error notification.
 
 #### B. Deactivate Machine
 
@@ -234,7 +236,7 @@ The portal allows Zonal Admin to deactivate the machine, which are already activ
 Decommissioning a machine means removing the machine from the zone permanently. The portal allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates the user's role and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
-The portal allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, user's role. On successful validation, The system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines until un-mapped. 
+The portal allows Zonal Admin to map/un-map/re-map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, user's role. On successful validation, The system maps/re-maps that machine to the selected registration center and once the machine is mapped/remapped to the registration center, it is not displayed in the list of available machines. Similarly, once the machine is un-mapped from the registration center, it is displayed in the list of available machine. 
 
 If the machine is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the machine by serial number and other attributes of the machine. If the machine is already mapped with another registration center, Zonal Admin must un-map the machine first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification. 
  
@@ -258,18 +260,20 @@ Procedure to register the device follows:
  * Active (Boolean)
  * Created by
  * Created Date and Time
-1. Zonal Admin creates the device by providing all the required information related to the device.
+3. Zonal Admin creates the device by providing all the required information related to the device.
 
 Device uniqueness will be maintained through device’s serial number.
 
 Zonal Admin will also register the machines by importing the CSV/XLS.
 
 #### 5.3.3 Update Device [**[↑]**](#table-of-content)
-The portal provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason, 
+The portal provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason.
+
 Procedure to update the devices related details, the Zonal Admin will:
+
 1. Update the device details such as Serial Number and Mac-Address.
 1. Update the zone of a device (If a device is being moved to a new zone or accidentally assigned to a wrong zone).
-1. The system does make the device visible to the Zonal Admin, if previously assigned to other zone.
+1. The system does not make the device visible to the Zonal Admin, if previously assigned to other zone.
 1. Remove the mapping of the registration enter and device  (if already mapped to a registration center of another zone).
 1. Assign a machine to the new zone (In case of accidentally assigning the wrong zone, Zonal Admin will contact with the Zonal admin of newly assigned zone to get the Machine re-assigned to the old zone).
 
