@@ -250,8 +250,21 @@ This section consists of the foundational principles of MOSIP based on which the
 Please refer [**wiki**](Architecture-Principles-&-Platform-Goals) for more details.
 ### 7.2 Platform Features [**[↑]**](#table-of-content)
 #### 7.2.1 Configurability [**[↑]**](#table-of-content)
+
+MOSIP should be flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
+* Country should be able to choose the features required. For example, it must be possible for a country to turn off Finger Print capture
+* Country should be able to configure the attributes of an ID Object
+* Country should be able to define the length of the UIN number.
 #### 7.2.2 Extensibility [**[↑]**](#table-of-content)
+
+MOSIP should be flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
+* A country should be able to introduce a new step in processing data
+* Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
 #### 7.2.3 Modularity [**[↑]**](#table-of-content)
+
+All components in MOSIP should be modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
+* UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
+* The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
 ### 7.3 Process View [**[↑]**](#table-of-content)
 This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
 
