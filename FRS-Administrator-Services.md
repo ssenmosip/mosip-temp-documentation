@@ -236,10 +236,20 @@ The portal allows Zonal Admin to deactivate the machine, which are already activ
 Decommissioning a machine means removing the machine from the zone permanently. The portal allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates the user's role and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
-The portal allows Zonal Admin to map/un-map/re-map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the Registration Center must belong to Zonal Admin’s zone. The system validates the provided data, user's role. On successful validation, The system maps/re-maps that machine to the selected registration center and once the machine is mapped/remapped to the registration center, it is not displayed in the list of available machines. Similarly, once the machine is un-mapped from the registration center, it is displayed in the list of available machine. 
+#### A. Map the Machine to the Registration Center
+The portal allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the registration center must belong to Zonal Admin’s zone. The system validates the provided data and user's role. On successful validation, the system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines.  
 
 If the machine is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the machine by serial number and other attributes of the machine. If the machine is already mapped with another registration center, Zonal Admin must un-map the machine first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification. 
- 
+
+#### B. Un-map the Machine from the Registration Center
+The portal allows Zonal Admin to un-map the machine from the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the registration center must belong to Zonal Admin’s zone. The system validates the provided data and user's role. On successful validation, the system un-maps that machine from the selected registration center and once the machine is un-mapped from the registration center, it is displayed in the list of available machines.  
+
+ Once the mapping is completed successfully, the system provides the notification. 
+#### C. Re-map the Machine to the Registration Center
+The portal allows Zonal Admin to re-map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the registration center must belong to Zonal Admin’s zone. The system validates the provided data and user's role. On successful validation, the system re-maps that machine to the selected registration center and once the machine is re-mapped to the registration center, it is not displayed in the list of available machines.
+  
+The system track the machine by serial number and other attributes of the machine. Once the un-mapping is completed successfully, the system provides the notification. 
+
 ### 5.3 Device Management [**[↑]**](#table-of-content)
 #### 5.3.1 View Device
 The portal allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, user's role. On successful validation, the system provides the list of devices details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the devices` without providing the registration center ID, then the system provides all the devices registered in the country.  During the validation of registration center ID and user's role, if the registration ID/Zonal user's role are not found, then the system triggers an error notification.
@@ -280,9 +290,9 @@ Procedure to update the devices related details, the Zonal Admin will:
 For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
-#### A. Activate Device
 
-The portal allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select a deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates user's role and activates the selected device(s). On successful validation, the system provides a notification else provides a respective error notification.
+
+The portal allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved#### A. Activate Device, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select a deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates user's role and activates the selected device(s). On successful validation, the system provides a notification else provides a respective error notification.
 
 #### B. Deactivate Device
 
@@ -293,10 +303,22 @@ The portal allows Zonal Admin to  select the active device. The Zonal Admin sele
 Decommissioning a device means removing the device from the zone permanently. The portal allows the Zonal Admin to decommission the device. The Zonal Admin can un-map the device associated with the registration center before decommissioning the device, but he/she can also decommission the device  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected device(s). Once the device is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-content)
-The portal allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and user's role. On successful validation, the system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices until it is un-mapped. 
+#### A. Map Device
+The portal allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and user's role. On successful validation, the system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices. 
 
 If the device is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the device by serial number and other attributes of the device. If the device is already mapped with another registration center, Zonal Admin must un-map the device first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification else provides an respective error notification. 
 
+For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
+
+#### B. Un-map Device
+The portal allows Zonal Admin to un-map the devices from the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s zone. The system validates the provided data and user’s role. On successful validation, the system un-maps that device from the selected registration center and once the device is un-mapped from the registration center, it is displayed in the list of available devices.
+
+The system track the device by serial number and other attributes of the device. Once the un-mapping is completed successfully, the system provides the notification. 
+
+#### B. Re-map Device
+The portal allows Zonal Admin to re-map the devices to the registration center by providing the Device ID and Registration Center ID.  The device will be re-mapped after the repairing/services of the device or any other reason. The registration center must belong to Zonal Admin’s zone. The system validates the provide data and user’s role. On successful validation, the system re-maps that device to the selected registration center and once the device is re-mapped to the registration center, it is not displayed in the list of available devices.
+
+The system track the device by serial number and other attributes of the device. Once the re-mapping is completed successfully, the system provides the notification. 
 
 ### 5.4 User Management [**[↑]**](#table-of-content)
 #### 5.4.1 View User
