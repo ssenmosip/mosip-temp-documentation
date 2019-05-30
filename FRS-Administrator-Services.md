@@ -430,7 +430,7 @@ The portal allows Zonal Admin to deactivate the location data, which are already
 #### 6.3.4 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 #### B. Create/Update Blacklisted Word
 
-Using the system, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s role and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
+Using the portal, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured as a backend process. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s role and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
 During validation, if system does not find the provided data or the respective user’s role, then the system provides a respective error notification.   
 
 #### C. Activate the Blacklisted Word
