@@ -195,7 +195,7 @@ langCode|Yes|language code used |eng or ara
 			"packetSize": 5242880,
 			"supervisorStatus": "APPROVED",
 			"supervisorComment": "Approved, all good",
-			"longCode": "eng",
+			"langCode": "eng",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "122223456"
@@ -208,7 +208,7 @@ langCode|Yes|language code used |eng or ara
 			"packetSize": 4242880,
 			"supervisorStatus": "REJECTED",
 			"supervisorComment": "Rejected due to error",
-			"longCode": "eng",
+			"langCode": "eng",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "3456789o"
