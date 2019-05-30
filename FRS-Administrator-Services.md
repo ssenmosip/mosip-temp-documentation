@@ -96,7 +96,7 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 Procedure to edit the profile follows:
 1. User will provide the valid credential in the relevant portal to login.
 2. The system validates the credentials and allows user to login after successful validation.
-3. The system allows user to land on Home page.
+3. The system allows user to proceed further.
 4. The Home Page contains the permitted functionalities of the user.
 5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates else provides a respective error notification.
 
