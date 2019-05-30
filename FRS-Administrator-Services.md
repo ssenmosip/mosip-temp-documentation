@@ -302,20 +302,20 @@ The portal allows Zonal Admin to  select the active device. The Zonal Admin sele
 
 Decommissioning a device means removing the device from the zone permanently. The portal allows the Zonal Admin to decommission the device. The Zonal Admin can un-map the device associated with the registration center before decommissioning the device, but he/she can also decommission the device  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected device(s). Once the device is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
-#### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-content)
-#### A. Map Device
+#### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-content)
+#### A. Map Device to a Registration Center
 The portal allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and user's role. On successful validation, the system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices. 
 
 If the device is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the device by serial number and other attributes of the device. If the device is already mapped with another registration center, Zonal Admin must un-map the device first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification else provides an respective error notification. 
 
 For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
 
-#### B. Un-map Device
+#### B. Un-map Device from a Registration Center
 The portal allows Zonal Admin to un-map the devices from the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s zone. The system validates the provided data and user’s role. On successful validation, the system un-maps that device from the selected registration center and once the device is un-mapped from the registration center, it is displayed in the list of available devices.
 
 The system track the device by serial number and other attributes of the device. Once the un-mapping is completed successfully, the system provides the notification. 
 
-#### B. Re-map Device
+#### B. Re-map Device to a Registration Center
 The portal allows Zonal Admin to re-map the devices to the registration center by providing the Device ID and Registration Center ID.  The device will be re-mapped after the repairing/services of the device or any other reason. The registration center must belong to Zonal Admin’s zone. The system validates the provide data and user’s role. On successful validation, the system re-maps that device to the selected registration center and once the device is re-mapped to the registration center, it is not displayed in the list of available devices.
 
 The system track the device by serial number and other attributes of the device. Once the re-mapping is completed successfully, the system provides the notification. 
@@ -391,9 +391,16 @@ Procedure to block/blacklist:
    password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
 
 #### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
-The portal allows Zonal Admin to map/un-map/re-map the users with the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role and on successful validation, provides the capability to map/un-map-re-map the user to the registration.
+#### A. Map User to a Registration Center
+The portal allows Zonal Admin to map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system maps the user to a registration center.
 
 For more details, please please refer to [**section**](FRS-Admin-Services#26-mappings-of-registration-center-machine-and-user-mappings---createreaddelete-)
+
+#### B. Un-map User to a Registration Center
+The portal allows Zonal Admin to un-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system un-maps the user to a registration center.Once user is un-mapped, he/she will be displayed in the available list of users.
+#### C. Rn-map User to a Registration Center
+The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users 
+
 ## 6. Master Data Management [**[↑]**](#table-of-content)
 ### 6.1 View Master Data Types
 The portal allows Zonal Admin to view the master data type. The master data types are configured by the backend process. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
@@ -426,7 +433,6 @@ The portal allows Zonal Admin to activate the document types, which are already 
 The portal allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected document type(s), and the system provides a notification.
 
 #### D. Map/un-Map-Re-map Document Type to Document Category
-
 The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
 
 #### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
