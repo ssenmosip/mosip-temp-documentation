@@ -69,12 +69,12 @@ When the request is made by the individual, a packet is received by registration
 ## 1.3 De-activate individual’s ID [**[↑]**](#table-of-content)
 If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed. As a result of de-activation of UIN, the individual can not authenticate themselves by using UIN or VID. 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_acdetivate_deactivate_uin.md)
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 ## 1.4 Re-activate individual’s ID [**[↑]**](#table-of-content)
 If a country wants to re-activate a deactivated individual’s ID, the system provides a feature to do so after certain validations are performed.
 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_acdetivate_deactivate_uin.md)
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 # 2. Configurable Workflow [**[↑]**](#table-of-content)
 ## 2.1 Orchestration [**[↑]**](#table-of-content)
 
