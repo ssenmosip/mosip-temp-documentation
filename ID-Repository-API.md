@@ -565,7 +565,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 #### Resource URL
-<div>https://mosip.io/idrepository/v1/identity/RID/{RID}?type=bio</div>
+<div>https://mosip.io/idrepository/v1/identity</div>
 
 #### Resource details
 Resource Details | Description
@@ -583,7 +583,8 @@ request | Y | Request body attributes | |
 request: status | N | status of ID | | 
 request: registrationId | Y | Registration id | | 
 request: biometricReferenceId | N | ABIS Reference Id | | 
-request: identity | N | JSON body as per the ID object schema | | 
+request: identity | M | JSON body as per the ID object schema | | 
+request: identity: UIN | M | UIN for which Identity is updated | | 
 request: documents | N | Documents that are to be uploaded for any ID attribute | | 
 
 #### Request:
@@ -598,6 +599,7 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
     "biometricReferenceId": "<ABIS Reference ID>",
     "status": "DEACTIVATED",
     "identity": {
+      "UIN": 981576026435,
       "email": "sample123@email.com",
       "individualBiometrics": {
         "format": "cbeff",
