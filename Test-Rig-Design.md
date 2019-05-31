@@ -38,7 +38,7 @@ The individual module level test suites and the end to end suite are triggered v
 
 ### System Level or E2E Automation Suite (Test Rig) [**[↑]**](#table-of-content)
 
-End to end system level Test Rig covers the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
+End to end system level Test Rig covers the functionality across the modules starting with Pre-Registration and ending in Registration Processor or IDA. 
 
 The below diagram depicts the overall design of the end to end suite.
 
