@@ -7,8 +7,7 @@
 - [2. Account Management](#2-account-management-) _(ASR_FR_2)_
   * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
   * [2.2 Change Password](#22-change-password-) _(ASR_FR_2.2)_
-  * [2.3 Reset Password](#23-reset-password-) _(ASR_FR_2.3)_
-  * [2.4 Forgot User Name](#24-forgot-user-name-) _(ASR_FR_2.4)_
+  * [2.3 Reset Password](#23-reset- t-user-name-) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-) _(ASR_FR_3)_
 - [4. Notification V1.5 (WIP)](#4-notification-v15-wip-) _(ASR_FR_4)_
@@ -19,7 +18,7 @@
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center-) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activate-deactivate-decommission-center-) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management-)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
@@ -42,9 +41,9 @@
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table (WIP)](#62-view-master-data-for-each-table-wip-) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-)
-    * [6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)](#631-manage-document-type-create-update-activate-deactivate)) _(ASR_FR_6.3)_
+    * [6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)](#631-manage-document-type-create-update-activate-deactivate-) _(ASR_FR_6.3)_
     * [6.3.2 Manage Document Category to Document Mapping (Create, Update, Activate/Deactivate)(WIP)](#632-manage-document-category-to-document-mapping-create-update-activate-deactivate-wip-) _(ASR_FR_6.4)_
-    * [6.3.3 Manage Location Data (Create, Update, Activate/Deactivate)](#633-manage-location-data-create-update-activate-deactivate)) _(ASR_FR_6.5)_
+    * [6.3.3 Manage Location Data (Create, Update, Activate/Deactivate)](#633-manage-location-data-create-update-activate-deactivate-) _(ASR_FR_6.5)_
     * [6.3.4 Manage Blacklisted Words (Create, Update, Activate/Deactivate)](#634-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.6)_
      * [6.3.5 Manage Registration Center Types (View)](#635-manage-registration-center-types-view-) _(ASR_FR_6.7)_ 
      * [6.3.6 Manage Machine Types (View)](#636-manage-machine-types-view) _(ASR_FR_6.8)_ 
@@ -131,7 +130,7 @@ Procedure to unlock the account:
 1. The system validates and authenticates if the mobile number is registered against the respective user name.
 1. 2.3.	On successful validation, the system provides an SMS notification conveying the unlocking of account. 
 
-## 3. Security Policy Configuration (WIP)[**[↑]**](#table-of-content)
+## 3. Security Policy Configuration(WIP)[**[↑]**](#table-of-content)
 Using the portal, Zonal Admin will be able to set up security policies for each applications, which includes the following:
  * Session Time out policies
  * Password policies
