@@ -1,4 +1,4 @@
-Table Of Content
+## Table Of Content
 * [Test Rig Design](#test-rig-design)
   * [Module Level Automation Suites](#module-level-automation-suites-)
   * [System Level or E2E Automation Suite (Test Rig)](#system-level-or-e2e-automation-suite-test-rig-)
@@ -24,7 +24,7 @@ Automation deliverables mainly comprises of individual module level suites for t
 
 Additionally there will be an end to end, system level test suite that will cut across all modules covering the functionality 
 
-## Module Level Automation Suites [**[↑]**](#table-of-content)
+### Module Level Automation Suites [**[↑]**](#table-of-content)
 
 The below diagram depicts the various building blocks of the module level suite.
 
@@ -36,7 +36,7 @@ The individual module level test suites and the end to end suite are triggered v
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
 
-## System Level or E2E Automation Suite (Test Rig) [**[↑]**](#table-of-content)
+### System Level or E2E Automation Suite (Test Rig) [**[↑]**](#table-of-content)
 
 End to end system level Test Rig covers the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
 
