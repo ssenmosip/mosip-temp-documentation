@@ -17,9 +17,8 @@ Test-Rig comprises of multiple components starting from:
 1. Running automated tests to verify and validate the application build against the given requirements. 
 
 ## Test Automation [**[↑]**](#table-of-content)
+MOSIP platform architecture is Micro services based and hence predominantly comprises of Rest & JAVA APIs. Therefore test automation best serves the purpose of detailed API level testing.
 Test automation is the key to the successful testing of individual APIs and their interrelation with interdependent APIs. It ensures comprehensive test coverage and test data. 
-
-MOSIP platform predominantly comprises of 
 
 Automation deliverables mainly comprises of individual module level suites for the individual MOSIP modules:
 1. Pre-Registration 
