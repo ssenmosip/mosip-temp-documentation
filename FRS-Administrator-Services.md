@@ -290,7 +290,7 @@ Procedure to update the devices related details, the Zonal Admin will:
 For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
-
+#### A. Activate Device
 
 The portal allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved#### A. Activate Device, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select a deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates user's role and activates the selected device(s). On successful validation, the system provides a notification else provides a respective error notification.
 
@@ -315,7 +315,7 @@ The portal allows Zonal Admin to un-map the devices from the registration center
 
 The system track the device by serial number and other attributes of the device. Once the un-mapping is completed successfully, the system provides the notification. 
 
-#### B. Re-map Device to a Registration Center
+#### C. Re-map Device to a Registration Center
 The portal allows Zonal Admin to re-map the devices to the registration center by providing the Device ID and Registration Center ID.  The device will be re-mapped after the repairing/services of the device or any other reason. The registration center must belong to Zonal Admin’s zone. The system validates the provide data and user’s role. On successful validation, the system re-maps that device to the selected registration center and once the device is re-mapped to the registration center, it is not displayed in the list of available devices.
 
 The system track the device by serial number and other attributes of the device. Once the re-mapping is completed successfully, the system provides the notification. 
@@ -399,7 +399,7 @@ For more details, please please refer to [**section**](FRS-Admin-Services#26-map
 #### B. Un-map User to a Registration Center
 The portal allows Zonal Admin to un-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system un-maps the user to a registration center.Once user is un-mapped, he/she will be displayed in the available list of users.
 #### C. Rn-map User to a Registration Center
-The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users 
+The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users. 
 
 ## 6. Master Data Management [**[↑]**](#table-of-content)
 ### 6.1 View Master Data Types
@@ -432,8 +432,13 @@ The portal allows Zonal Admin to activate the document types, which are already 
 
 The portal allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected document type(s), and the system provides a notification.
 
-#### D. Map/un-Map-Re-map Document Type to Document Category
+#### D. Map Document Type to Document Category
 The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
+
+#### E. Un-map Document Type to Document Category
+The portal allows Zonal Admin to un-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system un-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
+#### F. Re-map Document Type to Document Category
+The portal allows Zonal Admin to re-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system re-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
 
 #### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
 
