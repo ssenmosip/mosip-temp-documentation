@@ -23,7 +23,7 @@ Additionally there will be an end to end, system level test suite that will cut 
 
 The below diagram depicts the various building blocks of the module level suite.
 
-Salient features 
+**Salient features** 
 1. The automation suite is configurable to selectively execute tests such as Sanity or/and Regression 
 2. Each module level suite covers API and inter API automation
 
