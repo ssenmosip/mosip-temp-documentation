@@ -1,6 +1,6 @@
 ## Table Of Content
 * [Test Rig Definition](#test-rig-definition)
-* [Test Automation](#test-automation)
+* [Test Automation](#test-automation-)
   * [Module Level Automation Suites](#module-level-automation-suites-)
   * [System Level or E2E Automation Suite (Test Rig)](#system-level-or-e2e-automation-suite-test-rig-)
 
@@ -16,7 +16,7 @@ Test-Rig comprises of multiple components starting from:
 1. Running automated unit tests
 1. Running automated tests to verify and validate the application build against the given requirements. 
 
-## Test Automation
+## Test Automation [**[↑]**](#table-of-content)
 Automation deliverables mainly comprises of individual module level suites for the individual MOSIP modules:
 1. Pre-Registration 
 1. Registration Client
