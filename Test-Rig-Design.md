@@ -10,6 +10,14 @@ Test-Rig comprises of multiple components starting from:
 1. Running automated unit tests
 1. Running automated tests to verify and validate the application build against the given requirements. 
 
+Automation deliverables mainly comprises of individual module level suites for the individual MOSIP modules:
+1. Pre-Registration 
+1. Registration Client
+1. Registration Processor
+1. IDA
+1. Kernel
+Additionally there will be an end to end, system level test suite that will cut across all modules covering the functioality 
+
 The automation framework is further categorized to selectively execute tests such as Sanity or/and Regression across the modules which comprises of many utilities.
 There will be one Test Rig for each of the below modules that be triggered via the CI/CD pipeline for the module. This would cover complete API level testing for that module including API level integration.
 1. Pre-Registration 
