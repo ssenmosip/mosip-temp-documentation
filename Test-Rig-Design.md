@@ -19,21 +19,24 @@ Automation deliverables mainly comprises of individual module level suites for t
 
 Additionally there will be an end to end, system level test suite that will cut across all modules covering the functionality 
 
-Module Level Automation Suites
-***
+## Module Level Automation Suites
+
 The below diagram depicts the various building blocks of the module level suite.
+
 Salient features 
 1. The automation suite is configurable to selectively execute tests such as Sanity or/and Regression 
 2. Each module level suite covers API and inter API automation
 
 The individual module level test suites and the end to end suite are triggered via the CI/CD pipeline and run post application deployment
 
-System Level or E2E Automation Suite (Test Rig)
-***
+![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
+
+## System Level or E2E Automation Suite (Test Rig)
+
 End to end system level Test Rig covers the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
 
 The below diagram depicts the overall design of the end to end suite.
-![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
+
 
 ![Test Rig Design](_images/test_rig_automation/E2ETestRigDesign.drawio.jpg)
 
