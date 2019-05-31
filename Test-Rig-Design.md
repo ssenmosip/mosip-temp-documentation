@@ -38,4 +38,4 @@ The below diagram depicts the overall design of the end to end suite.
 ![Test Rig Design](_images/test_rig_automation/E2ETestRigDesign.drawio.jpg)
 
 
-### <p align="center"> **Figure 2: _Test Rig Design_**
+### <p align="center"> **Figure 2: _E2E Test Rig Design_**
