@@ -5,28 +5,25 @@ This document contains the 'Registration client' application initial setup and c
 
 ![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
-**System Prerequisites:**
-*** 
+**Prerequisites:**  
+***
+**System Prerequisites:**  
    - CPU - Dual Core Processor - 2GHZ  
-   - Ram - 8 GB  
+   - Ram - 16 GB  
    - Local Storage Disk Space - 500 GB 
    - USB 2.0 ports or equivalent hub.  
    - Physical machine with TPM 2.0 facility.   
+   - Windows OS [10 v] 
 
-Registration client has certain **prerequisite** which is to be completed before installing the software:  
-- Creation of Windows User Accounts in local desktop machines.  
-- Addition of user profiles and credentials in the MOSIP Admin Portal.  
-- Setup the users in IAM.  
-- Machine with center mapping in Admin Portal.  
-
-
-The Registration client application is delivered into two parts:  
-   1. Initial Zip file 		 - Contains Application Base folder structure with installed derby DB.      
-   2. Application Binaries.  - Contains the application binary classes and the db scripts .  
-       - Shared libraries.
-       - Encrypted client UI and Service jars.
-       - DB scripts.  
-
+**Application Prerequisites:**  
+   Before running the 'Registration client' application, following prerequisites to be completed.
+	
+   - User should have online connectivity to the application JFrog repository. 
+     {13.71.87.138:8040/artifactory/libs-release/io/mosip/registration/registration-client/}	   
+   - User setup in MOSIP Admin Portal and IAM system.  
+   - Machine [machine name or mac id] and center configuration.  
+   - Machine with center mapping configuration.  
+        
 **Anti Virus - ClamAV Setup and Configuration in local machine:**  
 ***  
    Installation of Open Source Anti Virus Software [ClamAV]:  
@@ -55,11 +52,12 @@ The Registration client application is delivered into two parts:
     5.	Checks 24(Line 113)  
     6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
 
-   **Once all the Configurations are done run the freshclam.exe and then run clamd.exe.**   
+   **Once all the Configurations are done run the freshclam.exe and then run clamd.exe. If required, restart the machine.**   
  
 **Installation at Desktop Machine:**   
 ***  
 **Zip file:**  
+   
    1. User login to the JFROG Binary portal and download the client application ZIP file [mosip-sw-0.*.*.zip].   
    2. Once downloaded then unzip the file into a particular location. It contains the following folder structure.  
       - bin : It contains the client UI and service executable in encrypted format.
@@ -70,7 +68,7 @@ The Registration client application is delivered into two parts:
       - db : it contains the derby database, tables and few table with the data.  
       - run.jar : Executable jar to download the s/w.
       - MANIFEST.MF : Third Party libraries information.
-   3. Click the 'run.jar' to initiate the process.  
+   3. Click the 'run.jar or run.bat' to initiate the setup process.  
    
    When user clicks on the 'run.jar' it does the following :  
    1. It loads the binary repository URL from property file.  
@@ -88,11 +86,152 @@ The Registration client application is delivered into two parts:
    - During initial setup, the application should have online connectivity with the MOSIP server to synch the configuration detail from server to local machine.       
    - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
 
-   
 **External hardware Driver(s):**
-   This section covers the list of drivers required to communicate with the devices.  
-   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should be installed.    
-   - The application has been currently tested with CANON LiDE 120.   
+   This section covers the list of drivers required to communicate with the external devices.  
+   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should also be installed.  
+   - The application has been currently tested with CANON LiDE 120.  
+   - Printer should be available to take the print out from application and the respective driver should be installed.    
+   - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
+   - TPM 2.0 should be enabled to secure the application.  
+
+**Configuration:**  
+   Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine to reflect the changes.  
+
+|**S.No.**| **Config Key**| **Description**|**Possible Values**|
+|:------:|-----|---|---|
+|1	.|	mosip.registration.iris_threshold									   | 60							|	
+|2	.|	mosip.registration.leftslap_fingerprint_threshold                      | 70							|	
+|3	.|	mosip.registration.num_of_fingerprint_retries                          | 3							|	
+|4	.|	mosip.registration.num_of_iris_retries                                 | 3							|	
+|5	.|	mosip.registration.rightslap_fingerprint_threshold                     | 80							|	
+|6	.|	mosip.registration.thumbs_fingerprint_threshold                        | 80							|	
+|7	.|	mosip.registration.loginmode                                           | bootable dongle			|	
+|8	.|	mosip.registration.facequalitythreshold                                | 25							|	
+|9	.|	mosip.registration.faceretry                                           | 12							|	
+|10	.|	mosip.registration.supervisorverificationrequiredforexceptions         | true						|	
+|11	.|	mosip.registration.operatorregsubmissionmode                           | fingerprint				|	
+|12	.|	mosip.registration.supervisorauthmode                                  | iris						|	
+|13	.|	mosip.registration.emailnotificationtemplateotp                        | hello $user the otp is $otp|	
+|14	.|	mosip.registration.smsnotificationtemplateotp                          | otp for your request is $otp|	
+|15	.|	mosip.registration.emailnotificationtemplatenewreg                     | hello $user the otp is $otp|	
+|16	.|	mosip.registration.smsnotificationtemplatenewreg                       | otp for your request is $otp|	
+|17	.|	mosip.registration.emailnotificationtemplateregcorrection              | hello $user the otp is $otp|	
+|18	.|	mosip.registration.smsnotificationtemplateregcorrection                | otp for your request is $otp|	
+|19	.|	mosip.registration.emailnotificationtemplateupdateuin                  | hello $user the otp is $otp|	
+|20	.|	mosip.registration.smsnotificationtemplateupdateuin                    | otp for your request is $otp|	
+|21	.|	mosip.registration.emailnotificationtemplatelostuin                    | hello $user the otp is $otp|	
+|22	.|	mosip.registration.smsnotificationtemplatelostuin                      | otp for your request is $otp|	
+|23	.|	mosip.registration.passwordexpirydurationindays                        | 3							|	
+|24	.|	mosip.registration.keyvalidityperiodregpack                            | 3							|	
+|25	.|	mosip.registration.keyvalidityperiodpreregpack                         | 3							|	
+|26	.|	mosip.registration.retentionperiodaudit                                | 3							|	
+|27	.|	mosip.registration.automaticsyncfreqservertoclient                     | 25							|	
+|28	.|	mosip.registration.blockregistrationifnotsynced                        | 10							|	
+|29	.|	mosip.registration.maxdurationregpermittedwithoutmasterdatasyncindays  | 10							|	
+|30	.|	mosip.registration.maxdurationwithoutmasterdatasyncindays              | 7							|	
+|31	.|	mosip.registration.modeofnotifyingindividual                           | mobile						|	
+|32	.|	mosip.registration.nooffingerprintauthtoonboarduser                    | 10							|	
+|33	.|	mosip.registration.noofirisauthtoonboarduser                           | 10							|	
+|34	.|	mosip.registration.multifactorauthentication                           | true						|	
+|35	.|	mosip.registration.gpsdistanceradiusinmeters                           | 3							|	
+|36	.|	mosip.registration.officerauthtype                                     | password					|	
+|37	.|	mosip.registration.supervisorauthtype                                  | password					|	
+|38	.|	mosip.registration.defaultdob                                          | 1-jan						|	
+|39	.|	mosip.registration.maxdocsizeinmb                                      | 150						|	
+|40	.|	mosip.registration.modeofcommunication                                 | sms,email					|	
+|41	.|	mosip.registration.masterSyncJob.frequency                             | 190						|	
+|42	.|	mosip.registration.preRegistrationDataSyncJob.frequency                | 190						|	
+|43	.|	mosip.registration.packetSyncStatusJob.frequency                       | 190						|	
+|44	.|	mosip.registration.keyPolicySyncJob.frequency                          | 190						|	
+|45	.|	mosip.registration.registrationDeletionJob.frequency                   | 190						|	
+|46	.|	mosip.registration.synchConfigDataJob.frequency                        | 190						|	
+|47	.|	mosip.registration.deleteAuditLogsJob.frequency                        | 190						|	
+|48	.|	mosip.registration.regUserMappingSyncJob.frequency                     | 190						|	
+|49	.|	mosip.registration.preRegistrationPacketDeletionJob.frequency          | 190						|	
+|50	.|	mosip.registration.registrationPacketSyncJob.frequency                 | 190						|	
+|51	.|	mosip.registration.Login_Credentials_Sync.frequency                    | 190						|	
+|52	.|	mosip.registration.Registration_Client_Setup_Sync.frequency            | 190						|	
+|53	.|	mosip.registration.Registration_Client_Config_Sync.frequency           | 190						|	
+|54	.|	mosip.registration.User_Role_Setup_Sync.frequency                      | 190						|	
+|55	.|	mosip.registration.packet.maximum.count.offline.frequency              | 100						|	
+|56	.|	mosip.registration.distance.from.machine.to.center                     | 230						|	
+|57	.|	mosip.registration.geo.capture.frequency                               | n							|	
+|58	.|	mosip.registration.user_on_board_threshold_limit                       | 1							|	
+|59	.|	mosip.registration.fingerprint_disable_flag                            | y							|	
+|60	.|	mosip.registration.iris_disable_flag                                   | y							|	
+|61	.|	mosip.registration.face_disable_flag                                   | y							|	
+|62	.|	mosip.registration.document_disable_flag                               | y							|	
+|63	.|	mosip.registration.supervisor_authentication_configuration             | y							|	
+|64	.|	mosip.registration.username_pwd_length                                 | 50							|	
+|65	.|	mosip.registration.finger_print_score                                  | 100						|	
+|66	.|	mosip.registration.quality_score                                       | 60							|	
+|67	.|	mosip.registration.capture_time_out                                    | 100000						|	
+|68	.|	mosip.registration.document_size                                       | 1000000					|	
+|69	.|	mosip.registration.pre_reg_no_of_days_limit                            | 5							|	
+|70	.|	mosip.registration.document_scanner_dpi                                | 75							|	
+|71	.|	mosip.registration.document_scanner_brightness                         | 10							|	
+|72	.|	mosip.registration.document_scanner_contrast                           | 10							|	
+|73	.|	mosip.registration.document_scanner_doctype                            | jpg						|	
+|74	.|	mosip.registration.uin_update_config_flag                              | y							|	
+|75	.|	mosip.registration.uin.update.configured.fields                        | name,age,gender,address,phone,email,parentOrGuardianDetails,foreigner,biometrics,cnieNumber|	
+|76	.|	mosip.registration.re_capture_time                                     | 10							|	
+|77	.|	mosip.registration.key_policy_sync_threshold_value                     | 1							|	
+|78	.|	mosip.registration.max_reg_packet_size                                 | 5							|	
+|79	.|	mosip.registration.registartion_center                                 | 20916						|	
+|80	.|	mosip.registration.reg_pak_max_cnt_apprv_limit                         | 100						|	
+|81	.|	mosip.registration.reg_pak_max_time_apprv_limit                        | 30							|	
+|82	.|	mosip.registration.eod_process_config_flag                             | y							|	
+|83	.|	mosip.registration.audit_log_deletion_configured_days                  | 10							|	
+|84	.|	mosip.registration.reg_deletion_configured_days                        | 45							|	
+|85	.|	mosip.registration.pre_reg_deletion_configured_days                    | 45							|	
+|86	.|	mosip.registration.sync_transaction_no_of_days_limit                   | 5							|	
+|87	.|	mosip.registration.invalid_login_count                                 | 3							|	
+|88	.|	mosip.registration.invalid_login_time                                  | 2							|	
+|89	.|	mosip.registration.gps_device_enable_flag                              | y							|	
+|90	.|	mosip.registration.gps_device_model                                    | gpsbu343connector			|	
+|91	.|	mosip.registration.gps_port_timeout                                    | 1000						|	
+|92	.|	mosip.registration.gps_serial_port_linux                               | /dev/ttyusb0				|	
+|93	.|	mosip.registration.gps_serial_port_windows                             | com4						|	
+|94	.|	mosip.registration.ui_sync_data                                        | y							|	
+|95	.|	mosip.registration.last_export_registration_config_time                | 10							|	
+|96	.|	mosip.registration.cbeff_only_unique_tags                              | N							|	
+|97	.|	mosip.registration.audit_application_id                                | REG						|	
+|98	.|	mosip.registration.audit_application_name                              | REGISTRATION				|	
+|99	.|	mosip.registration.audit_default_host_ip                               | 120.0.0.0					|	
+|100.|	mosip.registration.audit_default_host_name                             | localhost					|	
+|101.|	mosip.registration.packet_store_date_format                            | dd-MMM-yyyy				|	
+|102.|	mosip.registration.identity_class_name                                 | io.mosip.registration.dto.demographic.MoroccoIdentity|	
+|103.|	mosip.kernel.jsonvalidator.property-source			                  |  LOCAL						|	
+|104.|	mosip.kernel.jsonvalidator.file-storage-uri                           | LOCAL						|	
+|105.|	mosip.registration.registration_packet_store_location              | ..//PacketStore			|	
+|105.|	mosip.registration.max_age                                         | 150						|	
+|107.|	mosip.registration.age_limit_for_child                             | 3							|	
+|108.|	mosip.registration.face_recapture_time                             | 10							|	
+|109.|	mosip.registration.sync_data_freq                                  | 0 0 11 * * ?				|	
+|110.|	mosip.registration.registration_pre_reg_packet_location            | ..//PreRegPacketStore		|	
+|111.|	mosip.registration.otp_channels                                    | mobile						|	
+|112.|	mosip.kernel.xsdstorage-uri                                       |  LOCAL						|	
+|113.|	mosip.kernel.xsdfile                            |  LOCAL						|	
+|114.|	mosip.registration.ideal_time                                      |  600						|	
+|115.|	mosip.registration.refreshed_login_time                            | 540						|	
+|116.|	mosip.registration.leftslap_fingerprint_threshold                  | 80							|	
+|117.|	mosip.registration.rightslap_fingerprint_threshold                 | 80							|	
+|118.|	mosip.registration.thumbs_fingerprint_threshold                    | 80							|	
+|119.|	mosip.kernel.transliteration.arabic-language-code                           | ara	|	
+|120.|	mosip.kernel.transliteration.franch-language-code        |  fra	|	
+|121.|	mosip.registration.lost_uin_disable_flag                    |  y|	
+|122.|	mosip.registration.softwareUpdateCheck_configured_frequency                                     |  10|	
+|123.|	mosip.registration.is_software_update_available                                     |  Y|	
+|124.|	mosip.registration.consent_eng                              | I provide my consent for storage and utilization of my personal data.	|	
+|125.|	mosip.registration.consent_ara                             |.|
+|126.|	mosip.registration.consent_fra                                |Je donne mon consentement pour le stockage et l'utilisation de mes données personnelles.|
+|127.|	mosip.registration.webcam_name                           |logitech|
+|128.|	mosip.registration.webcam_library_name                   | sarxos|
+|129.|	mosip.registration.document_scanner_enabled				|no|
+|130.|	mosip.registration.send_notification_disable_flag        |y|
+|131.|	mosip.kernel.idobjectvalidator.file-storage-uri     | LOCAL|
+|132.|	mosip.kernel.idobjectvalidator.schema-name       |mosip-identity-json-schema.json|
+|133.|  mosip.kernel.idobjectvalidator.property-source | LOCAL|
 
 **Database:**  
    - The Derby database will be used to store the local transaction information along with Master and configuration data.   
