@@ -2,7 +2,7 @@ This page will provide details on the various deliverables scheduled to be deliv
 1. [Feb'19](Feb'19)
 2. Mar'19
 3. [Apr'19](Apr-'19)
-4. May'19
+4. [May'19](May-'19)
 5. Jun'19
 6. [Platform Documentation](Platform-Documentation)
 7. [Component-Feature-JIRA ID Mapping](Component-x-Feature-x-JIRA-ID-Mapping)
