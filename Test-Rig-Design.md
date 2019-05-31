@@ -16,18 +16,24 @@ Automation deliverables mainly comprises of individual module level suites for t
 1. Registration Processor
 1. IDA
 1. Kernel
-Additionally there will be an end to end, system level test suite that will cut across all modules covering the functioality 
 
-The automation framework is further categorized to selectively execute tests such as Sanity or/and Regression across the modules which comprises of many utilities.
-There will be one Test Rig for each of the below modules that be triggered via the CI/CD pipeline for the module. This would cover complete API level testing for that module including API level integration.
-1. Pre-Registration 
-1. Registration Client
-1. Registration Processor
-1. IDA
+Additionally there will be an end to end, system level test suite that will cut across all modules covering the functionality 
+
+Module Level Automation Suites
+***
+The below diagram depicts the various building blocks of the module level suite.
+Salient features 
+1. The automation suite is configurable to selectively execute tests such as Sanity or/and Regression 
+2. Each module level suite covers API and inter API automation
+
+The individual module level test suites and the end to end suite are triggered via the CI/CD pipeline and run post application deployment
+
+System Level or E2E Automation Suite (Test Rig)
+End to end system level Test Rig covers the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
 
-There will also be an end to end system level Test Rig covering the functionality across the modules starting with Pre-Reg and ending in Reg Proc or IDA. 
+
 
 
 ![Configure Pipelines](_images/test_rig_automation/E2ETestRigDesign.drawio.jpg)
