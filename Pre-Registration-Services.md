@@ -2441,10 +2441,10 @@ Requires Authentication | Yes
 {
     "id": "mosip.pre-registration.appointment.cancel",
     "version": "1.0",
-    "responsetime": "2019-05-15T11:04:41.312Z",
+    "responsetime": "2019-05-31T09:26:05.870Z",
     "response": {
-        "transactionId": "3ce712c7-7701-11e9-967a-530860351daf",
-        "message": "Appointment cancelled successfully"
+        "transactionId": "1da8f8b8-8386-11e9-a18f-cb89ed940c1b",
+        "message": "Appointment for the selected application has been successfully cancelled"
     },
     "errors": null
 }
