@@ -1,9 +1,9 @@
 ## Table Of Content
-* [Test Rig Design](#test-rig-design)
+* [Test Automation](#test-automation)
   * [Module Level Automation Suites](#module-level-automation-suites-)
   * [System Level or E2E Automation Suite (Test Rig)](#system-level-or-e2e-automation-suite-test-rig-)
 
-## Test Rig Design
+## Test Automation
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Test-Rig comprises of multiple components starting from: 
