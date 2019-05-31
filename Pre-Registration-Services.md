@@ -2849,7 +2849,7 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 ###### Description: QR Code generated  successfully
 ```JSON
 {
-   "id": "mosip.pre-registration.notification.qrCode",
+   "id": "mosip.pre-registration.qrcode.generate",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
@@ -2863,7 +2863,7 @@ request.LangCode| Yes| language code whatever user choose while login|eng
 ###### Description: Failed to generate QR code
 ```JSON
 {
-   "id": "mosip.pre-registration.notification.qrCode",
+   "id": "mosip.pre-registration.qrcode.generate",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": null,
@@ -2933,7 +2933,8 @@ langCode| Yes| language code whatever user choose while login|eng
 	"appointmentTime": "22:57",
 	"mobNum": "9748107386",
 	"emailID": "sanober.noor2@mindtree.com",
-         "additionalRecipient":"true"
+        "additionalRecipient":"true",
+       "isBatch":"false"
 
    }
 }
