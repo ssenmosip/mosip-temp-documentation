@@ -16,6 +16,7 @@ Test-Rig comprises of multiple components starting from:
 1. Running automated unit tests
 1. Running automated tests to verify and validate the application build against the given requirements. 
 
+Test Automation
 Automation deliverables mainly comprises of individual module level suites for the individual MOSIP modules:
 1. Pre-Registration 
 1. Registration Client
