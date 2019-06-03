@@ -690,7 +690,7 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
   "responsetime": "2019-02-02T06:12:25.288Z",
   "response": {
     "registrationId": "10031100110005020190313110030",
-    "status": "RECEIVED",
+    "status": "SUCCESS",
     "message": "Packet created and uploaded"
   }
 }
