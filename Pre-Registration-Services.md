@@ -848,7 +848,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         "postalCode": "14022",
         "phone":"9680958812",
         "email": "jagadishwari.selvaraj@mindtree.com",
-        "CNIENumber": "2864123456765432",
+        "CNIENumber": "2864123456765432"
       }
     }
   }
