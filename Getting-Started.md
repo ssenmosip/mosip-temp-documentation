@@ -960,7 +960,7 @@ data:
 `kubectl create secret generic config-server-keystore --from-file=server.keystore=< location-of-your-server.keystore-file-generated-above >`
 <br/>
 <br/>
-7. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
+7. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url of configuration repository
 <br/>
 <br/>
 8. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
