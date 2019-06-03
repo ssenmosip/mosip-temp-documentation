@@ -1,18 +1,6 @@
 # Kernel Dependencies List
 
-
-### 1 Prerequisites : <br><sub>Internal Service Dependencies</sub></br>
-Service|Dependencies|Description (If any)
--------|--------------|----------------
-All Services|kernel-auth-service|For Authentication and Validation
-kernel-auth-service| id-repository-identity-service <br> kernel-otpmanager-service <br> kernel-emailnotification-service <br> kernel-smsnotification-service| For UIN based login to sendOtp <br> For OTP generation and validation <br> For Sending Notification
-kernel-syncdata-service|kernel-keymanager-service <br> kernel-auth-service <br> kernel-syncjob-service|For public key <br> For  Role and User details <br> For Syncjob defination Details
-kernel-cryptomanager-service|kernel-keymanager-service| For public key and private key decryption
-kernel-signature-service|kernel-keymanager-service|For public key and private key siginig
-
-
-
-### 2 Prerequisites : <br><sub>Dependent DB/External applications and services</sub></br>
+### 1 Prerequisites : <br><sub>Dependent DB/External applications and services</sub></br>
 Dependency|Component|Description (If any)
 -----|--------------|----------------
 DB|mosip_iam|Required for kernel-auth-service.
@@ -25,5 +13,14 @@ DFS|HDFS|Required for kernel-fsadaptor-hdfs. <br> [External Dependency Setup](ht
 SMS Gateway|msg91.com|Required for kernel-smsnotification-service. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#6-installing-external-dependencies-)
 
 
+
+### 2 Prerequisites : <br><sub>Internal Service Dependencies</sub></br>
+Service|Dependencies|Description (If any)
+-------|--------------|----------------
+All Services|kernel-auth-service|For Authentication and Validation
+kernel-auth-service| id-repository-identity-service <br> kernel-otpmanager-service <br> kernel-emailnotification-service <br> kernel-smsnotification-service| For UIN based login to sendOtp <br> For OTP generation and validation <br> For Sending Notification
+kernel-syncdata-service|kernel-keymanager-service <br> kernel-auth-service <br> kernel-syncjob-service|For public key <br> For  Role and User details <br> For Syncjob defination Details
+kernel-cryptomanager-service|kernel-keymanager-service| For public key and private key decryption
+kernel-signature-service|kernel-keymanager-service|For public key and private key siginig
 
 
