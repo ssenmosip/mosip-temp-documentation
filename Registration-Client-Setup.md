@@ -162,11 +162,11 @@ Through sync process the data would be sync between local machine and server bas
 |7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data. |	
 |8	.|	Packet Sync  | To upload the list of packet related information before uploading packet . |	
 |9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet. |	
+|14	.|	Packet Upload  | To upload the packet generated out out New/ Lost UIN / Update UIN process to MOSIP server. |	
 |10	.|	Send OTP  | To send the OTP message. |	
-|11	.|	Validate OTP | To disable the Face capture. |	
-|12	.|	Auth Service - UserName and Password  | To disable the Face capture. |	
-|13	.|	Auth Service - Client id and Secret Key  | To disable the Face capture. |	
-|14	.|	Packet Upload  | To disable the Face capture. |	
-|15	.|	Notification Service (SMS / EMAIL) | To disable the Face capture. |	
-|16	.|	Validate / Invalidate auth Token  | To disable the Face capture. |	
+|11	.|	Validate OTP | To validate the provided OTP. |	
+|12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. |	
+|13	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |	
+|16	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |	
+|15	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |	
    
