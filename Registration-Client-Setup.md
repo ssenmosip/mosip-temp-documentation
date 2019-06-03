@@ -23,6 +23,8 @@ This document contains the 'Registration client' application initial setup and c
    - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
    - Through sync process the data would be updated into the local database from server.  
+   - All the required REST services should be installed and the respective url should be configured in 'spring' configuration file.  
+   - Property file [mosip-application.properties] should be updated with right information. 
        
         
 **Anti Virus - ClamAV Setup and Configuration in local machine:**  
@@ -86,19 +88,18 @@ This document contains the 'Registration client' application initial setup and c
 
 **Update Process:**
 ***
-
    **Application update:**
    - During the startup of the application, the software check will be validating against the maven-metadata.xml file from artifactory repository. If any diffs found, application prompts the user with 'Update Now' or 'Update Later' options to install immediately or later. Apart from this there is another menu option available in the application to trigger the 'Update' process post login to the application. The update process would update both the application binaries and DB.
         
    **Database update:**  
-   - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql' folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error. 
+   - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql' folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error.  
+
 
 **Configuration:**  
 ***
    Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine to reflect the changes.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
-
 
 |**S.No.**| **Config Key**| **Possible Values**|**Description**|
 |:------:|-----|---|---|
@@ -138,19 +139,13 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
    
    **File Location:** props/mosip-application.properties 
 
-**External hardware Driver(s):**
-***
-   This section covers the list of drivers required to communicate with the external devices.  
-   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should also be installed.  
-   - The application has been currently tested with CANON LiDE 120.  
-   - Printer should be available to take the print out from application and the respective driver should be installed.    
-   - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
     	
 **Sync and Upload Services:**  
 ***  
    In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.  There are other services are available to send the created packet from local machine to remote system.   
 
+   All the below mentioned services URL to be configured in the environment specific 'spring-<env>.properties' file before building the 'registration-services' module.   
 
 |**S.No.**| **Service Name**| **Service Description**|
 |:------:|-----|---|
@@ -173,4 +168,11 @@ Through sync process the data would be sync between local machine and server bas
 |15	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |	
 
 
+**External hardware Driver(s):**
+***
+   This section covers the list of drivers required to communicate with the external devices.  
+   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should also be installed.  
+   - The application has been currently tested with CANON LiDE 120.  
+   - Printer should be available to take the print out from application and the respective driver should be installed.    
+   - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
    
