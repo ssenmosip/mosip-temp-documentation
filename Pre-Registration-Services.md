@@ -32,6 +32,7 @@ API testing Prerequisites
 ~~~
 ***
 
+
 # Login Service (Public)
 This service details used by Pre-Registration portal to authenticate user by sending OTP to the user, validating with userid and OTP.
 
@@ -63,14 +64,16 @@ request.userid |Yes|user id of the applicant(mobile number/email address)|890765
 
 
 #### Request:
+###### For SMS:
+
 ```JSON
 {
-	"id": "mosip.pre-registration.login.sendotp",
-	"version": "1.0",
-	"requesttime": "2019-05-14T07:24:47.605Z",
-	"request": {	
-		"userId": "8907654778"
-	}
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2019-05-14T07:24:47.605Z",
+  "request": {
+    "userId": "8907654778"
+  }
 }
 ```
 #### Responses:
@@ -79,16 +82,45 @@ request.userid |Yes|user id of the applicant(mobile number/email address)|890765
 ###### Description: OTP sent successfully to specified channel
 ```JSON
 {
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:41:46.796Z",
+  "response": {
+    "message": "Sms Request Sent",
+    "status": "success"
+  },
+  "errors": null
+} 
+```
+###### For Email:
+
+```JSON
+{
   "id": "mosip.pre-registration.login.sendotp",
   "version": "1.0",
-  "responsetime": "2019-05-14T07:25:00.803Z",
-  "response": {
-    "message": "Email Request submitted",
-    "status": "success"
-  },
-  "errors": null
+  "requesttime": "2019-05-14T07:24:47.605Z",
+  "request": {
+    "userId": "tapaswini.behera3@mindtree.com"
+  }
 }
 ```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: OTP sent successfully to specified channel
+```JSON
+{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:41:46.796Z",
+  "response": {
+    "message": "Email Request submitted",
+    "status": "success"
+  },
+  "errors": null
+} 
+```
+
 ##### Failure Response:
 ###### Status code: '200'
 ###### Description: Invalid parameters
@@ -109,10 +141,11 @@ request.userid |Yes|user id of the applicant(mobile number/email address)|890765
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_LGN_008|	Invalid Request userId received|	If requested userId is invalid
-PRG_PAM_CORE_001|   Request id is invalid|  Invalid or empty Request Id
-PRG_PAM_CORE_002 |   Request version is invalid |Invalid or empty Request version
-PRG_PAM_CORE_003    | Request timestamp is invalid |Invalid or empty Request time
+PRG_PAM_LGN_008|Invalid Request userId received|if requested userId is empty or invalid
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request time
+
 ### POST /login/validateOtp
 This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
 
@@ -138,13 +171,13 @@ request.OTP|Yes| received OTP  |345674
 #### Request:
 ```JSON
 {
-	"id": "mosip.pre-registration.login.useridotp",
-	"version": "1.0",
-	"requesttime": "2019-03-15T08:28:04.783Z",
-	"request": {
-		"otp": "345674",
-		"userId": "8907654778"
-	}
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "requesttime": "2019-06-03T08:28:04.783Z",
+  "request": {
+    "otp": "345674",
+    "userId": "8907654778"
+  }
 }
 ```
 #### Responses:
@@ -153,15 +186,15 @@ request.OTP|Yes| received OTP  |345674
 ###### Description: sms sent successfully
 ```JSON
 {
-  "id": "mosip.pre-registration.login.useridotp",
-  "version": "1.0",
-  "responsetime": "",
-  "response": {
-    "message": "VALIDATION_SUCCESSFUL",
-    "status": "success"
-  },
-  "errors": null
-}
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:47:10.838Z",
+  "response": {
+    "message": "VALIDATION_SUCCESSFUL",
+    "status": "success"
+  },
+  "errors": null
+} 
 ```
 ##### Failure Response:
 ###### Status code: '200'
@@ -170,7 +203,7 @@ request.OTP|Yes| received OTP  |345674
 {
   "id": "mosip.pre-registration.login.useridotp",
   "version": "1.0",
-  "responsetime": "2019-05-14T18:03:12.305Z",
+  "responsetime": "2019-06-03T18:03:12.305Z",
   "response": null,
   "errors": [
     {
@@ -183,16 +216,13 @@ request.OTP|Yes| received OTP  |345674
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-KER-OTV-003 |	OTP can't be empty or null.	|   If otp field is null
-KER-OTV-004 |   OTP consists of only numeric characters. No other characters is allowed. | If otp contains character other than numeric
-KER-OTV-005|Validation can't be performed against this key. Generate OTP first.|If validation has already done against the generated otp
-PRG_AUTH_002    |   Authentication failed   | If userId field is null or invalid
-PRG_PAM_CORE_001|   Request id is invalid|  Invalid or empty Request Id
-PRG_PAM_CORE_002 |   Request version is invalid |Invalid or empty Request version
-PRG_PAM_CORE_003    | Request timestamp is invalid |Invalid or empty Request time
-PRG_CORE_REQ_013  | Request date should be current date | If the date is not current date
-PRG_PAM_LGN_013|	OTP_EXPIRED|	If otp expired
-PRG_PAM_LGN_008 |   Invalid Request userId received | if request id is invalid or empty
+KER-ATH-003|User Detail doesn't exist.|If userId is empty or invalid
+KER-OTV-003|OTP can't be empty or null.|  If otp field is empty or null
+KER-OTV-004|OTP consists of only numeric characters. No other characters is allowed|If otp contains character other than numeric
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If the date is not current date
 
 ### POST /login/invalidateToken
 This request will invalidate the authorization token when force logout is done.
