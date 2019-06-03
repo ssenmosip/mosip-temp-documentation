@@ -18,11 +18,12 @@ This document contains the 'Registration client' application initial setup and c
 **Application Prerequisites:**  
    Before running the 'Registration client' application, following prerequisites to be completed.
 	
-   - User should have online connectivity to the application JFrog repository. 
-     {13.71.87.138:8040/artifactory/libs-release/io/mosip/registration/registration-client/}	   
-   - User setup in MOSIP Admin Portal and IAM system.  
-   - Machine [machine name or mac id] and center configuration.  
-   - Machine with center mapping configuration.  
+   - User's machine should have online connectivity access to the JFrog artifactory repository, where the application binaries are available.   
+   - User, machine, center mapping and all other required table and data setup should exists in MOSIP server database along with the profile configuration in LDAP server.    
+   - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
+   - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
+   - Through sync process the data would be updated into the local database from server.  
+       
         
 **Anti Virus - ClamAV Setup and Configuration in local machine:**  
 ***  
@@ -56,35 +57,41 @@ This document contains the 'Registration client' application initial setup and c
  
 **Installation at Desktop Machine:**   
 ***  
-**Zip file:**  
+**Download - Application Initial Setup file:**  
    
-   1. User login to the JFROG Binary portal and download the client application ZIP file [mosip-sw-0.*.*.zip].   
+   1. User login to the JFROG artifactory portal and download the client application initial setup ZIP file [mosip-sw-0.12.*.zip].   
    2. Once downloaded then unzip the file into a particular location. It contains the following folder structure.  
-      - bin : It contains the client UI and service executable in encrypted format.
-      - lib : it contains the library required for the application to start.  
-      - prop : it contains the property file that will be used by application.    
-      - cer  : it contains the certificate used to communicate with the MOSIP server.
-      - log : the application log file would be written under this folder.    
-      - db : it contains the derby database, tables and few table with the data.  
-      - run.jar : Executable jar to download the s/w.
-      - MANIFEST.MF : Third Party libraries information.
+      - bin : It contains the client UI and service binaries in encrypted format.
+      - lib : It contains the library required for the application to run.  
+      - prop : It contains the property file that will be used by application.    
+      - cer  : It contains the certificate used to communicate with the MOSIP server.  
+      - db : It contains the encrypted derby database.   
+      - run.bat : batch file to launch the application.  
+      - MANIFEST.MF : Third Party libraries information.  
    3. Click the 'run.jar or run.bat' to initiate the setup process.  
    
-   When user clicks on the 'run.jar' it does the following :  
-   1. It loads the binary repository URL from property file.  
+   When user clicks on the 'run.jar or run.bat' it does the following :  
+   1. Loads the binary repository URL from property file.  
    2. Communicate with the  JFrog repository through secured connection and download the maven-metadata.xml file to identify the latest jar versions.    
    3. Download the latest build Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
    4. Compare the checksum of local version of jar files with the data present in latest downloaded Manifest.mf file.    
    5. Identify the list of binary files and Download the required jars.  
-   6. Once download completed then communicate with TPM to decrypt the key, which is used to decrypt the UI and service jars.  
-   7. Place the jar to the User temp directory and start the application.  
+   6. Once download completed then communicate with TPM to decrypt the key{if TPM enabled}, which is used to decrypt the UI and service jars and start the application.   
    
 **Application Startup:**  
-   - Once application launched then connect to the TPM and pull the required key to communicate with the DB.  
    - User should initially be online to validate their authentication against the MOSIP server. Post which, the sync process would be initiated.     
-   - Check the data availability in the local DB, if no data available then initiate the Sync [Master/ Configure/ User] process to download the machine [MAC ID] specific center level data from MOSIP server environment.  
-   - During initial setup, the application should have online connectivity with the MOSIP server to synch the configuration detail from server to local machine.       
-   - Before initialize the installation process, user should make sure that the local system meets the runtime / hardware requirement.    
+   - Once the sync process completed then restart the application to pick the local configuration.  
+   - User should perform the self onboarding before start using the application.  
+
+
+**Update Process:**
+***
+
+   **Application update:**
+   - During the startup of the application, the software check will be validating against the maven-metadata.xml file from artifactory repository. If any diffs found, application prompts the user with 'Update Now' or 'Update Later' options to install immediately or later. Apart from this there is another menu option available in the application to trigger the 'Update' process post login to the application. The update process would update both the application binaries and DB.
+        
+   **Database update:**  
+   - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql' folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error. 
 
 **External hardware Driver(s):**
    This section covers the list of drivers required to communicate with the external devices.  
@@ -92,20 +99,19 @@ This document contains the 'Registration client' application initial setup and c
    - The application has been currently tested with CANON LiDE 120.  
    - Printer should be available to take the print out from application and the respective driver should be installed.    
    - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
-   - TPM 2.0 should be enabled to secure the application.  
 
 **Configuration:**  
-   Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine to reflect the changes.  
+   Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine to reflect the changes.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
 
 
 |**S.No.**| **Config Key**| **Possible Values**|**Description**|
 |:------:|-----|---|---|
-|1	.|	mosip.registration.fingerprint_disable_flag                            | y							| To disable the fingerprint capture. |	
-|2	.|	mosip.registration.iris_disable_flag                                   | y							| To disable the IRIS capture. |	
-|3	.|	mosip.registration.face_disable_flag                                   | y							| To disable the Face capture. |	
-|4	.|	mosip.registration.document_disable_flag                               | y							| To disable the document capture. | 	
+|1	.|	mosip.registration.fingerprint_disable_flag                            | y	/ n						| To disable the fingerprint capture. |	
+|2	.|	mosip.registration.iris_disable_flag                                   | y	/ n							| To disable the IRIS capture. |	
+|3	.|	mosip.registration.face_disable_flag                                   | y	/ n							| To disable the Face capture. |	
+|4	.|	mosip.registration.document_disable_flag                               | y	/ n							| To disable the document capture. | 	
 |5	.|	mosip.registration.iris_threshold									   | 60							|	
 |6	.|	mosip.registration.leftslap_fingerprint_threshold                      | 70							|	
 |7.|	mosip.registration.rightslap_fingerprint_threshold                 | 80							|	
@@ -120,63 +126,47 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 |16	.|	mosip.registration.pre_reg_no_of_days_limit                            | 5							|	
 |17	.|	mosip.registration.reg_pak_max_cnt_apprv_limit                         | 100						| Max No. of packets waiting for approval.	|
 |18	.|	mosip.registration.reg_pak_max_time_apprv_limit                        | 30							| Max time wait for approval in mins. |	
-|19	.|	mosip.registration.eod_process_config_flag                             | y							| Enable/ Disable EOD process. |
+|19	.|	mosip.registration.eod_process_config_flag                             | y	/ n							| Enable/ Disable EOD process. |
 |20	.|	mosip.registration.invalid_login_count                                 | 3							| 	
 |21	.|	mosip.registration.invalid_login_time                                  | 2							|	
-|22	.|	mosip.registration.gps_device_enable_flag                              | y							| Enable / Disable GPS |	
-|23	.|	mosip.registration.uin_update_config_flag                              | y							| Enable / Disable update feature. |
-|24.|	mosip.registration.lost_uin_disable_flag                    |  y| Enable / Disable Lost UIN functionality. |
+|22	.|	mosip.registration.gps_device_enable_flag                              | y	/ n							| Enable / Disable GPS |	
+|23	.|	mosip.registration.uin_update_config_flag                              | y	/ n							| Enable / Disable update feature. |
+|24.|	mosip.registration.lost_uin_disable_flag                    |  y	/ n| Enable / Disable Lost UIN functionality. |
 |25.|	mosip.registration.webcam_name                           |logitech|
 |26.|	mosip.registration.document_scanner_enabled				|no|
-|27.|	mosip.registration.send_notification_disable_flag        |y| Enable/ Disable additional notification. |
+|27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |
 
-**Database:**  
-   - The Derby database will be used to store the local transaction information along with Master and configuration data.   
-   - The data stored into the database would be encrypted using a particular boot key password, which is secured in TPM.     
-   - The initial DB contains all the required empty tables along with few tables are having data.    
-   - Through sync process the data would be updated into the local database from server.  
-   - The user mapped to the local machine would be pushed to the server through sync process.  
-   
 
-**Update Process:**
+**Property File:**
 ***
-   **Application update:**
-   - The application binary update is validated during startup of the application by downloading maven-metadata.xml file from JFROG repository. If any library version difference found with the version available at the local system then display the message to the user to initiate the update process. User can either choose the 'Update Now' or 'Update Later' option to initiate the update process or postponed to implement it later. User can initiate the 'Update' process post login to the application.  
+   There are few properties which can be configured at local machine based on the local system requirement.    
+     Eg: TPM - enable / disable flag, artifactory url, environment name.   
    
-   **Database update:**  
-   - The database update would be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside registration-service/resource/sql this folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error. 
+   **File Location:** props/mosip-application.properties 
 
     	
-**Initial - Data Setup:**  
+**Sync and Upload Services:**  
 ***
-In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
-Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.
+   In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
+Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.  There are other services are available to send the created packet from local machine to remote system.  
 
-   **Sync Service :**  
-   The following data would be sync from Server to local db through the multiple sync jobs and the same to be setup at server by Admin.   
+**
+|**S.No.**| **Service Name**| **Service Description**|
+|:------:|-----|---|
+|1	.|	User Detail Sync  | To synchronize the user related information. |	
+|2	.|	User salt Sync  | To synchronize the user related salt. |	
+|3	.|	Master Data Sync  | To download the master data. |	
+|4 	.|	Application configuration Sync  | To synchronize the application configuration from config server. |	
+|5	.|	Policy Sync  | To synchronize the key required for packet creation based on center and machine id. |	
+|6	.|	MOSIP public key Sync  | To synchronize the MOSIP public key. |	
+|7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data. |	
+|8	.|	Packet Sync  | To upload the list of packet related information before uploading packet . |	
+|9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet. |	
+|10	.|	Send OTP  | To send the OTP message. |	
+|11	.|	Validate OTP | To disable the Face capture. |	
+|12	.|	Auth Service - UserName and Password  | To disable the Face capture. |	
+|13	.|	Auth Service - Client id and Secret Key  | To disable the Face capture. |	
+|14	.|	Packet Upload  | To disable the Face capture. |	
+|15	.|	Notification Service (SMS / EMAIL) | To disable the Face capture. |	
+|16	.|	Validate / Invalidate auth Token  | To disable the Face capture. |	
    
-   1.	User Profile Setup. 
-   2.	User Authentication Setup. 
-   3.	Role Setup. 
-   4.	Master Data Setup at application level. 
-   5.	Application configuration setup. 
-   6.	Device Configuration. 
-   7.	Registration Center Configuration. 
-   8.	Machine Configuration. 
-   9.	Center to Machine mapping. 
-   10.	Center User mapping. 
-   11.  Policy sync.  
-
-
-**Archival Policy:**
-***
-   At the regular interval the old / historical transactional data in the client database / logs would be deleted.
-   The batch process which is running at the client application, will do this process based on the defined configuration in DB table.
-
-   **List of data to be archived:** 
-   1.	Transaction data in database
-   2.	Audit log in database
-   3.	Logs in local machine.
-   4.	Generated Registration and Pre-Registration packet.
-
-
