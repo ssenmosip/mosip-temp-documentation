@@ -43,21 +43,21 @@
 
 When a Registration Officer or Supervisor logs in to a client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or Registration officer to work in offline mode (when the client is not connected to the server).
 #### A. Map registration officers and supervisors to a client machine.
-Initially a machine will have no users on boarded. The first Registration Officer/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this Registration Officer/Supervisor can onboard other users.
+Initially, a machine will have no users on boarded. The first Registration Officer/Supervisor will be on boarded by an Administrator or from the backend. Thereafter this Registration Officer/Supervisor can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine
 1. Allow the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data
    * Fields selected on the UI include user, status, fingerprints, and irises.
    * The list of users will include only active users. The system does not show users who are blacklisted or decommissioned.
-   * The list of users does not include users who are already mapped to the machine.
+   * The list of users do not include users who are already mapped to the machine.
    * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
    * The system then validates the fingerprint quality threshold is met.
    * The system then validates the number of successful fingerprint authentications is greater than or equal to the config setting of fingerprint authentications required.
-   * Unlimited retries are allowed.
+   * Unlimited attempts are allowed.
    * Both irises are captured and authenticated with the server. Validate that the iris quality threshold is met.
    * Validate that the number of successful iris authentications is greater than or equal to the config setting of iris authentications required.
-   * Unlimited retries are allowed.
+   * Unlimited attempts are allowed.
 3. If validations are successful, then the system performs the following:
-   * Save the mapping locally.
+   * Saves the mapping locally.
    * Successfully authenticated fingerprints and irises will be stored locally.
    * Fingerprints and irises with unsuccessful authentication will not be stored.
    * The status of the mapping is set to ‘Active’ or ‘Inactive’ as selected.
@@ -66,9 +66,9 @@ Initially a machine will have no users on boarded. The first Registration Office
 4. If not successful: Triggers an error message.
 5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
-#### B. Registration client enables capturing an officer's biometrics during on-boarding in order to support login, local duplicate checks, and registration submission
+#### B. Registration client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission
 The system performs the following steps:
-1. Captures all the biometrics of the officer's biometrics as an input.
+1. Captures all the biometrics of the officer's as an input.
 1. Generates a match score for each individual biometric
 1. Generates an average match score
 1. Compares the average match score with the configured threshold match score 
@@ -90,18 +90,18 @@ MOSIP supports single factor and multi factor login including iris and face capt
 5. On successful authentication, the system logs in the user.
 
 #### B. Temporarily lock the user account after five unsuccessful login attempts.
-1. The MOSIP system temporarily locks the user to login in case the user gives an invalid password for login five times continuously.
+1. The MOSIP system temporarily locks the user's account in case the user gives an invalid password for login five times continuously.
 1. Upon the fifth unsuccessful attempt to login, displays an error message 
-1. The temporarily lock lasts for 30 minutes (configured by an admin).
+1. The temporarily account lock lasts for 30 minutes (configured by an admin).
 1. The same error message is displayed for any subsequent login attempt within 30 minutes.
 1. After 30 minutes, the lock is released and the count of invalid login attempts is reset to zero.
 1. The same is implemented if the fingerprint, iris, face, or multifactor login fails five times.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 #### C. Authenticate online/offline login of the Supervisor to the client application [**[↑]**](#table-of-content)
-If the Registration Client is offline, then system allows the supervisor to log in to the client machine only with a password-based login. Whereas, if the Registration Client is online, the supervisor can log in to the client machine with all various type of login such as Password-based login, OTP based login, etc.
+If the Registration Client is offline, then system allows the supervisor to log in the client machine only with a password-based login. Whereas, if the Registration Client is online, the supervisor can log in to the client machine with all various type of login such as Password-based login, OTP based login, etc.
 
-When a supervisor opts to log in to the client machine the systems displays the appropriate options as per the mode of login.
+When a supervisor opts to log in the client machine, the systems displays the appropriate options as per the mode of login.
 
 * If the mode of login is username and password, displays the password-based login.
 * If the mode of login is username and OTP, display the OTP based login 
@@ -109,11 +109,11 @@ When a supervisor opts to log in to the client machine the systems displays the 
 
 **(i) Password-based login**
 
-The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor will be able login to the client machine in both online and offline mode using their password.
+The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor will be able to login the client machine in both online and offline mode using their password.
 
-1. System allows the user to enter their username and password and submit.
+1. System allows the user to provide his/her credential and submit.
 1. System validates that the username belongs to an on boarded Registration Officer or Supervisor on that client.
-1. System validates that the password matches the user’s password stored locally. The local password will be fetched from the server during sync.
+1. System validates that the password matches with the user’s password stored locally. The local password will be fetched from the server during sync.
 1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
 1. System validates that the user has a role or Registration Officer or Supervisor. 
 
@@ -123,22 +123,22 @@ If the client machine is online and the supervisor is mapped to the client machi
 
 1. Allows the user to enter their username and submit.
 1. Validates that the username belongs to an on-boarded Registration Officer or Supervisor on that client.
-1. Generate and send an OTP by SMS to the user’s registered mobile number. Use the template defined in Admin for the OTP message. 
-1. Allow the user to enter the OTP and submit.
-   * Alternatively, allow the user to change entered username.
-   * Alternatively, allow the user to request for resending the OTP.
-5. Validates that the OTP submitted matches the one that was generated and is submitted within its validity period.
+1. The system generates and sends an OTP by SMS to the user’s registered mobile number. Use the template defined in Admin for the OTP message. 
+1. Allows the user to enter the OTP and submit.
+   * Alternatively, allows the user to change entered username.
+   * Alternatively, allows the user to request for resending the OTP.
+5. Validates that the OTP submitted matches with the one that was generated and is submitted within its validity period.
 6. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
 7. Validates that the user has a role of Registration Officer or Supervisor.
-8. On successful validation of all conditions above, display the logged in screen to the user
+8. On successful validation of all conditions above, displays the logged in screen to the user
 
 #### D. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
 
 In MOSIP system, a user can have multiple role. When a user is registered on admin portal, the system allows user to assign multiple roles.
 
-When a logged in user tries to access a feature on the registration client the system determines if the requested feature is accessible to the role(s) mapped to the user.
+When a logged in user tries to access a feature on the registration client, the system determines if the requested feature is accessible to the role(s) mapped to the user.
 1. If yes, permits the user to access the requested feature.
-1. If no, displays an error message or hide the link to the feature as applicable. The UX design will drive whether to hide a link or display an error on click of the link.
+1. If no, displays an error message or hide the link to the feature as applicable. The UX design will drive whether to hide a link or display an error by clicking the link.
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
    * On-board users
@@ -170,14 +170,14 @@ When a logged in user tries to access a feature on the registration client the s
 ### 1.3 Logout [**[↑]**](#table-of-content)
 When a Registration Officer or Supervisor opts to logout, the system allows them to do so by provisioning the following:
 1. Allows the user to choose appropriate option (button or link) in order to log out
-1. Log the user out of their session.
+1. Logs out the user of their session.
    * While logging out, does not allow the user to perform any actions that require them to be logged in.
-3. Alternatively, closing the client window will also log the user out.
-1. Alternatively, if the user has remained inactive for a configured duration he will be automatically logged out.
+3. Alternatively, closing the client window will also log out the user.
+1. Alternatively, if the user has remained inactive for a configured duration, he/she will be automatically logged out.
    * Inactive/idle time is defined as the time during which the user has not submitted or retrieved data using the client application or navigated to a different page.
    * Any such action when performed resets the time to zero.
-   * The auto log out duration is configured from Admin. The default value can be taken as 15 minutes.
-   * Alerts the user ‘x’ minutes before reaching the auto logout time limit. Displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
+   * The auto log out duration is configured by Admin. The default value can be taken as 15 minutes.
+   * Alerts the user ‘x’ minutes before reaching the auto logout time limit. The system displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
    * The duration before which to display the alert is configured by Admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 1. The System also captures and stores the transaction details for audit purpose (except PII data).
@@ -216,25 +216,25 @@ Based on the configuration (turn on or turn off), the system allows a user to c
 The system performs the following steps to ensure packet status sync from server to client to read the status of the registration packets sent:
 1. The system allows a registration officer to either sync manually or automatically based on configured frequency.
 1. The system allows the application to request using Registration packet ID and receive the Registration packet status from the server
-1. The system displays the status of the operation to pull Registration packet IDs from Registration server - in progress/completed.
+1. The system displays the status (in progress/completed) of the operation to pull Registration packet IDs from Registration server.
 
 ### 2.5 Pre-registration Data Download [**[↑]**](#table-of-content)
 
 
 #### A. Register a pre-registered individual by searching & fetching pre-registration data associated to a pre-registration ID from local system or server
 
-When a registration officer starts a new registration by entering a pre-registration id of an individual, the system checks if an exact match for the ID exists in local database.
-1. If yes, checks if an updated pre-registration packet for that ID is available on the server.
-   * If yes, downloads the pre-registration packet from the server and pre-populate on screen.
-   * If update is not available on server, display data from local database.
-   * If client if offline, displays data from the local database.
-2. If data is not available in local database, checks if data for that ID is available on the server.
+When a registration officer starts a new registration by entering a pre-registration id of an individual, the system checks if an exact match for the ID available in local database.
+1. If available, checks if an updated pre-registration packet for that ID is available on the server.
+   * If available, downloads the pre-registration packet from the server and pre-populate on screen.
+   * If update is not available on server, the system displays the data from local database.
+   * If client if offline, the system displays the data from the local database.
+2. If data are not available in local database, checks if data for that ID is available on the server.
    * If yes, downloads the pre-registration packet from the server and pre-populate on screen.
    * If data not available on server, displays data from local database.
 3. Based on the availability of data, the system populates the demographic details of the individual and pre-populates the registration form.
 1. The demographic details can still be edited at this stage
 1. The registration officer can then view the documents uploaded during pre-registration
-1. If no matching PRID exists in local system and server, the system displays an error message.
+1. If no matching PRID available in local system and server, the system displays an error message.
 
 #### B. Registration client allows downloading of pre-registration data in real time or manually for a specific PRID
 **(i) Real time downloads of Pre-registration data**
