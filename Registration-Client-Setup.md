@@ -1,7 +1,13 @@
 **Registration Client - Installation and Configuration:** 
 ***
 
-This document contains the 'Registration client' application initial setup and configuration process at local machine.     
+This document contains the 'Registration client (Reg Client App)' application initial setup, update and configuration process.       
+
+Registration Client application is a desktop based application, that can be used to captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about parent /guardian /introducer) and packages the information in a secure way using RSA based algorithm. The information packet can be sent to the server in an online or offline mode for processing.  
+
+The Registration client application leverages the TPM capabilities and secure the data and mark the senders identity in the request before sending to external system. The MOSIP server would validate the request and make sure that the request received from the right source. Every individual machine's TPM public key should be registered at MOSIP server to accept and process the data send by them.   
+
+A Trusted Platform Module (TPM) is a specialized chip on a local machines that stores RSA encryption keys specific to the host system for hardware authentication. Each TPM chip contains an RSA key pair called the Endorsement Key (EK). The pair is maintained inside the chip and cannot be accessed by software. By leveraging this security feature every individual machine would be uniquely registered and identified by the MOSIP server component. 
 
 ![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
@@ -14,6 +20,7 @@ This document contains the 'Registration client' application initial setup and c
    - USB 2.0 ports or equivalent hub.  
    - Physical machine with TPM 2.0 facility.   
    - Windows OS [10 v] 
+   - Java - JRE [1.8_181] 
 
 **Application Prerequisites:**  
    Before running the 'Registration client' application, following prerequisites to be completed.
@@ -50,14 +57,14 @@ This document contains the 'Registration client' application initial setup and c
      Uncomment the below mentioned lines in the file,  
     1.	DatabaseDirectory - "C:\Program Files\ClamAV\database"(Line 13)  
     2.	UpdateLogFile     - "C:\Program Files\ClamAV\freshclam.log"(Line 17)  
-    3.	DatabaseMirror    - db.XY.clamav.net(Line 69)  change XY to our country code  
+    3.	DatabaseMirror    - db.XY.clamav.net(Line 69)  change XY to our country code [Eg: IN]
     4.	DatabaseMirror    - database.clamav.net(Line 75)   
     5.	Checks 24(Line 113)  
     6.	LocalIPAddress aaa.bbb.ccc.ddd(Line 131)  change to our machine IP address   
 
    **Once all the Configurations are done run the freshclam.exe and then run clamd.exe. If required, restart the machine.**   
  
-**Installation at Desktop Machine:**   
+**Registration Client installation:**   
 ***  
 **Download - Application Initial Setup file:**  
    
@@ -68,6 +75,7 @@ This document contains the 'Registration client' application initial setup and c
       - prop : It contains the property file that will be used by application.    
       - cer  : It contains the certificate used to communicate with the MOSIP server.  
       - db : It contains the encrypted derby database.   
+      - run.jar : run this jar file using 'java -jar run.jar' to launch the application.  
       - run.bat : batch file to launch the application.  
       - MANIFEST.MF : Third Party libraries information.  
    3. Click the 'run.jar or run.bat' to initiate the setup process.  
@@ -103,33 +111,33 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 
 |**S.No.**| **Config Key**| **Possible Values**|**Description**|
 |:------:|-----|---|---|
-|1	.|	mosip.registration.fingerprint_disable_flag                            | y	/ n						| To disable the fingerprint capture. |	
-|2	.|	mosip.registration.iris_disable_flag                                   | y	/ n							| To disable the IRIS capture. |	
-|3	.|	mosip.registration.face_disable_flag                                   | y	/ n							| To disable the Face capture. |	
-|4	.|	mosip.registration.document_disable_flag                               | y	/ n							| To disable the document capture. | 	
-|5	.|	mosip.registration.iris_threshold									   | 60							|	
-|6	.|	mosip.registration.leftslap_fingerprint_threshold                      | 70							|	
-|7.|	mosip.registration.rightslap_fingerprint_threshold                 | 80							|	
-|8.|	mosip.registration.thumbs_fingerprint_threshold                    | 80							|	
-|9	.|	mosip.registration.num_of_fingerprint_retries                          | 3							|	
-|10	.|	mosip.registration.num_of_iris_retries                                 | 3							|	
-|11	.|	mosip.registration.supervisorverificationrequiredforexceptions         | true						| To capture Supervisor approval for exception case. |
-|12	.|	mosip.registration.gpsdistanceradiusinmeters                           | 3							|	
-|13	.|	mosip.registration.packet.maximum.count.offline.frequency              | 100						| No. of packets can be created in offline mode. |	
-|14	.|	mosip.registration.user_on_board_threshold_limit                       | 1							| No. of biometric required to be captured. |	
-|15	.|	mosip.registration.finger_print_score                                  | 100						|	
-|16	.|	mosip.registration.pre_reg_no_of_days_limit                            | 5							|	
-|17	.|	mosip.registration.reg_pak_max_cnt_apprv_limit                         | 100						| Max No. of packets waiting for approval.	|
-|18	.|	mosip.registration.reg_pak_max_time_apprv_limit                        | 30							| Max time wait for approval in mins. |	
-|19	.|	mosip.registration.eod_process_config_flag                             | y	/ n							| Enable/ Disable EOD process. |
-|20	.|	mosip.registration.invalid_login_count                                 | 3							| 	
-|21	.|	mosip.registration.invalid_login_time                                  | 2							|	
-|22	.|	mosip.registration.gps_device_enable_flag                              | y	/ n							| Enable / Disable GPS |	
-|23	.|	mosip.registration.uin_update_config_flag                              | y	/ n							| Enable / Disable update feature. |
+|1	.|	mosip.registration.fingerprint_disable_flag                            | y	/ n			| To disable the fingerprint capture. |	
+|2	.|	mosip.registration.iris_disable_flag                                   | y	/ n			| To disable the IRIS capture. |	
+|3	.|	mosip.registration.face_disable_flag                                   | y	/ n			| To disable the Face capture. |	
+|4	.|	mosip.registration.document_disable_flag                               | y	/ n			| To disable the document capture. | 	
+|5	.|	mosip.registration.iris_threshold									   | 60				|	
+|6	.|	mosip.registration.leftslap_fingerprint_threshold                      | 70				|	
+|7.|	mosip.registration.rightslap_fingerprint_threshold                 | 80				|	
+|8.|	mosip.registration.thumbs_fingerprint_threshold                    | 80					|	
+|9	.|	mosip.registration.num_of_fingerprint_retries                          | 3				|	
+|10	.|	mosip.registration.num_of_iris_retries                                 | 3				|	
+|11	.|	mosip.registration.supervisorverificationrequiredforexceptions         | true			| To capture Supervisor approval for exception case. |
+|12	.|	mosip.registration.gpsdistanceradiusinmeters                           | 3				|	
+|13	.|	mosip.registration.packet.maximum.count.offline.frequency              | 100			| No. of packets can be created in offline mode. |	
+|14	.|	mosip.registration.user_on_board_threshold_limit                       | 1				| No. of biometric required to be captured. |	
+|15	.|	mosip.registration.finger_print_score                                  | 100			|	
+|16	.|	mosip.registration.pre_reg_no_of_days_limit                            | 5				|	
+|17	.|	mosip.registration.reg_pak_max_cnt_apprv_limit                         | 100			| Max No. of packets waiting for approval.	|
+|18	.|	mosip.registration.reg_pak_max_time_apprv_limit                        | 30				| Max time wait for approval in mins. |	
+|19	.|	mosip.registration.eod_process_config_flag                             | y	/ n			| Enable/ Disable EOD process. |
+|20	.|	mosip.registration.invalid_login_count                                 | 3				| 	
+|21	.|	mosip.registration.invalid_login_time                                  | 2				|	
+|22	.|	mosip.registration.gps_device_enable_flag                              | y	/ n			| Enable / Disable GPS |	
+|23	.|	mosip.registration.uin_update_config_flag                              | y	/ n		    | Enable / Disable update feature. |
 |24.|	mosip.registration.lost_uin_disable_flag                    |  y	/ n| Enable / Disable Lost UIN functionality. |
 |25.|	mosip.registration.webcam_name                           |logitech|
 |26.|	mosip.registration.document_scanner_enabled				|no|
-|27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |
+|27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |  
 
 
 **Property File:**
@@ -166,6 +174,7 @@ Through sync process the data would be sync between local machine and server bas
 |16	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |	
 |15	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |	
 |15	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |	
+
 
 
 **External hardware Driver(s):**
