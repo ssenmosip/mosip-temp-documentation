@@ -93,14 +93,8 @@ This document contains the 'Registration client' application initial setup and c
    **Database update:**  
    - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql' folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error. 
 
-**External hardware Driver(s):**
-   This section covers the list of drivers required to communicate with the external devices.  
-   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should also be installed.  
-   - The application has been currently tested with CANON LiDE 120.  
-   - Printer should be available to take the print out from application and the respective driver should be installed.    
-   - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
-
 **Configuration:**  
+***
    Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine to reflect the changes.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
@@ -138,12 +132,19 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 
 
 **Property File:**
-***
+
    There are few properties which can be configured at local machine based on the local system requirement.    
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
    
    **File Location:** props/mosip-application.properties 
 
+**External hardware Driver(s):**
+***
+   This section covers the list of drivers required to communicate with the external devices.  
+   - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should also be installed.  
+   - The application has been currently tested with CANON LiDE 120.  
+   - Printer should be available to take the print out from application and the respective driver should be installed.    
+   - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
     	
 **Sync and Upload Services:**  
 ***  
@@ -169,4 +170,7 @@ Through sync process the data would be sync between local machine and server bas
 |13	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |	
 |16	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |	
 |15	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |	
+|15	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |	
+
+
    
