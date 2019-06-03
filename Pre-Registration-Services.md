@@ -353,12 +353,12 @@ request.demographicDetails |Yes|demographicDetails of the applicant|
 request.demographicDetails.identity |Yes|identity of the applicant|
 request.demographicDetails.identity.gender |Yes|gender of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
-request.demographicDetails.identity.phone |Yes|mobile number of the applicant|
+request.demographicDetails.identity.phone |Optional|mobile number of the applicant|
 request.demographicDetails.identity.IDSchemaVersion|Optional|id schema version|1
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
 request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
-request.demographicDetails.identity.email |Yes|email Id of the applicant|
+request.demographicDetails.identity.email |Optional|email Id of the applicant|
 request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
 request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
@@ -656,6 +656,8 @@ KER-IOV-005|Missing input parameter - identity/city|If city attribute is not fou
 KER-IOV-005|Missing input parameter - identity/localAdministrativeAuthority|If localAdministrativeAuthority attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
+KER-IOV-004|Invalid input parameter - identity/phone|If phone attribute is found but it's value is empty or invalid
+KER-IOV-004|Invalid input parameter - identity/email|If email attribute is found but it's value is empty or invalid
 
 ### PUT /applications/{preRegistrationId}
 This request is used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
@@ -686,12 +688,12 @@ request.demographicDetails |Yes|demographicDetails of the applicant|
 request.demographicDetails.identity |Yes|identity of the applicant|
 request.demographicDetails.identity.gender |Yes|gender of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.city |Yes|city of the applicant| value will be derived from the domain metadata
-request.demographicDetails.identity.phone |Yes|mobile number of the applicant|
+request.demographicDetails.identity.phone |Optional|mobile number of the applicant|
 request.demographicDetails.identity.IDSchemaVersion|Optional|id schema version|1
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
 request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
-request.demographicDetails.identity.email |Yes|email Id of the applicant|
+request.demographicDetails.identity.email |Optional|email Id of the applicant|
 request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.postalCode |Yes|postal code of the applicant|
 request.demographicDetails.identity.addressLine1 |Yes|address Line 1 of the applicant|
@@ -990,6 +992,8 @@ KER-IOV-005|Missing input parameter - identity/city|If city attribute is not fou
 KER-IOV-005|Missing input parameter - identity/localAdministrativeAuthority|If localAdministrativeAuthority attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
+KER-IOV-004|Invalid input parameter - identity/phone|If phone attribute is found but it's value is empty or invalid
+KER-IOV-004|Invalid input parameter - identity/email|If email attribute is found but it's value is empty or invalid
 
 ### GET /applications/{preRegistrationId}
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
