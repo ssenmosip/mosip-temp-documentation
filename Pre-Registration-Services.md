@@ -412,22 +412,22 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         "fullName": [
           {
             "language": "fra",
-            "value": "jagadishwari s"
+            "value": "jagadishwari"
           },
           {
             "language": "ara",
             "value": "جَگَدِسهوَرِ سِلڤَرَج"
           }
         ],
-        "dateOfBirth": "1996/01/01",
+        "dateOfBirth": "1993/01/01",
         "gender": [
           {
             "language": "fra",
-            "value": "MLE"
+            "value": "FLE"
           },
           {
             "language": "ara",
-            "value": "MLE"
+            "value": "FLE"
           }
         ],
         "residenceStatus": [
@@ -527,10 +527,10 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 {
     "id": "mosip.pre-registration.demographic.create",
     "version": "1.0",
-    "responsetime": "2019-05-28T09:43:44.089Z",
+    "responsetime": "2019-06-03T10:01:26.984Z",
     "response": {
-        "preRegistrationId": "25106205209350",
-        "createdDateTime": "2019-05-28T09:43:43.949Z",
+        "preRegistrationId": "25091083153042",
+        "createdDateTime": "2019-06-03T10:01:26.810Z",
         "statusCode": "Pending_Appointment",
         "langCode": "fra",
         "demographicDetails": {
@@ -539,11 +539,11 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                 "gender": [
                     {
                         "language": "fra",
-                        "value": "MLE"
+                        "value": "FLE"
                     },
                     {
                         "language": "ara",
-                        "value": "MLE"
+                        "value": "FLE"
                     }
                 ],
                 "city": [
@@ -560,7 +560,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                 "fullName": [
                     {
                         "language": "fra",
-                        "value": "jagadishwari s"
+                        "value": "jagadishwari"
                     },
                     {
                         "language": "ara",
@@ -577,7 +577,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "SATZ"
                     }
                 ],
-                "dateOfBirth": "1996/01/01",
+                "dateOfBirth": "1993/01/01",
                 "IDSchemaVersion": 1,
                 "province": [
                     {
@@ -589,6 +589,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "KTA"
                     }
                 ],
+                "phone": "9680958812",
                 "addressLine1": [
                     {
                         "language": "fra",
@@ -639,8 +640,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "RSK"
                     }
                 ],
-                "email": "jagadishwari.selvaraj@mindtree.com",
-                "phone":"9680958812"
+                "email": "jagadishwari.selvaraj@mindtree.com"
             }
         }
     },
@@ -747,22 +747,22 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         "fullName": [
           {
             "language": "fra",
-            "value": "jagadishwari s"
+            "value": "jagadishwari"
           },
           {
             "language": "ara",
             "value": "جَگَدِسهوَرِ سِلڤَرَج"
           }
         ],
-        "dateOfBirth": "1996/01/01",
+        "dateOfBirth": "1993/02/18",
         "gender": [
           {
             "language": "fra",
-            "value": "MLE"
+            "value": "FLE"
           },
           {
             "language": "ara",
-            "value": "MLE"
+            "value": "FLE"
           }
         ],
         "residenceStatus": [
@@ -846,7 +846,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
           }
         ],
         "postalCode": "14022",
-        "phone":"9680958812",
+        "phone":"9886442073",
         "email": "jagadishwari.selvaraj@mindtree.com",
         "CNIENumber": "2864123456765432"
       }
@@ -862,10 +862,10 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 {
     "id": "mosip.pre-registration.demographic.update",
     "version": "1.0",
-    "responsetime": "2019-05-28T09:49:11.259Z",
+    "responsetime": "2019-06-03T10:06:41.523Z",
     "response": {
-        "preRegistrationId": "25106205209350",
-        "updatedDateTime": "2019-05-28T09:43:43.949Z",
+        "preRegistrationId": "25091083153042",
+        "updatedDateTime": "2019-06-03T10:01:26.810Z",
         "statusCode": "Pending_Appointment",
         "langCode": "fra",
         "demographicDetails": {
@@ -874,11 +874,11 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                 "gender": [
                     {
                         "language": "fra",
-                        "value": "MLE"
+                        "value": "FLE"
                     },
                     {
                         "language": "ara",
-                        "value": "MLE"
+                        "value": "FLE"
                     }
                 ],
                 "city": [
@@ -895,7 +895,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                 "fullName": [
                     {
                         "language": "fra",
-                        "value": "jagadishwari s"
+                        "value": "jagadishwari"
                     },
                     {
                         "language": "ara",
@@ -912,7 +912,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "SATZ"
                     }
                 ],
-                "dateOfBirth": "1996/01/01",
+                "dateOfBirth": "1993/02/18",
                 "IDSchemaVersion": 1,
                 "province": [
                     {
@@ -924,6 +924,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "KTA"
                     }
                 ],
+                "phone": "9886442073",
                 "addressLine1": [
                     {
                         "language": "fra",
@@ -974,8 +975,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                         "value": "RSK"
                     }
                 ],
-                "email": "jagadishwari.selvaraj@mindtree.com",
-                "phone":"9680958812"
+                "email": "jagadishwari.selvaraj@mindtree.com"
             }
         }
     },
