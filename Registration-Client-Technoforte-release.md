@@ -37,12 +37,9 @@
 
 |**Module/Files**|**Component**|**Version**|**Description (If any)**|
 |-----|-------------|----------------|--------------|
-|ZIP|jar,DB, MDM, Props and JRE|0.12.5|The ZIP contains jar,DB, MDM, Props and JRE. |
 |Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>|
-|mosip-sw-0.12.5.zip|NA|NA|<br>Please unzip the file and execute the run.bat</br><br> **run.bat**</br>|
-|mdm_start.bat|NA|NA|<br>To start the MDM </br>|
-|mdm_stop.bat|NA|NA|<br>To stop the MDM</br>|
-|Admin Configuration for Master Data Setup |NA|Latest Version|Admin has to setup the desired configuration for the registration-client.|
+|[mosip-sw-0.12.5.zip](https://devops.mosip.io/artifactory/libs-release/io/mosip/registration/registration-client/0.12.5/)|jar,DB, MDM, Props and JRE|0.12.5|<br>Please unzip the file and execute the run.bat</br><br> **run.bat**</br>|
+|Master Data Setup |NA|Latest Version|Kernel 0.12.5 version of DB scripts can be used. Admin has to setup the desired configuration for registration-client.|
 |kernel-core|NA|0.12.5|Basic core kernel packages.|
 |kernel-logger-logback|NA|0.12.5|Use for the logging.|
 |kernel-dataaccess-hibernate|NA|0.12.5|Used for the communicating to the DB.|
@@ -69,7 +66,7 @@
 |Open Items|Description
 |-----------------|----------------------
 Transliteration|English-Arabic/ French Transliteration  won't work because of non-availability of kernel library. Vice versa also won't work.
-Bio-API|Integration with Bio-API for user-onboarding still in-progress.
-MDM | Bio device Integration
-TPM | Secure with TPM public key. 
+Bio-API|Integration with Bio-API for user-onboarding.
+MDM | Bio device Integration. 
+TPM | Secure with TPM public key.  
 
