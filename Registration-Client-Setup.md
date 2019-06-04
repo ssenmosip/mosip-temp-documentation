@@ -20,20 +20,19 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - USB 2.0 ports or equivalent hub.  
    - Physical machine with TPM 2.0 facility.   
    - Windows OS [10 v] 
-   - Java - JRE [1.8_181] 
 
 **Application Prerequisites:**  
    Before running the 'Registration client' application, following prerequisites to be completed.
 	
-   - User's machine should have online connectivity access to the JFrog artifactory repository, where the application binaries are available.   
+   - Before building the 'registration-services' module, all the services URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
+   - Property file **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
+   - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
    - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile configuration in LDAP server.    
-   - All master data should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
+   - User's machine should have online connectivity to access the JFrog artifactory repository, where the application binaries are available.   
    - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
    - Through sync process the data would be updated into the local database from server.  
-   - All the required REST services should be installed and the respective url should be configured in 'spring' configuration file.  
-   - Property file [mosip-application.properties] should be updated with right information. 
-   -     
+   - All the required **REST services** should be installed and the respective **url should be configured in 'spring'** configuration file.  
         
 **Anti Virus - ClamAV Setup and Configuration in local machine:**  
 ***  
@@ -109,7 +108,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 **Configuration:**  
 ***
-   Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine to reflect the changes.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
+   Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine through kernel services.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
 
@@ -157,7 +156,6 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
    In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.  There are other services are available to send the created packet from local machine to remote system.   
 
-   All the below mentioned services URL to be configured in the environment specific 'spring-<env>.properties' file before building the 'registration-services' module.   
 
 |**S.No.**| **Service Name**| **Service Description**|
 |:------:|-----|---|
