@@ -43,7 +43,7 @@
 
 When a registration officer or supervisor logs in a client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer to work in offline mode (when the client is not connected to the server).
 #### A. Map registration officers and supervisors to a client machine.
-Initially, a machine will have no users on boarded. The first user will be on boarded by an administrator or from the backend. Thereafter this user can onboard other users.
+Initially, a machine will have no users on boarded. The first registration officer or supervisor will be on boarded by an administrator or from the backend. Thereafter this registration officer or supervisor can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine.
 1. Allows the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data.
    * Fields selected on the UI include user, status, fingerprints, and irises.
