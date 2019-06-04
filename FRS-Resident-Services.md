@@ -10,6 +10,13 @@
   * [8. View History of Authentication Requests (for Prescribed Days/number of requests)](#8-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_8)_
   * [9. Lock/Unlock UIN](#9-lockunlock-uin-) _(RES_FR_9)_
   * [10. OTP Authentication](#10-otp-authentication-) _(RES_FR_10)_
+  * [11. VID Service](#11-vid-service-)
+    * [11.1 Create VID](#111-create-vid-)
+    * [11.2 Maintain the status of a VID](#112-maintain-the-status-of-a-vid-)
+    * [11.3 Regenerate a VID](#113-regenerate-a-vid-)
+    * [11.4 Revoke a VID](#114-revoke-a-vid-)
+    * [11.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#115-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
+    * [11.6 Retrieve the UIN corresponding to a VID](#116-retrieve-the-uin-corresponding-to-a-vid-)
 
 
 # Resident Services
@@ -91,30 +98,13 @@ The following procedure to be followed by an individual to unlock the authentica
 
 ## 10. OTP Authentication [**[↑]**](#table-of-content)
 At the time of registration, if a mobile number is registered with more than X number (X number is configurable based on policy of a country) of UIN/VID, then the system considers OTP as weak OTP authentication at the time of OTP authentication and does not initiate any further process. System provides the notification to the respective individual to visit the registration center.
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-  - [2. VID Service](#2-vid-service-)
-    * [2.1 Create VID](#21-create-vid-)
-    * [2.2 Maintain the status of a VID](#22-maintain-the-status-of-a-vid-)
-    * [2.3 Regenerate a VID](#23-regenerate-a-vid-)
-    * [2.4 Revoke a VID](#24-revoke-a-vid-)
-    * [2.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#25-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
-    * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
-
-## 2. VID Service [**[↑]**](#table-of-content)
+## 11. VID Service [**[↑]**](#table-of-content)
 
 VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and  protect their UIN details from being accessed by someone else. Also VID can be used to get e-KYC done at both private and government organizations.
 
 VID services is used to perform various operations on VID such as generate or re-generate VID, update VID status, etc.
 
-**Users of VID services**
-
-**Registration Processor** - Registration Processor will create a new perpetual VID once UIN is generated successfully.
-
-**Resident Services** - Individual can use Resident Services to generate or re-generate a new temporary VID.
-
-**ID Authentication** - ID Authentication can retrieve UIN for a given VID for authenticating Individual using VID.
-### 2.1 Create VID [**[↑]**](#table-of-content)
+### 11.1 Create VID [**[↑]**](#table-of-content)
 
 Upon receiving a VID generation and storage request with the parameters: UIN, ver, requestTime, vidType, the system performs the following steps to create VID in the defined policy:
 1. Validates if the UIN in the request is available in the auth database (Complete match) and the status of the UIN is active.
@@ -132,13 +122,13 @@ Note:
    * Instances are the number of active instances (not expired/used/revoked/deactivated).
    * If maximum count is exceeded, it will report an error. No VID will be returned in the response.
 
-### 2.2 Maintain the status of a VID [**[↑]**](#table-of-content)
+### 11.2 Maintain the status of a VID [**[↑]**](#table-of-content)
 
 1. Time Validity: When a VID has expired as per policy, the VID will not be allowed for usage for any authentication transaction.
 1. Transactions: When a VID is used for an authentication transaction, and the policy is for one-time usage, the VID instance status will be used but will not be allowed for any authentication transaction.
 1. When a VID is revoked, the VID will not be allowed for any authentication transaction.
 
-### 2.3 Regenerate a VID [**[↑]**](#table-of-content)	
+### 11.3 Regenerate a VID [**[↑]**](#table-of-content)	
 
 Upon receiving a request with the parameter: VID, ver, the system performs the following steps to regenerate a specific type of VID:
 1. Validates if the regeneration policy for the VID in the request is manual.
@@ -155,7 +145,7 @@ Note:
    * VID, which is invalid due to usage or expiry, can be regenerated.
    * Deactivated VIDs cannot be regenerated.
 
-### 2.4 Revoke a VID [**[↑]**](#table-of-content)
+### 11.4 Revoke a VID [**[↑]**](#table-of-content)
 
 Upon receiving a request with the parameter: VID, ver to revoke a VID based on the type, the system performs the following steps to revoke a VID based on the type:
 1. Validates if the VID is valid (not expired, not used, not deactivated, not revoked).
@@ -164,7 +154,7 @@ Upon receiving a request with the parameter: VID, ver to revoke a VID based on t
 1. Responds with error message if the system is unable to revoke a VID.
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
-### 2.5 Auto-restore a VID on Revocation and with Auto-restore Policy [**[↑]**](#table-of-content)  
+### 11.5 Auto-restore a VID on Revocation and with Auto-restore Policy [**[↑]**](#table-of-content)  
 
 The system performs the following steps to auto-restore a revoked VID: 
 1. Retrieves the policy for the revoked VID.
@@ -172,7 +162,7 @@ The system performs the following steps to auto-restore a revoked VID:
 1. Creates a new VID for the revoked VID as per the VID policy of the VID type associated to the revoked VID.
 1. Updates the status of the new VID as ‘active’.
 
-### 2.6 Retrieve the UIN corresponding to a VID [**[↑]**](#table-of-content)	
+### 11.6 Retrieve the UIN corresponding to a VID [**[↑]**](#table-of-content)	
 
 Upon receiving a request with the parameter (VID), the system performs the following steps to retrieve the UIN corresponding to a VID: 
 1. Validates if the VID is valid.
