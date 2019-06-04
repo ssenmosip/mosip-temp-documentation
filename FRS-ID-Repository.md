@@ -142,4 +142,5 @@ Upon receiving a request with the parameter (VID), the system performs the follo
 1. Validates if the VID is valid.
 1. Retrieves the UIN corresponding to the VID.
 1. Sends the response UIN, responseTime, err, ver
-1. Responds with error message as specified in the Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
+1. Responds with error message as specified in the link below.
+1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
