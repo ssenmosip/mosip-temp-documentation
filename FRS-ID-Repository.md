@@ -1,10 +1,10 @@
 ## Table Of Content
 
 - [1. Identity Service](#1-identity-service-)
-  * [1.1 Store Identity Data and Documents in Database](#11-store-identity-data-and -documents-in-database-)
+  * [1.1 Store Identity Data and Documents in Database](#11-store-identity-data-and-documents-in-database-)
   * [1.2 Retrieve the Stored Identity Details and Documents](#12-retrieve-the-stored-identity-details-and-documents-)
   * [1.3 Retrieve Identity Data in ID-Repo by RID](#13-retrieve-identity-data-in-id-repo-by-rid-)
-  * [1.4 Update Identity Data and documents in database](#14-update-identity-data-and-documents-in-database-)
+  * [1.4 Update Identity Data and Documents in Database](#14-update-identity-data-and-documents-in-database-)
 - [2. VID Service](#2-vid-service-)
   * [2.1 Create VID](#21-create-vid-)
   * [2.2 Maintain the status of a VID](#22-maintain-the-status-of-a-vid-)
@@ -59,7 +59,7 @@ Upon receiving a request to retrieve the UIN details with type as an optional pa
 1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
-### 1.4 Update Identity Data and documents in database [**[↑]**](#table-of-content)
+### 1.4 Update Identity Data and Documents in Database [**[↑]**](#table-of-content)
 
 Upon receiving a request to update the UIN details with the following parameters: id, UIN, version, timestamp, registration id, status and identity attributes and documents, the system performs the following steps to update identity data and related documents in MOSIP database:
 1. Updates only the identity attributes corresponding to the UIN in the request. 
