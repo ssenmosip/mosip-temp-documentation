@@ -1,5 +1,5 @@
 ## Table Of Content
-[ID Repository](id-repository)
+[ID Repository](#id-repository)
 - [1. Identity Service](#1-identity-service-)
   * [1.1 Store Identity Data and Documents in Database](#11-store-identity-data-and-documents-in-database-)
   * [1.2 Retrieve the Stored Identity Details and Documents](#12-retrieve-the-stored-identity-details-and-documents-)
