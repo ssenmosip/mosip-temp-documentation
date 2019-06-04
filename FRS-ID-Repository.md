@@ -102,7 +102,7 @@ Upon receiving a request to update the UIN details with the following parameters
 
 ## 2. VID Service [**[↑]**](#table-of-content)
 
-VID services can be used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
+VID services is used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
 
 **Users of VID services**
 
