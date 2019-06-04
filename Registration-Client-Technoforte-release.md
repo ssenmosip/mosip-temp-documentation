@@ -5,6 +5,8 @@
 |**S.No.**| **Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|
 |1.|MOSIP - High Level Design Document|[Click to View](Deliverables---Attachments)|Refer attachment 1 in the linked page - Attachment Name: MOSIP_HLD_v2 - Delivered on 05Feb'19|
+|2.|MOSIP - Platform Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
+|3.|MOSIP - Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
 
 
 **Date: 06 Jun 2019**
@@ -13,13 +15,11 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|MOSIP|Platform Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
-|2.|MOSIP|Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
-|3.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
-|4.|Registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
-|5.|Registration|High Level Design Document|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 3.2 in the linked page|
-|6.|Registration|Code Drop|[Tag: 0.12.5](/mosip/mosip/releases/tag/0.12.5)||
-|7.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
+|1.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
+|2.|Registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
+|3.|Registration|High Level Design Document|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 3.2 in the linked page|
+|4.|Registration|Code Drop|[Tag: 0.12.5](/mosip/mosip/releases/tag/0.12.5)||
+|5.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
 
 **Date: 06 Jun 2019**
 
