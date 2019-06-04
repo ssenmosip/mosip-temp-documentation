@@ -7,10 +7,10 @@ DB|mosip_iam|Required for kernel-auth-service.
 DB|mosip_master|Required for kernel-masterdata-service.
 DB|mosip_audit|Required for kernel-audit-service.
 DB|mosip_kernel|Required for all other kernel services.
-LDAP|ApaacheDS|Required for kernel-auth-service. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#6-installing-external-dependencies-)
-KeyStore|SoftHsm|Required for kernel-keymanager-softhsm. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#6-installing-external-dependencies-)
-DFS|HDFS|Required for kernel-fsadaptor-hdfs. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#6-installing-external-dependencies-)
-SMS Gateway|msg91.com|Required for kernel-smsnotification-service. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#6-installing-external-dependencies-)
+LDAP|ApaacheDS|Required for kernel-auth-service. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#65-steps-to-install-and-configuration-ldap)
+KeyStore|SoftHsm|Required for kernel-keymanager-softhsm. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#67-steps-to-install-kernel-key-manager-service)
+DFS|HDFS|Required for kernel-fsadaptor-hdfs. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#66-steps-to-install-and-configuration-hdfs)
+SMS Gateway|msg91.com|Required for kernel-smsnotification-service. <br> [External Dependency Setup](https://github.com/mosip/mosip/wiki/Getting-Started#68-register-on-httpscontrolmsg91comsignup-as-developer-and-get-an-authkey-replace-the-same-in-kernelproperties-used-by--kernel-smsnotification-service-)
 
 
 
