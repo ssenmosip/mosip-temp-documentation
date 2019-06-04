@@ -24,7 +24,19 @@
 
 ## Security
 
-TBD
+In MOSIP, the following roles are defined to perform various activities and have control over the DB objects that are defined
+
+* **sysadmin:** sysadmin user/role is a super administrator role, who will have all the privileges to perform any task within the database. Currently all the objects are being owned by this user / role.
+	
+* **dbadmin:** dbadmin user / role is created to handle all the database administration activities db monitoring, performance tuning, backups, restore, replication setup, etc.
+	
+* **appadmin:** appadmin user / role is used to perform all the DDL (Data Definition Language) tasks. All the db objects that are created in these databases will be owned by appadmin user.
+	
+* **Application User:** Each application will have a user / role created to perform DML (Data Manipulation Language) tasks like CRUD operations (select, insert, update, delete). The user prereguser, is created to connect from the application to perform all the DML activities. Similarly, we will have masteruser, prereguser, reguser, idauser, idrepouser, idmapuser, kerneluser, audituser, regprcuser to perform DML tasks for master, pre-registration, registration, ida, ID repository, ID Map, kernel, audit and registration processor modules respectively.
+
+**Note:** From the above set of roles only application user / role is specific to a application / module. The other user / roles are common which needs to be  created per postresql db instance / server.
+
+Apart from the above, MOSIP will provide control over accessing data by various users based on the user access defined at zone level. This will implemented at application layer. 
 
 ## Multi-Language
 
