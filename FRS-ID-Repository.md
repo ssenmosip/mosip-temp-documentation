@@ -1,5 +1,5 @@
 ## Table Of Content
-
+[ID Repository](id-repository)
 - [1. Identity Service](#1-identity-service-)
   * [1.1 Store Identity Data and Documents in Database](#11-store-identity-data-and-documents-in-database-)
   * [1.2 Retrieve the Stored Identity Details and Documents](#12-retrieve-the-stored-identity-details-and-documents-)
@@ -12,7 +12,7 @@
   * [2.4 Revoke a VID](#24-revoke-a-vid-)
   * [2.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#25-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
   * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
-
+# ID Repository
 ## 1. Identity Service [**[↑]**](#table-of-content)
 ### 1.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
 
