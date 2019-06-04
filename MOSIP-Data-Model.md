@@ -14,14 +14,6 @@ Note: Each of the below points to be expanded according to the MOSIP implementat
 * Only ID information is encrypted
 * System related data will be stored in system default language (mostly English).
 
-# ER Model
-
-TBD
-
-# Logical Data Model
-
-TBD
-
 # Physical Data Model
 
 Below is the list of databases in MOSIP
@@ -39,6 +31,5 @@ Below is the list of databases in MOSIP
 |9|mosip_iam|The user management related data of MOSIP application is stored in various storages, the database related users are stored in this database|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_iam.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_iam.png)</div>|<div>[mosip_iam_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_iam_dd.xlsx)</div>|
 |10|mosip_idmap|Database to store and manage all the data related to mapping between various IDs, like vid with UIN of an individual|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idmap.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idmap.png)</div>|<div>[mosip_idmap_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idmap_dd.xlsx)</div>|
 
-<div>https://github.com/mosip/mosip/tree/DEV_database_sprint6/database-scripts/data_model</div> 
 
 
