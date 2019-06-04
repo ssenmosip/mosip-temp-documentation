@@ -21,7 +21,7 @@
   * [4.4 Acknowledgement and Notifications](#44-acknowledgement-and-notifications-) _(REG_FR_4.4)_
   * [4.5 Biometric Capture (SDK Integration, Extract and Match) (WIP)](#45-biometric-capture-sdk-integration-extract-and-match-wip-) _(REG_FR_4.5)_
   * [4.6 Biometric Exceptions](#46-biometric-exceptions-) _(REG_FR_4.6)_
-  * [4.7 User and Supervisor Approval](#47-user-and-supervisor-approval-) _(REG_FR_4.7)_
+  * [4.7 Registration Officer and Supervisor Approval](#47-registration-officer-and-supervisor-approval-) _(REG_FR_4.7)_
   * [4.8 End of Day Process](#48-end-of-day-process-) _(REG_FR_4.8)_
 - [5. Geo-location](#5-geo-location-) _(REG_FR_5)_
 - [6. Language Support](#6-language-support-)
@@ -593,7 +593,7 @@ If the required biometric quality is not achieved while a registration officer i
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
 
-### 4.7 User and Supervisor Approval [**[↑]**](#table-of-content)
+### 4.7 Registration Officer and Supervisor Approval [**[↑]**](#table-of-content)
 
 When a registration officer captures biometric exceptions of an individual, then a supervisor has to validate/approve that biometric exception. This approval is required to authenticate the captured biometric exception of the individual.
 
