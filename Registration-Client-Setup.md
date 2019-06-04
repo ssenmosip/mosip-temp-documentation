@@ -27,7 +27,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 	
    - User's machine should have online connectivity access to the JFrog artifactory repository, where the application binaries are available.   
    - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile configuration in LDAP server.    
-   - All master data should be loaded at MOSIP kernel database.    
+   - All master data should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
    - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
    - Through sync process the data would be updated into the local database from server.  
@@ -76,15 +76,15 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    2. Once downloaded then unzip the file into a particular location. It contains the following folder structure.  
       - bin : It contains the client UI and service binaries in encrypted format.
       - lib : It contains the library required for the application to run.  
-      - prop : It contains the property file that will be used by application.    
+      - props : It contains the property file that will be used by application.    
       - cer  : It contains the certificate used to communicate with the MOSIP server.  
       - db : It contains the encrypted derby database.   
-      - run.jar : run this jar file using 'java -jar run.jar' to launch the application.  
       - run.bat : batch file to launch the application.  
-      - MANIFEST.MF : Third Party libraries information.  
-   3. Click the 'run.jar or run.bat' to initiate the setup process.  
+      - jre : It contains the java runtime engine along with the required dlls. 
+      
+   3. Click the 'run.bat' to initiate the setup process.  
    
-   When user clicks on the 'run.jar or run.bat' it does the following :  
+   When user clicks on the 'run.bat' it does the following :  
    1. Loads the binary repository URL from property file.  
    2. Communicate with the  JFrog repository through secured connection and download the maven-metadata.xml file to identify the latest jar versions.    
    3. Download the latest build Manifest.mf file from server, where all the jars (including shared lib) name and checksums are provided.  
@@ -113,16 +113,16 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
 
-|**S.No.**| **Config Key**| **Possible Values**|**Description**|
+|**S.No.**| **Config Key**| **Sample Values**|**Description**|
 |:------:|-----|---|---|
-|1	.|	mosip.registration.fingerprint_disable_flag                            | y	/ n			| To disable the fingerprint capture. |	
-|2	.|	mosip.registration.iris_disable_flag                                   | y	/ n			| To disable the IRIS capture. |	
-|3	.|	mosip.registration.face_disable_flag                                   | y	/ n			| To disable the Face capture. |	
-|4	.|	mosip.registration.document_disable_flag                               | y	/ n			| To disable the document capture. | 	
-|5	.|	mosip.registration.iris_threshold									   | 60				|	
-|6	.|	mosip.registration.leftslap_fingerprint_threshold                      | 70				|	
-|7.|	mosip.registration.rightslap_fingerprint_threshold                 | 80				|	
-|8.|	mosip.registration.thumbs_fingerprint_threshold                    | 80					|	
+|1	.|	mosip.registration.fingerprint_enable_flag                            | y	/ n			| To disable the fingerprint capture. |	
+|2	.|	mosip.registration.iris_enable_flag                                   | y	/ n			| To disable the IRIS capture. |	
+|3	.|	mosip.registration.face_enable_flag                                   | y	/ n			| To disable the Face capture. |	
+|4	.|	mosip.registration.document_enable_flag                               | y	/ n			| To disable the document capture. | 	
+|5	.|	mosip.registration.iris_threshold									   | 0 - 100				|	
+|6	.|	mosip.registration.leftslap_fingerprint_threshold                      | 0 - 100				|	
+|7.|	mosip.registration.rightslap_fingerprint_threshold                 | 0 - 100				|	
+|8.|	mosip.registration.thumbs_fingerprint_threshold                    | 0 - 100					|	
 |9	.|	mosip.registration.num_of_fingerprint_retries                          | 3				|	
 |10	.|	mosip.registration.num_of_iris_retries                                 | 3				|	
 |11	.|	mosip.registration.supervisorverificationrequiredforexceptions         | true			| To capture Supervisor approval for exception case. |
@@ -170,14 +170,14 @@ Through sync process the data would be sync between local machine and server bas
 |7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data. |	
 |8	.|	Packet Sync  | To upload the list of packet related information before uploading packet . |	
 |9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet. |	
-|14	.|	Packet Upload  | To upload the packet generated out out New/ Lost UIN / Update UIN process to MOSIP server. |	
-|10	.|	Send OTP  | To send the OTP message. |	
-|11	.|	Validate OTP | To validate the provided OTP. |	
+|10	.|	Packet Upload  | To upload the packet generated out out New/ Lost UIN / Update UIN process to MOSIP server. |	
+|11	.|	Send OTP  | To send the OTP message. |	
 |12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. |	
-|13	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |	
-|16	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |	
-|15	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |	
-|15	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |	
+|13	.|	Auth Service - UserName and OTP | To get the auth token based on user provided user name and OTP. |	
+|14	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |	
+|15	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |	
+|16	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |	
+|17	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |	
 
 
 

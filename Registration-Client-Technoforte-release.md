@@ -13,13 +13,13 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|NA|Getting Started Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
-|2.|Registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
-|3.|Registration|High Level Design Document|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 3.2 in the linked page|
-|4.|Registration|API Specifications Document|NA|NA|
-|5.|Registration|Code Drop|[Tag: 0.12.5](/mosip/mosip/releases/tag/0.12.5)||
-|6.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
-|7.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
+|1.|MOSIP|Platform Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
+|2.|MOSIP|Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
+|3.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
+|4.|Registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
+|5.|Registration|High Level Design Document|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 3.2 in the linked page|
+|6.|Registration|Code Drop|[Tag: 0.12.5](/mosip/mosip/releases/tag/0.12.5)||
+|7.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
 
 **Date: 06 Jun 2019**
 
@@ -39,7 +39,7 @@
 |-----|-------------|----------------|--------------|
 |Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>|
 |[mosip-sw-0.12.5.zip](https://devops.mosip.io/artifactory/libs-release/io/mosip/registration/registration-client/0.12.5/)|jar,DB, MDM, Props and JRE|0.12.5|<br>Please unzip the file and execute the run.bat</br><br> **run.bat**</br>|
-|Master Data Setup |NA|Latest Version|Kernel 0.12.5 version of DB scripts can be used. Admin has to setup the desired configuration for registration-client.|
+|Master Data Setup |NA|Latest Version|Kernel 0.12.5 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
 |kernel-core|NA|0.12.5|Basic core kernel packages.|
 |kernel-logger-logback|NA|0.12.5|Use for the logging.|
 |kernel-dataaccess-hibernate|NA|0.12.5|Used for the communicating to the DB.|
