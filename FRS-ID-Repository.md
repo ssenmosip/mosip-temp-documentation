@@ -5,13 +5,6 @@
     * [1.2 Retrieve the Stored Identity Details and Documents](#12-retrieve-the-stored-identity-details-and-documents-)
     * [1.3 Retrieve Identity Data in ID-Repo by RID](#13-retrieve-identity-data-in-id-repo-by-rid-)
     * [1.4 Update Identity Data and Documents in Database](#14-update-identity-data-and-documents-in-database-)
-  - [2. VID Service](#2-vid-service-)
-    * [2.1 Create VID](#21-create-vid-)
-    * [2.2 Maintain the status of a VID](#22-maintain-the-status-of-a-vid-)
-    * [2.3 Regenerate a VID](#23-regenerate-a-vid-)
-    * [2.4 Revoke a VID](#24-revoke-a-vid-)
-    * [2.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#25-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
-    * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
 # ID Repository [**[↑]**](#table-of-content)
 
 ID Repository contains the record of identity for an individual, and provides API based mechanism to store and retrieve identity details by any other MOSIP modules.
@@ -100,84 +93,3 @@ Upon receiving a request to update the UIN details with the following parameters
 
 [Refer to Wiki for more details on **Identity Services API**](ID-Repository-API#identity-services-private).
 
-## 2. VID Service [**[↑]**](#table-of-content)
-
-VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and  protect their UIN details from being accessed by someone else. Also VID can be used to get e-KYC done at both private and government organizations.
-
-VID services is used to perform various operations on VID such as generate or re-generate VID, update VID status, etc.
-
-**Users of VID services**
-
-**Registration Processor** - Registration Processor will create a new perpetual VID once UIN is generated successfully.
-
-**Resident Services** - Individual can use Resident Services to generate or re-generate a new temporary VID.
-
-**ID Authentication** - ID Authentication can retrieve UIN for a given VID for authenticating Individual using VID.
-### 2.1 Create VID [**[↑]**](#table-of-content)
-
-Upon receiving a VID generation and storage request with the parameters: UIN, ver, requestTime, vidType, the system performs the following steps to create VID in the defined policy:
-1. Validates if the UIN in the request is available in the auth database (Complete match) and the status of the UIN is active.
-1. Retrieves the policy for the VID type in the request. 
-   * VID policy constitutes time validity, number of instances, number of transactions, regeneration mode.
-1. Validates the number of active instances of the VID type as follows:
-   * If more than one instances are configured for the VID type and the maximum count hasn’t been reached, then a new VID will be issued. If maximum count is exceeded it will report an error.
-   * If an active VID of the requested VID type is not found, the system will generate a new VID for the requested VID type.
-1. Creates the VID as per the defined policy. 
-1. Updates the status of the VID as ‘Active’.
-1. Sends the response new VID, err, responseTime, ver
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.5.xlsx).
-
-Note:
-   * Instances are the number of active instances (not expired/used/revoked/deactivated).
-   * If maximum count is exceeded, it will report an error. No VID will be returned in the response.
-
-### 2.2 Maintain the status of a VID [**[↑]**](#table-of-content)
-
-1. Time Validity: When a VID has expired as per policy, the VID will not be allowed for usage for any authentication transaction.
-1. Transactions: When a VID is used for an authentication transaction, and the policy is for one-time usage, the VID instance status will be used but will not be allowed for any authentication transaction.
-1. When a VID is revoked, the VID will not be allowed for any authentication transaction.
-
-### 2.3 Regenerate a VID [**[↑]**](#table-of-content)	
-
-Upon receiving a request with the parameter: VID, ver, the system performs the following steps to regenerate a specific type of VID:
-1. Validates if the regeneration policy for the VID in the request is manual.
-1. Retrieves all the policy for the VID in the request. 
-1. Validates the number of active instances of the VID type as follows:
-   * If more than one instances are configured for the VID type and the maximum count has not been reached, then a new VID will be issued. If maximum count is exceeded it will report an error.
-   * If an active VID of the requested VID type is not found, then the system will generate a new VID for the requested VID Type.
-1. Regenerates the VID as per the defined policy.
-1. The status of the VID will be updated as ‘Active’
-1. Sends the response new VID, err, responseTime, ver
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
-
-Note:
-   * VID, which is invalid due to usage or expiry, can be regenerated.
-   * Deactivated VIDs cannot be regenerated.
-
-### 2.4 Revoke a VID [**[↑]**](#table-of-content)
-
-Upon receiving a request with the parameter: VID, ver to revoke a VID based on the type, the system performs the following steps to revoke a VID based on the type:
-1. Validates if the VID is valid (not expired, not used, not deactivated, not revoked).
-1. Updates the status of the VID as ‘revoked’.
-1. Sends the response Revoke status, responseTime, err, ver.
-1. Responds with error message if the system is unable to revoke a VID.
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
-
-### 2.5 Auto-restore a VID on Revocation and with Auto-restore Policy [**[↑]**](#table-of-content)  
-
-The system performs the following steps to auto-restore a revoked VID: 
-1. Retrieves the policy for the revoked VID.
-1. Validates the regeneration policy for the revoked VID (‘Auto-restore’).
-1. Creates a new VID for the revoked VID as per the VID policy of the VID type associated to the revoked VID.
-1. Updates the status of the new VID as ‘active’.
-
-### 2.6 Retrieve the UIN corresponding to a VID [**[↑]**](#table-of-content)	
-
-Upon receiving a request with the parameter (VID), the system performs the following steps to retrieve the UIN corresponding to a VID: 
-1. Validates if the VID is valid.
-1. Retrieves the UIN corresponding to the VID.
-1. Sends the response UIN, responseTime, err, ver
-1. Responds with error message as specified in the link below.
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
-
-[Refer to Wiki for more details on **VID Services API**](ID-Repository-API#vid-services-private).
