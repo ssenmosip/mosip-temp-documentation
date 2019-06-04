@@ -137,7 +137,7 @@ Upon receiving a request with the parameter: VID, ver, the system performs the f
    * If more than one instances are configured for the VID type and the maximum count has not been reached, then a new VID will be issued. If maximum count is exceeded it will report an error.
    * If an active VID of the requested VID type is not found, then the system will generate a new VID for the requested VID Type.
 1. Regenerates the VID as per the defined policy.
-1. The status of the VID will be updated as ‘Active’
+1. The status of the VID will be updated as ‘Active’.
 1. Sends the response new VID, err, responseTime, ver
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
