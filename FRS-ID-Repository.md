@@ -104,7 +104,7 @@ Upon receiving a request to update the UIN details with the following parameters
 
 VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and  protect their UIN details from being accessed by someone else. Also VID can be used to get e-KYC done at both private and government organizations.
 
-VID services is used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
+VID services is used to perform various operations on VID such as generate or re-generate VID, update VID status, etc.
 
 **Users of VID services**
 
