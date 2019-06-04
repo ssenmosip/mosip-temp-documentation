@@ -11,12 +11,12 @@
   * [9. Lock/Unlock UIN](#9-lockunlock-uin-) _(RES_FR_9)_
   * [10. OTP Authentication](#10-otp-authentication-) _(RES_FR_10)_
   * [11. VID Service](#11-vid-service-)
-    * [11.1 Create VID](#111-create-vid-)
-    * [11.2 Maintain the status of a VID](#112-maintain-the-status-of-a-vid-)
-    * [11.3 Regenerate a VID](#113-regenerate-a-vid-)
-    * [11.4 Revoke a VID](#114-revoke-a-vid-)
-    * [11.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#115-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
-    * [11.6 Retrieve the UIN corresponding to a VID](#116-retrieve-the-uin-corresponding-to-a-vid-)
+    * [11.1 Create VID](#111-create-vid-) _(RES_FR_11.1)_
+    * [11.2 Maintain the status of a VID](#112-maintain-the-status-of-a-vid-) _(RES_FR_11.2)_
+    * [11.3 Regenerate a VID](#113-regenerate-a-vid-) _(RES_FR_11.3)_
+    * [11.4 Revoke a VID](#114-revoke-a-vid-) _(RES_FR_11.4)_
+    * [11.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#115-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-) _(RES_FR_11.5)_
+    * [11.6 Retrieve the UIN corresponding to a VID](#116-retrieve-the-uin-corresponding-to-a-vid-) _(RES_FR_11.6)_
 
 
 # Resident Services
