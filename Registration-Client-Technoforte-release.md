@@ -17,7 +17,7 @@
 |:------:|-----|---|---|---|
 |1.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
 |2.|Registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
-|3.|Registration|High Level Design Document|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 3.2 in the linked page|
+|3.|Registration|High Level Design Document|[MOSIP Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation#32-registration-services-)|Refer Section 3.2 in the linked page|
 |4.|Registration|Code Drop|[Tag: 0.12.5](/mosip/mosip/releases/tag/0.12.5)||
 |5.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
 
