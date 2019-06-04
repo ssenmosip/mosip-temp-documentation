@@ -7,7 +7,7 @@
 - [2. Account Management](#2-account-management-) _(ASR_FR_2)_
   * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
   * [2.2 Change Password](#22-change-password-) _(ASR_FR_2.2)_
-  * [2.3 Reset Password](#23-reset- t-user-name-) _(ASR_FR_2.4)_
+  * [2.3 Reset Password](#23-reset-password-) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-) _(ASR_FR_3)_
 - [4. Notification V1.5 (WIP)](#4-notification-v15-wip-) _(ASR_FR_4)_
