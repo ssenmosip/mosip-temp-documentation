@@ -87,7 +87,7 @@ MOSIP supports single factor and multi factor login including iris and face capt
 2. The operator provides their username.
 3. The operator scans any one iris through the iris capture device.
 4. The operator then captures face photo using the face photo capture-device.
-5. On successful authentication, the system allows an operator to log in.
+5. On successful authentication, the system allows operator to log in.
 
 #### B. Temporarily lock the operator account after five unsuccessful login attempts.
 1. The MOSIP system temporarily locks the operator’s account in case he/she provides an invalid password for five times continuously to login.
