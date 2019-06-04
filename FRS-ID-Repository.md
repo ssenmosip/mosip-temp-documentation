@@ -76,5 +76,5 @@ Upon receiving a request to update the UIN details with the following parameters
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
-[Refer to Wiki for more details on **Identity Services API**](ID-Repository-API#identity-services-private).
+[Refer to Wiki for more details on **ID Repository API**](ID-Repository-API).
 
