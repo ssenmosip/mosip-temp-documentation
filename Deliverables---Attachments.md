@@ -33,7 +33,7 @@ Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Kernel_25F
 6) ## Module: Registration client<15Feb'19>
 Artefact: Known Defects and Pending Items
 
-Link: [Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/MOSIP_KnownDefects_PendingFeatures_Items_RegistrationClient.docx)
+Link: [Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20client%20Defect%20List%20-%200.12.0.xlsx)
 
 7) ## Module: ID Authentication<6Jun'19>
 Artefact: Known Defects and Pending Items
