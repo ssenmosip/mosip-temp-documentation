@@ -26,13 +26,14 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    Before running the 'Registration client' application, following prerequisites to be completed.
 	
    - User's machine should have online connectivity access to the JFrog artifactory repository, where the application binaries are available.   
-   - User, machine, center mapping and all other required table and data setup should exists in MOSIP server database along with the profile configuration in LDAP server.    
+   - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile configuration in LDAP server.    
+   - All master data should be loaded at MOSIP kernel database.    
    - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
    - Through sync process the data would be updated into the local database from server.  
    - All the required REST services should be installed and the respective url should be configured in 'spring' configuration file.  
    - Property file [mosip-application.properties] should be updated with right information. 
-       
+   -     
         
 **Anti Virus - ClamAV Setup and Configuration in local machine:**  
 ***  
@@ -41,15 +42,18 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    2.	Install the downloaded .exe file.  
    	
    **ClamAV Config Setup:**     
-     1. Rename the **clamd.conf.sample** to **clamd.conf** from the installed directory of ClamAV.   
+    1. Rename the **clamd.conf.sample** to **clamd.conf** from the installed directory of ClamAV.   
         Ex: C:\Program Files\ClamAV\conf_examples\clamd.conf.sample file   
             save as  C:\Program Files\ClamAV\conf_examples\clamd.conf   
-    2.Rename the **freshclam.conf.sample** to **freshclam.conf** from the installed directory of ClamAV.
+    2.Rename the **freshclam.conf.sample** to **freshclam.conf** from the installed directory of ClamAV.  
         Ex: C:\Program Files\ClamAV\conf_examples\ freshclam.conf.sample file  
             save as C:\Program Files\ClamAV\conf_examples\ freshclam.conf  
     3.Comment the line# 8(Example) in both the files  
-    4. Update Config files:   
-      
+    4.Download the Antivirus database from the following urls and placed it in the database folder(C:\Program Files\ClamAV\database)  
+       - http://database.clamav.net/main.cvd  
+       - http://database.clamav.net/daily.cvd  
+       - http://database.clamav.net/bytecode.cvd  
+    5. Update Config files:  
     **clamd.conf file changes:**  
       1.	Uncomment LogFile "C:\Program Files\ClamAV\clamd.log"(Line 14)
    
