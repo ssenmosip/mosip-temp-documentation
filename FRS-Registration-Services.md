@@ -1,7 +1,7 @@
 ## Table Of Content
 
-- [1. Operator Services](#1-operator-services-)
-  * [1.1 Operator on-boarding](#11-operator-on-boarding-) _(REG_FR_1.1)_
+- [1. User Services](#1-user-services-)
+  * [1.1 User on-boarding](#11-user-on-boarding-) _(REG_FR_1.1)_
   * [1.2 Login/Authentication](#12-loginauthentication-) _(REG_FR_1.2)_
   * [1.3 Logout](#13-logout-) _(REG_FR_1.3)_
 - [2. Data Sync](#2-data-sync-)
@@ -21,7 +21,7 @@
   * [4.4 Acknowledgement and Notifications](#44-acknowledgement-and-notifications-) _(REG_FR_4.4)_
   * [4.5 Biometric Capture (SDK Integration, Extract and Match) (WIP)](#45-biometric-capture-sdk-integration-extract-and-match-wip-) _(REG_FR_4.5)_
   * [4.6 Biometric Exceptions](#46-biometric-exceptions-) _(REG_FR_4.6)_
-  * [4.7 Operator and Supervisor Approval](#47-operator-and-supervisor-approval-) _(REG_FR_4.7)_
+  * [4.7 User and Supervisor Approval](#47-user-and-supervisor-approval-) _(REG_FR_4.7)_
   * [4.8 End of Day Process](#48-end-of-day-process-) _(REG_FR_4.8)_
 - [5. Geo-location](#5-geo-location-) _(REG_FR_5)_
 - [6. Language Support](#6-language-support-)
@@ -38,17 +38,17 @@
   * [11.1 Data retention policies](#111-data-retention-policies-) _(REG_FR_11.1)_
   * [11.2 Machine Retirement](#112-machine-retirement-) _(REG_FR_11.2)_
 
-## 1. Operator Services [**[↑]**](#table-of-content)
-### 1.1 Operator on-boarding [**[↑]**](#table-of-content)
+## 1. User Services [**[↑]**](#table-of-content)
+### 1.1 User on-boarding [**[↑]**](#table-of-content)
 
 When a registration officer or supervisor logs in a client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer to work in offline mode (when the client is not connected to the server).
 #### A. Map registration officers and supervisors to a client machine.
-Initially, a machine will have no operators on boarded. The first operator will be on boarded by an administrator or from the backend. Thereafter this operator can onboard other operators.
+Initially, a machine will have no users on boarded. The first user will be on boarded by an administrator or from the backend. Thereafter this user can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine.
 1. Allows the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data.
-   * Fields selected on the UI include operator, status, fingerprints, and irises.
-   * The list of operators will include only active operators. The system does not show operators who are blacklisted or decommissioned.
-   * The list of operators do not include those operators, who are already mapped to the machine.
+   * Fields selected on the UI include user, status, fingerprints, and irises.
+   * The list of users will include only active users. The system does not show users who are blacklisted or decommissioned.
+   * The list of users do not include those users, who are already mapped to the machine.
    * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
    * The system then validates the fingerprint quality threshold is met.
    * The system then validates the number of successful fingerprint authentications is greater than or equal to the config setting of fingerprint authentications required.
@@ -64,7 +64,7 @@ Initially, a machine will have no operators on boarded. The first operator will 
    * Mapping will be sent to the server during the next sync.
    * Biometrics will not be sent to the server.
 4. If not successful: Triggers an error message.
-5. Multiple operators can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of operators mapped.
+5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
 
 #### B. Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission
 The system performs the following steps:
@@ -83,14 +83,14 @@ The system performs the following steps:
 MOSIP supports single factor and multi factor login including iris and face capture. An Admin config setting determines the mode of login. 
 
 1. The registration officer or supervisor opts to login to Registration Client application
-   * System enables operator to login by entering username, and submit iris and face photo.
-2. The operator provides their username.
-3. The operator scans any one iris through the iris capture device.
-4. The operator then captures face photo using the face photo capture-device.
-5. On successful authentication, the system allows an operator to log in.
+   * System enables user to login by entering username, and submit iris and face photo.
+2. The user provides their username.
+3. The user scans any one iris through the iris capture device.
+4. The user then captures face photo using the face photo capture-device.
+5. On successful authentication, the system allows a user to log in.
 
-#### B. Temporarily lock the operator account after five unsuccessful login attempts.
-1. The MOSIP system temporarily locks the operator’s account in case he/she provides an invalid password for five times continuously to login.
+#### B. Temporarily lock the user account after five unsuccessful login attempts.
+1. The MOSIP system temporarily locks the user’s account in case he/she provides an invalid password for five times continuously to login.
 1. Upon the fifth unsuccessful attempt to login, displays an error message 
 1. The temporarily account lock lasts for 30 minutes (configured by an admin).
 1. The same error message is displayed for any subsequent login attempt within 30 minutes.
@@ -111,33 +111,33 @@ When a supervisor opts to log in the client machine, the system displays the app
 
 The mode of login is configured by admin, if the login is configured as Password-based login, the supervisor will be able to login the client machine in both online and offline mode using their password.
 
-1. System allows the operator to provide their credential and submit.
+1. System allows the user to provide their credential and submit.
 1. System validates that the username belongs to an on boarded registration officer or supervisor on that client.
-1. System validates that the password matches with the operator’s password stored locally. The local password will be fetched from the server during sync.
-1. System validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during sync.
-1. System validates that the operator has a role of registration officer or supervisor. 
+1. System validates that the password matches with the user’s password stored locally. The local password will be fetched from the server during sync.
+1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+1. System validates that the user has a role of registration officer or supervisor. 
 
 **(ii) OTP based login**
 
 If the client machine is online and the supervisor is mapped to the client machine, then the system allows supervisor to login with the OTP. The system allows supervisor to enter their username and authenticate himself or herself with OTP.
 
-1. Allows the operator to enter their username and submit.
+1. Allows the user to enter their username and submit.
 1. Validates that the username belongs to an on-boarded registration officer or supervisor on that client.
-1. The system generates and sends an OTP by SMS to the operator’s registered mobile number. Use the template defined in Admin for the OTP message. 
-1. Allows the operator to enter the OTP and submit.
-   * Alternatively, allows the operator to change entered username.
-   * Alternatively, allows the operator to request for resending the OTP.
+1. The system generates and sends an OTP by SMS to the user’s registered mobile number. Use the template defined in Admin for the OTP message. 
+1. Allows the user to enter the OTP and submit.
+   * Alternatively, allows the user to change entered username.
+   * Alternatively, allows the user to request for resending the OTP.
 5. Validates that the OTP submitted matches with the one that was generated and is submitted within its validity period.
-6. Validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during sync.
-7. Validates that the operator has a role of registration officer or supervisor.
-8. On successful validation of all conditions above, displays the logged in screen to the operator
+6. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+7. Validates that the user has a role of registration officer or supervisor.
+8. On successful validation of all conditions above, displays the logged in screen to the user
 
 #### D. Restrict access to each MOSIP feature to authorized users. [**[↑]**](#table-of-content)
 
-In MOSIP system, an operator can have multiple role. When an operator is registered on admin portal, the system allows an operator to assign multiple roles.
+In MOSIP system, a user can have multiple role. When a user is registered on admin portal, the system allows a user to assign multiple roles.
 
-When a logged in operator tries to access a feature on the Registration Client, the system determines if the requested feature is accessible to the role(s) mapped to the operator.
-1. If yes, permits the operator to access the requested feature.
+When a logged in user tries to access a feature on the Registration Client, the system determines if the requested feature is accessible to the role(s) mapped to the user.
+1. If yes, permits the user to access the requested feature.
 1. If no, displays an error message or hide the link to the feature as applicable. The UX design will drive whether to hide a link or display an error by clicking the link.
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
@@ -159,7 +159,7 @@ When a logged in operator tries to access a feature on the Registration Client, 
    * Approve registration
    * Reports
 5. A Super Admin can access all features.
-1. If an operator is not authorized to access a feature, the system notifies the operator by a message. 
+1. If a user is not authorized to access a feature, the system notifies the user by a message. 
 
 [**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
 
@@ -169,15 +169,15 @@ When a logged in operator tries to access a feature on the Registration Client, 
 
 ### 1.3 Logout [**[↑]**](#table-of-content)
 When a registration officer or supervisor opts to logout, the system allows them to do so by provisioning the following:
-1. Allows the operator to choose appropriate option (button or link) in order to log out
-1. Logs out the operator of their session.
-   * While logging out, does not allow the operator to perform any actions that require them to be logged in.
-1. Alternatively, closing the client window will also log out the operator.
-1. Alternatively, if the operator has remained inactive for a configured duration, he/she will be automatically logged out.
-   * Inactive/idle time is defined as the time during which the operator has not submitted or retrieved data using the client application or navigated to a different page.
+1. Allows the user to choose appropriate option (button or link) in order to log out
+1. Logs out the user of their session.
+   * While logging out, does not allow the user to perform any actions that require them to be logged in.
+1. Alternatively, closing the client window will also log out the user.
+1. Alternatively, if the user has remained inactive for a configured duration, he/she will be automatically logged out.
+   * Inactive/idle time is defined as the time during which the user has not submitted or retrieved data using the client application or navigated to a different page.
    * Any such action when performed resets the time to zero.
    * The auto log out duration is configured by Admin. The default value can be taken as 15 minutes.
-   * Alerts the operator ‘x’ minutes before reaching the auto logout time limit. The system displays a countdown timer in the alert. The operator can choose to dismiss the alert and continue working. This will also reset the timer to zero.
+   * Alerts the user ‘x’ minutes before reaching the auto logout time limit. The system displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
    * The duration before which to display the alert is configured by Admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 1. The System also captures and stores the transaction details for audit purpose (except PII data).
@@ -188,7 +188,7 @@ When a registration officer or supervisor opts to logout, the system allows them
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
 
 The Registration Client can work both in online and offline mode. When the client machine is switching from offline to online mode, the locally saved data will be synced with the server.
-The data sync can happen through an automated process at a set frequency or an operator can manually initiate a sync.
+The data sync can happen through an automated process at a set frequency or a user can manually initiate a sync.
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
@@ -196,7 +196,7 @@ Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Mas
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
 Please refer [**Git**]() for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a [**new registration**](#41-new-registration-).
-Based on the configuration (turn on or turn off), the system allows an operator to capture applicable biometrics, authenticates, and completes the registration. 
+Based on the configuration (turn on or turn off), the system allows a user to capture applicable biometrics, authenticates, and completes the registration. 
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
 
@@ -208,7 +208,7 @@ Based on the configuration (turn on or turn off), the system allows an operator 
 4. Client displays a success or failure message on the UI
 5. User on-boarding data such as User ID, USB device ID and Computer ID will be synced
 6. Alternatively, if the client machine is not online
-   * Displays an error message and does not sync when an operator tries to initiate a manual sync.
+   * Displays an error message and does not sync when a user tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
@@ -246,7 +246,7 @@ When a registration officer starts a new registration by entering a pre-registra
 
 A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of an individual only and the system does not allow to download the documents, which were uploaded by the applicant. 
 
-The system also enables an operator to view the progress of download.
+The system also enables a user to view the progress of download.
 
 The pre-registration data can be downloaded only for that particular registration center, where the pre-registration data download is initiated
 
@@ -356,8 +356,8 @@ Upon receiving a request to copy address details from the previous registration 
    * System lists various document categories as configured by admin
    * For each document category, system enables selection of the list of valid documents
    * The system validates if the document is pdf file format.
-   * The system does not allow operator to upload more than one document per category
-   * The system performs size check after document upload and revert the operator to upload again if the document size is more than 1MB (document size is configurable)
+   * The system does not allow user to upload more than one document per category
+   * The system performs size check after document upload and revert the user to upload again if the document size is more than 1MB (document size is configurable)
    * The system displays the name of the document adjacent to the Document Category for which the document is uploaded 
 6. The registration officer can delete files uploaded by mistake.
 1. The system allows to view the uploaded file(s)
@@ -483,7 +483,7 @@ When an individual approaches the registration officer for UIN update, the follo
 1. Registration officer then uploads documents. The applicable documents are determined by the system based on configuration
 1. If biometrics were selected for update, the registration officer marks exceptions and scans all biometrics. Else scans any one biometric.
 1. Registration officer captures face photo and exception photo.
-1. After capturing all the biometric and demographic details the registration officer can see a preview of the data captured and performs operator authentication.
+1. After capturing all the biometric and demographic details the registration officer can see a preview of the data captured and performs user authentication.
 1. If biometric exceptions were marked, supervisor performs authentication.
 1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. System initiates the process to update UIN after the RID is generated.
@@ -504,7 +504,7 @@ The registration officer performs the following steps to retrieve a lost UIN of 
    * None of the demographic fields is mandatory.
 2. Marks biometric exceptions and captures all fingerprints, irises, face photo and exception photo of the individual.
 1. Views a preview of details captured of the individual.
-1. Performs operator authentication by providing credentials in the configured mode.
+1. Performs user authentication by providing credentials in the configured mode.
 1. Supervisor performs supervisor authentication for individuals with exceptions.
 1. Views acknowledgement of Lost UIN request with a Registration ID assigned to it.
 1. System initiates the process to retrieve a lost UIN after the RID is provided to the individual.
@@ -564,7 +564,7 @@ Registration Client performs a local duplicate check for irises and face of an i
 1. The two captured irises are also compared against each other to identify a potential duplicate.
 1. The SDK determines the match score, and this is compared with the threshold match score. If match score >= threshold then it is a match.
 1. If at least one iris match is found, the system displays an alert, sets retry count to zero, and requires recapture of both irises.
-1. If a match is not found, allows the operator to proceed to the face capture step
+1. If a match is not found, allows the user to proceed to the face capture step
 1. The registration officer captures the face photo and opts to proceed further in the registration process
 1. On force capture/successful capture of face performs a local duplicate check of face of the individual against faces of all users on-boarded to the client.
 1. In case of forced capture uses only the best capture for local duplicate check
@@ -593,20 +593,20 @@ If the required biometric quality is not achieved while a registration officer i
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
 
-### 4.7 Operator and Supervisor Approval [**[↑]**](#table-of-content)
+### 4.7 User and Supervisor Approval [**[↑]**](#table-of-content)
 
 When a registration officer captures biometric exceptions of an individual, then a supervisor has to validate/approve that biometric exception. This approval is required to authenticate the captured biometric exception of the individual.
 
 **Supervisor authentication for biometric exceptions**
 
 1. The 'supervisor authentication for exceptions' process is configurable and can be switched ON or OFF at a country level by the Admin 
-1. A registration officer completes operator authentication at the end of registering an individual with exceptions.
+1. A registration officer completes user authentication at the end of registering an individual with exceptions.
 1. If a country has opted to turned on supervisor authentication, a supervisor is required to enter their credentials
 1. The mode of supervisor authentication is a configurable at the country level. It can be set to password, OTP, fingerprint, or multifactor.
 1. In case of OTP authentication, the client first sends a request to server to generate the OTP, then allows the supervisor to provide OTP and requests the server to match the input value with the generated OTP.
 1. In case of multifactor authentication, the client prompts the supervisor to provide credentials in the order configured and authenticates each input before proceeding to the entry of the next credential.
 1. On successful validation, the system proceeds to the next step of Registration ID generation and displays of registration acknowledgement.
-1. If the validation fails, the system displays an error message and allows operator to try again. Unlimited attempts are allowed.
+1. If the validation fails, the system displays an error message and allows user to try again. Unlimited attempts are allowed.
 1. Based on country-specific requirements, it is also possible for the registration officer and supervisor to be the same person. In this case, the registration officer and supervisor will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for supervisor authentication of exceptions.
 1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement).
 
@@ -616,7 +616,7 @@ When a registration officer captures biometric exceptions of an individual, then
 
 #### A. Approval of registrations through an end of day process.
 
-As a process, MOSIP enables a designated operator to review/approve every registration at the end of day before the packet is sent to Registration Processor. This process is done to prevent fraudulent of the packets.
+As a process, MOSIP enables a designated user to review/approve every registration at the end of day before the packet is sent to Registration Processor. This process is done to prevent fraudulent of the packets.
 
 Supervisor can log in to the Registration Client application and view a list of Registration ID that are awaiting for approval
 
@@ -646,7 +646,7 @@ When the Registration Processor finds an error in the packet such as registratio
 6. The supervisor then authenticates by providing biometric data -fingerprint, Iris, or face. Further, selects the specific finger or iris being provided.
 1. The supervisor authenticates with locally stored biometric and with the results.
    * On successful authentication, the actioned packets are removed from the ‘-Re-register’ list.
-   * On unsuccessful authentication, the operator can retry their authentication with the same or a different biometric
+   * On unsuccessful authentication, the user can retry their authentication with the same or a different biometric
 
 #### C. Authenticated registrations report (WIP)
 The system allows the supervisor to view a report of approved registrations for the past 15 days.
@@ -670,7 +670,7 @@ Upon receiving a request to geotag a registration machine, the system performs t
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-device-integration.md)
 
 ## 6. Language Support [**[↑]**](#table-of-content)
-The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for operator entered text fields.
+The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
 ### 6.1 Translation [**[↑]**](#table-of-content)
 
 **A Registration Officer can view static data translated to secondary language**
@@ -757,7 +757,7 @@ System exports registration packet data from client machine to an external devic
 1. Allows the registration officer to select a destination folder.
    * The destination folder includes the laptop/desktop, an external hard drive or a remote location.
    * External storage devices are not necessary to be MOSIP-registered devices.
-1. When the destination folder is selected, operator initiates export of packets.
+1. When the destination folder is selected, user initiates export of packets.
 1. System exports the packets to the selected folder and performs the following steps:
    * Identifies the packets in ‘Ready to Upload’ state.
    * If EoD process is turned ON, packets that have been approved or rejected and packet ID sync is completed are considered ‘Ready to Upload’.
@@ -797,15 +797,15 @@ The data captured and stored in to the client machine during different process (
 
 Initial installation of the client software on a particular machine, supervisor or registration officer will download an installable software (setup kit) from an admin portal. Then unzip the setup kit and install it in the client machine.
 
-When a registration officer or supervisor opts to download setup kit and selects the OS-specific setup kit to download, the system allows the operator to download the setup kit to the storage location chosen by the operator
+When a registration officer or supervisor opts to download setup kit and selects the OS-specific setup kit to download, the system allows the user to download the setup kit to the storage location chosen by the user
 
 1. User then unzips the setup kit.
 1. Extract the files and folders from the zip file to the chosen location.
-1. Allows the operator to verify that the files and folder structure are as described in the design document.
+1. Allows the user to verify that the files and folder structure are as described in the design document.
 1. System captures and stores the download transaction details for audit purpose (except PII data). 
 
 #### B. Update the client software from the server
-If a software update is available, then the system will provide an option to supervisor or registration officer to update either immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate an operator to update the software.
+If a software update is available, then the system will provide an option to supervisor or registration officer to update either immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate a user to update the software.
 
 The system follows the following steps during the update process:
 1. When the client is online, the system automatically checks for updates if available.
@@ -814,8 +814,8 @@ The system follows the following steps during the update process:
    * Update later.
 1. If the registration officer opts to select “Update now” option, then the registration officer can download and installs software and launches the application.
 1. The updates are downloaded as patch updates.
-1. When installation is in progress, the operator cannot perform any action on the client.
-1. Once installation is completed, the operator can start working on the client.
+1. When installation is in progress, the user cannot perform any action on the client.
+1. Once installation is completed, the user can start working on the client.
 1. If update is not successful, the system provides error message and provides both the options (Update Now or Update Later) again.
 1. If the registration officer opts to select “Update later” option, then the system checks if the freeze period has been reached.
    * If the freeze period has not been reached, the system allows the registration officer to continue with registration
@@ -849,7 +849,7 @@ When the Registration Client receives a request through manual trigger or schedu
 1. Displays an alert in case of sync failure.
    * The on-screen message is only indicated if the sync was a success or failure.
    * Detailed errors can be viewed in the transaction logs.
-1. When a sync is running, the system does not allow the operator to perform any other action.
+1. When a sync is running, the system does not allow the user to perform any other action.
 1. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and executed later. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier then immediately starts the sync.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 #### B. Delete transaction history (audit logs) post sync with server and the retention period
