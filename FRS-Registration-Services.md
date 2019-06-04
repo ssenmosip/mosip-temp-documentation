@@ -115,7 +115,7 @@ The mode of login is configured by admin, if the login is configured as Password
 1. System validates that the username belongs to an on boarded registration officer or supervisor on that client.
 1. System validates that the password matches with the operator’s password stored locally. The local password will be fetched from the server during sync.
 1. System validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during sync.
-1. System validates that the operator has a role or registration officer or supervisor. 
+1. System validates that the operator has a role of registration officer or supervisor. 
 
 **(ii) OTP based login**
 
