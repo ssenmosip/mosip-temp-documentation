@@ -14,7 +14,7 @@ Note: Each of the below points to be expanded according to the MOSIP implementat
 * Only ID information is encrypted
 * System related data will be stored in system default language (mostly English).
 
-# Physical Data Model
+# Data Model
 
 Below is the list of databases in MOSIP
 
