@@ -13,6 +13,9 @@
     * [2.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#25-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
     * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
 # ID Repository
+
+ID Repository acts as a repository of identity details of an individual, and provides API based mechanism to store and retrieve identity details by any other MOSIP modules.
+
 ## 1. Identity Service [**[↑]**](#table-of-content)
 ### 1.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
 
