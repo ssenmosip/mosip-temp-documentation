@@ -1,5 +1,5 @@
 ## Table Of Content
-* [ID Repository](#id-repository)
+* [ID Repository](#id-repository-)
   - [1. Identity Service](#1-identity-service-)
     * [1.1 Store Identity Data and Documents in Database](#11-store-identity-data-and-documents-in-database-)
     * [1.2 Retrieve the Stored Identity Details and Documents](#12-retrieve-the-stored-identity-details-and-documents-)
@@ -12,12 +12,27 @@
     * [2.4 Revoke a VID](#24-revoke-a-vid-)
     * [2.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#25-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
     * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
-# ID Repository
+# ID Repository [**[↑]**](#table-of-content)
 
 ID Repository contains the record of identity for an individual, and provides API based mechanism to store and retrieve identity details by any other MOSIP modules.
 
 When new/update packets are processed by Registration Processor, the identity details of an individual are added or updated in ID Repository. The identity information available in ID Repository is then used by ID Authentication to authenticate an individual.
 
+ID Repository includes two key features and are listed below:
+
+  - [1. Identity Service](#1-identity-service-)
+    * [1.1 Store Identity Data and Documents in Database](#11-store-identity-data-and-documents-in-database-)
+    * [1.2 Retrieve the Stored Identity Details and Documents](#12-retrieve-the-stored-identity-details-and-documents-)
+    * [1.3 Retrieve Identity Data in ID-Repo by RID](#13-retrieve-identity-data-in-id-repo-by-rid-)
+    * [1.4 Update Identity Data and Documents in Database](#14-update-identity-data-and-documents-in-database-)
+  - [2. VID Service](#2-vid-service-)
+    * [2.1 Create VID](#21-create-vid-)
+    * [2.2 Maintain the status of a VID](#22-maintain-the-status-of-a-vid-)
+    * [2.3 Regenerate a VID](#23-regenerate-a-vid-)
+    * [2.4 Revoke a VID](#24-revoke-a-vid-)
+    * [2.5 Auto-restore a VID on Revocation and with Auto-restore Policy](#25-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-)
+    * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
+ 
 ## 1. Identity Service [**[↑]**](#table-of-content)
 ### 1.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
 
