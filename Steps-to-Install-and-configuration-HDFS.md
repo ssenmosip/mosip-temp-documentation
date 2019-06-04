@@ -247,7 +247,11 @@ look into hdfs logs to debug: $HOME/hadoop/logs/
 sudo useradd  regprocessor
 sudo useradd  prereg
 sudo useradd  idrepo
+
 ```
+
+NOTE : Configure the user in application properties file as mosip.kernel.fsadapter.hdfs.user-name=prereg
+
 2. Create a directory and give permission for each user
 ```
 hdfs dfs -mkdir /user/regprocessor
