@@ -19,7 +19,7 @@
 |4.|Registration|API Specifications Document|NA|NA|
 |5.|Registration|Code Drop|[Tag: 0.12.5](/mosip/mosip/releases/tag/0.12.5)||
 |6.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
-|7.|Registration|Installation Guide| [Link](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
+|7.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
 
 **Date: 06 Jun 2019**
 
@@ -34,8 +34,8 @@
 |5.|Registration Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
 
 **Prerequisites : <br><sub>Dependent module/component with their respective versions should be mentioned here</sub></br>**
-Module/Files|Component|Version|Description (If any)
------|-------------|----------------|--------------
+|Module/Files|Component|Version|Description (If any)
+|-----|-------------|----------------|--------------
 ZIP|jar,DB, MDM, Props and JRE|0.12.5|The ZIP contains jar,DB, MDM, Props and JRE. 
 Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>
 mosip-sw-0.12.5.zip|NA|NA|<br>Please unzip the file and execute the run.bat</br><br> **run.bat**</br>
@@ -64,8 +64,8 @@ kernel-cbeffutil-api|NA|0.12.5|Used to generate the CBEFF file and validate agai
 kernel-bioapi-provider|NA|0.12.5|Used to integrate for the user-onboarding.
 
 **Open Issues : <br><sub>List of Open Issues, which would be resolved or fixed in another release version, but same Sprint</sub></br>**
-Open Items|Description
------------------|----------------------
+|Open Items|Description
+|-----------------|----------------------
 Transliteration|English-Arabic/ French Transliteration  won't work because of non-availability of kernel library. Vice versa also won't work.
 Bio-API|Integration with Bio-API for user-onboarding still in-progress.
 MDM | Bio device Integration
