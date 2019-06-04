@@ -34,6 +34,9 @@ ID Repository includes two key features and are listed below:
   * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
  
 ## 1. Identity Service [**[↑]**](#table-of-content)
+
+Identity services is used by Registration Processor to store/update during registration process and ID Authentication to retrieve Identity of an Individual for their authentication.
+
 ### 1.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
 
 Upon receiving a request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id. The system performs the following steps to store identity data and related documents in MOSIP database:
@@ -98,6 +101,14 @@ Upon receiving a request to update the UIN details with the following parameters
 [Refer to Wiki for more details on **Identity Services**](ID-Repository-API#identity-services-private).
 
 ## 2. VID Service [**[↑]**](#table-of-content)
+
+VID services can be used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
+
+**Users of VID services**
+
+**Registration Processor** - Registration Processor will create a new perpetual VID once UIN is generated successfully.
+**Resident Services** - Individual can use Resident Services to generate or re-generate a new temporary VID.
+**ID Authentication** - ID Authentication can retrieve UIN for a given VID for authenticating Individual using VID.
 ### 2.1 Create VID [**[↑]**](#table-of-content)
 
 Upon receiving a VID generation and storage request with the parameters: UIN, ver, requestTime, vidType, the system performs the following steps to create VID in the defined policy:
