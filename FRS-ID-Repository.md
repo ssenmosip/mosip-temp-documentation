@@ -105,8 +105,8 @@ Note:
 ### 2.3 Regenerate a VID [**[↑]**](#table-of-content)	
 
 Upon receiving a request with the parameter: VID, ver, the system performs the following steps to regenerate a specific type of VID:
-1. Validates if the regeneration policy for the VID type in the request is manual.
-1. Retrieves all the policy for the VID type in the request. 
+1. Validates if the regeneration policy for the VID in the request is manual.
+1. Retrieves all the policy for the VID in the request. 
 1. Validates the number of active instances of the VID type as follows:
    * If more than one instances are configured for the VID type and the maximum count has not been reached, then a new VID will be issued. If maximum count is exceeded it will report an error.
    * If an active VID of the requested VID type is not found, then the system will generate a new VID for the requested VID Type.
@@ -139,8 +139,7 @@ The system performs the following steps to auto-restore a revoked VID:
 ### 2.6 Retrieve the UIN corresponding to a VID [**[↑]**](#table-of-content)	
 
 Upon receiving a request with the parameter (VID), the system performs the following steps to retrieve the UIN corresponding to a VID: 
-1. Validates if the VID is valid as per policy.
+1. Validates if the VID is valid.
 1. Retrieves the UIN corresponding to the VID.
 1. Sends the response UIN, responseTime, err, ver
-1. Responds with error message if the system is unable to retrieve the UIN as per policy.
-1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
+1. Responds with error message as specified in the Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
