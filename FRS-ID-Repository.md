@@ -14,7 +14,8 @@
     * [2.6 Retrieve the UIN corresponding to a VID](#26-retrieve-the-uin-corresponding-to-a-vid-)
 # ID Repository
 
-ID Repository acts as a repository of identity details of an individual, and provides API based mechanism to store and retrieve identity details by any other MOSIP modules.
+ID Repository module contains the record of identity for an individual, and provides API based mechanism to store and retrieve identity details by any other MOSIP modules.
+When new/update packets are processed by Registration Processor, the identity details of an individual are added or updated in ID Repository. The identity information available in ID Repository is then used by ID Authentication to authenticate an individual.
 
 ## 1. Identity Service [**[↑]**](#table-of-content)
 ### 1.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
