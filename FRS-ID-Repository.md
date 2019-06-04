@@ -107,7 +107,9 @@ VID services can be used to perform various operations on VID like generate or r
 **Users of VID services**
 
 **Registration Processor** - Registration Processor will create a new perpetual VID once UIN is generated successfully.
+
 **Resident Services** - Individual can use Resident Services to generate or re-generate a new temporary VID.
+
 **ID Authentication** - ID Authentication can retrieve UIN for a given VID for authenticating Individual using VID.
 ### 2.1 Create VID [**[↑]**](#table-of-content)
 
