@@ -80,7 +80,7 @@ The system performs the following steps:
 
 #### A. Allows biometric login of the Registration Officer or Supervisor to the client application
 
-MOSIP supports single factor and multi factor login including iris and face capture. An Admin config setting determines the mode of login. 
+MOSIP supports single factor and multi factor login including iris and face capture. An admin config setting determines the mode of login. 
 
 1. The registration officer or supervisor opts to login to Registration Client application
    * System enables user to login by entering username, and submit iris and face photo.
@@ -123,7 +123,7 @@ If the client machine is online and the supervisor is mapped to the client machi
 
 1. Allows the user to enter their username and submit.
 1. Validates that the username belongs to an on-boarded registration officer or supervisor on that client.
-1. The system generates and sends an OTP by SMS to the user’s registered mobile number. Use the template defined in Admin for the OTP message. 
+1. The system generates and sends an OTP by SMS to the user’s registered mobile number. Use the template defined in admin for the OTP message. 
 1. Allows the user to enter the OTP and submit.
    * Alternatively, allows the user to change entered username.
    * Alternatively, allows the user to request for resending the OTP.
@@ -158,7 +158,7 @@ When a logged in user tries to access a feature on the Registration Client, the 
 4. Only supervisors can access the following features:
    * Approve registration
    * Reports
-5. A Super Admin can access all features.
+5. A Super admin can access all features.
 1. If a user is not authorized to access a feature, the system notifies the user by a message. 
 
 [**Link to design for Login**](/mosip/mosip/tree/master/docs/design/registration/registration-login.md)
@@ -176,9 +176,9 @@ When a registration officer or supervisor opts to logout, the system allows them
 1. Alternatively, if the user has remained inactive for a configured duration, he/she will be automatically logged out.
    * Inactive/idle time is defined as the time during which the user has not submitted or retrieved data using the client application or navigated to a different page.
    * Any such action when performed resets the time to zero.
-   * The auto log out duration is configured by Admin. The default value can be taken as 15 minutes.
+   * The auto log out duration is configured by admin. The default value can be taken as 15 minutes.
    * Alerts the user ‘x’ minutes before reaching the auto logout time limit. The system displays a countdown timer in the alert. The user can choose to dismiss the alert and continue working. This will also reset the timer to zero.
-   * The duration before which to display the alert is configured by Admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
+   * The duration before which to display the alert is configured by admin. The default value can be taken as 2 minutes. That is, if auto logout time is 15 minutes then an alert will display after 13 minutes.
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 1. The System also captures and stores the transaction details for audit purpose (except PII data).
 
@@ -437,12 +437,12 @@ If the duration since the last export or upload is not more than the configured 
 #### P. Choose the 'Opt to Register' option. 
 
 Upon receiving a request to start a new registration, the system performs the following steps:
-1. Validates the time since the last sync from server to client has not exceeded the maximum duration permitted (configured from Admin portal).
+1. Validates the time since the last sync from server to client has not exceeded the maximum duration permitted (configured from admin portal).
    * Sync includes Master data, Login credentials, Pre-registration data, Registration center config, Registration center setup, User role setup, Policies, Registration packet status.
-2. Validates the time since the last export of registration packets from client to server has not exceeded the maximum duration permitted, if applicable (configured from Admin portal).
-1. Validates the number of registration packets on the client yet to be exported to server has not exceeded the maximum limit, if applicable (configured from Admin portal).
+2. Validates the time since the last export of registration packets from client to server has not exceeded the maximum duration permitted, if applicable (configured from admin portal).
+1. Validates the number of registration packets on the client yet to be exported to server has not exceeded the maximum limit, if applicable (configured from admin portal).
 1. Reads the config setting that determines if the geo-location of the machine needs to be captured before every registration or captured at beginning of day only.
-1. Before every registration, the system captures geo-location of the machine and validates that the captured location is within x meters of the registration center location (Both x and the center location are configured from the Admin portal).
+1. Before every registration, the system captures geo-location of the machine and validates that the captured location is within x meters of the registration center location (Both x and the center location are configured from the admin portal).
 1. If captured at beginning of day only, validates that the beginning-of-day location is within x meters of the registration center location.
 1. On successful validation, sends a response and proceeds to the next step of choosing a pre-registered or non pre-registered applicant.
 1. In case of failures validation, triggers appropriate error messages.
@@ -464,7 +464,7 @@ When an individual approaches the registration officer for UIN update, the follo
 
 #### B. Registration Client allows update to UIN data only for configured fields
 1. An admin can configure the fields that are available for update through the Registration Client. The configuration applies at a country level.
-2. The Admin can set the following fields to be update-able at a country level through the admin portal:
+2. The admin can set the following fields to be update-able at a country level through the admin portal:
    * Name
    * Age/DoB
    * Gender
@@ -599,7 +599,7 @@ When a registration officer captures biometric exceptions of an individual, then
 
 **Supervisor authentication for biometric exceptions**
 
-1. The 'supervisor authentication for exceptions' process is configurable and can be switched ON or OFF at a country level by the Admin 
+1. The 'supervisor authentication for exceptions' process is configurable and can be switched ON or OFF at a country level by the admin 
 1. A registration officer completes user authentication at the end of registering an individual with exceptions.
 1. If a country has opted to turned on supervisor authentication, a supervisor is required to enter their credentials
 1. The mode of supervisor authentication is a configurable at the country level. It can be set to password, OTP, fingerprint, or multifactor.
