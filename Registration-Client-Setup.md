@@ -14,15 +14,15 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 **Application Build:**  
 ***
-   Registration client application is build with four different modules.    
-     registration-client - it contains only UI related code. 
-     registration-libs - it contains the code to generate the initial run.bat.  
+   **Registration client application is build with four different modules.**     
+     registration-client - it contains only UI related code.  
+     registration-libs - it contains the code to generate the initial run.bat.   
      registration-mdm-service - Mosip Device Manager service to integrate with BIO device and render the required data in standard format and that will be consumed by the 'registration-services' module.   
      registration-services - it contains the Java API, which would be called from UI module to render the services to the User and capture the detail from User and store it in db or send to external systems through services.    
 
    **Following files to be modified before build the application:**  
-       mosip-application.properties - [registration-libs module] - update the environment variable.  
-       spring-<env>.properties - [registration-services module] - update the REST client url based on environment.     
+       mosip-application.properties - [registration-libs module] - Contains the environment variable.  
+       spring-<env>.properties - [registration-services module] - It contains the environment based REST client url to make different service calls.       
 
 	Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
 
