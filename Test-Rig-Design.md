@@ -42,11 +42,11 @@ The individual module level test suites and the end to end suite are triggered v
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
 
-1. [**Kernel Test Automation Suite - User Guide**]()
-1. [**Pre-Registration Test Automation Suite - User Guide**]()
-1. [**Registration Client Test Automation Suite - User Guide**]()
-1. [**Registration Processor Test Automation Suite - User Guide**]()
-1. [**ID Authentication (IDA) Test Automation Suite - User Guide**]()
+1. [**Kernel Test Automation Suite - User Guide**](Tester-Documentation#1-kernel-test-automation-suite---user-guide)
+1. [**Pre-Registration Test Automation Suite - User Guide**](Tester-Documentation#2-pre-registration-test-automation-suite---user-guide)
+1. [**Registration Client Test Automation Suite - User Guide**](#3-registration-client-test-automation-suite---user-guide)
+1. [**Registration Processor Test Automation Suite - User Guide**](Tester-Documentation#4-registration-processor-test-automation-suite---user-guide)
+1. [**ID Authentication (IDA) Test Automation Suite - User Guide**](Tester-Documentation#5-id-authentication-ida-test-automation-suite---user-guide)
 
 
 ### System Level or E2E Automation Suite (Test Rig) [**[↑]**](#table-of-content)
