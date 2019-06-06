@@ -62,4 +62,4 @@ The below diagram depicts the overall design of the end to end suite.
 
 ### <p align="center"> **Figure 2: _E2E Test Rig Design_**
 
-1. [**E2E Test Automation Suite - User Guide**]()
+1. [**E2E Test Automation Suite - User Guide**](Tester-Documentation#6-e2e-test-automation-suite---user-guide)
