@@ -853,13 +853,14 @@ When the Registration Client receives a request through manual trigger or schedu
 1. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and executed later. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier then immediately starts the sync.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 #### B. Delete transaction history (audit logs) post sync with server and the retention period
+ 
 When a set of audit data is uploaded to the server and the server has acknowledged receipt of the audit data, the system performs the following steps to delete transaction history (audit logs) post sync with server and the retention period:
 1. Runs on a daily process to identify audit data that has been sent to the server and acknowledgement is received from the server.
    * The audit data acknowledgement received from the server >= x hours ago. X is configured at a country level.
 2. Deletes the identified audit data from the client machine.
 1. Executes at a time and frequency as configured. 
    * The process takes place only when the Registration Client is in open and running situation. If the Registration Client is not open during a scheduled run, it is executed as soon as the client is next started up.
-4. Does not delete audit data if that is yet to be sent to the server.
+4. Does not delete audit data, if that is yet to be sent to the server.
 1. System captures and stores the transaction details.
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration_packet_deletion_job.md)
