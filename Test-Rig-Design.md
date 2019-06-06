@@ -42,6 +42,7 @@ The individual module level test suites and the end to end suite are triggered v
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
 
+The user guides listed below detail the usage of individual module level automation suites
 1. [**Kernel Test Automation Suite - User Guide**](Tester-Documentation#1-kernel-test-automation-suite---user-guide)
 1. [**Pre-Registration Test Automation Suite - User Guide**](Tester-Documentation#2-pre-registration-test-automation-suite---user-guide)
 1. [**Registration Client Test Automation Suite - User Guide**](#3-registration-client-test-automation-suite---user-guide)
