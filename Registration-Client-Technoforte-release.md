@@ -42,7 +42,7 @@
 |kernel-core|NA|0.12.6|Basic core kernel packages.|
 |kernel-logger-logback|NA|0.12.6|Use for the logging.|
 |kernel-dataaccess-hibernate|NA|0.12.6|Used for the communicating to the DB.|
-|kernel-auditmanager-api|NA|0.12.5|Used to audit the records into the DB|
+|kernel-auditmanager-api|NA|0.12.6|Used to audit the records into the DB|
 |kernel-idvalidator-rid|NA|0.12.6|Used to validate the RID format.|
 |kernel-idvalidator-uin|NA|0.12.6|Used to validate the UIN format|
 |kernel-idvalidator-prid|NA|0.12.6|Used to validate the PRID format|
