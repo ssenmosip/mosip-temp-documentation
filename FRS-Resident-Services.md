@@ -171,6 +171,8 @@ Upon receiving a request with the parameter (VID), the system performs the follo
 1. Responds with error message as specified in the link below.
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/vid-service.md)
+
 [Refer to Wiki for more details on **VID Services API**](ID-Repository-API#vid-services-private).
 
 
