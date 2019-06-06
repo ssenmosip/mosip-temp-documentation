@@ -11,28 +11,28 @@ Generic Test Automation Design - API Testing
 
 3. How to enhance the existing data coverage?
 
-# 1. Pre-Registration Test Automation Suite - User Guide
+# 2. Pre-Registration Test Automation Suite - User Guide
 1. How to add test cases for a new API?
 
 2. How to run the Pre-Reg automation suite?
 
 3. How to enhance the existing data coverage?
 
-# 1. Registration Client Test Automation Suite - User Guide
+# 3. Registration Client Test Automation Suite - User Guide
 1. How to add test cases for a new API?
 
 2. How to run the Reg Client automation suite?
 
 3. How to enhance the existing data coverage?
 
-#1. Registration Processor Test Automation Suite - User Guide
+# 4. Registration Processor Test Automation Suite - User Guide
 1. How to add test cases for a new API?
 
 2. How to run the Reg Proc automation suite?
 
 3. How to enhance the existing data coverage?
 
-# 1. ID Authentication (IDA) Test Automation Suite - User Guide
+# 5. ID Authentication (IDA) Test Automation Suite - User Guide
 1. How to add test cases for a new API?
 
 2. How to run the IDA automation suite?
