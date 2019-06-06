@@ -840,17 +840,17 @@ Pre-registration and registration data are automatically deleted from the client
 
 #### A. Read packet status and delete packets
 When the Registration Client receives a request through manual trigger or scheduled job to sync data, the system performs the following steps to read a packet status and delete the packets:
-1. Sends request to server for sync.
+1. Sends the data sync request to server.
 1. Receives response from server with packet statuses.
    * Server sends status of those registration packets that were created in the specific machine, and that status that has changed since the last sync.
 1. Saves the statuses ‘Processing’, ‘Processed’ or ‘Resend’ as received for each packet. Statuses of other packets are not updated.
-1. Sends success or failure message to the UI.
 1. Immediately deletes the packets from the local machine whose status is received as ‘Processed’.
 1. Displays an alert in case of sync failure.
    * The on-screen message is only indicated if the sync was a success or failure.
    * Detailed errors can be viewed in the transaction logs.
-1. When a sync is running, the system does not allow the user to perform any other action.
-1. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and executed later. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier then immediately starts the sync.
+1. The system does not allow user to perform any activities when the data sync is running.
+1. If the Registration Client is not online or not open during a scheduled sync, the sync will be queued up and will be executed later. 
+1. When the Registration Client is next launched and is online, checks if the previous scheduled sync was executed. If not executed earlier, then immediately starts the sync.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 #### B. Delete transaction history (audit logs) post sync with server and the retention period
  
