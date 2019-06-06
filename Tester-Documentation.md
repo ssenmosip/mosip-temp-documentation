@@ -39,6 +39,13 @@ Generic Test Automation Design - API Testing
 
 3. How to enhance the existing data coverage?
 
+# 6. E2E Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the IDA automation suite?
+
+3. How to enhance the existing data coverage?
+
 # 1 Introduction
 ## 1.1 Overview
 The MOSIP architecture mainly consists of the following functional blocks/modules
