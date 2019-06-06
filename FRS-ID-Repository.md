@@ -17,7 +17,7 @@ Identity services is used by Registration Processor to store/update during regis
 
 ### 1.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
 
-Upon receiving a request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id. The system performs the following steps to store identity data and related documents in MOSIP database:
+Upon receiving a request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id, the system performs the following steps to store identity data and related documents in MOSIP database:
 1. Validates if the request contains “individualBiometrics” or the “parentOrGuardianBiometrics” CBEFF files in the request.
 1. The system interacts with biometric SDK to convert the FIR (Fingerprint Image Record) in the CBEFF file to FMR.
 1. Appends the FMR (Fingerprint Minutiae Record) to the CBEFF file by using the kernel CBEFF utility service.
