@@ -42,6 +42,19 @@ The individual module level test suites and the end to end suite are triggered v
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
 
+Kernel Test Automation Suite - User Guide
+
+Pre-Registration Test Automation Suite - User Guide
+
+Registration Client Test Automation Suite - User Guide
+
+
+Registration Processor Test Automation Suite - User Guide
+
+
+ID Authentication (IDA) Test Automation Suite - User Guide
+
+
 ### System Level or E2E Automation Suite (Test Rig) [**[↑]**](#table-of-content)
 
 End to end system level Test Rig covers the functionality across the modules starting with Pre-Registration and ending in Registration Processor or IDA. 
