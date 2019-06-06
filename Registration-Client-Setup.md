@@ -11,6 +11,21 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 ![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
+
+**Application Build:**  
+***
+   Registration client application is build with four different modules.    
+     registration-client - it contains only UI related code. 
+     registration-libs - it contains the code to generate the initial run.bat.  
+     registration-mdm-service - Mosip Device Manager service to integrate with BIO device and render the required data in standard format and that will be consumed by the 'registration-services' module.   
+     registration-services - it contains the Java API, which would be called from UI module to render the services to the User and capture the detail from User and store it in db or send to external systems through services.    
+
+   **Following files to be modified before build the application:**  
+       mosip-application.properties - [registration-libs module] - update the environment variable.  
+       spring-<env>.properties - [registration-services module] - update the REST client url based on environment.     
+
+	Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
+
 **Prerequisites:**  
 ***
 **System Prerequisites:**  
@@ -149,7 +164,10 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
    
    **File Location:** props/mosip-application.properties 
-
+     - mosip.env= qa, preqa { environment name. Use the same value in spring profile config.}  
+     - mosip.client.url = {JFrog repository url.}  
+     - mosip.xml.file.url = {JFrog repository url with maven-metadata.xml file.}  
+     - mosip.cerpath= /cer//mosip_cer.cer  
     	
 **Sync and Upload Services:**  
 ***  
