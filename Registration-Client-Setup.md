@@ -42,7 +42,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - Before building the 'registration-services' module, all the services URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
    - Property file **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
    - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
-   - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile configuration in LDAP server.    
+   - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile configuration in LDAP server.    [This is required until the Admin module is delivered. Post delivery, all the configuration can be done through Admin module.]   
    - User's machine should have online connectivity to access the JFrog artifactory repository, where the application binaries are available.   
    - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
