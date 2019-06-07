@@ -43,36 +43,20 @@
 
 When a registration officer or supervisor is onboarded  in an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
 #### A. Map registration officers and supervisors to a client machine.
-Initially, a machine will have no users on boarded. The first registration officer or supervisor will be on boarded by an administrator or from the admin console. Thereafter this registration officer or supervisor can onboard other users.
-1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine.
-1. Allows the system to receive the request for mapping a registration officer / supervisor to the client machine with selected data.
-   * Fields selected on the UI include user, status, fingerprints, and irises.
-   * The list of users will include only active users. The system does not show users who are blacklisted or decommissioned.
-   * The list of users do not include those users, who are already mapped to the machine.
-   * All 10 fingerprints are captured and authenticated with the server. The machine must be online for this authentication.
-   * The system then validates the fingerprint quality threshold is met.
-   * The system then validates the number of successful fingerprint authentications is greater than or equal to the config setting of fingerprint authentications required.
-   * Unlimited attempts are allowed.
-   * Both irises are captured and authenticated with the server. Validate that the iris quality threshold is met.
-   * Validate that the number of successful iris authentications is greater than or equal to the config setting of iris authentications required.
-   * Unlimited attempts are allowed.
-3. If validations are successful, then the system performs the following:
-   * Saves the mapping locally.
-   * Successfully authenticated fingerprints and irises will be stored locally.
-   * Fingerprints and irises with unsuccessful authentication will not be stored.
-   * The status of the mapping is set to ‘Active’ or ‘Inactive’ as selected.
-   * Mapping will be sent to the server during the next sync.
-   * Biometrics will not be sent to the server.
-4. If not successful: Triggers an error message.
-5. Multiple users can be mapped to the machine by repeating the above flow. There is no limitation to the numbers of users mapped.
+Initially, a machine will have no users on boarded. The first registration officer or supervisor will be on-boarded by an administrator or from the admin console. Thereafter this registration officer or supervisor can onboard other users.
+The system allows the following to occur for a successful onboarding of a user: 
+1. The system will onboard a user using the user’s biometrics.
+   * The quality threshold of  the biometrics is predefined.
+1. The system will only allow to onboard an active user. 
+1. User onboarding is allowed only when the machine is online. 
+1. The system will not allow to onboard a blacklisted user. 
+1. The system will not allow to onboard an inactive user. 
+1. An onboarded user will be able to take the machine offline and login to use the machine in offline mode.
+1. The system allows to onboard a multiple users to the machine.
 
 #### B. Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission
-The system performs the following steps:
-1. Captures all the biometrics of the officer's as an input.
-1. Generates a match score for each individual biometric
-1. Generates an average match score
-1. Compares the average match score with the configured threshold match score 
-1. Returns one single response i.e. return success if average >= threshold 
+
+The system captures the required biometrics details of user at the time of onboarding, generates the score for each captured biometrics, and compares the captured biometrics with configured threshold .Retains the biometrics having highest score. 
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registrtaion-on-board-user.md)
 
@@ -80,14 +64,10 @@ The system performs the following steps:
 
 #### A. Allows biometric login of the Registration Officer or Supervisor to the client application
 
-MOSIP supports single factor and multi factor login including iris and face capture. An admin config setting determines the mode of login. 
+MOSIP supports single factor and multi factor login including iris and face capture. An admin configuration setting determines the mode of login.
 
-1. The registration officer or supervisor opts to login to Registration Client application
-   * System enables user to login by entering username, and submit iris and face photo.
-2. The user provides their username.
-3. The user scans any one iris through the iris capture device.
-4. The user then captures face photo using the face photo capture-device.
-5. On successful authentication, the system allows a user to log in.
+System allows user to provide their username, iris and face photo to login. The system validates the user’s provided details and logs in the user on successful validation.
+
 
 #### B. Temporarily lock the user account after five unsuccessful login attempts.
 1. The MOSIP system temporarily locks the user’s account in case he/she provides an invalid password for five times continuously to login.
@@ -675,9 +655,10 @@ The Registration Client supports two languages, a primary language in which all 
 
 **A Registration Officer can view static data translated to secondary language**
 
-1. In MOSIP, the primary and secondary languages are configured by the admin 
-1. All static data (headers, labels, action buttons, and alert messages) is set up by the admin in both languages so that the registration officer can view all pages in the client application in both the default (primary) language and translated (secondary) language. 
-1. If configured translation language is same as default language, the system displays text in default language only.
+1. In MOSIP, the primary and secondary languages are configured by the admin.
+1. Admin configures all the static data in both primary and secondary languages so that the user can view all the pages of client application in primary (default) and second (translated) languages. 
+1. If the both languages are configured in one language, the system displays the text in default language only.
+
 
 ### 6.2 Transliteration [**[↑]**](#table-of-content)
 
@@ -711,9 +692,8 @@ The system then enables a registration officer to view the registration confirma
 ### 7.1 Registration Packet Upload [**[↑]**](#table-of-content) 
 
 #### A. Upload the packet
-1. The registration officer views a list of packets.
-1. The registration officer may opt to upload one or multiple packets from a list of packets.
-1. After the registration officer selects the packet/s, he/she can upload the selected packet/s to server.
+1. The system allows a registration officer to view a list of packets and may opt to upload one or multiple packets from a list of packets.
+1. After the registration officer selects the packet(s), he/she can upload the selected packet(s) to server.
 
    NOTE: If any packets are selected, the ‘Export’ feature will be disable because the selection of packets is applicable only for ‘Upload’ feature.
 
