@@ -5,6 +5,7 @@
    * [1.2 Update Individual’s Information](#12-update-individuals-information-) _(RPR_FR_1.2)_
    * [1.3 De-activate Individual’s ID](#13-de-activate-individuals-id-) _(RPR_FR_1.3)_
    * [1.4 Re-activate Individual’s ID](#14-re-activate-individuals-id-) _(RPR_FR_1.4)_
+   * [1.5 Find an Individual’s ID](#15-find-an-individuals-id-)
  - [2. Configurable Workflow](#2-configurable-workflow-) 
    * [2.1 Orchestration](#21-orchestration-) _(RPR_FR_2.1)_
    * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures-) _(RPR_FR_2.2)_
@@ -47,11 +48,11 @@
 When an individual visits a registration center to get an ID or update his/her ID details, a registration officer captures the individual’s demographic (name, date of birth, gender, etc.) and biometric (face, iris, fingerprint image) details in a Registration Client. The Registration Client packages the captured information in a secure way (in the form of encrypted packets) and sends it to Registration Processor for further processing. 
 
 The packet received from the Registration Client goes through various sanity checks and validations to perform various life cycle events. The various life cycle events that can be processed by Registration Processor are:
-1. New ID Issuance
-1. Update Individual’s Information
-1. De-activate Individual’s ID
-1. Re-activate Individual’s ID
-1. Find an Individual’s ID
+1. [New ID Issuance](#11-new-id-issuance-)
+1. [Update Individual’s Information](#12-update-individuals-information-) 
+1. [De-activate Individual’s ID](#13-de-activate-individuals-id-) 
+1. [Re-activate Individual’s ID](#14-re-activate-individuals-id-)
+1. [Find an Individual’s ID](#15-find-an-individuals-id-)
 
 
 ## 1.1 New ID Issuance [**[↑]**](#table-of-content)
@@ -84,8 +85,11 @@ If a country wants to deactivate an individual’s ID due to any specific reason
 ## 1.4 Re-activate individual’s ID [**[↑]**](#table-of-content)
 If a country wants to re-activate a deactivated individual’s ID, the system provides a feature to do so after certain validations are performed.
 
-
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
+
+## 1.5 Find an Individual’s ID [**[↑]**](#table-of-content)
+When an individual have forgotten his/her ID information. He/she can find their ID by visiting the registration center and providing their required information. By using the biometrics of the individual, the system finds the individual’s ID and sends it to their registered address.
+
 # 2. Configurable Workflow [**[↑]**](#table-of-content)
 ## 2.1 Orchestration [**[↑]**](#table-of-content)
 
