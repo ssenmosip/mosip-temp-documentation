@@ -190,11 +190,16 @@ Requires Authentication | Yes
 ###### Description: Token is not present in cookies
 ```JSON
 {
-  "timestamp": "2019-04-24T09:45:07.972+0000",
-  "status": 500,
-  "error": "Internal Server Error",
-  "message": "No message available",
-  "path": "/preregistration/v1/login/invalidateToken"
+    "id": "mosip.pre-registration.login.invalidate",
+    "version": "1.0",
+    "responsetime": "2019-06-07T12:20:13.191Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "KER-ATH-007",
+            "message": "Token is not present in cookies"
+        }
+    ]
 }
 ```
 ### GET /login/config
