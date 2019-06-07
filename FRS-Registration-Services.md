@@ -1,7 +1,7 @@
 ## Table Of Content
 
 - [1. User Services](#1-user-services-)
-  * [1.1 User on-boarding](#11-user-on-boarding-) _(REG_FR_1.1)_
+  * [1.1 Registration Officer and Supervisor on-boarding](#11-registration-officer-and-supervisor-on-boarding-) _(REG_FR_1.1)_
   * [1.2 Login/Authentication](#12-loginauthentication-) _(REG_FR_1.2)_
   * [1.3 Logout](#13-logout-) _(REG_FR_1.3)_
 - [2. Data Sync](#2-data-sync-)
@@ -39,9 +39,9 @@
   * [11.2 Machine Retirement](#112-machine-retirement-) _(REG_FR_11.2)_
 
 ## 1. User Services [**[↑]**](#table-of-content)
-### 1.1 User on-boarding [**[↑]**](#table-of-content)
+### 1.1 Registration Officer and Supervisor on-boarding [**[↑]**](#table-of-content)
 
-When a registration officer or supervisor logs in a client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer to work in offline mode (when the client is not connected to the server).
+When a registration officer or supervisor is onboarded  in an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
 #### A. Map registration officers and supervisors to a client machine.
 Initially, a machine will have no users on boarded. The first registration officer or supervisor will be on boarded by an administrator or from the admin console. Thereafter this registration officer or supervisor can onboard other users.
 1. This functionality allows the system to create new mapping between registration officers and supervisors to a client machine.
