@@ -3123,3 +3123,12 @@ PRG_DATA_SYNC_005|FAILED_TO_CREATE_A_ZIP_FILE|If any error occurs while creating
 PRG_DATA_SYNC_014|FILE_IO_EXCEPTION|File system exception
 PRG_DATA_SYNC_006|FAILED_TO_FETCH_DOCUMENT|when rest service to document service fails
 
+###Common Exception Details for all Preregistration API
+
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_015|Error message will come accordingly to the exception occurred|This error code  will occur for MethodArgumentNotValidException,HttpMessageNotReadableException
+PRG_CORE_REQ_016|Error message will come accordingly to the exception occurred|This error code  will occur for Exception,RuntimeException
+KER-ATH-402|Token expired|If the auth token got expired
+
+
