@@ -63,8 +63,8 @@ When a registration officer captures an individual’s information, the Registra
 During the allocation of the Unique Identification Number (UIN), the system also allocates a Virtual Identification Number (VID) to the individual. VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and protect their UIN details from being accessed by someone else. 
 
 MOSIP generates two types of VID such as Perpetual VID and Temporary VID. 
-**Perpetual VID**: Registration Processor will create a new perpetual VID once UIN is generated successfully.
-**Temporary VID**: Individual can use Resident portal to generate or re-generate a new temporary VID.
+1. **Perpetual VID**: Registration Processor will create a new perpetual VID once UIN is generated successfully.
+1. **Temporary VID**: Individual can use Resident portal to generate or re-generate a new temporary VID.
 
 Refer to [**VID Services**]( FRS-Resident-Services#11-vid-service-) in Resident Services for more details.
 
