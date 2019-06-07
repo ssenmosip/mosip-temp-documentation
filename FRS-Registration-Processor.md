@@ -5,7 +5,7 @@
    * [1.2 Update Individual’s Information](#12-update-individuals-information-) _(RPR_FR_1.2)_
    * [1.3 De-activate Individual’s ID](#13-de-activate-individuals-id-) _(RPR_FR_1.3)_
    * [1.4 Re-activate Individual’s ID](#14-re-activate-individuals-id-) _(RPR_FR_1.4)_
-   * [1.5 Find an Individual’s ID](#15-find-an-individuals-id-)
+   * [1.5 Find an Individual’s ID](#15-find-an-individuals-id-) _(RPR_FR_1.5)_
  - [2. Configurable Workflow](#2-configurable-workflow-) 
    * [2.1 Orchestration](#21-orchestration-) _(RPR_FR_2.1)_
    * [2.2 Retry Processing (In case of exceptions/failures)](#22-retry-processing-in-case-of-exceptionsfailures-) _(RPR_FR_2.2)_
