@@ -223,6 +223,7 @@ PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
 PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request time
 PRG_CORE_REQ_013|Request date should be current date|If the date is not current date
+PRG_PAM_LGN_013|VALIDATION_UNSUCCESSFUL|If incorrect otp is entered
 
 ### POST /login/invalidateToken
 This request will invalidate the authorization token when force logout is done.
