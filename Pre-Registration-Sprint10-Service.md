@@ -182,7 +182,14 @@ Requires Authentication | Yes
 ###### Description: Token invalidated successfully
 ```JSON
 {
-  "message": "Token has been invalidated successfully"
+  "id": "mosip.pre-registration.login.invalidate",
+  "version": "1.0",
+  "responsetime": "2019-06-07T12:26:19.053Z",
+  "response": {
+    "message": "Token has been invalidated successfully",
+    "status": "success"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
