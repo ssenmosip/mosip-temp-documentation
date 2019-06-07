@@ -41,7 +41,6 @@
    * [3.3 Post-Processing](#33-post-processing-) 
      * [3.3.1 Notification (Pluggable by SI)](#331-notification-pluggable-by-si-) _(RPR_FR_3.21)_
      * [3.3.2 Print & Post (Pluggable by SI)](#332-print--post-pluggable-by-si-) _(RPR_FR_3.22)_
-     * [3.3.3 Data Seeding to External Functional ID System (Pluggable by SI)](#333-data-seeding-to-external-functional-id-system-pluggable-by-si-) _(RPR_FR_3.23)_
 
 # Registration Processor [**[↑]**](#table-of-content)
 # 1. ID Lifecycle Management [**[↑]**](#table-of-content)
@@ -269,7 +268,3 @@ Notification (SMS/Email as configured), which is received by an individual is th
 After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_printing_stage.md)
-### 3.3.3 Data Seeding to External Functional ID System (Pluggable by SI) [**[↑]**](#table-of-content)
-If a country wants to Integrate with any External Functional ID Systems, MOSIP provides the capability to integrate with any External System.
-
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_external_system_integration.md)
