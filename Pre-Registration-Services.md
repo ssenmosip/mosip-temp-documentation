@@ -689,6 +689,8 @@ KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribut
 KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
 KER-IOV-004|Invalid input parameter - identity/phone|If phone attribute is found but it's value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/email|If email attribute is found but it's value is empty or invalid
+KER-ATH-402|Token expired|If the auth token got expired
+
 
 ### PUT /applications/{preRegistrationId}
 This request is used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
