@@ -1,17 +1,14 @@
 * **Authentication and Authorization** _(AUT_FR_1)_
+In MOSIP, Authentication largely falls into the below categories:
+* Authentication via web channel (for Pre-Registration web app, Admin web app and Resident services portal)
+* Authentication via local system i.e., offline authentication (for Registration client)
 
-MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined below:
+In MOSIP, Authorization falls into the below categories:
+* Authorization of API's accessed via web channel
+* Authorization to access specific data (will be implemented in v2)
 
-1. OTP manager: To be defined
-1. SMS Notification Manager API : To be defined
-1. Email Notification Manager API : To be defined
-1. Software Updater API - Master Data : To be defined
-1. Software Updater API - Configurations : To be defined
-1. Software Updater API - Public Keys : To be defined
-1. Crypto Service API : To be defined
-1. Key Manager API : To be defined
-1. Master Data APIs (All Create/Update/Delete) : To be defined
-1. UIN Generator : To be defined
-1. Audit Manager : To be defined
-1. OTP Notification Service : To be defined
-1. ID Repo Service : To be defined
+A country will have its own hierarchy of system users especially the Registration staff and system administration staff. So, instead of defining a fixed hierarchy, by default MOSIP will depend on an LDAP implementation to manage users, organizational hierarchy and roles for users in the hierarchy. MOSIP will use an open source LDAP server as the LDAP implementation. Administrators can create hierarchy and users using Apache Directory Studio.
+
+MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined. 
+
+Please refer [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx) for more details based on the roles and Privileges. 
