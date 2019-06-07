@@ -56,7 +56,17 @@ The packet received from the Registration Client goes through various sanity che
 
 ## 1.1 New ID Issuance [**[↑]**](#table-of-content)
 
-When the Registration Processor receives a packet for registering an individual in the system, it performs various [**sanity checks**](#311-sanity-check-) & validations, and identifies demographic duplicates (using demographic data like name, date of birth and gender) and biometric duplicates (using [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). After all the validations are successful, the system allocates a UIN for the individual. 
+MOSIP issues a new ID to an individual when the individual visits a registration center and provides a required information to register himself/herself in MOSIP for the first time.
+
+When a registration officer captures an individual’s information, the Registration Client packages the captured information in the form of encrypted packets and sends it to Registration Processor. After the encrypted packet reaches the Registration Processor, the system tries to find the individual’s information (i.e. demographic and biometric information) availability in the system (this process is known as Deduplication). If the system does not find any duplicates of the individual’s information, then the system registers the individual and allocates a unique ID and sends his/her ID card through the countries configured printing and postal service.
+
+During the allocation of the Unique Identification Number (UIN), the system also allocates a Virtual Identification Number (VID) to the individual. VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and protect their UIN details from being accessed by someone else. 
+
+MOSIP generates two types of VID such as Perpetual VID and Temporary VID. 
+**Perpetual VID**: Registration Processor will create a new perpetual VID once UIN is generated successfully.
+**Temporary VID**: Individual can use Resident portal to generate or re-generate a new temporary VID.
+
+Refer to [**VID Services**]( FRS-Resident-Services#11-vid-service-) in Resident Services for more details.
 
 ## 1.2 Update Individual’s Information [**[↑]**](#table-of-content)
 An individual can update his/her information via two different ways:
