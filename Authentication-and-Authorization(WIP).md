@@ -12,4 +12,4 @@ A country will have its own hierarchy of system users especially the Registratio
 
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined. 
 
-[**Please refer to Git for more details based on the roles and Privileges**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
+[**Please refer Git for more details based on the roles and Privileges**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
