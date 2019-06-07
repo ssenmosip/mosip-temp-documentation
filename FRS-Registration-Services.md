@@ -650,7 +650,7 @@ Upon receiving a request to geotag a registration machine, the system performs t
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-device-integration.md)
 
 ## 6. Language Support [**[↑]**](#table-of-content)
-The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and a secondary language in which select pages such as demographic details are also rendered for convenience of the individual. French and Arabic are the default primary and secondary languages, which are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
+The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and demographic details of an individual are also rendered in secondary language for convenience of the user. French and Arabic are the default primary and secondary languages, which are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for user entered text fields.
 ### 6.1 Translation [**[↑]**](#table-of-content)
 
 **A Registration Officer can view static data translated to secondary language**
@@ -664,28 +664,22 @@ The Registration Client supports two languages, a primary language in which all 
 
 **Registration Client enables viewing transliterated data other than French and Arabic**
 
-The Registration Client application will support two type of languages: Primary language (the language in which the registration officer enters data) and secondary language (transliteration language). The secondary language is country specific and is set by the administrator
+The Registration Client application will support two type of languages: Primary language (the language in which the registration officer enters data) and secondary language (transliteration language). The secondary language is country specific and is set by the administrator.
 
-When a registration officer starts a new registration, update or lost UIN process and enters data in the primary language for the demographic fields such as: Full Name, Address Line 1, Address Line 2, Address Line 3, and parent/guardian Name.
-
-System transliterates the data and displays in the corresponding secondary language fields.
-
-The following data are transliterated into the secondary language in addition to being shown in the primary language.
-1. Demographic details page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and parent/guardian Name.
-1. Registration preview page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and parent/guardian Name.
-1. Registration confirmation page: Data for Full Name, Address Line 1, Address Line 2, Address Line 3 and parent/guardian Name.
+When a registration officer starts a new registration, update or lost UIN process and provides demographic data (Full Name, Address Line 1, Address Line 2, Address Line 3, and parent/guardian Name) of an individual in the primary language. The system transliterates the data and displays in the corresponding secondary language fields.
 
 Registration officer can invoke the virtual keyboard to edit transliterated data and proceeds with registration. The following rules are followed during transliteration.
-1. Editing transliterated fields does not change the data entered in the primary language field
-1. The system also validates the maximum character length in the transliterated field and ensures that it is same as the limits defined for the primary language field.
-1. If no secondary language is set, system does not do any transliteration and will display empty space instead.
-1. Numeric fields are not transliterated. The same numerals are displayed in the secondary language section of the page and are not editable.
+1. Editing transliterated language does not change the data entered in the primary language.
+1. The system also validates the maximum character length in the transliterated language and in primary language.
+1. If secondary language is not configured, the system does not do any transliteration and will display empty space instead.
+1. Numeric data are not transliterated. The same numeric data are displayed in the secondary language section of the page, which are not editable.
 
-Master data selections are not transliterated. Instead, the master data as setup in the secondary language is displayed in the relevant section. 
+Master data selections are not transliterated. Instead, the master data as setup in the secondary language is displayed in the relevant section.
 
-The registration officer can then view the preview page
+The registration officer can then view the preview page.
 
-The system then enables a registration officer to view the registration confirmation page. The fields as transliterated and edited earlier are also shown in the secondary language.
+The system then enables a registration officer to view the registration confirmation page. The data, which are transliterated and edited earlier are also shown in the secondary language.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-muti-lingual-support.md)
 ## 7. Packet Upload [**[↑]**](#table-of-content)
