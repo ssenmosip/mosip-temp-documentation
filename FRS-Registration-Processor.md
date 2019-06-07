@@ -48,10 +48,10 @@ When an individual visits a registration center to get an ID or update his/her I
 
 The packet received from the Registration Client goes through various sanity checks and validations to perform various life cycle events. The various life cycle events that can be processed by Registration Processor are:
 1. New ID Issuance
-2. Update Individual’s Information
-3. De-activate Individual’s ID
-4. Re-activate Individual’s ID
-5. Find an Individual’s ID
+1. Update Individual’s Information
+1. De-activate Individual’s ID
+1. Re-activate Individual’s ID
+1. Find an Individual’s ID
 
 
 ## 1.1 New ID Issuance [**[↑]**](#table-of-content)
