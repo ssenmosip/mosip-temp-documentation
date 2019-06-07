@@ -44,13 +44,15 @@
 
 # Registration Processor [**[↑]**](#table-of-content)
 # 1. ID Lifecycle Management [**[↑]**](#table-of-content)
-When an individual visits a registration center to get a UIN or update his/her UIN information, a registration officer or supervisor captures the individual’s demographic (name, date of birth, gender, etc.) and biometric (face, iris, finger print image, etc.) details. These information are packaged in a secure way (using encrypted packets) by Registration Client and sent to Registration Processor. The various life cycle events that can be processed by Registration Processor are:
+When an individual visits a registration center to get an ID or update his/her ID details, a registration officer captures the individual’s demographic (name, date of birth, gender, etc.) and biometric (face, iris, fingerprint image) details in a Registration Client. The Registration Client packages the captured information in a secure way (in the form of encrypted packets) and sends it to Registration Processor for further processing. 
 
-The packet received from the Registration Client must pass the [**sanity checks**](#311-sanity-check-) and validations to carry out the following processes:
-* New ID Issuance
-* Update individual’s information
-* De-activate individual’s ID
-* Re-activate individual’s ID
+The packet received from the Registration Client goes through various sanity checks and validations to perform various life cycle events. The various life cycle events that can be processed by Registration Processor are:
+1. New ID Issuance
+2. Update Individual’s Information
+3. De-activate Individual’s ID
+4. Re-activate Individual’s ID
+5. Find an Individual’s ID
+
 
 ## 1.1 New ID Issuance [**[↑]**](#table-of-content)
 
