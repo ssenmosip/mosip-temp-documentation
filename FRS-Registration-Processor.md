@@ -61,7 +61,7 @@ MOSIP issues a new ID to an individual when the individual visits a registration
 
 When a registration officer captures an individual’s information, the Registration Client packages the captured information in the form of encrypted packets and sends it to Registration Processor. After the encrypted packet reaches the Registration Processor, the system tries to find the individual’s information (i.e. demographic and biometric information) availability in the system (this process is known as Deduplication). If the system does not find any duplicates of the individual’s information, then the system registers the individual and allocates a unique ID and sends his/her ID card through the countries configured printing and postal service.
 
-During the allocation of the Unique Identification Number (UIN), the system also allocates a Virtual Identification Number (VID) to the individual. VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and protect their UIN details from being accessed by someone else. 
+During the allocation of the Unique Identification Number (UIN), the system also allocates a Virtual Identification Number (VID) to the individual. VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and protect their UIN from being accessed by someone else. 
 
 MOSIP generates two types of VID such as Perpetual VID and Temporary VID. 
 1. **Perpetual VID**: Registration Processor will create a new perpetual VID once UIN is generated successfully.
@@ -70,20 +70,26 @@ MOSIP generates two types of VID such as Perpetual VID and Temporary VID.
 Refer to [**VID Services**]( FRS-Resident-Services#11-vid-service-) in Resident Services for more details.
 
 ## 1.2 Update Individual’s Information [**[↑]**](#table-of-content)
-An individual can update his/her information via two different ways:
-1. **Visiting a Registration Center** – The individual can update their biometric and demographic information.
-1. **Using the Resident Portal** – The individual can update their address and contact information.
+An individual can choose to update his/her demographic or biometric information, even after an ID is issued for the individual. He/she can update his/her information in two different ways:
+1. Visiting a Registration Center – When the individual visits the Registration Center he/she can update all their biometric and demographic information. 
+1. Using the Resident Portal – The Individual can update his/her address and contact information by using the Resident Portal.
 
-When the request is made by the individual, a packet is received by registration processor which goes through various [**sanity checks**](#311-sanity-check-) and validations and then updates the individual’s information.
+In both the cases, the individual’s information is securely packaged and sent to Registration Processor, where post all validations the individual’s information is updated and the system sends his/her Updated ID card through the countries configured printing and postal service.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
 
 ## 1.3 De-activate individual’s ID [**[↑]**](#table-of-content)
-If a country wants to deactivate an individual’s ID due to any specific reason, the system provides a feature to do so after certain validations are performed. As a result of de-activation of UIN, the individual can not authenticate themselves by using UIN or VID. 
+We provide a feature using which we can de-activate an individual’s ID. When an individual’s ID is deactivated then he/she wouldn’t be able to authenticate themselves.
+
+If a country wants to deactivate an individual’s ID due to any specific reason, the system deactivates the individual after certain validations are performed in registration processor
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 ## 1.4 Re-activate individual’s ID [**[↑]**](#table-of-content)
-If a country wants to re-activate a deactivated individual’s ID, the system provides a feature to do so after certain validations are performed.
+We also provide a feature using which we can re-activate an individual’s deactivated ID. When the individual is re-activated then he/she would be able to authenticate then self.
+
+If a country wants to reactivate an individual’s deactivated ID due to any specific reason, the system reactivates the individual after certain validations are performed in registration processor.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 
@@ -104,9 +110,9 @@ For more details about Orchestration, refer to the below link.
 [**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
-Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time.
+Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time. To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
 
-To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
+
 
 ## 2.3 Resume Workflow [**[↑]**](#table-of-content)
 When Registration Processor fails to communicate (with external or internal system) even after retrying multiple times or there is a system error, the system stops processing the packets. 
