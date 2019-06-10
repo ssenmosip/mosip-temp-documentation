@@ -17,7 +17,7 @@
    * [3.1 Pre-processing Validations](#31-pre-processing-validations-) 
      * [3.1.1 Sanity Check](#311-sanity-check-) _(RPR_FR_3.1)_
      * [3.1.2 Virus Scan](#312-virus-scan-) _(RPR_FR_3.2)_
-     * [3.1.3 Machine-User-Center-Device Checks](#313-machine-user-center-mapping-check-) _(RPR_FR_3.4)_
+     * [3.1.3 Machine-Center Mapping](#313-machine-center-mapping-) _(RPR_FR_3.4)_
      * [3.1.4 Officer & Supervisor Validation](#314-officer--supervisor-validation-) _(RPR_FR_3.6)_
    * [3.2 Processing](#32-processing-) 
      * [3.2.1 Individual Data Validations](#321-individual-data-validations-) 
@@ -154,53 +154,72 @@ MOSIP is scalable so that it can handle any kind of processing load or request i
 # 3. Types of Stages [**[↑]**](#table-of-content)
 ## 3.1 Pre-processing Validations [**[↑]**](#table-of-content)
 ### 3.1.1 Sanity Check [**[↑]**](#table-of-content)
-When Registration Processor receives a packet, the system performs various sanity checks, such as:
-1. **Authentication** - The system authenticates if the requestor is an verified user.
+When Registration Processor receives a packet, the system performs various sanity checks on the packet, such as:
+
+1. **Authentication of the Request** - The system validates if the request is coming from a verified source.
 1. **Virus Scan** - The system performs in-memory virus scan of the packet received.
 1. **Packet Integrity Check** - The system validates if the packet received was not tampered during transit by performing check sum validation.
 1. **Packet Size Check** - The system validates if the packet received was not tampered during transit by validating the size of the packet.
 1. **Packet Format Check** - The system validates if the packet format is per the configured format.
-1. **Duplicate Check** – The system validates if the request received is not a duplicate request.
+1. **Duplicate Check** - The system validates if the request received is not a duplicate request.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_validator.md)
 
 ### 3.1.2 Virus Scan [**[↑]**](#table-of-content)
-Virus Scanning is an important process which helps to remove virus infected files from the system. 
+Virus Scanning is an important process, which helps to detect and move the virus infected packets to the quarantine zone. With a good virus scanner integrated in MOSIP will prevent virus interference.
 
-In Registration Processor, virus scanning is performed twice, which are listed below:
+Whenever virus scanning is performed in Registration Processor, the encrypted packets are first scanned and then the packets are decrypted in-memory and scanned.
+
+Virus scanning is performed twice In Registration Processor:
 1. When a packet is received by Registration Processor.
-2. When Registration Processor stores the packet in its internal secure file system.
+1. When Registration Processor stores the packet in its internal secure file system.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_virus_scanner.md)
 
-### 3.1.3 Machine-User-Center Mapping Check [**[↑]**](#table-of-content)
-The system validates a registration machine, registration officer, registration center details, and devices, which are used for packet creation. This validation is to ensure that the packet received by the Registration Processor was created in a authenticated device by a authentic Officer or supervisor. 
+### 3.1.3 Machine-Center Mapping [**[↑]**](#table-of-content)
+When a Packet is created in Registration Client, the packet will be created using a registered machine, devices, registration officer, registration supervisor, registration center.
+
+To make sure that the packets are created as per the defined rules, the system performs the following validations:
+1. Registration Center must be active when the packet was created.
+1. User (registration officer/registration supervisor) must be active when the packet was created.
+1. Machine and devices, in which packet was created must be active when the packet was created.
+1. User, machine and center must be mapped when the packet was created.
+1. Packet must be created in working days and not in holidays.
+1. The GPS must be captured when a packet is created.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
 
 ### 3.1.4 Officer & Supervisor Validation [**[↑]**](#table-of-content)
 
-When a packet is created in registration client, the officer or supervisor IDs and mode of authentication is captured in the packet. The information captured can be used to perform the same validation in Registration Processor. 
-
-The modalities used for authenticating an officer or supervisor are:
-1. Biometric Authentication (Biometrics such as Iris, Face or Finger Prints)
-1. Password Authentication 
+When a packet is created in Registration Client, the officer or supervisor will authenticate himself/herself and the same is captured in the packet. There are three modes by which an officer or supervisor can authenticate himself/herself, which are listed below:
+1. Biometric Authentication
+1. Password Based Authentication
 1. OTP Based Authentication
+
+In case of Biometric Authentication, Registration Processor authenticates the Officer/Supervisor again after receiving the packet from the Registration Client.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
 ## 3.2 Processing [**[↑]**](#table-of-content)
 ### 3.2.1 Individual Data Validations [**[↑]**](#table-of-content)
 #### 3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check [**[↑]**](#table-of-content)
-The system checks if the photo, age and gender captured by the registration officer while registering an individual using registration client are in sync. 
+The system provides a feature to integrate with an SDK to identify and validate the age and gender captured by the registration officer against the photo of the resident. 
+
+This validation helps system to identify the mistake, that are performed by the registration officer. 
+
+**WIP - This is factored for future releases and is not part of current implementation.**
+ 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_receiver_stage.md)
 #### 3.2.1.2 Biometrics Quality Check [**[↑]**](#table-of-content)
-The system checks the quality of biometrics (Face Photo, Finger Print Image, and Iris Image) captured by the registration officer while registering an individual using registration client. 
+The biometrics captured (Face, Fingerprint or Iris) for an individual is used to authenticate the individual. If the quality of the biometric image captured during registration were low, then authentication for the individual using biometrics will not be accurate.
 
-The system also checks the liveliness of the Finger Print Image captured of an individual and validates the photo captured as per ICAO (International Civil Aviation Organization) standards.
+Hence, the system provides a feature to integrate with an SDK to validate if the quality of biometrics captured of an individual is above the configured threshold. If the quality of the biometric captured is lower than the threshold configured, then Registration Processor does not allow ID generation for the individual.
 
 #### 3.2.1.3 Doc. Validation - OCR [**[↑]**](#table-of-content)
-The system checks if some data captured while registering an individual using registration client is available in the document, which is uploaded using OCR (Optical Character Recognition).
+When an individual visits the Registration Center to get an ID or update his/her information, the officer manually enters various demographic information for the individual, which might cause a human error. To avoid such issues, the system provides the feature to integrate with an SDK, which validates the fields that are manually entered against the corresponding documents.
+
+**WIP - This is factored for future releases and is not part of current implementation.**
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_validator.md)
 ### 3.2.2 Functional Validations [**[↑]**](#table-of-content)
@@ -216,7 +235,12 @@ For Example:
 
 #### 3.2.2.2 Introducer Validation [**[↑]**](#table-of-content)
 
-When a Minor needs to be registered, the system mandates the capture of the UIN or RID and biometrics of an Introducer (Parent or Guardian). In Registration Processor, this data is used to Authenticate the Introducer.
+An Introducer in MOSIP is one who introduces someone without any valid document or proof of identity. In the current implementation, Introducer is the Parent or Guardian when a minor comes to the center for registration.
+
+A minor is not mature enough to provide biometrics (like Finger Prints or Iris) as they are under developed during the time of registration, hence, the Parent or Guardian acts as the Introducer to register the minor in MOSIP.
+
+When a minor is registered, the Registration Client mandates the capture of the ID and biometrics of the Parent or Guardian, which is used for authenticating the Parent or Guardian in Registration Processor.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
 
@@ -239,9 +263,9 @@ Deduplication is the process to find a duplicate by comparing the individual’s
 ### 3.2.3 External System Integration: (Elaborate with examples) [**[↑]**](#table-of-content)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP) [**[↑]**](#table-of-content)
 
-The System Integrator can plug-in a stage in the workflow, where the stage can communicate with any other external system and receive some data. 
+Data verification is a process in which the system can verify the data captured during a registration with the data received from an external system to ensure accuracy and consistency. It helps to determine whether data was accurately translated, is complete and supports the interoperability standards.
 
-Data verification is a process in which the system verifies the data captured during a registration with the data received from the external system to ensure accuracy and consistency. It helps to determine whether data was accurately translated, is complete and supports the interoperability standards.
+The System Integrator can plug-in a stage in the workflow, where the stage can communicate with any external system to receive some information and validate it with the information captured at the Registration Center.
 
 [**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
