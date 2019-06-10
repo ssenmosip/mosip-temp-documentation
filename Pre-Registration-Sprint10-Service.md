@@ -3142,5 +3142,6 @@ Error Code | Error Message | Error Description
 PRG_CORE_REQ_015|Error message will come accordingly to the exception occurred|This error code  will occur for MethodArgumentNotValidException,HttpMessageNotReadableException
 PRG_CORE_REQ_016|Error message will come accordingly to the exception occurred|This error code  will occur for Exception,RuntimeException
 KER-ATH-402|Token expired|If the auth token got expired
+KER-ATH-401|Invalid Token|If the auth token is invalid
 
 
