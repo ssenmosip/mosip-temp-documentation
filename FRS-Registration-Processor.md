@@ -80,35 +80,35 @@ In both the cases, the individual’s information is securely packaged and sent 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
 
 ## 1.3 De-activate individual’s ID [**[↑]**](#table-of-content)
-We provide a feature using which we can de-activate an individual’s ID. When an individual’s ID is deactivated then he/she wouldn’t be able to authenticate themselves.
+This feature is used to de-activate an individual’s ID. When an individual’s ID is deactivated, then he/she will not be able to authenticate himself/herself by using UIN or VID.
 
-If a country wants to deactivate an individual’s ID due to any specific reason, the system deactivates the individual after certain validations are performed in registration processor
-
+If a country wants to deactivate an individual’s ID due to any specific reason, the system deactivates the individual’s ID after certain validations are performed in Registration Processor.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 ## 1.4 Re-activate individual’s ID [**[↑]**](#table-of-content)
-We also provide a feature using which we can re-activate an individual’s deactivated ID. When the individual is re-activated then he/she would be able to authenticate then self.
+This feature is used to re-activate an individual’s deactivated ID. When the individual is re-activated then he/she will be able to authenticate himself/herself by using UIN or VID.
 
-If a country wants to reactivate an individual’s deactivated ID due to any specific reason, the system reactivates the individual after certain validations are performed in registration processor.
+If a country wants to reactivate an individual’s deactivated ID due to any specific reason, the system reactivates the individual’s deactivated ID after certain validations are performed in Registration Processor.
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 
 ## 1.5 Find an Individual’s ID [**[↑]**](#table-of-content)
-When an individual have forgotten his/her ID information. He/she can find their ID by visiting the registration center and providing their required information. By using the biometrics of the individual, the system finds the individual’s ID and sends it to their registered address.
+When an individual forgets his/her ID information. He/she can find their ID by providing their required information in the Registration Center. The system then uses the biometrics of the individual to find the individual’s ID  and sends his/her ID card to their registered address.
+
 
 # 2. Configurable Workflow [**[↑]**](#table-of-content)
 ## 2.1 Orchestration [**[↑]**](#table-of-content)
 
 Orchestration is the process of configuring various services which will be coordinated and managed to achieve a business goal. 
 
-In Registration Processor, there are various independent components which are connected in a workflow to perform various Identity Lifecycle events. 
+In Registration Processor, there are various independent stages which are connected in a workflow to perform various Identity Lifecycle events. 
 
 For more details about Orchestration, refer to the below link.
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
 Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time. To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
