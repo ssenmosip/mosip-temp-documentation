@@ -1738,7 +1738,7 @@ request |Yes|Request for the application|
 request.registration_center_id |Yes|Registration center Id |10005
 request.appointment_date |Yes|Date of the appointment|2019-01-19
 request.time_slot_from |Yes|Time Slot From|12:15:00
-request.time_slot_from |Yes|Time Slot To|12:28:00
+request.time_slot_to |Yes|Time Slot To|12:28:00
 
 #### Request:
 ```JSON
