@@ -129,9 +129,9 @@ System Integrator can integrate their system with MOSIP. Which in turn  allows t
  
 Please refer to the design links below to understand how system integrator can integrate their system\s with MOSIP 
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 ## 2.5 Multiple Workflows [**[↑]**](#table-of-content)
 
@@ -243,9 +243,9 @@ The System Integrator can plug-in a stage in the workflow, where the stage can c
 
 Data verification is a process in which the system verifies the data captured during a registration with the data received from the external system to ensure accuracy and consistency. It helps to determine whether data was accurately translated, is complete and supports the interoperability standards.
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 #### 3.2.3.2 Data Enrichment [**[↑]**](#table-of-content)
 
