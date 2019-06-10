@@ -359,6 +359,8 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                   "value":"MLE"
                },
                {
+
+
                   "language":"ara",
                   "value":"MLE"
                }
@@ -1830,7 +1832,7 @@ request.preRegistrationid|Yes|Preregistration Id|51489749326453
 request.registration_center_id |Yes|Registration center Id |10001
 request.appointment_date |Yes|Date of the appointment|2019-04-22
 request.time_slot_from |Yes|Time Slot From|15:30:00
-request.time_slot_from |Yes|Time Slot To|15:45:00
+request.time_slot_to |Yes|Time Slot To|15:45:00
 
 #### Request:
 ```JSON
