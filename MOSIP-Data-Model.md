@@ -1,18 +1,17 @@
 This section contains information on data model design standards, guidelines and principles for global master reference data, conceptual, logical and physical model design standards followed in MOSIP project.
 
-# Data Model Standards
+# Data Model Considerations
 
-Note: Each of the below points to be expanded according to the MOSIP implementation approach.
-* Meaningful Naming: DB objects that are being created will have a meaningful naming.
-* PK, UK, FK, Not Null constraints
+* Meaningful Naming: DB objects that are being created will have a meaningful naming. There will not be any prefix or suffix to the table names
+* Constraints: Only Primary Key (PK), Unique Key (UK), Foreign Key (FK) and Not Null constraints are set at database level. The data model will not have check constraints, etc.
 * Flexible model
-* No business logic, no defaults, no use of sequences, identify fields at database level
-* No DB triggers, avoid DB functions, procedures. If needed, It should be ANSI compliant
+* Database specific features: Use of DB specific features like defaults, DB sequences, identify fields are not used
+* No business logic is implemented at database level other than PK, UK, FKs. No programming at DB level and usage of features like DB triggers, DB functions, procedures. If needed, It should be ANSI compliant and proper explanation needs to be provided
 * SQL used in application should be ANSI Compliant 
 * The data is stored in multiple languages as configured by administrator of the system
 * Referential integrity is applied on the tables belonging to same database. If the objects are referred across DB then this will be handled at the application layer.
-* Only ID information is encrypted
-* System related data will be stored in system default language (mostly English).
+* Only individual and security related information is encrypted
+* System related data will be stored in system default language (mostly English or primary language set by a contry).
 
 # Data Model
 
