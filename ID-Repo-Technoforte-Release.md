@@ -7,7 +7,7 @@
 |1.|NA|Getting Started Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
 |2.|ID Repo|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#12-id-repository-)|
 |3.|ID Repo|High Level Design Document|[Click to View](Deliverables---Attachments)|Refer Section 8 in the linked page|
-|4.|ID Repo|API Specifications Document|NA|NA|
+|4.|ID Repo|API Specifications Document|[Click to View](https://github.com/mosip/mosip/wiki/ID-Repository-API)||
 |5.|ID Repo|Code Drop|[Tag: 0.11.1](/mosip/mosip/releases/tag/0.11.1)||
 |6.|ID Repo|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 8 in the linked page|
 
