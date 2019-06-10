@@ -4,7 +4,7 @@ This section contains details related to MOSIP data model design.The section als
 
 * Meaningful Naming: DB objects that are being created will have a meaningful naming. There will not be any prefix or suffix to the table names
 * Constraints: Only Primary Key (PK), Unique Key (UK), Foreign Key (FK) and Not Null constraints are set at database level. The data model will not have check constraints, etc.
-* Flexible model
+* Flexible model: Flexibility is one of the feature considered while designing the data model in most of the cases. For example, there are no referential integrity constraints applied across databases. No business rules are set at database level other than few mapping data. Most of the business logic is applied at application layer.  
 * Database specific features: Use of DB specific features like defaults, DB sequences, identify fields are not used
 * No business logic is implemented at database level other than PK, UK, FKs. No programming at DB level and usage of features like DB triggers, DB functions, procedures. If needed, It should be ANSI compliant and proper explanation needs to be provided
 * SQL used in application should be ANSI Compliant 
