@@ -71,10 +71,11 @@ Refer to [**VID Services**]( FRS-Resident-Services#11-vid-service-) in Resident 
 
 ## 1.2 Update Individual’s Information [**[↑]**](#table-of-content)
 An individual can choose to update his/her demographic or biometric information, even after an ID is issued for the individual. He/she can update his/her information in two different ways:
-1. Visiting a Registration Center – When the individual visits the Registration Center he/she can update all their biometric and demographic information. 
-1. Using the Resident Portal – The Individual can update his/her address and contact information by using the Resident Portal.
+1. **Visiting a Registration Center** – When the individual visits the Registration Center, he/she can update all their biometric and demographic information. 
+1. **Using the Resident Portal** – The individual can update his/her address details and contact information by using the Resident Portal.
 
-In both the cases, the individual’s information is securely packaged and sent to Registration Processor, where post all validations the individual’s information is updated and the system sends his/her Updated ID card through the countries configured printing and postal service.
+In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all the successful validations, the system updates the individual’s information and sends his/her updated ID card through the countries configured printing and postal service.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
 
