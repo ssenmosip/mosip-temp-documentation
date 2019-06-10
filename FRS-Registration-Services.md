@@ -84,7 +84,7 @@ If the Registration Client is offline, then system allows the supervisor to log 
 When a supervisor opts to log in the client machine, the system displays the appropriate options as per the mode of login.
 
 * If the mode of login is username and password, displays the password-based login.
-* If the mode of login is username and OTP, display the OTP based login 
+* If the mode of login is username and OTP, display the OTP based login. 
 
 
 **(i) Password-based login**
