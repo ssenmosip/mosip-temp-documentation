@@ -13,8 +13,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 
 **Application Build:**  
-***
-   JDK 8u181 [Oracle] or later version to Build the application. 
+***  
+   JDK 8u181 [Oracle] or later version to Build the application.  
    **Registration client application is build with four different modules.**     
      registration-client - it contains only UI related code.  
      registration-libs - it contains the code to generate the initial run.bat.   
