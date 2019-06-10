@@ -3104,7 +3104,7 @@ PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
 PRG_TRL_APP_008|Unsupported language|If langCode is other than ara,eng and fra
 PRG_TRL_APP_002|Incorrect mandatory Fields|If any of the request is null
 
-####Common Exception Details for all Preregistration API
+#### Common Exception Details for all Preregistration API
 
 Error Code | Error Message | Error Description
 -----|----------|-------------
