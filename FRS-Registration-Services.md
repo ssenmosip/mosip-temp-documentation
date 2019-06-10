@@ -472,9 +472,9 @@ When an individual approaches the registration officer for UIN update, the follo
 1. SMS and/or email notifications are sent to the individual if the contact details are entered during the update process.
 1. Refer to the [**Track Status of UIN Update**](FRS-Resident-Services#7-track-status-of-uin-update-) in Resident Services.
 
-#### D. UIN  Update of Child
+#### D. UIN Update of Child
 
-The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request.
+The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request.
 
 The following parameters can be updated during a child’s UIN update- Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
 1. If ‘Parent/Guardian details’ is selected for update, then a registration officer will capture the UIN, Name and any one biometric of the Parent/Guardian (fingerprint / iris).
