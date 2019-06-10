@@ -43,9 +43,9 @@
 
 When a registration officer or supervisor is onboarded  in an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
 #### A. Map registration officers and supervisors to a client machine.
-Initially, a machine will have no users on boarded. The first registration officer or supervisor will be on-boarded by an administrator or from the admin console. Thereafter this registration officer or supervisor can onboard other users.
-The system allows the following to occur for a successful onboarding of a user: 
-1. The system will onboard a user using the user’s biometrics.
+Initially, a machine will have no users on boarded. The first registration officer or supervisor will be on-boarded by an administrator. Thereafter this registration officer or supervisor can on-board other users.
+The system allows the following to occur for a successful on-boarding of a user: 
+1. The system will on-board a user using the user’s biometrics.
    * The quality threshold of  the biometrics is predefined.
 1. The system will only allow to onboard an active user. 
 1. User onboarding is allowed only when the machine is online. 
