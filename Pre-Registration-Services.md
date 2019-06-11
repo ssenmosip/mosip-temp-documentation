@@ -1803,17 +1803,18 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If the document is not found for the preregistration id and document id
+###### Description: If document id is valid and the preregistration id is invalid Or If the document id does not belong to the preregistration id
+
 ```JSON
 {
-    "id": "mosip.pre-registration.document.delete.specific",
+    "id": "mosip.pre-registration.document.fetch.content",
     "version": "1.0",
-    "responsetime": "2019-05-27T12:57:17.508Z",
+    "responsetime": "2019-06-11T10:47:34.919Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_005",
-            "message": "Documents is not found for the requested pre-registration id"
+            "errorCode": "PRG_PAM_DOC_022",
+            "message": "DocumentId is not belongs to the pre-registration Id"
         }
     ]
 }
@@ -1821,6 +1822,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If document id is invalid and the preregistration id is valid
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
 PRG_CORE_REQ_012|decryption failed|decryption of document data failed
@@ -1920,17 +1922,18 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Document is not found for the pre-registration id and document id
+###### Description: If document id is valid and the preregistration id is invalid Or If the document id does not belong to the preregistration id
+
 ```JSON
 {
-    "id": "mosip.pre-registration.document.delete.specific",
+    "id": "mosip.pre-registration.document.fetch.content",
     "version": "1.0",
-    "responsetime": "2019-05-27T12:57:17.508Z",
+    "responsetime": "2019-06-11T10:47:34.919Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_005",
-            "message": "Documents is not found for the requested pre-registration id"
+            "errorCode": "PRG_PAM_DOC_022",
+            "message": "DocumentId is not belongs to the pre-registration Id"
         }
     ]
 }
@@ -1938,6 +1941,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If document id is invalid and the preregistration id is valid
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 
