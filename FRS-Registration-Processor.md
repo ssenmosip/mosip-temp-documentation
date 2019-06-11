@@ -110,7 +110,6 @@ Please refer to [**Git**]((/mosip/mosip/blob/0.12.0/docs/design/registration-pro
 [**Link to design**]
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
-Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time. To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
 
 When multiple systems interact with each other, there might be a communication issues due to a network lag. Registration Processor interacts with multiple external systems (Printing and Postal Service Provider, ABIS system, Country’s External ID Systems). Hence, there is high probability of having network failures between the two systems. 
 
