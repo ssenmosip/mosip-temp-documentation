@@ -616,7 +616,7 @@ mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
 
 mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 
-###6.9 DMZ services deployment
+### 6.9 DMZ services deployment
 Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
