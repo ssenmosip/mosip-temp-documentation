@@ -1860,7 +1860,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid or empty pre-registration Id
+###### Description: Invalid pre-registration Id
 ```JSON
 {
    "id": "mosip.pre-registration.document.delete",
