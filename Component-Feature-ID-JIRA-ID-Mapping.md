@@ -266,7 +266,7 @@
 |95.|New registration|Biometric Exceptions |REG_FR_4.6|[MOS-23288](//mosipid.atlassian.net/browse/MOS-23288),[MOS-23904](//mosipid.atlassian.net/browse/MOS-23904)|
 |96.|VDM|Biometric Capture (SDK Integration, Extract and Match) |REG_FR_4.5|[MOS-23544](//mosipid.atlassian.net/browse/MOS-23544)|
 |97.|RC Setup&update|Biometric Capture (SDK Integration, Extract and Match) |REG_FR_4.5|[MOS-22423](//mosipid.atlassian.net/browse/MOS-22423)|
-
+|98.|New Registration|Biometric Capture (SDK Integration, Extract and Match) |REG_FR_4.5|[MOS-21701](//mosipid.atlassian.net/browse/MOS-21701)|
 
 
 
