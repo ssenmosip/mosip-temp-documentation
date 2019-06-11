@@ -170,7 +170,7 @@ Virus Scanning is an important process, which helps to detect and move the virus
 
 Whenever virus scanning is performed in Registration Processor, the encrypted packets are first scanned and then the packets are decrypted in-memory and scanned.
 
-Virus scanning is performed twice In Registration Processor:
+Virus scanning is performed twice in Registration Processor:
 1. When a packet is received by Registration Processor.
 1. When Registration Processor stores the packet in its internal secure file system.
 
