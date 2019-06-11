@@ -105,8 +105,9 @@ Orchestration is the process of configuring various independent services, which 
 In Registration Processor, there are various independent stages (such as Packet Receiver Stage, Packet Validator Stage, Operator Supervisor and Introducer Validator Stage, Demographic Deduplication Stage, Biometric Deduplication Stage, UIN Allocator Stage, Notification Stage, Printing and Postal Stage, etc.), which will perform their own set of validations or operations. 
 
 These all stages are connected to each other using a workflow manager to perform various ID lifecycles events for an individual. 
+Please refer to [**Git**]((/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)) to understand how Orchestration is done in MOSIP.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)
+[**Link to design**]
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
 Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time. To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
