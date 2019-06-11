@@ -75,7 +75,8 @@ After an ID is created for an Individual, then he/she can choose to update his/h
 
 In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all successful validations, the system updates the individual’s information and sends his/her updated ID card through the country’s configured printing and postal service.
 
-A country decides the channel to be used for updating the individual’s information. In the current implementation, 
+Updating an individual's information and the usage of channels to update individual's data is based on the requirements of a specific country. In the current implementation,
+
 1. An individual can update his/her demographic and biometric information when he/she visits the registration center.
 1. An individual can update his/her address information when he/she uses the resident portal.
 
