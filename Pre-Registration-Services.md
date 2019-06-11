@@ -1352,6 +1352,7 @@ PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 ### With pagination
 if pageIndex parameter is passed as query param, then all the demographic data for the user will be retrieved in terms of pages.
 pageSize parameter is configurable.
+pageIndex is by default 0 if no value is passed.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/applications?pageIndex=0</div>
