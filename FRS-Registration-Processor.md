@@ -106,9 +106,7 @@ In Registration Processor, there are various independent stages which are connec
 
 For more details about Orchestration, refer to the below link.
 
-[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
-
-[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
 Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time. To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
@@ -120,7 +118,7 @@ When Registration Processor fails to communicate (with external or internal syst
 
 These packets are later picked up by a module in Registration Processor called the Re-Processor based on a configurable logic which resumes the workflow.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_reprocess.md)
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)
 ## 2.4 Integration (System Integrator can integrate their system with MOSIP) [**[↑]**](#table-of-content)
 System Integrator can integrate their system with MOSIP. Which in turn  allows them to
 * Customize their workflow   
