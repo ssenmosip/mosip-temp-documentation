@@ -105,9 +105,11 @@ Orchestration is the process of configuring various independent services, which 
 In Registration Processor, there are various independent stages (such as Packet Receiver Stage, Packet Validator Stage, Operator Supervisor and Introducer Validator Stage, Demographic Deduplication Stage, Biometric Deduplication Stage, UIN Allocator Stage, Notification Stage, Printing and Postal Stage, etc.), which will perform their own set of validations or operations. 
 
 These all stages are connected to each other using a workflow manager to perform various ID lifecycles events for an individual. 
-Please refer to [**Git**]((/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)) to understand how Orchestration is done in MOSIP.
+Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand how Orchestration is done in MOSIP.
 
-[**Link to design**]
+[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+
+[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
 
@@ -117,18 +119,24 @@ Instead of failing to process the packets because of such network issues, Regist
 
 
 ## 2.3 Resume Workflow [**[↑]**](#table-of-content)
-When a vast and vital application like MOSIP is running, the system will plan in place to enable the recovery or continuation of packet processing if any incident happens which stops processing of some of the packets. These incidents can be: an external/internal stage is not responding, database connection is lost, dependent packets have not been processed, etc.
+MOSIP system has the capability to recover and continue packet processing if any incident happens which stops processing of some of the packets. These incidents can be: an external/internal stage is not responding, database connection is lost, dependent packets have not been processed, etc.
 
 In case of such incidents, the system have a mechanism in place which identifies any packets that are stuck at a particular stage for a long period of time and resume processing at a configured time.
 
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_reprocess.md)
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)
+
+Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand resume workflow in MOSIP.
 ## 2.4 Integration (System Integrator can integrate their system with MOSIP) [**[↑]**](#table-of-content)
 Packet processing is divided broadly into three sections such as pre-processing, processing and post processing. Each section has a set of stages which are orchestrated together to create workflow. System integrator can customize workflow by adding or by removing stages.
 
 If a country wants to integrate MOSIP with their system to share information to/from MOSIP then MOSIP has provision for system integrator to plugin external system to pull or push data very easily with some customization in the workflow.
 
 Registration processor architecture gives flexibility to customize the workflow to plug-in additional stages and exclude existing stages as per the business need.
+
+[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+
+[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md)
 
