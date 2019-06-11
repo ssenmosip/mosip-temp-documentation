@@ -9,7 +9,7 @@ It doesn't detail about each methods level information and that are detailed out
 |:------:|-----|
 |**Main Service class and methods**| - |
 |**Detail of input parameter**|	- |
-|**Authentication / Authorization Required**| - |	 
+|**Authentication / Authorization Required**| - |
 |**External Connectivity **|	Db / Service |
 
 
