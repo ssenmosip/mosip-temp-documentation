@@ -59,7 +59,7 @@ The packet received from the Registration Client goes through various sanity che
 
 MOSIP issues a new ID to an individual when the individual visits a registration center and provides a required information to register himself/herself in MOSIP for the first time.
 
-When a registration officer captures an individual’s information, the Registration Client packages the captured information in the form of encrypted packets and sends it to Registration Processor. After the encrypted packet reaches the Registration Processor, the system tries to find the individual’s information (i.e. demographic and biometric information) availability in the system (this process is known as Deduplication). If the system does not find any duplicates of the individual’s information, then the system registers the individual and allocates a unique ID and sends his/her ID card through the countries configured printing and postal service.
+When a registration officer captures an individual’s information, the Registration Client packages the captured information in the form of encrypted packets and sends it to Registration Processor. After the encrypted packet reaches the Registration Processor, the system tries to find the individual’s information (i.e. demographic and biometric information) availability in the system (this process is known as Deduplication). If the system does not find any duplicates of the individual’s information, then the system registers the individual and allocates a unique ID and sends his/her ID card through the country's configured printing and postal service.
 
 During the allocation of the Unique Identification Number (UIN), the system also allocates a Virtual Identification Number (VID) to the individual. VID is an alternative to UIN and is temporary code that can be used for authentications of an individual. The individual can provide the VID instead of UIN to authenticate themselves and protect their UIN from being accessed by someone else. 
 
@@ -74,7 +74,7 @@ An individual can choose to update his/her demographic or biometric information,
 1. **Visiting a Registration Center** – When the individual visits the Registration Center, he/she can update all their biometric and demographic information. 
 1. **Using the Resident Portal** – The individual can update his/her address details and contact information by using the Resident Portal.
 
-In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all the successful validations, the system updates the individual’s information and sends his/her updated ID card through the countries configured printing and postal service.
+In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all the successful validations, the system updates the individual’s information and sends his/her updated ID card through the country's configured printing and postal service.
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
@@ -94,7 +94,7 @@ If a country wants to reactivate an individual’s deactivated ID due to any spe
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 
 ## 1.5 Find an Individual’s ID [**[↑]**](#table-of-content)
-When an individual forgets his/her ID information. He/she can find their ID by providing their required information in the Registration Center. The system then uses the biometrics of the individual to find the individual’s ID  and sends his/her ID card to their registered address.
+When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID  and sends his/her ID card to their registered address through the country's configured printing and postal service.
 
 
 # 2. Configurable Workflow [**[↑]**](#table-of-content)
