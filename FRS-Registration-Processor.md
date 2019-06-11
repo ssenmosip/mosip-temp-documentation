@@ -71,11 +71,13 @@ MOSIP generates two types of VID such as Perpetual VID and Temporary VID.
 Refer to [**VID Services**]( FRS-Resident-Services#11-vid-service-) in Resident Services for more details.
 
 ## 1.2 Update Individual’s Information [**[↑]**](#table-of-content)
-An individual can choose to update his/her demographic or biometric information, even after an ID is issued for the individual. He/she can update his/her information in two different ways:
-1. **Visiting a Registration Center** – When the individual visits the Registration Center, he/she can update all their biometric and demographic information. 
-1. **Using the Resident Portal** – The individual can update his/her address details and contact information by using the Resident Portal.
+After an ID is created for an Individual, then he/she can choose to update his/her demographic or biometric information. The system provides two different channels by which an individual can update his/her information - by visiting a registration center and by using the resident portal.
 
-In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all the successful validations, the system updates the individual’s information and sends his/her updated ID card through the country's configured printing and postal service.
+In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all successful validations, the system updates the individual’s information and sends his/her updated ID card through the country’s configured printing and postal service.
+
+A country decides the channel to be used for updating the individual’s information. In the current implementation, 
+1. An individual can update his/her demographic and biometric information when he/she visits the registration center.
+1. An individual can update his/her address information when he/she uses the resident portal.
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
