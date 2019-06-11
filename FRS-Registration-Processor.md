@@ -254,7 +254,7 @@ When a minor is registered, the Registration Client mandates the capture of the 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
 
 #### 3.2.2.3 Deduplication – Demographic, Biometrics [**[↑]**](#table-of-content)
-Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system for which UIN has been generated or yet to be generated.
+Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system.
 #### A. Demographic deduplication [**[↑]**](#table-of-content)
 
 1. The system compares the demographic details (name, gender, and date of birth) of the individual with the data available in the system to find a potential match.
