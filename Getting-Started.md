@@ -616,6 +616,33 @@ mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
 
 mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 
+###6.9 DMZ services deployment
+Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup DMZ environment and services deployment:
+1. Need to set Up VM with RHEL 7.5
+2. Installing the Docker:
+ sudo yum install docker
+3. Login to the Docker Registry to download the Images from Docker Registry as below.
+•	docker login docker-registry.mosip.io:5000( url will change based on the Docker Registry)  
+Username: ***** (Provide the Docker Registry Username)
+Password: ***** (Provide the Docker Registry Password)
+4. **Open the port 8082 , 8083 from the VM:**
+sudo firewall-cmd --zone=public --add-port=8083/tcp --permanent 
+sudo firewall-cmd --reload 
+
+sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent 
+sudo firewall-cmd --reload 
+**Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
+And also open the port from AZURE OR AWS or nay cloud where the VM present.
+
+**Run the below commands for deployment with mount volume:**
+1)	docker run --restart always -it -d -p 8083:8083 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-registration-status-service:0.12.7.1829
+
+2)	docker run --restart always -it -d -p 8082:8082 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-packet-generator-service:0.12.7.1829
+
+3)	docker run --restart always -it -d --network host --privileged=true -v /home/ftp1/LANDING_ZONE:/home/ftp1/LANDING_ZONE -v /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-packet-receiver-stage:0.12.7.1829
+
+4)	docker run --restart always -it -d --network host --privileged=true -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 -e zone_env=dmz  docker-registry.mosip.io:5000/registration-processor-common-camel-bridge:0.12.7.1829
+
 
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
