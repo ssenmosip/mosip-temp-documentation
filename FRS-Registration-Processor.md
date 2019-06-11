@@ -315,3 +315,6 @@ Notification (SMS/Email as configured), which is received by an individual is th
 After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_printing_stage.md)
+
+
+[**Please refer to Wiki for more details on the Registration Processor API**](/mosip/mosip/wiki/Registration-Processor-APIs).
