@@ -130,9 +130,8 @@ If a country wants to integrate MOSIP with their system to share information to/
 
 Registration processor architecture gives flexibility to customize the workflow to plug-in additional stages and exclude existing stages as per the business need.
 
-[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md)
 
-[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 ## 2.5 Multiple Workflows [**[↑]**](#table-of-content)
 
