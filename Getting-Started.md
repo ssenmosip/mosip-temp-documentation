@@ -625,23 +625,30 @@ sudo yum install docker
 After installing Docker Start the Docker Service
 
 **command to start the Docker service**
+
 systemctl start docker
 
 **command to check Docker is running:**
+
 systemctl status docker
 
 
 3. Login to the Docker Registry to download the Images from Docker Registry as below.
 
 docker login docker-registry.mosip.io:5000( url will change based on the Docker Registry)  
+
 Username: ***** (Provide the Docker Registry Username)
+
 Password: ***** (Provide the Docker Registry Password)
 
 4. **Open the port 8082 , 8083 from the VM:**
+
 sudo firewall-cmd --zone=public --add-port=8083/tcp --permanent
+
 sudo firewall-cmd --reload 
 
 sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
+
 sudo firewall-cmd --reload 
 
 **Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
