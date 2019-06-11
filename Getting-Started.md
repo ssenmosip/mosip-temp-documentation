@@ -620,9 +620,9 @@ mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
- sudo yum install docker
+   sudo yum install docker
 3. Login to the Docker Registry to download the Images from Docker Registry as below.
-•	docker login docker-registry.mosip.io:5000( url will change based on the Docker Registry)  
+ •docker login docker-registry.mosip.io:5000( url will change based on the Docker Registry)  
 Username: ***** (Provide the Docker Registry Username)
 Password: ***** (Provide the Docker Registry Password)
 4. **Open the port 8082 , 8083 from the VM:**
