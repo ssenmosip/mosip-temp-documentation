@@ -124,10 +124,10 @@ MOSIP system has the capability to recover and continue packet processing if any
 
 In case of such incidents, the system have a mechanism in place which identifies any packets that are stuck at a particular stage for a long period of time and resume processing at a configured time.
 
+Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand orchestration workflow in MOSIP.
+
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_reprocess.md)
 
-
-Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand resume workflow in MOSIP.
 ## 2.4 Integration (System Integrator can integrate their system with MOSIP) [**[↑]**](#table-of-content)
 Packet processing is divided broadly into three sections such as pre-processing, processing and post processing. Each section has a set of stages which are orchestrated together to create workflow. System integrator can customize workflow by adding or by removing stages.
 
@@ -135,11 +135,11 @@ If a country wants to integrate MOSIP with their system to share information to/
 
 Registration processor architecture gives flexibility to customize the workflow to plug-in additional stages and exclude existing stages as per the business need.
 
+Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details in external system integration guide.
+
 [**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
 
 [**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
-
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md)
 
 
 ## 2.5 Multiple Workflows [**[↑]**](#table-of-content)
