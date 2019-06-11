@@ -105,6 +105,7 @@ Orchestration is the process of configuring various independent services, which 
 In Registration Processor, there are various independent stages (such as Packet Receiver Stage, Packet Validator Stage, Operator Supervisor and Introducer Validator Stage, Demographic Deduplication Stage, Biometric Deduplication Stage, UIN Allocator Stage, Notification Stage, Printing and Postal Stage, etc.), which will perform their own set of validations or operations. 
 
 These all stages are connected to each other using a workflow manager to perform various ID lifecycles events for an individual. 
+
 Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand how Orchestration is done in MOSIP.
 
 [**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
