@@ -42,6 +42,7 @@
    * [3.3 Post-Processing](#33-post-processing-) 
      * [3.3.1 Notification (Pluggable by SI)](#331-notification-pluggable-by-si-) _(RPR_FR_3.21)_
      * [3.3.2 Print & Post (Pluggable by SI)](#332-print--post-pluggable-by-si-) _(RPR_FR_3.22)_
+   * [3.4 Packet Processing Status](#34-packet-processing-status-) _(RPR_FR_3.23)_
 
 # Registration Processor [**[↑]**](#table-of-content)
 # 1. ID Lifecycle Management [**[↑]**](#table-of-content)
@@ -326,6 +327,16 @@ When an individual’s ID is created or an individual’s data is updated, the s
 This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID cards and send it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID card and deliver it to the individual’s registered address.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_printing_stage.md)
+
+### 3.4 Packet Processing Status [**[↑]**](#table-of-content)
+
+After the Registration Client sends the packet to Registration Processor, it starts processing the packet. Registration Processor enables the Registration Client to know the processing status of such packet\s. The probable packet statuses are as follows:
+1. PROCESSING – The packet is under processing.
+1. PROCESSED – The packet has been processed and Registration Client deletes the packet from its storage location.
+1. RESEND – Initial validation like virus scan and packet integrity check have failed for the packet for a configured number of times and Registration Client needs to resend the packet for processing.
+1. RE-REGISTER – The packet has failed a business validation like center-machine check, supervisor and officer validation, etc., due to which the system will not be able to process the packet. The registration officer will intimate the individual to come back to the center and re-register, post which registration client can delete the packet from its storage location.
+1. REJECTED – A duplicate packet was found against the individual’s biometrics. As processing of the packet is completed, Registration Client can delete the packet from it storage location.
+
 
 
 [**Please refer to Wiki for more details on the Registration Processor API**](/mosip/mosip/wiki/Registration-Processor-APIs).
