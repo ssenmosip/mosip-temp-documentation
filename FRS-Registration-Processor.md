@@ -176,7 +176,7 @@ Virus scanning is performed twice in Registration Processor:
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_virus_scanner.md)
 
 ### 3.1.3 Machine-Center Mapping [**[↑]**](#table-of-content)
-When a Packet is created in Registration Client, the packet will be created using a registered machine, devices, registration officer, registration supervisor, registration center.
+When a packet is created in Registration Client, the packet will be created using a registered machine, devices, registration officer, registration supervisor, and registration center.
 
 To make sure that the packets are created as per the defined rules, the system performs the following validations:
 1. Registration Center must be active when the packet was created.
