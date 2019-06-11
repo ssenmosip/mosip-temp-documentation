@@ -626,14 +626,14 @@ After installing Docker Start the Docker Service
 
 **command to start the Docker service**
 
-systemctl start docker
+* systemctl start docker
 
 **command to check Docker is running:**
 
-systemctl status docker
+* systemctl status docker
 
 
-3. Login to the Docker Registry to download the Images from Docker Registry as below.
+3. **Login to the Docker Registry to download the Images from Docker Registry as below.**
 
 docker login docker-registry.mosip.io:5000( url will change based on the Docker Registry)  
 
