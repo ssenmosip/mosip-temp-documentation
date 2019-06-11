@@ -652,7 +652,8 @@ sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
 sudo firewall-cmd --reload 
 
 **Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
-And also open the port from AZURE OR AWS or nay cloud where the VM present.
+
+And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 
 **Run the below commands for deployment with mount volume:**
 1)	docker run --restart always -it -d -p 8083:8083 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-registration-status-service:0.12.7.1829
