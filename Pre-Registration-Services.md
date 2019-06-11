@@ -1812,8 +1812,8 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_022",
-            "message": "DocumentId is not belongs to the pre-registration Id"
+            "errorCode": "PRG_PAM_DOC_005",
+            "message": "Documents is not found for the requested pre-registration id"
         }
     ]
 }
@@ -1929,8 +1929,8 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_022",
-            "message": "DocumentId is not belongs to the pre-registration Id"
+            "errorCode": "PRG_PAM_DOC_005",
+            "message": "Documents is not found for the requested pre-registration id"
         }
     ]
 }
