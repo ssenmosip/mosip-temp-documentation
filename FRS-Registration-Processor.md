@@ -100,32 +100,35 @@ When an individual forgets his/her ID information. He/she can find their ID by p
 # 2. Configurable Workflow [**[↑]**](#table-of-content)
 ## 2.1 Orchestration [**[↑]**](#table-of-content)
 
-Orchestration is the process of configuring various services which will be coordinated and managed to achieve a business goal. 
+Orchestration is the process of configuring various independent services, which will coordinate and manage to achieve a business goal.
 
-In Registration Processor, there are various independent stages which are connected in a workflow to perform various Identity Lifecycle events. 
+In Registration Processor, there are various independent stages (such as Packet Receiver Stage, Packet Validator Stage, Operator Supervisor and Introducer Validator Stage, Demographic Deduplication Stage, Biometric Deduplication Stage, UIN Allocator Stage, Notification Stage, Printing and Postal Stage, etc.), which will perform their own set of validations or operations. 
 
-For more details about Orchestration, refer to the below link.
+These all stages are connected to each other using a workflow manager to perform various ID lifecycles events for an individual. 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-content)
 Registration Processor interacts with multiple external and internal systems, hence, there might be a chance that there is a communication failure between the systems for some time. To handle such issues, the system has the capability to retry communicating with the external/internal systems multiple times (as configured). 
 
+When multiple systems interact with each other, there might be a communication issues due to a network lag. Registration Processor interacts with multiple external systems (Printing and Postal Service Provider, ABIS system, Country’s External ID Systems). Hence, there is high probability of having network failures between the two systems. 
+
+Instead of failing to process the packets because of such network issues, Registration Processor provides a feature to retry connecting with the external system after a second or two for a certain number of times (which is configurable).
 
 
 ## 2.3 Resume Workflow [**[↑]**](#table-of-content)
-When Registration Processor fails to communicate (with external or internal system) even after retrying multiple times or there is a system error, the system stops processing the packets. 
+When a vast and vital application like MOSIP is running, the system will plan in place to enable the recovery or continuation of packet processing if any incident happens which stops processing of some of the packets. These incidents can be: an external/internal stage is not responding, database connection is lost, dependent packets have not been processed, etc.
 
-These packets are later picked up by a module in Registration Processor called the Re-Processor based on a configurable logic which resumes the workflow.
+In case of such incidents, the system have a mechanism in place which identifies any packets that are stuck at a particular stage for a long period of time and resume processing at a configured time.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md)
 ## 2.4 Integration (System Integrator can integrate their system with MOSIP) [**[↑]**](#table-of-content)
-System Integrator can integrate their system with MOSIP. Which in turn  allows them to
-* Customize their workflow   
-* Plug-in stages
-* Exclude stages 
- 
-Please refer to the design links below to understand how system integrator can integrate their system\s with MOSIP 
+Packet processing is divided broadly into three sections such as pre-processing, processing and post processing. Each section has a set of stages which are orchestrated together to create workflow. System integrator can customize workflow by adding or by removing stages.
+
+If a country wants to integrate MOSIP with their system to share information to/from MOSIP then MOSIP has provision for system integrator to plugin external system to pull or push data very easily with some customization in the workflow.
+
+Registration processor architecture gives flexibility to customize the workflow to plug-in additional stages and exclude existing stages as per the business need.
 
 [**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
 
@@ -133,15 +136,12 @@ Please refer to the design links below to understand how system integrator can i
 
 ## 2.5 Multiple Workflows [**[↑]**](#table-of-content)
 
-MOSIP provides different workflows for different life cycle events. For example
-* New ID Issuance
-* Update individual’s information
-* De-activate individual’s ID
-* Re-activate individual’s ID
+An ID goes through various lifecycles (ID Issuance, Update of ID information, Activating or Deactivating an ID) and each lifecycle has its own set of stages to achieve the end goal. 
 
-These workflows use a common set of components (micro services)
+These stages are glued together to form a workflow. Hence, based on the ID lifecycle, Registration Processor has multiple workflows.
 
-Multiple workflows increase reusability, readability and maintainability of different components (micro services).
+Having multiple workflow increase reusability of stages, readability of workflow configured for each event and maintainability of each workflow which also involve customizing workflow based on the country’s need.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
 ## 2.6 Scalability and Throughput [**[↑]**](#table-of-content)
@@ -310,7 +310,9 @@ When any transaction is performed in MOSIP system or the packet fails any valida
 ### 3.3.1 Notification (Pluggable by SI) [**[↑]**](#table-of-content)
 Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, successful or un-successful issuance of UIN, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI) [**[↑]**](#table-of-content)
-After a UIN is generated or UIN data is updated, the system creates a UIN card using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and sends it to Printing and Postal Service Provider.
+When an individual’s ID is created or an individual’s data is updated, the system sends the individual’s physical ID card to the individual’s registered address. 
+
+This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID cards and send it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID card and deliver it to the individual’s registered address.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_printing_stage.md)
 
