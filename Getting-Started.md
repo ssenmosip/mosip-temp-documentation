@@ -110,6 +110,151 @@ Also if you are planning to import all versions of the Mosip modules in Jfrog to
 SonarQube server can be setup by following single instructions given [here](//docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
 For configuring SonarQube with Jenkins, steps given [here](//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
 
+Steps to install SonarQube on Ubuntu 16.04
+
+**   Perform a system update**
+
+     * sudo apt-get update
+
+     * sudo apt-get -y upgrade 
+
+**   Install JDK**
+
+     * sudo add-apt-repository ppa:webupd8team/java
+
+     * sudo apt-get update
+ 
+     * sudo apt install oracle-java8-installer
+
+We can now check the version of Java by typing:
+
+     * java -version 
+
+**   Install and configure PostgreSQL**
+
+     * sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> 
+       /etc/apt/sources.list.d/pgdg.list'
+
+     * wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+
+     * sudo apt-get -y install postgresql postgresql-contrib
+
+Start PostgreSQL server and enable it to start automatically at boot time by running:
+
+     * sudo systemctl start postgresql
+
+     * sudo systemctl enable postgresql
+
+Change the password for the default PostgreSQL user.
+
+     * sudo passwd postgres
+
+Switch to the postgres user.
+
+     * su - postgres
+
+Create a new user by typing:
+
+     * createuser sonar
+
+Switch to the PostgreSQL shell.
+
+     * psql
+
+Set a password for the newly created user for SonarQube database.
+
+     * ALTER USER sonar WITH ENCRYPTED password 'StrongPassword';
+
+Create a new database for PostgreSQL database by running:
+
+     * CREATE DATABASE sonar OWNER sonar;
+
+Exit from the psql shell:
+
+     * \q
+
+Switch back to the sudo user by running the exit command.
+
+**   Download and configure SonarQube**
+
+     * wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.4.zip
+
+Install unzip by running:
+
+     * apt-get -y install unzip
+
+Unzip the archive using the following command.
+
+     * sudo unzip sonarqube-6.4.zip -d /opt
+ 
+Rename the directory:
+
+     * sudo mv /opt/sonarqube-6.4 /opt/sonarqube
+
+     * sudo nano /opt/sonarqube/conf/sonar.properties
+
+Find the following lines.
+
+     #sonar.jdbc.username=
+
+     #sonar.jdbc.password= 
+
+Uncomment and provide the PostgreSQL username and password of the database that we have created earlier. It should look like:
+
+     sonar.jdbc.username=sonar
+
+     sonar.jdbc.password=StrongPassword
+
+Next, find:
+
+#sonar.jdbc.url=jdbc:postgresql://localhost/sonar
+
+Uncomment the line, save the file and exit from the editor.
+  
+**   Configure Systemd service**
+
+SonarQube can be started directly using the startup script provided in the installer package. As a matter of convenience, you should setup a Systemd unit file for SonarQube.
+
+     * nano /etc/systemd/system/sonar.service
+
+     Populate the file with:
+
+     [Unit]
+
+     Description=SonarQube service
+
+     After=syslog.target network.target
+
+     [Service] 
+
+     Type=forking
+
+     ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start 
+
+     ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+     User=root 
+
+     Group=root  
+
+     Restart=always
+
+     [Install] 
+
+     WantedBy=multi-user.target
+
+Start the application by running:
+
+     * sudo systemctl start sonar
+
+Enable the SonarQube service to automatically start at boot time.
+
+     * sudo systemctl enable sonar
+
+To check if the service is running, run:
+
+     * sudo systemctl status sonar
+
 ***
 ## 5. Setup and Configure Docker Registry [**[↑]**](#content)
 In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found [here](//docs.docker.com/registry/configuration/)
