@@ -1043,7 +1043,6 @@ KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribut
 KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
 KER-IOV-004|Invalid input parameter - identity/phone|If phone attribute is found but it's value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/email|If email attribute is found but it's value is empty or invalid
-
 KER-IOV-004|Invalid input parameter - identity/fullName/{*}/language|If language code is empty or invalid in the specified position(*) inside fullName attribute
 KER-IOV-004|Invalid input parameter - identity/dateOfBirth|If dateOfBirth value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/gender/{*}/language|If language code is empty or invalid in the specified position(*) inside gender attribute
