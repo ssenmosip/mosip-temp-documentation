@@ -4,7 +4,7 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|NA|Getting Started Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
+|1.|ID Repo|MOSIP Platform Guide|[MOSIP Platform Documentation](Platform-Documentation)|Refer Section 10.1 in the linked page|
 |2.|ID Repo|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#12-id-repository-)|
 |3.|ID Repo|High Level Design Document|[Click to View](Deliverables---Attachments)|Refer Section 8 in the linked page|
 |4.|ID Repo|API Specifications Document|[Click to View](https://github.com/mosip/mosip/wiki/ID-Repository-API)||
