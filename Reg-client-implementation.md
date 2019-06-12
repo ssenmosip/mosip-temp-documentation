@@ -26,8 +26,8 @@ It doesn't detail about each methods level information since that are covered in
 |**Functionality:**| Packet Upload |   
 |:------:|-----|  
 |**Main Service class and method:**| PacketUploadService.pushPacket(File packet)|  
-|**Input Parameter:**|	File object, which contains the packet to be uploaded.                                    |  
-|**Auth:**| Required during packet upload to MOSIP server. |  
+|**Input Parameter:**|	File object, which contains the packet to be uploaded.  |  
+|**Auth:**| Authentication token required while doing file upload. Based on the SessionContext object the advice would attach the token and invoke the required service call. |  
 |**External Connectivity:**| Service, DB, File system |  
 
 
@@ -42,8 +42,9 @@ It doesn't detail about each methods level information since that are covered in
 
 |**Functionality:**|  MDM Integration – Register Device |   
 |:------:|-----|  
+|**Technical Detail:**| This method automatically scans all devices by connecting to the MDM service, which is running in a particular port and stores it in device registry. |
 |**Main Service class and method:**| MosipBioDeviceManager - init()|  
-|**Input Parameter:**|     No parameter needed. This method automatically scans all devices and stores it in device registry |  
+|**Input Parameter:**|  No parameter needed.  |  
 |**Auth:**| Not required |  
 |**External Connectivity:**| deviceInfo - MDM service REST call |  
 
@@ -56,12 +57,12 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| Capture - MDM service REST call |  
 
 
-|**Functionality:**|  MDM Integration  - Validate bio-metric |   
+|**Functionality:**|  MDM Integration  - Validate bio-metric against the bio value already captured and stored in Database. |   
 |:------:|-----|  
-|**Main Service class and method:**| BioServiceImpl  - validateFingerPrint(String userId)|  
+|**Main Service class and method:**| BioServiceImpl  - validateFingerPrint(String userId) - based on provided user Id the relevant bio information would be fetched from database and same would be validated against the bio data received from MDM service. |  
 |**Input Parameter:**|   mosipBioDeviceManager – scan(String deviceType)|  
 |**Auth:**| Not required |  
-|**External Connectivity:**| Capture - MDM service REST call |  
+|**External Connectivity:**| DB, Capture - MDM service REST call |  
 
 
 |**Functionality:**|  MDM Integration  - Display video stream |   
