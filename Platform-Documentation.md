@@ -35,29 +35,29 @@
   * [5.5 Biometric Data Standards](#55-biometric-data-standards-)
   * [5.6 MOSIP Device Specification](#56-mosip-device-specification-)
   * [5.7 Core Data Management](#57-core-data-management-)
-  * [5.8 Test Rig](#58-test-rig-)
-  * [5.9 Performance and Sizing Guidelines](#59-performance-and-sizing-guidelines-)
-  * [5.10 Integration with External Systems](#510-integration-with-external-systems-)
-- [6. PRIVACY AND SECURITY](#6-privacy-and-security-)
-- [7. MOSIP APIs](#7-mosip-apis-)
-  * [7.1 External APIs](#71external-apis-)
-    + [7.1.1 ID Authentication APIs](#711-id-authentication-apis-)
-    + [7.1.2 ABIS APIs](#712-abis-apis-)
-    + [7.1.3 OTP Manager API](#713-otp-manager-api-)
-    + [7.1.4 Pre-Registration APIs](#714-pre-registration-apis-)
-    + [7.1.5 Registration Processor APIs](#715-registration-processor-apis-)
-  * [7.2 Internal APIs](#72internal-apis-)
-    + [7.2.1 Kernel](#721-kernel-)
-    + [7.2.2 ID Repository](#722-id-repository-)
-- [8. BUILDING AND DEPLOYING MOSIP (TBD)](#8-building-and-deploying-mosip-)
-  * [8.1 Getting Started Guide](#81-getting-started-guide-)
-  * [8.2 Developer Document](#82-developer-document-)
-- [9.  INFRASTRUCTURE RECOMMENDATIONS](#9--infrastructure-recommendations-)
-  * [9.1 Customization (WIP)](#91-customization-wip-)
-  * [9.2 Data Center Architecture (WIP)](#92-data-center-architecture-wip-)
-- [10.  GLOSSARY](#10--glossary-)
-- [11. ABBREVIATIONS](#11-abbreviations-)
-- [12. REFERENCES](#12-references-)
+  * [5.8 Performance and Sizing Guidelines](#58-performance-and-sizing-guidelines-)
+  * [5.9 Integration with External Systems](#59-integration-with-external-systems-)
+- [6. Test Rig](#6-test-rig-)
+- [7. PRIVACY AND SECURITY](#7-privacy-and-security-)
+- [8. MOSIP APIs](#8-mosip-apis-)
+  * [8.1 External APIs](#81external-apis-)
+    + [8.1.1 ID Authentication APIs](#811-id-authentication-apis-)
+    + [8.1.2 ABIS APIs](#812-abis-apis-)
+    + [8.1.3 OTP Manager API](#813-otp-manager-api-)
+    + [8.1.4 Pre-Registration APIs](#814-pre-registration-apis-)
+    + [8.1.5 Registration Processor APIs](#815-registration-processor-apis-)
+  * [8.2 Internal APIs](#82internal-apis-)
+    + [8.2.1 Kernel](#821-kernel-)
+    + [8.2.2 ID Repository](#822-id-repository-)
+- [9. BUILDING AND DEPLOYING MOSIP (TBD)](#9-building-and-deploying-mosip-)
+  * [9.1 Getting Started Guide](#91-getting-started-guide-)
+  * [9.2 Developer Document](#92-developer-document-)
+- [10. INFRASTRUCTURE RECOMMENDATIONS](#10--infrastructure-recommendations-)
+  * [10.1 Customization (WIP)](#101-customization-wip-)
+  * [10.2 Data Center Architecture (WIP)](#102-data-center-architecture-wip-)
+- [11. GLOSSARY](#11--glossary-)
+- [12. ABBREVIATIONS](#12-abbreviations-)
+- [13. REFERENCES](#13-references-)
 
 ## DOCUMENT SCOPE [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
@@ -317,29 +317,30 @@ ID Repository module contains the golden record of Identity for an Individual. O
 
 This module exposes few REST APIs which can be used to create/update/retrieve Identity of an Individual. Please refer [**wiki**](ID-Repository-API) for more details.
 
-### 5.8 Test Rig [**[↑]**](#table-of-content)
+### 5.8 Performance and Sizing Guidelines [**[↑]**](#table-of-content)
+Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
+
+### 5.9 Integration with External Systems [**[↑]**](#table-of-content)
+This section illustrates the integrational specifications of MOSIP with an external system.
+Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
+
+## 6 Test Rig [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Please refer to [**wiki**](Test-Rig-Design) for more details about **Test Rig Design**.
 
 Please refer to [**wiki**](Tester-Documentation) for more details about **Test Automation**.
-### 5.9 Performance and Sizing Guidelines [**[↑]**](#table-of-content)
-Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
 
-### 5.10 Integration with External Systems [**[↑]**](#table-of-content)
-This section illustrates the integrational specifications of MOSIP with an external system.
-Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
-
-### 6. PRIVACY AND SECURITY [**[↑]**](#table-of-content)
+### 7. PRIVACY AND SECURITY [**[↑]**](#table-of-content)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
 
 Please refer [**wiki**](Security) for more details.
 
-## 7. MOSIP APIs [**[↑]**](#table-of-content)
+## 8. MOSIP APIs [**[↑]**](#table-of-content)
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
-### 7.1	External APIs [**[↑]**](#table-of-content)
+### 8.1	External APIs [**[↑]**](#table-of-content)
 This sections details out the external APIs of MOSIP that interact with external entities.
-#### 7.1.1 ID Authentication APIs [**[↑]**](#table-of-content)
+#### 8.1.1 ID Authentication APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This section details the REST services exposed by ID Authentication. 
@@ -351,7 +352,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 2. Demo based - Personal Identity, Address
 3. Bio based - Fingerprint, IRIS and Face
 
-#### 7.1.2 ABIS APIs [**[↑]**](#table-of-content)
+#### 8.1.2 ABIS APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
@@ -366,7 +367,7 @@ This service details the behavior of:
 1. Ping Request
 1. Pending Jobs Request
 1. Reference Count Request
-#### 7.1.3 OTP Manager API [**[↑]**](#table-of-content)
+#### 8.1.3 OTP Manager API [**[↑]**](#table-of-content)
 Format: JSON
 
 OTP manager includes APIs for
@@ -374,11 +375,11 @@ OTP manager includes APIs for
 1. OTP validation. 
 
 Please refer [**wiki**](Kernel-APIs#otp-manager)
-#### 7.1.4 Pre-Registration APIs [**[↑]**](#table-of-content)
+#### 8.1.4 Pre-Registration APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This [**wiki**](Pre-Registration-Services) details about the service APIs in the Pre-Registration modules
-#### 7.1.5 Registration Processor APIs [**[↑]**](#table-of-content)
+#### 8.1.5 Registration Processor APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This API will support the following features
@@ -387,9 +388,9 @@ This API will support the following features
 1. APIs for Manual Verification. 
 
 Refer [**wiki**](Registration-Processor-APIs) for more details
-### 7.2	Internal APIs [**[↑]**](#table-of-content)
+### 8.2	Internal APIs [**[↑]**](#table-of-content)
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
-#### 7.2.1 Kernel [**[↑]**](#table-of-content)
+#### 8.2.1 Kernel [**[↑]**](#table-of-content)
 The Kernel APIs cover the following APIS
 1. APIs for key management
 1. APIs for master data management
@@ -398,7 +399,7 @@ The Kernel APIs cover the following APIS
 
 Please refer [**wiki**](Kernel-APIs) for more details.
 
-#### 7.2.2 ID Repository [**[↑]**](#table-of-content)
+#### 8.2.2 ID Repository [**[↑]**](#table-of-content)
 This is a central API which all other modules of MOSIP will use to retrieve an ID record. This API will support the following features
 1. Creation of a ID record
 1. Lookup of an ID record based on the UIN
@@ -407,15 +408,15 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [**wiki**](ID-Repository-API) for more details
 
-## 8. BUILDING AND DEPLOYING MOSIP [**[↑]**](#table-of-content)
-### 8.1 Getting Started Guide [**[↑]**](#table-of-content)
+## 9. BUILDING AND DEPLOYING MOSIP [**[↑]**](#table-of-content)
+### 9.1 Getting Started Guide [**[↑]**](#table-of-content)
 Please refer [**wiki**](Getting-Started) for more details.
-### 8.2 Developer Document [**[↑]**](#table-of-content)
+### 9.2 Developer Document [**[↑]**](#table-of-content)
 Please refer [**wiki**](Developer-Documentation) for more details
-## 9.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
-### 9.1 Customization (WIP) [**[↑]**](#table-of-content)
-### 9.2 Data Center Architecture (WIP) [**[↑]**](#table-of-content)
-## 10.  GLOSSARY [**[↑]**](#table-of-content)
-## 11. ABBREVIATIONS [**[↑]**](#table-of-content)
-## 12. REFERENCES [**[↑]**](#table-of-content)
+## 10.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
+### 10.1 Customization (WIP) [**[↑]**](#table-of-content)
+### 10.2 Data Center Architecture (WIP) [**[↑]**](#table-of-content)
+## 11.  GLOSSARY [**[↑]**](#table-of-content)
+## 12. ABBREVIATIONS [**[↑]**](#table-of-content)
+## 13. REFERENCES [**[↑]**](#table-of-content)
 
