@@ -2820,7 +2820,7 @@ Requires Authentication | Yes
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_BAT_004|Demographic table not accessible|If data is not found found  for preRegistrationId
+PRG_PAM_BAT_004|Demographic table not accessible|If data is not found for preRegistrationId
 PRG_PAM_BAT_005|Reg appointment table not accessible|If Reg appointment table not accessible
 
 ### PUT /consumedStatus
