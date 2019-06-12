@@ -1,12 +1,12 @@
 *WIP
 ## Table Of Content
-* [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
+* [1. INTRODUCTION](#1-introduction)
   * [1.1 Scope](#11scope-)
-* [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
+* [2. IDENTITY MANAGEMENT](#2-identity-management)
   * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system-)
   * [2.2 Why-an Identity Management System is needed](#22why-an-identity-management-system-is-needed-)
   * [2.3 Key Objectives of MOSIP Platform](#23key-objectives-of-MOSIP-platform-)
-* [3. MOSIP FUNCTIONAL OVERVIEW](#3mosip-functional-overview)
+* [3. FUNCTIONAL OVERVIEW](#3-functional-overview)
   * [3.1 Pre-Registration](#31-pre-registration-)
   * [3.2 Registration Services](#32-registration-services-)
   * [3.3 Registration Processor](#33-registration-Processor-)
@@ -16,12 +16,12 @@
   * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
   * [3.8 Partner Management (WIP)](#38-partner-management-wip-)
   * [3.9 ID Repository](#39-id-repository-)
- * [4. MOSIP SCOPE](#4mosip-scope-)
-* [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
+ * [4. SCOPE](#4-scope-)
+* [5. REQUIREMENT SPECIFICATIONS](#5-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
   * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
 * [6. Visual Designs](#6-visual-designs-)
-* [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
+* [7. ARCHITECTURE OVERVIEW](#7-architecture-overview)
   * [7.1 Principles](#71-principles-)
   * [7.2 Platform Features](#72-platform-features-)
     * [7.2.1 Configurability](#721-configurability-)
@@ -31,12 +31,12 @@
   * [7.4 Logical View](#74-logical-view-)
   * [7.5 Technology Stack](#75-technology-stack-)
   * [7.6 Data Architecture](#76-data-architecture-)
-* [8. ARCHITECTURALLY SIGNIFICANT COMPONENTS OF MOSIP](#8architecturally-significant-components-of-mosip)
+* [8. ARCHITECTURALLY SIGNIFICANT COMPONENTS](#8architecturally-significant-components)
   * [8.1 ID Object Definition](#81-id-object-definition-)
   * [8.2 Configurations](#82-configurations-)
   * [8.3 Registration Packet Structure](#83-registration-packet-structure-)
   * [8.4 ABIS middleware](#84-abis-middleware-)
-  * [8.5 MOSIP Biometric Data Standards](#85-mosip-biometric-data-standards-)
+  * [8.5 Biometric Data Standards](#85-biometric-data-standards-)
   * [8.6 Vendor Device Specifications](#86-vendor-device-specifications-)
   * [8.7 Security](#87-security-)
   * [8.8 Core Data Management](#88-core-data-management-)
@@ -66,7 +66,7 @@ Add: Section on Data Center Architecture
 ### Document Scope [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
 
-## 1. MOSIP-INTRODUCTION
+## 1. INTRODUCTION
 
 MOSIP acronym for Modular Open Source Identity Platform helps governments of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
@@ -78,13 +78,18 @@ MOSIP provides the following basic features
   healthcare insurance to the poorest in the society; provide government subsidized food for the needy; include children 
   from the poorest and remote communities into the education system etc.)
 
+![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
+
+                      Fig 1: Basic features of MOSIP
+
 The key objectives of the platform are to
 * provide the basic framework to create a fully functional identity system
 * provide the flexibility for a country to choose the features from the basic framework as per their requirements
 * maintain privacy, security and confidentiality of an Individual's data
 * provide a scalable and accessible solution to cater to a wide range of population (a few thousands to tens of millions)
 
-## 2.	MOSIP -FOR IDENTITY MANAGEMENT
+![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
+## 2. IDENTITY MANAGEMENT
 ### 2.1	What-is an Identity Management System [**[↑]**](#table-of-content)
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems. The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s. Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
 
@@ -108,7 +113,7 @@ MOSIP (Modular Open Source Identity Platform) helps government countries to buil
 
 
 
-## 3.	MOSIP FUNCTIONAL OVERVIEW
+## 3. FUNCTIONAL OVERVIEW
 This section details out the design aspects of MOSIP, driven by the key functional modules as listed below. Navigate to wiki for further details on each module. 
 ### 3.1 Pre-Registration [**[↑]**](#table-of-content)
 
@@ -235,8 +240,8 @@ Please refer [**wiki**](FRS-Partner-Management) for detailed functional specific
 
 ### 3.9 ID Repository [**[↑]**](#table-of-content)
 Please refer [**wiki**](FRS-ID-Repository) for detailed functional specifications of ID Repository.
-## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
-## 5. MOSIP REQUIREMENT SPECIFICATIONS
+## 4. SCOPE [**[↑]**](#table-of-content)
+## 5. REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section provides a detailed functional requirement specification for each module in MOSIP
 #### 5.1.1 [Pre-Registration](FRS-Pre-Registration)
@@ -269,7 +274,7 @@ _Registration_ - [**visual design**](//xd.adobe.com/view/dbb0c028-0959-475f-6aea
 
 _Admin_ - WIP
 
-## 7.	MOSIP ARCHITECTURE OVERVIEW
+## 7. ARCHITECTURE OVERVIEW
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
 ### 7.1 Principles [**[↑]**](#table-of-content)
