@@ -2,7 +2,6 @@
 ## Table Of Content
 * [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
   * [1.1 Scope](#11scope-)
-  * [1.2 Intended Audience](#12intended-audience-)
 * [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
   * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system-)
   * [2.2 Why-an Identity Management System is needed](#22why-an-identity-management-system-is-needed-)
@@ -66,11 +65,6 @@ Add: Section on Data Center Architecture
 * [14. REFERENCES](#14-references-)
 ### Document Scope [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
-### Intended Audience [**[↑]**](#table-of-content)
-* Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
-* Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
-* SIs (System Integrator).
-* Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
 
 ## 1. MOSIP-INTRODUCTION
 
