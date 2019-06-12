@@ -328,7 +328,7 @@ Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
 This section illustrates the integrational specifications of MOSIP with an external system.
 Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
 
-### 6. Privacy and Security [**[↑]**](#table-of-content)
+### 6. PRIVACY AND SECURITY [**[↑]**](#table-of-content)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
 
 Please refer [**wiki**](Security) for more details.
@@ -405,7 +405,7 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [**wiki**](ID-Repository-API) for more details
 
-### 8. Building and Deploying MOSIP (TBD) [**[↑]**](#table-of-content)
+### 8. BUILDING AND DEPLOYING MOSIP [**[↑]**](#table-of-content)
 #### 8.1 Getting Started Guide [**[↑]**](#table-of-content)
 Please refer [**wiki**](Getting-Started) for more details.
 #### 8.2 Developer Document [**[↑]**](#table-of-content)
