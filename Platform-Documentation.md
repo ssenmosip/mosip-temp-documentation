@@ -54,15 +54,16 @@
   * [9.2 Internal APIs](#92internal-apis)
     * [9.2.1 Kernel](#921-kernel-)
     * [9.2.2 ID Repository](#922id-repository-)
-* [10. HOW TO GUIDE](#10-how-to-guide-tbd)
+* [10. Building and Deploying MOSIP](#10-how-to-guide-tbd)
   * [10.1 Getting Started Guide](#101-getting-started-guide-)
   * [10.2 Developer Document](#102-developer-document-)
+Performance and Sizing Guidelines
 * [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations-)
+11.1 Add: Section on Customization
+Add: Section on Data Center Architecture
 * [12. GLOSSARY](#12--glossary-)
 * [13. ABBREVIATIONS](#13-abbreviations-)
 * [14. REFERENCES](#14-references-)
-
-## 1. MOSIP-INTRODUCTION
 ### 1.1	Scope [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
 ### 1.2	Intended Audience [**[↑]**](#table-of-content)
@@ -70,6 +71,25 @@ The scope of this document is to describe high level business objectives along w
 * Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
 * SIs (System Integrator).
 * Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
+
+## 1. MOSIP-INTRODUCTION
+
+MOSIP acronym for Modular Open Source Identity Platform helps governments of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
+
+MOSIP provides the following basic features 
+* acquire an Individual's identity data
+* process the identity data to establish uniqueness
+* generate a Unique Identity Number
+* verify/authenticate an Individual's identity where required to provide access to services (for example, providing 
+  healthcare insurance to the poorest in the society; provide government subsidized food for the needy; include children 
+  from the poorest and remote communities into the education system etc.)
+
+The key objectives of the platform are to
+* provide the basic framework to create a fully functional identity system
+* provide the flexibility for a country to choose the features from the basic framework as per their requirements
+* maintain privacy, security and confidentiality of an Individual's data
+* provide a scalable and accessible solution to cater to a wide range of population (a few thousands to tens of millions)
+
 ## 2.	MOSIP -FOR IDENTITY MANAGEMENT
 ### 2.1	What-is an Identity Management System [**[↑]**](#table-of-content)
 To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems. The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s. Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
@@ -430,12 +450,17 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [**wiki**](ID-Repository-API) for more details
 
-### 10. HOW TO GUIDE (TBD)
+### 10. Building and Deploying MOSIP (TBD)
 #### 10.1 Getting Started Guide [**[↑]**](#table-of-content)
 Please refer [**wiki**](Getting-Started) for more details
 #### 10.2 Developer Document [**[↑]**](#table-of-content)
 Please refer [**wiki**](Developer-Documentation) for more details
+Performance and Sizing Guidelines
+**](Performance-and-Sizing-Guidelines)
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
+Add: Section on Customization
+Add: Section on Data Center Architecture
+
 ## 12.  GLOSSARY [**[↑]**](#table-of-content)
 ## 13. ABBREVIATIONS [**[↑]**](#table-of-content)
 ## 14. REFERENCES [**[↑]**](#table-of-content)
