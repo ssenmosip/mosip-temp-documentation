@@ -37,8 +37,6 @@
 # 1. Overview [**[↑]**](#table-of-content)
 The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on a successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
-[**Link to Process View**](Process-view#pre-registration)
-
 # 2. Features
 ## 2.1 Login/Creating a User Account
 ### 2.1.1 Login using Email [**[↑]**](#table-of-content)
@@ -251,4 +249,7 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
     
     Please refer to section 7.C in Getting started Guide.
 2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+
+## Process View
+[**Link to Process View of Pre-registration**](Process-view#pre-registration)
 
