@@ -76,7 +76,7 @@ MOSIP acronym for Modular Open Source Identity Platform helps governments of cou
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
 ### 1.2	Key Objectives of MOSIP platform [**[↑]**](#table-of-content)
-MOSIP (Modular Open Source Identity Platform) helps government countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
+
 
 MOSIP provides the following basic features
 
