@@ -279,6 +279,8 @@ KER-ATH-007| Token is not present in datastore,Please try with new token | If to
 ### GET /login/config
 This request will load the configuration parameters while loading the pre-registration portal page.
 
+##### Note: All the values are retrieving from the pre-registration config properties file. If any value get changed in the config properties file it will get reflected in the response of this API. Following mentioned response is the sample of that.
+
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/login/config</div>
 
