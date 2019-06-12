@@ -37,7 +37,7 @@
   * [5.7 Core Data Management](#57-core-data-management-)
   * [5.8 Performance and Sizing Guidelines](#58-performance-and-sizing-guidelines-)
   * [5.9 Integration with External Systems](#59-integration-with-external-systems-)
-- [6 Test Rig](#6-test-rig-)
+- [6. Test Rig](#6-test-rig-)
 - [7. PRIVACY AND SECURITY](#7-privacy-and-security-)
 - [8. MOSIP APIs](#8-mosip-apis-)
   * [8.1 External APIs](#81external-apis-)
