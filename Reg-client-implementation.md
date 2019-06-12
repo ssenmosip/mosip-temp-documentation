@@ -10,11 +10,17 @@ It doesn't detail about each methods level information since that are covered in
 |:------:|-----|  
 |**Technical Detail:**| Post successful login, session context would be created. That will be used throughout the application at the required places. The user detail and the respective roles are encapsulated inside the context. Without creation of this context object, the packet can't be created. |  
 |**Main Service class and method:**| SessionContext.create(UserDTO userDTO, String loginMethod, boolean isInitialSetUp, boolean isUserNewToMachine, AuthenticationValidatorDTO authenticationValidatorDTO) |  
-|**Input parameter:**| UserDTO – It should contain info of id, name, roles, centerid. 
-  loginMethod – possible values are PWD, OTP, FINGERPRINT, FACE, IRIS. 
-  isInitialSetUp – true/false, isUserNewToMachine – true/false,  AuthenticationValidatorDTO – should contain id, password, otp|  
+|**Input parameter:**| UserDTO – It should contain info of id, name, roles, center-id. loginMethod – possible values are PWD, OTP, FINGERPRINT, FACE, IRIS. isInitialSetUp – true/false, isUserNewToMachine – true/false,  AuthenticationValidatorDTO – should contain id, password, otp|  
 |**Auth:**| Not required. |  
 |**External Connectivity:**| Service and DB |  
+
+
+|**Functionality:**| Packet Creation |   
+|:------:|-----|  
+|**Main Service class and methods**| PacketHandlerService.handle(RegistrationDTO registrationDTO)|  
+|**Input Parameter:**|  The RegistrationDTO object contains the RID, PRID, registration details of the individual and also contains the officer and supervisor details. This object has the following sub-classes: a. DemographicDTO - Details of the Demographic and Documents, b. BiometricDTO - Biometrics (Fingerprints, Irises, Face and Exception Face) of the individual, parent (or guardian), officer and supervisor, c.  RegistrationMetaDataDTO - Meta data related to registration and d. OSIDataDTO - Details of the officer and supervisor who had authenticated the registration |  
+|**Auth:**| SessionContext is required for creating the packet |  
+|**External Connectivity**| DB, File system |  
 
      
 |**Functionality:**| Packet Upload |   
@@ -31,5 +37,39 @@ It doesn't detail about each methods level information since that are covered in
    updateRegistrationStatus(List<PacketStatusDTO> exportedPackets) - update the status once exported. |  
 |**Input Parameter:**|	List of packet object. |  
 |**Auth:**| No. |  
-|**External Connectivity**| DB, File system |  
+|**External Connectivity:**| DB, File system |  
+
+
+
+|**Functionality:**|  MDM Integration – Register Device |   
+|:------:|-----|  
+|**Main Service class and method:**| MosipBioDeviceManager - init()|  
+|**Input Parameter:**|     No parameter needed. This method automatically scans all devices and stores it in device registry |  
+|**Auth:**| Not required |  
+|**External Connectivity:**| deviceInfo - MDM service REST call |  
+
+
+|**Functionality:**|  MDM Integration -Capture bio-metric |   
+|:------:|-----|  
+|**Main Service class and method:**| BioServiceImpl  - getFingerPrintImageAsDTOWithMdm(FingerprintDetailsDTO fpDetailsDTO, String fingerType) |  
+|**Input Parameter:**|    FingerprintDetailsDTO – dto contains the finger print related details, fingerType – Type of the device like Fingerprint/ Iris/Face etc |  
+|**Auth:**| Not required |  
+|**External Connectivity:**| Capture - MDM service REST call |  
+
+
+|**Functionality:**|  MDM Integration  - Validate bio-metric |   
+|:------:|-----|  
+|**Main Service class and method:**| BioServiceImpl  - validateFingerPrint(String userId)|  
+|**Input Parameter:**|   mosipBioDeviceManager – scan(String deviceType)|  
+|**Auth:**| Not required |  
+|**External Connectivity:**| Capture - MDM service REST call |  
+
+
+|**Functionality:**|  MDM Integration  - Display video stream |   
+|:------:|-----|  
+|**Main Service class and method:**| Yet to be implemented |  
+|**Input Parameter:**|    |  
+|**Auth:**| Not required |  
+|**External Connectivity:**| |  
+
 
