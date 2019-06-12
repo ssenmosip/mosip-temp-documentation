@@ -89,26 +89,6 @@ The key objectives of the platform are to
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
 ## 2. IDENTITY MANAGEMENT
-### 2.1	What-is an Identity Management System [**[↑]**](#table-of-content)
-To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems. The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s. Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
-
-The complexity of government administration in “the modern world” is a major problem in developing countries. Often, individual government programs have their own database of beneficiaries that are not digitized and therefore cannot be easily merged. Delivering public services efficiently and providing financial inclusion to the poor in partnership with the private sector depends on accurate identification and authentication of citizens and residents. Hence Government programs must have the capacity to cross-reference databases and information.
-### 2.2	Why-an Identity Management System is Needed [**[↑]**](#table-of-content)
-
-![Indentity](_images/mosip_prd/Indentity.JPG)
-
-A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
-
-### 2.3	Key Objectives of MOSIP platform [**[↑]**](#table-of-content)
-MOSIP (Modular Open Source Identity Platform) helps government countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
-
-
-
-![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
-
-                      Fig 1: Basic features of MOSIP
-
-![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
 
 
