@@ -64,9 +64,9 @@ Add: Section on Data Center Architecture
 * [12. GLOSSARY](#12--glossary-)
 * [13. ABBREVIATIONS](#13-abbreviations-)
 * [14. REFERENCES](#14-references-)
-### 1.1	Scope [**[↑]**](#table-of-content)
+### Document Scope [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
-### 1.2	Intended Audience [**[↑]**](#table-of-content)
+### Intended Audience [**[↑]**](#table-of-content)
 * Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
 * Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
 * SIs (System Integrator).
