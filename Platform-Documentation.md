@@ -57,7 +57,7 @@ Add: Section on Data Center Architecture
 * [12. GLOSSARY](#12--glossary-)
 * [13. ABBREVIATIONS](#13-abbreviations-)
 * [14. REFERENCES](#14-references-)
-### Document Scope [**[↑]**](#table-of-content)
+## Document Scope [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
 
 ## 1. INTRODUCTION
@@ -315,14 +315,17 @@ ID Repository module contains the golden record of Identity for an Individual. O
 
 This module exposes few REST APIs which can be used to create/update/retrieve Identity of an Individual. Please refer [**wiki**](ID-Repository-API) for more details.
 
-
-### 5.8 Test Rig [**[↑]**](#table-of-content)
+### 5.8 Developer Document [**[↑]**](#table-of-content)
+Please refer [**wiki**](Developer-Documentation) for more details
+#### 5.8.1 Performance and Sizing Guidelines [**[↑]**](#table-of-content)
+Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
+### 5.9 Test Rig [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Please refer to [**wiki**](Test-Rig-Design) for more details about **Test Rig Design**.
 
 Please refer to [**wiki**](Tester-Documentation) for more details about **Test Automation**.
-### 5.9 Integration with External Systems [**[↑]**](#table-of-content)
+### 5.10 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system.
 Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
 
@@ -331,11 +334,11 @@ Multiple aspects of Security like Confidentiality, Privacy, and Integrity of dat
 
 Please refer [**wiki**](Security) for more details.
 
-## 9. MOSIP APIs
+## 7. MOSIP APIs
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
-### 9.1	External APIs [**[↑]**](#table-of-content)
+### 7.1	External APIs [**[↑]**](#table-of-content)
 This sections details out the external APIs of MOSIP that interact with external entities.
-#### 9.1.1 ID Authentication APIs [**[↑]**](#table-of-content)
+#### 7.1.1 ID Authentication APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This section details the REST services exposed by ID Authentication. 
@@ -347,7 +350,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 2. Demo based - Personal Identity, Address
 3. Bio based - Fingerprint, IRIS and Face
 
-#### 9.1.2 ABIS APIs [**[↑]**](#table-of-content)
+#### 7.1.2 ABIS APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
@@ -362,7 +365,7 @@ This service details the behavior of:
 1. Ping Request
 1. Pending Jobs Request
 1. Reference Count Request
-#### 9.1.3	OTP Manager API [**[↑]**](#table-of-content)
+#### 7.1.3 OTP Manager API [**[↑]**](#table-of-content)
 Format: JSON
 
 OTP manager includes APIs for
@@ -370,11 +373,11 @@ OTP manager includes APIs for
 1. OTP validation. 
 
 Please refer [**wiki**](Kernel-APIs#otp-manager)
-#### 9.1.4	Pre-Registration APIs [**[↑]**](#table-of-content)
+#### 7.1.4 Pre-Registration APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This [**wiki**](Pre-Registration-Services) details about the service APIs in the Pre-Registration modules
-#### 9.1.5 Registration Processor APIs [**[↑]**](#table-of-content)
+#### 7.1.5 Registration Processor APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This API will support the following features
@@ -383,9 +386,9 @@ This API will support the following features
 1. APIs for Manual Verification. 
 
 Refer [**wiki**](Registration-Processor-APIs) for more details
-### 9.2	Internal APIs
+### 7.2	Internal APIs
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
-#### 9.2.1 Kernel [**[↑]**](#table-of-content)
+#### 7.2.1 Kernel [**[↑]**](#table-of-content)
 The Kernel APIs cover the following APIS
 1. APIs for key management
 1. APIs for master data management
@@ -394,7 +397,7 @@ The Kernel APIs cover the following APIS
 
 Please refer [**wiki**](Kernel-APIs) for more details.
 
-#### 9.2.2 ID Repository [**[↑]**](#table-of-content)
+#### 7.2.2 ID Repository [**[↑]**](#table-of-content)
 This is a central API which all other modules of MOSIP will use to retrieve an ID record. This API will support the following features
 1. Creation of a ID record
 1. Lookup of an ID record based on the UIN
@@ -403,18 +406,15 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [**wiki**](ID-Repository-API) for more details
 
-### 10. Building and Deploying MOSIP (TBD)
-#### 10.1 Getting Started Guide [**[↑]**](#table-of-content)
+### 8. Building and Deploying MOSIP (TBD)
+#### 8.1 Getting Started Guide [**[↑]**](#table-of-content)
 Please refer [**wiki**](Getting-Started) for more details
-#### 10.2 Developer Document [**[↑]**](#table-of-content)
-Please refer [**wiki**](Developer-Documentation) for more details
-Performance and Sizing Guidelines
-**](Performance-and-Sizing-Guidelines)
-## 11.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
-Add: Section on Customization
-Add: Section on Data Center Architecture
 
-## 12.  GLOSSARY [**[↑]**](#table-of-content)
-## 13. ABBREVIATIONS [**[↑]**](#table-of-content)
-## 14. REFERENCES [**[↑]**](#table-of-content)
+## 9.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
+#### 9.1 Customization
+#### 9.2 Data Center Architecture
+
+## 10.  GLOSSARY [**[↑]**](#table-of-content)
+## 11. ABBREVIATIONS [**[↑]**](#table-of-content)
+## 12. REFERENCES [**[↑]**](#table-of-content)
 
