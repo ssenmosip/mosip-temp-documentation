@@ -305,7 +305,7 @@ This section details out the specifications for Biometric data during data acqui
 
 Please refer [**wiki**](MOSIP-Biometric-Data-Specifications) for more details.
 
-### 5.6 Vendor Device Specifications [**[↑]**](#table-of-content)
+### 5.6 MOSIP Device Specification [**[↑]**](#table-of-content)
 This section illustrates the VDM technical specifications to be adhered by a vendor, who intends to adopt their devices to the MOSIP platform, so as to capture the biometric data and process the same. 
 
 Please refer [**wiki**](MOSIP-VDM-Specifications) for more details.
