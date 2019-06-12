@@ -343,3 +343,5 @@ After the Registration Client sends the packet to Registration Processor, it sta
 
 
 [**Please refer to Wiki for more details on the Registration Processor API**](/mosip/mosip/wiki/Registration-Processor-APIs).
+
+[**Link to Process View**](Process-view#registration-processor)
