@@ -78,7 +78,7 @@ Upon receiving a request to update the UIN details with the following parameters
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/identity-service.md)
 
 
-
+### ID Repository API
 [**Refer to Wiki for more details on ID Repository API**](ID-Repository-API).
 
 ### Process View
