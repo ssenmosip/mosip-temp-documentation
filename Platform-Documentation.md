@@ -2,26 +2,26 @@
 ## Table Of Content
 * [1. INTRODUCTION](#1-introduction)
   * [1.1 Scope](#11scope-)
-* [3. FUNCTIONAL OVERVIEW](#3-functional-overview)
-  * [3.1 Pre-Registration](#31-pre-registration-)
-  * [3.2 Registration Services](#32-registration-services-)
-  * [3.3 Registration Processor](#33-registration-Processor-)
-  * [3.4 ID Authentication](#34-id-authentication-)
-  * [3.5 Kernel](#35-kernel-)
-  * [3.6 Administrator Services (WIP)](#36-administrator-services-wip-)
-  * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
-  * [3.8 Partner Management (WIP)](#38-partner-management-wip-)
-  * [3.9 ID Repository](#39-id-repository-)
-* [5. REQUIREMENT SPECIFICATIONS](#5-requirement-specifications)
-  * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
-  * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
-* [7. ARCHITECTURE OVERVIEW](#7-architecture-overview)
-  * [7.1 Principles](#71-principles-)
-  * [7.2 Platform Features](#72-platform-features-)
-    * [7.2.1 Configurability](#721-configurability-)
-    * [7.2.2 Extensibility](#722-extensibility-)
-    * [7.2.3 Modularity](#723-modularity-)
-  * [7.3 Process View](#73-process-view-)
+* [2. FUNCTIONAL OVERVIEW](#2-functional-overview)
+  * [2.1 Pre-Registration](#21-pre-registration-)
+  * [2.2 Registration Services](#22-registration-services-)
+  * [2.3 Registration Processor](#23-registration-Processor-)
+  * [2.4 ID Authentication](#24-id-authentication-)
+  * [2.5 Kernel](#25-kernel-)
+  * [2.6 Administrator Services (WIP)](#26-administrator-services-wip-)
+  * [2.7 Resident Services (WIP)](#27-resident-services-wip-)
+  * [2.8 Partner Management (WIP)](#28-partner-management-wip-)
+  * [2.9 ID Repository](#29-id-repository-)
+* [3. REQUIREMENT SPECIFICATIONS](#3-requirement-specifications)
+  * [3.1 Functional Requirement Specifications](#31-functional-requirement-specifications-)
+  * [3.2 Non-Functional Requirement Specifications](#22-non-functional-requirement-specifications-)
+* [4. ARCHITECTURE OVERVIEW](#4-architecture-overview)
+  * [4.1 Principles](#41-principles-)
+  * [4.2 Platform Features](#42-platform-features-)
+    * [4.2.1 Configurability](#421-configurability-)
+    * [4.2.2 Extensibility](#422-extensibility-)
+    * [4.2.3 Modularity](#423-modularity-)
+  * [5.3 Process View](#73-process-view-)
   * [7.4 Logical View](#74-logical-view-)
   * [7.5 Technology Stack](#75-technology-stack-)
   * [7.6 Data Architecture](#76-data-architecture-)
@@ -81,10 +81,6 @@ MOSIP provides the following basic features
 The key objectives of the platform are to
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
-
-
-
-
 
 ## 3. FUNCTIONAL OVERVIEW
 This section details out the design aspects of MOSIP, driven by the key functional modules as listed below. Navigate to wiki for further details on each module. 
@@ -277,16 +273,12 @@ This section lists all the technologies used in building MOSIP platform.
 
 Please refer [**wiki**](Technology-Stack) for more details.
 
-
-
-
-
 ### 7.6 Data Architecture [**[↑]**](#table-of-content)
 This section details the data architecture of MOSIP which includes Security, Multi-Language, High Availability, Auditability, and High Performance. It also details the data models and its naming standards. 
 
 Please refer [**wiki**](MOSIP-Data-Architecture) for more details.
 
-## 8.	ARCHITECTURALLY SIGNIFICANT COMPONENTS OF MOSIP
+## 8. ARCHITECTURALLY SIGNIFICANT COMPONENTS
 ### 8.1 ID Object Definition [**[↑]**](#table-of-content)
 ID definition describes the attributes a Country or entity intends to capture from an Individual, which will formulate the definition of ID for a Country. This section elaborates on the mechanism MOSIP adopts, in order to provide the flexibility for each Country to define its preferred ID definition and ID object definition schema.
 
@@ -309,7 +301,7 @@ Please refer [**wiki**](Registration-Packet) for more details.
 This section provides details on the ability of MOSIP to support a single or multi-ABIS solution, specifics on the Components & APIs of ABIS Middleware, Strategies for Biometric data management in ABIS and Strategies for de-duplication in case of multiple ABIS systems.
 
 Please refer [**wiki**](MOSIP-ABIS-Middleware) for more details.
-### 8.5 MOSIP Biometric Data Standards [**[↑]**](#table-of-content)
+### 8.5 Biometric Data Standards [**[↑]**](#table-of-content)
 This section details out the specifications for Biometric data during data acquisition and verification. 
 
 Please refer [**wiki**](MOSIP-Biometric-Data-Specifications) for more details.
@@ -357,7 +349,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 2. Demo based - Personal Identity, Address
 3. Bio based - Fingerprint, IRIS and Face
 
-#### 9.1.2	ABIS APIs [**[↑]**](#table-of-content)
+#### 9.1.2 ABIS APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
@@ -384,7 +376,7 @@ Please refer [**wiki**](Kernel-APIs#otp-manager)
 Format: JSON
 
 This [**wiki**](Pre-Registration-Services) details about the service APIs in the Pre-Registration modules
-#### 9.1.5	Registration Processor APIs [**[↑]**](#table-of-content)
+#### 9.1.5 Registration Processor APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This API will support the following features
@@ -404,7 +396,7 @@ The Kernel APIs cover the following APIS
 
 Please refer [**wiki**](Kernel-APIs) for more details.
 
-#### 9.2.2	ID Repository [**[↑]**](#table-of-content)
+#### 9.2.2 ID Repository [**[↑]**](#table-of-content)
 This is a central API which all other modules of MOSIP will use to retrieve an ID record. This API will support the following features
 1. Creation of a ID record
 1. Lookup of an ID record based on the UIN
