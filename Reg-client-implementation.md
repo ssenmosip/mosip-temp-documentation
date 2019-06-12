@@ -15,7 +15,7 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| Service and DB |  
 
 
-|**Functionality:**| Packet Creation |   
+|**Functionality:**| Packet Creation  |   
 |:------:|-----|  
 |**Main Service class and methods**| PacketHandlerService.handle(RegistrationDTO registrationDTO)|  
 |**Input Parameter:**|  The RegistrationDTO object contains the RID, PRID, registration details of the individual and also contains the officer and supervisor details. This object has the following sub-classes: a. DemographicDTO - Details of the Demographic and Documents, b. BiometricDTO - Biometrics (Fingerprints, Irises, Face and Exception Face) of the individual, parent (or guardian), officer and supervisor, c.  RegistrationMetaDataDTO - Meta data related to registration and d. OSIDataDTO - Details of the officer and supervisor who had authenticated the registration |  
@@ -26,15 +26,14 @@ It doesn't detail about each methods level information since that are covered in
 |**Functionality:**| Packet Upload |   
 |:------:|-----|  
 |**Main Service class and method:**| PacketUploadService.pushPacket(File packet)|  
-|**Input Parameter:**|	File object, which contains the packet to be uploaded. |  
+|**Input Parameter:**|	File object, which contains the packet to be uploaded.                                    |  
 |**Auth:**| Required during packet upload to MOSIP server. |  
 |**External Connectivity:**| Service, DB, File system |  
 
 
 |**Functionality:**| Packet Export |  
 |:------:|-----|  
-|**Main Service class and method:**| PacketExportService.getSynchedRecords() - to fetch the packet to be exported.  
-   updateRegistrationStatus(List<PacketStatusDTO> exportedPackets) - update the status once exported. |  
+|**Main Service class and method:**| PacketExportService.getSynchedRecords() - to fetch the packet to be exported. updateRegistrationStatus(List<PacketStatusDTO> exportedPackets) - update the status once exported. |  
 |**Input Parameter:**|	List of packet object. |  
 |**Auth:**| No. |  
 |**External Connectivity:**| DB, File system |  
