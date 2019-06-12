@@ -340,8 +340,8 @@ After the Registration Client sends the packet to Registration Processor, it sta
 1. RE-REGISTER – The packet has failed a business validation like center-machine check, supervisor and officer validation, etc., due to which the system will not be able to process the packet. The registration officer will intimate the individual to come back to the center and re-register, post which registration client can delete the packet from its storage location.
 1. REJECTED – A duplicate packet was found against the individual’s biometrics. As processing of the packet is completed, Registration Client can delete the packet from it storage location.
 
-
-
+### Registration Processor API
 [**Please refer to Wiki for more details on the Registration Processor API**](/mosip/mosip/wiki/Registration-Processor-APIs).
 
-[**Link to Process View**](Process-view#registration-processor)
+### Process View
+[**Link to Process View of Registration processor**](Process-view#registration-processor)
