@@ -57,10 +57,10 @@ Add: Section on Data Center Architecture
 * [12. GLOSSARY](#12--glossary-)
 * [13. ABBREVIATIONS](#13-abbreviations-)
 * [14. REFERENCES](#14-references-)
-## Document Scope [**[↑]**](#table-of-content)
+## DOCUMENT SCOPE [**[↑]**](#table-of-content)
 The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
 
-## 1. INTRODUCTION
+## 1. INTRODUCTION [**[↑]**](#table-of-content)
 
 MOSIP acronym for Modular Open Source Identity Platform helps governments of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
@@ -69,7 +69,7 @@ MOSIP acronym for Modular Open Source Identity Platform helps governments of cou
 ![Indentity](_images/mosip_prd/Indentity.JPG)
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
-### 1.2	Key Objectives of MOSIP platform [**[↑]**](#table-of-content)
+### 1.2	Key Objectives of MOSIP Platform [**[↑]**](#table-of-content)
 
 
 MOSIP provides the following basic features
