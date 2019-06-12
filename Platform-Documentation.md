@@ -233,7 +233,7 @@ This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
 
-## 4. ARCHITECTURE OVERVIEW
+## 4. ARCHITECTURE OVERVIEW [**[↑]**](#table-of-content)
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
 ### 4.1 Principles [**[↑]**](#table-of-content)
@@ -277,7 +277,7 @@ This section details the data architecture of MOSIP which includes Security, Mul
 
 Please refer [**wiki**](MOSIP-Data-Architecture) for more details.
 
-## 5. ARCHITECTURALLY SIGNIFICANT COMPONENTS
+## 5. ARCHITECTURALLY SIGNIFICANT COMPONENTS [**[↑]**](#table-of-content)
 ### 5.1 ID Object Definition [**[↑]**](#table-of-content)
 ID definition describes the attributes a Country or entity intends to capture from an Individual, which will formulate the definition of ID for a Country. This section elaborates on the mechanism MOSIP adopts, in order to provide the flexibility for each Country to define its preferred ID definition and ID object definition schema.
 
@@ -315,16 +315,15 @@ ID Repository module contains the golden record of Identity for an Individual. O
 
 This module exposes few REST APIs which can be used to create/update/retrieve Identity of an Individual. Please refer [**wiki**](ID-Repository-API) for more details.
 
-### 5.8 Developer Document [**[↑]**](#table-of-content)
-Please refer [**wiki**](Developer-Documentation) for more details
-#### 5.8.1 Performance and Sizing Guidelines [**[↑]**](#table-of-content)
-Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
-### 5.9 Test Rig [**[↑]**](#table-of-content)
+### 5.8 Test Rig [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Please refer to [**wiki**](Test-Rig-Design) for more details about **Test Rig Design**.
 
 Please refer to [**wiki**](Tester-Documentation) for more details about **Test Automation**.
+### 5.9 Performance and Sizing Guidelines [**[↑]**](#table-of-content)
+Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
+
 ### 5.10 Integration with External Systems [**[↑]**](#table-of-content)
 This section illustrates the integrational specifications of MOSIP with an external system.
 Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
@@ -334,7 +333,7 @@ Multiple aspects of Security like Confidentiality, Privacy, and Integrity of dat
 
 Please refer [**wiki**](Security) for more details.
 
-## 7. MOSIP APIs
+## 7. MOSIP APIs [**[↑]**](#table-of-content)
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 7.1	External APIs [**[↑]**](#table-of-content)
 This sections details out the external APIs of MOSIP that interact with external entities.
@@ -386,7 +385,7 @@ This API will support the following features
 1. APIs for Manual Verification. 
 
 Refer [**wiki**](Registration-Processor-APIs) for more details
-### 7.2	Internal APIs
+### 7.2	Internal APIs [**[↑]**](#table-of-content)
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
 #### 7.2.1 Kernel [**[↑]**](#table-of-content)
 The Kernel APIs cover the following APIS
@@ -406,14 +405,14 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [**wiki**](ID-Repository-API) for more details
 
-### 8. Building and Deploying MOSIP (TBD)
+### 8. Building and Deploying MOSIP (TBD) [**[↑]**](#table-of-content)
 #### 8.1 Getting Started Guide [**[↑]**](#table-of-content)
-Please refer [**wiki**](Getting-Started) for more details
-
+Please refer [**wiki**](Getting-Started) for more details.
+#### 8.2 Developer Document [**[↑]**](#table-of-content)
+Please refer [**wiki**](Developer-Documentation) for more details
 ## 9.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
-#### 9.1 Customization
-#### 9.2 Data Center Architecture
-
+#### 9.1 Customization (WIP) [**[↑]**](#table-of-content)
+#### 9.2 Data Center Architecture (WIP) [**[↑]**](#table-of-content)
 ## 10.  GLOSSARY [**[↑]**](#table-of-content)
 ## 11. ABBREVIATIONS [**[↑]**](#table-of-content)
 ## 12. REFERENCES [**[↑]**](#table-of-content)
