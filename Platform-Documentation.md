@@ -77,21 +77,15 @@ MOSIP acronym for Modular Open Source Identity Platform helps governments of cou
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
 
 
-MOSIP provides the following basic features
+1.2 MOSIP provides the following basic features
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
                       Fig 1: Basic features of MOSIP
 
-The key objectives of the platform are to
+1.3 The key objectives of the platform are to
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
-
-### 1.1	Why-an Identity Management System is Needed [**[↑]**](#table-of-content)
-
-![Indentity](_images/mosip_prd/Indentity.JPG)
-
-A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
 
 ## 2. IDENTITY MANAGEMENT
 ### 2.1	What-is an Identity Management System [**[↑]**](#table-of-content)
