@@ -23,6 +23,7 @@ It doesn't detail about each methods level information and that are detailed out
 |**External Connectivity**| Service, DB, File system |  
 
 |**Functionality**| Packet Export |  
+|:------:|-----|  
 |**Main Service class and methods**| PacketExportService.getSynchedRecords() - to fetch the packet to be exported. 
 updateRegistrationStatus(List<PacketStatusDTO> exportedPackets) - update the status once exported. |  
 |**Detail of input parameter**|	List of packet object. |  
