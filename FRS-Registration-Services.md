@@ -860,4 +860,5 @@ Before the machine is decommissioned, the following checks must be performed:
 1. All packets created must either be uploaded to server or exported to external device.
 2. All data locally saved in the machine must be cleaned up.
 
-[**Link to Process View**](Process-view#registration-client)
+### Process View
+[**Link to Process View of Registration Services**](Process-view#registration-client)
