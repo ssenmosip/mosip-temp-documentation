@@ -2900,14 +2900,10 @@ id |Yes|Id of the application|mosip.pre-registration.qrcode.generate
 version |Yes|version of the application|1.0
 requesttime |Yes|Request time of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.name |Yes|user name of the application|Sanober Noor
-request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
-request.appointmentDate|Yes| Booking appointment date|2019-01-18
-request.appointmentTime| Yes|Booking appointment time| 12:02
-request.mobNum|  Yes| applicant mobile number |9480456789
-request.emailID| Yes|applicant email Id |`sanober@gmail.com`
+request.value |Yes|Any string that you want to generate QR code|
 
 #### Request:
+##### Note: below is the sample request with no validation for request value
 ```JSON
 {
   "id": "mosip.pre-registration.qrcode.generate",
