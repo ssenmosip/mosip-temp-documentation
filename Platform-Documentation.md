@@ -82,52 +82,6 @@ The key objectives of the platform are to
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
-## 7. ARCHITECTURE OVERVIEW
-MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
-
-### 7.1 Principles [**[↑]**](#table-of-content)
-This section consists of the foundational principles of MOSIP based on which the architecture is defined. The key principle considered includes: Open source and Vendor Neutral, Adaptability, Security, Multi party, Authorization, Authentication, Multi language support, Performance and Scalability, High Availability, and Auditability.
-
-Please refer [**wiki**](Architecture-Principles-&-Platform-Goals) for more details.
-### 7.2 Platform Features [**[↑]**](#table-of-content)
-#### 7.2.1 Configurability [**[↑]**](#table-of-content)
-
-MOSIP should be flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
-* Country should be able to choose the features required. For example, it must be possible for a country to turn off Finger Print capture
-* Country should be able to configure the attributes of an ID Object
-* Country should be able to define the length of the UIN number.
-#### 7.2.2 Extensibility [**[↑]**](#table-of-content)
-
-MOSIP should be flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
-* A country should be able to introduce a new step in processing data
-* Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
-#### 7.2.3 Modularity [**[↑]**](#table-of-content)
-
-All components in MOSIP should be modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
-* UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
-* The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
-### 7.3 Process View [**[↑]**](#table-of-content)
-This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
-
-Please refer [**wiki**](Process-view) for more details.
-
-### 7.4 Logical View [**[↑]**](#table-of-content)
-This section details the key design aspects considered for MOSIP. This includes Ecosystem approach, Configurability, Extensibility, Modularity, and Solution Principles. 
-
-Please refer [**wiki**](Logical-Architecture) for more details.
-
-### 7.5 Technology Stack [**[↑]**](#table-of-content)
-This section lists all the technologies used in building MOSIP platform.
-
-Please refer [**wiki**](Technology-Stack) for more details.
-
-### 7.6 Data Architecture [**[↑]**](#table-of-content)
-This section details the data architecture of MOSIP which includes Security, Multi-Language, High Availability, Auditability, and High Performance. It also details the data models and its naming standards. 
-
-Please refer [**wiki**](MOSIP-Data-Architecture) for more details.
-
-
-
 ## 3. FUNCTIONAL OVERVIEW
 This section details out the design aspects of MOSIP, driven by the key functional modules as listed below. Navigate to wiki for further details on each module. 
 ### 3.1 Pre-Registration [**[↑]**](#table-of-content)
@@ -278,6 +232,52 @@ This section provides a detailed functional requirement specification for each m
 This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
+
+## 7. ARCHITECTURE OVERVIEW
+MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
+
+### 7.1 Principles [**[↑]**](#table-of-content)
+This section consists of the foundational principles of MOSIP based on which the architecture is defined. The key principle considered includes: Open source and Vendor Neutral, Adaptability, Security, Multi party, Authorization, Authentication, Multi language support, Performance and Scalability, High Availability, and Auditability.
+
+Please refer [**wiki**](Architecture-Principles-&-Platform-Goals) for more details.
+### 7.2 Platform Features [**[↑]**](#table-of-content)
+#### 7.2.1 Configurability [**[↑]**](#table-of-content)
+
+MOSIP should be flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
+* Country should be able to choose the features required. For example, it must be possible for a country to turn off Finger Print capture
+* Country should be able to configure the attributes of an ID Object
+* Country should be able to define the length of the UIN number.
+#### 7.2.2 Extensibility [**[↑]**](#table-of-content)
+
+MOSIP should be flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
+* A country should be able to introduce a new step in processing data
+* Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
+#### 7.2.3 Modularity [**[↑]**](#table-of-content)
+
+All components in MOSIP should be modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
+* UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
+* The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
+### 7.3 Process View [**[↑]**](#table-of-content)
+This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
+
+Please refer [**wiki**](Process-view) for more details.
+
+### 7.4 Logical View [**[↑]**](#table-of-content)
+This section details the key design aspects considered for MOSIP. This includes Ecosystem approach, Configurability, Extensibility, Modularity, and Solution Principles. 
+
+Please refer [**wiki**](Logical-Architecture) for more details.
+
+### 7.5 Technology Stack [**[↑]**](#table-of-content)
+This section lists all the technologies used in building MOSIP platform.
+
+Please refer [**wiki**](Technology-Stack) for more details.
+
+### 7.6 Data Architecture [**[↑]**](#table-of-content)
+This section details the data architecture of MOSIP which includes Security, Multi-Language, High Availability, Auditability, and High Performance. It also details the data models and its naming standards. 
+
+Please refer [**wiki**](MOSIP-Data-Architecture) for more details.
+
+
 
 
 ## 8. ARCHITECTURALLY SIGNIFICANT COMPONENTS
