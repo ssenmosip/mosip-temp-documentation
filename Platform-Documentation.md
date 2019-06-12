@@ -70,23 +70,13 @@ The scope of this document is to describe high level business objectives along w
 
 MOSIP acronym for Modular Open Source Identity Platform helps governments of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
 
-MOSIP provides the following basic features 
-* acquire an Individual's identity data
-* process the identity data to establish uniqueness
-* generate a Unique Identity Number
-* verify/authenticate an Individual's identity where required to provide access to services (for example, providing 
-  healthcare insurance to the poorest in the society; provide government subsidized food for the needy; include children 
-  from the poorest and remote communities into the education system etc.)
+Refer to the below figure about Basic features of MOSIP
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
                       Fig 1: Basic features of MOSIP
 
-The key objectives of the platform are to
-* provide the basic framework to create a fully functional identity system
-* provide the flexibility for a country to choose the features from the basic framework as per their requirements
-* maintain privacy, security and confidentiality of an Individual's data
-* provide a scalable and accessible solution to cater to a wide range of population (a few thousands to tens of millions)
+Refer to below figure about Key objectives of MOSIP
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 ## 2. IDENTITY MANAGEMENT
