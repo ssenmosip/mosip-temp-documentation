@@ -21,9 +21,9 @@ WIP
 - [7. Recovery (Individual Modules)](#7-recovery-individual-modules-) _(NFR_7)_
   * [7.1 Data Recovery (in flight transaction data and data at rest)](#71-data-recovery-in-flight-transaction-data-and-data-at-rest) _(NFR_7.1)_
 - [8. Data Backup](#8-data-backup-) _(NFR_8)
-  * [8.1 Backup Policy](#81-backup-policy-) _(NFR_8.1)_
-- [9. Data Archival](#9-data-archival-) _(NFR_9)
-  * [9.1 Archival Policy](#91-archival-policy-) _(NFR_9.1)_
+  * [8.1 Backup Policy](#81-backup-policy) _(NFR_8.1)_
+- [9. Data Archival](#9-data-archival) _(NFR_9)
+  * [9.1 Archival Policy](#91-archival-policy) _(NFR_9.1)_
 ## 1. Performance [**[↑]**](#table-of-content)
 ### 1.1 Responsiveness (Under Different Load Conditions)
 
