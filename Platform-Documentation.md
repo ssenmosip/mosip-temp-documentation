@@ -2,10 +2,6 @@
 ## Table Of Content
 * [1. INTRODUCTION](#1-introduction)
   * [1.1 Scope](#11scope-)
-* [2. IDENTITY MANAGEMENT](#2-identity-management)
-  * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system-)
-  * [2.2 Why-an Identity Management System is needed](#22why-an-identity-management-system-is-needed-)
-  * [2.3 Key Objectives of MOSIP Platform](#23key-objectives-of-MOSIP-platform-)
 * [3. FUNCTIONAL OVERVIEW](#3-functional-overview)
   * [3.1 Pre-Registration](#31-pre-registration-)
   * [3.2 Registration Services](#32-registration-services-)
@@ -16,11 +12,9 @@
   * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
   * [3.8 Partner Management (WIP)](#38-partner-management-wip-)
   * [3.9 ID Repository](#39-id-repository-)
- * [4. SCOPE](#4-scope-)
 * [5. REQUIREMENT SPECIFICATIONS](#5-requirement-specifications)
   * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
   * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
-* [6. Visual Designs](#6-visual-designs-)
 * [7. ARCHITECTURE OVERVIEW](#7-architecture-overview)
   * [7.1 Principles](#71-principles-)
   * [7.2 Platform Features](#72-platform-features-)
@@ -88,7 +82,7 @@ The key objectives of the platform are to
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
-## 2. IDENTITY MANAGEMENT
+
 
 
 
@@ -219,7 +213,7 @@ Please refer [**wiki**](FRS-Partner-Management) for detailed functional specific
 
 ### 3.9 ID Repository [**[↑]**](#table-of-content)
 Please refer [**wiki**](FRS-ID-Repository) for detailed functional specifications of ID Repository.
-## 4. SCOPE [**[↑]**](#table-of-content)
+
 ## 5. REQUIREMENT SPECIFICATIONS
 ### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section provides a detailed functional requirement specification for each module in MOSIP
@@ -243,15 +237,6 @@ This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
 
-## 6. Visual Designs [**[↑]**](#table-of-content)
-
-This section provides links to the Clickable Prototypes/Visual Designs of the reference implementation (Reference screens) provided by MOSIP for the following modules: _Pre-registration, Registration Client_ and _Admin_.
-
-_Pre-Registration_ - [**visual design**](//xd.adobe.com/view/3139bfc4-5338-48f0-4ffe-5efca5fdcb72-4708/)
-
-_Registration_ - [**visual design**](//xd.adobe.com/view/dbb0c028-0959-475f-6aea-a9c4d7c57cdf-ad81/)
-
-_Admin_ - WIP
 
 ## 7. ARCHITECTURE OVERVIEW
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
