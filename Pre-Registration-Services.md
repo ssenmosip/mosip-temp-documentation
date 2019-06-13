@@ -2363,7 +2363,6 @@ PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time sl
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
-PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
 PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
 PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistration status is booked but appointment data not found in the db
