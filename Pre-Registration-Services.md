@@ -2458,7 +2458,7 @@ request.time_slot_to |Yes|Time Slot To|15:45:00
    "response": null,
    "errors":[ 
          {
-            "errorCode": "PRG_PAM_APP_006",
+            "errorCode": "PRG_PAM_APP_005",
             "message": "No data found for the requested pre-registration id"
          }
     ]
