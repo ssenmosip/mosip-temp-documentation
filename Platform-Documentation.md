@@ -80,7 +80,7 @@ A well-established identity management system can help countries to verify their
 
                       Fig 1: Basic features of MOSIP
 
-### 1.3 Key objectives of the platform [**[↑]**](#table-of-content)
+### 1.3 Key objectives of MOSIP Platform [**[↑]**](#table-of-content)
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
