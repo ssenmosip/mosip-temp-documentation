@@ -3,7 +3,8 @@
 - [DOCUMENT SCOPE](#document-scope-)
 - [1. INTRODUCTION](#1-introduction-)
   * [1.1 Why-an Identity Management System is Needed](#11why-an-identity-management-system-is-needed-)
-  * [1.2 Key Objectives of MOSIP Platform](#12key-objectives-of-mosip-platform-)
+  * [1.2 Key Features of MOSIP Platform](#12key-features-of-mosip-platform-)
+  * [1.3 Key Objectives of MOSIP Platform](#13key-objectives-of-mosip-platform-)
 - [2. FUNCTIONAL OVERVIEW](#2-functional-overview)
   * [2.1 Pre-Registration](#21-pre-registration-)
   * [2.2 Registration Services](#22-registration-services-)
@@ -71,16 +72,15 @@ MOSIP acronym for Modular Open Source Identity Platform helps governments of cou
 ![Indentity](_images/mosip_prd/Indentity.JPG)
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
-### 1.2	Key Objectives of MOSIP Platform [**[↑]**](#table-of-content)
+### 1.2	Key Features of MOSIP Platform [**[↑]**](#table-of-content)
 
 
-MOSIP provides the following basic features
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
                       Fig 1: Basic features of MOSIP
 
-The key objectives of the platform are to
+### 1.3 Key objectives of the platform [**[↑]**](#table-of-content)
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
