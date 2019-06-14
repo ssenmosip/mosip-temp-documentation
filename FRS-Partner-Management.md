@@ -1,35 +1,53 @@
 ## Table Of Content
-- [1. MISP Registration and Authentication](#1-misp-registration-and-authentication-)
-  * [1.1 MISP Registration](#11-misp-registration-)
-  * [1.2 MISP License Key Management](#12-misp-license-key-management-)
-  * [1.3 MISP Authentication](#13-misp-authentication-)
-- [2. Partner Registration and Authentication](#2-partner-registration-and-authentication-)
-  * [2.1 Partner Registration](#21-partner-registration-)
-  * [2.2 Partner Authentication](#22-partner-authentication-)
-- [3. Partner Policy Management](#3-partner-policy-management-)
-- [4. MISP-Partner Mapping](#4-misp-partner-mapping-)
-  * [4.1 MISP-Partner Mapping Setup](#41-misp-partner-mapping-setup-)
-  * [4.2 MISP-Partner Mapping Validation](#42-misp-partner-mapping-validation-)
-- [5. Partner Certificate Signing and Validation](#5-partner-certificate-signing-and-validation-)
-  * [5.1 Partner Certificate Signing](#51-partner-certificate-signing-)
-  * [5.2 Partner Certificate Validation](#52-partner-certificate-validation-)
-- [6. Partner Public key Distribution and Retrieval](#6-partner-public-key-distribution-and-retrieval-)
-  * [6.1 Partner Public key Distribution](#61-partner-public-key-distribution-)
-  * [6.2 Partner Public key Retrieval](#62-partner-public-key-retrieval-)
-# 1. MISP Registration and Authentication [**[↑]**](#table-of-content)	 
-## 1.1 MISP Registration [**[↑]**](#table-of-content)
-## 1.2 MISP License Key Management [**[↑]**](#table-of-content)
-## 1.3 MISP Authentication [**[↑]**](#table-of-content)
-# 2. Partner Registration and Authentication [**[↑]**](#table-of-content)	 
-## 2.1 Partner Registration [**[↑]**](#table-of-content)
-## 2.2 Partner Authentication [**[↑]**](#table-of-content)
-# 3. Partner Policy Management [**[↑]**](#table-of-content)
-# 4. MISP-Partner Mapping [**[↑]**](#table-of-content)	 
-## 4.1 MISP-Partner Mapping Setup [**[↑]**](#table-of-content)
-## 4.2 MISP-Partner Mapping Validation [**[↑]**](#table-of-content)
-# 5. Partner Certificate Signing and Validation [**[↑]**](#table-of-content)	 
-## 5.1 Partner Certificate Signing [**[↑]**](#table-of-content)
-## 5.2 Partner Certificate Validation [**[↑]**](#table-of-content)
-# 6. Partner Public key Distribution and Retrieval [**[↑]**](#table-of-content)	 
-## 6.1 Partner Public key Distribution [**[↑]**](#table-of-content)
-## 6.2 Partner Public key Retrieval [**[↑]**](#table-of-content)
+- [1. Users and Roles](#1-user-and-roles-) _(PM FR 1)
+  * [1.1 User Creation](#11-user-creation-) _(PM FR 1.1)
+  * [1.2 Role Mapping](#12-role-mapping-)
+    * [1.2.1 MISP](#121-misp) _(PM_FR_1.2)_
+    * [1.2.2 Partner](#122-partner) _(PM_FR_1.3)_
+    * [1.2.3 Policy Manager](#123-policy-manager) _(PM_FR_1.4)_
+    * [1.2.4 Partner Manager](#124-partner-manager) _(PM_FR_1.5)_
+  * [1.3 Policy Group Assignment (Regulator)](#13-policy-group-assignment-regulator-) _(PM FR 1.3)
+- [2. MISP Activities](#2-misp-activities-)
+  * [2.1 License Key Management ](#21-license-key-management-) _(PM FR 2.1)
+- [3. Partner Activities](#3-partner-activities-)
+  * [3.1 Registration](#31-registration-) _(PM FR 3.1)
+  * [3.2 API Key Management](#32-api-key-management-) _(PM FR 3.2)
+  * [3.3 Certificate Management](#33-certificate-management-) _(PM FR 3.3)
+- [4. Policy Manager Activities](#4-policy-manager-activities-)
+  * [4.1 Policy Management](#41-policy-management-)
+    * [4.1.1 Creation and Publication of Authentication Policies](#411-creation-and-publication-of-authentication-policies) _(PM_FR_4.1)_
+    * [4.1.2 List, View, Add, Edit, Activate, Deactivate Policies](#412-list-view-add-edit-activate-deactivate-policies) _(PM_FR_4.2)_
+   * [4.1.3 Filtered by Policy Group (Regulator)](#413-filtered-by-policy-group-regulator) _(PM_FR_4.3)_
+- [5. Partner Manager Activities](#5-partner-manager-activities-)
+  * [5.1 Partner Management](#51-partner-management-) _(PM_FR_5.1)_
+    * [5.1.1 Creation and Publication of Authentication Policies](#511-creation-and-publication-of-authentication-policies ) _(PM_FR_5.1)_
+    * [5.1.1 Creation and Publication of Authentication Policies](#511-creation-and-publication-of-authentication-policies ) _(PM_FR_5.1)_
+    * [5.1.2 List, View, Add, Edit, Activate, Deactivate Policies](#412-list-view-add-edit-activate-deactivate-policies) _(PM_FR_5.2)_
+    * [5.1.3 Filtered by Policy Group (Regulator)](#513-filtered-by-policy-group-regulator) _(PM_FR_5.3)_\
+  * [5.2 Partner Policy Assignment](#52-partner-policy-assignment-)
+ 
+# 1. Users and Roles [**[↑]**](#table-of-content)	 
+## 1.1 User Creation 
+## 1.2 Role Mapping 
+#### 1.2.1 MISP
+#### 1.2.2 Partner
+#### 1.2.3 Policy Manager
+#### 1.2.3 Partner Manager
+## 1.3 Policy Group Assignment (Regulator) 
+# 2. MISP Activities [**[↑]**](#table-of-content)	 
+## 2.1 License Key Management )
+# 3. Partner Activities 
+## 3.1 Registration  
+## 3.2 API Key Management  
+## 3.3 Certificate Management 
+# 4. Policy Manager Activities [**[↑]**](#table-of-content)
+## 4.1 Policy Management
+#### 4.1.1 Creation and Publication of Authentication Policies 
+#### 4.1.2 List, View, Add, Edit, Activate, Deactivate Policies 
+#### 4.1.3 Filtered by Policy Group (Regulator)
+# 5. Partner Manager Activities [**[↑]**](#table-of-content)	 
+## 5.1 Partner Management 
+#### 5.1.1 Creation and Publication of Authentication Policies  
+#### 5.1.2 List, View, Add, Edit, Activate, Deactivate Policies
+#### 5.1.3 Filtered by Policy Group (Regulator)
+## 5.2 Partner Policy Assignment 
