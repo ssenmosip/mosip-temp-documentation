@@ -19,7 +19,7 @@
     * [4.1.2 List, View, Add, Edit, Activate, Deactivate Policies](#412-list-view-add-edit-activate-deactivate-policies) _(PM_FR_4.2)_
    * [4.1.3 Filtered by Policy Group (Regulator)](#413-filtered-by-policy-group-regulator) _(PM_FR_4.3)_
 - [5. Partner Manager Activities](#5-partner-manager-activities-)
-  * [5.1 Partner Management](#51-partner-management) _(PM_FR_5.1)_
+  * [5.1 Partner Management](#51-partner-management)
     * [5.1.1 Creation and Publication of Authentication Policies](#511-creation-and-publication-of-authentication-policies ) _(PM_FR_5.1)_
     * [5.1.2 List, View, Add, Edit, Activate, Deactivate Policies](#512-list-view-add-edit-activate-deactivate-policies) _(PM_FR_5.2)_
     * [5.1.3 Filtered by Policy Group (Regulator)](#513-filtered-by-policy-group-regulator) _(PM_FR_5.3)_
