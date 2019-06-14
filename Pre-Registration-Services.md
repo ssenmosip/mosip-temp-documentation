@@ -271,6 +271,11 @@ Requires Authentication | Yes
   ]
 }
 ```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-ATH-007|Token is not present in datastore,Please try with new token|If token is not present in datastore
+
 ### GET /login/config
 This request will load the configuration parameters while loading the pre-registration portal page.
 
