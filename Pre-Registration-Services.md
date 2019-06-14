@@ -2967,6 +2967,7 @@ This request is used to notify the pre-registration acknowledgement via Email an
 #### Resource details
 Resource Details | Description
 ------------ | -------------
+Request format | multipart/form-data
 Response format | JSON
 Requires Authentication | Yes
 
