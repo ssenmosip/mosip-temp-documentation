@@ -261,21 +261,16 @@ Requires Authentication | Yes
 {
   "id": "mosip.pre-registration.login.invalidate",
   "version": "1.0",
-  "responsetime": "2019-05-14T18:14:25.546Z",
+  "responsetime": "2019-06-14T08:41:17.156Z",
   "response": null,
   "errors": [
     {
-      "errorCode": "KER-ATH-005",
+      "errorCode": "KER-ATH-007",
       "message": "Token is not present in cookies"
     }
   ]
 }
 ```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-KER-ATH-007| Token is not present in datastore,Please try with new token | If token is not present in database
-
 ### GET /login/config
 This request will load the configuration parameters while loading the pre-registration portal page.
 
