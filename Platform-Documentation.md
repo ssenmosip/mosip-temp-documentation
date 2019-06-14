@@ -60,7 +60,7 @@
 - [14. REFERENCES](#14-references-)
 
 ## DOCUMENT SCOPE [**[↑]**](#table-of-content)
-The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
+The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly, provides necessary information on implementation, customization and set up.
 
 ## 1. INTRODUCTION [**[↑]**](#table-of-content)
 
