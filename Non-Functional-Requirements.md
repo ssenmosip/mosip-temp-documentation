@@ -3,9 +3,7 @@ WIP
 - [1. Performance](#1-performance-) _(NFR_1)_
   * [1.1 Responsiveness(Under Different Load Conditions)](#11-responsiveness-Under-Different-Load-Conditions) _(NFR_1.1)_
 - [2. Availabiity](#2-availability-) _(NFR_2)_
-
 - [3. Scalability](#3-scalability-) _(NFR_3)_
-
 - [4. Security](#4-security-) _(NFR_4)_
   * [4.1 Network Security](#41-network-security) _(NFR_4.1)_
   * [4.2 Privacy](#42-privacy) _(NFR_4.2)_
@@ -24,6 +22,7 @@ WIP
   * [8.1 Backup Policy](#81-backup-policy) _(NFR_8.1)_
 - [9. Data Archival](#9-data-archival) _(NFR_9)
   * [9.1 Archival Policy](#91-archival-policy) _(NFR_9.1)_
+
 ## 1. Performance [**[↑]**](#table-of-content)
 ### 1.1 Responsiveness (Under Different Load Conditions)
 
