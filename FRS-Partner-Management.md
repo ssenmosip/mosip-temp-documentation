@@ -33,7 +33,7 @@
 ### 1.2.3 Policy Manager [**[↑]**](#table-of-content)
 ### 1.2.4 Partner Manager [**[↑]**](#table-of-content)
 ## 1.3 Policy Group Assignment (Regulator) [**[↑]**](#table-of-content) 
-# 2. MISP Activities [**[↑]**](#table-of-content) [**[↑]**](#table-of-content)	 
+# 2. MISP Activities [**[↑]**](#table-of-content)	 
 ## 2.1 License Key Management [**[↑]**](#table-of-content)
 # 3. Partner Activities [**[↑]**](#table-of-content)	
 ## 3.1 Registration [**[↑]**](#table-of-content) 
