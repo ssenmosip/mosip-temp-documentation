@@ -4,7 +4,7 @@
 - [1. INTRODUCTION](#1-introduction-)
   * [1.1 Why-an Identity Management System is Needed](#11why-an-identity-management-system-is-needed-)
   * [1.2 Key Features of MOSIP Platform](#12key-features-of-mosip-platform-)
-  * [1.3 Key Objectives of MOSIP Platform](#13key-objectives-of-mosip-platform-)
+  * [1.3 Key Objectives of MOSIP Platform](#13-key-objectives-of-mosip-platform-)
 - [2. FUNCTIONAL OVERVIEW](#2-functional-overview)
   * [2.1 Pre-Registration](#21-pre-registration-)
   * [2.2 Registration Services](#22-registration-services-)
