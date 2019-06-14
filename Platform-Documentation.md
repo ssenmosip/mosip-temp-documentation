@@ -36,8 +36,8 @@
   * [5.6 MOSIP Device Specification](#56-mosip-device-specification-)
   * [5.7 Core Data Management](#57-core-data-management-)
   * [5.8 Integration with External Systems](#58-integration-with-external-systems-)
-- [6. Test Rig](#6-test-rig-)
-- [7. Performance and Sizing Guidelines](#7-performance-and-sizing-guidelines-)
+- [6. TEST RIG](#6-test-rig-)
+- [7. PERFORMANCE AND SIZING GUIDELINES](#7-performance-and-sizing-guidelines-)
 - [8. PRIVACY AND SECURITY](#8-privacy-and-security-)
 - [9. MOSIP APIs](#9-mosip-apis-)
   * [9.1 External APIs](#91external-apis-)
@@ -321,14 +321,14 @@ This module exposes few REST APIs which can be used to create/update/retrieve Id
 This section illustrates the integrational specifications of MOSIP with an external system.
 Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
 
-## 6. Test Rig [**[↑]**](#table-of-content)
+## 6. TEST RIG [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
 Please refer to [**wiki**](Test-Rig-Design) for more details about **Test Rig Design**.
 
 Please refer to [**wiki**](Tester-Documentation) for more details about **Test Automation**.
 
-## 7. Performance and Sizing Guidelines [**[↑]**](#table-of-content)
+## 7. PERFORMANCE AND SIZING GUIDELINES [**[↑]**](#table-of-content)
 Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
 
 ## 8. PRIVACY AND SECURITY [**[↑]**](#table-of-content)
