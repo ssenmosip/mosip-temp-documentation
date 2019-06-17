@@ -832,10 +832,9 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
 
 **Note** - Please change the environmental variables in the above four commands accordingly.
 
-### 6.10 IDA Salt Generator
+### 6.10 ID Repository Salt Generator
  
-Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in ID Repo and ID Map DB 
-This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
+ID Repository Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in ID Repo and ID Map DB. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
 
 **Salt Generator Deployment steps**
 
