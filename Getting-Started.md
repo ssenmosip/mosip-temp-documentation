@@ -767,6 +767,7 @@ We are deploying DMZ services into another VM having docker installed. The steps
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
 sudo yum install docker
+3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys
 
 After installing Docker Start the Docker Service
 
@@ -794,7 +795,7 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 
 **Process to deploy Services in VM through JenkinsFile:**
 
-4. The last stage in the Jenkinsfile viz DMZ_Deployment in which we are sshing into this creating VM through Jenkins to deploy these services, basically, running the docker images of registration processor.
+4. The last stage in the Jenkinsfile viz DMZ_Deployment in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of registration processor.
 Changes to be made in this stage->
 
    a. Replace the credentialsId of docker hub with yours.
