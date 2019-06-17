@@ -14,6 +14,7 @@ This section details about the service APIs in the Registration center modules
 # Registration Centers Master API
 
 * [POST /registrationcenters](#post-registrationcenters)
+* [PUT /registrationcenters](#put-registrationcenters)
 * [GET /registrationcenters](#get-registrationcenters)
 * [GET /registrationcenters/{id}/{languagecode}](#get-registrationcentersidlanguagecode)
 * [GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}](#get-getregistrationcenterholidayslanguagecoderegistrationcenteridyear)
@@ -30,6 +31,93 @@ This service will create the list of Registration Centers which are used in the 
 
 ### Resource URL
 ### `POST /registrationcenters`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+registrationcentername|Yes|Name of the registration center| | 
+centertypecode|Yes|Code of the center type| | 
+addressline1|No|Line 1 of the address| | 
+addressline2|No|Line 2 of the address| | 
+addressline3|No|Line 3 of the address| | 
+locationcode|Yes|Code of the location of the registration center| | 
+longitude|Yes|Longitude of the registration center| | 
+latitude|Yes|Latitude of the registration center| | 
+contactphone|Yes|Contact phone number of the registration center| |  
+workinghours|Yes|Working hours of the registration center| | 
+perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
+officestarttime|Yes|Office start time of the registration center| | 
+officeendtime|Yes|Office end time of the registration center| | 
+holidaylocationcode|Yes|Holiday location of the registration center| | 
+isactive|Yes|Is the registration center active| | 
+numberofkiosk|Yes|Number of Kiosk| | 
+contactperson|Yes|Contact person of the registration center| | 
+lunchstarttime|Yes|Lunch start time of the registration center| | 
+lunchendtime|Yes|Lunch end time of the registration center| | 
+
+### Example Request
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "request": {
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "addressLine3": "string",
+    "centerEndTime": "HH:mm:ss",
+    "centerStartTime": "HH:mm:ss",
+    "centerTypeCode": "string",
+    "contactPerson": "string",
+    "contactPhone": "string",
+    "holidayLocationCode": "string",
+    "id": "string",
+    "isActive": true,
+    "languageCode": "string",
+    "latitude": "string",
+    "locationCode": "string",
+    "longitude": "string",
+    "lunchEndTime": "HH:mm:ss",
+    "lunchStartTime": "HH:mm:ss",
+    "name": "string",
+    "numberOfKiosks": 0,
+    "perKioskProcessTime": "HH:mm:ss",
+    "timeZone": "string",
+    "workingHours": "string"
+  }
+}
+```
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+	        "id":"string",
+                "registrationcentername":"string",
+                "status":"string",
+                "message":"string"
+             }
+}
+```
+# PUT/registrationcenters
+Master data is required across the platform. 
+
+This service will update the list of Registration Centers which are used in the MOSIP platform. 
+
+### Resource URL
+### `PUT/registrationcenters`
 
 ### Resource details
 
