@@ -273,21 +273,6 @@ Name | Required | Description | Default Value | Example
  }
 }
 ```
-200
-
-Description: Success
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-404
-
-Description: Not Found
 
 # GET /getregistrationcenterholidays/{languagecode}/{registrationcenterid}/{year}
 This service will list of holidays for a particular registration center for that particular year. 
