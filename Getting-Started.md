@@ -1002,155 +1002,190 @@ We will now go through each of the file and see what changes we need to perform.
 `kubeclt apply -f DeployIngressController.yaml`
 * DeployServiceIngressService.yaml - 
 ```
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: ingressservice
-    namespace: kube-system
-  spec:
-    ports:
-      - port: 80
-        name: http
-      - port: 443
-        name: https
-    selector:
-      k8s-app: nginx-ingress-controller
-    type: LoadBalancer
-    loadBalancerIP: 104.211.231.5
-```
-Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalancer IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that. Now we can run this file. To run this use this command
-`kubeclt apply -f DeployServiceIngressService.yaml`
-
-* DeployIngress.yaml - 
-```
-  apiVersion: extensions/v1beta1
-  kind: Ingress
-  metadata:
-    name: myingress  
-    annotations:    
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /
-      ingress.kubernetes.io/proxy-body-size: "50m"
-  spec:  
-    rules:
-    - http:
-        paths:    
-        - path: /ping
-          backend:
-            serviceName: ping-server
-            servicePort: 3000  
-        - path: /uingenerator
-          backend:
-            serviceName: kernel-uingenerator-service
-            servicePort: 8080
-        - path: /auditmanager
-          backend:
-            serviceName: kernel-auditmanager-service
-            servicePort: 8081
-        - path: /otpnotifier
-          backend:
-            serviceName: kernel-otpnotification-service
-            servicePort: 8082
-        - path: /emailnotifier
-          backend:
-            serviceName: kernel-emailnotification-service
-            servicePort: 8083
-        - path: /smsnotifier
-          backend:
-            serviceName: kernel-smsnotification-service
-            servicePort: 8084
-        - path: /otpmanager
-          backend:
-            serviceName: kernel-otpmanager-service
-            servicePort: 8085
-        - path: /masterdata
-          backend:
-            serviceName: kernel-masterdata-service
-            servicePort: 8086
-        - path: /cryptomanager
-          backend:
-            serviceName: kernel-cryptomanager-service
-            servicePort: 8087
-        - path: /keymanager
-          backend:
-            serviceName: kernel-keymanager-service
-            servicePort: 8088
-        - path: /syncdata
-          backend:
-            serviceName: kernel-syncdata-service
-            servicePort: 8089
-        - path: /idrepo
-          backend:
-            serviceName: kernel-idrepo-service
-            servicePort: 8090
-        - path: /authmanager
-          backend:
-            serviceName: kernel-auth-service
-            servicePort: 8091
-        - path: /ldapmanager
-          backend:
-            serviceName: kernel-ldap-service
-            servicePort: 8092
-        - path: /licensekeymanager
-          backend:
-            serviceName: kernel-licensekeymanager-service
-            servicePort: 8093
-        - path: /config
-          backend:
-            serviceName: kernel-config-server
-            servicePort: 51000
-        - path: /auth
-          backend:
-            serviceName: pre-registration-auth-service
-            servicePort: 9090
-        - path: /demographic
-          backend:
-            serviceName: pre-registration-demographic-service
-            servicePort: 9092
-        - path: /document
-          backend:
-            serviceName: pre-registration-document-service
-            servicePort: 9093
-        - path: /datasync
-          backend:
-            serviceName: pre-registration-datasync-service
-            servicePort: 9094
-        - path: /booking
-          backend:
-            serviceName: pre-registration-booking-service
-            servicePort: 9095
-        - path: /batchjob
-          backend:
-            serviceName: pre-registration-batchjob-service
-            servicePort: 9096
-        - path: /transliterate
-          backend:
-            serviceName: pre-registration-translitration-service
-            servicePort: 9098
-        - path: /notification
-          backend:
-            serviceName: pre-registration-notification-service
-            servicePort: 9099
-        - path: /identity
-          backend:
-            serviceName: authentication-service
-            servicePort: 8090
-        - path: /pre-registration-ui
-          backend:
-            serviceName: pre-registration-ui
-            servicePort: 80
-        - path: /packetreceiver
-          backend:
-            serviceName: registration-processor-dmz
-            servicePort: 8081
-        - path: /registrationstatus
-          backend:
-            serviceName: registration-processor-registration-status-api
-            servicePort: 8083
-        - path: /nginx
-          backend:
-            serviceName: sample-nginx
-            servicePort: 80
+ apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myingress  
+  annotations:    
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/proxy-body-size: "50m"
+    ingress.kubernetes.io/proxy-connect-timeout: "3600"
+    ingress.kubernetes.io/proxy-read-timeout: "3600"
+    ingress.kubernetes.io/proxy-send-timeout: "3600"
+    ingress.kubernetes.io/send-timeout: "3600"
+spec:  
+  rules:
+  - http:
+      paths:
+      - path: /v1/uingenerator
+        backend:
+          serviceName: kernel-uingenerator-service
+          servicePort: 8080
+      - path: /v1/auditmanager
+        backend:
+          serviceName: kernel-auditmanager-service
+          servicePort: 8081
+      - path: /v1/emailnotifier
+        backend:
+          serviceName: kernel-emailnotification-service
+          servicePort: 8083
+      - path: /v1/smsnotifier
+        backend:
+          serviceName: kernel-smsnotification-service
+          servicePort: 8084
+      - path: /v1/otpmanager
+        backend:
+          serviceName: kernel-otpmanager-service
+          servicePort: 8085
+      - path: /v1/masterdata
+        backend:
+          serviceName: kernel-masterdata-service
+          servicePort: 8086
+      - path: /v1/cryptomanager
+        backend:
+          serviceName: kernel-cryptomanager-service
+          servicePort: 8087
+      - path: /v1/keymanager
+        backend:
+          serviceName: kernel-keymanager-service
+          servicePort: 8088
+      - path: /v1/syncdata
+        backend:
+          serviceName: kernel-syncdata-service
+          servicePort: 8089
+      - path: /v1/authmanager
+        backend:
+          serviceName: kernel-auth-service
+          servicePort: 8091
+      - path: /v1/signature
+        backend:
+          serviceName: kernel-signature-service
+          servicePort: 8092
+      - path: /v1/licensekeymanager
+        backend:
+          serviceName: kernel-licensekeymanager-service
+          servicePort: 8093
+      - path: /v1/applicanttype
+        backend:
+          serviceName: kernel-applicanttype-service
+          servicePort: 8094
+      - path: /v1/ridgenerator
+        backend:
+          serviceName: kernel-ridgenerator-service
+          servicePort: 8096
+      - path: /v1/tokenidgenerator
+        backend:
+          serviceName: kernel-tokenidgenerator-service
+          servicePort: 8097
+      - path: /v1/admin
+        backend:
+          serviceName: admin-service
+          servicePort: 8098
+      - path: /admin-ui
+        backend:
+          serviceName: admin-ui
+          servicePort: 80    
+      - path: /preregistration/v1/login
+        backend:
+          serviceName: pre-registration-login-service
+          servicePort: 9090
+      - path: /preregistration/v1/applications
+        backend:
+          serviceName: pre-registration-demographic-service
+          servicePort: 9092
+      - path: /preregistration/v1/documents
+        backend:
+          serviceName: pre-registration-document-service
+          servicePort: 9093
+      - path: /preregistration/v1/sync
+        backend:
+          serviceName: pre-registration-datasync-service
+          servicePort: 9094
+      - path: /preregistration/v1/appointment
+        backend:
+          serviceName: pre-registration-booking-service
+          servicePort: 9095
+      - path: /preregistration/v1/batch
+        backend:
+          serviceName: pre-registration-batchjob-service
+          servicePort: 9096
+      - path: /preregistration/v1/transliteration
+        backend:
+          serviceName: pre-registration-translitration-service
+          servicePort: 9098
+      - path: /preregistration/v1/notification
+        backend:
+          serviceName: pre-registration-notification-service
+          servicePort: 9099
+      - path: /preregistration/v1/qrCode
+        backend:
+          serviceName: pre-registration-generateqrcode-service
+          servicePort: 9091
+      - path: /idauthentication/v1/auth
+        backend:
+          serviceName: authentication-service
+          servicePort: 8090
+      - path: /idauthentication/v1/kyc
+        backend:
+          serviceName: authentication-kyc-service
+          servicePort: 8091
+      - path: /idauthentication/v1/otp
+        backend:
+          serviceName: authentication-otp-service
+          servicePort: 8092
+      - path: /idauthentication/v1/internal
+        backend:
+          serviceName: authentication-internal-service
+          servicePort: 8093
+      - path: /idrepository/v1/identity 
+        backend:
+          serviceName: id-repository-identity-service
+          servicePort: 8090
+      - path: /idrepository/v1/ 
+        backend:
+          serviceName: id-repository-vid-service
+          servicePort: 8091 
+      - path: /pre-registration-ui
+        backend:
+          serviceName: pre-registration-ui
+          servicePort: 80
+      - path: /registrationprocessor/v1/bio-dedupe
+        backend:
+          serviceName: registration-processor-bio-dedupe-service
+          servicePort: 9097
+      - path: /abis
+        backend:
+          serviceName: registration-processor-abis
+          servicePort: 9098
+      - path: /registrationprocessor/v1/uploader
+        backend:
+          serviceName: registration-processor-packet-uploader-stage
+          servicePort: 8087
+      - path: /registrationprocessor/v1/manualverification
+        backend:
+          serviceName: registration-processor-manual-verification-stage
+          servicePort: 8084
+      - path: /registrationprocessor/v1/eis
+        backend:
+          serviceName: registration-processor-external-integration-service
+          servicePort: 8201
+      - path: /registrationprocessor/v1/print
+        backend:
+          serviceName: registration-processor-print-service
+          servicePort: 9099
+      - path: /registrationprocessor/v1/print-stage
+        backend:
+          serviceName: registration-processor-printing-stage
+          servicePort: 8099
+      - path: /config
+        backend:
+          serviceName: kernel-config-server
+          servicePort: 51000
+      - path: /nginx
+        backend:
+          serviceName: sample-nginx
+          servicePort: 80
 ```
 
 This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.To run this use this command
