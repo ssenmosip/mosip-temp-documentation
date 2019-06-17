@@ -840,10 +840,18 @@ This generic job takes schema and table name as input, and generates and populat
 **Salt Generator Deployment steps**
 
   a. Login into the VM.
+     Open the port 8082 from the VM:
+
+sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
+
+sudo firewall-cmd --reload
+
+And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 
   b. Perform docker hub login
 
   c. Execute the following commands
+     
 
     *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
          spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_hash_salt docker- 
