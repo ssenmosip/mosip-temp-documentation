@@ -26,10 +26,13 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
        spring-<env>.properties - [registration-services module] - It contains the environment based REST client url to make different service calls.       
 
 	Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.
-        Make sure that '**maven-metadata.xml**' is generated under the '**registration-client**' module post build 
-        generation. Which was referred by the application to download the required jars based on the version.
-        Post-build process **META-INF.MF** file also should be present in the JFROG repository, which consists of the 
-        checksum of the jar files. 
+
+        Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, 
+        post successful build generation. Which is referred by the reg-client application to download the required jars 
+        based on the version.
+
+        Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the 
+        jar files checksum.
 
 **Prerequisites:**  
 ***
@@ -119,7 +122,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 **Update Process:**
 ***
-   Application referred to this file to check for any new version exists in this file '**maven-metadata.xml**', which is generated under the '**registration-client**' module post build.
+   The application refers to the 'maven-metadata.xml' to verifies any new version exists or not. [Which is generated under 
+   the '**registration-client**' module post successful Jenkins build.]
        
    **Application update:**
    - During the startup of the application, the software check will be validating against the maven-metadata.xml file from artifactory repository. If any diffs found, application prompts the user with 'Update Now' or 'Update Later' options to install immediately or later. Apart from this there is another menu option available in the application to trigger the 'Update' process post login to the application. The update process would update both the application binaries and DB.
