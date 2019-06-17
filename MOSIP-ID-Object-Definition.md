@@ -168,18 +168,18 @@ Below is a sample ID object definition schema and a sample of a JSON object base
 
 Below is a sample JSON as per the schema defined above 
 
-```
+```JSON
 {
   "identity": {
-    "IDSchemaVersion": 1.0,
-    "UIN": 981576026435,
+    "IDSchemaVersion": 1,
+    "UIN": 9687061394,
     "fullName": [
       {
         "language": "ara",
         "value": "ابراهيم بن علي"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "Ibrahim Ibn Ali"
       }
     ],
@@ -187,12 +187,8 @@ Below is a sample JSON as per the schema defined above
     "age": 45,
     "gender": [
       {
-        "language": "ara",
-        "value": "الذكر"
-      },
-      {
-        "language": "fre",
-        "value": "mâle"
+        "language": "fra",
+        "value": "Femelle"
       }
     ],
     "addressLine1": [
@@ -201,7 +197,7 @@ Below is a sample JSON as per the schema defined above
         "value": "عنوان العينة سطر 1"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "exemple d'adresse ligne 1"
       }
     ],
@@ -211,7 +207,7 @@ Below is a sample JSON as per the schema defined above
         "value": "عنوان العينة سطر 2"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "exemple d'adresse ligne 2"
       }
     ],
@@ -221,67 +217,63 @@ Below is a sample JSON as per the schema defined above
         "value": "عنوان العينة سطر 2"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "exemple d'adresse ligne 2"
       }
     ],
     "region": [
       {
-        "language": "ara",
-        "value": "طنجة - تطوان - الحسيمة"
-      },
-      {
-        "language": "fre",
-        "value": "Tanger-Tétouan-Al Hoceima"
+        "language": "fra",
+        "value": "RSK"
       }
     ],
     "province": [
       {
-        "language": "ara",
-        "value": "فاس-مكناس"
-      },
-      {
-        "language": "fre",
-        "value": "Fès-Meknès"
+        "language": "fra",
+        "value": "Kénitra"
       }
     ],
     "city": [
       {
-        "language": "ara",
-        "value": "الدار البيضاء"
-      },
-      {
-        "language": "fre",
-        "value": "Casablanca"
+        "language": "fra",
+        "value": "Kénitra"
       }
     ],
-    "postalCode": "570004",
+    "postalCode": "10111",
     "phone": "9876543210",
     "email": "abc@xyz.com",
-    "parentOrGuardianRIDOrUIN": 212124324784912,
+    "localAdministrativeAuthority": [
+      {
+        "language": "fra",
+        "value": "QRHS"
+      }
+    ],
+    "parentOrGuardianRID": 212124324784912,
+    "parentOrGuardianUIN": 212124324784912,
     "parentOrGuardianName": [
       {
         "language": "ara",
         "value": "سلمى"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "salma"
       }
     ],
+    "residenceStatus": "abc",
     "proofOfAddress": {
       "format": "pdf",
-      "type": "drivingLicense",
+      "type": "RNC",
       "value": "fileReferenceID"
     },
     "proofOfIdentity": {
       "format": "txt",
-      "type": "passport",
+      "type": "PAN card",
       "value": "fileReferenceID"
     },
     "proofOfRelationship": {
       "format": "pdf",
-      "type": "passport",
+      "type": "Passeport",
       "value": "fileReferenceID"
     },
     "proofOfDateOfBirth": {
@@ -291,12 +283,12 @@ Below is a sample JSON as per the schema defined above
     },
     "individualBiometrics": {
       "format": "cbeff",
-      "version": 1.0,
+      "version": 1,
       "value": "fileReferenceID"
     },
     "parentOrGuardianBiometrics": {
       "format": "cbeff",
-      "version": 1.0,
+      "version": 1.1,
       "value": "fileReferenceID"
     }
   }
