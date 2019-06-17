@@ -117,7 +117,7 @@ Master data is required across the platform.
 This service will update the list of Registration Centers which are used in the MOSIP platform. 
 
 ### Resource URL
-### `PUT/registrationcenters`
+### `PUT /registrationcenters`
 
 ### Resource details
 
