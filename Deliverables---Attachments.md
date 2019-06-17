@@ -36,11 +36,11 @@ Artefact: Known Defects and Pending Items
 Link: [Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20client%20Defect%20List%20-%200.12.0.xlsx)
 
 7) ## Module: ID Authentication<17Jun'19>
-Artefact: Known Defects and Pending Items
+Artefact: HLD
 
-Link: [Click to View](To be added)
+Link: [Click to View](https://github.com/mosip/mosip/wiki/ID-Authentication)
 
 8) ## Module: ID Repo<17Jun'19>
-Artefact: Known Defects and Pending Items
+Artefact: HLD
 
-Link: [Click to View](To be added)
+Link: [Click to View](https://github.com/mosip/mosip/wiki/ID-Repository)
