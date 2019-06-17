@@ -3,12 +3,9 @@ This section details about the service APIs in the Document modules
 
 * [Documents Categories API](#documents-category-master-api)
 
-* [Document Formats API](#document-formats-master-api)
-
 * [Documents Types API](#documents-types-api)
 
 * [Valid Documents API](#valid-documents-api)
-
 
 
 # Documents Category Master API
@@ -66,10 +63,7 @@ name|Yes|Document category name||
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-              "errorCode": "string",
-              "message": "string"
-             }],
+  "errors": null,
   "response": {
                "code": "string",
                "langCode": "string"
@@ -137,10 +131,7 @@ name|Yes|Document category name||
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-              "errorCode": "string",
-              "message": "string"
-             }],
+  "errors": null,
   "response": {
                "code": "string",
                "langCode": "string"
@@ -196,10 +187,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-             "errorCode": "string",
-             "message": "string"
-    }], 
+  "errors": null, 
   "response": {
              "documentcategories": [
                                       {
@@ -256,10 +244,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
                "documentcategories": [
 		                        { 
@@ -317,10 +302,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	"documentcategories": [{
 		                 "code": "string",
@@ -373,10 +355,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 		 "code": "string"
               }
@@ -394,52 +373,7 @@ Description: Unauthorized
 
 Description: Not Found
 
-
-
-# Document formats Master API
-
-* [POST /documentformats](#post-documentformats)
-* [GET /documentformats](#get-documentformats)
-* [GET /documentformats/{id}/{languagecode}](#get-documentformatsidlanguagecode)
-
-# POST /documentformats
-Master data is required across the platform. 
-
-This service will create the list of Documents Formats which are used in the MOSIP platform. 
-
-### Resource URL
-### `POST /documentformats`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-documentformats|Yes|List of document formats| | 
-
-### Example Request
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request" : {
-	  "documentformats": [
-			          { "documentformat":"pdf", "languagecode":"string" },
-			          { "documentformat":"png", "languagecode":"string" },
-			          { "documentformat":"jpeg", "languagecode":"string"},
-			          { "documentformat":"gif", "languagecode":"string" }
-		           ]
-	      }
-}
-```
-### Example Response
+##### Failure Response:
 ```JSON
 {
   "id": "string",
@@ -450,151 +384,19 @@ documentformats|Yes|List of document formats| |
       "errorCode": "string",
       "message": "string"
     }],
- "response": {
-  "successfully_created_documentformats": [
-		                             {"documentformatid":id },
-		                             {"documentformatid":id },
-		                             {"documentformatid":id },
-		                             {"documentformatid":id }  
-                                           ]
-             }
+  "response": null
 }
 ```
-### Response codes
-202
 
-Description: Accepted
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
-
-# GET /documentformats
-Master data is required across the platform. 
-
-This service will provides the service for the List of documents formats. 
-
-
-
-### Resource URL
-### `GET /documentformats`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-
-### Example Response
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
-  "response": {
-             "documentformats": [
-			         {"id":"id", "format": "pdf" ,"languagecode":"string"},
-			         {"id":"id", "format": "png" ,"languagecode":"string"},
-			         {"id":"id", "format": "jpeg" ,"languagecode":"string"},
-			         {"id":"id", "format": "gif" ,"languagecode":"string"}
-	                        ]
-               }
-}
-```
-200
-
-Description: Success
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-404
-
-Description: Not Found
-
-# GET /documentformats/{id}/{languagecode}
-
-This service will provides the service for the List of documents formats. 
-
-### Resource URL
-### `GET /documentformats/{id}/{languagecode}`
-
-### Resource details
-
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
--NA-
-
-
-### Example Response
-```JSON
-{
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
- "response": {
-             "documentformats": [
-			           {"id":"id", "format": "pdf" ,"languagecode":"string"},
-			           {"id":"id", "format": "png" ,"languagecode":"string"},
-			           {"id":"id", "format": "jpeg" ,"languagecode":"string"},
-			           {"id":"id", "format": "gif" ,"languagecode":"string"}
-		                ]
-              }
-}
-```
-200
-
-Description: Success
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-404
-
-Description: Not Found
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-013 | Error occured while fetching Document Category details | Fetch Issue
+KER-MSD-051 | Error occured while inserting Document Category details | Insertion Issue
+KER-MSD-014 | Document Category not found | Data Not Found
+KER-MSD-089 | Error occured while updating Document Category details | Update Issue
+KER-MSD-090 | Error occured while deleting Document Category details | Deletion Issue
+KER-MSD-123 | Cannot delete dependency found | Deletion Issue because of dependency
 
 
 # Documents Types API
@@ -927,6 +729,16 @@ documenttypecode |Yes| Code of Document type | |
 }
 ```
 
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-015 | Error occured while fetching Document Types
+KER-MSD-052 | Error occured while inserting Document Type details
+KER-MSD-118 | Document Type not found
+KER-MSD-091 | Error occur while updating Document Type details
+KER-MSD-124 | Cannot delete dependency found
+KER-MSD-092 | Error occured while deleting Document Type details
+
 
 # Valid documents API
 
@@ -959,7 +771,7 @@ languagecode|Yes|Language code in ISO 639-2|-NA-|fra
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [],
+  "errors": null,
   "response":   {
 	  "documentcategories": [
 		{
@@ -1006,3 +818,11 @@ languagecode|Yes|Language code in ISO 639-2|-NA-|fra
 200
 
 Description: Success
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-071 | Exception during inserting data into db | Insertion Issue
+KER-MSD-016 | Valid document not found | Data Not Found
+KER-MSD-113 | Error occurred while deleting a mapping of Document Category and Document Type details | Deletion Issue
+KER-MSD-XXX | Error occurred while fetching Document Categories and Document Types | Fetching Issue

@@ -65,10 +65,7 @@ devicemodel|Yes|Mac ID of the device| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
  "response": {
 	     "successfully_created_devices": {
 			                     "deviceid": "string"
@@ -120,10 +117,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    } ],
+  "errors": null,
   "response": {
 	"devices": [{
 			"deviceSpecId": "string",
@@ -184,10 +178,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	"devices": [{
 			 "deviceSpecId": "string",
@@ -268,10 +259,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
                  "id": "string"
              }
@@ -332,10 +320,7 @@ deviceId|Yes|The device Id| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
                "id": "string"
             }
@@ -365,6 +350,30 @@ Description: When Device not found
 
 Description: Error occurred while deleting Device
 
+### Failure Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-009 | Error occured while fetching Devices | Fetch Issue
+KER-MSD-069 | Error occurred while inserting Device details | Insertion Issue
+KER-MSD-010 | Device not Found | Data Not Found
+KER-MSD-083 | Error while updating | Update Issue
+KER-MSD-084 | Error while deleting | Deletion Issue
+KER-MSD-147 | Cannot delete as dependency found | Deletion Issue because of dependency
 
 
 # Device Types Master API
@@ -417,10 +426,7 @@ isactive|Yes|Is the device type active?| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
       "code": "string",
       "langCode": "string"
@@ -444,6 +450,12 @@ Description: Unauthorized
 
 Description: Forbidden
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-053 |  Error occurred while inserting Device Type details | Insertion Issue
+KER-MSD-003 |  Required Device Type detail Not Found | Data Not Found
+KER-MSD-002 |  Error occurred while mapping Device Type details | Mapping Issue
 
 
 # Device Specifications
@@ -583,10 +595,7 @@ id|Yes|ID of the Device Specification| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
           "id": "string"
    }
@@ -626,10 +635,7 @@ dtyp_code|Yes|device type code of the Device specification| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":   {
   "devicespecifications": [
     {
@@ -682,10 +688,7 @@ lang_code|Yes|Language code of the Device Specification| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response" : {
   "devicespecifications": [
     {
@@ -721,5 +724,28 @@ Description: Unauthorized
 
 Description: Forbidden
 
+### Failure Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response" : null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-011 | Error occurred while fetching Device Specifications | Fetch Issue
+KER-MSD-054 | Error occurred while inserting Device Specification details | Insertion Issue
+KER-MSD-012 | Device Specification not found | Data Not Found
+KER-MSD-081 | Error occurred while updating Device Specification | Update Issue
+KER-MSD-082 | Error occurred while deleting Device Specification | Deletion Issue
+KER-MSD-121 | Cannot delete dependency found | Deletion Issue because of dependency
 

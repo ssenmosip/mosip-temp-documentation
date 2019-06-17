@@ -12,3 +12,5 @@ Documentation List:
 - [Eclipse Markdown Editor](Eclipse-Markdown-Editor)
 
 - [Auth Implementation](Auth-Implementation)
+
+- [Registration Client Developer Guide](Reg-client-implementation)

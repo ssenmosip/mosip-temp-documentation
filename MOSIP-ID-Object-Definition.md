@@ -8,178 +8,177 @@ ID definition is the key to use MOSIP. ID definition describes the attributes a 
 
 Below is a sample ID object definition schema and a sample of a JSON object based on the schema.
 
-```
+```JSON
 {
-	"$id": "http://mosip.io/id_object/1.0/id_object.json",
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"title": "MOSIP ID schema",
-	"description": "Sample ID schema",
-	"type": "object",
-	"additionalProperties": false,
-	"properties": {
-		"identity": {
-			"title": "identity",
-			"description": "This schema holds all the attributes of an Identity",
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"IDSchemaVersion": {
-					"type": "number"
-				},
-				"UIN": {
-					"type": "number"
-				},
-				"fullName": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"dateOfBirth": {
-					"$ref": "#/definitions/dateOfBirthType"
-				},
-				"age": {
-					"type": "number"
-				},
-				"gender": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"addressLine1": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"addressLine2": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"addressLine3": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"region": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"province": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"city": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"postalCode": {
-					"$ref": "#/definitions/postalCodeType"
-				},
-				"phone": {
-					"$ref": "#/definitions/phoneType"
-				},
-				"email": {
-					"$ref": "#/definitions/emailType"
-				},
-				"parentOrGuardianName": {
-					"$ref": "#/definitions/simpleType"
-				},
-				"parentOrGuardianRIDOrUIN": {
-					"type": "number"
-				},
-				"proofOfAddress": {
-					"$ref": "#/definitions/documentType"
-				},                               
-				"proofOfIdentity": {
-					"$ref": "#/definitions/documentType"
-				},
-				"proofOfRelationship": {
-					"$ref": "#/definitions/documentType"
-				},
-				"proofOfDateOfBirth": {
-					"$ref": "#/definitions/documentType"
-				},
-				"individualBiometrics": {
-					"$ref": "#/definitions/biometricsType"
-				},
-				"parentOrGuardianBiometrics": {
-					"$ref": "#/definitions/biometricsType"
-				}
-			}
-		}
-	},
-	"definitions": {
-		"simpleType": {
-			"type": "array",
-			"additionalItems": false,
-			"uniqueItems": true,
-			"items": {
-				"type": "object",
-				"required": [
-					"language",
-					"value"
-				],
-				"additionalProperties": false,
-				"properties": {
-					"language": {
-						"type": "string",
-						"pattern": "^[(?i)a-z]{3}$"
-					},
-					"value": {
-						"type": "string"
-					}
-				}
-			}
-		},
-		"dateOfBirthType": {
-			"type": "string",
-			"pattern": "^\\d{4}/([0]\\d|1[0-2])/([0-2]\\d|3[01])$"
-		},
-		"phoneType": {		
-			"type": "string",
-			"pattern": "^([9]{1})([234789]{1})([0-9]{8})$"
-		},
-		"postalCodeType": {		
-			"type": "string",
-			"pattern": "^[(?i)A-Z0-9]{6}$"
-		},
-		"emailType": {
-			"type": "string",
-			"pattern": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"
-		},
-		"documentType": {
-			"type": "object",
-			"properties": {
-				"format": {
-					"type": "string"
-				},
-				"type": {
-					"type": "string"
-				},
-				"fileReference": {
-					"type": "string"
-				}
-			}
-		},
-		"biometricsType": {
-			"type": "object",
-			"properties": {
-				"format": {
-					"type": "string"
-				},
-				"version": {
-					"type": "number"
-				},
-				"fileReference": {
-					"type": "string"
-				}
-			}
-		}
-	}
+  "$id": "http://mosip.io/id_object/1.0/id_object.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MOSIP ID schema",
+  "description": "Sample ID schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "title": "identity",
+      "description": "This schema holds all the attributes of an Identity",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "IDSchemaVersion": {
+          "type": "number",
+          "minimum": 0
+        },
+        "UIN": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fullName": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "gender": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "addressLine1": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "addressLine2": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "addressLine3": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "region": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "province": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "city": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "residenceStatus": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "parentOrGuardianName": {
+          "$ref": "#/definitions/simpleType"
+        },
+        "parentOrGuardianRID": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "parentOrGuardianUIN": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "proofOfAddress": {
+          "$ref": "#/definitions/documentType"
+        },
+        "proofOfIdentity": {
+          "$ref": "#/definitions/documentType"
+        },
+        "proofOfRelationship": {
+          "$ref": "#/definitions/documentType"
+        },
+        "proofOfDateOfBirth": {
+          "$ref": "#/definitions/documentType"
+        },
+        "proofOfException": {
+          "$ref": "#/definitions/documentType"
+        },
+        "individualBiometrics": {
+          "$ref": "#/definitions/biometricsType"
+        },
+        "parentOrGuardianBiometrics": {
+          "$ref": "#/definitions/biometricsType"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "simpleType": {
+      "type": "array",
+      "additionalItems": false,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "language",
+          "value"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "documentType": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "biometricsType": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "version": {
+          "type": "number",
+          "minimum": 0
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
 }
 ```
 
 Below is a sample JSON as per the schema defined above 
 
-```
+```JSON
 {
   "identity": {
-    "IDSchemaVersion": 1.0,
-    "UIN": 981576026435,
+    "IDSchemaVersion": 1,
+    "UIN": 9687061394,
     "fullName": [
       {
         "language": "ara",
         "value": "ابراهيم بن علي"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "Ibrahim Ibn Ali"
       }
     ],
@@ -187,12 +186,8 @@ Below is a sample JSON as per the schema defined above
     "age": 45,
     "gender": [
       {
-        "language": "ara",
-        "value": "الذكر"
-      },
-      {
-        "language": "fre",
-        "value": "mâle"
+        "language": "fra",
+        "value": "Femelle"
       }
     ],
     "addressLine1": [
@@ -201,7 +196,7 @@ Below is a sample JSON as per the schema defined above
         "value": "عنوان العينة سطر 1"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "exemple d'adresse ligne 1"
       }
     ],
@@ -211,7 +206,7 @@ Below is a sample JSON as per the schema defined above
         "value": "عنوان العينة سطر 2"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "exemple d'adresse ligne 2"
       }
     ],
@@ -221,67 +216,63 @@ Below is a sample JSON as per the schema defined above
         "value": "عنوان العينة سطر 2"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "exemple d'adresse ligne 2"
       }
     ],
     "region": [
       {
-        "language": "ara",
-        "value": "طنجة - تطوان - الحسيمة"
-      },
-      {
-        "language": "fre",
-        "value": "Tanger-Tétouan-Al Hoceima"
+        "language": "fra",
+        "value": "RSK"
       }
     ],
     "province": [
       {
-        "language": "ara",
-        "value": "فاس-مكناس"
-      },
-      {
-        "language": "fre",
-        "value": "Fès-Meknès"
+        "language": "fra",
+        "value": "Kénitra"
       }
     ],
     "city": [
       {
-        "language": "ara",
-        "value": "الدار البيضاء"
-      },
-      {
-        "language": "fre",
-        "value": "Casablanca"
+        "language": "fra",
+        "value": "Kénitra"
       }
     ],
-    "postalCode": "570004",
+    "postalCode": "10111",
     "phone": "9876543210",
     "email": "abc@xyz.com",
-    "parentOrGuardianRIDOrUIN": 212124324784912,
+    "localAdministrativeAuthority": [
+      {
+        "language": "fra",
+        "value": "QRHS"
+      }
+    ],
+    "parentOrGuardianRID": 212124324784912,
+    "parentOrGuardianUIN": 212124324784912,
     "parentOrGuardianName": [
       {
         "language": "ara",
         "value": "سلمى"
       },
       {
-        "language": "fre",
+        "language": "fra",
         "value": "salma"
       }
     ],
+    "residenceStatus": "abc",
     "proofOfAddress": {
       "format": "pdf",
-      "type": "drivingLicense",
+      "type": "RNC",
       "value": "fileReferenceID"
     },
     "proofOfIdentity": {
       "format": "txt",
-      "type": "passport",
+      "type": "PAN card",
       "value": "fileReferenceID"
     },
     "proofOfRelationship": {
       "format": "pdf",
-      "type": "passport",
+      "type": "Passeport",
       "value": "fileReferenceID"
     },
     "proofOfDateOfBirth": {
@@ -291,12 +282,12 @@ Below is a sample JSON as per the schema defined above
     },
     "individualBiometrics": {
       "format": "cbeff",
-      "version": 1.0,
+      "version": 1,
       "value": "fileReferenceID"
     },
     "parentOrGuardianBiometrics": {
       "format": "cbeff",
-      "version": 1.0,
+      "version": 1.1,
       "value": "fileReferenceID"
     }
   }

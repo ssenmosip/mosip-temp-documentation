@@ -13,6 +13,8 @@
 MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
+**NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-configuration repository from this [URL](https://github.com/mosip/mosip-configuration.git). All the configuration files will be stored under config folder under this repository.
+
 ***
 ## 2. Setup and Configure Jenkins [**[↑]**](#content)
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
@@ -107,6 +109,151 @@ Also if you are planning to import all versions of the Mosip modules in Jfrog to
 ## 4. Setup and Configure SonarQube version 7.3 [**[↑]**](#content)
 SonarQube server can be setup by following single instructions given [here](//docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
 For configuring SonarQube with Jenkins, steps given [here](//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
+
+Steps to install SonarQube on Ubuntu 16.04
+
+**   Perform a system update**
+
+     * sudo apt-get update
+
+     * sudo apt-get -y upgrade 
+
+**   Install JDK**
+
+     * sudo add-apt-repository ppa:webupd8team/java
+
+     * sudo apt-get update
+ 
+     * sudo apt install oracle-java8-installer
+
+We can now check the version of Java by typing:
+
+     * java -version 
+
+**   Install and configure PostgreSQL**
+
+     * sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> 
+       /etc/apt/sources.list.d/pgdg.list'
+
+     * wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+
+     * sudo apt-get -y install postgresql postgresql-contrib
+
+Start PostgreSQL server and enable it to start automatically at boot time by running:
+
+     * sudo systemctl start postgresql
+
+     * sudo systemctl enable postgresql
+
+Change the password for the default PostgreSQL user.
+
+     * sudo passwd postgres
+
+Switch to the postgres user.
+
+     * su - postgres
+
+Create a new user by typing:
+
+     * createuser sonar
+
+Switch to the PostgreSQL shell.
+
+     * psql
+
+Set a password for the newly created user for SonarQube database.
+
+     * ALTER USER sonar WITH ENCRYPTED password 'StrongPassword';
+
+Create a new database for PostgreSQL database by running:
+
+     * CREATE DATABASE sonar OWNER sonar;
+
+Exit from the psql shell:
+
+     * \q
+
+Switch back to the sudo user by running the exit command.
+
+**   Download and configure SonarQube**
+
+     * wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.4.zip
+
+Install unzip by running:
+
+     * apt-get -y install unzip
+
+Unzip the archive using the following command.
+
+     * sudo unzip sonarqube-6.4.zip -d /opt
+ 
+Rename the directory:
+
+     * sudo mv /opt/sonarqube-6.4 /opt/sonarqube
+
+     * sudo nano /opt/sonarqube/conf/sonar.properties
+
+Find the following lines.
+
+     #sonar.jdbc.username=
+
+     #sonar.jdbc.password= 
+
+Uncomment and provide the PostgreSQL username and password of the database that we have created earlier. It should look like:
+
+     sonar.jdbc.username=sonar
+
+     sonar.jdbc.password=StrongPassword
+
+Next, find:
+
+#sonar.jdbc.url=jdbc:postgresql://localhost/sonar
+
+Uncomment the line, save the file and exit from the editor.
+  
+**   Configure Systemd service**
+
+SonarQube can be started directly using the startup script provided in the installer package. As a matter of convenience, you should setup a Systemd unit file for SonarQube.
+
+     * nano /etc/systemd/system/sonar.service
+
+     Populate the file with:
+
+     [Unit]
+
+     Description=SonarQube service
+
+     After=syslog.target network.target
+
+     [Service] 
+
+     Type=forking
+
+     ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start 
+
+     ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+     User=root 
+
+     Group=root  
+
+     Restart=always
+
+     [Install] 
+
+     WantedBy=multi-user.target
+
+Start the application by running:
+
+     * sudo systemctl start sonar
+
+Enable the SonarQube service to automatically start at boot time.
+
+     * sudo systemctl enable sonar
+
+To check if the service is running, run:
+
+     * sudo systemctl status sonar
 
 ***
 ## 5. Setup and Configure Docker Registry [**[↑]**](#content)
@@ -278,46 +425,153 @@ setsebool -P httpd_can_network_connect 1
 <div>https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7</div>
 
 
-### 6.3 Install Clam AntiVirus Version 0.101.0
-
- ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
+### 6.3 Clam AntiVirus Version 0.101.0
+ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
 
 #### Steps to install ClamAV in RHEL-7.5
+To install clamAV first we need to install EPEL Repository:
+```
+$ yum install epel-release
+```
+After that we need to install ClamAV and its related tools. 
+```
+$ yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd
+```
 
-$ sudo wget `http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm` <br/>
-$ sudo rpm -ivh epel-release-latest-7.noarch.rpm <br/>
-$ sudo yum repolist <br/>
-$ sudo yum update <br/>
-$ yum --enablerepo=epel info clamav <br/>
-$ sudo yum --enablerepo=epel install clamav clamav-scanner clamav-update <br/>
-$ sudo yum --enablerepo=epel install clamav-daemon <br/>
-$ sudo yum --enablerepo=epel install clamd <br/>
-$ sudo yum -y install clamav-server clamav-data clamav-update clamav-filesystem clamav clamav-scanner-systemd clamav-devel clamav-lib clamav-server-systemd <br/>
-$ sudo freshclam <br/>
-$  sudo systemctl  clamd status <br/>
-$  sudo systemctl freshclam stauts <br/>
-$  sudo systemctl start freshclam <br/>
-$  sudo systemctl status clamd <br/>
-$  sudo systemctl start clamd <br/>
+After completion of above steps, we need to configure installed ClamAV. This can be done via editing __/etc/clamd.d/scan.conf__. In this file we have to remove `Example` lines. So that ClamAV can use this file's configurations. We can easily do it via running following command - 
+```
+$ sed -i '/^Example/d' /etc/clamd.d/scan.conf
+```
+Another thing we need to do in this file is to define our TCP server type. Open this file using - 
+```
+$ vim /etc/clamd.d/scan.conf
+```
+here this we need to uncomment line with `#LocalSocket /var/run/clamd.scan/clamd.sock`. Just remove **#** symbol from the beginning of the line.
 
-##### ClamAv port : 3310
-explicitly open the CalmAV port 3310 for that uncommenting "TCPSocket 3310" line in below file then restart the clamd@scan service <br/>
-$ sudo vi /etc/clamd.d/scan.conf <br/>
-$ sudo systemctl restart `clamd@scan.service` <br/>
-To open the 3310 from VM firewall <br/>
-$ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent <br/>
-$ sudo firewall-cmd --reload <br/>
+Now we need to configure FreshClam so that it can update ClamAV db automatically. For doing that follow below steps -
+ 
+First create a backup of original FreshClam Configuration file - 
+```
+$ cp /etc/freshclam.conf /etc/freshclam.conf.bak
+```
+In this **freshclam.conf** file, Here also we need to remove **Example** line from the file. Run following command to delete all `Example` lines- 
+```
+$ sed -i '/^Example/d' /etc/freshclam.conf
+```
+Test freshclam via running- 
+```
+$ freshclam
+```
+After running above command you should see an output similar to this - 
+```
+ClamAV update process started at Thu May 23 07:25:44 2019
+.
+.
+.
+.
+main.cvd is up to date (version: 58, sigs: 4566249, f-level: 60, builder: sigmgr)
+daily.cld is up to date (version: 25457, sigs: 1578165, f-level: 63, builder: raynman)
+bytecode.cvd is up to date (version: 328, sigs: 94, f-level: 63, builder: neo)
+```
+We will create a service of freshclam so that freshclam will run in the daemon mode and periodically check for updates throughout the day. To do that we will create a service file for freshclam - 
+```
+$ vim /usr/lib/systemd/system/clam-freshclam.service
+```
+And add below content - 
+```
+[Unit]
+Description = freshclam scanner
+After = network.target
 
-#### Command to check the ClamAV status:
-$ sudo systemctl status `clamd@scan.service` <br/>
-$ sudo systemctl start `clamd@scan.service` <br/>
-$ sudo systemctl stop `clamd@scan.service` <br/>
-##### Below command to open the port 3310 from RHEL 7.5 VM
+[Service]
+Type = forking
+ExecStart = /usr/bin/freshclam -d -c 4
+Restart = on-failure
+PrivateTmp = true
+RestartSec = 20sec
+
+[Install]
+WantedBy=multi-user.target
+```
+Now save and quit. Also reload the systemd daemon to refresh the changes - 
+```
+$ systemctl daemon-reload
+```
+Next start and enable the freshclam service - 
+```
+$ systemctl start clam-freshclam.service
+
+$ systemctl enable clam-freshclam.service
+```
+Now freshclam setup is complete and our ClamAV db is upto date. We can continue setting up ClamAV. Now we will copy ClamAV service file to system service folder.
+```
+$ mv /usr/lib/systemd/system/clamd@.service /usr/lib/systemd/system/clamd.service
+```
+Since we have changed the name, we need to change it at the file that uses this service as well - 
+```
+$ vim /usr/lib/systemd/system/clamd@scan.service
+```
+Remove @ symbol from `.include /lib/systemd/system/clamd@.service` line and save the file.
+
+We will edit Clamd service file now - 
+```
+$ vim /usr/lib/systemd/system/clamd.service
+```
+Add following lines at the end of clamd.service file.
+```
+[Install]
+WantedBy=multi-user.target
+```
+And also remove `%i` symbol from various locations. Note that at the end of the editing the service file should look something like this - 
+```
+[Unit]
+Description = clamd scanner daemon
+Documentation=man:clamd(8) man:clamd.conf(5) https://www.clamav.net/documents/
+# Check for database existence
+# ConditionPathExistsGlob=@DBDIR@/main.{c[vl]d,inc}
+# ConditionPathExistsGlob=@DBDIR@/daily.{c[vl]d,inc}
+After = syslog.target nss-lookup.target network.target
+
+[Service]
+Type = forking
+ExecStart = /usr/sbin/clamd -c /etc/clamd.d/scan.conf
+Restart = on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+Now finally start the ClamAV service. 
+```
+$ systemctl start clamd.service
+```
+
+If it works fine, then enable this service and test the status of ClamAV service - 
+```
+$ systemctl enable clamd.service
+
+$ systemctl status clamd.service
+```
+
+Now in MOSIP we require ClamAV to be available on Port 3310. To expose ClamAV service on Port 3310, edit `scan.conf`
+```
+$ vi /etc/clamd.d/scan.conf
+```
+and Uncomment `#TCPSocket 3310` by removing **#**. After that restart the clamd@scan service - 
+```
+$ systemctl restart clamd@scan.service
+```
+Since we are exposing ClamAV on 3310 port, we need to allow incoming traffic through this port. In RHEL 7 run below command to add firewall rule - 
+```
 $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
 $ sudo firewall-cmd –reload
+```
+
+
+
+
 
 ##### Reference link:
-<div>https://hostpresto.com/community/tutorials/how-to-install-clamav-on-centos-7</div>
+<div>https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
 
 ### 6.4 Steps to Install and configuration CEPH 
 NOTE: Required only if CEPH is used for packet storage.
@@ -508,10 +762,26 @@ mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
 mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 
 
+
+### 6.11 Installation of ActiveMq
+ActiveMQ is the message broker used for MOSIP. 
+#### Installation steps
+* Download activemq using 
+``` wget http://www.apache.org/dist//activemq/apache-activemq/5.5.0/apache-activemq-5.5.0-bin.tar.gz ```
+* Extract the archive
+``` tar -zxvf apache-activemq-5.5.0-bin.tar.gz ```
+* Change the permission for startup script
+``` chmod 755 activemq ```
+* Start activemq service
+``` sudo sh activemq start ```
+* Check for the installed and started activemq on port 61616.
+* The activemq management dashboard can be accessed on 
+``` http://localhost:8161/admin ```
+
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
-We are storing all applications' configuration in config folder inside our Github Repository.
+We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-configuration.git).
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
 [**MOSIP CONFIGURATION SERVER**](MOSIP-Configuration-Server)
 
@@ -526,6 +796,18 @@ Application specific configuration for all applications and services are placed 
 
 **C. Pre-Registration:**
 [**link**](/mosip/mosip/blob/master/config/pre-registration-dev.properties)
+
+**D. Registartion-Processor:**
+[**link**](/mosip/mosip/blob/0.12.0/config/registration-processor-dev.properties)
+
+**E. IDA:**
+[**link**](/mosip/mosip/blob/0.12.0/config/id-authentication-dev.properties)
+
+**F. ID-REPO:**
+[**link**](/mosip/mosip/blob/0.12.0/config/id-repository-dev.properties)
+
+**H. Registration:**
+[**link**](/mosip/mosip/blob/0.12.0/config/registration-dev.properties)
 
 **Properties that need to be changed once the external dependencies are installed**
 1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
@@ -582,6 +864,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 |ID Repository|postgresql|mosip_idrepo|idrepo|
 |Audit|postgresql|mosip_audit|audit|
 |IAM|postgresql|mosip_iam|iam|
+|idmap|postgresql|mosip_idmap|idmap|
 
 **Note:** These databases can be deployed on single or separate database servers / instances.
 
@@ -639,155 +922,190 @@ We will now go through each of the file and see what changes we need to perform.
 `kubeclt apply -f DeployIngressController.yaml`
 * DeployServiceIngressService.yaml - 
 ```
-  apiVersion: v1
-  kind: Service
-  metadata:
-    name: ingressservice
-    namespace: kube-system
-  spec:
-    ports:
-      - port: 80
-        name: http
-      - port: 443
-        name: https
-    selector:
-      k8s-app: nginx-ingress-controller
-    type: LoadBalancer
-    loadBalancerIP: 104.211.231.5
-```
-Through this file we are creating a **LoadBalancer** in Microsoft Azure. Here You can see a Loadbalancer IP, If you do not already have a LoadBalancer for kubernetes traffic remove this line `loadBalancerIP: 104.211.231.5`, Azure Kubernetes Service will automatically create a Load Balancer and will use that. Now we can run this file. To run this use this command
-`kubeclt apply -f DeployServiceIngressService.yaml`
-
-* DeployIngress.yaml - 
-```
-  apiVersion: extensions/v1beta1
-  kind: Ingress
-  metadata:
-    name: myingress  
-    annotations:    
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/rewrite-target: /
-      ingress.kubernetes.io/proxy-body-size: "50m"
-  spec:  
-    rules:
-    - http:
-        paths:    
-        - path: /ping
-          backend:
-            serviceName: ping-server
-            servicePort: 3000  
-        - path: /uingenerator
-          backend:
-            serviceName: kernel-uingenerator-service
-            servicePort: 8080
-        - path: /auditmanager
-          backend:
-            serviceName: kernel-auditmanager-service
-            servicePort: 8081
-        - path: /otpnotifier
-          backend:
-            serviceName: kernel-otpnotification-service
-            servicePort: 8082
-        - path: /emailnotifier
-          backend:
-            serviceName: kernel-emailnotification-service
-            servicePort: 8083
-        - path: /smsnotifier
-          backend:
-            serviceName: kernel-smsnotification-service
-            servicePort: 8084
-        - path: /otpmanager
-          backend:
-            serviceName: kernel-otpmanager-service
-            servicePort: 8085
-        - path: /masterdata
-          backend:
-            serviceName: kernel-masterdata-service
-            servicePort: 8086
-        - path: /cryptomanager
-          backend:
-            serviceName: kernel-cryptomanager-service
-            servicePort: 8087
-        - path: /keymanager
-          backend:
-            serviceName: kernel-keymanager-service
-            servicePort: 8088
-        - path: /syncdata
-          backend:
-            serviceName: kernel-syncdata-service
-            servicePort: 8089
-        - path: /idrepo
-          backend:
-            serviceName: kernel-idrepo-service
-            servicePort: 8090
-        - path: /authmanager
-          backend:
-            serviceName: kernel-auth-service
-            servicePort: 8091
-        - path: /ldapmanager
-          backend:
-            serviceName: kernel-ldap-service
-            servicePort: 8092
-        - path: /licensekeymanager
-          backend:
-            serviceName: kernel-licensekeymanager-service
-            servicePort: 8093
-        - path: /config
-          backend:
-            serviceName: kernel-config-server
-            servicePort: 51000
-        - path: /auth
-          backend:
-            serviceName: pre-registration-auth-service
-            servicePort: 9090
-        - path: /demographic
-          backend:
-            serviceName: pre-registration-demographic-service
-            servicePort: 9092
-        - path: /document
-          backend:
-            serviceName: pre-registration-document-service
-            servicePort: 9093
-        - path: /datasync
-          backend:
-            serviceName: pre-registration-datasync-service
-            servicePort: 9094
-        - path: /booking
-          backend:
-            serviceName: pre-registration-booking-service
-            servicePort: 9095
-        - path: /batchjob
-          backend:
-            serviceName: pre-registration-batchjob-service
-            servicePort: 9096
-        - path: /transliterate
-          backend:
-            serviceName: pre-registration-translitration-service
-            servicePort: 9098
-        - path: /notification
-          backend:
-            serviceName: pre-registration-notification-service
-            servicePort: 9099
-        - path: /identity
-          backend:
-            serviceName: authentication-service
-            servicePort: 8090
-        - path: /pre-registration-ui
-          backend:
-            serviceName: pre-registration-ui
-            servicePort: 80
-        - path: /packetreceiver
-          backend:
-            serviceName: registration-processor-dmz
-            servicePort: 8081
-        - path: /registrationstatus
-          backend:
-            serviceName: registration-processor-registration-status-api
-            servicePort: 8083
-        - path: /nginx
-          backend:
-            serviceName: sample-nginx
-            servicePort: 80
+ apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: myingress  
+  annotations:    
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/proxy-body-size: "50m"
+    ingress.kubernetes.io/proxy-connect-timeout: "3600"
+    ingress.kubernetes.io/proxy-read-timeout: "3600"
+    ingress.kubernetes.io/proxy-send-timeout: "3600"
+    ingress.kubernetes.io/send-timeout: "3600"
+spec:  
+  rules:
+  - http:
+      paths:
+      - path: /v1/uingenerator
+        backend:
+          serviceName: kernel-uingenerator-service
+          servicePort: 8080
+      - path: /v1/auditmanager
+        backend:
+          serviceName: kernel-auditmanager-service
+          servicePort: 8081
+      - path: /v1/emailnotifier
+        backend:
+          serviceName: kernel-emailnotification-service
+          servicePort: 8083
+      - path: /v1/smsnotifier
+        backend:
+          serviceName: kernel-smsnotification-service
+          servicePort: 8084
+      - path: /v1/otpmanager
+        backend:
+          serviceName: kernel-otpmanager-service
+          servicePort: 8085
+      - path: /v1/masterdata
+        backend:
+          serviceName: kernel-masterdata-service
+          servicePort: 8086
+      - path: /v1/cryptomanager
+        backend:
+          serviceName: kernel-cryptomanager-service
+          servicePort: 8087
+      - path: /v1/keymanager
+        backend:
+          serviceName: kernel-keymanager-service
+          servicePort: 8088
+      - path: /v1/syncdata
+        backend:
+          serviceName: kernel-syncdata-service
+          servicePort: 8089
+      - path: /v1/authmanager
+        backend:
+          serviceName: kernel-auth-service
+          servicePort: 8091
+      - path: /v1/signature
+        backend:
+          serviceName: kernel-signature-service
+          servicePort: 8092
+      - path: /v1/licensekeymanager
+        backend:
+          serviceName: kernel-licensekeymanager-service
+          servicePort: 8093
+      - path: /v1/applicanttype
+        backend:
+          serviceName: kernel-applicanttype-service
+          servicePort: 8094
+      - path: /v1/ridgenerator
+        backend:
+          serviceName: kernel-ridgenerator-service
+          servicePort: 8096
+      - path: /v1/tokenidgenerator
+        backend:
+          serviceName: kernel-tokenidgenerator-service
+          servicePort: 8097
+      - path: /v1/admin
+        backend:
+          serviceName: admin-service
+          servicePort: 8098
+      - path: /admin-ui
+        backend:
+          serviceName: admin-ui
+          servicePort: 80    
+      - path: /preregistration/v1/login
+        backend:
+          serviceName: pre-registration-login-service
+          servicePort: 9090
+      - path: /preregistration/v1/applications
+        backend:
+          serviceName: pre-registration-demographic-service
+          servicePort: 9092
+      - path: /preregistration/v1/documents
+        backend:
+          serviceName: pre-registration-document-service
+          servicePort: 9093
+      - path: /preregistration/v1/sync
+        backend:
+          serviceName: pre-registration-datasync-service
+          servicePort: 9094
+      - path: /preregistration/v1/appointment
+        backend:
+          serviceName: pre-registration-booking-service
+          servicePort: 9095
+      - path: /preregistration/v1/batch
+        backend:
+          serviceName: pre-registration-batchjob-service
+          servicePort: 9096
+      - path: /preregistration/v1/transliteration
+        backend:
+          serviceName: pre-registration-translitration-service
+          servicePort: 9098
+      - path: /preregistration/v1/notification
+        backend:
+          serviceName: pre-registration-notification-service
+          servicePort: 9099
+      - path: /preregistration/v1/qrCode
+        backend:
+          serviceName: pre-registration-generateqrcode-service
+          servicePort: 9091
+      - path: /idauthentication/v1/auth
+        backend:
+          serviceName: authentication-service
+          servicePort: 8090
+      - path: /idauthentication/v1/kyc
+        backend:
+          serviceName: authentication-kyc-service
+          servicePort: 8091
+      - path: /idauthentication/v1/otp
+        backend:
+          serviceName: authentication-otp-service
+          servicePort: 8092
+      - path: /idauthentication/v1/internal
+        backend:
+          serviceName: authentication-internal-service
+          servicePort: 8093
+      - path: /idrepository/v1/identity 
+        backend:
+          serviceName: id-repository-identity-service
+          servicePort: 8090
+      - path: /idrepository/v1/ 
+        backend:
+          serviceName: id-repository-vid-service
+          servicePort: 8091 
+      - path: /pre-registration-ui
+        backend:
+          serviceName: pre-registration-ui
+          servicePort: 80
+      - path: /registrationprocessor/v1/bio-dedupe
+        backend:
+          serviceName: registration-processor-bio-dedupe-service
+          servicePort: 9097
+      - path: /abis
+        backend:
+          serviceName: registration-processor-abis
+          servicePort: 9098
+      - path: /registrationprocessor/v1/uploader
+        backend:
+          serviceName: registration-processor-packet-uploader-stage
+          servicePort: 8087
+      - path: /registrationprocessor/v1/manualverification
+        backend:
+          serviceName: registration-processor-manual-verification-stage
+          servicePort: 8084
+      - path: /registrationprocessor/v1/eis
+        backend:
+          serviceName: registration-processor-external-integration-service
+          servicePort: 8201
+      - path: /registrationprocessor/v1/print
+        backend:
+          serviceName: registration-processor-print-service
+          servicePort: 9099
+      - path: /registrationprocessor/v1/print-stage
+        backend:
+          serviceName: registration-processor-printing-stage
+          servicePort: 8099
+      - path: /config
+        backend:
+          serviceName: kernel-config-server
+          servicePort: 51000
+      - path: /nginx
+        backend:
+          serviceName: sample-nginx
+          servicePort: 80
 ```
 
 This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.To run this use this command
@@ -850,7 +1168,7 @@ data:
 `kubectl create secret generic config-server-keystore --from-file=server.keystore=< location-of-your-server.keystore-file-generated-above >`
 <br/>
 <br/>
-7. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url
+7. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url of configuration repository
 <br/>
 <br/>
 8. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
@@ -892,6 +1210,117 @@ B. Continuous deployment
 To be done later
 
 ***
+
+### 8.1  Registration-Processor DMZ services deployment
+Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. 
+We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
+1. Need to set Up VM with RHEL 7.5
+2. Installing the Docker:
+sudo yum install docker
+3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys
+
+After installing Docker Start the Docker Service
+
+**command to start the Docker service**
+
+* systemctl start docker
+
+**command to check Docker is running:**
+
+* systemctl status docker
+
+3. **Open the port 8082 , 8083 from the VM:**
+
+sudo firewall-cmd --zone=public --add-port=8083/tcp --permanent
+
+sudo firewall-cmd --reload 
+
+sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
+
+sudo firewall-cmd --reload 
+
+**Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
+
+And also open the port from AZURE OR AWS or any cloud where the VM is launched.
+
+**Process to deploy Services in VM through JenkinsFile:**
+
+4. The last stage in the Jenkinsfile viz DMZ_Deployment in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of registration processor.
+Changes to be made in this stage->
+
+   a. Replace the credentialsId of docker hub with yours.
+
+   b. Replace the IP with the IP of this newly created VM.
+
+Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/registration-processor/Jenkinsfile
+
+5. Also, instead of following as described in 4th point to use Jenkinsfile, we can do it manually. Steps are ->
+
+  a. Login into the DMZ VM.
+
+  b. Perform docker hub login
+
+  c. Execute the following commands
+ 
+       * docker run --restart always -it -d -p 8083:8083 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor- 
+         registration-status-service
+
+       * docker run --restart always -it -d -p 8082:8082 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-packet- 
+         generator-service
+
+       * docker run --restart always -it -d --network host --privileged=true -v 
+         /home/ftp1/LANDING_ZONE:/home/ftp1/LANDING_ZONE -v 
+         /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env=qa -e 
+         spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker- 
+         registry.mosip.io:5000/registration-processor-packet-receiver-stage
+
+       * docker run --restart always -it -d --network host --privileged=true -e active_profile_env=qa -e 
+         spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 -e zone_env=dmz  docker- 
+         registry.mosip.io:5000/registration-processor-common-camel-bridge
+
+**Note** - Please change the environmental variables in the above four commands accordingly.
+
+### 8.2 ID Repository Salt Generator
+ 
+ID Repository Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in ID Repo and ID Map DB. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
+
+**Salt Generator Deployment steps**
+
+  a. Login into the VM.
+     Open the port 8082 from the VM:
+
+sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
+
+sudo firewall-cmd --reload
+
+And also open the port from AZURE OR AWS or any cloud where the VM is launched.
+
+  b. Perform docker hub login
+
+  c. Execute the following commands
+     
+
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_hash_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
+
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_encrypt_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
+
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_hash_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
+
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
+
+**Note** - Please change the environmental variables in the above four commands accordingly.
+
+
 
 
 

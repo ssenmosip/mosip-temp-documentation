@@ -1,99 +1,92 @@
 *WIP
 ## Table Of Content
-* [1. MOSIP-INTRODUCTION](#1-mosip-introduction)
-  * [1.1 Scope](#11scope-)
-  * [1.2 Intended Audience](#12intended-audience-)
-* [2. MOSIP -FOR IDENTITY MANAGEMENT](#2mosip--for-identity-management)
-  * [2.1 What-is an Identity Management System](#21what-is-an-identity-management-system-)
-  * [2.2 Why-an Identity Management System is needed](#22why-an-identity-management-system-is-needed-)
-  * [2.3 Key Objectives of MOSIP Platform](#23key-objectives-of-MOSIP-platform-)
-* [3. MOSIP FUNCTIONAL OVERVIEW](#3mosip-functional-overview)
-  * [3.1 Pre-Registration](#31-pre-registration-)
-  * [3.2 Registration Services](#32-registration-services-)
-  * [3.3 Registration Processor](#33-registration-Processor-)
-  * [3.4 ID Authentication](#34-id-authentication-)
-  * [3.5 Kernel](#35-kernel-)
-  * [3.6 Administration (WIP)](#36-administration-wip-)
-  * [3.7 Resident Services (WIP)](#37-resident-services-wip-)
- * [4. MOSIP SCOPE](#4mosip-scope-)
-* [5. MOSIP REQUIREMENT SPECIFICATIONS](#5-mosip-requirement-specifications)
-  * [5.1 Functional Requirement Specifications](#51-functional-requirement-specifications-)
-  * [5.2 Non-Functional Requirement Specifications](#52-non-functional-requirement-specifications-)
-* [6. PRODUCT DEMO (VDs)](#6-product-demo-vds-)
-* [7. MOSIP ARCHITECTURE OVERVIEW](#7mosip-architecture-overview)
-  * [7.1 Principles](#71-principles-)
-  * [7.2 Platform Features](#72-platform-features-)
-    * [7.2.1 Configurability](#721-configurability-)
-    * [7.2.2 Extensibility](#722-extensibility-)
-    * [7.2.3 Modularity](#723-modularity-)
-  * [7.3 Process View](#73-process-view-)
-  * [7.4 Logical View](#74-logical-view-)
-  * [7.5 Technology Stack](#75-technology-stack-)
-  * [7.6 Data Architecture](#76-data-architecture-)
-* [8. ARCHITECTURALLY SIGNIFICANT COMPONENTS OF MOSIP](#8architecturally-significant-components-of-mosip)
-  * [8.1 ID Object Definition](#81-id-object-definition-)
-  * [8.2 Configurations](#82-configurations-)
-  * [8.3 Registration Packet Structure](#83-registration-packet-structure-)
-  * [8.4 ABIS middleware](#84-abis-middleware-)
-  * [8.5 MOSIP Biometric Data Standards](#85-mosip-biometric-data-standards-)
-  * [8.6 Vendor Device Specifications](#86-vendor-device-specifications-)
-  * [8.7 Security](#87-security-)
-  * [8.8 Core Data Management](#88-core-data-management-)
-  * [8.9 Test Rig Design](#89-test-rig-design-)
-  * [8.10 Integration with External System](#810-integration-with-external-systems-)
-* [9. MOSIP APIs](#9-mosip-apis)
+- [DOCUMENT SCOPE](#document-scope-)
+- [1. INTRODUCTION](#1-introduction-)
+  * [1.1 Why-an Identity Management System is Needed](#11why-an-identity-management-system-is-needed-)
+  * [1.2 Key Features of MOSIP Platform](#12key-features-of-mosip-platform-)
+  * [1.3 Key Objectives of MOSIP Platform](#13-key-objectives-of-mosip-platform-)
+- [2. FUNCTIONAL OVERVIEW](#2-functional-overview)
+  * [2.1 Pre-Registration](#21-pre-registration-)
+  * [2.2 Registration Services](#22-registration-services-)
+  * [2.3 Registration Processor](#23-registration-processor-)
+  * [2.4 ID Authentication](#24-id-authentication-)
+  * [2.5 Kernel](#25-kernel-)
+  * [2.6 Administrator Services (WIP)](#26-administrator-services-wip-)
+  * [2.7 Resident Services (WIP)](#27-resident-services-wip-)
+  * [2.8 Partner Management (WIP)](#28-partner-management-wip-)
+  * [2.9 ID Repository](#29-id-repository-)
+- [3. REQUIREMENT SPECIFICATIONS](#3-requirement-specifications)
+  * [3.1 Functional Requirement Specifications](#31-functional-requirement-specifications-)
+  * [3.2 Non-Functional Requirement Specifications](#32-non-functional-requirement-specifications-)
+- [4. ARCHITECTURE OVERVIEW](#4-architecture-overview-)
+  * [4.1 Principles](#41-principles-)
+  * [4.2 Platform Features](#42-platform-features-)
+    + [4.2.1 Configurability](#421-configurability-)
+    + [4.2.2 Extensibility](#422-extensibility-)
+    + [4.2.3 Modularity](#423-modularity-)
+  * [4.3 Process View](#43-process-view-)
+  * [4.4 Logical View](#44-logical-view-)
+  * [4.5 Technology Stack](#45-technology-stack-)
+  * [4.6 Data Architecture](#46-data-architecture-)
+- [5. ARCHITECTURALLY SIGNIFICANT COMPONENTS](#5-architecturally-significant-components-)
+  * [5.1 ID Object Definition](#51-id-object-definition-)
+  * [5.2 Configurations](#52-configurations-)
+  * [5.3 Registration Packet Structure](#53-registration-packet-structure-)
+  * [5.4 ABIS Middleware](#54-abis-middleware-)
+  * [5.5 Biometric Data Standards](#55-biometric-data-standards-)
+  * [5.6 MOSIP Device Specification](#56-mosip-device-specification-)
+  * [5.7 Core Data Management](#57-core-data-management-)
+  * [5.8 Integration with External Systems](#58-integration-with-external-systems-)
+- [6. TEST RIG](#6-test-rig-)
+- [7. PERFORMANCE AND SIZING GUIDELINES](#7-performance-and-sizing-guidelines-)
+- [8. PRIVACY AND SECURITY](#8-privacy-and-security-)
+- [9. MOSIP APIs](#9-mosip-apis-)
   * [9.1 External APIs](#91external-apis-)
-    * [9.1.1 ID Authentication APIs](#911-id-authentication-apis-)
-    * [9.1.2 ABIS APIs](#912abis-apis-)
-    * [9.1.3 OTP Manager API](#913otp-manager-api-)
-    * [9.1.4 Pre-Registration APIs](#914pre-registration-apis-)
-    * [9.1.5 Registration Processor APIs](#915registration-processor-apis-)
-  * [9.2 Internal APIs](#92internal-apis)
-    * [9.2.1 Kernel](#921-kernel-)
-    * [9.2.2 ID Repository](#922id-repository-)
-* [10. HOW TO GUIDE](#10-how-to-guide-tbd)
+    + [9.1.1 ID Authentication APIs](#911-id-authentication-apis-)
+    + [9.1.2 ABIS APIs](#912-abis-apis-)
+    + [9.1.3 OTP Manager API](#913-otp-manager-api-)
+    + [9.1.4 Pre-Registration APIs](#914-pre-registration-apis-)
+    + [9.1.5 Registration Processor APIs](#915-registration-processor-apis-)
+  * [9.2 Internal APIs](#92internal-apis-)
+    + [9.2.1 Kernel](#921-kernel-)
+    + [9.2.2 ID Repository](#922-id-repository-)
+- [10. BUILDING AND DEPLOYING MOSIP (TBD)](#10-building-and-deploying-mosip-)
   * [10.1 Getting Started Guide](#101-getting-started-guide-)
   * [10.2 Developer Document](#102-developer-document-)
-* [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations-)
-* [12. GLOSSARY](#12--glossary-)
-* [13. ABBREVIATIONS](#13-abbreviations-)
-* [14. REFERENCES](#14-references-)
+- [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations-)
+  * [11.1 Customization (WIP)](#111-customization-wip-)
+  * [11.2 Data Center Architecture (WIP)](#112-data-center-architecture-wip-)
+- [12. GLOSSARY](#12--glossary-)
+- [13. ABBREVIATIONS](#13-abbreviations-)
+- [14. REFERENCES](#14-references-)
 
-## 1. MOSIP-INTRODUCTION
-### 1.1	Scope [**[↑]**](#table-of-content)
-The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously in Technology-independent manner. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly provides necessary information on implementation, customization and set up.
-### 1.2	Intended Audience [**[↑]**](#table-of-content)
-* Business owners of the proposed system. They must be able to verify that their business requirements have been documented here completely, accurately and unambiguously.
-* Data Architects, Application Architects and Technical Architects would also find the information in this document useful when they need to design a solution that will address these business requirements.
-* SIs (System Integrator).
-* Since the requirements are documented here in Technology-independent manner, the end-users of the system should be able to comprehend the requirements fairly easily from this document.
-## 2.	MOSIP -FOR IDENTITY MANAGEMENT
-### 2.1	What-is an Identity Management System [**[↑]**](#table-of-content)
-To better understand and serve citizens, countries are placing increasing attention on establishing national identification systems. The ability to formally identify oneself has increasingly become integral to many aspects of civic participation and inclusion. Proponents argue that formalized identity management systems have the potential to establish strategic partnerships between the state and citizen’s. Failure to register populations and provide identity documents is believed to have detrimental effects for both the individual and the state.
+## DOCUMENT SCOPE [**[↑]**](#table-of-content)
+The scope of this document is to describe high level business objectives along with explicit functional requirements of MOSIP (Modular Open source Identity management platform) completely, accurately and unambiguously. The document also gives an over view of the architecturally significant features, APIs, standards followed in MOSIP. Lastly, provides necessary information on implementation, customization and set up.
 
-The complexity of government administration in “the modern world” is a major problem in developing countries. Often, individual government programs have their own database of beneficiaries that are not digitized and therefore cannot be easily merged. Delivering public services efficiently and providing financial inclusion to the poor in partnership with the private sector depends on accurate identification and authentication of citizens and residents. Hence Government programs must have the capacity to cross-reference databases and information.
-### 2.2	Why-an Identity Management System is Needed [**[↑]**](#table-of-content)
+## 1. INTRODUCTION [**[↑]**](#table-of-content)
+
+MOSIP acronym for Modular Open Source Identity Platform helps governments of countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
+
+### 1.1	Why-an Identity Management System is Needed [**[↑]**](#table-of-content)
 
 ![Indentity](_images/mosip_prd/Indentity.JPG)
 
 A well-established identity management system can help countries to verify their people’s identity by issuing unique identity number which one can use to go into any institution and be readily accepted. The following are some key reasons why a country needs as Identity management system.
-
-### 2.3	Key Objectives of MOSIP platform [**[↑]**](#table-of-content)
-MOSIP (Modular Open Source Identity Platform) helps government countries to build a digital identity system. Using this, every Individual of a country can be given a Unique Identity Number (UIN). This helps in inclusivity and accessibility of all Individuals without disparity or discrimination.
+### 1.2	Key Features of MOSIP Platform [**[↑]**](#table-of-content)
 
 
 
 ![Basic features of MOSIP](_images/mosip_prd/mosip_basic_features.JPG)
 
-                      Fig: 1 Basic features of MOSIP
+                      Fig 1: Basic features of MOSIP
+
+### 1.3 Key Objectives of MOSIP Platform [**[↑]**](#table-of-content)
 
 ![Key objectives of MOSIP](_images/mosip_prd/Key_objectives_of_the_platform.JPG)
 
-
-
-## 3.	MOSIP FUNCTIONAL OVERVIEW
+## 2. FUNCTIONAL OVERVIEW
 This section details out the design aspects of MOSIP, driven by the key functional modules as listed below. Navigate to wiki for further details on each module. 
-### 3.1 Pre-Registration [**[↑]**](#table-of-content)
+### 2.1 Pre-Registration [**[↑]**](#table-of-content)
 
 Pre-registration is the module which is the web channel of the MOSIP. This module enables a user to do the following: 
 1. Book Registration Appointment 
@@ -103,7 +96,7 @@ Pre-registration is the module which is the web channel of the MOSIP. This modul
 
 Please refer [**wiki**](FRS-Pre-Registration) for detailed functional specifications of pre-registration module.
 
-### 3.2 Registration Services [**[↑]**](#table-of-content)
+### 2.2 Registration Services [**[↑]**](#table-of-content)
 Registration Client application captures the Demographic and Biometric details of an Individual along with supporting information (proof documents & information about parent/guardian/introducer) and packages the information in a secure way. This module provides the following capabilities:
 1. Provides a secure way of capturing an Individual's demographic and biometric data
 1. Provides interfaces to biometric devices that comply to industry standards
@@ -115,7 +108,7 @@ Registration Client application captures the Demographic and Biometric details o
 Please refer [**wiki**](FRS-Registration-Services) for detailed functional specifications of registration services.
 
 
-### 3.3 Registration Processor [**[↑]**](#table-of-content)
+### 2.3 Registration Processor [**[↑]**](#table-of-content)
 Registration Processor processes the data (demographic and biometric) of an Individual for quality and uniqueness and then issues a Unique Identification Number (UIN). The source of data are primarily from:
 1. MOSIP Registration Client
 1. Existing ID system(s) of a country
@@ -128,7 +121,7 @@ This module has the following capabilities:
 1. Each processing step is scalable independently based on the load
 
 Please refer [**wiki**](FRS-Registration-Processor) for detailed functional requirement specifications of Registration Processor
-### 3.4 ID Authentication [**[↑]**](#table-of-content)
+### 2.4 ID Authentication [**[↑]**](#table-of-content)
 
 ID Authentication in MOSIP provides services through APIs  that validates the authenticity of a resident based on one or more factors (demographic and biometric).  The authentication services are integrated with TSPs (Trusted Service Providers) for delivering eKYC services to citizens via user agencies.
 
@@ -148,7 +141,7 @@ This module provides the following capabilities:
 
 Please refer [**wiki**](FRS-Authentication-Services) for detailed functional requirement specifications for authentication services.
 
-### 3.5 Kernel [**[↑]**](#table-of-content)
+### 2.5 Kernel [**[↑]**](#table-of-content)
 Kernel is a platform to build higher-level services as well as a secure sandbox. Functionally it caters to the following services:
 * UIN Generation
 * Configuration Server
@@ -164,76 +157,135 @@ Please refer wiki for detailed functional specification of the following service
 * [**Configuration Server**](Configuration-Server)
 * [**Audit Manager**](Audit-Manager)
   * [**Log manager**](log-manager)
-* [**Authentication and Authorization**](Authentication-and-Authorization(WIP))
+* [**Authentication and Authorization**](Authentication-and-Authorization)
 * [**Common Services**](FRS-Common-Services)
 * [**Data Services**](FRS-Data-Services)
 * [**Admin Services**](FRS-Admin-Services)
 
-### 3.6 Administration (WIP) [**[↑]**](#table-of-content)
-### 3.7 Resident Services (WIP) [**[↑]**](#table-of-content)
-## 4.	MOSIP SCOPE [**[↑]**](#table-of-content)
-## 5. MOSIP REQUIREMENT SPECIFICATIONS
-### 5.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
+### 2.6 Administrator Services (WIP) [**[↑]**](#table-of-content)
+MOSIP Admin manages the functional and non-functional activities of MOSIP on Admin Portal through either the backend process or the UI screens. 
+
+Admin will be able to:
+
+ * Set up Platform Data, Process Flows, ID Definition, Configuration, and Security Policy (Through backend process).
+ * Manage (Create, Update, View, Activate/Deactivate, Map/Un-map/Re-map/Decommission) the resources.
+ * Map the resources (Users, Machines, and Devices) to a registration center.
+ * Manage the master data (Create/Update/Activate/Deactivate).
+ * Manage approval requests for creation and updation of resources and master data.
+ * Manage personal account details (Reset Password, Forgot User Name, Change Password, Unlock Account, and Edit Personal 
+   Details.
+ * Activate/deactivate UIN
+ * View status of packets
+
+Please refer [**wiki**](FRS-Administrator-Services) for detailed functional specifications of administrator services module.
+### 2.7 Resident Services (WIP) [**[↑]**](#table-of-content)
+
+Resident Services module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. The list of services a user can avail are outlined below:
+
+1. Download e-UIN.
+2. Retrieve lost UIN.
+3. Initiate UIN Update.
+4. Request re-print UIN.
+5. Track status of UIN update.
+6. View history of Authentication Requests.
+7. Lock or Unlock UIN/VID for each ‘Auth’ type(s).
+
+Additionally a user can also track status of his/her UIN generation after registration. 
+These services include:
+
+1. Retrieve Lost RID (registration ID).
+2. Track Status of UIN Generation via RID.
+
+Please refer [**wiki**](FRS-Resident-Services) for detailed functional specifications of resident services module.
+### 2.8 Partner Management (WIP) [**[↑]**](#table-of-content)
+
+Partner Management provides services for Partner and MISP (MOSIP Infrastructure Service Provider) Registration and Authentication. Registered Partners and MISP are only allowed to access MOSIP Authentication services. Partners and MISP are registered using Partner Management Services.  Authentication services of MOSIP will internally use the Partner Management Services to authenticate Partner and MISP and validate if only the registered entities are accessing the services.
+
+Partner Management also involves policy management for Partners. Each partner can access Authentication services only based on a defined policy. Authentication services of MOSIP will internally use the Partner Management Services to authenticate a partner based on the policy.
+
+Partners send authentication request and receive authentication responses in a secured setup. Public/Private keys are used for encryption/decryption/signing the request/response. A few of the key management activities are managed in the Partner Management Services.
+
+Further Certificates are used by Partners for signing the authentication request.  Partner Management Services is used for a few of the signature related services.
+
+Please refer [**wiki**](FRS-Partner-Management) for detailed functional specifications of Partner Management module.
+
+### 2.9 ID Repository [**[↑]**](#table-of-content)
+Please refer [**wiki**](FRS-ID-Repository) for detailed functional specifications of ID Repository.
+
+## 3. REQUIREMENT SPECIFICATIONS
+### 3.1 Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section provides a detailed functional requirement specification for each module in MOSIP
-#### 5.1.1 [Pre-Registration](FRS-Pre-Registration)
-#### 5.1.2 [Data Services](FRS-Data-Services)
-#### 5.1.3 [Common Services](FRS-Common-Services)
-#### 5.1.4 [Admin Services](FRS-Admin-Services)
-#### 5.1.5 [UIN Generation](UIN-Generation)
-#### 5.1.6 [Configuration Server](Configuration-Server)
-#### 5.1.7 [Audit Manager](Audit-Manager)
-#### 5.1.8 [Authentication and Authorization](Authentication-and-Authorization(WIP))
-#### 5.1.9 [Registration Services](FRS-Registration-Services)
-#### 5.1.10 [Registration Processor](FRS-Registration-Processor)
-#### 5.1.11 [Authentication Services](FRS-Authentication-Services)
-#### 5.1.12 [Resident Services](FRS-Resident-Services)
-### 5.2 Non-Functional Requirement Specifications [**[↑]**](#table-of-content)
+#### 3.1.1 [Pre-Registration](FRS-Pre-Registration)
+#### 3.1.2 [Data Services](FRS-Data-Services)
+#### 3.1.3 [Common Services](FRS-Common-Services)
+#### 3.1.4 [Admin Services](FRS-Admin-Services)
+#### 3.1.5 [UIN Generation](UIN-Generation)
+#### 3.1.6 [Configuration Server](Configuration-Server)
+#### 3.1.7 [Audit Manager](Audit-Manager)
+#### 3.1.8 [Authentication and Authorization](Authentication-and-Authorization)
+#### 3.1.9 [Registration Services](FRS-Registration-Services)
+#### 3.1.10 [Registration Processor](FRS-Registration-Processor)
+#### 3.1.11 [Authentication Services](FRS-Authentication-Services)
+#### 3.1.12 [Resident Services](FRS-Resident-Services)
+#### 3.1.13 [Administrator Services](FRS-Administrator-Services)
+#### 3.1.14 [Partner Management](FRS-Partner-Management)
+#### 3.1.15 [ID Repository](FRS-ID-Repository)
+### 3.2 Non-Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section details out the non-functional requirements of MOSIP platform
 
 Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
-## 6. PRODUCT DEMO (VDs) [**[↑]**](#table-of-content)
-## 7.	MOSIP ARCHITECTURE OVERVIEW
+
+## 4. ARCHITECTURE OVERVIEW [**[↑]**](#table-of-content)
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
 
-### 7.1 Principles [**[↑]**](#table-of-content)
+### 4.1 Principles [**[↑]**](#table-of-content)
 This section consists of the foundational principles of MOSIP based on which the architecture is defined. The key principle considered includes: Open source and Vendor Neutral, Adaptability, Security, Multi party, Authorization, Authentication, Multi language support, Performance and Scalability, High Availability, and Auditability.
 
 Please refer [**wiki**](Architecture-Principles-&-Platform-Goals) for more details.
-### 7.2 Platform Features [**[↑]**](#table-of-content)
-#### 7.2.1 Configurability [**[↑]**](#table-of-content)
-#### 7.2.2 Extensibility [**[↑]**](#table-of-content)
-#### 7.2.3 Modularity [**[↑]**](#table-of-content)
-### 7.3 Process View [**[↑]**](#table-of-content)
+### 4.2 Platform Features [**[↑]**](#table-of-content)
+#### 4.2.1 Configurability [**[↑]**](#table-of-content)
+
+MOSIP should be flexible for countries to configure the base platform according to their specific requirements. Some of the examples of configurability are
+* Country should be able to choose the features required. For example, it must be possible for a country to turn off Finger Print capture
+* Country should be able to configure the attributes of an ID Object
+* Country should be able to define the length of the UIN number.
+#### 4.2.2 Extensibility [**[↑]**](#table-of-content)
+
+MOSIP should be flexible to extend functionality on top of the basic platform. Some of the examples of extensibility are
+* A country should be able to introduce a new step in processing data
+* Integrate MOSIP with other ID systems and include it as part of the MOSIP data processing flow
+#### 4.2.3 Modularity [**[↑]**](#table-of-content)
+
+All components in MOSIP should be modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
+* UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
+* The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
+### 4.3 Process View [**[↑]**](#table-of-content)
 This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
 
 Please refer [**wiki**](Process-view) for more details.
 
-### 7.4 Logical View [**[↑]**](#table-of-content)
+### 4.4 Logical View [**[↑]**](#table-of-content)
 This section details the key design aspects considered for MOSIP. This includes Ecosystem approach, Configurability, Extensibility, Modularity, and Solution Principles. 
 
 Please refer [**wiki**](Logical-Architecture) for more details.
 
-### 7.5 Technology Stack [**[↑]**](#table-of-content)
+### 4.5 Technology Stack [**[↑]**](#table-of-content)
 This section lists all the technologies used in building MOSIP platform.
 
 Please refer [**wiki**](Technology-Stack) for more details.
 
-
-
-
-
-### 7.6 Data Architecture [**[↑]**](#table-of-content)
+### 4.6 Data Architecture [**[↑]**](#table-of-content)
 This section details the data architecture of MOSIP which includes Security, Multi-Language, High Availability, Auditability, and High Performance. It also details the data models and its naming standards. 
 
 Please refer [**wiki**](MOSIP-Data-Architecture) for more details.
 
-## 8.	ARCHITECTURALLY SIGNIFICANT COMPONENTS OF MOSIP
-### 8.1 ID Object Definition [**[↑]**](#table-of-content)
+## 5. ARCHITECTURALLY SIGNIFICANT COMPONENTS [**[↑]**](#table-of-content)
+### 5.1 ID Object Definition [**[↑]**](#table-of-content)
 ID definition describes the attributes a Country or entity intends to capture from an Individual, which will formulate the definition of ID for a Country. This section elaborates on the mechanism MOSIP adopts, in order to provide the flexibility for each Country to define its preferred ID definition and ID object definition schema.
 
 Please refer [**wiki**](MOSIP-ID-Object-definition) for more details.
 
-### 8.2 Configurations [**[↑]**](#table-of-content)
+### 5.2 Configurations [**[↑]**](#table-of-content)
 MOSIP as a platform will have multiple applications running and each application will have a set of configurations.
 This section details:
 1. The key configuration files a system owner has to create before starting the platform – with a centralized Config Server.
@@ -241,46 +293,50 @@ This section details:
 
 Please refer [**wiki**](MOSIP-configuration-&-launcher) for more details.
 
-### 8.3 Registration Packet Structure [**[↑]**](#table-of-content)
+### 5.3 Registration Packet Structure [**[↑]**](#table-of-content)
 This section illustrates the packet creation flow along with the encryption process, as part of Registration Client.
 
 Please refer [**wiki**](Registration-Packet) for more details.
 
-### 8.4 ABIS Middleware [**[↑]**](#table-of-content)
+### 5.4 ABIS Middleware [**[↑]**](#table-of-content)
 This section provides details on the ability of MOSIP to support a single or multi-ABIS solution, specifics on the Components & APIs of ABIS Middleware, Strategies for Biometric data management in ABIS and Strategies for de-duplication in case of multiple ABIS systems.
 
 Please refer [**wiki**](MOSIP-ABIS-Middleware) for more details.
-### 8.5 MOSIP Biometric Data Standards [**[↑]**](#table-of-content)
+### 5.5 Biometric Data Standards [**[↑]**](#table-of-content)
 This section details out the specifications for Biometric data during data acquisition and verification. 
 
 Please refer [**wiki**](MOSIP-Biometric-Data-Specifications) for more details.
 
-### 8.6 Vendor Device Specifications [**[↑]**](#table-of-content)
+### 5.6 MOSIP Device Specification [**[↑]**](#table-of-content)
 This section illustrates the VDM technical specifications to be adhered by a vendor, who intends to adopt their devices to the MOSIP platform, so as to capture the biometric data and process the same. 
 
 Please refer [**wiki**](MOSIP-VDM-Specifications) for more details.
 
-
-
-
-### 8.7 Security [**[↑]**](#table-of-content)
-Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
-
-Please refer [**wiki**](Security) for more details.
-### 8.8 Core Data Management [**[↑]**](#table-of-content)
+### 5.7 Core Data Management [**[↑]**](#table-of-content)
 ID Repository module contains the golden record of Identity for an Individual. Once new/update packets are processed by Registration Processor, the Identity details of an Individual are added/updated in ID Repository. The Identity information available in ID Repository is then used by ID Authentication to authenticate an Individual.
 
 This module exposes few REST APIs which can be used to create/update/retrieve Identity of an Individual. Please refer [**wiki**](ID-Repository-API) for more details.
 
+### 5.8 Integration with External Systems [**[↑]**](#table-of-content)
+This section illustrates the integrational specifications of MOSIP with an external system.
+Please refer to [**wiki**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details.
 
-### 8.9 Test Rig Design [**[↑]**](#table-of-content)
+## 6. TEST RIG [**[↑]**](#table-of-content)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
 
-Please refer to [**wiki**](https://github.com/mosip/mosip/wiki/Test-Rig-Design) for more details.
-### 8.10 Integration with External Systems [**[↑]**](#table-of-content)
-This section illustrates the integrational specifications of MOSIP with an external system – WIP.
-Please refer to [**wiki**](https://github.com/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md) for more details.
-## 9. MOSIP APIs
+Please refer to [**wiki**](Test-Rig-Design) for more details about **Test Rig Design**.
+
+Please refer to [**wiki**](Tester-Documentation) for more details about **Test Automation**.
+
+## 7. PERFORMANCE AND SIZING GUIDELINES [**[↑]**](#table-of-content)
+Please refer [**wiki**](Performance-and-Sizing-Guidelines) for more details.
+
+## 8. PRIVACY AND SECURITY [**[↑]**](#table-of-content)
+Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows.
+
+Please refer [**wiki**](Security) for more details.
+
+## 9. MOSIP APIs [**[↑]**](#table-of-content)
 APIs are the crux of MOSIP platform. This section explains about the internal and external APIs of MOSIP platform. Navigate to  wiki to know more about each API.
 ### 9.1	External APIs [**[↑]**](#table-of-content)
 This sections details out the external APIs of MOSIP that interact with external entities.
@@ -296,7 +352,7 @@ This service details Auth Request to be used by TSPs to authenticate an Individu
 2. Demo based - Personal Identity, Address
 3. Bio based - Fingerprint, IRIS and Face
 
-#### 9.1.2	ABIS APIs [**[↑]**](#table-of-content)
+#### 9.1.2 ABIS APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
@@ -311,7 +367,7 @@ This service details the behavior of:
 1. Ping Request
 1. Pending Jobs Request
 1. Reference Count Request
-#### 9.1.3	OTP Manager API [**[↑]**](#table-of-content)
+#### 9.1.3 OTP Manager API [**[↑]**](#table-of-content)
 Format: JSON
 
 OTP manager includes APIs for
@@ -319,11 +375,11 @@ OTP manager includes APIs for
 1. OTP validation. 
 
 Please refer [**wiki**](Kernel-APIs#otp-manager)
-#### 9.1.4	Pre-Registration APIs [**[↑]**](#table-of-content)
+#### 9.1.4 Pre-Registration APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This [**wiki**](Pre-Registration-Services) details about the service APIs in the Pre-Registration modules
-#### 9.1.5	Registration Processor APIs [**[↑]**](#table-of-content)
+#### 9.1.5 Registration Processor APIs [**[↑]**](#table-of-content)
 Format: JSON
 
 This API will support the following features
@@ -332,7 +388,7 @@ This API will support the following features
 1. APIs for Manual Verification. 
 
 Refer [**wiki**](Registration-Processor-APIs) for more details
-### 9.2	Internal APIs
+### 9.2	Internal APIs [**[↑]**](#table-of-content)
 This section describes about APIs consumed by internal modules. Listed below are a few MOSIP internal APIs
 #### 9.2.1 Kernel [**[↑]**](#table-of-content)
 The Kernel APIs cover the following APIS
@@ -343,7 +399,7 @@ The Kernel APIs cover the following APIS
 
 Please refer [**wiki**](Kernel-APIs) for more details.
 
-#### 9.2.2	ID Repository [**[↑]**](#table-of-content)
+#### 9.2.2 ID Repository [**[↑]**](#table-of-content)
 This is a central API which all other modules of MOSIP will use to retrieve an ID record. This API will support the following features
 1. Creation of a ID record
 1. Lookup of an ID record based on the UIN
@@ -352,12 +408,14 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 Please refer [**wiki**](ID-Repository-API) for more details
 
-### 10. HOW TO GUIDE (TBD)
-#### 10.1 Getting Started Guide [**[↑]**](#table-of-content)
-Please refer [**wiki**](Getting-Started) for more details
-#### 10.2 Developer Document [**[↑]**](#table-of-content)
+## 10. BUILDING AND DEPLOYING MOSIP [**[↑]**](#table-of-content)
+### 10.1 Getting Started Guide [**[↑]**](#table-of-content)
+Please refer [**wiki**](Getting-Started) for more details.
+### 10.2 Developer Document [**[↑]**](#table-of-content)
 Please refer [**wiki**](Developer-Documentation) for more details
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
+### 11.1 Customization (WIP) [**[↑]**](#table-of-content)
+### 11.2 Data Center Architecture (WIP) [**[↑]**](#table-of-content)
 ## 12.  GLOSSARY [**[↑]**](#table-of-content)
 ## 13. ABBREVIATIONS [**[↑]**](#table-of-content)
 ## 14. REFERENCES [**[↑]**](#table-of-content)

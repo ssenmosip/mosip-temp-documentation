@@ -67,10 +67,7 @@ isactive|Yes|Is the machine active?| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-             "errorCode": "string",
-             "message": "string"
-            }],
+  "errors": null,
  "response": {
                "id": "string"
              }
@@ -120,10 +117,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-            "errorCode": "string",
-            "message": "string"
-            }],
+  "errors": null,
   "response": {
                "machines": [{
                             "id": "string",
@@ -184,10 +178,7 @@ languagecode| Yes | Machine Languge Code|
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-            "errorCode": "string",
-            "message": "string"
-            }],
+  "errors": null,
   "response": {
               "machines": [{
                            "id": "string",
@@ -249,10 +240,7 @@ eff_dtimes|Yes |Effective Date and Time of the Machine|
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
  "response": {
             "machineHistoryDetails": [
                                       {
@@ -313,10 +301,7 @@ machineId|Yes|The machineId| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
  "response": {
               "id": "string"
              }
@@ -394,10 +379,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
 "response": {
                "id": "string"
             }
@@ -431,6 +413,32 @@ Description: When Machine is not found
 500
 
 Description: While updating machine any error occurred
+
+
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+"response": null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-029 | Error occured while fetching Machines | Fetch Issue
+KER-MSD-063 | Error occurred while inserting Machine details | Insertion Issue
+KER-MSD-030 | Machine not Found | Data Not Found
+KER-MSD-087 | Error occurred while updating Machine details | Update Issue
+KER-MSD-088 | Error occurred while deleting Machine details | Deletion Issue
+KER-MSD-148 | Cannot delete as dependency found | Deletion Issue because of dependency
 
 
 # Machine Types Master API
@@ -485,10 +493,7 @@ isactive|Yes|Is the machine type active?| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
             "code": "string",
             "langCode": "string"
@@ -539,10 +544,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
   "machinetypes": [
 				{ 
@@ -607,10 +609,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
            "machines": [
 				{ 
@@ -647,6 +646,25 @@ Description: Unauthorized
 
 Description: Not Found
 
+### Failure Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":  null
+ }
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-061 | Error occurred while inserting Machine Type details | Insertion Issue
 
 # Machine Specifications
 
@@ -711,10 +729,7 @@ is_active|Yes|Is the Machine Specification active| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
               "id": "string"
                }
@@ -769,10 +784,7 @@ lang_code|Yes|Language code of the Machine Specification| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
              "id": "string"
              }
@@ -807,10 +819,7 @@ id|Yes|ID of the Machine Specification| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
                 "id": "string"
               }
@@ -849,10 +858,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":  {
 	"id":"KJDS9",
 	"name":"Laptop",
@@ -900,10 +906,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":   {
 	"id":"KJDS9",
 	"name":"Laptop",
@@ -935,4 +938,27 @@ Description: Unauthorized
 
 Description: Forbidden
 
+### Failure Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":   null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-029 | Error occurred while fetching Machines | Fetch Issue
+KER-MSD-062 | Error occurred while inserting Machine Specification details | Insertion Issue
+KER-MSD-117 | Machine Specification not Found | Data Not Found
+KER-MSD-085 | Error occurred while updating Machine Specification details | Update Issue
+KER-MSD-086 | Error occurred while deleting Machine Specification details | Deletion Issue
+KER-MSD-122 | Cannot delete dependency found | Deletion Issue because of dependency

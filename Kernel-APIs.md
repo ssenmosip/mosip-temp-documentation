@@ -3,6 +3,7 @@ Security APIs
 - [Key Manager Service](#key-manager)
 - [Crypto Manager Service](#crypto-manager)
 - [License Key Service](#license-key-manager)
+- [Crypto Signature Service](#crypto-signature-service-private)
 
 Notification APIs
 - [SMS Notification Service](#sms-notification)
@@ -20,11 +21,7 @@ Common APIs
 - [OTP Manager Service](#otp-manager)
 
 
-
-
-
-
-# Key Manager
+# Key Manager (Private)
 
 * [GET /publickey](#get-publickey)
 * [POST /decrypt](#post-decrypt)
@@ -64,12 +61,7 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 		  "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUAubI0cMDZMlalDYbzZj4G2UrWY0QDtmZQyqU_ER5CA1gbxlHDQIesm1DVyp6kf1sG-RcosKPqKIhe9vKLPx5pzQXinGdl_8e5bkPpg2RLlDoNju1ycohPrCk0VOd4eNU90-SRJZH_62QE1_MG2yIohI7e7cuC93Q9SHMD8jmJ7DX2zTui4zbo-c5g7vFAtzDgxJg0vSPGbap682xkWZNgzRA_ctrnHF_9_JMzP_6Equ8E_g5BaI3jkWnVmDNjDzzseBH9zHpfbx6wNYrzQZy8iqqywbUtbHWtM0ALkH7nLi4atVbL6a-ryFt6Tq7qfGzYhLtWN47t4GxwyOJC99QIDAQAB",
 		  "issuedAt": "2018-01-01T10:00:00",
@@ -129,12 +121,7 @@ timeStamp (encryption timestamp) |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
  "response": {
 	    "symmetricKey": "decryptedSymmetricKey"
 	}
@@ -142,8 +129,37 @@ timeStamp (encryption timestamp) |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:
 
 ```
 
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
 
-# Crypto Manager
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-KMS-001 |	Certificate is not valid	|   validity check fail
+KER-KMS-002 |   ApplicationId not found in Key Policy | ApplicationId not valid
+KER-KMS-003 | No unique alias is found| No unique alias
+KER-KMS-004 | No Such algorithm is supported| No such algorithm exception
+KER-KMS-005 | Invalid request | Invalid request
+KER-KMS-006 | timestamp should be in ISO 8601 format yyyy-MM-ddTHH::mm:ss.SSSZ | date time parse exception
+KER-KMS-007 | Exception occured in cypto library | Crypto exception
+KER-KMS-500 | Internal server error | Internal server error
+
+# Crypto Manager (Private)
 
 * [POST v1/cryptomanager/encrypt](#post-v1cryptomanagerencrypt)
 * [POST v1/cryptomanager/decrypt](#post-v1cryptomanagerdecrypt)
@@ -192,12 +208,7 @@ Requires Authentication | Yes
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
  "response": {
 		"data": "wk4RM2su2lBXuhx3_EtBijXTDp0Y20fJA6tmoONPjr6YBLqwu_YRWiSa10o-bQWesb-IobxPg-KsZq-Gc0L6Rq6besw-rMavg5a5nPU7b3pAug0N6Ek4B7S8v_tc5cu7LBRdBv1mRSS2onxXbT2R4qeEwl_11KtxPs_ek6g4vV6oEQRem2fPhop_21DaoWVEZFovHAAJDqSFj3R38A-fxvHHpVSa9BRTe-DeTKj_xZsNYXQixZR3jMdijtm8Q7lIT3E1x8LYp-hG3RhR_xC7trAOTqilzLjLfirE3Wjfor5bhLiG9eZyTb52ihKsDV1l2oBAhn9Aao_fYl3UD5QekSNLRVlfU1BMSVRURVIjeKen-3j5KhnE-93Qfe_pBfMBIKEkTJJ7pR-4cO7l-X0"
 	}
@@ -250,20 +261,45 @@ Requires Authentication | Yes
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
  "response": {
  		"data": "string"
              }
 }	
 ```
 
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}	
+```
 
-# License Key Manager
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-CRY-001 |	No Such algorithm is supported	|   No Such algorithm is supported
+KER-CRY-002 | public key is invalid | public key is invalid
+KER-CRY-003 | data sent to decrypt is without key splitter or invalid | invalid data without key breaker
+KER-CRY-003 | or not base64 encoded | Invalid data
+KER-CRY-004 | should not be null or empty | Invalid request
+KER-CRY-005 | cannot connect to keymanager service | cannot connect to key manager service
+KER-CRY-006 | Keymanager Service has replied with following error | keymanager service error
+KER-CRY-008 | Error occur while parsing error from response | Response Parse Error
+KER-CRY-007 | timestamp should be in ISO 8601 format yyyy-MM-ddTHH::mm:ss.SZ | DateTime Parse Exception
+KER-CRY-500 | Internal server error | Internal server error
+
+# License Key Manager (Private)
 MISPs call the IDA to authenticate the Individuals. There can be various service calls such as Demographic, biometric based authentications. Each service calls have the permission associated. When a service call comes to the IDA, a request is sent to the Kernel module to retrieve the permissions for the License Key.
 
 This service facilitates generation of license key, mapping the license key to several permissions, and fetch permissions mapped to a license key.
@@ -320,12 +356,7 @@ MISPId|Yes|The MISP ID against which the license key generated will be mapped| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "licenseKey": "gR7Mw7tA7S7qifkf"
 	}
@@ -378,12 +409,7 @@ permissions|Yes|The list of permissions that will be mapped to the MISP-licensek
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "status": "Mapped License with the permissions"
 	    }
@@ -426,12 +452,7 @@ N/A
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	     "permissions": [
 		          "OTP Trigger",
@@ -487,12 +508,7 @@ Sample Success Response:
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response" : {
 		"message":"The status had been changed successfully. "
 	     }
@@ -518,8 +534,150 @@ Sample Success Response:
 }
 ```
 
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-LKM-001 |	TSP entered is null or empty	|   Illegal TSP
+KER-LKM-002 | The length of license key generated was not of the specified length | Invalid generated license key
+KER-LKM-003 | Permission value entered is not accepted | Not acceptable permission
+KER-LKM-004 | LicenseKey Not Found. | LicenseKey Not Found
+KER-LKM-005 | LicenseKey Expired. | LicenseKey Expired
+KER-LKM-006 | License Key entered is null or empty. | Illegal license key
+KER-LKM-007 | Permission entered is an empty string. | Illegal Permission
+KER-LKM-008 | Expiry DateTime should be ahead of current DateTime. | Date expired
+KER-LKM-009 | No Permissions has been mapped to the entered TSP-LicenseKey Pair. | No Permissions mapped
 
-# SMS Notification
+
+# Crypto Signature Service (Private)
+
+* [POST v1/signature/sign](#post-sign)
+* [POST v1/signature/validate](#post-validate)
+
+### POST v1/signature/sign
+
+This service will sign  provided plain string data.  
+
+#### Resource URL
+<div>https://mosip.io/v1/signature/sign</div>
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+#### Request
+
+```
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+  "data": "test"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+```
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2019-05-20T10:12:43.624Z",
+    "metadata": null,
+    "response": {
+        "signature": "DrgkF2vm4WvBe04UNe-RePRcrg77uQpsH3GENRcglBsid-K0UDReeeZVKwimOdwV7Ht1j-_D1BFf2sCrM8ni7ztE5Xc_3TEaniOAnOgZDRSI0GG-uSqjH51AwTSl1PYdStfXtOn6HEfEU68JG7TdAliDI5C7thJ1YNmPnHusIsZzX6sW_VfvSpLeA_RzCqnUDH_VaEzZt_5zRYiQv9van4wt0P7HTfIBlQ5zaeO3wXOc3Pogct3ssKwqdaMmZdc7QTDOFqDZZVceMTIXKyiH-ZVs_u3QXRysiLVdXoz7d7yXHdWxQtzsfMjY7alMJNgbmu4X26LYNRemn65Mmn6ixA",
+        "timestamp": "2019-05-20T10:12:43.082Z"
+    },
+    "errors": null
+}	
+```
+
+
+
+### POST v1/signature/validate
+
+This service will decrypt encryted data along with symmetric key having splitter for given timestamp(encryption timestamp). 
+
+#### Resource URL
+<div>https://mosip.io/v1/signature/validate</div>
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+#### Request
+
+```
+{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "signature": "DrgkF2vm4WvBe04UNe-RePRcrg77uQpsH3GENRcglBsid-K0UDReeeZVKwimOdwV7Ht1j-_D1BFf2sCrM8ni7ztE5Xc_3TEaniOAnOgZDRSI0GG-uSqjH51AwTSl1PYdStfXtOn6HEfEU68JG7TdAliDI5C7thJ1YNmPnHusIsZzX6sW_VfvSpLeA_RzCqnUDH_VaEzZt_5zRYiQv9van4wt0P7HTfIBlQ5zaeO3wXOc3Pogct3ssKwqdaMmZdc7QTDOFqDZZVceMTIXKyiH-ZVs_u3QXRysiLVdXoz7d7yXHdWxQtzsfMjY7alMJNgbmu4X26LYNRemn65Mmn6ixA",
+    "data": "test",
+    "timestamp": "2019-05-20T10:12:43.082Z"
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: decrypt encryted data along with symmetric key having splitter
+```
+{
+    "id": null,
+    "version": null,
+    "responsetime": "2019-05-20T10:21:02.027Z",
+    "metadata": null,
+    "response": {
+        "status": "success",
+        "message": "Validation Successful"
+    },
+    "errors": null
+}	
+```
+
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-CSS-999 | Invalid request input | while passing Invalid input request
+KER-CSS-101 | Validation Unsuccessful| while sign response in not valid
+KER-CSS-102 | Internal server error  | Internal server error
+
+
+# SMS Notification (Private)
 
 * [POST /sms/send](#post-sms-send)
 
@@ -570,12 +728,7 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
   "response": {
 	  "message": "Sms Request Sent",
 	  "status": "success"
@@ -583,7 +736,32 @@ number |Yes|Mobile number to which the SMS have to be sent| | 743764398
 }	
 ```
 
-# Email Notification
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-NOS-001 |	Number and message can't be empty, null	|   SMS Illegal Input
+KER-NOS-002 | Contact number cannot contains alphabet,special character or less than or more than | SMS Invalid Contact Number
+KER-NOS-500 | Internal server error | Internal server error
+
+
+# Email Notification (Private)
 
 * [POST /email/send](#post-email-send)
 
@@ -634,12 +812,7 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "message": "Email Request sent",
 	  "status": "success"
@@ -647,9 +820,37 @@ attachments |No|Mail ID of the recepient| | multipart/formdata
 }	
 ```
 
+##### Error Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": null
+}	
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-NOE-001 | To must be valid. It can't be empty or null. | Receiver Address not found
+KER-NOE-002 | Subject must be valid. It can't be empty or null. | Subject not found
+KER-NOE-003 | Content must be valid. It can't be empty or null. | Content not found
+KER-NOE-004 | | Mail Send Exception Code
+KER-NOE-005 | | Mail Authentication Exception Code
+KER-NOE-006 | | Mail Exception Code
+KER-NOE-999 | Data not valid | Request Data not valid
+KER-NOE-500 |  | Internal Server Error
 
 
-# UIN
+# UIN  (External)
 
 ## UIN-get service
 
@@ -691,12 +892,7 @@ N/A
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "uin": "734168915279"
 	    }
@@ -752,12 +948,7 @@ Name | Required | Description | Default Value | Example
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
   "response": {
                  "uin":"5193698130",
                   "status":"ASSIGNED"
@@ -765,7 +956,34 @@ Name | Required | Description | Default Value | Example
 }
 ```
 
-# RID generator
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+  "response": null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-UIG-001 | UIN could not be found | UIN could not be found
+KER-UIG-003 | Given UIN status not found | UIN Status not found
+KER-UIG-004 | Given UIN is not in ISSUED status | UIN Not Issued
+KER-UIG-005 | Internal Server Error | Internal Server Error
+KER-UIG-006 | Error in retrieving from config server | Config Server Fetch failed
+
+
+# RID generator (Private)
 
 * [GET /v1/ridgenerator/generate/rid/10002/10032](#get-ridgenerator)
 
@@ -808,9 +1026,37 @@ machineid|Yes|machineid of registration| -NA- |10032
 }
 ```
 
+##### Error Response:
+```JSON
+{
+  "id": null,
+  "version": null,
+  "responsetime": "2019-05-07T04:30:40.061Z",
+  "metadata": null,
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ]
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-RIG-002 | Empty input entered | Empty Input Error Code
+KER-RIG-003 | input length is not valid | Input length error code
+KER-RIG-004 | Timestamp length should be greater than zero | Invalid CenterID or MachineID Timestamp Length
+KER-RIG-005 | Error occured while fetching rid | RID Fetch Exception
+KER-RIG-006 | Error occured while storing rid | RID Update Exception
+KER-RIG-007 | Sequence length should be greater than zero | Invalid SEQ_Length Exception
+KER-RIG-999 | | HTTP Message Not Readable
+KER-RIG-500 | | Runtime Exception
 
 
-# Static Token generator
+# Static Token generator (Private)
 
 * [GET tokenidgenerator/{uin}/{partnercode}](#get-tokenidgeneratoruinpartnercode)
 
@@ -843,14 +1089,14 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 ###### Description: token id generated successfully
 ```JSON
 {
-	"id": "mosip.kernel.tokenid.generate",
+	"id": "mosip.kernel.tokenid.generate",,
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "2019-04-04T05:03:18.287Z",
 	"response": {
                   "tokenID": "268177021248100621690339355202974361"
                      },
-        "errors": []
+        "errors": null
 }
 ```
 
@@ -873,8 +1119,16 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 }
 ```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-UIG-005 | Internal Server Error | Internal Server Error
+KER-TIG-010 | UIN and partner code cannot be empty | Empty UIN or PARTNERCODE Exception
+KER-RIG-500 | | Runtime Exception
 
-# Audit Manager
+
+# Audit Manager (Private)
+
 Audits are events/transactions which need to be captured and stored to facilitate auditing. This data could further be used for reporting by the business.
 
 This includes auditing various event types like System events (Periodic scans), Business events/transactions (Change in demo data), Security Events etc.
@@ -954,25 +1208,38 @@ description|No|Description of the event| |Example description
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response": {
 	  "status": true
 	   }
 }
 ```
 
+##### Error Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-AUD-001 | Invalid Audit Request. Required parameters must be present | Handler Exception
+KER-AUD-002 | Invalid Audit Request. Format is incorrect. | Invalid Format
+KER-AUD-500 | Internal server error | Internal server error
 
-
-
-
-
-# Sync data
+# Sync data (Public)
 
 * [GET /masterdata](#get-masterdata)
 
@@ -2296,7 +2563,87 @@ publickey |Yes|Base 64 encoded Public key of the passed machine| |
 
 ```
 
-# Applicant type
+##### Error Response:
+
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response": null
+}		
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-SNC-100 | Error occurred while parsing lastUpdated timesatamp | last updated parse exception
+KER-SNC-101 | Error occurred while fetching Applications | application fetch exception
+KER-SNC-102 | Error occurred while fetching Machine Details | machine detail  fetch  exception
+KER-SNC-103 | Error occurred while fetching Machine Registration Center | machine reg center fetch exception
+KER-SNC-104 | Error occurred while fetching Registration Center | reg  center  fetch  exception
+KER-SNC-105 | Error occurred while fetching Registration Center Type | reg  center  type  fetch  exception
+KER-SNC-106 | Error occurred while fetching Templates | template  fetch  exception
+KER-SNC-107 | Error occurred while fetching Template Types | template  type  fetch  exception
+KER-SNC-108 | Error occurred while fetching Reason Category | reason  category  fetch  exception
+KER-SNC-109 | Error occurred while fetching Holidays | holiday  fetch  exception
+KER-SNC-110 | Error occurred while fetching Blacklisted Words | blacklisted  words  fetch  exception
+KER-SNC-111 | Error occurred while fetching Biometric types | biometric type  fetch  exception
+KER-SNC-112 | Error occurred while fetching Biometric Attribute types | biometric attr type fetch exception
+KER-SNC-113 | Error occurred while fetching Titles | title  fetch  exception
+KER-SNC-114 | Error occurred while fetching Languages | language  fetch  exception
+KER-SNC-115 | Error occurred while fetching Genders | gender  fetch  exception
+KER-SNC-116 | Error occurred while fetching Registration Center Devices | registartion  center  devices  fetch  exception
+KER-SNC-117 | Error occurred while fetching Devices | devices  fetch  exception
+KER-SNC-118 | Error occurred while fetching Document Category | document  category  fetch  exception
+KER-SNC-119 | Error occurred while fetching Document Types | document  type  fetch  exception
+KER-SNC-120 | Error occurred while fetching Id Type | id  type  fetch  exception
+KER-SNC-121 | Error occurred while fetching Device Specification | device  specification  fetch  exception
+KER-SNC-122 | Error occurred while fetching Machine Specification | machine  specification  fetch  exception
+KER-SNC-123 | Error occurred while fetching Machine Type | machine  type  fetch  exception
+KER-SNC-124 | Error occurred while fetching Location | location  fetch  exception
+KER-SNC-125 | Error occurred while fetching Device Type | device  type  fetch  exception
+KER-SNC-126 | Error occurred while fetching Valid Document Type | valid  document  fetch  exception
+KER-SNC-127 | Error occurred while fetching Valid Document Type | reason  list  fetch  exception
+KER-SNC-128 | Error occurred while fetching data | thread  interrupted  while  fetch  exception
+KER-SNC-999 | Request Data not valid | Request Data Not Valid
+KER-SNC-129 | Error occurred while fetching Registration Center Machine | REG  CENTER  MACHINE Fetch Exception
+KER-SNC-130 | Error occurred while fetching Registration Center Device | REG  CENTER  DEVICE Fetch Exception
+KER-SNC-131 | Error occurred while fetching Registration Center Machine Device | REG  CENTER  MACHINE  DEVICE Fetch Exception
+KER-SNC-132 | Error occurred while fetching Registration Center Machine Device | REG  CENTER  USER  MACHINE  DEVICE Fetch Exception
+KER-SNC-133 | Error occurred while fetching Registration Center User | REG  CENTER  USER Fetch Exception
+KER-SNC-134 | Machine id not found | MACHINE  ID  Not found Exception
+KER-SNC-500 | Internal server error | Internal server error
+KER-SNC-135 | Timestamp cannot be future date | Invalid Timestamp
+KER-SNC-136 | Error occurred while fetching Registration Center User History | REG  CENTER  USER  HISTORY Fetch Exception
+KER-SNC-137 | Error occurred while fetching Registration Center Machine User History | REG  CENTER  MACHINE  USER  HISTORY Fetch Exception
+KER-SNC-138 | Error occurred while fetching Registration Center Device History | REG  CENTER  DEVICE  HISTORY Fetch Exception
+KER-SNC-139 | Error occurred while fetching Registration Center Machine History | REG  CENTER  MACHINE  HISTORY Fetch Exception
+KER-SNC-140 | Mac-Address and Serial Number cannot be empty | Empty  MAC  OR  SERIAL  Number
+KER-SNC-141 | Registration center not found | REGISTRATION  CENTER Not Found
+KER-SNC-142 | Error occurred while fetching app authorization methods | APP  AUTHORIZATION  METHOD Fetch Exception
+KER-SNC-143 | Error occurred while fetching app details | APP  DETAIL Fetch Exception
+KER-SNC-144 | Error occurred while fetching app role priorities | APP  ROLE  PRIORITY Fetch Exception
+KER-SNC-145 | Error occurred while fetching processList | PROCESS  LIST Fetch Exception
+KER-SNC-146 | Error occurred while fetching screen authorizations | SCREEN  AUTHORIZATION Fetch Exception
+KER-SNC-147 | Error occurred while fetching Individual types | Individual types Fetch Exception
+KER-SNC-148 | Mac-Address and/or Serial Number does not exist | INVALID  MAC  OR  SERIAL  Number
+KER-SNC-149 | Registration Center has been updated for the received Machine ID | REG CENTER  Updated
+KER-SNC-150 | Error occured while fetching screen detail | SCREEN  DETAIL Fetch Exception
+KER-SNC-151 | Error occurred while fetching ApplicantValidDocument | APPLICANT  VALID  DOCUMENT Fetch Exception
+KER-SNC-152 | Error occurred while fetching Registration Center Machine Device History | REG  CENTER  MACHINE  DEVICE  HISTORY Fetch Exception
+KER-SNC-153 | Error occured while fetching sync job definitons | SYNC  JOB  DEF Fetch Exception
+KER-SNC-154 | Error occured while parsing the response | SYNC  JOB  DEF  Parse Exception
+
+
+# Applicant type (Public)
 
 These set of services does various operations regarding the applicant type.
 
@@ -2366,22 +2713,39 @@ languagecode|Yes|Language code in ISO 639-2 standard| -NA- |eng
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [
-    {
-      "errorCode": "string",
-      "message": "string"
-    }
-  ],
+  "errors": null,
 "response" : {
 		"applicationtypecode": "002"
 	}
 }
 ```
 
+##### Failure Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+"response" : null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-MSD-147 | Applicant Type data does not exist | No Application Found
+KER-MSD-148 | One or more input parameter is invalid or does not exist | Invalid Request
 
 
+# OTP Manager (Private)
 
-# OTP Manager
 ### POST OTP Generator
 This component facilitates generation of OTP for various purposes. EG: Login in Pre-registration
 
@@ -2421,7 +2785,23 @@ v1/otpmanager/otp/generate
 	}	
 }
 ```
-### Example Response
+### Example:
+##### Success Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+"response": {
+	  "otp": "849004",
+	  "status": "GENERATION_SUCCESSFUL"
+	   }
+}
+```
+
+##### Failure Response
 ```JSON
 {
   "id": "string",
@@ -2434,10 +2814,7 @@ v1/otpmanager/otp/generate
       "message": "string"
     }
   ],
-"response": {
-	  "otp": "849004",
-	  "status": "GENERATION_SUCCESSFUL"
-	   }
+"response": null
 }
 ```
 
@@ -2487,3 +2864,18 @@ v1/otpmanager/validate?key=9820173642&otp=123456
 	   }
 }	
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|----------|-------------
+KER-OTG-001 | Key length should be in the range of 3-64. | Illegal Key Input
+KER-OTV-001 | Key can't be empty or null. | Invalid Key Input
+KER-OTV-002 | Length of key should be in the range of 3-64. | Illegal Key Input
+KER-OTV-003 | OTP can't be empty or null. | Invalid OTP Input
+KER-OTV-004 | OTP consists of only numeric characters. No other characters is allowed. | Ileegal OTP Input
+KER-OTV-005 | Validation can't be performed against this key. Generate OTP first. | key not found
+KER-OTV-500 | Internal server error | Internal server error
+KER-OTV-999 | HTTP Message Not Readable Exception | Http Message Not Readable
+KER-OTG-002 | Crypto failure | Crypto failure
+KER-OTG-003 | Invalid key or algorithm found | Algorithm Failure
+KER-OTG-004 | IO exception found | IO Failure

@@ -565,7 +565,7 @@ Requires Authentication | Yes
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
 #### Resource URL
-<div>https://mosip.io/idrepository/v1/identity/RID/{RID}?type=bio</div>
+<div>https://mosip.io/idrepository/v1/identity</div>
 
 #### Resource details
 Resource Details | Description
@@ -583,7 +583,8 @@ request | Y | Request body attributes | |
 request: status | N | status of ID | | 
 request: registrationId | Y | Registration id | | 
 request: biometricReferenceId | N | ABIS Reference Id | | 
-request: identity | N | JSON body as per the ID object schema | | 
+request: identity | M | JSON body as per the ID object schema | | 
+request: identity: UIN | M | UIN for which Identity is updated | | 
 request: documents | N | Documents that are to be uploaded for any ID attribute | | 
 
 #### Request:
@@ -598,6 +599,7 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
     "biometricReferenceId": "<ABIS Reference ID>",
     "status": "DEACTIVATED",
     "identity": {
+      "UIN": 981576026435,
       "email": "sample123@email.com",
       "individualBiometrics": {
         "format": "cbeff",
@@ -632,17 +634,19 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
 ```
 
 ## VID Services (Private)
-These services can be used to create VID, update VID status, re-generate VID.
+These services can be used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
 * [POST /idrepository/v1/vid](#post-idrepositoryv1vid)
 * [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vidvid)
+* [PATCH /idrepository/v1/vid/{VID}](#patch-idrepositoryv1vidvid)
+* [POST /idrepository/v1/vid/{VID}/regenerate](#post-idrepositoryv1vidvidregenerate)
 
 #### Users of VID services -
 1. `Registration Processor` - *Registration Processor* will create a new perpetual VID once UIN is generated successfully.
-2. `Resident Services` - Individual can use *Resident Services* to create or re-generate a new temporary VID.
+2. `Resident Services` - Individual can use *Resident Services* to generate or re-generate a new temporary VID.
 3. `ID Authentication` - *ID Authentication* can retrieve UIN for a given VID for authenticating Individual using VID.
 
 ### POST /idrepository/v1/vid        
-This service will create a new VID based on VID type provided.
+This service will generate a new VID based on VID type provided.
 
 #### Resource URL
 <div>https://mosip.io/idrepository/v1/vid</div>
@@ -686,13 +690,13 @@ request: UIN| yes | Individual's UIN |  | 981576026435
   "version": "v1",
   "responsetime": "2019-04-30T06:13:05.218Z",
   "response": {
-    "status": "ACTIVE",
+    "vidStatus": "ACTIVE",
     "VID": 1234512345
   }
 }
 ```
  
- ### GET /idrepository/v1/vid/{VID}        
+### GET /idrepository/v1/vid/{VID}        
 This service will retrieve associated decrypted UIN for a given VID, once VID is successfully validated.
 
 #### Resource URL
@@ -720,7 +724,7 @@ Requires Authentication | Yes
 }
 ```
 
- ### PATCH /idrepository/v1/vid/{VID}   
+### PATCH /idrepository/v1/vid/{VID}   
 This service will update status associated with a given VID, if the current status of VID is 'ACTIVE'.
 
 #### Resource URL
@@ -763,7 +767,39 @@ request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
   "version": "v1",
   "responsetime": "2019-04-30T06:13:05.218Z",
   "response": {
-    "vidStatus": 'REVOKED'
+    "vidStatus": "REVOKED",
+    "restoredVidDetails": {
+      "vidStatus": "ACTIVE",
+      "VID": 1234512345
+    }
+  }
+}
+```
+
+### POST /idrepository/v1/vid/{VID}/regenerate   
+This service will re-generate VID for a given VID, only if the current status of VID is 'ACTIVE', 'USED', or 'EXPIRED'.
+
+#### Resource URL
+<div>https://mosip.io/idrepository/v1/vid/{VID}/regenerate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: VID re-generated successfully
+```JSON
+{
+  "id": "mosip.vid.regenerate",
+  "version": "v1",
+  "responsetime": "2019-05-21T06:13:05.218Z",
+  "response": {
+    "vidStatus": 'ACTIVE',
+    "VID": 1234512345
   }
 }
 ```

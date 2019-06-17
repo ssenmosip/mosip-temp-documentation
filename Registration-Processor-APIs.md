@@ -195,7 +195,7 @@ langCode|Yes|language code used |eng or ara
 			"packetSize": 5242880,
 			"supervisorStatus": "APPROVED",
 			"supervisorComment": "Approved, all good",
-			"longCode": "eng",
+			"langCode": "eng",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "122223456"
@@ -208,7 +208,7 @@ langCode|Yes|language code used |eng or ara
 			"packetSize": 4242880,
 			"supervisorStatus": "REJECTED",
 			"supervisorComment": "Rejected due to error",
-			"longCode": "eng",
+			"langCode": "eng",
 			"optionalValues": [{
 				"key": "CNIE",
 				"value": "3456789o"
@@ -318,7 +318,8 @@ String|Yes|The user id|
   "version" : "1.0",
   "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
-	"userId": "mono29"
+	"userId": "mono29",
+        "matchType" : "all"
   }
 }
 ```
@@ -457,7 +458,6 @@ FileRequestDto|Yes|Dto containing registration id and file name|
   "version" : "1.0",
   "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
-	  "fileName": "APPLICANTPHOTO",
 	  "regId": "27847657360002520181208123456"
 	}
 }
@@ -520,7 +520,66 @@ FileRequestDto|Yes|Dto containing registration id and file name|
   "version" : "1.0",
   "requesttime": "2019-02-14T12:40:59.768Z",
   "request" : {
-	  "fileName": "PACKETMETAINFO",
+	  "regId": "27847657360002520181208123456"
+	}
+}
+```
+#### Response
+###### Status Code: 200
+###### Description : response code is always 200 if server receives the request.
+
+```JSON
+{
+  "id" : "mosip.manual.verification.demographic",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : {
+	  "file": "B@629f0666"
+  }
+}
+```
+Failure :
+```JSON
+{
+  "id" : "mosip.manual.verification.demographic",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "errors" : [{
+	"errorCode" : "RPR-MVS-002",
+	"message" : "Requested file is not present"
+  }]
+}
+```
+## 3.5 manual-adjudication-packet-metainfo service
+
+- #### `POST /registrationprocessor/v1/manualverification/packetInfo`
+
+The manual adjudicator would need to verify the operator/supervisor/introducer information present inside packet meta info file. This service fetches the file from inside the packet by registration id.
+
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/manualverification/packetInfo
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | byte[]
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+FileRequestDto|Yes|Dto containing registration id and file name|
+
+#### Request
+```JSON
+{
+  "id" : "mosip.manual.verification.packetmetainfo",
+  "version" : "1.0",
+  "requesttime": "2019-02-14T12:40:59.768Z",
+  "request" : {
 	  "regId": "27847657360002520181208123456"
 	}
 }
@@ -542,7 +601,7 @@ FileRequestDto|Yes|Dto containing registration id and file name|
 Failure :
 ```JSON
 {
-  "id" : "mosip.manual.verification.biometric",
+  "id" : "mosip.manual.verification.packetInfo",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
   "errors" : [{
@@ -631,7 +690,7 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
   "responsetime": "2019-02-02T06:12:25.288Z",
   "response": {
     "registrationId": "10031100110005020190313110030",
-    "status": "RECEIVED",
+    "status": "SUCCESS",
     "message": "Packet created and uploaded"
   }
 }

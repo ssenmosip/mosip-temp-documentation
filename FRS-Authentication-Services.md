@@ -536,5 +536,6 @@ Please refer to the [**Authentication Service API**](ID-Authentication-APIs#user
 
 Technical story (Architects to contribute)
 
-
+### Process View
+[**Link to Process View of Authentication Services**](Process-view#id-authentication)
 

@@ -247,7 +247,11 @@ look into hdfs logs to debug: $HOME/hadoop/logs/
 sudo useradd  regprocessor
 sudo useradd  prereg
 sudo useradd  idrepo
+
 ```
+
+**NOTE : Configure the user in application properties file as mosip.kernel.fsadapter.hdfs.user-name=prereg**
+
 2. Create a directory and give permission for each user
 ```
 hdfs dfs -mkdir /user/regprocessor
@@ -274,7 +278,6 @@ sudo firewall-cmd --reload
 if different port has been configured , enable those port.
 
 ## 2. Securing HDFS
-NOTE: Currently not enabled. `<WIP>`
 
 Following configuration is required to run HDFS in secure mode.
 Read more about kerberos here:
@@ -296,6 +299,7 @@ yum install krb5-server krb5-libs krb5-auth-dialog
 yum install krb5-workstation krb5-libs krb5-auth-dialog
 ```
 ### Configuring the Master KDC Server
+
 1. Edit the /etc/krb5.conf:
 <pre>
 # Configuration snippets may be placed in this directory as well
@@ -327,6 +331,19 @@ includedir /etc/krb5.conf.d/
    <b>.node-master.example.com = NODE-MASTER.EXAMPLE.COM
    node-master.example.com = NODE-MASTER.EXAMPLE.COM</b>
 </pre>
+
+
+**NOTE: Place this krb5.conf /kernel/kernel-fsadapter-hdfs/src/main/resources**
+
+```
+mosip.kernel.fsadapter.hdfs.krb-file=classpath:krb5.conf 
+```
+OR If Kept outside resource then give absolute path 
+```
+mosip.kernel.fsadapter.hdfs.krb-file=file:/opt/kdc/krb5.conf 
+```
+
+
 2. Edit /var/kerberos/krb5kdc/kdc.conf
 <pre>
 [kdcdefaults]
@@ -458,7 +475,19 @@ and so on add all the users to keytab. if you want create the separate keytab fi
 
 #### To deploy the Kerberos keytab file
 On every node in the cluster, copy or move the keytab file to a directory that Hadoop can access, such as /home/hadoop/hadoop/etc/hadoop/hadoop.keytab.
-### Enable security in hdf
+
+### To configure Kernel HDFS Adapter
+Place this mosip.keytab file in /kernel/kernel-fsadapter-hdfs/src/main/resources and update the application properties for
+
+```
+mosip.kernel.fsadapter.hdfs.keytab-file=classpath:mosip.keytab
+mosip.kernel.fsadapter.hdfs.authentication-enabled=true
+mosip.kernel.fsadapter.hdfs.kdc-domain=NODE-MASTER.EXAMPLE.COM
+mosip.kernel.fsadapter.hdfs.name-node-url=hdfs://host-ip:port
+```
+
+
+### Enable security in hdfs
 To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties. 
 
 ```

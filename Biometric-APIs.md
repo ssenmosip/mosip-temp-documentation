@@ -57,10 +57,7 @@ biometrictype|Yes|Array of the biometric types| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response": {
 	"biometrictypes": [
 			     {"biometrictype":"string"},
@@ -116,10 +113,7 @@ biometrictype|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-              "errorCode": "string",
-              "message": "string"
-           }],
+  "errors": null,
    "response":{
                    "biometrictypes": [  { 
 					"biometrictype": [
@@ -179,8 +173,14 @@ biometrictypeid|Yes|Code of the language| |
 biometrictype|Yes|Name of the language| | 
 
 ### Example Response
+##### Success Response:
 ```JSON
 {
+"id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
   "biometrictypes": [
 				{ 
 					"biometrictype": [
@@ -215,7 +215,27 @@ Description: Unauthorized
 
 Description: Not Found
 
+##### Error Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+              "errorCode": "string",
+              "message": "string"
+           }],
+   "response":null
+}
+```
 
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-005 | Error occurred while fetching Biometric Types	| Fetch Exception
+KER-MSD-105 | Error occurred while inserting biometric type details | Insertion Exception
+KER-MSD-006 | Biometric Type not found | Data not found
 
 # Biometric attributes Master API
 
@@ -264,10 +284,7 @@ biometricattribute|Yes|Array of the biometric attributes| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
              "successfully_created_biometricattributes": [
 		              {"biometricatributeid":"string"}
@@ -323,10 +340,7 @@ biometricattribute|Yes|Name of the language| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
               "biometricattributes": [
 				      { 
@@ -390,10 +404,7 @@ biometrictypeid|Yes|Id of the biometric auth type| |
   "version": "string",
   "metadata": {},
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": [{
-      "errorCode": "string",
-      "message": "string"
-    }],
+  "errors": null,
   "response":{
   "biometricattributes": [
                          {  
@@ -428,3 +439,24 @@ Description: Unauthorized
 
 Description: Not Found
 
+##### Failure Response:
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [{
+      "errorCode": "string",
+      "message": "string"
+    }],
+  "response":null
+}
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+KER-MSD-004 | BiometricAttribute not found | Data Not Found
+KER-MSD-003 | Error occurred while fetching BiometricAttributes | Fetch Issue
+KER-APP-103 | Error occurred while inserting BiometricAttributes | Insertion Issues

@@ -1,6 +1,51 @@
 
-***
-**# **MOSIP - Test Strategy (Work in progress copy)****
+**MOSIP - Test Strategy (Work in progress copy)**
+
+Test Automation
+Generic Test Automation Design - API Testing
+
+# 1. Kernel Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the Kernel automation suite?
+
+3. How to enhance the existing data coverage?
+
+# 2. Pre-Registration Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the Pre-Reg automation suite?
+
+3. How to enhance the existing data coverage?
+
+# 3. Registration Client Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the Reg Client automation suite?
+
+3. How to enhance the existing data coverage?
+
+# 4. Registration Processor Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the Reg Proc automation suite?
+
+3. How to enhance the existing data coverage?
+
+# 5. ID Authentication (IDA) Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the IDA automation suite?
+
+3. How to enhance the existing data coverage?
+
+# 6. E2E Test Automation Suite - User Guide
+1. How to add test cases for a new API?
+
+2. How to run the IDA automation suite?
+
+3. How to enhance the existing data coverage?
+
 # 1 Introduction
 ## 1.1 Overview
 The MOSIP architecture mainly consists of the following functional blocks/modules

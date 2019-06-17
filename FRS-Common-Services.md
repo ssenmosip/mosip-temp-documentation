@@ -3,11 +3,12 @@
   * [1. OTP Manager](#1-otp-manager-) _(CMN_FR_1)_
   * [2. QR Code Generator](#2-qr-code-generator-) _(CMN_FR_2)_
   * [3. Crypto Services](#3-crypto-services-)
-    * [3.1 Key Generator](#31-key-generator-) _(CMN_FR_3.1)_
-    * [3.2 Key Management](#32-key-management-) _(CMN_FR_3.2)_
-    * [3.3 Crypto Utility](#33-crypto-utility-) _(CMN_FR_3.3)_
-    * [3.4 Hash Utility](#34-hash-utility-) _(CMN_FR_3.4)_
-    * [3.5 HMAC Utility/Checksum Utility](#35-hmac-utilitychecksum-utility-) _(CMN_FR_3.5)_
+    * [3.1 Cryptography Services](#31-cryptography-services-) _(CMN_FR_3.1)_
+    * [3.2 Key Generator](#32-key-generator-) _(CMN_FR_3.2)_
+    * [3.3 Key Management](#33-key-management-) _(CMN_FR_3.3)_
+    * [3.4 Crypto Utility](#34-crypto-utility-) _(CMN_FR_3.4)_
+    * [3.5 Hash Utility](#35-hash-utility-) _(CMN_FR_3.5)_
+    * [3.6 HMAC Utility/Checksum Utility](#36-hmac-utilitychecksum-utility-) _(CMN_FR_3.6)_
   * [4. Notification](#4-notification-) 
     * [4.1 OTP Notification Services](#41-otp-notification-services-) _(CMN_FR_4.1)_
     * [4.2 Email Notification](#42-email-notification-) _(CMN_FR_4.2)_
@@ -51,6 +52,7 @@ QR code generator takes the content received along with the version number and c
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-qrcodegenerator.md)
 ## 3. Crypto Services [**[↑]**](#table-of-content)
+### 3.1 Cryptography Services [**[↑]**](#table-of-content)
 Crypto service encrypts or decrypts data across MOSIP with the help of Public/Private Keys.
 
 #### A. For Encryption
@@ -68,7 +70,7 @@ The Crypto Service then splits the received data into Encrypted Content and Encr
 The Key Manager instead of responding with the private key, decrypts the symmetric itself and send it back to the crypto service. The service then uses this symmetric key to decrypt data and send the decrypted data back to the source.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-crypto.md)
-### 3.1 Key Generator [**[↑]**](#table-of-content)
+### 3.2 Key Generator [**[↑]**](#table-of-content)
 #### A. Generate a Symmetric Key
 
 Upon receiving a request to generate symmetric key pair the system generates a key pair (public and private key) as defined below and responds with the symmetric key
@@ -86,7 +88,7 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-keygenerator.md)
 
-### 3.2 Key Management [**[↑]**](#table-of-content)
+### 3.3 Key Management [**[↑]**](#table-of-content)
 
 1. The Key Manager Service works together with the Crypto Service. 
 1. It receives a request from Crypto Service from Public Key with the Application ID and Timestamp. 
@@ -96,17 +98,17 @@ Upon receiving a request to generate asymmetric key pair the system generates a 
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-keymanager.md)
 
-### 3.3 Crypto Utility [**[↑]**](#table-of-content)
+### 3.4 Crypto Utility [**[↑]**](#table-of-content)
 
 The crypto utility is supports encryption and decryption. It provides a utility called as key splitter which performs following functions
 1. It combines the encrypted data and encrypted the symmetric key while sending encrypted content to the source
 2. It also splits the encrypted data and encrypted the symmetric key while receiving the content for decryption
  
-### 3.4 Hash Utility [**[↑]**](#table-of-content)
+### 3.5 Hash Utility [**[↑]**](#table-of-content)
 1. Identifies hash util methods
 1. Creates wrapper class for methods defined in apache-commons hash util
 1. Raises an alert in case of listed
-### 3.5 HMAC Utility/Checksum Utility [**[↑]**](#table-of-content)
+### 3.6 HMAC Utility/Checksum Utility [**[↑]**](#table-of-content)
 
 A HMAC/checksum function is a way to create a compact representation of an arbitrarily large amount of data 
 

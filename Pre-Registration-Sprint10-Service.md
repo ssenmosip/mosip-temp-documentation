@@ -182,7 +182,14 @@ Requires Authentication | Yes
 ###### Description: Token invalidated successfully
 ```JSON
 {
-  "message": "Token has been invalidated successfully"
+  "id": "mosip.pre-registration.login.invalidate",
+  "version": "1.0",
+  "responsetime": "2019-06-07T12:26:19.053Z",
+  "response": {
+    "message": "Token has been invalidated successfully",
+    "status": "success"
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -190,11 +197,16 @@ Requires Authentication | Yes
 ###### Description: Token is not present in cookies
 ```JSON
 {
-  "timestamp": "2019-04-24T09:45:07.972+0000",
-  "status": 500,
-  "error": "Internal Server Error",
-  "message": "No message available",
-  "path": "/preregistration/v1/login/invalidateToken"
+    "id": "mosip.pre-registration.login.invalidate",
+    "version": "1.0",
+    "responsetime": "2019-06-07T12:20:13.191Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "KER-ATH-007",
+            "message": "Token is not present in cookies"
+        }
+    ]
 }
 ```
 ### GET /login/config
@@ -347,6 +359,8 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
                   "value":"MLE"
                },
                {
+
+
                   "language":"ara",
                   "value":"MLE"
                }
@@ -1724,7 +1738,7 @@ request |Yes|Request for the application|
 request.registration_center_id |Yes|Registration center Id |10005
 request.appointment_date |Yes|Date of the appointment|2019-01-19
 request.time_slot_from |Yes|Time Slot From|12:15:00
-request.time_slot_from |Yes|Time Slot To|12:28:00
+request.time_slot_to |Yes|Time Slot To|12:28:00
 
 #### Request:
 ```JSON
@@ -1818,7 +1832,7 @@ request.preRegistrationid|Yes|Preregistration Id|51489749326453
 request.registration_center_id |Yes|Registration center Id |10001
 request.appointment_date |Yes|Date of the appointment|2019-04-22
 request.time_slot_from |Yes|Time Slot From|15:30:00
-request.time_slot_from |Yes|Time Slot To|15:45:00
+request.time_slot_to |Yes|Time Slot To|15:45:00
 
 #### Request:
 ```JSON
@@ -3122,4 +3136,14 @@ PRG_DATA_SYNC_016|BOOKING_NOT_FOUND|when rest service to booking service fails
 PRG_DATA_SYNC_005|FAILED_TO_CREATE_A_ZIP_FILE|If any error occurs while creating the zip file bytes
 PRG_DATA_SYNC_014|FILE_IO_EXCEPTION|File system exception
 PRG_DATA_SYNC_006|FAILED_TO_FETCH_DOCUMENT|when rest service to document service fails
+
+###Common Exception Details for all Preregistration API
+
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_CORE_REQ_015|Error message will come accordingly to the exception occurred|This error code  will occur for MethodArgumentNotValidException,HttpMessageNotReadableException
+PRG_CORE_REQ_016|Error message will come accordingly to the exception occurred|This error code  will occur for Exception,RuntimeException
+KER-ATH-402|Token expired|If the auth token got expired
+KER-ATH-401|Invalid Token|If the auth token is invalid
+
 
