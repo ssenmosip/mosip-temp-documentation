@@ -849,17 +849,17 @@ This generic job takes schema and table name as input, and generates and populat
          spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_hash_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
-   *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-        spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_encrypt_salt docker- 
-        registry.mosip.io:5000/id-repository-salt-generator
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_encrypt_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
 
-  *   docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-      spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_hash_salt docker- 
-      registry.mosip.io:5000/id-repository-salt-generator
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_hash_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
 
-  *   docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-      spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
-      registry.mosip.io:5000/id-repository-salt-generator
+    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
+         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
+         registry.mosip.io:5000/id-repository-salt-generator
 
 **Note** - Please change the environmental variables in the above four commands accordingly.
 
