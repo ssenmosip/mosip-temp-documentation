@@ -870,6 +870,21 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 
 **Note** - Please change the environmental variables in the above four commands accordingly.
 
+### 6.11 Installation of ActiveMq
+ActiveMQ is the message broker used for MOSIP. 
+#### Installation steps
+* Download activemq using 
+``` wget http://www.apache.org/dist//activemq/apache-activemq/5.5.0/apache-activemq-5.5.0-bin.tar.gz ```
+* Extract the archive
+``` tar -zxvf apache-activemq-5.5.0-bin.tar.gz ```
+* Change the permission for startup script
+``` chmod 755 activemq ```
+* Start activemq service
+``` sudo sh activemq start ```
+* Check for the installed and started activemq on port 61616.
+* The activemq management dashboard can be accessed on 
+``` http://localhost:8161/admin ```
+
 ***
 ## 7. Configuring MOSIP [**[↑]**](#content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
