@@ -250,7 +250,7 @@ sudo useradd  idrepo
 
 ```
 
-**NOTE : Configure the user in application properties file as mosip.kernel.fsadapter.hdfs.user-name=prereg**
+**NOTE : Configure the user in module specific properties file (ex- pre-registration-qa.properties) as mosip.kernel.fsadapter.hdfs.user-name=prereg**
 
 2. Create a directory and give permission for each user
 ```
@@ -486,6 +486,7 @@ mosip.kernel.fsadapter.hdfs.kdc-domain=NODE-MASTER.EXAMPLE.COM
 mosip.kernel.fsadapter.hdfs.name-node-url=hdfs://host-ip:port
 ```
 
+**NOTE : Configure the user in module specific properties file (ex- pre-registration-qa.properties) as mosip.kernel.fsadapter.hdfs.user-name=prereg**
 
 ### Enable security in hdfs
 To enable security in hdfs, you must stop all Hadoop daemons in your cluster and then change some configuration properties. 
