@@ -3007,7 +3007,7 @@ langCode| Yes| language code whatever user choose while login|eng
 	"name": "sanober noor",
 	"preRegistrationId": "37802950913289",
 	"appointmentDate": "2019-01-22",
-	"appointmentTime": "22:57",
+	"appointmentTime": "09:15 AM",
 	"mobNum": "9748107386",
 	"emailID": "sanober.noor2@mindtree.com",
         "additionalRecipient":"true",
