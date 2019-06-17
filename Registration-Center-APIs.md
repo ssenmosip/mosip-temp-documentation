@@ -12,6 +12,7 @@ This section details about the service APIs in the Registration center modules
 
 * [Registration Center - Search API](#post-registrationcenters)
 
+# Registration Centers API
 
 * [POST /registrationcenters](#post-registrationcenters)
 * [PUT /registrationcenters](#put-registrationcenters)
