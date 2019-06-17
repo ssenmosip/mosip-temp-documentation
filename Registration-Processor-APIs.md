@@ -615,7 +615,7 @@ Failure :
 # 4 Bio Dedupe Service
 ## 4.1 Bio Dedupe service
 
-- #### `POST /registrationprocessor/v1/bio-dedupe/{referenceid}`
+- #### `GET /registrationprocessor/v1/bio-dedupe/{referenceid}`
 
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
