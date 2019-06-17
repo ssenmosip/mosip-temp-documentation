@@ -56,10 +56,10 @@ officestarttime|Yes|Office start time of the registration center| |
 officeendtime|Yes|Office end time of the registration center| | 
 holidaylocationcode|Yes|Holiday location of the registration center| | 
 isactive|Yes|Is the registration center active| | 
-numberofkiosk
-contactperson
-lunchstarttime
-lunchendtime
+numberofkiosk|Yes|Number of Kiosk| | 
+contactperson|Yes|Contact person of the registration center| | 
+lunchstarttime|Yes|Lunch start time of the registration center| | 
+lunchendtime|Yes|Lunch end time of the registration center| | 
 
 ### Example Request
 ```JSON
@@ -103,35 +103,13 @@ lunchendtime
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-	        "id":"string"
+	        "id":"string",
+                "registrationcentername":"string",
+                "status":"string",
+                "message":"string"
              }
 }
 ```
-### Response codes
-200
-
-Description: OK
-
-201
-
-Description: Created
-
-202
-
-Description: Accepted
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-403
-
-Description: Forbidden
-
 # GET /registrationcenters
 Master data is required across the platform. 
 
@@ -213,22 +191,6 @@ Name | Required | Description | Default Value | Example
  }
 }
 ```
-200
-
-Description: Success
-
-400
-
-Description: Bad request
-
-401
-
-Description: Unauthorized
-
-404
-
-Description: Not Found
-
 
 # GET /registrationcenters/{id}/{languagecode}
 Master data is required across the platform. 
