@@ -10,7 +10,7 @@ This section details about the service APIs in the Registration center modules
 
 * [Registration Center - Machine - Device API](#registration-center-machine-device-api)
 
-* [Registration Center - Search API](#post-registrationcenters)
+* [Registration Center - Search API](#post-registrationcenterssearch)
 
 # Registration Centers API
 
@@ -1448,6 +1448,7 @@ lunchendtime|Yes|Lunch end time of the registration center| |
 
 
 ### Example Request
+```JSON
 {  
 	"id":"string",
 	"metadata":{  
@@ -1480,6 +1481,7 @@ lunchendtime|Yes|Lunch end time of the registration center| |
 	"requesttime":"2018-12-10T06:12:52.994Z",
 	"version":"string"
 }
+```
 
 ### Example Response
 ```JSON
