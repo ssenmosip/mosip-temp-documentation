@@ -46,6 +46,7 @@ centertypecode|Yes|Code of the center type| |
 addressline1|No|Line 1 of the address| | 
 addressline2|No|Line 2 of the address| | 
 addressline3|No|Line 3 of the address| | 
+locationcode|Yes|Code of the location of the registration center| | 
 longitude|Yes|Longitude of the registration center| | 
 latitude|Yes|Latitude of the registration center| | 
 contactphone|Yes|Contact phone number of the registration center| |  
@@ -55,12 +56,10 @@ officestarttime|Yes|Office start time of the registration center| |
 officeendtime|Yes|Office end time of the registration center| | 
 holidaylocationcode|Yes|Holiday location of the registration center| | 
 isactive|Yes|Is the registration center active| | 
-centertype|Yes|Type of the registration center| | 
-address|Yes|Address of the registration center| | 
-workinghours|Yes|Working hours of the registration center| | 
-contactnumber|Yes|Contact number of the registration center| | 
-pincode|Yes|Pincode of the registration center| | 
-locationcode|Yes|Code of the location of the registration center| | 
+numberofkiosk
+contactperson
+lunchstarttime
+lunchendtime
 
 ### Example Request
 ```JSON
