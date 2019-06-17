@@ -15,7 +15,7 @@ This section details about the service APIs in the Registration-Processor module
 
 - #### `POST /registrationprocessor/v1/packetreceiver/registrationpackets`
 
-This service receives the registration packet frm client. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated using hashvalue and size.
+This service receives registration packet from client. Before moving packet to landing zone it is sent for virus scan and then trustworthiness of the packet is validated using hash value and size.
 
 
 #### Resource URL
@@ -219,7 +219,7 @@ langCode|Yes|language code used |eng or ara
 ```
 #### Response
 
-######Response Code: 200
+###### Response Code: 200
 ###### Description: Successfully synced
 
 Success response :
@@ -556,7 +556,7 @@ Failure :
 # 4 Bio Dedupe Service
 ## 4.1 Bio Dedupe service
 
-- #### `POST /registrationprocessor/v1/bio-dedupe/{referenceid}`
+- #### `GET /registrationprocessor/v1/bio-dedupe/{referenceid}`
 
 The abis would call bio-dedupe service to get the biometric cbeff file.
 
