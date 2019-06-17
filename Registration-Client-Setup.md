@@ -25,7 +25,11 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
        mosip-application.properties - [registration-libs module] - Contains the environment variable.  
        spring-<env>.properties - [registration-services module] - It contains the environment based REST client url to make different service calls.       
 
-	Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
+	Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.
+        Make sure that '**maven-metadata.xml**' is generated under the '**registration-client**' module post build 
+        generation. Which was referred by the application to download the required jars based on the version.
+        Post-build process **META-INF.MF** file also should be present in the JFROG repository, which consists of the 
+        checksum of the jar files. 
 
 **Prerequisites:**  
 ***
@@ -39,7 +43,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 **Application Prerequisites:**  
    Before running the 'Registration client' application, following prerequisites to be completed.
-	
+
    - Before building the 'registration-services' module, all the services URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
    - Property file **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
    - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
@@ -115,6 +119,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 **Update Process:**
 ***
+   Application referred to this file to check for any new version exists in this file '**maven-metadata.xml**', which is generated under the '**registration-client**' module post build.
+       
    **Application update:**
    - During the startup of the application, the software check will be validating against the maven-metadata.xml file from artifactory repository. If any diffs found, application prompts the user with 'Update Now' or 'Update Later' options to install immediately or later. Apart from this there is another menu option available in the application to trigger the 'Update' process post login to the application. The update process would update both the application binaries and DB.
         
