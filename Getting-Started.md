@@ -1211,7 +1211,7 @@ To be done later
 
 ***
 
-### 7.1  Registration-Processor DMZ services deployment
+### 8.1  Registration-Processor DMZ services deployment
 Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. 
 We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
@@ -1282,7 +1282,7 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
 
 **Note** - Please change the environmental variables in the above four commands accordingly.
 
-### 6.10 ID Repository Salt Generator
+### 8.2 ID Repository Salt Generator
  
 ID Repository Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in ID Repo and ID Map DB. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
 
