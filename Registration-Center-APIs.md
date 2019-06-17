@@ -1408,7 +1408,6 @@ KER-MSD-076 | Error occurred while inserting a mapping of Center, Machine and De
 KER-MSD-107 | Error occurred while deleting a mapping of Center, Machine and Device | registration center machine device delete exception
 KER-MSD-116 | Mapping for Center, Machine and Device not found | registration center machine device data not found exception
 
-
 # POST /registrationcenters/search
 
 This service is for the registration centers search functionality. The parameters are passed as part of the URL itself as query parameters. 
@@ -1426,6 +1425,28 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
+name|Yes|Name of the registration center| | 
+centertypecode|Yes|Code of the center type| | 
+addressline1|No|Line 1 of the address| | 
+addressline2|No|Line 2 of the address| | 
+addressline3|No|Line 3 of the address| | 
+locationcode|Yes|Code of the location of the registration center| | 
+longitude|Yes|Longitude of the registration center| | 
+latitude|Yes|Latitude of the registration center| | 
+contactphone|Yes|Contact phone number of the registration center| |  
+workinghours|Yes|Working hours of the registration center| | 
+perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
+officestarttime|Yes|Office start time of the registration center| | 
+officeendtime|Yes|Office end time of the registration center| | 
+holidaylocationcode|Yes|Holiday location of the registration center| | 
+isactive|Yes|Is the registration center active| | 
+numberofkiosk|Yes|Number of Kiosk| | 
+contactperson|Yes|Contact person of the registration center| | 
+lunchstarttime|Yes|Lunch start time of the registration center| | 
+lunchendtime|Yes|Lunch end time of the registration center| | 
+
+
+### Example Request
 {  
 	"id":"string",
 	"metadata":{  
