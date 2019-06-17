@@ -889,6 +889,15 @@ Application specific configuration for all applications and services are placed 
 **C. Pre-Registration:**
 [**link**](/mosip/mosip/blob/master/config/pre-registration-dev.properties)
 
+**D. Registartion-Processor:**
+[**link**](/mosip/mosip/blob/0.12.0/config/registration-processor-dev.properties)
+
+**E. IDA:**
+[**link**](/mosip/mosip/blob/0.12.0/config/id-authentication-dev.properties)
+
+**F. ID-REPO:**
+[**link**](/mosip/mosip/blob/0.12.0/config/id-repository-dev.properties)
+
 **Properties that need to be changed once the external dependencies are installed**
 1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
 
