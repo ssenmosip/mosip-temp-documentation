@@ -23,7 +23,7 @@ This section details about the service APIs in the Registration center modules
 * [GET /registrationcentershistory/{id}/{languagecode}/{eff_dtimes}](#get-registrationcentershistoryidlanguagecodeeff_dtimes)
 * [GET /getregistrationmachineusermappinghistory/{eff_dtimes}/{registrationcenterid}/{machineid}/{userid}](#get-getregistrationmachineusermappinghistoryeff_dtimesregistrationcenteridmachineiduserid)
 * [GET /getlocspecificregistrationcenters/{hierarchylevel}/{textvalue}/{languagecode}](#get-getlocspecificregistrationcentershierarchyleveltextvaluelanguagecode)
-* [GET /registrationcenters/search](#get-registrationcenters)
+* [POST/registrationcenters/search](#get-registrationcenters)
 
 
 # POST /registrationcenters
