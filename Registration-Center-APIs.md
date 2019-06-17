@@ -1426,25 +1426,15 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-name|Yes|Name of the registration center| | 
-centertypecode|Yes|Code of the center type| | 
-addressline1|No|Line 1 of the address| | 
-addressline2|No|Line 2 of the address| | 
-addressline3|No|Line 3 of the address| | 
-locationcode|Yes|Code of the location of the registration center| | 
-longitude|Yes|Longitude of the registration center| | 
-latitude|Yes|Latitude of the registration center| | 
-contactphone|Yes|Contact phone number of the registration center| |  
-workinghours|Yes|Working hours of the registration center| | 
-perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
-officestarttime|Yes|Office start time of the registration center| | 
-officeendtime|Yes|Office end time of the registration center| | 
-holidaylocationcode|Yes|Holiday location of the registration center| | 
-isactive|Yes|Is the registration center active| | 
-numberofkiosk|Yes|Number of Kiosk| | 
-contactperson|Yes|Contact person of the registration center| | 
-lunchstarttime|Yes|Lunch start time of the registration center| | 
-lunchendtime|Yes|Lunch end time of the registration center| | 
+filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in ["in","equals","between"]| -NA- |
+value|No|Value or id selected in the filter by the end user| -NA- |
+fromName|No|If the type is "between", this field represents the JSON name of the from field| -NA- |
+fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
+toName|No|If the type is "between", this field represents the JSON name of the to field| -NA- |
+toValue|No|If the type is "between", this field is the value of the toName| -NA- |
+ 
 
 
 ### Example Request
@@ -1452,23 +1442,20 @@ lunchendtime|Yes|Lunch end time of the registration center| |
 {
 	"id": "string",
 	"metadata": {},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string"
 	"request": {
-		"filterType": [{
-			"equals": [{
-				"columnName": "",
-				"columnValue": ""
-			}],
-			"in": [{
-				"columnName": "",
-				"columnValue": ""
-			}],
-			"between": [{
-				"from_columnName": "",
-				"to_columnValue": ""
-			}]
-		}],
-		"requesttime": "2018-12-10T06:12:52.994Z",
-		"version": "string"
+		"filters" : [
+			{
+				"columnName": ""  
+				"type": "in"  
+				"value": "",  
+				"fromName": ""  
+				"fromValue": ""  
+				"toName":"",  
+				"toValue": ""  
+			}
+		]
 	}
 }
 ```
