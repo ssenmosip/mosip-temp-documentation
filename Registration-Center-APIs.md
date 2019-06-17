@@ -42,7 +42,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-registrationcentername|Yes|Name of the registration center| | 
+name|Yes|Name of the registration center| | 
 centertypecode|Yes|Code of the center type| | 
 addressline1|No|Line 1 of the address| | 
 addressline2|No|Line 2 of the address| | 
@@ -105,13 +105,13 @@ lunchendtime|Yes|Lunch end time of the registration center| |
   "errors": null,
   "response": {
 	        "id":"string",
-                "registrationcentername":"string",
+                "name":"string",
                 "status":"string",
                 "message":"string"
              }
 }
 ```
-# PUT/registrationcenters
+# PUT /registrationcenters
 Master data is required across the platform. 
 
 This service will update the list of Registration Centers which are used in the MOSIP platform. 
@@ -129,7 +129,7 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-registrationcentername|Yes|Name of the registration center| | 
+name|Yes|Name of the registration center| | 
 centertypecode|Yes|Code of the center type| | 
 addressline1|No|Line 1 of the address| | 
 addressline2|No|Line 2 of the address| | 
@@ -192,7 +192,7 @@ lunchendtime|Yes|Lunch end time of the registration center| |
   "errors": null,
   "response": {
 	        "id":"string",
-                "registrationcentername":"string",
+                "name":"string",
                 "status":"string",
                 "message":"string"
              }
