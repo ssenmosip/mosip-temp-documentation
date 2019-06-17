@@ -1449,37 +1449,27 @@ lunchendtime|Yes|Lunch end time of the registration center| |
 
 ### Example Request
 ```JSON
-{  
-	"id":"string",
-	"metadata":{  
-
-	},
-	"request":{  
-		"addressLine1":"string",
-		"addressLine2":"string",
-		"addressLine3":"string",
-		"centerEndTime":"HH:mm:ss",
-		"centerStartTime":"HH:mm:ss",
-		"centerTypeCode":"string",
-		"contactPerson":"string",
-		"contactPhone":"string",
-		"holidayLocationCode":"string",
-		"id":"string",
-		"isActive":true,
-		"langCode":"string",
-		"latitude":"string",
-		"locationCode":"string",
-		"longitude":"string",
-		"lunchEndTime":"HH:mm:ss",
-		"lunchStartTime":"HH:mm:ss",
-		"name":"string",
-		"numberOfKiosks":0,
-		"perKioskProcessTime":"HH:mm:ss",
-		"timeZone":"string",
-		"workingHours":"string"
-	},
-	"requesttime":"2018-12-10T06:12:52.994Z",
-	"version":"string"
+{
+	"id": "string",
+	"metadata": {},
+	"request": {
+		"filterType": [{
+			"equals": [{
+				"columnName": "",
+				"columnValue": ""
+			}],
+			"in": [{
+				"columnName": "",
+				"columnValue": ""
+			}],
+			"between": [{
+				"from_columnName": "",
+				"to_columnValue": ""
+			}]
+		}],
+		"requesttime": "2018-12-10T06:12:52.994Z",
+		"version": "string"
+	}
 }
 ```
 
