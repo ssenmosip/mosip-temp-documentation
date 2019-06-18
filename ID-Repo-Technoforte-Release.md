@@ -12,5 +12,4 @@
 |6.|ID Repo|Functional Requirement Specification|[Platform Documentation-Section 2.9](https://github.com/mosip/mosip/wiki/Platform-Documentation#39-id-repository-)|WIP|
 |7.|ID Repo|Tested Code||WIP|
 |8.|ID Repo|Test Cases||WIP|
-|9.|ID Repo|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration%20Client/Mindmaps)|
-|10.|ID Repo Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
+|9.|ID Repo|Mindmaps||WIP|
