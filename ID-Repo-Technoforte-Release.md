@@ -11,6 +11,6 @@
 |5.|ID Repo|Code Drop|[Tag: 0.12.8](/mosip/mosip/releases/tag/0.12.8)||
 |6.|ID Repo|Functional Requirement Specification|[Platform Documentation-Section 2.9](https://github.com/mosip/mosip/wiki/Platform-Documentation#39-id-repository-)|WIP|
 |7.|ID Repo|Tested Code||WIP|
-|8.|ID Repo|Test Cases|[Click to view](//mosipid.atlassian.net/projects/MOS?version.id=10016&cycle.id=3ecb8208-a6f8-4ce0-9c07-1b87e1842e97&selectedItem=com.thed.zephyr.je__project-centric-view-tests-page&testsTab=test-cycles-tab)||
+|8.|ID Repo|Test Cases||WIP|
 |9.|ID Repo|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration%20Client/Mindmaps)|
 |10.|ID Repo Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
