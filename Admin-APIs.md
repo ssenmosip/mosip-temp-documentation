@@ -3,7 +3,7 @@
 * [Account Management](#account-management)
 * [User Management](#user-management)
 * [UIN Services](#uin-services)
-* [Entity spec](#entity-spec)
+* [Entity UI Specifications](#entity-ui-specifications)
 
 # Login
 
@@ -1357,10 +1357,6 @@ Error Responses
 
 ```
 
-
-
-* [Entity UI Specifications](#entityui-specs)
-
 # Entity UI Specifications
 
 * [GET /entity](#get-entityUI)
@@ -1424,7 +1420,6 @@ timeStamp |Yes|Date-time  in UTC ISO-8601| 2007-12-03T10:15:30Z
 			"actionType":"redirect",
 			"actionURL":"string",
 			"redirectURL":"string",
-			"parameters":["string":"string"],
 			"show-in":"button",
 			"onRowSelect":"string",
 			"validationCallBackMethod":""
