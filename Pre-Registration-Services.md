@@ -3138,7 +3138,8 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date|when the date is not current date 
 PRG_TRL_APP_008|Unsupported language|If langCode is other than ara,eng and fra
 PRG_TRL_APP_002|Incorrect mandatory Fields|If any of the request is null
 
