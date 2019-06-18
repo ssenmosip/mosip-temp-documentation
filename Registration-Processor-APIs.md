@@ -590,7 +590,7 @@ FileRequestDto|Yes|Dto containing registration id and file name|
 
 ```JSON
 {
-  "id" : "mosip.manual.verification.biometric",
+  "id" : "mosip.manual.verification.packetmetainfo",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : {
