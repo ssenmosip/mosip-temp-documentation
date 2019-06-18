@@ -44,8 +44,8 @@
 When a registration officer or supervisor is onboarded  in an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
 #### A. Map registration officers and supervisors to a client machine.
 Initially, a machine will have no operators on boarded. The first registration officer or supervisor will be on-boarded by an administrator. Thereafter this registration officer or supervisor can on-board other operators.
-The system allows the following to occur for a successful on-boarding of a operator: 
-1. The system will on-board a operator using the operator’s biometrics.
+The system allows the following to occur for a successful on-boarding of an operator: 
+1. The system will on-board an operator using the operator’s biometrics.
    * The quality threshold of  the biometrics is predefined.
 1. The system will only allow to onboard an active operator. 
 1. Operator onboarding is allowed only when the machine is online. 
@@ -114,9 +114,9 @@ If the client machine is online and the supervisor is mapped to the client machi
 
 In MOSIP system, an operator can have multiple role. When an operator is registered on admin portal, the system allows an operator to assign multiple roles.
 
-MOSIP system has a role based Privileges of a operator.
+MOSIP system has a role based Privileges of an operator.
 
-[**Please refer Git for more details on the roles and Privileges of a operator**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
+[**Please refer Git for more details on the roles and Privileges of an operator**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
    * On-board operators
@@ -166,7 +166,7 @@ When a registration officer or supervisor opts to logout, the system allows them
 ### 2.1 Master Data Sync [**[↑]**](#table-of-content)
 
 The Registration Client can work both in online and offline mode. When the client machine is switching from offline to online mode, the locally saved data will be synced with the server.
-The data sync can happen through an automated process at a set frequency or a operator can manually initiate a sync.
+The data sync can happen through an automated process at a set frequency or an operator can manually initiate a sync.
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
@@ -174,7 +174,7 @@ Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Mas
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
 Please refer [**Git**]() for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
-Based on the configuration (turn on or turn off), the system allows a operator to capture applicable biometrics, authenticates, and completes the registration. 
+Based on the configuration (turn on or turn off), the system allows an operator to capture applicable biometrics, authenticates, and completes the registration. 
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
 
@@ -186,7 +186,7 @@ Based on the configuration (turn on or turn off), the system allows a operator t
 4. Client displays a success or failure message on the UI
 5. Operator on-boarding data such as User ID, USB device ID and Computer ID will be synced
 6. Alternatively, if the client machine is not online
-   * Displays an error message and does not sync when a operator tries to initiate a manual sync.
+   * Displays an error message and does not sync when an operator tries to initiate a manual sync.
    * Does not sync when an automatic sync is triggered.
 
 ### 2.4 Packet Status Sync [**[↑]**](#table-of-content)
@@ -779,7 +779,7 @@ When a registration officer or supervisor opts to download setup kit and selects
 1. System captures and stores the download transaction details for audit purpose (except PII data). 
 
 #### B. Update the client software from the server
-If a software update is available, then the system will provide an option to supervisor or registration officer to update either immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate a operator to update the software.
+If a software update is available, then the system will provide an option to supervisor or registration officer to update either immediately or later. If the maximum number of days without software update has been exceeded, then the system will mandate an operator to update the software.
 
 The system follows the following steps during the update process:
 1. When the client is online, the system automatically checks for updates if available.
