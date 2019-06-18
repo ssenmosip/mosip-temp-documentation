@@ -107,7 +107,7 @@ If the client machine is online and the supervisor is mapped to the client machi
    * Alternatively, allows the user to change entered username.
    * Alternatively, allows the user to request for resending the OTP.
 5. Validates that the OTP submitted matches with the one that was generated and is submitted within its validity period.
-6. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+6. Validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during data sync.
 7. Validates that the user has a role of registration officer or supervisor.
 8. On successful validation of all conditions above, displays the logged in screen to the user
 
