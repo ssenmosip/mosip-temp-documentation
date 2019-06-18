@@ -56,7 +56,7 @@ The system allows the following to occur for a successful on-boarding of a user:
 
 #### B. Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission
 
-The system captures the required biometrics details of user at the time of onboarding, generates the score for each captured biometrics, and compares the captured biometrics with configured threshold .Retains the biometrics having highest score. 
+The system captures the required biometrics details of user at the time of onboarding, generates the score for each captured biometrics, and compares the captured biometrics with configured threshold. Retains the biometrics having highest score. 
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registrtaion-on-board-user.md)
 
