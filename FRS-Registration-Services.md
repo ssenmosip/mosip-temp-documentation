@@ -92,8 +92,8 @@ The mode of login is configured by admin, if the login is configured as Password
 
 1. System allows the user to provide their credential and submit.
 1. System validates that the username belongs to an on boarded registration officer or supervisor on that client.
-1. System validates that the password matches with the user’s password stored locally. The local password will be fetched from the server during sync.
-1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during sync.
+1. System validates that the password matches with the user’s password stored locally. The local password will be fetched from the server during data sync.
+1. System validates that the user is not blacklisted. The blacklisted user details will be fetched from the server during data sync.
 1. System validates that the user has a role of registration officer or supervisor. 
 
 **(ii) OTP based login**
