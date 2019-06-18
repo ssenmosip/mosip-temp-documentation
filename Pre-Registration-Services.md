@@ -2830,6 +2830,7 @@ toDate |Yes|To Date | 2019-06-15
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
+PRG_BOOK_RCI_009|Invalid date time format|if from date or to date is invalid
 
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id.
