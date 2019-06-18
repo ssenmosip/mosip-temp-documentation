@@ -19,7 +19,7 @@
 
 
 # Resident Services
-By using Resident Service Portal, individual can update some specific demographics data, which were provided at the time of registration of Unique Identity Number (UIN). Government provides UIN to each resident of the country to track the individual’s fundamental privileges and other benefits the individual is associated.
+By using Resident Service, individual can update some specific demographics data, which were provided at the time of registration of Unique Identity Number (UIN). Government provides Unique Identity Number (UIN) to each resident of the country. Based on country, the UIN will be used as an ID card.   
 
 ## 1. Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 
