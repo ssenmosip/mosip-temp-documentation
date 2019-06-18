@@ -3,7 +3,7 @@
 * [Account Management](#account-management)
 * [User Management](#user-management)
 * [UIN Services](#uin-services)
-* [Entity UI Specifications](#entity-ui-specifications)
+* [Entity Specifications](#entity-specifications)
 
 # Login
 
@@ -1357,11 +1357,11 @@ Error Responses
 
 ```
 
-# Entity UI Specifications
+# Entity Specifications
 
-* [GET /entity](#get-entityUI)
+* [GET /entityspec](#get-entityspec)
 
-### GET /entity
+### GET /entityspec
 
 This service will give the entity configuration to be displayed in the tables.This service will include the action buttons, pagination details, display columns and ellipsis configuration details.
 
