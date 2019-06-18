@@ -74,3 +74,12 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| |  
 
 
+|**Functionality:**| TPM Public Key Sync |   
+|:------:|-----|  
+|**Technical Detail:**| This service will be executed during initial set-up of registration client application. This service gets the Public Part of the Key used for signing from the TPM. Uploads this public key along with the machine name to the server. This service returns the key index which will be used for Master Sync Service|  
+|**Main Service class and method:**| TPMPublicKeySyncService.syncTPMPublicKey()|  
+|**Input Parameter:**|  NA |  
+|**Auth:**| TPM 2.0 is required for this service |  
+|**External Connectivity:**| TPM, Web Service |
+
+
