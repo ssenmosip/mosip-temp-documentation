@@ -50,9 +50,8 @@ The system allows the following to occur for a successful on-boarding of a user:
 1. The system will only allow to onboard an active user. 
 1. User onboarding is allowed only when the machine is online. 
 1. The system will not allow to onboard a blacklisted user. 
-1. The system will not allow to onboard an inactive user. 
 1. An onboarded user will be able to take the machine offline and login to use the machine in offline mode.
-1. The system allows to onboard a multiple users to the machine.
+1. The system allows to onboard a multiple user to the machine.
 
 #### B. Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission
 
@@ -175,7 +174,7 @@ Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Mas
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
-Please refer [**Git**]() for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a [**new registration**](#41-new-registration-).
+Please refer [**Git**]() for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
 Based on the configuration (turn on or turn off), the system allows a user to capture applicable biometrics, authenticates, and completes the registration. 
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
@@ -300,7 +299,6 @@ If the registration officer selects the desired option, indicates that the indiv
 #### F. Register a non-pre-registered individual 
 When a registration officer starts a new registration for a non-pre-registered individual (an individual who does not have PRID), the registration officer will capture the demographic and biometric details to register the individuals.
 
-If registration officer determines that the non-pre-registered individual’s date of birth is less than 5 years old, then refer to the feature related to [**Register an individual who is less than 5 years old**](#d-register-an-individual-who-is-less-than-5-years-old).
 #### G. Enter the demographic details for registration
 
 **(i) The Registration Officer opts to initiate a new registration**
@@ -319,12 +317,6 @@ If registration officer determines that the non-pre-registered individual’s da
 #### H. Copy address from the previous registration
 When the address details of the previous registration and the current registration is same, the system allows the registration officer to copy the same address as previous registration. This feature helps the registration officer to save the time while registering the individual who has the same address as previous registration.
 
-Upon receiving a request to copy address details from the previous registration to the current registration, the system performs the following steps:
-1. Fetches the address details such as city, state or province, country and postal code of the previous registration from the cache.
-   * If the cache does not contain any of those address details, responds with an error message. 
-2. The address details will be pre-populated in the respective fields for the current registration and will be further editable. 
-1. This feature is applicable to new registrations, pre-registered and non-pre-registered applicants but does not applies to registration correction such as UIN update, lost UIN and deactivate UIN.
-1. System captures and stores the transaction details for audit purpose (except PII data).
 #### I. Scan and upload of POI, POA and POR
 1. The registration officer can input three types of documents- POA, POI and POR while registering an individual
    * POA refers to Proof of Address, POI is Proof of Identity and POR is Proof of Relationship
