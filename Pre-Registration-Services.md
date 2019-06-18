@@ -2124,10 +2124,15 @@ request.toDate |Yes|To date of the application|2019-02-12
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
 PRG_DATA_SYNC_009|registration center id is invalid|Empty registration center Id
-PRG_CORE_REQ_013|Request date should be current date|Invalid or empty from date or to date
+PRG_CORE_REQ_013|Request date should be current date|I
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 PRG_DATA_SYNC_016|booking data not found|when rest service to booking service fails
+PRG_DATA_SYNC_010|requested date is invalid|If from date or to date is invalid
 
 ### POST /sync/consumedPreRegIds
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
@@ -2202,7 +2207,10 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_CORE_REQ_013|Request date should be current date|Invalid or empty requesttime
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 
 ### GET /sync/{preRegistrationId}
