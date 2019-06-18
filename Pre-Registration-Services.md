@@ -3042,7 +3042,7 @@ langCode| Yes| language code whatever user choose while login|eng
    "response": null,
    "errors":[ 
          {
-            "errorCode": "PRG_ACK_001",
+            "errorCode": "PRG_PAM_ACK_001",
             "message": "Mobile number or Email Id is missing"
          }
     ]
@@ -3053,8 +3053,12 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
-PRG_ACK_002|Incorrect mandatory Fields|	If any of the request is null
+PRG_PAM_CORE_003|Request timestamp is invalid|Empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date|If request date is other than current date
+PRG_PAM_ACK_002|Mandatory fields are missing|If isBatch field is null
+PRG_PAM_ACK_008|Full name is not valid|If name field is invalid or empty 
+PRG_PAM_ACK_009|Appointment date is not valid|If appointmentDate field is invalid or empty 
+PRG_PAM_ACK_010|Appointment time is not valid|If appointmentTime field is invalid or empty 
 PRG_PAM_APP_005|No data found for the requested pre-registration id|If additionalRecipient is false and there will be no demographic data for requested pre-registration id
 
 # Transliteration Service (Public)
