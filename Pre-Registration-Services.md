@@ -710,7 +710,6 @@ KER-IOV-004|Invalid input parameter - identity/city/{*}/value|If value is empty 
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/language|If language code is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/value|If value is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
 KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid
-KER-IOV-004|Invalid input parameter - identity/CNIENumber|If CNIENumber is empty or invalid
 
 ### PUT /applications/{preRegistrationId}
 This request is used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
@@ -1064,7 +1063,6 @@ KER-IOV-004|Invalid input parameter - identity/city/{*}/value|If value is empty 
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/language|If language code is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/value|If value is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
 KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid
-KER-IOV-004|Invalid input parameter - identity/CNIENumber|If CNIENumber is empty or invalid
 
 ### GET /applications/{preRegistrationId}
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
@@ -1525,7 +1523,6 @@ pageIndex |Yes|page index of the application|0(By default)
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_APP_016|no record found for the requested page index|if there is no more demographic data found for the requested page index
-PRG_PAM_APP_019|Invalid page index value|If page index value is invalid
 PRG_PAM_APP_015|Page size must be greater than zero|if page size is invalid or if it is defined 0 or less than 0 in config
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failed|decryption of demographic data failed
