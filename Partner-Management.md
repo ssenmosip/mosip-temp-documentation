@@ -11,43 +11,59 @@ Partners will utilize MOSIP’s resigned digital certificate from Partner Manage
 Please refer to the [**process flow**](Process-view#id-authentication) of Partner Management
 
 ## Architecturally Significant Use Cases
-**MOSIP Infrastructure Service Provider (MISP) Management**
-* IDA Admin will be able to register MISP with following details - MISP Name, MISP Contact Name, MISP Phone, MISP emailId. Partner management will do basic validations on the data submitted
-* Partner Management module will utilize Kernel services (ID Generation Service) for generating MISP License Key and MISP ID. Partner Management module will be able to map MISP license key with MISP ID and store the mapping in Partner Management module database. License key is associted with expiration date and status (Active, Expired, Inactive/Blocked).
-* IDA Admin will be able to update MISP details - MISP Name, MISP Contact Name, MISP Phone, MISP emailId
-* IDA Admin will be able to generate block/deactivate MISP request, further to that MSIP will not be able to do any transaction in Partner Management module
-* IDA Admin will be able to generate unblock/activate MISP request, further to that MISP will be able to do all transactions in Partner Management
-* IDA Admin will be able to generate new lisence key request for MISP, in case expiration of existing MISP license key
-* Partner Management module will utilize Kernel-IAM Module service for Authentication and Authorization
-![MOSIP Infrastructure Service Provider Management](_images/arch_diagrams/PMMISPMgmt.png)
+**User Management**
+* MOSIP admin would be able to create and manage(update,view) Partner Management users viz- MISP, Partner Manager, Policy Manager. Role authorization and access control for these users would be done at Kernel's Identity and Access Management (IAM) module
+* MOSIP admin would be able to issue and map license key to MISP. MOSIP admin would be able to list MISPs and would be able to activate/de-activate MISP, as well as MISP license key for a particular MISP
+* MOSIP admin would be able to map users (Policy Manager, Partner Manager) to specific policy group. (Policy groups are country specific, that are customize and seeded from backend)
+* MOSIP admin would be able to activate/de-activate policy manager,partner manager
+![Partner Management User Management](_images/arch_diagrams/PartnerManagement_User_Mgmt.png)
 
-**Partner Management**
-* MISP will be able to register partner/s with following details - Partner Name, Partner Contact Name, Partner Phone, Partner emailId. Partner management will do basic validations on the data submitted.
-* Partner Management module will utilize Kernel services (ID Generation Service) for generating Partner ID
-* MISP will be able to update partner/s with following details - Partner Name, Partner Contact Name, Partner Phone, Partner
-* MISP will be able retrieve all policy types avaialble, before setting policies for Partners
-* MISP will be able to generate policy mapping request for specified partner/s. A partner will be mapped to a single policy.
-* MISP will be able to generate block/deactivate partner request, further to that partner will not be able to do any transaction in Partner Management module
-* MISP will be able to generate unblock/activate partner request, further approval to that partner/s will be able to do all transactions in Partner Management module, as per applicable policy for the partner
-* Partner Management module will be able to share partner policy details, based on requested partner ID for ID Authentication module
-![MOSIP Infrastructure Service Provider (MISP) Management](_images/arch_diagrams/PMPartnerManagement.png)
+**MOSIP Infrastructure Service Provider (MISP)**
+* MISP will be managing whitelisted IPs at infrastructure security level and every authentication request is intercepted by MISP for validation of request from authorized partners. MISP will append MISP license key with every partner authentication request, that would be taken care at proxy/gateway infrastructure level
+* MISP will receive license key from Partner Management module. MISP would be able to generate new license key request and receive new license key after expiration of existing license key
+* MISP would be able to generate usage statistics report for billing purpose (out of scope for first release)
+![MOSIP Infrastructure Service Provider (MISP) Management](_images/arch_diagrams/PartnerManagement_MISP.png)
 
-**Digital Certificate Management**
-* Partners will be able to procure digital certificate from recognised Certification Authority (CA)
-* Partners will be able to share/upload digital certificate to Partner Management module for certificate resigning.
-Partner Management module will utilize Kernel services for certificate resigning. Resigned digital certificates are stored at Kernel, Partner Management module will map resigned certificate ID with partner ID
-* Partners will be able to get resigned digital certificate, post sharing digital certificate, whenever required
-* Based on certificate expiration property, partners will be able to share/upload new digital certificate to Partner Management module for certificate resigning. Partner Management module will utilize Kernel services for certificate resigning. Resigned digital certificates are stored at Kernel, Partner Management module will map resigned certificate ID with partner ID
-* ID Authentication module will be able to access Partner Public Key from Partner Management module. Partner Management module will utilize Kernel services to get Partner provided public keys
-* ID Authentication module will be able to utilize Partner Management module for Partner digital certificate validation. Partner Management module will utilize Kernel services for validating partner digital certificates
-* ID Authentication module will be able to utilize Partner Management module for validating partner and MISP mapping
+**Policy Manager**
+* Policy manager would be able to create policy for the policy group he belongs to
+* Policy manager would be able to activate and de-activate policy for his policy group. All associated PartnerAPIKeys for the policy would accordingly get impacted
+* Policy manager would be able to update policy for his policy group. All associated PartnerAPIKeys for the policy would accordingly get impacted
+* Policy manager would be able to list all policies for his policy group
 
-**Key Management**
-* Partners will be able to share/upload partner public key with Partner Management module. Partner Management module / ID Authentication module will use this public key for encrypting response for partners
-* Partner public keys are stored in Kernel, refernece to public keys are maintained in Partner Management module
-* Based on Key rotation and expiration property, partners will be able to share/upload new public key with Partner Management module
-* Partners will be able to fetch Partner Management module public key, as and when required. This public key will be utilized by partners to send encrypted requests to ID Authentication module / Partner Management module 
-![Partner Management Key and Certificate Management](_images/arch_diagrams/PMKeyCertificateMgmt.png)
+![Partner Management Policy Manager](_images/arch_diagrams/PartnerManagement_PolicyManager.png)
+
+**Partner Manager**
+*  Partner manager would be able to list all partners for a policy group
+*  Partner manager would be able to activate/de-activate partners
+*  Partner manager would be able to approve / reject PartnerAPIKey request, as received from partner
+*  Partner manager would be able to issue PartnerAPIKey(s) to a specified partner for fulfilling specified use case(s) as requested in PartnerAPIKey request 
+*  Partner manager would be able to map PartnerAPIKey(s) to a specified partner
+*  Partner manager would be able to map PartnerAPIKey(s) to policy
+*  Partner Manager would be able to retrieve and update partner details for a specific PartnerAPIKey
+*  Partner manager would be able to issue new PartnerAPIKey(s) after expiration of existing PartnerAPIKey(s), and map the same to the partner
+*  Partner manager would be able to activate/de-activate PartnerAPIKey for a partner
+
+![Partner Management Partner Manager](_images/arch_diagrams/PartnerManagement_PartnerManager.png)
+
+**Partners**
+*  Partners would be able to do self registration in partner management module. Post successful registration, partners would be provided login credentials for further activities
+*  Using login credentials, Partners would be able to submit PartnerAPIKey request, track PartnerAPIKey request status, download PartnerAPIKey
+*  Partners would be able to download MOSIP signed digital certificate for signing request. Partner management would be able to validate validity of digital certificate
+*  Partners would be able to encrypt any request using MOSIP provided public key. Partner management module would be able to decrypt the request, using MOSIP secured private key
+*  Partners would be able to upload partner public keys to partner management module. Any response to partners would be encrypted using respective partner public keys
+![Partner Management Partner Manager](_images/arch_diagrams/PartnerManagement_Partners.png)
+
+**ID Authentication Services**
+* IDA would be able to validate digital certificate for all requests as received from partner, and would be able to decrypt all request using MOSIP secured private key
+* IDA would be able to download partner public keys from Partner Management module. IDA would be able to encrypt every response for partner using respective partner provided public keys
+* IDA would be able to validate PartnerAPIKey, as received from partner authentication request
+* IDA would be able to validate MISP License Key, as received from partner authentication request
+* IDA would be able to get partner policy details, post successful validation
+![Partner Management IDA services](_images/arch_diagrams/PartnerManagement_IDA_Services.png)
+
+## High Level Entity Relationships
+![Partner Management IDA services](_images/arch_diagrams/PartnerManagement_Entity_Relations.png)
+
 ## Logical View
 ![Partner Management Logical View](_images/arch_diagrams/PMLogicalDiagram.png)
 
