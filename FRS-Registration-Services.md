@@ -115,9 +115,9 @@ If the client machine is online and the supervisor is mapped to the client machi
 
 In MOSIP system, a user can have multiple role. When a user is registered on admin portal, the system allows a user to assign multiple roles.
 
-When a logged in user tries to access a feature on the Registration Client, the system determines if the requested feature is accessible to the role(s) mapped to the user.
-1. If yes, permits the user to access the requested feature.
-1. If no, displays an error message or hide the link to the feature as applicable. The UX design will drive whether to hide a link or display an error by clicking the link.
+MOSIP system has a role based Privileges of a user.
+
+[**Please refer Git for more details on the roles and Privileges of a user**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
    * On-board users
