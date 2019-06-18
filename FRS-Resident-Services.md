@@ -51,53 +51,54 @@ An individual can initiate a request to update the demographic data of his/her U
 An individual can track the status related to UIN updates based on a registration ID.An individual provides the Registration ID for which he/she wants to track the status of UIN updates. The system validates the provided Registration ID, checks for the registered mobile number/email ID, and triggers an OTP notification to the individual. The individual provides the OTP as received.The system validates the provided OTP, authenticates the individual, and provides the UIN updating status (Update statuses are configurable). During the validation of Registration ID and the mobile number/email ID, if the Registration ID is not found or the mobile number/email ID is not associated with the Registration ID, or the provided OTP is not correct, then the system triggers the appropriate error message.
 
 ## 8. View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
-An individual can view authentication- requests history for a specific UIN/VID. The system will fetch data for past 6 months record from current date or maximum 50 transactions (configurable). 
+An individual can view authentication- requests history for a specific UIN/VID. The system will fetch the record for past 6 months  from the current date or maximum 50 transactions (configurable). 
 
 Procedure to raise request to view the authentication history of the past:
 
-1. An individual provides the UIN/VID and security code which he/she wants to view.
-1. The system validates the provided UIN/VID and security code; checks for the registered mobile number/email ID, and 
+1. An individual provides his/her UIN/VID to view the authentication history.
+1. The system validates the provided UIN/VID, checks for the registered mobile number/email ID, and 
    triggers an OTP notification to the individual.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP, successfully authenticates the individual. 
-1. The system provides the history of authentication for all the authentication modalities.
+1. The system validates the provided OTP and authenticates the individual. 
+1. On successful authentication, the system provides the history of authentication for all the authentication modalities.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
-   UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
+   UIN/VID, or the provided OTP is not correct, then the system triggers the appropriate error message.
 
 ## 9. Lock/Unlock UIN [**[↑]**](#table-of-content)
+MOSIP has provided the facility to the individual to lock/unlock his/her authentication types temporarily to  put additional restriction of demographic or biometric data.
 
 ### A. Lock the UIN
 
-MOSIP allows an individual to lock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID. Only the locked authentication type(s) cannot be used for any authentication purpose.
+An individual can lock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with his/her UIN/VID. Only the locked authentication types cannot be used for any authentication purpose.
 
-The following procedure to be followed by an individual to lock the authentication type(s):
-1. An individual provides the UIN/VID for which he/she wants to lock the authentication type(s).
+The following procedure to be followed by an individual to lock the authentication types:
+1. An individual provides the UIN/VID for which he/she wants to lock the authentication types.
 1. The system validates the UIN/VID, checks for the registered mobile number/email ID, and triggers OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual.
-1. The system provides the individual with lock information related to authentication type(s).
-1. The individual will lock the authentication type(s), which he/she wishes.
-1. The system will disable the authentication type(s) as provided by the individual.
+1. The system validates the provided OTP and authenticates the individual.
+1. On successful authentication, the system provides the individual with lock information related to authentication types.
+1. The individual will lock the authentication types, which he/she wishes.
+1. The system will disable the authentication types as provided by the individual.
 1. The system will also trigger a confirmation notification on successful locking.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
-   UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
-
+   UIN/VID, or the provided OTP is not correct, then the system triggers the appropriate error message.
 ### B. Unlock the UIN
 
-MOSIP allows an individual to unlock the authentication type(s) (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID. Only the unlocked authentication type(s) of demographic and biometric (FP/Iris/Face/All) can be used for any required authentication purpose.
+An individual can unlock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with the UIN/VID. Only the unlocked authentication types of demographic and biometric (FP/Iris/Face/All) can be used for any required authentication purpose.
 
 The following procedure to be followed by an individual to unlock the authentication type(s):
 
-1. An individual provides the UIN/VID for which he/she wants to unlock the authentication type(s).
+1. An individual provides his/her UIN/VID  to unlock the authentication types.
 1. The system validates the UIN/VID and checks for the registered mobile number/email ID and triggers OTP notification.
 1. The individual provides the OTP as received.
-1. The system validates the provided OTP and successfully authenticates the individual.
-1. The system provides the individual with unlock information related to authentication type(s).
-1. The individual will unlock the authentication type(s), which he/she requires.
-1. The system will enable the authentication type(s) as provided by the individual.
-1. The system will also trigger a confirmation notification on successful unlocking.
+1. The system validates the provided OTP and authenticates the individual.
+1. On successful authentication, The system provides the individual with unlock information related to authentication types.
+1. The individual will unlock the authentication types, which he/she wishes.
+1. The system will lock the authentication types as provided by the individual.
+Additionally, the system triggers an acknowledgement  notification of UIN update request to the registered mobile number/email ID, The system provides an acknowledgement notification
+1. Additionally, the system triggers a confirmation notification on successful unlocking the authentication types.
 1. During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the 
-   UIN/VID, or the provided OTP is not correct, then the system triggers a respective error notification.
+   UIN/VID, or the provided OTP is not correct, then the system triggers the appropriate error message.
 
 ## 10. VID Service [**[↑]**](#table-of-content)
 
