@@ -66,6 +66,7 @@
 |-----------------|----------------------
 Transliteration|English-Arabic/ French Transliteration  won't work because of non-availability of kernel library. Vice versa also won't work.
 Bio-API|Integration with Bio-API for user-onboarding.
-MDM | Bio device Integration. 
+Centre remapping
+Individual sync related jobs (high level sync is working fine) 
 TPM | Secure with TPM public key.  
 
