@@ -709,7 +709,8 @@ KER-IOV-004|Invalid input parameter - identity/city/{*}/language|If language cod
 KER-IOV-004|Invalid input parameter - identity/city/{*}/value|If value is empty or invalid in the specified position(*) inside city attribute
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/language|If language code is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/value|If value is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
-KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid 
+KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid
+KER-IOV-004|Invalid input parameter - identity/CNIENumber|If CNIENumber is empty or invalid
 
 ### PUT /applications/{preRegistrationId}
 This request is used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
@@ -1062,8 +1063,8 @@ KER-IOV-004|Invalid input parameter - identity/city/{*}/language|If language cod
 KER-IOV-004|Invalid input parameter - identity/city/{*}/value|If value is empty or invalid in the specified position(*) inside city attribute
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/language|If language code is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
 KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/value|If value is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
-KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid 
-
+KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid
+KER-IOV-004|Invalid input parameter - identity/CNIENumber|If CNIENumber is empty or invalid
 
 ### GET /applications/{preRegistrationId}
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
@@ -1296,7 +1297,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 
 ### GET /applications
-This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id from authorization token.
+This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code, Document details(Only for Proof Of Address), Appointment details and Postal Code by user id from authorization token.
 
 ### Without pagination
 if pageIndex parameter is not passed as query param, then all the demographic data for the user will be retrieved without applying pagination mechanism.
@@ -1318,40 +1319,63 @@ Requires Authentication | Yes
 {
     "id": "mosip.pre-registration.demographic.retrieve.basic",
     "version": "1.0",
-    "responsetime": "2019-05-20T07:10:24.850Z",
+    "responsetime": "2019-06-18T11:46:21.774Z",
     "response": {
         "basicDetails": [
             {
-                "preRegistrationId": "32042841521591",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Rakesh P"
+                "preRegistrationId": "42946537963829",
+                "statusCode": "Booked",
+                "bookingMetadata": {
+                    "registration_center_id": "10001",
+                    "appointment_date": "2019-06-22",
+                    "time_slot_from": "15:30",
+                    "time_slot_to": "15:45"
+                },
+                "demographicMetadata": {
+                    "proofOfAddress": {
+                        "docCatCode": "POA",
+                        "docTypCode": "RNC",
+                        "docName": "Doc.pdf",
+                        "langCode": "fra",
+                        "documentId": "d4585c1e-91b1-11e9-a605-eb637a690b50"
                     },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
-                "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                    "postalCode": "14022",
+                    "fullName": [
+                        {
+                            "language": "fra",
+                            "value": "jagadishwari"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+                        }
+                    ]
+                }
             },
             {
-                "preRegistrationId": "38469435683243",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Shashank"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
+                "preRegistrationId": "63418297368795",
                 "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                "bookingMetadata": null,
+                "demographicMetadata": {
+                    "proofOfAddress": {
+                        "docCatCode": "POA",
+                        "docTypCode": "RNC",
+                        "docName": "Doc.pdf",
+                        "langCode": "fra",
+                        "documentId": "91a1e0ac-91af-11e9-a605-d9ae0e3774a9"
+                    },
+                    "postalCode": "14022",
+                    "fullName": [
+                        {
+                            "language": "fra",
+                            "value": "shashank"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+                        }
+                    ]
+                }
             }
         ],
         "totalRecords": "2",
@@ -1364,7 +1388,7 @@ Requires Authentication | Yes
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No record found for the requested user id.
+###### Description: Record not found for the requested user id or If status code is consumed.
 ```JSON
 {
     "id": "mosip.pre-registration.demographic.retrieve.basic",
@@ -1389,7 +1413,7 @@ PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 ### With pagination
 if pageIndex parameter is passed as query param, then all the demographic data for the user will be retrieved in terms of pages.
 pageSize parameter is configurable.
-pageIndex is by default 0 if no value is passed.
+pageIndex is by default 0 if no value is passed for query param.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/applications?pageIndex=0</div>
@@ -1403,7 +1427,7 @@ Requires Authentication | Yes
 #### Request Query Parameter
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-pageIndex |Yes|page index of the application|0
+pageIndex |Yes|page index of the application|0(By default)
 
 #### Responses:
 ##### Success Response:
@@ -1413,40 +1437,63 @@ pageIndex |Yes|page index of the application|0
 {
     "id": "mosip.pre-registration.demographic.retrieve.basic",
     "version": "1.0",
-    "responsetime": "2019-05-20T07:14:18.868Z",
+    "responsetime": "2019-06-18T11:46:52.633Z",
     "response": {
         "basicDetails": [
             {
-                "preRegistrationId": "38469435683243",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Shashank"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
+                "preRegistrationId": "63418297368795",
                 "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                "bookingMetadata": null,
+                "demographicMetadata": {
+                    "proofOfAddress": {
+                        "docCatCode": "POA",
+                        "docTypCode": "RNC",
+                        "docName": "Doc.pdf",
+                        "langCode": "fra",
+                        "documentId": "91a1e0ac-91af-11e9-a605-d9ae0e3774a9"
+                    },
+                    "postalCode": "14022",
+                    "fullName": [
+                        {
+                            "language": "fra",
+                            "value": "shashank"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+                        }
+                    ]
+                }
             },
             {
-                "preRegistrationId": "32042841521591",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Rakesh P"
+                "preRegistrationId": "42946537963829",
+                "statusCode": "Booked",
+                "bookingMetadata": {
+                    "registration_center_id": "10001",
+                    "appointment_date": "2019-06-22",
+                    "time_slot_from": "15:30",
+                    "time_slot_to": "15:45"
+                },
+                "demographicMetadata": {
+                    "proofOfAddress": {
+                        "docCatCode": "POA",
+                        "docTypCode": "RNC",
+                        "docName": "Doc.pdf",
+                        "langCode": "fra",
+                        "documentId": "d4585c1e-91b1-11e9-a605-eb637a690b50"
                     },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
-                "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                    "postalCode": "14022",
+                    "fullName": [
+                        {
+                            "language": "fra",
+                            "value": "jagadishwari"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+                        }
+                    ]
+                }
             }
         ],
         "totalRecords": "2",
@@ -1477,11 +1524,13 @@ pageIndex |Yes|page index of the application|0
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_APP_016|no record found for the requested page index|if no demographic data found for the requested page index
-PRG_PAM_APP_015|Page size must be greater than zero|if page size is defined 0 or less than 0 in config
+PRG_PAM_APP_016|no record found for the requested page index|if there is no more demographic data found for the requested page index
+PRG_PAM_APP_019|Invalid page index value|If page index value is invalid
+PRG_PAM_APP_015|Page size must be greater than zero|if page size is invalid or if it is defined 0 or less than 0 in config
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failed|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+PRG_PAM_APP_018|Failed to read the identity json from the server|If the configured identity json file is unreachable
 
 ### DELETE /applications/{preRegistrationId}
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
