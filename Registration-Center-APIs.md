@@ -1441,7 +1441,13 @@ fromName|No|If the type is "between", this field represents the JSON name of the
 fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
 toName|No|If the type is "between", this field represents the JSON name of the to field| -NA- |
 toValue|No|If the type is "between", this field is the value of the toName| -NA- |
- 
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+sort|No|This is an array of the sort field and type| | 
+sortfield| The field on which the sort is applied | | modifiedDate
+sorttype| This should be either of ['ASC','DESC']| | ASC
+pagination|The pagination parameter object| |
+pageStart|This is the start index | 0 | 10
+pageFetch| This is the amount of records to be fetched | 10 | 10
 
 
 ### Example Request
@@ -1460,9 +1466,21 @@ toValue|No|If the type is "between", this field is the value of the toName| -NA-
 				"fromName": "",
 				"fromValue": "",  
 				"toName":"",  
-				"toValue": ""  
+				"toValue": "",
+				"languageCode":""
 			}
-		]
+		],
+		"sort":[
+			{
+				"sortfield":"string",
+				"sorttype":"ASC"
+			}
+		],
+		"pagination":{
+			"pageStart":"number",
+			"pageFetch":"number"
+		}
+		
 	}
 }
 ```
