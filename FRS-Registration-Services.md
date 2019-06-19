@@ -32,7 +32,6 @@
   * [7.2 Offline upload (Packet Exporter)](#72-offline-upload-packet-exporter-) _(REG_FR_7.2)_
 - [8. Analytics and Audit Logs](#8-analytics-and-audit-logs-) _(REG_FR_8)_
 - [9. Data Security](#9-data-security-)
-  * [9.1 Key Management](#91-key-management-) _(REG_FR_9.1)_
 - [10. Software Version Upgrade](#10-software-version-upgrade-) _(REG_FR_10)_
 - [11. Clean up](#11-clean-up-)
   * [11.1 Data retention policies](#111-data-retention-policies-) _(REG_FR_11.1)_
@@ -749,10 +748,6 @@ MOSIP performs the following:
    * This process will ensure that the request to the server has been dispatched from a registered or trusted Registration Client machine
 2. Validates the signature against the actual data using the Public Key or Public Part. The application does not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from a registered or trusted Registration Client machine
 1. Encrypts and decrypts the data using RSA algorithm in TPM
-
-### 9.1 Key Management [**[↑]**](#table-of-content)
-
-The data captured and stored in to the client machine during different process (such as new registration, update UIN, lost UIN, pre-registration) will be encrypted with the different set of keys. The keys have a different set of expiry policies, based on which it will be refreshed. The keys are securely managed into the database.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-key-management.md)
 
