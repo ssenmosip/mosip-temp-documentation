@@ -49,7 +49,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - If TPM enabled, logged in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process, should contains all the required tables along with the data for few tables.    
    - Through sync process the data would be updated into the local database from server.  
-   - All the required **REST services** should be installed and the respective **url should be configured in 'spring'** configuration file.  
+   - All the required [dependent services](#dependent-services-) should be installed, up and running before running the client application.    
         
 ## Anti Virus - ClamAV Setup and Configuration in local machine: 
 
