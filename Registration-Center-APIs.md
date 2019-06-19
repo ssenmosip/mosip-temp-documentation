@@ -12,6 +12,10 @@ This section details about the service APIs in the Registration center modules
 
 * [Registration Center - Search API](#post-registrationcenterssearch)
 
+* [Registration Center - Filter values](#registration-center-filter-values)
+
+
+
 # Registration Centers API
 
 * [POST /registrationcenters](#post-registrationcenters)
@@ -1274,8 +1278,6 @@ KER-MSD-105 | Error occurred while deleting a mapping of Device and Center | reg
 * [DELETE /registrationcentermachinedevice/{regcenterid}/{machineid}/{deviceid}](#delete-registrationcentermachinedeviceregcenteridmachineiddeviceid)
 
 ## POST /registrationcentermachinedevice
-Master data is required across the platform. 
-
 This service will create the mapping of registration center, machine and device in the RegistrationCenterMachineDevice Master module. 
 
 ### Resource URL
@@ -1409,9 +1411,14 @@ KER-MSD-076 | Error occurred while inserting a mapping of Center, Machine and De
 KER-MSD-107 | Error occurred while deleting a mapping of Center, Machine and Device | registration center machine device delete exception
 KER-MSD-116 | Mapping for Center, Machine and Device not found | registration center machine device data not found exception
 
+
+# Registration Center search APIs
+
+* [POST /registrationcenters/search](#post-registrationcenterssearch)
+
 # POST /registrationcenters/search
 
-This service is for the registration centers search functionality. The parameters are passed as part of the URL itself as query parameters. 
+This service is for the registration centers search functionality. All the filter parameters are passed and the registration centers are searched and the matching results are returned. 
 
 ### Resource URL
 ### `POST /registrationcenters/search`
@@ -1434,7 +1441,13 @@ fromName|No|If the type is "between", this field represents the JSON name of the
 fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
 toName|No|If the type is "between", this field represents the JSON name of the to field| -NA- |
 toValue|No|If the type is "between", this field is the value of the toName| -NA- |
- 
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+sort|No|This is an array of the sort field and type| | 
+sortfield| The field on which the sort is applied | | modifiedDate
+sorttype| This should be either of ['ASC','DESC']| | ASC
+pagination|The pagination parameter object| |
+pageStart|This is the start index | 0 | 10
+pageFetch| This is the amount of records to be fetched | 10 | 10
 
 
 ### Example Request
@@ -1443,19 +1456,31 @@ toValue|No|If the type is "between", this field is the value of the toName| -NA-
 	"id": "string",
 	"metadata": {},
 	"requesttime": "2018-12-10T06:12:52.994Z",
-	"version": "string"
+	"version": "string",
 	"request": {
 		"filters" : [
 			{
-				"columnName": ""  
-				"type": "in"  
+				"columnName": "",
+				"type": "in",
 				"value": "",  
-				"fromName": ""  
-				"fromValue": ""  
+				"fromName": "",
+				"fromValue": "",  
 				"toName":"",  
-				"toValue": ""  
+				"toValue": "",
+				"languageCode":""
 			}
-		]
+		],
+		"sort":[
+			{
+				"sortfield":"string",
+				"sorttype":"ASC"
+			}
+		],
+		"pagination":{
+			"pageStart":"number",
+			"pageFetch":"number"
+		}
+		
 	}
 }
 ```
@@ -1493,6 +1518,70 @@ toValue|No|If the type is "between", this field is the value of the toName| -NA-
 		"perKioskProcessTime": "HH:mm:ss",
 		"timeZone": "string",
 		"workingHours": "string"
+	}
+   ]
+ }
+}
+```
+# Registration Center filter values
+
+* [POST /registrationcenters/filtervalues](#post-registrationcentersfiltervalues)
+
+# POST /registrationcenters/filtervalues
+
+This service returns the filter values which are required in the dropdown entries of the filter screen.  
+
+### Resource URL
+### `POST /registrationcenters/filtervalues`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in ["unique","all"]| unique | unique
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"metadata": {},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string"
+	"request": {
+		"filters" : [
+			{
+				"columnName": ""
+				"type": "unique"
+			}
+		],
+		"languageCode": "string",
+	}
+}
+```
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+  "filters": [
+	{
+		"fieldID": "string",
+		"fieldValue": "string"
 	}
    ]
  }

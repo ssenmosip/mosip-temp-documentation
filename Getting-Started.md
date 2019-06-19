@@ -752,8 +752,49 @@ NOTE: Required only if HDFS is used for packet storage.
 
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
-### 6.7 Steps to install Kernel Key Manager Service
+### 6.7 Steps to Deploy Kernel Key Manager Service
 Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+
+We are deploying keymanager service into another VM having docker installed. The steps to setup environment and service deployment:
+1. Need to set Up VM with RHEL 7.5
+2. Installing the Docker:
+sudo yum install docker
+
+After installing Docker Start the Docker Service
+
+**command to start the Docker service**
+
+* systemctl start docker
+
+**command to check Docker is running:**
+
+* systemctl status docker
+
+3. **Open the port 8088 from the VM:**
+
+sudo firewall-cmd --zone=public --add-port=8088/tcp --permanent
+
+sudo firewall-cmd --reload 
+
+**Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
+
+And also open the port from AZURE OR AWS or any cloud where the VM is launched.
+
+**Process to deploy Services in VM through JenkinsFile:**
+
+4. Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
+ 
+The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy this service, basically, running the docker image of key manager.
+
+For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId which you need to replace with credetailsId written in this stage.
+  
+ a. Replace the key_manager_vm_ip with ip of newly created VM.
+ b. The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env  and 
+    active_profile_env accordingly.
+
+sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env=qa --name keymanager docker-registry.mosip.io:5000/kernel-keymanager-service
+
+Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
 
 ### 6.8 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
 
