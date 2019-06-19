@@ -233,7 +233,7 @@ This section provides a detailed functional requirement specification for each m
 ### 3.2 Non-Functional Requirement Specifications [**[↑]**](#table-of-content)
 This section details out the non-functional requirements of MOSIP platform
 
-Please refer [**wiki**](MOSIP-NON-Functional-Requirements) for the detailed functional spec.
+Please refer [**wiki**](Non-Functional-Requirements) for the detailed functional spec.
 
 ## 4. ARCHITECTURE OVERVIEW [**[↑]**](#table-of-content)
 MOSIP Architecture is defined in 5 separate sections which are detailed in GitHub wiki. Click on each specific header name to navigate to wiki for further details.
