@@ -22,17 +22,11 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
      registration-services - it contains the Java API, which would be called from UI module to render the services to the User and capture the detail from User and store it in db or send to external systems through services.    
 
    **Following files to be modified before build the application:**  
-       mosip-application.properties - [registration-libs module] - Contains the environment variable.  
-       spring-<env>.properties - [registration-services module] - It contains the environment based REST client url to make different service calls.       
-
-	Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.
-
-        Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, 
-        post successful build generation. Which is referred by the reg-client application to download the required jars 
-        based on the version.
-
-        Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the 
-        jar files checksum.
+     -  mosip-application.properties - [registration-libs module] - Contains the environment variable.  
+     -  spring-<env>.properties - [registration-services module] - It contains the environment based REST client url to make different service calls.  
+     -  Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
+     -  Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, post successful build generation. Which is referred by the reg-client application to download the required jars based on the version.   
+     - Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the jar files checksum.   
 
 **Prerequisites:**  
 ***
