@@ -4,7 +4,7 @@
 ![Pre-Registration](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow_1.19_Pre-registration-2.%20Pre-Registration.jpg)
 
 ## Registration Client
-![RegistrationClient](_images/processViews/Registration-Preparation.jpg)
+![RegistrationClient](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-3%20Registration%20Admin_Setup.jpg)
 
 ![RegistrationClient](_images/processViews/Registration_New_Correction_Update_Lost.jpg)
 
