@@ -754,6 +754,7 @@ NOTE: Required only if HDFS is used for packet storage.
 
 ### 6.7 Steps to install Kernel Key Manager Service
 Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+
 We are deploying keymanager service into another VM having docker installed. The steps to setup environment and service deployment:
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
