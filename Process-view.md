@@ -3,7 +3,7 @@
 ## Table Of Content
 
 * [1. Pre-registration](#1-pre-registration-)
-* [2. Registration Client][#2-registration-client-)
+* [2. Registration Client](#2-registration-client-)
 * [3. Registration processor](#3-registration-processor-)
 * [4. ID-Authentication](#4-id-authentication-)
 * [5. ID-Repository](#5-id-repository-)
