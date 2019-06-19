@@ -1,6 +1,6 @@
 ## Table Of Content
-* [1. Overview](#1-overview)
-* [2. Features](#2-features)
+* [1. Overview](#1-overview-)
+* [2. Features](#2-features-)
   * [2.1 Track Status of UIN Generation by providing Registration ID](#21-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
   * [2.2 Download UIN](#22-download-uin-) _(RES_FR_2)_
   * [2.3 Retrieve Lost RID](#23-retrieve-lost-rid-) _(RES_FR_3)_
@@ -13,7 +13,7 @@
   * [2.10 VID Service](#10-vid-service-)
     * [2.10.1 Generate a VID](#2101-generate-a-vid-) _(RES_FR_10.1)_
     * [2.10.2 Maintain the status of a VID (WIP)](#2102-maintain-the-status-of-a-vid-wip-) _(RES_FR_10.2)_
-    * [2.10.3 Regenerate a VID (WIP)](#2103-regenerate-a-vid-wip-) _(RES_FR_10.3)_
+    * [2.10.3 Regenerate a VID (WIP)](#2103-regenerate-a-vid-wip) _(RES_FR_10.3)_
     * [2.10.4 Revoke a VID](#2104-revoke-a-vid-) _(RES_FR_10.4)_
     * [2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP)](#2105-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-wip-) _(RES_FR_10.5)_
     * [2.10.6 Retrieve the UIN corresponding to a VID (WIP)](#2106-retrieve-the-uin-corresponding-to-a-vid-wip-) _(RES_FR_10.6)_
@@ -129,7 +129,7 @@ To prevent misuse of VID, an individual can request to revoke his/her VID using 
 
 
 
-### 20.10.6 Retrieve the UIN corresponding to a VID (WIP) [**[↑]**](#table-of-content)	
+### 2.10.6 Retrieve the UIN corresponding to a VID (WIP) [**[↑]**](#table-of-content)	
 
 When an individual does not remember his/her UIN, he/she can retrieve the UIN by providing the VID that was generated against the UIN earlier. The system authenticates the individual’s request as per the security policy of the respective country and retrieves the UIN. Additionally, the system triggers the UIN retrieval request status to the registered mobile number/email ID If authentication failes, the system triggers the appropriate error message.
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
