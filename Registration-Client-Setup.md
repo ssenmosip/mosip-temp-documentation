@@ -12,8 +12,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 ![Registration client Setup](_images/registration/reg-client-app-install-process1.png)   
 
 
-**Application Build:**  
-***  
+## Application Build:  
+
    JDK 8u181 [Oracle] or later version to Build the application.  
    **Registration client application is build with four different modules.**     
      registration-client - it contains only UI related code.  
@@ -28,8 +28,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
      -  Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, post successful build generation. Which is referred by the reg-client application to download the required jars based on the version.   
      - Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the jar files checksum.   
 
-**Prerequisites:**  
-***
+## Prerequisites:  
+
 **System Prerequisites:**  
    - CPU - Dual Core Processor - 2GHZ  
    - Ram - 16 GB  
@@ -42,7 +42,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    Before running the 'Registration client' application, following prerequisites to be completed.
 
    - Before building the 'registration-services' module, all the services URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
-   - [Property file](#document-scope-) - **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
+   - [Property file](#property-file-) - **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
    - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
    - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile and desired roles configuration in LDAP server.    [This is required until the Admin module is delivered. Post delivery, all the configuration can be done through Admin module.]   
    - User's machine should have online connectivity to access the JFrog artifactory repository, where the application binaries are available.   
@@ -51,8 +51,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - Through sync process the data would be updated into the local database from server.  
    - All the required **REST services** should be installed and the respective **url should be configured in 'spring'** configuration file.  
         
-**Anti Virus - ClamAV Setup and Configuration in local machine:**  
-***  
+## Anti Virus - ClamAV Setup and Configuration in local machine: 
+
    Installation of Open Source Anti Virus Software [ClamAV]:  
    1.	Download the ClamAV (Version: 0.101.2) Anti Virus Software - [link](http://www.clamav.net/downloads)  
    2.	Install the downloaded .exe file.  
@@ -84,8 +84,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
    **Once all the Configurations are done run the freshclam.exe and then run clamd.exe. If required, restart the machine.**   
  
-**Registration Client installation:**   
-***  
+## Registration Client installation:  
+
 **Download - Application Initial Setup file:**  
    
    1. User login to the JFROG artifactory portal and download the client application initial setup ZIP file [mosip-sw-0.12.*.zip].   
@@ -114,8 +114,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - User should perform the self onboarding before start using the application.  
 
 
-**Update Process:**
-***
+## Update Process: 
    The application refers to the 'maven-metadata.xml' to verifies any new version exists or not. [Which is generated under 
    the '**registration-client**' module post successful Jenkins build.]
    
@@ -131,8 +130,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql/version folder [like: 0.12.8]' and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' {registration-service/resource/sql/version folder_rollback [like: 0.12.8_rollback]} script if update process to be rollbacked due to any technical error.  
 
 
-**Configuration:**  
-***
+## Configuration:  
+
    Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine through kernel services.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
@@ -167,7 +166,7 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 |26.|	mosip.registration.document_scanner_enabled				|no|
 |27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |  
 
-Refer the Global configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/application-qa.properties) environment. 
+Refer the **Global configuration** maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/application-qa.properties) environment. 
 
 |**S.No.**| **Config Key**| **Sample Values**|**Description**|
 |:------:|-----|---|---|
@@ -175,7 +174,7 @@ Refer the Global configuration maintained in [QA](https://github.com/mosip/mosip
 |2.|	mosip.secondary-language        |fra / ara/ eng| French/ Arabic/ English |
 
 
-**Property File:**
+## Property File :
 
    There are few properties which can be configured at local machine based on the local system requirement.    
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
@@ -192,8 +191,8 @@ Refer the Global configuration maintained in [QA](https://github.com/mosip/mosip
      - mosip.rollback.path = {where the application backup should be taken during software update}  	
      - mosip.reg.healthcheck.url = {Application uses this url to perform the health check before communicating with the external services.}
      	
-**Sync and Upload Services:**  
-***  
+## Dependent Services :    
+
    In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
 Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.  There are other services are available to send the created packet from local machine to remote system.   
 
@@ -220,8 +219,8 @@ Through sync process the data would be sync between local machine and server bas
 
 
 
-**External hardware Driver(s):**
-***
+## External hardware Driver(s): 
+
    This section covers the list of drivers required to communicate with the external devices.  
    - To integrate with Scanner, windows WIA libraries are used. So, the respective service should be running and also the scanner specific driver should also be installed.  
    - The application has been currently tested with CANON LiDE 120.  
