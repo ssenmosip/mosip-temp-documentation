@@ -167,6 +167,22 @@ When a registration officer or supervisor opts to logout, the system allows them
 The Registration Client can work both in online and offline mode. When the client machine is switching from offline to online mode, the locally saved data will be synced with the server.
 The data sync can happen through an automated process at a set frequency or an operator can manually initiate a sync.
 
+#### A. Choose the 'Opt to Register' option. 
+
+Upon receiving a request to start a new registration, the system performs the following steps:
+1. Validates the time since the last sync from server to client has not exceeded the maximum duration permitted (configured from admin portal).
+   * Sync includes Master data, Login credentials, Pre-registration data, Registration center config, Registration center setup, User role setup, Policies, Registration packet status.
+2. Validates the time since the last export of registration packets from client to server has not exceeded the maximum duration permitted, if applicable (configured from admin portal).
+1. Validates the number of registration packets on the client yet to be exported to server has not exceeded the maximum limit, if applicable (configured from admin portal).
+1. Reads the config setting that determines if the geo-location of the machine needs to be captured before every registration or captured at beginning of day only.
+1. Before every registration, the system captures geo-location of the machine and validates that the captured location is within x meters of the registration center location (Both x and the center location are configured from the admin portal).
+1. If captured at beginning of day only, validates that the beginning-of-day location is within x meters of the registration center location.
+1. On successful validation, sends a response and proceeds to the next step of choosing a pre-registered or non pre-registered applicant.
+1. In case of failures validation, triggers appropriate error messages.
+1. System sends a success response and allows it to proceed to the next step.
+1. System captures and stores the transaction details for audit purpose (except PII data).
+
+
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
 
@@ -365,9 +381,9 @@ When a registration officer opts to capture photo of an individual, the system i
 1. Allows the registration officer to proceed to verify quality score.
 1. Allows exception photo capture only if an exception has been marked.
    * Step 1 to 7 must be performed to capture the exception photo.
+1. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture. [**Refer to Retry Capture of Face Photo**](#l-retry-capture-of-face-photo)
 1. System captures and stores the transaction details for audit purpose (except PII data).
-1. 
-#### L. Retry capture of face photo as configured
+#### L. Retry Capture of Face Photo
 While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
 1. The system displays the quality score and the threshold score for the capture.
 1. The registration officer proceeds to the next step if the quality score >= threshold or if the maximum number of retry attempts as configured is reached.
@@ -382,7 +398,7 @@ While registering an individual, a registration officer captures the face photo 
 1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo will be displayed on screen along with its quality score.
 1. All the above rules apply to exception photo capture as well.
 
-#### N. Capture Iris as per defined specifications
+#### M. Capture Iris as per defined specifications
 When the registration officer scans the individual’s irises either individually or together, the system performs the following steps:
 1. Displays the quality score and threshold for each captured iris.
 1. Allows the registration officer to re-try each capture up to a maximum number of times (as configured) if threshold score is not met for one or both irises.
@@ -391,24 +407,9 @@ When the registration officer scans the individual’s irises either individuall
 1. Validates all available irises that have been captured, the irises, which are above threshold quality and the maximum retries attempted.
 1. Retains only the capture, which has the highest quality score.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### O. Restrict registration if the duration since the last export or upload is more than the configured limit
+#### N. Restrict registration if the duration since the last export or upload is more than the configured limit
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If exceeded the configured limit, then system displays an error message.
-
-#### P. Choose the 'Opt to Register' option. 
-
-Upon receiving a request to start a new registration, the system performs the following steps:
-1. Validates the time since the last sync from server to client has not exceeded the maximum duration permitted (configured from admin portal).
-   * Sync includes Master data, Login credentials, Pre-registration data, Registration center config, Registration center setup, User role setup, Policies, Registration packet status.
-2. Validates the time since the last export of registration packets from client to server has not exceeded the maximum duration permitted, if applicable (configured from admin portal).
-1. Validates the number of registration packets on the client yet to be exported to server has not exceeded the maximum limit, if applicable (configured from admin portal).
-1. Reads the config setting that determines if the geo-location of the machine needs to be captured before every registration or captured at beginning of day only.
-1. Before every registration, the system captures geo-location of the machine and validates that the captured location is within x meters of the registration center location (Both x and the center location are configured from the admin portal).
-1. If captured at beginning of day only, validates that the beginning-of-day location is within x meters of the registration center location.
-1. On successful validation, sends a response and proceeds to the next step of choosing a pre-registered or non pre-registered applicant.
-1. In case of failures validation, triggers appropriate error messages.
-1. System sends a success response and allows it to proceed to the next step.
-1. System captures and stores the transaction details for audit purpose (except PII data).
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-New.md)
 
