@@ -1,7 +1,7 @@
 # Process view - *WIP*
 ## Pre-registration
 
-![Pre-Registration](_images/processViews/Pre-registration.jpg)
+![Pre-Registration](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow_1.19_Pre-registration-2.%20Pre-Registration.jpg)
 
 ## Registration Client
 ![RegistrationClient](_images/processViews/Registration-Preparation.jpg)
