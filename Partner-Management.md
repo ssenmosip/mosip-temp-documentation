@@ -65,6 +65,6 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 ![Partner Management IDA services](_images/arch_diagrams/PartnerManagement_Entity_Relations.png)
 
 ## Logical View
-![Partner Management Logical View](_images/arch_diagrams/PMLogicalDiagram.png)
+![Partner Management Logical View](_images/arch_diagrams/PartnerManagement_Logical_Diagram.png)
 
 
