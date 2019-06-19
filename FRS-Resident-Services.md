@@ -20,7 +20,7 @@
 
 
 # 1. Overview [**[↑]**](#table-of-content)
-The 'Resident Services' module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. These services can include update of demographic data (UIN update), track status of a request, lock/unlock AUTH types, download e-UIN, retrieve lost RID/UIN, reprint UIN, view AUTH transaction history, generate/revoke VID. All these features are detailed under the features section underneath.   
+The 'Resident Services' module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. These services can include update of demographic data (UIN update), track status of a request, lock/unlock AUTH types, download e-UIN, retrieve lost RID/UIN, reprint UIN, view AUTH transaction history, generate/revoke VID. All these features are detailed under the features section below.   
 # 2. Features [**[↑]**](#table-of-content)
 ## 2.1 Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 
