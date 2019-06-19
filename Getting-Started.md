@@ -754,6 +754,43 @@ NOTE: Required only if HDFS is used for packet storage.
 
 ### 6.7 Steps to install Kernel Key Manager Service
 Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+We are deploying keymanager service into another VM having docker installed. The steps to setup environment and service deployment:
+1. Need to set Up VM with RHEL 7.5
+2. Installing the Docker:
+sudo yum install docker
+3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys
+
+After installing Docker Start the Docker Service
+
+**command to start the Docker service**
+
+* systemctl start docker
+
+**command to check Docker is running:**
+
+* systemctl status docker
+
+3. **Open the port 8088 from the VM:**
+
+sudo firewall-cmd --zone=public --add-port=8088/tcp --permanent
+
+sudo firewall-cmd --reload 
+
+**Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
+
+And also open the port from AZURE OR AWS or any cloud where the VM is launched.
+
+**Process to deploy Services in VM through JenkinsFile:**
+
+4. The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of key manager.
+Changes to be made in this stage->
+
+   a. Replace the credentialsId of docker hub with yours.
+
+   b. Replace the IP with the IP of this newly created VM.
+
+Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
+
 
 ### 6.8 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
 
