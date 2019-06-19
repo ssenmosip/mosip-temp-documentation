@@ -41,7 +41,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 **Application Prerequisites:**  
    Before running the 'Registration client' application, following prerequisites to be completed.
 
-   - Before building the 'registration-services' module, all the services URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
+   - Before building the 'registration-services' module, all the external [dependent services](#dependent-services-) URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
    - [Property file](#property-file-) - **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
    - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).    
    - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile and desired roles configuration in LDAP server.    [This is required until the Admin module is delivered. Post delivery, all the configuration can be done through Admin module.]   
