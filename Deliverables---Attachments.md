@@ -49,3 +49,8 @@ Link: [Click to View](https://github.com/mosip/mosip/wiki/ID-Repository)
 Artefact: HLD
 
 Link: [Click to View](https://github.com/mosip/mosip/wiki/Registration-Processor)
+
+10) ## Module: Registration Processor <19June'19>
+Artefact: Known Defects and Pending Items
+
+Link: [Click to View](_files/MOSIP_KnownDefects_PendingFeatures_Items_Kernel_25Feb19.docx)
