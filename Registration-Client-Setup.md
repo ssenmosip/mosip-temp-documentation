@@ -191,11 +191,11 @@ Refer the Global configuration maintained in [QA](https://github.com/mosip/mosip
      - mosip.client.url = {JFrog repository url.}  
      - mosip.xml.file.url = {JFrog repository url with maven-metadata.xml file.}  
      - mosip.cerpath= /cer//mosip_cer.cer  
-     - mosip.registration.app.key = {contains the key to be used to decrypt the application binaries during run time}.
-     - mosip.registration.db.key = {contains the key to be used to connect to the derby database and decrypt the data}.
-     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}. 
-     - mosip.packetstorepath = {where the registration packet should be stored}. 
-     - mosip.rollback.path = {where the application backup should be taken during software update}	
+     - mosip.registration.app.key = {contains the key to be used to decrypt the application binaries during run time}.  
+     - mosip.registration.db.key = {contains the key to be used to connect to the derby database and decrypt the data}.  
+     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.   
+     - mosip.packetstorepath = {where the registration packet should be stored}.   
+     - mosip.rollback.path = {where the application backup should be taken during software update}  	
      	
 **Sync and Upload Services:**  
 ***  
