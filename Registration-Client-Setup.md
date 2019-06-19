@@ -124,12 +124,17 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 ***
    The application refers to the 'maven-metadata.xml' to verifies any new version exists or not. [Which is generated under 
    the '**registration-client**' module post successful Jenkins build.]
+   
+   mosip.rollback.path - Make sure that rollback path is provided in this variable, which is available in 'mosip-application.properties' file. 
        
    **Application update:**
    - During the startup of the application, the software check will be validating against the maven-metadata.xml file from artifactory repository. If any diffs found, application prompts the user with 'Update Now' or 'Update Later' options to install immediately or later. Apart from this there is another menu option available in the application to trigger the 'Update' process post login to the application. The update process would update both the application binaries and DB.
+    
+   - During update process, the running application refer the 'rollback' path and take the back up of 'lib, bin, MANIFEST.MF' files inside rollback folder with new folder as 'Version_timstamp' format. 
+   - Download and Update the required binary libraries and db script into the existing running folder and restart the application.  
         
    **Database update:**  
-   - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql' folder and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' script if update process to be rollbacked due to any technical error.  
+   - The database update can be rolled out through the binary update process. If any changes in the script then the respective script would be attached inside 'registration-service/resource/sql/version folder [like: 0.12.8]' and deliver the jar with newer version. During update process the jar would be downloaded and script inside the jar would be executed.  It would also contains the 'rollback' {registration-service/resource/sql/version folder_rollback [like: 0.12.8_rollback]} script if update process to be rollbacked due to any technical error.  
 
 
 **Configuration:**  
@@ -168,6 +173,13 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 |26.|	mosip.registration.document_scanner_enabled				|no|
 |27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |  
 
+Refer the Global configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/application-qa.properties) environment. 
+
+|**S.No.**| **Config Key**| **Sample Values**|**Description**|
+|:------:|-----|---|---|
+|1.|	mosip.primary-language        |fra / ara/ eng| French/ Arabic/ English |  
+|2.|	mosip.secondary-language        |fra / ara/ eng| French/ Arabic/ English |
+
 
 **Property File:**
 
@@ -175,11 +187,16 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
    
    **File Location:** props/mosip-application.properties 
-     - mosip.env= qa, preqa { environment name. Use the same value in spring profile config.}  
+     - mosip.env= qa, preqa, demo { environment name. Use the same value in spring profile config.}  
      - mosip.client.url = {JFrog repository url.}  
      - mosip.xml.file.url = {JFrog repository url with maven-metadata.xml file.}  
      - mosip.cerpath= /cer//mosip_cer.cer  
-    	
+     - mosip.registration.app.key = {contains the key to be used to decrypt the application binaries during run time}.
+     - mosip.registration.db.key = {contains the key to be used to connect to the derby database and decrypt the data}.
+     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}. 
+     - mosip.packetstorepath = {where the registration packet should be stored}. 
+     - mosip.rollback.path = {where the application backup should be taken during software update}	
+     	
 **Sync and Upload Services:**  
 ***  
    In Registration client application, only user mapping to the local machine can be performed. Rest of the data setup should be performed at MOSIP Admin portal.
