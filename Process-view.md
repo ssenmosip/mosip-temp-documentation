@@ -34,12 +34,20 @@
 ![RegistrationProcessor-Deactivate_Reactivate_Packet_Processing](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Processor%20-%20Lost%20UIN%20Processing.jpg)
 
 ## ID-Authentication
-![Pre-Authentication](_images/processViews/ID-Authentication_Pre-Authentication.jpg)
+![IDA-Demo-Authentication](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-Demo%20Authentication.jpg)
 
-![Demo-Authentication](_images/processViews/ID-Authentication_DemographicAuth.jpg)
+![IDA-Bio-Authentication](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-Biometric%20Authentication.jpg)
 
-![Finger Print-Authentication](_images/processViews/ID-Authentication_FingerPrintAuth.jpg)
-![Iris-Authentication](_images/processViews/ID-Authentication_IrisAuth.jpg)
-![Face-Authentication](_images/processViews/ID-Authentication_FaceAuth.jpg)
-![Static PIN-Authentication](_images/processViews/ID-Authentication_StaticPINAuth.jpg)
-![OTP-Authentication](_images/processViews/ID-Authentication_OTPAuth.jpg)
+![OTP-Authentication](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-OTP%20Authentication.jpg)
+
+![IDA-Multifactor-Authentication](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-Multifactor%20Authentication%20Support.jpg)
+
+![IDA-ekyc](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-eKYC%20Service.jpg)
+
+![IDA-MISP-Partner-Authentication](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-eKYC%20Service.jpg)
+
+## ID-Repository
+![ID-Repo-Identity-Service](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19_ID%20Repo-%20Identity%20Service.jpg)
+
+![ID-Repo-VID-Service](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19_ID%20Repo-VID%20Service.jpg)
+
