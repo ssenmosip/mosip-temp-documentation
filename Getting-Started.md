@@ -759,7 +759,6 @@ We are deploying keymanager service into another VM having docker installed. The
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
 sudo yum install docker
-3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys
 
 After installing Docker Start the Docker Service
 
@@ -789,6 +788,9 @@ Changes to be made in this stage->
    a. Replace the credentialsId of docker hub with yours.
 
    b. Replace the IP with the IP of this newly created VM.
+   
+   c. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys.
+      If not already created, generate public-private key pair on jenkins VM. 
 
 Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
 
