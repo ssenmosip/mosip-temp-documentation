@@ -190,6 +190,7 @@ Refer the Global configuration maintained in [QA](https://github.com/mosip/mosip
      - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.   
      - mosip.packetstorepath = {where the registration packet should be stored}.   
      - mosip.rollback.path = {where the application backup should be taken during software update}  	
+     - mosip.reg.healthcheck.url = {Application uses this url to perform the health check before communicating with the external services.}
      	
 **Sync and Upload Services:**  
 ***  
