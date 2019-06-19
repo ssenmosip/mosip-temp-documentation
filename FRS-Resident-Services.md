@@ -107,14 +107,12 @@ VID is an alternative to UIN and is temporary code that can be used for authenti
 VID services  include generating, regenerating, and updating VID status.
 
 ### 2.10.1 Generate VID [**[↑]**](#table-of-content)
-Virtual ID (VID) is used as a mask for UIN to protect the confidentiality and security of UIN data. An individual raise request to create Virtual ID of his/her UIN using the Resident Service by providing the UIN. The system authenticates the individual’s request based on the security policy of the respective country and provides the VID. Additionally, the system triggers the VID generation request status to the registered mobile number/email ID.  If validation fails, then the system triggers the appropriate error message.
+Virtual ID (VID) is used as a mask for UIN to protect the confidentiality and security of UIN. An individual can raise a request to generate a Virtual ID via Resident Service by providing his/her UIN. The system validates the UIN via OTP authentication. On successful validation the VID is generated based on the VID policy of the respective country. The system triggers the VID generation request status to the registered mobile number/email ID.  If validation fails, then the system triggers the appropriate error message.
 
 
 ### 2.10.2 Maintain the status of a VID (WIP) [**[↑]**](#table-of-content)
 
-1. Time Validity: When a VID has expired as per policy, the VID will not be allowed for usage for any authentication transaction.
-1. Transactions: When a VID is used for an authentication transaction, and the policy is for one-time usage, the VID instance status will be used but will not be allowed for any authentication transaction.
-1. When a VID is revoked, the VID will not be allowed for any authentication transaction.
+
 
 ### 2.10.3 Regenerate a VID (WIP)[**[↑]**](#table-of-content)	
 
@@ -123,7 +121,7 @@ An individual can regenerate the VID, when the existing VID is expired or revoke
 
 ### 2.10.4 Revoke a VID [**[↑]**](#table-of-content)
 
-When there is possibility of misusing the VID, the respective individual can revoke the VID by visiting the registration center or Resident Service. The individual provides the VID and the system authenticates the VID by following the security policy of the respective country. On successful authentication, the system revokes the VID and provides the status of VID revocation to the registered mobile number/email ID. If authentication fails, the system triggers the appropriate error message.
+When there is possibility of misusing the VID, the respective individual can revoke the VID by visiting the registration center or Resident Service. The individual provides the VID and the system authenticates the VID by following the VID policy of the respective country. On successful authentication, the system revokes the VID and provides the status of VID revocation to the registered mobile number/email ID. If authentication fails, the system triggers the appropriate error message.
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 ### 2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP) [**[↑]**](#table-of-content)  
