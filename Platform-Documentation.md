@@ -53,9 +53,9 @@
 - [10. BUILDING AND DEPLOYING MOSIP (TBD)](#10-building-and-deploying-mosip-)
   * [10.1 Getting Started Guide](#101-getting-started-guide-)
   * [10.2 Developer Document](#102-developer-document-)
+  * [10.3 Customization (WIP)](#103-customization-wip-)
 - [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations-)
-  * [11.1 Customization (WIP)](#111-customization-wip-)
-  * [11.2 Data Center Architecture (WIP)](#112-data-center-architecture-wip-)
+  * [11.1 Data Center Architecture (WIP)](#111-data-center-architecture-wip-)
 - [12. GLOSSARY](#12--glossary-)
 - [13. ABBREVIATIONS](#13-abbreviations-)
 - [14. REFERENCES](#14-references-)
@@ -413,9 +413,9 @@ Please refer [**wiki**](ID-Repository-API) for more details
 Please refer [**wiki**](Getting-Started) for more details.
 ### 10.2 Developer Document [**[↑]**](#table-of-content)
 Please refer [**wiki**](Developer-Documentation) for more details
+### 10.3 Customization (WIP) [**[↑]**](#table-of-content)
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS [**[↑]**](#table-of-content)
-### 11.1 Customization (WIP) [**[↑]**](#table-of-content)
-### 11.2 Data Center Architecture (WIP) [**[↑]**](#table-of-content)
+### 11.1 Data Center Architecture (WIP) [**[↑]**](#table-of-content)
 ## 12.  GLOSSARY [**[↑]**](#table-of-content)
 ## 13. ABBREVIATIONS [**[↑]**](#table-of-content)
 ## 14. REFERENCES [**[↑]**](#table-of-content)
