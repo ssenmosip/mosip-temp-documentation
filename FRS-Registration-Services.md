@@ -64,9 +64,9 @@ The system allows the following to occur for a successful on-boarding of an oper
 
 #### A. Allows biometric login of the Registration Officer or Supervisor to the client application
 
-MOSIP supports single factor and multi factor login including iris and face capture. An admin configuration setting determines the mode of login.
+MOSIP supports single factor and multi factor login including iris, fingerprint, and face capture. An admin configuration setting determines the mode of login.
 
-System allows operator to provide their username, iris and face photo to login. The system validates the operator’s provided details and logs in the operator on successful validation.
+System allows operator to provide their username, iris, fingerprint, face photo to login. The system validates the operator’s provided details and logs in the operator on successful validation.
 
 
 #### B. Temporarily lock the operator account after five unsuccessful login attempts.
@@ -231,7 +231,7 @@ It is possible to download the pre-registration data within the date range (Curr
 
 The downloaded pre-registration data overwrites the previously downloaded data for the same pre-registration ID
 
-The downloaded pre-registration data is stored in its stipulated path as defined
+The downloaded pre-registration data is stored locally in the registered machine as configured.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/registration/registration-sync-job.md)
 
@@ -280,7 +280,7 @@ Registration officer initiates a new registration for a non pre-registered indiv
 #### B. Transliteration
 
 Refer to the section related to [**Transliteration**](#62-transliteration-).
-#### C. Mark an individual's date of birth as 'Verified' (Not Specified for Morocco)
+#### C. Mark an individual's date of birth as 'Verified'
 1. For new registration or UIN update, the system provides an option for the registration officer to mark an individual's date of birth as ‘Verified’.
 1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the registration officer has verified the date of birth of the individual.
 1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
@@ -335,7 +335,7 @@ When the address details of the previous registration and the current registrati
 1. The system allows to download the uploaded file(s)
 #### J. Capture an individual's fingerprints as per specification
 
-Registration officer captures an individual’s fingerprints using fingerprint device to authenticate an individual. Fingerprint capture is configurable by the admin at the country level.
+Fingerprint capture is configurable (Turn ON or OFF) by the admin at the country level.
 
 **Turn ON or OFF fingerprints capture**
 
@@ -348,26 +348,15 @@ When the registration officer uses fingerprint capture device to capture the ind
 1. Rejects further capture if the number of capture attempts are greater than the configured limits.
 1. Determines and displays rank for each finger. The finger with the highest quality score is ranked 1 and so on till 10 (excluding exceptions)
 1. Validates all the available fingerprints that have been captured, the fingerprints, which are above threshold quality and the maximum retries attempted.
+1. If the required biometric quality is not achieved while a registration officer is capturing biometrics of an individual (e.g., missing finger(s)), then the system mandates to capture a biometric exception for that individual.
 1. Retains only that capture which has the highest quality score.
 1. Captures and stores the transaction details for audit purpose (except PII data).
 
-#### K. Enable capturing an individual's face photograph
-
+#### K. Capture an individual's face photograph and exception photograph.
 When a registration officer opts to capture photo of an individual, the system initiates a photo capture and performs the following steps:
 1. Validates that an on-boarded camera is connected to the machine.
    * If an on-boarded camera is not found, displays an error message.
    * If more than one on-boarded camera is connected, proceeds with the first camera that the system finds as it scans the ports of the machine.
-2. Displays the photo preview before capturing.
-1. Allows the registration officer to initiate capture.
-1. Sends request to the camera for photo capture.
-1. Receives the photo from the camera.
-1. Displays the photo on screen.
-1. Allows the registration officer to proceed to verify quality score.
-1. System captures and stores the transaction (User ID or system account; Machine Details; Event Name; Application Name, and Event data) details for audit purpose (except PII data). 
-#### L. Capture an individual's face photograph and exception photograph.
-1. When a registration officer opts to capture the face photograph or exception photograph of an individual during the registration process, the system validates that an on-boarded camera is connected to the machine.
-   * If an on-boarded camera is not found, display an error message.
-   * If more than one on-boarded camera is connected, proceed with the first camera that the system finds as it scans the ports of the machine.
 1. Displays the face photo preview before capturing.
 1. Allows the registration officer to initiate face capture.
 1. Sends request to the camera for face photo capture.
@@ -375,9 +364,10 @@ When a registration officer opts to capture photo of an individual, the system i
 1. Display the face photo on screen.
 1. Allows the registration officer to proceed to verify quality score.
 1. Allows exception photo capture only if an exception has been marked.
-   * Step 2 to 7 must be performed to capture the exception photo.
+   * Step 1 to 7 must be performed to capture the exception photo.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### M. Retry capture of face photo as configured
+1. 
+#### L. Retry capture of face photo as configured
 While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
 1. The system displays the quality score and the threshold score for the capture.
 1. The registration officer proceeds to the next step if the quality score >= threshold or if the maximum number of retry attempts as configured is reached.
