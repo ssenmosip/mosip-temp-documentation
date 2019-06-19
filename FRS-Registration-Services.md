@@ -42,7 +42,11 @@
 ### 1.1 Registration Officer and Supervisor on-boarding [**[↑]**](#table-of-content)
 
 When a registration officer or supervisor is onboarded  in an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
-#### A. Map registration officers and supervisors to a client machine.
+
+Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission.
+
+**Map registration officers and supervisors to a client machine**
+
 Initially, a machine will have no operators on boarded. The first registration officer or supervisor will be on-boarded by an administrator. Thereafter this registration officer or supervisor can on-board other operators.
 The system allows the following to occur for a successful on-boarding of an operator: 
 1. The system will on-board an operator using the operator’s biometrics.
@@ -53,9 +57,6 @@ The system allows the following to occur for a successful on-boarding of an oper
 1. An onboarded operator will be able to take the machine offline and login to use the machine in offline mode.
 1. The system allows to onboard a multiple operator to the machine.
 
-#### B. Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission
-
-The system captures the required biometrics details of operator at the time of onboarding, generates the score for each captured biometrics, and compares the captured biometrics with configured threshold. Retains the biometrics having highest score. 
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registrtaion-on-board-user.md)
 
@@ -92,8 +93,8 @@ The mode of login is configured by admin, if the login is configured as Password
 
 1. System allows the operator to provide their credential and submit.
 1. System validates that the username belongs to an on boarded registration officer or supervisor on that client.
-1. System validates that the password matches with the operator’s password stored locally. The local password will be fetched from the server during data sync.
-1. System validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during data sync.
+1. System validates that the password matches with the operator’s password stored locally. The local password will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
+1. System validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
 1. System validates that the operator has a role of registration officer or supervisor. 
 
 **(ii) OTP based login**
@@ -107,16 +108,14 @@ If the client machine is online and the supervisor is mapped to the client machi
    * Alternatively, allows the operator to change entered username.
    * Alternatively, allows the operator to request for resending the OTP.
 1. Validates that the OTP submitted matches with the one that was generated and is submitted within its validity period.
-1. Validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during data sync.
+1. Validates that the operator is not blacklisted. The blacklisted operator details will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
 1. Validates that the operator has a role of registration officer or supervisor.
 1. On successful validation of all conditions above, displays the logged in screen to the operator 
 #### D. Restrict access to each MOSIP feature to authorized operators. [**[↑]**](#table-of-content)
 
 In MOSIP system, an operator can have multiple role. When an operator is registered on admin portal, the system allows an operator to assign multiple roles.
 
-MOSIP system has a role based Privileges of an operator.
-
-[**Please refer Git for more details on the roles and Privileges of an operator**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
+MOSIP system has a role based Privileges of an operator. [**Please refer Git for more details on the roles and Privileges of an operator**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
    * On-board operators
