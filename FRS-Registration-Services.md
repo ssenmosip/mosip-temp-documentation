@@ -227,7 +227,7 @@ The system also enables an operator to view the progress of download.
 
 The pre-registration data can be downloaded only for that particular registration center, where the pre-registration data download is initiated
 
-It is possible to download the pre-registration data within the Date Range (Current date - End Date). This date range is  configurable.
+It is possible to download the pre-registration data within the date range (Current date - End Date). This date range is  configurable.
 
 The downloaded pre-registration data overwrites the previously downloaded data for the same pre-registration ID
 
