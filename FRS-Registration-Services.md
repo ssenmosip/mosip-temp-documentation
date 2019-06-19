@@ -432,7 +432,6 @@ When an individual approaches the registration officer for UIN update, the follo
    * Gender
    * Address
    * Contact details
-   * CNIE/EC Number
    * Parent/Guardian details
    * Biometrics-Exception
    * Biometrics-Fingerprint
@@ -440,7 +439,7 @@ When an individual approaches the registration officer for UIN update, the follo
 3. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
 
 #### C. UIN Update
-1. The registration officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, parent/guardian Details, Biometrics.
+1. The registration officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, parent/guardian Details, Biometrics.
 1. Registration officer captures the mandatory demographic attributes (individual's name is captured) and other demographic fields selected for update. In case of update of parent/guardian details, the applicable fields that are updated will be ‘Parent/Guardian Name’ and ‘Parent/Guardian UIN’. The system at this stage also validates that the parent/guardian’s UIN is different from the individual’s UIN. If they are same, displays an error message 
 1. Registration officer then uploads documents. The applicable documents are determined by the system based on configuration
 1. If biometrics were selected for update, the registration officer marks exceptions and scans all biometrics. Else scans any one biometric.
@@ -458,7 +457,7 @@ When an individual approaches the registration officer for UIN update, the follo
 
 The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request.
 
-The following parameters can be updated during a child’s UIN update- Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, CNIE/PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
+The following parameters can be updated during a child’s UIN update- Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
 1. If ‘Parent/Guardian details’ is selected for update, then a registration officer will capture the UIN, Name and any one biometric of the Parent/Guardian (fingerprint / iris).
 1. If the Parent/Guardian does not have any fingerprint and any iris, then the registration officer marks all exceptions of the Parent/Guardian and proceed to capture photo of the Parent/Guardian.
 1. A UIN update of a child cannot be initiated without capturing biometrics of the parent. The system displays an error message for such attempts.
@@ -642,7 +641,7 @@ Upon receiving a request to geotag a registration machine, the system performs t
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-device-integration.md)
 
 ## 6. Language Support [**[↑]**](#table-of-content)
-The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and demographic details of an individual are also rendered in secondary language for convenience of the operator. French and Arabic are the default primary and secondary languages, which are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for operator entered text fields.
+The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and demographic details of an individual are also rendered in secondary language for convenience of the operator. The default primary and secondary languages are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for operator entered text fields.
 ### 6.1 Translation [**[↑]**](#table-of-content)
 
 **A Registration Officer can view static data translated to secondary language**
@@ -654,7 +653,7 @@ The Registration Client supports two languages, a primary language in which all 
 
 ### 6.2 Transliteration [**[↑]**](#table-of-content)
 
-**Registration Client enables viewing transliterated data other than French and Arabic**
+**Registration Client enables viewing transliterated data**
 
 The Registration Client application will support two type of languages: Primary language (the language in which the registration officer enters data) and secondary language (transliteration language). The secondary language is country specific and is set by the administrator.
 
