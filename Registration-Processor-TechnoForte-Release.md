@@ -14,22 +14,22 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Registration|Installation Guide| [Click to View](https://github.com/mosip/mosip/wiki/Registration-Client-Setup)
-|2.|Registration|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
-|3.|Registration|High Level Design Document|[MOSIP Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation#32-registration-services-)|Refer Section 3.2 in the linked page|
-|4.|Registration|Code Drop|[Tag: 0.12.9](/mosip/mosip/releases/tag/0.12.9)||
-|5.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
+|1.|Registration Processor|Deployment Guide| [Click to View](https://github.com/mosip/mosip/wiki/Getting-Started#8-mosip-deployment-)
+|2.|Registration Processor|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#9-registration-)|
+|3.|Registration Processor|High Level Design Document|[MOSIP Platform Documentation](https://github.com/mosip/mosip/wiki/Platform-Documentation#32-registration-services-)|Refer Section 3.2 in the linked page|
+|4.|Registration Processor|Code Drop|[Tag: 0.12.9](/mosip/mosip/releases/tag/0.12.9)||
+|5.|Registration Processor|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
 
 **Date: 18 Jun 2019**
 
-**Module: Registration**
+**Module: Registration Processor**
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Registration|Tested Code|[Tag: 0.12.9](/mosip/mosip/releases/tag/0.12.9)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](//104.215.158.154:9000/dashboard?id=io.mosip.preregistration%3Apre-registration-parent)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
-|2.|Registration|Test Cases|[Click to view](//mosipid.atlassian.net/projects/MOS?version.id=10016&cycle.id=3ecb8208-a6f8-4ce0-9c07-1b87e1842e97&selectedItem=com.thed.zephyr.je__project-centric-view-tests-page&testsTab=test-cycles-tab)||
-|3.|Registration|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration%20Client/Mindmaps)|
-|4.|Registration Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
+|1.|Registration Processor|Tested Code|[Tag: 0.12.9](/mosip/mosip/releases/tag/0.12.9)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](//104.215.158.154:9000/dashboard?id=io.mosip.preregistration%3Apre-registration-parent)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)|
+|2.|Registration Processor|Test Cases|[Click to view](//mosipid.atlassian.net/projects/MOS?version.id=10016&cycle.id=3ecb8208-a6f8-4ce0-9c07-1b87e1842e97&selectedItem=com.thed.zephyr.je__project-centric-view-tests-page&testsTab=test-cycles-tab)||
+|3.|Registration Processor|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration%20Client/Mindmaps)|
+|4.|Registration Processor Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
 
 **Prerequisites : <br><sub>Dependent module/component with their respective versions should be mentioned here</sub></br>**  
 
