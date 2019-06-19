@@ -785,7 +785,9 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 4. The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of key manager.
 Changes to be made in this stage->
 
-   a. Replace the credentialsId of docker hub with yours.
+   a. Replace the credentialsId for Git access, Docker registry and env for container 
+
+sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env=qa --name keymanager docker-registry.mosip.io:5000/kernel-keymanager-service
 
    b. Replace the IP with the IP of this newly created VM.
    
