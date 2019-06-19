@@ -44,3 +44,8 @@ Link: [Click to View](https://github.com/mosip/mosip/wiki/ID-Authentication)
 Artefact: HLD
 
 Link: [Click to View](https://github.com/mosip/mosip/wiki/ID-Repository)
+
+9) ## Module: Registration Processor<19Jun'19>
+Artefact: HLD
+
+Link: [Click to View](https://github.com/mosip/mosip/wiki/Registration-Processor)
