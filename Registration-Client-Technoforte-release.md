@@ -53,7 +53,7 @@
 |kernel-qrcodegenerator-zxing|NA|0.12.10|Used to generate the QR code in acknowledgment page.|
 |kernel-pdfgenerator-itext|NA|0.12.10|Used to scan the document in PDF format.|
 |kernel-crypto-jce|NA|0.12.10|Used to encrypt the packet information|
-|kernel-jsonvalidator|NA|0.12.9|Used to validate the JSON.|
+|kernel-jsonvalidator|NA|0.12.10|Used to validate the JSON.|
 |kernel-virusscanner-clamav|NA|0.12.10|Used to communicate to the Antivirus Clam AV|
 |kernel-transliteration-icu4j|NA|0.12.10|Used to transliterate the Arabic to French and vice versa.|
 |kernel-applicanttype-api|NA|0.12.10|Used to get the applicant types |
@@ -66,7 +66,7 @@
 |-----------------|----------------------
 Transliteration|English-Arabic/ French Transliteration  won't work because of non-availability of kernel library. Vice versa also won't work.
 Bio-API|Integration with Bio-API for user-onboarding.
-Centre remapping
-Individual sync related jobs (high level sync is working fine) 
+Centre remapping| Centre remapping
+Sync| Individual sync related jobs (high level sync is working fine) 
 TPM | Secure with TPM public key.  
 
