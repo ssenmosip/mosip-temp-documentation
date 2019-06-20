@@ -9,6 +9,8 @@ This section details about the service APIs in the Document modules
 
 * [Machine - Search API](#post-machinessearch)
 
+* [Machine  - Filter values](#Machine -filter-values)
+
 
 # Machines Master API
 
