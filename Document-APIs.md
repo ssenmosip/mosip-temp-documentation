@@ -408,6 +408,7 @@ KER-MSD-123 | Cannot delete dependency found | Deletion Issue because of depende
 * [GET /doccattypes](#get-doccattypes)
 * [GET /checkapptypedoccattypedoctype](#get-checkapptypedoccattypedoctype)
 * [POST /documenttypes/search](#post-documenttypessearch)
+* [POST /documenttypes/filtervalues](#post-documenttypesfiltervalues)
 
 
 
