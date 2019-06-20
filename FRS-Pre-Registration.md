@@ -251,5 +251,5 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
 
 ## Process View
-[**Link to Process View of Pre-registration**](Process-view#pre-registration)
+[**Link to Process View of Pre-registration**](Process-view#1-pre-registration-)
 
