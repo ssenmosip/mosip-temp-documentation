@@ -815,7 +815,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
   "response": {
   "documents": [
 	{
-		"code": "string",
+	"code": "string",
         "description": "string",
         "isActive": true,
         "langCode": "string",
