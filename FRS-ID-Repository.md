@@ -82,5 +82,5 @@ Upon receiving a request to update the UIN details with the following parameters
 [**Refer to Wiki for more details on ID Repository API**](ID-Repository-API).
 
 ### Process View
-[**Link to Process View of ID Repository**](Process-view)
+[**Link to Process View of ID Repository**](Process-view#5-id-repository-)
 
