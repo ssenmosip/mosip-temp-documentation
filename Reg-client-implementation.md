@@ -83,3 +83,28 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| TPM, Web Service |
 
 
+|**Functionality**| SYNC-DATA |   
+|:------:|-----|  
+|**Technical Detail:**| This functionality will be used to sync data from server to local and vice-versa. 
+This functionality will be executed as specified as sync-frequency in DB.
+
+The following syncs mentioned below were major sync’s used in Registration-Client. The Registration-Client config sync, Master Sync, User salt sync, User Detail Sync, User mapping sync, registration Packet Sync, Public key sync, Pre-registration Data sync and Packet Status reader sync.
+|  
+|**Main Service class and methods**| 
+•	SynchConfigDataJob. executeInternal(JobExecutionContext context) and SynchConfigDataJob. executeJob(String triggerPoint, String jobId)  
+•	UserSaltSyncJob. executeInternal(JobExecutionContext context) and UserSaltSyncJob. executeJob(String triggerPoint, String jobId)  
+•	UserDetailServiceJob. executeInternal(JobExecutionContext context) and UserDetailServiceJob. executeJob(String triggerPoint, String jobId)  
+•	RegUserMappingSyncJob. executeInternal(JobExecutionContext context) and RegUserMappingSyncJob. executeJob(String triggerPoint, String jobId)  
+•	RegistrationPacketSyncJob. executeInternal(JobExecutionContext context) and RegistrationPacketSyncJob. executeJob(String triggerPoint, String jobId)  
+•	PublicKeySyncJob. executeInternal(JobExecutionContext context) and PublicKeySyncJob. executeJob(String triggerPoint, String jobId)  
+•	PreRegistrationDataSyncJob. executeInternal(JobExecutionContext context) and PreRegistrationDataSyncJob. executeJob(String triggerPoint, String jobId)  
+•	PacketSyncStatusJob. executeInternal(JobExecutionContext context) and PacketSyncStatusJob. executeJob(String triggerPoint, String jobId)  
+•	MasterSyncJob. executeInternal(JobExecutionContext context) and MasterSyncJob. executeJob(String triggerPoint, String jobId)  
+•	KeyPolicySyncJob. executeInternal(JobExecutionContext context) and KeyPolicySyncJob. executeJob(String triggerPoint, String jobId)  
+|  
+|**Detail of input parameter**|  
+•	JobExecutionContext : Job Information which has been prepared by JobProcessListener and JobTriggerListener.  
+•	jobId : Sync Job ID  
+•	triggerPoint : From where this sync requested (USER/SYSTEM)|    
+|**Authentication / Authorization Required**| NA |  
+|**External Connectivity**| REST API calls, DB, Internet check, File System |
