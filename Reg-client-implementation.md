@@ -107,6 +107,14 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| TPM, Web Service |
 
 
+## Configuration Rule: 
+
+**Age configuration:**  
+  - Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.      
+  - {property key : 'mosip.id.validation.identity.age'}    	
+
+
+
 ## Table Detail :
 
 |**Sl. No**|**Table Name**| **Description** |
@@ -160,11 +168,5 @@ It doesn't detail about each methods level information since that are covered in
 |47.|pre_registration_list| pre-registration data will be stored in DB |
 |48.|audit_log_control| All auditing detail data will be stored in DB |
 
-
-## Configuration Rule: 
-
-**Age configuration:**  
-  - Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.      
-  - {property key : 'mosip.id.validation.identity.age'}    	
 
 	
