@@ -2730,4 +2730,7 @@ KER-MSD-070 | Error occurred while inserting Blacklisted words | blacklisted wor
 KER-MSD-105 | Error occurred while updating Blacklisted Word | blacklisted words update exception
 KER-MSD-106 | Error occurred while deleting Blacklisted Word | blacklisted words delete exception
 	
+# Blacklisted words Search APIs
+
+* [POST /blacklistedwords/search](#post-blacklistedwords-search)
 	
