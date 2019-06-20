@@ -2730,7 +2730,164 @@ KER-MSD-070 | Error occurred while inserting Blacklisted words | blacklisted wor
 KER-MSD-105 | Error occurred while updating Blacklisted Word | blacklisted words update exception
 KER-MSD-106 | Error occurred while deleting Blacklisted Word | blacklisted words delete exception
 	
-# Blacklisted words Search APIs
+# BlackListed Words Search APIs
 
-* [POST /blacklistedwords/search](#post-blacklistedwords-search)
+* [POST /blacklistedwords/search](#post-blacklistedwordssearch)
+
+# POST /blacklistedwords/search
+
+This service is for the blacklisted words search functionality. All the filter parameters are passed and the blacklisted words are searched and the matching results are returned. 
+
+### Resource URL
+### `POST /blacklistedwords/search`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in ["in","equals","between"]| -NA- |
+value|No|Value or id selected in the filter by the end user| -NA- |
+fromName|No|If the type is "between", this field represents the JSON name of the from field| -NA- |
+fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
+toName|No|If the type is "between", this field represents the JSON name of the to field| -NA- |
+toValue|No|If the type is "between", this field is the value of the toName| -NA- |
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+sort|No|This is an array of the sort field and type| | 
+sortfield| The field on which the sort is applied | | modifiedDate
+sorttype| This should be either of ['ASC','DESC']| | ASC
+pagination|The pagination parameter object| |
+pageStart|This is the start index | 0 | 10
+pageFetch| This is the amount of records to be fetched | 10 | 10
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"metadata": {},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string",
+	"request": {
+		"filters" : [
+			{
+				"columnName": "",
+				"type": "in",
+				"value": "",  
+				"fromName": "",
+				"fromValue": "",  
+				"toName":"",  
+				"toValue": "",
+				"languageCode":""
+			}
+		],
+		"sort":[
+			{
+				"sortfield":"string",
+				"sorttype":"ASC"
+			}
+		],
+		"pagination":{
+			"pageStart":"number",
+			"pageFetch":"number"
+		}
+		
+	}
+}
+```
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+  "blacklistedwords": [
+	{
+		"description": "string",
+                "isActive": true,
+                "langCode": "string",
+                "word": "string"
+	}
+   ],
+	"fromRecord" : "number",
+	"toRecord":"number",
+	"totalRecord":"number"
+ }
+}
+```
+# BlackListed Words filter values
+
+* [POST /blacklistedwords/filtervalues](#post-blacklistedwordsfiltervalues)
+
+# POST /blacklistedwords/filtervalues
+
+This service returns the filter values which are required in the dropdown entries of the filter screen.  
+
+### Resource URL
+### `POST /blacklistedwords/filtervalues`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in ["unique","all"]| unique | unique
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"metadata": {},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string"
+	"request": {
+		"filters" : [
+			{
+				"columnName": ""
+				"type": "unique"
+			}
+		],
+		"languageCode": "string",
+	}
+}
+```
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+  "filters": [
+	{
+		"fieldID": "string",
+		"fieldValue": "string"
+	}
+   ]
+ }
+}
+```
 	
