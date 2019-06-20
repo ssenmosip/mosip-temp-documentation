@@ -41,8 +41,7 @@ The below diagram depicts the various building blocks of the module level suite.
 The individual module level test suites and the end to end suite are triggered via the CI/CD pipeline and run post application deployment
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
-
-### <p align="center"> **Figure 1: -API & API Level Integration Testing- Automation Design Framework_**
+<p align="center"> **Figure 1: _API & API Level Integration Testing- Automation Design Framework_**
 
 The user guides listed below detail the usage of individual module level automation suites
 1. [**Kernel Test Automation Suite - User Guide**](Tester-Documentation#1-kernel-test-automation-suite---user-guide)
