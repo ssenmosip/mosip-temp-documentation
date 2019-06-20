@@ -363,8 +363,8 @@ When the registration officer uses fingerprint capture device to capture the ind
 1. Rejects further capture if the number of capture attempts are greater than the configured limits.
 1. Determines and displays rank for each finger. The finger with the highest quality score is ranked 1 and so on till 10 (excluding exceptions)
 1. Validates all the available fingerprints that have been captured, the fingerprints, which are above threshold quality and the maximum retries attempted.
-1. If the required biometric quality is not achieved while a registration officer is capturing biometrics of an individual (e.g., missing finger(s)), then the system mandates to capture a biometric exception for that individual.
 1. Retains only that capture which has the highest quality score.
+1. If the required biometric quality is not achieved while a registration officer is capturing biometrics of an individual (e.g., missing finger(s)), then the system mandates to capture a biometric exception for that individual.
 1. Captures and stores the transaction details for audit purpose (except PII data).
 
 #### K. Capture an individual's face photograph and exception photograph.
@@ -408,7 +408,7 @@ When the registration officer scans the individual’s irises either individuall
 1. System captures and stores the transaction details for audit purpose (except PII data).
 #### N. Restrict registration if the duration since the last export or upload is more than the configured limit
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
-If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If exceeded the configured limit, then system displays an error message.
+If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If the configured limit is exceeded, then system displays an error message.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-New.md)
 
