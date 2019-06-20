@@ -96,54 +96,53 @@ It doesn't detail about each methods level information since that are covered in
 
 ## Table Detail :
 
-|**Table Name**| **Description** |
-|:------:|-----|
-|biometric_attribute| Information about biometric attribute will be stored in db from master sync |
-|biometric_type | Information about biometric type will be stored in db from master sync |
-|blacklisted_words| Black Listed words will be stored in db from master sync |
-|device_master| device master related information will be stored in db from master sync |
-|device_spec| device specifiaction related information will be stored in db from master sync |
-|device_type| device type related information will be stored in db from master sync |
-|doc_category| document category information will be stored in db from master sync |
-|doc_type| document type information will be stored in db from master sync |
-|gender| gender information will be stored in db from master sync |
-|id_type| identity type information will be stored in db from master sync |
-|language| language information will be stored in db from master sync |
-|location| location information will be stored in db from master sync |
-|machine_master| machine master details will be stored in db from master sync |
-|machine_spec| machine specification details will be stored in db from master sync |
-|machine_type| machine type details will be stored in db from master sync |
-|reason_category| packet rejection reason category details will be stored in db from master sync |
-|reason_list| packet rejection reason list details will be stored in db from master sync |
-|reg_center_device| center device info will be stored in db from master sync |
-|reg_center_machine| center machine info will be stored in db from master sync |
-|reg_center_machine_device| center machine device info will be stored in db from master sync |
-|reg_center_type| center type details will be stored in db from master sync |
-|reg_center_user| center user details will be stored in db from master sync |
-|reg_center_user_machine| center user machine details will be stored in db from master sync |
-|registration_center| registration center information will be stored in db from master sync |
-|template| Template details  will be stored in db from master sync |
-|template_type| Template type details  will be stored in db from master sync |
-|title| Title details  will be stored in db from master sync |
-|valid_document| Valid documnet details  will be stored in db from master sync |
-|sync_job_def| Sync jobs related data will be inserted into db from master sync|
-|screen_authorization| Screen authorization related data will be inserted into db from master sync|
-|app_authentication_method| authentication type related data will be inserted into db from master sync|
-|app_detail| application details will be inserted into db from master sync|
-|app_role_priority| application roles priority details will be inserted into db from master sync|
-|role_list| role related details will be inserted into db from master sync|
-|GLOBAL_PARAM| Cofiguration related data |
-|user_detail| User related data will be inserted into db from user detail sync|
-|user_pwd| User password related data will be inserted into db from user detail sync|
-|user_role| User role related data will be inserted into db from user detail sync|
-|user_biometric| User biometric related data will be inserted into db while onBoarding|
-|key_store| Public key , Packet creation key will be inserted into db while Public key Sync and Policy sync |
-|sync_control| Succesful sync jobs will stored along with its last time stamp|
-|sync_transaction| All sync transaction related data will be stoted in DB |
-|sync_transaction| All sync transaction related data will be stoted in DB |
-|registration| Registration Packet related data will be stoted in DB |
-|registration_transaction| Transactions of registration Packet data will be stoted in DB |
-|process_list| Authentication process data will be stoted in DB |
-|pre_registration_list| pre registration data will be stoted in DB |
-|audit_log_control| All auditing detail data will be stoted in DB |
-
+|**Sl. No**|**Table Name**| **Description** |
+|:------:|:------:|-----|
+|1.|biometric_attribute| Information about biometric attribute will be stored in db from master sync |
+|2.|biometric_type | Information about biometric type will be stored in db from master sync |
+|3.|blacklisted_words| Black Listed words will be stored in db from master sync |
+|4.|device_master| device master related information will be stored in db from master sync |
+|5.|device_spec| device specification related information will be stored in db from master sync |
+|6.|device_type| device type related information will be stored in db from master sync |
+|7.|doc_category| document category information will be stored in db from master sync |
+|8.|doc_type| document type information will be stored in db from master sync |
+|9.|gender| gender information will be stored in db from master sync |
+|10.|id_type| identity type information will be stored in db from master sync |
+|11.|language| language information will be stored in db from master sync |
+|12.|location| location information will be stored in db from master sync |
+|13.|machine_master| machine master details will be stored in db from master sync |
+|14.|machine_spec| machine specification details will be stored in db from master sync |
+|15.|machine_type| machine type details will be stored in db from master sync |
+|16.|reason_category| packet rejection reason category details will be stored in db from master sync |
+|17.|reason_list| packet rejection reason list details will be stored in db from master sync |
+|18.|reg_center_device| center device info will be stored in db from master sync |
+|19.|reg_center_machine| center machine info will be stored in db from master sync |
+|20.|reg_center_machine_device| center machine device info will be stored in db from master sync |
+|21.|reg_center_type| center type details will be stored in db from master sync |
+|22.|reg_center_user| center user details will be stored in db from master sync |
+|23.|reg_center_user_machine| center user machine details will be stored in db from master sync |
+|24.|registration_center| registration center information will be stored in db from master sync |
+|25.|template| Template details  will be stored in db from master sync |
+|26.|template_type| Template type details  will be stored in db from master sync |
+|27.|title| Title details  will be stored in db from master sync |
+|28.|valid_document| Valid document details  will be stored in db from master sync |
+|29.|sync_job_def| Sync jobs related data will be inserted into db from master sync|
+|30.|screen_authorization| Screen authorization related data will be inserted into db from master sync|
+|31.|app_authentication_method| authentication type related data will be inserted into db from master sync|
+|32.|app_detail| application details will be inserted into db from master sync|
+|33.|app_role_priority| application roles priority details will be inserted into db from master sync|
+|34.|role_list| role related details will be inserted into db from master sync|
+|35.|GLOBAL_PARAM| Cofiguration related data |
+|36.|user_detail| User related data will be inserted into db from user detail sync|
+|37.|user_pwd| User password related data will be inserted into db from user detail sync|
+|38.|user_role| User role related data will be inserted into db from user detail sync|
+|39.|user_biometric| User biometric related data will be inserted into db while onBoarding|
+|40.|key_store| Public key , Packet creation key will be inserted into db while Public key Sync and Policy sync |
+|41.|sync_control| Successful sync jobs will stored along with its last time stamp|
+|42.|sync_transaction| All sync transaction related data will be stored in DB |
+|43.|sync_transaction| All sync transaction related data will be stored in DB |
+|44.|registration| Registration Packet related data will be stored in DB |
+|45.|registration_transaction| Transactions of registration Packet data will be stored in DB |
+|46.|process_list| Authentication process data will be stored in DB |
+|47.|pre_registration_list| pre-registration data will be stored in DB |
+|48.|audit_log_control| All auditing detail data will be stored in DB |
