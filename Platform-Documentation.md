@@ -24,10 +24,9 @@
     + [4.2.1 Configurability](#421-configurability-)
     + [4.2.2 Extensibility](#422-extensibility-)
     + [4.2.3 Modularity](#423-modularity-)
-  * [4.3 Process View](#43-process-view-)
-  * [4.4 Logical View](#44-logical-view-)
-  * [4.5 Technology Stack](#45-technology-stack-)
-  * [4.6 Data Architecture](#46-data-architecture-)
+  * [4.3 Logical View](#43-logical-view-)
+  * [4.4 Technology Stack](#44-technology-stack-)
+  * [4.5 Data Architecture](#45-data-architecture-)
 - [5. ARCHITECTURALLY SIGNIFICANT COMPONENTS](#5-architecturally-significant-components-)
   * [5.1 ID Object Definition](#51-id-object-definition-)
   * [5.2 Configurations](#52-configurations-)
@@ -259,22 +258,18 @@ MOSIP should be flexible to extend functionality on top of the basic platform. S
 All components in MOSIP should be modular and their features exposed via interfaces such that the implementation behind the interface can be changed without affecting other modules. Some examples of modularity are
 * UIN generator algorithm provided by the platform can be replaced by a country with their own implementation
 * The default demographic deduplication algorithm provided by MOSIP can be changed to a different one without impacting the process flow
-### 4.3 Process View [**[↑]**](#table-of-content)
-This section provides a functional overview of the processes like Pre-registration, Registration Client, Registration Processor, and ID Authentication.
 
-Please refer [**wiki**](Process-view) for more details.
-
-### 4.4 Logical View [**[↑]**](#table-of-content)
+### 4.3 Logical View [**[↑]**](#table-of-content)
 This section details the key design aspects considered for MOSIP. This includes Ecosystem approach, Configurability, Extensibility, Modularity, and Solution Principles. 
 
 Please refer [**wiki**](Logical-Architecture) for more details.
 
-### 4.5 Technology Stack [**[↑]**](#table-of-content)
+### 4.4 Technology Stack [**[↑]**](#table-of-content)
 This section lists all the technologies used in building MOSIP platform.
 
 Please refer [**wiki**](Technology-Stack) for more details.
 
-### 4.6 Data Architecture [**[↑]**](#table-of-content)
+### 4.5 Data Architecture [**[↑]**](#table-of-content)
 This section details the data architecture of MOSIP which includes Security, Multi-Language, High Availability, Auditability, and High Performance. It also details the data models and its naming standards. 
 
 Please refer [**wiki**](MOSIP-Data-Architecture) for more details.
