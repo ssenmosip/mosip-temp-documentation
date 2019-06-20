@@ -1073,7 +1073,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 
 # Machine filter values
 
-* [POST /machines/filtervalues](#post-machinesfiltervalues)
+* [POST /machines/filtervalues](#post-machines-filter-values)
 
 # POST /machines/filtervalues
 
