@@ -12,6 +12,10 @@ This section details about the service APIs in the common modules
 
 * [Locations API](#locations-master-api)
 
+* [Locations - Search API](#post-locationssearch)
+
+* [Locations - Filter values](#post-locationsfiltervalues)
+
 * [Languages API](#languages-master-api)
 
 * [Individual Types API](#individual-types-api)
