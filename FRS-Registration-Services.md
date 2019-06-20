@@ -746,7 +746,12 @@ MOSIP performs the following:
 1. Signing the data (This process is called as Signature) using Private Key provided by the TPM
    * This process will ensure that the request to the server has been dispatched from a registered or trusted Registration Client machine
 2. Validates the signature against the actual data using the Public Key or Public Part. The application does not connect or access the underlying TPM to validate the Signature. This validation ensures that the request is from a registered or trusted Registration Client machine
-1. Encrypts and decrypts the data using RSA algorithm in TPM
+1. Encrypts and decrypts the data using RSA algorithm in TPM. [**Please refer to Wiki for more details on TPM**](Registration-Client).
+
+**System security and tampering of packets**
+
+The system uses a machine and centre specific public key to encrypt. Only operator having respective private key will be able to decrypt. The data stored in database and application binaries are encrypted using TPM public key and operators will not be able to access directly.
+
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-key-management.md)
 
