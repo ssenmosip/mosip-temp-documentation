@@ -1518,7 +1518,10 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 		"perKioskProcessTime": "HH:mm:ss",
 		"timeZone": "string",
 		"workingHours": "string"
-	}
+	},
+	"fromRecord" : "number",
+	"toRecord":"number",
+	"totalRecord":"number"
    ]
  }
 }
