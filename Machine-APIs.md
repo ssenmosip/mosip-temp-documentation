@@ -7,7 +7,7 @@ This section details about the service APIs in the Document modules
 
 * [Machine Specifications API](#machine-specifications)
 
-* [Machine - Search API](#post-machinesearch)
+* [Machine - Search API](#post-machinessearch)
 
 
 # Machines Master API
