@@ -42,6 +42,7 @@ The individual module level test suites and the end to end suite are triggered v
 
 ![Automation Design Framework](_images/test_rig_automation/AutomationDesignFrameworks.jpg)
 
+### <p align="center"> **Figure 1: -API & API Level Integration Testing- Automation Design Framework_**
 
 The user guides listed below detail the usage of individual module level automation suites
 1. [**Kernel Test Automation Suite - User Guide**](Tester-Documentation#1-kernel-test-automation-suite---user-guide)
