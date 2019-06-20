@@ -19,6 +19,7 @@ The test execution module of the Kernel module involving API’s is as depicted 
  
 ![Test](_images/test_rig_automation/kernel1.jpg) 
 
+
 Pre-requisites for understanding Java API automation
 	Knowledge on Java 8
 	Basic knowledge on Rest assured tool
