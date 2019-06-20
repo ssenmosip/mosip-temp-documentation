@@ -40,6 +40,15 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| DB, File system |  
 
 
+|**Functionality:**| Sync Data from Server to Client and Vice Versa. |   
+|:------:|-----|  
+|**Technical Detail:**| This functionality will be executed as specified as sync-frequency in local DB. During start of the application, the scheduler would be loaded with the jobs configured in db and trigger the job. The scheduler would trigger the jobs at the configured frequency. While running the jobs, based on the functionality it would invoke the respective services and invoke the required external services to sync the data from server to client and vice versa. Post completion or every state of the job execution, the status would be updated in local db.|  
+|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs from the local db and trigger the jobs.|  
+|**Input Parameter:**|  - |    
+|**Auth:**| Auth token required for external services. |  
+|**External Connectivity:**| REST API calls, DB|
+
+
 
 |**Functionality:**|  MDM Integration – Register Device |   
 |:------:|-----|  
@@ -83,28 +92,4 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| TPM, Web Service |
 
 
-|**Functionality**| SYNC-DATA |   
-|:------:|-----|  
-|**Technical Detail:**| This functionality will be used to sync data from server to local and vice-versa. 
-This functionality will be executed as specified as sync-frequency in DB.
 
-The following syncs mentioned below were major sync’s used in Registration-Client. The Registration-Client config sync, Master Sync, User salt sync, User Detail Sync, User mapping sync, registration Packet Sync, Public key sync, Pre-registration Data sync and Packet Status reader sync.
-|  
-|**Main Service class and methods**| 
-•	SynchConfigDataJob. executeInternal(JobExecutionContext context) and SynchConfigDataJob. executeJob(String triggerPoint, String jobId)  
-•	UserSaltSyncJob. executeInternal(JobExecutionContext context) and UserSaltSyncJob. executeJob(String triggerPoint, String jobId)  
-•	UserDetailServiceJob. executeInternal(JobExecutionContext context) and UserDetailServiceJob. executeJob(String triggerPoint, String jobId)  
-•	RegUserMappingSyncJob. executeInternal(JobExecutionContext context) and RegUserMappingSyncJob. executeJob(String triggerPoint, String jobId)  
-•	RegistrationPacketSyncJob. executeInternal(JobExecutionContext context) and RegistrationPacketSyncJob. executeJob(String triggerPoint, String jobId)  
-•	PublicKeySyncJob. executeInternal(JobExecutionContext context) and PublicKeySyncJob. executeJob(String triggerPoint, String jobId)  
-•	PreRegistrationDataSyncJob. executeInternal(JobExecutionContext context) and PreRegistrationDataSyncJob. executeJob(String triggerPoint, String jobId)  
-•	PacketSyncStatusJob. executeInternal(JobExecutionContext context) and PacketSyncStatusJob. executeJob(String triggerPoint, String jobId)  
-•	MasterSyncJob. executeInternal(JobExecutionContext context) and MasterSyncJob. executeJob(String triggerPoint, String jobId)  
-•	KeyPolicySyncJob. executeInternal(JobExecutionContext context) and KeyPolicySyncJob. executeJob(String triggerPoint, String jobId)  
-|  
-|**Detail of input parameter**|  
-•	JobExecutionContext : Job Information which has been prepared by JobProcessListener and JobTriggerListener.  
-•	jobId : Sync Job ID  
-•	triggerPoint : From where this sync requested (USER/SYSTEM)|    
-|**Authentication / Authorization Required**| NA |  
-|**External Connectivity**| REST API calls, DB, Internet check, File System |
