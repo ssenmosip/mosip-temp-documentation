@@ -35,14 +35,13 @@ The test execution module of the Kernel module involving API’s is as depicted 
 * MOSIP project shall be cloned
 * Import the “automationtests” project into the eclipse.
  
-Pre-configuration information prior to test run
+## 1.4 Pre-configuration information prior to test run
 None
 
-Procedure to Add new test cases into the API test suite
-1.	From the automationtests project, the test suites and cases can be located in the folder [src/test/resources]
-
-2.	Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “Email Notification service” and explain how to add a new test
- 
+## 1.5 Procedure to Add new test cases into the API test suite
+1. From the automationtests project, the test suites and cases can be located in the folder [**src/test/resources**]
+1. Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “**Email Notification service**” and explain how to add a new test
+ ![Test](_images/test_rig_automation/kernel2.jpg) 
 
 3.	Every test case will have 2 json files named [request.json and response.json] in its sub-folder as shown below
 
