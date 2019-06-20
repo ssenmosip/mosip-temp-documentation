@@ -20,20 +20,20 @@ The test execution module of the Kernel module involving API’s is as depicted 
 ![Test](_images/test_rig_automation/kernel1.jpg) 
 
 
-Pre-requisites for understanding Java API automation
-	Knowledge on Java 8
-	Basic knowledge on Rest assured tool
-	Knowledge on Maven 
-	Knowledge on TestNg framework
-	Knowledge on GitHub
-	Good analytical and debugging skill
+## 1.2 Pre-requisites for understanding Java API automation
+* Knowledge on Java 8
+* Basic knowledge on Rest assured tool
+* Knowledge on Maven 
+* Knowledge on TestNg framework
+* Knowledge on GitHub
+* Good analytical and debugging skill
 
-Procedure to check out the test code from the repository
-	Create a workspace in the local system
-	Open git bash in the workspace
-	Enter the command :- git clone https://github.com/mosip/mosip.git
-	MOSIP project shall be cloned
-	Import the “automationtests” project into the eclipse.
+## 1.3 Procedure to check out the test code from the repository
+* Create a workspace in the local system
+* Open git bash in the workspace
+* Enter the command :- git clone [link](//github.com/mosip/mosip.git)
+* MOSIP project shall be cloned
+* Import the “automationtests” project into the eclipse.
  
 Pre-configuration information prior to test run
 None
