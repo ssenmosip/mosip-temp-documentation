@@ -981,7 +981,7 @@ languagecode|Yes|Language code in ISO 639-2|-NA-|fra
 
 * [POST /validdocuments/search](#post-validdocumentssearch)
 
-# POST /validdocuments/search
+## POST /validdocuments/search
 
 This service is for the valid document search functionality. All the filter parameters are passed and the valid document are searched and the matching results are returned. 
 
