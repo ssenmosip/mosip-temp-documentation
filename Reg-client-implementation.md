@@ -25,6 +25,13 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| SessionContext is required for creating the packet |  
 |**External Connectivity**| DB, File system |  
 
+|**Functionality:**|  PRE REG INTEGRATION – Fetch Pre reg Data |   
+|:------:|-----|  
+|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistration(String preRegistrationId)|  
+|**Input Parameter:**|    preRegistrationId- The pre reg id |  
+|**Auth:**| required |  
+|**External Connectivity:**| syncData - Pre Reg service REST call |  
+
      
 |**Functionality:**| Packet Upload |   
 |:------:|-----|  
@@ -50,6 +57,12 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| Auth token required for external services. This would be automatically taken care within this method. Nothing explicitly to be passed.|  
 |**External Connectivity:**| REST API calls, DB|
 
+|**Functionality:**|  PRE REG INTEGRATION – Download All Pre registration Data |   
+|:------:|-----|  
+|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistrationIds(String syncJobId)|  
+|**Input Parameter:**|    syncJobId- The job id which can be either USER or SYSTEM |  
+|**Auth:**| required |  
+|**External Connectivity:**| syncData - Pre Reg service REST call |  
 
 
 |**Functionality:**|  MDM Integration – Register Device |   
@@ -98,7 +111,7 @@ It doesn't detail about each methods level information since that are covered in
 
 |**Sl. No**|**Table Name**| **Description** |
 |:------:|:------:|-----|
-|1.|biometric_attribute| Information about biometric attribute will be stored in db from master sync |
+|1.|biometric_attribute| It contains the list of bio attribute as [left |
 |2.|biometric_type | Information about biometric type will be stored in db from master sync |
 |3.|blacklisted_words| Black Listed words will be stored in db from master sync |
 |4.|device_master| device master related information will be stored in db from master sync |
@@ -146,3 +159,12 @@ It doesn't detail about each methods level information since that are covered in
 |46.|process_list| Authentication process data will be stored in DB |
 |47.|pre_registration_list| pre-registration data will be stored in DB |
 |48.|audit_log_control| All auditing detail data will be stored in DB |
+
+
+## Configuration Rule: 
+
+**Age configuration:**  
+  - Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.      
+  - {property key : 'mosip.id.validation.identity.age'}    	
+
+	
