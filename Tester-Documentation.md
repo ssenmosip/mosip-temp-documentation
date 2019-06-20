@@ -5,11 +5,83 @@ Test Automation
 Generic Test Automation Design - API Testing
 
 # 1. Kernel Test Automation Suite - User Guide
-1. How to add test cases for a new API?
 
-2. How to run the Kernel automation suite?
+## 1.1 About the Kernel Module
 
-3. How to enhance the existing data coverage?
+A critical interface module of MOSIP, Kernel is the core package on which MOSIP services are built upon and is a platform, which provides higher-level services and functions that shall be reused by other modules of MOSIP. 
+
+Kernel provides a foundation to build and run the services by providing several significant necessary technical functions. Kernel makes it easy to build the higher-level services (domain services, batch services and core services) by taking care of fundamental features so that individual services are concerned with specific business functions. Kernel provides an active framework that ensures structure and rules within which the higher-level services operate.
+
+Kernel automation works with Restful and Java API’s.
+
+
+The test execution module of the Kernel module involving API’s is as depicted below
+ 
+![Test](_images/test_rig_automation/kernel1.jpg) 
+
+
+Pre-requisites for understanding Java API automation
+	Knowledge on Java 8
+	Basic knowledge on Rest assured tool
+	Knowledge on Maven 
+	Knowledge on TestNg framework
+	Knowledge on GitHub
+	Good analytical and debugging skill
+
+Procedure to check out the test code from the repository
+	Create a workspace in the local system
+	Open git bash in the workspace
+	Enter the command :- git clone https://github.com/mosip/mosip.git
+	MOSIP project shall be cloned
+	Import the “automationtests” project into the eclipse.
+ 
+Pre-configuration information prior to test run
+None
+
+Procedure to Add new test cases into the API test suite
+1.	From the automationtests project, the test suites and cases can be located in the folder [src/test/resources]
+
+2.	Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “Email Notification service” and explain how to add a new test
+ 
+
+3.	Every test case will have 2 json files named [request.json and response.json] in its sub-folder as shown below
+
+ 
+
+4.	In the request.json file, we need to mention the input that needs to be send to the API and response.json file contains the expected result for that particular input. 
+
+Based on the test cases, we need to add the test case folders with request and response files.
+The readTestCases method from TestCaseReader class will read the folder names and give the test case names and readRequestResponseJson method from TestCaseReader class will read the request and response files from the tests.
+
+
+Procedure to execute or Run the tests on a new environment
+	To run the automation suite of Kernel you will need an xml file named [testngKernel.xml], which will be available under [src/test/resources].
+	Add what are the test need to run in that xml file.
+	Add the path of the xml file in pom.xml file under maven surefire plugin.
+
+Running a test suite
+1.	Right click project
+2.	Select “Run as configuration”
+3.	Under configuration select Maven build and create new maven build
+4.	Select current project as workspace.
+5.	Pass the below commands in the Goals:-
+Command:-clean install -Denv.user= required environment 
+-Denv.endpoint=application url -Denv.testLevel=testLevel
+
+Where 
+a) Required environment- In which environment the suite needs to run. (Ex:- qa, dev, int)
+b) TestLevel- Type of tests like (Ex:-smoke, regression, smokeAndRegression)
+Note: - Here regression means all tests other than smoke tests.
+6.	Select or Click the button “RUN”
+7.	Once the execution is completed, Test report will be generated in target/surefire-reports folder with the name MOSIP_ModuleLevelAutoRun_TestNGReport.html.
+
+Analyze the test reports
+1.	Open the report in Internet Explorer
+2.	The report will give the module name, total number of test case execution with pass, skipped and fail count
+3.	Report will provide the build version and also execution time
+4.	Report will show API name and corresponding test case names with execution time
+5.	For failed test cases, it will show the cause of failure
+
 
 # 2. Pre-Registration Test Automation Suite - User Guide
 1. How to add test cases for a new API?
