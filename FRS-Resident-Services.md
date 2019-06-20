@@ -65,7 +65,8 @@ Procedure to raise request to view the authentication history of the past:
    UIN/VID, or the provided OTP is not correct, then the system triggers the appropriate error message.
 
 ## 2.9 Lock/Unlock UIN [**[↑]**](#table-of-content)
-MOSIP has provided the facility to the individual to lock/unlock his/her authentication types temporarily to  put additional restriction of demographic or biometric data.
+
+To protect the identity, confidentiality, and security of his/her UIN demographic or biometric information, an  individual can lock/unlock his/her authentication types using Resident Service.
 
 ### 2.9.1 Lock the UIN
 
