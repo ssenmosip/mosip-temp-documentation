@@ -1070,7 +1070,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 	"totalRecord":"number"
  }
 }
-
+```
 # Machine filter values
 
 * [POST /machines/filtervalues](#post-machinesfiltervalues)
@@ -1134,3 +1134,4 @@ languagecode|Yes|Language code in Language code in ISO 639-2 format| |
    ]
  }
 }
+```
