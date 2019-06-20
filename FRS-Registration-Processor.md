@@ -344,4 +344,4 @@ After the Registration Client sends the packet to Registration Processor, it sta
 [**Please refer to Wiki for more details on the Registration Processor API**](/mosip/mosip/wiki/Registration-Processor-APIs).
 
 ### Process View
-[**Link to Process View of Registration processor**](Process-view#registration-processor)
+[**Link to Process View of Registration processor**](Process-view#3-registration-processor-)
