@@ -20,9 +20,9 @@ This section details about the service APIs in the common modules
 
 * [Blacklisted Words API](#blacklisted-words-master-api)
 
-* [BlackListed Words - Search API](#post-blacklistedwordsssearch)
+* [BlackListed Words - Search API](#post-blacklistedwordssearch)
 
-* [BlackListed Words - Filter values](#blacklistedwords-filter-values)
+* [BlackListed Words - Filter values](#post-blacklistedwordsfiltervalues)
 
 # Titles Master API
 
