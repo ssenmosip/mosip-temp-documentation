@@ -836,4 +836,4 @@ Before the machine is decommissioned, the following checks must be performed:
 2. All data locally saved in the machine must be cleaned up.
 
 ### Process View
-[**Link to Process View of Registration Services**](Process-view#registration-client)
+[**Link to Process View of Registration Services**](Process-view#2-registration-client-)
