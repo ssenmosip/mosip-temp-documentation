@@ -252,7 +252,7 @@ The downloaded pre-registration data is stored locally in the registered machine
 
 ## 3. Health Check [**[↑]**](#table-of-content)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-content)
-The system also has the provision to show if the client machine has internet connectivity or not. 
+The system has the provision to show if the client machine has internet connectivity or not. 
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-device-integration.md)
 
