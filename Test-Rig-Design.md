@@ -60,7 +60,6 @@ The below diagram depicts the overall design of the end to end suite.
 
 ![Test Rig Design](_images/test_rig_automation/E2ETestRigDesign.drawio.jpg)
 
-![Test](https://www.bing.com/images/search?view=detailV2&ccid=33jE2y0C&id=29B25D9C88339A57D95C534A2B98DF918CA1D870&thid=OIP.33jE2y0CmwhxV5g1CDOCwwHaE8&mediaurl=https%3a%2f%2fc.pxhere.com%2fphotos%2f48%2f43%2fmountain_mountains_nature_canon_de_landscape_eos_colorado-319622.jpg!d&exph=800&expw=1200&q=jpg+image&simid=608053035956571748&selectedIndex=0&ajaxhist=0)
 
 
 ### <p align="center"> **Figure 2: _E2E Test Rig Design_**
