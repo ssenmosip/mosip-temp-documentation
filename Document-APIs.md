@@ -829,6 +829,69 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
  }
 }
 ```
+# Document Type filter values
+
+* [POST /documenttypes/filtervalues](#post-documenttypesfiltervalues)
+
+# POST /documenttypes/filtervalues
+
+This service returns the filter values which are required in the dropdown entries of the filter screen.  
+
+### Resource URL
+### `POST /documenttypes/filtervalues`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in ["unique","all"]| unique | unique
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"metadata": {},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string"
+	"request": {
+		"filters" : [
+			{
+				"columnName": ""
+				"type": "unique"
+			}
+		],
+		"languageCode": "string",
+	}
+}
+```
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+  "filters": [
+	{
+		"fieldID": "string",
+		"fieldValue": "string"
+	}
+   ]
+ }
+}
 
 
 #### Failure details
