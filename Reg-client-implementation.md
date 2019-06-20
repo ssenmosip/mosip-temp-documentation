@@ -111,8 +111,8 @@ It doesn't detail about each methods level information since that are covered in
 
 **Age configuration:**  
   - Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.      
-  - {property key : 'mosip.id.validation.identity.age'}    	
-
+  - {application property key : 'mosip.id.validation.identity.age'}    	
+  - {registration property key : 'mosip.registration.max_age'}	
 
 
 ## Table Detail :
