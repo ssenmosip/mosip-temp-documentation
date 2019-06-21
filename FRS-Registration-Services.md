@@ -187,7 +187,7 @@ Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Mas
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-content)
 
-Please refer [**Git**](/mosip/mosip/tree/master/config) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
+Please refer [**Git**](/mosip/mosip-configuration/tree/master/config) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
 Based on the configuration (turn on or turn off), the system allows an operator to capture applicable biometrics, authenticates, and completes the registration. 
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-content)
