@@ -63,11 +63,13 @@ The **readTestCases** method from **TestCaseReader** class will read the folder 
 ## 1.6 Running a test suite
 1. Right click project
 1. Select “Run as configuration”
-1. Under configuration select Maven build and create new maven build
+1. Under configuration select **Maven build** and create new maven build
 1. Select current project as workspace.
 1. Pass the below commands in the Goals:-
 
-   Command:-clean install -Denv.user= required environment-Denv.endpoint=application url -Denv.testLevel=testLevel
+   Command:-**clean install** -**Denv.user**= required environment
+
+   **-Denv.endpoint**=application url **-Denv.testLevel**=testLevel
 
    **Where**
 
@@ -87,11 +89,84 @@ The **readTestCases** method from **TestCaseReader** class will read the folder 
 
 
 # 2. Pre-Registration Test Automation Suite - User Guide
-1. How to add test cases for a new API?
+## 2.1 About the Pre-Registration Module
+This is the web channel of MOSIP, which facilitates capturing individual information, relevant documents and booking an appointment with a registration center. This helps to reduce registration time and optimize the process. The current web application is highly modular by design and with multi language support. This UI can be customized or modified as per the country's requirements. A country can also build a new web/mobile application on top of the back end services that MOSIP provides.
 
-2. How to run the Pre-Reg automation suite?
+The test execution work-flow for the module Pre-Registration involving Rest API’s is as depicted below
 
-3. How to enhance the existing data coverage?
+ ![Test](_images/test_rig_automation/pre-reg1.jpg) 
+
+
+## 2.2 Pre-requisites for understanding Java API automation
+* Knowledge on Java 8
+* Knowledge on Rest services
+* Knowledge on maven
+* Good analytical and debugging skill
+
+## 2.3 Procedure to checkout-out the test code from the repository
+* Navigate to git repository.
+* Copy URI
+* Open Git Bash
+* Clone repository(git clone  “URI”)
+
+## 2.4 Pre-configuration information prior to test run
+None
+
+## 2.5 Procedure to Add new test cases into the API test suite
+1. From the code repository of the module, the test suites and cases can be located in the folder [**src/test/resources**]
+1. Every API tests structure (test suite and test case) are stored in a folder/sub-folder approach. Let us take an example of “Create_PreRegistration” and Here you can see Create_PreRegistration is the suite name and inside that we have list of test cases.
+
+  ![Test](_images/test_rig_automation/pre-reg2.jpg) 
+
+3. To add new test case we need to create a folder inside test suite folder. You can give folder name same as test case name
+1. Every test case name we need to add Create_PreRegistrationRequest.json file
+ 
+  ![Test](_images/test_rig_automation/pre-reg3.jpg) 
+
+5. In the Create_PreRegistartionRequest.json file, we need to mention all folder name(Test Case Name). 
+When we run any class, then it will pick request body from folder and it will pick expected response. We will take request body, as input and it will give response (Actual Response).
+For Validation, we are doing json to json comparison.
+1. In Pre-Registration module, we have created on class called PreRegistrationLibrary, which is present in io.mosip.util package. In this class, we have created all reusable method, which is used, in Pre-Registration module.
+E.g.:-To book an appointment first we need to create an application, upload document, and then book appointment. Here for each operation we have created one method. 
+
+
+## 2.6 Procedure to execute or Run the tests on a new environment
+To run the automation suite of Pre-Registration module you will need an xml file named [**Pre-Registration_TestNG.xml**], which will be available under [**src/test/resources**]. In this xml file we need to add class name which we want to run.
+ 
+  ![Test](_images/test_rig_automation/pre-reg4.jpg) 
+
+## 2.7 Running a test suite
+Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
+1. Right click the xml file **Pre-Registration_TestNG.xml**
+1. Select “Run as configuration”
+1. Run as Maven
+1. Select workspace(${workspace_loc:/automationtests})
+1. In Goal Pass environment name,Base URI and  type of test case you want to run(smoke or regression)
+
+   ![Test](_images/test_rig_automation/pre-reg5.jpg) 
+
+   Here, -Denv.user indicates environment name.
+   -Denv.endpoint indicates base URI
+   -Denv.testLevel indicates types of test case we want to run
+ 
+6. Select or Click the button “RUN”
+1. Test Suites execution will commence.
+1. Test report will be stored in [**surefire-report**] folder under the base directory/project
+ 
+   ![Test](_images/test_rig_automation/pre-reg6.jpg) 
+
+## 2.8 Running a single test case
+1. Right click on class, which you want to run.
+1. Click on run as
+1. Click on testing
+1. Select class
+1. In VM argument pass 
+   -Denv.user=qa -Denv.endpoint=[link](//qa.mosip.io) -Denv.testLevel=smokeAndRegression
+
+## 2.9 Analyze the test reports
+* Once run is complete, then refresh project and go to target/surefire folder.
+* Open MOSIP_ModuleLevelAutoRun_TestNGReport.html report.
+* To analyze failure test case check exception message. 
 
 # 3. Registration Client Test Automation Suite - User Guide
 1. How to add test cases for a new API?

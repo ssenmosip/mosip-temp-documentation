@@ -830,25 +830,25 @@ For getting more details about how to use configuration server with our applicat
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
 **A. Global:**
-[**link**](/mosip/mosip/blob/master/config/application-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/application-qa.properties)
 
 **B. Kernel:**
-[**link**](/mosip/mosip/blob/master/config/kernel-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-qa.properties)
 
 **C. Pre-Registration:**
-[**link**](/mosip/mosip/blob/master/config/pre-registration-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/pre-registration-qa.properties)
 
 **D. Registartion-Processor:**
-[**link**](/mosip/mosip-configuration/blob/master/config/registration-processor-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/registration-processor-qa.properties)
 
 **E. IDA:**
-[**link**](/mosip/mosip/blob/0.12.0/config/id-authentication-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/id-authentication-qa.properties)
 
 **F. ID-REPO:**
-[**link**](/mosip/mosip/blob/0.12.0/config/id-repository-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/id-repository-qa.properties)
 
 **H. Registration:**
-[**link**](/mosip/mosip/blob/0.12.0/config/registration-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/registration-qa.properties)
 
 **Properties that need to be changed once the external dependencies are installed**
 1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
