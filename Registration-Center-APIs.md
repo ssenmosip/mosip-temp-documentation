@@ -16,6 +16,8 @@ This section details about the service APIs in the Registration center modules
 
 * [Registration Center Type - Search API](#post-registrationcentertypessearch)
 
+* [Registration Center Type - Filter values](#post-regcentertypesfiltervalues)
+
 
 # Registration Centers API
 
@@ -1685,6 +1687,71 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 	"fromRecord" : "number",
 	"toRecord":"number",
 	"totalRecord":"number"
+ }
+}
+```
+
+# Registration Center Types Filter values
+
+* [POST /regcentertypes/filtervalues](#post-regcentertypesfiltervalues)
+
+# POST /regcentertypes/filtervalues
+
+This service returns the filter values which are required in the dropdown entries of the filter screen.  
+
+### Resource URL
+### `POST /regcentertypes/filtervalues`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
+columnName|No|The column name in the JSON response| -NA- |
+type|No|The value have to be in ["unique","all"]| unique | unique
+languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
+
+
+### Example Request
+```JSON
+{
+	"id": "string",
+	"metadata": {},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string"
+	"request": {
+		"filters" : [
+			{
+				"columnName": ""
+				"type": "unique"
+			}
+		],
+		"languageCode": "string",
+	}
+}
+```
+
+### Example Response
+```JSON
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": null,
+  "response": {
+  "filters": [
+	{
+		"fieldID": "string",
+		"fieldValue": "string"
+	}
+   ]
  }
 }
 ```
