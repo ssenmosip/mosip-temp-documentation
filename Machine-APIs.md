@@ -841,6 +841,8 @@ languagecode|Yes|Language code in Language code in ISO 639-2 format| |
 * [DELETE /machinespecifications/{id}](#delete-machinespecificationsid)
 * [GET /machinespecifications](#get-machinespecifications)
 * [GET /machinespecifications/{lang_code}](#get-machinespecificationslang_code)
+* [POST /machinespecifications/search](#post-machinespecificationssearch)
+* [POST /machinespecifications/filtervalues](#post-machinespecificationsfiltervalues)
 
 
 # POST /machinespecifications
