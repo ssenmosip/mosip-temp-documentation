@@ -197,25 +197,25 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 Through sync process the data would be sync between local machine and server based on machine's mac-id and center id.  There are other services are available to send the created packet from local machine to remote system.   
 
 
-|**S.No.**| **Service Name**| **Service Description**|
-|:------:|-----|---|
-|1	.|	User Detail Sync  | To synchronize the user related information. |	
-|2	.|	User salt Sync  | To synchronize the user related salt. |	
-|3	.|	Master Data Sync  | To download the master data. |	
-|4 	.|	Application configuration Sync  | To synchronize the application configuration from config server. |	
-|5	.|	Policy Sync  | To synchronize the key required for packet creation based on center and machine id. |	
-|6	.|	MOSIP public key Sync  | To synchronize the MOSIP public key. |	
-|7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data. |	
-|8	.|	Packet Sync  | To upload the list of packet related information before uploading packet . |	
-|9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet. |	
-|10	.|	Packet Upload  | To upload the packet generated out out New/ Lost UIN / Update UIN process to MOSIP server. |	
-|11	.|	Send OTP  | To send the OTP message. |	
-|12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. |	
-|13	.|	Auth Service - UserName and OTP | To get the auth token based on user provided user name and OTP. |	
-|14	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |	
-|15	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |	
-|16	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |	
-|17	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |	
+|**S.No.**| **Service Name**| **Service Description**| **Module Name**|
+|:------:|-----|---|----|
+|1	.|	User Detail Sync  | To synchronize the user related information. | Kernel|
+|2	.|	User salt Sync  | To synchronize the user related salt. |Kernel|
+|3	.|	Master Data Sync  | To download the master data. |Kernel|
+|4 	.|	Application configuration Sync  | To sync the application configuration from config server. |Kernel|
+|5	.|	Policy Sync  | To sync the key required for packet creation based on center and machine id. |Kernel|
+|6	.|	MOSIP public key Sync  | To synchronize the MOSIP public key. |	Kernel|
+|7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data. |Pre-Registration|
+|8	.|	Packet Sync  | To upload the list of packet related information before uploading packet . |Registration-Processor|	
+|9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet. |Registration-Processor|
+|10	.|	Packet Upload  | To upload the packet generated out out New/ Lost UIN / Update UIN process to MOSIP server. |Registration-Processor|
+|11	.|	Send OTP  | To send the OTP message. |Kernel|
+|12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. |Kernel|	
+|13	.|	Auth Service - UserName and OTP | To get the auth token based on user provided user name and OTP. |Kernel|
+|14	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |Kernel|
+|15	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |Kernel|
+|16	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |Kernel|	
+|17	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |ID-Authentication|
 
 
 
