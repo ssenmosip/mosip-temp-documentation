@@ -451,6 +451,8 @@ KER-MSD-148 | Cannot delete as dependency found | Deletion Issue because of depe
 * [GET /machinetypes](#get-machinetypes)
 * [GET /machinetypes/{languagecode}](#get-machinetypeslanguagecodee)
 * [POST /machinetypes/search](#post-machinetypessearch)
+* [POST /machinetypes/filtervalues](#post-machinetypesfiltervalues)
+
 # POST /machinetypes
 
 This service will create the list of Machine types which are used in the MOSIP platform. 
