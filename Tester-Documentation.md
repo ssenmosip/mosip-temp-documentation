@@ -127,7 +127,8 @@ None
 When we run any class, then it will pick request body from folder and it will pick expected response. We will take request body, as input and it will give response (Actual Response).
 For Validation, we are doing json to json comparison.
 1. In Pre-Registration module, we have created on class called PreRegistrationLibrary, which is present in io.mosip.util package. In this class, we have created all reusable method, which is used, in Pre-Registration module.
-E.g.:-To book an appointment first we need to create an application, upload document, and then book appointment. Here for each operation we have created one method. 
+
+   E.g.:-To book an appointment first we need to create an application, upload document, and then book appointment. Here for each operation we have created one method. 
 
 
 ## 2.6 Procedure to execute or Run the tests on a new environment
