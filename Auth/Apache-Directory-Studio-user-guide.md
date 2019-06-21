@@ -189,5 +189,5 @@ Steps to create user role mapping
 1 . Incase Importing Ldif throws an failure to import, due to user details already exists error.
 ![entryalready.png](_images/auth/entryalready.png)
 
-Please select checkbox Update Existing entries and import the ldif entries.
+2. Please select checkbox Update Existing entries and import the ldif entries.
 ![updateexistingentries.png](_images/auth/updateexistingentries.png)
