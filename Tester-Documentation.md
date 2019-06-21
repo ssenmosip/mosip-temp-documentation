@@ -189,13 +189,13 @@ Instruction to checkout code from GitHub using Eclipse.
 * Open eclipse
 * Go to quick access and search “clone git”
 
-    ![Test](_images/test_rig_automation/reg-client2.jpg) 
+![Test](_images/test_rig_automation/reg-client2.jpg) 
 
-### <p align="center"> **Figure 1**
+**Figure 1**
 
-    ![Test](_images/test_rig_automation/reg-client3.jpg) 
+![Test](_images/test_rig_automation/reg-client3.jpg) 
 
-### <p align="center"> **Figure 2**
+**Figure 2**
 
 * A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
 
@@ -241,14 +241,15 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
 1. Right click the xml file Reg-automation-service_TestNG.xml
 1. Select “Run as configuration”
 1. Under configuration select [TestNG] and pass the VM argument as
-``-Dspring.profiles.active=required environment (which could be either of QA or INT or DEV)  
--Dmosip.dbpath=DB path 
-*DB path – this is the local DB path where all the sync happens and other data’s get updated while running the code. The empty DB name is available in /registration/registration-libs/src/main/resources/db/reg . We are copying this empty DB in our project and passing as vm argument while running the code.
--Dmosip.registration.db.key=DB key path
-Sample representation of the VM argument is as below
--Dspring.profiles.active=qa  
--Dmosip.dbpath=reg 
--Dmosip.registration.db.key=D:\keys.properties``
+   -Dspring.profiles.active=required environment (which could be either of QA or INT or DEV)  
+   -Dmosip.dbpath=DB path 
+   *DB path – this is the local DB path where all the sync happens and other data’s get updated while running the code. The empty DB name is available in /registration/registration-libs/src/main/resources/db/reg . We are copying this empty DB in our project and passing as vm argument while running the code.
+   -Dmosip.registration.db.key=DB key path
+   Sample representation of the VM argument is as below
+   
+   ``-Dspring.profiles.active=qa  
+   -Dmosip.dbpath=reg 
+   -Dmosip.registration.db.key=D:\keys.properties``
 4. Select or Click the button “RUN”
    Test Suites execution will commence.
 5. Test report will be stored in [test-output] folder under the base directory/project
@@ -259,19 +260,24 @@ Sample report:
 
  
 ## 3.9 Appendix
+
 **1. Java API**
 
    Java application programming interface (API) is a list of all classes that are part of the Java development kit (JDK). An application-programming interface (API), in the context of Java, is a collection of prewritten packages, classes, and interfaces with their respective methods, fields and constructors.
 For more detail, refer to the [link](//resources.saylor.org/wwwresources/archived/site/wp-content/uploads/2013/02/CS101-1.3.5.3-Java-Application-Programming-Interface-API-FINAL.pdf)
 
 **2. Yaml master data file**
+
    Yaml file is the master data set for testing the API, Sample Mater Data set is as below:
 
-   ![Test](_images/test_rig_automation/reg-client10.jpg) 
+   ![Test](_images/test_rig_automation/reg-client11.jpg) 
 
 **3. How to increase the data coverage inside Yaml file?**
+
    To increase the data coverage we can add as many as test data’s into the Yaml file 
+
 ** 4. Any dependencies of values in the Database**
+
 None
 
 
