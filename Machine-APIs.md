@@ -1216,12 +1216,16 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-     "machineTypes": [
+     "machineSpecifications": [
       {
-     "code": "string",
+       "brand": "string",
     "description": "string",
+    "id": "string",
     "isActive": true,
     "langCode": "string",
+    "machineTypeCode": "string",
+    "minDriverversion": "string",
+    "model": "string",
     "name": "string"  
  }
     ],
