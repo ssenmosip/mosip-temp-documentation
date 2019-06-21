@@ -8,7 +8,7 @@
 |3.|MOSIP - Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
 
 
-**Date: 20 Jun 2019**
+**Date: 21 Jun 2019**
 
 **Module: Pre Registration**
 
@@ -20,7 +20,7 @@
 |4.|Pre Registration|Code Drop|[Tag: 0.12.10](https://github.com/mosip/mosip/releases/tag/0.12.10)||
 |5.|Pre Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 10 in the linked page|
 
-**Date: 20 Jun 2019**
+**Date: 21 Jun 2019**
 
 **Module: Pre Registration**
 
