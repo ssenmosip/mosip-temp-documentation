@@ -178,8 +178,8 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
    To enable or disable the TPM functionality, modify the mentioned key in 'props/mosip-application.properties' file.    
     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.
 
-**MDM [Mosip Device Manager] Service:**
-   MDM - It integrates the Registration application with Bio devices [IRIS/ Finger Print/ Face]. As of now, the bio data are stubbed at this service level until the actual services are ready.   
+**MDM [Mosip Device Manager] Service:**  
+   It integrates the Registration application with Bio devices [IRIS/ Finger Print/ Face]. As of now, the bio data are stubbed at this service level until the actual services are ready.   
    
 |**S.No.**| **Config Key**| **Sample Values and Description**|
 |:------:|-----|-----|
