@@ -8,7 +8,7 @@
 |3.|MOSIP - Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
 
 
-**Date: 20 Jun 2019**
+**Date: 21 Jun 2019**
 
 **Module: Pre Registration**
 
@@ -20,7 +20,7 @@
 |4.|Pre Registration|Code Drop|[Tag: 0.12.10](https://github.com/mosip/mosip/releases/tag/0.12.10)||
 |5.|Pre Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 10 in the linked page|
 
-**Date: 20 Jun 2019**
+**Date: 21 Jun 2019**
 
 **Module: Pre Registration**
 
@@ -36,7 +36,6 @@
 |**Module/Files**|**Component**|**Version**|**Description (If any)**|
 |-----|-------------|----------------|--------------|
 |Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>|
-|[mosip-sw-0.12.9.zip](https://devops.mosip.io/artifactory/libs-release/io/mosip/registration/registration-client/0.12.8/)|jar,DB, MDM, Props and JRE|0.12.9|<br>Please unzip the file and execute the run.bat</br><br> **run.bat**</br>|
 |Master Data Setup |NA|Latest Version|Kernel 0.12.10 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
 |kernel-core|NA|0.12.10|Basic core kernel packages.|
 |kernel-logger-logback|NA|0.12.10|Use for the logging.|
@@ -59,12 +58,4 @@
 |kernel-cbeffutil-api|NA|0.12.10|Used to generate the CBEFF file and validate against the schema also.|
 |kernel-bioapi-provider|NA|0.12.10|Used to integrate for the user-onboarding.|
 
-**Open Issues : <br><sub>List of Open Issues, which would be resolved or fixed in another release version, but same Sprint</sub></br>**  
-
-|Open Items|Description
-|-----------------|----------------------
-Transliteration|English-Arabic/ French Transliteration  won't work because of non-availability of kernel library. Vice versa also won't work.
-Bio-API|Integration with Bio-API for user-onboarding.
-Centre remapping
-Individual sync related jobs (high level sync is working fine) 
-TPM | Secure with TPM public key.  
+ 
