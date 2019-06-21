@@ -9,7 +9,7 @@ DB|mosip_idmap|Required for persisting VID service data.
 
 
 ### 2 Prerequisites : <br><sub>Internal Service Dependencies</sub></br>
-Service|Dependencies|Description (If any)
+Module|Component|Description (If any)
 -------|--------------|----------------
 Kernel|Kernel-Audit Service| Service for auditing
 Kernel|Kernel AuthManager Service|Send OTP, Get RID for UserID, Authenticate with ClientId-SecretKey, Validate Token
