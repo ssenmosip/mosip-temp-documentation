@@ -173,7 +173,23 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 |1.|	mosip.primary-language        |fra / ara/ eng| French/ Arabic/ English |  
 |2.|	mosip.secondary-language        |fra / ara/ eng| French/ Arabic/ English |
 
+**TPM [Trusted Platform Module]:**  
 
+   To enable or disable the TPM functionality, modify the mentioned key in 'props/mosip-application.properties' file.    
+    - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.
+
+**MDM [Mosip Device Manager] Service:**
+   MDM - It integrates the Registration application with Bio devices [IRIS/ Finger Print/ Face]. As of now, the bio data are stubbed at this service level until the actual services are ready.   
+   
+|**S.No.**| **Config Key**| **Sample Values and Description**|
+|:------:|-----|-----|
+|1.|	mosip.mdm.enabled=N        | Y - Enable , N - Disable |  
+|2.|	mdm_start.bat        | to start the MDM service. |
+|3.|	mdm_stop.bat        | to stop the MDM service. |
+|4.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
+
+
+	
 ## Property File :
 
    There are few properties which can be configured at local machine based on the local system requirement.    

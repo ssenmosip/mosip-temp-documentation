@@ -117,12 +117,12 @@ It doesn't detail about each methods level information since that are covered in
 
 ## Table Detail :
 
-|**Sl. No**|**Table Name**| **Description** |
+|**Sl. No**|**Table Name**| **Description** | **Source** |
 |:------:|:------:|-----|
-|1.|biometric_attribute| It contains the list of bio attribute as [left |
+|1.|biometric_attribute| It contains the list of bio attribute [left index, right index..] with respect to each bio type [Face, IRIS...] as  | sync from server master table | 
 |2.|biometric_type | Information about biometric type will be stored in db from master sync |
 |3.|blacklisted_words| Black Listed words will be stored in db from master sync |
-|4.|device_master| device master related information will be stored in db from master sync |
+|4.|device_master| list of device name and its  |
 |5.|device_spec| device specification related information will be stored in db from master sync |
 |6.|device_type| device type related information will be stored in db from master sync |
 |7.|doc_category| document category information will be stored in db from master sync |
