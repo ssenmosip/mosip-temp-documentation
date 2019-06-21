@@ -96,6 +96,8 @@ The test execution work-flow for the module Pre-Registration involving Rest APIâ
 
  ![Test](_images/test_rig_automation/pre-reg1.jpg) 
 
+ ![Test](_images\test_rig_automation\pre-reg5.jpg)
+
 ## 2.2 Pre-requisites for understanding Java API automation
 * Knowledge on Java 8
 * Knowledge on Rest services
