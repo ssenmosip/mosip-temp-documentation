@@ -839,7 +839,7 @@ Application specific configuration for all applications and services are placed 
 [**link**](/mosip/mosip/blob/master/config/pre-registration-dev.properties)
 
 **D. Registartion-Processor:**
-[**link**](/mosip/mosip/blob/0.12.0/config/registration-processor-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/master/config/registration-processor-dev.properties)
 
 **E. IDA:**
 [**link**](/mosip/mosip/blob/0.12.0/config/id-authentication-dev.properties)
