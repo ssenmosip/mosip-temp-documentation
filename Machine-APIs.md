@@ -669,7 +669,7 @@ Description: Not Found
 Error Code | Error Message | Error Description
 ------------|------------------------------|-------------
 KER-MSD-061 | Error occurred while inserting Machine Type details | Insertion Issue
-# Machine search APIs
+# Machine Type search APIs
 
 * [POST /machinetypes/search](#post-machinetypessearch)
 
