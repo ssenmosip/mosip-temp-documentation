@@ -68,5 +68,5 @@ Transliteration|English-Arabic/ French Transliteration  won't work because of no
 Bio-API|Integration with Bio-API for user-onboarding.
 Centre remapping| Centre remapping
 Individual Sync| Individual sync related jobs (high level sync is working fine) 
-TPM | Secure with TPM public key.  
+ 
 
