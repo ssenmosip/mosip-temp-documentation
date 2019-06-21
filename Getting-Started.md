@@ -830,7 +830,7 @@ For getting more details about how to use configuration server with our applicat
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
 **A. Global:**
-[**link**](/mosip/mosip/blob/master/config/application-dev.properties)
+[**link**](/mosip/mosip-configuration/blob/0.12.0/config/application-qa.properties)
 
 **B. Kernel:**
 [**link**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-qa.properties)
