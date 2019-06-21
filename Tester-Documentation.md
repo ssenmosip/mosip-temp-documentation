@@ -175,7 +175,7 @@ An important client interface module of MOSIP, which captures the Biometric and 
 
 The test execution module of the Registration client module involving Java API’s is as depicted below
 
-    ![Test](_images/test_rig_automation/reg-client1.jpg) 
+![Test](_images/test_rig_automation/reg-client1.jpg) 
 
 Pre-requisites for understanding Java API automation
 	Knowledge on Java 8
