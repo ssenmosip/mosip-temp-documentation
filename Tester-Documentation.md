@@ -190,9 +190,11 @@ Instruction to checkout code from GitHub using Eclipse.
 * Go to quick access and search “clone git”
 
  ![Test](_images/test_rig_automation/reg-client2.jpg) 
+
 				Fig 1
 
   ![Test](_images/test_rig_automation/reg-client3.jpg) 
+
 				Fig 2
 * A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
 
