@@ -120,7 +120,7 @@ allow to create custom attribute in an existing object class.
 * Each attribute and object class have unique OID (for e.g. 2.25.1284...) to avoid any conflict with other attributes within LDAP instance. You can use the above OID for experimental purpose.
 
 * SUP inetOrgPerson : specifies that samplePerson object class inherits inetOrgPerson.
-  STRUCTURAL : specifies that samplePerson is type of structural object class & able to add entry.
+  STRUCTURcAL : specifies that samplePerson is type of structural object class & able to add entry.
   
 * MAY (rid) : samplePerson class have a optional attribute. So when user select samplePerson as object class then it is not mandatory to the attribute in user entry.
 
@@ -137,3 +137,50 @@ For more info [Follow](https://directory.apache.org/apacheds/basic-ug/2.3.1-addi
 ## Object classes
 
 For documentation about Object classes, schemas and it's attributes, click [here](//directory.apache.org/apacheds/basic-ug/2.3-introducing-schema.html)
+
+## Create a new User
+
+**Note** : Create a user if required or use the existing user present in ldif.
+
+Steps to create a new user from scratch in Apache Directory Studio.
+
+1. Right click on ou=people then click on New -> New Entry
+   ![createuser0.png](_images/auth/createuser0.png)
+
+2. Select Create Entry from Scratch
+    ![createuser1.png](_images/auth/createuser1.png)
+
+3. Select Object classes InetOrgPerson and Userdetials from the list
+   ![createuser2.png](_images/auth/createuser2.png)
+
+4. Add userid using attribute uid in distinguished name table as below.
+   ![createuser3.png](_images/auth/createuser3.png)
+
+5. Add the mandatory attributes sn-surname and cn-common name in the table.
+   ![createuser4.png](_images/auth/createuser4.png)
+
+6. New User got created , If we need any attributes ,we can right click and add attributes.
+   ![createuser5.png](_images/auth/createuser5.png)
+
+## Create a new Role
+
+Steps to create new role in Apache Directory Studio.
+
+1. Right click on ou=roles , Create new Entry -> Select ObjectClasses ->OrganizationalRole
+   ![createrole1.png](_images/auth/createrole1.png)
+
+2. Select cn-common name for the role.
+    ![createrole2.png](_images/auth/createrole2.png)
+
+3. New Role is created and add description attribute for the role.
+    ![createrole3.png](_images/auth/createrole3.png)
+
+## User Role Mapping
+
+Steps to create user role mapping
+
+1. Right click on role to be mapped, Select attribute -> RoleOccupant
+    ![roleuser1.png](_images/auth/roleuser1.png)
+
+2. Try to click Browse and map the user or give the DN directly to be mapped.
+   ![roleuser2.png](_images/auth/roleuser2.png)
