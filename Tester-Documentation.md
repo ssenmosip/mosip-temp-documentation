@@ -276,7 +276,7 @@ For more detail, refer to the [link](//resources.saylor.org/wwwresources/archive
 
    To increase the data coverage we can add as many as test data’s into the Yaml file 
 
-** 4. Any dependencies of values in the Database**
+**4. Any dependencies of values in the Database**
 
 None
 
