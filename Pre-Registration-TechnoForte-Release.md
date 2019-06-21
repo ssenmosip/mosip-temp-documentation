@@ -36,7 +36,6 @@
 |**Module/Files**|**Component**|**Version**|**Description (If any)**|
 |-----|-------------|----------------|--------------|
 |Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>|
-|[mosip-sw-0.12.9.zip](https://devops.mosip.io/artifactory/libs-release/io/mosip/registration/registration-client/0.12.8/)|jar,DB, MDM, Props and JRE|0.12.9|<br>Please unzip the file and execute the run.bat</br><br> **run.bat**</br>|
 |Master Data Setup |NA|Latest Version|Kernel 0.12.10 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
 |kernel-core|NA|0.12.10|Basic core kernel packages.|
 |kernel-logger-logback|NA|0.12.10|Use for the logging.|
