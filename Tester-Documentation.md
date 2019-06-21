@@ -1,6 +1,8 @@
 
 **MOSIP - Test Strategy (Work in progress copy)**
 
+file:///C:/Users/m9011150/AppData/Local/Temp/custom-emailable-report.html
+
 Test Automation
 Generic Test Automation Design - API Testing
 
