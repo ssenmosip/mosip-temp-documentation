@@ -14,7 +14,7 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Registration Processor|Deployment Guide| [Click to View](https://github.com/mosip/mosip/wiki/Getting-Started#8-mosip-deployment-)
+|1.|Registration Processor|Deployment Guide| [Click to View](https://github.com/mosip/mosip/wiki/Getting-Started#8-mosip-deployment-)|Refer Section (https://github.com/mosip/mosip/wiki/Getting-Started#611-installation-of-activemq)|
 |2.|Registration Processor|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#10-registration-processor-)|
 |3.|Registration Processor|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)|Refer Section 9 in the linked page|
 |4.|Registration Processor|Code Drop|[Tag: 0.12.10](https://github.com/mosip/mosip/releases/tag/0.12.10)||
