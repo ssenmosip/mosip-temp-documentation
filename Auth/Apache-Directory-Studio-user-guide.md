@@ -145,42 +145,42 @@ For documentation about Object classes, schemas and it's attributes, click [here
 Steps to create a new user from scratch in Apache Directory Studio.
 
 1. Right click on ou=people then click on New -> New Entry
-   ![createuser0.png](_images/auth/createuser0.png)
+   ![createUser0.png](_images/auth/createuser0.png)
 
 2. Select Create Entry from Scratch
-    ![createuser1.png](_images/auth/createuser1.png)
+    ![createUser1.png](_images/auth/createUser1.png)
 
 3. Select Object classes InetOrgPerson and Userdetials from the list
-   ![createuser2.png](_images/auth/createuser2.png)
+   ![createUser2.png](_images/auth/createUser2.png)
 
 4. Add userid using attribute uid in distinguished name table as below.
-   ![createuser3.png](_images/auth/createuser3.png)
+   ![createUser3.png](_images/auth/createUser3.png)
 
 5. Add the mandatory attributes sn-surname and cn-common name in the table.
-   ![createuser4.png](_images/auth/createuser4.png)
+   ![createUser4.png](_images/auth/createUser4.png)
 
 6. New User got created , If we need any attributes ,we can right click and add attributes.
-   ![createuser5.png](_images/auth/createuser5.png)
+   ![createUser5.png](_images/auth/createUser5.png)
 
 ## Create a new Role
 
 Steps to create new role in Apache Directory Studio.
 
 1. Right click on ou=roles , Create new Entry -> Select ObjectClasses ->OrganizationalRole
-   ![createrole1.png](_images/auth/createrole1.png)
+   ![createRole1.png](_images/auth/createRole1.png)
 
 2. Select cn-common name for the role.
-    ![createrole2.png](_images/auth/createrole2.png)
+    ![createRole2.png](_images/auth/createRole2.png)
 
 3. New Role is created and add description attribute for the role.
-    ![createrole3.png](_images/auth/createrole3.png)
+    ![createRole3.png](_images/auth/createRole3.png)
 
 ## User Role Mapping
 
 Steps to create user role mapping
 
 1. Right click on role to be mapped, Select attribute -> RoleOccupant
-    ![roleuser1.png](_images/auth/roleuser1.png)
+    ![roleUser1.png](_images/auth/roleUser1.png)
 
 2. Try to click Browse and map the user or give the DN directly to be mapped.
-   ![roleuser2.png](_images/auth/roleuser2.png)
+   ![roleUser2.png](_images/auth/roleUser2.png)
