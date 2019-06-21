@@ -177,28 +177,38 @@ The test execution module of the Registration client module involving Java API�
 
 ![Test](_images/test_rig_automation/reg-client1.jpg) 
 
-Pre-requisites for understanding Java API automation
-	Knowledge on Java 8
-	Basic knowledge on Spring services and should know annotations
-	Knowledge on maven
-	Good analytical and debugging skill
+## 3.2 Pre-requisites for understanding Java API automation
+* Knowledge on Java 8
+* Basic knowledge on Spring services and should know annotations
+* Knowledge on maven
+* Good analytical and debugging skill
 
-Procedure to check out the test code from the repository
+## 3.3 Procedure to check out the test code from the repository
  
 Instruction to checkout code from GitHub using Eclipse.
-	Open eclipse
-	Go to quick access and search “clone git”
- 
+* Open eclipse
+* Go to quick access and search “clone git”
+
+ ![Test](_images/test_rig_automation/reg-client2.jpg) 
 				Fig 1
- 
+
+  ![Test](_images/test_rig_automation/reg-client3.jpg) 
 				Fig 2
-	A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
+* A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
+
+  ![Test](_images/test_rig_automation/reg-client4.jpg) 
  
-	Search the branch name, select it, and then click next. Our latest branch name https://github.com/mosip/mosip/tree/0110_Sprint11_Reg_Automation.
+* Search the branch name, select it, and then click next. Our latest branch name as [link](/mosip/mosip/tree/0110_Sprint11_Reg_Automation).
+
+  ![Test](_images/test_rig_automation/reg-client5.jpg) 
  
-	Browse the directory to pull the code.
+* Browse the directory to pull the code.
+
+  ![Test](_images/test_rig_automation/reg-client6.jpg) 
  
-	Now the code will be in eclipse git repository. Import the required project to the workspace. For registration client automation, we want to import kernel and registration projects.
+* Now the code will be in eclipse git repository. Import the required project to the workspace. For registration client automation, we want to import kernel and registration projects.
+
+  ![Test](_images/test_rig_automation/reg-client7.jpg) 
  
 Pre-configuration information prior to test run
 None
