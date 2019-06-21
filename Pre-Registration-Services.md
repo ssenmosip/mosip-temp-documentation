@@ -2992,7 +2992,7 @@ request.appointmentDate|Yes| Booking appointment date|2019-01-18
 request.appointmentTime| Yes|Booking appointment time| 12:02
 request.mobNum|  Yes| applicant mobile number |9480456789
 request.emailID| Yes|applicant email Id |`sanober@gmail.com`
-request.additionalRecipient|Yes|additional recipient| It is a Boolean value(true/false). If it is **true** then **request.mobNum** and **request.emailId** get validated otherwise even though value is present for those validation will not happen.  
+request.additionalRecipient|Yes|additional recipient| It is a Boolean value(true/false). If it is **true** then **request.mobNum** and **request.emailId** get validated otherwise even though value is present for those values validation will not happen and it will get the mobile number/email address from the identity json from the database.  
 request.isBatch|Yes|Required for batch job | It is a Boolean value(true/false). If it is **true** then it consider this call as a cancel appointment only otherwise it will considered as a normal notification call and validate appointment details.
 
 #### Request Part Parameters
