@@ -182,5 +182,5 @@ Steps to create user role mapping
 1. Right click on role to be mapped, Select attribute -> RoleOccupant
     ![roleuser1.png](_images/auth/roleuser1.png)
 
-2. Try to click Browse and map the user or give the DN directly to be mapped.
+2. Try to click Browse to map the user from browser window or give the DN id directly to be mapped.
    ![roleuser2.png](_images/auth/roleuser2.png)
