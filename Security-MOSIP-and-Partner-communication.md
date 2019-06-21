@@ -37,7 +37,7 @@
 **Communication diagram**
 
 
-![Communication diagram](_images/partner-mosip-communication_PresentationLayer.jpg)
+![Communication diagram](_images/securitypartner-mosip-communication_PresentationLayer.jpg)
 	
 
 2.2 Application Layer - Encryption of the content
@@ -52,7 +52,7 @@
 **Communication diagram**
 
 
-![Communication diagram](_images/partner-mosip-communication_AppLyr_encryption.jpg)
+![Communication diagram](_images/securitypartner-mosip-communication_AppLyr_encryption.jpg)
 	
 
 2.3 Application Layer - Digitial Signature
@@ -69,7 +69,7 @@
 **Communication diagram**
 
 
-![Communication diagram](_images/partner-mosip-communication_AppLyr_signatures.jpg)
+![Communication diagram](_images/securitypartner-mosip-communication_AppLyr_signatures.jpg)
 
 Summary:
 
