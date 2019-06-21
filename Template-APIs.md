@@ -4,9 +4,9 @@ This section details about the service APIs in the template modules
 
 * [Template Types API](#template-types-api)
 
-* [Template- Search API](#post-templatessearch)
+* [Template- Search API](#post-templatesearch)
 
-* [Template- Filter values](#post-templatesfiltervalues)
+* [Template- Filter values](#post-templatefiltervalues)
 
 # Template API
 
