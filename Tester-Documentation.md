@@ -191,12 +191,12 @@ Instruction to checkout code from GitHub using Eclipse.
 
 ![Test](_images/test_rig_automation/reg-client2.jpg) 
 
-**Figure 1**
+   **Figure 1**
 
 
 ![Test](_images/test_rig_automation/reg-client3.jpg) 
 
-**Figure 2**
+   **Figure 2**
 
 * A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
 
