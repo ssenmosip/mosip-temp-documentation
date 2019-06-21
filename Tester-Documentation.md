@@ -260,6 +260,7 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
 
 ## 3.8 Analyze the test reports
 After running the tests, report will get generated in “test-output” folder in project. Name of the report is “custom-emailable-report.html”
+
 Sample report:
 
  
