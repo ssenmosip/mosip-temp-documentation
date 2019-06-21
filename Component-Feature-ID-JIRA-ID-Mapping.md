@@ -274,7 +274,7 @@
 
 |**S.No.**| **Component Name**| **Feature**|**Feature ID**|**JIRA ID(s)**|
 |:------:|-----|---|---|---|
-|1. | | New UIN Issuance| RPR_FR_1.1| [NA](//mosipid.atlassian.net/browse/NA)
+|1. | | New UIN Issuance| RPR_FR_1.1| NA
 |2. | uin-update-stage| UIN Update| RPR_FR_1.2| [MOS-13211](//mosipid.atlassian.net/browse/MOS-13211), [MOS-13210](//mosipid.atlassian.net/browse/MOS-13210), [MOS-12924](//mosipid.atlassian.net/browse/MOS-12924)
 |3. | uin-update-stage| De-activate UIN – Manual/Automated| RPR_FR_1.3| [MOS-1086](//mosipid.atlassian.net/browse/MOS-1086), [MOS-1085](//mosipid.atlassian.net/browse/MOS-1085)
 |4. | uin-update-stage| Re-activate UIN| RPR_FR_1.4| [MOS-1087](//mosipid.atlassian.net/browse/MOS-1087)
