@@ -170,10 +170,12 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
 * To analyze failure test case check exception message. 
 
 # 3. Registration Client Test Automation Suite - User Guide
-About the Registration Client Module
+## 3.1 About the Registration Client Module
 An important client interface module of MOSIP, which captures the Biometric and Demographic information of the Individual resident. This module also stores supporting information such as proof documents and information about the guardian or introducer as per the configuration set by the Admin. The packet creation is finished in this module in a secure way using sophisticated encryption algorithm and later send to the server for online mode of processing. The registration client test suites comprises of tests related to UI and Java API’s.
+
 The test execution module of the Registration client module involving Java API’s is as depicted below
- 
+
+    ![Test](_images/test_rig_automation/reg-client1.jpg) 
 
 Pre-requisites for understanding Java API automation
 	Knowledge on Java 8
