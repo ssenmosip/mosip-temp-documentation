@@ -16,7 +16,7 @@ This section details about the service APIs in the Registration center modules
 
 * [Registration Center Type - Search API](#post-registrationcentertypessearch)
 
-* [Registration Center Type - Filter values](#registrationcentertype-filtervalues)
+* [Registration Center Type - Filter values](#post-registrationcentertypes-filtervalues)
 
 
 
@@ -1693,7 +1693,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 ```
 # Registration Center Types filter values
 
-* [POST /registrationcentertypes/filtervalues](#registrationcentertype-filtervalues)
+* [POST /registrationcentertypes/filtervalues](#post-registrationcentertypes-filtervalues)
 
 # POST /registrationcentertypes/filtervalues
 
