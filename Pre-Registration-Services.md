@@ -1948,10 +1948,10 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Document successfully deleted
-```JSON
+###### Description
 {
-   "id": "mosip.pre-registration.document.delete.specific",
+   "id": "mosip.pre: Document successfully deleted
+```JSON-registration.document.delete.specific",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
@@ -1994,6 +1994,7 @@ This service enables Pre-Registration to a registration client, request to retri
 
 ### POST /sync
 This request is used by registration client to retrieve all the pre-registration Ids by date range.
+Note: If toDate parameter value is not passed in the request, fromDate will be considered as toDate.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/sync</div>
@@ -2709,6 +2710,7 @@ PRG_BOOK_RCI_016|Availability table not accessible|access to availability table 
 
 ### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
+Note: If toDate parameter value is not passed in the request, fromDate will be considered as toDate.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date</div>
