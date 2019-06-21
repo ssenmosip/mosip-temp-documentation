@@ -321,8 +321,8 @@
 |5.|Multi-factor Authenticator|Multi-factor Authentication |IDA_FR_2|[MOS-8403](//mosipid.atlassian.net/browse/MOS-8403), [MOS-8386](//mosipid.atlassian.net/browse/MOS-8386), [MOS-18215](//mosipid.atlassian.net/browse/MOS-18215), [MOS-23242](//mosipid.atlassian.net/browse/MOS-23242), [MOS-23106](//mosipid.atlassian.net/browse/MOS-23106)|
 |6.|To be Planned-V2|QR Code based Authentication |IDA_FR_3.1||
 |7.|eKYC Authenticator|Profile Sharing based on Policy |IDA_FR_4.1|[MOS-1119](//mosipid.atlassian.net/browse/MOS-1119), [MOS-10165](//mosipid.atlassian.net/browse/MOS-10165), [MOS-12241](//mosipid.atlassian.net/browse/MOS-12241), [MOS-21038](//mosipid.atlassian.net/browse/MOS-21038), [MOS-23517](//mosipid.atlassian.net/browse/MOS-23517) |
-|8.|MPA Authenticator|MISP License Authentication |IDA_FR_5.1|[MOS-1098](//mosipid.atlassian.net/browse/MOS-1098), [MOS-1099](//mosipid.atlassian.net/browse/MOS-1099)|
-|9.|MPA Authenticator|Partner Policy Authentication |IDA_FR_5.2|[MOS-1129](//mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](//mosipid.atlassian.net/browse/MOS-1123), [MOS-13156](//mosipid.atlassian.net/browse/MOS-13156)|
+|8.|MPA Authenticator|MISP License Authentication |IDA_FR_5.1|[MOS-1098](//mosipid.atlassian.net/browse/MOS-1098)|
+|9.|MPA Authenticator|Partner Policy Authentication |IDA_FR_5.2|[MOS-1129](//mosipid.atlassian.net/browse/MOS-1129), [MOS-1123](//mosipid.atlassian.net/browse/MOS-1123)|
 |10.|To be planned|Registered Devices and Open Devices |IDA_FR_6.1||
 
 ## 12. ID Repository: [**[↑]**](#table-of-content)
