@@ -189,11 +189,11 @@ Instruction to checkout code from GitHub using Eclipse.
 * Open eclipse
 * Go to quick access and search “clone git”
 
- ![Test](_images/test_rig_automation/reg-client2.jpg) 
+    ![Test](_images/test_rig_automation/reg-client2.jpg) 
 
 ### <p align="center"> **Figure 1**
 
-  ![Test](_images/test_rig_automation/reg-client3.jpg) 
+    ![Test](_images/test_rig_automation/reg-client3.jpg) 
 
 ### <p align="center"> **Figure 2**
 
