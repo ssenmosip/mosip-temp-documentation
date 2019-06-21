@@ -2711,7 +2711,7 @@ Name | Required | Description | Default Value | Example
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response":   {
-  "individualtypes": [
+  "individualTypes": [
     {
       "individualtypecode": "string",
       "name": "string",
