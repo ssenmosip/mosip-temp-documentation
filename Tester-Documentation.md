@@ -261,13 +261,7 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
    Test Suites execution will commence.
 5. Test report will be stored in [test-output] folder under the base directory/project
 
-## 3.8 Analyze the test reports
-After running the tests, report will get generated in “test-output” folder in project. Name of the report is “custom-emailable-report.html”
-
-Sample report:
-
- 
-## 3.9 Appendix
+## 3.8 Appendix
 
 **1. Java API**
 
