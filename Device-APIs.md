@@ -9,7 +9,7 @@ This section details about the service APIs in the Document modules
 
 * [Device Search API](#post-devicessearch)
 
-* [Device - Filter values](#post-devicefiltervalues)
+* [Device Spec - Filter values API](#post-devicespecfiltervalues)
 
 # Devices Master API
 
@@ -854,16 +854,16 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 }
 ```
 
-# Device Filter values
+# Device Spec Filter values
 
-* [POST /device/filtervalues](#post-devicefiltervalues)
+* [POST /devicespec/filtervalues](#post-devicespecfiltervalues)
 
-# POST /device/filtervalues
+# POST /devicespec/filtervalues
 
 This service returns the filter values which are required in the dropdown entries of the filter screen.  
 
 ### Resource URL
-### `POST /device/filtervalues`
+### `POST /devicespec/filtervalues`
 
 ### Resource details
 
