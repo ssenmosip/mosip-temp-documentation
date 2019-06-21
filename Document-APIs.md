@@ -374,7 +374,9 @@ Description: Unauthorized
 404 
 
 Description: Not Found
-```
+
+----
+
 # Documents Category search APIs
 
 * [POST /documentcategories/search](#post-documentcategoriessearch)
