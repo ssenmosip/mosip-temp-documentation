@@ -63,11 +63,13 @@ The **readTestCases** method from **TestCaseReader** class will read the folder 
 ## 1.6 Running a test suite
 1. Right click project
 1. Select “Run as configuration”
-1. Under configuration select Maven build and create new maven build
+1. Under configuration select **Maven build** and create new maven build
 1. Select current project as workspace.
 1. Pass the below commands in the Goals:-
 
-   Command:-clean install -Denv.user= required environment-Denv.endpoint=application url -Denv.testLevel=testLevel
+   Command:-**clean install** -**Denv.user**= required environment
+
+   **-Denv.endpoint**=application url **-Denv.testLevel**=testLevel
 
    **Where**
 
