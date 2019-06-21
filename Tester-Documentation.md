@@ -241,10 +241,14 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
 1. Right click the xml file Reg-automation-service_TestNG.xml
 1. Select “Run as configuration”
 1. Under configuration select [TestNG] and pass the VM argument as
-   -Dspring.profiles.active=required environment (which could be either of QA or INT or DEV)  
+   -Dspring.profiles.active=required environment (which could be either of QA or INT or DEV) 
+ 
    -Dmosip.dbpath=DB path 
+
    *DB path – this is the local DB path where all the sync happens and other data’s get updated while running the code. The empty DB name is available in /registration/registration-libs/src/main/resources/db/reg . We are copying this empty DB in our project and passing as vm argument while running the code.
+
    -Dmosip.registration.db.key=DB key path
+
    Sample representation of the VM argument is as below
    
    ``-Dspring.profiles.active=qa  
