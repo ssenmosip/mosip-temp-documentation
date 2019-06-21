@@ -59,12 +59,4 @@
 |kernel-cbeffutil-api|NA|0.12.10|Used to generate the CBEFF file and validate against the schema also.|
 |kernel-bioapi-provider|NA|0.12.10|Used to integrate for the user-onboarding.|
 
-**Open Issues : <br><sub>List of Open Issues, which would be resolved or fixed in another release version, but same Sprint</sub></br>**  
-
-|Open Items|Description
-|-----------------|----------------------
-Transliteration|English-Arabic/ French Transliteration  won't work because of non-availability of kernel library. Vice versa also won't work.
-Bio-API|Integration with Bio-API for user-onboarding.
-Centre remapping
-Individual sync related jobs (high level sync is working fine) 
-TPM | Secure with TPM public key.  
+ 
