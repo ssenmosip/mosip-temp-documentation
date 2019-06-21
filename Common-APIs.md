@@ -2673,6 +2673,10 @@ KER-MSD-XXX | Error occured while deleting Language | language delete exception
 
 * [GET /individualtypes](#get-individualtypes)
 
+* [POST /individualtypes/search](#post-individualtypessearch)
+
+* [POST /individualtypes/filtervalues](#post-individualtypesfiltervalues)
+
 # GET /individualtypes
 
 This service will provides the complete list of all individual types in the MOSIP platform
