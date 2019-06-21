@@ -44,7 +44,7 @@ None
 
  ![Test](_images/test_rig_automation/kernel2.jpg) 
 
-3. Every test case will have 2 json files named [request.json and response.json] in its sub-folder as shown below
+3. Every test case will have 2 json files named [**request.json** and **response.json**] in its sub-folder as shown below
 
  ![Test](_images/test_rig_automation/kernel3.jpg) 
 
@@ -52,7 +52,7 @@ None
 
 Based on the test cases, we need to add the test case folders with request and response files.
 
-The **readTestCases **method from **TestCaseReader **class will read the folder names and give the test case names and **readRequestResponseJson **method from **TestCaseReader **class will read the request and response files from the tests.
+The **readTestCases** method from **TestCaseReader** class will read the folder names and give the test case names and **readRequestResponseJson** method from **TestCaseReader** class will read the request and response files from the tests.
 
 
 ## 1.5 Procedure to execute or Run the tests on a new environment
