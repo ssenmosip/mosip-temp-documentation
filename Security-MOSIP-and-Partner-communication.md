@@ -1,10 +1,9 @@
 # Partner and MOSIP communications
 #### Background
 
-<TODO> 
+The MOSIP and Partners have to communicate with each other, when an individual avails the service of the partners. The communication have to be executed safely and securely. 
 
 #### Solution
-
 
 
 **The key solution considerations are**
@@ -13,7 +12,9 @@
 
 1. CIA triad:
 	Confidentiality:
-		- The communication should be confidential and no 
+		- The communication should be confidential and no other parties should be able to eaves drop the communicated details
+        Integrity
+                - The integrity of the communication should be maintained. Both MOSIP and Partners have to sign the request and response of the communication. 
 
 2. Security in various levels:
 
