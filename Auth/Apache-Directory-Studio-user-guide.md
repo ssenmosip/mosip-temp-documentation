@@ -184,3 +184,10 @@ Steps to create user role mapping
 
 2. Try to click Browse and map the user or give the DN directly to be mapped.
    ![roleuser2.png](_images/auth/roleuser2.png)
+
+## Troubleshooting
+1 . Incase Importing Ldif throws an failure to import, due to user details already exists error.
+![entryalready.png](_images/auth/entryalready.png)
+
+Please select checkbox Update Existing entries and import the ldif entries.
+![updateexistingentries.png](_images/auth/updateexistingentries.png)
