@@ -46,7 +46,7 @@ None
 
 3. Every test case will have 2 json files named [request.json and response.json] in its sub-folder as shown below
 
- ![Test](_images/test_rig_automation/kernel2.jpg) 
+ ![Test](_images/test_rig_automation/kernel3.jpg) 
 
 4. In the request.json file, we need to mention the input that needs to be send to the API and response.json file contains the expected result for that particular input. 
 
