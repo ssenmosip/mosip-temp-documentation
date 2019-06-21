@@ -193,6 +193,7 @@ Instruction to checkout code from GitHub using Eclipse.
 
 **Figure 1**
 
+
 ![Test](_images/test_rig_automation/reg-client3.jpg) 
 
 **Figure 2**
