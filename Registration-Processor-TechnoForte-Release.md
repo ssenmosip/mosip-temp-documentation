@@ -17,7 +17,7 @@
 |1.|Registration Processor|Deployment Guide| [Click to View](https://github.com/mosip/mosip/wiki/Getting-Started#8-mosip-deployment-)
 |2.|Registration Processor|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#10-registration-processor-)|
 |3.|Registration Processor|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)|Refer Section 9 in the linked page|
-|4.|Registration Processor|Code Drop|[Tag: 0.12.9](https://github.com/mosip/mosip/releases/tag/0.12.10)||
+|4.|Registration Processor|Code Drop|[Tag: 0.12.10](https://github.com/mosip/mosip/releases/tag/0.12.10)||
 |5.|Registration Processor|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 10 in the linked page|
 
 **Date: 18 Jun 2019**
