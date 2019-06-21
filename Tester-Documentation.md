@@ -91,9 +91,10 @@ The **readTestCases** method from **TestCaseReader** class will read the folder 
 # 2. Pre-Registration Test Automation Suite - User Guide
 ## 2.1 About the Pre-Registration Module
 This is the web channel of MOSIP, which facilitates capturing individual information, relevant documents and booking an appointment with a registration center. This helps to reduce registration time and optimize the process. The current web application is highly modular by design and with multi language support. This UI can be customized or modified as per the country's requirements. A country can also build a new web/mobile application on top of the back end services that MOSIP provides.
+
 The test execution work-flow for the module Pre-Registration involving Rest API’s is as depicted below
 
-
+ ![Test](_images/test_rig_automation/pre-reg1.jpg) 
 
 ## 2.2 Pre-requisites for understanding Java API automation
 	Knowledge on Java 8
