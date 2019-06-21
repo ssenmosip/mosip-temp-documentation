@@ -44,43 +44,45 @@ None
 
  ![Test](_images/test_rig_automation/kernel2.jpg) 
 
-3.	Every test case will have 2 json files named [request.json and response.json] in its sub-folder as shown below
+3. Every test case will have 2 json files named [request.json and response.json] in its sub-folder as shown below
 
- 
+ ![Test](_images/test_rig_automation/kernel2.jpg) 
 
-4.	In the request.json file, we need to mention the input that needs to be send to the API and response.json file contains the expected result for that particular input. 
+4. In the request.json file, we need to mention the input that needs to be send to the API and response.json file contains the expected result for that particular input. 
 
 Based on the test cases, we need to add the test case folders with request and response files.
-The readTestCases method from TestCaseReader class will read the folder names and give the test case names and readRequestResponseJson method from TestCaseReader class will read the request and response files from the tests.
+
+The **readTestCases **method from **TestCaseReader **class will read the folder names and give the test case names and **readRequestResponseJson **method from **TestCaseReader **class will read the request and response files from the tests.
 
 
-Procedure to execute or Run the tests on a new environment
-	To run the automation suite of Kernel you will need an xml file named [testngKernel.xml], which will be available under [src/test/resources].
-	Add what are the test need to run in that xml file.
-	Add the path of the xml file in pom.xml file under maven surefire plugin.
+## 1.5 Procedure to execute or Run the tests on a new environment
+* To run the automation suite of Kernel you will need an xml file named [**testngKernel.xml**], which will be available under [**src/test/resources**].
+* Add what are the test need to run in that xml file.
+* Add the path of the xml file in **pom.xml** file under maven surefire plugin.
 
-Running a test suite
-1.	Right click project
-2.	Select “Run as configuration”
-3.	Under configuration select Maven build and create new maven build
-4.	Select current project as workspace.
-5.	Pass the below commands in the Goals:-
-Command:-clean install -Denv.user= required environment 
--Denv.endpoint=application url -Denv.testLevel=testLevel
+## 1.6 Running a test suite
+1. Right click project
+1. Select “Run as configuration”
+1. Under configuration select Maven build and create new maven build
+1. Select current project as workspace.
+1. Pass the below commands in the Goals:-
 
-Where 
-a) Required environment- In which environment the suite needs to run. (Ex:- qa, dev, int)
-b) TestLevel- Type of tests like (Ex:-smoke, regression, smokeAndRegression)
-Note: - Here regression means all tests other than smoke tests.
-6.	Select or Click the button “RUN”
-7.	Once the execution is completed, Test report will be generated in target/surefire-reports folder with the name MOSIP_ModuleLevelAutoRun_TestNGReport.html.
+   Command:-clean install -Denv.user= required environment-Denv.endpoint=application url -Denv.testLevel=testLevel
 
-Analyze the test reports
-1.	Open the report in Internet Explorer
-2.	The report will give the module name, total number of test case execution with pass, skipped and fail count
-3.	Report will provide the build version and also execution time
-4.	Report will show API name and corresponding test case names with execution time
-5.	For failed test cases, it will show the cause of failure
+**Where **
+
+   * Required environment- In which environment the suite needs to run. (Ex:- qa, dev, int)
+   * TestLevel- Type of tests like (Ex:-smoke, regression, smokeAndRegression)
+   **Note: - Here regression means all tests other than smoke tests.**
+6. Select or Click the button “RUN”
+1. Once the execution is completed, Test report will be generated in **target/surefire-reports** folder with the name **MOSIP_ModuleLevelAutoRun_TestNGReport.html**.
+
+## 1.7 Analyze the test reports
+1. Open the report in Internet Explorer
+1. The report will give the module name, total number of test case execution with pass, skipped and fail count
+1. Report will provide the build version and also execution time
+1. Report will show API name and corresponding test case names with execution time
+1. For failed test cases, it will show the cause of failure
 
 
 # 2. Pre-Registration Test Automation Suite - User Guide
