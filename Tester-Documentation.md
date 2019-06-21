@@ -69,10 +69,11 @@ The **readTestCases** method from **TestCaseReader** class will read the folder 
 
    Command:-clean install -Denv.user= required environment-Denv.endpoint=application url -Denv.testLevel=testLevel
 
-**Where **
+   **Where**
 
    * Required environment- In which environment the suite needs to run. (Ex:- qa, dev, int)
    * TestLevel- Type of tests like (Ex:-smoke, regression, smokeAndRegression)
+
    **Note: - Here regression means all tests other than smoke tests.**
 6. Select or Click the button “RUN”
 1. Once the execution is completed, Test report will be generated in **target/surefire-reports** folder with the name **MOSIP_ModuleLevelAutoRun_TestNGReport.html**.
