@@ -1198,8 +1198,8 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 		"pagination":{
 			"pageStart":"number",
 			"pageFetch":"number"
-		}
-		
+		},
+		"languageCode":""
 	}
 }
 ```
