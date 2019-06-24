@@ -1,6 +1,6 @@
-# ID Repository Dependencies List
+# ID Repository Dependencies
 
-### 1 Prerequisites : <br><sub>Dependent DB/External applications and services</sub></br>
+### 1. Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
 DB|mosip_idrepo|Required for persisting Identity service data.
@@ -8,7 +8,7 @@ DB|mosip_idmap|Required for persisting VID service data.
 
 
 
-### 2 Prerequisites : <br><sub>Internal Service Dependencies</sub></br>
+### 2.  Internal Service Dependencies
 Module|Component|Description (If any)
 -------|--------------|----------------
 Kernel|Kernel-Audit Service| Service for auditing
