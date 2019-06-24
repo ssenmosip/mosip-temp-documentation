@@ -31,8 +31,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. The face record in the input parameter against the mapped UIN/VID of the individual in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the face
 1. 1:1 mapping is performed by the SDK and match score is provided. The system then proceeds to execute compare against the face threshold.
-* **NOTE**:    Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
-8. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
+   * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
+1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
@@ -101,8 +101,7 @@ Upon receiving an authentication request, the system supports two-finger authent
    * Validates if total number of finger print records exceed 2
 4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system will integrate with BioAPI compositeMatch function logic which returns composite match score. 
-
-   NOTE: The logic of average or sum, etc. will be part of BioAPI implementation. The current stubbed implementation of BioAPI performs an average.
+   * NOTE: The logic of average or sum, etc. will be part of BioAPI implementation. The current stubbed implementation of BioAPI performs an average.
 1. The system retrieves the composite finger threshold configured which is acceptable for a match
 1. The system validates if the composite match score is equal to greater than the composite finger threshold
 1.  Constructs the authentication response based on validation results
@@ -328,7 +327,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 1. No of digits in the mobile number to be retrieved – say n
 1. Mask first {(50% of the n digits) + 1} digits of the mobile number
 
-Note: 50% in case of decimal means rounded to the greatest whole number
+   * Note: 50% in case of decimal means rounded to the greatest whole number
 
 Eg:
 
@@ -422,7 +421,7 @@ The system retrieves the UIN and Partnerid   for token Id generation
 1. The number does not contain the restricted numbers defined by the ADMIN
 1. The generated tokenid is integrated to the authentication response along with other parameters.
 
-Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
+   * Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
 
 10. The system then captures and stores the transaction details for audit purpose.
 
@@ -470,7 +469,8 @@ The system then validates the following:
 1. Validates the certificate
 1. Validates if the partnerID belongs to a registered partner
 1. Validates if the partner status is active
-1. Retrieves the policy constituting for the partnerID
+1. Retrieves the policy constituting for the partnerID and partner api key
+   * NOTE: (For points 3, 4 and 5) **Partners Authentication and Authorisation** is only a proxy implementation due to pending integration with Partner Management services.
 1. Validates if the auth type specified in the request is one of the policies retrieved.
 1. Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration
 1. Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)
@@ -478,7 +478,6 @@ The system then validates the following:
 1. Validate the status of the auth response and proceed only if the status is successful
 1. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
 1. The system integrates the response with the static token generated for the authentication request 
-1. Retrieves the configured demVal parameter configured for the country
 1.  Constructs the authentication response based on validation results
 1. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
 1. Appends the response with the demographic and id fields as per the policy
@@ -492,6 +491,7 @@ Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) f
 
 
 # 5. Partners Authentication and Authorisation
+   * NOTE: **Partners Authentication and Authorisation** is only a proxy implementation due to pending integration with Partner Management services
 ## 5.1 MISP License Authentication [**[↑]**](#table-of-content)
 
 **Authenticate and authorise the MOSIP Infrastructure Service Provider (MISP)**
@@ -519,7 +519,7 @@ The system then validates the following:
 1. Validates the certificate
 1. Validates if the partnerID belongs to a registered partner
 1. The system also validates if the partner status is active
-1. Retrieves all the policies constituting the partnerID
+1. Retrieves all the policies constituting the partnerID and partner api key
 1. Validates if the auth type specified in the request is one of the policies retrieved for the partner
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 1. Validates if the "authvalue" in the input parameter is same "authval" stored in the database for the mapped UIN and VID
