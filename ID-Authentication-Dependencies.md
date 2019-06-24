@@ -29,9 +29,9 @@ Kernel|Kernel Bio API Provider|Java API - Mock BioAPI provider
 
 
 ### 3.  LDAP Roles required for the [Internal Authentication API](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs#authentication-service-internal)
-LDAP Roles|Description (If any)
------|--------------
-REGISTRATION_PROCESSOR|
-REGISTRATION_ADMIN|
-REGISTRATION_OFFICER|
-REGISTRATION_SUPERVISOR|
+Service|LDAP Roles|Description (If any)
+--------|-----|--------------
+Internal Auth|REGISTRATION_PROCESSOR|[Internal Authentication API](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs#authentication-service-internal)
+Internal Auth|REGISTRATION_ADMIN|[Internal Authentication API](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs#authentication-service-internal)
+Internal Auth|REGISTRATION_OFFICER|[Internal Authentication API](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs#authentication-service-internal)
+Internal Auth|REGISTRATION_SUPERVISOR|[Internal Authentication API](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs#authentication-service-internal)
