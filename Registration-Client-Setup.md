@@ -242,4 +242,6 @@ Through sync process the data would be sync between local machine and server bas
    - The application has been currently tested with CANON LiDE 120.  
    - Printer should be available to take the print out from application and the respective driver should be installed.    
    - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
+   - If GPS enabled through configuration then the respective device/ model specific driver should be installed to communicate through application.  
+   
    
