@@ -30,9 +30,9 @@ ID Repository contains the record of identity for an individual, and provides AP
 * Read Identity Information for a given RID
 * Check status of UIN for validating a UIN
 
-Please refer to section related to [ID Repository services](#3-id-repository-services).
+Please refer to section related to [ID Repository services](#3-id-repository-services-).
 
-The Identity data stored inside the ID repo is encrypted. The Identity Repository is the most critical storage repository and is configured keeping the following non-functional aspects in mind
+The Identity data stored inside the ID repository is encrypted. The Identity Repository is the most critical storage repository and is configured keeping the following non-functional aspects in mind
 * Scalability 
 * Performance
 * High Availability
