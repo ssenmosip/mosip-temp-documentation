@@ -1,12 +1,12 @@
-# ID-Authentication Dependencies List
+# ID-Authentication Dependencies
 
-### 1 Prerequisites : <br><sub>Dependent DB/External applications and services</sub></br>
+### 1.  Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
-DB|mosip_ida|Required for persisting Authentication Transactions.
+DB|mosip_ida|DB Scripts available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_ida
 
 
-### 2 Prerequisites : <br><sub>Dependent module/component with their respective versions should be mentioned here</sub></br>
+### 2.  Dependent module/component with their respective versions should be mentioned here
 Module|Component|Description (If any)
 -----|-------------|--------------
 ID Repository|ID Repository Identity Service|Get Identity for UIN, Get Identity for RID
@@ -28,3 +28,4 @@ Kernel|Kernel Crypto JCE|Java API - Encryptor
 Kernel|Kernel Bio API Provider|Java API - Mock BioAPI provider
 
 
+### 3.  LDAP Roles
