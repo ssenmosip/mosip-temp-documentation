@@ -1,3 +1,16 @@
+## Table Of Content
+- [1. ID Repository Overview](#1-id-repository-overview)
+- [2. ID Services Which Access the Repository](#2-id-services-which-access-the-repository)
+  * [2.1 Target Users](#21-target-users)
+  * [2.2 Key Features](#22-key-features)
+- [3. ID Repository services](#3-id-repository-services)
+  * [3.1 Store Identity Data and Documents in Database](#31-store-identity-data-and-documents-in-database)
+  * [3.2 Retrieve the Stored Identity Details by UIN](#32-retrieve-the-stored-identity-details-by-uin)
+  * [3.3 Retrieve the Stored Identity Details by RID](#33-retrieve-the-stored-identity-details-by-rid)
+  * [3.4 Update Identity Data and Documents in Database](#34-update-identity-data-and-documents-in-database)
+- [ID Repository API](#id-repository-api)
+- [Process View](#process-view)
+
 ## 1. ID Repository Overview
 
 ID Repository contains the record of identity for an individual, and provides API based mechanism to store and retrieve identity details by any other MOSIP modules.
