@@ -124,12 +124,14 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if total number of Iris records exceeds 2
    * Validates if single iris record is present in the input
    * The system matches iris record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
-5. The system validates if two iris records are present in the input
-6. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the individual in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-7. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
-8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
-9. The system proceeds to execute compare against Iris threshold
+4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score.
+   * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
+1. The system validates if two iris records are present in the input
+1. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the individual in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
+   * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
+1. The system generates a composite match score by summing up the match scores for the first and the second iris Images
+1. The system proceeds to execute compare against Iris threshold
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
