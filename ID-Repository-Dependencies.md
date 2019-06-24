@@ -1,5 +1,3 @@
-# ID Repository Dependencies
-
 ### 1. Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
