@@ -24,3 +24,5 @@ Kernel|Kernel idobjectvalidator|Java API
 Kernel|Kernel logger logback|Java API
 
 
+### 3.  LDAP Roles
+TBD
