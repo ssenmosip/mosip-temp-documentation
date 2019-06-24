@@ -667,7 +667,7 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
 #### Request
 ```JSON
 {
-  "id": "mosip.packet.generator",
+  "id": "mosip.registration.packetgenerator",
   "version": "1.0",
   "requesttime": "2019-02-02T06:12:25.288Z",
   "request": {
@@ -685,7 +685,7 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
 
 ```JSON
 {
-  "id": "mosip.packet.generator",
+  "id": "mosip.registration.packetgenerator",
   "version": "1.0",
   "responsetime": "2019-02-02T06:12:25.288Z",
   "response": {
