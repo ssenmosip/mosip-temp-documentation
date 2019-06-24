@@ -117,6 +117,9 @@ It doesn't detail about each methods level information since that are covered in
 
 ## Table Detail :
 
+Below find the list of tables used in Registration client application. Based on use cases, the table data gets updated during either sync process or transaction in local machine.  
+There are few jobs are configured to clean the transactions histories from local tables and also pushing the audit data to server.  
+
 |**Sl. No**|**Table Name**| **Description** | **Source** |
 |:------:|:------:|-----|-----|
 |1.|biometric_attribute| It contains the list of biometric attribute description[left slap, right iris..] for each biometric type [Fingerprint, Iris, Photo] with respect to language code | sync from server master table | 
@@ -169,13 +172,15 @@ It doesn't detail about each methods level information since that are covered in
 
 ## Error code and Description :
 
+Below find the list of error code and description which are thrown from application during the process. 
+
 |**Class Name**| **Error Codes** | **Description**|
 |:------:|-----|-----|
-|GPSFacade						|REG-LGE_		|GPS signal is weak please capture again												|
-|SyncStatusValidatorService		|REG-ICS		|GPS signal is weak please capture again												|
-|SyncStatusValidatorService		|REG-ICS		|GPS device not found. Please connect an on-boarded GPS device.|
-|SyncStatusValidatorService		|REG-ICS		|Please connect the GPS Device														|
-|SyncStatusValidatorService		|REG-ICS		|Please insert the GPS device in the Specified Port									|
+|GPSFacade						|REG-LGE-002	|GPS signal is weak please capture again												|
+|SyncStatusValidatorService		|REG-ICS-006	|GPS signal is weak please capture again												|
+|SyncStatusValidatorService		|REG-ICS-005		|GPS device not found. Please connect an on-boarded GPS device.|
+|SyncStatusValidatorService		|REG-ICS-005		|Please connect the GPS Device														|
+|SyncStatusValidatorService		|REG-ICS-004		|Please insert the GPS device in the Specified Port									|
 |RegistrationApprovalController	|LGN-UI-SHE		|IO Exception																		|
 |PacketSynchService				|REG-PSS		|Unable to Sync Packets to the server												|
 |PacketUploadService			|REG-PUS		|Unable to Push Packets to the server												|
