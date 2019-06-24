@@ -1,4 +1,4 @@
-**Date: 22 Jun 2019** 
+**Date: 24 Jun 2019** 
 
 **MOSIP**
 
@@ -9,7 +9,7 @@
 |3.|MOSIP - Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
 
 
-**Date: 22 Jun 2019**
+**Date: 24 Jun 2019**
 
 **Module: Registration**
 
@@ -21,7 +21,7 @@
 |4.|Registration|Code Drop|[Tag: 0.12.12](/mosip/mosip/releases/tag/0.12.12)||
 |5.|Registration|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 6 in the linked page|
 
-**Date: 22 Jun 2019**
+**Date: 24 Jun 2019**
 
 **Module: Registration**
 
