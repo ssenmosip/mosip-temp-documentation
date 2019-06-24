@@ -3,8 +3,8 @@
 ### 1. Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
-DB|mosip_idrepo|Required for persisting Identity service data.
-DB|mosip_idmap|Required for persisting VID service data.
+DB|mosip_idrepo|DB scripts are available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_idrepo
+DB|mosip_idmap|DB scripts are available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_idmap
 
 
 
