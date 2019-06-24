@@ -3,7 +3,7 @@
 ### 1.  Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
-DB|mosip_ida|DB Scripts available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_ida
+DB|mosip_ida|DB Scripts available [here](https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_ida)
 
 
 ### 2.  Dependent module/component with their respective versions should be mentioned here
@@ -28,4 +28,10 @@ Kernel|Kernel Crypto JCE|Java API - Encryptor
 Kernel|Kernel Bio API Provider|Java API - Mock BioAPI provider
 
 
-### 3.  LDAP Roles
+### 3.  LDAP Roles required for the [Internal Authentication API](https://github.com/mosip/mosip/wiki/ID-Authentication-APIs#authentication-service-internal)
+LDAP Roles|Description (If any)
+-----|--------------
+REGISTRATION_PROCESSOR|
+REGISTRATION_ADMIN|
+REGISTRATION_OFFICER|
+REGISTRATION_SUPERVISOR|
