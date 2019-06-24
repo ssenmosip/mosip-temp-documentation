@@ -25,13 +25,6 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| SessionContext is required for creating the packet |  
 |**External Connectivity**| DB, File system |  
 
-|**Functionality:**|  PRE REG INTEGRATION – Fetch Pre reg Data |   
-|:------:|-----|  
-|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistration(String preRegistrationId)|  
-|**Input Parameter:**|    preRegistrationId- The pre reg id |  
-|**Auth:**| required |  
-|**External Connectivity:**| syncData - Pre Reg service REST call |  
-
      
 |**Functionality:**| Packet Upload |   
 |:------:|-----|  
@@ -48,6 +41,14 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| No. |  
 |**External Connectivity:**| DB, File system |  
 
+|**Functionality:**|  Download Pre-Registration data during New Registration |   
+|:------:|-----|  
+|**Technical Detail:**|  The user provided pre-registration packet id related [demo/ doc] detail would be downloaded from Pre-registration DB using the respective REST service. After downloading the packet, the data would be mapped to the UI object and render the same to UI to display in the screen. |
+|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistration(String preRegistrationId)|  
+|**Input Parameter:**|    preRegistrationId- The pre reg id |  
+|**Auth:**| Authentication token required while downloading the packets. Based on the SessionContext object the advice would attach the token and invoke the required service call. |  
+|**External Connectivity:**| Pre Reg service REST call |  
+
 
 |**Functionality:**| Sync Data from Server to Client and Vice Versa. |   
 |:------:|-----|  
@@ -56,13 +57,6 @@ It doesn't detail about each methods level information since that are covered in
 |**Input Parameter:**|  - |    
 |**Auth:**| Auth token required for external services. This would be automatically taken care within this method. Nothing explicitly to be passed.|  
 |**External Connectivity:**| REST API calls, DB|
-
-|**Functionality:**|  PRE REG INTEGRATION – Download All Pre registration Data |   
-|:------:|-----|  
-|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistrationIds(String syncJobId)|  
-|**Input Parameter:**|    syncJobId- The job id which can be either USER or SYSTEM |  
-|**Auth:**| required |  
-|**External Connectivity:**| syncData - Pre Reg service REST call |  
 
 
 |**Functionality:**|  MDM Integration – Register Device |   
@@ -109,6 +103,12 @@ It doesn't detail about each methods level information since that are covered in
 
 ## Configuration Rule: 
 
+As 'configurability' is the one of the major NFR being considered while designing the application, here listed out the required files where the configurations can be modified that will get reflected in application during runtime.  
+  - 'registration-qa.properties' - Registration application specific configuration.  
+  - 'application-qa.properties' - Overall application level common configuration.  
+  
+  These configuration would be downloaded to the client machine through the 'config' sync service.  If there is any change with respect to 'kernel' properties then after downloading the properties the application will ask for 'restart'. 
+  
 **Age configuration:**  
   - Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.      
   - {application property key : 'mosip.id.validation.identity.age'}    	
