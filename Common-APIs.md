@@ -375,8 +375,8 @@ filters|No|Array of the filter applied. In case of "list" screen, this array wil
 columnName|No|The column name in the JSON response| -NA- |
 type|No|The value have to be in ["in","equals","startsWith","between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
-fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
-toValue|No|If the type is "between", this field is the value of the toName| -NA- |
+fromValue|No|If the type is "between", this field is the value of the start range| -NA- |
+toValue|No|If the type is "between", this field is the value of the end range| -NA- |
 languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
 sort|No|This is an array of the sort field and type| | 
 sortfield| The field on which the sort is applied | | modifiedDate
@@ -400,8 +400,8 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 				"type": "in",
 				"value": "",  
 				"fromValue": "",    
-				"toValue": "",
-				"languageCode":""
+				"toValue": ""
+				
 			}
 		],
 		"sort":[
@@ -413,7 +413,8 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 		"pagination":{
 			"pageStart":"number",
 			"pageFetch":"number"
-		}
+		},
+               "languageCode":""
 		
 	}
 }
@@ -900,8 +901,8 @@ filters|No|Array of the filter applied. In case of "list" screen, this array wil
 columnName|No|The column name in the JSON response| -NA- |
 type|No|The value have to be in ["in","equals","startsWith","between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
-fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
-toValue|No|If the type is "between", this field is the value of the toName| -NA- |
+fromValue|No|If the type is "between", this field is the value of the start range| -NA- |
+toValue|No|If the type is "between", this field is the value of the end range| -NA- |
 languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
 sort|No|This is an array of the sort field and type| | 
 sortfield| The field on which the sort is applied | | modifiedDate
@@ -925,8 +926,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 				"type": "in",
 				"value": "",  
 				"fromValue": "",    
-				"toValue": "",
-				"languageCode":""
+				"toValue": ""
 			}
 		],
 		"sort":[
@@ -938,7 +938,8 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 		"pagination":{
 			"pageStart":"number",
 			"pageFetch":"number"
-		}
+		},
+	        "languageCode":""
 		
 	}
 }
@@ -2238,8 +2239,8 @@ filters|No|Array of the filter applied. In case of "list" screen, this array wil
 columnName|No|The column name in the JSON response| -NA- |
 type|No|The value have to be in ["in","equals",,"startsWith""between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
-fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
-toValue|No|If the type is "between", this field is the value of the toName| -NA- |
+fromValue|No|If the type is "between", this field is the value of the start range| -NA- |
+toValue|No|If the type is "between", this field is the value of the end range| -NA- |
 languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
 sort|No|This is an array of the sort field and type| | 
 sortfield| The field on which the sort is applied | | modifiedDate
@@ -2263,8 +2264,8 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 				"type": "in",
 				"value": "",  
 				"fromValue": "",    
-				"toValue": "",
-				"languageCode":""
+				"toValue": ""
+				
 			}
 		],
 		"sort":[
@@ -2276,7 +2277,8 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 		"pagination":{
 			"pageStart":"number",
 			"pageFetch":"number"
-		}
+		},
+                "languageCode":""
 		
 	}
 }
