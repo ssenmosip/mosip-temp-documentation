@@ -20,7 +20,22 @@
 
 
 # 1. Overview [**[↑]**](#table-of-content)
-The 'Resident Services' module will provide a host of services for a user which he/she can utilize after generation of his/her Unique Identity Number(UIN). These services can include update of demographic data (UIN update), track status of a request, lock/unlock AUTH types, download e-UIN, retrieve lost Registration ID(RID)/UIN, reprint UIN, view AUTH transaction history, generate/revoke Virtual ID (VID). All these features are detailed under the features section below.   
+The 'Resident Services' module will provide a host of services for a user which he/she can utilize after generation of his/her Unique Identity Number(UIN). These services can include update of demographic data (UIN update), track status of a request, lock/unlock AUTH types, download e-UIN, retrieve lost Registration ID(RID)/UIN, reprint UIN, view AUTH transaction history, generate/revoke Virtual ID (VID). All these features are detailed under the features section below. 
+OR
+
+
+The Resident Service module will provide the host of services to the users who can avail the services after the creation of their Unique Identity Number (UIN). The list of services follows:
+ * Update of Demographic Data (UIN update)
+ * Track Request Status
+ * Lock/unlock AUTH types
+ * Download e-UIN
+ * Retrieve Lost Registration ID(RID)/UIN
+ * Reprint UIN
+ * View Authentication Transaction History
+ * Generate/revoke Virtual ID (VID).
+
+All these features are detailed in the following features section.
+  
 # 2. Features [**[↑]**](#table-of-content)
 ## 2.1 Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
 
@@ -28,12 +43,12 @@ This feature will allow an individual to track status of his/her UIN generation.
 
 ## 2.2 Download UIN [**[↑]**](#table-of-content)
 
-This feature will allow an individual to download the electronic UIN. The user just needs to provide the UIN/VID, full name, postal code, and security code as input. The system will validate the provided data, trigger an OTP and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the e-UIN generation status to the user's registered mobile number and email ID. The system will also trigger a successful notification message  to the user's registered mobile number/email id, with a link of the pdf after successful transaction or appropriate error message if the transaction was not successful.
+This feature will allow an individual to download his/her electronic UIN. The user just needs to provide the UIN/VID, full name, postal code, and security code as input. The system will validate the provided data, trigger an OTP and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the e-UIN generation status to the user's registered mobile number and email ID. The system will also trigger a successful notification message  to the user's registered mobile number/email id, with a link of the pdf after successful transaction or appropriate error message if the transaction was not successful.
 
 ## 2.3 Retrieve Lost RID [**[↑]**](#table-of-content)
 When an individual visits a registration center and fills up the enrollment form, or fills up the pre-registration form online specifying the mandatory fields. Once the UIN application is submitted after providing the required demographics, bio-metrics, and supporting documents, the the system generated 29-digit enrollment/RID and this RID will be used  for future reference.
 
-This feature will allow an individual to retrieve the Lost RID. The user just needs to provide the Full Name, Mobile Number/E-Mail ID, Postal Code as input. The system will first validate the user's provided data, trigger an OTP, and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the status of retrieving lost RID  to the user's registered mobile number and email ID. The system will also trigger a successful notification message to the registered mobile number/email id, with a link to the pdf after a successful transaction or  appropriate error message if the transaction was not successful.
+This feature will allow an individual to retrieve his/her Lost RID. The user just needs to provide the Full Name, Mobile Number/E-Mail ID, Postal Code as input. The system will first validate the user's provided data, trigger an OTP, and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the status of retrieving lost RID  to the user's registered mobile number and email ID. The system will also trigger a successful notification message to the registered mobile number/email id, with a link to the pdf after a successful transaction or  appropriate error message if the transaction was not successful.
 
 ## 2.4 Retrieve Lost UIN [**[↑]**](#table-of-content)
 This feature will allow an individual to retrieve his/her Lost UIN. The user just needs to provide the Full Name, Mobile Number/E-Mail ID, Postal Code as input. The system will first validate the user's provided data, trigger an OTP, and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the status of retrieving lost UIN  to the user's registered mobile number and email ID. The system will also trigger a successful notification message to the registered mobile number/email ID, with a link to the pdf after a successful transaction or  appropriate error message if the transaction was not successful.
@@ -42,17 +57,18 @@ This feature will allow an individual to retrieve his/her Lost UIN. The user jus
 This feature will allow an individual to raise reprint request of his/her UIN . The user just needs to provide the the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the status of UIN reprint request to the user's registered mobile number and email ID. The system will also trigger a successful notification message to the registered mobile number/email ID after a successful transaction or  appropriate error message if the transaction was not successful.
 ## 2.6 Initiate UIN Update [**[↑]**](#table-of-content)
 This feature will allow an individual to initiate UIN update of his/her UIN . The user just needs to provide the the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send the UIN update status to the user's registered mobile number and email ID. The system will also trigger a successful notification message to the registered mobile number/email ID after a successful transaction or  appropriate error message if the transaction was not successful.
-Please refer to the [**Track Status of UIN Update**](#7-track-status-of-uin-update-) for more details.>
 
-The below section to be deleted after discussion with Samrat
-<If an individual’s demographic and biometric data are mismatched or captured wrongly due to any reason, that can be updated trough registration center or Resident Services. In Resident Services, an individual can initiate a request to update the demographic data of his/her UIN. An individual provides the UIN/VID for which he/she wants to update.The system validates the provided UIN/VID, checks for the registered mobile number/email ID associated with and triggers an OTP notification. The individual provides the OTP as received.The system validates the provided OTP and  authenticates the individual. On successful authentication, the system allows the individual to update the respective demographic data.The individual provides the supporting documents related to the details, which are being updated. Additionally, the system triggers an acknowledgement  notification of UIN update request to the registered mobile number/email ID. .During the validation of UIN/VID, if the UIN/VID is not found or the mobile number/email ID is not associated with the UIN/VID or the provided OTP is not correct, and then the system triggers the appropriate error message. Status of an update request can further be tracked by an individual. Please refer to the [**Track Status of UIN Update**](#7-track-status-of-uin-update-) for more details.>
+Please refer to the [**Track Status of UIN Update**](#7-track-status-of-uin-update-) for more details.
 
 ## 2.7 Track Status of UIN Update [**[↑]**](#table-of-content)
+
 This feature will allow an individual to track status of his/her UIN update. The user just needs to provide the RID  as input. The system will first validate the user's provided RID, trigger an OTP and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send UIN Update status to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
+
+
 ## 2.8 View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
 This feature will allow an individual to view the authentication request history his/her UIN. The user just needs to provide the UIN/VID as input. The system will first validate the user's provided UIN/VID, trigger an OTP and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of View Authentication History to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
-An individual can view authentication- requests history for a specific UIN/VID. The system will fetch the record for past 6 months from the current date or maximum 50 transactions (configurable). 
+The system will fetch the record for past 6 months from the current date or maximum 50 transactions (configurable). 
 
 ## 2.9 Lock/Unlock UIN [**[↑]**](#table-of-content)
 
@@ -72,7 +88,7 @@ This feature will allow an individual to unlock the authentication types (Demogr
 
 ## 2.10. VID Service [**[↑]**](#table-of-content)
 
-VID is an alternative to UIN and is temporary code that can be used for authentication or for availing any service of an individual. The individual can provide the VID instead of UIN to authenticate themselves, obtain any service, and  protect individual's UIN details from being accessed by someone else. Also VID can be used to get e-KYC done at both private and government organizations. VID validity is configurable.
+Virtual ID is an alternative to UIN and is temporary code that can be used for authentication or for availing any service of an individual. The individual can provide the VID instead of UIN to authenticate themselves, obtain any service, and  protect individual's UIN details from being accessed by someone else. Also VID can be used to get e-KYC done at both private and government organizations. VID validity is configurable.
 
 VID services  include generating, regenerating, and updating VID status.
 
@@ -99,7 +115,7 @@ To prevent misuse of VID, an individual can request to revoke his/her VID using 
 
 
 
-### 2.10.6 Retrieve the UIN corresponding to a VID (WIP) [**[↑]**](#table-of-content)	
+### 2.10.6 Retrieve the UIN Corresponding to a VID (WIP) [**[↑]**](#table-of-content)	
 
 When an individual does not remember his/her UIN, he/she can retrieve the UIN by providing the VID that was generated against the UIN earlier. The system authenticates the individual’s request as per the security policy of the respective country and retrieves the UIN. Additionally, the system triggers the UIN retrieval request status to the registered mobile number/email ID If authentication failes, the system triggers the appropriate error message.
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
