@@ -1560,6 +1560,14 @@ pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
 
+### Filter Values
+Filter Name| Search Values
+-----|----------
+Location Zone Name|["in","equals","startsWith"]
+Holiday Date|["between"]
+Holiday Name|["in","equals","startsWith"]
+Status|["in","equals","startsWith"]
+
 ### Example Request
 ```JSON
 {
