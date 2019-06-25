@@ -18,21 +18,21 @@ ID Repository contains the record of identity for an individual, and provides AP
 ## 2. ID Services Which Access the Repository [**[↑]**](#table-of-content)
 ### 2.1 Target Users [**[↑]**](#table-of-content)
 
-* Registration Processor can use Identity Repo services to create and update Identity information associated with a UIN
-* ID Authentication can use Identity Repo services to validate an input UIN and read identity details associated with a UIN
-* Resident Services can use Update ID API when an Individual requests for updating ID details like address
+* Registration Processor can use Identity Repository services to create and update identity information associated with a UIN
+* ID Authentication can use Identity Repository services to validate an input UIN and read identity details associated with a UIN
+* Resident Services can use Update ID API when an individual requests for updating ID details like address
 
 ### 2.2 Key Features [**[↑]**](#table-of-content)
 
 * Store identity information for a given UIN
-* Update Identity information partially or status of UIN
-* Read Identity Information associated with a valid UIN
-* Read Identity Information for a given RID
+* Update identity information partially or status of UIN
+* Read identity Information associated with a valid UIN
+* Read identity Information for a given RID
 * Check status of UIN for validating a UIN
 
 Please refer to section related to [**ID Repository services**](#3-id-repository-services-).
 
-The Identity data stored inside the ID repository is encrypted. The Identity Repository is the most critical storage repository and is configured keeping the following non-functional aspects in mind:
+The identity data stored inside the ID repository is encrypted. The Identity Repository is the most critical storage repository and is configured keeping the following non-functional aspects in mind:
 * Scalability 
 * Performance
 * High Availability
@@ -42,9 +42,9 @@ The Identity data stored inside the ID repository is encrypted. The Identity Rep
 ## 3. ID Repository services [**[↑]**](#table-of-content)
 ### 3.1 Store Identity Data and Documents in Repository [**[↑]**](#table-of-content)
 
-Upon receiving the request to stores identity details of individual in ID Repository, the system validates input ID attributes in the request against MOSIP ID defined for the country
+Upon receiving the request to store identity details of individual in ID Repository, the system validates input ID attributes in the request against MOSIP ID defined for the country
 1. Stores ID JSON of an individual generated during registration
-1. Receives and stores Individual biometric documents generated during registration
+1. Receives and stores individual biometric documents generated during registration
 1. Receives and stores documents of proofs provided by individual at the time of registration
 1. On successful storage of identity for an individual, status of UIN of the individual is marked as 'ACTIVATED'
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
@@ -55,33 +55,32 @@ Upon receiving a request to retrieve identity details of an individual based on 
 1. Validates if input UIN is 'ACTIVATED'
 1. Retrieves latest ID of individual
 1. The system retrieves and sends a response based on the type of request as follows:
-   * If demographic details are requested system retrieves demographic documents in the response
-   * If biometric details are requested system retrieves biometric documents in the response
-   * If both biometric and demographic details are requested system retrieves both biometric and demographic documents in the response
+   * If demographic details are requested, system retrieves demographic documents in the response
+   * If biometric details are requested, system retrieves biometric documents in the response
+   * If both biometric and demographic details are requested, system retrieves both biometric and demographic documents in the response
 1. Sends the response 
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.3 Retrieve the Stored Identity Details by RID [**[↑]**](#table-of-content)
 
-Upon receiving a request to retrieve Identity details of an Individual based on input RID and type as an optional parameter, 
-the system performs the following steps to retrieve the stored identity details and related documents:
+Upon receiving a request to retrieve identity details of an individual based on input RID and type as an optional parameter, the system performs the following steps to retrieve the stored identity details and related documents:
 1. Retrieves UIN mapped to input RID
 1. Validates if mapped UIN is 'ACTIVATED'
 1. Retrieves latest ID of Individual
 1. The system retrieves and sends a response based on the type of request as follows:
-   * If demographic details are requested system retrieves demographic documents in the response
-   * If biometric details are requested system retrieves biometric documents in the response
-   * If both biometric and demographic details are requested system retrieves both biometric and demographic documents in the response
+   * If demographic details are requested, system retrieves demographic documents in the response
+   * If biometric details are requested, system retrieves biometric documents in the response
+   * If both biometric and demographic details are requested, system retrieves both biometric and demographic documents in the response
 1. Sends the response  
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.4 Update Identity Data and Documents in Repository [**[↑]**](#table-of-content)
 
-Upon receiving a request to update Identity details of an Individual, the system performs the following steps:
+Upon receiving a request to update identity details of an individual, the system performs the following steps:
 1. Validate if input UIN is 'ACTIVATED'
-1. Updates input ID attributes of Individual
+1. Updates input ID attributes of individual
 1. If request contains demographic documents, the system updates with the latest documents received
-1. If request contains biometric document of Individual, the system updates with the latest documents received
+1. If request contains biometric document of individual, the system updates with the latest documents received
 1. If request updates status of UIN as 'DEACTIVATED' or 'BLOCKED', the system updates the same
 1. Sends the response with updated ID details of Individual
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
