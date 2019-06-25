@@ -386,34 +386,9 @@ The sample structure should be like below:
 |$input.bio-auth-request:AuthReq.transactionID$|	To get the already assigned for the filed.s|	<li> input.filename1: <li>   mappingName1: value1 <li>   mappingName2: value2 <li> ouput.filename2: <li>   mappingName3: $ input.filename: mappingName2$ <li> where mappingName3 has set as value2|
 |<li>  $errors:RevokedVID:errorCode$ <li> $errors:InactiveVID:errorCode$	|Get error code for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.|	
 |<li> $errors:InactiveVID:errorMessage$ <li> $errors:RevokedVID:errorMessage$	| Get error message for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.|
-	
-$idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
-
-
-$idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$	To get biometric value for the UIN using cbeff File. It is combination of above listed keyword.
-
-Where 
-$idrepo -> keyword mandatory at start.
-
-$input.bio-auth-request:AuthReq.individualId$ -> get the value from the previously mentioned field
-
-individualBiometricsValue -> Mapping name in UINMapping/mapping.property
-
-//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB  -> cbeff xpath, where in this location biovalue will be saved for Left IndexFinger	
-$idrepo~$input.demo-auth-request:AuthReq.individualId$~valueaddressLine1:langcode:TestData:primary_lang_code$
-
-
-$idrepo~$input.demo-auth-request:AuthReq.individualId$~valuecity:langcode:TestData:secondary_lang_code$	To get demographic data for the UIN and language.
-
-Where 
-$idrepo -> keyword mandatory at start.
-
-$input.demo-auth-request:AuthReq.individualId$ ->  get the value from the previously mentioned field
-
-valueaddressLine1 -> Mapping name in 
-UINMapping/mapping.property
-
-TestData:primary_lang_code -> keyword to get language code from the authenticationTestData.yml
+|<li> $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$ <li> $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$|	<li> To get biometric value for the UIN using cbeff File. It is combination of above listed keyword. <li> Where 
+$idrepo -> keyword mandatory at start. <li> $input.bio-auth-request:AuthReq.individualId$ -> get the value from the previously mentioned field <li> individualBiometricsValue -> Mapping name in UINMapping/mapping.property <li> //BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB  -> cbeff xpath, where in this location biovalue will be saved for Left IndexFinger|	
+|<li> $idrepo~$input.demo-auth-request:AuthReq.individualId$~valueaddressLine1:langcode:TestData:primary_lang_code$ <li>  $idrepo~$input.demo-auth-request:AuthReq.individualId$~valuecity:langcode:TestData:secondary_lang_code$	|<li> To get demographic data for the UIN and language. <li> **Where ** $idrepo -> keyword mandatory at start. <li>  $input.demo-auth-request:AuthReq.individualId$ ->  get the value from the previously mentioned field <li> valueaddressLine1 -> Mapping name in UINMapping/mapping.property <li> TestData:primary_lang_code -> keyword to get language code from the authenticationTestData.yml|
 	
 
 
