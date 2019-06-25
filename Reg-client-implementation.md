@@ -53,7 +53,7 @@ It doesn't detail about each methods level information since that are covered in
 |**Functionality:**| Sync Data from Server to Client and Vice Versa. |   
 |:------:|-----|  
 |**Technical Detail:**| This functionality will be executed as specified as sync-frequency in local DB. During start of the application, the scheduler would be loaded with the jobs configured in db and trigger the job. The scheduler would trigger the jobs at the configured frequency. While running the jobs, based on the functionality it would invoke the respective services and invoke the required external services to sync the data from server to client and vice versa. Post completion or every state of the job execution, the status would be updated in local db.|  
-|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs from the local db and trigger the jobs.|  
+|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs[List of Jobs](#List-of-Jobs-) from the local db and trigger the jobs.|  
 |**Input Parameter:**|  - |    
 |**Auth:**| Auth token required for external services. This would be automatically taken care within this method. Nothing explicitly to be passed.|  
 |**External Connectivity:**| REST API calls, DB|
@@ -100,6 +100,36 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| TPM 2.0 is required for this service |  
 |**External Connectivity:**| TPM, Web Service |
 
+## Packet Structure :
+   The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link. 
+   
+   [Packet Structure](Registration-Packet.md)
+   
+## Packet Status :  
+
+   List of packet status maintained in client db while moving the packet to the different state before and after pushing to the server.  
+   
+
+## List of Jobs:  
+
+Below provided jobs are executed in batch mode through spring batch. The job execution frequencies are mentioned in the DB job related table. These jobs can also be triggered through manual process using 'Sync' option in the Menu, During initial login after successful online authentication and While starting the application if initial sync already completed.  
+
+|**Sl.No:**|**Service Desc.**|**Dependent Module**|**Under 'Sync' Menu**| **Initial Login**| **Application Launch** | 
+|------|-----|-----|-----|-----|-----|
+| 1. | Pre-registration Data Sync			| Pre-reg | Y | N | N |
+| 2. | Policy Sync							| Kernel  | Y | N | N |
+| 3. | Registration Client Config Sync		| Kernel  | Y | Y | Y |
+| 4. | Registration Packet Status Reader	| Reg-Proc| Y | N | N |
+| 5. | User Detail/Role Setup Sync			| Kernel  | Y | Y | Y |
+| 6. | Pre Registration Packet Deletion Job	| local job| N | N | N |
+| 7. | Registration Packet Deletion Job		| Local Job| N | N | N |
+| 8. | User Machine Mapping Sync  Job		| Kernel | Y | N | N |
+| 9. | Audit Log Deletion Job				| Local Job| N |  N | N |
+| 10. | Registration Packet Sync			| Reg-Proc| Y | N | N |
+| 11. | Registration Packet Virus Scan		| Reg-Proc| N | N | N |
+| 12. | Public key Sync service				| Kernel | Y | Y | Y |
+| 13. | User Salt Sync service				| Kernel | Y | Y | Y | 
+ 
 
 ## Configuration Rule: 
 
