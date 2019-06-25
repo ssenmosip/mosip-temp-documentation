@@ -986,7 +986,10 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 Filter Name| Search Values
 -----|----------
 name|["in","equals","startsWith"]
-status|["equals"]
+brand|["in","equals","startsWith"]
+model|["in","equals","startsWith"]
+device type name|["in","equals","startsWith"]
+status|["in","equals","startsWith"]
 
 ### Example Request
 ```JSON
