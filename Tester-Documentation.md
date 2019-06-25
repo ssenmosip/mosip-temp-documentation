@@ -372,9 +372,9 @@ The sample structure should be like below:
 **TestData Keyword repository**:
 
 |Keywords| KeywordName/Purpose |Example|
-|:------:|:-----:|:-------:|
-|$TIMESTAMPZ$	|To generate current timestamp with UTC format|	2019-06-20T16:18:08.008Z|
-|$TIMESTAMP$|	To generate current timestamp with timezone format|	2019-06-20T16:18:08.008+05:30|
+|------|-----|-------|
+|$TIMESTAMPZ$|To generate current timestamp with UTC format|2019-06-20T16:18:08.008Z|
+|$TIMESTAMP$|To generate current timestamp with timezone format|2019-06-20T16:18:08.008+05:30|
 |<li> $TIMESTAMP$HOUR+24 <li> $TIMESTAMP$HOUR-24 <li> $TIMESTAMP$MINUTE+23 <li> $TIMESTAMP$MINUTW-56 <li> $TIMESTAMP$SECOND+145 <li> $TIMESTAMP$SECOND-123|	To generate future or current timestamp	|
 |$RANDOM:N:10$	|To generate random digit for the given number|<li> $RANDOM:N:10$ <li> $RANDOM:N:3$ <li> $RANDOM:N:14$|
 |$UIN$|	To get random UIN number from uin.property file	|
