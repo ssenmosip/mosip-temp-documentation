@@ -362,10 +362,10 @@ The workflow of testing or running the test suite of the available API’s is as
 1. For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.
 
 ## 5.7 Annexure
-Yaml Test Data Format:
+**Yaml Test Data Format**:
 The sample structure should be like below:
-  **testdata:**
-    **testCaseName1:**
+   ``**testdata:**
+     **testCaseName1:**
           **input.<inputrequestfileName>:**
 	  **mappingFieldName1: <Keyword> or testdata**
 	  **mappingFieldName2: <Keyword> or testdata**
@@ -373,7 +373,7 @@ The sample structure should be like below:
           **output.<outputresponsefilename>:**
 	  **mappingFieldName1: <Keyword> or testdata**
 	  **mappingFieldName2: <Keyword> or testdata**
-	  **mappingFieldName3: <Keyword> or testdata**
+	  **mappingFieldName3: <Keyword> or testdata**``
 
 TestData Keyword repository:
 Keywords	KeywordName/Purpose	Example
