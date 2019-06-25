@@ -51,43 +51,39 @@ Upon receiving the request to stores identity details of individual in ID Reposi
 
 ### 3.2 Retrieve the Stored Identity Details by UIN [**[↑]**](#table-of-content)
 
-Upon receiving a request to retrieve the UIN details with type as an optional parameter, the system performs the following steps to retrieve the stored identity details and the related documents:
-1. Retrieves the identity details of the individual corresponding to the UIN in the request.
-1. Validates if the type attribute in the request is “demo”.
-   * The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response.
-1. Validates if the type attribute in the request is “bio”.
-   * The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response.
-1. Validates if the type attribute in the request is “all”.
-   * The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response.
-1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
+Upon receiving a request to retrieve identity details of an individual based on input UIN and type as an optional parameter, the system performs the following steps to retrieve the stored identity details and related documents:
+1. Validates if input UIN is 'ACTIVATED'
+1. Retrieves latest ID of individual
+1. The system retrieves and sends a response based on the type of request as follows:
+   * If demographic details are requested system retrieves demographic documents in the response
+   * If biometric details are requested system retrieves biometric documents in the response
+   * If both biometric and demographic details are requested system retrieves both biometric and demographic documents in the response
+1. Sends the response 
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.3 Retrieve the Stored Identity Details by RID [**[↑]**](#table-of-content)
 
-Upon receiving a request to retrieve the UIN details with type as an optional parameter, the system performs the following steps to retrieve identity data in ID-Repo by RID:
-1. Retrieves the identity details of the individual corresponding to the RID in the request.
-1. Validates if the type attribute in the request is “demo”.
-   * The system references the link for the demo docs from the database and retrieves the demographic documents from the DFS and appends in the response.
-1. Validates if the type attribute in the request is “bio”.
-   * The system references the link for the bio docs from the database and retrieves the bio documents from the DFS and appends in the response.
-1. Validates if the type attribute in the request is “all”.
-   * The system references the links for the bio and demo docs from the database and retrieves the documents from the DFS and appends in the response.
-1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
+Upon receiving a request to retrieve Identity details of an Individual based on input RID and type as an optional parameter, 
+the system performs the following steps to retrieve the stored identity details and related documents:
+1. Retrieves UIN mapped to input RID
+1. Validates if mapped UIN is 'ACTIVATED'
+1. Retrieves latest ID of Individual
+1. The system retrieves and sends a response based on the type of request as follows:
+   * If demographic details are requested system retrieves demographic documents in the response
+   * If biometric details are requested system retrieves biometric documents in the response
+   * If both biometric and demographic details are requested system retrieves both biometric and demographic documents in the response
+1. Sends the response  
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.4 Update Identity Data and Documents in Repository [**[↑]**](#table-of-content)
 
- Upon receiving a request to update the UIN details with the following parameters: id, UIN, version, timestamp, registration id, status and identity attributes and documents, the system performs the following steps to update identity data and related documents in MOSIP database:
-1. Updates only the identity attributes corresponding to the UIN in the request. 
-   * E.g., if e-mail is available in the input, only then the e-mail of the UIN in the database will be updated/replaced.
-1. Validates if the demo “documents” are available in the input.
-   * The system updates the demographic documents corresponding to the UIN in the DFS.
-1. Validates if the biometric “documents” are available in the input.
-   * The system updates the biometric documents corresponding to the UIN in the DFS.
-1. Validates if both the demo and biometric documents are available in the input.
-   * The system updates the biometric and demographic documents corresponding to the UIN in the DFS.
-1. The status of the UIN can also be updated to ‘deactivated’ or ‘blocked’.
-1. Sends the response with the following parameters id, version, timestamp, status, and the response entity.
+Upon receiving a request to update Identity details of an Individual, the system performs the following steps:
+1. Validate if input UIN is 'ACTIVATED'
+1. Updates input ID attributes of Individual
+1. If request contains demographic documents, the system updates with the latest documents received
+1. If request contains biometric document of Individual, the system updates with the latest documents received
+1. If request updates status of UIN as 'DEACTIVATED' or 'BLOCKED', the system updates the same
+1. Sends the response with updated ID details of Individual
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
