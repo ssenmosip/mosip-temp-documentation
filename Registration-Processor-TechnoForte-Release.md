@@ -36,27 +36,27 @@
 |**Module/Files**|**Component**|**Version**|**Description (If any)**|
 |-----|-------------|----------------|--------------|
 |Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>|
-|Master Data Setup |NA|Latest Version|Kernel 0.12.10 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
-|kernel-core|NA|0.12.10|Basic core kernel packages.|
-|kernel-logger-logback|NA|0.12.10|Use for the logging.|
-|kernel-dataaccess-hibernate|NA|0.12.10|Used for the communicating to the DB.|
-|kernel-auditmanager-api|NA|0.12.10|Used to audit the records into the DB|
-|kernel-idvalidator-rid|NA|0.12.10|Used to validate the RID format.|
-|kernel-idvalidator-uin|NA|0.12.10|Used to validate the UIN format|
-|kernel-idvalidator-prid|NA|0.12.10|Used to validate the PRID format|
-|kernel-idgenerator-rid|NA|0.12.10|Used to Generate the RID.|
-|kernel-crypto-signature|NA|0.12.10|Used to validate the signature response from server.|
-|kernel-keygenerator-bouncycastle|NA|0.12.10|Used to generate the key pair for AES -256.|
-|kernel-templatemanager-velocity|NA|0.12.10|Used to generate the template manager using the velocity|
-|kernel-qrcodegenerator-zxing|NA|0.12.10|Used to generate the QR code in acknowledgment page.|
-|kernel-pdfgenerator-itext|NA|0.12.10|Used to scan the document in PDF format.|
-|kernel-crypto-jce|NA|0.12.10|Used to encrypt the packet information|
+|Master Data Setup |NA|Latest Version|Kernel 0.12.12 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
+|kernel-core|NA|0.12.12|Basic core kernel packages.|
+|kernel-logger-logback|NA|0.12.12|Use for the logging.|
+|kernel-dataaccess-hibernate|NA|0.12.12|Used for the communicating to the DB.|
+|kernel-auditmanager-api|NA|0.12.12|Used to audit the records into the DB|
+|kernel-idvalidator-rid|NA|0.12.12|Used to validate the RID format.|
+|kernel-idvalidator-uin|NA|0.12.12|Used to validate the UIN format|
+|kernel-idvalidator-prid|NA|0.12.12|Used to validate the PRID format|
+|kernel-idgenerator-rid|NA|0.12.12|Used to Generate the RID.|
+|kernel-crypto-signature|NA|0.12.12|Used to validate the signature response from server.|
+|kernel-keygenerator-bouncycastle|NA|0.12.12|Used to generate the key pair for AES -256.|
+|kernel-templatemanager-velocity|NA|0.12.12|Used to generate the template manager using the velocity|
+|kernel-qrcodegenerator-zxing|NA|0.12.12|Used to generate the QR code in acknowledgment page.|
+|kernel-pdfgenerator-itext|NA|0.12.12|Used to scan the document in PDF format.|
+|kernel-crypto-jce|NA|0.12.12|Used to encrypt the packet information|
 |kernel-jsonvalidator|NA|0.12.10|Used to validate the JSON.|
-|kernel-virusscanner-clamav|NA|0.12.10|Used to communicate to the Antivirus Clam AV|
-|kernel-transliteration-icu4j|NA|0.12.10|Used to transliterate the Arabic to French and vice versa.|
-|kernel-applicanttype-api|NA|0.12.10|Used to get the applicant types |
-|kernel-cbeffutil-api|NA|0.12.10|Used to generate the CBEFF file and validate against the schema also.|
-|kernel-bioapi-provider|NA|0.12.10|Used to integrate for the user-onboarding.|
+|kernel-virusscanner-clamav|NA|0.12.12|Used to communicate to the Antivirus Clam AV|
+|kernel-transliteration-icu4j|NA|0.12.12|Used to transliterate the Arabic to French and vice versa.|
+|kernel-applicanttype-api|NA|0.12.12|Used to get the applicant types |
+|kernel-cbeffutil-api|NA|0.12.12|Used to generate the CBEFF file and validate against the schema also.|
+|kernel-bioapi-provider|NA|0.12.12|Used to integrate for the user-onboarding.|
 
 **Open Issues : <br><sub>List of Open Issues, which would be resolved or fixed in another release version, but same Sprint</sub></br>**  
 
