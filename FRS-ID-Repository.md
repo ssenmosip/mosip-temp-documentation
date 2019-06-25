@@ -58,7 +58,6 @@ Upon receiving a request to retrieve identity details of an individual based on 
    * If demographic details are requested, system retrieves demographic documents in the response
    * If biometric details are requested, system retrieves biometric documents in the response
    * If both biometric and demographic details are requested, system retrieves both biometric and demographic documents in the response
-1. Sends the response 
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.3 Retrieve the Stored Identity Details by RID [**[↑]**](#table-of-content)
@@ -71,7 +70,6 @@ Upon receiving a request to retrieve identity details of an individual based on 
    * If demographic details are requested, system retrieves demographic documents in the response
    * If biometric details are requested, system retrieves biometric documents in the response
    * If both biometric and demographic details are requested, system retrieves both biometric and demographic documents in the response
-1. Sends the response  
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.4 Update Identity Data and Documents in Repository [**[↑]**](#table-of-content)
