@@ -66,7 +66,7 @@ Upon receiving a request to retrieve identity details of an individual based on 
 Upon receiving a request to retrieve identity details of an individual based on input RID and type as an optional parameter, the system performs the following steps to retrieve the stored identity details and related documents:
 1. Retrieves UIN mapped to input RID
 1. Validates if mapped UIN is 'ACTIVATED'
-1. Retrieves latest ID of Individual
+1. Retrieves latest ID of individual
 1. The system retrieves and sends a response based on the type of request as follows:
    * If demographic details are requested, system retrieves demographic documents in the response
    * If biometric details are requested, system retrieves biometric documents in the response
@@ -82,7 +82,7 @@ Upon receiving a request to update identity details of an individual, the system
 1. If request contains demographic documents, the system updates with the latest documents received
 1. If request contains biometric document of individual, the system updates with the latest documents received
 1. If request updates status of UIN as 'DEACTIVATED' or 'BLOCKED', the system updates the same
-1. Sends the response with updated ID details of Individual
+1. Sends the response with updated ID details of individual
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
