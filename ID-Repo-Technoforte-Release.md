@@ -10,6 +10,7 @@
 |4.|ID Repo|API Specifications Document|[Click to View](https://github.com/mosip/mosip/wiki/ID-Repository-API)||
 |5.|ID Repo|Code Drop|[Tag: 0.12.12](/mosip/mosip/releases/tag/0.12.12)||
 |6.|ID Repo|Functional Requirement Specification|[Platform Documentation-Section 2.9](https://github.com/mosip/mosip/wiki/Platform-Documentation#39-id-repository-)|WIP|
-|7.|ID Repo|Tested Code||WIP|
-|8.|ID Repo|Test Cases||WIP|
-|9.|ID Repo|Mindmaps||WIP|
+|7.|ID Repo|Consolidated Error Messages|[Consolidated Error Messages](https://github.com/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2012/Consolidated%20error%20messages%20V2.7.xlsx)||
+|8.|ID Repo|Tested Code||WIP|
+|9.|ID Repo|Test Cases||WIP|
+|10.|ID Repo|Mindmaps||WIP|
