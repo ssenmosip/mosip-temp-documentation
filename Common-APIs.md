@@ -3503,6 +3503,13 @@ pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
 
 
+### Filter Values
+Filter Name| Search Values
+-----|----------
+Word|["in","equals","startsWith"]
+Language|["in","equals","startsWith"]
+Status|["in","equals","startsWith"]
+
 ### Example Request
 ```JSON
 {
@@ -3584,7 +3591,6 @@ filters|No|Array of the filter applied. In case of "list" screen, this array wil
 columnName|No|The column name in the JSON response| -NA- |
 type|No|The value have to be in ["unique","all"]| unique | unique
 languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
-
 
 ### Example Request
 ```JSON
