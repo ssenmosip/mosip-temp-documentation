@@ -23,4 +23,17 @@ Kernel|Kernel logger logback|Java API
 
 
 ### 3.  LDAP Roles
-TBD
+Service|LDAP Roles|Description (If any)
+--------|-----|--------------
+Add Identity|REGISTRATION_PROCESSOR|For Registration Processor
+Retrieve Identity by UIN|REGISTRATION_PROCESSOR|For Registration Processor
+Retrieve Identity by UIN|ID_AUTHENTICATION|For ID Authentication
+Retrieve Identity by RID|REGISTRATION_ADMIN|For Registration Processor
+Retrieve Identity by RID|REGISTRATION_SUPERVISOR|For Registration Processor
+Retrieve Identity by RID|REGISTRATION_OFFICER|For Registration Processor
+Retrieve Identity by RID|ID_AUTHENTICATION|For ID Authentication
+Retrieve Identity by RID|REGISTRATION_PROCESSOR|For Registration Processor
+Update Identity|REGISTRATION_PROCESSOR|For Registration Processor
+Create VID|REGISTRATION_PROCESSOR|For Registration Processor
+Retrieve UIN by VID|ID_AUTHENTICATION|For ID Authentication
+Update VID|ID_AUTHENTICATION|For ID Authentication
