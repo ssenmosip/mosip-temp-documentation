@@ -17,7 +17,7 @@
     * [2.10.4 Revoke a VID](#2104-revoke-a-vid-) _(RES_FR_10.4)_
     * [2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP)](#2105-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-wip-) _(RES_FR_10.5)_
     * [2.10.6 Retrieve the UIN Corresponding to a VID (WIP)](#2106-retrieve-the-uin-corresponding-to-a-vid-wip-) _(RES_FR_10.6)_
-
+* [Process View](#process-view-)
 
 # 1. Overview [**[↑]**](#table-of-content)
 
@@ -119,4 +119,5 @@ When an individual does not remember his/her UIN, he/she can retrieve the UIN by
 
 [Refer to Wiki for more details on **VID Services API**](ID-Repository-API#vid-services-private).
 
-
+### Process View (WIP) [**[↑]**](#table-of-content)
+[**Link to Process View of Resident Services**](Process-view)
