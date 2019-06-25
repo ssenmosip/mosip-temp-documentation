@@ -323,16 +323,16 @@ The workflow of testing or running the test suite of the available API’s is as
    ![Test](_images/test_rig_automation/IDA3.jpg) 
 
 3. Pre-requisites: 
-open runConfiguration.properties file
+   open runConfiguration.properties file
 
-Add the following two lines which represents your test case; one for the folder location and another on the test data as below, the array [X], where “X” represents the number of times this tests shall be repeated with different test data
+   Add the following two lines which represents your test case; one for the folder location and another on the test data as below, the array [X], where “X” represents the number of times this tests shall be repeated with different test data
 
-An example:
-DemographicAuthentication.testDataPath[6]=ida/TestData/Demo/Name/
+   An example:
+   DemographicAuthentication.testDataPath[6]=ida/TestData/Demo/Name/
 
-DemographicAuthentication.testDataFileName[6]=testdata.ida.Demo.Name.mapping.yml
+   DemographicAuthentication.testDataFileName[6]=testdata.ida.Demo.Name.mapping.yml
 
-If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class
+   If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class
 
 
 4.	Configuration Setup for creating the request Json file:
