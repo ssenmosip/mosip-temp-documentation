@@ -367,7 +367,7 @@ The workflow of testing or running the test suite of the available API’s is as
 The sample structure should be like below:
 
 
-![Test](_images/test_rig_automation/trial.jpg) 
+![Test](_images/test_rig_automation/IDA6.jpg) 
 
 TestData Keyword repository:
 Keywords	KeywordName/Purpose	Example
