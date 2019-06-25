@@ -986,7 +986,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 Filter Name| Search Values
 -----|----------
 name|["in","equals","startsWith"]
-status|["in","equals","startsWith"]
+status|["equals"]
 
 ### Example Request
 ```JSON
