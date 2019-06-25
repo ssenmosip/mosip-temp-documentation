@@ -4,6 +4,8 @@
 Test Automation
 Generic Test Automation Design - API Testing
 
+
+
 # 1. Kernel Test Automation Suite - User Guide
 
 ## 1.1 About the Kernel Module
@@ -177,87 +179,107 @@ The test execution module of the Registration client module involving Java API�
 
 ![Test](_images/test_rig_automation/reg-client1.jpg) 
 
-Pre-requisites for understanding Java API automation
-	Knowledge on Java 8
-	Basic knowledge on Spring services and should know annotations
-	Knowledge on maven
-	Good analytical and debugging skill
+## 3.2 Pre-requisites for understanding Java API automation
+* Knowledge on Java 8
+* Basic knowledge on Spring services and should know annotations
+* Knowledge on maven
+* Good analytical and debugging skill
 
-Procedure to check out the test code from the repository
+## 3.3 Procedure to check out the test code from the repository
  
 Instruction to checkout code from GitHub using Eclipse.
-	Open eclipse
-	Go to quick access and search “clone git”
+* Open eclipse
+* Go to quick access and search “clone git”
+
+![Test](_images/test_rig_automation/reg-client2.jpg) 
+
+   **Figure 1**
+
+
+![Test](_images/test_rig_automation/reg-client3.jpg) 
+
+   **Figure 2**
+
+* A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
+
+  ![Test](_images/test_rig_automation/reg-client4.jpg) 
  
-				Fig 1
+* Search the branch name, select it, and then click next. Our latest branch name as [link](/mosip/mosip/tree/0110_Sprint11_Reg_Automation).
+
+  ![Test](_images/test_rig_automation/reg-client5.jpg) 
  
-				Fig 2
-	A pop up will appear in that enter the URI, Host and Repository path as same as below. Pass your GitHub username and password and click on next.
+* Browse the directory to pull the code.
+
+  ![Test](_images/test_rig_automation/reg-client6.jpg) 
  
-	Search the branch name, select it, and then click next. Our latest branch name https://github.com/mosip/mosip/tree/0110_Sprint11_Reg_Automation.
+* Now the code will be in eclipse git repository. Import the required project to the workspace. For registration client automation, we want to import kernel and registration projects.
+
+  ![Test](_images/test_rig_automation/reg-client7.jpg) 
  
-	Browse the directory to pull the code.
- 
-	Now the code will be in eclipse git repository. Import the required project to the workspace. For registration client automation, we want to import kernel and registration projects.
- 
-Pre-configuration information prior to test run
+## 3.4 Pre-configuration information prior to test run
 None
 
-Procedure to Add new test cases into the API test suite
-1.	From the code repository of the module, the test suites and cases can be located in the folder [src/test/resources]
+## 3.5 Procedure to Add new test cases into the API test suite
+1. From the code repository of the module, the test suites and cases can be located in the folder [**src/test/resources**]
+1. Every API tests structure (test suite and test case) are stored in a folder/sub-folder approach. Let us take an example of “**Email Notification service**” and explain how to add a new test
 
-2.	Every API tests structure (test suite and test case) are stored in a folder/sub-folder approach. Let us take an example of “Email Notification service” and explain how to add a new test
+  ![Test](_images/test_rig_automation/reg-client8.jpg) 
 
+3. Every test case will have a configuration property file named [**condition.properties**] in its sub-folder as shown below
 
+  ![Test](_images/test_rig_automation/reg-client9.jpg) 
 
+4. In this condition.properties file, we need to mention the parameter type that needs to be sent to the API. [**valid**] indicates the value passed is a correct/right data and [**invalid**] indicates the data being sent is an incorrect/wrong data.(we can also check the parameter behavior for the empty and space also, for that we can pass the value as **space** and **empty** respectively in condition.properties) This information has to be entered for every field/parameter that the API consists. 
 
- 
+  ![Test](_images/test_rig_automation/reg-client10.jpg) 
 
-3.	Every test case will have a configuration property file named [condition.properties] in its sub-folder as shown below
-
- 
-4.	In this condition.properties file, we need to mention the parameter type that needs to be sent to the API. [valid] indicates the value passed is a correct/right data and [invalid] indicates the data being sent is an incorrect/wrong data.(we can also check the parameter behavior for the empty and space also, for that we can pass the value as space and empty respectively in condition.properties) This information has to be entered for every field/parameter that the API consists. 
-
- 
-
-Based on values set inside the condition.properties file test cases will fetch the data from yaml file and then call a data generator code internally which shall add meaningful right or incorrect values as test data into these variables. 
+Based on values set inside the **condition.properties** file test cases will fetch the data from yaml file and then call a data generator code internally which shall add meaningful right or incorrect values as test data into these variables. 
 More information on the Yaml file can be found under appendix
 
-Procedure to execute or Run the tests on a new environment
-To run the automation suite of Registration Client module you will need an xml file named [Reg-automation-service_TestNG.xml], which will be available under [src/test/resources].
+## 3.6 Procedure to execute or Run the tests on a new environment
+To run the automation suite of Registration Client module you will need an xml file named [**Reg-automation-service_TestNG.xml**], which will be available under [**src/test/resources**].
 
-Running a test suite
-Procedure to execute the [Reg-automation-service_TestNG.xml] xml File:
-1.	Right click the xml file Reg-automation-service_TestNG.xml
-2.	Select “Run as configuration”
-3.	Under configuration select [TestNG] and pass the VM argument as
--Dspring.profiles.active=required environment (which could be either of QA or INT or DEV)  
--Dmosip.dbpath=DB path 
-*DB path – this is the local DB path where all the sync happens and other data’s get updated while running the code. The empty DB name is available in /registration/registration-libs/src/main/resources/db/reg . We are copying this empty DB in our project and passing as vm argument while running the code.
--Dmosip.registration.db.key=DB key path
-Sample representation of the VM argument is as below
--Dspring.profiles.active=qa  
--Dmosip.dbpath=reg 
--Dmosip.registration.db.key=D:\keys.properties
-4.	Select or Click the button “RUN”
-Test Suites execution will commence.
-5.	Test report will be stored in [test-output] folder under the base directory/project
-
-Analyze the test reports
-After running the tests, report will get generated in “test-output” folder in project. Name of the report is “custom-emailable-report.html”
-Sample report:
+## 3.7 Running a test suite
+Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
+1. Right click the xml file Reg-automation-service_TestNG.xml
+1. Select “Run as configuration”
+1. Under configuration select [TestNG] and pass the VM argument as
+   -Dspring.profiles.active=required environment (which could be either of QA or INT or DEV) 
  
-Appendix
-1.	Java API
-Java application programming interface (API) is a list of all classes that are part of the Java development kit (JDK). An application-programming interface (API), in the context of Java, is a collection of prewritten packages, classes, and interfaces with their respective methods, fields and constructors.
-For more detail, refer https://resources.saylor.org/wwwresources/archived/site/wp-content/uploads/2013/02/CS101-1.3.5.3-Java-Application-Programming-Interface-API-FINAL.pdf
-2.	Yaml master data file
-Yaml file is the master data set for testing the API, Sample Mater Data set is as below:
- 
-3.	How to increase the data coverage inside Yaml file?
-To increase the data coverage we can add as many as test data’s into the Yaml file 
+   -Dmosip.dbpath=DB path 
 
-4.	Any dependencies of values in the Database 
+   *DB path – this is the local DB path where all the sync happens and other data’s get updated while running the code. The empty DB name is available in /registration/registration-libs/src/main/resources/db/reg . We are copying this empty DB in our project and passing as vm argument while running the code.
+
+   -Dmosip.registration.db.key=DB key path
+
+   Sample representation of the VM argument is as below
+   
+   ``-Dspring.profiles.active=qa  
+   -Dmosip.dbpath=reg 
+   -Dmosip.registration.db.key=D:\keys.properties``
+4. Select or Click the button “RUN”
+   Test Suites execution will commence.
+5. Test report will be stored in [test-output] folder under the base directory/project
+
+## 3.8 Appendix
+
+**1. Java API**
+
+   Java application programming interface (API) is a list of all classes that are part of the Java development kit (JDK). An application-programming interface (API), in the context of Java, is a collection of prewritten packages, classes, and interfaces with their respective methods, fields and constructors.
+For more detail, refer to the [link](//resources.saylor.org/wwwresources/archived/site/wp-content/uploads/2013/02/CS101-1.3.5.3-Java-Application-Programming-Interface-API-FINAL.pdf)
+
+**2. Yaml master data file**
+
+   Yaml file is the master data set for testing the API, Sample Mater Data set is as below:
+
+   ![Test](_images/test_rig_automation/reg-client11.jpg) 
+
+**3. How to increase the data coverage inside Yaml file?**
+
+   To increase the data coverage we can add as many as test data’s into the Yaml file 
+
+**4. Any dependencies of values in the Database**
+
 None
 
 

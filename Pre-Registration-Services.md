@@ -1948,10 +1948,10 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Document successfully deleted
-```JSON
+###### Description
 {
-   "id": "mosip.pre-registration.document.delete.specific",
+   "id": "mosip.pre: Document successfully deleted
+```JSON-registration.document.delete.specific",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
@@ -1994,6 +1994,7 @@ This service enables Pre-Registration to a registration client, request to retri
 
 ### POST /sync
 This request is used by registration client to retrieve all the pre-registration Ids by date range.
+Note: If toDate parameter value is not passed in the request, fromDate will be considered as toDate.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/sync</div>
@@ -2709,6 +2710,7 @@ PRG_BOOK_RCI_016|Availability table not accessible|access to availability table 
 
 ### GET /appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date
 This request is used to retrieve all pre-registration ids available for specified registration center and date range.
+Note: If toDate parameter value is not passed in the request, fromDate will be considered as toDate.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/appointment/preRegistrationId/:registrationCenterId?from_date=:Date&to_date=:Date</div>
@@ -2990,8 +2992,8 @@ request.name |Yes|user name of the application|Sanober Noor
 request.preRegistrationId|Yes|Pre Registration of the application|37802950913289
 request.appointmentDate|Yes| Booking appointment date|2019-01-18
 request.appointmentTime| Yes|Booking appointment time| 12:02
-request.mobNum|  Yes| applicant mobile number |9480456789
-request.emailID| Yes|applicant email Id |`sanober@gmail.com`
+request.mobNum| Optional(If emailID is non empty)| applicant mobile number |9480456789
+request.emailID| Optional(If mobNum is non empty)|applicant email Id |`sanober@gmail.com`
 request.additionalRecipient|Yes|additional recipient| It is a Boolean value(true/false). If it is **true** then **request.mobNum** and **request.emailId** get validated otherwise even though value is present for those values validation will not happen and it will get the mobile number/email address from the identity json from the database.  
 request.isBatch|Yes|Required for batch job | It is a Boolean value(true/false). If it is **true** then it consider this call as a cancel appointment only otherwise it will considered as a normal notification call and validate appointment details.
 
@@ -3056,10 +3058,13 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
-PRG_ACK_002|Incorrect mandatory Fields|	If any of the request is null
+PRG_PAM_CORE_003|Request timestamp is invalid|Empty Request DateTime 
+PRG_PAM_ACK_002|Mandatory fields are missing|If isBatch field is null
+PRG_PAM_ACK_008|Full name is not valid|If name field is invalid or empty 
+PRG_PAM_ACK_009|Appointment date is not valid|If appointmentDate field is invalid or empty 
+PRG_PAM_ACK_010|Appointment time is not valid|If appointmentTime field is invalid or empty 
 PRG_PAM_APP_005|No data found for the requested pre-registration id|If additionalRecipient is false and there will be no demographic data for requested pre-registration id
-
+PRG_CORE_REQ_013|Request date should be current date|If request date is other than current date
 
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.

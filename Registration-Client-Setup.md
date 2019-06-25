@@ -173,13 +173,29 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 |1.|	mosip.primary-language        |fra / ara/ eng| French/ Arabic/ English |  
 |2.|	mosip.secondary-language        |fra / ara/ eng| French/ Arabic/ English |
 
+**TPM [Trusted Platform Module]:**  
 
+   To enable or disable the TPM functionality, modify the mentioned key in 'props/mosip-application.properties' file.    
+    - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.
+
+**MDM [Mosip Device Manager] Service:**  
+   It integrates the Registration application with Bio devices [IRIS/ Finger Print/ Face]. As of now, the bio data are stubbed at this service level until the actual services are ready.   
+   
+|**S.No.**| **Config Key**| **Sample Values and Description**|
+|:------:|-----|-----|
+|1.|	mosip.mdm.enabled=N        | Y - Enable , N - Disable |  
+|2.|	mdm_start.bat        | to start the MDM service. |
+|3.|	mdm_stop.bat        | to stop the MDM service. |
+|4.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
+
+
+	
 ## Property File :
 
    There are few properties which can be configured at local machine based on the local system requirement.    
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
    
-   **File Location:** props/mosip-application.properties 
+   **File Location:** props/mosip-application.properties [Build version lesser than 0.12.10]
      - mosip.env= qa, preqa, demo { environment name. Use the same value in spring profile config.}  
      - mosip.client.url = {JFrog repository url.}  
      - mosip.xml.file.url = {JFrog repository url with maven-metadata.xml file.}  
@@ -190,6 +206,23 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
      - mosip.packetstorepath = {where the registration packet should be stored}.   
      - mosip.rollback.path = {where the application backup should be taken during software update}  	
      - mosip.reg.healthcheck.url = {Application uses this url to perform the health check before communicating with the external services.}
+     - mosip.reg.client.url=https\://devops.mosip.io/artifactory/libs-release/io/mosip/registration/registration-client/
+     
+   **File Location:** props/mosip-application.properties [Build version Greater than 0.12.11 onwards]
+     - mosip.reg.env=qa, preqa, demo { environment name. Use the same value in spring profile config.}   
+     - mosip.reg.version=0.12.12 {current version of the application}  
+     - mosip.reg.mdm.server.port=8080 {MDM service running port.}    
+     - mosip.reg.logpath=../logs  
+     - mosip.reg.packetstorepath={where the registration packet should be stored}. 
+     - mosip.reg.healthcheck.url={Application uses this url to perform the health check before communicating with the external services.}  
+     - mosip.reg.rollback.path={where the application backup should be taken during software update}  
+     - mosip.reg.db.key={contains the key to be used to connect to the derby database and decrypt the data}. 
+     - mosip.reg.cerpath=/cer//mosip_cer.cer
+     - mosip.reg.xml.file.url={JFrog repository url with maven-metadata.xml file.}  
+     - mosip.reg.dbpath=db/reg
+     - mosip.reg.app.key={contains the key to be used to decrypt the application binaries during run time}.  
+     - mosip.reg.client.tpm.availability={ Y - to enable the TPM, N - to disable the TPM}.   
+     	
      	
 ## Dependent Services :    
 
@@ -218,7 +251,6 @@ Through sync process the data would be sync between local machine and server bas
 |17	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |ID-Authentication|
 
 
-
 ## External hardware Driver(s): 
 
    This section covers the list of drivers required to communicate with the external devices.  
@@ -226,4 +258,6 @@ Through sync process the data would be sync between local machine and server bas
    - The application has been currently tested with CANON LiDE 120.  
    - Printer should be available to take the print out from application and the respective driver should be installed.    
    - Camera and the respective driver should be available to capture the applicant photo. Application tested with Logitech camera.  
+   - If GPS enabled through configuration then the respective device/ model specific driver should be installed to communicate through application.  
+   
    

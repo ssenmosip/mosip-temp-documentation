@@ -25,13 +25,6 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| SessionContext is required for creating the packet |  
 |**External Connectivity**| DB, File system |  
 
-|**Functionality:**|  PRE REG INTEGRATION – Fetch Pre reg Data |   
-|:------:|-----|  
-|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistration(String preRegistrationId)|  
-|**Input Parameter:**|    preRegistrationId- The pre reg id |  
-|**Auth:**| required |  
-|**External Connectivity:**| syncData - Pre Reg service REST call |  
-
      
 |**Functionality:**| Packet Upload |   
 |:------:|-----|  
@@ -48,21 +41,22 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| No. |  
 |**External Connectivity:**| DB, File system |  
 
+|**Functionality:**|  Download Pre-Registration data during New Registration |   
+|:------:|-----|  
+|**Technical Detail:**|  The user provided pre-registration packet id related [demo/ doc] detail would be downloaded from Pre-registration DB using the respective REST service. After downloading the packet, the data would be mapped to the UI object and render the same to UI to display in the screen. |
+|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistration(String preRegistrationId)|  
+|**Input Parameter:**|    preRegistrationId- The pre reg id |  
+|**Auth:**| Authentication token required while downloading the packets. Based on the SessionContext object the advice would attach the token and invoke the required service call. |  
+|**External Connectivity:**| Pre Reg service REST call |  
+
 
 |**Functionality:**| Sync Data from Server to Client and Vice Versa. |   
 |:------:|-----|  
 |**Technical Detail:**| This functionality will be executed as specified as sync-frequency in local DB. During start of the application, the scheduler would be loaded with the jobs configured in db and trigger the job. The scheduler would trigger the jobs at the configured frequency. While running the jobs, based on the functionality it would invoke the respective services and invoke the required external services to sync the data from server to client and vice versa. Post completion or every state of the job execution, the status would be updated in local db.|  
-|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs from the local db and trigger the jobs.|  
+|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs [List of Jobs](#List-of-Jobs-) from the local db and trigger the jobs.|  
 |**Input Parameter:**|  - |    
 |**Auth:**| Auth token required for external services. This would be automatically taken care within this method. Nothing explicitly to be passed.|  
 |**External Connectivity:**| REST API calls, DB|
-
-|**Functionality:**|  PRE REG INTEGRATION – Download All Pre registration Data |   
-|:------:|-----|  
-|**Main Service class and method:**| PreRegistrationDataSyncServiceImpl.java - getPreRegistrationIds(String syncJobId)|  
-|**Input Parameter:**|    syncJobId- The job id which can be either USER or SYSTEM |  
-|**Auth:**| required |  
-|**External Connectivity:**| syncData - Pre Reg service REST call |  
 
 
 |**Functionality:**|  MDM Integration – Register Device |   
@@ -106,9 +100,45 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| TPM 2.0 is required for this service |  
 |**External Connectivity:**| TPM, Web Service |
 
+## Packet Structure :
+   The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link. 
+   
+   [Packet Structure](https://github.com/mosip/mosip/wiki/Reg-client-implementation)
+   
+## Packet Status :  
+
+   List of packet status maintained in client db while moving the packet to the different state before and after pushing to the server.  
+   
+
+## List of Jobs:  
+
+Below provided jobs are executed in batch mode through spring batch. The job execution frequencies are mentioned in the DB job related table. These jobs can also be triggered through manual process using 'Sync' option in the Menu, During initial login after successful online authentication and While starting the application if initial sync already completed.  
+
+|**Sl.No:**|**Service Desc.**|**Dependent Module**|**Under 'Sync' Menu**| **Initial Login**| **Application Launch** | 
+|------|-----|-----|-----|-----|-----|
+| 1. | Pre-registration Data Sync			| Pre-reg | Y | N | N |
+| 2. | Policy Sync							| Kernel  | Y | N | N |
+| 3. | Registration Client Config Sync		| Kernel  | Y | Y | Y |
+| 4. | Registration Packet Status Reader	| Reg-Proc| Y | N | N |
+| 5. | User Detail/Role Setup Sync			| Kernel  | Y | Y | Y |
+| 6. | Pre Registration Packet Deletion Job	| local job| N | N | N |
+| 7. | Registration Packet Deletion Job		| Local Job| N | N | N |
+| 8. | User Machine Mapping Sync  Job		| Kernel | Y | N | N |
+| 9. | Audit Log Deletion Job				| Local Job| N |  N | N |
+| 10. | Registration Packet Sync			| Reg-Proc| Y | N | N |
+| 11. | Registration Packet Virus Scan		| Reg-Proc| N | N | N |
+| 12. | Public key Sync service				| Kernel | Y | Y | Y |
+| 13. | User Salt Sync service				| Kernel | Y | Y | Y | 
+ 
 
 ## Configuration Rule: 
 
+As 'configurability' is the one of the major NFR being considered while designing the application, here listed out the required files where the configurations can be modified that will get reflected in application during runtime.  
+  - 'registration-qa.properties' - Registration application specific configuration.  
+  - 'application-qa.properties' - Overall application level common configuration.  
+  
+  These configuration would be downloaded to the client machine through the 'config' sync service.  If there is any change with respect to 'kernel' properties then after downloading the properties the application will ask for 'restart'. 
+  
 **Age configuration:**  
   - Age limit is configurable in the application. User should modify the max age limit in both 'application' and 'registration' properties file.      
   - {application property key : 'mosip.id.validation.identity.age'}    	
@@ -117,56 +147,86 @@ It doesn't detail about each methods level information since that are covered in
 
 ## Table Detail :
 
-|**Sl. No**|**Table Name**| **Description** |
-|:------:|:------:|-----|
-|1.|biometric_attribute| It contains the list of bio attribute as [left |
-|2.|biometric_type | Information about biometric type will be stored in db from master sync |
-|3.|blacklisted_words| Black Listed words will be stored in db from master sync |
-|4.|device_master| device master related information will be stored in db from master sync |
-|5.|device_spec| device specification related information will be stored in db from master sync |
-|6.|device_type| device type related information will be stored in db from master sync |
-|7.|doc_category| document category information will be stored in db from master sync |
-|8.|doc_type| document type information will be stored in db from master sync |
-|9.|gender| gender information will be stored in db from master sync |
-|10.|id_type| identity type information will be stored in db from master sync |
-|11.|language| language information will be stored in db from master sync |
-|12.|location| location information will be stored in db from master sync |
-|13.|machine_master| machine master details will be stored in db from master sync |
-|14.|machine_spec| machine specification details will be stored in db from master sync |
-|15.|machine_type| machine type details will be stored in db from master sync |
-|16.|reason_category| packet rejection reason category details will be stored in db from master sync |
-|17.|reason_list| packet rejection reason list details will be stored in db from master sync |
-|18.|reg_center_device| center device info will be stored in db from master sync |
-|19.|reg_center_machine| center machine info will be stored in db from master sync |
-|20.|reg_center_machine_device| center machine device info will be stored in db from master sync |
-|21.|reg_center_type| center type details will be stored in db from master sync |
-|22.|reg_center_user| center user details will be stored in db from master sync |
-|23.|reg_center_user_machine| center user machine details will be stored in db from master sync |
-|24.|registration_center| registration center information will be stored in db from master sync |
-|25.|template| Template details  will be stored in db from master sync |
-|26.|template_type| Template type details  will be stored in db from master sync |
-|27.|title| Title details  will be stored in db from master sync |
-|28.|valid_document| Valid document details  will be stored in db from master sync |
-|29.|sync_job_def| Sync jobs related data will be inserted into db from master sync|
-|30.|screen_authorization| Screen authorization related data will be inserted into db from master sync|
-|31.|app_authentication_method| authentication type related data will be inserted into db from master sync|
-|32.|app_detail| application details will be inserted into db from master sync|
-|33.|app_role_priority| application roles priority details will be inserted into db from master sync|
-|34.|role_list| role related details will be inserted into db from master sync|
-|35.|GLOBAL_PARAM| Cofiguration related data |
-|36.|user_detail| User related data will be inserted into db from user detail sync|
-|37.|user_pwd| User password related data will be inserted into db from user detail sync|
-|38.|user_role| User role related data will be inserted into db from user detail sync|
-|39.|user_biometric| User biometric related data will be inserted into db while onBoarding|
-|40.|key_store| Public key , Packet creation key will be inserted into db while Public key Sync and Policy sync |
-|41.|sync_control| Successful sync jobs will stored along with its last time stamp|
-|42.|sync_transaction| All sync transaction related data will be stored in DB |
-|43.|sync_transaction| All sync transaction related data will be stored in DB |
-|44.|registration| Registration Packet related data will be stored in DB |
-|45.|registration_transaction| Transactions of registration Packet data will be stored in DB |
-|46.|process_list| Authentication process data will be stored in DB |
-|47.|pre_registration_list| pre-registration data will be stored in DB |
-|48.|audit_log_control| All auditing detail data will be stored in DB |
+Below find the list of tables used in Registration client application. Based on use cases, the table data gets updated during either sync process or transaction in local machine.  
+There are few jobs are configured to clean the transactions histories from local tables and also pushing the audit data to server.  
 
+|**Sl. No**|**Table Name**| **Description** | **Source** |
+|:------:|:------:|-----|-----|
+|1.|biometric_attribute| It contains the list of biometric attribute description[left slap, right iris..] for each biometric type [Fingerprint, Iris, Photo] with respect to language code | sync from server master table | 
+|2.|biometric_type | It contains the  list of biometric type[Fingerprint, Iris, Photo] while respect to language code | Sync from server master table | 
+|3.|blacklisted_words| It contains the list of words which were not allowed during Registration process with respect to language code | Sync from server master table |
+|4.|device_master| It contains master information related to device with respect to language code | Sync from server master table | 
+|5.|device_spec|  It contains device specifications like brand, model with respect to language code | Sync from server master table | 
+|6.|device_type| It contains types of devices[Fingerprint scanner, camera] and their description with respect to language code| Sync from server master table | 
+|7.|doc_category| It contains list of document categories[Proof Of Address, Proof Of Identity...] which will be displayed in UI with respect to language code | Sync from server master table | 
+|8.|doc_type| It contains list of document types that are allowed for uploading documents in Registration with respect to language code | Sync from server master table | 
+|9.|gender| It contains list of gender types that are being used in Registration with respect to language code | Sync from server master table | 
+|10.|id_type| It contains list of Id types [Registration Id, Pre Registration Id] that are being used in Registration with respect to language code | Sync from server master table | 
+|11.|language| It contains list of languages that are being used in Registration | Sync from server master table |
+|12.|location| It contains list of locations that are being used in Registration with respect to language code | Sync from server master table |
+|13.|machine_master| It conatins list of machine related data[mac address, serial number, machine name...] with respect to language code | Sync from server master table |
+|14.|machine_spec| It conatins list of machine specifications[brand, model...] with respect to language code | Sync from server master table |
+|15.|machine_type|  It contains list of machine types[Desktop,Laptop...] with respect to language code | Sync from server master table |
+|16.|reason_category| It contains list of reason categories[Client Rejection, Manual Adjudication...] with respect to language code | Sync from server master table |
+|17.|reason_list| It contains list of reasons [Invalid Address, Gender-Photo Mismatch...] that are listed during Registration Approval/Rejection with respect to language code |  Sync from server master table |
+|18.|registration_center| It contains list of Registration center ids with respect to language code | Sync from server master table |
+|19.|reg_center_device| It contains list of Registration center ids with respect to language code | Sync from server master table |
+|20.|reg_center_machine| It contains list of machine ids which are mapped to corresponding center id | Sync from server master table |
+|21.|reg_center_machine_device| It is mapping table of center, machine and device | Sync from server master table.|
+|22.|reg_center_type| It contains list of center types with respect to language code | Sync from server master table |
+|23.|reg_center_user| It contains list of user ids that are mapped to corresponding center id | Sync from server master table |
+|24.|reg_center_user_machine| It is a mapping table for center, user and machine |  During Onboarding process |
+|25.|template| It contains list of Templates that will be displayed during Registration with respect to language code |Sync from server master table |
+|26.|template_type| It contains list of template types[email template, sms template..] with respect to language code |Sync from server master table |
+|27.|title| It contains list of Titles[Mr, Mrs..] with respect to language code | Sync from server master table |
+|28.|valid_document| It contains list of valid documents allowed for Registration with respect to language code |Sync from server master table |
+|29.|sync_job_def| It contains list of Job details[Master Sync, User Detail Sync..] that are required for sync | Sync from server master table |
+|30.|screen_authorization| It contains list of Screen Ids which are required for accessing features[New Registration, EOD..] with respect to roles | Sync from server master table |
+|31.|role_list| It contains list of roles[Registration Officer, Registration Supervisor..] referred in Registration | Sync from server master table |
+|32.|process_list| It contains list of process[login, eod..] happen during registration | Sync from server master table | 
+|33.|app_authentication_method| It contains list if authentication methods[PWD, OTP..] with respect to roles and process[login, eod..] | Sync from server master table |
+|34.|app_detail| It contains list of application details[Pre-Registration, Registration Client] with respect to language code | Sync from server master table |
+|35.|app_role_priority| It contains list of role priority details with respect to Process[login, eod..] and roles | Sync from server master table |
+|36.|GLOBAL_PARAM| It contains list of Configuration related  details used in Registration application. | Sync from server configuration [registration.properties, application.properties] |
+|37.|user_detail| It contains list of User details[id,name, email..] | Sync from server master table |
+|38.|user_pwd| It contains User Password details | Sync from server master table |
+|39.|user_role| It conatins data of roles which were mapped to the user |Sync from server master table |
+|40.|user_biometric| It contains User biometrics[Fingerprint, Iris..] details[minutia, biometric type..] | During Onboarding Process |
+|41.|key_store| It conatins Mosip Public key , Packet creation key | During Public key Sync and Policy sync |
+|42.|sync_control| It contains information about the jobs which are executed successfully along with its last time stamp | During Manual Sync and Scheduled Jobs |
+|43.|sync_transaction| It contains data about all sync transactions | During Manual Sync and Scheduled Jobs |  
+|44.|registration| It contains data about Registration Packet[Registration Id, Status..] | During Registration process |
+|45.|registration_transaction| It contains data of all transactions during registration process  | During Registration process | 
+|46.|pre_registration_list| It contains list of Pre Registration details[Pre Registration Id, Status..] | During Pre Registration Sync |
+|47.|audit_log_control| It contains data of Audit logging[From Time, To Time..] | During local transaction. | 
 
-	
+## Error code and Description :
+
+Below find the list of error code and description which are thrown from application during the process. 
+
+|**Class Name**| **Error Codes** | **Description**|
+|:------:|-----|-----|
+|GPSFacade						|REG-LGE-002	|GPS signal is weak please capture again												|
+|SyncStatusValidatorService		|REG-ICS-006	|GPS signal is weak please capture again												|
+|SyncStatusValidatorService		|REG-ICS-005		|GPS device not found. Please connect an on-boarded GPS device.|
+|SyncStatusValidatorService		|REG-ICS-005		|Please connect the GPS Device														|
+|SyncStatusValidatorService		|REG-ICS-004		|Please insert the GPS device in the Specified Port									|
+|RegistrationApprovalController	|LGN-UI-SHE		|IO Exception																		|
+|PacketSynchService				|REG-PSS		|Unable to Sync Packets to the server												|
+|PacketUploadService			|REG-PUS		|Unable to Push Packets to the server												|
+|BioService						|IRC-IFC		|Exception while scanning iris of the individual										|
+|BioService						|FPC-FCS		|Exception while scanning fingerprints of the individual								|
+|RestClientAuthAdvice			|REG-RCA		|Exception while adding authorization token to web-service request					|
+|TPMUtil						|TPM-UTL-001	|Exception while signing the data using TPM											|
+|TPMUtil						|TPM-UTL-002	|Exception while validating the signature provided by TPM							|
+|TPMUtil						|TPM-UTL-003	|Exception while encrypting the data using asymmetric crypto-algorithm through TPM	|
+|TPMUtil						|TPM-UTL-004	|Exception while encrypting the data using asymmetric crypto-algorithm through TPM	|
+|TPMUtil						|TPM-UTL-005	|Exception while getting the public part of the TPM signing key						|
+|TPMUtil						|TPM-UTL-006	|Exception while getting the TPM instance											|
+|TPMUtil						|TPM-UTL-007	|Exception while closing the TPM instance											|	
+|TPMUtil						|TPM-INT-001	|Exception while closing the TPM instance											|
+|RegIdObjectValidator			|REG-IOS-001	|Invalid ID Object Schema															|
+|RegIdObjectValidator			|REG-IOS-002	|Invalid ID Object Pattern															|
+|RegIdObjectValidator			|REG-IOS-003	|Invalid Master Data Object Pattern													|
+|RestClientAuthAdvice			|REG-RCA-002	|Exception while generating the signature of resquest body							|
+|RestClientAuthAdvice			|REG-SDU-004	|Response header received from the web-service is not as expected					|	

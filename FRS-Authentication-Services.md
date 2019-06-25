@@ -16,6 +16,7 @@
     * [5.2 Partner Policy Authentication](#52-partner-policy-authentication-) _(IDA_FR_5.2)_
 - [6. Authentication Device Support](#6-authentication-device-support)
   * [6.1 Registered Devices and Open Devices TBD](#61-registered-devices-and-open-devices-tbd-) _(IDA_FR_6.1)_
+- [Process View](#process-view-)
 
 # Authentication Services 
 # 1. Single factor Authentication 
@@ -30,8 +31,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. System validates that total number of face record(s) should not exceed 1
 1. The face record in the input parameter against the mapped UIN/VID of the individual in the auth database is matched. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
 1. The system then generates a match score based on the level of the match of the face
-1. 1:1 mapping is performed by the SDK and match score is provided
-1. The system then proceeds to execute compare against the face threshold
+1. 1:1 mapping is performed by the SDK and match score is provided. The system then proceeds to execute compare against the face threshold.
+   * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
@@ -100,10 +101,8 @@ Upon receiving an authentication request, the system supports two-finger authent
    * Validates if single finger print record contains more than one finger
    * Validates if total number of finger print records exceed 2
 4. The system then matches first finger print record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-1. Generates a match score (using SDK) based on the level of the match for the first fingerprint
-1. Matches second finger print record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-1. Then generates a match score (using SDK) based on the level of the match for the second fingerprint
-1. Generates a simple composite match score by summing up the match scores of the first and second fingerprint
+1. The system will integrate with BioAPI compositeMatch function logic which returns composite match score. 
+   * NOTE: The logic of average or sum, etc. will be part of BioAPI implementation. The current stubbed implementation of BioAPI performs an average.
 1. The system retrieves the composite finger threshold configured which is acceptable for a match
 1. The system validates if the composite match score is equal to greater than the composite finger threshold
 1.  Constructs the authentication response based on validation results
@@ -126,12 +125,14 @@ Upon receiving an authentication request, the system evaluates the Individual's 
    * Validates if total number of Iris records exceeds 2
    * Validates if single iris record is present in the input
    * The system matches iris record in the input parameter against the mapped UIN/VID of the individual in the auth database. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score
-5. The system validates if two iris records are present in the input
-6. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the individual in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
-7. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
-8. The system generates a composite match score by summing up the match scores for the first and the second iris Images
-9. The system proceeds to execute compare against Iris threshold
+4. The system then generates a match score based on the level of the match of the Irises. The SDK will provide the match score.
+   * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
+1. The system validates if two iris records are present in the input
+1. The system matches each of the iris records in the input parameter against the corresponding records of the mapped UIN/VID of the individual in the auth database and then generates a match score based on the level of the match of the Irises. Refer to the features related to [**Map VID to UIN**](#c-map-vid-to-uin-of-the-individual-in-the-auth-database-so-that-the-individual-can-be-authenticated-).
+1. Match score 1 and Match score 2 are generated for each images. The SDK provides the match score
+   * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
+1. The system generates a composite match score by summing up the match scores for the first and the second iris Images
+1. The system proceeds to execute compare against Iris threshold
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
@@ -295,20 +296,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
-**B. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
-
-1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
-1. Upon receiving an authentication request with required parameters a the system validates if the transaction id matches with transaction id value of OTP Generation Request
-1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
-1. Validates if the OTP in the input parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
-1. The system checks the validity of the OTP 
-1. Constructs the authentication response based on validation results
-1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
-
-Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
-
-**C. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
+**B. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification
@@ -319,7 +307,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
-**D. Respond with masked e-mail and masked phone number for OTP trigger request**
+**C. Respond with masked e-mail and masked phone number for OTP trigger request**
 
 The system follows the following steps to include masked e-mail and phone in the OTP request response
 1. Retrieves the mode to which OTP will be sent as per the below logic
@@ -342,7 +330,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 1. No of digits in the mobile number to be retrieved – say n
 1. Mask first {(50% of the n digits) + 1} digits of the mobile number
 
-Note: 50% in case of decimal means rounded to the greatest whole number
+   * Note: 50% in case of decimal means rounded to the greatest whole number
 
 Eg:
 
@@ -362,7 +350,7 @@ Eg:
 
 ```Masked e-mail: XXaXXhXXh@gmail.com```
 
-**E. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
+**D. Trigger e-mail to the Individual's mail-ID for OTP Trigger request**
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system then retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification
@@ -372,6 +360,21 @@ Eg:
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
+
+**E. Validate OTP provided by an Individual so that the individual can be authenticated based on OTP**
+
+1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+1. Upon receiving an authentication request with required parameters a the system validates if the transaction id matches with transaction id value of OTP Generation Request
+1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
+1. Validates if the OTP in the input parameter is same as the OTP triggered for the individual to the registered phone number and/or e-mail
+1. The system checks the validity of the OTP 
+1. Constructs the authentication response based on validation results
+1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
+Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
+
+Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
+
+
 
 ## 1.4 Common Features for all Authentication Types [**[↑]**](#table-of-content)
 
@@ -421,7 +424,7 @@ The system retrieves the UIN and Partnerid   for token Id generation
 1. The number does not contain the restricted numbers defined by the ADMIN
 1. The generated tokenid is integrated to the authentication response along with other parameters.
 
-Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
+   * Note: The Authentication is integrated for both successful and failure authentications (i.e) in all cases where authentication notifications are triggered.
 
 10. The system then captures and stores the transaction details for audit purpose.
 
@@ -469,7 +472,8 @@ The system then validates the following:
 1. Validates the certificate
 1. Validates if the partnerID belongs to a registered partner
 1. Validates if the partner status is active
-1. Retrieves the policy constituting for the partnerID
+1. Retrieves the policy constituting for the partnerID and partner api key
+   * NOTE: (For points 3, 4 and 5) **Partners Authentication and Authorisation** is only a proxy implementation due to pending integration with Partner Management services.
 1. Validates if the auth type specified in the request is one of the policies retrieved.
 1. Validates if the auth type specified in the request is one of the permissible auth types for e-KYC for the country as per the set configuration
 1. Validates if the retrieved policy contains one e-KYC policy (the policy containing demographic attributes to be returned)
@@ -477,7 +481,6 @@ The system then validates the following:
 1. Validate the status of the auth response and proceed only if the status is successful
 1. The system proceeds to construct the e-KYC response element, which will be encoded and encrypted.
 1. The system integrates the response with the static token generated for the authentication request 
-1. Retrieves the configured demVal parameter configured for the country
 1.  Constructs the authentication response based on validation results
 1. Validate e-KYC permissions for e-KYC partner as per the e-KYC policies retrieved and identify the demo fields configured to be part of the response
 1. Appends the response with the demographic and id fields as per the policy
@@ -491,6 +494,7 @@ Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) f
 
 
 # 5. Partners Authentication and Authorisation
+   * NOTE: **Partners Authentication and Authorisation** is only a proxy implementation due to pending integration with Partner Management services
 ## 5.1 MISP License Authentication [**[↑]**](#table-of-content)
 
 **Authenticate and authorise the MOSIP Infrastructure Service Provider (MISP)**
@@ -518,7 +522,7 @@ The system then validates the following:
 1. Validates the certificate
 1. Validates if the partnerID belongs to a registered partner
 1. The system also validates if the partner status is active
-1. Retrieves all the policies constituting the partnerID
+1. Retrieves all the policies constituting the partnerID and partner api key
 1. Validates if the auth type specified in the request is one of the policies retrieved for the partner
 1. Validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config)
 1. Validates if the "authvalue" in the input parameter is same "authval" stored in the database for the mapped UIN and VID
@@ -536,6 +540,6 @@ Please refer to the [**Authentication Service API**](ID-Authentication-APIs#user
 
 Technical story (Architects to contribute)
 
-### Process View
+### Process View [**[↑]**](#table-of-content)
 [**Link to Process View of Authentication Services**](Process-view#4-id-authentication-)
 

@@ -34,6 +34,8 @@
   * [2.6 Registration Client Services](#26-registration-client-services) _(PRE_FR_6)_
     * [2.6.1 Retrieve Application Data by PRID](#261-retrieve-application-data-by-prid-) _(PRE_FR_6.1)_
   * [2.7 List of Configurable Parameters and Processes](#27-list-of-configurable-parameters-and-processes-) _(PRE_FR_7)_
+* [Pre Registration API](#pre-registration-api-)
+* [Process View](#process-view-)
 # 1. Overview [**[↑]**](#table-of-content)
 The pre-registration module enables a user to book an appointment for one or many Individuals for registration. It allows a user to enter their demographic details and book appointment by choosing a suitable registration center and time slot and then notifies user on a successful booking. This module also has the provision for appointment rescheduling and cancellation.
 
@@ -250,6 +252,8 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
     Please refer to section 7.C in Getting started Guide.
 2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
 
-## Process View
+## Pre Registration API [**[↑]**](#table-of-content)
+[**Refer to Wiki for more details on Pre-registration API**](Pre-Registration-Services)
+## Process View [**[↑]**](#table-of-content)
 [**Link to Process View of Pre-registration**](Process-view#1-pre-registration-)
 
