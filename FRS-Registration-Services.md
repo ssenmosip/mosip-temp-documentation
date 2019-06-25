@@ -41,22 +41,23 @@
 ## 1. Operator Services [**[↑]**](#table-of-content)
 ### 1.1 Registration Officer and Supervisor on-boarding [**[↑]**](#table-of-content)
 
-When a registration officer or supervisor is onboarded  in an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
+When a registration officer or supervisor is onboarded  on an online client machine for the first time, they provide their biometric details, which will be stored and mapped to the client machine locally. This locally stored data helps to authenticate a supervisor or registration officer.
 
 Registration Client enables capturing an officer's biometrics during on-boarding to support login, local duplicate checks, and registration submission.
 
 **Map registration officers and supervisors to a client machine**
 
-Initially, a machine will have no operators on boarded. The first registration officer or supervisor will be on-boarded by an administrator. Thereafter this registration officer or supervisor can on-board other operators.
+Initially, a machine will have no officers onboarded. The first registration officer or supervisor will be on-boarded by an administrator. Thereafter this registration officer or supervisor can on-board other operators.
 The system allows the following to occur for a successful on-boarding of an operator: 
-1. The system will on-board an operator using the operator’s biometrics.
+1. The system will on-board an officer using biometrics.
    * The quality threshold of  the biometrics is predefined.
 1. The system will only allow to onboard an active operator. 
-1. Operator onboarding is allowed only when the machine is online. 
-1. The system will not allow to onboard a blacklisted operator. 
-1. An onboarded operator will be able to take the machine offline and login to use the machine in offline mode.
-1. The system allows to onboard a multiple operator to the machine.
-
+1. Onboarding is allowed only when the machine is online. 
+1. The system will not allow to onboard a blacklisted officer/supervisor. 
+1. An onboarded officer/supervisor will be able to take the machine offline and login to use the machine in offline mode.
+1. The system allows to onboard a multiple officers to the machine within the same center.  
+1. The system does not allow onboarding officers/supervisors who belong to different center.
+1. Multiple officers can be onboarded but only one supervisor would be allowed to onboard.
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registrtaion-on-board-user.md)
 
