@@ -61,7 +61,7 @@ Please refer to the [**Track Status of UIN Update**](#7-track-status-of-uin-upda
 This feature will allow an individual to track status of his/her UIN update. The user needs to provide the RID as input. The system will first validate the RID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send UIN Update status to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 ## 2.8 View History of Authentication Requests (for Prescribed Days/number of requests) [**[↑]**](#table-of-content)
-This feature will allow an individual to view the authentication request history his/her UIN. The user just needs to provide the UIN/VID as input. The system will first validate the user's provided UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of View Authentication History to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
+This feature will allow an individual to view the authentication request history his/her UIN. The user needs to provide the UIN/VID as input. The system will first validate the user's provided UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of View Authentication History to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 The system will fetch the record for past 6 months from the current date or maximum 50 transactions (configurable). 
 
@@ -71,14 +71,14 @@ To protect the identity, confidentiality, and security of his/her UIN demographi
 
 ### 2.9.1 Lock the UIN
 This feature will allow an individual to lock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with his/her UIN/VID. Only the locked authentication types cannot be used for any authentication purpose.
-.The user just needs to provide the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of lock authentication types to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
+.The user needs to provide the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of lock authentication types to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 An individual can lock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with his/her UIN/VID. Only the locked authentication types cannot be used for any authentication purpose.
 
 ### 2.9.2 Unlock the UIN
 
 This feature will allow an individual to unlock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with his/her UIN/VID. Only the unlocked authentication types can be used for any authentication purpose.
-The user just needs to provide the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of unlock authentication types to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
+The user needs to provide the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of unlock authentication types to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 
 ## 2.10. VID Service [**[↑]**](#table-of-content)
