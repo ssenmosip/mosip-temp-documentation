@@ -291,11 +291,187 @@ None
 3. How to enhance the existing data coverage?
 
 # 5. ID Authentication (IDA) Test Automation Suite - User Guide
-1. How to add test cases for a new API?
+# 5.1 About the ID-Authentication
+MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. ID Authentication is the primary mode for entities to validate an Individual before providing any service.
 
-2. How to run the IDA automation suite?
+An example of how this service will work is as depicted below
+   ![Test](_images/test_rig_automation/IDA1.jpg) 
+ 
+The workflow of testing or running the test suite of the available API’s is as depicted below
+ 
+   ![Test](_images/test_rig_automation/IDA2.jpg) 
 
-3. How to enhance the existing data coverage?
+Pre-requisites for understanding Rest API automation
+	Knowledge on Core Java
+	Basic knowledge on Rest assured library
+	Knowledge on Maven 
+	Knowledge on TestNg framework
+	Knowledge on Keyword, Data Driven and Hybrid methodology
+	Knowledge on GitHub
+	Good analytical and debugging skill
+
+Procedure to checkout-out the test code from the repository
+•	Launch eclipse with new or existing workspace
+•	Clone project from https://github.com/mosip/mosip.git
+•	Import the automationtests project into the eclipse.
+
+Procedure to Add new test cases into the API test suite
+1.	From the automationtests project, the testdata can be located in the folder [src/main/resources]
+2.	Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “Demo-Address Authentication service” and explain how to add a new test
+ 
+3.	Pre-requisites : open runConfiguration.properties file
+Add the following two lines which represents your test case; one for the folder location and another on the test data as below, the array [X], where “X” represents the number of times this tests shall be repeated with different test data
+An example:
+DemographicAuthentication.testDataPath[6]=ida/TestData/Demo/Name/
+DemographicAuthentication.testDataFileName[6]=testdata.ida.Demo.Name.mapping.yml
+If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class
+
+
+4.	Configuration Setup for creating the request Json file:
+
+ 
+
+5.	Please use the TestData keyword defined under in appendix for creating your request.json file. The provided keywords are sufficient for testing the ID Authentication module, however If you ever need you can add an additional attribute to the end of this list 
+
+Sample structure of the request.JSON file, which is being created at run time using the attributes defined in the TestData, which reads from the Yaml data file:
+testdata:     Authentication_Biometric_Face_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_Pos:
+    endpoint.url:
+      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
+    input.bio-auth-request:
+      AuthReq.individualId: $UIN$
+      AuthReq.requestTime: $TIMESTAMP$
+      AuthReq.transactionID: $RANDOM:N:10$
+    input.identity-encrypt-data:
+      identityReq.bioSubType: $TestData:bio_face_subType$
+      identityReq.bioType: $TestData:bio_face_type$
+      identityReq.timestamp: $TIMESTAMP$
+      identityReq.data.timestamp: $TIMESTAMP$
+      identityReq.deviceCode: $TestData:bio_face_deviceCode$
+      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
+      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
+    output.output-1-expected-y-res:
+      output.1.response.status: $TestData:auth_Pass_status$
+      output.1.response.responseTime: $TIMESTAMP$
+      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
+      output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$endpoint.url:partnerIDMispLK$
+    audit.auth_transaction:
+      refId: $input.bio-auth-request:AuthReq.individualId$
+      txnId: $input.bio-auth-request:AuthReq.transactionID$
+      authTypeCode: $TestData:auth_transaction_FACE_authTypeCode$
+      statusCode: $TestData:auth_transaction_success_statusCode$
+      reqTime: $FETCH$
+      resTime: $FETCH$
+      statusComment: $TestData:auth_transaction_FACE_success_statusComment$
+      idType: $TestData:auth_transaction_UIN_idType$
+    audit.audit_log:
+      refId:  $input.bio-auth-request:AuthReq.individualId$
+      eventId: $TestData:audit_log_eventId$
+      eventName: $TestData:audit_log_auth_eventName$
+      appId: $TestData:audit_log_ida_appId$
+      appName: $TestData:audit_log_ida_appName$
+      moduleName: $TestData:audit_log_face_moduleName$
+      refIdType: $TestData:audit_log_UIN_refIdType$
+
+Procedure to execute or Run the tests on a new environment
+
+1.	To run the automation suite of ID-Authentication, build the project and get the uber jar generated under target. 
+
+2.	Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
+
+Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+
+Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
+
+3.	Report will be generated under “<wokspace>/testing-report
+
+
+Analyze the test reports
+1.	Report can be opened in any Web browser (i.e. Internet Explorer)
+2.	The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.
+3.	Report will also display API name and corresponding test case names with execution time along with build version and execution time.
+4.	For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.
+
+Annexure
+Yaml Test Data Format:
+The sample structure should be like below:
+  testdata:
+    testCaseName1:
+          input.<inputrequestfileName>:
+	  mappingFieldName1: <Keyword> or testdata
+	  mappingFieldName2: <Keyword> or testdata
+	  mappingFieldName3: <Keyword> or testdata
+          output.<outputresponsefilename>:
+	  mappingFieldName1: <Keyword> or testdata
+	  mappingFieldName2: <Keyword> or testdata
+	  mappingFieldName3: <Keyword> or testdata
+
+TestData Keyword repository:
+Keywords	KeywordName/Purpose	Example
+$TIMESTAMPZ$	To generate current timestamp with UTC format	2019-06-20T16:18:08.008Z
+$TIMESTAMP$	To generate current timestamp with timezone format	2019-06-20T16:18:08.008+05:30
+$TIMESTAMP$HOUR+24
+$TIMESTAMP$HOUR-24
+$TIMESTAMP$MINUTE+23
+$TIMESTAMP$MINUTW-56
+$TIMESTAMP$SECOND+145
+$TIMESTAMP$SECOND-123	To generate future or current timestamp	
+$RANDOM:N:10$	To generate random digit for the given number	$RANDOM:N:10$
+$RANDOM:N:3$
+$RANDOM:N:14$
+$UIN$	To get random UIN number from uin.property file	
+$UIN$:WITH:Deactivated#	To get uin number from uin.property file where value contains Deactivated	
+$VID$	To get random VID from vid.property file where type as perpetual and status as ACTIVE 	
+$VID:WITH:Temporary$
+$VID:WITH:REVOKE$
+	To get random VID from vid.property file where value contains Temporary or Revoke	
+$VID:WHERE:UIN:WITH:VALID$	To get the VID from vid.property where uin.property value contains specified keyword after “WITH:”	
+$TestData:indvId_Vid_valid$
+$TestData:bio_finger_LeftIndex_subType$
+$TestData:bio_face_deviceCode$	To get the random value form the list in the authenticationTestData.yml file.	
+$input.bio-auth-request:AuthReq.transactionID$	To get the already assigned for the filed.s	input.filename1:
+  mappingName1: value1
+  mappingName2: value2
+ouput.filename2:
+  mappingName3: $ input.filename: mappingName2$
+
+where mappingName3 has set as value2
+$errors:RevokedVID:errorCode$
+$errors:InactiveVID:errorCode$	Get error code for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.	
+$errors:InactiveVID:errorMessage$  
+
+$errors:RevokedVID:errorMessage$	Get error message for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.	
+$idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB$
+
+
+$idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$	To get biometric value for the UIN using cbeff File. It is combination of above listed keyword.
+
+Where 
+$idrepo -> keyword mandatory at start.
+
+$input.bio-auth-request:AuthReq.individualId$ -> get the value from the previously mentioned field
+
+individualBiometricsValue -> Mapping name in UINMapping/mapping.property
+
+//BIR/BDBInfo[Type='Finger'][Subtype='Left IndexFinger']//following::BDB  -> cbeff xpath, where in this location biovalue will be saved for Left IndexFinger	
+$idrepo~$input.demo-auth-request:AuthReq.individualId$~valueaddressLine1:langcode:TestData:primary_lang_code$
+
+
+$idrepo~$input.demo-auth-request:AuthReq.individualId$~valuecity:langcode:TestData:secondary_lang_code$	To get demographic data for the UIN and language.
+
+Where 
+$idrepo -> keyword mandatory at start.
+
+$input.demo-auth-request:AuthReq.individualId$ ->  get the value from the previously mentioned field
+
+valueaddressLine1 -> Mapping name in 
+UINMapping/mapping.property
+
+TestData:primary_lang_code -> keyword to get language code from the authenticationTestData.yml
+	
+
+
+
 
 # 6. E2E Test Automation Suite - User Guide
 1. How to add test cases for a new API?
