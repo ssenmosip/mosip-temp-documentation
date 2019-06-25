@@ -179,7 +179,7 @@
 |8.|New Registration| Pre-registration Data Download  | REG_FR_2.5| [MOS-13556(Part of Version 1+)](//mosipid.atlassian.net/browse/MOS-13556), [MOS-1204](//mosipid.atlassian.net/browse/MOS-1204) |
 |9.|Sync| Pre-registration Data Download  | REG_FR_2.5| [MOS-11582](//mosipid.atlassian.net/browse/MOS-11582), [MOS-1277](//mosipid.atlassian.net/browse/MOS-1277), [MOS-1223](//mosipid.atlassian.net/browse/MOS-1223), [MOS-1200](//mosipid.atlassian.net/browse/MOS-1200),[MOS-1367](//mosipid.atlassian.net/browse/MOS-1367) |
 |10.|Sync| New Registration | REG_FR_4.1| [MOS-13983](//mosipid.atlassian.net/browse/MOS-13983) | 
-|11.|Packet Exporter| Registration Packet Upload | REG_FR_7.1| [MOS-13561](//mosipid.atlassian.net/browse/MOS-13561),[MOS-1328](//mosipid.atlassian.net/browse/MOS-1328),[MOS-559](//mosipid.atlassian.net/browse/MOS-559),[MOS-12961](//mosipid.atlassian.net/browse/MOS-12961), [MOS-22013](//mosipid.atlassian.net/browse/MOS-22013), [MOS-22012](//mosipid.atlassian.net/browse/MOS-22012), [MOS-21929](//mosipid.atlassian.net/browse/MOS-21929)| 
+|11.|Packet Exporter| Registration Packet Upload | REG_FR_7.1| [MOS-13561](//mosipid.atlassian.net/browse/MOS-13561),[MOS-1328](//mosipid.atlassian.net/browse/MOS-1328),[MOS-559](//mosipid.atlassian.net/browse/MOS-559),[MOS-12961](//mosipid.atlassian.net/browse/MOS-12961), [MOS-22013(Part of Version 1+)](//mosipid.atlassian.net/browse/MOS-22013), [MOS-22012(Part of Version 1+)](//mosipid.atlassian.net/browse/MOS-22012), [MOS-21929](//mosipid.atlassian.net/browse/MOS-21929)| 
 |12.|EOD Process| Offline upload (Packet Exporter)  (Packet Exporter) | REG_FR_7.2| [MOS-16712](//mosipid.atlassian.net/browse/MOS-16712) | 
 |13.|New Registration| Offline upload (Packet Exporter) | REG_FR_7.2| [MOS-9072](//mosipid.atlassian.net/browse/MOS-9072)| 
 |14.|Packet Exporter| Offline upload (Packet Exporter)  | REG_FR_7.2| [MOS-1328](//mosipid.atlassian.net/browse/MOS-1328), [MOS-1305](//mosipid.atlassian.net/browse/MOS-1305),[MOS-559](//mosipid.atlassian.net/browse/MOS-559) | 
@@ -256,7 +256,7 @@
 |85.|EoD Process|End of day process|REG_FR_4.8|[MOS-22010](//mosipid.atlassian.net/browse/MOS-22010), [MOS-21928](//mosipid.atlassian.net/browse/MOS-21928)|
 |86.|Login|Login/Authentication|REG_FR_1.2|[MOS-21996](//mosipid.atlassian.net/browse/MOS-21996), [MOS-21997](//mosipid.atlassian.net/browse/MOS-21997)|
 |87.|Packet Creation|New Registration | REG_FR_4.1|[MOS-22381](//mosipid.atlassian.net/browse/MOS-22381)|
-|88.|Packet Exporter|New Registration| REG_FR_4.1|[MOS-22013](//mosipid.atlassian.net/browse/MOS-22013), [MOS-22012](//mosipid.atlassian.net/browse/MOS-22012)|
+|88.|Packet Exporter|New Registration| REG_FR_4.1|[MOS-22013](//mosipid.atlassian.net/browse/MOS-22013) |
 |89.|Security|Key Management|REG_FR_9.1|[MOS-22405](//mosipid.atlassian.net/browse/MOS-22405)|
 |90.|Security|Login/Authentication|REG_FR_1.2|[MOS-22397](//mosipid.atlassian.net/browse/MOS-22397)|
 |91.|User Onboarding|User On-boarding|REG_FR_1.1|[MOS-22005](//mosipid.atlassian.net/browse/MOS-22005), [MOS-22001](//mosipid.atlassian.net/browse/MOS-22001), [MOS-21999](//mosipid.atlassian.net/browse/MOS-21999)|
