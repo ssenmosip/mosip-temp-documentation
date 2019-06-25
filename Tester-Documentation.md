@@ -370,6 +370,7 @@ The sample structure should be like below:
 ![Test](_images/test_rig_automation/IDA6.jpg) 
 
 **TestData Keyword repository**:
+
 |Keywords| KeywordName/Purpose |Example|
 |------|-----|--|
 |$TIMESTAMPZ$	|To generate current timestamp with UTC format|	2019-06-20T16:18:08.008Z|
