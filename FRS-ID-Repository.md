@@ -8,7 +8,7 @@
   * [3.2 Retrieve the Stored Identity Details by UIN](#32-retrieve-the-stored-identity-details-by-uin-)
   * [3.3 Retrieve the Stored Identity Details by RID](#33-retrieve-the-stored-identity-details-by-rid-)
   * [3.4 Update Identity Data and Documents in Repository](#34-update-identity-data-and-documents-in-repository-)
-- [ID Repository API](ID-Repository-API)
+- [ID Repository API](#id-repository-api-)
 - [Process View](#process-view-)
 
 ## 1. ID Repository Overview [**[↑]**](#table-of-content)
