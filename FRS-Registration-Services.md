@@ -36,6 +36,7 @@
 - [11. Clean up](#11-clean-up-)
   * [11.1 Data retention policies](#111-data-retention-policies-) _(REG_FR_11.1)_
   * [11.2 Machine Retirement](#112-machine-retirement-) _(REG_FR_11.2)_
+- [Process View](#process-view-)
 
 ## 1. Operator Services [**[↑]**](#table-of-content)
 ### 1.1 Registration Officer and Supervisor on-boarding [**[↑]**](#table-of-content)
@@ -839,5 +840,5 @@ Before the machine is decommissioned, the following checks must be performed:
 1. All packets created must either be uploaded to server or exported to external device.
 2. All data locally saved in the machine must be cleaned up.
 
-### Process View
+### Process View [**[↑]**](#table-of-content)
 [**Link to Process View of Registration Services**](Process-view#2-registration-client-)
