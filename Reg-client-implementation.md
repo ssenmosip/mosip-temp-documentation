@@ -53,7 +53,7 @@ It doesn't detail about each methods level information since that are covered in
 |**Functionality:**| Sync Data from Server to Client and Vice Versa. |   
 |:------:|-----|  
 |**Technical Detail:**| This functionality will be executed as specified as sync-frequency in local DB. During start of the application, the scheduler would be loaded with the jobs configured in db and trigger the job. The scheduler would trigger the jobs at the configured frequency. While running the jobs, based on the functionality it would invoke the respective services and invoke the required external services to sync the data from server to client and vice versa. Post completion or every state of the job execution, the status would be updated in local db.|  
-|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs[List of Jobs](#List-of-Jobs-) from the local db and trigger the jobs.|  
+|**Main Service class and methods**|  JobConfigurationServiceImpl.executeAllJobs() - This would load all the active jobs [List of Jobs](#List-of-Jobs-) from the local db and trigger the jobs.|  
 |**Input Parameter:**|  - |    
 |**Auth:**| Auth token required for external services. This would be automatically taken care within this method. Nothing explicitly to be passed.|  
 |**External Connectivity:**| REST API calls, DB|
@@ -103,7 +103,7 @@ It doesn't detail about each methods level information since that are covered in
 ## Packet Structure :
    The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link. 
    
-   [Packet Structure](Registration-Packet.md)
+   [Packet Structure](https://github.com/mosip/mosip/wiki/Reg-client-implementation)
    
 ## Packet Status :  
 
