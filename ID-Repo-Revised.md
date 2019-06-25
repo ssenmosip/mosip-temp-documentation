@@ -4,10 +4,10 @@
   * [2.1 Target Users](#21-target-users-)
   * [2.2 Key Features](#22-key-features-)
 - [3. ID Repository services](#3-id-repository-services-)
-  * [3.1 Store Identity Data and Documents in Database](#31-store-identity-data-and-documents-in-database-)
+  * [3.1 Store Identity Data and Documents in Repository](#31-store-identity-data-and-documents-in-repository-)
   * [3.2 Retrieve the Stored Identity Details by UIN](#32-retrieve-the-stored-identity-details-by-uin-)
   * [3.3 Retrieve the Stored Identity Details by RID](#33-retrieve-the-stored-identity-details-by-rid-)
-  * [3.4 Update Identity Data and Documents in Database](#34-update-identity-data-and-documents-in-database-)
+  * [3.4 Update Identity Data and Documents in Repository](#34-update-identity-data-and-documents-in-repository-)
 - [ID Repository API](#id-repository-api-)
 - [Process View](#process-view-)
 
@@ -40,23 +40,13 @@ The Identity data stored inside the ID repository is encrypted. The Identity Rep
 [**Please refer wiki for more details on the key non-Functional requirements of ID Repository.**](/mosip/mosip/blob/6c097369722ddff4ec513c15db03b09a6e6ebdc3/docs/design/idrepository/identity-service.md)
 
 ## 3. ID Repository services [**[↑]**](#table-of-content)
-### 3.1 Store Identity Data and Documents in Database [**[↑]**](#table-of-content)
+### 3.1 Store Identity Data and Documents in Repository [**[↑]**](#table-of-content)
 
-Upon receiving a request (from Registration Processor) with the following parameters: UIN, id, ver, timestamp, registration-id, the system performs the following steps to store identity data and related documents in MOSIP database:
-1. Validates if the request contains “individualBiometrics” or the “parentOrGuardianBiometrics” CBEFF files in the request.
-1. The system interacts with biometric SDK to convert the FIR (Fingerprint Image Record) in the CBEFF file to FMR.
-1. Appends the FMR (Fingerprint Minutiae Record) to the CBEFF file by using the kernel CBEFF utility service.
-1. Stores the files in the distributed file system (DFS).
-1. Stores the references to the file in DFS in the database.
-1. Validates if the request contains files corresponding to proofOfAddress, or proofOfIdentity, or proofOfRelationship, or proofOfDateOfBirth attributes.
-1. Stores the files in the distributed file system.
-1. Stores the references to the file in DFS in the database.
-1. The system validates if the request contains fullName, dateOfBirth, age, gender, addressLine1, addressLine2, addressLine3, region, province, city, postalCode, phone, email, CNIENumber, localAdministrativeAuthority, parentOrGuardianRIDOrUIN and parentOrGuardianNam in the request.
-1. Stores the available identity details of the individual in the database securely.
-1. Validate if at least one identity element is present in the request.
-1. Validate if a document is present in the input the corresponding category is present in the identity element.
-1. The system sends the response with the following parameters id, version, timestamp, status, and the entity element.
-1. The default status is ‘ACTIVATED’. The status is configurable.
+Upon receiving the request to stores identity details of individual in ID Repository, the system validates input ID attributes in the request against MOSIP ID defined for the country
+1. Stores ID JSON of an individual generated during registration
+1. Receives and stores Individual biometric documents generated during registration
+1. Receives and stores documents of proofs provided by individual at the time of registration
+1. On successful storage of identity for an individual, status of UIN of the individual is marked as 'ACTIVATED'
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 ### 3.2 Retrieve the Stored Identity Details by UIN [**[↑]**](#table-of-content)
@@ -85,7 +75,7 @@ Upon receiving a request to retrieve the UIN details with type as an optional pa
 1. Sends the response with the following parameters id, version, timestamp, status, and the response element with the appended elements.
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
-### 3.4 Update Identity Data and Documents in Database [**[↑]**](#table-of-content)
+### 3.4 Update Identity Data and Documents in Repository [**[↑]**](#table-of-content)
 
  Upon receiving a request to update the UIN details with the following parameters: id, UIN, version, timestamp, registration id, status and identity attributes and documents, the system performs the following steps to update identity data and related documents in MOSIP database:
 1. Updates only the identity attributes corresponding to the UIN in the request. 
