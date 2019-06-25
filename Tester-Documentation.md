@@ -291,7 +291,7 @@ None
 3. How to enhance the existing data coverage?
 
 # 5. ID Authentication (IDA) Test Automation Suite - User Guide
-# 5.1 About the ID-Authentication
+## 5.1 About the ID-Authentication
 MOSIP ID Authentication provides an API based authentication mechanism for entities to validate Individuals. ID Authentication is the primary mode for entities to validate an Individual before providing any service.
 
 An example of how this service will work is as depicted below
@@ -301,29 +301,37 @@ The workflow of testing or running the test suite of the available API’s is as
  
    ![Test](_images/test_rig_automation/IDA2.jpg) 
 
-Pre-requisites for understanding Rest API automation
-	Knowledge on Core Java
-	Basic knowledge on Rest assured library
-	Knowledge on Maven 
-	Knowledge on TestNg framework
-	Knowledge on Keyword, Data Driven and Hybrid methodology
-	Knowledge on GitHub
-	Good analytical and debugging skill
+## 5.2 Pre-requisites for understanding Rest API automation
+* Knowledge on Core Java
+* Basic knowledge on Rest assured library
+* Knowledge on Maven 
+* Knowledge on TestNg framework
+* Knowledge on Keyword, Data Driven and Hybrid methodology
+* Knowledge on GitHub
+* Good analytical and debugging skill
 
-Procedure to checkout-out the test code from the repository
-•	Launch eclipse with new or existing workspace
-•	Clone project from https://github.com/mosip/mosip.git
-•	Import the automationtests project into the eclipse.
+## 5.3 Procedure to checkout-out the test code from the repository
+* Launch eclipse with new or existing workspace
+* Clone project from https://github.com/mosip/mosip.git
+* Import the automationtests project into the eclipse.
 
-Procedure to Add new test cases into the API test suite
-1.	From the automationtests project, the testdata can be located in the folder [src/main/resources]
-2.	Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “Demo-Address Authentication service” and explain how to add a new test
+## 5.4 Procedure to Add new test cases into the API test suite
+1. From the automationtests project, the testdata can be located in the folder [**src/main/resources**]
+1. Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “**Demo-Address Authentication service**” and explain how to add a new test
  
-3.	Pre-requisites : open runConfiguration.properties file
+
+   ![Test](_images/test_rig_automation/IDA3.jpg) 
+
+3. Pre-requisites: 
+open runConfiguration.properties file
+
 Add the following two lines which represents your test case; one for the folder location and another on the test data as below, the array [X], where “X” represents the number of times this tests shall be repeated with different test data
+
 An example:
 DemographicAuthentication.testDataPath[6]=ida/TestData/Demo/Name/
+
 DemographicAuthentication.testDataFileName[6]=testdata.ida.Demo.Name.mapping.yml
+
 If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class
 
 
