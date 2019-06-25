@@ -1577,3 +1577,13 @@ objectClass: top
 cn: AUTH
 description: Auth User role
 roleOccupant: uid=auth_server_id,ou=people,c=morocco
+
+dn: cn=REGISTRATION_PROCESSOR,ou=roles,c=morocco
+objectClass: organizationalRole
+objectClass: top
+cn: REGISTRATION_PROCESSOR
+description: REG PROC
+ou: roles
+roleOccupant: uid=registrationprocessor,ou=people,c=morocco
+roleOccupant: uid=regproctest,ou=people,c=morocco
+roleOccupant: uid=regproc_app_user,ou=people,c=morocco
