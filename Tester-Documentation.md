@@ -322,7 +322,7 @@ The workflow of testing or running the test suite of the available API’s is as
 
    ![Test](_images/test_rig_automation/IDA3.jpg) 
 
-3. Pre-requisites: 
+3. **Pre-requisites**: 
    open runConfiguration.properties file
 
    Add the following two lines which represents your test case; one for the folder location and another on the test data as below, the array [X], where “X” represents the number of times this tests shall be repeated with different test data
@@ -333,86 +333,47 @@ The workflow of testing or running the test suite of the available API’s is as
    DemographicAuthentication.testDataFileName[6]=testdata.ida.Demo.Name.mapping.yml
 
    If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class
+4. **Configuration Setup for creating the request Json file**:
+
+   ![Test](_images/test_rig_automation/IDA4.jpg) 
+
+1. Please use the TestData keyword defined under in appendix for creating your request.json file. The provided keywords are sufficient for testing the ID Authentication module, however If you ever need you can add an additional attribute to the end of this list 
+
+   **Sample structure of the request.JSON file**, which is being created at run time using the attributes defined in the TestData, which reads from the Yaml data file:
+
+   ![Test](_images/test_rig_automation/IDA5.jpg) 
+
+## 5.5 Procedure to execute or Run the tests on a new environment
+
+1. To run the automation suite of ID-Authentication, build the project and get the uber jar generated under target. 
+1. Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
+
+   Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+
+   Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
+
+3. Report will be generated under “<wokspace>/testing-report
 
 
-4.	Configuration Setup for creating the request Json file:
+## 5.6 Analyze the test reports
+1. Report can be opened in any Web browser (i.e. Internet Explorer)
+1. The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.
+1. Report will also display API name and corresponding test case names with execution time along with build version and execution time.
+1. For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.
 
- 
-
-5.	Please use the TestData keyword defined under in appendix for creating your request.json file. The provided keywords are sufficient for testing the ID Authentication module, however If you ever need you can add an additional attribute to the end of this list 
-
-Sample structure of the request.JSON file, which is being created at run time using the attributes defined in the TestData, which reads from the Yaml data file:
-testdata:     Authentication_Biometric_Face_With_Valid_BioType_BioSubType_And_BioValue_In_Bio_Identity_Smoke_Pos:
-    endpoint.url:
-      partnerIDMispLK: $PIDMLKURL:ValidPIDMLK$
-    input.bio-auth-request:
-      AuthReq.individualId: $UIN$
-      AuthReq.requestTime: $TIMESTAMP$
-      AuthReq.transactionID: $RANDOM:N:10$
-    input.identity-encrypt-data:
-      identityReq.bioSubType: $TestData:bio_face_subType$
-      identityReq.bioType: $TestData:bio_face_type$
-      identityReq.timestamp: $TIMESTAMP$
-      identityReq.data.timestamp: $TIMESTAMP$
-      identityReq.deviceCode: $TestData:bio_face_deviceCode$
-      identityReq.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      identityReq.deviceProviderID: $TestData:bio_face_deviceProviderID$
-      identityReq.bioValue: $idrepo~$input.bio-auth-request:AuthReq.individualId$~DECODEFILE:individualBiometricsValue~//BIR/BDBInfo[Type='Face']//following::BDB$
-    output.output-1-expected-y-res:
-      output.1.response.status: $TestData:auth_Pass_status$
-      output.1.response.responseTime: $TIMESTAMP$
-      output.1.response.transactionID: $input.bio-auth-request:AuthReq.transactionID$
-      output.1.response.staticToken: $TOKENID~$input.bio-auth-request:AuthReq.individualId$~$endpoint.url:partnerIDMispLK$
-    audit.auth_transaction:
-      refId: $input.bio-auth-request:AuthReq.individualId$
-      txnId: $input.bio-auth-request:AuthReq.transactionID$
-      authTypeCode: $TestData:auth_transaction_FACE_authTypeCode$
-      statusCode: $TestData:auth_transaction_success_statusCode$
-      reqTime: $FETCH$
-      resTime: $FETCH$
-      statusComment: $TestData:auth_transaction_FACE_success_statusComment$
-      idType: $TestData:auth_transaction_UIN_idType$
-    audit.audit_log:
-      refId:  $input.bio-auth-request:AuthReq.individualId$
-      eventId: $TestData:audit_log_eventId$
-      eventName: $TestData:audit_log_auth_eventName$
-      appId: $TestData:audit_log_ida_appId$
-      appName: $TestData:audit_log_ida_appName$
-      moduleName: $TestData:audit_log_face_moduleName$
-      refIdType: $TestData:audit_log_UIN_refIdType$
-
-Procedure to execute or Run the tests on a new environment
-
-1.	To run the automation suite of ID-Authentication, build the project and get the uber jar generated under target. 
-
-2.	Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
-
-Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
-
-Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
-
-3.	Report will be generated under “<wokspace>/testing-report
-
-
-Analyze the test reports
-1.	Report can be opened in any Web browser (i.e. Internet Explorer)
-2.	The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.
-3.	Report will also display API name and corresponding test case names with execution time along with build version and execution time.
-4.	For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.
-
-Annexure
+## 5.7 Annexure
 Yaml Test Data Format:
 The sample structure should be like below:
-  testdata:
-    testCaseName1:
-          input.<inputrequestfileName>:
-	  mappingFieldName1: <Keyword> or testdata
-	  mappingFieldName2: <Keyword> or testdata
-	  mappingFieldName3: <Keyword> or testdata
-          output.<outputresponsefilename>:
-	  mappingFieldName1: <Keyword> or testdata
-	  mappingFieldName2: <Keyword> or testdata
-	  mappingFieldName3: <Keyword> or testdata
+  **testdata:**
+    **testCaseName1:**
+          **input.<inputrequestfileName>:**
+	  **mappingFieldName1: <Keyword> or testdata**
+	  **mappingFieldName2: <Keyword> or testdata**
+	  **mappingFieldName3: <Keyword> or testdata**
+          **output.<outputresponsefilename>:**
+	  **mappingFieldName1: <Keyword> or testdata**
+	  **mappingFieldName2: <Keyword> or testdata**
+	  **mappingFieldName3: <Keyword> or testdata**
 
 TestData Keyword repository:
 Keywords	KeywordName/Purpose	Example
