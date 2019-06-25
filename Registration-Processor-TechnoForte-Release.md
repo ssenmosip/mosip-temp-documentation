@@ -26,7 +26,7 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Registration Processor|Tested Code|[Tag: 0.12.10](https://github.com/mosip/mosip/releases/tag/0.12.10)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](http://104.215.158.154:9000/dashboard?id=io.mosip.registrationprocessor%3Aregistration-processor)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)| 
+|1.|Registration Processor|Tested Code|[Tag: 0.12.12](https://https://github.com/mosip/mosip/releases/tag/0.12.12)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](http://104.215.158.154:9000/dashboard?id=io.mosip.registrationprocessor%3Aregistration-processor)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)| 
 |2.|Registration Processor|Test Cases|[Click to view](https://mosipid.atlassian.net/projects/MOS?selectedItem=com.thed.zephyr.je__project-centric-view-tests-page&testsTab=test-cycles-tab)|Test Cases Covered RegClient Reg Processor, Functional Testing and E2E testing Scenario;s|
 |3.|Registration Processor|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration%20Client/Mindmaps)|
 |4.|Registration Processor Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
