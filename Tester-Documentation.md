@@ -372,7 +372,7 @@ The sample structure should be like below:
 **TestData Keyword repository**:
 
 |Keywords| KeywordName/Purpose |Example|
-|------|-----|--|
+|:------:|:-----:|:-------:|
 |$TIMESTAMPZ$	|To generate current timestamp with UTC format|	2019-06-20T16:18:08.008Z|
 |$TIMESTAMP$|	To generate current timestamp with timezone format|	2019-06-20T16:18:08.008+05:30|
 |<li> $TIMESTAMP$HOUR+24 <li> $TIMESTAMP$HOUR-24 <li> $TIMESTAMP$MINUTE+23 <li> $TIMESTAMP$MINUTW-56 <li> $TIMESTAMP$SECOND+145 <li> $TIMESTAMP$SECOND-123|	To generate future or current timestamp	|
@@ -383,8 +383,6 @@ The sample structure should be like below:
 |<li> $VID:WITH:Temporary$ <li> $VID:WITH:REVOKE$| To get random VID from vid.property file where value contains Temporary or Revoke	|
 |$VID:WHERE:UIN:WITH:VALID$|	To get the VID from vid.property where uin.property value contains specified keyword after “WITH:”	|
 |<li> $TestData:indvId_Vid_valid$ <li> $TestData:bio_finger_LeftIndex_subType$ <li> $TestData:bio_face_deviceCode$|	To get the random value form the list in the authenticationTestData.yml file.|	
-
-
 |$input.bio-auth-request:AuthReq.transactionID$|	To get the already assigned for the filed.s|	<li> input.filename1: <li>   mappingName1: value1 <li>   mappingName2: value2 <li> ouput.filename2: <li>   mappingName3: $ input.filename: mappingName2$ <li> where mappingName3 has set as value2|
 |<li>  $errors:RevokedVID:errorCode$ <li> $errors:InactiveVID:errorCode$	|Get error code for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.|	
 |<li> $errors:InactiveVID:errorMessage$ <li> $errors:RevokedVID:errorMessage$	| Get error message for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.|
