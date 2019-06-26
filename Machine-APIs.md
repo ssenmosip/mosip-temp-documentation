@@ -1334,6 +1334,16 @@ pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
 
+### Filter Values
+Filter Name| Search Values
+-----|----------
+Machine Name|["contains","equals","startsWith"]
+Status|["contains","equals","startsWith"]
+MAC Address|["contains","equals","startsWith"]
+Serial Number|["contains","equals","startsWith"]
+Map Status|["contains","equals","startsWith"]
+Machine Type|["contains","equals","startsWith"]
+Machine Specification ID|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON
