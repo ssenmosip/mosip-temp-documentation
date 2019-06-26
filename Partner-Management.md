@@ -12,17 +12,18 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 
 ## Architecturally Significant Use Cases
 **User Management**
-* MOSIP admin would be able to create and manage(update,view) Partner Management users viz- MISP, Partner Manager, Policy Manager. Role authorization and access control for these users would be done at Kernel's Identity and Access Management (IAM) module
+* MOSIP admin would be able to create and manage(update,view) Partner Management users viz- MISP Admin, Partner Manager, Policy Manager in Kernel's Identity and Access Management (IAM) module. Role authorization and access control for these users would be done at Kernel's Identity and Access Management (IAM) module
 * MOSIP admin would be able to issue and map license key to MISP. MOSIP admin would be able to list MISPs and would be able to activate/de-activate MISP, as well as MISP license key for a particular MISP
 * MOSIP admin would be able to map users (Policy Manager, Partner Manager) to specific policy group. (Policy groups are country specific, that are customize and seeded from backend)
 * MOSIP admin would be able to activate/de-activate policy manager,partner manager
 ![Partner Management User Management](_images/arch_diagrams/PartnerManagement_User_Mgmt.png)
 
 **MOSIP Infrastructure Service Provider (MISP)**
-* MISP will be managing whitelisted IPs at infrastructure security level and every authentication request is intercepted by MISP for validation of request from authorized partners. MISP will append MISP license key with every partner authentication request, that would be taken care at proxy/gateway infrastructure level
-* MISP will receive license key from Partner Management module. MISP would be able to generate new license key request and receive new license key after expiration of existing license key
-* MISP would be able to generate usage statistics report for billing purpose (out of scope for first release)
-![MOSIP Infrastructure Service Provider (MISP) Management](_images/arch_diagrams/PartnerManagement_MISP.png)
+* MISP will be managing whitelisted IPs at infrastructure security level and every authentication request is intercepted by MISP for validation of request from authorized partners. MISP will append MISP license key with every partner authentication request, that would be taken care at infrastructure level
+* MISP will receive license key from Partner Management module 
+* MISP admin would be able to generate new license key request for a MISP and receive new license key after expiration of existing license key
+* MISP would be able to generate usage statistics report for billing purpose (out of scope)
+![MOSIP Infrastructure Service Provider (MISP) Management](_images/arch_diagrams/PartnerManagement_MISPAdmin.png)
 
 **Policy Manager**
 * Policy manager would be able to create policy for the policy group he belongs to
@@ -36,7 +37,7 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 *  Partner manager would be able to list all partners for a policy group
 *  Partner manager would be able to activate/de-activate partners
 *  Partner manager would be able to approve / reject PartnerAPIKey request, as received from partner
-*  Partner manager would be able to issue PartnerAPIKey(s) to a specified partner for fulfilling specified use case(s) as requested in PartnerAPIKey request 
+*  Partner manager would be able to issue PartnerAPIKey(s) to a specified partner for fulfilling specified use case(s) as requested in PartnerAPIKey request. 
 *  Partner manager would be able to map PartnerAPIKey(s) to a specified partner
 *  Partner manager would be able to map PartnerAPIKey(s) to policy
 *  Partner Manager would be able to retrieve and update partner details for a specific PartnerAPIKey
