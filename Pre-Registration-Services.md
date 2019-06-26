@@ -144,7 +144,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_LGN_008|Invalid Request userId received|if requested userId is empty or invalid
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request time
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request time
 
 ### POST /login/validateOtp
 This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
@@ -221,7 +221,7 @@ KER-OTV-003|OTP can't be empty or null.|  If otp field is empty or null
 KER-OTV-004|OTP consists of only numeric characters. No other characters is allowed|If otp contains character other than numeric
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request time
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request time
 PRG_CORE_REQ_013|Request date should be current date|If the date is not current date
 PRG_PAM_LGN_013|VALIDATION_UNSUCCESSFUL|If incorrect otp is entered
 PRG_PAM_LGN_014|Token is not present in the header |When token does not come from kernel service in the header
@@ -675,7 +675,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
 PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
 PRG_CORE_REQ_014|Lang code is invalid|when language code is invalid or empty
 PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
@@ -1028,7 +1028,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
 PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
 PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
@@ -1648,7 +1648,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
 PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
 PRG_PAM_CORE_011|encryption failed|encryption of document data failed
 PRG_PAM_DOC_015|Json exception|document request json parsing failed
@@ -2360,7 +2360,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime 
 PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
@@ -2490,7 +2490,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime and when the date is not current or future date
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
@@ -2960,7 +2960,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime and when the date is not current or future date 
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime and when the date is not current or future date 
 PRG_QRC_001|	File input output exception|	when there is any input / output file operation issues
 
 # Notification Service (public)
@@ -3058,7 +3058,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Empty Request DateTime 
+PRG_PAM_CORE_003|Invalid request time |Empty Request DateTime 
 PRG_PAM_ACK_002|Mandatory fields are missing|If isBatch field is null
 PRG_PAM_ACK_008|Full name is not valid|If name field is invalid or empty 
 PRG_PAM_ACK_009|Appointment date is not valid|If appointmentDate field is invalid or empty 
@@ -3147,7 +3147,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime 
 PRG_TRL_APP_008|Unsupported language|If langCode is other than ara,eng and fra
 PRG_TRL_APP_002|Incorrect mandatory Fields|If any of the request is null
 
