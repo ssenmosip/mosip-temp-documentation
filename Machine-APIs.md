@@ -1171,6 +1171,15 @@ pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
 
+### Filter Values
+Filter Name| Search Values
+-----|----------
+name|["contains","equals","startsWith"]
+brand|["contains","equals","startsWith"]
+model|["contains","equals","startsWith"]
+device type name|["contains","equals","startsWith"]
+status|["contains","equals","startsWith"]
+model|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON
