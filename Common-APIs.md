@@ -1566,7 +1566,7 @@ Filter Name| Search Values
 Location Zone Name|["contains","equals","startsWith"]
 Holiday Date|["between"]
 Holiday Name|["contains","equals","startsWith"]
-Status|["contains","equals","startsWith"]
+Status|["equals"]
 
 ### Example Request
 ```JSON
