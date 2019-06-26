@@ -1563,10 +1563,10 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 ### Filter Values
 Filter Name| Search Values
 -----|----------
-Location Zone Name|["in","equals","startsWith"]
+Location Zone Name|["contains","equals","startsWith"]
 Holiday Date|["between"]
-Holiday Name|["in","equals","startsWith"]
-Status|["in","equals","startsWith"]
+Holiday Name|["contains","equals","startsWith"]
+Status|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON
