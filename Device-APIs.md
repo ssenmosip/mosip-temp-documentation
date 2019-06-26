@@ -801,6 +801,7 @@ MAC Address|["in","equals","startsWith"]
 Serial Number|["in","equals","startsWith"]
 Map Status|["in","equals","startsWith"]
 Device Type|["in","equals","startsWith"]
+Device Specification ID|["in","equals","startsWith"]
 
 ### Example Request
 ```JSON
