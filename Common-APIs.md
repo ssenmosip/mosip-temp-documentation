@@ -2262,6 +2262,15 @@ pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
 
+### Filter Values
+Filter Name| Search Values
+-----|----------
+Region|["contains","equals","startsWith"]
+Province|["contains","equals","startsWith"]
+City|["contains","equals","startsWith"]
+LAA|["contains","equals","startsWith"]
+Pincode|["contains","equals","startsWith"]
+Status|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON
