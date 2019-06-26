@@ -432,7 +432,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
             #include /etc/nginx/conf.d/*.conf;
 
 
-#                   HTTP  configuration for dev.mosip.io 
+######                   HTTP  configuration for dev.mosip.io 
     
      server {
             listen  80 default_server;
@@ -453,7 +453,17 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
             return 301 https://$host$request_uri;
         }
 
-#                   HTTP  configuration for dev.mosip.io 
+######                   HTTP  configuration for dev.mosip.io 
+        server {
+                #resolver 52.172.43.28;
+                client_max_body_size 20M;
+                    listen *:443 ssl http2;
+                    listen [::]:443 ssl http2;
+                    server_name dev.mosip.io;
+                    ssl on;
+                    ssl_certificate         /etc/letsencrypt/live/dev.mosip.io/fullchain.pem;
+                    ssl_certificate_key   /etc/letsencrypt/live/dev.mosip.io/privkey.pem;
+
          location / {
                         proxy_set_header Host $host;
                         proxy_set_header X-Real-IP $remote_addr;
@@ -468,7 +478,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         #error_page 301 302 307 = @handle_redirects;
 
                 }
-     
+     }
     }
    
 ##### Below command to open the port 80/443 from RHEL 7.5 VM 
