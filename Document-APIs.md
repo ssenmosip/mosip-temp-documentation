@@ -1078,6 +1078,7 @@ KER-MSD-092 | Error occured while deleting Document Type details
 
 * [GET /validdocuments/{languagecode}](#get-validdocumentslanguagecode)
 * [POST /validdocuments/search](#post-validdocumentssearch)
+* [POST /validdocuments/filtervalues](#post-validdocumentsfiltervalues)
 
 ### Resource URL
 ### `GET /validdocuments/{languagecode}`
