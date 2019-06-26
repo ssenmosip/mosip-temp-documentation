@@ -792,6 +792,16 @@ pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
 
+### Filter Values
+Filter Name| Search Values
+-----|----------
+Device Name|["in","equals","startsWith"]
+Status|["in","equals","startsWith"]
+MAC Address|["in","equals","startsWith"]
+Serial Number|["in","equals","startsWith"]
+Map Status|["in","equals","startsWith"]
+Device Type|["in","equals","startsWith"]
+
 ### Example Request
 ```JSON
 {
