@@ -866,11 +866,8 @@ sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spr
 
 Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
 
-### 6.8 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
+### 6.8 Refer kernel-smsnotification-servive ReadMe for SMS Gateway configuration [**here**](https://github.com/mosip/mosip/tree/0.12.0/kernel/kernel-smsnotification-service) 
 
-mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
-
-mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 
 
 
