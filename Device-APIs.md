@@ -796,12 +796,12 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 Filter Name| Search Values
 -----|----------
 Device Name|["contains","equals","startsWith"]
-Status|["contains","equals","startsWith"]
+Status|["equals"]
 MAC Address|["contains","equals","startsWith"]
 Serial Number|["contains","equals","startsWith"]
 Map Status|["contains","equals","startsWith"]
-Device Type|["contains","equals","startsWith"]
-Device Specification ID|["contains","equals","startsWith"]
+Device Type|["equals"]
+Device Specification ID|["equals"]
 
 ### Example Request
 ```JSON
@@ -904,7 +904,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 Filter Name| Search Values
 -----|----------
 name|["contains","equals","startsWith"]
-status|["contains","equals","startsWith"]
+status|["equals"]
 
 ### Example Request
 ```JSON
