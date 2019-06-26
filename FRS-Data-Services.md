@@ -6,8 +6,8 @@
   * [4. ID Generator and Validator](#4-id-generator-and-validator) 
     * [4.1 ID Generator](#41-id-generator-) 
       * [4.1.1 Machine ID Generator](#411-machine-id-generator-) _(DAT_FR_4.1)_
-      * [4.1.2 RID Generator](#412-rid-generator-) _(DAT_FR_4.2)_
-      * [4.1.3 Registration Center ID Generator](#413-registration-center-id-generator-) _(DAT_FR_4.3)_
+      * [4.1.2 Registration Center ID Generator](#413-registration-center-id-generator-) _(DAT_FR_4.2)_
+      * [4.1.3 RID Generator](#412-rid-generator-) _(DAT_FR_4.2)_
       * [4.1.4 MISP ID Generator](#414-misp-id-generator-) _(DAT_FR_4.4)_
       * [4.1.5 PRID Generator](#415-prid-generator-) _(DAT_FR_4.5)_
       * [4.1.6 VID Generator](#416-vid-generator-) _(DAT_FR_4.6)_
