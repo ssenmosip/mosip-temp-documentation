@@ -25,6 +25,13 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| SessionContext is required for creating the packet |  
 |**External Connectivity**| DB, File system |  
 
+|**Functionality:**|  PACKET SYNC– Sync all the Approved/ Rejected/ Re-Register Approved packets before Uploading to server |   
+|:------:|-----|  
+|**Main Service class and method:**| PacketSyncServiceImpl.java - packetSync(List<PacketStatusDTO> packetsToBeSynched)|
+|**Input Parameter:**|    packetsToBeSynched – The packet details which needs to be Synched. |  
+|**Auth:**| required |  
+|**External Connectivity:**| packetSync – Packet Sync service REST call |  
+
      
 |**Functionality:**| Packet Upload |   
 |:------:|-----|  
@@ -48,6 +55,13 @@ It doesn't detail about each methods level information since that are covered in
 |**Input Parameter:**|    preRegistrationId- The pre reg id |  
 |**Auth:**| Authentication token required while downloading the packets. Based on the SessionContext object the advice would attach the token and invoke the required service call. |  
 |**External Connectivity:**| Pre Reg service REST call |  
+
+|**Functionality:**|  EOD APPROVAL – Approve/Reject all the created packets |   
+|:------:|-----|  
+|**Main Service class and method:**| RegistrationApprovalServiceImpl.java - updateRegistration(String registrationID, String statusComments, String clientStatusCode)|
+|**Input Parameter:**|    registrationID – The registration id of the packet that needs to be updated, statusComments - The comment status that needs to be updated for the given registration id of the packet, clientStatusCode - The status code that needs to be updated for the given registration id of the packet.|
+|**Auth:**| NA |  
+|**External Connectivity:**| DB |
 
 
 |**Functionality:**| Sync Data from Server to Client and Vice Versa. |   
@@ -221,9 +235,19 @@ There are few jobs are configured to clean the transactions histories from local
 |46.|pre_registration_list| It contains list of Pre Registration details[Pre Registration Id, Status..] | During Pre Registration Sync |
 |47.|audit_log_control| It contains data of Audit logging[From Time, To Time..] | During local transaction. | 
 
+## UI - Labels and messages :  
+   The UI specific labels and messages are maintained in the language specific property file. Based on the primary and secondary language the respective bundle would be loaded during runtime and displayed in the screen. 
+   
+   messages_en.properties	- Messages are in English language.   
+   messages_ar.properties   - Messages are in Arabic language.  
+   messages_fr.properties   - Messages are in French language.  
+   labels_en.properties     - Labels are in English language.  
+   labels_ar.properties     - Labels are in Arabic language.  
+   labels_fn.properties     - Labels are in French language.
+
 ## Error code and Description :
 
-Below find the list of error code and description which are thrown from application during the process. 
+Below find the list of error code and description which are thrown from application during the process.  
 
 |**Class Name**| **Error Codes** | **Description**|
 |:------:|-----|-----|
