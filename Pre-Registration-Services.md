@@ -1555,13 +1555,18 @@ This service enables Pre-Registration portal to request for uploading the docume
 * [POST /documents/{preRegistrationId}](#post-documentspreregistrationid)
 * [PUT /documents/{preRegistrationId}](#put-documentspreregistrationid)
 * [GET /documents/preregistration/{preRegistrationId}](#get-documentspreregistrationpreregistrationid)
-* [GET /documents/:documentId?preRegistrationId={preRegistrationId}](#get-documentsdocumentidpreregistrationidpreregistrationid)
+* [GET /documents/{documentId}?preRegistrationId={preRegistrationId}](#get-documentsdocumentidpreregistrationidpreregistrationid)
 * [DELETE /documents/preregistration/{preRegistrationId}](#delete-documentspreregistrationpreregsitrationid)
-* [DELETE /documents/:documentId?preRegistrationId={preRegistrationId}](#delete-documentsdocumentidpreregistrationidpreregistrationid)
+* [DELETE /documents/{documentId}?preRegistrationId={preRegistrationId}](#delete-documentsdocumentidpreregistrationidpreregistrationid)
 
 
 ### POST /documents/{preRegistrationId}
 This request is used to upload document with the metadata which include document category code, document type code and document format for a pre-registration Id.
+Note: document category code, document type code and language code are derived from kernel master data.
+Document API(Master data) spec found in following link: https://github.com/mosip/mosip/wiki/Document-APIs
+URL:
+1. For valid Document category code refer below GET method for respective language code : /documentcategories/{langcode}
+2. For valid Document type code refer below GET method for respective language and document category code: /documenttypes/{documentcategorycode}/{langcode}
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/documents/{preRegistrationId}</div>
@@ -1596,14 +1601,14 @@ request.langCode |Yes|Language code of the application|ENG
 #### Request:
 ```JSON
 {
-    "id": "mosip.pre-registration.document.upload",
-    "version" : "1.0",
-    "requesttime" : "2019-05-20T07:22:57.086Z",
-    "request" : {
-	"docCatCode" : "POI",
-	"docTypCode" : "identity",
-	"langCode" : "fra"
-     }
+  "id": "mosip.pre-registration.document.upload",
+  "version": "1.0",
+  "requesttime": "2019-06-18T07:22:57.086Z",
+  "request": {
+    "docCatCode": "POA",
+    "docTypCode": "RNC",
+    "langCode": "fra"
+  }
 }
 ```
 
@@ -1615,13 +1620,13 @@ request.langCode |Yes|Language code of the application|ENG
 {
     "id": "mosip.pre-registration.document.upload",
     "version": "1.0",
-    "responsetime": "2019-05-20T10:32:40.327Z",
+    "responsetime": "2019-06-18T10:03:15.828Z",
     "response": {
-        "preRegistrationId": "32042841521591",
-        "docId": "97d252c7-7aea-11e9-a0d7-071c4b8ebbdf",
-        "docName": "IdCard.pdf",
-        "docCatCode": "POI",
-        "docTypCode": "identity",
+        "preRegistrationId": "63418297368795",
+        "docId": "91a1e0ac-91af-11e9-a605-d9ae0e3774a9",
+        "docName": "Doc.pdf",
+        "docCatCode": "POA",
+        "docTypCode": "RNC",
         "docFileFormat": "pdf"
     },
     "errors": null
@@ -1649,16 +1654,16 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
-PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
+PRG_CORE_REQ_013|Request date should be current date|when the date is not current date
+PRG_PAM_DOC_007|Document exceeding permitted size|when uploaded document size is exceeding the configured size
+PRG_CORE_REQ_018|Document Catagory code is invalid|empty or invalid document category code
+PRG_CORE_REQ_017|Document type code is invalid|empty or invalid document type code
+PRG_CORE_REQ_014|Language code is invalid|If language code is empty or invalid
 PRG_PAM_CORE_011|encryption failed|encryption of document data failed
 PRG_PAM_DOC_015|Json exception|document request json parsing failed
 PRG_PAM_CORE_010|hashing failed|document data hashing failed
 PRG_PAM_DOC_010|Document virus scan failed|virus scan of uploaded document is failed
-PRG_PAM_DOC_007|Document exceeding permitted size|when uploaded document size is exceeding the configured size
-PRG_PAM_DOC_018|Document Category code is invalid|empty document category code
-PRG_PAM_DOC_018|Document type code is invalid|empty document type code
-PRG_PAM_DOC_018|Language code is invalid|If language code is empty
 PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic service fails
 PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
@@ -1728,7 +1733,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_CORE_REQ_001|request parameter is missing|If source or destination preregistration id is empty
-PRG_PAM_DOC_018|Catagory code is invalid|if document category code is not POA
+PRG_CORE_REQ_017|Catagory code is invalid|if document category code is not POA
 PRG_PAM_APP_005|No data found for the requested pre-registration id|If source preregistration id or destination preregistration id is invalid or no preregistration data found for any of the preregistration id
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
@@ -1760,20 +1765,22 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 {
     "id": "mosip.pre-registration.document.fetch.metadata",
     "version": "1.0",
-    "responsetime": "2019-05-20T11:15:27.339Z",
+    "responsetime": "2019-06-18T10:26:02.622Z",
     "response": {
         "documentsMetaData": [
             {
-                "docName": "passport.PDF",
-                "documentId": "7edaf923-7ae5-11e9-a0d7-6d5ac7613a9f",
+                "docName": "Doc.pdf",
+                "documentId": "d4585c1e-91b1-11e9-a605-eb637a690b50",
                 "docCatCode": "POA",
-                "docTypCode": "address"
+                "docTypCode": "RNC",
+                "langCode": "fra"
             },
             {
-                "docName": "IdCard.pdf",
-                "documentId": "97d252c7-7aea-11e9-a0d7-071c4b8ebbdf",
+                "docName": "Passport.pdf",
+                "documentId": "6f036ecf-91b3-11e9-a605-cd68a2d40011",
                 "docCatCode": "POI",
-                "docTypCode": "identity"
+                "docTypCode": "CIN",
+                "langCode": "fra"
             }
         ]
     },
@@ -1928,7 +1935,7 @@ PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 This request used to delete the document for a particular document id from database and File System server.
 
 #### Resource URL
-<div>https://mosip.io/preregistration/v1/documents/:documentId?preRegistrationId={preRegistrationId}</div>
+<div>https://mosip.io/preregistration/v1/documents/{documentId}?preRegistrationId={preRegistrationId}</div>
 
 #### Resource details
 Resource Details | Description
@@ -1950,9 +1957,9 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ##### Success Response:
 ###### Status code: '200'
 ###### Description
+```JSON
 {
-   "id": "mosip.pre: Document successfully deleted
-```JSON-registration.document.delete.specific",
+   "id": "mosip.pre-registration.document.delete.specific",
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
@@ -1995,7 +2002,6 @@ This service enables Pre-Registration to a registration client, request to retri
 
 ### POST /sync
 This request is used by registration client to retrieve all the pre-registration Ids by date range.
-Note: If toDate parameter value is not passed in the request, fromDate will be considered as toDate.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/sync</div>
@@ -2072,10 +2078,15 @@ request.toDate |Yes|To date of the application|2019-02-12
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date| when the request date is not current date
 PRG_DATA_SYNC_009|registration center id is invalid|Empty registration center Id
-PRG_CORE_REQ_013|Request date should be current date|Invalid or empty from date or to date
+PRG_CORE_REQ_013|Request date should be current date|when the date is not current date
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 PRG_DATA_SYNC_016|booking data not found|when rest service to booking service fails
+PRG_CORE_REQ_019|Invalid date time format|If from date or to date is invalid
 
 ### POST /sync/consumedPreRegIds
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
@@ -2150,7 +2161,10 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_CORE_REQ_013|Request date should be current date|Invalid or empty requesttime
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
+PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
+PRG_CORE_REQ_013|Request date should be current date|when the request date is not current date
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 
 ### GET /sync/{preRegistrationId}
