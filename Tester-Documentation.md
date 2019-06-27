@@ -335,7 +335,7 @@ The workflow of testing or running the test suite of the available API’s is as
    If you want to remove a test, kindly comment the relevant line in this file before the execution of TestNG runner class
 4. **Configuration Setup for creating the request Json file**:
 
-   ![Test](_images/test_rig_automation/IDA4.png) 
+   ![Test](_images/test_rig_automation/IDA4.jpg) 
 
 1. Please use the TestData keyword defined under in appendix for creating your request.json file. The provided keywords are sufficient for testing the ID Authentication module, however If you ever need you can add an additional attribute to the end of this list 
 
