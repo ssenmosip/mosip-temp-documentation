@@ -2,7 +2,7 @@
 * [1. Overview](#1-overview-)
 * [2. Features](#2-features-)
   * [2.1 Track Status of UIN Generation by providing Registration ID](#21-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
-  * [2.2 Download UIN](#22-download-uin-) _(RES_FR_2)_
+  * [2.2 Download e-UIN](#22-download-e-uin-) _(RES_FR_2)_
   * [2.3 Retrieve Lost RID](#23-retrieve-lost-rid-) _(RES_FR_3)_
   * [2.4 Retrieve Lost UIN](#24-retrieve-lost-uin-) _(RES_FR_4)_
   * [2.5 Re-print Request of UIN](#25-re-print-request-of-uin-) _(RES_FR_5)_
@@ -10,7 +10,7 @@
   * [2.7 Track Status of UIN Update](#27-track-status-of-uin-update-) _(RES_FR_7)_
   * [2.8 View History of Authentication Requests (for Prescribed Days/number of requests)](#28-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_8)_
   * [2.9 Lock/Unlock UIN](#29-lockunlock-uin-) _(RES_FR_9)_
-  * [2.10 VID Service](#10-vid-service-)
+  * [2.10 VID Service](#210-vid-service-)
     * [2.10.1 Generate a VID](#2101-generate-a-vid-) _(RES_FR_10.1)_
     * [2.10.2 Maintain the Status of a VID (WIP)](#2102-maintain-the-status-of-a-vid-wip-) _(RES_FR_10.2)_
     * [2.10.3 Regenerate a VID (WIP)](#2103-regenerate-a-vid-wip) _(RES_FR_10.3)_
