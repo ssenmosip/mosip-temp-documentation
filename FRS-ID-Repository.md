@@ -8,6 +8,7 @@
   * [3.2 Retrieve the Stored Identity Details by UIN](#32-retrieve-the-stored-identity-details-by-uin-)
   * [3.3 Retrieve the Stored Identity Details by RID](#33-retrieve-the-stored-identity-details-by-rid-)
   * [3.4 Update Identity Data and Documents in Repository](#34-update-identity-data-and-documents-in-repository-)
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [ID Repository API](#id-repository-api-)
 - [Process View](#process-view-)
 
@@ -85,6 +86,14 @@ Upon receiving a request to update identity details of an individual, the system
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/identity-service.md)
+ 
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of ID Repository**](/mosip/mosip-configuration/blob/0.12.0/config/id-repository-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
 
 
 #### ID Repository API [**[↑]**](#table-of-content)
