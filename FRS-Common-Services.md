@@ -244,6 +244,3 @@ MOSIP system provides base exception framework.
 
 ### Kernel API [**[↑]**](#table-of-content)
 [**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
-
-- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
-- [Kernel API](#kernel-api-)
