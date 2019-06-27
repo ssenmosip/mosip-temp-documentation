@@ -36,7 +36,7 @@ The Resident Service module will provide a host of services to users who can ava
 All these features are detailed in the following features section.
   
 # 2. Features [**[↑]**](#table-of-content)
-## 2.1 Track status of UIN Generation by providing Registration ID [**[↑]**](#table-of-content)
+## 2.1 Track status of UIN Generation by providing Request ID (RID) for New Registration [**[↑]**](#table-of-content)
 
 This feature will allow a user to track status of his/her UIN generation. The user needs to provide the RID  as input. The system will first validate the user's provided RID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of UIN generation to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
