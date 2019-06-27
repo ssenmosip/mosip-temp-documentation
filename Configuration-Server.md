@@ -12,3 +12,15 @@ The Central configuration server provides following functionality:
 1. This component allows all the configurations to come from a central server
 
 [Please refer the **configuring MOSIP** section in **Getting Started guide** for more details on the configuration server](Getting-Started#7-configuring-mosip-)
+
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+
+### Kernel API [**[↑]**](#table-of-content)
+[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
+
