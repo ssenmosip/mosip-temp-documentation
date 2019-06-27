@@ -26,7 +26,7 @@
   * [5.2 Partner Policy Assignment](#52-partner-policy-assignment-) _(PM_FR_5.4)_ 
 * [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 * [Partner Management API](#partner-management-api-)
-* [Process View (WIP)](#process-view-wip-)
+* [Process View](#process-view-)
 
 # 1. Users and Roles [**[↑]**](#table-of-content)	 
 ## 1.1 User Creation [**[↑]**](#table-of-content) 
