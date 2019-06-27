@@ -1386,14 +1386,6 @@ roleOccupant: uid=ajay03,ou=people,c=morocco
 roleOccupant: uid=ritesh09,ou=people,c=morocco
 roleOccupant: uid=ankit01,ou=people,c=morocco
 
-dn: cn=REGISTRATION_OPERATOR,ou=roles,c=morocco
-objectClass: organizationalRole
-objectClass: top
-cn: REGISTRATION_OPERATOR
-description: registration operator
-ou: roles
-roleOccupant: uid=registration-operator,ou=people,c=morocco
-
 dn: cn=REGISTRATION_OFFICER,ou=roles,c=morocco
 objectClass: organizationalRole
 objectClass: top
