@@ -71,7 +71,7 @@ To protect the identity, confidentiality, and security of his/her UIN demographi
 
 ### 2.9.1 Lock the UIN
 This feature will allow a user to lock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with his/her UIN/VID. Only the locked authentication types cannot be used for any authentication purpose.
-.The user needs to provide the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of lock authentication types to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
+The user needs to provide the UIN/VID as input. The system will first validate the user's UIN/VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the status of lock authentication types to the user's registered mobile number and email ID. The system will also send a success notification message to user’s mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 A user can lock the authentication types (Demographic, Biometrics (FP/Iris/Face/All)) associated with his/her UIN/VID. Only the locked authentication types cannot be used for any authentication purpose.
 
