@@ -318,5 +318,5 @@ The system receives a request to check status of the License Key with an input p
 * (Work in Progress) 
 
 ### Kernel API [**[↑]**](#table-of-content)
-[**Refer to Wiki for more details on Kernel API](Kernel-APIs)
+[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
 
