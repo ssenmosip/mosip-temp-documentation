@@ -1,9 +1,9 @@
 ## Table Of Content
 * [1. Overview](#1-overview-)
 * [2. Features](#2-features-)
-  * [2.1 Track Status of UIN Generation by providing Registration ID](#21-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
+  * [2.1 Track Status of UIN Generation by providing RID (Request ID for New Registration)](#21-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
   * [2.2 Download e-UIN](#22-download-e-uin-) _(RES_FR_2)_
-  * [2.3 Retrieve Lost RID](#23-retrieve-lost-rid-) _(RES_FR_3)_
+  * [2.3 Retrieve Lost RID (Request ID for New Registration)](#23-retrieve-lost-rid-) _(RES_FR_3)_
   * [2.4 Retrieve Lost UIN](#24-retrieve-lost-uin-) _(RES_FR_4)_
   * [2.5 Re-print Request of UIN](#25-re-print-request-of-uin-) _(RES_FR_5)_
   * [2.6 Initiate UIN Update](#26-initiate-uin-update-) _(RES_FR_6)_
@@ -26,7 +26,7 @@ The Resident Service module will provide a host of services to users who can ava
  * Track Request Status
  * Lock/unlock AUTH types
  * Download e-UIN
- * Retrieve Lost Registration ID(RID)/UIN
+ * Retrieve Lost Request ID(RID)/UIN
  * Reprint UIN
  * View Authentication Transaction History
  * Generate/revoke Virtual ID (VID).
@@ -42,8 +42,8 @@ This feature will allow a user to track status of his/her UIN generation. The us
 
 This feature will allow a user to download his/her electronic UIN. The user needs to provide the UIN/VID, full name, postal code, and security code as input. The system will validate the provided data, trigger an OTP, and perform OTP authentication on user's mobile number/email ID. On successful authentication, the system will send a password protected link of the pdf for download of e-UIN to the user's registered mobile number and email ID. The system will also trigger a successful notification message  to the user's registered mobile number/email id after the transaction or appropriate error message if the transaction was not successful.
 
-## 2.3 Retrieve Lost RID [**[↑]**](#table-of-content)
-After the UIN application is submitted by a user providing the required demographic, biometrics, and supporting documents and filling up the enrollment form by visiting a registration center, the system generates a 29-digit RID for future reference. If the user misplaces this RID, this feature will allow a user to retrieve his/her lost RID. The user needs to provide his/her Full Name, Mobile Number/E-Mail ID, Postal Code that was provided during registration as input. The system will validate the user's provided data and send the RID to the same mobile number and email ID. The system will display an error message if the data is not found in system.
+## 2.3 Retrieve Lost RID (Request ID for New Registration) [**[↑]**](#table-of-content)
+After the UIN application is submitted by a user providing the required demographic, biometrics and supporting documents and filling up the enrollment form by visiting a registration center, the system generates a 29-digit RID (Request ID) for future reference. If the user misplaces this RID, this feature will allow a user to retrieve his/her lost RID. The user needs to provide his/her Full Name, Mobile Number/E-Mail ID, Postal Code that was provided during registration as input. The system will first validate the user's provided data, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful validation, the system will send the password protected link of the RID   to the user's registered mobile number and email ID.The system will display an error message if the data is not found in system.
 
 ## 2.4 Retrieve Lost UIN [**[↑]**](#table-of-content)
 This feature will allow a user to retrieve his/her lost UIN. User needs to provide the Full Name, Mobile Number/E-Mail ID, Postal Code as input. The system will first validate the user's provided data, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system will send the password protected link of the UIN  to the user's registered mobile number and email ID. The system will also trigger a successful notification message to the registered mobile number/email ID after a successful transaction or  appropriate error message if the transaction was not successful.
