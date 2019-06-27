@@ -2274,12 +2274,12 @@ PRG_DATA_SYNC_006|unable to fetch the document|when rest service to document ser
 This service details used by Pre-Registration portal to book an appointment by providing his/her basic appointment details.
 
 * [GET appointment/availability/sync](#get-appointmentavailabilitysync)
-* [POST /appointment/:preRegistrationId](#post-appointmentpreregistrationid)
+* [POST /appointment/{preRegistrationId}](#post-appointmentpreregistrationid)
 * [POST /appointment](#post-appointment)
-* [PUT /appointment/:preRegistrationId](#put-appointmentpreregistrationid)
-* [GET /appointment/:preRegistrationId](#get-appointmentpreregistrationid)
-* [GET /appointment/availability/:registrationCenterId](#get-appointmentavailabilityregistrationcenterid)
-* [GET /appointment/preRegistrationId/:registrationCenterId?from_date=:date&to_date=:date](#get-appointmentpreregistrationidregistrationcenteridfrom_datedateto_datedate)
+* [PUT /appointment/{preRegistrationId}](#put-appointmentpreregistrationid)
+* [GET /appointment/{preRegistrationId}](#get-appointmentpreregistrationid)
+* [GET /appointment/availability/{registrationCenterId}](#get-appointmentavailabilityregistrationcenterid)
+* [GET /appointment/preRegistrationId/{registrationCenterId}?from_date=:date&to_date=:date](#get-appointmentpreregistrationidregistrationcenteridfrom_datedateto_datedate)
 
 ### GET /appointment/availability/sync
 This request is used to synchronize booking slots availability table with master data.
@@ -2317,10 +2317,9 @@ PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table f
 PRG_BOOK_RCI_034|Json processing exception| Json parse exception while sending notification
 PRG_BOOK_RCI_033|Notification service call failed| Notification service call fail
 PRG_BOOK_RCI_020|Master data not found| Master date service call fail
-### POST /appointment/:preRegistrationId
-This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
-### POST /appointment/{preRegistrationId}]
+
+### POST /appointment/{preRegistrationId}
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
 #### Resource URL
