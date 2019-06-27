@@ -238,7 +238,7 @@ MOSIP system provides base exception framework.
 
 1. Configurable Parameters
 
-[**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
 2. Configurable Processes 
 * (Work in Progress) 
 
