@@ -320,7 +320,9 @@ The workflow of testing or running the test suite of the available API’s is as
 1. Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “**Demo-Address Authentication service**” and explain how to add a new test
  
 
+
    ![Test](_images/test_rig_automation/IDA3.jpg) 
+
 
 3. **Pre-requisites**: 
    open runConfiguration.properties file
