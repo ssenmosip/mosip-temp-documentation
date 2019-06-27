@@ -314,6 +314,7 @@ The system receives a request to check status of the License Key with an input p
 1. Configurable Parameters
 
    [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+
    [**Link to Kernel Application Properties**](/mosip/mosip-configuration/blob/0.12.0/config/application-dev.properties)
 2. Configurable Processes 
 * (Work in Progress) 
