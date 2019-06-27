@@ -120,6 +120,7 @@ It doesn't detail about each methods level information since that are covered in
 |Packet pushed to Server| PUSHED |     
 |Packet exported to device| EXPORTED |     
 
+
 |**Packet Status Desc**|  **Status from Server** |   
 |:------:|-----|  
 |Packet in processing state| PROCESSING   |  

@@ -165,6 +165,7 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 |25.|	mosip.registration.webcam_name                           |logitech|
 |26.|	mosip.registration.document_scanner_enabled				|no|
 |27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |  
+|28.|	mosip.registration.user_onboarding_with_IDA_auth        |y	/ n| To enable the bio auth against the IDA Auth service during user onboarding process. | 
 
 Refer the **Global configuration** maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/application-qa.properties) environment. 
 
@@ -232,25 +233,26 @@ Through sync process the data would be sync between local machine and server bas
 
 |**S.No.**| **Service Name**| **Service Description**| **Module Name**|
 |:------:|-----|---|----|
-|1	.|	User Detail Sync  | To synchronize the user related information. | Kernel|
-|2	.|	User salt Sync  | To synchronize the user related salt. |Kernel|
-|3	.|	Master Data Sync  | To download the master data. |Kernel|
-|4 	.|	Application configuration Sync  | To sync the application configuration from config server. |Kernel|
-|5	.|	Policy Sync  | To sync the key required for packet creation based on center and machine id. |Kernel|
-|6	.|	MOSIP public key Sync  | To synchronize the MOSIP public key. |	Kernel|
-|7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data. |Pre-Registration|
-|8	.|	Packet Sync  | To upload the list of packet related information before uploading packet . |Registration-Processor|	
-|9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet. |Registration-Processor|
-|10	.|	Packet Upload  | To upload the packet generated out out New/ Lost UIN / Update UIN process to MOSIP server. |Registration-Processor|
+|1	.|	User Detail Sync  | To synchronize the user related information. Without this sync user can't login to the application. | Kernel|
+|2	.|	User Salt Sync  | User's password is validated using this salt. Without this sync user can't login to the app.  |Kernel|
+|3	.|	Master Data Sync  | Reg. client application related master data are sync from server using this sync. |Kernel|
+|4 	.|	Application configuration Sync  | Reg. client app related dynamic configuration parameters are sync from server. |Kernel|
+|5	.|	Policy Sync  | Sync the key required for packet creation based on center and machine id. Packet can't be created without this sync.|Kernel|
+|6	.|	MOSIP public key Sync  | To synchronize the MOSIP public key, which is used during response sign validation. |	Kernel|
+|7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data based on date range. |Pre-Registration|
+|8	.|	Packet Sync  | To upload the list of packet related information before uploading actual packet . |Registration-Processor|	
+|9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet and update the same in local db. |Registration-Processor|
+|10	.|	Packet Upload  | To upload the packet generated out of New/ Lost UIN / Update UIN process to MOSIP server. |Registration-Processor|
 |11	.|	Send OTP  | To send the OTP message. |Kernel|
 |12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. |Kernel|	
 |13	.|	Auth Service - UserName and OTP | To get the auth token based on user provided user name and OTP. |Kernel|
 |14	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |Kernel|
 |15	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |Kernel|
 |16	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |Kernel|	
-|17	.|	ID-Authentication API | To onboard the user based on user's bio authentication. |ID-Authentication|
+|17	.|	ID-Authentication API | To on board the user based on user's bio authentication. Without this service, user onborading screen won't work if bio auth enabled. |ID-Authentication|
 
-
+   
+   
 ## External hardware Driver(s): 
 
    This section covers the list of drivers required to communicate with the external devices.  
