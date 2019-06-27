@@ -543,10 +543,12 @@ Please refer to the [**Authentication Service API**](ID-Authentication-APIs#user
 Technical story (Architects to contribute)
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
 
-1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
-    
-    Please refer to section 7.C in Getting started Guide.
-2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Authentication Services**](/mosip/mosip-configuration/blob/0.12.0/config/id-authentication-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+ 
 ### Authentication Services API [**[↑]**](#table-of-content)
 [**Refer to Wiki for more details on Authentication Services API**](ID-Authentication-APIs)
 ### Process View [**[↑]**](#table-of-content)
