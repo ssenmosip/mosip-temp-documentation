@@ -1,5 +1,6 @@
 This section details about the service API in the Pre-Registration modules.
 
+# Updation is in-progress, kindly wait until we confirm.
 
 * [Login Service](#login-service-public)
 
