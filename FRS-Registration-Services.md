@@ -36,6 +36,7 @@
 - [11. Clean up](#11-clean-up-)
   * [11.1 Data retention policies](#111-data-retention-policies-) _(REG_FR_11.1)_
   * [11.2 Machine Retirement](#112-machine-retirement-) _(REG_FR_11.2)_
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Process View](#process-view-)
 
 ## 1. Operator Services [**[↑]**](#table-of-content)
@@ -840,6 +841,12 @@ Before the machine is decommissioned, the following checks must be performed:
 
 1. All packets created must either be uploaded to server or exported to external device.
 2. All data locally saved in the machine must be cleaned up.
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
+    
+    Please refer to section 7.C in Getting started Guide.
+2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
 
 ### Process View [**[↑]**](#table-of-content)
 [**Link to Process View of Registration Services**](Process-view#2-registration-client-)
