@@ -24,3 +24,14 @@ The UINs generated follow the following policies:
 Note:
 The number of UINs to be generated in a pool depends on a configuration to be done by the country depending on the peak registration requirements. UIN generation service will receive a request by Registration Processor to get a UIN. The service responds with an un-allocated UIN from the generated pool. 
 When the pool reaches a configured number of minimum UINs, MOSIP generates another pool of UIN.
+
+### List of Configurable Parameters and Processes 
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+
+### Kernel API
+[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
