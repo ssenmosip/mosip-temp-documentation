@@ -16,6 +16,8 @@
     * [5.2 Partner Policy Authentication](#52-partner-policy-authentication-) _(IDA_FR_5.2)_
 - [6. Authentication Device Support](#6-authentication-device-support)
   * [6.1 Registered Devices and Open Devices TBD](#61-registered-devices-and-open-devices-tbd-) _(IDA_FR_6.1)_
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
+- [Authentication Services API](#authentication-services-api-)
 - [Process View](#process-view-)
 
 # Authentication Services 
@@ -539,7 +541,14 @@ Please refer to the [**Authentication Service API**](ID-Authentication-APIs#user
 ## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-content)
 
 Technical story (Architects to contribute)
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
 
+1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
+    
+    Please refer to section 7.C in Getting started Guide.
+2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+### Authentication Services API [**[↑]**](#table-of-content)
+[**Refer to Wiki for more details on Authentication Services API**](ID-Authentication-APIs)
 ### Process View [**[↑]**](#table-of-content)
 [**Link to Process View of Authentication Services**](Process-view#4-id-authentication-)
 
