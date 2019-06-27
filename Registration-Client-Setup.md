@@ -235,20 +235,20 @@ Through sync process the data would be sync between local machine and server bas
 |:------:|-----|---|----|
 |1	.|	User Detail Sync  | To synchronize the user related information. Without this sync user can't login to the application. | Kernel|
 |2	.|	User Salt Sync  | User's password is validated using this salt. Without this sync user can't login to the app.  |Kernel|
-|3	.|	Master Data Sync  | Reg. client application related master data are sync from server using this sync. |Kernel|
-|4 	.|	Application configuration Sync  | Reg. client app related dynamic configuration parameters are sync from server. |Kernel|
+|3	.|	Master Data Sync  | Reg. client application related master data are sync from server using this sync. Without this sync, the app won't work. |Kernel|
+|4 	.|	Application configuration Sync  | Reg. client app related dynamic configuration parameters are sync from server. Without this sync, the app won't work.|Kernel|
 |5	.|	Policy Sync  | Sync the key required for packet creation based on center and machine id. Packet can't be created without this sync.|Kernel|
 |6	.|	MOSIP public key Sync  | To synchronize the MOSIP public key, which is used during response sign validation. |	Kernel|
 |7	.|	Pre-registration Data Sync  | To download the center specific pre-registration packet data based on date range. |Pre-Registration|
-|8	.|	Packet Sync  | To upload the list of packet related information before uploading actual packet . |Registration-Processor|	
+|8	.|	Packet Sync  | To upload the list of packet related information before uploading actual packet. Without this sync, the packet can't be uploaded to the server .|Registration-Processor|	
 |9	.|	Packet Status reader  | At regular interval read the status of the uploaded packet and update the same in local db. |Registration-Processor|
 |10	.|	Packet Upload  | To upload the packet generated out of New/ Lost UIN / Update UIN process to MOSIP server. |Registration-Processor|
-|11	.|	Send OTP  | To send the OTP message. |Kernel|
-|12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. |Kernel|	
+|11	.|	Send OTP  | To send OTP message to the user's mobile no. during authentication process. |Kernel|
+|12	.|	Auth Service - UserName and Password  | To get the auth token based on user provided user name and password. This token would be attached in the request while making any service calls in the same user context. |Kernel|	
 |13	.|	Auth Service - UserName and OTP | To get the auth token based on user provided user name and OTP. |Kernel|
 |14	.|	Auth Service - Client id and Secret Key  | To get the auth token based on client id and secret key. |Kernel|
 |15	.|	Validate / Invalidate auth Token  | To validate and invalidate the generated token. |Kernel|
-|16	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel. |Kernel|	
+|16	.|	Notification Service (SMS / EMAIL) | To send notification through SMS / Email channel at the end of Registration process. |Kernel|	
 |17	.|	ID-Authentication API | To on board the user based on user's bio authentication. Without this service, user onborading screen won't work if bio auth enabled. |ID-Authentication|
 
    
