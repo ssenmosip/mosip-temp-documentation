@@ -10,7 +10,7 @@
 |$VID$	|To get random VID from vid.property file where type as perpetual and status as ACTIVE 	|
 |<li> $VID:WITH:Temporary$ <li> $VID:WITH:REVOKE$| To get random VID from vid.property file where value contains Temporary or Revoke	|
 |$VID:WHERE:UIN:WITH:VALID$|	To get the VID from vid.property where uin.property value contains specified keyword after “WITH:”|
-|<li> $TestData:indvId_Vid_valid$ <li> $TestData:bio_finger_LeftIndex_subType$ <li> $TestData:bio_face_deviceCode$|To get the random value form the list in the authenticationTestData.yml file.|
+|<li> $TestData: indvId_Vid_valid$ <li> $TestData: bio_finger_LeftIndex_subType$ <li> $TestData:bio_face_deviceCode$|To get the random value form the list in the authenticationTestData.yml file.|
 
 |$input.bio-auth-request:AuthReq.transactionID$|To get the already assigned for the files|<li> input.filename1:   mappingName1: value1  mappingName2: value2 <li> ouput.filename2:  mappingName3: <li> $ input.filename: mappingName2$  <li> where mappingName3 has set as value2|
 |<li>  $errors:RevokedVID:errorCode$ <li> $errors:InactiveVID:errorCode$	|Get error code for the mentioned key “RevokedVID” from the errorCodeMsg.yml file.|
