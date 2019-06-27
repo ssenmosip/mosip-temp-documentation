@@ -343,11 +343,11 @@ After the Registration Client sends the packet to Registration Processor, it sta
 1. RE-REGISTER – The packet has failed a business validation like center-machine check, supervisor and officer validation, etc., due to which the system will not be able to process the packet. The registration officer will intimate the individual to come back to the center and re-register, post which registration client can delete the packet from its storage location.
 1. REJECTED – A duplicate packet was found against the individual’s biometrics. As processing of the packet is completed, Registration Client can delete the packet from it storage location.
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+1. Configurable Parameters
 
-1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
-    
-    Please refer to section 7.C in Getting started Guide.
-2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+   [**Link to Configurable Parameters of Registration Processor**](/mosip/mosip-configuration/blob/0.12.0/config/registration-processor-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
 ### Registration Processor API [**[↑]**](#table-of-content)
 [**Please refer to Wiki for more details on the Registration Processor API**](Registration-Processor-APIs).
 
