@@ -6,9 +6,9 @@
 |<li> $TIMESTAMP$HOUR+24 <li> $TIMESTAMP$HOUR-24 <li> $TIMESTAMP$MINUTE+23 <li> $TIMESTAMP$MINUTW-56 <li> $TIMESTAMP$SECOND+145 <li> $TIMESTAMP$SECOND-123|	To generate future or current timestamp	|
 |$RANDOM:N:10$	|To generate random digit for the given number|<li> $RANDOM:N:10$ <li> $RANDOM:N:3$ <li> $RANDOM:N:14$|
 |$UIN$|	To get random UIN number from uin.property file	|
-
 | $UIN$:WITH:Deactivated#|	To get uin number from uin.property file where value contains Deactivated|	
 |$VID$	|To get random VID from vid.property file where type as perpetual and status as ACTIVE 	|
+
 |<li> $VID:WITH:Temporary$ <li> $VID:WITH:REVOKE$| To get random VID from vid.property file where value contains Temporary or Revoke	|
 |$VID:WHERE:UIN:WITH:VALID$|	To get the VID from vid.property where uin.property value contains specified keyword after “WITH:”	|
 |<li> $TestData:indvId_Vid_valid$ <li> $TestData:bio_finger_LeftIndex_subType$ <li> $TestData:bio_face_deviceCode$|	To get the random value form the list in the authenticationTestData.yml file.|	
