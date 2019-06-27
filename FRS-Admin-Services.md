@@ -36,6 +36,7 @@
   * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
       * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete-) _(ADM_FR_3.2)_ 
+  *  [Kernel API](#kernel-api-)
   
 # Admin Services
 ## 1. Master Data Management
@@ -2014,6 +2015,8 @@ Refer below for the process:
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
 
+### Kernel API [**[↑]**](#table-of-content)
+[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
 
 
 
