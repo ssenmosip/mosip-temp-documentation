@@ -413,7 +413,7 @@ This service enables Partners to request for an OTP for an Individual. The OTP w
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP acts as a gate keeper for any OTP requests sent to this service. MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - *Auth-Partners* and *eKYC-Partners* can send OTP Request to MOSIP on behalf of Individual for Authentication and eKYC requests respectively, via MISP.
 
-* [POST /idauthentication/v1/identity/kyc/](#post-idauthenticationv1otp) 
+* [POST /idauthentication/v1/identity/otp/](#post-idauthenticationv1otp) 
 
 ### POST /idauthentication/v1/otp/
 This request will send an OTP to the Individual.
