@@ -334,7 +334,7 @@ The workflow of testing or running the test suite of the available API’s And S
 1. To run the automation suite of Reg-Proc, build the project and get the uber jar generated under target. 
 1. Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
 
-   Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+   Example: java -Denv.user=qa -Denv.endpoint=[**link**](//qa.mosip.io) -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
 
    Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
 
