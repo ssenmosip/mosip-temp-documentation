@@ -93,7 +93,7 @@ A user can request to generate a Virtual ID via Resident Service by providing hi
 
 ### 2.10.4 Revoke a VID [**[↑]**](#table-of-content)
 
-To prevent misuse of VID, a user can request to revoke his/her VID using Resident Services if the user feels his/her VID has been compromised. The user provides the VID and the system checks for the registered mobile number/email ID, and triggers an OTP notification. The user provides the OTP as received. The system validates the provided OTP and authenticates the user. On successful authentication, the system revokes the VID and provides a new VID to the associated UIN based on VID policy of the respective country through the registered mobile number/email ID. If validation fails, the system triggers the appropriate error message.
+To prevent misuse of VID, a user can request to revoke his/her VID using Resident Services if the user feels his/her VID has been compromised. The user provides the VID as input. The system will then validate the user's VID, trigger an OTP, and perform OTP authentication on user's registered mobile number/email ID. On successful authentication, the system revokes the provided VID. Based on the VID policy of a country a new VID will be generated during revocation and provided to the user on the registered mobile number and email ID. If validation fails, the system triggers the appropriate error message.
 
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
