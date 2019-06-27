@@ -294,61 +294,57 @@ The workflow of testing or running the test suite of the available API’s And S
 ![Test](_images/test_rig_automation/reg-proc1.jpg) 
 
 
-Pre-requisites for understanding Rest API automation
-	Knowledge on Core Java
-	Basic knowledge on Rest assured library
-	Knowledge on Maven
-	Knowledge on TestNg framework
-	Knowledge on Keyword, Data Driven and Hybrid methodology
-	Knowledge on GitHub
-	Good analytical and debugging skill
-Procedure to checkout-out the test code from the repository
-•	Launch eclipse with new or existing workspace
-•	Clone project from https://github.com/mosip/mosip.git
-•	Import the automationtests project into the eclipse.
+## 4.2 Pre-requisites for understanding Rest API automation
+* Knowledge on Core Java
+* Basic knowledge on Rest assured library
+* Knowledge on Maven
+* Knowledge on TestNg framework
+* Knowledge on Keyword, Data Driven and Hybrid methodology
+* Knowledge on GitHub
+* Good analytical and debugging skill
+## 4.3 Procedure to checkout-out the test code from the repository
+* Launch eclipse with new or existing workspace
+* Clone project from [**link88](//github.com/mosip/mosip.git)
+* Import the automationtests project into the eclipse.
 
-Procedure to Add new test cases into the API test suite
-•	Case1 : For Api Level Testing 
-1.	From the automationtests project, the testdata can be located in the folder [src/main/resources]
-2.	Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “Sync Api Service” and explain how to add a new test
- 
+## 4.4 Procedure to Add new test cases into the API test suite
+
+**Case1 : For Api Level Testing** 
+
+1. From the automationtests project, the testdata can be located in the folder [**src/main/resources**]
+1. Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “**Sync Api Service**” and explain how to add a new test
+
+ ![Test](_images/test_rig_automation/reg-proc2.jpg) 
 
 
-•	Case2 : For Stage Level Testing
-•	From the automationtests project, the testdata can be located in the folder [src/main/resources]
-•	Every stage can be tested by feeding negative packets to the system and expecting them to fail for the particular stage. Let us take the example of “OSI Validation Stage”
- 
+**Case2 : For Stage Level Testing**
+1. From the automationtests project, the testdata can be located in the folder [**src/main/resources**]
+1. Every stage can be tested by feeding negative packets to the system and expecting them to fail for the particular stage. Let us take the example of “**OSI Validation Stage**”
 
-•	A sample property file looks like as follows :
- 	machineId=99999
-dongleId=11111
-macId=8C-16-45-38-F3-123
-centerId=33341
-geoLocLatitude=0
-geoLoclongitude=0
-registrationIdHash=qwertyuiopkjhgfdsa
-uin=1234567890
-previousRID=98898898989898
-applicantType=null
-•	The reg proc automation suite will tweak the values in a valid packet and will generate packets for the above attributes sequentially.
-•	There is one more file “StageBits.properties” which has a stage string. The string is used to construct the status string for a packet. For eg if stage string is “111110000” it means that packet should go through first five stage and should fail for last 4 stages.
+  ![Test](_images/test_rig_automation/reg-proc3.jpg) 
 
-Procedure to execute or Run the tests on a new environment
-1.	To run the automation suite of Reg-Proc, build the project and get the uber jar generated under target. 
+3. A sample property file looks like as follows :
 
-2.	Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
+  ![Test](_images/test_rig_automation/reg-proc4.jpg) 
 
-Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+4. The reg proc automation suite will tweak the values in a valid packet and will generate packets for the above attributes sequentially.
+5. There is one more file “**StageBits.properties**” which has a stage string. The string is used to construct the status string for a packet. For eg if stage string is “111110000” it means that packet should go through first five stage and should fail for last 4 stages.
 
-Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
+## 4.4 Procedure to execute or Run the tests on a new environment
+1. To run the automation suite of Reg-Proc, build the project and get the uber jar generated under target. 
+1. Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
 
-3.	Report will be generated under “<wokspace>/testing-report.
+   Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
 
-Analyze the test reports
-1.	Report can be opened in any Web browser (i.e. Internet Explorer)
-2.	The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.
-3.	Report will also display API name and corresponding test case names with execution time along with build version and execution time.
-4.	For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.
+   Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
+
+3. Report will be generated under “<wokspace>/testing-report.
+
+## 4.5 Analyze the test reports
+1. Report can be opened in any Web browser (i.e. Internet Explorer)
+1. The report will consist of module name, total number of test case executed with status as either pass, skipped and fail and their count.
+1. Report will also display API name and corresponding test case names with execution time along with build version and execution time.
+1. For detailed analysis, refer logs or default testing-report and for failed test cases, the related cause of failure will be highlighted.
 
 # 5. ID Authentication (IDA) Test Automation Suite - User Guide
 ## 5.1 About the ID-Authentication
