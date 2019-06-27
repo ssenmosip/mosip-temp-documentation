@@ -312,7 +312,7 @@ The workflow of testing or running the test suite of the available API’s is as
 
 ## 5.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from https://github.com/mosip/mosip.git
+* Clone project from [link](//github.com/mosip/mosip.git)
 * Import the automationtests project into the eclipse.
 
 ## 5.4 Procedure to Add new test cases into the API test suite
@@ -348,7 +348,7 @@ The workflow of testing or running the test suite of the available API’s is as
 1. To run the automation suite of ID-Authentication, build the project and get the uber jar generated under target. 
 1. Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
 
-   Example: java -Denv.user=qa -Denv.endpoint=https://qa.mosip.io -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+   Example: java -Denv.user=qa -Denv.endpoint=[link](//qa.mosip.io) -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
 
    Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
 
