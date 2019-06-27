@@ -250,7 +250,7 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
     
     Please refer to section 7.C in Getting started Guide.
-2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) (Work in Progress)
 
 ## Pre Registration API [**[↑]**](#table-of-content)
 [**Refer to Wiki for more details on Pre-registration API**](Pre-Registration-Services)
