@@ -1,7 +1,5 @@
 This section details about the service API in the Pre-Registration modules.
 
-# Updation is in-progress, kindly wait until we confirm.
-
 * [Login Service](#login-service-public)
 
 * [Demographic Service](#demographic-service-public)
@@ -1299,7 +1297,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 
 ### GET /applications
-This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code and Appointment details and Postal Code by user id from authorization token.
+This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code, Document details(Only for Proof Of Address), Appointment details and Postal Code by user id from authorization token.
 
 ### Without pagination
 if pageIndex parameter is not passed as query param, then all the demographic data for the user will be retrieved without applying pagination mechanism.
@@ -1405,11 +1403,12 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failed|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+PRG_PAM_APP_018|Failed to read the identity json from the server|If the configured identity json file is unreachable
 
 ### With pagination
 if pageIndex parameter is passed as query param, then all the demographic data for the user will be retrieved in terms of pages.
 pageSize parameter is configurable.
-pageIndex is by default 0 if no value is passed.
+pageIndex is by default 0 if no value is passed for query param.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/applications?pageIndex=0</div>
@@ -1514,11 +1513,13 @@ pageIndex |Yes|page index of the application|0
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_APP_016|no record found for the requested page index|if no demographic data found for the requested page index
-PRG_PAM_APP_015|Page size must be greater than zero|if page size is defined 0 or less than 0 in config
+PRG_PAM_APP_016|no record found for the requested page index|if there is no more demographic data found for the requested page index
+PRG_PAM_APP_019|Invalid page index value|If page index value is invalid
+PRG_PAM_APP_015|Page size must be greater than zero|if page size is invalid or if it is defined 0 or less than 0 in config
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failed|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+PRG_PAM_APP_018|Failed to read the identity json from the server|If the configured identity json file is unreachable
 
 ### DELETE /applications/{preRegistrationId}
 This request is used to discard the entire pre-registration details based pre-registration id provided in request path parameter.
@@ -2121,6 +2122,7 @@ PRG_CORE_REQ_013|Request date should be current date|when the date is not curren
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 PRG_DATA_SYNC_016|booking data not found|when rest service to booking service fails
 PRG_CORE_REQ_019|Invalid date time format|If from date or to date is invalid
+PRG_CORE_REQ_020|From date is greater than To date|If from date is greater than to date
 
 ### POST /sync/consumedPreRegIds
 This request is used by registration processor, to retrieve all processed pre-registration ids and store in pre-registration database and delete records from main table and move to history table.
