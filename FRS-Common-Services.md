@@ -28,6 +28,8 @@
     * [6.9 String Utility](#69-string-utility-) _(CMN_FR_6.9)_
     * [6.10 UUID Utility](#610-uuid-utility-) _(CMN_FR_6.10)_
     * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility-) _(CMN_FR_6.11)_
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
+- [Kernel API](#kernel-api-)
 # Common Services
 ## 1. OTP Manager [**[↑]**](#table-of-content)
 ### A. OTP Generation
@@ -230,3 +232,18 @@ MOSIP system provides base exception framework.
 
 
 [**Link to design for Utilities**](/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md)
+
+
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+
+### Kernel API [**[↑]**](#table-of-content)
+[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
+
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
+- [Kernel API](#kernel-api-)
