@@ -17,6 +17,8 @@
     * [2.10.4 Revoke a VID](#2104-revoke-a-vid-) _(RES_FR_10.4)_
     * [2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP)](#2105-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-wip-) _(RES_FR_10.5)_
     * [2.10.6 Retrieve the UIN Corresponding to a VID (WIP)](#2106-retrieve-the-uin-corresponding-to-a-vid-wip-) _(RES_FR_10.6)_
+* [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
+* [Resident Services API](#resident-services-api-)
 * [Process View (WIP)](#process-view-wip-)
 
 # 1. Overview [**[↑]**](#table-of-content)
@@ -118,6 +120,16 @@ When a user does not remember his/her UIN, he/she can retrieve the UIN by provid
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/vid-service.md)
 
 [Refer to Wiki for more details on **VID Services API**](ID-Repository-API#vid-services-private).
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. Configurable Parameters
+* (Work in Progress) 
+2. Configurable Processes 
+* (Work in Progress) 
+
+### Resident Services API [**[↑]**](#table-of-content)
+* (Work in Progress) 
+
 
 ### Process View (WIP) [**[↑]**](#table-of-content)
-[**Link to Process View of Resident Services**](Process-view)
+* (Work in Progress) 
