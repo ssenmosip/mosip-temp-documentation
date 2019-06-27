@@ -48,3 +48,15 @@ Log manager provides following functionalities:
 1. Store generated logs in configured location
 1. Support for reading the logger configurations through as external file
 1. Support addition log level to a particular logger dynamically
+
+### List of Configurable Parameters and Processes 
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+
+### Kernel API 
+[**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
+
