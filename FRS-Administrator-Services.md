@@ -76,7 +76,6 @@
 - [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
 - [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
-- [Administrator Services API](#administrator-services-api-)
 - [Process View (WIP)](#process-view-wip-)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
@@ -582,8 +581,6 @@ configured through admin console.
 2. Configurable Processes 
 * (Work in Progress) 
 
-### Administrator Services API [**[↑]**](#table-of-content)
-[**Refer to Wiki for more details on Administrator Services API**](Admin-APIs)
 
 ## Process View (WIP) [**[↑]**](#table-of-content)
 [**Link to Process View of Administrator Services**](Process-view)
