@@ -780,7 +780,7 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
 columnName|No|The column name in the JSON response| -NA- |
-type|No|The value have to be in ["in","equals","startsWith","between"]| -NA- |
+type|No|The value have to be in ["contains","equals","startsWith","between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
 fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
 toValue|No|If the type is "between", this field is the value of the toName| -NA- |
@@ -791,6 +791,17 @@ sorttype| This should be either of ['ASC','DESC']| | ASC
 pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
+
+### Filter Values
+Filter Name| Search Values
+-----|----------
+Device Name|["contains","equals","startsWith"]
+Status|["contains","equals","startsWith"]
+MAC Address|["contains","equals","startsWith"]
+Serial Number|["contains","equals","startsWith"]
+Map Status|["contains","equals","startsWith"]
+Device Type|["contains","equals","startsWith"]
+Device Specification ID|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON
@@ -877,7 +888,7 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
 columnName|No|The column name in the JSON response| -NA- |
-type|No|The value have to be in ["in","equals","startsWith","between"]| -NA- |
+type|No|The value have to be in ["contains","equals","startsWith","between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
 fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
 toValue|No|If the type is "between", this field is the value of the toName| -NA- |
@@ -888,6 +899,12 @@ sorttype| This should be either of ['ASC','DESC']| | ASC
 pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
+
+### Filter Values
+Filter Name| Search Values
+-----|----------
+name|["contains","equals","startsWith"]
+status|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON
@@ -970,7 +987,7 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
 columnName|No|The column name in the JSON response| -NA- |
-type|No|The value have to be in ["in","equals","startsWith","between"]| -NA- |
+type|No|The value have to be in ["contains","equals","startsWith","between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
 fromValue|No|If the type is "between", this field is the value of the start range| -NA- |
 toValue|No|If the type is "between", this field is the value of the end range| -NA- |
@@ -981,6 +998,15 @@ sorttype| This should be either of ['ASC','DESC']| | ASC
 pagination|The pagination parameter object| |
 pageStart|This is the start index | 0 | 10
 pageFetch| This is the amount of records to be fetched | 10 | 10
+
+### Filter Values
+Filter Name| Search Values
+-----|----------
+name|["contains","equals","startsWith"]
+brand|["contains","equals","startsWith"]
+model|["contains","equals","startsWith"]
+device type name|["contains","equals","startsWith"]
+status|["contains","equals","startsWith"]
 
 ### Example Request
 ```JSON

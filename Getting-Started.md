@@ -398,18 +398,88 @@ $ sudo systemctl status nginx <br/>
 
 ##### To edit files use a text editor such as vi
 $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
-   Example : <br/> 
-          location / {  <br/>
-                        proxy_set_header Host $host; <br/>
-                        proxy_set_header X-Real-IP $remote_addr; <br/>
-                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; <br/>
-                        proxy_set_header X-Forwarded-Proto $scheme; <br/>
-                        proxy_pass `https://mosip-dev-k8.southindia.cloudapp.azure.com/`; //endpoint of kubernetes <br/>
-                        proxy_connect_timeout                   3600s; <br/>
-                        proxy_send_timeout                      3600s; <br/>
-                        proxy_read_timeout                      3600s; <br/>
-           } <br/>
+   Example : To configure the nginx for dev.mosip.io environment 
+    user  madmin; 
+    worker_processes  2; 
+    error_log  /var/log/nginx/error.log warn; 
+    pid        /var/run/nginx.pid; 
+    events { 
+	    worker_connections  1024;
+    }
 
+    http {
+            include       /etc/nginx/mime.types;
+            default_type  application/octet-stream;
+            log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+            '$status $body_bytes_sent "$http_referer" '
+            '"$http_user_agent" "$http_x_forwarded_for"';
+            access_log  /var/log/nginx/access.log  main;
+            client_max_body_size 10m;
+            sendfile        on;
+            tcp_nopush     on;
+            proxy_max_temp_file_size 0;
+            sendfile_max_chunk 10m;
+            keepalive_timeout  65;
+            gzip on;
+            gzip_disable "msie6";
+            gzip_vary on;
+            gzip_proxied any;
+            gzip_comp_level 6;
+            gzip_buffers 16 8k;
+            gzip_http_version 1.1;
+            gzip_min_length 256;
+            gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/javascript application/octet-stream application/xml+rss text/javascript application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon image/png image/jpg;
+            #include /etc/nginx/conf.d/*.conf;
+
+
+######                   HTTP  configuration for dev.mosip.io 
+    
+     server {
+            listen  80 default_server;
+	    listen [::]:80 default_server ipv6only=on;
+            server_name dev.mosip.io;
+
+            location / {
+                                        root /usr/share/nginx/html;
+                    index  index.html index.htm;
+                    proxy_http_version 1.1;
+                    proxy_set_header Upgrade $http_upgrade;
+                    proxy_set_header Connection "upgrade";
+                    proxy_set_header Host $host;
+                    proxy_connect_timeout                   3600s;
+                    proxy_send_timeout                      3600s;
+                    proxy_read_timeout                      3600s;
+            }
+            return 301 https://$host$request_uri;
+        }
+
+######                   HTTP  configuration for dev.mosip.io 
+        server {
+                #resolver 52.172.43.28;
+                client_max_body_size 20M;
+                    listen *:443 ssl http2;
+                    listen [::]:443 ssl http2;
+                    server_name dev.mosip.io;
+                    ssl on;
+                    ssl_certificate         /etc/letsencrypt/live/dev.mosip.io/fullchain.pem;
+                    ssl_certificate_key   /etc/letsencrypt/live/dev.mosip.io/privkey.pem;
+
+         location / {
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Real-IP $remote_addr;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                        #proxy_set_header X-Forwarded-Host $proxy_add_x_forwarded_for;
+                        proxy_set_header X-Forwarded-Proto $scheme;
+                        proxy_connect_timeout                   3600s;
+                        proxy_send_timeout                      3600s;
+                        proxy_read_timeout                      3600s;
+                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //kubernetes end point 
+                        #proxy_intercept_errors on;
+                        #error_page 301 302 307 = @handle_redirects;
+
+                }
+     }
+    }
    
 ##### Below command to open the port 80/443 from RHEL 7.5 VM 
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
@@ -796,11 +866,8 @@ sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spr
 
 Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
 
-### 6.8 Register on https://control.msg91.com/signup/ as developer and get an authkey. Replace the same in kernel.properties (used by  [kernel-smsnotification-service](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) )
+### 6.8 Refer kernel-smsnotification-servive ReadMe for SMS Gateway configuration [**here**](https://github.com/mosip/mosip/tree/0.12.0/kernel/kernel-smsnotification-service) 
 
-mosip.kernel.sms.api=http://api.msg91.com/api/v2/sendsms
-
-mosip.kernel.sms.authkey=240764AwCGPlwv5bb455b0
 
 
 

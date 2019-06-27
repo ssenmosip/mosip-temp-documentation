@@ -108,9 +108,30 @@ It doesn't detail about each methods level information since that are covered in
 ## Packet Status :  
 
    List of packet status maintained in client db while moving the packet to the different state before and after pushing to the server.  
-   
 
-## List of Jobs:  
+
+|**Packet Status Desc**|  **Status in Client** |   
+|:------:|-----|  
+|Once Packet Created| REGISTERED  |  
+|Packet Approved|  APPROVED   |  
+|'Re-Register' packet approved| RE_REGISTER_APPROVED  |
+|Packet Rejected| REJECTED |  
+|Packet IDs synched with Server| SYNCED   |     
+|Packet pushed to Server| PUSHED |     
+|Packet exported to device| EXPORTED |     
+
+
+|**Packet Status Desc**|  **Status from Server** |   
+|:------:|-----|  
+|Packet in processing state| PROCESSING   |  
+|UIN generated for the packet|  PROCESSED    |  
+|Unable to process the packet. | REREGISTER   |
+|Failed while processing packet due to internal issue| RESEND  |  
+|Packet is received but not uploaded in LANDING_ZONE| RECEIVED    |     
+|Duplicate found in abis| REJECTED  |     
+    
+
+## List of Jobs :  
 
 Below provided jobs are executed in batch mode through spring batch. The job execution frequencies are mentioned in the DB job related table. These jobs can also be triggered through manual process using 'Sync' option in the Menu, During initial login after successful online authentication and While starting the application if initial sync already completed.  
 
