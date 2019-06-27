@@ -21,7 +21,7 @@
       * [4.2.4 RID Validator](#424-rid-validator-) _(DAT_FR_4.13)_
       * [4.2.5 Partner ID Validator](#425-partner-id-validator-) _(DAT_FR_4.14)_
       * [4.2.6 License Key Status Validator](#426-license-key-status-validator-) _(DAT_FR_4.15)_
-
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 # Data services
 ## 1. Data mapper [**[↑]**](#table-of-content)
 Data mapper is used across MOSIP to facilitate mapping between DTO (Data Transfer Object) and entity. 
@@ -308,4 +308,12 @@ The system receives a request to check status of the License Key with an input p
 5. In case of exceptions, system triggers relevant error messages. 
 
 [**Link to design**]() _**update the link**_
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+ 
 
