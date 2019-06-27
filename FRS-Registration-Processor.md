@@ -43,6 +43,7 @@
      * [3.3.1 Notification (Pluggable by SI)](#331-notification-pluggable-by-si-) _(RPR_FR_3.21)_
      * [3.3.2 Print & Post (Pluggable by SI)](#332-print--post-pluggable-by-si-) _(RPR_FR_3.22)_
    * [3.4 Packet Processing Status](#34-packet-processing-status-) _(RPR_FR_3.23)_
+* [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 * [Registration Processor API](#registration-processor-api-)
 * [Process View](#process-view-)
 
@@ -341,7 +342,12 @@ After the Registration Client sends the packet to Registration Processor, it sta
 1. RESEND – Initial validation like virus scan and packet integrity check have failed for the packet for a configured number of times and Registration Client needs to resend the packet for processing.
 1. RE-REGISTER – The packet has failed a business validation like center-machine check, supervisor and officer validation, etc., due to which the system will not be able to process the packet. The registration officer will intimate the individual to come back to the center and re-register, post which registration client can delete the packet from its storage location.
 1. REJECTED – A duplicate packet was found against the individual’s biometrics. As processing of the packet is completed, Registration Client can delete the packet from it storage location.
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
 
+1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
+    
+    Please refer to section 7.C in Getting started Guide.
+2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
 ### Registration Processor API [**[↑]**](#table-of-content)
 [**Please refer to Wiki for more details on the Registration Processor API**](Registration-Processor-APIs).
 
