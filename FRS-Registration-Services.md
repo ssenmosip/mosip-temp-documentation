@@ -843,10 +843,13 @@ Before the machine is decommissioned, the following checks must be performed:
 2. All data locally saved in the machine must be cleaned up.
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
 
-1. [**Configurable Parameters**](Getting-Started#7-configuring-mosip-)
+1. Configurable Parameters
     
-    Please refer to section 7.C in Getting started Guide.
-2. [**Configurable Processes**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Processes_Consolidated%20List_External.xlsx) 
+   [**Link to Configurable Parameters of Registration Services**](/mosip/mosip-configuration/blob/0.12.0/config/registration-dev.properties)
+
+2. Configurable Processes 
+* (Work in Progress) 
+
 
 ### Process View [**[↑]**](#table-of-content)
 [**Link to Process View of Registration Services**](Process-view#2-registration-client-)
