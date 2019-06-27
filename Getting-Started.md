@@ -1388,7 +1388,8 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
          spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 -e zone_env=dmz  docker- 
          registry.mosip.io:5000/registration-processor-common-camel-bridge
 
-**Note** - Please change the environmental variables in the above four commands accordingly.
+**Note** - Please change the environmental variables in the above four commands accordingly whether you are executing 
+         directly or through Jenkinsfile.
 
 ### 8.2 ID Repository Salt Generator
  
