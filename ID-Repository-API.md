@@ -768,9 +768,12 @@ request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
   "responsetime": "2019-04-30T06:13:05.218Z",
   "response": {
     "vidStatus": "REVOKED",
+    "UIN": null,
+    "VID": null,
     "restoredVidDetails": {
       "vidStatus": "ACTIVE",
-      "VID": 1234512345
+      "UIN": null,
+      "VID": 4290754956350965
     }
   }
 }
