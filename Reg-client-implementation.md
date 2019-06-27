@@ -29,8 +29,8 @@ It doesn't detail about each methods level information since that are covered in
 |:------:|-----|  
 |**Main Service class and method:**| PacketSyncServiceImpl.java - packetSync(List<PacketStatusDTO> packetsToBeSynched)|
 |**Input Parameter:**|    packetsToBeSynched – The packet details which needs to be Synched. |  
-|**Auth:**| required |  
-|**External Connectivity:**| packetSync – Packet Sync service REST call |  
+|**Auth:**| Authentication token required. |  
+|**External Connectivity:**| Packet Sync service REST call |  
 
      
 |**Functionality:**| Packet Upload |   
