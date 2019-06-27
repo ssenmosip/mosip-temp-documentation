@@ -2493,7 +2493,6 @@ PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
 PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime and when the date is not current or future date
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
-PRG_BOOK_RCI_009|INVALID_DATE_TIME_FORMAT|If the appointment date is in invalid format
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
 PRG_BOOK_RCI_016|Availability table not accessible|access to availability table fails
