@@ -13,7 +13,7 @@ The Central configuration server provides following functionality:
 
 [Please refer the **configuring MOSIP** section in **Getting Started guide** for more details on the configuration server](Getting-Started#7-configuring-mosip-)
 
-### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+### List of Configurable Parameters and Processes
 
 1. Configurable Parameters
 
@@ -21,6 +21,6 @@ The Central configuration server provides following functionality:
 2. Configurable Processes 
 * (Work in Progress) 
 
-### Kernel API [**[↑]**](#table-of-content)
+### Kernel API
 [**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
 
