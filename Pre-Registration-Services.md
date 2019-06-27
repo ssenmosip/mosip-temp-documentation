@@ -1321,40 +1321,57 @@ Requires Authentication | Yes
 {
     "id": "mosip.pre-registration.demographic.retrieve.basic",
     "version": "1.0",
-    "responsetime": "2019-05-20T07:10:24.850Z",
+    "responsetime": "2019-06-27T10:44:18.988Z",
     "response": {
         "basicDetails": [
             {
-                "preRegistrationId": "32042841521591",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Rakesh P"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
+                "preRegistrationId": "26501647251326",
                 "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                "bookingMetadata": null,
+                "demographicMetadata": {
+                    "proofOfAddress": null,
+                    "postalCode": "14022",
+                    "fullName": [
+                        {
+                            "language": "fra",
+                            "value": "jagadishwari"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+                        }
+                    ]
+                }
             },
             {
-                "preRegistrationId": "38469435683243",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Shashank"
+                "preRegistrationId": "31601973604129",
+                "statusCode": "Booked",
+                "bookingMetadata": {
+                    "registration_center_id": "10003",
+                    "appointment_date": "2019-07-01",
+                    "time_slot_from": "14:15",
+                    "time_slot_to": "14:30"
+                },
+                "demographicMetadata": {
+                    "proofOfAddress": {
+                        "docCatCode": "POA",
+                        "docTypCode": "RNC",
+                        "docName": "Rajath.pdf",
+                        "langCode": "eng",
+                        "documentId": "ef51cd37-98c7-11e9-8fd2-6fbffb0a0035"
                     },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
-                "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                    "postalCode": "14023",
+                    "fullName": [
+                        {
+                            "language": "eng",
+                            "value": "Rajath"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "رَجَته"
+                        }
+                    ]
+                }
             }
         ],
         "totalRecords": "2",
@@ -1416,40 +1433,57 @@ pageIndex |Yes|page index of the application|0
 {
     "id": "mosip.pre-registration.demographic.retrieve.basic",
     "version": "1.0",
-    "responsetime": "2019-05-20T07:14:18.868Z",
+    "responsetime": "2019-06-27T10:44:18.988Z",
     "response": {
         "basicDetails": [
             {
-                "preRegistrationId": "38469435683243",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Shashank"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
+                "preRegistrationId": "26501647251326",
                 "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                "bookingMetadata": null,
+                "demographicMetadata": {
+                    "proofOfAddress": null,
+                    "postalCode": "14022",
+                    "fullName": [
+                        {
+                            "language": "fra",
+                            "value": "jagadishwari"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+                        }
+                    ]
+                }
             },
             {
-                "preRegistrationId": "32042841521591",
-                "fullname": [
-                    {
-                        "language": "fra",
-                        "value": "Rakesh P"
+                "preRegistrationId": "31601973604129",
+                "statusCode": "Booked",
+                "bookingMetadata": {
+                    "registration_center_id": "10003",
+                    "appointment_date": "2019-07-01",
+                    "time_slot_from": "14:15",
+                    "time_slot_to": "14:30"
+                },
+                "demographicMetadata": {
+                    "proofOfAddress": {
+                        "docCatCode": "POA",
+                        "docTypCode": "RNC",
+                        "docName": "Rajath.pdf",
+                        "langCode": "eng",
+                        "documentId": "ef51cd37-98c7-11e9-8fd2-6fbffb0a0035"
                     },
-                    {
-                        "language": "ara",
-                        "value": "سهَسهَنك "
-                    }
-                ],
-                "statusCode": "Pending_Appointment",
-                "bookingRegistrationDTO": null,
-                "postalCode": "56059"
+                    "postalCode": "14023",
+                    "fullName": [
+                        {
+                            "language": "eng",
+                            "value": "Rajath"
+                        },
+                        {
+                            "language": "ara",
+                            "value": "رَجَته"
+                        }
+                    ]
+                }
             }
         ],
         "totalRecords": "2",
@@ -2277,6 +2311,12 @@ Requires Authentication | Yes
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_015|No available slots found for specified registration center| If no slots are available in the specified registration center
+PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service is failed to update the status of the preregistration
+PRG_BOOK_RCI_012|Demographic service call failed|when rest call to demographic service is failed to retrieve the demographic data
+PRG_BOOK_RCI_016|Availablity table not accessible|access to availability table fails
+PRG_BOOK_RCI_034|Json processing exception| Json parse exception while sending notification
+PRG_BOOK_RCI_033|Notification service call failed| Notification service call fail
+PRG_BOOK_RCI_020|Master data not found| Master date service call fail
 ### POST /appointment/:preRegistrationId
 This request is used to book an registration center. If the appointment data exists for the requested pre-registration id, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
 
