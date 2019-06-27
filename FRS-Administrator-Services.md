@@ -75,6 +75,8 @@
     * [13.1 ID Definition Validator](#131-id-definition-validator) _(ASR_FR_13.1)_
 - [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
 - [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
+- [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
+- [Administrator Services API](#administrator-services-api-)
 - [Process View (WIP)](#process-view-wip-)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
@@ -571,5 +573,17 @@ configured through admin console.
 ### 13.1 ID Definition Validator
 ## 14. Configuration Setup (WIP) [**[↑]**](#table-of-content)
 ## 15. Process Flow Setup (WIP) [**[↑]**](#table-of-content)
+
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+
+1. Configurable Parameters
+
+   [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-configuration/blob/0.12.0/config/admin-dev.properties)
+2. Configurable Processes 
+* (Work in Progress) 
+
+### Administrator Services API [**[↑]**](#table-of-content)
+[**Refer to Wiki for more details on Administrator Services API**](Admin-APIs)
+
 ## Process View (WIP) [**[↑]**](#table-of-content)
 [**Link to Process View of Administrator Services**](Process-view)
