@@ -76,7 +76,7 @@
 - [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
 - [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
-- [Process View (WIP)](#process-view-wip-)
+- [Process View](#process-view-)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
 The portal allows user to provide the credential to login. Based on country, single factor or multi-factor credentials (For example, Password, OTP, Fingerprint, iris etc.) are configured.  The system validates the provided credentials and the user's role. On successful validation, the system allows user to proceed further. 
@@ -582,5 +582,5 @@ configured through admin console.
 * (Work in Progress) 
 
 
-## Process View (WIP) [**[↑]**](#table-of-content)
-[**Link to Process View of Administrator Services**](Process-view)
+## Process View [**[↑]**](#table-of-content)
+* (Work in Progress) 
