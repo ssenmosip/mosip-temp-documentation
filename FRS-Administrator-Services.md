@@ -76,6 +76,7 @@
 - [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
 - [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
+- [Administrator Services API](#administrator-services-api-)
 - [Process View](#process-view-)
 ## 1. Login [**[↑]**](#table-of-content)
 ### 1.1 Login
@@ -579,6 +580,8 @@ configured through admin console.
 
    [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-configuration/blob/0.12.0/config/admin-dev.properties)
 2. Configurable Processes 
+* (Work in Progress) 
+### Administrator Services API [**[↑]**](#table-of-content)
 * (Work in Progress) 
 
 
