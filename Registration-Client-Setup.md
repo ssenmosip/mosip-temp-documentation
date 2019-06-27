@@ -165,7 +165,7 @@ Refer the configuration maintained in [QA](https://github.com/mosip/mosip-config
 |25.|	mosip.registration.webcam_name                           |logitech|
 |26.|	mosip.registration.document_scanner_enabled				|no|
 |27.|	mosip.registration.send_notification_disable_flag        |y	/ n| Enable/ Disable additional notification. |  
-|28.|	mosip.registration.user_onboarding_with_IDA_auth        |y	/ n| To enable the bio auth against the IDA Auth service during user onboarding process. | 
+|28.|	mosip.registration.onboarduser_ida_auth        |Y	/ N| To enable the bio auth validation during user 'On Boarding' process and validated against the IDA Auth service. | 
 
 Refer the **Global configuration** maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/application-qa.properties) environment. 
 
