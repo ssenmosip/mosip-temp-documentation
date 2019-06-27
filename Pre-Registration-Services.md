@@ -2790,12 +2790,14 @@ PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id.
 
+NOTE :- Below are privileged APIs cannot be operate with individuals credentials.
+
 * [PUT batch/expiredStatus](#put-expiredstatus)
 * [PUT batch/consumedStatus](#put-consumedstatus)
 
 ### PUT /expiredStatus
 This request is used to update status of pre-registration ids appointment to expired status in database.
-Batch job will expire all the appointments older than current date.
+Batch service will expire all the appointments from date before exceution date till the last execution date of batch job.
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/batch/expiredStatus</div>
 
@@ -2886,13 +2888,13 @@ Requires Authentication | Yes
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_BAT_004	|Demographic table not accessible|If data is not found for preRegistrationId
-PRG_PAM_BAT_005	|Reg appointment table not accessible|If Reg appointment table not accessible
+PRG_PAM_BAT_004   |Demographic table not accessible|If data is not found for preRegistrationId
+PRG_PAM_BAT_005   |Reg appointment table not accessible|If Reg appointment table not accessible
 PRG_PAM_BAT_006|Processed prereg list table not accessible|If Processed prereg list table not accessible
-PRG_PAM_BAT_007	|Document table not accessible|	If document table not accessible
-PRG_PAM_BAT_008	|Reg appointment consumed table not accessible|If Reg appointment consumed table not accessible
+PRG_PAM_BAT_007   |Document table not accessible|  If document table not accessible
+PRG_PAM_BAT_008   |Reg appointment consumed table not accessible|If Reg appointment consumed table not accessible
 PRG_PAM_BAT_009|Demographic consumed table not accessible|If Demographic consumed table not accessible
-PRG_PAM_BAT_010	|Document consumed table not accessible|If document consumed table not accessible
+PRG_PAM_BAT_010   |Document consumed table not accessible|If document consumed table not accessible
 
 # Generate QR code service (public)
 This service details used by Pre-Registration portal to generate QR Code.
