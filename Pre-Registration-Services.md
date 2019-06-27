@@ -3081,6 +3081,8 @@ PRG_PAM_ACK_009|Appointment date is not valid|If appointmentDate field is invali
 PRG_PAM_ACK_010|Appointment time is not valid|If appointmentTime field is invalid or empty 
 PRG_PAM_APP_005|No data found for the requested pre-registration id|If additionalRecipient is false and there will be no demographic data for requested pre-registration id
 PRG_CORE_REQ_013|Request date should be current date|If request date is other than current date
+PRG_PAM_ACK_006|Email is not valid|If additionalRecipient is true and email id pattern is invalid 
+PRG_PAM_ACK_007|Phone number is not valid|If additionalRecipient is true and phone number is invalid 
 
 # Transliteration Service (Public)
 This service is used by Pre-Registration portal to transliterate given value from one language to another language. In this API transliteration is using IDB ICU4J library , so accuracy will be less.
