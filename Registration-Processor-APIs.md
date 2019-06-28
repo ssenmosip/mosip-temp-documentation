@@ -50,7 +50,8 @@ MultipartFile|Yes|The encrypted zip file|
 	"responsetime" : "2019-02-02T06:12:25.288Z",
 	"response" : {
 		"status" : "Packet is in PACKET_RECEIVED status"
-	}
+	},
+	"errors": null
 }
 ```
 #### Failure response
@@ -63,6 +64,7 @@ MultipartFile|Yes|The encrypted zip file|
   "id" : "mosip.registration.packet",
   "version" : "1.0",
   "responsetime": "2019-02-02T06:12:25.288Z",
+  "response": null,
   "errors" : [{
 		"errorcode": "RPR-PKR-005",
 	    "message": "The request received is a duplicate request to upload a Packet"
@@ -128,7 +130,8 @@ Record found :
     "registrationId": "2018701130000410092018110735",
     "statusCode": "PROCESSED"
   }
-]
+],
+"errors": null
 }
 ```
 Record not found :
@@ -140,8 +143,10 @@ Record not found :
   "id" : "mosip.registration.status",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
-  "response" : []
+  "response" : [],
+  "errors": null
 }
+
 ```
 
 
@@ -228,6 +233,7 @@ Success response :
   "id" : "mosip.registration.sync",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "errors": null,
   "response" : [
 	  {
 		"registrationId": "1234575",
@@ -251,6 +257,7 @@ Failure response
   "id" : "mosip.registration.sync",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
   "errors" : [
 	  {
 		"status": "FAILURE",
@@ -266,6 +273,7 @@ Failure response
   "id" : "mosip.registration.sync",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
   "errors" : [
 	  {
 		"registrationId": "1234575",
@@ -340,7 +348,8 @@ Success response
 	  "matchedRefId": "27847657360002520181208123456",
 	  "matchedRefType": "UIN",
 	  "reasonCode": null
-	}
+	},
+	"errors": null
 }
 ```
 Failure response
@@ -349,6 +358,7 @@ Failure response
   "id" : "mosip.manual.verification.assignment",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
 	"errors" : [{
 		"errorCode" : "RPR-FAC-003",
 		"message" : "Cannot find the Registration Packet"
@@ -412,7 +422,8 @@ Success response
 	  "matchedRefId": "27847657360002520181208123987",
 	  "matchedRefType": "RID",
 	  "reasonCode": "Problem with biometrics"
-	}
+	},
+	"errors": null
 }
 ```
 Failure response
@@ -421,6 +432,7 @@ Failure response
   "id" : "mosip.manual.verification.decision",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
 	"errors" : [{
 		"errorCode" : "RPR-MVS-003",
 		"message" : "Invalid status update"
@@ -474,7 +486,8 @@ Success :
   "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : {
 	  "file": "B@629f0666"
-  }
+  },
+  "errors": null
 }
 ```
 Failure :
@@ -483,6 +496,7 @@ Failure :
   "id" : "mosip.manual.verification.biometric",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
   "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
@@ -535,7 +549,8 @@ FileRequestDto|Yes|Dto containing registration id and file name|
   "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : {
 	  "file": "B@629f0666"
-  }
+  },
+  "errors": null
 }
 ```
 Failure :
@@ -544,6 +559,7 @@ Failure :
   "id" : "mosip.manual.verification.demographic",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
   "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
@@ -595,7 +611,8 @@ FileRequestDto|Yes|Dto containing registration id and file name|
   "responsetime": "2019-02-14T12:40:59.768Z",
   "response" : {
 	  "file": "B@629f0666"
-  }
+  },
+  "errors": null
 }
 ```
 Failure :
@@ -604,6 +621,7 @@ Failure :
   "id" : "mosip.manual.verification.packetInfo",
   "version" : "1.0",
   "responsetime": "2019-02-14T12:40:59.768Z",
+  "response": null,
   "errors" : [{
 	"errorCode" : "RPR-MVS-002",
 	"message" : "Requested file is not present"
@@ -692,7 +710,8 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
     "registrationId": "10031100110005020190313110030",
     "status": "SUCCESS",
     "message": "Packet created and uploaded"
-  }
+  },
+  "errors": null
 }
 ```
 
