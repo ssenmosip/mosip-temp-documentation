@@ -52,20 +52,34 @@ The following have been the IN SCOPE entities for testing
 
 |Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|	Description|
 |------|------|------|------|------|------|
-|1|	Kernel	|MOS-1|	Test Automation	|API|	1.|
+|1|	Kernel	|MOS-1|	Test Automation	|API|	|
 |2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
-|3|	Registration Client|	MOS-14735| <li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows| 3.|
-|4|Registration Processor|	MOS-4|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| 4.|
-|5|	ID Authentication	|MOS-5|	Test Automation	|<li> API <li> Workflows|	5.|	
-|6	|Pre-Registration to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	6.|	
-|7|	Registration Client to Registration Processor integration testing|	NA|	Manual Testing|	Workflows|7.|	
-|8|	Registration Processor to Pre-Registration integration testing|	NA	|Manual Testing|Workflows|	8.|	
-|9|	Registration Processor to Registration Client integration testing|	NA|	Manual Testing|	Workflows|9.	|
-|10|	Registration Client to IDA integration testing|	NA|	Manual Testing|	Workflows|	10.	|
-|11|	Registration Processor to IDA integration testing|	NA|	Manual Testing|	Workflows	|11.	|
-|12|	IDA to ID Repo|	NA|	Manual Testing|	Workflows	|12.	|
+|3|	Registration Client|	MOS-14735| <li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
+|4|Registration Processor|	MOS-4|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| |
+|5|	ID Authentication	|MOS-5|	Test Automation	|<li> API <li> Workflows|	|	
+|6	|Pre-Registration to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|	
+|7|	Registration Client to Registration Processor integration testing|	NA|	Manual Testing|	Workflows||	
+|8|	Registration Processor to Pre-Registration integration testing|	NA	|Manual Testing|Workflows|	|	
+|9|	Registration Processor to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|
+|10|	Registration Client to IDA integration testing|	NA|	Manual Testing|	Workflows|		|
+|11|	Registration Processor to IDA integration testing|	NA|	Manual Testing|	Workflows	||
+|12|	IDA to ID Repo|	NA|	Manual Testing|	Workflows	|	|
 |13	|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	Workflows|This is covered as part of both, individual module level & inter module level integration testing |
 |14|	End to end testing|	NA|	Manual Testing|	Workflows	|	This is certified manually as of 0.12.14 release build|
+
+#### 4.Types of testing - Definition
+
+|Testing Type| Description|
+|------|------|
+|Smoke Testing|	
+|Functional Testing|	
+|Integration Testing|	
+|Regression Testing|
+	
+#### 5. Manual Test Execution Metrics & Graphs
+to be done
+#### 6. Automation Test Reports
+consolidated report run on 0.12.14 on QA env, from merged automation code base
 
 
 * IV&V testing report [**need link to update**]
