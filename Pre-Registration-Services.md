@@ -1832,7 +1832,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Document is not found for the requested pre-registration id
+###### Description: If document is not found for the requested pre-registration id.
 ```JSON
 {
     "id": "mosip.pre-registration.document.fetch.metadata",
@@ -3034,7 +3034,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime and when the date is not current or future date
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
 PRG_PAM_CORE_004|Request body is invalid|Invalid or empty Request body
 PRG_QRC_001|	File input output exception|	when there is any input / output file operation issues
 PRG_CORE_REQ_013|Request date should be current date|If request date is other than current date
