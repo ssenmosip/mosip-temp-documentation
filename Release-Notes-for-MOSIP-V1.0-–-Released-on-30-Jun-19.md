@@ -1,5 +1,5 @@
 ## Scope of Version 1.0.0
-This release is with proxy biometrics. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
+This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
 
 * Modules included – Pre Registration, Registration Client, Registration Processor, ID Authentication
 * Modules excluded – Administration, Partner Management, Resident Services

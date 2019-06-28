@@ -65,6 +65,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
 * master-branch-build-all-modules
 
+    Jenkinsfile for master-branch-build-all-modules can be found under mosip root directory, named **Jenkinsfile**<br/><br/>
     This Job is used to build whole MOSIP as a single unit. This Job is also acts as a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here are the configuration for Pipeline you might have to explictly change to use MOSIP provided Jenkinsfile- 
 
     ![Configure Build Triggers](_images/getting_started_images/master-branch-build-all-modules-build-triggers.JPG)
@@ -73,18 +74,30 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
     As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of MOSIP repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
 
-  Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code. Here in this file,
+  Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code.
 
-* Kernel
-<TBD>
-* Pre-Registration
-<TBD>
-* Registration
-<TBD>
-* Registration-Processor
-<TBD>
-* Authentication
-<TBD>
+  * Then we have module specific Jenkinsfile for individual Modules. These Modules are:
+      * **Kernel**<br/>
+      * **Registration**<br/>
+      * **Registration-Processor**<br/>
+      * **Pre-Registration**<br/>
+      * **ID-Repository**<br/>
+      * **ID-Authentication**<br/>
+
+      Each Modules CI/CD Jenkins script can be found under root of these modules, This Jenkins script will be  named Jenkinsfile, and is responsible to build and deploy entire Module to Dev environment<br/>
+
+  * For promoting these modules to QA, there is a pipeline named **PromoteToQAJenkinsFile** which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.
+
+  In each Jenkinsfile you will see some variables starting with **env.** These variables are taken from Jenkins environment variables. So you have to setup these environment variables in your jenkins to use these Jenkinsfile. These Variables include:<br/>
+  1. **NEXT_BRANCH_NAME**<br/>
+  2. **REGISTRY_URL**<br/>
+  3. **REGISTRY_NAME**<br/>
+  4. **REGISTRY_CREDENTIALS**<br/>
+  5. **GIT_URL**<br/>
+  6. **GIT_CREDENTIALS**<br/>
+  
+
+
 
 ***
 ## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#table-of-content)
@@ -276,7 +289,7 @@ For basic authentication, you have to setup a htpasswd file and add a simple use
 4. **registry-docker-compose-tls-enabled.yml:**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)
   Once Certificates have been generated, replace the <REGISTRY_HTTP_TLS_CERTIFICATE> property and <REGISTRY_HTTP_TLS_KEY> property in registry-docker-compose-tls-enabled.yml with appropriate values.
 After completing all the above changes, use docker-compose tool to bring up the container using the following command:<br/>
-`docker-compose -f registry-docker-compose.yml -f registry-docker-compose-basic-authentication.yml -f registry-docker-compose-azure-storage.yml -f registry-docker-compose-tls-enabled.yml  up -d`<br/>
+```docker-compose -f registry-docker-compose.yml -f registry-docker-compose-basic-authentication.yml -f registry-docker-compose-azure-storage.yml -f registry-docker-compose-tls-enabled.yml  up -d```<br/>
 Once the registry is up and running, variables **registryUrl**, **registryName**, **registryCredentials** can be configured accordingly in Jenkinsfile.<br/> For configuring registry Credentials in Jenkins, Username/Password credentials need to be added in Jenkins Global Credentials and credential ID needs to be provided in **registryCredentials** variable in all the Jenkinsfiles.
 
 
@@ -408,40 +421,42 @@ https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div>
 We are using nginx for webserver andalso proxy server for MOSIP project
 Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command
 ```
-$sudo vi /etc/yum.repos.d/nginx.repo 
+$ sudo vi /etc/yum.repos.d/nginx.repo 
 ```
-#### Install nginx package using the yum command:
+Install nginx package using the yum command:
 ```
-$sudo yum update
-```
-$sudo yum install nginx
+$ sudo yum update
+$ sudo yum install nginx
 ```
 Append following for RHEL 7.5 
+```
 [nginx]   
 name=nginx repo 
 baseurl=`http://nginx.org/packages/mainline/rhel/7/$basearch/` 
 gpgcheck=0 
 enabled=1 
 ```
-$ sudo yum install nginx 
+After updating repo, please run following commands to install and enable nginx -
 ```
+$ sudo yum install nginx 
 $ sudo systemctl enable nginx  
 ```
-###### nginx start/stop/restart/status commands  
+To start, stop, restart or get status of nginx use the following commands - 
 ```
 $ sudo systemctl start nginx 
-```
+
 $ sudo systemctl stop nginx 
-```
+
 $ sudo systemctl restart nginx
-```
+
 $ sudo systemctl status nginx 
 ```
-##### To edit files use a text editor such as vi
+To edit files use a text editor such as vi
 ```
-$ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
+$ sudo vi /etc/nginx/nginx.conf
 ```
-   Example : To configure the nginx for dev.mosip.io environment 
+   Example to  configure the nginx for dev environment - 
+   ```
     user  madmin; 
     worker_processes  2; 
     error_log  /var/log/nginx/error.log warn; 
@@ -475,12 +490,12 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
             #include /etc/nginx/conf.d/*.conf;
 
 
-######                   HTTP  configuration for dev.mosip.io 
+###### HTTP configuration ######
     
      server {
             listen  80 default_server;
-	    listen [::]:80 default_server ipv6only=on;
-            server_name dev.mosip.io;
+            listen [::]:80 default_server ipv6only=on;
+            server_name <your-domain-name>;
 
             location / {
                                         root /usr/share/nginx/html;
@@ -496,23 +511,23 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
             return 301 https://$host$request_uri;
         }
 
-######                   HTTP  configuration for dev.mosip.io 
+###### HTTPS configuration for your domain ###### 
         server {
-                #resolver 52.172.43.28;
+          
                 client_max_body_size 20M;
                     listen *:443 ssl http2;
                     listen [::]:443 ssl http2;
                     server_name dev.mosip.io;
                     ssl on;
-                    ssl_certificate         /etc/letsencrypt/live/dev.mosip.io/fullchain.pem;
-                    ssl_certificate_key   /etc/letsencrypt/live/dev.mosip.io/privkey.pem;
+                    ssl_certificate         <your-letsencrypt-fullchainpem-path>;
+                    ssl_certificate_key   <your-letsencrypt-privatekey-pem-path>;
             location /v1/keymanager/ {
                         proxy_set_header Host $host;
                         proxy_set_header X-Real-IP $remote_addr;
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                         proxy_set_header X-Forwarded-Proto $scheme;
                         #proxy_set_header Cookie $http_cookie;
-                        proxy_pass  http://13.71.86.138:8088/v1/keymanager/;
+                        proxy_pass  http://<your-keymanager-vm-ip>:<port>/v1/keymanager/;
                 }
 
                  location /registrationprocessor/v1/packetreceiver/ {
@@ -520,7 +535,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         proxy_set_header X-Real-IP $remote_addr;
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                         proxy_set_header X-Forwarded-Proto $scheme;
-                       proxy_pass  http://52.172.39.154:8081/registrationprocessor/v1/packetreceiver/;
+                       proxy_pass  http://<your-dmz-vm-ip>:<port>/registrationprocessor/v1/packetreceiver/;
                 }
 
                  location /registrationprocessor/v1/registrationstatus/ {
@@ -528,7 +543,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         proxy_set_header X-Real-IP $remote_addr;
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                         proxy_set_header X-Forwarded-Proto $scheme;
-                        proxy_pass  http://52.172.39.154:8083/registrationprocessor/v1/registrationstatus/;
+                        proxy_pass  http://<your-dmz-vm-ip>:<port>/registrationprocessor/v1/registrationstatus/;
 
                 }
 
@@ -537,7 +552,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         proxy_set_header X-Real-IP $remote_addr;
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                         proxy_set_header X-Forwarded-Proto $scheme;
-                        proxy_pass  http://52.172.39.154:8082/registrationprocessor/v1/packetgenerator/;
+                        proxy_pass  http://<your-dmz-vm-ip>:<port>/registrationprocessor/v1/packetgenerator/;
 
                 }
                 location / {
@@ -549,7 +564,7 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                         proxy_connect_timeout                   3600s;
                         proxy_send_timeout                      3600s;
                         proxy_read_timeout                      3600s;
-                        proxy_pass https://mosip-dev-k8.southindia.cloudapp.azure.com/; //kubernetes end point 
+                        proxy_pass https://<your-dev-k8-cluster-endpoint>; //kubernetes end point 
                         #proxy_intercept_errors on;
                         #error_page 301 302 307 = @handle_redirects;
 
@@ -558,43 +573,54 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
     }
    ```
 
-##### Below command to open the port 80/443 from RHEL 7.5 VM 
-$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
-$ sudo firewall-cmd –reload <br/>
-##### Bind SSL certificate to work https
+Use below command to open the port 80/443 from RHEL 7.5 VM 
+```
+$ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent 
+$ sudo firewall-cmd --zone=public --add-port=443/tcp --permanent 
+$ sudo firewall-cmd –reload
+```
+
+#### Generate SSL/TLS for HTTPS - 
 RHEL 7  version, these are the following commands you have to run to generate certificates for nginx server.
 
 1.  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
               It will install EPEL script for RHEL 7 OS. It is same as PPA for Ubuntu, it will install some extra packages for enterprise linux edition. 
 You can read more about it https://fedoraproject.org/wiki/EPEL.
 
-2. sudo yum install epel-release-latest-7.noarch.rpm
-              This command will run the EPEL install scripts and enable the EPEL packages for RHEL7
+2. This command will run the EPEL install scripts and enable the EPEL packages for RHEL7
+      ```
+      sudo yum install epel-release-latest-7.noarch.rpm
+      ```
+3. This will list all the EPEL packages available for used.
+      ```
+      yum --disablerepo="*" --enablerepo="epel"  list available
+      ```
 
-3.  yum --disablerepo="*" --enablerepo="epel" list available
-              This will list all the EPEL packages available for used.
+4. Check for python2-certbot-nginx package in EPEL Packages.
+    ```
+    yum --disablerepo="*" --enablerepo="epel" search python2-certbot-nginx
+    ```
 
-4. yum --disablerepo="*" --enablerepo="epel" search python2-certbot-nginx
-              Check for python2-certbot-nginx package in EPEL Packages.         
+5. This will install python certbot for nginx into VM.
+    ```
+    sudo yum install python2-certbot-nginx
+    ```
 
-5. sudo yum install python2-certbot-nginx
-              This will install python certbot for nginx into VM.
+6. This will generate the certificate for VM.
+    ```
+    sudo certbot --nginx certonly
+    ```
 
-6. sudo certbot --nginx certonly
-              This will generate the certificate for VM.
-
-####### Certficates will be generated at, /etc/letsencrypt/live/<domain_name>/ directory.
-####### cert.pem is the certificate and privkey.pem is private key.
-
-**  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)
-
-** need to run below command to solve the permisstion issues in nginx reffer blow link
-
-https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx
+**Troubleshooting:** If you facing getting this issue in nginx <br/> (13: Permission denied) while connecting to upstream:[nginx] <br/>
+Please  run below command - 
+```
 setsebool -P httpd_can_network_connect 1
-##### Reference link:
-<div>https://www.cyberciti.biz/faq/how-to-install-and-use-nginx-on-centos-7-rhel-7</div>
+```
+ or refer link -
+https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx<br/>
 
+
+__Note: Certficates will be generated at, /etc/letsencrypt/live/<domain_name>/ directory. cert.pem is the certificate and privkey.pem is private key. We are using Let's Encrypt, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)__ 
 
 ### 6.3 Clam AntiVirus Version 0.101.0
 ClamAV is a free, cross-platform and open-source antivirus software toolkit able to detect many types of malicious software, including viruses.
@@ -921,73 +947,72 @@ NOTE: Required only if HDFS is used for packet storage.
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
 ### 6.7 Steps to Deploy Kernel Key Manager Service
-Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone machine and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
 
-We are deploying keymanager service into another VM having docker installed. The steps to setup environment and service deployment:
+To deploy keymanager service, follow below steps -
+1.  Prerequiste:<br/>
+       *  A machine with RHEL 7.5 installed.
+       * Docker installed and Docker service enabled.
 
-1. Need to set Up VM with RHEL 7.5
+2. Open port 8088 on the VM:
 
-2. Installing the Docker:
-sudo yum install docker
-
-After installing Docker Start the Docker Service
-
-**command to start the Docker service**
-
-* systemctl start docker
-
-**command to check Docker is running:**
-
-* systemctl status docker
-
-3. Open the port 8088 from the VM:
-
+```
 sudo firewall-cmd --zone=public --add-port=8088/tcp --permanent
 
 sudo firewall-cmd --reload 
-
+```
 **Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
 
-And also open the port from AZURE OR AWS or any cloud where the VM is launched.
+And also open the port.
 
 **Process to deploy Services in VM through JenkinsFile:**
 
 
-4. Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
+4. Refer the github url for Jenkinsfile : in root directory of kernel module
  
 The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy this service, basically, running the docker image of key manager.
 
 For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId which you need to replace with credetailsId written in this stage.
   
- a. Replace the key_manager_vm_ip with ip of newly created VM.
+  *  Replace the key_manager_vm_ip with ip of newly created VM.
 
- b. The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env  and 
-    active_profile_env accordingly.
+  * The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env  and 
+      active_profile_env accordingly.
 
-
+Once done the following command will be used to deploy keymanager to the machine: <br/><br/>
+```
 sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env=qa --name keymanager docker-registry.mosip.io:5000/kernel-keymanager-service
+```
 
-Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
 
-### 6.8 Refer kernel-smsnotification-servive ReadMe for SMS Gateway configuration [**here**](https://github.com/mosip/mosip/tree/0.12.0/kernel/kernel-smsnotification-service) 
+### 6.8  SMS Gateway configuration 
+Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/mosip/tree/0.12.0/kernel/kernel-smsnotification-service) 
 
 
 
 
 ### 6.9 Installation of ActiveMQ
-ActiveMQ is the message broker used for MOSIP. 
+ActiveMQ is the message broker used for MOSIP Registartion processor module. 
 #### Installation steps
-* Download activemq using 
-``` wget http://www.apache.org/dist//activemq/apache-activemq/5.5.0/apache-activemq-5.5.0-bin.tar.gz ```
-* Extract the archive
-``` tar -zxvf apache-activemq-5.5.0-bin.tar.gz ```
-* Change the permission for startup script
-``` chmod 755 activemq ```
-* Start activemq service
-``` sudo sh activemq start ```
-* Check for the installed and started activemq on port 61616.
-* The activemq management dashboard can be accessed on 
-``` http://localhost:8161/admin ```
+* Prerequiste:<br/>
+        A machine with RHEL 7.5 installed, Docker installed and Docker service enabled.
+* Download activemq using command - <br/>
+``` wget http://www.apache.org/dist//activemq/apache-activemq/5.15.0/apache-activemq-5.15.0-bin.tar.gz ```
+* Extract the archive <br/>
+``` tar -zxvf apache-activemq-5.15.0-bin.tar.gz ```
+* Change the permission for startup script<br/>
+``` chmod 755 apache-activemq-5.15.0 ```
+* Start activemq service<br/>
+``` cd apache-activemq-5.15.0 && sudo  ./bin/activemq start ```
+* Check for the installed and started activemq on port 61616. <br/>
+```netstat -tulpn```
+* Open ports 8161 and 61616  on the VM:
+
+```
+sudo firewall-cmd --zone=public --add-port=8161/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=61616/tcp --permanent
+sudo firewall-cmd --reload 
+```
 
 
 
@@ -1358,7 +1383,7 @@ This file contains information about routing to different Kubernetes services, S
 
 
 * DeployDefaultBackend.yaml - We need not to change anything here. we can directly run this file. To run this use this command
-`kubectl apply -f DeployIngressController.yaml`
+`kubectl apply -f DeployDefaultBackend.yaml`
 
 * docker-registry-secret.yml - 
 This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. For creating secret for the first time, run below command - 
@@ -1450,9 +1475,6 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 2. Update `https://dev.mosip.io/` value with url of proxy server which points to pre-registration services. (Note: While editing, be careful with escape sequence characters)
 3. Execute command `Kubectl apply -f pre-registration-ui-configuration.yaml`
 
-B. Continuous deployment 
-
-To be done later
 
 ***
 
@@ -1548,20 +1570,20 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
   c. Execute the following commands
      
 
-    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_hash_salt docker- 
+    *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
+         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_hash_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
-    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idrepo -e table_name=uin_encrypt_salt docker- 
+    *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
+         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_encrypt_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
-    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_hash_salt docker- 
+    *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
+         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_hash_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
-    *    docker run -it -d -p 8092:8092 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
+    *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"       
+         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
 **Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env) in the above four commands accordingly
