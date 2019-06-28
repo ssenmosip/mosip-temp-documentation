@@ -112,7 +112,7 @@ The following have been the IN SCOPE entities for testing
 #### 5. Manual Test Execution Metrics & Graphs [**[↑]**](#table-of-content)
 to be done
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
-consolidated report run on 0.12.14 on QA env, from merged automation code base
+consolidated report run on 0.12.15 on QA env, from merged automation code base
 
 
 ### IV&V testing report [**need link to update**]
