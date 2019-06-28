@@ -8,7 +8,7 @@ This release is with proxy biometrics. This means that the implementation of Pri
 ### 1. Product Documentation 
 High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  [**link to Product Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-Low Level design, Wireframes, Test cases <link>
+Low Level design, Wireframes, Test cases [**need link to update**]
 ### 3. Training topics
 Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
 
@@ -35,17 +35,17 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 
 
 ## Release Notes 
-This contains the features delivered as a part of version 1.0.0 and known issues  <link>
+This contains the features delivered as a part of version 1.0.0 and known issues  [**need link to update**]
    * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
 
 ## Code 
-The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above <link>. We would actively support the System Integrator during the first deployment process.
+The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
 
 ## Test Execution reports
 * Mindtree testing report <email sent to you – next>
-* IV&V testing report <link>
+* IV&V testing report [**need link to update**]
 ## Support Process 
-Process to be followed for support required, escalation matrix <link>
+Process to be followed for support required, escalation matrix [**need link to update**]
 
 
 
