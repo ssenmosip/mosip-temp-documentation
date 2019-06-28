@@ -5,9 +5,12 @@ This release is with proxy biometrics. This means that the implementation of Pri
 * Modules excluded – Administration, Partner Management, Resident Services
 * Reference implementation of Pre-Registration and Registration Client UI
 ## Documentation 
-* **Product Documentation** - High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc  <link>
-* **Detailed Documentation** – Low Level design, Wireframes, Test cases <link>
-* **Training topics** – Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
+### 1. Product Documentation 
+High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc  <link>
+### 2. Detailed Documentation
+Low Level design, Wireframes, Test cases <link>
+### 3. Training topics
+Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
 
 |Sessions\Topics|Speaker|High Level Scope of the session|Dates(TBD)|Duration|
 |------|-----|-----|-----|-----|
@@ -29,6 +32,18 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 |Hands on|	TBD|	Key Manager, Setup with / without Jenkins, setup & config Kubernetes cluster|	TBD|	Half Day |
 |Hands on|	TBD|	3rd Party Products (ABIS, Devices, etc.,), Reg client Setup, Auth API Server Setup|	TBD|	Half Day |
 |Hands on|	TBD|	Security Zoning, Firewall setups, Introduction to HSM and TPM |	TBD|	Half Day |
+
+
+### 4. Release Notes 
+This contains the features delivered as a part of version 1.0.0 and known issues  <link>
+   Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
+
+Code – The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above <link>. We would actively support the System Integrator during the first deployment process.
+Test Execution reports
+•	Mindtree testing report <email sent to you – next>
+•	IV&V testing report <link>
+Support Process – Process to be followed for support required, escalation matrix <link>
+
 
 
 
