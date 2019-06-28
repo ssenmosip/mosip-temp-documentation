@@ -23,11 +23,11 @@ This release is with **proxy biometrics**. This means that the implementation of
 * Modules excluded – Administration, Partner Management, Resident Services
 * Reference implementation of Pre-Registration and Registration Client UI
 ## Documentation [**[↑]**](#table-of-content)
-### 1. Product Documentation 
+### 1. Platform Documentation 
 High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  
-   [**Link to Product Documentation**](Platform-Documentation)
+   [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-Low Level design, Wireframes, Test cases [**need link to update**]
+[***Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), Wireframes, [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
 
 ## Key Points [**[↑]**](#table-of-content)
 
