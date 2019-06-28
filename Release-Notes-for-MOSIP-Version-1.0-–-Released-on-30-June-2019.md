@@ -71,7 +71,7 @@ The code is available in open source repository. This includes automation test s
 Process to be followed for support required, escalation matrix [**need link to update**]
 
 
-![Test](_images/test_rig_automation/image1.png) 
+
 
 
 
