@@ -328,7 +328,7 @@ The workflow of testing or running the test suite of the available API’s And S
   ![Test](_images/test_rig_automation/reg-proc4.jpg) 
 
 4. The reg proc automation suite will tweak the values in a valid packet and will generate packets for the above attributes sequentially.
-5. There is one more file “**StageBits.properties**” which has a stage string. The string is used to construct the status string for a packet. For eg if stage string is “111110000” it means that packet should go through first five stage and should fail for last 4 stages.
+5. There is one more file “**StageBits.properties**” which has a stage string. The string is used to construct the status string for a packet. For eg if stage string is “**111110000**” it means that packet should go through first five stage and should fail for last 4 stages.
 
 ## 4.4 Procedure to execute or Run the tests on a new environment
 1. To run the automation suite of Reg-Proc, build the project and get the uber jar generated under target. 
