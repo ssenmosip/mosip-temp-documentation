@@ -9,7 +9,7 @@
     * [1. In Scope](#1-in-scope-)
     * [2. Out Of Scope – MOSIP V1.0 Platform](#2-out-of-scope--mosip-v10-platform-)
     * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary--consolidated-quality-status-)
-    * [4.Types of testing - Definition](#4types-of-testing---definition-)
+    * [4. Types of testing - Definition](#4-types-of-testing---definition-)
     * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
     * [6. Automation Test Reports](#6-automation-test-reports-)
   * [IV&V testing report](#ivv-testing-report-need-link-to-update)
@@ -100,7 +100,7 @@ The following have been the IN SCOPE entities for testing
 |13	|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	
 |14|	End to end testing|	NA|	Manual Testing|	Workflows	|	
 
-#### 4.Types of testing - Definition [**[↑]**](#table-of-content)
+#### 4. Types of testing - Definition [**[↑]**](#table-of-content)
 
 |Testing Type| Description|
 |------|------|
