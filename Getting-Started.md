@@ -1338,25 +1338,26 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
   c. Execute the following commands
  
        * docker run --restart always -it -d -p 8083:8083 -e active_profile_env="${profile_env}" -e 
-         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
-         registry.mosip.io:5000/registration-processor-registration-status-service
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" 
+         "${registryAddress}"/registration-processor-registration-status-service
 
        * docker run --restart always -it -d -p 8082:8082 -e active_profile_env="${profile_env}" -e 
-         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
-         registry.mosip.io:5000/registration-processor-packet-generator-service
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" 
+         "${registryAddress}"/registration-processor-packet-generator-service
 
        * docker run --restart always -it -d --network host --privileged=true -v 
          /home/ftp1/LANDING_ZONE:/home/ftp1/LANDING_ZONE -v 
          /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env="${profile_env}" -e 
-         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
-         registry.mosip.io:5000/registration-processor-packet-receiver-stage
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" 
+         "${registryAddress}"/registration-processor-packet-receiver-stage
 
        * docker run --restart always -it -d --network host --privileged=true -e active_profile_env="${profile_env}" -e 
-         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" -e zone_env=dmz  docker- 
-         registry.mosip.io:5000/registration-processor-common-camel-bridge
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" -e zone_env=dmz  
+         "${registryAddress}"/registration-processor-common-camel-bridge
 
 
-**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
+
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
 
 ### 8.2 ID Repository Salt Generator
  
