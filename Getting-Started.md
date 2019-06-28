@@ -1571,22 +1571,22 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
      
 
     *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
-         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_hash_salt docker- 
-         registry.mosip.io:5000/id-repository-salt-generator
+         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_hash_salt 
+         "${registryAddress}"/id-repository-salt-generator
 
     *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
-         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_encrypt_salt docker- 
-         registry.mosip.io:5000/id-repository-salt-generator
+         -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_encrypt_salt 
+         "${registryAddress}"/id-repository-salt-generator
 
     *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
-         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_hash_salt docker- 
-         registry.mosip.io:5000/id-repository-salt-generator
+         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_hash_salt 
+         "${registryAddress}"/id-repository-salt-generator
 
     *    docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"       
-         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
-         registry.mosip.io:5000/id-repository-salt-generator
+         -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_encrypt_salt 
+         "${registryAddress}"/id-repository-salt-generator
 
-**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env) in the above four commands accordingly
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress) in the above four commands accordingly
 
 
 
