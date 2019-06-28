@@ -995,11 +995,15 @@ ActiveMQ is the message broker used for MOSIP.
 
 
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
+
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
+
 We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-configuration.git).
+
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
 [**MOSIP CONFIGURATION SERVER**](MOSIP-Configuration-Server)
 
+For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server](Getting-Started#firstly-deploy-kernel-configuration-server) in this document.
 
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
@@ -1024,29 +1028,75 @@ Application specific configuration for all applications and services are placed 
 **H. Registration:**
 [**link**](/mosip/mosip-configuration/blob/0.12.0/config/registration-qa.properties)
 
-**Properties that need to be changed once the external dependencies are installed**
-
-1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
-
-2. To be precise, following are the changes that need to be done:   
-
-`mosip.kernel.virus-scanner.host=<your-clamav-hostname>`  <br/>
-`mosip.kernel.virus-scanner.port=<your-clamav-port>`  <br/>
-`mosip.kernel.fsadapter.ceph.access-key=<your-ceph-access-key>`  <br/>
-`mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
-`mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/> 
-
-3. Following are the changes that need to be done in kernel.properties:
-
-`mosip.kernel.sms.authkey=<your-msg91-authkey>`  <br/>
-
-`spring.mail.username=<your-email-id>`  <br/>
-`spring.mail.password=<your-email-password>`  <br/>
-
-[Configure SMTP details](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) 
 
 
-For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server](Getting-Started#firstly-deploy-kernel-configuration-server) in this document.
+**Properties Sections that need to be changed in above module specific files once the external dependencies are installed as per your setup**
+
+### Global
+
+1. #--Common properties------------
+```
+mosip.base.url
+```
+
+2. #--Virus Scanner-----------------
+
+```
+mosip.kernel.virus-scanner.host
+mosip.kernel.virus-scanner.port
+```
+
+3. #--FS Adapter-HDFS -------------
+```
+mosip.kernel.fsadapter.hdfs.name-node-url
+# Enable if hadoop security authorization is 'true', default is false
+mosip.kernel.fsadapter.hdfs.authentication-enabled
+# If HDFS is security is configured with Kerberos, Key Distribution Center domain
+mosip.kernel.fsadapter.hdfs.kdc-domain
+#keytab file path, must be set if authentication-enable is true
+#read keytab file both classpath and physical path ,append appropriate prefix
+#for classpath prefix classpath:mosip.keytab
+#for physical path prefix file:/home/keys/mosip.keytab
+mosip.kernel.fsadapter.hdfs.keytab-file=classpath:mosip.keytab
+```
+
+### Kernel
+
+1. #--kernel common properties-----------------------
+```
+mosip.kernel.database.hostname
+mosip.kernel.database.port
+```
+
+2. #--sms notification service-----------------------
+```
+mosip.kernel.sms.authkey
+```
+
+3. #--Email Notification service---------------------
+
+```
+spring.mail.host
+spring.mail.username
+spring.mail.password
+spring.mail.port=587
+```
+
+4. #--Ldap------------
+```
+ldap_1_DS.datastore.ipaddress
+ldap_1_DS.datastore.port
+```
+
+5. #--DataBase Properties----------------------------
+```
+**_database_password
+**_database_username
+```
+
+
+
+
 
 ### MOSIP database object deployment / configuration
 
