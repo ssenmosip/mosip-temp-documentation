@@ -42,13 +42,7 @@ This contains the features delivered as a part of version 1.0.0 and known issues
 The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
 
 ## Test Execution reports
-* Mindtree testing report <email sent to you – next>
-* IV&V testing report [**need link to update**]
-## Support Process 
-Process to be followed for support required, escalation matrix [**need link to update**]
-
-
-![Test](_images/test_rig_automation/image1.png) 
+* Mindtree testing report
 
 |Title	|Description|
 |------|------|
@@ -71,6 +65,15 @@ Process to be followed for support required, escalation matrix [**need link to u
 |4.|Individual modules|	Manual|
 |5.|Inter module integration|Manual & Test Automation|
 |6.|End to end or System level|	Manual & Test Automation|
+
+* IV&V testing report [**need link to update**]
+## Support Process 
+Process to be followed for support required, escalation matrix [**need link to update**]
+
+
+![Test](_images/test_rig_automation/image1.png) 
+
+
 
 
 
