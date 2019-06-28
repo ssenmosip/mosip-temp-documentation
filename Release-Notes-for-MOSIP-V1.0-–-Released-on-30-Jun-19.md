@@ -1,29 +1,29 @@
 ## Table Of Content
 
-- [Scope of Version 1.0.0](#scope-of-version-100)
-- [Documentation](#documentation)
-- [Key Points](#key-points)
-- [Code](#code)
-- [Test Execution reports](#test-execution-reports)
+- [Scope of Version 1.0.0](#scope-of-version-100-)
+- [Documentation](#documentation-)
+- [Key Points](#key-points-)
+- [Code](#code-)
+- [Test Execution reports](#test-execution-reports-)
   * [Mindtree testing report](#mindtree-testing-report)
-  * [IV&V testing report](#iv-v-testing-report----need-link-to-update---)
-- [Training topics](#training-topics)
-- [Support Process](#support-process)
+  * [IV&V testing report](#ivv-testing-report-need-link-to-update)
+- [Training topics](#training-topics-)
+- [Support Process](#support-process-)
 
-## Scope of Version 1.0.0
+## Scope of Version 1.0.0 [**[↑]**](#table-of-content)
 This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
 
 * Modules included – Pre Registration, Registration Client, Registration Processor, ID Authentication
 * Modules excluded – Administration, Partner Management, Resident Services
 * Reference implementation of Pre-Registration and Registration Client UI
-## Documentation 
+## Documentation [**[↑]**](#table-of-content)
 ### 1. Product Documentation 
 High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  
    [**Link to Product Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
 Low Level design, Wireframes, Test cases [**need link to update**]
 
-## Key Points
+## Key Points [**[↑]**](#table-of-content)
 
 |Key Points|	Details|
 |----|----|
@@ -42,10 +42,10 @@ Low Level design, Wireframes, Test cases [**need link to update**]
 |Supporting key based digital signatures, not using digital certificates||	
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
 
-## Code 
+## Code [**[↑]**](#table-of-content)
 The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
 
-## Test Execution reports
+## Test Execution reports [**[↑]**](#table-of-content)
 ### Mindtree testing report
 
 **Test Scope**
@@ -110,7 +110,7 @@ consolidated report run on 0.12.14 on QA env, from merged automation code base
 
 
 ### IV&V testing report [**need link to update**]
-## Training topics
+## Training topics [**[↑]**](#table-of-content)
 Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
 
 |Sessions\Topics|Speaker|High Level Scope of the session|Dates(TBD)|Duration|
@@ -133,7 +133,7 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 |Hands on|	TBD|	Key Manager, Setup with / without Jenkins, setup & config Kubernetes cluster|	TBD|	Half Day |
 |Hands on|	TBD|	3rd Party Products (ABIS, Devices, etc.,), Reg client Setup, Auth API Server Setup|	TBD|	Half Day |
 |Hands on|	TBD|	Security Zoning, Firewall setups, Introduction to HSM and TPM |	TBD|	Half Day |
-## Support Process 
+## Support Process [**[↑]**](#table-of-content)
 Process to be followed for support required, escalation matrix [**need link to update**]
 
 
