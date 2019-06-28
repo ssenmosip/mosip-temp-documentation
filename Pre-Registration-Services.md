@@ -143,7 +143,8 @@ Error Code | Error Message | Error Description
 PRG_PAM_LGN_008|Invalid Request userId received|if requested userId is empty or invalid
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request time
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 
 ### POST /login/validateOtp
 This request will validate the OTP with respect to userid and provide the authorize token in the browser cookies.
@@ -220,8 +221,8 @@ KER-OTV-003|OTP can't be empty or null.|  If otp field is empty or null
 KER-OTV-004|OTP consists of only numeric characters. No other characters is allowed|If otp contains character other than numeric
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request time
-PRG_CORE_REQ_013|Request date should be current date|If the date is not current date
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_PAM_LGN_013|VALIDATION_UNSUCCESSFUL|If incorrect otp is entered
 PRG_PAM_LGN_014|Token is not present in the header |When token does not come from kernel service in the header
 
@@ -351,9 +352,6 @@ Requires Authentication | No
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_AUTH_012|	Config file not found in the config server|	If config file is missing in the config server
-
-
-
 
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
@@ -673,9 +671,9 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
-PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_CORE_REQ_014|Lang code is invalid|when language code is invalid or empty
 PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
@@ -1026,10 +1024,10 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_CORE_001|Request id is invalid|invalid or empty Request Id
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
-PRG_CORE_REQ_013|Request date should be current date|when the date is not current or future date
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_PAM_CORE_011|encryption failed|encryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
@@ -1696,9 +1694,9 @@ request.langCode |Yes|Language code of the application|fra
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime
-PRG_CORE_REQ_013|Request date should be current date|when the date is not current date
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_PAM_DOC_007|Document exceeding permitted size|when uploaded document size is exceeding the configured size
 PRG_CORE_REQ_018|Document Catagory code is invalid|empty or invalid document category code
 PRG_CORE_REQ_017|Document type code is invalid|empty or invalid document type code
@@ -1758,7 +1756,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Document not found for the source pre-registration Id
+###### Description: If Document not found for the source pre-registration Id or if pre-registration id is invalid(non-empty)
 ```JSON
 {
     "id": "mosip.pre-registration.document.copy",
@@ -1832,7 +1830,8 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document is not found for the requested pre-registration id.
+###### Description: If document is not found for the requested pre-registration id or if pre-registration id is invalid(non-empty)
+
 ```JSON
 {
     "id": "mosip.pre-registration.document.fetch.metadata",
@@ -1894,7 +1893,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document id is valid and the preregistration id is invalid Or If the document id does not belong to the preregistration id
+###### Description: If document id is valid but the preregistration id is invalid Or If the document id does not belong to the preregistration id
 
 ```JSON
 {
@@ -1913,7 +1912,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If document id is invalid and the preregistration id is valid
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If preregistration id is valid but the document id is invalid
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
 PRG_CORE_REQ_012|decryption failed|decryption of document data failed
@@ -1953,7 +1952,7 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Documents is not found for the requested pre-registration id
+###### Description: If document is not found for the requested pre-registration id or if the pre-registration id is invalid(non-empty)
 ```JSON
 {
    "id": "mosip.pre-registration.document.delete",
@@ -2013,7 +2012,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document id is valid and the preregistration id is invalid Or If the document id does not belong to the preregistration id
+###### Description: If document id is valid but the preregistration id is invalid Or If the document id does not belong to the preregistration id
 
 ```JSON
 {
@@ -2032,7 +2031,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If document id is invalid and the preregistration id is valid
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If preregistration id is valid but the document id is invalid
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 
@@ -2044,7 +2043,7 @@ This service enables Pre-Registration to a registration client, request to retri
 * [GET /sync/{preRegistrationId}](#get-syncpreregistrationid)
 
 ### POST /sync
-This request is used by registration client to retrieve all the pre-registration Ids by date range.
+This request is used by registration client to retrieve all the pre-registration Ids by the date range of appointment done.
 
 #### Resource URL
 <div>https://mosip.io/preregistration/v1/sync</div>
@@ -2122,9 +2121,9 @@ request.toDate |Yes|To date of the application|2019-02-12
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
-PRG_CORE_REQ_013|Request date should be current date| when the request date is not current date
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_DATA_SYNC_009|registration center id is invalid|Empty registration center Id
 PRG_CORE_REQ_013|Request date should be current date|when the date is not current date
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
@@ -2206,9 +2205,9 @@ request.preRegistrationIds |Yes|List of Preregistration Ids|42973267563920
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Request timestamp is invalid|Invalid or empty Request DateTime 
-PRG_CORE_REQ_013|Request date should be current date|when the request date is not current date
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_DATA_SYNC_007|Demographic record failed to fetch|when rest service to demographic service fails
 
 ### GET /sync/{preRegistrationId}
@@ -2255,7 +2254,8 @@ preRegistrationId |Yes|Pre Registration id|41342175487213
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No data exist for the requested pre-registration id
+###### Description: No demographic data exists for the requested pre-registration id or if the pre-registration id is invalid(non-empty)
+
 ```JSON
 {
     "id": "mosip.pre-registration.datasync.fetch",
@@ -2390,7 +2390,8 @@ request.time_slot_to |Yes|Time Slot To|12:28:00
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid Pre Registration Id.
+###### Description: If demographic data not found for the preregistration id or if Pre Registration Id is invalid(non-empty).
+
 ```JSON
 {
     "id": "mosip.pre-registration.booking.book",
@@ -2426,9 +2427,9 @@ request.time_slot_to |Yes|Time Slot To|12:28:00
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime 
-PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
 PRG_BOOK_RCI_003|User has not selected time slot|If from time slot or to time slot is empty
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
@@ -2522,7 +2523,8 @@ request.time_slot_to |Yes|Time Slot To|15:45:00
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid Pre Registration Id.
+###### Description: If demographic data is not found for any of the preregistration id or if Pre Registration Id is invalid(non-empty).
+
 ```JSON
 {
    "id": "mosip.pre-registration.booking.book",
@@ -2558,9 +2560,9 @@ request.time_slot_to |Yes|Time Slot To|15:45:00
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
-PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
@@ -2630,7 +2632,7 @@ PRG_BOOK_RCI_024|Availability update failed|when appointment availability is fai
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
 PRG_BOOK_RCI_018|Appointment cannot be canceled|If status is other than booked
-PRG_PAM_APP_005 |No data found for the requested pre-registration id | If no data found for the requested preregistration id
+PRG_PAM_APP_005 |No data found for the requested pre-registration id | If no demographic data found for the requested preregistration id or if the preregistration id is invalid(non-empty)
 
 ### GET /appointment/{preRegistrationId}
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
@@ -2842,7 +2844,7 @@ toDate |Yes|To Date | 2019-06-15
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
-PRG_CORE_REQ_019|	Invalid date time format|	If from date or to date is invalid
+PRG_CORE_REQ_019|Invalid date time format|If from date or to date is invalid
 PRG_CORE_REQ_020|From date is greater than To date|If from date is greater than to date
 
 # BatchJob Service (Private)
@@ -3007,7 +3009,7 @@ request.value |Yes|Any string that you want to generate QR code|
    "version" : "1.0",
    "responsetime": "2019-01-16T17:31:04.021Z",
    "response": {
-	"qrcode":{ByteCode}
+	"qrcode":"ByteArray"
     },
    "errors":null
 }
@@ -3024,7 +3026,7 @@ request.value |Yes|Any string that you want to generate QR code|
    "errors":[ 
          {
     	    "errorCode": "PRG_QRC_002",
-    	    "message": " Failed to generate QR code"
+    	    "message": "Failed to generate QR code"
 	 }
     ]
 }
@@ -3032,9 +3034,10 @@ request.value |Yes|Any string that you want to generate QR code|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_PAM_CORE_004|Request body is invalid|Invalid or empty Request body
 PRG_QRC_001|	File input output exception|	when there is any input / output file operation issues
 PRG_CORE_REQ_013|Request date should be current date|If request date is other than current date
@@ -3132,9 +3135,10 @@ langCode| Yes| language code whatever user choose while login|eng
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Empty Request DateTime 
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_PAM_ACK_002|Mandatory fields are missing|If isBatch field is null
 PRG_PAM_ACK_008|Full name is not valid|If name field is invalid or empty 
 PRG_PAM_ACK_009|Appointment date is not valid|If appointmentDate field is invalid or empty 
@@ -3223,9 +3227,10 @@ request.to_field_lang |Yes|To language code|ara
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id 
-PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime 
+PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
+PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request version
+PRG_PAM_CORE_003|Invalid request time |Empty Request time
+PRG_CORE_REQ_013|Request date should be current date|If request date is not current date
 PRG_TRL_APP_008|Unsupported language|If langCode is other than ara,eng and fra
 PRG_TRL_APP_002|Incorrect mandatory Fields|If any of the request is null
 
