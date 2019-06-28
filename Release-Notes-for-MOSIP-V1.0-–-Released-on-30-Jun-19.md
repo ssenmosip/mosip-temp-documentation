@@ -35,7 +35,7 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 |Hands on|	TBD|	Security Zoning, Firewall setups, Introduction to HSM and TPM |	TBD|	Half Day |
 
 
-## Release Notes 
+## Key Points
 This contains the features delivered as a part of version 1.0.0 and known issues  [**need link to update**]
    * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
 
