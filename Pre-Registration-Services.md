@@ -81,15 +81,15 @@ request.userid |Yes|user id of the applicant(mobile number/email address)|890765
 ###### Description: OTP sent successfully to specified channel
 ```JSON
 {
-  "id": "mosip.pre-registration.login.sendotp",
-  "version": "1.0",
-  "responsetime": "2019-06-03T06:41:46.796Z",
-  "response": {
-    "message": "Sms Request Sent",
-    "status": "success"
-  },
-  "errors": null
-} 
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:41:46.796Z",
+  "response": {
+    "message": "Sms Request Sent",
+    "status": "success"
+  },
+  "errors": null
+}
 ```
 ###### For Email:
 
@@ -109,15 +109,15 @@ request.userid |Yes|user id of the applicant(mobile number/email address)|890765
 ###### Description: OTP sent successfully to specified channel
 ```JSON
 {
-  "id": "mosip.pre-registration.login.sendotp",
-  "version": "1.0",
-  "responsetime": "2019-06-03T06:41:46.796Z",
-  "response": {
-    "message": "Email Request submitted",
-    "status": "success"
-  },
-  "errors": null
-} 
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:41:46.796Z",
+  "response": {
+    "message": "Email Request submitted",
+    "status": "success"
+  },
+  "errors": null
+}
 ```
 
 ##### Failure Response:
@@ -185,15 +185,15 @@ request.OTP|Yes| received OTP  |345674
 ###### Description: sms sent successfully
 ```JSON
 {
-  "id": "mosip.pre-registration.login.useridotp",
-  "version": "1.0",
-  "responsetime": "2019-06-03T06:47:10.838Z",
-  "response": {
-    "message": "VALIDATION_SUCCESSFUL",
-    "status": "success"
-  },
-  "errors": null
-} 
+  "id": "mosip.pre-registration.login.useridotp",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:47:10.838Z",
+  "response": {
+    "message": "VALIDATION_SUCCESSFUL",
+    "status": "success"
+  },
+  "errors": null
+}
 ```
 ##### Failure Response:
 ###### Status code: '200'
