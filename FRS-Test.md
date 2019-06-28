@@ -12,7 +12,9 @@
 |Language Support|French, Arabic, English|
 
 ## Testing Levels table
+
 |Sl. No.|Levels|Test Method|
+|------|------|------|
 |1.|API |Test Automation|
 |2.|API Integration|Test Automation|
 |3.|UI|	Manual|
