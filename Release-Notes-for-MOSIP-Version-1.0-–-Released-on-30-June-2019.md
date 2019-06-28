@@ -55,7 +55,7 @@ The code is available in open source repository. This includes automation test s
 |Browser Support|Chrome – 74.0.3729.169|
 |Language Support|French, Arabic, English|
 
-## Testing Levels table
+#### Testing Levels table
 
 |Sl. No.|Levels|Test Method|
 |------|------|------|
