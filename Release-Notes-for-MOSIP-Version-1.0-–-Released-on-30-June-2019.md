@@ -6,7 +6,8 @@ This release is with proxy biometrics. This means that the implementation of Pri
 * Reference implementation of Pre-Registration and Registration Client UI
 ## Documentation 
 ### 1. Product Documentation 
-High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  [**link to Product Documentation**](Platform-Documentation)
+High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  
+   [**Link to Product Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
 Low Level design, Wireframes, Test cases [**need link to update**]
 ### 3. Training topics
