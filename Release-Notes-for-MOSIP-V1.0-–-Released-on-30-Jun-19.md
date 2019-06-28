@@ -53,15 +53,8 @@ The following have been the IN SCOPE entities for testing
 |Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|	Description|
 |------|------|------|------|------|------|
 |1|	Kernel	|MOS-1|	Test Automation	|API|	1.|
-	
-2	Pre-Registration	MOS-2	Manual Testing
-Test Automation	UI
-API
-Workflows	1.	Certified critical functional workflows 
-2.	Open Defects
-Major – 
-Minor - 
-3	Registration Client	MOS-14735	Manual Testing
+|2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
+|3|	Registration Client|	MOS-14735| <li> Manual Testing <li> 
 Test Automation	UI
 API
 Workflows	3.	
