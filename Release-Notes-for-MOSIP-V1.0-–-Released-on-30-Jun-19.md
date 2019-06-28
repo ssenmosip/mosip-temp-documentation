@@ -31,7 +31,7 @@ The following have been the IN SCOPE entities for testing
 |Title	|Description|
 |------|------|
 |Modules Tested|<li> Pre-registration (UI & Server) <li> Registration Client (UI) <li> Kernel (APIs) <li> Registration Processor (Server) <li> ID Authentication (Server)|
-| Version Tag Tested|	0.12.14|
+| Version Tag Tested|	0.12.15|
 |Testing Methods| <li>  Manual <li>  Test Automation|
 |Types of testing|<li>	 Smoke <li> Functional <li>  Integration <li> 	Regression|
 |Testing Levels|![Image](_images/test_rig_automation/image1.png) |
