@@ -1,4 +1,4 @@
-##1. Features Delivered as part of 0.12.13 release:
+## 1. Features Delivered as part of 0.12.13 release:
 
 |S. No.|Module|Feature Coverage – Refer FRS in WiKi|
 |------|-----|-----|
