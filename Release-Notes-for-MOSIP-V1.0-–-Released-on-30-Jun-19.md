@@ -83,7 +83,7 @@ The following have been the IN SCOPE entities for testing
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
-|Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|
+|Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	Completed Status|
 |------|------|------|------|------|
 |1|	Kernel	|MOS-1|	Test Automation	|API|	
 |2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
