@@ -1,5 +1,6 @@
 ## MOSIP Wiki
 * [Overview](/mosip/mosip/wiki)
+* [Platform Documentation](Platform-Documentation)
 * Architecture
   * [Principles](Architecture-Principles-&-Platform-Goals)
   * [Logical view](Logical-Architecture)  
@@ -46,15 +47,5 @@
   * [Registration Processor](Registration-Processor-APIs)
   * [Admin APIs](Admin-APIs)
   * [AuthN & AuthZ APIs](AuthN-&-AuthZ-APIs)
-* [Developer Documentation](Developer-Documentation)
-* [Tester Documentation](Tester-Documentation)
 * [Contribute to MOSIP](Contribute-to-MOSIP) 
-* [Minutes of Key Meetings](Minutes-of-Key-Meetings)
-* [Platform Documentation](Platform-Documentation)
-* [Deliverables](Deliverables)
-  * [Feb'19](Feb'19)
-  * [Apr'19](Apr-'19)
-  * [May'19](May-'19)
-  * [Component-Feature-JIRA ID Mapping](Component-x-Feature-x-JIRA-ID-Mapping)
-  * [Attachments](Deliverables---Attachments)
-  * [Testing Attachments - Kernel](Testing-Attachments---Kernel)
+
