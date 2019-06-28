@@ -5,9 +5,13 @@ This release is with proxy biometrics. This means that the implementation of Pri
 * Modules excluded – Administration, Partner Management, Resident Services
 * Reference implementation of Pre-Registration and Registration Client UI
 ## Documentation 
-* **Product Documentation** - High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc  <link>
-* **Detailed Documentation** – Low Level design, Wireframes, Test cases <link>
-* **Training topics** – Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
+### 1. Product Documentation 
+High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  
+   [**Link to Product Documentation**](Platform-Documentation)
+### 2. Detailed Documentation
+Low Level design, Wireframes, Test cases [**need link to update**]
+### 3. Training topics
+Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
 
 |Sessions\Topics|Speaker|High Level Scope of the session|Dates(TBD)|Duration|
 |------|-----|-----|-----|-----|
@@ -29,6 +33,34 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 |Hands on|	TBD|	Key Manager, Setup with / without Jenkins, setup & config Kubernetes cluster|	TBD|	Half Day |
 |Hands on|	TBD|	3rd Party Products (ABIS, Devices, etc.,), Reg client Setup, Auth API Server Setup|	TBD|	Half Day |
 |Hands on|	TBD|	Security Zoning, Firewall setups, Introduction to HSM and TPM |	TBD|	Half Day |
+
+
+## Release Notes 
+This contains the features delivered as a part of version 1.0.0 and known issues  [**need link to update**]
+   * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
+
+## Code 
+The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
+
+## Test Execution reports
+* Mindtree testing report
+
+|Title	|Description|
+|------|------|
+|Modules Tested|<li> Pre-registration (UI & Server) <li> Registration Client (UI) <li> Kernel (APIs) <li> Registration Processor (Server) <li> ID Authentication (Server)|
+| Version Tag Tested|	0.12.14|
+|Testing Methods| <li>  Manual <li>  Test Automation|
+|Types of testing|<li>	 Smoke <li> Functional <li>  Integration <li> 	Regression|
+|Testing Levels|![Image](_images/test_rig_automation/image1.png) |
+|Configuration Parameters tested for|<li> Refer to QA env properties file with suffix ‘qa’ in the filename, at [**Link**](/mosip/mosip-configuration/tree/master/config) <li> **provide New Github link**|
+|Browser Support|Chrome – 74.0.3729.169|
+|Language Support|French, Arabic, English|
+
+* IV&V testing report [**need link to update**]
+## Support Process 
+Process to be followed for support required, escalation matrix [**need link to update**]
+
+
 
 
 

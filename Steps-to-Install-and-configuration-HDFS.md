@@ -110,11 +110,13 @@ ssh-copy-id -i $HOME/.ssh/id_rsa.pub hadoop@node-slave1.example.com
 
 update the $HOME/.ssh/id_rsa.pub file contents of slave node to Master node $HOME/.ssh/authorized_keys file <br/> and also
 update $HOME/.ssh/id_rsa.pub file contents of Master node to Slave node $HOME/.ssh/authorized_keys manually.<br/>
-So that we can do ssh from Master node to slave node and vice versa. 
+
+### Verify ssh from Master node to slave node and vice versa.
+ 
 ```
 ssh hadoop@node-slave1.example.com
 ```
-
+NOTE: if ssh fails, try setting up again the authorized_keys to the machine.
 
 ### Download and Unpack Hadoop Binaries
 Login to node-master as the hadoop user, download the Hadoop tarball from Hadoop project page, and unzip it:
@@ -127,19 +129,25 @@ tar -xzf hadoop-2.8.1.tar.gz
 
 mv hadoop-2.8.1 hadoop
 ```
-### Set Environment Variables
+### Set Environment Variables in each machine in the cluster
 Add Hadoop binaries to your PATH. Edit ``/home/hadoop/.bashrc`` or ``/home/hadoop/.bash_profiles`` and add the following line:
 ```
 export HADOOP_HOME=$HOME/hadoop [hadoop installation directory]
 export HADOOP_CONF_DIR=$HOME/hadoop/etc/hadoop
-export HADOoP_MAPRED_HOME=$HOME/hadoop
+export HADOOP_MAPRED_HOME=$HOME/hadoop
 export HADOOP_COMMON_HOME=$HOME/hadoop
 export HADOOP_HDFS_HOME=$HOME/hadoop
 export YARN_HOME=$HOME/hadoop
 export PATH=$PATH:$HOME/hadoop/bin
 ```
+run following command to apply environment variable changes, using source command
+```
+source /home/hadoop/.bashrc
+or
+source /home/hadoop/.bash_profiles
+```
 ### Configure the Master Node
-Configuration will be done on node-master and replicated to other nodes.
+Configuration will be done on node-master and replicated to other slave nodes.
 
 #### Set NameNode
 Update ~/hadoop/etc/hadoop/core-site.xml :

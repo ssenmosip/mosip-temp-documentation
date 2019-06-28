@@ -1109,24 +1109,6 @@ Database deployment consists of the following 4 categories of objects to be depl
 3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
 
 4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
-  Pre-Registration: Please execute following script. This would be put in git in next built.
-INSERT INTO prereg.language_transliteration(
-lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
-VALUES ('eng', 'ara', 'Latin-Arabic', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
-
-INSERT INTO prereg.language_transliteration(
-lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
-VALUES ('fra', 'ara', 'Latin-Arabic', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
-
-INSERT INTO prereg.language_transliteration(
-lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
-VALUES ('ara', 'fra', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
-
-INSERT INTO prereg.language_transliteration(
-lang_from_code, lang_to_code, lang_id, cr_by, cr_dtimes)
-VALUES ('ara', 'eng', 'Arabic-Latin', 'MOSIP_SYSTEM', '2019-01-09T15:31:32.957Z');
-
-
 
 The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](/mosip/mosip/tree/master/scripts/database/mosip_master/dml).
 
@@ -1447,12 +1429,12 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 ***
 
 ### 8.1  Registration-Processor DMZ services deployment
-Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. 
+Registration Processor DMZ Services are setup externally(deployed in a separate VM).
 We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
 sudo yum install docker
-3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys
+3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys(because through jenkins job, we will ssh into new VM and deploy)
 
 After installing Docker Start the Docker Service
 
@@ -1483,9 +1465,9 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 4. The last stage in the Jenkinsfile viz DMZ_Deployment in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of registration processor.
 Changes to be made in this stage->
 
-   a. Replace the credentialsId of docker hub with yours.
+   a. Replace the value for registryCredentials(credentialsId of docker hub) with yours.
 
-   b. Replace the IP with the IP of this newly created VM.
+   b. Replace the value for the variable -> dmz_reg_proc_dev_ip with the IP of your newly created VM.
 
 Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/registration-processor/Jenkinsfile
 
@@ -1497,26 +1479,26 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
 
   c. Execute the following commands
  
-       * docker run --restart always -it -d -p 8083:8083 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor- 
-         registration-status-service
+       * docker run --restart always -it -d -p 8083:8083 -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
+         registry.mosip.io:5000/registration-processor-registration-status-service
 
-       * docker run --restart always -it -d -p 8082:8082 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-packet- 
-         generator-service
+       * docker run --restart always -it -d -p 8082:8082 -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
+         registry.mosip.io:5000/registration-processor-packet-generator-service
 
        * docker run --restart always -it -d --network host --privileged=true -v 
          /home/ftp1/LANDING_ZONE:/home/ftp1/LANDING_ZONE -v 
-         /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env=qa -e 
-         spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker- 
+         /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
          registry.mosip.io:5000/registration-processor-packet-receiver-stage
 
-       * docker run --restart always -it -d --network host --privileged=true -e active_profile_env=qa -e 
-         spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 -e zone_env=dmz  docker- 
+       * docker run --restart always -it -d --network host --privileged=true -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" -e zone_env=dmz  docker- 
          registry.mosip.io:5000/registration-processor-common-camel-bridge
 
-**Note** - Please change the environmental variables in the above four commands accordingly whether you are executing 
-         directly or through Jenkinsfile.
+
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
 
 ### 8.2 ID Repository Salt Generator
  
@@ -1554,7 +1536,7 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
          spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
-**Note** - Please change the environmental variables in the above four commands accordingly.
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env) in the above four commands accordingly
 
 
 
