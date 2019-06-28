@@ -1299,6 +1299,9 @@ PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 ### GET /applications
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code, Document details(Only for Proof Of Address), Appointment details and Postal Code by user id from authorization token.
 
+* [Without Pagination](#without-pagination)
+* [With Pagination](#with-pagination)
+
 ### Without pagination
 if pageIndex parameter is not passed as query param, then all the demographic data for the user will be retrieved without applying pagination mechanism.
 
@@ -1407,7 +1410,9 @@ PRG_PAM_APP_018|Failed to read the identity json from the server|If the configur
 
 ### With pagination
 if pageIndex parameter is passed as query param, then all the demographic data for the user will be retrieved in terms of pages.
+
 pageSize parameter is configurable.
+
 pageIndex is by default 0 if no value is passed for query param.
 
 #### Resource URL
@@ -1597,8 +1602,10 @@ This service enables Pre-Registration portal to request for uploading the docume
 
 ### POST /documents/{preRegistrationId}
 This request is used to upload document with the metadata which include document category code, document type code and document format for a pre-registration Id.
+
 Note: document category code, document type code and language code are derived from kernel master data.
 Document API(Master data) spec found in following link: https://github.com/mosip/mosip/wiki/Document-APIs
+
 URL:
 1. For valid Document category code refer below GET method for respective language code : /documentcategories/{langcode}
 2. For valid Document type code refer below GET method for respective language and document category code: /documenttypes/{documentcategorycode}/{langcode}
