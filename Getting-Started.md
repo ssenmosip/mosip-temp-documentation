@@ -10,6 +10,7 @@
 
 ***
 ## 1. Getting the Source Code [**[↑]**](#content)
+Those who are referring this document, They should have minimum knowledge of Linux and Azure with Kubernetes 
 MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
@@ -484,7 +485,31 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
 ##### Below command to open the port 80/443 from RHEL 7.5 VM 
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
 $ sudo firewall-cmd –reload <br/>
-##### Bind SSL certificate to work https 
+##### Bind SSL certificate to work https
+RHEL 7  version, these are the following commands you have to run to generate certificates for nginx server.
+
+1.  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+              It will install EPEL script for RHEL 7 OS. It is same as PPA for Ubuntu, it will install some extra packages for enterprise linux edition. 
+You can read more about it https://fedoraproject.org/wiki/EPEL.
+
+2. sudo yum install epel-release-latest-7.noarch.rpm
+              This command will run the EPEL install scripts and enable the EPEL packages for RHEL7
+
+3.  yum --disablerepo="*" --enablerepo="epel" list available
+              This will list all the EPEL packages available for used.
+
+4. yum --disablerepo="*" --enablerepo="epel" search python2-certbot-nginx
+              Check for python2-certbot-nginx package in EPEL Packages.         
+
+5. sudo yum install python2-certbot-nginx
+              This will install python certbot for nginx into VM.
+
+6. sudo certbot --nginx certonly
+              This will generate the certificate for VM.
+
+####### Certficates will be generated at, /etc/letsencrypt/live/<domain_name>/ directory.
+####### cert.pem is the certificate and privkey.pem is private key.
+
 **  We are using **Let's Encrypt**, CA signed SSL certificates. Documentation of Let's Encrypt can be referred [here](//letsencrypt.org/getting-started/)
 
 ** need to run below command to solve the permisstion issues in nginx reffer blow link
