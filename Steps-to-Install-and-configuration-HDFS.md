@@ -45,12 +45,53 @@ example:
 ### Creating Hadoop User
 **create a hadoop user** in every machine in the cluster to followup the documentation <br/> 
 or **replace the hadoop user** in the documentation with your own user.
+
+Log in to the system as the root user.
 ```
-sudo adduser hadoop
+sudo su -
+```
+Create a hadoop user account using the **useradd** command.
+```
+adduser hadoop
 
 ```
-if you want to give sudo access to hadoop user.(Optional)
-Follow this [link](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html)
+Set a password for the new hadoop user using the **passwd** command.
+```
+passwd hadoop
+Changing password for user hadoop.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+```
+Add the haddop user to the wheel group using the **usermod** command.
+```
+usermod -aG wheel hadoop
+```
+Test that the updated configuration allows the user you created to run commands using sudo.
+Use the **su** to switch to the new user account that you created.
+```
+su hadoop
+```
+Use the groups to verify that the user is in the wheel group.
+```
+groups
+```
+Use the sudo command to run the **whoami** command. As this is the first time you have run a command using sudo from hadoop user account the banner message will be displayed. You will be also be prompted to enter the password for the hadoop account.
+```
+sudo whoami
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for hadoop:
+root
+```
+The last line of the output is the user name returned by the **whoami** command. If sudo is configured correctly this value will be **root**.
+
+**You have successfully configured a hadoop user with sudo access**. You can now log in to this hadoop account and use sudo to run commands as if you were logged in to the account of the root user.
 
 ### Distribute Authentication Key-pairs for the Hadoop User
 The master node will use an ssh-connection to connect to other nodes with key-pair authentication, to manage the cluster.<br/>
