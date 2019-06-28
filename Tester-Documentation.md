@@ -338,7 +338,7 @@ The workflow of testing or running the test suite of the available API’s And S
 
    Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
 
-3. Report will be generated under “<wokspace>/testing-report.
+3. Report will be generated under “< wokspace >/testing-report.
 
 ## 4.5 Analyze the test reports
 1. Report can be opened in any Web browser (i.e. Internet Explorer)
