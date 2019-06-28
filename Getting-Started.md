@@ -1586,7 +1586,7 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
          -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_encrypt_salt 
          "${registryAddress}"/id-repository-salt-generator
 
-**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress) in the above four commands accordingly
+**Note** - Please change the variables active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress in the above four commands accordingly
 
 
 
