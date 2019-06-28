@@ -50,7 +50,7 @@ The code is available in open source repository. This includes automation test s
 | Version Tag Tested|	0.12.14|
 |Testing Methods| <li>  Manual <li>  Test Automation|
 |Types of testing|<li>	 Smoke <li> Functional <li>  Integration <li> 	Regression|
-|Testing Levels|[Click here](#testing-levels-table)
+|Testing Levels|![Test](_images/test_rig_automation/image1.png) |
 |Configuration Parameters tested for|<li> Refer to QA env properties file with suffix ‘qa’ in the filename, at [**Link**](/mosip/mosip-configuration/tree/master/config) <li> **provide New Github link**|
 |Browser Support|Chrome – 74.0.3729.169|
 |Language Support|French, Arabic, English|
