@@ -13,9 +13,9 @@
   * [2.10 VID Service](#210-vid-service-)
     * [2.10.1 Generate a VID](#2101-generate-a-vid-) _(RES_FR_10.1)_
     * [2.10.2 Maintain the Status of a VID (WIP)](#2102-maintain-the-status-of-a-vid-wip-) _(RES_FR_10.2)_
-    * [2.10.3 Regenerate a VID (WIP)](#2103-regenerate-a-vid-wip) _(RES_FR_10.3)_
-    * [2.10.4 Revoke a VID](#2104-revoke-a-vid-) _(RES_FR_10.4)_
-    * [2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP)](#2105-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-wip-) _(RES_FR_10.5)_
+    * [2.10.3 Revoke a VID](#2103-revoke-a-vid-) _(RES_FR_10.3)_
+    * [2.10.4 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP)](#2104-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-wip-) _(RES_FR_10.4)_
+    * [2.10.5 Regenerate a VID (WIP)](#2105-regenerate-a-vid-wip) _(RES_FR_10.5)_
 _(RES_FR_10.6)_
 * [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 * [Resident Services API](#resident-services-api-)
@@ -42,13 +42,13 @@ This feature will allow an individual to track status of his/her UIN generation.
 
 ## 2.2 Download e-UIN [**[↑]**](#table-of-content)
 
-This feature will allow an individual to download his/her electronic UIN. The individual needs to provide the UIN/VID, full name, postal code, and security code as input. The system will validate the provided data, trigger an OTP to individual's registered mobile number and/or email ID, validate the OTP and then authenticate the individual. On successful authentication, system will send a link to password protected pdf for download of e-UIN to individual's registered mobile number and/or email ID. The system will also trigger a notification message  to the individual's registered mobile number and/or email id after the transaction or appropriate error message if the transaction was not successful.
+This feature will allow an individual to download his/her electronic UIN. The individual needs to provide the UIN/VID, full name, postal code, and security code as input. The system will validate the provided data, trigger an OTP to individual's registered mobile number and/or email ID, validate the OTP and then authenticate the individual. On successful authentication, system will send a link to the individual's registered mobile number and/or email ID to download his/her password-protected e-UIN in pdf format. The system will also trigger a notification message  to the individual's registered mobile number and/or email id after the transaction or appropriate error message if the transaction was not successful.
 
 ## 2.3 Retrieve Lost RID (Request ID for New Registration) [**[↑]**](#table-of-content)
 After the UIN application is submitted by an individual providing the required demographic, biometrics and supporting documents and filling up the enrollment form by visiting a registration center, the system generates a unique RID (Request ID) as an acknowledgement number. If the individual misplaces this RID, this feature will allow an individual to retrieve his/her lost RID to subsequently trace the associated UIN. The individual needs to provide his/her Full Name, Mobile Number and/or E-Mail ID, Postal Code that was provided during registration as input. The system will first validate the individual's provided data, trigger an OTP, and perform OTP validation on the given mobile number and/or email ID. On successful validation, the system will send a link to password protected pdf containing the RID to individual's registered mobile number and/or email ID. The system will also trigger a notification message to the registered mobile number/email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 ## 2.4 Retrieve Lost UIN [**[↑]**](#table-of-content)
-This feature will allow an individual to retrieve his/her lost UIN. The individual needs to provide the Full Name, Mobile Number and/or E-Mail ID, Postal Code as input. The system will first validate the individual's provided data, trigger an OTP, and perform OTP validation on the given mobile number and/or email ID. On successful validation, the system will send a link to password protected pdf containing the UIN to individual's registered mobile number and/or email ID. The system will also trigger a notification message to the registered mobile number and/or email ID after a successful transaction or  appropriate error message if the transaction was not successful.
+This feature will allow an individual to retrieve his/her lost UIN. The individual needs to provide the Full Name, Mobile Number and/or E-Mail ID, Postal Code as input. The system will first validate the individual's provided data, trigger an OTP, and perform OTP validation on the given mobile number and/or email ID. On successful validation, the system will send a link to the individual's registered mobile number and/or email ID to download his/her password-protected UIN in pdf format. The system will also trigger a notification message to the registered mobile number and/or email ID after a successful transaction or  appropriate error message if the transaction was not successful.
 
 ## 2.5 Re-print Request of UIN [**[↑]**](#table-of-content)
 This feature will allow an individual to raise reprint request of his/her UIN. The individual needs to provide the UIN/VID as input. The system will first validate the individual's UIN/VID, trigger an OTP to individual's registered mobile number and/or email ID, validate the OTP and then authenticate the individual. On successful authentication, the system will take the UIN reprint request and acknowledge the request with a Request ID (RID) to the individual. The system will also trigger a notification message to the registered mobile number and/or email ID after a successful transaction or appropriate error message if the transaction was not successful.
@@ -84,15 +84,18 @@ An individual can request to generate a Virtual ID via Resident Service by provi
 
 ### 2.10.2 Maintain the status of a VID (WIP) [**[↑]**](#table-of-content)
 
-### 2.10.3 Regenerate a VID (WIP)[**[↑]**](#table-of-content)	
+This feature allows the system to maintain the status of all VIDs from the perspective of Time Validity, Transactions, and VID Revocation. This is an internal feature, which is invoked and used by the IDA (ID Authentication) module. IDA (ID Authentication) module will be responsible to maintain the status of VIDs. 
 
-### 2.10.4 Revoke a VID [**[↑]**](#table-of-content)
+### 2.10.3 Revoke a VID [**[↑]**](#table-of-content)
 
 To prevent misuse of VID, an individual can request to revoke his/her VID using Resident Service if the individual feels his/her VID has been compromised. The individual provides the VID as input. The system will then validate the individual's VID, trigger an OTP to individual's registered mobile number and/or email ID, validate the OTP and then authenticate the individual. On successful authentication, the system revokes the provided VID. Based on the VID policy of the Country a new VID will be generated during revocation and provided to the individual on the registered mobile number and/or email ID. If validation fails, the system triggers the appropriate error message.
 
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
-### 2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP) [**[↑]**](#table-of-content)  
+### 2.10.4 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP) [**[↑]**](#table-of-content)  
+This is an internal feature, which allows system to use/invoke VIDs and not applicable for an individual. This allows for a VID to be auto regenerated and given to an individual after he/she requests for an existing VID to be revoked. The VID regeneration happens based on the VID policy defined by Country (the regeneration policy for the revoked VID should be ‘Auto-restore’).
+### 2.10.5 Regenerate a VID (WIP)[**[↑]**](#table-of-content)	
+This feature allows for regeneration of a VID, which is invalid due to usage or expiry. Also, a VID, which has been revoked previously, can be regenerated. The regeneration of VID happens as per the defined policy of a Country. This feature of VID is not exposed to an individual directly, it is an internal feature invoked and used by IDA (ID Authentication) module.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/vid-service.md)
 
