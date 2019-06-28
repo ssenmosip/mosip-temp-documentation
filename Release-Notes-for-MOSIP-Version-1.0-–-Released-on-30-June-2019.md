@@ -34,15 +34,18 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 |Hands on|	TBD|	Security Zoning, Firewall setups, Introduction to HSM and TPM |	TBD|	Half Day |
 
 
-### 4. Release Notes 
+## Release Notes 
 This contains the features delivered as a part of version 1.0.0 and known issues  <link>
-   Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
+   * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
 
-Code – The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above <link>. We would actively support the System Integrator during the first deployment process.
-Test Execution reports
-•	Mindtree testing report <email sent to you – next>
-•	IV&V testing report <link>
-Support Process – Process to be followed for support required, escalation matrix <link>
+## Code 
+The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above <link>. We would actively support the System Integrator during the first deployment process.
+
+## Test Execution reports
+* Mindtree testing report <email sent to you – next>
+* IV&V testing report <link>
+## Support Process 
+Process to be followed for support required, escalation matrix <link>
 
 
 
