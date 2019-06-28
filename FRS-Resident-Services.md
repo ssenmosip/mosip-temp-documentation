@@ -23,7 +23,7 @@ _(RES_FR_10.6)_
 
 # 1. Overview [**[↑]**](#table-of-content)
 
-The Resident Service module will provide a host of services to individual who can avail these services after the creation of their Unique Identity Number (UIN). The list of services are as follows:
+The Resident Service module will provide a host of services to an individual which can be availed after the creation of their Unique Identity Number (UIN). The list of services are as follows:
  * Update of Demographic Data (UIN update)
  * Track Request Status
  * Lock/unlock AUTH types
