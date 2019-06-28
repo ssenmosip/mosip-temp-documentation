@@ -1,3 +1,14 @@
+## Scope of Version 1.0.0
+This release is with proxy biometrics. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
+
+* Modules included – Pre Registration, Registration Client, Registration Processor, ID Authentication
+* Modules excluded – Administration, Partner Management, Resident Services
+* Reference implementation of Pre-Registration and Registration Client UI
+## Documentation 
+* **Product Documentation** - High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc  <link>
+* **Detailed Documentation** – Low Level design, Wireframes, Test cases <link>
+* **Training topics** – Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
+
 |Sessions\Topics|Speaker|High Level Scope of the session|Dates(TBD)|Duration|
 |------|-----|-----|-----|-----|
 |MOSIP Functional Overview|TBD|Functional Modules, Demo, Documentation Overview (Github, Wiki)|TBD|2|
