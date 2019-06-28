@@ -189,7 +189,7 @@ langCode|Yes|language code used |eng or ara
 
 #### Request
 ```JSON
-// NOTE : the request will be encrypted. This is an example of decrypted request json.
+// NOTE : the actual request will be sent as encrypted json. This is an example of decrypted request json.
 {
 	"id": "mosip.registration.sync",
 	"version": "1.0",
