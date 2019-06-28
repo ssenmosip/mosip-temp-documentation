@@ -2,6 +2,11 @@
 
 **Note:** The below documentation is for linux machines.
 
+## Install Java
+```
+sudo yum install java-1.8.0-openjdk-devel
+```
+
 ## Download ApacheDs
 
 Use one of the three methods below to download the binary file of ApacheDs.
@@ -44,13 +49,6 @@ Use one of the three methods below to download the binary file of ApacheDs.
 
     ![apacheds-installation-4](_images/auth/apacheds-installation-4.png)
 
-## Configure ApacheDs
-
-Provide java bin path in the config file at <apacheds_installation>/conf/wrapper.conf
-
-![apacheds-installation-5](_images/auth/apacheds-installation-5.png)
-
-![apacheds-installation-6](_images/auth/apacheds-installation-6.png)
 
 ## Start, Stop and check status ApacheDs server
 
