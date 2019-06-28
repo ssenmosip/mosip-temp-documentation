@@ -83,9 +83,9 @@ The following have been the IN SCOPE entities for testing
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
-|Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|	Description|
-|------|------|------|------|------|------|
-|1|	Kernel	|MOS-1|	Test Automation	|API|	|
+|Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|
+|------|------|------|------|------|
+|1|	Kernel	|MOS-1|	Test Automation	|API|	
 |2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
 |3|	Registration Client|	MOS-14575| <li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
 |4|Registration Processor|	MOS-4|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| |
@@ -97,8 +97,8 @@ The following have been the IN SCOPE entities for testing
 |10|	Registration Client to IDA integration testing|	NA|	Manual Testing|	Workflows|		|
 |11|	Registration Processor to IDA integration testing|	NA|	Manual Testing|	Workflows	||
 |12|	IDA to ID Repo|	NA|	Manual Testing|	Workflows	|	|
-|13	|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	Workflows|This is covered as part of both, individual module level & inter module level integration testing |
-|14|	End to end testing|	NA|	Manual Testing|	Workflows	|	This is certified manually as of 0.12.14 release build|
+|13	|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	
+|14|	End to end testing|	NA|	Manual Testing|	Workflows	|	
 
 #### 4.Types of testing - Definition [**[↑]**](#table-of-content)
 
