@@ -43,7 +43,14 @@ This contains the features delivered as a part of version 1.0.0 and known issues
 The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
 
 ## Test Execution reports
-* Mindtree testing report
+### Mindtree testing report
+
+**Test Scope**
+
+#### 1. In Scope
+
+The following have been the IN SCOPE entities for testing
+
 
 |Title	|Description|
 |------|------|
@@ -55,6 +62,16 @@ The code is available in open source repository. This includes automation test s
 |Configuration Parameters tested for|<li> Refer to QA env properties file with suffix ‘qa’ in the filename, at [**Link**](/mosip/mosip-configuration/tree/master/config) <li> **provide New Github link**|
 |Browser Support|Chrome – 74.0.3729.169|
 |Language Support|French, Arabic, English|
+
+#### 2. Out Of Scope – MOSIP V1.0 Platform
+
+|Title|	Description|
+|------|------|
+|NFR Testing| <li> Performance Testing <li> Security Testing|
+|Global Configuration Testing|<li> Testing is done for one set of approved production configuration only <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code, is not tested for.|
+|NFR Defect Fix Retesting|The outstanding NFR defects are not considered for fix or retesting in this release|
+|Browser Support| <li>	IE <li>	Firefox <li> MAC|
+
 
 * IV&V testing report [**need link to update**]
 ## Support Process 
