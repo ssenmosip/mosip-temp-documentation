@@ -985,7 +985,6 @@ ActiveMQ is the message broker used for MOSIP.
 * The activemq management dashboard can be accessed on 
 ``` http://localhost:8161/admin ```
 
-***
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-configuration.git).
