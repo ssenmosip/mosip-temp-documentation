@@ -81,7 +81,7 @@ The following have been the IN SCOPE entities for testing
 |------|------|------|------|------|------|
 |1|	Kernel	|MOS-1|	Test Automation	|API|	|
 |2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
-|3|	Registration Client|	MOS-14735| <li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
+|3|	Registration Client|	MOS-14575| <li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
 |4|Registration Processor|	MOS-4|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| |
 |5|	ID Authentication	|MOS-5|	Test Automation	|<li> API <li> Workflows|	|	
 |6	|Pre-Registration to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|	
