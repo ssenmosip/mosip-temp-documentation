@@ -41,7 +41,7 @@ The test execution module of the Kernel module involving API’s is as depicted 
 None
 
 ## 1.5 Procedure to Add new test cases into the API test suite
-1. From the automationtests project, the test suites and cases can be located in the folder [**src/test/resources**]
+1. From the automationtests project, the test suites and cases can be located in the folder [**src/main/resources**]
 1. Every API tests structure (model, api name and test case) are stored in a folder/sub-folder approach. Let us take an example of “**Email Notification service**” and explain how to add a new test
 
  ![Test](_images/test_rig_automation/kernel2.jpg) 
@@ -58,7 +58,7 @@ The **readTestCases** method from **TestCaseReader** class will read the folder 
 
 
 ## 1.5 Procedure to execute or Run the tests on a new environment
-* To run the automation suite of Kernel you will need an xml file named [**testngKernel.xml**], which will be available under [**src/test/resources**].
+* To run the automation suite of Kernel you will need an xml file named [**testngKernel.xml**], which will be available under [**src/main/resources**].
 * Add what are the test need to run in that xml file.
 * Add the path of the xml file in **pom.xml** file under maven surefire plugin.
 
@@ -115,7 +115,7 @@ The test execution work-flow for the module Pre-Registration involving Rest API�
 None
 
 ## 2.5 Procedure to Add new test cases into the API test suite
-1. From the code repository of the module, the test suites and cases can be located in the folder [**src/test/resources**]
+1. From the code repository of the module, the test suites and cases can be located in the folder [**src/main/resources**]
 1. Every API tests structure (test suite and test case) are stored in a folder/sub-folder approach. Let us take an example of “Create_PreRegistration” and Here you can see Create_PreRegistration is the suite name and inside that we have list of test cases.
 
   ![Test](_images/test_rig_automation/pre-reg2.jpg) 
@@ -134,7 +134,7 @@ For Validation, we are doing json to json comparison.
 
 
 ## 2.6 Procedure to execute or Run the tests on a new environment
-To run the automation suite of Pre-Registration module you will need an xml file named [**Pre-Registration_TestNG.xml**], which will be available under [**src/test/resources**]. In this xml file we need to add class name which we want to run.
+To run the automation suite of Pre-Registration module you will need an xml file named [**Pre-Registration_TestNG.xml**], which will be available under [**src/main/resources**]. In this xml file we need to add class name which we want to run.
  
   ![Test](_images/test_rig_automation/pre-reg4.jpg) 
 

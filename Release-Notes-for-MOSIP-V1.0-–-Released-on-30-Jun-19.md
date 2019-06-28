@@ -10,7 +10,82 @@ High Level documentation including Functional requirements, Process flows, Archi
    [**Link to Product Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
 Low Level design, Wireframes, Test cases [**need link to update**]
-### 3. Training topics
+
+## Key Points
+This contains the features delivered as a part of version 1.0.0 and known issues  [**need link to update**]
+   * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
+
+## Code 
+The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
+
+## Test Execution reports
+### Mindtree testing report
+
+**Test Scope**
+
+#### 1. In Scope
+
+The following have been the IN SCOPE entities for testing
+
+
+|Title	|Description|
+|------|------|
+|Modules Tested|<li> Pre-registration (UI & Server) <li> Registration Client (UI) <li> Kernel (APIs) <li> Registration Processor (Server) <li> ID Authentication (Server)|
+| Version Tag Tested|	0.12.14|
+|Testing Methods| <li>  Manual <li>  Test Automation|
+|Types of testing|<li>	 Smoke <li> Functional <li>  Integration <li> 	Regression|
+|Testing Levels|![Image](_images/test_rig_automation/image1.png) |
+|Configuration Parameters tested for|<li> Refer to QA env properties file with suffix ‘qa’ in the filename, at [**Link**](/mosip/mosip-configuration/tree/master/config) <li> **provide New Github link**|
+|Browser Support|Chrome – 74.0.3729.169|
+|Language Support|French, Arabic, English|
+
+#### 2. Out Of Scope – MOSIP V1.0 Platform
+
+|Title|	Description|
+|------|------|
+|NFR Testing| <li> Performance Testing <li> Security Testing|
+|Global Configuration Testing|<li> Testing is done for one set of approved production configuration only <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code, is not tested for.|
+|NFR Defect Fix Retesting|The outstanding NFR defects are not considered for fix or retesting in this release|
+|Browser Support| <li>	IE <li>	Firefox <li> MAC|
+
+#### 3. Executive Summary – Consolidated Quality Status
+
+|Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|	Description|
+|------|------|------|------|------|------|
+|1|	Kernel	|MOS-1|	Test Automation	|API|	1.|
+|2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
+|3|	Registration Client|	MOS-14735| <li> Manual Testing <li> 
+Test Automation	UI
+API
+Workflows	3.	
+4	Registration Processor	MOS-4	Manual Testing
+Test Automation	API
+Workflows	4.	
+5	ID Authentication	MOS-5	Test Automation	API
+Workflows	5.	
+6	Pre-Registration to Registration Client integration testing
+	NA	Manual Testing
+	Workflows	6.	
+7	Registration Client to Registration Processor integration testing	NA	Manual Testing
+	Workflows	7.	
+8	Registration Processor to Pre-Registration integration testing	NA	Manual Testing
+	Workflows	8.	
+9	Registration Processor to Registration Client integration testing	NA	Manual Testing
+	Workflows	9.	
+10	Registration Client to IDA integration testing	NA	Manual Testing
+	Workflows	10.	
+11	Registration Processor to IDA integration testing	NA	Manual Testing
+	Workflows	11.	
+12	IDA to ID Repo	NA	Manual Testing
+	Workflows	12.	
+13	Kernel API integration	NA	Manual Testing
+Test Automation	Workflows	This is covered as part of both, individual module level & inter module level integration testing 
+14	End to end testing	NA	Manual Testing
+	Workflows	1)	This is certified manually as of 0.12.14 release build
+
+
+* IV&V testing report [**need link to update**]
+## Training topics
 Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
 
 |Sessions\Topics|Speaker|High Level Scope of the session|Dates(TBD)|Duration|
@@ -33,30 +108,6 @@ ID authentication|	TBD|	Functional Overview Coverage - API, Configuration & Cust
 |Hands on|	TBD|	Key Manager, Setup with / without Jenkins, setup & config Kubernetes cluster|	TBD|	Half Day |
 |Hands on|	TBD|	3rd Party Products (ABIS, Devices, etc.,), Reg client Setup, Auth API Server Setup|	TBD|	Half Day |
 |Hands on|	TBD|	Security Zoning, Firewall setups, Introduction to HSM and TPM |	TBD|	Half Day |
-
-
-## Release Notes 
-This contains the features delivered as a part of version 1.0.0 and known issues  [**need link to update**]
-   * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
-
-## Code 
-The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
-
-## Test Execution reports
-* Mindtree testing report
-
-|Title	|Description|
-|------|------|
-|Modules Tested|<li> Pre-registration (UI & Server) <li> Registration Client (UI) <li> Kernel (APIs) <li> Registration Processor (Server) <li> ID Authentication (Server)|
-| Version Tag Tested|	0.12.14|
-|Testing Methods| <li>  Manual <li>  Test Automation|
-|Types of testing|<li>	 Smoke <li> Functional <li>  Integration <li> 	Regression|
-|Testing Levels|![Image](_images/test_rig_automation/image1.png) |
-|Configuration Parameters tested for|<li> Refer to QA env properties file with suffix ‘qa’ in the filename, at [**Link**](/mosip/mosip-configuration/tree/master/config) <li> **provide New Github link**|
-|Browser Support|Chrome – 74.0.3729.169|
-|Language Support|French, Arabic, English|
-
-* IV&V testing report [**need link to update**]
 ## Support Process 
 Process to be followed for support required, escalation matrix [**need link to update**]
 

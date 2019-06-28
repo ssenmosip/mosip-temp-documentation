@@ -947,7 +947,7 @@ NOTE: Required only if HDFS is used for packet storage.
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
 ### 6.7 Steps to Deploy Kernel Key Manager Service
-Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone machine and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone VM. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
 
 To deploy keymanager service, follow below steps -
 1.  Prerequiste:<br/>
@@ -972,18 +972,18 @@ And also open the port.
  
 The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy this service, basically, running the docker image of key manager.
 
-For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId which you need to replace with credetailsId written in this stage.
+For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId.
   
-  *  Replace the key_manager_vm_ip with ip of newly created VM.
+  *  Replace the value for registryCredentials(credentialsId of docker hub) with yours 
 
-  * The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env  and 
-      active_profile_env accordingly.
+  *  Replace the value for  key_manager_vm_ip with IP of your newly created VM.
 
 Once done the following command will be used to deploy keymanager to the machine: <br/><br/>
 ```
-sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env=qa --name keymanager docker-registry.mosip.io:5000/kernel-keymanager-service
+sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env="${profile_env}" --name keymanager "${registryAddress}"/kernel-keymanager-service
 ```
-
+**NOTE- Replace the values for spring_config_url_env, spring_config_label_env, 
+      active_profile_env and registryAddress in the above command accordingly
 
 ### 6.8  SMS Gateway configuration 
 Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/mosip/tree/0.12.0/kernel/kernel-smsnotification-service) 
