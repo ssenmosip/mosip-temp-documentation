@@ -2,8 +2,8 @@
 |------|-----|-----|-----|-----|
 |MOSIP Functional Overview|TBD|Functional Modules, Demo, Documentation Overview (Github, Wiki)|TBD|2|
 |MOSIP Technical Overview|	TBD|	Tools, Technology, Architecture, How to build deploy, Reference|	TBD|	2|
-MOSIP Interfaces	TBD	Devices, MDS, ABIS, Enrichment, Print & Post
-COTS - MAPS, SMS, Email, Transliteration 	TBD	2
+|MOSIP Interfaces|	TBD|	Devices, MDS, ABIS, Enrichment, Print & Post
+COTS - MAPS, SMS, Email, Transliteration 	|TBD|	2|
 |MOSIP Infrastructure|	TBD|	Sizing, Deployment Architecture, Infrastructure as a Code, Firewall, Zoning, Kubernatis, CI/CD, One Click Deploy|	TBD|	2|
 |Data Architecture|	TBD|	|	TBD|	2|
 Pre registration	TBD|	Functional Overview
