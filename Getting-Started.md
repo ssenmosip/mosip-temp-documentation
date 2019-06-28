@@ -1169,10 +1169,6 @@ The scripts to create the above objects are available under [database](/mosip/mo
 ***
 ## 8. MOSIP Deployment [**[↑]**](#table-of-content)
 
-Here is the Logical Deployment Diagram - 
-
-![Configure Pipelines](_images/getting_started_images/dev-k8-cluster-4-nodes.png)
-
 Currently for the Development Process MOSIP Platform is deployed as/in the Kubernetes Cluster. We are using Azure Kubernetes Service for provisioning of Cluster. As of now Kubernetes Deployment is deviced in two parts - 
 
 A. One time setup of MOSIP in Kubernetes Cluster
@@ -1191,193 +1187,6 @@ We will now go through each of the file and see what changes we need to perform.
 * DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
 `kubectl apply -f DeployIngressController.yaml`
 * DeployServiceIngressService.yaml - 
-```
- apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: myingress  
-  annotations:    
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    ingress.kubernetes.io/proxy-body-size: "50m"
-    ingress.kubernetes.io/proxy-connect-timeout: "3600"
-    ingress.kubernetes.io/proxy-read-timeout: "3600"
-    ingress.kubernetes.io/proxy-send-timeout: "3600"
-    ingress.kubernetes.io/send-timeout: "3600"
-spec:  
-  rules:
-  - http:
-      paths:
-      - path: /v1/uingenerator
-        backend:
-          serviceName: kernel-uingenerator-service
-          servicePort: 8080
-      - path: /v1/auditmanager
-        backend:
-          serviceName: kernel-auditmanager-service
-          servicePort: 8081
-      - path: /v1/emailnotifier
-        backend:
-          serviceName: kernel-emailnotification-service
-          servicePort: 8083
-      - path: /v1/smsnotifier
-        backend:
-          serviceName: kernel-smsnotification-service
-          servicePort: 8084
-      - path: /v1/otpmanager
-        backend:
-          serviceName: kernel-otpmanager-service
-          servicePort: 8085
-      - path: /v1/masterdata
-        backend:
-          serviceName: kernel-masterdata-service
-          servicePort: 8086
-      - path: /v1/cryptomanager
-        backend:
-          serviceName: kernel-cryptomanager-service
-          servicePort: 8087
-      - path: /v1/keymanager
-        backend:
-          serviceName: kernel-keymanager-service
-          servicePort: 8088
-      - path: /v1/syncdata
-        backend:
-          serviceName: kernel-syncdata-service
-          servicePort: 8089
-      - path: /v1/authmanager
-        backend:
-          serviceName: kernel-auth-service
-          servicePort: 8091
-      - path: /v1/signature
-        backend:
-          serviceName: kernel-signature-service
-          servicePort: 8092
-      - path: /v1/licensekeymanager
-        backend:
-          serviceName: kernel-licensekeymanager-service
-          servicePort: 8093
-      - path: /v1/applicanttype
-        backend:
-          serviceName: kernel-applicanttype-service
-          servicePort: 8094
-      - path: /v1/ridgenerator
-        backend:
-          serviceName: kernel-ridgenerator-service
-          servicePort: 8096
-      - path: /v1/tokenidgenerator
-        backend:
-          serviceName: kernel-tokenidgenerator-service
-          servicePort: 8097
-      - path: /v1/admin
-        backend:
-          serviceName: admin-service
-          servicePort: 8098
-      - path: /admin-ui
-        backend:
-          serviceName: admin-ui
-          servicePort: 80    
-      - path: /preregistration/v1/login
-        backend:
-          serviceName: pre-registration-login-service
-          servicePort: 9090
-      - path: /preregistration/v1/applications
-        backend:
-          serviceName: pre-registration-demographic-service
-          servicePort: 9092
-      - path: /preregistration/v1/documents
-        backend:
-          serviceName: pre-registration-document-service
-          servicePort: 9093
-      - path: /preregistration/v1/sync
-        backend:
-          serviceName: pre-registration-datasync-service
-          servicePort: 9094
-      - path: /preregistration/v1/appointment
-        backend:
-          serviceName: pre-registration-booking-service
-          servicePort: 9095
-      - path: /preregistration/v1/batch
-        backend:
-          serviceName: pre-registration-batchjob-service
-          servicePort: 9096
-      - path: /preregistration/v1/transliteration
-        backend:
-          serviceName: pre-registration-translitration-service
-          servicePort: 9098
-      - path: /preregistration/v1/notification
-        backend:
-          serviceName: pre-registration-notification-service
-          servicePort: 9099
-      - path: /preregistration/v1/qrCode
-        backend:
-          serviceName: pre-registration-generateqrcode-service
-          servicePort: 9091
-      - path: /idauthentication/v1/auth
-        backend:
-          serviceName: authentication-service
-          servicePort: 8090
-      - path: /idauthentication/v1/kyc
-        backend:
-          serviceName: authentication-kyc-service
-          servicePort: 8091
-      - path: /idauthentication/v1/otp
-        backend:
-          serviceName: authentication-otp-service
-          servicePort: 8092
-      - path: /idauthentication/v1/internal
-        backend:
-          serviceName: authentication-internal-service
-          servicePort: 8093
-      - path: /idrepository/v1/identity 
-        backend:
-          serviceName: id-repository-identity-service
-          servicePort: 8090
-      - path: /idrepository/v1/ 
-        backend:
-          serviceName: id-repository-vid-service
-          servicePort: 8091 
-      - path: /pre-registration-ui
-        backend:
-          serviceName: pre-registration-ui
-          servicePort: 80
-      - path: /registrationprocessor/v1/bio-dedupe
-        backend:
-          serviceName: registration-processor-bio-dedupe-service
-          servicePort: 9097
-      - path: /abis
-        backend:
-          serviceName: registration-processor-abis
-          servicePort: 9098
-      - path: /registrationprocessor/v1/uploader
-        backend:
-          serviceName: registration-processor-packet-uploader-stage
-          servicePort: 8087
-      - path: /registrationprocessor/v1/manualverification
-        backend:
-          serviceName: registration-processor-manual-verification-stage
-          servicePort: 8084
-      - path: /registrationprocessor/v1/eis
-        backend:
-          serviceName: registration-processor-external-integration-service
-          servicePort: 8201
-      - path: /registrationprocessor/v1/print
-        backend:
-          serviceName: registration-processor-print-service
-          servicePort: 9099
-      - path: /registrationprocessor/v1/print-stage
-        backend:
-          serviceName: registration-processor-printing-stage
-          servicePort: 8099
-      - path: /config
-        backend:
-          serviceName: kernel-config-server
-          servicePort: 51000
-      - path: /nginx
-        backend:
-          serviceName: sample-nginx
-          servicePort: 80
-```
-
 This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.To run this use this command
 `kubectl apply -f DeployIngress.yaml`
 
@@ -1388,11 +1197,11 @@ This file contains information about routing to different Kubernetes services, S
 * docker-registry-secret.yml - 
 This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. For creating secret for the first time, run below command - 
 
-`kubectl create secret docker-registry <registry-credential-name> --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email> `
+  `kubectl create secret docker-registry <registry-credential-name> --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email> `
 
-Once secret is created on the Kubernetes Cluster, as a backup strategy we can download the created secret using this command 
+  Once secret is created on the Kubernetes Cluster, as a backup strategy we can download the created secret using this command 
 
-`kubectl get secret <registry-credential-name> -o yaml --export`
+  `kubectl get secret <registry-credential-name> -o yaml --export`
 
 Once the above deployment is done, we will start deploying MOSIP services. For doing this, we need to look for these directories - 
 
@@ -1404,34 +1213,33 @@ Follow below steps:
 1. Create a ssh key and configure it with your git repository. If you have already configured the ssh key for your repository, you can use that one or else follow [this](//help.github.com/en/articles/connecting-to-github-with-ssh) <br/>  
 2. Create a secret for Config server to connect to GIT repo. This secret contains your **id_rsa key (private key), id_rsa_pub key (public key) and known_hosts** which you generated above. We need this secret because config server connects to your Source code management repository, to get configuration for all the services(If you are using ssh URL for cloning the repo). For generating the required secret give the following command: ( Firstly try to connect to GIT repository from your system using ssh url and the key you created above, so that GIT service provider such as GitHub or GitLab comes in your known hosts file): <br/>
 
-`kubectl create secret generic config-server-secret --from-file=id_rsa=/path/to/.ssh/id_rsa --from-file=id_rsa.pub=/path/to/.ssh/id_rsa.pub --from-file=known_hosts=/path/to/.ssh/known_hosts` <br/>
+    `kubectl create secret generic config-server-secret --from-file=id_rsa=/path/to/.ssh/id_rsa --from-file=id_rsa.pub=/path/to/.ssh/id_rsa.pub --from-file=known_hosts=/path/to/.ssh/known_hosts` <br/>
 
-**For Encryption Decryption of properties with configuration server** <br/>
-<br/>
-Create keystore with following command: <br/>
-`keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -keypass < key-secret > -storepass < store-password > --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
+    **For Encryption Decryption of properties with configuration server** <br/>
+    <br/>
+    Create keystore with following command:
 
-3. The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:
+    `keytool -genkeypair -alias <your-alias> -keyalg RSA -keystore server.keystore -keypass < key-secret > -storepass < store-password > --dname "CN=<your-CN>,OU=<OU>,O=<O>,L=<L>,S=<S>,C=<C>"`
+
+3. The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format, migrate it using following command:<br>
 `keytool -importkeystore -srckeystore server.keystore -destkeystore server.keystore -deststoretype pkcs12` <br/>
 For more information look [here](//cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_creating_a_key_store_for_testing) <br/>
 <br/>
 4. Create file with following content to create keystore secret for encryption decryption of keys using information from keystore created above: <br/>
 
-```
-apiVersion: v1
-kind: Secret
-metadata:
-  name: config-server-keystore-values-secret
-type: Opaque
-data:
-  alias: < base-64-encoded-alias-for keystore >
-  password: <  base-64-store-password >
-  secret: < base-64-encoded-key-secret >
-```
-<br/>
+    ```
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: config-server-keystore-values-secret
+    type: Opaque
+    data:
+      alias: < base-64-encoded-alias-for keystore >
+      password: <  base-64-store-password >
+      secret: < base-64-encoded-key-secret >
+    ```
 5. Save the above file with any name and apply it using: <br/>
 `kubectl apply -f < file-name >` 
-<br/>
 <br/>
 
 6. Create server.keystore as secret to volume mount it inside container: <br/>
@@ -1453,7 +1261,7 @@ data:
 <br/>
 <br/>
 
-More information can be found [here](/mosip/mosip/blob/0.9.0/kernel/kernel-config-server/README.md)
+More information can be found [here](/mosip/mosip/blob/master/kernel/kernel-config-server/README.md)
 
 
 <br/>
