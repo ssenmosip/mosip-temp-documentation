@@ -1476,8 +1476,7 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
          registry.mosip.io:5000/registration-processor-common-camel-bridge
 
 
-**Note** - Please change the environmental variables(profile_env, label_env, config_url and ) in the above four commands accordingly whether you are executing 
-         directly or through Jenkinsfile. 
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env ) in the above four commands accordingly whether you are executing directly or through Jenkinsfile. 
 
 ### 8.2 ID Repository Salt Generator
  
@@ -1515,7 +1514,7 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
          spring_config_url_env=http://104.211.212.28:51000 -e schema_name=idmap -e table_name=uin_encrypt_salt docker- 
          registry.mosip.io:5000/id-repository-salt-generator
 
-**Note** - Please change the environmental variables in the above four commands accordingly.
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env) in the above four commands accordingly
 
 
 
