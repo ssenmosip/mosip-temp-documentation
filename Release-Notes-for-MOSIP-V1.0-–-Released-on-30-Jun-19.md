@@ -6,12 +6,12 @@
 - [Code](#code-)
 - [Test Execution reports](#test-execution-reports-)
   * [Mindtree testing report](#mindtree-testing-report)
-    * [1. In Scope](#1-in-scope)
-    * [2. Out Of Scope – MOSIP V1.0 Platform](#2-out-of-scope---mosip-v10-platform)
-    * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary---consolidated-quality-status)
-    * [4.Types of testing - Definition](#4types-of-testing---definition)
-    * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics---graphs)
-    * [6. Automation Test Reports](#6-automation-test-reports)
+    * [1. In Scope](#1-in-scope-)
+    * [2. Out Of Scope – MOSIP V1.0 Platform](#2-out-of-scope--mosip-v10-platform-)
+    * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary--consolidated-quality-status-)
+    * [4.Types of testing - Definition](#4types-of-testing---definition-)
+    * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
+    * [6. Automation Test Reports](#6-automation-test-reports-)
   * [IV&V testing report](#ivv-testing-report-need-link-to-update)
 - [Training topics](#training-topics-)
 - [Support Process](#support-process-)
@@ -56,7 +56,7 @@ The code is available in open source repository. This includes automation test s
 
 **Test Scope**
 
-#### 1. In Scope
+#### 1. In Scope [**[↑]**](#table-of-content)
 
 The following have been the IN SCOPE entities for testing
 
@@ -72,7 +72,7 @@ The following have been the IN SCOPE entities for testing
 |Browser Support|Chrome – 74.0.3729.169|
 |Language Support|French, Arabic, English|
 
-#### 2. Out Of Scope – MOSIP V1.0 Platform
+#### 2. Out Of Scope – MOSIP V1.0 Platform [**[↑]**](#table-of-content)
 
 |Title|	Description|
 |------|------|
@@ -81,7 +81,7 @@ The following have been the IN SCOPE entities for testing
 |NFR Defect Fix Retesting|The outstanding NFR defects are not considered for fix or retesting in this release|
 |Browser Support| <li>	IE <li>	Firefox <li> MAC|
 
-#### 3. Executive Summary – Consolidated Quality Status
+#### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
 |Sl. No.|	Module / Activity|	Jira Epic ID|	Testing Methodology|	RAG Status|	Description|
 |------|------|------|------|------|------|
@@ -100,7 +100,7 @@ The following have been the IN SCOPE entities for testing
 |13	|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	Workflows|This is covered as part of both, individual module level & inter module level integration testing |
 |14|	End to end testing|	NA|	Manual Testing|	Workflows	|	This is certified manually as of 0.12.14 release build|
 
-#### 4.Types of testing - Definition
+#### 4.Types of testing - Definition [**[↑]**](#table-of-content)
 
 |Testing Type| Description|
 |------|------|
@@ -109,9 +109,9 @@ The following have been the IN SCOPE entities for testing
 |Integration Testing|	
 |Regression Testing|
 	
-#### 5. Manual Test Execution Metrics & Graphs
+#### 5. Manual Test Execution Metrics & Graphs [**[↑]**](#table-of-content)
 to be done
-#### 6. Automation Test Reports
+#### 6. Automation Test Reports [**[↑]**](#table-of-content)
 consolidated report run on 0.12.14 on QA env, from merged automation code base
 
 
