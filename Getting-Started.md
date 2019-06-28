@@ -1476,7 +1476,7 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
          registry.mosip.io:5000/registration-processor-common-camel-bridge
 
 
-**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env ) in the above four commands accordingly whether you are executing directly or through Jenkinsfile. 
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env and spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
 
 ### 8.2 ID Repository Salt Generator
  
