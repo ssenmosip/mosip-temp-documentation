@@ -12,8 +12,23 @@ High Level documentation including Functional requirements, Process flows, Archi
 Low Level design, Wireframes, Test cases [**need link to update**]
 
 ## Key Points
-This contains the features delivered as a part of version 1.0.0 and known issues  [**need link to update**]
-   * Note for cpu team – Release notes will have known limitations, browsers that we have tested on,  deployment script environment (azure) etc. 
+
+|Key Points|	Details|
+|----|----|
+|Pre Registration - Browser(s) |	Chrome (Version - 74.0.3729)|
+|Deployment Script Environment|	Microsoft Azure|
+|Registration Client – OS version|	Windows 10 (English version)  with TPM 2.0|
+|Camera|	Logitech / Default windows camera|
+|Scanner|	Canon lide 120|
+|GPS|	GlobalSat BU-353-S4|
+|Biometrics standard for proxy|	CBEFF format (Version - 1.0)|
+|SMS gateway|	MSG91, Infobip|
+|Registration Client – face capture |	OpenImaj - This is licensed for demo purpose only|
+|Keystore|	SoftHSM|
+|Antivirus|	ClamAV|
+|Maps	|OpenstreetMap|
+|Supporting key based digital signatures, not using digital certificates||	
+|Transliteration|	ICU4J (Library with French, Arabic languages)|
 
 ## Code 
 The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the deployment guide above [**need link to update**]. We would actively support the System Integrator during the first deployment process.
