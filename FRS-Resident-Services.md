@@ -1,14 +1,14 @@
 ## Table Of Content
 * [1. Overview](#1-overview-)
 * [2. Features](#2-features-)
-  * [2.1 Track Status of UIN Generation by providing RID (Request ID for New Registration)](#21-track-status-of-uin-generation-by-providing-registration-id-) _(RES_FR_1)_
+  * [2.1 Track Status of UIN Generation by providing RID (Request ID for New Registration)](#21-track-status-of-uin-generation-by-providing-rid-request-id-for-new-registration-) _(RES_FR_1)_
   * [2.2 Download e-UIN](#22-download-e-uin-) _(RES_FR_2)_
   * [2.3 Retrieve Lost RID (Request ID for New Registration)](#23-retrieve-lost-rid-request-id-for-new-registration-) _(RES_FR_3)_
   * [2.4 Retrieve Lost UIN](#24-retrieve-lost-uin-) _(RES_FR_4)_
   * [2.5 Re-print Request of UIN](#25-re-print-request-of-uin-) _(RES_FR_5)_
   * [2.6 Initiate UIN Update](#26-initiate-uin-update-) _(RES_FR_6)_
   * [2.7 Track Status of UIN Update](#27-track-status-of-uin-update-) _(RES_FR_7)_
-  * [2.8 View History of Authentication Requests (for Prescribed Days/number of requests)](#28-view-history-of-authentication-requests-for-prescribed-daysnumber-of-requests-) _(RES_FR_8)_
+  * [2.8 View History of Authentication Requests](#28-view-history-of-authentication-requests-) _(RES_FR_8)_
   * [2.9 Lock/Unlock UIN](#29-lockunlock-uin-) _(RES_FR_9)_
   * [2.10 VID Service](#210-vid-service-)
     * [2.10.1 Generate a VID](#2101-generate-a-vid-) _(RES_FR_10.1)_
@@ -36,7 +36,7 @@ The Resident Service module will provide a host of services to an individual whi
 All these features are detailed in the following features section.
   
 # 2. Features [**[↑]**](#table-of-content)
-## 2.1 Track status of UIN Generation by providing Request ID (RID) for New Registration [**[↑]**](#table-of-content)
+## 2.1 Track status of UIN Generation by providing RID (Request ID for New Registration) [**[↑]**](#table-of-content)
 
 This feature will allow an individual to track status of his/her UIN generation. The individual needs to provide the RID (Request ID received during UIN registration) as input. The system will validate this RID. On successful validation, the system will send the status of UIN generation to the individual's registered mobile number and/or email ID. The system will also send a notification message to individual’s mobile number and/or email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
