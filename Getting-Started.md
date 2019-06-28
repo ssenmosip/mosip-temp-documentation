@@ -974,14 +974,16 @@ The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are s
 
 For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId which you need to replace with credetailsId written in this stage.
   
-  *  Replace the key_manager_vm_ip with ip of newly created VM.
+  *  Replace the value for registryCredentials(credentialsId of docker hub) with yours 
 
-  * The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env  and 
-      active_profile_env accordingly.
+  *  Replace the value for  key_manager_vm_ip with IP of your newly created VM.
+
+  * The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env, 
+      active_profile_env and registryAddress accordingly.
 
 Once done the following command will be used to deploy keymanager to the machine: <br/><br/>
 ```
-sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env=qa --name keymanager docker-registry.mosip.io:5000/kernel-keymanager-service
+sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env="${profile_env}" --name keymanager "${registryAddress}"/kernel-keymanager-service
 ```
 
 
