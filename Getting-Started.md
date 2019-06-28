@@ -1,15 +1,14 @@
-# Content
-1. [Getting the Source Code](#1-getting-the-source-code- )
-2. [Setup and Configure Jenkins](#2-setup-and-configure-jenkins- )
-3. [Setup and Configure Jfrog](#3-setup-and-configure-jfrog-artifactory-version-652-)
-4. [Setup and Configure SonarQube](#4-setup-and-configure-sonarqube-version-73-)
-5. [Setup and Configure Docker Registry](#5-setup-and-configure-docker-registry- )
-6. [Installing External Dependencies](#6-installing-external-dependencies- )
-7. [Configuring MOSIP](#7-configuring-mosip- )
-8. [MOSIP Deployment](#8-mosip-deployment- )
+## Table Of Content
+* [1. Getting the Source Code](#1-getting-the-source-code-)
+* [2. Setup and Configure Jenkins](#2-setup-and-configure-jenkins-)
+* [3. Setup and Configure Jfrog Artifactory Version 6.5.2](#3-setup-and-configure-jfrog-artifactory-version-652-)
+* [4. Setup and Configure SonarQube version 7.3](#4-setup-and-configure-sonarqube-version-73-)
+* [5. Setup and Configure Docker Registry](#5-setup-and-configure-docker-registry-)
+* [6. Installing External Dependencies](#6-installing-external-dependencies-)
+* [7. Configuring MOSIP](#7-configuring-mosip-)
+* [8. MOSIP Deployment](#8-mosip-deployment-)
 
-***
-## 1. Getting the Source Code [**[↑]**](#content)
+## 1. Getting the Source Code [**[↑]**](#table-of-content)
 To follow this document. prerequisite knowledge of Linux and Azure with Kubernetes are required. 
 MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
@@ -17,7 +16,7 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 **NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-configuration repository from this [URL](https://github.com/mosip/mosip-configuration.git). All the configuration files will be stored under config folder under this repository.
 
 ***
-## 2. Setup and Configure Jenkins [**[↑]**](#content)
+## 2. Setup and Configure Jenkins [**[↑]**](#table-of-content)
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
 
 ### A. Installing Jenkins version 2.150.1
@@ -88,7 +87,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 <TBD>
 
 ***
-## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#content)
+## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#table-of-content)
  For installing and setting up Jfrog, steps [here](//jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
 Once the setup is complete, please add following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
 * [**Maven Central**](//repo.maven.apache.org/maven2/)
@@ -107,7 +106,7 @@ Also if you are planning to import all versions of the Mosip modules in Jfrog to
 
 
 ***
-## 4. Setup and Configure SonarQube version 7.3 [**[↑]**](#content)
+## 4. Setup and Configure SonarQube version 7.3 [**[↑]**](#table-of-content)
 SonarQube server can be setup by following single instructions given [here](//docs.sonarqube.org/latest/setup/get-started-2-minutes/).<br/>
 For configuring SonarQube with Jenkins, steps given [here](//docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins) can be followed.
 
@@ -257,7 +256,7 @@ To check if the service is running, run:
      * sudo systemctl status sonar
 
 ***
-## 5. Setup and Configure Docker Registry [**[↑]**](#content)
+## 5. Setup and Configure Docker Registry [**[↑]**](#table-of-content)
 In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found [here](//docs.docker.com/registry/configuration/)
 We are deploying Docker registry as Containerized services. For setting up the registry, [Docker](//docs.docker.com/install/) and [Docker Compose](//docs.docker.com/compose/install/) need to be installed. We have setted up the registry in a machine with Redhat 7.5 installed.<br/>
 Once installation is done, the yaml files which we will be using to setup the registry can be found under scripts/docker-registry folder in the source code.
@@ -283,7 +282,7 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 
 ***
-## 6. Installing External Dependencies [**[↑]**](#content)
+## 6. Installing External Dependencies [**[↑]**](#table-of-content)
 ### 6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5
 
 Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
@@ -987,7 +986,7 @@ ActiveMQ is the message broker used for MOSIP.
 ``` http://localhost:8161/admin ```
 
 ***
-## 7. Configuring MOSIP [**[↑]**](#content)
+## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-configuration.git).
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
@@ -1105,7 +1104,7 @@ The scripts to create the above objects are available under [database](/mosip/mo
 **Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
 
 ***
-## 8. MOSIP Deployment [**[↑]**](#content)
+## 8. MOSIP Deployment [**[↑]**](#table-of-content)
 
 Here is the Logical Deployment Diagram - 
 
