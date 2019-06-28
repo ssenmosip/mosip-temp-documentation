@@ -75,7 +75,7 @@ MultipartFile|Yes|The encrypted zip file|
 # 2 Registration Status Service
 ## 2.1 Packet-status service
 
-- ### `GET /registrationprocessor/v1/registrationstatus/search`
+- ### `POST /registrationprocessor/v1/registrationstatus/search`
 
 This service return the registration current status for list of input registration ids.
 
@@ -189,6 +189,7 @@ langCode|Yes|language code used |eng or ara
 
 #### Request
 ```JSON
+// NOTE : the request will be encrypted. This is an example of decrypted request json.
 {
 	"id": "mosip.registration.sync",
 	"version": "1.0",
