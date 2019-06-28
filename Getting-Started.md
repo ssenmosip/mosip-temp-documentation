@@ -310,36 +310,50 @@ you decide to change the default port, please ensure that your new port number d
 ##### Steps to change the default port :
 
 ###### Open the file  and modify the below changes 
+```
 $ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
+```
 listen_addresses = '*'   (changed to * instad of local host )
 port = 9001       ( uncomment port=5432 and change the port number 
 ###### Open the port 9001 from the VM 
+```
 $  sudo firewall-cmd --zone=public --add-port=9001/tcp --permanent
+```
 $  sudo firewall-cmd --reload
-
+```
 ##### To increase the buffer size and number of postgreSql connection  same fine modify the below changes also 
+```
 $ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
+```
 unix_socket_directories = '/var/run/postgresql, /tmp' 
 max_connections = 1000  
 shared_buffers = 2GB  
 
 ##### To change the default password 
 Login to postgrsql
+```
 $ sudo su postgres
-bash-4.2$ psql -p 9001
+```
+bash-4.2$    psql -p 9001
+```
 postgres=# \password postgres
+```
 Enter new password:
+```
 Enter it again:
+```
 postgres=# \q
-
+```
 sudo systemctl restart postgresql-10
-It will ask new password to login to postgresql <br/>
+```
+It will ask new password to login to postgresql 
 
 ####### example  for sourcing the sql file form command line 
+```
 $ psql --username=postgres --host=10.240.0.66 --port=9001 --dbname=postgres -f mosip_role_regprcuser.sql
- 
+``` 
 Open the file <br/>
-$ Sudo vim /var/lib/pgsql/10/data/pg_hba.conf
+$ sudo vim /var/lib/pgsql/10/data/pg_hba.conf
 
 ###### Default lines are present in pg_hab.conf file <br/>
 
@@ -361,14 +375,18 @@ local   replication     all                                     peer <br/>
 host    replication     all             127.0.0.1/32            ident <br/>
 host    replication     all             ::1/128                 ident <br/>
 
+```
 $ sudo vi /var/lib/pgsql/10/data/postgresql.conf <br/>
 listen_addresses = '*'
 port = 9001 
 unix_socket_directories = '/var/run/postgresql, /tmp'
 
 ##### Below command to open the port 9001 from RHEL 7.5 VM
+```
 $ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
+```
 $ sudo firewall-cmd --reload <br/>
+```
 Reference link:
 <br/>
 <div>https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
@@ -464,8 +482,41 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                     ssl on;
                     ssl_certificate         /etc/letsencrypt/live/dev.mosip.io/fullchain.pem;
                     ssl_certificate_key   /etc/letsencrypt/live/dev.mosip.io/privkey.pem;
+            location /v1/keymanager/ {
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Real-IP $remote_addr;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                        proxy_set_header X-Forwarded-Proto $scheme;
+                        #proxy_set_header Cookie $http_cookie;
+                        proxy_pass  http://13.71.86.138:8088/v1/keymanager/;
+                }
 
-         location / {
+                 location /registrationprocessor/v1/packetreceiver/ {
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Real-IP $remote_addr;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                        proxy_set_header X-Forwarded-Proto $scheme;
+                       proxy_pass  http://52.172.39.154:8081/registrationprocessor/v1/packetreceiver/;
+                }
+
+                 location /registrationprocessor/v1/registrationstatus/ {
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Real-IP $remote_addr;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                        proxy_set_header X-Forwarded-Proto $scheme;
+                        proxy_pass  http://52.172.39.154:8083/registrationprocessor/v1/registrationstatus/;
+
+                }
+
+                 location /registrationprocessor/v1/packetgenerator/ {
+                        proxy_set_header Host $host;
+                        proxy_set_header X-Real-IP $remote_addr;
+                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                        proxy_set_header X-Forwarded-Proto $scheme;
+                        proxy_pass  http://52.172.39.154:8082/registrationprocessor/v1/packetgenerator/;
+
+                }
+                location / {
                         proxy_set_header Host $host;
                         proxy_set_header X-Real-IP $remote_addr;
                         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
