@@ -1407,12 +1407,12 @@ To be done later
 ***
 
 ### 8.1  Registration-Processor DMZ services deployment
-Registration Processor DMZ Services are setup externally from other setup and is not a part of Continuous Delivery Process. 
+Registration Processor DMZ Services are setup externally(deployed in a separate VM).
 We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
 2. Installing the Docker:
 sudo yum install docker
-3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys
+3. Need to copy the Jenkins server public key(id_rsa.pub) inside this newly created VM's authorized_keys(because through jenkins job, we will ssh into new VM and deploy)
 
 After installing Docker Start the Docker Service
 
@@ -1443,9 +1443,9 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 4. The last stage in the Jenkinsfile viz DMZ_Deployment in which we are sshing into this newly created VM through Jenkins to deploy these services, basically, running the docker images of registration processor.
 Changes to be made in this stage->
 
-   a. Replace the credentialsId of docker hub with yours.
+   a. Replace the value for registryCredentials(credentialsId of docker hub) with yours.
 
-   b. Replace the IP with the IP of this newly created VM.
+   b. Replace the value for the variable -> dmz_reg_proc_dev_ip with the IP of your newly created VM.
 
 Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/registration-processor/Jenkinsfile
 
@@ -1457,26 +1457,27 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
 
   c. Execute the following commands
  
-       * docker run --restart always -it -d -p 8083:8083 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor- 
-         registration-status-service
+       * docker run --restart always -it -d -p 8083:8083 -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
+         registry.mosip.io:5000/registration-processor-registration-status-service
 
-       * docker run --restart always -it -d -p 8082:8082 -e active_profile_env=qa -e spring_config_label_env=0.12.0 -e 
-         spring_config_url_env=http://104.211.212.28:51000 docker-registry.mosip.io:5000/registration-processor-packet- 
-         generator-service
+       * docker run --restart always -it -d -p 8082:8082 -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
+         registry.mosip.io:5000/registration-processor-packet-generator-service
 
        * docker run --restart always -it -d --network host --privileged=true -v 
          /home/ftp1/LANDING_ZONE:/home/ftp1/LANDING_ZONE -v 
-         /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env=qa -e 
-         spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 docker- 
+         /home/ftp1/ARCHIVE_PACKET_LOCATION:/home/ftp1/ARCHIVE_PACKET_LOCATION -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" docker- 
          registry.mosip.io:5000/registration-processor-packet-receiver-stage
 
-       * docker run --restart always -it -d --network host --privileged=true -e active_profile_env=qa -e 
-         spring_config_label_env=0.12.0 -e spring_config_url_env=http://104.211.212.28:51000 -e zone_env=dmz  docker- 
+       * docker run --restart always -it -d --network host --privileged=true -e active_profile_env="${profile_env}" -e 
+         spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" -e zone_env=dmz  docker- 
          registry.mosip.io:5000/registration-processor-common-camel-bridge
 
-**Note** - Please change the environmental variables in the above four commands accordingly whether you are executing 
-         directly or through Jenkinsfile.
+
+**Note** - Please change the environmental variables(profile_env, label_env, config_url and ) in the above four commands accordingly whether you are executing 
+         directly or through Jenkinsfile. 
 
 ### 8.2 ID Repository Salt Generator
  
