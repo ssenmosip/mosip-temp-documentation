@@ -283,6 +283,7 @@ Once the registry is up and running, variables **registryUrl**, **registryName**
 
 ***
 ## 6. Installing External Dependencies [**[↑]**](#table-of-content)
+
 ### 6.1 Install and use PostgreSql Version 10.2 on RHEL 7.5
 
 Often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users
@@ -555,7 +556,8 @@ $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
                 }
      }
     }
-   
+   ```
+
 ##### Below command to open the port 80/443 from RHEL 7.5 VM 
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent  <br/>
 $ sudo firewall-cmd –reload <br/>
@@ -735,12 +737,9 @@ $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent
 $ sudo firewall-cmd –reload
 ```
 
-
-
-
-
 ##### Reference link:
 <div>https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
+
 
 ### 6.4 Steps to Install and configuration CEPH 
 NOTE: Required only if CEPH is used for packet storage.
@@ -925,7 +924,9 @@ NOTE: Required only if HDFS is used for packet storage.
 Kernel Keymanager Service is setup externally from other setup and is not a part of Continuous Delivery Process. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
 
 We are deploying keymanager service into another VM having docker installed. The steps to setup environment and service deployment:
+
 1. Need to set Up VM with RHEL 7.5
+
 2. Installing the Docker:
 sudo yum install docker
 
@@ -939,7 +940,7 @@ After installing Docker Start the Docker Service
 
 * systemctl status docker
 
-3. **Open the port 8088 from the VM:**
+3. Open the port 8088 from the VM:
 
 sudo firewall-cmd --zone=public --add-port=8088/tcp --permanent
 
@@ -951,6 +952,7 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 
 **Process to deploy Services in VM through JenkinsFile:**
 
+
 4. Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/kernel/Jenkinsfile
  
 The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are sshing into this newly created VM through Jenkins to deploy this service, basically, running the docker image of key manager.
@@ -958,8 +960,10 @@ The last stage in the Jenkinsfile viz 'Key-Manager Deployment' in which we are s
 For ssh, place the public key of jenkins inside this newly created VM's authorized_keys under .ssh directory. Generate Docker Registry Credential in jenkins by using docker hub username and password. This will generate the credentialsId which you need to replace with credetailsId written in this stage.
   
  a. Replace the key_manager_vm_ip with ip of newly created VM.
+
  b. The below command is used to run the image. Replace the values for spring_config_url_env, spring_config_label_env  and 
     active_profile_env accordingly.
+
 
 sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spring_config_url_env="${config_url}" -e spring_config_label_env="${branch}" -e active_profile_env=qa --name keymanager docker-registry.mosip.io:5000/kernel-keymanager-service
 
@@ -970,7 +974,7 @@ Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.
 
 
 
-### 6.11 Installation of ActiveMq
+### 6.9 Installation of ActiveMQ
 ActiveMQ is the message broker used for MOSIP. 
 #### Installation steps
 * Download activemq using 
@@ -984,6 +988,11 @@ ActiveMQ is the message broker used for MOSIP.
 * Check for the installed and started activemq on port 61616.
 * The activemq management dashboard can be accessed on 
 ``` http://localhost:8161/admin ```
+
+
+
+
+
 
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
@@ -1016,6 +1025,7 @@ Application specific configuration for all applications and services are placed 
 [**link**](/mosip/mosip-configuration/blob/0.12.0/config/registration-qa.properties)
 
 **Properties that need to be changed once the external dependencies are installed**
+
 1. Update all global property files (application-dev.properties, application-int.properties, application-qa.properties, application-test.properties) to point to the external dependencies.
 
 2. To be precise, following are the changes that need to be done:   
@@ -1024,8 +1034,7 @@ Application specific configuration for all applications and services are placed 
 `mosip.kernel.virus-scanner.port=<your-clamav-port>`  <br/>
 `mosip.kernel.fsadapter.ceph.access-key=<your-ceph-access-key>`  <br/>
 `mosip.kernel.fsadapter.ceph.secret-key=<your-ceph-secret-key>`  <br/>
-`mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/>
-
+`mosip.kernel.fsadapter.ceph.endpoint=<your-ceph-server-endpoint>`  <br/> 
 
 3. Following are the changes that need to be done in kernel.properties:
 
@@ -1035,8 +1044,6 @@ Application specific configuration for all applications and services are placed 
 `spring.mail.password=<your-email-password>`  <br/>
 
 [Configure SMTP details](/mosip/mosip/blob/master/kernel/kernel-emailnotification-service/README.md) 
-
-
 
 
 For Deployment of configurations server, go to [firstly-deploy-kernel-configuration-server](Getting-Started#firstly-deploy-kernel-configuration-server) in this document.
@@ -1125,7 +1132,7 @@ II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In 
 We will now go through each of the file and see what changes we need to perform. we will be using [**kubectl**](//kubernetes.io/docs/reference/kubectl/overview/) to do the deployments from local system. 
 
 * DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
-`kubeclt apply -f DeployIngressController.yaml`
+`kubectl apply -f DeployIngressController.yaml`
 * DeployServiceIngressService.yaml - 
 ```
  apiVersion: extensions/v1beta1
@@ -1315,11 +1322,11 @@ spec:
 ```
 
 This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.To run this use this command
-`kubeclt apply -f DeployIngress.yaml`
+`kubectl apply -f DeployIngress.yaml`
 
 
 * DeployDefaultBackend.yaml - We need not to change anything here. we can directly run this file. To run this use this command
-`kubeclt apply -f DeployIngressController.yaml`
+`kubectl apply -f DeployIngressController.yaml`
 
 * docker-registry-secret.yml - 
 This file helps Kubernetes to get the Docker Images from Private Docker Registry. This file is a downloaded YAML of secrets that exists in the Kubernetes. You can either create secret or use this file to deploy secret in Kubernetes. For creating secret for the first time, run below command - 
@@ -1401,7 +1408,7 @@ I. Open a deployment file. <br/>
 II. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-auditmanager-service` to `<Your Docker Registry>/kernel-auditmanager-service` <br/>
 III. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>` <br/>
 IV. Change `active_profile_env` to whichever profile you want to activate and `spring_config_label_env` to the branch from which you want to pick up the configuration<br/>
-V. Save the file and Run `kubeclt apply -f kernel-auditmanager-service-deployment-and-service.yml` <br/>
+V. Save the file and Run `kubectl apply -f kernel-auditmanager-service-deployment-and-service.yml` <br/>
 
 After above process is completed, you can run `kubectl get services` command to see the status of all the MOSIP Services.
 
