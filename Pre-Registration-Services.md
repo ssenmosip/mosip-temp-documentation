@@ -1428,7 +1428,7 @@ Requires Authentication | Yes
 #### Request Query Parameter
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-pageIndex |Yes|page index of the application|0
+pageIndex |Yes|page index of the application|0(By default)
 
 #### Responses:
 ##### Success Response:
@@ -1637,9 +1637,9 @@ id |Yes|Id of the application|mosip.pre-registration.document.upload
 version |Yes|version of the application|1.0
 requesttime |Yes|Request tme of the application|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.docCatCode |Yes|Document category code|POI
-request.docTypCode |Yes|Document type code|address
-request.langCode |Yes|Language code of the application|ENG
+request.docCatCode |Yes|Document category code|POA
+request.docTypCode |Yes|Document type code|RNC
+request.langCode |Yes|Language code of the application|fra
 
 #### Request:
 ```JSON
@@ -1749,7 +1749,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
       "docId": "8196222-5fb0-11e9-rg3b-7d108980f456",
       "docName": "address.pdf",
       "docCatCode": "POA",
-      "docTypCode": "address",
+      "docTypCode": "RNC",
       "docFileFormat": "pdf"
   },
   "errors":null
@@ -1999,7 +1999,7 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description
+###### Description: Document successfully deleted
 ```JSON
 {
    "id": "mosip.pre-registration.document.delete.specific",
@@ -2559,7 +2559,8 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_001|Request id is invalid|Invalid or empty Request Id
 PRG_PAM_CORE_002|Request version is invalid|Invalid or empty Request Version
-PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime and when the date is not current or future date
+PRG_PAM_CORE_003|Invalid request time |Invalid or empty Request DateTime
+PRG_CORE_REQ_013|Request date should be current date| when the date is not current date
 PRG_BOOK_RCI_007|Registration center id not entered|If registration center id is empty
 PRG_BOOK_RCI_008|Booking date time not selected|If appointment date is empty
 PRG_BOOK_RCI_002|Availability not found for the selected time|When availability not found for the requested registration center id or appointment date or time slot
