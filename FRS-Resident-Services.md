@@ -16,7 +16,7 @@
     * [2.10.3 Regenerate a VID (WIP)](#2103-regenerate-a-vid-wip) _(RES_FR_10.3)_
     * [2.10.4 Revoke a VID](#2104-revoke-a-vid-) _(RES_FR_10.4)_
     * [2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP)](#2105-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-wip-) _(RES_FR_10.5)_
-    * [2.10.6 Retrieve the UIN Corresponding to a VID (WIP)](#2106-retrieve-the-uin-corresponding-to-a-vid-wip-) _(RES_FR_10.6)_
+_(RES_FR_10.6)_
 * [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 * [Resident Services API](#resident-services-api-)
 * [Process View (WIP)](#process-view-wip-)
@@ -93,18 +93,11 @@ An individual can request to generate a Virtual ID via Resident Service by provi
 
 ### 2.10.4 Revoke a VID [**[↑]**](#table-of-content)
 
-To prevent misuse of VID, an individual can request to revoke his/her VID using Resident Services if the individual feels his/her VID has been compromised. The individual provides the VID as input. The system will then validate the individual's VID, trigger an OTP, and perform OTP authentication on individual's registered mobile number/email ID. On successful authentication, the system revokes the provided VID. Based on the VID policy of a country a new VID will be generated during revocation and provided to the individual on the registered mobile number and email ID. If validation fails, the system triggers the appropriate error message.
+To prevent misuse of VID, an individual can request to revoke his/her VID using Resident Services, if the individual feels his/her VID has been compromised. The individual provides the VID as input. The system will then validate the individual's VID, trigger an OTP, and perform OTP authentication on individual's registered mobile number/email ID. On successful authentication, the system revokes the provided VID. Based on the VID policy of the country a new VID will be generated during revocation and provided to the individual on the registered mobile number and/or email ID. If validation fails, the system triggers the appropriate error message.
 
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 ### 2.10.5 Auto-restore a VID on Revocation and with Auto-restore Policy (WIP) [**[↑]**](#table-of-content)  
-
-
-
-### 2.10.6 Retrieve the UIN Corresponding to a VID (WIP) [**[↑]**](#table-of-content)	
-
-When an individual does not remember his/her UIN, he/she can retrieve the UIN by providing the VID that was generated against the UIN earlier. The system authenticates the individual’s request as per the security policy of the respective country and retrieves the UIN. Additionally, the system triggers the UIN retrieval request status to the registered mobile number/email ID If authentication failes, the system triggers the appropriate error message.
- Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/vid-service.md)
 
