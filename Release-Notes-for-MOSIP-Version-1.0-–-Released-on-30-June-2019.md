@@ -56,17 +56,6 @@ The code is available in open source repository. This includes automation test s
 |Browser Support|Chrome – 74.0.3729.169|
 |Language Support|French, Arabic, English|
 
-#### Testing Levels table
-
-|Sl. No.|Levels|Test Method|
-|------|------|------|
-|1.|API |Test Automation|
-|2.|API Integration|Test Automation|
-|3.|UI|	Manual|
-|4.|Individual modules|	Manual|
-|5.|Inter module integration|Manual & Test Automation|
-|6.|End to end or System level|	Manual & Test Automation|
-
 * IV&V testing report [**need link to update**]
 ## Support Process 
 Process to be followed for support required, escalation matrix [**need link to update**]
