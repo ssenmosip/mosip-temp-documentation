@@ -304,7 +304,7 @@ The workflow of testing or running the test suite of the available API’s And S
 * Good analytical and debugging skill
 ## 4.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [**link88](//github.com/mosip/mosip.git)
+* Clone project from [**link**](//github.com/mosip/mosip.git)
 * Import the automationtests project into the eclipse.
 
 ## 4.4 Procedure to Add new test cases into the API test suite
