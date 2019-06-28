@@ -10,7 +10,7 @@
 
 ***
 ## 1. Getting the Source Code [**[↑]**](#content)
-Those who are referring this document, They should have minimum knowledge of Linux and Azure with Kubernetes 
+To follow this document. prerequisite knowledge of Linux and Azure with Kubernetes are required. 
 MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
@@ -290,22 +290,35 @@ Often simply Postgres, is an object-relational database management system (ORDBM
 Postgresql Prerequisites
 On a Linux or Mac system, you must have superuser privileges to perform a PostgreSQL installation. To perform an installation on a Windows system, you must have administrator privileges.
 #### Steps to install Postgresql in RHEL-7.5
-##### Download and install PostgreSQL. <br/>
-$ sudo yum install <div>https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm</div> <br/>
+##### Download and install PostgreSQL.
+```
+$ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm 
+```
 ##### checking  the postgresql packages  
-$ sudo yum update <br/>
-$ sudo yum list postgresql* <br/>
-##### Installation command <br/>	
-$ sudo yum install postgresql10 postgresql10-server<br/>
-$sudo /usr/pgsql-10/bin/postgresql-10-setup initdb <br/>
-$sudo systemctl enable postgresql-10 <br/>
+```
+$ sudo yum update 
+```
+$ sudo yum list postgresql* 
+```
+##### Installation command 
+```
+$ sudo yum install postgresql10 postgresql10-server
+```
+$sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
+```
+$sudo systemctl enable postgresql-10
+```
 ##### Postgresql service stop/start/restart command 
-$ sudo systemctl start postgresql-10 <br/>
-$ sudo systemctl status postgresql-10 <br/>
-$ sudo systemctl stop postgresql-10 <br/>
-To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path <br/>
-PostgreSQL is running on default port 5432. <br/>
-you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. <br/>
+```
+$ sudo systemctl start postgresql-10 
+```
+$ sudo systemctl status postgresql-10 
+```
+$ sudo systemctl stop postgresql-10
+```
+To changing default port 5432 to 9001 and connection + buffer size we need to edit the postgresql.conf file from below path 
+PostgreSQL is running on default port 5432. 
+you decide to change the default port, please ensure that your new port number does not conflict with any services running on that port. 
 
 ##### Steps to change the default port :
 
@@ -313,7 +326,7 @@ you decide to change the default port, please ensure that your new port number d
 ```
 $ sudo vi /var/lib/pgsql/10/data/postgresql.conf 
 ```
-listen_addresses = '*'   (changed to * instad of local host )
+listen_addresses = '*'   (changed to * instead of local host )
 port = 9001       ( uncomment port=5432 and change the port number 
 ###### Open the port 9001 from the VM 
 ```
@@ -388,35 +401,46 @@ $ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
 $ sudo firewall-cmd --reload <br/>
 ```
 Reference link:
-<br/>
-<div>https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
-<br/>
-<br/>
+https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
+***
 ### 6.2 Install and use Nginx Version-1.15.8 on RHEL 7.5
 
 We are using nginx for webserver andalso proxy server for MOSIP project
 Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vim command
-
-$sudo vi /etc/yum.repos.d/nginx.repo <br/>
+```
+$sudo vi /etc/yum.repos.d/nginx.repo 
+```
 #### Install nginx package using the yum command:
-$sudo yum update <br/>
-$sudo yum install nginx <br/>
-Append following for RHEL 7.5 <br/>
-[nginx]   <br/>
-name=nginx repo <br/>
-baseurl=`http://nginx.org/packages/mainline/rhel/7/$basearch/` <br/>
-gpgcheck=0 <br/>
-enabled=1 <br/>
-$ sudo yum install nginx <br/>
-$ sudo systemctl enable nginx  <br/>
-###### nginx start/stop/restart/status commands  <br/>
-$ sudo systemctl start nginx <br/>
-$ sudo systemctl stop nginx <br/>
-$ sudo systemctl restart nginx <br/>
-$ sudo systemctl status nginx <br/>
-
+```
+$sudo yum update
+```
+$sudo yum install nginx
+```
+Append following for RHEL 7.5 
+[nginx]   
+name=nginx repo 
+baseurl=`http://nginx.org/packages/mainline/rhel/7/$basearch/` 
+gpgcheck=0 
+enabled=1 
+```
+$ sudo yum install nginx 
+```
+$ sudo systemctl enable nginx  
+```
+###### nginx start/stop/restart/status commands  
+```
+$ sudo systemctl start nginx 
+```
+$ sudo systemctl stop nginx 
+```
+$ sudo systemctl restart nginx
+```
+$ sudo systemctl status nginx 
+```
 ##### To edit files use a text editor such as vi
+```
 $ sudo vi /etc/nginx/conf.d/default or $ sudo vi /etc/nginx/nginx.conf <br/>
+```
    Example : To configure the nginx for dev.mosip.io environment 
     user  madmin; 
     worker_processes  2; 
