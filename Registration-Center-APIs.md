@@ -74,10 +74,8 @@ lunchendtime|Yes|Lunch end time of the registration center| |
 ```JSON
 {
   "id": "string",
-  "version": "string",
   "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
+  "request": [ {
     "addressLine1": "string",
     "addressLine2": "string",
     "addressLine3": "string",
@@ -87,36 +85,92 @@ lunchendtime|Yes|Lunch end time of the registration center| |
     "contactPerson": "string",
     "contactPhone": "string",
     "holidayLocationCode": "string",
-    "id": "string",
-    "isActive": true,
-    "languageCode": "string",
+    "langCode": "string",
     "latitude": "string",
     "locationCode": "string",
     "longitude": "string",
     "lunchEndTime": "HH:mm:ss",
     "lunchStartTime": "HH:mm:ss",
     "name": "string",
-    "numberOfKiosks": 0,
     "perKioskProcessTime": "HH:mm:ss",
     "timeZone": "string",
-    "workingHours": "string"
-  }
+    "workingHours": "HH:mm:ss"
+  }],
+  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "version": "string"
 }
+
 ```
 ### Example Response
 ```JSON
 {
   "id": "string",
-  "version": "string",
   "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": null,
-  "response": {
-	        "id":"string",
-                "name":"string",
-                "status":"string",
-                "message":"string"
-             }
+  "request": [ {
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "16:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "eng",
+    "latitude": "33.9999",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "Center Youssoufial1eeeeeeee",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00"
+  },
+{
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "ara",
+    "latitude": "33.99999",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "المركز أ بن منصور",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00"
+  },
+  {
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "fra",
+    "latitude": "33.995612",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "Center Youssoufial2",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00"
+  }],
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
 }
 ```
 # PUT /registrationcenters
