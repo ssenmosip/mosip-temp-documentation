@@ -17,22 +17,22 @@ The key objectives of the platform are to
 # MOSIP Platform Documentation
 
 The Platform Documentation has everything that you need in terms of requirements, architecture, functional view and APIs.
-The document can be accessed [here](../../wiki/Platform-Documentation).
+The document can be accessed [here](Platform-Documentation).
 
-We encourage you to first get an [overview](../..//wiki) of the MOSIP project and its [principles and architectural goals](../../wiki/Architecture-Principles-&-Platform-Goals).
+We encourage you to first get an view of MOSIP's [principles and architectural goals](Architecture-Principles-&-Platform-Goals).
 
-The [logical architecture](../../wiki/Logical-Architecture) covers the key design aspects.
+The [logical architecture](Logical-Architecture) covers the key design aspects.
 
-The [technology stack](../../wiki/Technology-Stack) lists some of the key technologies used in MOSIP.
+The [technology stack](Technology-Stack) lists some of the key technologies used in MOSIP.
 
 
 ## MOSIP Developer Documentation
 Contains guidelines, and instructions for the developer community.
-The document can be accessed [here](../../wiki/Developer-Documentation).
+The document can be accessed [here](Developer-Documentation).
 
 ## MOSIP Tester Documentation
 Contains useful information for the tester community.
-The document can be accessed [here](../../wiki/Tester-Documentation)
+The document can be accessed [here](Tester-Documentation)
 
 ## Contributing to documentation
 Coming soon...
