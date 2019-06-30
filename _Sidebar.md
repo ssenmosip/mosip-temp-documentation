@@ -1,14 +1,5 @@
 ## MOSIP Wiki
-* [Overview](/mosip/mosip/wiki)
 * [Platform Documentation](Platform-Documentation)
-* Architecture
-  * [Principles](Architecture-Principles-&-Platform-Goals)
-  * [Logical view](Logical-Architecture)  
-  * [Technology stack](Technology-Stack)
-  * [Process view](Process-view)
-  * [Data architecture](MOSIP-Data-Architecture)
-  * [Security](Security)
-    * [Security Tools](Security-Tools)
 * Design
   * [ID Object Definition](MOSIP-ID-Object-definition)
   * [MOSIP configuration](MOSIP-configuration-&-launcher)
@@ -47,5 +38,4 @@
   * [Registration Processor](Registration-Processor-APIs)
   * [Admin APIs](Admin-APIs)
   * [AuthN & AuthZ APIs](AuthN-&-AuthZ-APIs)
-* [Contribute to MOSIP](Contribute-to-MOSIP) 
-
+* [Developer Documentation](Developer-Documentation)
