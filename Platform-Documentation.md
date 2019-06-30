@@ -320,9 +320,9 @@ Please refer to our [Performance-and-Sizing-Guidelines](Performance-and-Sizing-G
 
 ## 10. BUILDING AND DEPLOYING MOSIP[**[↑]**](#table-of-contents)
 ### 10.1 Getting Started Guide
-Please refer [**wiki**](Getting-Started) for more details.
+Please refer to our [Getting Started Guide](Getting-Started) for more details on setting up MOSIP.
 ### 10.2 Developer Document
-Please refer [**wiki**](Developer-Documentation) for more details
+Please refer to our [Developer Documentation](Developer-Documentation) for more details
 ### 10.3 Customization (WIP)
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
 ### 11.1 Data Center Architecture (WIP)
