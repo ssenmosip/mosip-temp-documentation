@@ -9,7 +9,7 @@
 * [8. MOSIP Deployment](#8-mosip-deployment-)
 
 ## 1. Getting the Source Code [**[↑]**](#table-of-content)
-To follow this document. prerequisite knowledge of Linux and Azure with Kubernetes are required. 
+Knowledge of Linux and Azure with Kubernetes are required to follow the instructions.
 MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
