@@ -78,20 +78,20 @@ The following have been the IN SCOPE entities for testing
 |Sl. No.|	Module / Activity|Testing Methodology|	Test Status|
 |------|------|------|------|
 |1|	Kernel	|<li> Test Automation	|PASS|	
-|2|	Pre-Registration|Manual Testing & Test Automation|PASS |
-|3|	Registration Client|<li> Manual Testing <li> Test Automation|PASS|
-|4|Registration Processor|<li> Manual Testing <li> Test Automation	|PASS |
+|2|	Pre-Registration|<li> Tested Manually <li> Test Automation|PASS |
+|3|	Registration Client|<li> Tested Manually <li> Test Automation|PASS|
+|4|Registration Processor|<li> Tested Manually <li> Test Automation	|PASS |
 |5|	ID Authentication	|	<li>  Test Automation	|PASS|
 |6|	ID Repo	|	<li> Test Automation	|PASS|	
-|7|Pre-Registration to Registration Client integration testing|	<li> Manual Testing|PASS	|	
-|8|	Registration Client to Registration Processor integration testing|	<li> Manual Testing|PASS|	
-|9|	Registration Processor to Pre-Registration integration testing|<li>  Manual Testing|PASS	|	
-|10|	Registration Processor to Registration Client integration testing|<li> 	Manual Testing|PASS|
-|11|	Registration Client to IDA integration testing|<li> 	Manual Testing|PASS		|
-|12|	Registration Processor to IDA integration testing|<li> 	Manual Testing|PASS|
-|13|	IDA to ID Repo|<li> 	Manual Testing|PASS	|
-|14|Kernel API integration|	<li> Manual Testing <li> Test Automation|	PASS|
-|15|	End to end testing|	<li> Manual Testing|PASS|	
+|7|Pre-Registration to Registration Client integration testing|	<li> Tested Manually|PASS	|	
+|8|	Registration Client to Registration Processor integration testing|	<li> Tested Manually|PASS|	
+|9|	Registration Processor to Pre-Registration integration testing|<li>  Tested Manually|PASS	|	
+|10|	Registration Processor to Registration Client integration testing|<li> 	Tested Manually|PASS|
+|11|	Registration Client to IDA integration testing|<li> 	Tested Manually|PASS		|
+|12|	Registration Processor to IDA integration testing|<li> 	Tested Manually|PASS|
+|13|	IDA to ID Repo|<li> 	Tested Manually|PASS	|
+|14|Kernel API integration|	<li> Tested Manually <li> Test Automation|	PASS|
+|15|	End to end testing|	<li> Tested Manually|PASS|	
 
 #### 4. Types of Testing [**[↑]**](#table-of-content)
 
