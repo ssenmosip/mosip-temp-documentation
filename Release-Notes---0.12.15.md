@@ -75,9 +75,9 @@ The following have been the IN SCOPE entities for testing
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
-|Sl. No.|	Module / Activity|Testing Methodology|	Tested Entities|
+|Sl. No.|	Module / Activity|Testing Methodology|	Test Status|
 |------|------|------|------|
-|1|	Kernel	|<li> Test Automation	|<li> API|	
+|1|	Kernel	|<li> Test Automation	|PASS|	
 |2|	Pre-Registration|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
 |3|	Registration Client|<li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
 |4|Registration Processor|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| |
