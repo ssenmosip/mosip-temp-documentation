@@ -71,7 +71,7 @@ The following have been the IN SCOPE entities for testing
 |Title|	Description|
 |------|------|
 |NFR Testing| <li> Performance Testing <li> Security Testing|
-|Global Configuration Testing|<li> Testing is done for one set of approved production configuration only <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code, is not yet tested and will be taken up in subsequent releases.|
+|Global Configuration Testing|<li> Testing is done for one set of approved production configuration <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code will be taken up in subsequent releases.|
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
