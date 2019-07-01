@@ -328,3 +328,6 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
 ### 11.1 Data Center Architecture (WIP)
 ## 12. List Of Acronyms
+* MOSIP - Modular Open Source Identity Platform
+* NFR - Non Functional Requirements
+* 
