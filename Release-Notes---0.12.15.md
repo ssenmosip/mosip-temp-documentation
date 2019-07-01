@@ -1,12 +1,12 @@
 ## Table Of Content
 
-- [Scope of Version 0.12.15](#scope-of-version-01215-)
+- [Scope](#scope-of-version-01215-)
 - [Documentation](#documentation-)
 - [Key Points](#key-points-)
 - [Code](#code-)
 - [Test Reports](#test-reports-)
-  * [1. In Scope](#1-in-scope-)
-  * [2. Out Of Scope – MOSIP V0.12.15 Platform](#2-out-of-scope--mosip-v01215-platform-)
+  * [1. In scope](#1-in-scope-)
+  * [2. Not in scope](#2-out-of-scope--mosip-v01215-platform-)
   * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary--consolidated-quality-status-)
   * [4. Types of Testing](#4-types-of-testing-)
   * [5. Test Execution Summary](#5-test-execution-summary-)
@@ -30,13 +30,13 @@ Includes Functional requirements, Process flows, Architecture and High level des
 
 |Key Points|	Details|
 |----|----|
-|Pre Registration - Browser(s) |	Chrome (Version - 74.0.3729)|
+|Pre Registration - Browser support |	Chrome 74.0.3729)|
 |Deployment Script Environment|	Microsoft Azure|
 |Registration Client – OS version|	Windows 10 (English version)  with TPM 2.0|
 |Camera|	Logitech / Default windows camera|
 |Scanner|	Canon lide 120|
 |GPS|	GlobalSat BU-353-S4|
-|Biometrics standard for proxy|	CBEFF format (Version - 0.12.15)|
+|Biometrics standard|	CBEFF format (Version - 0.12.15)|
 |SMS gateway|	MSG91, Infobip|
 |Registration Client – face capture |	OpenImaj - This is licensed for demo purpose only|
 |Keystore|	SoftHSM|
@@ -46,13 +46,11 @@ Includes Functional requirements, Process flows, Architecture and High level des
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
 
 ## Code [**[↑]**](#table-of-content)
-The code and automation tests are available in [**GitHub**](/mosip/mosip/tree/0.12.15). The code needs to be build and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
+The code and automation tests are available on [**GitHub**](/mosip/mosip/tree/0.12.15). The code needs to be built and deployed as per the procedure documented in [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We will actively support System Integrators during their first deployment.
 
-## Test Reports [**[↑]**](#table-of-content)
-**Test Scope**
+## Tests [**[↑]**](#table-of-content)
+**Testing Scope**
 #### 1. In Scope [**[↑]**](#table-of-content)
-
-The following have been the IN SCOPE entities for testing
 
 |Title	|Description|
 |------|------|
@@ -66,12 +64,12 @@ The following have been the IN SCOPE entities for testing
 |OS Support|**Registration Client**    <li> Windows 10|
 |Language Support|French, Arabic, English|
 
-#### 2. Out Of Scope – MOSIP V0.12.15 Platform [**[↑]**](#table-of-content)
+#### 2. Not in Scope [**[↑]**](#table-of-content)
 
 |Title|	Description|
 |------|------|
 |NFR Testing| <li> Scalability Testing <li> Performance Testing <li> Security Testing|
-|Global Configuration Testing|<li> Testing is done for one set of approved production configuration <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code will be taken up in subsequent releases.|
+|Configuration Testing|<li> Testing is done for one set of approved production configuration <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code will be taken up in subsequent releases.|
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
@@ -97,17 +95,16 @@ The following have been the IN SCOPE entities for testing
 
 |Testing Type| Description|
 |------|------|
-|Smoke Testing|Test to ensure basic workflows work fine|
-|Functional Testing|Test to ensure functionality of each module and system at large work fine in accordance with the given requirements|
-|Integration Testing|Test to ensure the inter module functionality works fine and in accordance with the integration requirements|
-|Regression Testing|Test to ensure no new functionality or changes do not break existing functionality|
+|Smoke Testing|Tests to ensure basic workflows work fine|
+|Functional Testing|Tests to ensure functionality of each module and system at large work fine in accordance with the given requirements|
+|Integration Testing|Tests to ensure the inter module functionality works fine and in accordance with the integration requirements|
+|Regression Testing|Tests to ensure that any change doesn't break existing functionality|
 	
 #### 5. Test Execution Summary [**[↑]**](#table-of-content)
 ![Image](_images/test_rig_automation/Capture.JPG)  
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 Consolidated report run on 0.12.15 on QA env, from merged automation code base
 ## Known Issues [**[↑]**](#table-of-content)
-![Image](_images/test_rig_automation/image4.jpg)  
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-content)
 Process to be followed for support required, escalation matrix, etc.
