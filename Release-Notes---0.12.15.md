@@ -103,20 +103,7 @@ The following have been the IN SCOPE entities for testing
 |Regression Testing|Test to ensure no new functionality or change breaks old functionality and all existing features work fine|
 	
 #### 5. Test Execution Summary [**[↑]**](#table-of-content)
-|MODULE	|Build	|Manual| Automation|Total|Executed|Passed|Failed|Pending| Execution|Blocker|Critical|Major|Minor|
-|------|------|------| ------|------|------|------|------|------| ------|------|------|------|------|
-|1|1|1| 1|1|1|2|3|4|5|6|7|8|9|
-
-Pre Registration	0.12.15	143	324	467	467	465	2	0	 0	0	0	2
-Registration Client	0.12.15	192	201	393	393	390	3	0	0	0	0	2
-Registration Processor	0.12.15	91	165	256	256	247	9	0	0	0	2 known issues	0
-ID Repository	0.12.15	0	130	130	130	113	17	0	0	0	0	1
-ID Authentication	0.12.15	0	920	920	920	875	45	0	0	0	0	1
-Kernel 	0.12.15	0	373	373	373	373	0	0	0 	0	0	0
-Module Level Integration 	0.12.15	43		43	43	43	0	0	0 	0	0	0
-E2E Testing 	0.12.15	19		19	19	16	3	0	0	0	0	0
-TOTAL		488	2113	2601	2601	2522	79	0	0	0	2	6
-
+![Image](_images/test_rig_automation/image2.jpg) 
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 Consolidated report run on 0.12.15 on QA env, from merged automation code base
 ## Known Issues [**[↑]**](#table-of-content)
