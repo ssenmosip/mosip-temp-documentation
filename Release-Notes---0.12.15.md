@@ -114,6 +114,6 @@ Process to be followed for support required, escalation matrix, etc.
 ## List Of Acronyms [**[↑]**](#table-of-content)
 [**Refer to List Of Acronyms**](Platform-Documentation#12-list-of-acronyms)
 
-
+![Image](_images/test_rig_automation/image3.jpg) 
 
 
