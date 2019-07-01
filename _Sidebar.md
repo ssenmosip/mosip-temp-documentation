@@ -39,3 +39,4 @@
   * [Admin APIs](Admin-APIs)
   * [AuthN & AuthZ APIs](AuthN-&-AuthZ-APIs)
 * [Developer Documentation](Developer-Documentation)
+* [Releases](MOSIP-Releases)
