@@ -91,7 +91,7 @@ The following have been the IN SCOPE entities for testing
 |12|	Registration Processor to IDA integration testing|<li> 	Tested Manually|PASS|
 |13|	IDA to ID Repo|<li> 	Tested Manually|PASS	|
 |14|Kernel API integration|	<li> Tested Manually <li> Test Automation|	PASS|
-|15|	End to end testing|	<li> Tested Manually|PASS|	
+|15|	End to end functional testing|	<li> Tested Manually|PASS|	
 
 #### 4. Types of Testing [**[↑]**](#table-of-content)
 
