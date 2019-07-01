@@ -114,7 +114,7 @@ The following have been the IN SCOPE entities for testing
 to be done
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 consolidated report run on 0.12.15 on QA env, from merged automation code base
-#### 7. Known Issues **[↑]**](#table-of-content)
+#### 7. Known Issues [**[↑]**](#table-of-content)
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-content)
 Process to be followed for support required, escalation matrix, etc.
