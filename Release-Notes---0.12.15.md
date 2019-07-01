@@ -4,7 +4,7 @@
 - [Documentation](#documentation-)
 - [Key Points](#key-points-)
 - [Code](#code-)
-- [Test Execution reports](#test-execution-reports-)
+- [Test Reports](#test-reports-)
   * [Mindtree testing report](#mindtree-testing-report)
     * [1. In Scope](#1-in-scope-)
     * [2. Out Of Scope – MOSIP V0.12.15 Platform](#2-out-of-scope--mosip-v01215-platform-)
