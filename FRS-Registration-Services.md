@@ -305,7 +305,7 @@ Refer to the section related to [**Transliteration**](#62-transliteration-).
 1. When a registration officer starts a new registration, the system determines if the registration is for a child using the date of birth.
 1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
 1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system ensures parent/guardian is registered first and at least RID is available.
-   * A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
+   * A unique RID (request ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
 #### E. Mark an individual as Foreigner or Citizen
 For every new registration, the system provides an option on the demographic details page for the registration officer to mark an individual as either a citizen of that country or a Foreigner. 
@@ -447,7 +447,7 @@ When an individual approaches the registration officer for UIN update, the follo
 1. Registration officer captures face photo and exception photo.
 1. After capturing all the biometric and demographic details the registration officer can see a preview of the data captured and performs registration officer authentication.
 1. If biometric exceptions were marked, supervisor performs authentication.
-1. A unique RID (registration ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
+1. A unique RID (request ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. System initiates the process to update UIN after the RID is generated.
    * Receiving a RID do not mean UIN update is successful.
 1. Registration officer views and prints acknowledgement. 
