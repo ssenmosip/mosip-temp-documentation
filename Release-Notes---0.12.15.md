@@ -116,7 +116,6 @@ to be done
 consolidated report run on 0.12.15 on QA env, from merged automation code base
 
 
-### IV&V testing report [**need link to update**]
 ## Training topics [**[↑]**](#table-of-content)
 Detailed topics that can be covered as a part of training to the System Integrator as shown below in the table:
 
