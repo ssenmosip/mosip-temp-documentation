@@ -12,7 +12,6 @@
     * [4. Types of testing - Definition](#4-types-of-testing---definition-)
     * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
     * [6. Automation Test Reports](#6-automation-test-reports-)
-  * [IV&V testing report](#ivv-testing-report-need-link-to-update)
 - [Training topics](#training-topics-)
 - [Support Process](#support-process-)
 
