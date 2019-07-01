@@ -58,7 +58,7 @@ Registration Client application captures the demographic and biometric details o
 1. Works in online and offline mode to capture data
 1. Provides option to transfer data to server when online and helps in uninterrupted registrations
 1. Client has the ability to update itself for patch upgrades (bug fixes/enhancements) in a remote way. There could be hundreds of client instances running on laptops/desktops. Updates on all of them are controlled by the client and a central server.
-1. Registration client is secured such that it cannot be tampered and misused
+1. Registration client is secured such that it cannot be tampered with or misused
 
 [Detailed functional specifications of registration services](FRS-Registration-Services)
 
@@ -82,10 +82,10 @@ ID Authentication in MOSIP provides services through APIs that validates the aut
 
 This module provides the following capabilities:
 1. Authenticate an individual in a secure and trusted way
-1. Captures of biometrics data as per the defined standards
-1. Authenticates an individual based on their basic identity data captured via MOSIP
-1. In addition to demographic and biometric authentication, an individual is also authenticated based on the following parameters:
-   * TOTP based 
+1. Capture the biometric data as per the defined standards
+1. Authenticate an individual based on their basic identity data captured via MOSIP
+1. In addition to demographic and biometric authentication, an individual can also be authenticated based on the following parameters:
+   * Temporary One Time Password (TOTP) based 
    * Static pin 
    * Challenge response
 5. Authentication APIs
