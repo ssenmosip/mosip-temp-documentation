@@ -330,14 +330,14 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 ## 12. List Of Acronyms
 
 |Acronym|Expanded Form|
-|**-----**|------|
-| ABIS|  Automated Biometric Identification System 
-| API | Application Programming Interface
-| ID |Identification
-| MOSIP | Modular Open Source Identity Platform
-| NFR | Non Functional Requirements
-| OTP | One Time Password
-| SDK | Software Development Kit
-| TBD | To Be Determined
-| UIN | Unique Identification Number
-| WIP | Work In Progress
+|-----|------|
+| ABIS|  Automated Biometric Identification System |
+| API | Application Programming Interface|
+| ID |Identification|
+| MOSIP | Modular Open Source Identity Platform|
+| NFR | Non Functional Requirements|
+| OTP | One Time Password|
+| SDK | Software Development Kit|
+| TBD | To Be Determined|
+| UIN | Unique Identification Number|
+| WIP | Work In Progress|
