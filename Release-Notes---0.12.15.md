@@ -47,7 +47,7 @@ Includes Functional requirements, Process flows, Architecture and high level des
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
 
 ## Code [**[↑]**](#table-of-content)
-The code and automation tests are available in GitHub (https://github.com/mosip/mosip). The code needs to be downloaded and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
+The code and automation tests are available in [**GitHub**](/mosip/mosip/tree/0.12.15). The code needs to be build and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
 
 ## Test Reports [**[↑]**](#table-of-content)
 **Test Scope**
