@@ -103,7 +103,7 @@ The following have been the IN SCOPE entities for testing
 |Regression Testing|Test to ensure no new functionality or changes do not break existing functionality|
 	
 #### 5. Test Execution Summary [**[↑]**](#table-of-content)
-![Image](_images/test_rig_automation/image2.JPG) 
+![Image](_images/test_rig_automation/Capture.JPG)  
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 Consolidated report run on 0.12.15 on QA env, from merged automation code base
 ## Known Issues [**[↑]**](#table-of-content)
@@ -114,7 +114,7 @@ Process to be followed for support required, escalation matrix, etc.
 ## List Of Acronyms [**[↑]**](#table-of-content)
 [**Refer to List Of Acronyms**](Platform-Documentation#12-list-of-acronyms)
 
-![Image](_images/test_rig_automation/Capture.JPG) 
 
-Capture.JPG
+
+
 
