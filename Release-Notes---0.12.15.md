@@ -10,8 +10,9 @@
     * [2. Out Of Scope – MOSIP V0.12.15 Platform](#2-out-of-scope--mosip-v01215-platform-)
     * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary--consolidated-quality-status-)
     * [4. Types of Testing](#4-types-of-testing-)
-    * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
+    * [5. Manual Test Reports](#5-manual-test-reports-)
     * [6. Automation Test Reports](#6-automation-test-reports-)
+    * [7. Known Issues](#7-known-issues-)
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
 
 ## Scope of Version 0.12.15 [**[↑]**](#table-of-content)
@@ -109,11 +110,11 @@ The following have been the IN SCOPE entities for testing
 |Integration Testing|Test to ensure the inter module functionality works fine and in accordance with the integration requirements|
 |Regression Testing|Test to ensure no new functionality or change breaks old functionality and all existing features work fine|
 	
-#### 5. Manual Test Execution Metrics & Graphs [**[↑]**](#table-of-content)
+#### 5. Manual Test Reports [**[↑]**](#table-of-content)
 to be done
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 consolidated report run on 0.12.15 on QA env, from merged automation code base
-
+#### 7. Known Issues **[↑]**](#table-of-content)
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-content)
 Process to be followed for support required, escalation matrix, etc.
