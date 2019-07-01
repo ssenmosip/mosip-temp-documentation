@@ -35,6 +35,7 @@
   * [10.3 Customization (WIP)](#103-customization-wip)
 - [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations)
   * [11.1 Data Center Architecture (WIP)](#111-data-center-architecture-wip)
+- [12. List Of Acronyms](#12-list-of-acronyms)
 
 ## 1. INTRODUCTION
 This document describes the objectives and explicit functional requirements of MOSIP. It also gives an overview of architecturally significant features, APIs and standards followed in MOSIP. Lastly, it provides necessary information on implementation, customization and set up.
@@ -326,3 +327,4 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 ### 10.3 Customization (WIP)
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
 ### 11.1 Data Center Architecture (WIP)
+## 12. List Of Acronyms
