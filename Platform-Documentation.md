@@ -333,13 +333,18 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 |-----|------|
 | ABIS|  Automated Biometric Identification System |
 | API | Application Programming Interface|
-| ID |Identification|
-|IDA|Identification Authentication|
+| ID |Identity|
+|IDA|Identity Authentication|
 | MOSIP | Modular Open Source Identity Platform|
-| NFR | Non Functional Requirements|
+| NFR | Non-Functional Requirements|
 | OTP | One Time Password|
 | SDK | Software Development Kit|
 | TBD | To Be Determined|
 |TOTP|Temporary One Time Password|
 | UIN | Unique Identification Number|
 | WIP | Work In Progress|
+| CBEFF |Common Biometric Exchange Formats Framework|
+| HSM |Hardware Security Module|
+| TPM |Trusted Platform Module|
+
+
