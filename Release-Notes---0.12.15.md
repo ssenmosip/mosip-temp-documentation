@@ -116,8 +116,7 @@ consolidated report run on 0.12.15 on QA env, from merged automation code base
 
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-content)
-Process to be followed for support required, escalation matrix [**need link to update**]
-
+Process to be followed for support required, escalation matrix, etc.
 
 
 
