@@ -15,16 +15,16 @@
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
 - [List Of Acronyms](#list-of-acronyms-)
 ## Scope of Version 0.12.15 [**[↑]**](#table-of-content)
-This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Non-functional requirements (Performance, Scalability and  Security) will be taken up in subsequent releases.
+This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS (Automated Biometrics Identification System) and Biometric devices has been stubbed. Also, this version is tested for functionality. Non-functional requirements (Performance, Scale and Security) will be taken up in subsequent releases.
 
-* Modules included – Pre-Registration, Registration Client, Registration Processor, ID Authentication, Reference GUI implementation of Pre-Registration and Registration Client. 
-* Modules excluded – Administration, Partner Management, Resident Services
+* Features included – Pre-Registration, Registration Client, Registration Processor, ID Authentication, Reference GUI implementation of Pre-Registration and Registration Client. 
+* Features not included – Administration, Partner Management, Resident Services
 ## Documentation [**[↑]**](#table-of-content)
 ### 1. Platform Documentation 
 Includes Functional requirements, Process flows, Architecture and High level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), [**Wireframes**](/mosip/mosip/tree/master/docs/requirements/UX/30JunRelease), and  [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
+[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
 
 ## Key Points [**[↑]**](#table-of-content)
 
@@ -70,7 +70,7 @@ The following have been the IN SCOPE entities for testing
 
 |Title|	Description|
 |------|------|
-|NFR Testing| <li> Performance Testing <li> Security Testing|
+|NFR Testing| <li> Scalability Testing <li> Performance Testing <li> Security Testing|
 |Global Configuration Testing|<li> Testing is done for one set of approved production configuration <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code will be taken up in subsequent releases.|
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
@@ -97,13 +97,13 @@ The following have been the IN SCOPE entities for testing
 
 |Testing Type| Description|
 |------|------|
-|Smoke Testing|Test to ensure basic and critical domain workflows work fine|
+|Smoke Testing|Test to ensure basic workflows work fine|
 |Functional Testing|Test to ensure functionality of each module and system at large work fine in accordance with the given requirements|
 |Integration Testing|Test to ensure the inter module functionality works fine and in accordance with the integration requirements|
-|Regression Testing|Test to ensure no new functionality or change breaks old functionality and all existing features work fine|
+|Regression Testing|Test to ensure no new functionality or changes do not break existing functionality|
 	
 #### 5. Test Execution Summary [**[↑]**](#table-of-content)
-![Image](_images/test_rig_automation/image2.JPG) 
+![Image](_images/test_rig_automation/image2.jpg) 
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 Consolidated report run on 0.12.15 on QA env, from merged automation code base
 ## Known Issues [**[↑]**](#table-of-content)
