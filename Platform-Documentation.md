@@ -328,13 +328,16 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
 ### 11.1 Data Center Architecture (WIP)
 ## 12. List Of Acronyms
-* ABIS - Automated Biometric Identification System 
-* API - Application Programming Interface
-* ID - Identification
-* MOSIP - Modular Open Source Identity Platform
-* NFR - Non Functional Requirements
-* OTP - One Time Password
-* SDK - Software Development Kit
-* TBD - To Be Determined
-* UIN - Unique Identification Number
-* WIP - Work In Progress
+
+|Acronym|Expanded Form|
+|**-----**|------|
+| ABIS|  Automated Biometric Identification System 
+| API | Application Programming Interface
+| ID |Identification
+| MOSIP | Modular Open Source Identity Platform
+| NFR | Non Functional Requirements
+| OTP | One Time Password
+| SDK | Software Development Kit
+| TBD | To Be Determined
+| UIN | Unique Identification Number
+| WIP | Work In Progress
