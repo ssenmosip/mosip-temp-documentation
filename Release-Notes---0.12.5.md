@@ -105,10 +105,10 @@ The following have been the IN SCOPE entities for testing
 
 |Testing Type| Description|
 |------|------|
-|Smoke Testing|	
-|Functional Testing|	
-|Integration Testing|	
-|Regression Testing|
+|Smoke Testing|Test to ensure basic and critical domain workflows work fine|
+|Functional Testing|Test to ensure functionality of each module and system at large work fine in accordance with the given requirements|
+|Integration Testing|Test to ensure the inter module functionality works fine and in accordance with the integration requirements|
+|Regression Testing|Test to ensure no new functionality or change breaks old functionality and all existing features work fine|
 	
 #### 5. Manual Test Execution Metrics & Graphs [**[↑]**](#table-of-content)
 to be done
