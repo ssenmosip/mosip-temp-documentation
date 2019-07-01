@@ -11,7 +11,7 @@
   * [4. Types of Testing](#4-types-of-testing-)
   * [5. Manual Test Reports](#5-manual-test-reports-)
   * [6. Automation Test Reports](#6-automation-test-reports-)
-  * [7. Known Issues](#7-known-issues-)
+- [Known Issues](#known-issues-)
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
 - [List Of Acronyms](#list-of-acronyms-)
 ## Scope of Version 0.12.15 [**[↑]**](#table-of-content)
@@ -108,7 +108,7 @@ The following have been the IN SCOPE entities for testing
 To be done
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
 Consolidated report run on 0.12.15 on QA env, from merged automation code base
-#### 7. Known Issues [**[↑]**](#table-of-content)
+## Known Issues [**[↑]**](#table-of-content)
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-content)
 Process to be followed for support required, escalation matrix, etc.
