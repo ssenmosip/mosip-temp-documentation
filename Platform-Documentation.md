@@ -330,7 +330,7 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 ## 12. List Of Acronyms
 
 |Acronym|Expanded Form|
-|-----|------|
+|**-----**|------|
 | ABIS|  Automated Biometric Identification System |
 | API | Application Programming Interface|
 | ID |Identification|
