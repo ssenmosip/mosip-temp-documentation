@@ -334,6 +334,7 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 | ABIS|  Automated Biometric Identification System |
 | API | Application Programming Interface|
 | ID |Identification|
+|IDA|Identification Authentication|
 | MOSIP | Modular Open Source Identity Platform|
 | NFR | Non Functional Requirements|
 | OTP | One Time Password|
