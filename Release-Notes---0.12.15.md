@@ -49,15 +49,11 @@ Includes Functional requirements, Process flows, Architecture and high level des
 ## Code [**[↑]**](#table-of-content)
 The code and automation tests are available in GitHub (https://github.com/mosip/mosip). The code needs to be downloaded and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
 
-## Test Execution reports [**[↑]**](#table-of-content)
-### Mindtree testing report
-
+## Test Reports [**[↑]**](#table-of-content)
 **Test Scope**
-
 #### 1. In Scope [**[↑]**](#table-of-content)
 
 The following have been the IN SCOPE entities for testing
-
 
 |Title	|Description|
 |------|------|
