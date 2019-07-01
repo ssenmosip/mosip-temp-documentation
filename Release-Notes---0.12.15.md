@@ -81,17 +81,17 @@ The following have been the IN SCOPE entities for testing
 |2|	Pre-Registration|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
 |3|	Registration Client|<li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
 |4|Registration Processor|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| |
-|5|	ID Authentication	|	Test Automation	|<li> API <li> Workflows|	|
-|6|	ID Repo	|	Test Automation	|<li> API|	|	
-|7|Pre-Registration to Registration Client integration testing|	Manual Testing|	Workflows|	|	
-|8|	Registration Client to Registration Processor integration testing|	Manual Testing|	Workflows||	
-|9|	Registration Processor to Pre-Registration integration testing|Manual Testing|Workflows|	|	
-|10|	Registration Processor to Registration Client integration testing|	Manual Testing|	Workflows|	|
-|11|	Registration Client to IDA integration testing|	Manual Testing|	Workflows|		|
-|12|	Registration Processor to IDA integration testing|	Manual Testing|	Workflows	||
-|13|	IDA to ID Repo|	Manual Testing|	Workflows	|	|
+|5|	ID Authentication	|	<li>  Test Automation	|<li> API <li> Workflows|	|
+|6|	ID Repo	|	<li> Test Automation	|<li> API|	|	
+|7|Pre-Registration to Registration Client integration testing|	<li> Manual Testing|	<li> Workflows|	|	
+|8|	Registration Client to Registration Processor integration testing|	<li> Manual Testing|<li> Workflows||	
+|9|	Registration Processor to Pre-Registration integration testing|<li>  Manual Testing| <li> Workflows|	|	
+|10|	Registration Processor to Registration Client integration testing|<li> 	Manual Testing|<li> 	Workflows|	|
+|11|	Registration Client to IDA integration testing|<li> 	Manual Testing|<li> 	Workflows|		|
+|12|	Registration Processor to IDA integration testing|<li> 	Manual Testing|<li> 	Workflows	||
+|13|	IDA to ID Repo|<li> 	Manual Testing|<li> 	Workflows	|	|
 |14|Kernel API integration|	<li> Manual Testing <li> Test Automation|	
-|15|	End to end testing|	Manual Testing|	Workflows	|	
+|15|	End to end testing|	<li> Manual Testing|<li> 	Workflows	|	
 
 #### 4. Types of Testing [**[↑]**](#table-of-content)
 
