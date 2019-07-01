@@ -510,7 +510,7 @@ The registration officer performs the following steps to retrieve a lost UIN of 
    * If an email address is not provided during registration
    * If the client is not online during registration completion
 #### C. Acknowledgement receipt sent by SMS on completion of registration process
-1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement SMS to the individual.
+1.  The system sends an acknowledgement SMS to the individual after a registration is completed and Registration ID has been generated and assigned as per the configured notification language,
    * Notification language is set by a country's admin, who determines in which language, a notification is sent to the individual. Notification language can be either primary language or combination of both primary and secondary language.
    * In case of UIN Update or Lost UIN, the system sends a notification to the individual.
 2. The template of the SMS is defined by the admin at the country level.
