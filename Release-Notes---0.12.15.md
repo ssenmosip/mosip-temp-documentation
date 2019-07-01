@@ -14,7 +14,7 @@
     * [6. Automation Test Reports](#6-automation-test-reports-)
     * [7. Known Issues](#7-known-issues-)
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
-
+- [List Of Acronyms](#list-of-acronyms-)
 ## Scope of Version 0.12.15 [**[↑]**](#table-of-content)
 This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Non-functional requirements (Performance, Scalability and  Security) are not yet tested and will be taken up in subsequent releases.
 
@@ -106,16 +106,16 @@ The following have been the IN SCOPE entities for testing
 |Regression Testing|Test to ensure no new functionality or change breaks old functionality and all existing features work fine|
 	
 #### 5. Manual Test Reports [**[↑]**](#table-of-content)
-to be done
+To be done
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
-consolidated report run on 0.12.15 on QA env, from merged automation code base
+Consolidated report run on 0.12.15 on QA env, from merged automation code base
 #### 7. Known Issues [**[↑]**](#table-of-content)
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-content)
 Process to be followed for support required, escalation matrix, etc.
 
-
-
+## List Of Acronyms [**[↑]**](#table-of-content)
+Refer to [List Of Acronyms](Platform-Documentation#12-list-of-acronyms)
 
 
 
