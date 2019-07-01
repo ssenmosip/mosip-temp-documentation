@@ -75,7 +75,7 @@ The following have been the IN SCOPE entities for testing
 
 #### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
 
-|Sl. No.|	Module / Activity|Testing Methodology|	Test Status|
+|Sl. No.|	Module / Activity|Test Methodology|	Test Status|
 |------|------|------|------|
 |1|	Kernel	|<li> Test Automation	|PASS|	
 |2|	Pre-Registration|<li> Tested Manually <li> Test Automation|PASS |
