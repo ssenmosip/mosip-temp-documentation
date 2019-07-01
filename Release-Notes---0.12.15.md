@@ -47,7 +47,7 @@ High Level documentation including Functional requirements, Process flows, Archi
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
 
 ## Code [**[↑]**](#table-of-content)
-The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the [**Deployment Guide**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
+The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
 
 ## Test Execution reports [**[↑]**](#table-of-content)
 ### Mindtree testing report
