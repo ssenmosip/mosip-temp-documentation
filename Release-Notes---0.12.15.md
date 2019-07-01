@@ -78,7 +78,7 @@ The following have been the IN SCOPE entities for testing
 |Sl. No.|	Module / Activity|Testing Methodology|	Test Status|
 |------|------|------|------|
 |1|	Kernel	|<li> Test Automation	|PASS|	
-|2|	Pre-Registration|<li> Manual Testing <li> Test Automation|PASS |
+|2|	Pre-Registration|Manual Testing & Test Automation|PASS |
 |3|	Registration Client|<li> Manual Testing <li> Test Automation|PASS|
 |4|Registration Processor|<li> Manual Testing <li> Test Automation	|PASS |
 |5|	ID Authentication	|	<li>  Test Automation	|PASS|
