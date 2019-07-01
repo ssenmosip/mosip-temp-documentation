@@ -69,9 +69,9 @@ The following have been the IN SCOPE entities for testing
 |Types of testing|<li>	 Smoke <li> Functional <li>  Integration <li> 	Regression|
 |Testing Levels|![Image](_images/test_rig_automation/image1.png) |
 |Configuration Parameters tested for| Refer to QA env properties file with suffix ‘qa’ in the filename, at [**Link**](/mosip/mosip-configuration/tree/master/config)|
-|Browser Support|Pre-Registration
-Chrome – 74.0.3729.169|
-|OS Support|Registration Client
+|Browser Support|Pre-Registration Chrome – 74.0.3729.169|
+|OS Support|Registration Client 
+***
 Windows 10|
 |Language Support|French, Arabic, English|
 
