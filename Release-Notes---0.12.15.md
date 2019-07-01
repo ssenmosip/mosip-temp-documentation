@@ -24,7 +24,7 @@ This release is with **proxy biometrics**. This means that the implementation of
 Includes Functional requirements, Process flows, Architecture and high level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
+[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), [**wireframes**](/mosip/mosip/tree/master/docs/requirements/UX/30JunRelease), and  [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
 
 ## Key Points [**[↑]**](#table-of-content)
 
