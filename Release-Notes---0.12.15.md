@@ -16,14 +16,13 @@
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
 
 ## Scope of Version 0.12.15 [**[↑]**](#table-of-content)
-This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
+This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Non-functional requirements (Performance, Scalability and  Security) are not yet tested and will be taken up in subsequent releases.
 
-* Modules included – Pre Registration, Registration Client, Registration Processor, ID Authentication
+* Modules included – Pre-Registration, Registration Client, Registration Processor, ID Authentication, Reference GUI implementation of Pre-Registration and Registration Client. 
 * Modules excluded – Administration, Partner Management, Resident Services
-* Reference implementation of Pre-Registration and Registration Client UI
 ## Documentation [**[↑]**](#table-of-content)
 ### 1. Platform Documentation 
-High Level documentation including Functional requirements, Process flows, Architecture and high level design documents, Deployment guide, Developer documentation etc.  
+Includes Functional requirements, Process flows, Architecture and high level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
 [**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), Wireframes, [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
@@ -48,7 +47,7 @@ High Level documentation including Functional requirements, Process flows, Archi
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
 
 ## Code [**[↑]**](#table-of-content)
-The code is available in open source repository. This includes automation test suite. The code needs to be downloaded and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
+The code and automation tests are available in GitHub (https://github.com/mosip/mosip). The code needs to be downloaded and deployed as per the [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We would actively support the System Integrator during the first deployment process.
 
 ## Test Execution reports [**[↑]**](#table-of-content)
 ### Mindtree testing report
