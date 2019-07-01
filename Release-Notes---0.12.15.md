@@ -9,7 +9,7 @@
     * [1. In Scope](#1-in-scope-)
     * [2. Out Of Scope – MOSIP V1.0 Platform](#2-out-of-scope--mosip-v10-platform-)
     * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary--consolidated-quality-status-)
-    * [4. Types of testing - Definition](#4-types-of-testing-)
+    * [4. Types of testing](#4-types-of-testing-)
     * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
     * [6. Automation Test Reports](#6-automation-test-reports-)
 - [Support Process (To Be Determined](#support-process-to-be-determined-)
