@@ -1641,6 +1641,7 @@ languagecode|Yes|Language code in Language code in ISO 639-2 format| |
   "filters": [
 	{
 		"fieldID": "string",
+		"fieldCode":"string",
 		"fieldValue": "string"
 	}
    ]
