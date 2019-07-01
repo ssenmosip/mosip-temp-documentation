@@ -12,7 +12,7 @@
     * [4. Types of testing](#4-types-of-testing-)
     * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
     * [6. Automation Test Reports](#6-automation-test-reports-)
-- [Support Process (To Be Determined](#support-process-to-be-determined-)
+- [Support Process (To Be Determined)](#support-process-to-be-determined-)
 
 ## Scope of Version 1.0.0 [**[↑]**](#table-of-content)
 This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
