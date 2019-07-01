@@ -332,5 +332,6 @@ Please refer to our [Developer Documentation](Developer-Documentation) for more 
 * API - Application Programming Interface
 * MOSIP - Modular Open Source Identity Platform
 * NFR - Non Functional Requirements
+* TBD - To Be Determined
 * UIN - Unique Identification Number
 * WIP - Work In Progress
