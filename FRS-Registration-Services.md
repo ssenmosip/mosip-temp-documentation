@@ -499,7 +499,7 @@ The registration officer performs the following steps to retrieve a lost UIN of 
 4. This print friendly receipt can then be printed using a printer
 
 #### B. Acknowledgement receipt sent by email on completion of registration process [**[↑]**](#table-of-content)
-1. When a registration is completed, that is, a Registration ID has been generated and assigned the system. Based on the notification language, the system sends an acknowledgement email to the individual.
+1.The system sends an acknowledgement email to the individual after a registration is completed and Registration ID has been generated and assigned as per the configured notification language.
    * Notification language is set by a country's admin, who determines in which language, a notification is sent to the individual. Notification language can be either primary language or combination of both primary and secondary language.
    * In case of UIN Update or Lost UIN, the system sends a notification to the individual.
 2. The email template is defined by the admin at country level.
