@@ -52,23 +52,23 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 name|Yes|Name of the registration center| | 
 centertypecode|Yes|Code of the center type| | 
-addressline1|No|Line 1 of the address| | 
+addressline1|Yes|Line 1 of the address| | 
 addressline2|No|Line 2 of the address| | 
 addressline3|No|Line 3 of the address| | 
 locationcode|Yes|Code of the location of the registration center| | 
 longitude|Yes|Longitude of the registration center| | 
 latitude|Yes|Latitude of the registration center| | 
-contactphone|Yes|Contact phone number of the registration center| |  
+contactphone|No|Contact phone number of the registration center| |  
 workinghours|Yes|Working hours of the registration center| | 
 perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
-officestarttime|Yes|Office start time of the registration center| | 
-officeendtime|Yes|Office end time of the registration center| | 
+centerstarttime|Yes|Office start time of the registration center| | 
+centerendtime|Yes|Office end time of the registration center| | 
 holidaylocationcode|Yes|Holiday location of the registration center| | 
-isactive|Yes|Is the registration center active| | 
-numberofkiosk|Yes|Number of Kiosk| | 
-contactperson|Yes|Contact person of the registration center| | 
-lunchstarttime|Yes|Lunch start time of the registration center| | 
-lunchendtime|Yes|Lunch end time of the registration center| | 
+contactperson|No|Contact person of the registration center| | 
+lunchstarttime|No|Lunch start time of the registration center| | 
+lunchendtime|No|Lunch end time of the registration center| | 
+timezone |No | time zone of the registration center | |
+lang_code |Yes | language code  | |
 
 ### Example Request
 ```JSON
@@ -107,7 +107,7 @@ lunchendtime|Yes|Lunch end time of the registration center| |
   "id": "string",
   "metadata": {},
   "request": [ {
-    "addressLine1": "Avenue Ouzguita1",
+    "addressLine1": "Avenue Ouzguita",
     "addressLine2": "Rabat",
     "addressLine3": "Morocco",
     "centerEndTime": "17:00:00",
@@ -122,13 +122,13 @@ lunchendtime|Yes|Lunch end time of the registration center| |
     "longitude": "-6.815281",
     "lunchEndTime": "14:00:00",
     "lunchStartTime": "13:00:00",
-    "name": "Center Youssoufial1eeeeeeee",
+    "name": "Center Youssoufial",
     "perKioskProcessTime": "00:15:00",
     "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
     "workingHours": "8:00:00"
   },
 {
-    "addressLine1": "Avenue Ouzguita1",
+    "addressLine1": "Avenue Ouzguita",
     "addressLine2": "Rabat",
     "addressLine3": "Morocco",
     "centerEndTime": "17:00:00",
@@ -149,7 +149,7 @@ lunchendtime|Yes|Lunch end time of the registration center| |
     "workingHours": "8:00:00"
   },
   {
-    "addressLine1": "Avenue Ouzguita1",
+    "addressLine1": "Avenue Ouzguita",
     "addressLine2": "Rabat",
     "addressLine3": "Morocco",
     "centerEndTime": "17:00:00",
@@ -164,7 +164,7 @@ lunchendtime|Yes|Lunch end time of the registration center| |
     "longitude": "-6.815281",
     "lunchEndTime": "14:00:00",
     "lunchStartTime": "13:00:00",
-    "name": "Center Youssoufial2",
+    "name": "Center Youssoufial",
     "perKioskProcessTime": "00:15:00",
     "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
     "workingHours": "8:00:00"
@@ -193,23 +193,24 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 name|Yes|Name of the registration center| | 
 centertypecode|Yes|Code of the center type| | 
-addressline1|No|Line 1 of the address| | 
+addressline1|Yes|Line 1 of the address| | 
 addressline2|No|Line 2 of the address| | 
 addressline3|No|Line 3 of the address| | 
 locationcode|Yes|Code of the location of the registration center| | 
 longitude|Yes|Longitude of the registration center| | 
 latitude|Yes|Latitude of the registration center| | 
-contactphone|Yes|Contact phone number of the registration center| |  
+contactphone|No|Contact phone number of the registration center| |  
 workinghours|Yes|Working hours of the registration center| | 
 perkioskprocesstime|Yes|Process time per kiosk in the registration center| | 
-officestarttime|Yes|Office start time of the registration center| | 
-officeendtime|Yes|Office end time of the registration center| | 
+centerstarttime|Yes|Office start time of the registration center| | 
+centerendtime|Yes|Office end time of the registration center| | 
 holidaylocationcode|Yes|Holiday location of the registration center| | 
 isactive|Yes|Is the registration center active| | 
-numberofkiosk|Yes|Number of Kiosk| | 
-contactperson|Yes|Contact person of the registration center| | 
-lunchstarttime|Yes|Lunch start time of the registration center| | 
-lunchendtime|Yes|Lunch end time of the registration center| | 
+contactperson|No|Contact person of the registration center| | 
+lunchstarttime|No|Lunch start time of the registration center| | 
+lunchendtime|No|Lunch end time of the registration center| | 
+timezone |No | time zone of the registration center | |
+lang_code |Yes | language code  | |
 
 ### Example Request
 ```JSON
@@ -237,7 +238,6 @@ lunchendtime|Yes|Lunch end time of the registration center| |
     "lunchEndTime": "HH:mm:ss",
     "lunchStartTime": "HH:mm:ss",
     "name": "string",
-    "numberOfKiosks": 0,
     "perKioskProcessTime": "HH:mm:ss",
     "timeZone": "string",
     "workingHours": "string"
@@ -247,18 +247,108 @@ lunchendtime|Yes|Lunch end time of the registration center| |
 ### Example Response
 ```JSON
 {
-  "id": "string",
-  "version": "string",
-  "metadata": {},
-  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "errors": null,
-  "response": {
-	        "id":"string",
-                "name":"string",
-                "status":"string",
-                "message":"string"
-             }
+    "id": "string",
+    "version": "string",
+    "responsetime": "2019-07-01T05:44:29.825Z",
+    "metadata": null,
+    "response": {
+        "registrationCenters": [
+            {
+                "id": "10022",
+                "name": "Center Youssoufialaaaa",
+                "centerTypeCode": "REG",
+                "addressLine1": "Avenue Ouzguita1",
+                "addressLine2": "Rabat",
+                "addressLine3": "Morocco",
+                "latitude": "-33.9999",
+                "longitude": "-6.815281",
+                "locationCode": "10190",
+                "holidayLocationCode": "RBT",
+                "contactPhone": "803062069",
+                "workingHours": "8:00:00",
+                "langCode": "eng",
+                "numberOfKiosks": 0,
+                "perKioskProcessTime": "00:15:00",
+                "centerStartTime": "09:00:00",
+                "centerEndTime": "17:00:00",
+                "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+                "contactPerson": "Mick Donalds",
+                "lunchStartTime": "13:00:00",
+                "lunchEndTime": "14:00:00",
+                "isActive": false,
+                "createdBy": "zonal-admin",
+                "createdDateTime": "2019-06-28T08:24:11.204Z",
+                "updatedBy": "zonal-admin",
+                "updatedDateTime": "2019-07-01T05:44:30.448Z",
+                "isDeleted": null,
+                "deletedDateTime": null
+            },
+            {
+                "id": "10022",
+                "name": "Center Youssoufialbbbb",
+                "centerTypeCode": "REG",
+                "addressLine1": "Avenue Ouzguita2",
+                "addressLine2": "Rabat",
+                "addressLine3": "Morocco",
+                "latitude": "33.995612",
+                "longitude": "-6.815281",
+                "locationCode": "10190",
+                "holidayLocationCode": "RBT",
+                "contactPhone": "803062069",
+                "workingHours": "8:00:00",
+                "langCode": "ara",
+                "numberOfKiosks": 0,
+                "perKioskProcessTime": "00:15:00",
+                "centerStartTime": "09:00:00",
+                "centerEndTime": "17:00:00",
+                "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+                "contactPerson": "Mick Donalds",
+                "lunchStartTime": "13:00:00",
+                "lunchEndTime": "14:00:00",
+                "isActive": false,
+                "createdBy": "zonal-admin",
+                "createdDateTime": "2019-06-28T08:24:11.256Z",
+                "updatedBy": "zonal-admin",
+                "updatedDateTime": "2019-07-01T05:44:30.931Z",
+                "isDeleted": null,
+                "deletedDateTime": null
+            },
+            {
+                "id": "10022",
+                "name": "Center Youssoufialccc",
+                "centerTypeCode": "REG",
+                "addressLine1": "Avenue Ouzguita1",
+                "addressLine2": "Rabat",
+                "addressLine3": "Morocco",
+                "latitude": "-33.9999",
+                "longitude": "-6.815281",
+                "locationCode": "10190",
+                "holidayLocationCode": "RBT",
+                "contactPhone": "803062069",
+                "workingHours": "8:00:00",
+                "langCode": "fra",
+                "numberOfKiosks": 0,
+                "perKioskProcessTime": "00:15:00",
+                "centerStartTime": "09:00:00",
+                "centerEndTime": "17:00:00",
+                "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+                "contactPerson": "Mick Donalds",
+                "lunchStartTime": "13:00:00",
+                "lunchEndTime": "14:00:00",
+                "isActive": false,
+                "createdBy": "zonal-admin",
+                "createdDateTime": "2019-06-28T08:24:11.349Z",
+                "updatedBy": "zonal-admin",
+                "updatedDateTime": "2019-07-01T05:44:31.558Z",
+                "isDeleted": null,
+                "deletedDateTime": null
+            }
+        ],
+        "notUpdatedRegCenters": []
+    },
+    "errors": null
 }
+
 ```
 # GET /registrationcenters
 Master data is required across the platform. 
