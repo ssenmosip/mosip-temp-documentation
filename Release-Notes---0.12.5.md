@@ -90,16 +90,17 @@ The following have been the IN SCOPE entities for testing
 |2|	Pre-Registration|	MOS-2|<li> Manual Testing <li> Test Automation|<li> UI <li> API <li> Workflows|<li> Certified critical functional workflows <li> Open Defects <li> Major – <li> Minor - |
 |3|	Registration Client|	MOS-14575| <li> Manual Testing <li> Test Automation| <li> UI <li> API <li> Workflows||
 |4|Registration Processor|	MOS-4|<li> Manual Testing <li> Test Automation	|<li> API <li> Workflows| |
-|5|	ID Authentication	|MOS-5|	Test Automation	|<li> API <li> Workflows|	|	
-|6	|Pre-Registration to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|	
-|7|	Registration Client to Registration Processor integration testing|	NA|	Manual Testing|	Workflows||	
-|8|	Registration Processor to Pre-Registration integration testing|	NA	|Manual Testing|Workflows|	|	
-|9|	Registration Processor to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|
-|10|	Registration Client to IDA integration testing|	NA|	Manual Testing|	Workflows|		|
-|11|	Registration Processor to IDA integration testing|	NA|	Manual Testing|	Workflows	||
-|12|	IDA to ID Repo|	NA|	Manual Testing|	Workflows	|	|
-|13	|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	
-|14|	End to end testing|	NA|	Manual Testing|	Workflows	|	
+|5|	ID Authentication	|MOS-5|	Test Automation	|<li> API <li> Workflows|	|
+|6|	ID Repo	|NA|	Test Automation	|<li> API|	|	
+|7|Pre-Registration to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|	
+|8|	Registration Client to Registration Processor integration testing|	NA|	Manual Testing|	Workflows||	
+|9|	Registration Processor to Pre-Registration integration testing|	NA	|Manual Testing|Workflows|	|	
+|10|	Registration Processor to Registration Client integration testing|	NA|	Manual Testing|	Workflows|	|
+|11|	Registration Client to IDA integration testing|	NA|	Manual Testing|	Workflows|		|
+|12|	Registration Processor to IDA integration testing|	NA|	Manual Testing|	Workflows	||
+|13|	IDA to ID Repo|	NA|	Manual Testing|	Workflows	|	|
+|14|Kernel API integration|	NA|	<li> Manual Testing <li> Test Automation|	
+|15|	End to end testing|	NA|	Manual Testing|	Workflows	|	
 
 #### 4. Types of testing - Definition [**[↑]**](#table-of-content)
 
