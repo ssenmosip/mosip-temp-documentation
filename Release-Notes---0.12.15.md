@@ -1,20 +1,20 @@
 ## Table Of Content
 
-- [Scope of Version 1.0.0](#scope-of-version-100-)
+- [Scope of Version 0.12.15](#scope-of-version-01215-)
 - [Documentation](#documentation-)
 - [Key Points](#key-points-)
 - [Code](#code-)
 - [Test Execution reports](#test-execution-reports-)
   * [Mindtree testing report](#mindtree-testing-report)
     * [1. In Scope](#1-in-scope-)
-    * [2. Out Of Scope – MOSIP V1.0 Platform](#2-out-of-scope--mosip-v10-platform-)
+    * [2. Out Of Scope – MOSIP V0.12.15 Platform](#2-out-of-scope--mosip-v01215-platform-)
     * [3. Executive Summary – Consolidated Quality Status](#3-executive-summary--consolidated-quality-status-)
     * [4. Types of Testing](#4-types-of-testing-)
     * [5. Manual Test Execution Metrics & Graphs](#5-manual-test-execution-metrics--graphs-)
     * [6. Automation Test Reports](#6-automation-test-reports-)
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
 
-## Scope of Version 1.0.0 [**[↑]**](#table-of-content)
+## Scope of Version 0.12.15 [**[↑]**](#table-of-content)
 This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (Mosip Device Manager), ABIS and biometric devices has been stubbed. Also, this version is tested for functionality. Nonfunctional requirements (Performance, Security) are not tested.
 
 * Modules included – Pre Registration, Registration Client, Registration Processor, ID Authentication
@@ -37,7 +37,7 @@ High Level documentation including Functional requirements, Process flows, Archi
 |Camera|	Logitech / Default windows camera|
 |Scanner|	Canon lide 120|
 |GPS|	GlobalSat BU-353-S4|
-|Biometrics standard for proxy|	CBEFF format (Version - 1.0)|
+|Biometrics standard for proxy|	CBEFF format (Version - 0.12.15)|
 |SMS gateway|	MSG91, Infobip|
 |Registration Client – face capture |	OpenImaj - This is licensed for demo purpose only|
 |Keystore|	SoftHSM|
@@ -71,7 +71,7 @@ The following have been the IN SCOPE entities for testing
 |OS Support|Registration Client Windows 10|
 |Language Support|French, Arabic, English|
 
-#### 2. Out Of Scope – MOSIP V1.0 Platform [**[↑]**](#table-of-content)
+#### 2. Out Of Scope – MOSIP V0.12.15 Platform [**[↑]**](#table-of-content)
 
 |Title|	Description|
 |------|------|
