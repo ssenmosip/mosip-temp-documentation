@@ -44,10 +44,10 @@ This section gives a functional overview of the platform, driven by the key func
 ### 2.1 Pre-Registration
 
 Pre-registration is the web channel of the MOSIP. This module enables a user to:  
-1. Book registration appointment 
+1. Book appointment for registration 
 1. Enter demographic data & upload supporting documents 
 1. Appointment notification, rescheduling and cancellation 
-1. Send resident data to registration center before appointment 
+1. Send resident data to registration center before appointment, which can be used during registration 
 
 [Detailed functional specifications of pre-registration module](FRS-Pre-Registration) 
 
