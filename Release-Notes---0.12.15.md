@@ -96,7 +96,7 @@ The code and automation tests are available on [**GitHub**](/mosip/mosip/tree/0.
 |Testing Type| Description|
 |------|------|
 |Smoke Testing|Tests to ensure basic workflows work fine|
-|Functional Testing|Tests to ensure functionality of each module and system at large work fine in accordance with the given requirements|
+|Functional Testing|Tests to ensure functionality of each module and overall system work fine in accordance with the given requirements|
 |Integration Testing|Tests to ensure the inter module functionality works fine and in accordance with the integration requirements|
 |Regression Testing|Tests to ensure that any change doesn't break existing functionality|
 	
