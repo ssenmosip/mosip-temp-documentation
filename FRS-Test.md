@@ -14,3 +14,6 @@
 |Maps	|OpenstreetMap|
 |Supporting key based digital signatures, not using digital certificates||	
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
+
+https://github.com/mosip/mosip/blob/master/docs/testing/Automation%20Test%20Reports/MOSIP_IDAAutoRun_TestNGReport_29Jun19.html
+
