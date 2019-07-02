@@ -20,9 +20,12 @@ https://github.com/mosip/mosip/blob/master/docs/testing/Automation%20Test%20Repo
 
 <table><tr><td>
 <pre>
-Everything until the next blank line or end of document gets included in the HTML block. 
-So, in the following example, what looks like a Markdown code block is actually part 
-of the HTML block, which continues until a blank line or the end of the document 
+Everything until the next blank line or end of document gets included 
+in the HTML block. 
+So, in the following example, what looks like a Markdown code block is 
+actually part 
+of the HTML block, which continues until a blank line or 
+the end of the document 
 is reached:,
 <p><em>world</em>.
 </pre></p>
