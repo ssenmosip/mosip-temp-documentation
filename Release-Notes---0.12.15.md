@@ -103,7 +103,7 @@ The code and automation tests are available on [**GitHub**](/mosip/mosip/tree/0.
 #### 5. Test Execution Summary [**[↑]**](#table-of-content)
 ![Image](_images/test_rig_automation/Capture.JPG)  
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
-[Automation report run on 0.12.15 on QA env]()
+[Automation report run on 0.12.15 on QA env](/mosip/mosip/tree/master/docs/testing/Automation%20Test%20Reports)
 ## Known Issues [**[↑]**](#table-of-content)
 ![Image](_images/test_rig_automation/image4.jpg) 
 
