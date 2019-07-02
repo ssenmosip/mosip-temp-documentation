@@ -470,7 +470,7 @@ The below diagram depicts the overall design of the end to end suite.
 * Clone project from [**link**](//github.com/mosip/mosip.git)
 * Import the e2etestrig project into the eclipse.
 
-## 6.4 Basic Code Structure Of The E2E Rig :
+## 6.4 Basic Code Structure Of The E2E Rig
 1. The E2E rig is a basic parent child maven project
 1. It contains 5 child project which are as follows: 
    * Pre Registration which will generate list of Pre-IDs
