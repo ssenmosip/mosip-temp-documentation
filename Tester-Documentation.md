@@ -466,9 +466,9 @@ The below diagram depicts the overall design of the end to end suite.
 * Good analytical and debugging skill
 
 ## 6.3 Procedure to checkout-out the test code from the repository
-Launch eclipse with new or existing workspace
-Clone project from [**link**](//github.com/mosip/mosip.git)
-Import the e2etestrig project into the eclipse.
+* Launch eclipse with new or existing workspace
+* Clone project from [**link**](//github.com/mosip/mosip.git)
+* Import the e2etestrig project into the eclipse.
 
 ## 6.4 Basic Code Structure Of The E2E Rig :
 1. The E2E rig is a basic parent child maven project
