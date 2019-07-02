@@ -267,9 +267,6 @@ lang_code |Yes | language code  | |
 #### Failure details
 Error Code  | Error Message | Error Description
 -----|----------|-------------
-KER-MSD-999 |One or more input parameter(s) is missing|If input parameter is missing
-KER-MSD-999 |<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
-KER-MSD-999 |<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
 KER-MSD-500 |Internal Server Error|If system error occurs
 KER-ATH-403 |Forbidden|If unauthorized role detected
 KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
@@ -522,9 +519,6 @@ lang_code |Yes | language code  | |
 
 Error Code | Error Message | Error Description
 ----- |----------|-------------
-KER-MSD-999 |One or more input parameter(s) is missing|If input parameter is missing
-KER-MSD-999 |<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
-KER-MSD-999 |<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
 KER-MSD-500 |Internal Server Error|If system error occurs
 KER-ATH-403 |Forbidden|If unauthorized role detected
 KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
