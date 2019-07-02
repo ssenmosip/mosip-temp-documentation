@@ -265,19 +265,19 @@ lang_code |Yes | language code  | |
 ```
 
 #### Failure details
-Error Code | Error Message | Error Description
+Error Code  | Error Message | Error Description
 -----|----------|-------------
-KER-MSD-999|One or more input parameter(s) is missing|If input parameter is missing
-KER-MSD-999|<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
-KER-MSD-999|<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
-KER-MSD-500|Internal Server Error|If system error occurs
-KER-ATH-403|Forbidden|If unauthorized role detected
-KER-ATH-401|Authentication Failed|If no role/invalid token is detected
-KER-MSD-060|Error occurred while Inserting Registration Center details|If any error occur from database
-KER-MSD-303|Received data is not present in all Languages supported by MOSIP|If all the mandatory data is not received in all the configured languages
-KER-MSD-306|Records with duplicate language code found|if records received contain duplicate language codes
-KER-MSD-307|Latitude or Longitude must have minimum 4 digits after decimal|If the Latitude and/or Longitude are in invalid format
-KER-MSD-308|Center Lunch Start Time must be smaller than Center Lunch End Time|If Center Lunch start time is bigger than Center Lunch End Time
+KER-MSD-999 |One or more input parameter(s) is missing|If input parameter is missing
+KER-MSD-999 |<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
+KER-MSD-999 |<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+KER-MSD-060 |Error occurred while Inserting Registration Center details|If any error occur from database
+KER-MSD-303 |Received data is not present in all Languages supported by MOSIP|If all the mandatory data is not received in all the configured languages
+KER-MSD-306 |Records with duplicate language code found|if records received contain duplicate language codes
+KER-MSD-307 |Latitude or Longitude must have minimum 4 digits after decimal|If the Latitude and/or Longitude are in invalid format
+KER-MSD-308 |Center Lunch Start Time must be smaller than Center Lunch End Time|If Center Lunch start time is bigger than Center Lunch End Time
 KER-MSD-309|Center Start Time must be smaller than Center End Time|If Center Start time is bigger than Center End Time
 
 # PUT /registrationcenters
@@ -521,21 +521,21 @@ lang_code |Yes | language code  | |
 #### Failure details
 
 Error Code | Error Message | Error Description
------|----------|-------------
-KER-MSD-999|One or more input parameter(s) is missing|If input parameter is missing
-KER-MSD-999|<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
-KER-MSD-999|<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
-KER-MSD-500|Internal Server Error|If system error occurs
-KER-ATH-403|Forbidden|If unauthorized role detected
-KER-ATH-401|Authentication Failed|If no role/invalid token is detected
-KER-ATH-111|Error occurred while updating Registration Center details|If any error occur from database
-KER-MSD-303|Received data is not present in all Languages supported by MOSIP|If all the mandatory data is not received in all the configured languages
-KER-MSD-304|Center IDs received for all languages is not same|If all the IDs received are not same for data in all the languages
-KER-MSD-305|Center ID and Language Code combination is not unique in the request received|If combination of Center ID and Language code in duplicate in request
-KER-MSD-306|Records with duplicate language code found|if records received contain duplicate language codes
-KER-MSD-307|Latitude or Longitude must have minimum 4 digits after decimal|If the Latitude and/or Longitude are in invalid format
-KER-MSD-308|Center Lunch Start Time must be smaller than Center Lunch End Time|If Center Lunch start time is bigger than Center Lunch End Time
-KER-MSD-309|Center Start Time must be smaller than Center End Time|If Center Start time is bigger than Center End Time
+----- |----------|-------------
+KER-MSD-999 |One or more input parameter(s) is missing|If input parameter is missing
+KER-MSD-999 |<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
+KER-MSD-999 |<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
+KER-MSD-500 |Internal Server Error|If system error occurs
+KER-ATH-403 |Forbidden|If unauthorized role detected
+KER-ATH-401 |Authentication Failed|If no role/invalid token is detected
+KER-ATH-111 |Error occurred while updating Registration Center details|If any error occur from database
+KER-MSD-303 |Received data is not present in all Languages supported by MOSIP|If all the mandatory data is not received in all the configured languages
+KER-MSD-304 |Center IDs received for all languages is not same|If all the IDs received are not same for data in all the languages
+KER-MSD-305 |Center ID and Language Code combination is not unique in the request received|If combination of Center ID and Language code in duplicate in request
+KER-MSD-306 |Records with duplicate language code found|if records received contain duplicate language codes
+KER-MSD-307 |Latitude or Longitude must have minimum 4 digits after decimal|If the Latitude and/or Longitude are in invalid format
+KER-MSD-308 |Center Lunch Start Time must be smaller than Center Lunch End Time|If Center Lunch start time is bigger than Center Lunch End Time
+KER-MSD-309 |Center Start Time must be smaller than Center End Time|If Center Start time is bigger than Center End Time
 
 
 # GET /registrationcenters
