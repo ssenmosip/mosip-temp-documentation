@@ -76,30 +76,71 @@ lang_code |Yes | language code  | |
   "id": "string",
   "metadata": {},
   "request": [ {
-    "addressLine1": "string",
-    "addressLine2": "string",
-    "addressLine3": "string",
-    "centerEndTime": "HH:mm:ss",
-    "centerStartTime": "HH:mm:ss",
-    "centerTypeCode": "string",
-    "contactPerson": "string",
-    "contactPhone": "string",
-    "holidayLocationCode": "string",
-    "langCode": "string",
-    "latitude": "string",
-    "locationCode": "string",
-    "longitude": "string",
-    "lunchEndTime": "HH:mm:ss",
-    "lunchStartTime": "HH:mm:ss",
-    "name": "string",
-    "perKioskProcessTime": "HH:mm:ss",
-    "timeZone": "string",
-    "workingHours": "HH:mm:ss"
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "16:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "eng",
+    "latitude": "33.9999",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "Center Youssoufial1eeeeeeee",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00"
+  },
+{
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "ara",
+    "latitude": "33.99999",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "المركز أ بن منصور",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00"
+  },
+  {
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "fra",
+    "latitude": "33.995612",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "Center Youssoufial2",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00"
   }],
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "requesttime": "2018-12-10T06:12:52.994Z",
   "version": "string"
 }
-
 ```
 ### Example Response
 ```JSON
@@ -205,6 +246,40 @@ lang_code |Yes | language code  | |
     "errors": null
 }
 ```
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
+
+```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-999|One or more input parameter(s) is missing|If input parameter is missing
+KER-MSD-999|<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
+KER-MSD-999|<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
+KER-MSD-500|Internal Server Error|If system error occurs
+KER-ATH-403|Forbidden|If unauthorized role detected
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+KER-MSD-060|Error occurred while Inserting Registration Center details|If any error occur from database
+KER-MSD-303|Received data is not present in all Languages supported by MOSIP|If all the mandatory data is not received in all the configured languages
+KER-MSD-306|Records with duplicate language code found|if records received contain duplicate language codes
+KER-MSD-307|Latitude or Longitude must have minimum 4 digits after decimal|If the Latitude and/or Longitude are in invalid format
+KER-MSD-308|Center Lunch Start Time must be smaller than Center Lunch End Time|If Center Lunch start time is bigger than Center Lunch End Time
+KER-MSD-309|Center Start Time must be smaller than Center End Time|If Center Start time is bigger than Center End Time
+
 # PUT /registrationcenters
 Master data is required across the platform. 
 
@@ -248,32 +323,76 @@ lang_code |Yes | language code  | |
 ```JSON
 {
   "id": "string",
-  "version": "string",
   "metadata": {},
-  "requesttime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-  "request": {
-    "addressLine1": "string",
-    "addressLine2": "string",
-    "addressLine3": "string",
-    "centerEndTime": "HH:mm:ss",
-    "centerStartTime": "HH:mm:ss",
-    "centerTypeCode": "string",
-    "contactPerson": "string",
-    "contactPhone": "string",
-    "holidayLocationCode": "string",
-    "id": "string",
-    "isActive": true,
-    "languageCode": "string",
-    "latitude": "string",
-    "locationCode": "string",
-    "longitude": "string",
-    "lunchEndTime": "HH:mm:ss",
-    "lunchStartTime": "HH:mm:ss",
-    "name": "string",
-    "perKioskProcessTime": "HH:mm:ss",
-    "timeZone": "string",
-    "workingHours": "string"
-  }
+  "request": [ {
+    "addressLine1": "Avenue Ouzguita1",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "eng",
+   "id":"10022",
+    "latitude": "-33.9999",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "Center Youssoufialvvvvv",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00",
+    "isActive": false
+  },
+{
+    "addressLine1": "Avenue Ouzguita2",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "id": "10022",
+    "langCode": "ara",
+    "latitude": "33.995612",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "Center Youssoufial2vvvvv",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00",
+    "isActive": false
+  },
+  {
+    "addressLine1": "Avenue Ouzguita2",
+    "addressLine2": "Rabat",
+    "addressLine3": "Morocco",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Mick Donalds",
+    "contactPhone": "803062069",
+    "holidayLocationCode": "RBT",
+    "langCode": "fra",
+    "id":"10022",
+    "latitude": "33.995612",
+    "locationCode": "10190",
+    "longitude": "-6.815281",
+    "name": "Center Youssoufial2vvvvv",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "8:00:00",
+    "isActive": false
+  }],
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
 }
 ```
 ### Example Response
@@ -380,8 +499,45 @@ lang_code |Yes | language code  | |
     },
     "errors": null
 }
+```
+##### Error Response:
+```
+{
+  "id": "string",
+  "version": "string",
+  "metadata": {},
+  "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+  "errors": [
+    {
+      "errorCode": "string",
+      "message": "string"
+    }
+  ],
+ "response": null
+}
 
 ```
+
+#### Failure details
+
+Error Code | Error Message | Error Description
+-----|----------|-------------
+KER-MSD-999|One or more input parameter(s) is missing|If input parameter is missing
+KER-MSD-999|<Dynamic message depending on the field and error>|If mandatory input parameter is in invalid format
+KER-MSD-999|<Dynamic message depending on the field and error>|If optional input parameter is not empty and is in invalid format
+KER-MSD-500|Internal Server Error|If system error occurs
+KER-ATH-403|Forbidden|If unauthorized role detected
+KER-ATH-401|Authentication Failed|If no role/invalid token is detected
+KER-ATH-111|Error occurred while updating Registration Center details|If any error occur from database
+KER-MSD-303|Received data is not present in all Languages supported by MOSIP|If all the mandatory data is not received in all the configured languages
+KER-MSD-304|Center IDs received for all languages is not same|If all the IDs received are not same for data in all the languages
+KER-MSD-305|Center ID and Language Code combination is not unique in the request received|If combination of Center ID and Language code in duplicate in request
+KER-MSD-306|Records with duplicate language code found|if records received contain duplicate language codes
+KER-MSD-307|Latitude or Longitude must have minimum 4 digits after decimal|If the Latitude and/or Longitude are in invalid format
+KER-MSD-308|Center Lunch Start Time must be smaller than Center Lunch End Time|If Center Lunch start time is bigger than Center Lunch End Time
+KER-MSD-309|Center Start Time must be smaller than Center End Time|If Center Start time is bigger than Center End Time
+
+
 # GET /registrationcenters
 Master data is required across the platform. 
 
