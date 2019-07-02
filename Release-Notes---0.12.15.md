@@ -115,11 +115,4 @@ Process to be followed for support required, escalation matrix, etc.
 
 
 
-|Module	|Issue Description|Issue ID|
-|-----|-------|------|
-|Registration Processor	|In the UIN letter, the photo of the resident is not displayed|	MOS-26679|
-|Pre-Registration|When a user has more than 20 applications created, the application errors out with “Bad gateway in the console” error|MOS-26004|
-|Registration Processor|When packets are going through reprocessing, sometime they are not moving forward from their respective stage like "PacketValidatorStage"/"UinGeneratorStage	|MOS-26667|
-|Registration Client|When a user role is downgraded from supervisor to officer, application fails to load the screen based on the current role|MOS-26175|
-
 
