@@ -17,3 +17,11 @@
 
 https://github.com/mosip/mosip/blob/master/docs/testing/Automation%20Test%20Reports/MOSIP_IDAAutoRun_TestNGReport_29Jun19.html
 
+
+<table><tr><td>
+<pre>
+**Hello**,
+<p><em>world</em>.
+</pre></p>
+</td></tr></table>
+
