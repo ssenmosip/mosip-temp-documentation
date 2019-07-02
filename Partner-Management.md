@@ -63,9 +63,53 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 ![Partner Management IDA services](_images/arch_diagrams/PartnerManagement_IDA_Services.png)
 
 ## High Level Entity Relationships
-![Partner Management IDA services](_images/arch_diagrams/PartnerManagement_Entity_Relations.png)
+![Partner Management Entity Relations](_images/arch_diagrams/PartnerManagement_Entity_Relations.png)
+
+### Policy
+A policy is an authentication type or set of authentication types that is utilized by partners to validate any individual's identity .
+There are following Authentication Types available for partners to choose from :
+1. Demographic Authentication - Based on individual's Name, Date of Birth, Gender, Address details
+2. OTP Authentication - Based on mobile or email one time password (OTP) authentication
+3. Biometric Authentication - Based on Finger, IRIS, Face
+
+After successful authentication, KYC response is sent back to Partner for the individual.
+
+### Policy Group
+ A Policy Group is a sector OR domain like Banking, Insurance, Telecome etc, specific to a country. Any policy manager, partner manager and partner belong to a specific policy group. MOSIP would require Policy Group master data are prepared and defined beforehand by country, before creation of Partner, Partner Manager and Policy Manager
+ 
+### Policy Manager
+Policy manager would be creating and managing policy/policies for the policy group he/she belongs to 
+ 
+### PartnerAPIKey
+For a partner to opt for an authentication policy, they have to generate PartnerAPIKey request with following sample parameters - PartnerCode, UseCaseDescription, SupportingInfo, Status etc. Once the PartnerAPIKey request is approved by Partner Manager, Partner is provided PartnerAPIKey that contains details like - PartnerAPIKey (combination of PartnerCode, policy group and policy), IssuedOn, ValidTill, IsActive etc)
+
+**Sample Master Policy JSON**
+
+{
+  "policies": {
+    "authPolicies": [ 	{"authType": "otp","mandatory": true},
+						{"authType": "demo","mandatory": false},
+						{"authType": "bio","authSubType": "FINGER","mandatory": true},
+						{"authType": "bio","authSubType": "IRIS","mandatory": false},
+						{"authType": "bio","authSubType": "FACE","mandatory": false},
+						{"authType": "kyc","mandatory": false}
+					],
+    "allowedKycAttributes": [  {"attributeName": "fullName","required": true},
+							   {"attributeName": "dateOfBirth","required": true},
+							   {"attributeName": "gender","required": true},
+							   {"attributeName": "phone","required": true},
+							   {"attributeName": "email","required": true},
+							   {"attributeName": "addressLine1","required": true},
+							   {"attributeName": "addressLine2","required": true},
+							   {"attributeName": "addressLine3","required": true},
+							   {"attributeName": "location1","required": true},
+							   {"attributeName": "location2","required": true},
+							   {"attributeName": "location3",required": true},
+							   {"attributeName": "postalCode","required": false},
+							   {"attributeName": "photo","required": true}
+							]
+  }
+}
 
 ## Logical View
 ![Partner Management Logical View](_images/arch_diagrams/PartnerManagement_Logical_Diagram.png)
-
-
