@@ -24,7 +24,7 @@ This release is with **proxy biometrics**. This means that the implementation of
 Includes Functional requirements, Process flows, Architecture and High level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20MOS%20AND%20issuetype%20%3D%20test%20order%20by%20%22Epic%20Link%22)
+[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design ), [**Test cases**](//mosipid.atlassian.net/issues/?jql=project%20%3D%20%22MOS%22%20and%20issuetype%3Dtest%20and%20%22Epic%20Link%22%20in%20(MOS-5%2C%20MOS-1%2C%20MOS-2%2CMOS-14575%2CMOS-4)%20ORDER%20BY%20priority%20DESC)
 
 ## Key Points [**[↑]**](#table-of-content)
 
@@ -103,7 +103,7 @@ The code and automation tests are available on [**GitHub**](/mosip/mosip/tree/0.
 #### 5. Test Execution Summary [**[↑]**](#table-of-content)
 ![Image](_images/test_rig_automation/Capture.JPG)  
 #### 6. Automation Test Reports [**[↑]**](#table-of-content)
-[Automation report run on 0.12.15 on QA env](/mosip/mosip/tree/master/docs/testing/Automation%20Test%20Reports)
+[**Automation report run on 0.12.15 on QA env**](/mosip/mosip/tree/master/docs/testing/Automation%20Test%20Reports)
 ## Known Issues [**[↑]**](#table-of-content)
 ![Image](_images/test_rig_automation/image4.jpg) 
 
