@@ -301,8 +301,6 @@ PMS_MSIP_008|MISP ID does not exist|Internal Error due to Updating
 ### GET /msip
 This request will load the configuration parameters while loading the pre-registration portal page.
 
-##### Note: All the values are retrieving from the pre-registration config properties file. If any value get changed in the config properties file it will get reflected in the response of this API. Following mentioned response is the sample of that.
-
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/msip</div>
 
@@ -321,9 +319,7 @@ requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
 request.adminCredential.username|Yes|admin username|
 request.adminCredential.password|Yes|admin password|
-request.msipDetails.mispStatus|Yes|MISP organization name|
-request.msipDetails.mispLicenseKey|Yes|MISP contact number|
-request.msipDetails.mispLicenseKeyStatus|Yes|MISP emailId|
+request.msipOrganizationName|Yes|MISP organization name|
 
 #### Request:
 ```JSON
