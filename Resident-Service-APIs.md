@@ -2,7 +2,7 @@ This section details out all Resident Service REST APIs
 
 * [OTP Request API](#post-residentv1reqotp)
 
-* [UIN Generation Status Check API](#post-residentv1ridcheck-status)
+* [Service Request Status Check API](#post-residentv1ridcheck-status)
 
 * [e-UIN API](#post-residentv1reqeuin)
 
@@ -13,8 +13,6 @@ This section details out all Resident Service REST APIs
 * [Retrieve Lost RID API](#post-residentv1reqrid)
 
 * [UIN Update API](#post-residentv1requpdate-uin)
-
-* [UIN Update Status Check API](#post-residentv1urnchecks-tatus)
 
 * [VID Generate API](#post-/residentv1vid)
 
