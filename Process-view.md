@@ -13,24 +13,29 @@
 ![Pre-Registration](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow_1.19_Pre-registration-2.%20Pre-Registration.jpg)
 
 ## 2. Registration Client [**[↑]**](#table-of-content)
-![RegistrationClient-Admin_Setup](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-3%20Registration%20Admin_Setup.jpg)
 
-![RegistrationClient-Officer_Onboarding](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-3.1%20Registration%20Officer%20Onboarding.jpg)
+![RegistrationClient-Officer_Onboarding]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-1.%20Registration%20Officer%20Onboarding.jpg)
 
-![RegistrationClient-Software_Update](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-3.2%20Registration%20Client%20Software%20Update.jpg)
+![RegistrationClient-Software_Update]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-2.%20Registration%20Client%20Software%20Update.jpg)
 
-![RegistrationClient-Registration_Preparation](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-4%20Registration%20Prep.jpg)
+![RegistrationClient-Registration_Preparation]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-3.%20Registration%20Prep.jpg)
 
-![RegistrationClient-Registration](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-5%20Registration.jpg)
+![RegistrationClient-Registration]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-4.%20Registration.jpg
 
-![RegistrationClient-UIN_Update](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-5.1%20UIN%20Update.jpg)
+![RegistrationClient-UIN_Update]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-5.%20UIN%20Update.jpg)
 
-![RegistrationClient-Lost_UIN](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-5.2%20Lost%20UIN.jpg)
+![RegistrationClient-Lost_UIN]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-6.%20Lost%20UIN.jpg)
 
-![RegistrationClient-Packet_Upload](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-6%20Registration%20Packet%20Upload.jpg)
+![RegistrationClient-Packet_Upload]
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-7.%20Registration%20Packet%20Upload.jpg)
 
 ![RegistrationClient-EOD_Process]
-
 (/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-8.%20EoD%20Process.jpg)
 
 ## 3. Registration Processor [**[↑]**](#table-of-content)
