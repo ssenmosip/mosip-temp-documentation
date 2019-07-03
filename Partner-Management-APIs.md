@@ -205,7 +205,7 @@ PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP Li
 PMS_MISP_008|MISP ID does not exist|MISP ID not available in database
 
 ### PUT /misp/license/{mispId}
-This request will invalidate the authorization token when force logout is done.
+This request will deactivate/suspend MISPs (update MISP License Key Status)
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misp/license/{mispId}</div>
@@ -300,7 +300,7 @@ PMS_MISP_009|MISP License key not associated to MISP ID|MISP License key not ass
 
 
 ### GET /misp
-This request will load the configuration parameters while loading the pre-registration portal page.
+This request will retrieve MISP ID, MISP status, MISP Organization Name,MISP Contact Number, MISP Email ID, MISP Address,MISP License Key, MISP License Key expiry, MISP License key status for all the MISPs retrieved for the requested MISP.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misp</div>
