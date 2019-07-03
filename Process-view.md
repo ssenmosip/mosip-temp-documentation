@@ -29,7 +29,9 @@
 
 ![RegistrationClient-Packet_Upload](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-6%20Registration%20Packet%20Upload.jpg)
 
-![RegistrationClient-EOD_Process](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-6.1%20EoD%20Process.jpg)
+![RegistrationClient-EOD_Process]
+
+(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-8.%20EoD%20Process.jpg)
 
 ## 3. Registration Processor [**[↑]**](#table-of-content)
 ![RegistrationProcessor-Packet_Pre_Processing](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Processor%20-%20Packet%20Pre%20Processing.jpg)
