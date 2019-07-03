@@ -2,20 +2,19 @@ This section details about the service API in the Partner Management module.
 
 * [User Management Service](#user-management-service)
 
-
 # User Management Service
-This service used to authenticate MOSIP Admin and management of MISP(MOSIP Infrastructure Service Provider).
+This service is used to authenticate MOSIP Admin and management of MISP(MOSIP Infrastructure Service Provider).
 
-* [POST /msip](#post-msip)
-* [PUT /msip/{msipId}](#put-msipmsipid)
-* [PUT /msip/license/{msipId}](#post-msiplicensemsipid)
-* [GET /msip](#get-msip)
+* [POST /misp](#post-misp)
+* [PUT /misp/{mispId}](#put-mispmispid)
+* [PUT /misp/license/{mispId}](#post-misplicensemispid)
+* [GET /misp](#get-misp)
 
-### POST /msip
-This request will send the MOSIP Admin credentials and msip details to get register
+### POST /misp
+This request will send the MOSIP Admin credentials and misp details to get registered
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/msip</div>
+<div>https://mosip.io/partnermanagement/v1/misp</div>
 
 #### Resource details
 Resource Details | Description
@@ -26,72 +25,73 @@ Requires Authentication | Yes
 #### Request Body Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.pre-registration.login.sendotp
+id |Yes|id |mosip.partnermanagement.misp.create
 version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+requesttime |Yes|Time of the request|2019-07-02T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|
-request.adminCredential.password|Yes|admin password|
-request.msipDetails.organizationName|Yes|MISP organization name|
-request.msipDetails.contactNumber|Yes|MISP contact number|
-request.msipDetails.emailId|Yes|MISP emailId|
-request.msipDetails.address|Yes|MISP address|
+request.adminCredential.username|Yes|admin username|admin
+request.adminCredential.password|Yes|admin password|admin
+request.mispDetails.organizationName|Yes|MISP organization name|telecom
+request.mispDetails.contactNumber|Optional|MISP contact number|9876998888
+request.mispDetails.emailId|Optional|MISP emailId|"prm@telecom.com
+request.mispDetails.address|Optional|MISP address|india
 
 #### Request:
 ```JSON
 {
-    "id":"mosip.partnermanagement.msip.create",
-    "ver":"1.0",
-    "requesttime":"2019-05-20T09:48:43.394Z",
-    "request" : {
-       "adminCredential":{
-	       "username":"admin",
-	       "password":"admin"
-	    },
-       "msipDetails":{
-	       "organizationName":"telecom",
-	       "contactNumber":9876998888,
-	       "emailId":"prm@telecom.com",
-	       "address":"india"
-	    }
+  "id": "mosip.partnermanagement.misp.create",
+  "ver": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "request": {
+    "adminCredential": {
+      "username": "admin",
+      "password": "admin"
+    },
+    "mispDetails": {
+      "organizationName": "telecom",
+      "contactNumber": 9876998888,
+      "emailId": "prm@telecom.com",
+      "address": "india"
     }
+  }
 }
 
 ```
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: MSIP successfully created
+###### Description: MISP successfully created
 ```JSON
 {
-    "id":"mosip.partnermanagement.msip.create",
-    "version":"1.0",
-    "responsetime":"2019-05-20T09:48:43.394Z",
-    "response": {
-        "mispId":"String",
-        "mispStatus":"String",
-        "mispLicenseKey":"String",
-        "mispLicenseKeyExpiry":LocalDate,
-        "mispLicenseKeyStatus":"String"
-    },
-    "errors": null 
+  "id": "mosip.partnermanagement.misp.create",
+  "version": "1.0",
+  "responsetime": "2019-05-20T09:48:43.394Z",
+  "response": {
+    "mispId": "64269837502851",
+    "mispStatus": "Active",
+    "mispLicenseKey": "fa604-affcd-33201-04770",
+    "mispLicenseKeyExpiry": "2022-12-31",
+    "mispLicenseKeyStatus": "Active"
+  },
+  "errors": null
 }
 
 ```
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Not a authorised MOSIP Admin- UserName not available in database
+###### Description: MISP already registered
+
 ```JSON
 {
-  "id": "mosip.partnermanagement.msip.create",
+  "id": "mosip.partnermanagement.misp.create",
   "version": "1.0",
   "responsetime": "2019-05-14T16:46:39.582Z",
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_MSIP_003",
-      "message": "A MISP is already registered with name MISP Organization Name"
+      "errorCode": "PMS_MISP_003",
+      "message": "A MISP is already registered with name - organizationName"
     }
   ]
 }
@@ -99,17 +99,17 @@ request.msipDetails.address|Yes|MISP address|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MSIP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
-PMS_MSIP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
-PMS_MSIP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_MSIP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
-PMS_MSIP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
+PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
 
-### PUT /msip/{msipId}
+### PUT /misp/{mispId}
 This request to update MISP with the parameters.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/msip/{msipId}</div>
+<div>https://mosip.io/partnermanagement/v1/misp/{mispId}</div>
 
 #### Resource details
 Resource Details | Description
@@ -120,40 +120,40 @@ Requires Authentication | Yes
 #### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-msipId |Yes| id of the misp|64269837502851
+mispId |Yes| id of the misp|64269837502851
 
 #### Request Body Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.partnermanagement.msip.update
+id |Yes|id |mosip.partnermanagement.misp.update
 version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+requesttime |Yes|Time of the request|2019-07-02T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|
-request.adminCredential.password|Yes|admin password|
-request.msipDetails.organizationName|Yes|MISP organization name|
-request.msipDetails.contactNumber|Yes|MISP contact number|
-request.msipDetails.emailId|Yes|MISP emailId|
-request.msipDetails.address|Yes|MISP address|
+request.adminCredential.username|Yes|admin username|admin
+request.adminCredential.password|Yes|admin password|admin
+request.mispDetails.organizationName|Optional|MISP organization name|telecom
+request.mispDetails.contactNumber|Optional|MISP contact number|9876998888
+request.mispDetails.emailId|Optional|MISP emailId|prm@telecom.com
+request.mispDetails.address|Optional|MISP address|india
 
 #### Request:
 ```JSON
 {
-    "id":"mosip.partnermanagement.msip.update",
-    "ver":"1.0",
-    "requesttime":"2019-05-20T09:48:43.394Z",
-    "request" : {
-        "adminCredential":{
-	       "username":"admin",
-	       "password":"admin"
-	    },	
-       "mispDetails":{
-           "organizationName":"string",
-           "contactNumber":"string",
-           "emailID":"string",
-           "address":"string"
-		}
-   }
+  "id": "mosip.partnermanagement.misp.update",
+  "ver": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "request": {
+    "adminCredential": {
+      "username": "admin",
+      "password": "admin"
+    },
+    "mispDetails": {
+      "organizationName": "telecom",
+      "contactNumber": 9876998888,
+      "emailID": "prm@telecom.com",
+      "address": "india"
+    }
+  }
 }
 ```
 #### Responses:
@@ -162,33 +162,33 @@ request.msipDetails.address|Yes|MISP address|
 ###### Description: sms sent successfully
 ```JSON
 {
-  "id": "mosip.partnermanagement.msip.update",
+  "id": "mosip.partnermanagement.misp.update",
   "version": "1.0",
   "responsetime": "2019-06-03T06:47:10.838Z",
   "response": {
-      "mispDetails":{  
-		   "id":"string",
-           "organizationName":"string",
-           "contactNumber":"string",
-           "emailID":"string",
-           "address":"string"
-	   }
+    "mispDetails": {
+      "id": "64269837502851",
+      "organizationName": "telecom",
+      "contactNumber": "9876998888",
+      "emailID": "prm@telecom.com",
+      "address": "india"
+    }
   },
   "errors": null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid parameters
+###### Description: MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address - None available in request
 ```JSON
 {
-  "id": "mosip.pre-registration.login.useridotp",
+  "id": "mosip.partnermanagement.misp.update",
   "version": "1.0",
   "responsetime": "2019-06-03T18:03:12.305Z",
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_MSIP_007",
+      "errorCode": "PMS_MISP_007",
       "message": "No information provided for update"
     }
   ]
@@ -197,18 +197,18 @@ request.msipDetails.address|Yes|MISP address|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MSIP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
-PMS_MSIP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
-PMS_MSIP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_MSIP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
-PMS_MSIP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
-PMS_MSIP_008|MISP ID does not exist|Internal Error due to Updating
+PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
+PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_008|MISP ID does not exist|MISP ID not available in database
 
-### PUT /msip/license/{msipId}
+### PUT /misp/license/{mispId}
 This request will invalidate the authorization token when force logout is done.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/msip/license/{msipId}</div>
+<div>https://mosip.io/partnermanagement/v1/misp/license/{mispId}</div>
 
 #### Resource details
 Resource Details | Description
@@ -219,39 +219,39 @@ Requires Authentication | Yes
 #### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-msipId |Yes| id of the misp|64269837502851
+mispId |Yes| id of the misp|64269837502851
 
 
 #### Request Body Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.partnermanagement.msip.license.update
+id |Yes|id |mosip.partnermanagement.misp.license.update
 version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|
-request.adminCredential.password|Yes|admin password|
-request.msipDetails.mispStatus|Yes|MISP organization name|
-request.msipDetails.mispLicenseKey|Yes|MISP contact number|
-request.msipDetails.mispLicenseKeyStatus|Yes|MISP emailId|
+request.adminCredential.username|Yes|admin username|admin
+request.adminCredential.password|Yes|admin password|admin
+request.mispDetails.mispStatus|Optional|MISP organization name|telecom
+request.mispDetails.mispLicenseKey|Optional|MISP contact number|
+request.mispDetails.mispLicenseKeyStatus|Optional|MISP emailId|
 
 #### Request:
 ```JSON
 {
-    "id":"mosip.partnermanagement.msip.license.update",
-    "ver":"1.0",
-    "requesttime":"2019-05-20T09:48:43.394Z",
-    "request" : {
-        "adminCredential":{
-	       "username":"admin",
-	       "password":"admin"
-	    },	
-       "mispDetails":{
-           "mispStatus":"Active",
-           "mispLicenseKey":"fa604-affcd-33201-04770",
-           "mispLicenseKeyStatus":"Deactive"
-		}
-   }
+  "id": "mosip.partnermanagement.misp.license.update",
+  "ver": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "request": {
+    "adminCredential": {
+      "username": "admin",
+      "password": "admin"
+    },
+    "mispDetails": {
+      "mispStatus": "Active",
+      "mispLicenseKey": "fa604-affcd-33201-04770",
+      "mispLicenseKeyStatus": "Deactive"
+    }
+  }
 }
 ```
 
@@ -261,7 +261,7 @@ request.msipDetails.mispLicenseKeyStatus|Yes|MISP emailId|
 ###### Description: MISP License updated successfully
 ```JSON
 {
-  "id": "mosip.partnermanagement.msip.license.update",
+  "id": "mosip.partnermanagement.misp.license.update",
   "version": "1.0",
   "responsetime": "2019-05-16T09:37:04.941Z",
   "response": {
@@ -275,13 +275,13 @@ request.msipDetails.mispLicenseKeyStatus|Yes|MISP emailId|
 ###### Description: MISP status,  MISP License key status - None available in request
 ```JSON
 {
-  "id": "mosip.partnermanagement.msip.license.update",
+  "id": "mosip.partnermanagement.misp.license.update",
   "version": "1.0",
   "responsetime": "2019-06-14T08:41:17.156Z",
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_MSIP_007",
+      "errorCode": "PMS_MISP_007",
       "message": "No information provided for update"
     }
   ]
@@ -290,19 +290,20 @@ request.msipDetails.mispLicenseKeyStatus|Yes|MISP emailId|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MSIP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
-PMS_MSIP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
-PMS_MSIP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_MSIP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
-PMS_MSIP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
-PMS_MSIP_008|MISP ID does not exist|Internal Error due to Updating
+PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
+PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_008|MISP ID/MISP License Key does not exist|MISP ID/MISP License Key not available in database
+PMS_MISP_009|MISP License key not associated to MISP ID|MISP License key not associated to MISP in the input
 
 
-### GET /msip
+### GET /misp
 This request will load the configuration parameters while loading the pre-registration portal page.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/msip</div>
+<div>https://mosip.io/partnermanagement/v1/misp</div>
 
 #### Resource details
 Resource Details | Description
@@ -313,27 +314,27 @@ Requires Authentication | Yes
 #### Request Body Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.partnermanagement.msip.reterive
+id |Yes|id |mosip.partnermanagement.misp.retrieve
 version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|
-request.adminCredential.password|Yes|admin password|
-request.msipOrganizationName|Yes|MISP organization name|
+request.adminCredential.username|Yes|admin username|admin
+request.adminCredential.password|Yes|admin password|admin
+request.mispOrganizationName|Optional|MISP organization name|telecome
 
 #### Request:
 ```JSON
 {
-    "id":"mosip.partnermanagement.msip.reterive",
-    "ver":"1.0",
-    "requesttime":"2019-05-20T09:48:43.394Z",
-    "request" : {
-        "adminCredential":{
-	       "username":"admin",
-	       "password":"admin"
-	    },	
-       "msipOrganizationName":"telecom"
-   }
+  "id": "mosip.partnermanagement.misp.reterive",
+  "ver": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "request": {
+    "adminCredential": {
+      "username": "admin",
+      "password": "admin"
+    },
+    "mispOrganizationName": "telecom"
+  }
 }
 ```
 #### Responses:
@@ -342,37 +343,38 @@ request.msipOrganizationName|Yes|MISP organization name|
 ###### Description: Config parameter retrieved sucessfully 
 ```JSON
 {
-  "id": "mosip.partnermanagement.msip.reterive",
+  "id": "mosip.partnermanagement.misp.reterive",
   "version": "1.0",
   "responsetime": "2019-05-14T16:01:20.534Z",
   "response": {
-     "mispDetails":{
-		"id":"String",
-		"organizationName":"string",
-        "contactNumber":"string",
-        "emailID":"string",
-        "address":"string",
-        "status":"String",
-        "licenseKey":"String",
-        "licenseKeyExpiry":LocalDate,
-        "licenseKeyStatus":"Active"
+    "mispDetails": {
+      "id": "64269837502851",
+      "organizationName": "telecom",
+      "contactNumber": "9876998888",
+      "emailID": "prm@telecom.com",
+      "address": "india",
+      "status": "Active",
+      "licenseKey": "fa604-affcd-33201-04770",
+      "licenseKeyExpiry": "2022-12-31",
+      "licenseKeyStatus": "Active"
+    }
   },
   "errors": null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No MSIP found for the organization
+###### Description: No MISP found for the organization
 ```JSON
 {
-  "id": "mosip.partnermanagement.msip.license.update",
+  "id": "mosip.partnermanagement.misp.license.update",
   "version": "1.0",
   "responsetime": "2019-06-14T08:41:17.156Z",
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_MSIP_009",
-      "message": "No MSIP found for the organization"
+      "errorCode": "PMS_MISP_009",
+      "message": "No MISP found for the organization"
     }
   ]
 }
@@ -380,8 +382,8 @@ request.msipOrganizationName|Yes|MISP organization name|
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MSIP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
-PMS_MSIP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
-PMS_MSIP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_MSIP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
-PMS_MSIP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
+PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
