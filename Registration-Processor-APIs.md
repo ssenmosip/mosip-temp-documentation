@@ -665,7 +665,7 @@ byte[]|Yes|byte array of CBEFF file|
 # 5 Packet Generator Service
 ## 4.1 Packet Generator Service
 - #### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
-The abis would call bio-dedupe service to get the biometric cbeff file.
+The residence service portal would call packet generator service to activate or deactivate uin.
 
 #### Resource URL
 https://mosip.io/registrationprocessor/v1/packetgenerator/registrationpacket
