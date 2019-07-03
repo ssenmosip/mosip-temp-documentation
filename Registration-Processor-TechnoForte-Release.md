@@ -8,7 +8,7 @@
 |3.|MOSIP - Getting Started Document|[MOSIP Getting Started Document](https://github.com/mosip/mosip/wiki/Getting-Started)|
 
 
-**Date: 02July 2019**
+**Date: 03 July 2019**
 
 **Module: Registration Processor **
 
@@ -20,7 +20,7 @@
 |4.|Registration Processor|Code Drop|[Tag: 0.12.15](https:////github.com/mosip/mosip/releases/tag/0.12.16)||
 |5.|Registration Processor|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 10 in the linked page|
 
-**Date: 02 July 2019**
+**Date: 03 July 2019**
 
 **Module: Registration Processor**
 
