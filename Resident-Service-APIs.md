@@ -113,8 +113,7 @@ Mandatory fields for different types of authentications-
 #### Responses:
 ##### Success Response:
 ###### Status Code : 200 (OK)
-###### Description : OTP for Authentication was successfully sent to the Individual        
-
+       
 ```JSON
 {
   "id": "mosip.resident.otp",
@@ -122,8 +121,8 @@ Mandatory fields for different types of authentications-
   "responseTime": "2018-12-09T06:39:04.683Z",
   "transactionID": "dabed834-974f-11e9-bc42-526af7764f64",
   "response": {
-    "maskedMobile": "XXXXXXX123",
-    "maskedEmail": "abXXXXXXXXXcd@xyz.com"
+    "status": "success",
+    "message": "OTP for authentication successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -151,11 +150,9 @@ Mandatory fields for different types of authentications-
 #### Failure details
 Error Code | Error Message | Error Description
 ------------|------------------------------|-------------
-KER-MSD-045 | Error occurred while fetching Templates | Fetch Issue
-KER-MSD-145 | Exception during inserting data into db | Insertion Issue
-KER-MSD-046 | Template not found. | Data Not Found
-KER-MSD-095 | Error occurred while updating Template | Update Issue
-KER-MSD-096 | Error occurred while deleting Template | Delete Issue
+XXX-XXX-001 | OTP Request failed | 
+XXX-XXX-002 | Invalid VID | No active VID found  
+
 
 
 
@@ -206,7 +203,8 @@ request: individualIdType| Y | Allowed Type of Individual ID - RID | RID
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
-
+    "status": "success",
+    "message": "RID status successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -225,13 +223,17 @@ request: individualIdType| Y | Allowed Type of Individual ID - RID | RID
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "Invalid RID"
     }
   ]
 }
 ```
-
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-TUG-002| Data entered does not match or not valid or not found
+RES-TUG-004| No Registered Mobile/email ID found
 
 
 ## POST /resident/v1/req/euin
@@ -284,7 +286,8 @@ request: otp| Y | OTP | |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
-
+    "status": "success",
+    "message": "Requested e-UIN successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -303,12 +306,20 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-DOW-001| OTP Authentication Failed.
+RES-DOW-002| Data entered is not valid.
+RES-DOW-004| No Registered Mobile/email ID found.
+
 
 
 
@@ -362,7 +373,8 @@ request: otp| Y | OTP | |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
-
+    "status": "success",
+    "message": "Request ID for reprint UIN successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -381,12 +393,21 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-REP-001| OTP Authentication Failed.
+RES-REP-002| Data entered is not valid.
+RES-REP-004| No Registered Mobile/email ID found.
+
+
 
 
 
@@ -471,7 +492,8 @@ request: demographics|N| Demographic data of an Individual| |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
-
+    "status": "success",
+    "message": "Requested UIN successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -490,12 +512,18 @@ request: demographics|N| Demographic data of an Individual| |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-LOU-001|OTP Validation Failed.
+RES-LOU-002|Data entered does not match.
+RES-LOU-004|No Registered Mobile/email ID found.
 
 
 
@@ -580,7 +608,8 @@ request: demographics|N| Demographic data of an Individual| |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
-
+    "status": "success",
+    "message": "Requested RID successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -599,12 +628,18 @@ request: demographics|N| Demographic data of an Individual| |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-LOR-001|OTP Validation Failed.
+RES-LOR-002|Data entered does not match.
+RES-LOR-004|No Registered Mobile/email ID found.
 
 
 
@@ -711,7 +746,8 @@ request: demographics|Y| Demographic data of an Individual| |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
-
+    "status": "success",
+    "message": "Request ID for update UIN successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -730,13 +766,20 @@ request: demographics|Y| Demographic data of an Individual| |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
 
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-UIU-001| OTP Authentication Failed.
+RES-UIU-002| Data entered does not match or not valid.
+RES-UIU-004| No Registered Mobile/email ID found.
+RES-UIU-005| Status of UIN Update is UnSuccessful.
 
 
 
@@ -791,8 +834,9 @@ request: otp| Y | OTP | |
   "id": "mosip.resident.vid",
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
-  "response": {
-
+   "response": {
+    "status": "success",
+    "message": "Request VID for the UIN successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -811,12 +855,26 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-VID-002| OTP Authentication Failed.
+RES-VID-003| Data entered is not valid.
+RES-VID-004| No Registered Mobile/email ID found.
+
+
+
+
+
+
+
 
 
 ## PATCH /resident/v1/vid/{vid}
@@ -856,7 +914,7 @@ request: otp| Y | OTP | |
   "individualId": "9830872690593682",
   "individualIdType": "VID",
   "otp": "123456",
-  "vidStatus": 'REVOKED'
+  "vidStatus": "REVOKED"
   }
 }
 ```
@@ -870,8 +928,9 @@ request: otp| Y | OTP | |
   "id": "mosip.resident.vidstatus",
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
-  "response": {
-
+   "response": {
+    "status": "success",
+    "message": "Requested VID successfully revoked and status sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -890,12 +949,29 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-RID-002| OTP Authentication Failed.
+RES-RID-003| Data entered is not valid.
+RES-RID-004| No Registered Mobile/email ID found.
+RES-RID-005| VID revocation request failed. Please visit the nearest registration center for assistance.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -950,8 +1026,9 @@ request: otp| Y | OTP | |
   "id": "mosip.resident.authlock",
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
-  "response": {
-
+   "response": {
+    "status": "success",
+    "message": "Requested Auth Type successfully locked and status sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -970,12 +1047,32 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-LOC-001|OTP Authentication Failed.
+RES-LOC-002| Data entered is not valid.
+RES-LOC-004| No Registered Mobile/email ID found.
+RES-LOC-005| Locking for the Authentication type(s) is Unsuccessful.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## POST /resident/v1/req/auth-unlock
 This request will authenticate an Individual based on provided OTP and will unlock provided locked authentication types.
@@ -1028,8 +1125,9 @@ request: otp| Y | OTP | |
   "id": "mosip.resident.authunlock",
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
-  "response": {
-
+   "response": {
+    "status": "success",
+    "message": "Requested Auth Type successfully unlocked and status sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -1048,12 +1146,28 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-ULC-001| OTP Authentication Failed.
+RES-ULC-002| Data entered is not Valid.
+RES-ULC-004| No Registered Mobile/email ID found.
+RES-ULC-005| Unlocking for the Authentication type is Unsuccessful.
+
+
+
+
+
+
+
+
 
 
 ## POST /resident/v1/req/auth-history
@@ -1105,8 +1219,9 @@ request: otp| Y | OTP | |
   "id": "mosip.resident.authhistory",
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
-  "response": {
-
+   "response": {
+    "status": "success",
+    "message": "Requested Auth history successfully sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -1125,9 +1240,16 @@ request: otp| Y | OTP | |
   },
   "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN"
+      "errorCode": "XXX-XXX-002",
+      "errorMessage": "OTP Authentication Failed"
     }
   ]
 }
 ```
+#### Failure details
+Error Code | Error Message | Error Description
+------------|------------------------------|-------------
+RES-AUT-001| OTP Authentication Failed.
+RES-AUT-002| Data entered is not valid.
+RES-AUT-004| No Registered Mobile/email ID found.
+RES-AUT-005| Mandatory values not entered.
