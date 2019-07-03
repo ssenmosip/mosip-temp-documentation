@@ -20,7 +20,7 @@
 
 ![RegistrationClient-Registration_Preparation](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-3.%20Registration%20Prep.jpg)
 
-![RegistrationClient-Registration](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-4.%20Registration.jpg
+![RegistrationClient-Registration](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-4.%20Registration.jpg)
 
 ![RegistrationClient-UIN_Update](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-5.%20UIN%20Update.jpg)
 
