@@ -351,7 +351,7 @@ request.msipOrganizationName|Yes|MISP organization name|
 		"organizationName":"string",
         "contactNumber":"string",
         "emailID":"string",
-        "address":"string"
+        "address":"string",
         "status":"String",
         "licenseKey":"String",
         "licenseKeyExpiry":LocalDate,
