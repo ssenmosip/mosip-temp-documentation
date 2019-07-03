@@ -7,7 +7,7 @@ This service is used to authenticate MOSIP Admin and management of MISP(MOSIP In
 
 * [POST /misp](#post-misp)
 * [PUT /misp/{mispId}](#put-mispmispid)
-* [PUT /misp/license/{mispId}](#post-misplicensemispid)
+* [PUT /misp/license/{mispId}](#put-misplicensemispid)
 * [GET /misp](#get-misp)
 
 ### POST /misp
