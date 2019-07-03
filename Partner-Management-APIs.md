@@ -49,8 +49,8 @@ request.msipDetails.address|Yes|MISP address|
     {
        "adminCredential":{
 	   "username":"admin",
-	   "password":"admin",
-	}
+	   "password":"admin"
+	},
        "msipDetails":{
 	    "organizationName":"telecom",
 	    "contactNumber":9876998888,
@@ -75,7 +75,7 @@ request.msipDetails.address|Yes|MISP address|
         "mispStatus":"String",//encrypt
         "mispLicenseKey":"String",
         "mispLicenseKeyExpiry":LocalDate,//regex
-        "mispLicenseKeyStatus":"String",//regex
+        "mispLicenseKeyStatus":"String"//regex
     },
     "errors": null 
 }
