@@ -38,8 +38,6 @@ request.msipDetails.emailId|Yes|MISP emailId|
 request.msipDetails.address|Yes|MISP address|
 
 #### Request:
-###### For SMS:
-
 ```JSON
 {
     "id":"mosip.partnermanagement.msip.create",
