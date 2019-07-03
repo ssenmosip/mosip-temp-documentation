@@ -14,8 +14,7 @@
 
 ## 2. Registration Client [**[↑]**](#table-of-content)
 
-![RegistrationClient-Officer_Onboarding]
-(/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-1.%20Registration%20Officer%20Onboarding.jpg)
+![RegistrationClient-Officer_Onboarding](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-1.%20Registration%20Officer%20Onboarding.jpg)
 
 ![RegistrationClient-Software_Update]
 (/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20Reg%20Client-2.%20Registration%20Client%20Software%20Update.jpg)
