@@ -51,7 +51,7 @@ request.msipDetails.address|Yes|MISP address|
 	   "username":"admin",
 	   "password":"admin",
 	}
-	"msipDetails":{
+       "msipDetails":{
 	    "organizationName":"telecom",
 	    "contactNumber":9876998888,
 	    "emailId":"prm@telecom.com",
