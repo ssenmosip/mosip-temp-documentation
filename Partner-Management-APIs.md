@@ -300,7 +300,7 @@ PMS_MISP_009|MISP License key not associated to MISP ID|MISP License key not ass
 
 
 ### GET /misp
-This request will retrieve MISP ID, MISP status, MISP Organization Name,MISP Contact Number, MISP Email ID, MISP Address,MISP License Key, MISP License Key expiry, MISP License key status for all the MISPs retrieved for the requested MISP.
+This request will retrieve MISP ID, MISP status, MISP Organization Name,MISP Contact Number, MISP Email ID, MISP Address,MISP License Key, MISP License Key expiry, MISP License key status for all the MISPs
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misp</div>
