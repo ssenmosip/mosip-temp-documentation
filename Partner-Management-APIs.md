@@ -30,8 +30,8 @@ id |Yes|id |mosip.pre-registration.login.sendotp
 version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.admincredential.username|Yes|admin username|
-request.admincredential.password|Yes|admin password|
+request.adminCredential.username|Yes|admin username|
+request.adminCredential.password|Yes|admin password|
 request.msipDetails.organizationName|Yes|MISP organization name|
 request.msipDetails.contactNumber|Yes|MISP contact number|
 request.msipDetails.emailId|Yes|MISP emailId|
@@ -47,16 +47,16 @@ request.msipDetails.address|Yes|MISP address|
     "requesttime":"2019-05-20T09:48:43.394Z",
     "request" :
     {
-	   "admincredential":{
-			"username":"admin",
-			"password":"admin",
-		}
-		"msipDetails":{
-			"organizationName":"telecom",
-			"contactNumber":9876998888,
-			"emailId":"prm@telecom.com",
-			"address":"india"
-		}
+       "adminCredential":{
+	   "username":"admin",
+	   "password":"admin",
+	}
+	"msipDetails":{
+	    "organizationName":"telecom",
+	    "contactNumber":9876998888,
+	    "emailId":"prm@telecom.com",
+	    "address":"india"
+	}
     }
 }
 
@@ -71,11 +71,11 @@ request.msipDetails.address|Yes|MISP address|
     "version":"1.0",
     "responsetime":"2019-05-20T09:48:43.394Z",
     "response": {
-           "mispId":"String",
-           "mispStatus":"String",//encrypt
-           "mispLicenseKey":"String",
-           "mispLicenseKeyExpiry":LocalDate,//regex
-           "mispLicenseKeyStatus":"String",//regex
+        "mispId":"String",
+        "mispStatus":"String",//encrypt
+        "mispLicenseKey":"String",
+        "mispLicenseKeyExpiry":LocalDate,//regex
+        "mispLicenseKeyStatus":"String",//regex
     },
     "errors": null 
 }
