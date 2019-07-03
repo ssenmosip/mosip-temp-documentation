@@ -24,7 +24,7 @@ This release is with **proxy biometrics**. This means that the implementation of
 Includes Functional requirements, Process flows, Architecture and High level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design) and [**Test cases** (Zephyr Link)](//mosipid.atlassian.net/issues/?jql=project%20%3D%20%22MOS%22%20and%20issuetype%3Dtest%20and%20%22Epic%20Link%22%20in%20(MOS-1%2C%20MOS-2%2CMOS-14575%2CMOS-4%2CMOS-5)%20ORDER%20BY%20priority%20DESC)
+[**Low Level design**](/mosip/mosip/tree/0.12.0/docs/design) and [**Test cases**](/mosip/mosip/blob/master/docs/testing/Test%20automation/MOSIP-TCs-V1.0xlsx.xlsx) [(Zephyr Link)](//mosipid.atlassian.net/issues/?jql=project%20%3D%20%22MOS%22%20and%20issuetype%3Dtest%20and%20%22Epic%20Link%22%20in%20(MOS-1%2C%20MOS-2%2CMOS-14575%2CMOS-4%2CMOS-5)%20ORDER%20BY%20priority%20DESC)
 
 ## Key Points [**[↑]**](#table-of-content)
 
