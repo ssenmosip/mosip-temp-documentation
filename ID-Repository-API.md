@@ -639,8 +639,6 @@ These services can be used to perform various operations on VID like generate or
 * [GET /idrepository/v1/vid/{VID}](#get-idrepositoryv1vidvid)
 * [PATCH /idrepository/v1/vid/{VID}](#patch-idrepositoryv1vidvid)
 * [POST /idrepository/v1/vid/{VID}/regenerate](#post-idrepositoryv1vidvidregenerate)
-* [PATCH /idrepository/v2/vid/deactivate](#patch-idrepositoryv2viddeactivate)
-* [PATCH /idrepository/v2/vid/reactivate](#patch-idrepositoryv2vidreactivate)
 
 #### Users of VID services -
 1. `Registration Processor` - *Registration Processor* will create a new perpetual VID once UIN is generated successfully.
