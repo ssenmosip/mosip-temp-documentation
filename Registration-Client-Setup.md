@@ -195,23 +195,12 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 
    There are few properties which can be configured at local machine based on the local system requirement.    
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
+
+   Property attributes and the respective sample values are provided below. Based on the comments provided against each attribute, update the required values if needed only.  
    
-   **File Location:** props/mosip-application.properties [Build version lesser than 0.12.10]
-     - mosip.env= qa, preqa, demo { environment name. Use the same value in spring profile config.}  
-     - mosip.client.url = {JFrog repository url.}  
-     - mosip.xml.file.url = {JFrog repository url with maven-metadata.xml file.}  
-     - mosip.cerpath= /cer//mosip_cer.cer  
-     - mosip.registration.app.key = {contains the key to be used to decrypt the application binaries during run time}.  
-     - mosip.registration.db.key = {contains the key to be used to connect to the derby database and decrypt the data}.  
-     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.   
-     - mosip.packetstorepath = {where the registration packet should be stored}.   
-     - mosip.rollback.path = {where the application backup should be taken during software update}  	
-     - mosip.reg.healthcheck.url = {Application uses this url to perform the health check before communicating with the external services.}
-     - mosip.reg.client.url=https\://devops.mosip.io/artifactory/libs-release/io/mosip/registration/registration-client/
-     
-   **File Location:** props/mosip-application.properties [Build version Greater than 0.12.11 onwards]
+   **File Location:** props/mosip-application.properties  
      - mosip.reg.env=qa, preqa, demo { environment name. Use the same value in spring profile config.}   
-     - mosip.reg.version=0.12.12 {current version of the application}  
+     - mosip.reg.version=0.*.* {current release version of the application}  
      - mosip.reg.mdm.server.port=8080 {MDM service running port.}    
      - mosip.reg.logpath=../logs  
      - mosip.reg.packetstorepath={where the registration packet should be stored}. 
