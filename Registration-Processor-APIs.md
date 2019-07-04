@@ -718,7 +718,7 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
 ```
 
 # 7 Packet Uploader Service
-- #### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
+- #### `POST /registrationprocessor/v1/uploader/securezone`
 The dmz stage will call packet uploader service to upload the packet in file system(Hdfs, ceph etc). This service is a bridge between dmz and secure network. It accepts json request and connects to dmz VM to get the packet and move it to archive location.
 
 #### Resource URL
