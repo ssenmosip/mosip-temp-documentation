@@ -4,7 +4,7 @@ This section details about the service APIs in the Registration-Processor module
 
 [2. Registration status Service](#2-registration-status-service)
 
-[3. Registration status Service](#3-registration-sync-service)
+[3. Sync Registration Service](#3-sync-registration-service)
 
 [4. Manual Adjudication Service](#4-manual-adjudication-service)
 
