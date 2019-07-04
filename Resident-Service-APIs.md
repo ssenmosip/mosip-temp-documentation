@@ -122,7 +122,7 @@ Mandatory fields for different types of authentications-
   "transactionID": "dabed834-974f-11e9-bc42-526af7764f64",
   "response": {
     "status": "success",
-    "message": "OTP for authentication successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -157,7 +157,7 @@ XXX-XXX-002 | Invalid VID | No active VID found
 
 
 ## POST /resident/v1/rid/check-status
-This service will respond with service request (UIN Generation/Updataion,Reprint etc) status to registerd phone/email.
+This service will respond with service request (UIN Generation/Updataion,Reprint etc) status and notification will be sent to phone/email.
 
 #### Resource URL
 <div>https://mosip.io/resident/v1/rid/check-status</div>
@@ -203,8 +203,9 @@ request: individualIdType| Y | Allowed Type of Individual ID - RID | RID
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
+    "ridStatus": "PROCESSING",
     "status": "success",
-    "message": "RID status successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -237,7 +238,7 @@ RES-TUG-004| No Registered Mobile/email ID found
 
 
 ## POST /resident/v1/req/euin
-This request will authenticate an Individual based on provided OTP and UIN PDF will be sent to registered Email.
+This request will authenticate an Individual based on provided OTP and respond with e-UIN. Notification will be sent to phone/email.
 
 #### Resource URL
 <div>https://mosip.io/resident/v1/req/euin</div>
@@ -286,8 +287,9 @@ request: otp| Y | OTP | |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
+    "euin": "<uin-pdf byte string>",
     "status": "success",
-    "message": "Requested e-UIN successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -324,7 +326,7 @@ RES-DOW-004| No Registered Mobile/email ID found.
 
 
 ## POST /resident/v1/req/print-uin
-This request will authenticate an Individual based on provided OTP and post a request for UIN re-print to Postal Service.
+This request will authenticate an Individual based on provided OTP and post a request for UIN re-print to Postal Service. Notification will be sent to phone/email.
 
 #### Resource URL
 <div>https://mosip.io/resident/v1/req/print-uin</div>
@@ -373,8 +375,9 @@ request: otp| Y | OTP | |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
+	"rid": "770872690593682",
     "status": "success",
-    "message": "Request ID for reprint UIN successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -412,7 +415,7 @@ RES-REP-004| No Registered Mobile/email ID found.
 
 
 ## POST /resident/v1/req/uin
-This request will authenticate an Individual based on provided OTP and UIN PDF will be sent to registered Email.
+This request will authenticate an Individual based on provided OTP and respond with UIN. Notification will be sent to phone/email.
 
 
 #### Resource URL
@@ -492,8 +495,9 @@ request: demographics|N| Demographic data of an Individual| |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
+	"uin": "989768897876565",
     "status": "success",
-    "message": "Requested UIN successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -528,7 +532,7 @@ RES-LOU-004|No Registered Mobile/email ID found.
 
 
 ## POST /resident/v1/req/rid
-This request will authenticate an Individual based on provided OTP and RID will be sent to registered Phone/Email.
+This request will authenticate an Individual based on provided OTP and respond with RID. Notification will be sent to phone/email.
 
 
 #### Resource URL
@@ -608,8 +612,9 @@ request: demographics|N| Demographic data of an Individual| |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
+    "rid": "989768897876565",
     "status": "success",
-    "message": "Requested RID successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -644,8 +649,7 @@ RES-LOR-004|No Registered Mobile/email ID found.
 
 
 ## POST /resident/v1/req/update-uin
-This request will authenticate an Individual based on provided OTP and RID will be sent to registered Phone/Email after successfully placing update request to Registration Processor.
-
+This request will authenticate an Individual based on provided OTP and respond with RID after successfully placing update request to Registration Processor. Notification will be sent to phone/email.
 
 #### Resource URL
 <div>https://mosip.io/resident/v1/req/update-uin</div>
@@ -746,8 +750,9 @@ request: demographics|Y| Demographic data of an Individual| |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
   "response": {
+    "rid": "989768897876565",
     "status": "success",
-    "message": "Request ID for update UIN successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -835,8 +840,9 @@ request: otp| Y | OTP | |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
    "response": {
+    "vid": "989768897876565",
     "status": "success",
-    "message": "Request VID for the UIN successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -930,7 +936,7 @@ request: otp| Y | OTP | |
   "responseTime": "2018-12-09T06:39:04.683Z",
    "response": {
     "status": "success",
-    "message": "Requested VID successfully revoked and status sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -1028,7 +1034,7 @@ request: otp| Y | OTP | |
   "responseTime": "2018-12-09T06:39:04.683Z",
    "response": {
     "status": "success",
-    "message": "Requested Auth Type successfully locked and status sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -1127,7 +1133,7 @@ request: otp| Y | OTP | |
   "responseTime": "2018-12-09T06:39:04.683Z",
    "response": {
     "status": "success",
-    "message": "Requested Auth Type successfully unlocked and status sent to abXXXXXXXXXcd@xyz.com"
+   "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
@@ -1171,7 +1177,7 @@ RES-ULC-005| Unlocking for the Authentication type is Unsuccessful.
 
 
 ## POST /resident/v1/req/auth-history
-This request will authenticate an Individual based on provided OTP and auth history will be sent to registred Phone/Email.
+This request will authenticate an Individual based on provided OTP and respond with auth history. Notification will be sent to phone/email.
 
 #### Resource URL
 <div>https://mosip.io/resident/v1/req/auth-history</div>
@@ -1220,8 +1226,9 @@ request: otp| Y | OTP | |
   "version": "v1",
   "responseTime": "2018-12-09T06:39:04.683Z",
    "response": {
+	"authHistory": [{authDetails1},{authDetails2}],   
     "status": "success",
-    "message": "Requested Auth history successfully sent to abXXXXXXXXXcd@xyz.com"
+    "message": "Notification has been sent to abXXXXXXXXXcd@xyz.com"
   },
   "errors": null
 }
