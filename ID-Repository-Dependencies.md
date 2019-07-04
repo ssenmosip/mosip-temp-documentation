@@ -1,7 +1,7 @@
 ### 1. Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
-DB|mosip_idrepo|DB scripts are available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_idrepo
+DB|mosip_idrepo|DB scripts are available here -** https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_idrepo [Please refer to the latest tag instead of 0.12.0]
 DB|mosip_idmap|DB scripts are available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_idmap
 
 
