@@ -200,7 +200,7 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
    
    **File Location:** props/mosip-application.properties  
      - mosip.reg.env=qa, preqa, demo { environment name. Use the same value in spring profile config.}   
-     - mosip.reg.version=0.*.* {current release version of the application}  
+     - mosip.reg.version=0.12.* {current release version of the application}  
      - mosip.reg.mdm.server.port=8080 {MDM service running port.}    
      - mosip.reg.logpath=../logs  
      - mosip.reg.packetstorepath={where the registration packet should be stored}. 
