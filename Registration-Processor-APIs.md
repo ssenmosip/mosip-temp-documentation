@@ -4,11 +4,15 @@ This section details about the service APIs in the Registration-Processor module
 
 [2. Registration status Service](#2-registration-status-service)
 
-[3. Manual Adjudication Service](#3-manual-adjudication-service)
+[3. Registration status Service](#3-registration-sync-service)
 
-[4. Bio Dedupe Service](#4-bio-dedupe-service)
+[4. Manual Adjudication Service](#4-manual-adjudication-service)
 
-[5. Packet Generator Service](#5-packet-generator-service)
+[5. Bio Dedupe Service](#5-bio-dedupe-service)
+
+[6. Packet Generator Service](#6-packet-generator-service)
+
+[7. Packet Uploader Service](#7-packet-uploader-service)
 
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
@@ -73,7 +77,6 @@ MultipartFile|Yes|The encrypted zip file|
 ```
 
 # 2 Registration Status Service
-## 2.1 Packet-status service
 
 - ### `POST /registrationprocessor/v1/registrationstatus/search`
 
@@ -150,7 +153,7 @@ Record not found :
 ```
 
 
-## 2.2 Sync-registration service
+# 3 Sync registration Service
 The registration ids has to be synced with server before uploading packet to landing zone. This service is used to syncs registration ids.
 
 - #### `POST /registrationprocessor/v1/registrationstatus/sync`
@@ -298,8 +301,8 @@ Failure response
 }
 ```
 
-# 3 Manual Adjudication Service
-## 3.1 manual-adjudication-assignment service
+# 4 Manual Adjudication Service
+## 4.1 manual-adjudication-assignment service
 
 - #### `POST /registrationprocessor/v1/manualverification/assignment`
 This service is used to assign one single unassigned applicant record to the input user.
@@ -368,7 +371,7 @@ Failure response
 ```
 
 
-## 3.2 manual-adjudication-decision service
+## 4.2 manual-adjudication-decision service
 
 - #### `POST /registrationprocessor/v1/manualverification/decision`
 
@@ -441,7 +444,7 @@ Failure response
 }
 ```
 
-## 3.3 manual-adjudication-applicant-biometric service
+## 4.3 manual-adjudication-applicant-biometric service
 
 - #### `POST /registrationprocessor/v1/manualverification/applicantBiometric`
 
@@ -505,7 +508,7 @@ Failure :
 }
 ```
 
-## 3.4 manual-adjudication-applicant-demographic service
+## 4.4 manual-adjudication-applicant-demographic service
 
 - #### `POST /registrationprocessor/v1/manualverification/applicantDemographic`
 
@@ -567,7 +570,7 @@ Failure :
   }]
 }
 ```
-## 3.5 manual-adjudication-packet-metainfo service
+## 4.5 manual-adjudication-packet-metainfo service
 
 - #### `POST /registrationprocessor/v1/manualverification/packetInfo`
 
@@ -631,8 +634,7 @@ Failure :
 ```
 
 
-# 4 Bio Dedupe Service
-## 4.1 Bio Dedupe service
+# 5 Bio Dedupe Service
 
 - #### `GET /registrationprocessor/v1/bio-dedupe/{referenceid}`
 
@@ -662,8 +664,7 @@ byte[]|Yes|byte array of CBEFF file|
 // byte array of CBEFF xml file
 ```
 
-# 5 Packet Generator Service
-## 4.1 Packet Generator Service
+# 6 Packet Generator Service
 - #### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
 The residence service portal would call packet generator service to activate or deactivate uin.
 
@@ -715,4 +716,48 @@ PacketGeneratorRequestDto|Yes|Dto containing information required for activate o
   "errors": null
 }
 ```
+
+# 7 Packet Uploader Service
+- #### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
+The dmz stage will call packet uploader service to upload the packet in file system(Hdfs, ceph etc). This service is a bridge between dmz and secure network. It accepts json request and connects to dmz VM to get the packet and move it to archive location.
+
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/uploader/securezone
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | String
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+MessageDto|Yes|Dto being transferred in each and every stage of reg-proc|
+
+#### Request
+```JSON
+{
+  "rid": "10003100030000420190625111842",
+  "reg_type" : "NEW",
+  "isValid": true,
+  "internalError": false,
+  "messageBusAddress": "packet-receiver-bus-out",
+  "retryCount": 0
+}
+```
+#### Success Response
+```JSON
+Packet with registrationId 10003100030000420190625111842 has been forwarded to next stage
+```
+
+#### Failure Response
+```JSON
+Packet with registrationId 10003100030000420190625111842 has not been uploaded to file System
+```
+###### Status Code:200
+###### Description : response code is always 200 if server receives the request.
+
 
