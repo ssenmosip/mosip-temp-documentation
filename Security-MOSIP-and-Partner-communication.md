@@ -18,7 +18,14 @@ The MOSIP and Partners have to communicate with each other, when an individual a
 
 2. Security in various levels:
 
-2.1 Presentation Layer
+2.1 Network Layer
+	- All the communications from Partners to MOSIP is routed via the MISP.
+	- The communications in the network is protected via the secured network protocol suite of IPSec. 
+	
+![Network communications](_images/security/partner-mosip-communication_NW.jpg)
+	
+
+2.2 Presentation Layer
 
 	When the partner communicates with the MOSIP system, at the presentation layer, the following steps are handled, 
 	
@@ -41,7 +48,7 @@ The MOSIP and Partners have to communicate with each other, when an individual a
 ![Communication diagram](_images/security/partner-mosip-communication_PresentationLayer.jpg)
 	
 
-2.2 Application Layer - Encryption of the content
+2.3 Application Layer - Encryption of the content
 
 	At the Application Layer, the following 2 security standards are done. 
 	
@@ -56,7 +63,7 @@ The MOSIP and Partners have to communicate with each other, when an individual a
 ![Communication diagram](_images/security/partner-mosip-communication_AppLyr_encryption.jpg)
 	
 
-2.3 Application Layer - Digitial Signature
+2.4 Application Layer - Digitial Signature
 
 	At the application layer, in addition to the encryption, the integrity can be checked by the Digital Signatures. 
 	
