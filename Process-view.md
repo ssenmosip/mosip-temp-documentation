@@ -52,7 +52,7 @@
 
 ![IDA-ekyc](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-eKYC%20Service.jpg)
 
-![IDA-MISP-Partner-Authentication](https://github.com/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-MISP%20and%20Partner%20Authentication.jpg)
+![IDA-MISP-Partner-Authentication](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19%20_IDA-MISP%20and%20Partner%20Authentication.jpg)
 
 ## 5. ID-Repository [**[↑]**](#table-of-content)
 ![ID-Repo-Identity-Service](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow%201.19_ID%20Repo-%20Identity%20Service.jpg)
