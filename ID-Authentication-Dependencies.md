@@ -3,7 +3,7 @@
 ### 1.  Database Dependencies
 Dependency|Component|Description (If any)
 -----|--------------|----------------
-DB|mosip_ida|DB Scripts available [here](https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_ida)
+DB|mosip_ida|DB Scripts available here - https://github.com/mosip/mosip/tree/0.12.0/scripts/database/mosip_ida **[Please refer to the latest tag instead of 0.12.0]
 
 
 ### 2.  Dependent module/component with their respective versions should be mentioned here
