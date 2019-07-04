@@ -1006,7 +1006,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: Invalid preregistration id or data is not found for that preregistration id.
+###### Description: Invalid preregistration id(non-empty) or data is not found for that preregistration id.
 ```JSON
 {
     "id": "mosip.pre-registration.demographic.update",
@@ -1216,7 +1216,7 @@ preRegistrationId |Yes|Id of the application|32042841521591
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No data found for the requested pre-registration id.
+###### Description: No data found for the requested pre-registration id(non-empty).
 ```JSON
 {
     "id": "mosip.pre-registration.demographic.retrieve.details",
@@ -1237,6 +1237,7 @@ Error Code | Error Message | Error Description
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
 PRG_PAM_CORE_012|decryption failes|decryption of demographic data failed
 PRG_PAM_APP_007|json parsing is failed|demographic json parsing failed
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### GET /applications/status/{preRegistrationId}
 This request is used to retrieve pre-registration application status by providing the pre-registration id in request path parameter.
@@ -1275,7 +1276,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No data found for the requested pre-registration id.
+###### Description: No data found for the requested pre-registration id(non-empty).
 ```JSON
 {
     "id": "mosip.pre-registration.demographic.retrieve.status",
@@ -1294,6 +1295,7 @@ preRegistrationId |Yes|Id of the application|62076019780925
 Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_CORE_010|hashing failed|demographic data hashing failed
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### GET /applications
 This request is used to retrieve all Pre-Registration id, Full name in both language, Status Code, Document details(Only for Proof Of Address), Appointment details and Postal Code by user id from authorization token.
@@ -1564,7 +1566,7 @@ preRegistrationId |Yes|pre-registration id of the application|29605371807216
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No data found for the requested pre-registration id
+###### Description: No data found for the requested pre-registration id(non-empty)
 ```JSON
 {
     "id": "mosip.pre-registration.demographic.delete",
@@ -1709,6 +1711,7 @@ PRG_PAM_DOC_020|Demographic record failed to fetch|when rest call to demographic
 PRG_PAM_APP_005|No data found for the requested pre-registration id|invalid preregistration id or data is not found for that preregistration id
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### PUT /documents/{preRegistrationId}
 This request is used to copy the document from source pre-registration id to destination pre-registration id with the specified document category code.
@@ -1756,7 +1759,7 @@ sourcePreId |Yes|Source Pre-registration id of the application|97285429827016
 
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If Document not found for the source pre-registration Id or if pre-registration id is invalid(non-empty)
+###### Description: If Document has not been uploaded for the source pre-registration Id(non-empty)
 ```JSON
 {
     "id": "mosip.pre-registration.document.copy",
@@ -1775,11 +1778,12 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_CORE_REQ_001|request parameter is missing|If source or destination preregistration id is empty
 PRG_CORE_REQ_017|Catagory code is invalid|if document category code is not POA
-PRG_PAM_APP_005|No data found for the requested pre-registration id|If source preregistration id or destination preregistration id is invalid or no preregistration data found for any of the preregistration id
+PRG_PAM_APP_005|No data found for the requested pre-registration id|If source preregistration id or destination preregistration id is invalid(non-empty) or no preregistration data found for any of the preregistration id
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_009|Document upload failed|if the document & document details are failed to store
 PRG_PAM_DOC_011|Document copy failed from source to destination|when document is not copied from source to destination preregistration id
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### GET /documents/preregistration/{preRegistrationId}
 This request used to retrieve all documents metadata associated with particular pre-registration.
@@ -1830,7 +1834,7 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document is not found for the requested pre-registration id or if pre-registration id is invalid(non-empty)
+###### Description: if pre-registration id is invalid(non-empty)
 
 ```JSON
 {
@@ -1840,8 +1844,8 @@ preRegistrationId |Yes|Pre-registration id of the application|97285429827016
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_005",
-            "message": "Documents is not found for the requested pre-registration id"
+            "errorCode": "PRG_PAM_APP_005",
+            "message": "No data found for the requested pre-registration id"
         }
     ]
 }
@@ -1853,6 +1857,8 @@ PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
 PRG_PAM_CORE_012|decryption failes|decryption of document data failed
 PRG_PAM_CORE_010|hashing failed|document data hashing failed
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|when the document is not uploaded for the preregistration id
 
 ### GET /documents/{documentId}?preRegistrationId={preRegistrationId}
 This request used to retrieve the document for a particular document id from the File System server.
@@ -1893,18 +1899,18 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document id is valid but the preregistration id is invalid Or If the document id does not belong to the preregistration id
+###### Description: if pre-registration id is invalid(non-empty)
 
 ```JSON
 {
-    "id": "mosip.pre-registration.document.fetch.content",
+    "id": "mosip.pre-registration.document.fetch.metadata",
     "version": "1.0",
-    "responsetime": "2019-06-11T10:47:34.919Z",
+    "responsetime": "2019-05-20T11:17:54.743Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_022",
-            "message": "DocumentId is not belongs to the pre-registration Id"
+            "errorCode": "PRG_PAM_APP_005",
+            "message": "No data found for the requested pre-registration id"
         }
     ]
 }
@@ -1912,11 +1918,12 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If preregistration id is valid but the document id is invalid
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_DOC_005|Failed to fetch from File System server|if the document is failed to be fetched from file system
 PRG_CORE_REQ_012|decryption failed|decryption of document data failed
 PRG_CORE_REQ_010|hashing failed|document data hashing failed
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
+PRG_PAM_DOC_022|DocumentId is not belongs to the pre-registration Id|If document id is not related to the pre-registration id or if document is not found for the pre-registration id
 
 ### DELETE /documents/preregistration/{preRegsitrationId}
 This request used to delete all the documents which are associated with requested pre-registration id.
@@ -1952,18 +1959,18 @@ preRegsitrationId |Yes|pre-registration id of the application|37802950913289
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document is not found for the requested pre-registration id or if the pre-registration id is invalid(non-empty)
+###### Description: if the pre-registration id is invalid(non-empty)
 ```JSON
 {
-   "id": "mosip.pre-registration.document.delete",
-   "version" : "1.0",
-   "responsetime": "2019-01-16T17:31:04.021Z",
-   "response": null,
-   "errors":[ 
-         {
-    	    "errorCode": "PRG_PAM_DOC_005",
-    	    "message": "Documents is not found for the requested pre-registration id"
-         }
+    "id": "mosip.pre-registration.document.fetch.metadata",
+    "version": "1.0",
+    "responsetime": "2019-07-03T10:28:02.252Z",
+    "response": null,
+    "errors": [
+        {
+            "errorCode": "PRG_PAM_APP_005",
+            "message": "No data found for the requested pre-registration id"
+        }
     ]
 }
 ```
@@ -1972,6 +1979,8 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
+PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If document is not uploaded for the pre-registration id
 
 ### DELETE /documents/{documentId}?preRegistrationId={preRegistrationId}
 This request used to delete the document for a particular document id from database and File System server.
@@ -2012,18 +2021,17 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: If document id is valid but the preregistration id is invalid Or If the document id does not belong to the preregistration id
-
+###### Description: if the pre-registration id is invalid(non-empty)
 ```JSON
 {
-    "id": "mosip.pre-registration.document.fetch.content",
+    "id": "mosip.pre-registration.document.fetch.metadata",
     "version": "1.0",
-    "responsetime": "2019-06-11T10:47:34.919Z",
+    "responsetime": "2019-07-03T10:28:02.252Z",
     "response": null,
     "errors": [
         {
-            "errorCode": "PRG_PAM_DOC_022",
-            "message": "DocumentId is not belongs to the pre-registration Id"
+            "errorCode": "PRG_PAM_APP_005",
+            "message": "No data found for the requested pre-registration id"
         }
     ]
 }
@@ -2031,9 +2039,10 @@ preRegistrationId |Yes|pre registration id of the application|74843948119371
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If preregistration id is valid but the document id is invalid
 PRG_PAM_DOC_006|Documents failed to delete|if the document & document details are failed to delete
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
+PRG_PAM_DOC_022|DocumentId is not belongs to the pre-registration Id|If document id is not related to the pre-registration id or if document is not found for the pre-registration id
 
 # DataSync Service (External)
 This service enables Pre-Registration to a registration client, request to retrieve all pre-registration ids based on registration client id, appointment date and an user type.
@@ -2444,7 +2453,7 @@ PRG_BOOK_RCI_024|Availablity update failed|when appointment availability is fail
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
 PRG_BOOK_RCI_031| Invalid Booking Date Time found for preregistration id - 37513708391357| If appointment date is past date and also when appointment date is present date but the appointment time is past. If the date format is other than YYYY-MM-DD.
-
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### POST /appointment
 This request is used to book mulitple registration centers. If the appointment data exists for the requested pre-registration ids, it will cancel it and update the new appointment data. If no appointment data then it will book an appointment for specified registration center and time slot.
@@ -2575,6 +2584,7 @@ PRG_BOOK_RCI_013|Booking data not found|while rebooking, when the preregistratio
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to modify the appointment details after the configured time span for rebook
 PRG_BOOK_RCI_028|Failed to delete the pre registration record|while rebooking, failed to delete old appointment details
 PRG_BOOK_RCI_031| Invalid Booking Date Time found for preregistration id - 37513708391357| If appointment date is past date and also when appointment date is present date but the appointment time is past.If the date format is other than YYYY-MM-DD.
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### PUT /appointment/{preRegistrationId}
 This request used to cancel the appointment. Which will retrieve the appointment details for the specified pre-registration id,if appointment data exists update the availability for the slot by increasing the value and delete the record from the table and update the demographic record status "Pending_Appointment".
@@ -2633,6 +2643,7 @@ PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic s
 PRG_BOOK_RCI_026|Booking status cannot be altered|when we tend to cancel the appointment details after the configured time span for cancel
 PRG_BOOK_RCI_018|Appointment cannot be canceled|If status is other than booked
 PRG_PAM_APP_005 |No data found for the requested pre-registration id | If no demographic data found for the requested preregistration id or if the preregistration id is invalid(non-empty)
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### GET /appointment/{preRegistrationId}
 This request is to retrieve Pre-Registration appointment details by pre-Registration id.
@@ -2691,6 +2702,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_BOOK_RCI_013|Booking data not found|if appointment is not booked against the requested preregistration id
 PRG_BOOK_RCI_011|Demographic service call failed|when rest call to demographic service fails
+PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 
 ### GET /appointment/availability/{registrationCenterId}
 This request is used to retrieve all appointment slots available for booking based on the specified registration center id.
@@ -2846,6 +2858,7 @@ Error Code | Error Message | Error Description
 PRG_BOOK_RCI_005|Booking table not found|access to appointment table fails
 PRG_CORE_REQ_019|Invalid date time format|If from date or to date is invalid
 PRG_CORE_REQ_020|From date is greater than To date|If from date is greater than to date
+
 
 # BatchJob Service (Private)
 This service is used by Pre-Registration portal to update an expired pre registration id  and consumed pre registration id.
