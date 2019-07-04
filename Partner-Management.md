@@ -49,14 +49,16 @@ Please refer to the [**process flow**](Process-view#id-authentication) of Partne
 **Partners**
 *  Partners would be able to do self registration in partner management module. Post successful registration, partners would be provided login credentials for further activities
 *  Using login credentials, Partners would be able to submit PartnerAPIKey request, track PartnerAPIKey request status, download PartnerAPIKey
-*  Partners would be able to download MOSIP signed digital certificate for signing request. Partner management would be able to validate validity of digital certificate
-*  Partners would be able to encrypt any request using MOSIP provided public key. Partner management module would be able to decrypt the request, using MOSIP secured private key
-*  Partners would be able to upload partner public keys to partner management module. Any response to partners would be encrypted using respective partner public keys
+*  Partners would be able to download MOSIP digital certificate. Partner management would be using Kernel services to get MOSIP digital certificate
+*  Partner Management module would be using Kernel services for validation,encryption, decryption, storage, rotation requirements w.r.t. digital certificate
+*  Partners would be able to encrypt any request for partner management module using MOSIP digital certificate. Partner management module would utilize kernel services to be able to decrypt the request
+*  Partners would be able to upload partner digital certificates to partner management module. Any response to partners would be encrypted using respective partner provided digital certificate. Partner management module would be using kernel services to encrypt the responses for partner
+*  Partner provided digital certificates are managed at kernel
 ![Partner Management Partner Manager](_images/arch_diagrams/PartnerManagement_Partners.png)
 
 **ID Authentication Services**
 * IDA would be able to validate digital certificate for all requests as received from partner, and would be able to decrypt all request using MOSIP secured private key
-* IDA would be able to download partner public keys from Partner Management module. IDA would be able to encrypt every response for partner using respective partner provided public keys
+* IDA would be able to download partner digital certificates from Partner Management module. IDA would be able to encrypt every response for partner using respective partner provided digital certificates. Partner management module would be using Kernel services for encryption and decryption
 * IDA would be able to validate PartnerAPIKey, as received from partner authentication request
 * IDA would be able to validate MISP License Key, as received from partner authentication request
 * IDA would be able to get partner policy details, post successful validation
