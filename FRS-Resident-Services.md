@@ -15,6 +15,7 @@
     * [2.10.2 Maintain the Status of a VID](#2102-maintain-the-status-of-a-vid-) _(RES_FR_10.2)_
     * [2.10.3 Revoke a VID](#2103-revoke-a-vid-) _(RES_FR_10.3)_
     * [2.10.4 Auto-restore a VID on Revocation and with Auto-restore Policy](#2104-auto-restore-a-vid-on-revocation-and-with-auto-restore-policy-) _(RES_FR_10.4)_
+
     ~* [2.10.5 Regenerate a VID](#2105-regenerate-a-vid-) _(RES_FR_10.5)_
 _(RES_FR_10.6)_~
 * [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
