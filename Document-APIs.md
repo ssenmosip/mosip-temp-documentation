@@ -462,7 +462,7 @@ Status|["contains","equals","startsWith"]
   "response": {
   "data": [
 	{
-		"code": "string",
+	"code": "string",
         "description": "string",
         "isActive": true,
         "langCode": "string",
@@ -1109,7 +1109,7 @@ languagecode|Yes|Language code in ISO 639-2|-NA-|fra
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response":   {
-	  "data": [
+	  "documentcategories": [
 		{
 			"code": "string",
 			"description": "string",
