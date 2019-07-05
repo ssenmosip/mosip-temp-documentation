@@ -604,7 +604,7 @@ The system then confirms on successful approval.
 1. In case of authentication failure, the supervisor can try again by providing the same or different biometric.
 1. The packet status will change only when supervisor completes authentication. Else, the packet status will revert to its original status.
 1. The packets, which are approved or rejected followed by successful authentication are removed from the ‘Pending Approval’ list.
-1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.
+1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.  The server would archive the rejected packets and process the approved packets.  
 
 #### B. Supervisor can inform individuals to 'Re-register'
 When the Registration Processor finds an error in the packet such as registration failure (incorrect or duplicate demographic and biometric information), the status of the packet is marked as Re-register. After receiving a status as Re-register, a supervisor then informs an individual to re-visit the registration center to re-register the application. Refer below for the process:
