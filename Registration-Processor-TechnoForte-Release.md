@@ -19,7 +19,7 @@
 |3.|Registration Processor|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)|Refer Section 9 in the linked page|
 |4.|Registration Processor|Code Drop|[Tag: 0.12.16](https://github.com/mosip/mosip/releases/tag/0.12.16)||
 |5.|Registration Processor|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 10 in the linked page|
-|6.|Registration Processor|API Specifications Document|[Click to View](https://github.com/mosip/mosip/wiki/ID-Repository-API)||
+|6.|Registration Processor|API Specifications Document|[Click to View](https://github.com/mosip/mosip/wiki/Registration-Processor-APIs)||
 
 **Date: 05 July 2019**
 
