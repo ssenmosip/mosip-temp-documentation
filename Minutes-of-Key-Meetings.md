@@ -317,17 +317,4 @@ Link: [MoM - MOSIP Full Demo Kernel - Customer Meeting - 31Jan19.docx](_files/Mo
 Attendees: Sasi, Ramesh, Shrikant, Shravan, Romila, Sanjay, John, Karthik, Nasir, Sada, Mono, Omsai, Resham, Vivek, Rounak
 
 
-
-
-
-
-
-Link: [MoM - MOSIP Registration Processor Security Review Discussion - Customer Meeting - 28Mar19.docx] 
-
-
-
-(_files/MoM_MOSIP_Registration_Processor_Security_Review_28Mar19.docx) 
-
-
-
 Link: [MoM - MOSIP Registration Processor Security Review Discussion - Customer Meeting - 28Mar19.docx](_files/MoM_MOSIP_Registration_Processor_Security_Review_28Mar19.docx) 
