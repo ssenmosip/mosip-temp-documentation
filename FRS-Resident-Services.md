@@ -73,7 +73,8 @@ This feature will allow an individual to lock the requested Authentication Type 
 This feature will allow an individual to unlock requested Authentication Types (Demographic, Biometrics (FP/Iris/Face/All)) which is/are in locked status associated with his/her UIN/VID. Once unlocked, the individual can again use these Authentication Type(s) for any future authentication purpose. The individual needs to provide the UIN/VID as input. The system will first validate the individual's UIN/VID, trigger an OTP to individual's registered mobile number and/or email ID, validate the OTP and then authenticate the individual. On successful authentication, the system will first send the details of all Authentication Type(s) to the individual which is/are in locked status. The individual will then select which Authentication Type(s) need to be unlocked. The system takes the request and accordingly unlocks the Authentication Type(s) and notifies the individual. The system will also send a notification message to individual’s mobile number and/or email ID after a successful transaction or appropriate error message if the transaction was not successful.
 
 ## 2.10. VID Service [**[↑]**](#table-of-content)
-To safeguard the confidentiality of a UIN and for its security, Virtual ID (VID) service is provided. Based on the VID policy (defined by a Country), an individual will be provided a VID during UIN registration and also he/she can create one using Resident Service. The types of VIDs (perpetual/temporary/etc) are defined by a Country as preferred.
+To safeguard the confidentiality of a UIN and for its security, Virtual ID (VID) service is provided. Based on the VID policy (defined by Country), an individual will be provided a VID during UIN registration and also he/she can create this using 'Resident Services'. The VID policy attributes defines the type of the VID, Country can name the VID as desired.
+VID policy constitutes time validity, no of instances, no of transactions, regeneration mode.
 
 VID services comprise of the below.
 
@@ -82,7 +83,7 @@ An individual can request to generate a Virtual ID via Resident Service by provi
 
 ### 2.10.2 Maintain the status of a VID [**[↑]**](#table-of-content)
 
-This feature allows the system to maintain the status of all VIDs from the perspective of Time Validity, Transactions, and VID Revocation. This is an internal feature, which is invoked and used by the IDA (ID Authentication) module. IDA (ID Authentication) module will be responsible to maintain the status of all VIDs in the system. 
+This feature allows the system to maintain the status of all VIDs from the perspective of Time Validity, Transactions, and VID Revocation. The feature will be used by system's authentication module (called IDA - ID Authentication) whenever a VID is used for an authentication transaction (VID status will change to ‘USED’). Also when Resident Services is used for VID Revoke feature the status of VID changes to ‘REVOKED'. 
 
 ### 2.10.3 Revoke a VID [**[↑]**](#table-of-content)
 
@@ -91,9 +92,7 @@ To prevent misuse of VID, an individual can request to revoke his/her VID using 
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
 ### 2.10.4 Auto-restore a VID on Revocation and with Auto-restore Policy [**[↑]**](#table-of-content)  
-This feature allows for a VID to be auto regenerated and given to an individual after he/she requests for an existing VID to be revoked. The VID regeneration happens based on the VID policy defined by Country (the regeneration policy for the revoked VID should be ‘Auto-restore’). This is an internal feature invoked and used by IDA (ID Authentication) module.
-### 2.10.5 Regenerate a VID [**[↑]**](#table-of-content)	
-This feature allows for regeneration of a VID, which is invalid due to usage or expiry. Also, a VID, which has been revoked previously, can be regenerated. The regeneration of VID happens as per the defined policy of a Country. This again is an internal feature invoked and used by IDA (ID Authentication) module.
+This feature allows for a VID to be auto regenerated and given to an individual after he/she requests for an existing VID to be revoked. The VID regeneration happens based on the VID policy defined by Country (the regeneration policy for the revoked VID should be ‘Auto-restore’).
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/vid-service.md)
 
