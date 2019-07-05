@@ -2315,7 +2315,7 @@ Status|["contains","equals","startsWith"]
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-  "locations": [
+  "data": [
       {
         "code": "string",
         "hierarchyLevel": 0,
