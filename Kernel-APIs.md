@@ -19,6 +19,7 @@ Common APIs
 - [Data Sync Service](#sync-data)
 - [Applicant Types Service](#applicant-type)
 - [OTP Manager Service](#otp-manager)
+- [Registration Center APIs](Registration-Center-APIs)
 
 
 # Key Manager (Private)
