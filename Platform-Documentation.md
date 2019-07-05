@@ -307,7 +307,7 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 ## 7. PRIVACY AND SECURITY[**[↑]**](#table-of-contents)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows. 
-Please refer [**wiki**](Security) for more details.[WIP]
+Please refer [**wiki**](Privacy-and-Security) for more details.[WIP]
 
 ## 8. TEST RIG[**[↑]**](#table-of-contents)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
