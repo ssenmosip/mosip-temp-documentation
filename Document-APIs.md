@@ -983,7 +983,7 @@ status|["contains","equals","startsWith"]
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-  "documents": [
+  "data": [
 	{
 	"code": "string",
         "description": "string",
@@ -1109,7 +1109,7 @@ languagecode|Yes|Language code in ISO 639-2|-NA-|fra
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response":   {
-	  "documentcategories": [
+	  "data": [
 		{
 			"code": "string",
 			"description": "string",
