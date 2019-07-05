@@ -17,7 +17,7 @@
 |1.|Registration Processor|Deployment Guide| [Click to View](https://github.com/mosip/mosip/wiki/Getting-Started#8-mosip-deployment-)|Refer Section (https://github.com/mosip/mosip/wiki/Getting-Started#611-installation-of-activemq)|
 |2.|Registration Processor|Component-Feature-JIRA ID Mapping|[Click to View](https://github.com/mosip/mosip/wiki/Component-Feature-ID-JIRA-ID-Mapping#10-registration-processor-)|
 |3.|Registration Processor|High Level Design Document|[Click to View](https://github.com/mosip/mosip/wiki/Deliverables---Attachments)|Refer Section 9 in the linked page|
-|4.|Registration Processor|Code Drop|[Tag: 0.12.15](https://github.com/mosip/mosip/releases/tag/0.12.15)||
+|4.|Registration Processor|Code Drop|[Tag: 0.12.16](https://github.com/mosip/mosip/releases/tag/0.12.16)||
 |5.|Registration Processor|Known Defects and Pending Items|[Click to View](Deliverables---Attachments)|Refer Section 10 in the linked page|
 
 **Date: 03 July 2019**
@@ -26,7 +26,7 @@
 
 |**S.No.**|**Module**|**Deliverable Name**| **Supporting Information**|**Comments**|
 |:------:|-----|---|---|---|
-|1.|Registration Processor|Tested Code|[Tag: 0.12.15](https://github.com/mosip/mosip/releases/tag/0.12.15)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](http://104.215.158.154:9000/dashboard?id=io.mosip.registrationprocessor%3Aregistration-processor)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)| 
+|1.|Registration Processor|Tested Code|[Tag: 0.12.16](https://github.com/mosip/mosip/releases/tag/0.12.16)|Exit Criteria: Sonar report with all quality gates cleared ([Sonar Report](http://104.215.158.154:9000/dashboard?id=io.mosip.registrationprocessor%3Aregistration-processor)), Zephyr report indicating: No Blocker/Critical/Major Defects, 100% test cases executed (link to Zephyr report)| 
 |2.|Registration Processor|Test Cases|[Click to view](https://mosipid.atlassian.net/projects/MOS?selectedItem=com.thed.zephyr.je__project-centric-view-tests-page&testsTab=test-cycles-tab)|Test Cases Covered RegClient Reg Processor, Functional Testing and E2E testing Scenario;s|
 |3.|Registration Processor|Mindmaps|[Click to View](/mosip/mosip/tree/master/docs/testing/Registration%20Client/Mindmaps)|
 |4.|Registration Processor Api|Test Cases|[Click to View](https://github.com/mosip/mosip/blob/master/docs/testing/Registration%20Client/Mindmaps/Reg_Client_NonBio_Integration_TestCases.xlsx)|
@@ -36,27 +36,27 @@
 |**Module/Files**|**Component**|**Version**|**Description (If any)**|
 |-----|-------------|----------------|--------------|
 |Clam AV |NA|NA|<br>Download the windows clam av antivirus by provided link and install the s\w.</br> <br>[https://www.clamav.net/downloads#otherversions]</br>|
-|Master Data Setup |NA|Latest Version|Kernel 0.12.15 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
-|kernel-core|NA|0.12.15|Basic core kernel packages.|
-|kernel-logger-logback|NA|0.12.15|Use for the logging.|
-|kernel-dataaccess-hibernate|NA|0.12.15|Used for the communicating to the DB.|
-|kernel-auditmanager-api|NA|0.12.15|Used to audit the records into the DB|
-|kernel-idvalidator-rid|NA|0.12.15|Used to validate the RID format.|
-|kernel-idvalidator-uin|NA|0.12.15|Used to validate the UIN format|
-|kernel-idvalidator-prid|NA|0.12.15|Used to validate the PRID format|
-|kernel-idgenerator-rid|NA|0.12.15|Used to Generate the RID.|
-|kernel-crypto-signature|NA|0.12.15|Used to validate the signature response from server.|
-|kernel-keygenerator-bouncycastle|NA|0.12.15|Used to generate the key pair for AES -256.|
-|kernel-templatemanager-velocity|NA|0.12.15|Used to generate the template manager using the velocity|
-|kernel-qrcodegenerator-zxing|NA|0.12.15|Used to generate the QR code in acknowledgment page.|
-|kernel-pdfgenerator-itext|NA|0.12.15|Used to scan the document in PDF format.|
-|kernel-crypto-jce|NA|0.12.15|Used to encrypt the packet information|
-|kernel-jsonvalidator|NA|0.12.15|Used to validate the JSON.|
-|kernel-virusscanner-clamav|NA|0.12.15|Used to communicate to the Antivirus Clam AV|
-|kernel-transliteration-icu4j|NA|0.12.15|Used to transliterate the Arabic to French and vice versa.|
-|kernel-applicanttype-api|NA|0.12.15|Used to get the applicant types |
-|kernel-cbeffutil-api|NA|0.12.15|Used to generate the CBEFF file and validate against the schema also.|
-|kernel-bioapi-provider|NA|0.12.15|Used to integrate for the user-onboarding.|
+|Master Data Setup |NA|Latest Version|Kernel 0.12.16 version of DB scripts can be used. Refer [MOSIP Getting Started doc.] (https://github.com/mosip/mosip/wiki/Getting-Started#7-configuring-mosip-).|
+|kernel-core|NA|0.12.16|Basic core kernel packages.|
+|kernel-logger-logback|NA|0.12.16|Use for the logging.|
+|kernel-dataaccess-hibernate|NA|0.12.16|Used for the communicating to the DB.|
+|kernel-auditmanager-api|NA|0.12.16|Used to audit the records into the DB|
+|kernel-idvalidator-rid|NA|0.12.16|Used to validate the RID format.|
+|kernel-idvalidator-uin|NA|0.12.16|Used to validate the UIN format|
+|kernel-idvalidator-prid|NA|0.12.16|Used to validate the PRID format|
+|kernel-idgenerator-rid|NA|0.12.16|Used to Generate the RID.|
+|kernel-crypto-signature|NA|0.12.16|Used to validate the signature response from server.|
+|kernel-keygenerator-bouncycastle|NA|0.12.16|Used to generate the key pair for AES -256.|
+|kernel-templatemanager-velocity|NA|0.12.16|Used to generate the template manager using the velocity|
+|kernel-qrcodegenerator-zxing|NA|0.12.16|Used to generate the QR code in acknowledgment page.|
+|kernel-pdfgenerator-itext|NA|0.12.16|Used to scan the document in PDF format.|
+|kernel-crypto-jce|NA|0.12.16|Used to encrypt the packet information|
+|kernel-jsonvalidator|NA|0.12.16|Used to validate the JSON.|
+|kernel-virusscanner-clamav|NA|0.12.16|Used to communicate to the Antivirus Clam AV|
+|kernel-transliteration-icu4j|NA|0.12.16|Used to transliterate the Arabic to French and vice versa.|
+|kernel-applicanttype-api|NA|0.12.16|Used to get the applicant types |
+|kernel-cbeffutil-api|NA|0.12.16|Used to generate the CBEFF file and validate against the schema also.|
+|kernel-bioapi-provider|NA|0.12.16|Used to integrate for the user-onboarding.|
 
 **Open Issues : <br><sub>List of Open Issues, which would be resolved or fixed in another release version, but same Sprint</sub></br>**  
 
