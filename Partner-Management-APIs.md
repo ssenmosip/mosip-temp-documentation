@@ -2,7 +2,7 @@ This section details about the service API in the Partner Management module.
 
 #### Note:
 If you want to access rest apis, access token is required from authmanager.
-1.Authenticate through clientId/Secret or UserId/Password haveing respective roles assigned.
+1.Authenticate through client-id/Secret or User Id/Password having respective roles assigned.
 2.After successful authentication access token will set as Authorization cookies.
 3.Access API through postman by passing the access token in cookies.
 
@@ -32,7 +32,7 @@ This service is used to authenticate MOSIP Admin and management of MISP(MOSIP In
 
 * [POST /misp](#post-misp)
 * [PUT /misp/{mispId}](#put-mispmispid)
-* [PUT /misp/license/{mispId}](#put-misplicensemispid)
+* [PUT /misp/{mispId}/license](#put-mispmispidlicense)
 * [GET /misp/{mispOrganizationName}](#get-mispmispOrganizationName)
 
 ### POST /misp
@@ -56,8 +56,8 @@ requesttime |Yes|Time of the request|2019-07-02T05:23:08.019Z
 request |Yes|Request for the application|
 request.organizationName|Yes|MISP organization name|telecom
 request.contactNumber|Optional|MISP contact number|9876998888
-request.emailId|Optional|MISP emailId|"prm@telecom.com
-request.address|Optional|MISP address|india
+request.emailId|Yes|MISP emailId|"prm@telecom.com
+request.address|Yes|MISP address|india
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -68,12 +68,12 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.create",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
       "organizationName": "telecom",
-      "contactNumber": 9876998888,
+      "contactNumber": "9876998888",
       "emailId": "prm@telecom.com",
       "address": "india"
   }
@@ -124,6 +124,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
 PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_003|A MISP is already registered with name - organizationName|If MISP is already registered with organizationName
 PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
@@ -171,7 +172,7 @@ request.address|Optional|MISP address|india
   "metadata": {},
   "request": {
       "organizationName": "telecom",
-      "contactNumber": 9876998888,
+      "contactNumber": "9876998888",
       "emailID": "prm@telecom.com",
       "address": "india"
   }
@@ -221,13 +222,14 @@ PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of 
 PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_007|No information provided for update|No information provided for update
 PMS_MISP_008|MISP ID does not exist|MISP ID not available in database
 
-### PUT /misp/license/{mispId}
+### PUT /misp/{mispId}/license
 This request will deactivate/suspend MISPs (update MISP License Key Status)
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/misp/license/{mispId}</div>
+<div>https://mosip.io/partnermanagement/v1/misp/{mispId}/license</div>
 
 #### Resource details
 Resource Details | Description
@@ -309,11 +311,12 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
-PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_001|MOSIP Admin does not exist|Un-authorized MOSIP Admin- UserName not available in database
+PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
 PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_007|No information provided for update|No information provided for update
 PMS_MISP_008|MISP ID/MISP License Key does not exist|MISP ID/MISP License Key not available in database
 PMS_MISP_009|MISP License key not associated to MISP ID|MISP License key not associated to MISP in the input
 
@@ -343,7 +346,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: Config parameter retrieved sucessfully 
+###### Description: Config parameter retrieved successfully 
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.reterive",
@@ -383,8 +386,9 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MISP_001|MOSIP Admin does not exist|Un-authorised MOSIP Admin- UserName not available in database
-PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Passoword of the Admin does not match
+PMS_MISP_001|MOSIP Admin does not exist|Un-authorized MOSIP Admin- UserName not available in database
+PMS_MISP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
 PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
+PMS_MISP_009|No MISP found for the organization|No MISP found for the organization
