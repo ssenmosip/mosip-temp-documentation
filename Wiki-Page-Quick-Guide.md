@@ -2,7 +2,7 @@
 Follow these steps to create a link for Table of Content:
 1. Structure of the Table of Content in **Write** mode is shown below:
 
-                  ``* [Sample Heading](sample-heading)`` 
+                  `* [Sample Heading](sample-heading)` 
 1. Enter your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ). 
 Few 
 ## Insert Image
