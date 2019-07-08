@@ -7,9 +7,8 @@ If you want to access rest apis, access token is required from authmanager.
 3.Access API through postman by passing the access token in cookies.
 NOTE: Swagger UI sends cookies automatically through browser.
 
-# Admin Token
-
-    url- https://dev.mosip.io/v1/authmanager/authenticate/useridPwd
+#### Admin Token
+ url- https://dev.mosip.io/v1/authmanager/authenticate/useridPwd
 
 ```
 {
@@ -24,11 +23,7 @@ NOTE: Swagger UI sends cookies automatically through browser.
   }
 }
 ```
-
-
-After hitting validateToken() api with proper request having otp and userid you will get the token in the header with the name Cookie.
-
-
+After hitting api, you will get the auth token in the request header. 
 
 * [User Management Service](#user-management-service)
 
