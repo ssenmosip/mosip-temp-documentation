@@ -1,5 +1,35 @@
 This section details about the service API in the Partner Management module.
 
+#### Note:
+If you want to access rest apis, access token is required from authmanager.
+1.Authenticate through clientId/Secret or UserId/Password haveing respective roles assigned.
+2.After successful authentication access token will set as Autherization cookies.
+3.Access API through postman by passing the access token in cookies.
+NOTE: Swagger UI sends cookies automatically through browser.
+
+# Admin Token
+
+    url- https://dev.mosip.io/v1/authmanager/authenticate/useridPwd
+
+```
+{
+  "id": "string",
+  "version": "string",
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "metadata": {},
+  "request": {
+     "appId": "admin",
+     "password": "admin",
+     "userName": "admin"
+  }
+}
+```
+
+
+After hitting validateToken() api with proper request having otp and userid you will get the token in the header with the name Cookie.
+
+
+
 * [User Management Service](#user-management-service)
 
 # User Management Service
@@ -8,7 +38,7 @@ This service is used to authenticate MOSIP Admin and management of MISP(MOSIP In
 * [POST /misp](#post-misp)
 * [PUT /misp/{mispId}](#put-mispmispid)
 * [PUT /misp/license/{mispId}](#put-misplicensemispid)
-* [GET /misp](#get-misp)
+* [GET /misp/{mispOrganizationName}](#get-mispmispOrganizationName)
 
 ### POST /misp
 This request will send the MOSIP Admin credentials and misp details to get registered
@@ -29,12 +59,15 @@ id |Yes|id |mosip.partnermanagement.misp.create
 version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-07-02T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|admin
-request.adminCredential.password|Yes|admin password|admin
-request.mispDetails.organizationName|Yes|MISP organization name|telecom
-request.mispDetails.contactNumber|Optional|MISP contact number|9876998888
-request.mispDetails.emailId|Optional|MISP emailId|"prm@telecom.com
-request.mispDetails.address|Optional|MISP address|india
+request.organizationName|Yes|MISP organization name|telecom
+request.contactNumber|Optional|MISP contact number|9876998888
+request.emailId|Optional|MISP emailId|"prm@telecom.com
+request.address|Optional|MISP address|india
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Autherization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
 
 #### Request:
 ```JSON
@@ -42,17 +75,12 @@ request.mispDetails.address|Optional|MISP address|india
   "id": "mosip.partnermanagement.misp.create",
   "ver": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
   "request": {
-    "adminCredential": {
-      "username": "admin",
-      "password": "admin"
-    },
-    "mispDetails": {
       "organizationName": "telecom",
       "contactNumber": 9876998888,
       "emailId": "prm@telecom.com",
       "address": "india"
-    }
   }
 }
 
@@ -122,6 +150,11 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 mispId |Yes| id of the misp|64269837502851
 
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Autherization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
 #### Request Body Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -129,12 +162,10 @@ id |Yes|id |mosip.partnermanagement.misp.update
 version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-07-02T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|admin
-request.adminCredential.password|Yes|admin password|admin
-request.mispDetails.organizationName|Optional|MISP organization name|telecom
-request.mispDetails.contactNumber|Optional|MISP contact number|9876998888
-request.mispDetails.emailId|Optional|MISP emailId|prm@telecom.com
-request.mispDetails.address|Optional|MISP address|india
+request.organizationName|Optional|MISP organization name|telecom
+request.contactNumber|Optional|MISP contact number|9876998888
+request.emailId|Optional|MISP emailId|prm@telecom.com
+request.address|Optional|MISP address|india
 
 #### Request:
 ```JSON
@@ -142,17 +173,12 @@ request.mispDetails.address|Optional|MISP address|india
   "id": "mosip.partnermanagement.misp.update",
   "ver": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
   "request": {
-    "adminCredential": {
-      "username": "admin",
-      "password": "admin"
-    },
-    "mispDetails": {
       "organizationName": "telecom",
       "contactNumber": 9876998888,
       "emailID": "prm@telecom.com",
       "address": "india"
-    }
   }
 }
 ```
@@ -166,13 +192,11 @@ request.mispDetails.address|Optional|MISP address|india
   "version": "1.0",
   "responsetime": "2019-06-03T06:47:10.838Z",
   "response": {
-    "mispDetails": {
       "id": "64269837502851",
       "organizationName": "telecom",
       "contactNumber": "9876998888",
       "emailID": "prm@telecom.com",
       "address": "india"
-    }
   },
   "errors": null
 }
@@ -229,11 +253,16 @@ id |Yes|id |mosip.partnermanagement.misp.license.update
 version |Yes|version of the application|1.0
 requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
 request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|admin
-request.adminCredential.password|Yes|admin password|admin
-request.mispDetails.mispStatus|Optional|MISP organization name|telecom
-request.mispDetails.mispLicenseKey|Optional|MISP contact number|
-request.mispDetails.mispLicenseKeyStatus|Optional|MISP emailId|
+request.mispStatus|Optional|MISP organization name|telecom
+request.mispLicenseKey|Optional|MISP contact number|
+request.mispLicenseKeyStatus|Optional|MISP emailId|
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Autherization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
 
 #### Request:
 ```JSON
@@ -241,16 +270,11 @@ request.mispDetails.mispLicenseKeyStatus|Optional|MISP emailId|
   "id": "mosip.partnermanagement.misp.license.update",
   "ver": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
   "request": {
-    "adminCredential": {
-      "username": "admin",
-      "password": "admin"
-    },
-    "mispDetails": {
       "mispStatus": "Active",
       "mispLicenseKey": "fa604-affcd-33201-04770",
       "mispLicenseKeyStatus": "Deactive"
-    }
   }
 }
 ```
@@ -299,11 +323,11 @@ PMS_MISP_008|MISP ID/MISP License Key does not exist|MISP ID/MISP License Key no
 PMS_MISP_009|MISP License key not associated to MISP ID|MISP License key not associated to MISP in the input
 
 
-### GET /misp
+### GET /misp/{mispOrganizationName}
 This request will retrieve MISP ID, MISP status, MISP Organization Name,MISP Contact Number, MISP Email ID, MISP Address,MISP License Key, MISP License Key expiry, MISP License key status for all the MISPs
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/misp</div>
+<div>https://mosip.io/partnermanagement/v1/misp/{mispOrganizationName}</div>
 
 #### Resource details
 Resource Details | Description
@@ -311,32 +335,16 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Body Parameters
+#### Request Path Parameters
 Name | Required | Description | Comment
 -----|----------|-------------|--------
-id |Yes|id |mosip.partnermanagement.misp.retrieve
-version |Yes|version of the application|1.0
-requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
-request |Yes|Request for the application|
-request.adminCredential.username|Yes|admin username|admin
-request.adminCredential.password|Yes|admin password|admin
-request.mispOrganizationName|Optional|MISP organization name|telecome
+mispOrganizationName|Yes|MISP organization name|telecome
 
-#### Request:
-```JSON
-{
-  "id": "mosip.partnermanagement.misp.reterive",
-  "ver": "1.0",
-  "requesttime": "2019-05-20T09:48:43.394Z",
-  "request": {
-    "adminCredential": {
-      "username": "admin",
-      "password": "admin"
-    },
-    "mispOrganizationName": "telecom"
-  }
-}
-```
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Autherization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
@@ -347,7 +355,6 @@ request.mispOrganizationName|Optional|MISP organization name|telecome
   "version": "1.0",
   "responsetime": "2019-05-14T16:01:20.534Z",
   "response": {
-    "mispDetails": {
       "id": "64269837502851",
       "organizationName": "telecom",
       "contactNumber": "9876998888",
@@ -357,7 +364,6 @@ request.mispOrganizationName|Optional|MISP organization name|telecome
       "licenseKey": "fa604-affcd-33201-04770",
       "licenseKeyExpiry": "2022-12-31",
       "licenseKeyStatus": "Active"
-    }
   },
   "errors": null
 }
