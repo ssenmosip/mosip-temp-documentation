@@ -6,7 +6,7 @@
   * [3.2 Logical View](#32-logical-view)
   * [3.3 Technology Stack](#33-technology-stack)
   * [3.4 Data Architecture](#34-data-architecture)
-  * [3.5 High Level Designs](#high-level-designs)
+  * [3.5 High Level Design](#35-high-level-design)
 - [4. REQUIREMENT SPECIFICATIONS](#4-requirement-specifications)
 - [5. ARCHITECTURALLY SIGNIFICANT COMPONENTS](#5-architecturally-significant-components)
   * [5.1 ID Object Definition](#51-id-object-definition)
@@ -173,10 +173,13 @@ This [details the key design aspects](Logical-Architecture) considered for MOSIP
 
 
 ### 3.4 Data Architecture
-This section details the [data architecture](MOSIP-Data-Architecture) of MOSIP, and also the data models and their naming standards. 
+This section details the [data architecture](MOSIP-Data-Architecture) of MOSIP, and also the data models and their naming standards.
+ 
+### 3.5 High Level Design
+This section provides a high level design for each module in MOSIP.
+#### 3.5.1 [Pre-Registration](FRS-Pre-Registration)
 
 ## 4. REQUIREMENT SPECIFICATIONS[**[↑]**](#table-of-contents)
-
 ### 4.1 Functional Requirement Specifications
 This section provides a detailed functional requirement specification for each module in MOSIP
 #### 4.1.1 [Pre-Registration](FRS-Pre-Registration)
