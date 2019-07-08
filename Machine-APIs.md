@@ -1396,7 +1396,7 @@ Machine Specification ID|["contains","equals","startsWith"]
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-     "machines": [
+     "data": [
       {
         "id": "string",
         "ipAddress": "string",
