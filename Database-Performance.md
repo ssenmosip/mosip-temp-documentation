@@ -26,6 +26,6 @@ UIN data will be sharded and stored in different databases, which will provide h
 
 # Indexing Strategy
 
-All the tables will have a primary key and a primary index created. Also, the foreign keys that are created will also have an index. Apart from that, based on the need necessary indexes would be created.
+All the tables will have a primary and/or Unique key, indexes on created on these constraints. Also, the foreign keys that are created will also have an index. Apart from that, based on the need necessary indexes would be created.
 
 **To be elaborated further based on the data read strategy**
