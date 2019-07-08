@@ -8,6 +8,7 @@ Add an asterisk symbol followed by your given heading in brackets [ ], and then 
 * Make sure to add the number sign (#) before you type the lowercase letter of same heading in parentheses ( ).
 
 Refer to the below example to create Table of Content for more clarity:
+
                   * [First Heading](first-heading) 
                   * [Second Heading](second-heading) 
                   * [Third Heading](third-heading) 
