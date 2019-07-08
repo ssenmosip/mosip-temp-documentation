@@ -4,7 +4,7 @@
 
                   * [Sample Heading](sample-heading) 
 
-* Add an asterisk symbol followed by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
+* Add an asterisk symbol (*) followed by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
    * Make sure to add the number sign (#) before you type the lowercase letter of same heading in parentheses ( ).
 
 * Refer to the below example for more clarity:
