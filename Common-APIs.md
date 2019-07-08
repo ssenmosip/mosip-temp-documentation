@@ -3574,12 +3574,18 @@ Status|["contains","equals","startsWith"]
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-  "blacklistedwords": [
+  "data": [
 	{
-		"description": "string",
-                "isActive": true,
+                "isActive": boolean,
+                "createdBy": "string",
+                "createdDateTime": "string",
+                "updatedBy": boolean,
+                "updatedDateTime": "string",
+                "isDeleted": boolean,
+                "deletedDateTime": "string",
+                "word": "string",
                 "langCode": "string",
-                "word": "string"
+                "description": "string"
 	}
    ],
 	"fromRecord" : "number",
