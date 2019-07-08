@@ -71,7 +71,7 @@ To support high performance, following database design features are to be consid
 * No referential integrity is applied on tables across databases
 * Partitioning: Partitioning design to be discussed as PostgreSQL has certain limitation / different way of implementation that requires specific database features to be applied. To be discussed further to finalize the implementation of this feature.
 
-Few points are detailed out [here](Database-Performance). This needs to be further discussed and elaborated.
+The performance related strategies are detailed in [Database Performance](Database-Performance). This needs to be further discussed and elaborated as per need.
 
 # Data Model Naming Standards
 
