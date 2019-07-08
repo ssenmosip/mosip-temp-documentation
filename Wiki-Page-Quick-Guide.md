@@ -7,12 +7,15 @@
 * Add an asterisk symbol followed by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
    * Make sure to add the number sign (#) before you type the lowercase letter of same heading in parentheses ( ).
 
-* Refer to the below example to create Table of Content for more clarity:
+* Refer to the below example for more clarity:
 
                   * [First Heading](first-heading) 
                   * [Second Heading](second-heading) 
                   * [Third Heading](third-heading) 
 ## Insert Image
+Follow these steps to insert an image in a document:
+1. Download **Git Bash** and **GitHub Desktop**.
+1. Place your 
 ## Add Table
 ## Give Section Reference
 ## Give Another Page Reference
