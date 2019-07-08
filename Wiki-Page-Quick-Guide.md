@@ -3,7 +3,7 @@
 Structure of the Table of Content in **Write** mode is shown below:
 
                   * [Sample Heading](sample-heading) 
-Add an asterisk symbol follows by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
+Add an asterisk symbol followed by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
 
 ## Insert Image
 ## Add Table
