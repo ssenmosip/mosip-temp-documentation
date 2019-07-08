@@ -15,7 +15,11 @@
 ## Insert Image
 Follow these steps to insert an image in a document:
 1. Download **Git Bash** and **GitHub Desktop**.
-1. Place your 
+1. Go to the specified folder where you have saved your picture.
+1. Right-click on a blank space to see the drop-down menu.
+* Make sure you don't right-click on a file or folder. If you do so, you'll get the drop-down menu. 
+
+
 ## Add Table
 ## Give Section Reference
 ## Give Another Page Reference
