@@ -1,13 +1,13 @@
 ## Add Table Of Content
 
-Structure of the Table of Content in **Write** mode is shown below:
+* Structure of the Table of Content in **Write** mode is shown below:
 
                   * [Sample Heading](sample-heading) 
 
-Add an asterisk symbol followed by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
-* Make sure to add the number sign (#) before you type the lowercase letter of same heading in parentheses ( ).
+* Add an asterisk symbol followed by your given heading in brackets [ ], and then lowercase letter of same heading in parentheses ( ).
+   * Make sure to add the number sign (#) before you type the lowercase letter of same heading in parentheses ( ).
 
-Refer to the below example to create Table of Content for more clarity:
+* Refer to the below example to create Table of Content for more clarity:
 
                   * [First Heading](first-heading) 
                   * [Second Heading](second-heading) 
