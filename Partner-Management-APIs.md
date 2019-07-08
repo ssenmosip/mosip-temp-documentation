@@ -56,7 +56,7 @@ requesttime |Yes|Time of the request|2019-07-02T05:23:08.019Z
 request |Yes|Request for the application|
 request.organizationName|Yes|MISP organization name|telecom
 request.contactNumber|Optional|MISP contact number|9876998888
-request.emailId|Yes|MISP emailId|"prm@telecom.com
+request.emailId|Yes|MISP emailId|prm@telecom.com
 request.address|Yes|MISP address|india
 
 #### Request Header 
