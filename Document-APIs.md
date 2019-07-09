@@ -1233,12 +1233,15 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
         "documentType": {
           "code": "string",
           "createdBy": "string",
+          "createdDateTime": "date",
           "description": "string",
           "isActive": true,
           "isDeleted": true,
+          "deletedDateTime": "date",
           "langCode": "string",
           "name": "string",
-          "updatedBy": "string"
+          "updatedBy": "string",
+          "updatedDateTime": "date",
         },
         "isActive": true,
         "langCode": "string",
