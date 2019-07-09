@@ -319,6 +319,7 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 ## 7. PRIVACY AND SECURITY[**[↑]**](#table-of-contents)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows. 
 Please refer [**wiki**](Privacy-and-Security) for more details.[WIP]
+
 Please refer [**wiki**](Security-Tools) to know more about the tools used for security testing.
 
 ## 8. TEST RIG[**[↑]**](#table-of-contents)
