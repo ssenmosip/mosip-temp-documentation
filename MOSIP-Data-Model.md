@@ -1,0 +1,34 @@
+This section contains details related to MOSIP data model design.The section also provides the data dictionary of the tables and columns defined by MOSIP databases.
+
+# Data Model Considerations
+
+* Meaningful Naming: DB objects that are being created will have a meaningful naming. There will not be any prefix or suffix to the table names
+* Constraints: Only Primary Key (PK), Unique Key (UK), Foreign Key (FK) and Not Null constraints are set at database level. The data model will not have check constraints, etc.
+* Flexible model: Flexibility is one of the feature considered while designing the data model in most of the cases. For example, there are no referential integrity constraints applied across databases. No business rules are set at database level other than few mapping data. Most of the business logic is applied at application layer.  
+* Database specific features: Use of DB specific features like defaults, DB sequences, identify fields are not used
+* No business logic is implemented at database level other than PK, UK, FKs. No programming at DB level and usage of features like DB triggers, DB functions, procedures. If needed, It should be ANSI compliant and proper explanation needs to be provided
+* SQL used in application should be ANSI Compliant 
+* The data is stored in multiple languages as configured by administrator of the system
+* Referential integrity is applied on the tables belonging to same database. If the objects are referred across DB then this will be handled at the application layer.
+* Only individual and security related information is encrypted
+* System related data will be stored in system default language (mostly English or primary language set by a contry).
+
+# Data Model
+
+Below is the list of databases in MOSIP
+
+|Sl No|Database Name|Description|Data Model|Data Dictionary|
+|---------|---------|------------|----------|-----------|
+|1|mosip_kernel|Kernel database maintains common / system configurations, data related to kernel services like sync process, OTP, etc.|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_kernel.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_kernel.png)</div>|<div>[mosip_kernel_dd.xlsx ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_kernel_dd.xlsx)</div>|
+|2|mosip_master|All the master data defined by a country / organization is maintained in mosip_master database. The master data information further classified into two, 1. Technical data, data needed by the MOSIP application to handle processes and 2. master data used to capture / control individual information and apply any business rules|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_master.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_master.png)</div>|<div>[mosip_master_dd.xlsx ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_master_dd.xlsx)</div>|
+|3|mosip_idrepo|ID repository database stores all the data related to an individual for which an UIN is generated.|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idrepo.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idrepo.png)</div>|<div>[mosip_idrepo_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idrepo_dd.xlsx)</div>|
+|4|mosip_prereg|Pre-registration database to store the data that is captured as part of pre-registration process|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_prereg.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_prereg.png)</div>|<div>[mosip_prereg_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_prereg_dd.xlsx)</div>|
+|5|mosip_reg|Registration client database to capture registration related data. The needed data from MOSIP system will be synched with this database.|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_reg.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_reg.png)</div>|<div>[mosip_reg_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_reg_dd.xlsx)</div>|
+|6|mosip_regprc|The data related to Registration process flows and transaction will be maintained in this database. This database also maintains data that is needed to perform deduplication.|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_regprc.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_regprc.png)</div>|<div>[mosip_regprc_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_regprc_dd.xlsx)</div>|
+|7|mosip_ida|ID Authentication related requests, transactions and mapping related data like virtual ids, tokens, etc. will be stored in this database|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_ida.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_ida.png)</div>|<div>[mosip_ida_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_ida_dd.xlsx)</div>|
+|8|mosip_audit|Audit related logs and the data is stored in this database|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_audit.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_audit.png)</div>|<div>[mosip_audit_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_audit_dd.xlsx)</div>|
+|9|mosip_iam|The user management related data of MOSIP application is stored in various storages, the database related users are stored in this database|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_iam.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_iam.png)</div>|<div>[mosip_iam_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_iam_dd.xlsx)</div>|
+|10|mosip_idmap|Database to store and manage all the data related to mapping between various IDs, like vid with UIN of an individual|<div>[DBM File](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idmap.dbm)</div> <div>[Image File ](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idmap.png)</div>|<div>[mosip_idmap_dd.xlsx](https://github.com/mosip/mosip/blob/master/scripts/database/data_model/mosip_idmap_dd.xlsx)</div>|
+
+
+
