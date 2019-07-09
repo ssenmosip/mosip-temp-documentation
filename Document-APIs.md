@@ -1226,7 +1226,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-  "documentcategories": [
+  "data": [
 	{
         "code": "string",
         "description": "string",
