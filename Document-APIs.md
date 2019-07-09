@@ -1228,21 +1228,22 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
   "response": {
   "documentcategories": [
 	{
-	"code": "string",
+        "code": "string",
         "description": "string",
-        "documenttypes": [
-          {
-            "code": "string",
-            "description": "string",
-            "isActive": true,
-            "langCode": "string",
-            "name": "string"
-          }
-        ],
+        "documentType": {
+          "code": "string",
+          "createdBy": "string",
+          "description": "string",
+          "isActive": true,
+          "isDeleted": true,
+          "langCode": "string",
+          "name": "string",
+          "updatedBy": "string"
+        },
         "isActive": true,
         "langCode": "string",
         "name": "string"
-	}
+      }
    ],
 	"fromRecord" : "number",
 	"toRecord":"number",
