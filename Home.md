@@ -1,5 +1,3 @@
-Welcome to the mosip-docs wiki!
-=======
 A country’s identification system is the backbone for effective delivery of public and private services. Governments are exploring the development of multipurpose foundational ID systems, in which individuals receive a unique identifier from the government that they can use for identity assertion and verification. The foundational ID can then be used to access a wide variety of government and private services.
 
 The Modular Open Source Identity Platform (MOSIP) helps Governments and other user organizations implement a digital, foundational identity system in a cost effective way. Nations can use MOSIP freely to build their own identity systems. Being modular in its architecture, MOSIP provides flexibility to countries in how they implement and configure their systems, and helps avoid vendor lock-in.
