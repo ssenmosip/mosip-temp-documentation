@@ -20,7 +20,8 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
 
 ### A. Installing Jenkins version 2.150.1
-Jenkins installation is pretty standard one(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. Also you have to install following list of plugins - 
+Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. Also the following plugins have to be installed
+ list of plugins - 
 * [Github Plugin](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin)
 * [Artifactory Plugin](//wiki.jenkins.io/display/JENKINS/Artifactory+Plugin)
 * [Credentials Plugin](//wiki.jenkins.io/display/JENKINS/Credentials+Plugin)
@@ -33,7 +34,7 @@ Jenkins installation is pretty standard one(see [How to install Jenkins](//jenki
 * [Pipeline Utility Steps Plugin](//wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin)
 * [M2 Release Plugin](//wiki.jenkins.io/display/JENKINS/M2+Release+Plugin)
 
-Once the plugin installation is complete, we need to run this command in Jenkins Script Console - 
+Once the plugin installation is complete, run this command in Jenkins Script Console - 
 
 `System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")`
 
@@ -44,7 +45,7 @@ This above command modifies Content Security Policy in Jenkins to enable loading
 * [SSH Credentials Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Setting Up Github for/in Jenkins
-Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at [Webhooks](//developer.github.com/webhooks/) and [Github hook](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling)). After hooks are in place, we need to setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps - 
+Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at [Webhooks](//developer.github.com/webhooks/) and [Github hook](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling)). After hooks are in place, setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps - 
     
     I. Goto Jenkins
     II. Goto Credentials -> System
@@ -61,20 +62,20 @@ Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Git
     VI. Now since our Jenkinsfile usage this github credentials, update the credentials id in Jenkinsfile. (To know more about look at this [section]())
 
 ### C. Create Pipelines
-Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in the MOSIP Source Code. MOSIP currently have 5 Jenkins job that take care of CI/CD process for Development Environment. There are - 
+Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in the MOSIP Source Code. MOSIP currently has 5 Jenkins jobs that take care of CI/CD process for Development Environment. They are - 
 
 * master-branch-build-all-modules
 
     Jenkinsfile for master-branch-build-all-modules can be found under mosip root directory, named **Jenkinsfile**<br/><br/>
-    This Job is used to build whole MOSIP as a single unit. This Job is also acts as a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here are the configuration for Pipeline you might have to explictly change to use MOSIP provided Jenkinsfile- 
+    This Job is used to build MOSIP as a single unit. This Job also acts like a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here is the configuration for Pipeline you might have to explicitly change to use MOSIP provided Jenkinsfile- 
 
     ![Configure Build Triggers](_images/getting_started_images/master-branch-build-all-modules-build-triggers.JPG)
 
     ![Configure Pipelines](_images/getting_started_images/master-branch-build-all-modules-pipeline.JPG)
 
-    As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of mosip-platform repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
+    As it can be seen from the above image this pipeline uses Jenkinsfile present in master branch of mosip-platform repository. You need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Let us now look into this Jenkinsfile. 
 
-  Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code.
+  Jenkinsfile for this pipeline is written in Groovy Language using the scripted style of writing code.
 
   * Then we have module specific Jenkinsfile for individual Modules. These Modules are:
       * **Kernel**<br/>
@@ -84,11 +85,11 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
       * **ID-Repository**<br/>
       * **ID-Authentication**<br/>
 
-      Each Modules CI/CD Jenkins script can be found under root of these modules, This Jenkins script will be  named Jenkinsfile, and is responsible to build and deploy entire Module to Dev environment<br/>
+      Each Module's CI/CD Jenkins script can be found under root of these modules. This Jenkins script will be  named Jenkinsfile and is responsible to build and deploy the entire Module to Dev environment<br/>
 
   * For promoting these modules to QA, there is a pipeline named **PromoteToQAJenkinsFile** which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.
 
-  In each Jenkinsfile you will see some variables starting with **env.** These variables are taken from Jenkins environment variables. So you have to setup these environment variables in your jenkins to use these Jenkinsfile. These Variables include:<br/>
+  In each Jenkinsfile you will see some variables starting with **env.** These variables are taken from Jenkins environment variables. You have to setup these environment variables in your jenkins to use these Jenkinsfiles. These Variables include:<br/>
   1. **NEXT_BRANCH_NAME**<br/>
   2. **REGISTRY_URL**<br/>
   3. **REGISTRY_NAME**<br/>
@@ -101,8 +102,8 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
 ***
 ## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#table-of-content)
- For installing and setting up Jfrog, steps [here](//jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
-Once the setup is complete, please add following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
+ For installing and setting up Jfrog, following steps [here](//jfrog.com/confluence/display/RTF/Installing+Artifactory) need to be followed.<br/>
+Once the setup is complete, please add the following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
 * [**Maven Central**](//repo.maven.apache.org/maven2/)
 * [**Jcentre**](//jcenter.bintray.com)
 * [**Openimaj**](//maven.openimaj.org)
@@ -110,7 +111,7 @@ Once the setup is complete, please add following remote repositories to your Jfr
 To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home to point to JFrog.<br/>
 To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](//jfrog.com/confluence/display/RTF/Maven+Repository)
 
-**NOTE** JFrog Artifactory setup by Mindtree is open to public for read only access. So if any of the modules are dependent on previous modules, that you don't have built, you need to connect to our JFrog server to pull those dependencies. For doing that, in the settings.xml file that you generated above, replace url of ID with repository snapshot and release to our Jfrog URLs which will be : </br>
+**NOTE** JFrog Artifactory setup by MOSIP is open to public for read only access. So if any of the modules are dependent on previous modules, that you don't have built, you need to connect to our JFrog server to pull those dependencies. For doing that, in the settings.xml file that you generated above, replace url of ID with repository snapshot and release to our Jfrog URLs which will be : </br>
 1. `<url>http://devops.mosip.io/artifactory/libs-snapshot</url>` for libs-snapshot 
 2. `<url>http://devops.mosip.io/artifactory/libs-release</url>` for libs-release
 
