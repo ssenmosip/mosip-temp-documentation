@@ -1,6 +1,6 @@
 # 1	Introduction
 ## 1.1	Context
-MOSIP is developed as an open source framework project. The code developed complied to the Java standards and best practices. 
+MOSIP is developed as an open source framework project. The code developed complies with the Java standards and best practices. 
 ## 1.2	Purpose of this document
 This document gives various RESTful webservice standards which have to be followed during the MOSIP development. 
 ## 1.3	Scope of this document
