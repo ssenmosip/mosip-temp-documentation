@@ -1,0 +1,3 @@
+﻿Dear $name_eng,
+
+Your UIN is Found. You will receive your UIN Card soon at your Postal Address.
