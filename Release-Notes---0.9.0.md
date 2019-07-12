@@ -24,7 +24,7 @@ This release is with **proxy biometrics**. This means that the implementation of
 Includes Functional requirements, Process flows, Architecture and High level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
-[**Low Level design**](https://github.com/mosip/mosip-platform/wiki/MOSIP-Platform-Detailed-Design) and [**Test cases excel**](https://github.com/mosip/mosip-functional-tests/wiki/_files/testing/Test automation/MOSIP-TCs-V1.0.xlsx)
+[**Low Level design**](https://github.com/mosip/mosip-platform/wiki/MOSIP-Platform-Detailed-Design) and [**Test cases excel**](https://github.com/mosip/mosip-functional-tests/wiki/_files/testing/Test_automation/MOSIP-TCs-V1.0.xlsx)
 
 ## Key Points [**[↑]**](#table-of-content)
 
