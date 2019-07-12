@@ -1,4 +1,4 @@
-## Table Of Content
+## Table Of Contents
 
 - [Authentication Services](#authentication-services)
 - [1. Single factor Authentication](#1-single-factor-authentication)
@@ -22,7 +22,7 @@
 
 # Authentication Services 
 # 1. Single factor Authentication 
-## 1.1 Biometric Authentication [**[↑]**](#table-of-content)
+## 1.1 Biometric Authentication [**[↑]**](#table-of-contents)
 **A. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
 
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
@@ -57,7 +57,7 @@ Upon receiving an authentication service request, the system authenticates the f
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
 for more details.
 
-**C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server** [**[↑]**](#table-of-content)
+**C. Evaluate the Individual's fingerprints with the corresponding fingerprint in the Auth server** [**[↑]**](#table-of-contents)
 
 Upon receiving an authentication request, the system evaluates the Individual's fingerprints with the corresponding fingerprint in the Auth server as per the following steps:
 
@@ -91,7 +91,7 @@ Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#au
 for more details.
 
 
-**E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-content)
+**E. Support two-finger authentication so that the quality of incoming fingerprints is better** [**[↑]**](#table-of-contents)
 
 Upon receiving an authentication request, the system supports two-finger authentication so that the quality of incoming fingerprints gets better as per the below process:
 
@@ -115,7 +115,7 @@ Upon receiving an authentication request, the system supports two-finger authent
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
-**F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server** [**[↑]**](#table-of-content)
+**F. Evaluate the Individual's IRIS match with the corresponding IRIS in the Auth server** [**[↑]**](#table-of-contents)
 
 Upon receiving an authentication request, the system evaluates the Individual's IRIS match with the corresponding IRIS in the Auth server as per the following steps:
 
@@ -141,7 +141,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
-**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold** [**[↑]**](#table-of-content)
+**G. Authenticate the IRIS of the Individual by comparing the match score of the IRIS against the threshold** [**[↑]**](#table-of-contents)
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system retrieves generated score match
@@ -165,7 +165,7 @@ Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#au
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/authentication/Bio_Auth_Request_REST_Service.md)
 
-## 1.2 Demographic Authentication [**[↑]**](#table-of-content)
+## 1.2 Demographic Authentication [**[↑]**](#table-of-contents)
 
 **A. Strategy for Authentication**
 
@@ -222,7 +222,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 
 Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
-**E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
+**E. Match phone number of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-contents)
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
@@ -236,7 +236,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 
 
-**F. Match e-mail ID of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
+**F. Match e-mail ID of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-contents)
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
@@ -250,7 +250,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 
 
-**G. Match gender of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-content)
+**G. Match gender of the individual in the database so that the individual is authenticated** [**[↑]**](#table-of-contents)
 
 1. The authentication service request should have a defined set of parameters. Please refer to  [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. Upon receiving an authentication request the system validates if the time period between the current time stamp and the request time stamp is <= time period (n - admin config). Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
@@ -281,7 +281,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 
   
-## 1.3 OTP Authentication [**[↑]**](#table-of-content)
+## 1.3 OTP Authentication [**[↑]**](#table-of-contents)
 
 **A. Trigger OTP to an individual so that the individual can be authenticated based on OTP**
 
@@ -298,7 +298,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-request-service-public) for more details.
 
 
-**B. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-content)
+**B. Trigger SMS to the Individual's mobile for OTP Trigger request** [**[↑]**](#table-of-contents)
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 1. The system retrieves the mode of communication (i.e) e-mail or phone number configured for sending the notification
@@ -327,7 +327,7 @@ Please refer Git for more details on the type of [**error messages**](/mosip/mos
 1. If the communication mode = mobile and e-mail
 1. Mask both the mobile no and the email as per the logic below and include the both in the OTP request response
  
-**Logic for masking mobile** [**[↑]**](#table-of-content)
+**Logic for masking mobile** [**[↑]**](#table-of-contents)
 
 1. No of digits in the mobile number to be retrieved – say n
 1. Mask first {(50% of the n digits) + 1} digits of the mobile number
@@ -378,7 +378,7 @@ Please refer to the [**OTP Authentication API**](ID-Authentication-APIs#otp-requ
 
 
 
-## 1.4 Common Features for all Authentication Types [**[↑]**](#table-of-content)
+## 1.4 Common Features for all Authentication Types [**[↑]**](#table-of-contents)
 
 #### A. Validate the timestamp of the authentication request
 
@@ -401,7 +401,7 @@ The authentication service request should have a defined set of parameters. Plea
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx). 
 
 
-#### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-content)
+#### C. Map VID to UIN of the individual in the Auth database so that the individual can be authenticated [**[↑]**](#table-of-contents)
 
 The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
@@ -409,7 +409,7 @@ The authentication service request should have a defined set of parameters. Plea
 1. The system proceeds to Match UIN as per defined standards
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
-#### D. Generate a static token ID for each MOSIP authentication request, to facilitate authentication [**[↑]**](#table-of-content)
+#### D. Generate a static token ID for each MOSIP authentication request, to facilitate authentication [**[↑]**](#table-of-contents)
 
 The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
@@ -443,7 +443,7 @@ The system then performs the following steps to Trigger SMS to the Individual's 
 1. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
-#### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-content)
+#### F. Trigger e-mail to the Individual's e-mail ID for every authentication request [**[↑]**](#table-of-contents)
 
 The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
 
@@ -457,12 +457,12 @@ The authentication service request should have a defined set of parameters. Plea
 
 [**Link to design**](/mosip/mosip/blob/0.8.0/docs/design/authentication/Auth_Request_REST_service.md)
 
-# 2. Multi-factor Authentication (WIP) [**[↑]**](#table-of-content)
+# 2. Multi-factor Authentication (WIP) [**[↑]**](#table-of-contents)
 
 # 3. Offline Authentication 
-## 3.1 QR Code based Authentication (WIP) [**[↑]**](#table-of-content)
+## 3.1 QR Code based Authentication (WIP) [**[↑]**](#table-of-contents)
 # 4. KYC Service 
-## 4.1 Profile Sharing based on Policy [**[↑]**](#table-of-content)
+## 4.1 Profile Sharing based on Policy [**[↑]**](#table-of-contents)
 
 **KYC Service is offered based on the individual’s consent using OTP or Biometric (Fingerprint/IRIS/Face) Authentication in the authentication request.**
 
@@ -497,7 +497,7 @@ Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) f
 
 # 5. Partners Authentication and Authorisation
    * NOTE: **Partners Authentication and Authorisation** is only a proxy implementation due to pending integration with Partner Management services
-## 5.1 MISP License Authentication [**[↑]**](#table-of-content)
+## 5.1 MISP License Authentication [**[↑]**](#table-of-contents)
 
 **Authenticate and authorise the MOSIP Infrastructure Service Provider (MISP)**
 
@@ -513,7 +513,7 @@ MOSIP can authenticate and authorise the MOSIP Infrastructure Service Provider (
 Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
 
 
-## 5.2 Partner Policy Authentication [**[↑]**](#table-of-content)
+## 5.2 Partner Policy Authentication [**[↑]**](#table-of-contents)
 
 **Authenticate and authorise Auth Partner- proxy implementation**
 
@@ -538,10 +538,10 @@ Please refer to the [**Authentication Service API**](ID-Authentication-APIs#user
 
 
 # 6. Authentication Device Support 
-## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-content)
+## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-contents)
 
 Technical story (Architects to contribute)
-### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
 1. Configurable Parameters
 
@@ -549,8 +549,8 @@ Technical story (Architects to contribute)
 2. Configurable Processes 
 * (Work in Progress) 
  
-### Authentication Services API [**[↑]**](#table-of-content)
+### Authentication Services API [**[↑]**](#table-of-contents)
 [**Refer to Wiki for more details on Authentication Services API**](ID-Authentication-APIs)
-### Process View [**[↑]**](#table-of-content)
+### Process View [**[↑]**](#table-of-contents)
 [**Link to Process View of Authentication Services**](Process-view#4-id-authentication-)
 

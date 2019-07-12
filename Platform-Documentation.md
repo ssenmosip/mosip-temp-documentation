@@ -27,7 +27,7 @@
   * [6.2 Internal APIs](#62internal-apis)
     + [6.2.1 Kernel](#621-kernel)
     + [6.2.2 ID Repository](#622-id-repository)
-- [7. PRIVACY AND SECURITY - WIP](#7-privacy-and-security)
+- [7. PRIVACY AND SECURITY](#7-privacy-and-security)
 - [8. TEST RIG](#8-test-rig)
 - [9. PERFORMANCE AND SIZING GUIDELINES](#9-performance-and-sizing-guidelines)
 - [10. BUILDING AND DEPLOYING MOSIP (TBD)](#10-building-and-deploying-mosip)
@@ -317,10 +317,7 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 [ID Repository API](ID-Repository-API)
 
 ## 7. PRIVACY AND SECURITY[**[↑]**](#table-of-contents)
-Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the Security design principles MOSIP follows. 
-Please refer [**wiki**](Privacy-and-Security) for more details.[WIP]
-
-Please refer [**wiki**](Security-Tools) to know more about the tools used for security testing.
+Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the [privacy and security](Privacy-and-Security) design principles MOSIP follows. Please also take a look at [Security Tools](Security-Tools) to know more about the tools used for security testing.
 
 ## 8. TEST RIG[**[↑]**](#table-of-contents)
 Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.

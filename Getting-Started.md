@@ -10,10 +10,10 @@
 
 ## 1. Getting the Source Code [**[↑]**](#table-of-content)
 Knowledge of Linux and Azure with Kubernetes are required to follow the instructions.
-MOSIP source code can be obtained via creating a fork of MOSIP Github repository from the [URL](/mosip/mosip/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
+MOSIP source code can be obtained via creating a fork of mosip-platform Github repository from the [URL](/mosip/mosip-platform/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
-**NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-configuration repository from this [URL](https://github.com/mosip/mosip-configuration.git). All the configuration files will be stored under config folder under this repository.
+**NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-config repository from this [URL](https://github.com/mosip/mosip-config.git). All the configuration files will be stored under config folder under this repository.
 
 ***
 ## 2. Setup and Configure Jenkins [**[↑]**](#table-of-content)
@@ -72,7 +72,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
     ![Configure Pipelines](_images/getting_started_images/master-branch-build-all-modules-pipeline.JPG)
 
-    As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of MOSIP repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
+    As it can be seen from the above image that this pipeline usages Jenkinsfile present in master branch of mosip-platform repository. Also you need to provide the Github credentials that this pipeline will take to connect and download this Jenkinsfile at the time of the build. Now let us look into this Jenkinsfile. 
 
   Jenkinsfile for this pipeline is written in Groovy Language using scripted style of writing code.
 
@@ -947,7 +947,7 @@ NOTE: Required only if HDFS is used for packet storage.
 [Refer - Steps-to-Install-and-configuration-HDFS](Steps-to-Install-and-configuration-HDFS)
 
 ### 6.7 Steps to Deploy Kernel Key Manager Service
-Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone VM. The steps to setup kernel-keymanager-service are given [**here**](/mosip/mosip/blob/master/kernel/kernel-keymanager-service/README.md) 
+Kernel Keymanager Service is setup outside of Kubernetes cluster on a standalone VM. The steps to setup kernel-keymanager-service are given [**here**](https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-keymanager-service/README.md) 
 
 To deploy keymanager service, follow below steps -
 1.  Prerequiste:<br/>
@@ -986,7 +986,7 @@ sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spr
       active_profile_env and registryAddress in the above command accordingly
 
 ### 6.8  SMS Gateway configuration 
-Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/mosip/tree/0.12.0/kernel/kernel-smsnotification-service) 
+Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-smsnotification-service/README.md) 
 
 
 
@@ -1023,7 +1023,7 @@ sudo firewall-cmd --reload
 
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 
-We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-configuration.git).
+We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-config.git).
 
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
 [**MOSIP CONFIGURATION SERVER**](MOSIP-Configuration-Server)
@@ -1033,25 +1033,25 @@ For Deployment of configurations server, go to [firstly-deploy-kernel-configurat
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
 **A. Global:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/application-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/application.properties)
 
 **B. Kernel:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/kernel.properties)
 
 **C. Pre-Registration:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/pre-registration-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/pre-registration.properties)
 
 **D. Registartion-Processor:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/registration-processor-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/registration-processor.properties)
 
 **E. IDA:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/id-authentication-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/id-authentication.properties)
 
 **F. ID-REPO:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/id-repository-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/id-repository.properties)
 
 **H. Registration:**
-[**link**](/mosip/mosip-configuration/blob/0.12.0/config/registration-qa.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config/registration.properties)
 
 
 
@@ -1160,9 +1160,9 @@ Database deployment consists of the following 4 categories of objects to be depl
 
 4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
 
-The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](/mosip/mosip/tree/master/scripts/database/mosip_master/dml).
+The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](https://github.com/mosip/mosip-platform/tree/master/db_scripts/mosip_master/dml).
 
-The scripts to create the above objects are available under [database](/mosip/mosip/tree/master/scripts/database). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](/mosip/mosip/tree/master/scripts/database/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
+The scripts to create the above objects are available under [database](https://github.com/mosip/mosip-platform/tree/master/db_scripts). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip-platform/blob/master/db_scripts/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
 **Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
 
@@ -1261,7 +1261,7 @@ For more information look [here](//cloud.spring.io/spring-cloud-config/single/sp
 <br/>
 <br/>
 
-More information can be found [here](/mosip/mosip/blob/master/kernel/kernel-config-server/README.md)
+More information can be found [here](https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-config-server/README.md)
 
 
 <br/>
@@ -1327,7 +1327,7 @@ Changes to be made in this stage->
 
    b. Replace the value for the variable -> dmz_reg_proc_dev_ip with the IP of your newly created VM.
 
-Refer the github url for Jenkinsfile : https://github.com/mosip/mosip/blob/0.12.0/registration-processor/Jenkinsfile
+Refer the github url for Jenkinsfile : [here](https://github.com/mosip/mosip-infra/blob/master/scripts/jenkinsfile/registration-processor-Jenkinsfile)
 
 5. Also, instead of following as described in 4th point to use Jenkinsfile, we can do it manually. Steps are ->
 
@@ -1369,22 +1369,23 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 
   b. Perform docker hub login
 
-  c. Execute the following commands
+  c. Execute the following commands sequentially one after the other. Wait for the completion of previous command before 
+     executing next commands.
      
 
-      *  docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
+      1.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
          -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_hash_salt 
          "${registryAddress}"/id-repository-salt-generator
 
-      *  docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
+      2.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
          -e spring_config_url_env="${config_url}" -e schema_name=idrepo -e table_name=uin_encrypt_salt 
          "${registryAddress}"/id-repository-salt-generator
 
-      *  docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
+      3.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"  
          -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_hash_salt 
          "${registryAddress}"/id-repository-salt-generator
 
-      *  docker run -it -d -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"       
+      4.  docker run -it -p 8092:8092 -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}"       
          -e spring_config_url_env="${config_url}" -e schema_name=idmap -e table_name=uin_encrypt_salt 
          "${registryAddress}"/id-repository-salt-generator
 

@@ -1,4 +1,4 @@
-## Table Of Content
+## Table Of Contents
 - [1. Login](#1-login-) _(ASR_FR_1)_
   * [1.1 Login](#11-login) _(ASR_FR_1.1)_
   * [1.2 Logout](#12-logout)
@@ -78,7 +78,7 @@
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Administrator Services API](#administrator-services-api-)
 - [Process View](#process-view-)
-## 1. Login [**[↑]**](#table-of-content)
+## 1. Login [**[↑]**](#table-of-contents)
 ### 1.1 Login
 The portal allows user to provide the credential to login. Based on country, single factor or multi-factor credentials (For example, Password, OTP, Fingerprint, iris etc.) are configured.  The system validates the provided credentials and the user's role. On successful validation, the system allows user to proceed further. 
 
@@ -91,7 +91,7 @@ For more details, please refer to [Reset Password](#23-reset-password-).
 If a user wishes to logout of the Admin Portal, he/she can opt to select the Logout option. The system validates if user is in active session and provides the logout related notification on successful validation else the system provides the respective error notification (error notification is configurable and pre-defined).
 #### 1.2.2 Auto Logout
 If the user is inactive for X minutes (X is configurable), the system logs out the user automatically. In such case, the system will not save any user’s data.
-## 2. Account Management [**[↑]**](#table-of-content)
+## 2. Account Management [**[↑]**](#table-of-contents)
 Using the portal, user will  manage his/her profile. The  portal users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
 ### 2.1 Edit Personal Details
@@ -102,14 +102,14 @@ Procedure to edit the profile follows:
 4. The Home Page contains the permitted functionalities of the user.
 5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates else provides a respective error notification.
 
-### 2.2 Change Password [**[↑]**](#table-of-content)
+### 2.2 Change Password [**[↑]**](#table-of-contents)
 The portal allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
 1. User selects the option of Change Password.
 1. The system allows user to proceed further.
 1. The user  provides the values in Old Password, New Password, and Confirm New Password.
 1. The system validates and authenticates the provided data and respective user's role as per the [Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-). On successful validation, the password is successfully changed, the system provides a notification to the respective user conveying " Password has been changed successfully" else provides a respective error notification.
 
-### 2.3 Reset Password [**[↑]**](#table-of-content)
+### 2.3 Reset Password [**[↑]**](#table-of-contents)
 The portal allows user to reset the password. Based on the country, single factor or multi-factor authentication will be configured.
 
 To reset the password, the user performs the following:
@@ -121,7 +121,7 @@ To reset the password, the user performs the following:
 1. The system provides a notification to the user related to the password reset status.
 
 
-### 2.4 Forgot User Name [**[↑]**](#table-of-content)
+### 2.4 Forgot User Name [**[↑]**](#table-of-contents)
 Using the portal, user can retrieve the user name. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the provided mobile number and fetches the configured security policy against the Forgot User Name feature and thus provides the user credentials as per the security policy. On successful validation, the system provides the User Name to the registered mobile number through an SMS notification else provides the respective error notification.
 
 ### 2.5 Account Unlock
@@ -133,7 +133,7 @@ Procedure to unlock the account:
 1. The system validates and authenticates if the mobile number is registered against the respective user name.
 1. 2.3.	On successful validation, the system provides an SMS notification conveying the unlocking of account. 
 
-## 3. Security Policy Configuration(WIP)[**[↑]**](#table-of-content)
+## 3. Security Policy Configuration(WIP)[**[↑]**](#table-of-contents)
 Using the portal, Zonal Admin will be able to set up security policies for each applications, which includes the following:
  * Session Time out policies
  * Password policies
@@ -156,10 +156,10 @@ Default Policy:
  * Feature Specific authentication overrides Role Specific Behavior for Reset Password/Forgot User Name)
 
 
-## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-content)
+## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-contents)
 ### 4.1 Approval Notifications
 ### 4.2 Country Specific News/Notifications
-## 5. Resource Management [**[↑]**](#table-of-content)
+## 5. Resource Management [**[↑]**](#table-of-contents)
 ### 5.1 Center Management 
 #### 5.1.1 View Center
 The portal allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, user's role, and on successful validation, provides the details of registration center else triggers the respective error notification (error notification are configurable and predefined).
@@ -172,7 +172,7 @@ Using the portal, Zonal Admin will provide all the mandatory data (ID, Name, Typ
 	
 For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
 
-#### 5.1.3 Update Center [**[↑]**](#table-of-content)
+#### 5.1.3 Update Center [**[↑]**](#table-of-contents)
 Using the portal, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, user's role, and the the date and time stamp. On successful validation, the system updates the data of the registration center and provides an acknowledgement notification about the updates status else triggers a respective error notification. 
 
 #### 5.1.4 Activate/Deactivate/Decommission Center
@@ -189,7 +189,7 @@ The portal allows Zonal Admin to deactivate the registration centers, which are 
 
 Decommissioning a center means removing the center from the zone permanently. The portal allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources of the registration center are automatically un-mapped. The system validates user's role and decommissions the selected center(s) and provides a notification on successful validation. Once the center is decommissioned, it cannot be retrieved.
 
-### 5.2 Machine Management [**[↑]**](#table-of-content)
+### 5.2 Machine Management [**[↑]**](#table-of-contents)
 #### 5.2.1 View Machine
 The portal allows Zonal Admin to view the machines by providing the registration center ID. The system validates the provided data and user's role. On successful validation, the system provides the list of machines details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the machine without providing the registration center ID, then the system provides all the machine registered in the country.  During the validation of registration center ID and user's role, if the registration ID/user's role is not found, then the system triggers an error notification
 #### 5.2.2 Create Machine
@@ -213,7 +213,7 @@ Machines uniqueness will be maintained through machine’s serial number.
 
 Zonal Admin will also register the machines by importing the CSV/XLS.
 For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-machine-types---create-) in Admin Service.
-#### 5.2.3 Update Machine [**[↑]**](#table-of-content)
+#### 5.2.3 Update Machine [**[↑]**](#table-of-contents)
 The portal provides the capabilities for Zonal Admin to update the machine related details. When machine was registered if any wrong entry is made, that can be rectified.
 
 Procedure to update the machine related details, the Zonal Admin will:
@@ -224,7 +224,7 @@ Procedure to update the machine related details, the Zonal Admin will:
 1. If the Zonal Admin selects the Delete flag, the information is updated when the registration center is updated. 
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
-#### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-content)
+#### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-contents)
 #### A. Activate Machine
 
 The portal allows Zonal Admin to activate the machine, which are already deactivated due to any reasons. When the machine is created and approved, it is activated automatically. The Zonal Admin selects the machine then all the machines of that zone are displayed. The Zonal Admin can select a deactivated machine or multiple deactivated machines at a time and selects Activate option. The system validates user's role and activates the selected machine(s). On successful validation, the system provides a notification else triggers an error notification.
@@ -237,7 +237,7 @@ The portal allows Zonal Admin to deactivate the machine, which are already activ
 
 Decommissioning a machine means removing the machine from the zone permanently. The portal allows the Zonal Admin to decommission the machine. The Zonal Admin can un-map the machine associated with the registration center before decommissioning the machine, but he/she can also decommission the machine  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates the user's role and decommissions the selected machine(s). Once the machine is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
-#### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-content)
+#### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-contents)
 #### A. Map the Machine to the Registration Center
 The portal allows Zonal Admin to map the machine to the registration center under his/her zone by providing Machine ID and Registration Center ID. The machine and the registration center must belong to Zonal Admin’s zone. The system validates the provided data and user's role. On successful validation, the system maps that machine to the selected registration center and once the machine is mapped to the registration center, it is not displayed in the list of available machines.  
 
@@ -252,7 +252,7 @@ The portal allows Zonal Admin to re-map the machine to the registration center u
   
 The system track the machine by serial number and other attributes of the machine. Once the un-mapping is completed successfully, the system provides the notification. 
 
-### 5.3 Device Management [**[↑]**](#table-of-content)
+### 5.3 Device Management [**[↑]**](#table-of-contents)
 #### 5.3.1 View Device
 The portal allows Zonal Admin to view the devices by providing the registration center ID. The system validates the provided data, user's role. On successful validation, the system provides the list of devices details (ID, Name, Mac Address, Serial Number, IP Address, Registration Center ID etc…), which are mapped to the registration center. If Zonal Admin searches the devices` without providing the registration center ID, then the system provides all the devices registered in the country.  During the validation of registration center ID and user's role, if the registration ID/Zonal user's role are not found, then the system triggers an error notification.
 #### 5.3.2 Create Device
@@ -278,7 +278,7 @@ Device uniqueness will be maintained through device’s serial number.
 
 Zonal Admin will also register the machines by importing the CSV/XLS.
 
-#### 5.3.3 Update Device [**[↑]**](#table-of-content)
+#### 5.3.3 Update Device [**[↑]**](#table-of-contents)
 The portal provides the capabilities for Zonal Admin to update the device related details. At the time of creating the device, if any information is not entered correctly due to any reason.
 
 Procedure to update the devices related details, the Zonal Admin will:
@@ -291,7 +291,7 @@ Procedure to update the devices related details, the Zonal Admin will:
 
 For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
-#### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-content)
+#### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-contents)
 #### A. Activate Device
 
 The portal allows Zonal Admin to activate the device, which are already deactivated due to any reasons. When the device is created and approved#### A. Activate Device, it is activated automatically. The Zonal Admin selects the device then all the devices of that Zone are displayed. The Zonal Admin can select a deactivated device or multiple deactivated devices at a time and selects Activate option. The system validates user's role and activates the selected device(s). On successful validation, the system provides a notification else provides a respective error notification.
@@ -304,7 +304,7 @@ The portal allows Zonal Admin to  select the active device. The Zonal Admin sele
 
 Decommissioning a device means removing the device from the zone permanently. The portal allows the Zonal Admin to decommission the device. The Zonal Admin can un-map the device associated with the registration center before decommissioning the device, but he/she can also decommission the device  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected device(s). Once the device is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
-#### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-content)
+#### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-contents)
 #### A. Map Device to a Registration Center
 The portal allows Zonal Admin to map the devices to the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s  zone. The system validates the provide data and user's role. On successful validation, the system maps that device to the selected registration center and once the device is mapped to the registration center, it is not displayed in the list of available devices. 
 
@@ -322,7 +322,7 @@ The portal allows Zonal Admin to re-map the devices to the registration center b
 
 The system track the device by serial number and other attributes of the device. Once the re-mapping is completed successfully, the system provides the notification. 
 
-### 5.4 User Management [**[↑]**](#table-of-content)
+### 5.4 User Management [**[↑]**](#table-of-contents)
 #### 5.4.1 View User
 The portal allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, user's role, and provides user’s details (ID, Name, Last Name, Role, Registration Center ID, Date of Birth, Gender, Contact Number, Email ID etc…) already mapped to the specified registration center on successful validation.
 #### 5.4.2 Create User
@@ -365,7 +365,7 @@ The portal allows its users (Central Admin, Central Approver, Zonal Admin, Zonal
 
 If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
 
-#### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-content)
+#### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-contents)
 #### A. Activate User
 
 The portal allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that zone are displayed. The Zonal Admin can select a deactivated user or multiple deactivated users at a time and selects Activate option. The system validates user's role and activates the selected user(s). On successful validation, the system provides a notification.
@@ -392,7 +392,7 @@ Procedure to block/blacklist:
 6. The system will also send a link to the registered mobile number or email ID, so that the related user will reset the 
    password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
 
-#### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-content)
+#### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-contents)
 #### A. Map User to a Registration Center
 The portal allows Zonal Admin to map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system maps the user to a registration center.
 
@@ -403,11 +403,11 @@ The portal allows Zonal Admin to un-map users to the registration center by prov
 #### C. Rn-map User to a Registration Center
 The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users. 
 
-## 6. Master Data Management [**[↑]**](#table-of-content)
+## 6. Master Data Management [**[↑]**](#table-of-contents)
 ### 6.1 View Master Data Types
 The portal allows Zonal Admin to view the master data type. The master data types are configured by admin console. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
 ### 6.2 View Master Data for Each Table (WIP)
-### 6.3 Manage Master Data [**[↑]**](#table-of-content)
+### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
 #### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
 #### A. Create/Update Document Types
 
@@ -442,7 +442,7 @@ The portal allows Zonal Admin to un-map the document type to the document catego
 #### F. Re-map Document Type to Document Category
 The portal allows Zonal Admin to re-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system re-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
 
-#### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-content)
+#### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-contents)
 
 #### 6.3.3 Manage Location Data (Create, Update, Activate/Deactivate) 
 #### A. Create/Update Location Data
@@ -485,30 +485,30 @@ The portal allows Zonal Admin to deactivate the blacklisted Word, which are alre
 Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The portal allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
 
  
-#### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-content)
+#### 6.3.5 Manage Registration Center Types (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the registration center types by selecting the master data. Once the user selects the master data types, all the r features associated with the master data are displayed. Again the user will select the Registration Center Type and the available registration center types are available to view.  The registration center types are configured through admin console. The system validates the user's role who raised the request to view the registration center types and provides the registration center types on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
 #### 6.3.6 Manage Machine Types (View)
 The portal allows Zonal Admin to view the machine types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again the user will select the Machine Types and the available machine types are displayed.  The machine types are configured through admin console. The system validates the user's who raised the request to view the machine types and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides an error notification.
-#### 6.3.7 Manage Machine Specifications (View) [**[↑]**](#table-of-content)
+#### 6.3.7 Manage Machine Specifications (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the machine specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Machine Specification and the available machine specifications are displayed. The machine specifications are configured through admin console. The system validates user's role who raised the request to view the machine specification and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 #### 6.3.8 Manage Device Types (View)
 The portal allows Zonal Admin to view the device types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Types and the available Device Types are displayed.  Device Types are configured through admin console. The system validates the user's role who raised the request to view the device types and provides the device types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
-#### 6.3.9 Manage Device Specifications (View) [**[↑]**](#table-of-content)
+#### 6.3.9 Manage Device Specifications (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the device specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Specification and the available device specifications are displayed. The device specifications are configured through admin console. The system validates the user's who raised the request to view the device specification and provides the device specification on successful validation. During the validation, if system fails to validate and authenticate user's role, then provides a respective error notification.
 #### 6.3.10 Manage Individual Types (View)
 The portal allows Zonal Admin to view the individual types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Individual Types and the available individual types are displayed. The individual types are configured through admin console. The system validates the user's role who raised the request to view the individual types and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
-#### 6.3.11 Manage Document Type to Document Category Mapping (View) [**[↑]**](#table-of-content)
+#### 6.3.11 Manage Document Type to Document Category Mapping (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the document type to document category mapping by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Document Type to Document Category Mapping and the available document type to document mapping are displayed. The document type to document category mapping are configured through admin console. The system validates the user's role who raised the request to view the document type to document category mapping and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 
 #### 6.3.12 Manage List of Holidays (View)
 The portal allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Holidays and the available lists of holidays are displayed. The lists of holidays are configured through admin console. The system validates the user's role who raised the request to view the lists of holidays and provides the lists of holiday on successful validation. During the validation, if system fails to validate and authenticate the user' role, then provides a respective error notification.
-#### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-content)
+#### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Templates and the available lists of templates are displayed. The lists of templates are configured through admin console. The system validates the user's role who raised the request to view the lists of templates and provides the lists of templates on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
 #### 6.3.14 Manage List of Titles (View)
 The portal allows Zonal Admin to view the list of titles by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Titles and the available lists of titles are displayed. The lists of titles are configured through admin console. The system validates the user's role who raised the request to view the lists of titles and provides the lists of titles on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
-#### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-content)
+#### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the gender types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Gender Types and the available gender types are displayed. The gender types are configured through admin console. The system validates the user's role who raised the request to view the gender types and provides the gender types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
-## 7. Approval Process [**[↑]**](#table-of-content)
+## 7. Approval Process [**[↑]**](#table-of-contents)
 ### 7.1 Approval for Resource Creation
 #### 7.1.1 Approval of Center 
 Using the portal, Zonal Approver will approve the registered centers. The Zonal Admin who registered the center cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the center is registered and this validation does not applicable for updates. 
@@ -548,15 +548,15 @@ d) Escalation Mail
 e) Reports
 
 ### 7.2 Approval for Master Data Creation (WIP)
-## 8. UIN Activation/Deactivation [**[↑]**](#table-of-content)
+## 8. UIN Activation/Deactivation [**[↑]**](#table-of-contents)
 Using the portal, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
-## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-content)
-## 10. Multi-language Support (WIP) [**[↑]**](#table-of-content)
+## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-contents)
+## 10. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
 ### 10.1 i18N
 ### 10.2 Implementation in English (Labels etc)
 ### 10.3 Language Specific Setup
-## 11. Responsive UI (WIP) [**[↑]**](#table-of-content)
-## 12. MOSIP Platform Setup (WIP) [**[↑]**](#table-of-content)
+## 11. Responsive UI (WIP) [**[↑]**](#table-of-contents)
+## 12. MOSIP Platform Setup (WIP) [**[↑]**](#table-of-contents)
 The system admin will set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
 
 For more details, please refer to
@@ -564,26 +564,26 @@ For more details, please refer to
 
 https://github.com/mosip/mosip/wiki/FRS-Admin-Services#19-list-of-rejection-reasons---createread-
 
-## 13. ID Definition Setup [**[↑]**](#table-of-content)
+## 13. ID Definition Setup [**[↑]**](#table-of-contents)
 
 The system admin will configure ID Definition. The configuration activity allows the country admin to mark attributes that formulate the id for a country. For example, demographic data fields and biometric data capture attributes.This is
 configured through admin console.
 
 
 ### 13.1 ID Definition Validator
-## 14. Configuration Setup (WIP) [**[↑]**](#table-of-content)
-## 15. Process Flow Setup (WIP) [**[↑]**](#table-of-content)
+## 14. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
+## 15. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
 
-### List of Configurable Parameters and Processes [**[↑]**](#table-of-content)
+### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
 1. Configurable Parameters
 
    [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-configuration/blob/0.12.0/config/admin-dev.properties)
 2. Configurable Processes 
 * (Work in Progress) 
-### Administrator Services API [**[↑]**](#table-of-content)
+### Administrator Services API [**[↑]**](#table-of-contents)
 * (Work in Progress) 
 
 
-## Process View [**[↑]**](#table-of-content)
+## Process View [**[↑]**](#table-of-contents)
 * (Work in Progress) 

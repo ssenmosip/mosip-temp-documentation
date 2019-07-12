@@ -1,4 +1,4 @@
-## Table Of Content
+## Table Of Contents
 
   * [1. Master Data Management](#1-master-data-management) 
     * [1.1 Location Hierarchy - Create/Read/Update/Delete](#11-location-hierarchy---createreadupdatedelete-) _(ADM_FR_1.1)_
@@ -40,7 +40,7 @@
   
 # Admin Services
 ## 1. Master Data Management
-### 1.1 Location Hierarchy - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.1 Location Hierarchy - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Location Hierarchy in the Master database 
 Upon receiving a request to add Location hierarchy (e.g., Country - Region - Province - City- LAA) with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code ,lang_code and is_active), the system stores the Location hierarchy in the Database
@@ -162,7 +162,7 @@ The system performs the following steps in order to delete the loaction\s receiv
 7. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 1.2 List of Holidays - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.2 List of Holidays - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 #### A. Create Holiday data in Master Database
 
 Upon receiving a request to add Holiday Data with the input parameters (location_code, holiday_date, holiday_name, holiday_desc, lang_code and is_active), the system stores the Holiday in the Database. The following steps are performed by the system:
@@ -229,7 +229,7 @@ On receiving a  request to delete a Holiday List with the input parameters (code
 1. Responds with the Location Code, Holiday Date and Holiday Name for the Holiday deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.3 Biometric Authentication Type - Create/Read [**[↑]**](#table-of-content)
+### 1.3 Biometric Authentication Type - Create/Read [**[↑]**](#table-of-contents)
 #### A. Create Biometric Authentication Type in Master Database
 On receiving a request to add Biometric Authentication Type (e.g., Fingerprint, Iris) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Biometric Authentication Type in the Database as per the below steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -251,7 +251,7 @@ On receiving a request to fetch the List of Biometric Authentication Type with i
 1. Responds to the source with List of Biometric Authentication Type
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.4 Biometric Attribute Type - Create/Read [**[↑]**](#table-of-content)
+### 1.4 Biometric Attribute Type - Create/Read [**[↑]**](#table-of-contents)
 
 #### A. Create Biometric Attribute in Master Database
 
@@ -286,7 +286,7 @@ On receiving a request to fetch the List of Biometric Attributes with input para
 6. Responds to the source with the Fetched Data
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.5 Gender - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.5 Gender - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 #### A. Create Gender Types in Master Database
 
 On receiving a request to add a Gender Type with the input parameters (code, name, lang_code and is_active), the system stores the Gender Type in the Database as per the below steps:
@@ -348,7 +348,7 @@ On receiving a request to fetch the List of Gender Types with the input paramete
 4. Responds to the source with the List of Gender Types
 5. In case of Exceptions, system triggers relevant error messages
 
-### 1.6 Document Category - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.6 Document Category - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Document Category in Master Database
 
@@ -409,7 +409,7 @@ On receiving a request to fetch Document Category Details with the input paramet
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-### 1.7 Document Type - Create/Update/Delete [**[↑]**](#table-of-content)
+### 1.7 Document Type - Create/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Document Type in Master Database
 
@@ -461,7 +461,7 @@ Refer below for the process:
 1. Responds with the Document Category Code for the Document Category deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.8 Applicant Type - Document Category - Document Type Mapping - Read [**[↑]**](#table-of-content)
+### 1.8 Applicant Type - Document Category - Document Type Mapping - Read [**[↑]**](#table-of-contents)
 
 #### A. Fetch list of Document Categories based on Applicant Type from Master Database
 
@@ -546,7 +546,7 @@ On receiving a request to check the mapping of Applicant Type-Document Category-
 1. If the mapping does not exist, responds with "Invalid".
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.9 List of Rejection Reasons - Create/Read [**[↑]**](#table-of-content)
+### 1.9 List of Rejection Reasons - Create/Read [**[↑]**](#table-of-contents)
 #### A. Create a Rejection Reason in Reason List Master Database
 
 Upon receiving a request to add a Reason with the input parameters (code, name, descr, rsncat_code, lang_code and is_active), the system stores the Reason in the Database
@@ -589,7 +589,7 @@ The system performs the following steps:
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-### 1.10 List of Languages - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.10 List of Languages - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create List of Languages in Master Database
 
@@ -649,7 +649,7 @@ The system performs the following steps:
 1. Responds with the Language Code for the language successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.11 List of Titles - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.11 List of Titles - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A.	Create a Title in Master Database
 
@@ -712,7 +712,7 @@ The system performs the following steps:
    * IsActive - Mandatory
 4. In case of Exceptions, system triggers relevant error messages
 
-### 1.12 Template File Format - Create/Update/Delete [**[↑]**](#table-of-content)
+### 1.12 Template File Format - Create/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Template File Format in Master Database
 
@@ -763,7 +763,7 @@ While deleting the Template File Format, the system performs the following steps
 1. Responds with the Template File Format Code for the Template File Format deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.13 List of Template Types - Create [**[↑]**](#table-of-content)
+### 1.13 List of Template Types - Create [**[↑]**](#table-of-contents)
 MOSIP system can create Template Type in the Master Database.
 
 Upon receiving a request to add Template Type (e.g., SMS Notification template - New Registration) with the input 
@@ -780,7 +780,7 @@ parameters (code, descr, lang_code and is_active), the system stores the Templat
 4. In case of Exceptions, system triggers relevant error messages as listed below.
 
 
-### 1.14 List of Templates - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.14 List of Templates - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Template in the Master Database
 
@@ -855,7 +855,7 @@ On receiving a request to delete a Template with the input parameters (id), the 
 1. Responds with the Template Id for the Template deleted successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 1.15 List of Blacklisted Words - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 1.15 List of Blacklisted Words - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Blacklisted Words in Master Database
 
@@ -914,7 +914,7 @@ While fetching the black listed words, the system performs the following steps:
    * IsActive
 4. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.16 List of Reason Categories - Create [**[↑]**](#table-of-content)
+### 1.16 List of Reason Categories - Create [**[↑]**](#table-of-contents)
 
 MOSIP system can create a Reason Category in Master Database
 
@@ -935,7 +935,7 @@ Upon receiving a request to add Reason Category with the input parameters (code,
 4. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-### 1.17 List of Applications - Create/Read [**[↑]**](#table-of-content)
+### 1.17 List of Applications - Create/Read [**[↑]**](#table-of-contents)
 #### A. Create a List of Applications in Master Database
 
 Upon receiving a request to add Application with the input parameters (code, name, descr, lang_code and is_active), the system stores the Application in the Database
@@ -993,7 +993,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages as listed below
 
 
-### 1.18 List of ID Types - Create/Read [**[↑]**](#table-of-content)
+### 1.18 List of ID Types - Create/Read [**[↑]**](#table-of-contents)
 #### A. Create an ID type in Master Database
 
 Upon receiving a request to add an ID Type with the input parameters (code, name, descr, lang_code and is_active), the system stores the ID Type in the Database
@@ -1034,7 +1034,7 @@ Refer below for the process:
    * IsActive
 4. In case of Exceptions, system triggers relevant error messages. 
 
-### 1.19 User History [**[↑]**](#table-of-content)
+### 1.19 User History [**[↑]**](#table-of-contents)
 
 Upon receiving a request to fetch the user history record with input parameters (User ID and Date Timestamp), the system
 fetches all the attributes of the user from the history table and performs the following steps:
@@ -1048,7 +1048,7 @@ fetches all the attributes of the user from the history table and performs the f
 1. In case of exceptions, system triggers relevant error messages.
 
 ## 2. Registration Management
-### 2.1 Registration Center Type - Create/Update/Delete [**[↑]**](#table-of-content)
+### 2.1 Registration Center Type - Create/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Registration Center Type in Master Database
 
@@ -1106,7 +1106,7 @@ Refer below for the process:
 1. Responds with the Registration Center Type code for the Registration Center Type successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 2.2 Registration Center - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 2.2 Registration Center - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 
 #### A. Create a Registration Center record in Master Database
@@ -1365,7 +1365,7 @@ Refer below for the process:
 6. In case of Exceptions, system triggers relevant error messages
 
 
-### 2.3 List of Machine Types - Create [**[↑]**](#table-of-content)
+### 2.3 List of Machine Types - Create [**[↑]**](#table-of-contents)
 
 Upon receiving a request to add Machine Type (e.g., Dongle) with the input parameters (code, name, descr, lang_code and is_active), the system stores the Machine Type in the Database
 
@@ -1384,7 +1384,7 @@ Refer below for the process:
 
 5. In case of Exceptions, system triggers error messages as received from the Database.
 
-### 2.4 List of Machine Specifications - Create/Update/Delete [**[↑]**](#table-of-content)
+### 2.4 List of Machine Specifications - Create/Update/Delete [**[↑]**](#table-of-contents)
 
 
 #### A. Create Machine Specifications in the Master Database
@@ -1453,7 +1453,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages
 
 
-### 2.5 List of Machines - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 2.5 List of Machines - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create a Machine in Master Database
 
@@ -1568,7 +1568,7 @@ Refer below for the process:
 5. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete [**[↑]**](#table-of-content)
+### 2.6 Mappings of Registration Center, Machine and User Mappings - Create/Read/Delete [**[↑]**](#table-of-contents)
 
 
 #### A. Create a mapping record of Center, User and Machine in Center-User-Machine Mapping Master Database
@@ -1625,7 +1625,7 @@ Refer below for the process:
 4. In case of Exceptions, system triggers relevant error messages. 
 
 
-### 2.7 List of Devices - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 2.7 List of Devices - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create a Device in Master Database
 
@@ -1751,7 +1751,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages
 	
 
-### 2.8 List of Device Specifications - Create/Read/Update/Delete [**[↑]**](#table-of-content)
+### 2.8 List of Device Specifications - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create Device Specifications in Master Database
 
@@ -1847,7 +1847,7 @@ While deleting the device specifications the system performs the following steps
 1. Responds with the Device Specification ID for the Device Specification deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 2.9 List of Device Types - Create [**[↑]**](#table-of-content)
+### 2.9 List of Device Types - Create [**[↑]**](#table-of-contents)
 #### A. Create Device Type in Master Database
 
 
@@ -1868,7 +1868,7 @@ Refer below for the process:
 3. Responds with the Device Type Code and Language Code for the Device Type created successfully
 1. In case of Exceptions, system triggers relevant error messages
 
-### 2.10 Mappings of Registration Center and Machine - Create/Delete [**[↑]**](#table-of-content)
+### 2.10 Mappings of Registration Center and Machine - Create/Delete [**[↑]**](#table-of-contents)
 #### A. Create a mapping record of Machine and Center in Machine-Center Mapping Master Database
 Upon receiving a request to add a mapping of Machine and Center with the input parameters (regcntr_id, machine_id, and is_active), the system stores the Mapping of Machine and Center in the Database
 
@@ -1897,7 +1897,7 @@ Refer below for the process:
 1. In case of Exceptions, system triggers relevant error messages .
 
 
-### 2.11 Mappings of Registration Center and Device - Create/Read/Delete [**[↑]**](#table-of-content)
+### 2.11 Mappings of Registration Center and Device - Create/Read/Delete [**[↑]**](#table-of-contents)
 #### A. Create a mapping record of Device and Center in Device-Center Mapping Master Database
 Upon receiving a request to add a mapping of Device and Center with the input parameters (regcntr_id, device_id, and is_active), the system stores the Mapping of Device and Center in the Database
 
@@ -1945,7 +1945,7 @@ While fetching the attributes of Center and Device Mapping from the history tabl
    * Effective date
 4. In case of Exceptions, system triggers relevant error messages
 
-### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete [**[↑]**](#table-of-content)
+### 2.12 Mappings of Registration Center, Machine, and Device - Create/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create a mapping record of Center, Machine and Device in Center-Machine-Device Mapping Master Database
 
@@ -1980,7 +1980,7 @@ Refer below for the process:
 
 ## 3. MISP Management 
 ### 3.1 MISP - Create/Read/Update/Delete
-#### 3.1.1 License Key Allocation- Create/Read/Update/Delete [**[↑]**](#table-of-content)
+#### 3.1.1 License Key Allocation- Create/Read/Update/Delete [**[↑]**](#table-of-contents)
 
 #### A. Create MISP
 1. The system receives a request to create a MISP with input parameters (MISP ID, MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address, MISP User name, MISP Password, MISP License Key, MISP License Key Status, IsActive)
@@ -2015,7 +2015,7 @@ Refer below for the process:
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-licensekeymanager.md)
 
-### Kernel API [**[↑]**](#table-of-content)
+### Kernel API [**[↑]**](#table-of-contents)
 [**Refer to Wiki for more details on Kernel API**](Kernel-APIs)
 
 

@@ -14,6 +14,8 @@ This section details about the service APIs in the Registration-Processor module
 
 [7. Packet Uploader Service](#7-packet-uploader-service)
 
+[8. Registration Process Request Handler Service](#8-registration-process-request-handler-service)
+
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
 
@@ -760,4 +762,97 @@ Packet with registrationId 10003100030000420190625111842 has not been uploaded t
 ###### Status Code:200
 ###### Description : response code is always 200 if server receives the request.
 
+# 8 Registration Process Request Handler Service
 
+### Resource URL
+### `POST /registrationprocessor/v1/registrationhandler/reprint`
+
+### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Default Value | Example
+-----|----------|-------------|---------------|--------
+PacketGeneratorRequestDto|Yes|Mandatory information required for reprint to be send: UID/VID| |
+
+### Example Request
+Reprint request by UIN:
+```JSON
+{
+  "id": "mosip.packet.generator",
+  "version": "1.0",
+  "requesttime": "2019-07-07T06:12:25.288Z",
+  "request": {
+    "centerId": "10031",
+    "machineId": "10011",
+    "reason": "something",
+    "registrationType": "REPRINT",
+    "uin": "4215839851"
+  }
+  }
+```
+
+Reprint request by VID:
+```JSON
+{
+  "id": "mosip.packet.generator",
+  "version": "1.0",
+  "requesttime": "2019-07-07T06:12:25.288Z",
+  "request": {
+    "centerId": "10031",
+    "machineId": "10011",
+    "reason": "something",
+    "registrationType": "REPRINT",
+    "vid": "123456789"
+  }
+  }
+```
+### Example Response
+
+Success Response:
+```JSON
+{
+  "id": "mosip.packet.generator",
+  "version": "1.0",
+  "responsetime": "2019-07-07T06:12:25.288Z",
+  "response": {
+    "registrationId": "10031100110005020190313110030",
+    "status": "RECEIVED",
+    "message": "Reprint request received and card will be delivered to registered address."
+  }
+}
+```
+Error Response:
+
+```JSON
+{ 
+	"id":"mosip.registration.reprint",			
+	"version":"1.0",	
+	"responsetime":"2007-12-03T10:15:30Z",
+	"metadata" : {
+	},
+	"response" : {
+		"status":"Re Print Error"
+	},
+	"errors":[
+		{
+		"errorCode": "<ERROR_CODE>",
+		"message": "Invalid UIN number"
+		},
+		  {
+		"errorCode" : "<ERROR_CODE>",
+		"message": "Invalid VID number"
+		}
+	]
+}
+```
+
+### Response codes
+200
+
+Description : response code is always 200 if server receives the request.

@@ -7,9 +7,6 @@ Partner Management also includes License Key Management services. Authentication
 
 Partners will utilize MOSIP’s resigned digital certificate from Partner Management Services for signing the authentication request.
 
-## Partner Management Process Flow
-Please refer to the [**process flow**](Process-view#id-authentication) of Partner Management
-
 ## Architecturally Significant Use Cases
 **User Management**
 * MOSIP admin would be able to create and manage(update,view) Partner Management users viz- MISP Admin, Partner Manager, Policy Manager in Kernel's Identity and Access Management (IAM) module. Role authorization and access control for these users would be done at Kernel's Identity and Access Management (IAM) module
@@ -87,7 +84,7 @@ For a partner to opt for an authentication policy, they have to generate Partner
 
 **Sample Master Policy JSON**
 
-{
+```{
   "policies": {
     "authPolicies": [ 	{"authType": "otp","mandatory": true},
 						{"authType": "demo","mandatory": false},
@@ -112,6 +109,6 @@ For a partner to opt for an authentication policy, they have to generate Partner
 							]
   }
 }
-
+```
 ## Logical View
 ![Partner Management Logical View](_images/arch_diagrams/PartnerManagement_Logical_Diagram.png)

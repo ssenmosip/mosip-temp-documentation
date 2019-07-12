@@ -33,3 +33,10 @@ The document can be accessed [here](Developer-Documentation).
 ## MOSIP Tester Documentation
 Contains useful information for the tester community.
 The document can be accessed [here](Tester-Documentation)
+
+## Contributing to documentation
+Coming soon...
+
+
+
+
