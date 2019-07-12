@@ -1,5 +1,3 @@
-# Contributor Guide
-
 ## Welcome
 
 Welcome to MOSIP, and thank you for thinking of contributing! Before you get started, 
