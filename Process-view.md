@@ -10,7 +10,7 @@
 
 ## 1. Pre-registration [**[↑]**](#table-of-content)
 
-![Pre-Registration](/mosip/mosip/blob/master/docs/requirements/FinalProcessFlows/MOSIP_Process%20Flow_1.19_Pre-registration-2.%20Pre-Registration.jpg)
+![Pre-Registration](_files/requirements/final_process_flows/MOSIP_Process%20Flow_1.19_Pre-registration-2.%20Pre-Registration.jpg)
 
 ## 2. Registration Client [**[↑]**](#table-of-content)
 
