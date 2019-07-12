@@ -1,7 +1,7 @@
 # MOSIP Configuration Server
 
 We will be using MOSIP config server (Spring cloud configuration Server) to manage configurations of all the services.<br/><br/>
-**NOTE:** For the documentation purpose I have mentioned the config server URL as `http://localhost:8080` in this document, but you have to mention the URL where configuration server is running.
+**NOTE:** For the documentation purpose the config server URL is `http://localhost:8080` in this document, but you have to mention the URL where configuration server is running.
 
 ![Configuration Server](_images/arch_diagrams/MOSIP_config_server_setup.png)
 
