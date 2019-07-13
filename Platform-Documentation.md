@@ -250,22 +250,47 @@ This module exposes few REST APIs which can be used to create/update/retrieve id
 [This section](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) illustrates the integration specifications of MOSIP with an external system.
 
 ## 6. MOSIP APIs[**[↑]**](#table-of-contents)
-APIs are the crux of the MOSIP platform. This section explains the internal and external APIs of MOSIP platform. 
+APIs are the crux of the MOSIP platform. This section explains the internal and external APIs of MOSIP platform.
 ### 6.1	External APIs
-#### 6.1.1 ID Authentication APIs
+
+#### 6.1.1 Pre-Registration APIs
+Format: JSON
+
+[APIs in the Pre-Registration module](Pre-Registration-Services)
+
+#### 6.1.2 Registration Processor APIs
+Format: JSON
+This API will support the following features
+1. APIs for receiving packets
+1. APIs for packet registration status
+1. APIs for Manual Verification.
+
+[Registration Processor APIs](Registration-Processor-APIs)
+
+#### 6.1.3 ID Authentication APIs
 Format: JSON
 This service details Auth Request to be used by TSPs to authenticate an individual. Below are various authentication types supported by this service:
 1. OTP based - Time-based OTP
 2. Demo based - Personal Identity, Address
 3. Bio based - Fingerprint, IRIS and Face
 
-[Details of the REST services exposed by ID Authentication](ID-Authentication). 
+[Details of the REST services exposed by ID Authentication](ID-Authentication).
 
-#### 6.1.2 ABIS APIs
+#### 6.1.4 Resident Services APIs [WIP]
+
+This section details out all [Resident Service REST APIs](Resident-Service-APIs).
+
+#### 6.1.5 Partner Management APIs [WIP]
+
+Service APIs in the Partner Management module.
+
+[Partner Management APIs](Partner-Management-APIs)
+
+#### 6.1.6 ABIS APIs
 Format: JSON
 An ABIS system that integrates with MOSIP should support the operations listed in this section.
 All ABIS operations are via a message queue & asynchronous and should adhere to the Common parameters as identified.
-This service details the behavior of:
+This service details the behaviour of:
 1. Insert Request
 1. Identify Request
 1. Delete Request
@@ -273,32 +298,24 @@ This service details the behavior of:
 1. Pending Jobs Request
 1. Reference Count Request
 
-[ABIS APIs](ABIS-APIs). 
+[ABIS APIs](ABIS-APIs).
 
-#### 6.1.3 OTP Manager API
+#### 6.1.7 Biometric APIs
+
+Biometric API interface which provides functional support for processing biometrics in Registration and ID Authentication Modules.
+
+[Biometric APIs](MOSIP-Biometric-APIs)
+
+#### 6.1.8 OTP Manager API
 Format: JSON
 OTP manager includes APIs for
 1. OTP generation
-1. OTP validation. 
+1. OTP validation.
 
 [OTP Manager API](Kernel-APIs#otp-manager)
 
-#### 6.1.4 Pre-Registration APIs
-Format: JSON
-
-[APIs in the Pre-Registration module](Pre-Registration-Services)
-
-#### 6.1.5 Registration Processor APIs
-Format: JSON
-This API will support the following features
-1. APIs for receiving packets
-1. APIs for packet registration status
-1. APIs for Manual Verification. 
-
-[Registration Processor APIs](Registration-Processor-APIs) 
-
 ### 6.2	Internal APIs
-#### 6.2.1 Kernel
+#### 6.2.1 Kernel APIs
 The Kernel APIs cover the following APIs-
 1. APIs for key management
 1. APIs for master data management
@@ -307,7 +324,7 @@ The Kernel APIs cover the following APIs-
 
 [Kernel APIs](Kernel-APIs)
 
-#### 6.2.2 ID Repository
+#### 6.2.2 ID Repository APIs
 This is a central API which all other modules of MOSIP will use to retrieve an ID record. This API will support the following features
 1. Creation of a ID record
 1. Lookup of an ID record based on the UIN
@@ -316,6 +333,24 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 
 [ID Repository API](ID-Repository-API)
 
+#### 6.2.3 Admin APIs
+
+[Admin APIs](Admin-APIs)
+
+#### 6.2.4 AuthN & AuthZ APIs
+
+[AuthN & AuthZ APIs](AuthN-&-AuthZ-APIs)
+
+#### 6.2.5 Master Data APIs
+
+1. [Biometric APIs](Biometric-APIs)
+1. [Document APIs](Document-APIs)
+1. [Device APIs](Device-APIs)
+1. [Machine APIs](Machine-APIs)
+1. [Packet APIs](Packet-APIs)
+1. [Template APIs](Template-APIs)
+1. [Common APIs](Common-APIs)
+1. [Registration Center APIs](Registration-Center-APIs)
 ## 7. PRIVACY AND SECURITY[**[↑]**](#table-of-contents)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the [privacy and security](Privacy-and-Security) design principles MOSIP follows. Please also take a look at [Security Tools](Security-Tools) to know more about the tools used for security testing.
 
