@@ -18,22 +18,14 @@
   * [5.7 Core Data Management](#57-core-data-management)
   * [5.8 Integration with External Systems](#58-integration-with-external-systems)
 - [6. MOSIP APIs](#6-mosip-apis)
-  * [6.1 External APIs](#61external-apis)
-    + [6.1.1 ID Authentication APIs](#611-id-authentication-apis)
-    + [6.1.2 ABIS APIs](#612-abis-apis)
-    + [6.1.3 OTP Manager API](#613-otp-manager-api)
-    + [6.1.4 Pre-Registration APIs](#614-pre-registration-apis)
-    + [6.1.5 Registration Processor APIs](#615-registration-processor-apis)
-  * [6.2 Internal APIs](#62internal-apis)
-    + [6.2.1 Kernel](#621-kernel)
-    + [6.2.2 ID Repository](#622-id-repository)
 - [7. PRIVACY AND SECURITY](#7-privacy-and-security)
-- [8. TEST RIG](#8-test-rig)
+- [8. CONTRIBUTING](#8-contributing)
 - [9. PERFORMANCE AND SIZING GUIDELINES](#9-performance-and-sizing-guidelines)
 - [10. BUILDING AND DEPLOYING MOSIP (TBD)](#10-building-and-deploying-mosip)
   * [10.1 Getting Started Guide](#101-getting-started-guide)
-  * [10.2 Developer Document](#102-developer-document)
-  * [10.3 Customization (WIP)](#103-customization-wip)
+  * [10.2 Tester Documentation](#102-tester-documentation)
+  * [10.3 Developer Document](#103-developer-document)
+  * [10.4 Customization (WIP)](#104-customization-wip)
 - [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations)
   * [11.1 Data Center Architecture (WIP)](#111-data-center-architecture-wip)
 - [12. List Of Acronyms](#12-list-of-acronyms)
@@ -312,7 +304,7 @@ OTP manager includes APIs for
 1. OTP generation
 1. OTP validation.
 
-[OTP Manager API](Kernel-APIs#otp-manager)
+[OTP Manager API](Kernel-APIs#otp-manager-private)
 
 ### 6.2	Internal APIs
 #### 6.2.1 Kernel APIs
@@ -354,12 +346,8 @@ This is a central API which all other modules of MOSIP will use to retrieve an I
 ## 7. PRIVACY AND SECURITY[**[↑]**](#table-of-contents)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the [privacy and security](Privacy-and-Security) design principles MOSIP follows. Please also take a look at [Security Tools](Security-Tools) to know more about the tools used for security testing.
 
-## 8. TEST RIG[**[↑]**](#table-of-contents)
-Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform.
-
-More details on [Test Rig Design](Test-Rig-Design).
-
-More details on [Test Automation](Tester-Documentation)
+## 8. CONTRIBUTING[**[↑]**](#table-of-contents)
+To get started on contributing to MOSIP, read our [Contributor Guide](contributor-guide) and our [Code of Conduct](code-of-conduct)
 
 ## 9. PERFORMANCE AND SIZING GUIDELINES[**[↑]**](#table-of-contents)
 Please refer to our [Performance-and-Sizing-Guidelines](Performance-and-Sizing-Guidelines) for more details.
@@ -367,9 +355,17 @@ Please refer to our [Performance-and-Sizing-Guidelines](Performance-and-Sizing-G
 ## 10. BUILDING AND DEPLOYING MOSIP[**[↑]**](#table-of-contents)
 ### 10.1 Getting Started Guide
 Please refer to our [Getting Started Guide](Getting-Started) for more details on setting up MOSIP.
-### 10.2 Developer Document
+### 10.2 Tester Documentation
+
+Useful information for the tester community. [Tester Documentation](tester-documentation)
+
+Test Rig represents a one click automation to build, deploy and test a software module. Successful execution of test rig would ascertain complete setup of the MOSIP platform. More details on [Test Rig Design](Test-Rig-Design).
+
+More details on [Test Automation](Tester-Documentation)
+
+### 10.3 Developer Document
 Please refer to our [Developer Documentation](Developer-Documentation) for more details
-### 10.3 Customization (WIP)
+### 10.4 Customization (WIP)
 ## 11.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
 ### 11.1 Data Center Architecture (WIP)
 ## 12. List Of Acronyms
