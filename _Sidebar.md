@@ -1,4 +1,4 @@
-#### Frequently accessed links
+### Frequently accessed links
 
 * [Platform Documentation - Table of Contents](Platform-Documentation)
 * [Releases](MOSIP-Releases)
