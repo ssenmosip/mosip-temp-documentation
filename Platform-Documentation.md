@@ -7,7 +7,7 @@
   * [3.3 Technology Stack](#33-technology-stack)
   * [3.4 Data Architecture](#34-data-architecture)
   * [3.5 High Level Design](#35-high-level-design)
-- [4. REQUIREMENT SPECIFICATIONS](#4-requirement-specifications)
+- [4. FEATURES](#4-requirement-specifications)
 - [5. ARCHITECTURALLY SIGNIFICANT COMPONENTS](#5-architecturally-significant-components)
   * [5.1 ID Object Definition](#51-id-object-definition)
   * [5.2 Configurations](#52-configurations)
