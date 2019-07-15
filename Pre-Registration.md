@@ -1,7 +1,12 @@
  # 1.  Overview
        
 
-Pre registration is the module which is the web channel of the MOSIP. Following are few key architectural style followed like microservice based architecture, Data validation are done in UI, User Interface is reference implementation and current one reflects the requirements of Morocco, Master data and services are considered as part of Pre registration foundation. Following are few key design pattern aggregate service pastern, proxy design pattern and dependency injection
+Pre-registration module is the web channel of the MOSIP. Key architectural styles followed are:
+* Microservice based architecture, 
+* Data validation are done in UI, 
+* The User Interface is a reference implementation
+
+Master data and services are considered as part of pre-registration foundation. Following are few key design pattern aggregate service pastern, proxy design pattern and dependency injection.
       
 # 2. Architecture view
 
@@ -48,7 +53,7 @@ Below is the wiki link for pre registration.
 
 ## 1.4 Booking application
 
- Actor- citizen
+ Actor-citizen
         ** Pre condition **- User has selected the registration center.
          scenario:
          * Booking availability has been displayed for configured number of days.
@@ -58,7 +63,7 @@ Below is the wiki link for pre registration.
         User would get acknowledgement of the booking.
 
 
-## 2. conceptual view
+## 2. Conceptual view
 Technical flow and logical component
 ![technical component and flow](/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
 
@@ -70,7 +75,7 @@ Technical flow and logical component
 
 * Exception should be logged into file NOT console.
 
-* capcha  should be present in places where PII like phone number or emial id is being taken. For example, notification screen in acknowledgement page.
+* Captcha  should be present in places where PII like phone number or emial id is being taken. For example, notification screen in acknowledgement page.
 
 * Sanitization of UI scripts.
 
