@@ -1,4 +1,4 @@
-**Seed Contribution **
+**Seed Contribution**
 
 *   Repo Separation with CI/CD 
 *   Community setup 
