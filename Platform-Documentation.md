@@ -20,15 +20,14 @@
 - [6. APIs](#6-mosip-apis)
 - [7. PRIVACY AND SECURITY](#7-privacy-and-security)
 - [8. HOW TO CONTRIBUTE](#8-contributing)
-- [9. PERFORMANCE AND SIZING GUIDELINES](#9-performance-and-sizing-guidelines)
-- [10. BUILDING AND DEPLOYING (WIP)](#10-building-and-deploying-mosip)
-  * [10.1 Getting Started Guide](#101-getting-started-guide)
-  * [10.2 Tester Documentation](#102-tester-documentation)
-  * [10.3 Developer Document](#103-developer-document)
-  * [10.4 Customization (WIP)](#104-customization-wip)
-- [11. INFRASTRUCTURE RECOMMENDATIONS](#11--infrastructure-recommendations)
-  * [11.1 Data Center Architecture (WIP)](#111-data-center-architecture-wip)
-- [12. List Of Acronyms](#12-list-of-acronyms)
+- [9. BUILDING AND DEPLOYING (WIP)](#9-building-and-deploying-mosip)
+  * [9.1 Getting Started Guide](#91-getting-started-guide)
+  * [9.2 Tester Documentation](#92-tester-documentation)
+  * [9.3 Developer Document](#93-developer-document)
+  * [9.4 Customization (WIP)](#94-customization-wip)
+- [10. INFRASTRUCTURE RECOMMENDATIONS](#10--infrastructure-recommendations)
+  * [10.1 Data Center Architecture (WIP)](#101-data-center-architecture-wip)
+- [11. List Of Acronyms](#11-list-of-acronyms)
 
 ## 1. INTRODUCTION
 This document describes the objectives and explicit functional requirements of MOSIP. It also gives an overview of architecturally significant features, APIs and standards followed in MOSIP. Lastly, it provides necessary information on implementation, customization and set up.
@@ -261,13 +260,10 @@ Multiple aspects of Security like Confidentiality, Privacy, and Integrity of dat
 ## 8. CONTRIBUTING[**[↑]**](#table-of-contents)
 To get started on contributing to MOSIP, read our [Contributor Guide](contributor-guide) and our [Code of Conduct](code-of-conduct)
 
-## 9. PERFORMANCE AND SIZING GUIDELINES[**[↑]**](#table-of-contents)
-Please refer to our [Performance-and-Sizing-Guidelines](Performance-and-Sizing-Guidelines) for more details.
 
-## 10. BUILDING AND DEPLOYING MOSIP[**[↑]**](#table-of-contents)
-### 10.1 Getting Started Guide
-Please refer to our [Getting Started Guide](Getting-Started) for more details on setting up MOSIP.
-### 10.2 Tester Documentation
+## 9. BUILDING AND DEPLOYING MOSIP[**[↑]**](#table-of-contents)
+### 9.1 [Getting Started Guide](Getting-Started)
+### 9.2 Tester Documentation
 
 Useful information for the tester community. [Tester Documentation](tester-documentation)
 
@@ -275,12 +271,11 @@ Test Rig represents a one click automation to build, deploy and test a software 
 
 More details on [Test Automation](Tester-Documentation)
 
-### 10.3 Developer Document
-Please refer to our [Developer Documentation](Developer-Documentation) for more details
-### 10.4 Customization (WIP)
-## 11.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
-### 11.1 Data Center Architecture (WIP)
-## 12. List Of Acronyms
+### 9.3 [Developer Documentation](Developer-Documentation)
+### 9.4 Customization (WIP)
+## 10.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
+### 10.1 Data Center Architecture (WIP)
+## 11. List Of Acronyms
 
 |Acronym|Expanded Form|
 |-----|------|
