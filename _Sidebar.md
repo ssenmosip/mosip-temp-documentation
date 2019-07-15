@@ -6,7 +6,7 @@
 * [Building and Deploying](Platform-Documentation#10-building-and-deploying-mosip)
 * [Contributor Guide](Contributor-Guide)
 * [Releases](MOSIP-Releases)
-* [Roadmap](Roadmap:-July-2019-to-June-2020)
+* [Roadmap](Roadmap)
  
 
 
