@@ -1,4 +1,4 @@
-In MOSIP, privacy and security are highest priorities. As this is the first version of the project, there are a lot of open tasks for us to achieve our vision on these aspects. This document aims to highlight our thinking behind security and privacy.
+In MOSIP, privacy and security are highest priorities and this document details the measures that have been implemented in the platform so far. As an open source project we aim to continuously improve the security features and incorporate new developments through collaborations and community contributions.
 
 # Governing Principles
 MOSIP's approach on privacy and security is determined by the [framework principles](https://www.mosip.io/uploads/resources/5cc84b0a08284Country%20Engagement%20Principles_v2.pdf) under which it operates.
