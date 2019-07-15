@@ -10,32 +10,32 @@ In MOSIP, privacy and security are highest priorities. As this is the first vers
 - Identity is a combination of revocable IDs, biometrics, relative time, and trusted and certified devices. MOSIP combines multifactor identity and recommends the usage of multiple factors to deliver services. MOSIP does not buy into the idea that the mere fact of holding biometric information establishes identity. 
 - MOSIP at all points would use random numbers for UIN generation and would have no means for anyone to infer any personal information of the end-user like her age, race, location, or gender.
 
-# Security Design Principles
+# MOSIP Security Design Key Features
 
-- Direct access to data stored in the database is discouraged. Data can only be accessed via APIs
+- Direct access to data stored in database in not permitted - data is accessed via APIs only.
 - Zero-Knowledge Administration principle is used so administrators can manage data without seeing the actual data. Data can be accessed only via APIs
-- The integrity of each row is protected to stop any swap in data.
-- Revocable Virtual IDs and Tokens are used to thwart any attempt on profiling the users.
-- Access controls must be implemented on all APIs to ensure data privacy (who can see what)
-- All APIs should support rate-limiting and are digitally signed.
-- At all times assume the network channels are dirty.
-- Every artifact (including JSON data sent over API) would be digitally signed by MOSIP.
+- The integrity of each database row protected to prevent any malicious tampering like swapping identities, for instance.
+- Revocable Virtual IDs and Tokens used to thwart any attempt on profiling the users.
+- Access controls implemented on all APIs to ensure data privacy (who can see what).
+- All APIs support rate-limiting and are digitally signed.
+- At all network channels are assumed 'dirty'.
+- Every artifact (including JSON data sent over API) digitally signed.
 
 # MOSIP Cryptography Algorithms
-MOSIP would standardize on the following algorithms.
+MOSIP uses following algorithms:
 1. RSA OAEP 2048 bit minimum for all PKI based encryption.
 2. AES GCM 256 bit minimum for all Symmetric key encryption.
 3. SHA256 as the standard hashing algorithm.
 4. X509 V3 as the certificate standard.
-5. FIPS 140-2 Level 3 as the minimum HSM standard.
+5. FIPS 140-2 Level 3 as the minimum Hardware Security Module (HSM) standard.
 6. PKCS11 is used for HSM communication.
 
 # Database encryption
 As a principle, MOSIP does not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB at the application layer.
 
-- All sensitive (configurable) data are encrypted using a symmetric key algorithm. MOSIP supports AES 256 algorithm by default. 
-- Each cell is encrypted using its own symmetric key and the key's are selected random
-- By default, we expect to have 10,000 keys symmetric keys for the database encryption. This is a soft limit and can be increased to the prefered numbers.
+- All sensitive (configurable) data is encrypted using a symmetric key algorithm. MOSIP supports AES 256 algorithm by default. 
+- Each cell is encrypted using its own symmetric key and the keys are selected random
+- By default, we generate 10,000 symmetric keys for the database encryption. This is a soft limit and that can be increased.
 - The symmetric keys are encrypted using a master key in HSM. 
 - Every key has an expiry and application follows the expiry to update the data with new keys.
 
