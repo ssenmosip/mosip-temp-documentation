@@ -12,13 +12,13 @@ In MOSIP, privacy and security are highest priorities. As this is the first vers
 
 # MOSIP Security Design Key Features
 
-- Direct access to data stored in database in not permitted - data is accessed via APIs only.
-- Zero-Knowledge Administration principle is used so administrators can manage data without seeing the actual data. Data can be accessed only via APIs
+- Direct access to data stored in database not permitted - data accessed via APIs only.
+- Zero-Knowledge Administration principle used so administrators can manage data without seeing the actual data. Data can be accessed only via APIs
 - The integrity of each database row protected to prevent any malicious tampering like swapping identities, for instance.
 - Revocable Virtual IDs and Tokens used to thwart any attempt on profiling the users.
 - Access controls implemented on all APIs to ensure data privacy (who can see what).
 - All APIs support rate-limiting and are digitally signed.
-- At all network channels are assumed 'dirty'.
+- All network channels assumed 'dirty'.
 - Every artifact (including JSON data sent over API) digitally signed.
 
 # MOSIP Cryptography Algorithms
@@ -34,7 +34,7 @@ MOSIP uses following algorithms:
 As a principle, MOSIP does not use any mechanism in-built in a database for encryption. All sensitive data to be stored in a DB is encrypted/decrypted outside the DB at the application layer.
 
 - All sensitive (configurable) data is encrypted using a symmetric key algorithm. MOSIP supports AES 256 algorithm by default. 
-- Each cell is encrypted using its own symmetric key and the keys are selected random
+- Each cell is encrypted using its own symmetric key and the keys are selected randomly.
 - By default, we generate 10,000 symmetric keys for the database encryption. This is a soft limit and that can be increased.
 - The symmetric keys are encrypted using a master key in HSM. 
 - Every key has an expiry and application follows the expiry to update the data with new keys.
@@ -67,15 +67,15 @@ Registration Client is used to collect all the personal and biometric informatio
 - The registration data in its unencrypted form is always stored in the volatile memory and never stored.
   
 # Authentication & Authorization (TBD)
-In MOSIP Authentication largely falls into the below categories
+**Authentication**
 - Authentication via web channel (for Pre-Registration web app, Admin web app and Resident services portal)
 - Authentication via local system i.e., offline authentication (for Registration client)
 
-In MOSIP Authorization falls into the below categories
-- Authorization of API's accessed via web channel (We are in migration to a KeyCloak server at this point in time. Soon we will publish the documents)
+**Authorization**
+- Authorization of API's accessed via web channel (we are in migration to a KeyCloak server at this point in time. We will publish the documents soon.)
 - Authorization to access specific data (will be implemented in v3)
 
-A country will have its own hierarchy of system users especially the Registration staff and system administration staff. So, instead of defining a fixed hierarchy, by default MOSIP will depend on an LDAP implementation to manage users, organizational hierarchy and roles for users in the hierarchy. MOSIP will use an open source LDAP server as the LDAP implementation. Administrators can create hierarchy and users using Apache Directory Studio.
+A country will have its own hierarchy of system users especially the registration staff and system administration staff. So, instead of defining a fixed hierarchy, by default MOSIP will depend on an LDAP implementation to manage users, organizational hierarchy and roles for users in the hierarchy. MOSIP will uses an open source LDAP server as the LDAP implementation. Administrators can create hierarchy and users using Apache Directory Studio.
 
 
 
