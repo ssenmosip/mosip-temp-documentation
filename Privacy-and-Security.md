@@ -1,14 +1,7 @@
-In MOSIP, privacy and security are highest priorities. As this is the first version of the project, there are a lot of open tasks for us to achieve our vision on these aspects. This document aims to highlight our thinking behind security and privacy.
+In MOSIP, privacy and security are highest priorities and this document details the measures that have been implemented in the platform so far. As an open source project we aim to continuously improve the security features and incorporate new developments through collaborations and community contributions.
 
 # Governing Principles
-- The person from whom the data is collected is the owner of the data throughout the lifecycle of this project.
-- The collector of end-users' data is a custodian and he/she collects this data to render service to the end-user.
-- At all times the collector is the guardian of this data. It is expected that the guardian has no access to data unless requested by the end-user. 
-- The system is built to issue foundational ID and prove one's identity to access services. This purpose should not be obstructed or hindered needlessly. 
-- In MOSIP we understand that as of today not every user is cryptography-aware, and sensitive information such as passwords in the hands of different users may leave it vulnerable to theft. MOSIP seeks to use trusted devices wherever possible, as a result. 
-- Laws and governance play a critical role in protecting data and instituting privacy and security. MOSIP's technology cannot address all issues but wherever possible and applicable, MOSIP will do everything to enable better privacy and security.
-- Identity is a combination of revocable IDs, biometrics, relative time, and trusted and certified devices. MOSIP combines multifactor identity and recommends the usage of multiple factors to deliver services. MOSIP does not buy into the idea that the mere fact of holding biometric information establishes identity. 
-- MOSIP at all points would use random numbers for UIN generation and would have no means for anyone to infer any personal information of the end-user like her age, race, location, or gender.
+MOSIP's approach on privacy and security is determined by the [framework principles](https://www.mosip.io/uploads/resources/5cc84b0a08284Country%20Engagement%20Principles_v2.pdf) under which it operates.
 
 # MOSIP Security Design Key Features
 
