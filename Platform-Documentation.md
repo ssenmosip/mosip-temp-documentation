@@ -158,14 +158,14 @@ Further Certificates are used by Partners for signing the authentication request
 ### 3.3 [Technology Stack](Technology-Stack)
 ### 3.4 [Data Architecture](MOSIP-Data-Architecture)
 ### 3.5 High Level Design
-#### 3.5.1 [Pre-Registration](Pre-Registration)
-#### 3.5.2 [Kernel](Kernel)
-#### 3.5.3 [Registration Services](Registration-Client)
-#### 3.5.4 [Registration Processor](Registration-Processor)
-#### 3.5.5 [Authentication Services](ID-Authentication)
-#### 3.5.6 [Resident Services](Resident-services)
-#### 3.5.7 [Administrator Services](Admin)
-#### 3.5.8 [ID Repository](ID-Repository)
+    #### 3.5.1 [Pre-Registration](Pre-Registration)
+    #### 3.5.2 [Kernel](Kernel)
+    #### 3.5.3 [Registration Services](Registration-Client)
+    #### 3.5.4 [Registration Processor](Registration-Processor)
+    #### 3.5.5 [Authentication Services](ID-Authentication)
+    #### 3.5.6 [Resident Services](Resident-services)
+    #### 3.5.7 [Administrator Services](Admin)
+    #### 3.5.8 [ID Repository](ID-Repository)
 
 ## 4. REQUIREMENT SPECIFICATIONS[**[↑]**](#table-of-contents)
 ### 4.1 Functional Requirement Specifications
