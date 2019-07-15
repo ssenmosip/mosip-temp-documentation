@@ -34,7 +34,7 @@
 This document describes the objectives and explicit functional requirements of MOSIP. It also gives an overview of architecturally significant features, APIs and standards followed in MOSIP. Lastly, it provides necessary information on implementation, customization and set up.
 
 ## 2. FUNCTIONAL OVERVIEW[**[↑]**](#table-of-contents)
-This section gives a functional overview of the platform, driven by the key functional modules listed below. Further details are available on each modules under [Requirement Specifications](#4-requirement-specifications) 
+Further details are available on each modules under [Requirement Specifications](#4-requirement-specifications) 
 ### 2.1 Pre-Registration
 
 Pre-registration is the web channel of the MOSIP. This module enables a user to:  
@@ -153,22 +153,11 @@ Further Certificates are used by Partners for signing the authentication request
 
 ## 3. ARCHITECTURE OVERVIEW[**[↑]**](#table-of-contents)
 
-### 3.1 Principles
-This [details the foundational principles](Architecture-Principles-&-Platform-Goals) of MOSIP based on which the architecture is defined. 
-
-### 3.2 Logical View
-This [details the key design aspects](Logical-Architecture) considered for MOSIP, including the ecosystem approach, configurability, extensibility, modularity, and solution principles. 
-
-
-### 3.3 Technology Stack
-[Lists all the technologies](Technology-Stack) used in building MOSIP platform.
-
-
-### 3.4 Data Architecture
-This section details the [data architecture](MOSIP-Data-Architecture) of MOSIP, and also the data models and their naming standards.
- 
+### 3.1 [Architectural Principles and Platform Goals](Architecture-Principles-&-Platform-Goals) 
+### 3.2 [Logical Architecture](Logical-Architecture) 
+### 3.3 [Technology Stack](Technology-Stack)
+### 3.4 [Data Architecture](MOSIP-Data-Architecture)
 ### 3.5 High Level Design
-This section provides a high level design for each module in MOSIP.
 #### 3.5.1 [Pre-Registration](Pre-Registration)
 #### 3.5.2 [Kernel](Kernel)
 #### 3.5.3 [Registration Services](Registration-Client)
@@ -180,7 +169,6 @@ This section provides a high level design for each module in MOSIP.
 
 ## 4. REQUIREMENT SPECIFICATIONS[**[↑]**](#table-of-contents)
 ### 4.1 Functional Requirement Specifications
-This section provides a detailed functional requirement specification for each module in MOSIP
 #### 4.1.1 [Pre-Registration](FRS-Pre-Registration)
 #### 4.1.2 [Data Services](FRS-Data-Services)
 #### 4.1.3 [Common Services](FRS-Common-Services)
@@ -197,8 +185,7 @@ This section provides a detailed functional requirement specification for each m
 #### 4.1.14 [Partner Management](FRS-Partner-Management)
 #### 4.1.15 [ID Repository](FRS-ID-Repository)
 
-### 4.2 Non-Functional Requirement Specifications
-This section details out the [non-functional requirements](Non-Functional-Requirements) of the MOSIP platform
+### 4.2 [Non-Functional Requirement Specifications](Non-Functional-Requirements)
 
 ## 5. ARCHITECTURALLY SIGNIFICANT COMPONENTS[**[↑]**](#table-of-contents)
 ### 5.1 ID Object Definition
@@ -267,6 +254,7 @@ This module exposes few REST APIs which can be used to create/update/retrieve id
     1. [Template APIs](Template-APIs)
     1. [Common APIs](Common-APIs)
     1. [Registration Center APIs](Registration-Center-APIs)
+
 ## 7. PRIVACY AND SECURITY[**[↑]**](#table-of-contents)
 Multiple aspects of Security like Confidentiality, Privacy, and Integrity of data are key in ensuring an Individual's identity is not compromised. This section illuminates on the [privacy and security](Privacy-and-Security) design principles MOSIP follows. Please also take a look at [Security Tools](Security-Tools) to know more about the tools used for security testing.
 
