@@ -1,4 +1,4 @@
-## Table Of Content
+## Table Of Contents
 
 - [Scope](#scope-)
 - [Documentation](#documentation-)
@@ -14,19 +14,19 @@
 - [Known Issues](#known-issues-)
 - [Support Process (To Be Determined)](#support-process-to-be-determined-)
 - [List Of Acronyms](#list-of-acronyms-)
-## Scope [**[↑]**](#table-of-content)
+## Scope [**[↑]**](#table-of-contents)
 This release is with **proxy biometrics**. This means that the implementation of Print system, SDK, MDM (MOSIP  Device Manager), ABIS (Automated Biometrics Identification System) and Biometric devices has been stubbed. Also, this version is tested for functionality. Non-functional requirements (Performance, Scale and Security) will be taken up in subsequent releases.
 
 * Features included – Pre-Registration, Registration Client, Registration Processor, ID Authentication, Reference GUI implementation of Pre-Registration and Registration Client. 
 * Features not included – Administration, Partner Management, Resident Services
-## Documentation [**[↑]**](#table-of-content)
+## Documentation [**[↑]**](#table-of-contents)
 ### 1. Platform Documentation 
 Includes Functional requirements, Process flows, Architecture and High level design, Getting started and Deployment guide, Developer documentation etc.  
    [**Link to Platform Documentation**](Platform-Documentation)
 ### 2. Detailed Documentation
 [**Low Level design**](https://github.com/mosip/mosip-platform/wiki/MOSIP-Platform-Detailed-Design) and [**Test cases excel**](https://github.com/mosip/mosip-functional-tests/wiki/_files/testing/Test_automation/MOSIP-TCs-V1.0.xlsx)
 
-## Key Points [**[↑]**](#table-of-content)
+## Key Points [**[↑]**](#table-of-contents)
 
 |Key Points|	Details|
 |----|----|
@@ -45,12 +45,12 @@ Includes Functional requirements, Process flows, Architecture and High level des
 |Supporting key based digital signatures, not using digital certificates||	
 |Transliteration|	ICU4J (Library with French, Arabic languages)|
 
-## Code [**[↑]**](#table-of-content)
+## Code [**[↑]**](#table-of-contents)
 The [code](https://github.com/mosip/mosip-platform) and [automation tests](https://github.com/mosip/mosip-functional-tests) are available on GitHub. The code needs to be built and deployed as per the procedure documented in [**Building And Deploying MOSIP**](Platform-Documentation#10-building-and-deploying-mosip). We will actively support System Integrators during their first deployment.
 
-## Tests [**[↑]**](#table-of-content)
+## Tests [**[↑]**](#table-of-contents)
 **Testing Scope**
-#### 1. In Scope [**[↑]**](#table-of-content)
+#### 1. In Scope [**[↑]**](#table-of-contents)
 
 |Title	|Description|
 |------|------|
@@ -64,14 +64,14 @@ The [code](https://github.com/mosip/mosip-platform) and [automation tests](https
 |OS Support|**Registration Client**    <li> Windows 10|
 |Language Support|French, Arabic, English|
 
-#### 2. Not in Scope [**[↑]**](#table-of-content)
+#### 2. Not in Scope [**[↑]**](#table-of-contents)
 
 |Title|	Description|
 |------|------|
 |NFR Testing| <li> Scalability Testing <li> Performance Testing <li> Security Testing|
 |Configuration Testing|<li> Testing is done for one set of approved production configuration <li> Changing the configuration parameters for various values (boundary values) and testing the impact of each such value on the platform code will be taken up in subsequent releases.|
 
-#### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-content)
+#### 3. Executive Summary – Consolidated Quality Status [**[↑]**](#table-of-contents)
 
 |Sl. No.|	Module / Activity|Test Methodology|	Test Status|
 |------|------|------|------|
@@ -91,7 +91,7 @@ The [code](https://github.com/mosip/mosip-platform) and [automation tests](https
 |14|Kernel API integration|	<li> Tested Manually <li> Test Automation|	PASS|
 |15|	End to end functional testing|	<li> Tested Manually|PASS|	
 
-#### 4. Types of Testing [**[↑]**](#table-of-content)
+#### 4. Types of Testing [**[↑]**](#table-of-contents)
 
 |Testing Type| Description|
 |------|------|
@@ -100,18 +100,18 @@ The [code](https://github.com/mosip/mosip-platform) and [automation tests](https
 |Integration Testing|Tests to ensure the inter module functionality works fine and in accordance with the integration requirements|
 |Regression Testing|Tests to ensure that any change doesn't break existing functionality|
 	
-#### 5. Test Execution Summary [**[↑]**](#table-of-content)
+#### 5. Test Execution Summary [**[↑]**](#table-of-contents)
 ![Image](_images/test_rig_automation/Capture.JPG)  
 
-#### 6. Automation Test Reports [**[↑]**](#table-of-content)
+#### 6. Automation Test Reports [**[↑]**](#table-of-contents)
 [**Automation report run on 0.9.0 on QA env**](/mosip/mosip/tree/master/docs/testing/Automation%20Test%20Reports)
-## Known Issues [**[↑]**](#table-of-content)
+## Known Issues [**[↑]**](#table-of-contents)
 ![Image](_images/test_rig_automation/image4.jpg) 
 
-## Support Process (To Be Determined) [**[↑]**](#table-of-content)
+## Support Process (To Be Determined) [**[↑]**](#table-of-contents)
 Process to be followed for support required, escalation matrix, etc.
 
-## List Of Acronyms [**[↑]**](#table-of-content)
+## List Of Acronyms [**[↑]**](#table-of-contents)
 [**Refer to List Of Acronyms**](Platform-Documentation#12-list-of-acronyms)
 
 
