@@ -32,7 +32,7 @@ As a principle, MOSIP does not use any mechanism in-built in a database for encr
 - The symmetric keys are encrypted using a master key in HSM. 
 - Every key has an expiry and application follows the expiry to update the data with new keys.
 
-!(_images/arch_diagrams/DB_encryption.png)
+![](_images/arch_diagrams/DB_encryption.png)
 
 ## Key management
 - MOSIP uses symmetric keys to protect its database.
