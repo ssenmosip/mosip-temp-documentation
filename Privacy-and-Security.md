@@ -34,7 +34,7 @@ As a principle, MOSIP does not use any mechanism in-built in a database for encr
 
 ![](_images/arch_diagrams/DB_encryption.png)
 
-## Key management
+# Key management
 - MOSIP uses symmetric keys to protect its database.
 - Every key, when created, is set to an expiry date.
 There are two modes of operation for key management.
