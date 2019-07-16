@@ -33,8 +33,8 @@ As a principle, MOSIP does not use any mechanism in-built in a database for encr
 - Every key has an expiry and application follows the expiry to update the data with new keys.
 
 ### Encryption/Decryption flow
-![Db encryption](_images/admin-encryption-flow.jpg)
-![Db decription](_images/admin-decryption-flow.jpg)
+![Db encryption](_images/security/admin-encryption-flow.jpg)
+![Db decription](_images/security/admin-decryption-flow.jpg)
 
 ### Data format in DB
 ![Data format](_images/arch_diagrams/Indexed_Encrypted_Data_Format.png)
