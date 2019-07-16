@@ -53,7 +53,7 @@ Registration Client is used to collect all the personal and biometric informatio
 - An SK from SRK key is created to encrypt all the other keys used by MOSIP.
 - All local configurations are encrypted using the same mechanism.
 - A set of (defaulted to 10000) RSA keys are created for registration. These keys are generated in an HSM and the public part of these keys are embedded in the MOSIP registration client. These keys are used to encrypt the users/residents data. 
-- The registration data in its unencrypted form is always stored in the volatile memory and never stored.
+- The registration data in its unencrypted form is always stored in the volatile memory and never stored on permanent storage.
   
 # Authentication & Authorization (TBD)
 **Authentication**
