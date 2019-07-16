@@ -34,14 +34,16 @@ As a principle, MOSIP does not use any mechanism in-built in a database for encr
 
 ![](_images/arch_diagrams/DB_encryption.png)
 
-# Key management
+## Key management
 - MOSIP uses symmetric keys to protect its database.
-- Every key, when created, is set to an expiry date.
+- Every key has an expiry date upon creation. (Its defined by the configuration, Default set to 6 Months)
+
 There are two modes of operation for key management.
-Inline
+### Inline
+- In this mode the system would look at a configuration to see 
 - When a data is written back to the database a new active key is used.
 - When a data is read where the encryption key is expired the system notifies the key management that the expired key is used and has to be re-encrypted with an active key.
-Batch
+### Batch
 - In this mode, the system would search for all the tables for encrypted data with expired keys.
 - Re-encrypt them with the new active keys.
 - This mode is scheduled to run upon need basis or bi-monthly so there is no huge data crunch and the inline mode would have re-encrypted most of the data.
