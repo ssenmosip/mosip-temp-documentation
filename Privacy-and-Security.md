@@ -32,12 +32,7 @@ As a principle, MOSIP does not use any mechanism in-built in a database for encr
 - The symmetric keys are encrypted using a master key in HSM. 
 - Every key has an expiry and application follows the expiry to update the data with new keys.
 
-### Encryption/Decryption flow
-![Db encryption](_images/security/admin-encryption-flow.jpg)
-![Db decription](_images/security/admin-decryption-flow.jpg)
-
-### Data format in DB
-![Data format](_images/arch_diagrams/Indexed_Encrypted_Data_Format.png)
+!(_images/arch_diagrams/DB_encryption.png)
 
 ## Key management
 - MOSIP uses symmetric keys to protect its database.
@@ -70,7 +65,5 @@ Registration Client is used to collect all the personal and biometric informatio
 - Authorization to access specific data (will be implemented in v3)
 
 A country will have its own hierarchy of system users especially the registration staff and system administration staff. So, instead of defining a fixed hierarchy, by default MOSIP will depend on an LDAP implementation to manage users, organizational hierarchy and roles for users in the hierarchy. MOSIP will uses an open source LDAP server as the LDAP implementation. Administrators can create hierarchy and users using Apache Directory Studio.
-
-
 
 ![Authentication](_images/arch_diagrams/AuthN&AuthZ.png)
