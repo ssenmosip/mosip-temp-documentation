@@ -130,8 +130,8 @@ MOSIP system has a role based Privileges of a registration officer. [**Please re
    * Send registration packet IDs to server
    * Sync data from server to client
    * Sync data from client to server
-   * Export packets to local folder
-   * Upload packets through FTP
+   * Export packets to local folder (Work in Progress)
+   * Upload packets through FTP (Work in Progress)
    * Virus scan
    * Update client software
 4. Only supervisors can access the following features:
@@ -296,25 +296,17 @@ Registration officer initiates a new registration for a non pre-registered indiv
 #### B. Transliteration
 
 Refer to the section related to [**Transliteration**](#62-transliteration-).
-#### C. Mark an individual's date of birth as 'Verified'
-1. For new registration or UIN update, the system provides an option for the registration officer to mark an individual's date of birth as ‘Verified’.
-1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the registration officer has verified the date of birth of the individual.
-1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
-#### D. Register an individual who is less than 5 years old.
+#### C. Register an individual who is less than 5 years old.
 1. MOSIP does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
 1. When a registration officer starts a new registration, the system determines if the registration is for a child using the date of birth.
 1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
 1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system ensures parent/guardian is registered first and at least RID is available.
    * A unique RID (request ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
-#### E. Mark an individual as Foreigner or Citizen
-For every new registration, the system provides an option on the demographic details page for the registration officer to mark an individual as either a citizen of that country or a Foreigner. 
-
-If the registration officer selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
-#### F. Register a non-pre-registered individual 
+#### D. Register a non-pre-registered individual 
 When a registration officer starts a new registration for a non-pre-registered individual (an individual who does not have PRID), the registration officer will capture the demographic and biometric details to register the individuals.
 
-#### G. Enter the demographic details for registration
+#### E. Enter the demographic details for registration
 
 **(i) The Registration Officer opts to initiate a new registration**
 1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition). 
@@ -329,10 +321,10 @@ When a registration officer starts a new registration for a non-pre-registered i
 1. The Registration Client validates the entered demographic data as per the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx).
 1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation, proceeds to next step.
-#### H. Copy address from the previous registration
+#### F. Copy address from the previous registration
 When the address details of the previous registration and the current registration is same, the system allows the registration officer to copy the same address as previous registration. This feature helps the registration officer to save the time while registering the individual who has the same address as previous registration.
 
-#### I. Scan and upload of POI, POA and POR
+#### G. Scan and upload of POI, POA and POR
 1. The registration officer can input three types of documents- POA (Proof of Address), POI (Proof of Identity) and POR (Proof of Relationship) while registering an individual.  POR is needed only in case of minors.
 1. Document type is configurable by admin based on the country level.
 1. The registration officer collects these documents from the individual and scans them if the uploaded document during pre-registration doesn't meet the required quality.
@@ -348,7 +340,7 @@ When the address details of the previous registration and the current registrati
 1. The registration officer can delete files uploaded by mistake.
 1. The registration officer can view the uploaded file(s).
 
-#### J. Capture an individual's fingerprints as per specification
+#### H. Capture an individual's fingerprints as per specification
 Fingerprint capture is configurable (Turn ON or OFF) by the admin at the country level.
 
 **Turn ON or OFF fingerprints capture**
@@ -367,7 +359,7 @@ When the registration officer uses fingerprint capture device to capture the ind
 1. If the required biometric quality is not achieved while a registration officer is capturing biometrics of an individual (e.g., missing finger(s)), then the system mandates to capture a biometric exception for that individual.
 1. Captures and stores the transaction details for audit purpose (except PII data).
 
-#### K. Capture an individual's face photograph and exception photograph.
+#### I. Capture an individual's face photograph and exception photograph.
 When a registration officer opts to capture photo of an individual, the system initiates a photo capture and performs the following steps:
 1. Validates that an on-boarded camera is connected to the machine.
    * If an on-boarded camera is not found, displays an error message.
@@ -382,7 +374,7 @@ When a registration officer opts to capture photo of an individual, the system i
    * Step 1 to 7 must be performed to capture the exception photo.
 1. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture. [**Refer to Retry Capture of Face Photo**](#l-retry-capture-of-face-photo)
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### L. Retry Capture of Face Photo
+#### J. Retry Capture of Face Photo
 While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
 1. The system displays the quality score and the threshold score for the capture.
 1. The registration officer proceeds to the next step if the quality score >= threshold or if the maximum number of retry attempts as configured is reached.
@@ -397,7 +389,7 @@ While registering an individual, a registration officer captures the face photo 
 1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo will be displayed on screen along with its quality score.
 1. All the above rules apply to exception photo capture as well.
 
-#### M. Capture Iris as per defined specifications
+#### K. Capture Iris as per defined specifications
 When the registration officer scans the individual’s irises either individually or together, the system performs the following steps:
 1. Displays the quality score and threshold for each captured iris.
 1. Allows the registration officer to re-try each capture up to a maximum number of times (as configured) if threshold score is not met for one or both irises.
@@ -406,7 +398,7 @@ When the registration officer scans the individual’s irises either individuall
 1. Validates all available irises that have been captured, the irises, which are above threshold quality and the maximum retries attempted.
 1. Retains only the capture, which has the highest quality score.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### N. Restrict registration if the duration since the last export or upload is more than the configured limit
+#### L. Restrict registration if the duration since the last export or upload is more than the configured limit
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If the configured limit is exceeded, then system displays an error message.
 
