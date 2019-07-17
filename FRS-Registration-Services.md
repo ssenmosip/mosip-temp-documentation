@@ -29,7 +29,7 @@
   * [6.2 Transliteration](#62-transliteration-) _(REG_FR_6.2)_
 - [7. Packet Upload](#7-packet-upload-)
   * [7.1 Registration Packet Upload](#71-registration-packet-upload-) _(REG_FR_7.1)_
-  * [7.2 Offline upload (Packet Exporter)](#72-offline-upload-packet-exporter-) _(REG_FR_7.2)_
+  * [7.2 Offline upload (Packet Exporter) (Work in Progress)](#72-offline-upload-packet-exporter-work-in-progress-) _(REG_FR_7.2)_
 - [8. Analytics and Audit Logs](#8-analytics-and-audit-logs-) _(REG_FR_8)_
 - [9. Data Security](#9-data-security-)
 - [10. Software Version Upgrade](#10-software-version-upgrade-) _(REG_FR_10)_
@@ -331,7 +331,7 @@ When the address details of the previous registration and the current registrati
 1. The following parameters will be met while uploading the documents:
    * System lists various document categories as configured by admin
    * For each document category, system enables selection of the list of valid documents
-   * The system validates if the document if of allowed document format (PDF, PNG, GIF etc)
+   * The system validates if the document is in permissible file format (PDF, PNG, GIF, etc.)
    * The system does not allow registration officer to upload more than one document per category
    * The system performs size check after document upload and revert the registration officer to upload again if the document size is more than 1 MB (document size is configurable)
    * The system displays the name of the document adjacent to the Document Category for which the document is uploaded 
@@ -415,17 +415,8 @@ When an individual approaches the registration officer for UIN update, the follo
 
 #### B. Registration Client allows update to UIN data only for configured fields
 1. An admin can configure the fields that are available for update through the Registration Client. The configuration applies at a country level.
-2. The admin can set the following fields to be update-able at a country level through the admin portal:
-   * Name
-   * Age/DoB
-   * Gender
-   * Address
-   * Contact details
-   * Parent/Guardian details
-   * Biometrics-Exception
-   * Biometrics-Fingerprint
-   * Biometrics-Iris
-3. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
+1. In admin portal, the admin can set fields (demographic, biometric, etc.) based on their requirement to update.   
+1. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
 
 #### C. UIN Update
 1. The registration officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, parent/guardian Details, Biometrics.
@@ -444,9 +435,7 @@ When an individual approaches the registration officer for UIN update, the follo
 
 #### D. UIN Update of Child
 
-The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request.
-
-The following parameters can be updated during a child’s UIN update- Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
+The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request. Refer below for the process:
 1. If ‘Parent/Guardian details’ is selected for update, then a registration officer will capture the UIN, Name and any one biometric of the Parent/Guardian (fingerprint / iris).
 1. If the Parent/Guardian does not have any fingerprint and any iris, then the registration officer marks all exceptions of the Parent/Guardian and proceed to capture photo of the Parent/Guardian.
 1. A UIN update of a child cannot be initiated without capturing biometrics of the parent. The system displays an error message for such attempts.
@@ -595,7 +584,7 @@ The system then confirms on successful approval.
 1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.  The server would archive the rejected packets and process the approved packets.  
 
 #### B. Supervisor can inform individuals to 'Re-register'
-When the Registration Processor finds an error in the packet such as registration failure (incorrect or duplicate demographic and biometric information), the status of the packet is marked as Re-register. After receiving a status as Re-register, a supervisor then informs an individual to re-visit the registration center to re-register the application. Refer below for the process:
+During pre-processing of the packet, if the Registration Processor finds an error in the packet such as decryption failure, then an individual will not be communicated automatically to re-register. In such cases, Registration processor marks a status of the packet as re-register so that a supervisor informs the individual to re-register his/her application. Refer below for the process:
 
 1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
 1. The system displays the list of Registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
@@ -669,8 +658,6 @@ The system then enables a registration officer to view the registration confirma
 1. The system allows a registration officer to view a list of packets and may opt to upload one or multiple packets from a list of packets.
 1. After the registration officer selects the packet(s), he/she can upload the selected packet(s) to server.
 
-   NOTE: If any packets are selected, the ‘Export’ feature will be disable because the selection of packets is applicable only for ‘Upload’ feature.
-
 #### B. Push those packets that are marked 'Resend' to the server
 
 1. When the registration officer or supervisor navigates to the ‘Upload Packets’ page, the list of RIDs that are pending packets to upload will be displayed.
@@ -705,7 +692,7 @@ The system then enables a registration officer to view the registration confirma
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-packetupload.md)
 
-### 7.2 Offline upload (Packet Exporter) [**[↑]**](#table-of-contents)
+### 7.2 Offline upload (Packet Exporter) (Work in Progress) [**[↑]**](#table-of-contents)
 
 System exports registration packet data from client machine to an external device as follows:
 1. Allows the registration officer to select a destination folder.
