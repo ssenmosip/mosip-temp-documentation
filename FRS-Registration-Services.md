@@ -328,8 +328,6 @@ When the address details of the previous registration and the current registrati
 1. The registration officer can input three types of documents- POA (Proof of Address), POI (Proof of Identity) and POR (Proof of Relationship) while registering an individual.  POR is needed only in case of minors.
 1. Document type is configurable by admin based on the country level.
 1. The registration officer collects these documents from the individual and scans them if the uploaded document during pre-registration doesn't meet the required quality.
-1. The scan and upload works in such a way that copy of documents is not saved on the system or any external device.
-1. The scanner scans the documents and uploads them to the registration Client machine.
 1. The following parameters will be met while uploading the documents:
    * System lists various document categories as configured by admin
    * For each document category, system enables selection of the list of valid documents
