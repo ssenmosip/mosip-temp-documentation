@@ -76,12 +76,12 @@ Refer to [**VID Services**]( FRS-Resident-Services#11-vid-service-) in Resident 
 ## 1.2 Update Individual’s Information [**[↑]**](#table-of-contents)
 After an ID is created for an Individual, then he/she can choose to update his/her demographic or biometric information. The system provides two different channels by which an individual can update his/her information - by visiting a registration center and by using the resident portal.
 
-In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all successful validations, the system updates the individual’s information and sends his/her updated ID card through the country’s configured printing and postal service.
+In both the cases, the individual’s information is securely packaged and sent to Registration Processor. After all successful validations, the system updates the individual’s information and sends his/her updated ID credential through the country’s configured printing and postal service.
 
 A country decides the channel and data attributes that can be updated for the individual. In the current implementation, 
 
 1. An individual can update his/her demographic and biometric information when he/she visits the registration center.
-1. An individual can update his/her address information when he/she uses the resident portal.
+1. An individual can update his/her deomgraphic information when he/she uses the resident portal.
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
@@ -101,7 +101,7 @@ If a country wants to reactivate an individual’s deactivated ID due to any spe
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 
 ## 1.5 Find an Individual’s ID [**[↑]**](#table-of-contents)
-When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID  and sends his/her ID card to their registered address through the country's configured printing and postal service.
+When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID and sends his/her ID credential to their registered address through the country's configured printing and postal service.
 
 
 # 2. Configurable Workflow [**[↑]**](#table-of-contents)
@@ -251,7 +251,7 @@ For Example:
 
 #### 3.2.2.2 Introducer Validation [**[↑]**](#table-of-contents)
 
-An Introducer in MOSIP is one who introduces someone without any valid document or proof of identity. In the current implementation, Introducer is the Parent or Guardian when a minor comes to the center for registration.
+An Introducer in MOSIP is one who introduces someone without any valid document or proof of identity. In the current implementation, Introducer is the Parent or Guardian when a minor (child) comes to the center for registration.
 
 A minor is not mature enough to provide biometrics (like Finger Prints or Iris) as they are under developed during the time of registration, hence, the Parent or Guardian acts as the Introducer to register the minor in MOSIP.
 
@@ -304,7 +304,7 @@ When Biometric Deduplicates are found in [**Automated Biometric Identification S
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_manual_adjudication.md)
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware) [**[↑]**](#table-of-contents)
-The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with one or multiple ABISs ([**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). 
+The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with an ABIS system ([**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). 
 
 ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) is used to communicate between MOSIP system and ABIS.
 
@@ -328,9 +328,9 @@ When any transaction is performed in MOSIP system or the packet fails any valida
 ### 3.3.1 Notification (Pluggable by SI) [**[↑]**](#table-of-contents)
 Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, successful or un-successful issuance of UIN, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI) [**[↑]**](#table-of-contents)
-When an individual’s ID is created or an individual’s data is updated, the system sends the individual’s physical ID card to the individual’s registered address. 
+When an individual’s ID is created or an individual’s data is updated, the system sends the individual’s physical ID credential to the individual’s registered address. 
 
-This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID cards and send it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID card and deliver it to the individual’s registered address.
+This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID and sends it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID credential and deliver it to the individual’s registered address.
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_printing_stage.md)
 
