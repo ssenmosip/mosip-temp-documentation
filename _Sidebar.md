@@ -4,6 +4,7 @@
 * [Design Documents](design-documents) 
   * [Registration Client](Registration-Client)
   * [Registration Client Setup](Registration-Client-Setup)
+  * [Registration Client Developer Guide](Reg-client-implementation)
   * [Registration Packet Structure](Registration-Packet) 
   * [MOSIP Device Integration Spec](Device-Integration-Specifications)
   * [MOSIP Biometric Data Spec](MOSIP-Biometric-Data-Specifications)
