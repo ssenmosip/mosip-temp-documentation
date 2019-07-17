@@ -101,7 +101,7 @@ If a country wants to reactivate an individual’s deactivated ID due to any spe
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
 
 ## 1.5 Find an Individual’s ID [**[↑]**](#table-of-contents)
-When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID  and sends his/her ID card to their registered address through the country's configured printing and postal service.
+When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID and sends his/her ID credential to their registered address through the country's configured printing and postal service.
 
 
 # 2. Configurable Workflow [**[↑]**](#table-of-contents)
@@ -328,7 +328,7 @@ When any transaction is performed in MOSIP system or the packet fails any valida
 ### 3.3.1 Notification (Pluggable by SI) [**[↑]**](#table-of-contents)
 Notification (SMS/Email as configured), which is received by an individual is the final step of all the life cycle processes. System sends a notification to the individual for various life cycle scenarios such as, successful or un-successful issuance of UIN, update of UIN data, activate or deactivate UIN, finding a lost UIN, etc. using kernel [**Template Merger**](FRS-Common-Services#45-template-merger-) and [**Notification Manager**](FRS-Common-Services#4-notification-).
 ### 3.3.2 Print & Post (Pluggable by SI) [**[↑]**](#table-of-contents)
-When an individual’s ID is created or an individual’s data is updated, the system sends the individual’s physical ID card to the individual’s registered address. 
+When an individual’s ID is created or an individual’s data is updated, the system sends the individual’s physical ID credential to the individual’s registered address. 
 
 This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID and sends it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID credential and deliver it to the individual’s registered address.
 
