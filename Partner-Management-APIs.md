@@ -874,19 +874,19 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-14T16:01:20.534Z",
   "response": {
-     "policies": [
-	   {
-        "id": "32058251034176",
-        "name": "Insurence Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": null,
-        "upd_dtimes": null
-       }
-     ]
-	},
+       "policies": [
+          {
+            "id": "32058251034176",
+            "name": "Insurance Policy",
+            "desc": "Desc about policy",
+            "is_active": true,
+            "cr_by": "MOSIP",
+            "cr_dtimes": "2019-05-14T16:01:20.534Z",
+            "up_by": null,
+            "upd_dtimes": null
+          }
+        ]
+   },
   "errors": null
 }
 ```
