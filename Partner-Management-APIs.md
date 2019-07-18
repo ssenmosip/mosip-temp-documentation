@@ -714,7 +714,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
         "cr_by": "MOSIP",
         "cr_dtimes": "2019-05-14T16:01:20.534Z",
         "up_by": null,
-        "upd_dtimes": null
+        "upd_dtimes": null,
 		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
@@ -735,13 +735,13 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "addressLine3","required": true},
 					{"attributeName": "location1","required": true},
 					{"attributeName": "location2","required": true},
-					{"attributeName": "location3",required": true},
+					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
-			]
-        }
+			 ]
+          }
        },
-      {
+       {
         "id": "45678451034176",
         "name": "Loan Policy",
         "desc": "Desc about policy",
@@ -771,14 +771,14 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "addressLine3","required": true},
 					{"attributeName": "location1","required": true},
 					{"attributeName": "location2","required": true},
-					{"attributeName": "location3",required": true},
+					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
 			]
         }
        }
      ]
-	}
+	},
   "errors": null
 }
 ```
@@ -856,7 +856,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "addressLine3","required": true},
 					{"attributeName": "location1","required": true},
 					{"attributeName": "location2","required": true},
-					{"attributeName": "location3",required": true},
+					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
 			]
@@ -880,7 +880,6 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
         "id": "32058251034176",
         "name": "Insurence Policy",
         "desc": "Desc about policy",
-        "policy_file_id": "policy_file_id_1",
         "is_active": true,
         "cr_by": "MOSIP",
         "cr_dtimes": "2019-05-14T16:01:20.534Z",
@@ -888,7 +887,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
         "upd_dtimes": null
        }
      ]
-	}
+	},
   "errors": null
 }
 ```
@@ -979,12 +978,12 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "addressLine3","required": true},
 					{"attributeName": "location1","required": true},
 					{"attributeName": "location2","required": true},
-					{"attributeName": "location3",required": true},
+					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
 			]
         }
-	}
+	},
   "errors": null
 }
 ```
@@ -1064,7 +1063,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "addressLine3","required": true},
 					{"attributeName": "location1","required": true},
 					{"attributeName": "location2","required": true},
-					{"attributeName": "location3",required": true},
+					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
 			]
@@ -1086,13 +1085,12 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
         "id": "45678451034176",
         "name": "Loan Policy",
         "desc": "Desc about policy",
-        "policy_file_id": "policy_file_id_1",
         "is_active": true,
         "cr_by": "MOSIP",
         "cr_dtimes": "2019-05-14T16:01:20.534Z",
         "up_by": "MOSIP",
         "upd_dtimes": "2019-05-15T16:01:20.534Z"
-	}
+	},
   "errors": null
 }
 ```
@@ -1171,7 +1169,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "responsetime": "2019-05-15T16:01:20.534Z",
   "response":{
         "message" : "status updated sucessfully"
-	}
+	},
   "errors": null
 }
 ```
@@ -1261,12 +1259,12 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "addressLine3","required": true},
 					{"attributeName": "location1","required": true},
 					{"attributeName": "location2","required": true},
-					{"attributeName": "location3",required": true},
+					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
 			]
         }
-	}
+	},
   "errors": null
 }
 ```
