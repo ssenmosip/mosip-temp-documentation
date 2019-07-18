@@ -1,0 +1,6 @@
+Hi $name_eng,
+
+Congratulations your request is processed. The link to download your e-UIN is $link.
+
+Thanks and Regards,
+MOSIP Team

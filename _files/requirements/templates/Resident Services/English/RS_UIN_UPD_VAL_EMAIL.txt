@@ -1,0 +1,6 @@
+Hi $name_eng,
+
+ID Validation failed. Please upload correct document type.
+
+Thanks and Regards,
+MOSIP Team
