@@ -16,4 +16,5 @@ _(Note - the user id for the Individual 'X' should be present in Master data of 
 4. Use the swagger API for ID Repository to store the ID Object of the individual 'X' in ID Repository
 ### 4. LDAP: Update the generated RID of individual 'X' in LDAP
 ### 5. User On-boarding:
-1. The Individual 'X' can now login to Registration Client with the above Username/Password and register the subsequent  Operators and Supervisors
+1. The Individual 'X' can now login to Registration Client with the above Username/Password and register the subsequent  Officers and Supervisors
+2. But the user details must be created in LDAP with appropriate roles assigned and the RIDs should be mapped in LDAP for the new set of Officers and Supervisors
