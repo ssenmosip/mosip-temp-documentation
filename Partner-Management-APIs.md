@@ -708,13 +708,13 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
      "policies": [
 	   {
               "id": "32058251034176",
-              "name": "Insurance Policy",
-              "desc": "Desc about policy",
-              "is_active": true,
-              "cr_by": "MOSIP",
-              "cr_dtimes": "2019-05-14T16:01:20.534Z",
-              "up_by": null,
-              "upd_dtimes": null,
+              "name": "Insurance Policy",
+              "desc": "Desc about policy",
+              "is_active": true,
+              "cr_by": "MOSIP",
+              "cr_dtimes": "2019-05-14T16:01:20.534Z",
+              "up_by": null,
+              "upd_dtimes": null,
 	      "policies": {
                     "authPolicies": [ 	
 			{"authType": "otp","mandatory": true},
