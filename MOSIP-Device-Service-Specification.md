@@ -4,21 +4,21 @@ June 2019 | Version: 0.8.4
 Status: Draft
 ### Table of Contents
 
-1. [Introduction & Background]()
-1. [Glossary of Terms]()
-1. [Device Specification]()
-1. [Device Trust]()
-1. [Device Service - Communication Interfaces]()
+1. [Introduction & Background](#1-introduction--background)
+1. [Glossary of Terms](#2-glossary-of-terms)
+1. [Device Specification](#3-device-specification)
+1. [Device Trust](#4-device-trust)
+1. [Device Service - Communication Interfaces](#5-device-service---communication-interfaces)
     1. [Device Discovery]()	
     1. [Device Info]()	
     1. [Capture]()
     1. [Device Stream]()	
     1. [Device Registration Capture]()	
-1. [Device Server]()	
-    1. [Registration]()	
-    1. [De-Register]()	
-1. [Management Server]()	
-1. [Compliance]()
+1. [Device Server](#6-device-server)	
+    1. [Registration](#6i-registration)	
+    1. [De-Register](#6ii-de-register)	
+1. [Management Server](#7-management-server)	
+1. [Compliance](#8-compliance)
 
 
 ### 1. Introduction & Background
