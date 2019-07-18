@@ -1,7 +1,7 @@
 Steps to generate the first User in MOSIP eco-system, refer below for the process:
 
 ### 1. Creating the First User in LDAP:
-1. First the roles for MOSIP users need to be created in LDAP. _For example, Registration Processor, Supervisor, etc._
+1. First the roles for MOSIP users need to be created in LDAP. _For example, Registration Processor, Supervisor, Registration Officer, etc._
 2. An Individual say 'X' has to be created in LDAP and the roles “Registration Processor” and “Supervisor” needs to be mapped.
 3. Preferred User ID and Password should be set for the Individual 'X' and the same User ID should be present as part of Master Data as mentioned below.
  
