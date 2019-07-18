@@ -1000,7 +1000,7 @@ ActiveMQ is the message broker used for MOSIP Registartion processor module.
 * Download activemq using command - <br/>
 ``` wget https://archive.apache.org/dist/activemq/5.15.0/apache-activemq-5.15.0-bin.zip ```
 * Extract the archive <br/>
-``` tar -zxvf apache-activemq-5.15.0-bin.zip ```
+``` tar xzf apache-activemq-5.15.0-bin.zip ```
 * Change the permission for startup script<br/>
 ``` chmod 755 apache-activemq-5.15.0 ```
 * Start activemq service<br/>
