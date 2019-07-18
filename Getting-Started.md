@@ -1393,6 +1393,9 @@ And also open the port from AZURE OR AWS or any cloud where the VM is launched.
 **Note** - Please change the value for variables active_profile_env, spring_config_label_env, spring_config_url_env and registryAddress in the above four commands accordingly
 
 
+### 8.3 First User Registration and Onboarding
+[Refer to wiki for detailed procedure on First User Registration and Onboarding](First-User-Registration-and-Onboarding)
+
 
 
 
