@@ -994,17 +994,19 @@ Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/
 
 ### 6.9 Installation of ActiveMQ
 ActiveMQ is the message broker used for MOSIP Registartion processor module. 
+
 #### Installation steps
+* ``` <version> ``` : please check http://www.apache.org/dist/activemq/ to find out the latest version.
 * Prerequiste:<br/>
         A machine with RHEL 7.5 installed, Docker installed and Docker service enabled.
 * Download activemq using command - <br/>
-``` wget http://www.apache.org/dist//activemq/apache-activemq/5.15.0/apache-activemq-5.15.0-bin.tar.gz ```
+``` wget http://www.apache.org/dist/activemq/<version>/apache-activemq-<version>-bin.tar.gz ```
 * Extract the archive <br/>
-``` tar -zxvf apache-activemq-5.15.0-bin.tar.gz ```
+``` tar -zxvf apache-activemq-<version>-bin.tar.gz ```
 * Change the permission for startup script<br/>
-``` chmod 755 apache-activemq-5.15.0 ```
+``` chmod 755 apache-activemq-<version> ```
 * Start activemq service<br/>
-``` cd apache-activemq-5.15.0 && sudo  ./bin/activemq start ```
+``` cd apache-activemq-<version> && sudo  ./bin/activemq start ```
 * Check for the installed and started activemq on port 61616. <br/>
 ```netstat -tulpn```
 * Open ports 8161 and 61616  on the VM:
@@ -1290,9 +1292,15 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 ### 8.1  Registration-Processor DMZ services deployment
 Registration Processor DMZ Services are setup externally(deployed in a separate VM).
 
-Firstly, update `registration-processor-camel-routes-update-dmz-<env-name>.xml` file present in config folder in configuration repository, and replace the line<br/>
- `<to uri="https://qa.mosip.io/registrationprocessor/v1/uploader/securezone" />`<br/>
+Firstly, update below files present in config folder in configuration repository, and replace the line<br/>
+ `<to uri="https://<dns name>/registrationprocessor/v1/uploader/securezone" />`<br/>
  with the URL of packet uploader stage.<br/>
+ 1.  `registration-processor-camel-routes-new-dmz-<env-name>.xml` 
+ 2.  `registration-processor-camel-routes-update-dmz-<env-name>.xml` 
+ 3.  `registration-processor-camel-routes-lost-dmz-<env-name>.xml` 
+ 4.  `registration-processor-camel-routes-activate-dmz-<env-name>.xml` 
+ 5.  `registration-processor-camel-routes-deactivate-dmz-<env-name>.xml` 
+ 6.  `registration-processor-camel-routes-res_update-dmz-<env-name>.xml` 
 
 We are deploying DMZ services into another VM having docker installed. The steps to setup DMZ environment and services deployment:
 1. Need to set Up VM with RHEL 7.5
