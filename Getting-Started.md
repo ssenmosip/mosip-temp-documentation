@@ -998,9 +998,9 @@ ActiveMQ is the message broker used for MOSIP Registartion processor module.
 * Prerequiste:<br/>
         A machine with RHEL 7.5 installed, Docker installed and Docker service enabled.
 * Download activemq using command - <br/>
-``` wget http://www.apache.org/dist//activemq/apache-activemq/5.15.0/apache-activemq-5.15.0-bin.tar.gz ```
+``` wget https://archive.apache.org/dist/activemq/5.15.0/apache-activemq-5.15.0-bin.zip ```
 * Extract the archive <br/>
-``` tar -zxvf apache-activemq-5.15.0-bin.tar.gz ```
+``` tar -zxvf apache-activemq-5.15.0-bin.zip ```
 * Change the permission for startup script<br/>
 ``` chmod 755 apache-activemq-5.15.0 ```
 * Start activemq service<br/>
