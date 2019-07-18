@@ -401,3 +401,194 @@ The foundational device trust module provides for a trusted execution environmen
 
 The foundational module upon its first boot is expected to generate a random asymmetric key pair and provide the public part of the key to obtain a valid certificate. The entire certificate issuance would be in a secured provisioning facility. The certificate issued to the module will have a defined validity period as per the MOSIP certificate policy document.
 
+**Device Identity:**
+
+
+As MOSIP deals with biometrics it is imperative that all devices that connect to MOSIP are identifiable. MOSIP believes in cryptographic Identity as its basis for trust.
+
+
+**Physical ID:** An identification mark that shows MOSIP compliance and a readable unique device serial number (12 digit), make and model. The same information has to be available over a 2D QR Code or Barcode.
+
+
+**Digital ID:** A digital device id in MOSIP would be a signed JSON as follows:
+
+```
+{
+    “serialNo”: “<serial_no>”,
+
+
+    “make”: “<make>”,
+
+
+    “model” : “<Model of the device>”,
+
+
+    “type”: [“Fingerprint”, “Slab Fingerprint”, “Iris”, “Face’’], //More types will be added.
+
+
+    “dp”: “<device provider name>”,
+
+
+    “dpId”: “<device provider id>”,
+
+
+    “dateTime”: “<datetime>” // ISO format with timezone.  Identity request time
+
+
+}
+```
+
+Signed with the JSON Web Signature using the “Foundational Trust Module” Identity key, this data is the fundamental identity of the device.  Every MOSIP compliant device will need the foundational trust module.
+
+**Accepted Values**:
+
+```
+    serialNo - Same as the Physical ID
+
+
+    make - Brand name
+
+
+    model - Model of the device
+
+
+    type - [“Fingerprint”, “Slab Fingerprint”, “Iris”, “Face’’], //More types will be added.
+
+
+    dp - Device provider name, This would be a legal entity in the country,
+
+
+    dpId: Device provider id issued by MOSIP
+
+dateTime:  ISO format with timezone.  Identity request time \
+
+```
+### Device Service - Communication Interfaces
+
+The section explains the necessary details of the biometric device connectivity, accessibility, discoverability and protocols used to build and communicate with the device.
+
+The device should implement only the following set of APIs.  All the API’s are independent of the physical layer and the operating system, with the invocation being different across operating systems. While the operating system names are defined in this spec a similar technology can be used for unspecified operating systems.
+
+It is expected that the device service ensures that the device is connected  locally to the host.
+
+
+**Specifications for Windows and Linux**
+
+#### Device Discovery:
+
+Device discovery would be used to identify MOSIP compliant devices in a system by the applications. The protocol is designed as simple plug and play with all the necessary abstraction to the specifics.
+
+Discovery Request:
+
+**Request:**
+
+```
+{
+
+
+“type”: “<type of the device>”
+
+
+}
+
+```
+**Accepted Values **
+```
+
+type: “Biometric Device”, “Fingerprint”, “Face”, “Iris”
+
+
+Note: “Biometric Device” - is a special type and used in case if you are looking for any biometric device.
+
+```
+**Response:**
+
+```
+[
+
+
+{
+
+“type”: “<exact type>”,
+
+
+“deviceId”: “<internal id>”,
+
+
+“subType”: “<subtypes of the biometric device>”,
+
+
+“deviceStatus”: “<device status>”,
+
+
+“certification”: “<certification level>”,
+
+
+“serviceVersion”: “<device service version>”,
+
+
+“deviceSubId”: “<device sub id’s>”,
+
+
+“callbackId”: “<how to reach to the device>“,
+
+
+"error": {
+
+
+"errorcode": "101",
+
+
+"errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} "
+
+
+}
+
+
+}
+
+
+]
+```
+
+**Accepted values:**
+```
+
+type - “Finger”, “Face”, ”Iris”
+
+
+subType - subtype is based on the type.
+
+
+	Finger - “Slab”, “Single”, “Touchless”
+
+
+                Iris - “Single”, “Double”,
+
+
+               Face - Full face
+
+
+deviceStatus - “Active”, “Inactive”
+
+
+certification - “L0”, “L1” - Level of certification
+
+
+serviceVersion - Version of the MDS specification that is supported.
+
+
+deviceId - Internal Id to identify the actual biometric device within the device service.
+
+
+deviceSubId - is the internal id of the device. For example in case of iris capture, the device can have two modules in a single device, it is possible to address each device with a sub id so we can identify or command each of it in isolation. Sub id is a simple index which always starts with 1 and increases sequentially for each sub device present.
+
+
+callbackId - this differs as per the OS. In case of linux and windows operating systems it is a http url. In the case of android, it is the intent name. In IOS it is the url scheme. The call back url takes precedence over future request as a base url.
+
+```
+Note: The response is an array that we could have a single device enumerating with multiple biometric options.
+
+
+Note: The service should ensure to respond only if the type parameter matches the type of device or the type parameter is a “Biometric Device”.
+
