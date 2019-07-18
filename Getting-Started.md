@@ -1290,7 +1290,7 @@ Pre-registration-ui uses a file config.json to configure URLs of backend, which 
 ### 8.1  Registration-Processor DMZ services deployment
 Registration Processor DMZ Services are setup externally(deployed in a separate VM).
 
-Firstly, update `registration-processor-camel-routes-update-dmz-<env-name>.xml` file, and replace the line<br/>
+Firstly, update `registration-processor-camel-routes-update-dmz-<env-name>.xml` file in the property files present in configuration repository, and replace the line<br/>
  `<to uri="https://qa.mosip.io/registrationprocessor/v1/uploader/securezone" />`<br/>
  with the URL of packet uploader stage. ( which will be deployed in Kubernetes cluster )<br/>
 
