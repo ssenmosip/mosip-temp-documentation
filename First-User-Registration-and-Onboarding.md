@@ -1,4 +1,4 @@
-To generate the first UIN in MOSIP eco-system, refer below for the process.
+To generate the first UIN in MOSIP eco-system, refer below for the process:
 
 ### 1. Register first user in LDAP:
 1. Create Roles in LDAP. For example, Registration Processor, Supervisor, etc.
