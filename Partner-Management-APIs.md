@@ -26,6 +26,9 @@ After hitting api, you will get the Authorization token in the cookie.
 #
 
 * [MISP Management Service](#misp-management-service)
+* [Policy Management Service](#policy-management-service)
+* [Partner Management Service](#partner-management-service)
+* [Partner Service](#partner-service)
 
 # MISP Management Service
 This service is used to authenticate MOSIP Admin and management of MISP(MOSIP Infrastructure Service Provider).
@@ -662,3 +665,599 @@ PMS_MISP_004|Missing Input Parameter - %d|Missing Input Parameter - for all mand
 PMS_MISP_005|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_MISP_006|Could not process the request|Internal Error due to MISP ID/MISP License Key Generation
 PMS_MISP_008|MISP ID/MISP License Key does not exist|MISP ID/MISP License Key not available in database
+
+
+# Partner Service
+This service details used by Partner to maintain the thier data by providing his/her basic details.
+
+* [GET /partners/policies](#get-partnerspolicies)
+* [GET /partners/{apiKeyRequestNo}](#get-partnerspolicies)
+* [POST /partners/key](#post-partnerskey)
+
+
+### GET /partners/policies
+This request will retrieve the policies available for my policy group so that he/she can place a request for a partner api key. 
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/policies</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Config parameter retrieved successfully 
+```JSON
+{
+  "id": "mosip.partnermanagement.partner.policies",
+  "version": "1.0",
+  "responsetime": "2019-05-14T16:01:20.534Z",
+  "response": {
+     "policies": [
+	   {
+        "id": "pol_1"",
+        "name": "pol name 1"",
+        "desc": "Desc about pol_1"",
+        "policy_file_id": "policy_file_id_1"",
+        "is_active": true,
+        "cr_by": "MOSIP"",
+        "cr_dtimes": null,
+        "up_by": "MOSIP"",
+        "upd_dtimes": null,
+        "is_deleted": false,
+        "del_dtimes": null
+       },
+      {
+        "id": "pol_1"",
+        "name": "pol name 1"",
+        "desc": "Desc about pol_1"",
+        "policy_file_id": "policy_file_id_1"",
+        "is_active": true,
+        "cr_by": "MOSIP"",
+        "cr_dtimes": null,
+        "up_by": "MOSIP"",
+        "upd_dtimes": null,
+        "is_deleted": false,
+        "del_dtimes": null
+       }
+     ]
+	}
+  "errors": null
+}
+```
+
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No MISP found for the organization
+```JSON
+{
+  "id": "mosip.partnermanagement.partner.policies",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PS_001",
+      "message": "Partner does not exist"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PS_001|Partner does not exist|Not an authorised Partner - UserName not available in database
+PMS_PS_002|Your password has expired. Please reset your password|Password expired
+PMS_PS_003|No active policy available in the Policy Group|No active policies exist in the policy Group
+PMS_CORE_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_CORE_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### GET /partners/{apiKeyRequestNo}
+This request will retrieve the Partner api key/partner api key request status
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{apiKeyRequestNo}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Config parameter retrieved successfully 
+```JSON
+{
+  "id": "mosip.partnermanagement.partner.key.status",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:47:10.838Z",
+  "response": {
+   "status":"Issued"
+   "partnerApikey":"fa604-ffcd-33201-4770",
+   "expiryDate":"2019-12-03"
+  },
+  "errors": null
+}
+```
+
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partner.policies",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PS_001",
+      "message": "Partner does not exist"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PS_001|Partner does not exist|Not an authorised Partner - UserName not available in database
+PMS_PS_002|Your password has expired. Please reset your password|Password expired
+PMS_PS_003|No active policy available in the Policy Group|No active policies exist in the policy Group
+PMS_CORE_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_CORE_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### POST /partners/key
+This request is used to submit Partner api key request
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/key</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.parameter.key.submit",
+  "ver": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "policyName": "Banking",
+      "description": "Use Case Description for which the partner requests the partner api key."
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Config parameter retrieved successfully 
+```JSON
+{
+  "id": "mosip.partnermanagement.parameter.key.submit",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:47:10.838Z",
+  "response": {
+   "keyRequestNo":"456786545",
+   "status":"In-Progress",
+  },
+  "errors": null
+}
+```
+
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.parameter.key.submit",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PS_001",
+      "message": "Partner does not exist"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PS_001|Partner does not exist|Not an authorised Partner - UserName not available in database
+PMS_PS_002|Your password has expired. Please reset your password|Password expired
+PMS_PS_003|No active policy available in the Policy Group|No active policies exist in the policy Group
+PMS_CORE_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_CORE_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+
+#Sachin Updates
+## Policy Management Service
+This service is used to manage policies.
+
+* [GET /policies](#get-policies)
+* [POST /policies](#post-policies)
+* [GET /policies/{policyID}](#get-policiespolicyid)
+* [POST /policies/{policyID}](#post-policiespolicyid)
+* [PUT /policies/{policyID}](#put-policiespolicyid)
+* [GET /policies/{PartnerAPIKey}](#get-policiespolicyid)
+
+## Partner Management Service
+This service enables partner managers to manage respective partners, manage partner API Key requests, manage PartnerAPIKeys to Policies mappings.
+
+* [GET /pmpartners](#get-pmpartners)
+* [GET /pmpartners/{partnerID}](#get-pmpartnerspartnerid)
+* [PUT /pmpartners/{partnerID}](#put-pmpartnerspartnerid)
+* [GET /pmpartners/{partnerID}/{PartnerAPIKey}](#get-pmpartnerspartneridpartnerapikey)
+* [POST /pmpartners/{partnerID}/{PartnerAPIKey}](#post-pmpartnerspartneridpartnerapikey)
+* [PUT /pmpartners/{partnerID}/{PartnerAPIKey}](#put-pmpartnerspartneridpartnerapikey)
+* [GET /pmpartners/PartnerAPIKeyRequests](#get-pmpartnerspartnerapikeyrequest)
+* [GET /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}](#get-pmpartnerspartnerapikeyrequestapikeyreqid)
+* [PUT /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}](#put-pmpartnerspartnerapikeyrequestapikeyreqid)
+
+## Partner Service
+This service enables partners to do self registration, submit request for respective authentication policies, sharing of digital certificate for secure communication: 
+
+* [POST /partners](#post-partners)
+* [GET /partners/{partnerID}](#post-partnerspartnerid)
+* [PUT /partners/{partnerID}](#put-partnerspartnerid)
+* [GET /partners/{partnerID}/partnerAPIKeyRequest}](#get-partnerspartneridpartnerapikeyrequest)
+* [POST /partners/{partnerID}/partnerAPIKeyRequest}](#post-partnerspartneridpartnerapikeyrequest)
+* [POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}}](#post-partnerspartneridpartnerapikeyrequestrequestid)
+* [GET /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#get-partnerspartneridpartnerapikeyrequestrequestid)
+* [POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#post-partnerspartneridpartnerapikeyrequestrequestid)
+* [POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#post-partnerspartneridpartnerapikeyrequestrequestid)
+* [GET /partners/digitalcertificate](#get-partnersdigitalcertificate)
+* [POST /partners/digitalcertificate](#get-partnersdigitalcertificate)
+* [PUT /partners/digitalcertificate](#get-partnersdigitalcertificate)
+
+
+### GET /policies
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+#### Request:
+```JSON
+{
+  
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: 
+```JSON
+{
+  
+}
+
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: 
+
+```JSON
+{
+  
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+
+### POST /policies
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+#### Request:
+```JSON
+{
+  
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: 
+```JSON
+{
+  
+}
+
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: 
+
+```JSON
+{
+  
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+
+### GET /policies/{policyID}
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+#### Request:
+```JSON
+{
+  
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: 
+```JSON
+{
+  
+}
+
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: 
+
+```JSON
+{
+  
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+
+
+
+### POST /policies/{policyID}
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+#### Request:
+```JSON
+{
+  
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: 
+```JSON
+{
+  
+}
+
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: 
+
+```JSON
+{
+  
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+
+
+
+### PUT /policies/{policyID}
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+#### Request:
+```JSON
+{
+  
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: 
+```JSON
+{
+  
+}
+
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: 
+
+```JSON
+{
+  
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+
+
+
+### GET /policies/{PartnerAPIKey}
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies/{PartnerAPIKey}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+
+#### Request:
+```JSON
+{
+  
+}
+
+```
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: 
+```JSON
+{
+  
+}
+
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: 
+
+```JSON
+{
+  
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+
