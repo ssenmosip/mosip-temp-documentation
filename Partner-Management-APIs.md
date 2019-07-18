@@ -174,7 +174,7 @@ request.address|Optional|MISP address|india
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.update",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
@@ -274,7 +274,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.license.validate",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
@@ -363,7 +363,7 @@ request.msipStatus|Yes|MISP status|Deactive
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.status.update",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
@@ -456,7 +456,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.license.update",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
@@ -745,7 +745,6 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
         "id": "45678451034176",
         "name": "Loan Policy",
         "desc": "Desc about policy",
-        "policy_file_id": "policy_file_id_1",
         "is_active": true,
         "cr_by": "MOSIP",
         "cr_dtimes": "2019-05-14T16:01:20.534Z",
@@ -830,7 +829,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 ```JSON
 {
   "id": "mosip.partnermanagement.policy.create",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
@@ -1037,7 +1036,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 ```JSON
 {
   "id": "mosip.partnermanagement.policy.update",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-15T16:01:20.534Z",
   "metadata": {},
   "request": {
@@ -1149,7 +1148,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 ```JSON
 {
   "id": "mosip.partnermanagement.policy.update.status",
-  "ver": "1.0",
+  "version": "1.0",
   "requesttime": "2019-05-15T16:01:20.534Z",
   "metadata": {},
   "request": {
