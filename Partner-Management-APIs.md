@@ -833,32 +833,32 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
-      "name": "Insurence Policy",
-      "desc": "Desc about policy",
-      "policies": {
+       "name": "Insurance Policy",
+       "desc": "Desc about policy",
+       "policies": {
             "authPolicies": [ 	
-					{"authType": "otp","mandatory": true},
-					{"authType": "demo","mandatory": false},
-					{"authType": "bio","authSubType": "FINGER","mandatory": true},
-					{"authType": "bio","authSubType": "IRIS","mandatory": false},
-					{"authType": "bio","authSubType": "FACE","mandatory": false},
-					{"authType": "kyc","mandatory": false}
-			],
-            "allowedKycAttributes": [  
-					{"attributeName": "fullName","required": true},
-					{"attributeName": "dateOfBirth","required": true},
-					{"attributeName": "gender","required": true},
-					{"attributeName": "phone","required": true},
-					{"attributeName": "email","required": true},
-					{"attributeName": "addressLine1","required": true},
-					{"attributeName": "addressLine2","required": true},
-					{"attributeName": "addressLine3","required": true},
-					{"attributeName": "location1","required": true},
-					{"attributeName": "location2","required": true},
-					{"attributeName": "location3","required": true},
-					{"attributeName": "postalCode","required": false},
-					{"attributeName": "photo","required": true}
-			]
+			{"authType": "otp","mandatory": true},
+			{"authType": "demo","mandatory": false},
+			{"authType": "bio","authSubType": "FINGER","mandatory": true},
+			{"authType": "bio","authSubType": "IRIS","mandatory": false},
+			{"authType": "bio","authSubType": "FACE","mandatory": false},
+			{"authType": "kyc","mandatory": false}
+		    ],
+                    "allowedKycAttributes": [  
+			{"attributeName": "fullName","required": true},
+			{"attributeName": "dateOfBirth","required": true},
+			{"attributeName": "gender","required": true},
+			{"attributeName": "phone","required": true},
+			{"attributeName": "email","required": true},
+			{"attributeName": "addressLine1","required": true},
+			{"attributeName": "addressLine2","required": true},
+			{"attributeName": "addressLine3","required": true},
+			{"attributeName": "location1","required": true},
+			{"attributeName": "location2","required": true},
+			{"attributeName": "location3","required": true},
+			{"attributeName": "postalCode","required": false},
+			{"attributeName": "photo","required": true}
+		 ]
         }
     }
 }
