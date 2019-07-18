@@ -1,16 +1,10 @@
-## Specification for MOSIP Compliant Biometric Device
-
-### Technical Specification & Compliance
-
+## Technical Specification for MOSIP Compliant Biometric Device
 
 June 2019 | Version: 0.8.4
 Status: Draft
 ### Table of Contents
 
-### Introduction & Background
 
-MOSIP is a not-for-profit organization building an open source foundational identity system. The project aims at providing key components, modules, and functionalities, to help governments and agencies across the globe, to build a robust, scalable and secure platform for foundational identity.
-More information on MOSIP can be found here: [www.mosip.io](http://www.mosip.io)
 
 **Objective**
 The objective of this specification document is to establish the technical and compliance standards/ protocols that are necessary for a biometric device to be used in MOSIP solutions.
@@ -590,5 +584,119 @@ callbackId - this differs as per the OS. In case of linux and windows operating 
 Note: The response is an array that we could have a single device enumerating with multiple biometric options.
 
 
+Note: The service should ensure to respond only if the type parameter matches the type of device or the type parameter is a “Biometric Device”.
+
+**Windows/Linux:**
+All the device API will be based on the HTTP specification. The device always binds to 127.0.0.1 with any of the available ports ranging from 4501 - 4600.  The IP address used for binding has to be 127.0.0.1 and not localhost.
+The applications that require access to MOSIP devices could discover them by sending the http request to the supported port range.
+
+**_HTTP Request:_**
+
+MOSIPDISC http://127.0.0.1:<device_service_port>/device
+HOST: 127.0.0.1: <apps port>
+EXT: <app name>
+
+**_HTTP Response:_**
+
+HTTP/1.1 200 ok
+CACHE-CONTROL:no-store
+LOCATION:http://127.0.0.1:<device_service_port>
+Content-Length: length in bytes of the body
+Content-Type: application/json
+Connection: Closed
+Note: the pay loads are json in both the cases and are part of the body.
+*callbackId would be set to the [http://127.0.0.1](http://127.0.0.1):<device_service_port>. So, the caller will use the respective verb and the url to call the service.
+
+
+**Android:**
+
+All devices on an android device should listen to the following intent io.mosip.device
+Upon invocation of this intent the devices are expected to respond back with the json response filtered by the respective type.
+*callbackId would be set to the appId. So, the caller will create the intent appId.Info or appId.Capture
+
+
+**IOS**:
+
+All device on an IOS device would respond to the url schema as follows.
+
+MOSIPDISC://<call-back-app-url>?ext=<caller app name>&type=<type as defined in mosip device request>
+
+If a MOSIP compliant device service app exist then the url would launch the service. The service in return should respond back to the caller using the call-back-app-url with the base64 encoded json as the url parameter for the key data.
+
+
+Note: In IOS there are restrictions to have multiple apps registering to the same URL schema.
+
+
+*callbackId would be set to the device service appname. So, the caller has to call appnameInfo or appnameCapture as the url scheme.
+
+
+#### Device Info:
+
+The device information API would be used to identify the MOSIP compliant devices and their status by the applications.
+
+Device Info Request:
+
+**Request:**
+
+NONE
+
+**Accepted Values **
+
+**Response:**
+
+```
+[
+{
+“type”: <exact type>,
+“subType”: <sub type>,
+“status”: <current status>,
+“deviceInfo”:
+{
+    “deviceId”: <unique id to identify a biometric capture device>,
+    “deviceSubId”: <an array of sub ids that are available>
+
+        “firmware”: <firmware version>,
+        “deviceProviderName”: <device provider name>,
+
+    “deviceProviderId”: <device provider id>,
+        “deviceModel”: <device model>,
+        “deviceMake”: <device make>,
+        “deviceExpiry”: <device expiry date>,
+        “certification”:  <certification level>,
+        “timestamp”:  <ISO format time>
+    },
+
+ “deviceInfoSignature”: <signature of the device info element>,
+“serviceVersion”: <version of the service>,
+“callbackId”: <the unique way to call back>,
+“deviceSubId”: <device sub id’s> ,
+"error": {
+"errorcode": "101",
+"errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} "
+}
+}
+]
+```
+**Allowed values:**
+```
+type - “Finger” “Face”, ”Iris”
+subType - subtype is based on the type.
+	Finger - “Slab”, “Single”, “Touchless”
+                Iris - “Single”, “Double”
+               Face - Full face
+status - “Ready”, “Busy”, “Not Ready”
+deviceInfo.firmware - Exact version of the firmware
+deviceInfo.deviceProviderName - Device provider name
+deviceInfo.deviceProviderId - ID provided after the registration of the device provider.
+deviceInfo.deviceModel - model of the biometric device,
+deviceInfo.deviceMake - make of the device,
+deviceInfo.deviceExpiry - A date after which the device is considered as too old to use. Both from the usability aspect as well as security, as technology evolves what we consider secure today could potentially become insecure.
+certification - “L0”, “L1” - Level of certification
+timestamp - ISO format timestamp
+serviceVersion - Version of the current document.
+deviceId - Internal Id to identify the actual biometric device within the device service.
+deviceSubId - is the internal id of the device. In case of iris when we have two iris capture modules in a single device, it is possible to address each device with a sub id so we can identify or command each of it in isolation. This in an index that always starts with 1 and increments sequentially.
+```
+**_Note_**: The response is an array that we could have a single device enumerating with multiple biometric options.
 Note: The service should ensure to respond only if the type parameter matches the type of device or the type parameter is a “Biometric Device”.
 
