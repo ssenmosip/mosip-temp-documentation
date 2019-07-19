@@ -2,7 +2,10 @@
     * [ABIS Interface](Automated-Biometric-Identification-System-(ABIS)-Interface)
     * [ABIS APIs](ABIS-APIs)
 * [MOSIP Device Service Specification](MOSIP-Device-Service-Specification)
-* BioAPI SDK
+* [Biometric Functions API Specification](Biometric-Functions-API-Specification)
+
+[Low-level design documents](mosip-docs/tree/master/design)
+
 1. Transliteration Interface
 https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-transliteration.md
 https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j
