@@ -4,7 +4,7 @@
 * [MOSIP Device Service Specification](MOSIP-Device-Service-Specification)
 * [Biometric Functions API Specification](Biometric-Functions-API-Specification)
 
-[Low-level design documents](mosip-docs/tree/master/design)
+[Low-level design documents](https://github.com/mosip/mosip-docs/tree/master/design)
 
 1. Transliteration Interface
 https://github.com/mosip/mosip/blob/master/docs/design/kernel/kernel-transliteration.md
