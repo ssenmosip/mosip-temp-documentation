@@ -1,0 +1,6 @@
+Hi $name_eng,
+
+Your $VID has been successfully revoked.
+
+Thanks and Regards,
+MOSIP Team

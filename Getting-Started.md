@@ -994,17 +994,19 @@ Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/
 
 ### 6.9 Installation of ActiveMQ
 ActiveMQ is the message broker used for MOSIP Registartion processor module. 
+
 #### Installation steps
+* ``` <version> ``` : please check http://www.apache.org/dist/activemq/ to find out the latest version.
 * Prerequiste:<br/>
         A machine with RHEL 7.5 installed, Docker installed and Docker service enabled.
 * Download activemq using command - <br/>
-``` wget http://www.apache.org/dist//activemq/apache-activemq/5.15.0/apache-activemq-5.15.0-bin.tar.gz ```
+``` wget http://www.apache.org/dist/activemq/<version>/apache-activemq-<version>-bin.tar.gz ```
 * Extract the archive <br/>
-``` tar -zxvf apache-activemq-5.15.0-bin.tar.gz ```
+``` tar -zxvf apache-activemq-<version>-bin.tar.gz ```
 * Change the permission for startup script<br/>
-``` chmod 755 apache-activemq-5.15.0 ```
+``` chmod 755 apache-activemq-<version> ```
 * Start activemq service<br/>
-``` cd apache-activemq-5.15.0 && sudo  ./bin/activemq start ```
+``` cd apache-activemq-<version> && sudo  ./bin/activemq start ```
 * Check for the installed and started activemq on port 61616. <br/>
 ```netstat -tulpn```
 * Open ports 8161 and 61616  on the VM:

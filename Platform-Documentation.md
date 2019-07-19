@@ -231,7 +231,7 @@ This module exposes few REST APIs which can be used to create/update/retrieve id
 
 * [Pre-Registration APIs](Pre-Registration-Services)
 * [Registration Processor APIs](Registration-Processor-APIs)
-* [ID Authentication APIs](ID-Authentication).
+* [ID Authentication APIs](ID-Authentication-APIs).
 * [Resident Services APIs (WIP)](Resident-Service-APIs).
 * [Partner Management APIs (WIP)](Partner-Management-APIs)
 * [ABIS APIs](ABIS-APIs).

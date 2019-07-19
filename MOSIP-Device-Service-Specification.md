@@ -1,10 +1,30 @@
-## Technical Specification for MOSIP Compliant Biometric Device
+# Technical Specification for MOSIP Compliant Biometric Device
 
 June 2019 | Version: 0.8.4
 Status: Draft
-### Table of Contents
+
+---
+## Table of Contents
 
 
+1. [Introduction & Background](#1-introduction--background)
+1. [Glossary of Terms](#2-glossary-of-terms)
+1. [Device Specification](#3-device-specification)
+1. [Device Trust](#4-device-trust)
+1. [Device Service - Communication Interfaces](#5-device-service---communication-interfaces)
+    1. [Device Discovery](#5i-device-discovery)	
+    1. [Device Info](#5ii-device-info)	
+    1. [Capture](#5iii-capture)
+    1. [Device Stream](#5iv-device-stream)	
+    1. [Device Registration Capture](#5v-device-registration-capture)	
+1. [Device Server](#6-device-server)	
+    1. [Registration](#6i-registration)	
+    1. [De-Register](#6ii-de-register)	
+1. [Management Server](#7-management-server)	
+1. [Compliance](#8-compliance)
+
+---
+## 1. Introduction & Background
 
 **Objective**
 The objective of this specification document is to establish the technical and compliance standards/ protocols that are necessary for a biometric device to be used in MOSIP solutions.
@@ -16,7 +36,9 @@ This document assumes that the readers are familiar with MOSIP registration and 
 **MOSIP Devices**
 All devices that collect biometric data for MOSIP should operate within the specification of this document.
 
-### Glossary of Terms
+---
+## 2. Glossary of Terms
+
 * Device Provider - An entity that manufactures or imports the devices in their name. This entity should have legal rights to obtain an organization level digital certificate from the respective government.
 * Foundational Trust Provider - An entity that manufactures the foundation trust module.
 Device - A biometric device
@@ -29,7 +51,9 @@ Foundational Trust Provider Certificate - A digital certificate issued to the �
 * Auth - The process of verifying one’s identity.
 * FPS - Frames Per Second
 
-### Device Specification
+---
+## 3. Device Specification
+
 
 The MOSIP device specification provides compliance guidelines to devices for them to work with MOSIP. The compliance is based device capability, trust and communication protocols. A MOSIP compliant device would follow the standards established in this document. A certification process will be established against this specification to test and validate the device compliance. The details of each of these are outlined in the subsequent sections.
 
@@ -364,7 +388,9 @@ ISO/IEC 19785-3:2015
 
 We recommend that countries look at ergonomics, accessibility, ease of usage, and common availability of devices while choosing devices for use in registration and authentication scenarios.
 
-### Device Trust
+---
+## 4. Device Trust
+
 
 MOSIP compliant devices provide a trust environment for the devices to be used in registration, KYC and auth scenarios. The trust level is established based on the device support for trusted execution.
 
@@ -457,7 +483,9 @@ Signed with the JSON Web Signature using the “Foundational Trust Module” Ide
 dateTime:  ISO format with timezone.  Identity request time \
 
 ```
-### Device Service - Communication Interfaces
+---
+## 5. Device Service - Communication Interfaces
+
 
 The section explains the necessary details of the biometric device connectivity, accessibility, discoverability and protocols used to build and communicate with the device.
 
@@ -468,7 +496,7 @@ It is expected that the device service ensures that the device is connected  loc
 
 **Specifications for Windows and Linux**
 
-#### Device Discovery:
+### 5(i) Device Discovery:
 
 Device discovery would be used to identify MOSIP compliant devices in a system by the applications. The protocol is designed as simple plug and play with all the necessary abstraction to the specifics.
 
@@ -630,7 +658,7 @@ Note: In IOS there are restrictions to have multiple apps registering to the sam
 *callbackId would be set to the device service appname. So, the caller has to call appnameInfo or appnameCapture as the url scheme.
 
 
-#### Device Info:
+### 5(ii) Device Info:
 
 The device information API would be used to identify the MOSIP compliant devices and their status by the applications.
 
@@ -732,7 +760,7 @@ If a MOSIP compliant device service app exist then the url would launch the serv
 Note: In IOS there are restrictions to have multiple app registering to the same URL schema.
 
 
-#### Capture:
+### 5(iii) Capture:
 
 
 The capture request would be used to capture a biometric from MOSIP compliant devices by the applications.  The capture call will respond with success to only one call at a time. So in case of a parallel call the device info details are sent with status as “Busy”
@@ -1063,9 +1091,7 @@ APPIDCAPTURE://<call-back-app-url>?ext=<caller app name>&type=<type as defined i
 If a MOSIP compliant device service app exist then the url would launch the service. The service in return should respond back to the called using the call-back-app-url with the base64 encoded json as the url parameter for the key data.
 
 
-###
-Device Stream:
-
+### 5(iv) Device Stream
 
 The device would open a stream channel to send the live video streams. This would help when there is an assisted operation to collect biometric.  Please note the stream API’s are available only for registration environment.
 
@@ -1187,9 +1213,7 @@ No support for streaming
 No support for streaming
 
 
-###
-Device Registration Capture:
-
+### 5(v) Device Registration Capture:
 
 The registration client application will send sample API. The sample API’s response will provide the actual biometric data in a digitally signed non encrypted form.   When the Device Registration Capture API is called the frames should not be added to the stream. The device is expected to send the images as well as its extraction values. For e.g. the segmented JPEG image is in the bioValue and the segmented and extracted will fit into the bioExtract.
 
@@ -1497,24 +1521,14 @@ No support for Registration Capture
 No support for Registration Capture
 
 
+---
+## 6. Device Server
 
-
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Mosip-Device6.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/Mosip-Device6.png "image_tooltip")
-
-
-
-##
-Device Server
 
 The device server exposes two external device APIs to manage devices. These will be consumed from Management Server created by the device provider. Refer to the subsequent section in this document.
 
 
-### Registration:
+### 6(i) Registration:
 
 The MOSIP server would provide the following device registration API which is whitelisted to the management servers of the device provider or their partners.
 
@@ -1642,8 +1656,7 @@ Response:
 The response should be sent to the device. The device is expected to store the deviceCode within its storage in a safe manner. This device code is used during the capture stage.
 
 
-###
-De-Register:
+### 6(ii) De-Register:
 
 http://device.mosip.io /device/deregister
 
@@ -1665,53 +1678,27 @@ Request:
 
 }
 
-
-
-
-
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Mosip-Device7.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/Mosip-Device7.png "image_tooltip")
-
-
-
-##
-Management Server
+---
+## 7. Management Server
 
 
 The management server has the following objectives.
 
-
-
 1. Validate the devices to ensure its a genuine device from the respective device provider. This can be achieved using the device info and the certificates for the Foundational Trust Module.
-2. Register the genuine device with the MOSIP device server.
-3. Manage/Sync time between the end device the server. The time to be synced should be the only trusted time accepted by the device.
-4. Ability to issue commands to the end device for
+1. Register the genuine device with the MOSIP device server.
+1. Manage/Sync time between the end device the server. The time to be synced should be the only trusted time accepted by the device.
+1. Ability to issue commands to the end device for
     1. Key rotation of the end device
-    2. De-registration of the device
-    3. Collect device info
+    1. De-registration of the device
+    1. Collect device info
 1. A central repository of all the approved devices from the device provider.
-2. Safe storage of keys using HSM FIPS 140-2 Level 3. These keys are used to issue the device certificate upon registration.
+1. Safe storage of keys using HSM FIPS 140-2 Level 3. These keys are used to issue the device certificate upon registration.
 
 The Management Server is created and hosted by the device provider outside of MOSIP software. The communication protocols between the MDS and the Management Server can be decided by the respective device provider. Such communication should be restricted to the above specified interactions only. No transactional information should be sent to this server.
 
- \
 
-
-
-
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/Mosip-Device8.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/Mosip-Device8.png "image_tooltip")
-
-
-
-##
-Compliance
+---
+## 8. Compliance
 
 L1 Certified Device / L1 Device - A device certified as capable of performing encryption on the device inside its trusted zone.
 

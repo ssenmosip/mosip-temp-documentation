@@ -1,0 +1,6 @@
+Hi $name_eng,
+
+The $UIN/$VID entered is not valid. Please enter a valid $UIN/$VID.
+
+Thanks and Regards,
+MOSIP Team
