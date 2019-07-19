@@ -1,4 +1,4 @@
-## Biometric Functions API ##
+## Biometric Functions API
 
 **Draft 2 (4th April, 2019)**
 
@@ -27,31 +27,20 @@ MOSIP uses biometrics in the registration and the authentication processes. As p
    </td>
   </tr>
   <tr>
-   <td>Signature
-   </td>
+   <td>Signature</td>
    <td>
-    <ul>Input Parameters</ul>
-    <li> Biometric Image in “Biometric Image Record” format. This could be FIR, IIR etc.
-
+    <ul>Input Parameters
+    <li> Biometric Image in “Biometric Image Record” format. This could be FIR, IIR etc.</li>
     <li>Control Flags is an optional list of name value pairs that can be used to configure the behavior of the library.</li>
     </ul>
-
-    <ul>Output Parameters</ul>
-
-
-    QualityScore object with Quality score and Analytics. The quality score is on a scale of 100 - Higher is better.
-<p>
-
-    <b>Errors / Exceptions</b>
-<p>
-
-    Unsupported biometric type
-<p>
-
-    Unsupported image format
-<p>
-
-    Processing error
+    <ul>Output Parameters
+<li>QualityScore object with Quality score and Analytics. The quality score is on a scale of 100 - Higher is better.</li>
+</ul>
+<ul>Errors / Exceptions</b>
+    <li> Unsupported biometric type</li>
+    <li>Unsupported image format</li>
+    <li>Processing error</li>
+</ul>
    </td>
   </tr>
   <tr>
@@ -61,42 +50,36 @@ MOSIP uses biometrics in the registration and the authentication processes. As p
     Fingerprint
 <ul>
 
-<li>The biometric image record is a Fingerprint Image Record. The FIR structure is explained in a later section
+<li>The biometric image record is a Fingerprint Image Record. The FIR structure is explained in a later section</li>
 
-<li>The image is a jpeg2000 format lossless image
+<li>The image is a jpeg2000 format lossless image</li>
 
-<li>The quality score will be using NFIQ2 for 500 dpi images and NFIQ for other densities
+<li>The quality score will be using NFIQ2 for 500 dpi images and NFIQ for other densities</li>
 
-<li>The analytics data returned can have information on finger index, liveness, etc.
-<p>
+<li>The analytics data returned can have information on finger index, liveness, etc.</li>
+</ul>
 
-    IRIS
+Iris
+<ul>
+<li>The biometric image record is a Iris Image Record. The IIR structure is explained in a later section</li>
+
+<li>The image is a jpeg2000 format lossless image</li>
+
+<li>The quality score will be on a scale of 100 and will factor focus, blur, eyelid position etc.</li>
+
+<li>The analytics data returned can have information on eye index, eyelid position, iris obscuration, gaze angle etc.</li>
+
+</ul>
+Face
 <ul>
 
-<li>The biometric image record is a Iris Image Record. The IIR structure is explained in a later section
+<li>The biometric image record is a Face Image Record. The  FaceIR structure is explained in a later section</li>
 
-<li>The image is a jpeg2000 format lossless image
+<li>The image is a jpeg2000 format lossless image</li>
 
-<li>The quality score will be on a scale of 100 and will factor focus, blur, eyelid position etc.
+<li>The quality score will be on a scale of 100 and will factor ICAO standards</li>
 
-<li>The analytics data returned can have information on eye index, eyelid position, iris obscuration, gaze angle etc.
-<p>
-
-    Face
-<ul>
-
-<li>The biometric image record is a Face Image Record. The  FaceIR structure is explained in a later section
-
-<li>The image is a jpeg2000 format lossless image
-
-<li>The quality score will be on a scale of 100 and will factor ICAO standards
-
-<li>The analytics data returned can have information on tilt, missing landmarks, lighting etc.
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>The analytics data returned can have information on tilt, missing landmarks, lighting etc.</li>
 </ul>
    </td>
   </tr>
@@ -138,40 +121,27 @@ MOSIP uses biometrics in the registration and the authentication processes. As p
    <td>Signature
    </td>
    <td>
-    <span style="text-decoration:underline;">Input Parameters</span>
-<p>
+<p>Input Parameters</p>
+<ul>
+<li> Sample Input Image Record (1) - This is a Biometric Image Record with metadata and image data. This is the freshly received input which needs to be matched.</li>
+<li> Match List of Image Records (n) - This is the set of biometrics on record that the input images needs to be matched against. The smaller this list the better the performance. Also there will be outer limits to the size of this list based on the library used.</li>
+<li> Control Flags is an optional list of name value pairs that can be used to configure the behavior of the library.<ul>
+</ul>
 
-    Sample Input Image Record (1) - This is a Biometric Image Record with metadata and image data. This is the freshly received input which needs to be matched.
-<p>
+<p>Output Parameters</p>
 
-    Match List of Image Records (n) - This is the set of biometrics on record that the input images needs to be matched against. The smaller this list the better the performance. Also there will be outer limits to the size of this list based on the library used.
-<p>
+<li>List of MatchScore object with Match score and Analytics. The match score is on a scale of 100 - Higher is better.</li>
 
-    Control Flags is an optional list of name value pairs that can be used to configure the behavior of the library.
-<p>
+<p>Errors / Exceptions</p>
 
-    <span style="text-decoration:underline;">Output Parameters</span>
-<p>
+<ul>
+<li>Unsupported biometric type</li>
+<li>Unsupported image format</li>
+<li>Mismatch in biometric types (sample to record)</li>
+<li>Mixed biometric types (mix of types in the on records list)</li>
+<li>Processing error</li>
+</ul>
 
-    List of MatchScore object with Match score and Analytics. The match score is on a scale of 100 - Higher is better.
-<p>
-
-    <span style="text-decoration:underline;">Errors / Exceptions</span>
-<p>
-
-    Unsupported biometric type
-<p>
-
-    Unsupported image format
-<p>
-
-    Mismatch in biometric types (sample to record)
-<p>
-
-    Mixed biometric types (mix of types in the on records list)
-<p>
-
-    Processing error
    </td>
   </tr>
   <tr>
