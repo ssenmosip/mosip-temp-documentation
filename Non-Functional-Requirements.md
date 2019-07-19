@@ -1,5 +1,5 @@
 WIP
-## Table Of Content
+## Table Of Contents
 - [1. Performance](#1-performance-) _(NFR_1)_
   * [1.1 Responsiveness(Under Different Load Conditions)](#11-responsiveness-Under-Different-Load-Conditions) _(NFR_1.1)_
 - [2. Availabiity](#2-availability-) _(NFR_2)_
@@ -23,7 +23,7 @@ WIP
 - [9. Data Archival](#9-data-archival) _(NFR_9)
   * [9.1 Archival Policy](#91-archival-policy) _(NFR_9.1)_
 
-## 1. Performance [**[↑]**](#table-of-content)
+## 1. Performance [**[↑]**](#table-of-contents)
 Performance plays a very important role in the MOSIP platform. The services and the UI have to adhere to the agreed SLAs. Following are the important factors in the peformance section, 
 ### 1.1 Response Time
  - Any response of the API service does not exceed 300 milliseconds.
@@ -36,7 +36,7 @@ Performance plays a very important role in the MOSIP platform. The services and 
  - The Pre-Registration module does support 1000 concurrent users at a time. 
  - The IDA module does support 100 concurrent users at a time. 
 
-## 2. Availability [**[↑]**](#table-of-content)
+## 2. Availability [**[↑]**](#table-of-contents)
 Most of the services and the applications are available at all time. Whenever there is a upgradation, few instances are taken out and traffic is redirected to the live servers. Once the application upgradation is done, the traffic is redirected to the upgraded systems. This redirection happens at the same instance for all the modules in the platform. Following are the availability of the various modules, 
 ### 2.1 Kernel
 - All the Kernel API services are available 24/7 throughout the year. 
@@ -50,7 +50,7 @@ Most of the services and the applications are available at all time. Whenever th
 ### 2.4 IDA
 - The IDA services are available 24/7 throughout the year.  
 
-## 3. Scalability [**[↑]**](#table-of-content)
+## 3. Scalability [**[↑]**](#table-of-contents)
 Whenever, a module is unable to adhere to the agreed response time, more instances are spun up to manage the increase in the traffic or load. The following modules does have the capability to scale up or scale down, 
 1. Kernel components
 2. Pre-Registration components
@@ -58,7 +58,7 @@ Whenever, a module is unable to adhere to the agreed response time, more instanc
 
 Virtualization techniques are used to scale up or down. Based on the load, the system automatically does be able to scale up or scale down. 
 
-## 4. Security [**[↑]**](#table-of-content)
+## 4. Security [**[↑]**](#table-of-contents)
 Security is the prime concern in the platform. Security comes above all other Non-functional requirements. Following are the main areas in which the security had been looked into, 
 ### 4.1 Network Security
 The various machines and devices in the network are differentiated and located in segregated zones. These zones has separate policy and network parameters for better accesibility. Please refer to the <TODO> document for the network architecture diagram. 
@@ -69,7 +69,7 @@ The communication network packets across the network are encrypted using the Asy
 The key sensitive data are stored in an encrypted format in the database. 
 Keys are rotated periodically to keep the keys itself as confidential. The keys are encrypted by the master key. The master key itself are saved in the Hardware Security Module. 
 
-## 5. Internationalization [**[↑]**](#table-of-content)
+## 5. Internationalization [**[↑]**](#table-of-contents)
 ### 5.1 Number Format
 English numerals are used in the MOSIP platform. Integers with no decimal points and decimal points upto 2 places are used as standards. 
 ### 5.2 Date Format
@@ -81,7 +81,7 @@ In the web services,  UTC standard ISO8601 format is used. However, in the logs 
 ### 5.3 Languages
 In the webservices and in the persistent layer, ISO 639_2 standards is used to represent the language. Internationalization are used in the front end application by i18 properties files. From the persistent layer, languages are saved as the attribute for the entities. 
 
-## 6. Maintainability [**[↑]**](#table-of-content)
+## 6. Maintainability [**[↑]**](#table-of-contents)
 Once the application is live, following items are considered for the maintenance, 
 ### 6.1 Monitoring
 Critical services health are monitored manually. No monitoring tool and no automatic triggers and notifications are configured. 
@@ -94,14 +94,14 @@ Periodic scanning of the libararies and code are done to get the latest vulnerab
 ### 6.3 Configuration
 The configuration are maintained in a centralized location for easy maintenance. A configuration server serves the configuration required for the modules in the platform. There is a "Global configuration" file which is used commonly across all the modules and each configuration file for the entries used only for a specific module. 
 
-## 7. Recovery (Individual Modules) [**[↑]**](#table-of-content)
+## 7. Recovery (Individual Modules) [**[↑]**](#table-of-contents)
 ### 7.1 Data Recovery (in flight transaction data and data at rest)
 - NA -
 
-## 8. Data Backup [**[↑]**](#table-of-content)
+## 8. Data Backup [**[↑]**](#table-of-contents)
 ### 8.1 Backup Policy
 - NA -
 
-## 9. Data Archival [**[↑]**](#table-of-content)
+## 9. Data Archival [**[↑]**](#table-of-contents)
 ### 9.1 Archival Policy
 - NA -
