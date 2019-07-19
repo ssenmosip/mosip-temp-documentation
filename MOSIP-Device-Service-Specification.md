@@ -1,7 +1,6 @@
-# Technical Specification for MOSIP Compliant Biometric Device
-June 2019 | Version: 0.8.4
-Status: Draft
----
+#### June 2019 | Version: 0.8.4 ####
+#### Status: Draft ####
+
 ## Table of Contents
 
 1. [Introduction & Background](#1-introduction--background)
@@ -9,18 +8,26 @@ Status: Draft
 1. [Device Specification](#3-device-specification)
 1. [Device Trust](#4-device-trust)
 1. [Device Service - Communication Interfaces](#5-device-service---communication-interfaces)
-    5.1. [Device Discovery](#5i-device-discovery)
-    5.2. [Device Info](#5ii-device-info)
-    5.3 [Capture](#5iii-capture)
-    5.4 [Device Stream](#5iv-device-stream)
-    5.5 [Device Registration Capture](#5v-device-registration-capture)
+
+    5.1. [Device Discovery](#51-device-discovery) 
+
+    5.2. [Device Info](#52-device-info) 
+ 
+    5.3 [Capture](#53-capture) 
+
+    5.4 [Device Stream](#54-device-stream) 
+ 
+    5.5 [Device Registration Capture](#55-device-registration-capture) 
+ 
 1. [Device Server](#6-device-server)
-    1. [Registration](#6i-registration)
-    1. [De-Register](#6ii-de-register)
+
+    6.1 [Registration](#61-registration)
+
+    6.2. [De-Register](#62-de-register)
 1. [Management Server](#7-management-server)
 1. [Compliance](#8-compliance)
 ---
-## 1. Introduction & Background
+## 1. Introduction & Background ##
 **Objective**
 The objective of this specification document is to establish the technical and compliance standards/ protocols that are necessary for a biometric device to be used in MOSIP solutions.
 **Target Audience**
