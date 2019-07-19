@@ -1,6 +1,7 @@
 ### Frequently accessed links
 
 * [Platform Documentation - Table of Contents](Platform-Documentation)
+* [Interfaces](Interfaces)
 * [Design Documents](design-documents) 
   * [Registration Client](Registration-Client)
   * [Registration Client Setup](Registration-Client-Setup)
@@ -13,6 +14,7 @@
 * [Contributor Guide](Contributor-Guide)
 * [Releases](MOSIP-Releases)
 * [Roadmap](Roadmap)
+
  
 
 
