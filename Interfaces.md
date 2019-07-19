@@ -7,13 +7,14 @@
 [All Low-level design documents](/mosip/mosip-platform/tree/master/docs/design)
 
 1. Transliteration Interface
+* [Design and Background](mosip/mosip-platform/blob/master/docs/design/kernel/kernel-transliteration.md 
+)
+* [Implementation](mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j  
+)
+1. Validator API
+* [Design and Background](mosip/mosip-platform/blob/master/docs/design/kernel/kernel-idobjectvalidator.md)
+* [Implementation](mosip/mosip-platform/tree/master/kernel/kernel-idobjectvalidator)
 
-https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-transliteration.md 
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j  
-2. Validator API
-
-https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-idobjectvalidator.md 
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-idobjectvalidator  
 3. SMS + Email gateway
 
 https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-emailnotification.md
