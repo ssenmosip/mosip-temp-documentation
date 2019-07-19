@@ -1,4 +1,3 @@
-## Biometric Functions API
 
 **Draft 2 (4th April, 2019)**
 
