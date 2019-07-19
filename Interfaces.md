@@ -7,35 +7,36 @@
 [All Low-level design documents](/mosip/mosip-platform/tree/master/docs/design)
 
 1. Transliteration Interface
-    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-transliteration.md 
+    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-transliteration.md
 )
-    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j  
+    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j
 )
 2. Validator API
     * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-idobjectvalidator.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-idobjectvalidator)
 
-3. SMS + Email gateway
+3. SMS gateway
 
-https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-emailnotification.md
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-emailnotification-service  
-https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-smsnotification.md 
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-smsnotification-service  
-4. HSM
+    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-smsnotification.md)
+    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-smsnotification-service)
 
-https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-keymanager-softhsm.md
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-keymanager-softhsm 
-5. Antivirus
+4. Email Gateway
 
-https://github.com/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-virusscanner.md 
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-virusscanner-clamav  
-6. File System (we are still recommending CEPH to newcomers)
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-ceph
-https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-hdfs 
-7. QR Code scanner
+    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-emailnotification.md)
+    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-emailnotification-service)
 
-https://github.com/mosip/mosip-docs/wiki/Pre-Registration-Services#generate-qr-code-service-public
 
-Some Kernel services are documented here.
-https://github.com/mosip/mosip-docs/wiki/Kernel-APIs
+5. HSM
 
+    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-keymanager-softhsm.md)
+    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-keymanager-softhsm)
+6. Antivirus
+
+    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-virusscanner.md)
+    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-virusscanner-clamav)
+7. File System (we are still recommending CEPH to newcomers)
+    * [Design and Background](/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-ceph)
+    * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-hdfs)
+8. [QR Code scanner](/mosip/mosip-docs/wiki/Pre-Registration-Services#generate-qr-code-service-public)
+
+9. [Kernel services](mosip/mosip-docs/wiki/Kernel-APIs)
