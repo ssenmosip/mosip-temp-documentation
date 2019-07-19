@@ -1,7 +1,7 @@
-#### June 2019 | Version: 0.8.4 ####
-#### Status: Draft ####
+#### June 2019 | Version: 0.8.4 
+#### Status: Draft 
 
-## Table of Contents
+## Table of Contents 
 
 1. [Introduction & Background](#1-introduction--background)
 1. [Glossary of Terms](#2-glossary-of-terms)
@@ -27,14 +27,21 @@
 1. [Management Server](#7-management-server)
 1. [Compliance](#8-compliance)
 ---
-## 1. Introduction & Background ##
+## 1. Introduction & Background 
+
 **Objective**
+
 The objective of this specification document is to establish the technical and compliance standards/ protocols that are necessary for a biometric device to be used in MOSIP solutions.
+
 **Target Audience**
+
 This is a biometric device specification document and aims to help the biometric device manufactures, their developers, and their designers in building MOSIP compliant devices.
 This document assumes that the readers are familiar with MOSIP registration and authentication services.
+
 **MOSIP Devices**
+
 All devices that collect biometric data for MOSIP should operate within the specification of this document.
+
 ---
 ## 2. Glossary of Terms
 * Device Provider - An entity that manufactures or imports the devices in their name. This entity should have legal rights to obtain an organization level digital certificate from the respective government.
@@ -366,6 +373,7 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
    </td>
   </tr>
 </table>
+
 
 ISO/IEC 19785-3:2015
 [http://docs.oasis-open.org/bioserv/BIAS/v2.0/csprd01/schemas/cbeff_ed2.xsd](http://docs.oasis-open.org/bioserv/BIAS/v2.0/csprd01/schemas/cbeff_ed2.xsd)
