@@ -42,6 +42,6 @@
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-hdfs)
 8. [QR Code scanner](/mosip/mosip-docs/wiki/Pre-Registration-Services#generate-qr-code-service-public)
 
-9. [Kernel services](mosip/mosip-docs/wiki/Kernel-APIs)
+9. [Kernel services](Kernel-APIs)
 
 [All Low-level design documents](/mosip/mosip-platform/tree/master/docs/design)
