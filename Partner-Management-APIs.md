@@ -1300,15 +1300,611 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 ## Partner Management Service
 This service enables partner managers to manage respective partners, manage partner API Key requests, manage PartnerAPIKeys to Policies mappings.
 
+* [POST /pmpartners/{partnerID}/{PartnerAPIKey}](#post-pmpartnerspartneridpartnerapikey)
+* [PUT /pmpartners/{partnerID}](#put-pmpartnerspartnerid)
+* [PUT /pmpartners/{partnerID}/{PartnerAPIKey}](#put-pmpartnerspartneridpartnerapikey)
+* [PUT /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}](#put-pmpartnerspartnerapikeyrequestapikeyreqid)
 * [GET /pmpartners](#get-pmpartners)
 * [GET /pmpartners/{partnerID}](#get-pmpartnerspartnerid)
-* [PUT /pmpartners/{partnerID}](#put-pmpartnerspartnerid)
 * [GET /pmpartners/{partnerID}/{PartnerAPIKey}](#get-pmpartnerspartneridpartnerapikey)
-* [POST /pmpartners/{partnerID}/{PartnerAPIKey}](#post-pmpartnerspartneridpartnerapikey)
-* [PUT /pmpartners/{partnerID}/{PartnerAPIKey}](#put-pmpartnerspartneridpartnerapikey)
 * [GET /pmpartners/PartnerAPIKeyRequests](#get-pmpartnerspartnerapikeyrequest)
 * [GET /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}](#get-pmpartnerspartnerapikeyrequestapikeyreqid)
-* [PUT /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}](#put-pmpartnerspartnerapikeyrequestapikeyreqid)
+
+
+### POST /pmpartners/{partnerID}/{PartnerAPIKey}
+This request is used by partner Manager, to update Partner api key to Policy Mappings.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232/fa604-affcd-33201-04770</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.policy.mapping",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+     "oldPolicyID":"54662345634232", 
+	 "newPolicyID":"45662345639999"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Partner api key to Policy Mappings updated successfully.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.policy.mapping",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "message": "Partner api key to Policy Mappings updated successfully"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: old/new Policy %d does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.policy.mapping",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_014",
+      "message": "Policy %d does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_008|Partner api key is not assigned to” + old policy ID+ “ hence cannot be updated with new policy|Partner api key is not assigned to old policy ID hence cannot be updated with new policy
+PMS_PMP_009|Partner api key does not belong to the Policy Group of the Partner Manger|Partner api key does not belong to the Policy Group of the Partner Manger
+PMS_PMP_010|Policy does not belong to the Policy Group of the Partner Manger|Policy does not belong to the Policy Group of the Partner Manger
+PMS_PMP_011|Partner api key Request ID does not exist|Partner api key Request ID does not exist
+PMS_PMP_014|Policy %d does not exist|Policy does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+
+### PUT /pmpartners/{partnerID}
+This request used to activate/deactivate Auth/E-KYC Partners
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.status.update",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "status": "Deactive"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Partner status updated successfully.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.status.update",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "message": "Partner status updated successfully"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Requested partner ID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.status.update",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_005",
+      "message": "Partner ID %d does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_005|Partner ID %d does not exist|Requested Partner ID does not exist
+PMS_PMP_006|Partner Manager is denied permission to activate/deactivate Partner|Partner Manager is denied permission to activate/deactivate Partner
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### PUT /pmpartners/{partnerID}/{PartnerAPIKey}
+This request used by the partner Manager, to update Partner api key to Policy Mappings
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232/fa604-affcd-33201-04770</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikeystatus.update",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "status": "Active"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: PartnerAPIKey status updated successfully.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikeystatus.update",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "message": "Partner API Key status updated successfully"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Requested Partner API Key does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikeystatus.update",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_007",
+      "message": "Partner API Key does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_005|Partner ID %d does not exist|Requested Partner ID does not exist
+PMS_PMP_006|Partner Manager is denied permission to activate/deactivate Partner|Partner Manager is denied permission to activate/deactivate Partner
+PMS_PMP_007|Partner API Key does not exist|Requested Partner API Key does not exist
+PMS_PMP_008|Partner api key is not assigned to” + old policy ID+ “ hence cannot be updated with new policy|Partner api key is not assigned to old policy ID hence cannot be updated with new policy
+PMS_PMP_009|Partner api key does not belong to the Policy Group of the Partner Manger|Partner api key does not belong to the Policy Group of the Partner Manger
+PMS_PMP_010|Policy does not belong to the Policy Group of the Partner Manger|Policy does not belong to the Policy Group of the Partner Manger
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### PUT /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}
+This request used by the partner Manager, to approve/reject Partner api key requests based on api key request id.
+
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/65432345634232</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.approvel",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "status": "Approved"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: PartnerAPIKey approved successfully.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikeystatus.update",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "message": "PartnerAPIKey approved successfully"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Requested Partner API Key Request ID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikeystatus.update",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_007",
+      "message": "Partner api key Request ID does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_011|Partner api key Request ID does not exist|Partner api key Request ID does not exist
+PMS_PMP_012|Partner Manager is denied permission to approve or reject the request|Partner Manager is denied permission to approve or reject the request
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### GET /pmpartners
+This request will retrieve all Auth/E-KYC Partners for the particular policy group.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: retrieve the partner details for the particular policy group.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+         "partners" : [
+		    {
+			   "partnerID":"65432345634232", 
+		       "status":"active", 
+		       "organizationName":"telecomAirtel",
+		       "contactNumber":"9876545654", 
+		       "emailID":"telecomAirtel@gmial.com", 
+		       "address":"India"
+			},
+			{
+			   "partnerID":"87652345634232", 
+		       "status":"active", 
+		       "organizationName":"telecomJio",
+		       "contactNumber":"9988774654", 
+		       "emailID":"telecomJio@gmial.com", 
+		       "address":"India"
+			}
+		]	
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No partner Registered in the policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_004",
+      "message": "No partner Registered in the policy Group"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_004|No Partners are registered in the Policy Group|No partner Registered in the policy Group
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### GET /pmpartners/{partnerID}
+This request will retrieve particular Auth/E-KYC Partners.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/87652345634232</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: retrieve the partner details for the particular policy group.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "partnerID":"87652345634232", 
+		"status":"active", 
+		"organizationName":"telecomJio",
+		"contactNumber":"9988774654", 
+		"emailID":"telecomJio@gmial.com", 
+		"address":"India"	
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Requested partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_013",
+      "message": "Partner does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_013|Partner does not exist|Requested partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### GET /pmpartners/{partnerID}/{PartnerAPIKey}
+This request will retrieve the Partner API key to Policy Mappings.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/87652345634232/fa604-affcd-33201-04770</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the Partner API key to Policy Mappings.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive.policy",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "policyId":"77862345634232"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Requested partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive.policy",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_009",
+      "message": "Partner api key does not belong to the Policy Group of the Partner Manger"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_007|Partner API Key does not exist|Requested Partner API Key does not exist
+PMS_PMP_009|Partner api key does not belong to the Policy Group of the Partner Manger|Partner api key does not belong to the Policy Group of the Partner Manger
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### GET /pmpartners/PartnerAPIKeyRequests
+This request will retrieve the Partner API key to Policy Mappings.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the Partner API key to Policy Mappings.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.request.reterive",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "partnerID":"87652345634232", 
+		"status":"active", 
+		"organizationName":"telecomJio",
+		"policyName": "Insurence Policy",
+        "policyDesc": "Desc about policy",
+        "apiKeyReqNo":"873276828663"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No Partner api key requests for the Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.request.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_015",
+      "message": "No Partner api key requests for the Policy Group"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_015|No Partner api key requests for the Policy Group|No Partner api key requests for the Policy Group
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### GET /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}
+
 
 ## Partner Service
 This service enables partners to do self registration, submit request for respective authentication policies, sharing of digital certificate for secure communication: 
@@ -1325,323 +1921,3 @@ This service enables partners to do self registration, submit request for respec
 * [GET /partners/digitalcertificate](#get-partnersdigitalcertificate)
 * [POST /partners/digitalcertificate](#get-partnersdigitalcertificate)
 * [PUT /partners/digitalcertificate](#get-partnersdigitalcertificate)
-
-
-### GET /policies
-
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-#### Request:
-```JSON
-{
-  
-}
-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: 
-```JSON
-{
-  
-}
-
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: 
-
-```JSON
-{
-  
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-
-### POST /policies
-
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-#### Request:
-```JSON
-{
-  
-}
-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: 
-```JSON
-{
-  
-}
-
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: 
-
-```JSON
-{
-  
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-
-### GET /policies/{policyID}
-
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-#### Request:
-```JSON
-{
-  
-}
-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: 
-```JSON
-{
-  
-}
-
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: 
-
-```JSON
-{
-  
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-
-
-
-### POST /policies/{policyID}
-
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-#### Request:
-```JSON
-{
-  
-}
-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: 
-```JSON
-{
-  
-}
-
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: 
-
-```JSON
-{
-  
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-
-
-
-### PUT /policies/{policyID}
-
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-#### Request:
-```JSON
-{
-  
-}
-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: 
-```JSON
-{
-  
-}
-
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: 
-
-```JSON
-{
-  
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-
-
-
-### GET /policies/{PartnerAPIKey}
-
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/{PartnerAPIKey}</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Body Parameters
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-
-#### Request:
-```JSON
-{
-  
-}
-
-```
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: 
-```JSON
-{
-  
-}
-
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: 
-
-```JSON
-{
-  
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-
