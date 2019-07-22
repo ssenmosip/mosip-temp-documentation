@@ -118,7 +118,7 @@ It doesn't detail about each methods level information since that are covered in
 ## Packet Structure :
    The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link. 
    
-   [Packet Structure](https://github.com/mosip/mosip-docs/wiki/Reg-client-implementation)
+   [Packet Structure](https://github.com/mosip/mosip-docs/wiki/Registration-Packet)
    
 ## Packet Status :  
 
