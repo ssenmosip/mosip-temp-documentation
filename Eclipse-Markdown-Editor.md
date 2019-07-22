@@ -33,7 +33,7 @@ Search and Install **“ GitHub Flavored Markdown “** form Eclipse Marketplace
 **Step1:** Access MOSIP wiki at [**link**](/mosip/mosip-docs/wiki)
 
 
-**Step2:** Copy repository URL and Git clone the [**link**](/mosip/mosip.wiki.git)
+**Step2:** Copy repository URL and Git clone the `https://github.com/mosip/mosip-docs.wiki.git`
 
 
 ![](_images/ecl_markdown/1_mosip_wiki.PNG)
