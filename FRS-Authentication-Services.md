@@ -31,6 +31,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 [link](_files/requirements/MOSIP_id Definition_Updated_05Oct18.xlsx)
 
+[**Please refer Git for more details on the roles and Privileges of a user**](_files/requirements/MOSIP_id Definition_Updated_05Oct18.xlsx)
+
 1. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 1. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. System validates that total number of face record(s) should not exceed 1
