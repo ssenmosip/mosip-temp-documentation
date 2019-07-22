@@ -9,8 +9,9 @@
 1. Center-Machine-Device Mapping: **master-reg_center_user_machine**
 1. Center Machine User Mapping: **master-reg_center_machine_device**
 ## Steps to Add a Mac-Address Machine:
-1.	Create a Registration Center:
-a.	Center ID: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
+1. Create a Registration Center:
+   1. Center ID: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
+
 b.	Center Name: This can be a Random name that a country chooses
 c.	Center Type Code: Should be kept as “REG”. Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”
 d.	Address Line 1: It is an Optional Field but should be defined to be visible to the resident on the Pre-Registration UI
