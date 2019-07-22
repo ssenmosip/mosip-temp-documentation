@@ -1037,6 +1037,23 @@ For e.g : Suppose activemq is configured as tcp://xxx.xxx.xxx.xx:61616, then we 
 
 }
 ```
+ActiveMQ is also being used in registration-processor-printing-stage and the details need to be mentioned in registration-processor-{active_profile}.properties in the configuration repository.
+E.g : For dev profile, the property in registration-processor-dev.properties, the Property corresponding to printing-stage related to activemq would be 
+
+```
+Queue username
+registration.processor.queue.username={username}
+#Queue Password
+registration.processor.queue.password={password}
+#Queue Url
+registration.processor.queue.url={queue_url}
+#Type of the Queue
+registration.processor.queue.typeOfQueue=ACTIVEMQ
+#Print Service address
+registration.processor.queue.address={queue_address}
+#Post Service address
+registration.processor.queue.printpostaladdress={postal_queue_address}
+```
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
