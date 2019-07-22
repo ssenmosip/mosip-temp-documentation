@@ -24,7 +24,7 @@
 1. **Location Code**: Should be a location code from the location MasterData table. This code cannot be other than the location defined in the location MasterData table and should always be the code of the location which is at the lowest hierarchy level
 1. **Contact Phone**: Can be a random number
 1. **Contact Person**: Can be a random name
-1. **Number of Kiosk**: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer [**point 2.5](#25-map-the-machine-to-a-center) in steps below
+1. **Number of Kiosk**: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer [**point 2.5**](#25-map-the-machine-to-a-center) in steps below
 1. **Working Hours**: Should be the difference of “**Center Start Time**” and “**Center End Time**”. Should be in format **hh:mm:ss**
 1. **Per Kiosk Processing time**: Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
 1. **Center Start Time**: _Will be time Center would start working at_. Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
