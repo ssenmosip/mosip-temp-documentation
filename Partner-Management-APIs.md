@@ -690,6 +690,20 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name|Yes|name of the policy|Insurance Policy
+request.desc|Yes|description of the policy|Desc about policy
+request.policies|Yes|policy file|JSON
+request.policies.authPolicies|Yes|auth details|Array of JSON
+request.policies.allowedKycAttributes|Yes|eKYC details|Array of JSON
+
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -808,6 +822,19 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 policyID |Yes| policyID |45678451034176
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name|Yes|name of the policy|Insurance Policy
+request.desc|Yes|description of the policy|Desc about policy
+request.policies|Yes|policy file|JSON
+request.policies.authPolicies|Yes|auth details|Array of JSON
+request.policies.allowedKycAttributes|Yes|eKYC details|Array of JSON
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -925,6 +952,14 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 policyID |Yes| policyID |45678451034176
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.update.status
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the policy that needs to update|Deactive
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1348,6 +1383,16 @@ Name | Required | Description | Comment
 partnerID |Yes| partnerID |65432345634232
 PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.policy.mapping
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.oldPolicyID|Yes|old Policy ID|54662345634232
+request.newPolicyID|Yes|new Policy ID|45662345639999
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -1435,6 +1480,15 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 partnerID |Yes| partnerID |65432345634232
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.status.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partner that needs to update|Deactive
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -1517,6 +1571,15 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 partnerID |Yes| partnerID |65432345634232
 PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.apikeystatus.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partnerAPI that needs to update|Active
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1604,6 +1667,15 @@ Requires Authentication | Yes
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 APIKeyReqID |Yes| APIKey Request ID |65432345634232
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.apikey.approvel
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partner API Key that needs to update|Approved
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2065,6 +2137,19 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
+request.policyGroup|Yes|policy group|Banking
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -2146,6 +2231,16 @@ Requires Authentication | Yes
 Name | Required | Description | Comment
 -----|----------|-------------|--------
 partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partnerAPIKeyRequest.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.policyName|Yes|name of the policy|airtelIndPolicy
+request.useCaseDescription|Yes|useCase Description|Need to submit the payment
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2295,6 +2390,15 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.upload
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -2382,6 +2486,17 @@ Name | Required | Description | Comment
 -----|----------|-------------|--------
 partnerID |Yes| partner ID|6565655443544
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2461,6 +2576,15 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.validate
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
 
 #### Request Header 
 Name | Required | Description | Comment
