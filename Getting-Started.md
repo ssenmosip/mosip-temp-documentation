@@ -1381,6 +1381,13 @@ docker run --restart always -it -d --network host --privileged=true -e active_pr
 
 **Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
 
+6. Packet uploader stage in secure zone will fetch file from dmz to upload it into Distributed File System,to connect to 
+   dmz vm either we can login using username and password or using ppk file.
+   If password value is available in config property name 
+   registration.processor.dmz.server.password then uploader will connect using username and password.
+   otherwise it will login using ppk file available in config with property name registration.processor.vm.ppk.
+   PPK generation command ssh-keygen -t rsa -b 4096 -f mykey.
+
 ### 8.2 ID Repository Salt Generator
  
 ID Repository Salt Generator Job is a one-time job which is run to populate salts to be used to hash and encrypt UIN in ID Repo and ID Map DB. This generic job takes schema and table name as input, and generates and populates salts in the given schema and table.
