@@ -30,7 +30,7 @@ Search and Install **“ GitHub Flavored Markdown “** form Eclipse Marketplace
 **MOSIP wiki will have architecture, API specs and developer documentation only. Low level design will be under the design [**folder**](/mosip/mosip/tree/DEV/design)**
 
 
-**Step1:** Access MOSIP wiki at [**link**](/mosip/mosip/wiki)
+**Step1:** Access MOSIP wiki at [**link**](/wiki)
 
 
 **Step2:** Copy repository URL and Git clone the [**link**](/mosip/mosip.wiki.git)
