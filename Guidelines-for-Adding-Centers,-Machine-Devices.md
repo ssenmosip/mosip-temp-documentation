@@ -79,24 +79,25 @@
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
 ### 2.6 Map the User to a Center
-Follow the above example in [point 4](#24-create-a-device).
+Follow the above example in [point 2.4](#24-create-a-device).
 ### 2.7 Map the Device to a Center
-a.	Follow the above example in point 4
+Follow the above example in [point 2.4](#24-create-a-device).
 ### 2.8 Map Center-Machine-Device
-a.	Follow the above example in point 4
+Follow the above example in [point 2.4](#24-create-a-device).
 ### 2.9 Map Center-Machine-User
-a.	Follow the above example in point 4
-### 2.10 After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “Tables Names” section.
-a.	Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
-b.	The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.
-c.	Find the table names below for history tables
-i.	Registration Centers: master-registration_center_h
-ii.	Machines: master-machine_master_h
-iii.	Users: master-user_detail_h
-iv.	Devices: master-device_master_h
-v.	Center-Machine Mapping: master-reg_center_machine_h
-vi.	Center-Device Mapping: master-reg_center_device_h
-vii.	Center-User Mapping: master-reg_center_user_h
-viii.	Center-Machine-Device Mapping: master-reg_center_user_machine_h
-ix.	Center Machine User Mapping: master-reg_center_machine_device_h
+Follow the above example in [point 2.4](#24-create-a-device).
+### 2.10 Final step (Suggest heading)
+After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
+1. Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
+1. The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.
+1. Find the table names below for history tables
+   1. Registration Centers: **master-registration_center_h**
+   1. Machines: **master-machine_master_h**
+   1. Users: **master-user_detail_h**
+   1. Devices: **master-device_master_h**
+   1. Center-Machine Mapping: **master-reg_center_machine_h**
+   1. Center-Device Mapping: **master-reg_center_device_h**
+   1. Center-User Mapping: **master-reg_center_user_h**
+   1. Center-Machine-Device Mapping: **master-reg_center_user_machine_h**
+   1. Center Machine User Mapping: **master-reg_center_machine_device_h**
 
