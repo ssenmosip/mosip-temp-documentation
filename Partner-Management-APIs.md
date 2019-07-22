@@ -816,9 +816,9 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-15T16:01:20.534Z",
   "metadata": {},
   "request": {
-      "name": "Loan Policy",
-      "desc": "Desc about policy",
-      "policies": {
+      "name": "Loan Policy",
+      "desc": "Desc about policy",
+      "policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
 					{"authType": "demo","mandatory": false},
@@ -858,13 +858,13 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "responsetime": "2019-05-15T16:01:20.534Z",
   "response":{
         "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": "MOSIP",
-        "upd_dtimes": "2019-05-15T16:01:20.534Z"
+        "name": "Loan Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": "MOSIP",
+		"upd_dtimes": "2019-05-15T16:01:20.534Z"
 	},
   "errors": null
 }
@@ -928,7 +928,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-15T16:01:20.534Z",
   "metadata": {},
   "request": {
-       "status":"Deactive"
+		"status":"Deactive"
    }
 }
 ```
@@ -944,7 +944,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "responsetime": "2019-05-15T16:01:20.534Z",
   "response":{
         "message" : "status updated sucessfully"
-	},
+   },
   "errors": null
 }
 ```
@@ -1007,14 +1007,14 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": {
      "policies": [
 	   {
-        "id": "32058251034176",
-        "name": "Insurence Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": null,
-        "upd_dtimes": null,
+		"id": "32058251034176",
+		"name": "Insurence Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": null,
+		"upd_dtimes": null,
 		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
@@ -1042,15 +1042,15 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
           }
        },
        {
-        "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": "MOSIP",
-        "upd_dtimes": "2019-05-15T16:01:20.534Z"
-        "policies": {
+		"id": "45678451034176",
+		"name": "Loan Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": "MOSIP",
+		"upd_dtimes": "2019-05-15T16:01:20.534Z",
+		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
 					{"authType": "demo","mandatory": false},
@@ -1136,14 +1136,14 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-15T16:01:20.534Z",
   "response":{
-        "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": "MOSIP",
-        "upd_dtimes": "2019-05-15T16:01:20.534Z",
+		"id": "45678451034176",
+		"name": "Loan Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": "MOSIP",
+		"upd_dtimes": "2019-05-15T16:01:20.534Z",
 		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
@@ -1230,14 +1230,14 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "id": "32058251034176",
-        "name": "Insurence Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": null,
-        "upd_dtimes": null
+		"id": "32058251034176",
+		"name": "Insurence Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": null,
+		"upd_dtimes": null,
 		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
@@ -1864,20 +1864,20 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response":{
        "apikeyRequests" : [
 	     {
-		   "partnerID":"87652345634232", 
-		   "status":"active", 
-		   "organizationName":"telecomJio",
-		   "policyName": "Insurence Policy",
-           "policyDesc": "Desc about policy",
-           "apiKeyReqNo":"873276828663"
+			"partnerID":"87652345634232", 
+			"status":"active", 
+			"organizationName":"telecomJio",
+			"policyName": "Insurence Policy",
+			"policyDesc": "Desc about policy",
+			"apiKeyReqNo":"873276828663"
 		 },
 		 {
-		   "partnerID":"67678856342329", 
-		   "status":"active", 
-		   "organizationName":"airtelInd",
-		   "policyName": "Banking Policy",
-           "policyDesc": "Desc about policy",
-           "apiKeyReqNo":"903276828609"
+			"partnerID":"67678856342329", 
+			"status":"active", 
+			"organizationName":"airtelInd",
+			"policyName": "Banking Policy",
+			"policyDesc": "Desc about policy",
+			"apiKeyReqNo":"903276828609"
 		 }
        ]	  
   },
@@ -1940,12 +1940,12 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "partnerID":"87652345634232", 
-		"status":"active", 
-		"organizationName":"telecomJio",
-		"policyName": "Insurence Policy",
-        "policyDesc": "Desc about policy",
-        "apiKeyReqNo":"873276828663"
+			"partnerID":"87652345634232", 
+			"status":"active", 
+			"organizationName":"telecomJio",
+			"policyName": "Insurence Policy",
+			"policyDesc": "Desc about policy",
+			"apiKeyReqNo":"873276828663"
   },
   "errors": null
 }
@@ -2096,8 +2096,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
-      "policyName":"airtelIndPolicy", 
-	  "useCaseDescription":"Need to submit the payment"
+		"policyName":"airtelIndPolicy", 
+		"useCaseDescription":"Need to submit the payment"
   }
 }
 ```
@@ -2261,7 +2261,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "message":"successfully uploaded partner's digital certificate";
+        "message":"successfully uploaded partner's digital certificate"
   },
   "errors": null
 }
@@ -2422,7 +2422,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "message":"successfully validated partner's digital certificate";
+        "message":"successfully validated partner's digital certificate"
   },
   "errors": null
 }
@@ -2551,21 +2551,21 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
        "policies": [
-	   {
-        "id": "32058251034176",
-        "name": "Insurence Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-		"policies": {
-            "authPolicies": [ 	
+	      {
+			"id": "32058251034176",
+			"name": "Insurence Policy",
+			"desc": "Desc about policy",
+			"is_active": true,
+			"policies": {
+				"authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
 					{"authType": "demo","mandatory": false},
 					{"authType": "bio","authSubType": "FINGER","mandatory": true},
 					{"authType": "bio","authSubType": "IRIS","mandatory": false},
 					{"authType": "bio","authSubType": "FACE","mandatory": false},
 					{"authType": "kyc","mandatory": false}
-			],
-            "allowedKycAttributes": [  
+				],
+				"allowedKycAttributes": [  
 					{"attributeName": "fullName","required": true},
 					{"attributeName": "dateOfBirth","required": true},
 					{"attributeName": "gender","required": true},
@@ -2579,24 +2579,24 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
-			 ]
-          }
-       },
-       {
-        "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "policies": {
-            "authPolicies": [ 	
+				]
+			}
+		  },
+		  { 
+			"id": "45678451034176",
+			"name": "Loan Policy",
+			"desc": "Desc about policy",
+			"is_active": true,
+			"policies": {
+				"authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
 					{"authType": "demo","mandatory": false},
 					{"authType": "bio","authSubType": "FINGER","mandatory": true},
 					{"authType": "bio","authSubType": "IRIS","mandatory": true},
 					{"authType": "bio","authSubType": "FACE","mandatory": false},
 					{"authType": "kyc","mandatory": false}
-			],
-            "allowedKycAttributes": [  
+				],
+				"allowedKycAttributes": [  
 					{"attributeName": "fullName","required": true},
 					{"attributeName": "dateOfBirth","required": true},
 					{"attributeName": "gender","required": true},
@@ -2610,11 +2610,11 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 					{"attributeName": "location3","required": true},
 					{"attributeName": "postalCode","required": false},
 					{"attributeName": "photo","required": true}
-			]
-        }
-       }
-     ]
-  },
+				]
+			}
+		  }
+		]
+	},
   "errors": null
 }
 ```
