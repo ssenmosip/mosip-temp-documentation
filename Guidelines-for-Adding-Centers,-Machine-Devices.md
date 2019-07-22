@@ -32,19 +32,19 @@
 1. **Holiday Location Code**: Should come from the Location master table. Current values can only be “**KTA**” or “**RBT**” as holidays are only defined for these two location codes.
 1. **Language Code**: Should be the language code for the languages supported by the Country as primary and secondary Language. Currently can be “fra” or “ara”
 1. **Is_Active**: TRUE. If set as false, this Registration will not be shown up in Pre-Registration UI and no appointments will be generated for this Center
-1. **Cr_by**: <username> ideally name of the admin
+1. **Cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
 <br>**Note**: A Registration Center is needed to be created in all the languages supported by the country. This is currently configured as Primary – French and Secondary – Arabic. For this, create the same registration twice. One with language code as **fra** for French and one with language code as **ara** for Arabic. Center ID should be same for both the records as both the records are for one center only.<br>
 ### 2.2 Create a Machine:
 1. **Machine ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)
 1. **Machine Name**: Machine Host name
 1. **Machine Mac-Address**: Machine’s Mac-Address
-1. **Serial Number**: <Random Number>
+1. **Serial Number**: `<Random Number>`
 1. **IP Address**: Leave it blank
 1. **Mspecid**: 1001. These values come from a Machine Spec table. Putting any value other than these will throw an error
 1. **Lang_code**: eng
 1. **Is_active**: True
-1. **cr_by**: <username> ideally name of the admin
+1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
 ### 2.3 Create a User
 1. Create a User in LDAP (User ID/Password)
@@ -57,18 +57,18 @@
    1. **Lang_code**: eng
    1. **last_login_method**: PWD
    1. **Is_active**: True
-   1. **cr_by**: <username> ideally name of the admin
+   1. **cr_by**: `<username>` ideally name of the admin
    1. **cr_dtimes**: now()
 ### 2.4 Create a Device
 1. **Device ID**: This can be a random ID.
-1. **Device Name**: <Random name>
-1. **Device Mac-Address**: <Random mac-address>
-1. **Serial Number**: <Random Number>
+1. **Device Name**: `<Random name>`
+1. **Device Mac-Address**: `<Random mac-address>`
+1. **Serial Number**: `<Random Number>`
 1. **IP Address**: Leave it blank
 1. **Dspecid**: Can be either 165(fingerprint scanner), 327 (iris scanner), 736(web camera), 801(Document scanner) or 920(Printer). These values come from a Device Spec table. Putting any value other than these will throw an error
 1. **Lang_code**: eng
 1. **Is_active**: True
-1. **cr_by**: <username> ideally name of the admin
+1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
 
 ### 2.5 Map the Machine to a Center
@@ -76,7 +76,7 @@ a.	Center ID: from master-registration_center
 b.	Machine ID: from master-machine_master (newly created machine)
 c.	Lang_code: eng
 d.	Is_active: True
-e.	cr_by: <username> ideally name of the admin
+e.	cr_by: `<username>` ideally name of the admin
 f.	cr_dtimes: now()
 ### 2.6 Map the User to a Center
 a.	Follow the above example in point 4
