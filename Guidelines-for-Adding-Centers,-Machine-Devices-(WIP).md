@@ -24,7 +24,7 @@
 1. **Location Code**: Should be a location code from the location MasterData table. This code cannot be other than the location defined in the location MasterData table and should always be the code of the location which is at the lowest hierarchy level
 1. **Contact Phone**: Can be a random number
 1. **Contact Person**: Can be a random name
-1. **Number of Kiosk**: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer point 5 in steps below
+1. **Number of Kiosk**: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer [**point 2.5](#25-map-the-machine-to-a-center) in steps below
 1. **Working Hours**: Should be the difference of “**Center Start Time**” and “**Center End Time**”. Should be in format **hh:mm:ss**
 1. **Per Kiosk Processing time**: Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
 1. **Center Start Time**: _Will be time Center would start working at_. Is used by pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
@@ -82,13 +82,13 @@
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
 ### 2.6 Map the User to a Center
-Follow the above example in [point 2.4](#24-create-a-device).
+Follow the above example in [**point 2.4**](#24-create-a-device).
 ### 2.7 Map the Device to a Center
-Follow the above example in [point 2.4](#24-create-a-device).
+Follow the above example in [**point 2.4**](#24-create-a-device).
 ### 2.8 Map Center-Machine-Device
-Follow the above example in [point 2.4](#24-create-a-device).
+Follow the above example in [**point 2.4**](#24-create-a-device).
 ### 2.9 Map Center-Machine-User
-Follow the above example in [point 2.4](#24-create-a-device).
+Follow the above example in [**point 2.4**](#24-create-a-device).
 ### 2.10 Final step (Suggest heading)
 After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
 1. Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
