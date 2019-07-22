@@ -29,7 +29,7 @@
   * [6.2 Transliteration](#62-transliteration-) _(REG_FR_6.2)_
 - [7. Packet Upload](#7-packet-upload-)
   * [7.1 Registration Packet Upload](#71-registration-packet-upload-) _(REG_FR_7.1)_
-  * [7.2 Offline upload (Packet Exporter)](#72-offline-upload-packet-exporter-) _(REG_FR_7.2)_
+  * [7.2 Offline upload (Packet Exporter) (Work in Progress)](#72-offline-upload-packet-exporter-work-in-progress-) _(REG_FR_7.2)_
 - [8. Analytics and Audit Logs](#8-analytics-and-audit-logs-) _(REG_FR_8)_
 - [9. Data Security](#9-data-security-)
 - [10. Software Version Upgrade](#10-software-version-upgrade-) _(REG_FR_10)_
@@ -123,15 +123,12 @@ MOSIP system has a role based Privileges of a registration officer. [**Please re
    * On-board registration officers
    * On-board devices
    * New registration
-   * Registration correction
    * UIN update
    * UIN de- and re-activation
    * Lost UIN
-   * Send registration packet IDs to server
-   * Sync data from server to client
-   * Sync data from client to server
-   * Export packets to local folder
-   * Upload packets through FTP
+   * Sync data
+   * Export packets to local folder (Work in Progress)
+   * Upload packets through FTP (Work in Progress)
    * Virus scan
    * Update client software
 4. Only supervisors can access the following features:
@@ -225,7 +222,6 @@ When a registration officer starts a new registration by entering a pre-registra
    * If client if offline, the system displays the data from the local database.
 1. If data are not available in local database, checks if data for that ID are available on the server.
    * If available, downloads the pre-registration packet from the server and pre-populate on screen.
-   * If data are not available on server, the system displays the data from local database.
 1. Based on the availability of data, the system populates the demographic details of the individual and pre-populates the registration form.
 1. The demographic details can still be edited at this stage.
 1. The registration officer can then view the documents, which were uploaded during pre-registration
@@ -239,7 +235,7 @@ When a registration officer starts a new registration by entering a pre-registra
 
 **(ii) Manual downloads of Pre-registration data**
 
-A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of an individual only and the system does not allow to download the documents, which were uploaded by the applicant. 
+A registration officer can download the pre-registration data while being online. The system allows the registration officer to download the demographic data of an applicant but restricts the registration officer to download the documents that were uploaded by an applicant.
 
 The system also enables a registration officer to view the progress of download.
 
@@ -296,25 +292,17 @@ Registration officer initiates a new registration for a non pre-registered indiv
 #### B. Transliteration
 
 Refer to the section related to [**Transliteration**](#62-transliteration-).
-#### C. Mark an individual's date of birth as 'Verified'
-1. For new registration or UIN update, the system provides an option for the registration officer to mark an individual's date of birth as ‘Verified’.
-1. For a new registration, the ‘Verified’ field is displayed as an option next to Date of Birth field. The default state is unchecked. When checked, it indicates that the registration officer has verified the date of birth of the individual.
-1. For a UIN update, the ‘Verified’ field is applicable only when the Age/Date of Birth field is selected for update.
-#### D. Register an individual who is less than 5 years old.
+#### C. Register an individual who is less than 5 years old.
 1. MOSIP does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
 1. When a registration officer starts a new registration, the system determines if the registration is for a child using the date of birth.
 1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
 1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system ensures parent/guardian is registered first and at least RID is available.
    * A unique RID (request ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
 1. The system captures parent/guardian's details: Registration ID/Name/-Biometrics/PoR (Processor will pick up parent/guardian's registration first prior to child)
-#### E. Mark an individual as Foreigner or Citizen
-For every new registration, the system provides an option on the demographic details page for the registration officer to mark an individual as either a citizen of that country or a Foreigner. 
-
-If the registration officer selects the desired option, indicates that the individual is a Foreigner. If option is not selected, indicates that the individual is a citizen of that country.
-#### F. Register a non-pre-registered individual 
+#### D. Register a non-pre-registered individual 
 When a registration officer starts a new registration for a non-pre-registered individual (an individual who does not have PRID), the registration officer will capture the demographic and biometric details to register the individuals.
 
-#### G. Enter the demographic details for registration
+#### E. Enter the demographic details for registration
 
 **(i) The Registration Officer opts to initiate a new registration**
 1. The system allows the registration officer to enter the individual’s demographic details such as Name, Gender, DOB, Residential Address, and other fields based on the [**ID Object Definition**](MOSIP-ID-Object-definition). 
@@ -329,26 +317,24 @@ When a registration officer starts a new registration for a non-pre-registered i
 1. The Registration Client validates the entered demographic data as per the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx).
 1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation, proceeds to next step.
-#### H. Copy address from the previous registration
+#### F. Copy address from the previous registration
 When the address details of the previous registration and the current registration is same, the system allows the registration officer to copy the same address as previous registration. This feature helps the registration officer to save the time while registering the individual who has the same address as previous registration.
 
-#### I. Scan and upload of POI, POA and POR
-1. The registration officer can input three types of documents- POA (Proof of Address), POI (Proof of Identity) and POR (Proof of Relationship) while registering an individual.  POR is needed only in case of minors.
+#### G. Scan and upload of POI, POA and POR
+1. Registration officer can upload documents based on the configuration of a country during registering an individual, for example, POA (Proof of Address), POI (Proof of Identity), POR (Proof of Relationship), etc.
 1. Document type is configurable by admin based on the country level.
 1. The registration officer collects these documents from the individual and scans them if the uploaded document during pre-registration doesn't meet the required quality.
-1. The scan and upload works in such a way that copy of documents is not saved on the system or any external device.
-1. The scanner scans the documents and uploads them to the registration Client machine.
 1. The following parameters will be met while uploading the documents:
    * System lists various document categories as configured by admin
    * For each document category, system enables selection of the list of valid documents
-   * The system validates if the document if of allowed document format (PDF, PNG, GIF etc)
+   * The system validates if the document is in permissible file format (PDF, PNG, GIF, etc.)
    * The system does not allow registration officer to upload more than one document per category
    * The system performs size check after document upload and revert the registration officer to upload again if the document size is more than 1 MB (document size is configurable)
    * The system displays the name of the document adjacent to the Document Category for which the document is uploaded 
 1. The registration officer can delete files uploaded by mistake.
 1. The registration officer can view the uploaded file(s).
 
-#### J. Capture an individual's fingerprints as per specification
+#### H. Capture an individual's fingerprints as per specification
 Fingerprint capture is configurable (Turn ON or OFF) by the admin at the country level.
 
 **Turn ON or OFF fingerprints capture**
@@ -367,11 +353,11 @@ When the registration officer uses fingerprint capture device to capture the ind
 1. If the required biometric quality is not achieved while a registration officer is capturing biometrics of an individual (e.g., missing finger(s)), then the system mandates to capture a biometric exception for that individual.
 1. Captures and stores the transaction details for audit purpose (except PII data).
 
-#### K. Capture an individual's face photograph and exception photograph.
+#### I. Capture an individual's face photograph and exception photograph.
 When a registration officer opts to capture photo of an individual, the system initiates a photo capture and performs the following steps:
 1. Validates that an on-boarded camera is connected to the machine.
    * If an on-boarded camera is not found, displays an error message.
-   * If more than one on-boarded camera is connected, proceeds with the first camera that the system finds as it scans the ports of the machine.
+   * If more than one on-boarded camera is connected, the system will first search for configured web camera names and will connect to the camera. If the camera with configured name is not found, then first device will be connected.
 1. Displays the face photo preview before capturing.
 1. Allows the registration officer to initiate face capture.
 1. Sends request to the camera for face photo capture.
@@ -382,7 +368,7 @@ When a registration officer opts to capture photo of an individual, the system i
    * Step 1 to 7 must be performed to capture the exception photo.
 1. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture. [**Refer to Retry Capture of Face Photo**](#l-retry-capture-of-face-photo)
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### L. Retry Capture of Face Photo
+#### J. Retry Capture of Face Photo
 While registering an individual, a registration officer captures the face photo of the individual. If the quality score of the photo captured is less than the threshold score, the system allows registration officer to retry face capture
 1. The system displays the quality score and the threshold score for the capture.
 1. The registration officer proceeds to the next step if the quality score >= threshold or if the maximum number of retry attempts as configured is reached.
@@ -397,7 +383,7 @@ While registering an individual, a registration officer captures the face photo 
 1. When the retry limit is reached and photo of sufficient quality is not obtained, the best quality photo is retained. The best photo will be displayed on screen along with its quality score.
 1. All the above rules apply to exception photo capture as well.
 
-#### M. Capture Iris as per defined specifications
+#### K. Capture Iris as per defined specifications
 When the registration officer scans the individual’s irises either individually or together, the system performs the following steps:
 1. Displays the quality score and threshold for each captured iris.
 1. Allows the registration officer to re-try each capture up to a maximum number of times (as configured) if threshold score is not met for one or both irises.
@@ -406,7 +392,7 @@ When the registration officer scans the individual’s irises either individuall
 1. Validates all available irises that have been captured, the irises, which are above threshold quality and the maximum retries attempted.
 1. Retains only the capture, which has the highest quality score.
 1. System captures and stores the transaction details for audit purpose (except PII data).
-#### N. Restrict registration if the duration since the last export or upload is more than the configured limit
+#### L. Restrict registration if the duration since the last export or upload is more than the configured limit
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If the configured limit is exceeded, then system displays an error message.
 
@@ -425,17 +411,8 @@ When an individual approaches the registration officer for UIN update, the follo
 
 #### B. Registration Client allows update to UIN data only for configured fields
 1. An admin can configure the fields that are available for update through the Registration Client. The configuration applies at a country level.
-2. The admin can set the following fields to be update-able at a country level through the admin portal:
-   * Name
-   * Age/DoB
-   * Gender
-   * Address
-   * Contact details
-   * Parent/Guardian details
-   * Biometrics-Exception
-   * Biometrics-Fingerprint
-   * Biometrics-Iris
-3. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
+1. In admin portal, the admin can set fields (demographic, biometric, etc.) based on their requirement to update.   
+1. If none of the fields is set up to be update-able, then the system does not allow a registration officer to update any field\s 
 
 #### C. UIN Update
 1. The registration officer selects the fields to update for an individual seeking modification of UIN data. Select one or more of the following fields to update the corresponding data: Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, parent/guardian Details, Biometrics.
@@ -454,9 +431,7 @@ When an individual approaches the registration officer for UIN update, the follo
 
 #### D. UIN Update of Child
 
-The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request.
-
-The following parameters can be updated during a child’s UIN update- Name, Age or Date of Birth, Gender, Foreigner/National, Address, Email ID, Phone Number, PIN/Residence Card Number, Parent/Guardian Details, Biometrics.
+The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request. Refer below for the process:
 1. If ‘Parent/Guardian details’ is selected for update, then a registration officer will capture the UIN, Name and any one biometric of the Parent/Guardian (fingerprint / iris).
 1. If the Parent/Guardian does not have any fingerprint and any iris, then the registration officer marks all exceptions of the Parent/Guardian and proceed to capture photo of the Parent/Guardian.
 1. A UIN update of a child cannot be initiated without capturing biometrics of the parent. The system displays an error message for such attempts.
@@ -605,7 +580,7 @@ The system then confirms on successful approval.
 1. The approved and rejected packets are placed in the upload location on the client and will be sent to server during the next upload.  The server would archive the rejected packets and process the approved packets.  
 
 #### B. Supervisor can inform individuals to 'Re-register'
-When the Registration Processor finds an error in the packet such as registration failure (incorrect or duplicate demographic and biometric information), the status of the packet is marked as Re-register. After receiving a status as Re-register, a supervisor then informs an individual to re-visit the registration center to re-register the application. Refer below for the process:
+During pre-processing of the packet, if the Registration Processor finds an error in the packet such as decryption failure, then an individual will not be communicated automatically to re-register. In such cases, Registration processor marks a status of the packet as re-register so that a supervisor informs the individual to re-register his/her application. Refer below for the process:
 
 1. A supervisor can view the packets whose status has been received from the processor as ‘Re-register’.
 1. The system displays the list of Registration IDs that have been flagged as ‘re-register’ during packet status sync from the processor.
@@ -679,8 +654,6 @@ The system then enables a registration officer to view the registration confirma
 1. The system allows a registration officer to view a list of packets and may opt to upload one or multiple packets from a list of packets.
 1. After the registration officer selects the packet(s), he/she can upload the selected packet(s) to server.
 
-   NOTE: If any packets are selected, the ‘Export’ feature will be disable because the selection of packets is applicable only for ‘Upload’ feature.
-
 #### B. Push those packets that are marked 'Resend' to the server
 
 1. When the registration officer or supervisor navigates to the ‘Upload Packets’ page, the list of RIDs that are pending packets to upload will be displayed.
@@ -715,7 +688,7 @@ The system then enables a registration officer to view the registration confirma
 
 [**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-packetupload.md)
 
-### 7.2 Offline upload (Packet Exporter) [**[↑]**](#table-of-contents)
+### 7.2 Offline upload (Packet Exporter) (Work in Progress) [**[↑]**](#table-of-contents)
 
 System exports registration packet data from client machine to an external device as follows:
 1. Allows the registration officer to select a destination folder.
@@ -751,7 +724,7 @@ MOSIP performs the following:
 
 **System security and tampering of packets**
 
-The system uses a machine and centre specific public key to encrypt. Only registration officer having respective private key will be able to decrypt. The data stored in database and application binaries are encrypted using TPM public key and registration officers will not be able to access directly.
+The system uses a machine and centre specific public key to encrypt. Only the server which has the respective private key, machine id and centre id can decrypt the encrypted packet. The data stored in database and application binaries are encrypted using TPM public key and registration officers will not be able to access directly.
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-key-management.md)

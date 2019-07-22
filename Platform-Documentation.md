@@ -71,7 +71,7 @@ This module has the following capabilities:
 [Detailed functional requirement specifications of Registration Processor](FRS-Registration-Processor)
 ### 2.4 ID Authentication
 
-ID Authentication in MOSIP provides services through APIs that validates the authenticity of a resident based on one or more factors (demographic and biometric). The authentication services are integrated with TSPs (Trusted Service Providers) for delivering eKYC services to citizens via user agencies.
+ID Authentication in MOSIP provides services through APIs that validates the authenticity of a resident based on one or more factors (demographic and biometric). The authentication services are integrated with TSPs (Trusted Service Providers) for delivering eKYC services to residents via user agencies.
 
 This module provides the following capabilities:
 1. Authenticate an individual in a secure and trusted way
@@ -79,7 +79,6 @@ This module provides the following capabilities:
 1. Authenticate an individual based on their basic identity data captured via MOSIP
 1. In addition to demographic and biometric authentication, an individual can also be authenticated based on the following parameters:
    * Temporary One Time Password (TOTP) based 
-   * Static pin 
    * Challenge response
 5. Authentication APIs
 1. High Availability (HA) to ensure smooth service
@@ -232,7 +231,7 @@ This module exposes few REST APIs which can be used to create/update/retrieve id
 
 * [Pre-Registration APIs](Pre-Registration-Services)
 * [Registration Processor APIs](Registration-Processor-APIs)
-* [ID Authentication APIs](ID-Authentication).
+* [ID Authentication APIs](ID-Authentication-APIs).
 * [Resident Services APIs (WIP)](Resident-Service-APIs).
 * [Partner Management APIs (WIP)](Partner-Management-APIs)
 * [ABIS APIs](ABIS-APIs).
