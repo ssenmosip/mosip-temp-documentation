@@ -1,4 +1,4 @@
-## Tables Names:
+## 1. Tables Names:
 1. Registration Centers: **master-registration_center**
 1. Machines: **master-machine_master**
 1. Users: **master-user_detail**
@@ -8,8 +8,8 @@
 1. Center-User Mapping: **master-reg_center_user**
 1. Center-Machine-Device Mapping: **master-reg_center_user_machine**
 1. Center Machine User Mapping: **master-reg_center_machine_device**
-## Steps to Add a Mac-Address Machine:
-### 1. Create a Registration Center:
+## 2. Steps to Add a Mac-Address Machine:
+### 2.1 Create a Registration Center:
 1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
 1. **Center Name**: This can be a Random name that a country chooses
 1. **Center Type Code**: Should be kept as “REG”. Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”
@@ -35,17 +35,17 @@
 1. **Cr_by**: <username> ideally name of the admin
 1. **cr_dtimes**: now()
 <br>**Note**: A Registration Center is needed to be created in all the languages supported by the country. This is currently configured as Primary – French and Secondary – Arabic. For this, create the same registration twice. One with language code as **fra** for French and one with language code as **ara** for Arabic. Center ID should be same for both the records as both the records are for one center only.<br>
-2.	Create a Machine:
-a.	Machine ID: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)
-b.	Machine Name: Machine Host name
-c.	Machine Mac-Address: Machine’s Mac-Address
-d.	Serial Number: <Random Number>
-e.	IP Address: Leave it blank
-f.	Mspecid: 1001. These values come from a Machine Spec table. Putting any value other than these will throw an error
-g.	Lang_code: eng
-h.	Is_active: True
-i.	cr_by: <username> ideally name of the admin
-j.	cr_dtimes: now()
+### 2.2 Create a Machine:
+1. Machine ID: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)
+1. Machine Name: Machine Host name
+1. Machine Mac-Address: Machine’s Mac-Address
+1. Serial Number: <Random Number>
+1. IP Address: Leave it blank
+1. Mspecid: 1001. These values come from a Machine Spec table. Putting any value other than these will throw an error
+1. Lang_code: eng
+1. Is_active: True
+1. cr_by: <username> ideally name of the admin
+1. cr_dtimes: now()
 3.	Create a User
 a.	Create a User in LDAP (User ID/Password)
 b.	Create a User in DB
