@@ -9,33 +9,32 @@
 1. Center-Machine-Device Mapping: **master-reg_center_user_machine**
 1. Center Machine User Mapping: **master-reg_center_machine_device**
 ## Steps to Add a Mac-Address Machine:
-1. Create a Registration Center:
-   1. Center ID: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
-
-b.	Center Name: This can be a Random name that a country chooses
-c.	Center Type Code: Should be kept as “REG”. Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”
-d.	Address Line 1: It is an Optional Field but should be defined to be visible to the resident on the Pre-Registration UI
-e.	Address Line 2: It is an Optional Field
-f.	Address Line 3: It is an Optional Field
-g.	Latitude: Should be defined in format XX.XXXX . minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map
-h.	Longitude: Should be defined in format XX.XXXX . minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map
-i.	Location Code: Should be a location code from the location MasterData table. This code cannot be other than the location defined in the location MasterData table and should always be the code of the location which is at the lowest hierarchy level
-j.	Contact Phone: Can be a random number
-k.	Contact Person: Can be a random name
-l.	Number of Kiosk: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer point 5 in steps below
-m.	Working Hours: Should be the difference of “Center Start Time” and “Center End Time”. Should be in format hh:mm:ss
-n.	Per Kiosk Processing time: Is used by pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
-o.	Center Start Time: Will be time Center would start working at. Is used by pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
-p.	Center End Time: Will be the time Center would close at. Is used by pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
-q.	Lunch Start Time: Starting of Lunch Time the Center would have in-between the Working hours. Is used by Pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
-r.	Lunch End Time: Ending of Lunch Time the Center would have in-between the Working hours. Is used by Pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
-s.	Time Zone: (GTM+01:00) CENTRAL EUROPEAN TIME
-t.	Holiday Location Code: Should come from the Location master table. Current values can only be “KTA” or “RBT” as holidays are only defined for these two location codes.
-u.	Language Code: Should be the language code for the languages supported by the Country as primary and secondary Language. Currently can be “fra” or “ara”
-v.	Is_Active: TRUE. If set as false, this Registration will not be shown up in Pre-Registration UI and no appointments will be generated for this Center
-w.	Cr_by: <username> ideally name of the admin
-x.	cr_dtimes: now()
-Note: A Registration Center is needed to be created in all the languages supported by the country. This is currently configured as Primary – French and Secondary – Arabic. For this, create the same registration twice. One with language code as fra for French and one with language code as ara for Arabic. Center ID should be same for both the records as both the records are for one center only.
+### 1. Create a Registration Center:
+1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
+1. **Center Name**: This can be a Random name that a country chooses
+1. **Center Type Code**: Should be kept as “REG”. Center Type Code will come from a Center Type Masterdata which currently have one center Type defined as “Regular” and Code as “REG”
+1. **Address Line 1**: It is an Optional Field but should be defined to be visible to the resident on the Pre-Registration UI
+1. **Address Line 2**: It is an Optional Field
+1. **Address Line 3**: It is an Optional Field
+1. **Latitude**: Should be defined in format XX.XXXX . minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map
+1. **Longitude**: Should be defined in format XX.XXXX . minimum 4 digits are need after the decimal for the accuracy to be atleast 11 meters on the GPS map
+1. **Location Code**: Should be a location code from the location MasterData table. This code cannot be other than the location defined in the location MasterData table and should always be the code of the location which is at the lowest hierarchy level
+1. **Contact Phone**: Can be a random number
+1. **Contact Person**: Can be a random name
+1. **Number of Kiosk**: This number is used by the pre-registration to calculate slots for registration. This should always be equal to the number of machines assigned to the Center. Refer point 5 in steps below
+1. **Working Hours**: Should be the difference of “Center Start Time” and “Center End Time”. Should be in format hh:mm:ss
+1. **Per Kiosk Processing time**: Is used by pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
+1. **Center Start Time**: Will be time Center would start working at. Is used by pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
+1. **Center End Time**: Will be the time Center would close at. Is used by pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
+1. **Lunch Start Time**: Starting of Lunch Time the Center would have in-between the Working hours. Is used by Pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
+1. **Lunch End Time**: Ending of Lunch Time the Center would have in-between the Working hours. Is used by Pre-Registration to calculate appointment slots. Should be in format hh:mm:ss
+1. **Time Zone**: (GTM+01:00) CENTRAL EUROPEAN TIME
+1. **Holiday Location Code**: Should come from the Location master table. Current values can only be “KTA” or “RBT” as holidays are only defined for these two location codes.
+1. **Language Code**: Should be the language code for the languages supported by the Country as primary and secondary Language. Currently can be “fra” or “ara”
+1. **Is_Active**: TRUE. If set as false, this Registration will not be shown up in Pre-Registration UI and no appointments will be generated for this Center
+1. **Cr_by**: <username> ideally name of the admin
+1. **cr_dtimes**: now()
+<br>**Note**: A Registration Center is needed to be created in all the languages supported by the country. This is currently configured as Primary – French and Secondary – Arabic. For this, create the same registration twice. One with language code as fra for French and one with language code as ara for Arabic. Center ID should be same for both the records as both the records are for one center only.<br>
 2.	Create a Machine:
 a.	Machine ID: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)
 b.	Machine Name: Machine Host name
