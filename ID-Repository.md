@@ -7,7 +7,7 @@ Following are the pre-requisites for storing or retrieving Identity authenticati
 ## ID Repository Process flow
 Please refer to the [**process flow**](https://github.com/mosip/mosip-docs/wiki/_files/requirements/final_process_flows/MOSIP_Process%20Flow%201.19_ID%20Repo.pdf) of ID Repository
 
-[Design](https://github.com/mosip/mosip-platform/wiki/_docs/design/idrepository/identity-service.md)
+[Design](_docs/design/idrepository/identity-service.md)
 
 ## Architecturally Significant Use Cases
 ### Ensure Identity is stored and retrieved in a secured and trusted way
