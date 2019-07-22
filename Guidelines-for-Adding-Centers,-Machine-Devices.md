@@ -72,14 +72,14 @@
 1. **cr_dtimes**: now()
 
 ### 2.5 Map the Machine to a Center
-a.	Center ID: from master-registration_center
-b.	Machine ID: from master-machine_master (newly created machine)
-c.	Lang_code: eng
-d.	Is_active: True
-e.	cr_by: `<username>` ideally name of the admin
-f.	cr_dtimes: now()
+1. **Center ID**: from **master-registration_center**
+1. **Machine ID**: from **master-machine_master** (newly created machine)
+1. **Lang_code**: eng
+1. **Is_active**: True
+1. **cr_by**: `<username>` ideally name of the admin
+1. **cr_dtimes**: now()
 ### 2.6 Map the User to a Center
-a.	Follow the above example in point 4
+Follow the above example in [point 4](#24-create-a-device).
 ### 2.7 Map the Device to a Center
 a.	Follow the above example in point 4
 ### 2.8 Map Center-Machine-Device
