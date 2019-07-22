@@ -123,7 +123,6 @@ MOSIP system has a role based Privileges of a registration officer. [**Please re
    * On-board registration officers
    * On-board devices
    * New registration
-   * Registration correction
    * UIN update
    * UIN de- and re-activation
    * Lost UIN
