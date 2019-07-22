@@ -16,6 +16,8 @@ This section details about the service APIs in the Registration-Processor module
 
 [8. Registration Process Request Handler Service](#8-registration-process-request-handler-service)
 
+[9. Registration Transaction Service](#9-registration-transaction-service)
+
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
 
@@ -792,9 +794,11 @@ Reprint request by UIN:
     "machineId": "10011",
     "reason": "something",
     "registrationType": "REPRINT",
-    "uin": "4215839851"
+    "id": "4215839851",
+    "idType": "UIN",
+    "cardType": "UIN"
   }
-  }
+}
 ```
 
 Reprint request by VID:
@@ -808,9 +812,11 @@ Reprint request by VID:
     "machineId": "10011",
     "reason": "something",
     "registrationType": "REPRINT",
-    "vid": "123456789"
+    "id": "4215839851",
+    "idType": "VID",
+    "cardType": "MASKED_UIN"
   }
-  }
+}
 ```
 ### Example Response
 
@@ -856,3 +862,206 @@ Error Response:
 200
 
 Description : response code is always 200 if server receives the request.
+
+
+
+# 9 Registration Transaction Service
+This service is used to find all the transactions for a registration id. This service accepts a registration id and returns all transactions associated with it.
+
+### Resource URL
+### `POST /registrationprocessor/v1/registrationtransaction/search/{rid}`
+
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Parameters
+Name | Required | Description | Comment |
+-----|----------|-------------|---------------|
+registrationId|Yes|The registration id|
+
+#### Request
+```JSON
+-NA-
+```
+#### Response
+Record found :
+###### Status Code: 200
+###### Description: Successfully retrieved information
+
+```JSON
+{
+  "id" : "mosip.registration.transaction",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : [
+  {
+    "id" : "810e43c3-cc89-4581-84f0-5ee535bf7e3a",
+    "registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "PACKET_RECEIVER",
+	"parentTransactionId" : null,
+    "statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-PKR-SUCCESS-001",
+	"statusComment" : "Packet is in PACKET_RECEIVED status",
+	"createdDateTimes" : "2019-06-19 10:42:15.04"
+  },
+  {
+	"id" : "76796d41-3c42-40a8-8842-02fe87bf4aab",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "PACKET_RECEIVER",
+	"parentTransactionId" : "810e43c3-cc89-4581-84f0-5ee535bf7e3a",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-PKR-SUCCESS-002",
+	"statusComment" : "Packet is in PACKET_UPLOADED_TO_LANDING_ZONE status",
+	"createdDateTimes" : "2019-06-19 10:42:16.285"
+  },
+  {
+	"id" : "d04b74cc-7364-407f-aa40-058daa774136",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "UPLOAD_PACKET",
+	"parentTransactionId" : "76796d41-3c42-40a8-8842-02fe87bf4aab",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-PKU-SUCCESS-001",
+	"statusComment" : "Packet 10006100067159820190618081137 is uploaded in file system.",
+	"createdDateTimes" : "2019-06-19 10:42:21.507"
+  },
+  {
+	"id" : "19be9e8f-1740-4b6e-8b07-2ea5628abc12",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "VALIDATE_PACKET",
+	"parentTransactionId" : "d04b74cc-7364-407f-aa40-058daa774136",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-PKV-SUCCESS-001",
+	"statusComment" : "Packet structural validation is successful",
+	"createdDateTimes" : "2019-06-19 10:42:34.265"
+  },
+  {
+	"id" : "72d8099d-37e1-4bcc-a772-a4c86b441acf",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "QUALITY_CHECK",
+	"parentTransactionId" : "19be9e8f-1740-4b6e-8b07-2ea5628abc12",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-QCS-SUCCESS-001",
+	"statusComment" : "All Quality Scores are more than threshold",
+	"createdDateTimes" : "2019-06-19 10:42:35.677"
+  },
+  {
+	"id" : "0a7baa01-2d64-4e82-89cd-a6e2bdcebe72",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "OSI_VALIDATE",
+	"parentTransactionId" : "72d8099d-37e1-4bcc-a772-a4c86b441acf",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-OSI-SUCCESS-001",
+	"statusComment" : "OSI Validation is successful",
+	"createdDateTimes" : "2019-06-19 10:42:35.677"
+  },
+  {
+	"id" : "dd7d8892-1cdd-4af7-99fc-9b2ef59d207c",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "BIOMETRIC_AUTHENTICATION",
+	"parentTransactionId" : "0a7baa01-2d64-4e82-89cd-a6e2bdcebe72",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-BAS-SUCCESS-001",
+	"statusComment" : "Biometric Authentication Success",
+	"createdDateTimes" : "2019-06-19 10:42:35.677"
+  },
+  {
+	"id" : "247eb4b2-3abc-4f2d-9200-01a4c6b76217",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "DEMOGRAPHIC_VERIFICATION",
+	"parentTransactionId" : "dd7d8892-1cdd-4af7-99fc-9b2ef59d207c",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-DDS-SUCCESS-001",
+	"statusComment" : "Demographic Authentication Success",
+	"createdDateTimes" : "2019-06-19 10:42:35.677"
+  },
+  {
+	"id" : "c478ba68-64a0-4b8d-8e50-a59c12926de6",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "BIOGRAPHIC_VERIFICATION",
+	"parentTransactionId" : "247eb4b2-3abc-4f2d-9200-01a4c6b76217",
+	"statusCode": "IN_PROGRESS",
+	"statusCommentCode" : "RPR-BDS-SUCCESS-001",
+	"statusComment" : "Packet biodedupe Inprogress",
+	"createdDateTimes" : "2019-06-19 10:43:22.758"
+  },
+  {
+	"id" : "faaaf60f-a591-40a7-b5fa-b6b7fa5894bd",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "BIOMETRIC_AUTHENTICATION",
+	"parentTransactionId" : "c478ba68-64a0-4b8d-8e50-a59c12926de6",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-BDS-SUCCESS-002",
+	"statusComment" : "Packet biodedupe successful",
+	"createdDateTimes" : "2019-06-19 10:43:34.845"
+  },
+  {
+	"id" : "66d87a75-a32e-4651-bb64-23a552a8dd69",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "UIN_GENERATOR",
+	"parentTransactionId" : "faaaf60f-a591-40a7-b5fa-b6b7fa5894bd",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-UIN-SUCCESS-001",
+	"statusComment" : "Data updated successfully for regId  for registration Id:  10006100067159820190618081137",
+	"createdDateTimes" : "2019-06-19 10:43:42.709"
+  },
+  {
+	"id" : "42df348d-6f9f-49c2-830b-4da8e1f6123c",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "PRINT_POSTAL_SERVICE",
+	"parentTransactionId" : "66d87a75-a32e-4651-bb64-23a552a8dd69",
+	"statusCode": "PROCESSED",
+	"statusCommentCode" : "RPR-PPS-SUCCESS-001",
+	"statusComment" : "Pdf added to the mosip queue for printing",
+	"createdDateTimes" : "2019-06-19 10:42:35.677"
+  },
+ {
+	"id" : "0039b5fd-fe6a-4cb7-9456-5f2f25977bb4",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "PRINT_POSTAL_SERVICE",
+	"parentTransactionId" : "66d87a75-a32e-4651-bb64-23a552a8dd69",
+	"statusCode": "PROCESSED",
+	"statusCommentCode" : "RPR-PPS-SUCCESS-002",
+	"statusComment" : "Print and Post Completed for the regId : 10006100067159820190618081137",
+	"createdDateTimes" : "2019-06-19 10:42:35.677"
+  },
+ {
+	"id" : "53b573fd-349d-4171-ba7f-29a926345ded",
+	"registrationId": "10006100067159820190618081137",
+	"transactionTypeCode" : "NOTIFICATION",
+	"parentTransactionId" : "66d87a75-a32e-4651-bb64-23a552a8dd69",
+	"statusCode": "SUCCESS",
+	"statusCommentCode" : "RPR-MSS-SUCCESS-001",
+	"statusComment" : "Notification sent successfully for registrationId 10006100067159820190618081137",
+	"createdDateTimes" : "2019-06-19 10:43:56.823"
+  }
+],
+"errors": null
+}
+```
+Record not found :
+###### Status Code: 200
+###### Description: Successfully retrieved information
+
+```JSON
+{
+  "id" : "mosip.registration.transaction",
+  "version" : "1.0",
+  "responsetime": "2019-02-14T12:40:59.768Z",
+  "response" : null,
+  "errors" : [
+	  {
+		"status": "FAILURE",
+		"errorCode": "RPR-RTS-001",
+		"errorMessage": "Invalid RID"
+	  }
+	]
+}
+}
+
+```
+

@@ -3,7 +3,7 @@
 *** 
 This document guide the developer to find the traceability between functionality and the respective technical component.  The provided technical classes are available in the package of 'registration-service' module. In this module the required functions are exposed as public method and that can be used to obtain the required features.  
 
-It doesn't detail about each methods level information since that are covered in the [javadoc](https://github.com/mosip/mosip/tree/master/docs/javadocs/registration/apidocs) of this module.   
+It doesn't detail about each methods level information since that are covered in Javadoc of each component.   
 
 
 ## Functionality Vs Technical Component mapping: 
@@ -114,10 +114,11 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| TPM 2.0 is required for this service |  
 |**External Connectivity:**| TPM, Web Service |
 
+
 ## Packet Structure :
    The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link. 
    
-   [Packet Structure](https://github.com/mosip/mosip/wiki/Reg-client-implementation)
+   [Packet Structure](https://github.com/mosip/mosip-docs/wiki/Registration-Packet)   
    
 ## Packet Status :  
 
@@ -133,6 +134,7 @@ It doesn't detail about each methods level information since that are covered in
 |Packet IDs synched with Server| SYNCED   |     
 |Packet pushed to Server| PUSHED |     
 |Packet exported to device| EXPORTED |     
+
 
 
 |**Packet Status Desc**|  **Status from Server** |   

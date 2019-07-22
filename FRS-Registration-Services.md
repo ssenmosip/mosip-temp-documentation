@@ -123,13 +123,10 @@ MOSIP system has a role based Privileges of a registration officer. [**Please re
    * On-board registration officers
    * On-board devices
    * New registration
-   * Registration correction
    * UIN update
    * UIN de- and re-activation
    * Lost UIN
-   * Send registration packet IDs to server
-   * Sync data from server to client
-   * Sync data from client to server
+   * Sync data
    * Export packets to local folder (Work in Progress)
    * Upload packets through FTP (Work in Progress)
    * Virus scan
@@ -225,7 +222,6 @@ When a registration officer starts a new registration by entering a pre-registra
    * If client if offline, the system displays the data from the local database.
 1. If data are not available in local database, checks if data for that ID are available on the server.
    * If available, downloads the pre-registration packet from the server and pre-populate on screen.
-   * If data are not available on server, the system displays the data from local database.
 1. Based on the availability of data, the system populates the demographic details of the individual and pre-populates the registration form.
 1. The demographic details can still be edited at this stage.
 1. The registration officer can then view the documents, which were uploaded during pre-registration
@@ -239,7 +235,7 @@ When a registration officer starts a new registration by entering a pre-registra
 
 **(ii) Manual downloads of Pre-registration data**
 
-A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of an individual only and the system does not allow to download the documents, which were uploaded by the applicant. 
+A registration officer can download the pre-registration data while being online. The system allows the registration officer to download the demographic data of an applicant but restricts the registration officer to download the documents that were uploaded by an applicant.
 
 The system also enables a registration officer to view the progress of download.
 
@@ -325,7 +321,7 @@ When a registration officer starts a new registration for a non-pre-registered i
 When the address details of the previous registration and the current registration is same, the system allows the registration officer to copy the same address as previous registration. This feature helps the registration officer to save the time while registering the individual who has the same address as previous registration.
 
 #### G. Scan and upload of POI, POA and POR
-1. The registration officer can input three types of documents- POA (Proof of Address), POI (Proof of Identity) and POR (Proof of Relationship) while registering an individual.  POR is needed only in case of minors.
+1. Registration officer can upload documents based on the configuration of a country during registering an individual, for example, POA (Proof of Address), POI (Proof of Identity), POR (Proof of Relationship), etc.
 1. Document type is configurable by admin based on the country level.
 1. The registration officer collects these documents from the individual and scans them if the uploaded document during pre-registration doesn't meet the required quality.
 1. The following parameters will be met while uploading the documents:
@@ -361,7 +357,7 @@ When the registration officer uses fingerprint capture device to capture the ind
 When a registration officer opts to capture photo of an individual, the system initiates a photo capture and performs the following steps:
 1. Validates that an on-boarded camera is connected to the machine.
    * If an on-boarded camera is not found, displays an error message.
-   * If more than one on-boarded camera is connected, proceeds with the first camera that the system finds as it scans the ports of the machine.
+   * If more than one on-boarded camera is connected, the system will first search for configured web camera names and will connect to the camera. If the camera with configured name is not found, then first device will be connected.
 1. Displays the face photo preview before capturing.
 1. Allows the registration officer to initiate face capture.
 1. Sends request to the camera for face photo capture.
@@ -728,7 +724,7 @@ MOSIP performs the following:
 
 **System security and tampering of packets**
 
-The system uses a machine and centre specific public key to encrypt. Only registration officer having respective private key will be able to decrypt. The data stored in database and application binaries are encrypted using TPM public key and registration officers will not be able to access directly.
+The system uses a machine and centre specific public key to encrypt. Only the server which has the respective private key, machine id and centre id can decrypt the encrypted packet. The data stored in database and application binaries are encrypted using TPM public key and registration officers will not be able to access directly.
 
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration/registration-key-management.md)

@@ -671,142 +671,12 @@ PMS_MISP_008|MISP ID/MISP License Key does not exist|MISP ID/MISP License Key no
 ## Policy Management Service
 This service is used to manage policies.
 
-* [GET /policies](#get-policies)
 * [POST /policies](#post-policies)
-* [GET /policies/{policyID}](#get-policiespolicyid)
 * [POST /policies/{policyID}](#post-policiespolicyid)
 * [PUT /policies/{policyID}](#put-policiespolicyid)
+* [GET /policies](#get-policies)
+* [GET /policies/{policyID}](#get-policiespolicyid)
 * [GET /policies/{PartnerAPIKey}](#get-policiespartnerapikey)
-
-### GET /policies
-This request will retrieve the policies available for my policy group so that he/she can place a request for a partner api key. 
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: retrieve the policies available for my policy group successful
-```JSON
-{
-  "id": "mosip.partnermanagement.partner.policies",
-  "version": "1.0",
-  "responsetime": "2019-05-16T16:01:20.534Z",
-  "response": {
-     "policies": [
-	   {
-        "id": "32058251034176",
-        "name": "Insurence Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": null,
-        "upd_dtimes": null,
-		"policies": {
-            "authPolicies": [ 	
-					{"authType": "otp","mandatory": true},
-					{"authType": "demo","mandatory": false},
-					{"authType": "bio","authSubType": "FINGER","mandatory": true},
-					{"authType": "bio","authSubType": "IRIS","mandatory": false},
-					{"authType": "bio","authSubType": "FACE","mandatory": false},
-					{"authType": "kyc","mandatory": false}
-			],
-            "allowedKycAttributes": [  
-					{"attributeName": "fullName","required": true},
-					{"attributeName": "dateOfBirth","required": true},
-					{"attributeName": "gender","required": true},
-					{"attributeName": "phone","required": true},
-					{"attributeName": "email","required": true},
-					{"attributeName": "addressLine1","required": true},
-					{"attributeName": "addressLine2","required": true},
-					{"attributeName": "addressLine3","required": true},
-					{"attributeName": "location1","required": true},
-					{"attributeName": "location2","required": true},
-					{"attributeName": "location3","required": true},
-					{"attributeName": "postalCode","required": false},
-					{"attributeName": "photo","required": true}
-			 ]
-          }
-       },
-       {
-        "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": "MOSIP",
-        "upd_dtimes": "2019-05-15T16:01:20.534Z"
-        "policies": {
-            "authPolicies": [ 	
-					{"authType": "otp","mandatory": true},
-					{"authType": "demo","mandatory": false},
-					{"authType": "bio","authSubType": "FINGER","mandatory": true},
-					{"authType": "bio","authSubType": "IRIS","mandatory": true},
-					{"authType": "bio","authSubType": "FACE","mandatory": false},
-					{"authType": "kyc","mandatory": false}
-			],
-            "allowedKycAttributes": [  
-					{"attributeName": "fullName","required": true},
-					{"attributeName": "dateOfBirth","required": true},
-					{"attributeName": "gender","required": true},
-					{"attributeName": "phone","required": true},
-					{"attributeName": "email","required": true},
-					{"attributeName": "addressLine1","required": true},
-					{"attributeName": "addressLine2","required": true},
-					{"attributeName": "addressLine3","required": true},
-					{"attributeName": "location1","required": true},
-					{"attributeName": "location2","required": true},
-					{"attributeName": "location3","required": true},
-					{"attributeName": "postalCode","required": false},
-					{"attributeName": "photo","required": true}
-			]
-        }
-       }
-     ]
-	},
-  "errors": null
-}
-```
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: No active policy available in the Policy Group
-```JSON
-{
-  "id": "mosip.partnermanagement.partner.policies",
-  "version": "1.0",
-  "responsetime": "2019-06-14T08:41:17.156Z",
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "PMS_POL_003",
-      "message": "No active policy available in the Policy Group"
-    }
-  ]
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-PMS_POL_001|Policy Manager does not exist|If Policy Manager does not exist
-PMS_POL_002|Mismatch of Policy Manager Credentials|If any mismatch of Policy Manager Credentials
-PMS_POL_003|No active policy available in the Policy Group|No active policies exist in the policy Group
-PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
 ### POST /policies
 This request is used to create new Policy for policy group
@@ -819,6 +689,20 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name|Yes|name of the policy|Insurance Policy
+request.desc|Yes|description of the policy|Desc about policy
+request.policies|Yes|policy file|JSON
+request.policies.authPolicies|Yes|auth details|Array of JSON
+request.policies.allowedKycAttributes|Yes|eKYC details|Array of JSON
+
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -837,28 +721,28 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
        "desc": "Desc about policy",
        "policies": {
             "authPolicies": [ 	
-			{"authType": "otp","mandatory": true},
-			{"authType": "demo","mandatory": false},
-			{"authType": "bio","authSubType": "FINGER","mandatory": true},
-			{"authType": "bio","authSubType": "IRIS","mandatory": false},
-			{"authType": "bio","authSubType": "FACE","mandatory": false},
-			{"authType": "kyc","mandatory": false}
+				{"authType": "otp","mandatory": true},
+				{"authType": "demo","mandatory": false},
+				{"authType": "bio","authSubType": "FINGER","mandatory": true},
+				{"authType": "bio","authSubType": "IRIS","mandatory": false},
+				{"authType": "bio","authSubType": "FACE","mandatory": false},
+				{"authType": "kyc","mandatory": false}
 		    ],
-                    "allowedKycAttributes": [  
-			{"attributeName": "fullName","required": true},
-			{"attributeName": "dateOfBirth","required": true},
-			{"attributeName": "gender","required": true},
-			{"attributeName": "phone","required": true},
-			{"attributeName": "email","required": true},
-			{"attributeName": "addressLine1","required": true},
-			{"attributeName": "addressLine2","required": true},
-			{"attributeName": "addressLine3","required": true},
-			{"attributeName": "location1","required": true},
-			{"attributeName": "location2","required": true},
-			{"attributeName": "location3","required": true},
-			{"attributeName": "postalCode","required": false},
-			{"attributeName": "photo","required": true}
-		 ]
+            "allowedKycAttributes": [  
+				{"attributeName": "fullName","required": true},
+				{"attributeName": "dateOfBirth","required": true},
+				{"attributeName": "gender","required": true},
+				{"attributeName": "phone","required": true},
+				{"attributeName": "email","required": true},
+				{"attributeName": "addressLine1","required": true},
+				{"attributeName": "addressLine2","required": true},
+				{"attributeName": "addressLine3","required": true},
+				{"attributeName": "location1","required": true},
+				{"attributeName": "location2","required": true},
+				{"attributeName": "location3","required": true},
+				{"attributeName": "postalCode","required": false},
+				{"attributeName": "photo","required": true}
+			]
         }
     }
 }
@@ -921,18 +805,372 @@ PMS_POL_007|eKYC attribute missing in the policy file|If any eKYC attribute miss
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
-
-### GET /policies/{policyID}
-This request is used to reterive existing policy for a policy group based on the policy id.
+### POST /policies/{policyID}
+This request is used to update existing policy for a policy group
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/45678451034176</div>
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+policyID |Yes| policyID |45678451034176
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name|Yes|name of the policy|Insurance Policy
+request.desc|Yes|description of the policy|Desc about policy
+request.policies|Yes|policy file|JSON
+request.policies.authPolicies|Yes|auth details|Array of JSON
+request.policies.allowedKycAttributes|Yes|eKYC details|Array of JSON
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.policy.update",
+  "version": "1.0",
+  "requesttime": "2019-05-15T16:01:20.534Z",
+  "metadata": {},
+  "request": {
+      "name": "Loan Policy",
+      "desc": "Desc about policy",
+      "policies": {
+            "authPolicies": [ 	
+					{"authType": "otp","mandatory": true},
+					{"authType": "demo","mandatory": false},
+					{"authType": "bio","authSubType": "FINGER","mandatory": true},
+					{"authType": "bio","authSubType": "IRIS","mandatory": true},
+					{"authType": "bio","authSubType": "FACE","mandatory": false},
+					{"authType": "kyc","mandatory": false}
+			],
+            "allowedKycAttributes": [  
+					{"attributeName": "fullName","required": true},
+					{"attributeName": "dateOfBirth","required": true},
+					{"attributeName": "gender","required": true},
+					{"attributeName": "phone","required": true},
+					{"attributeName": "email","required": true},
+					{"attributeName": "addressLine1","required": true},
+					{"attributeName": "addressLine2","required": true},
+					{"attributeName": "addressLine3","required": true},
+					{"attributeName": "location1","required": true},
+					{"attributeName": "location2","required": true},
+					{"attributeName": "location3","required": true},
+					{"attributeName": "postalCode","required": false},
+					{"attributeName": "photo","required": true}
+			]
+        }
+    }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: update existing policy for policy group is successful
+```JSON
+{
+  "id": "mosip.partnermanagement.policy.update",
+  "version": "1.0",
+  "responsetime": "2019-05-15T16:01:20.534Z",
+  "response":{
+        "id": "45678451034176",
+        "name": "Loan Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": "MOSIP",
+		"upd_dtimes": "2019-05-15T16:01:20.534Z"
+	},
+  "errors": null
+}
+```
+
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: If policy ID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.policy.update",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_POL_008",
+      "message": "Policy ID does not exist"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_POL_001|Policy Manager does not exist|If Policy Manager does not exist
+PMS_POL_002|Mismatch of Policy Manager Credentials|If any mismatch of Policy Manager Credentials
+PMS_POL_004|Policy Name already exists in the policy Group|If Policy Name already exists in the policy Group
+PMS_POL_005|Unsupported KYC attribute in the Policy File|If any unsupported KYC attribute in the Policy File
+PMS_POL_006|Unsupported Authentication Type in the Policy File|If any unsupported Authentication Type in the Policy File
+PMS_POL_007|eKYC attribute missing in the policy file|If any eKYC attribute missing in the policy file
+PMS_POL_008|Policy ID does not exist|If Policy ID does not exist
+PMS_POL_009|No information provided for update|if no information provided for update
+PMS_POL_010|Policy Manager is denied permission to update the policy|if the policy manager is denied permission to update the policy
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### PUT /policies/{policyID}
+This request is used to update the existing policy status.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+policyID |Yes| policyID |45678451034176
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.update.status
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the policy that needs to update|Deactive
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.policy.update.status",
+  "version": "1.0",
+  "requesttime": "2019-05-15T16:01:20.534Z",
+  "metadata": {},
+  "request": {
+		"status":"Deactive"
+   }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: update the existing policy status successful
+```JSON
+{
+  "id": "mosip.partnermanagement.policy.update.status",
+  "version": "1.0",
+  "responsetime": "2019-05-15T16:01:20.534Z",
+  "response":{
+        "message" : "status updated sucessfully"
+   },
+  "errors": null
+}
+```
+
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: If policy ID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.policy.update.status",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_POL_008",
+      "message": "Policy ID does not exist"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_POL_001|Policy Manager does not exist|If Policy Manager does not exist
+PMS_POL_002|Mismatch of Policy Manager Credentials|If any mismatch of Policy Manager Credentials
+PMS_POL_004|Policy Name already exists in the policy Group|If Policy Name already exists in the policy Group
+PMS_POL_008|Policy ID does not exist|If Policy ID does not exist
+PMS_POL_012|Policy Manager is denied permission to update the policy status|if the policy manager is denied permission to update the policy status
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### GET /policies
+This request will retrieve the policies available for my policy group so that he/she can place a request for a partner api key. 
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: retrieve the policies available for my policy group successful
+```JSON
+{
+  "id": "mosip.partnermanagement.partner.policies",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response": {
+     "policies": [
+	   {
+		"id": "32058251034176",
+		"name": "Insurence Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": null,
+		"upd_dtimes": null,
+		"policies": {
+            "authPolicies": [ 	
+					{"authType": "otp","mandatory": true},
+					{"authType": "demo","mandatory": false},
+					{"authType": "bio","authSubType": "FINGER","mandatory": true},
+					{"authType": "bio","authSubType": "IRIS","mandatory": false},
+					{"authType": "bio","authSubType": "FACE","mandatory": false},
+					{"authType": "kyc","mandatory": false}
+			],
+            "allowedKycAttributes": [  
+					{"attributeName": "fullName","required": true},
+					{"attributeName": "dateOfBirth","required": true},
+					{"attributeName": "gender","required": true},
+					{"attributeName": "phone","required": true},
+					{"attributeName": "email","required": true},
+					{"attributeName": "addressLine1","required": true},
+					{"attributeName": "addressLine2","required": true},
+					{"attributeName": "addressLine3","required": true},
+					{"attributeName": "location1","required": true},
+					{"attributeName": "location2","required": true},
+					{"attributeName": "location3","required": true},
+					{"attributeName": "postalCode","required": false},
+					{"attributeName": "photo","required": true}
+			 ]
+          }
+       },
+       {
+		"id": "45678451034176",
+		"name": "Loan Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": "MOSIP",
+		"upd_dtimes": "2019-05-15T16:01:20.534Z",
+		"policies": {
+            "authPolicies": [ 	
+					{"authType": "otp","mandatory": true},
+					{"authType": "demo","mandatory": false},
+					{"authType": "bio","authSubType": "FINGER","mandatory": true},
+					{"authType": "bio","authSubType": "IRIS","mandatory": true},
+					{"authType": "bio","authSubType": "FACE","mandatory": false},
+					{"authType": "kyc","mandatory": false}
+			],
+            "allowedKycAttributes": [  
+					{"attributeName": "fullName","required": true},
+					{"attributeName": "dateOfBirth","required": true},
+					{"attributeName": "gender","required": true},
+					{"attributeName": "phone","required": true},
+					{"attributeName": "email","required": true},
+					{"attributeName": "addressLine1","required": true},
+					{"attributeName": "addressLine2","required": true},
+					{"attributeName": "addressLine3","required": true},
+					{"attributeName": "location1","required": true},
+					{"attributeName": "location2","required": true},
+					{"attributeName": "location3","required": true},
+					{"attributeName": "postalCode","required": false},
+					{"attributeName": "photo","required": true}
+			]
+        }
+       }
+     ]
+	},
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No active policy available in the Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partner.policies",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_POL_003",
+      "message": "No active policy available in the Policy Group"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_POL_001|Policy Manager does not exist|If Policy Manager does not exist
+PMS_POL_002|Mismatch of Policy Manager Credentials|If any mismatch of Policy Manager Credentials
+PMS_POL_003|No active policy available in the Policy Group|No active policies exist in the policy Group
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### GET /policies/{policyID}
+This request is used to reterive existing policy for a policy group based on the policy id.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+policyID |Yes| policyID |45678451034176
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -949,14 +1187,14 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-15T16:01:20.534Z",
   "response":{
-        "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": "MOSIP",
-        "upd_dtimes": "2019-05-15T16:01:20.534Z",
+		"id": "45678451034176",
+		"name": "Loan Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": "MOSIP",
+		"upd_dtimes": "2019-05-15T16:01:20.534Z",
 		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
@@ -1015,193 +1253,6 @@ PMS_POL_011|Policy Manager is denied permission to reterive the policy|if the po
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
-### POST /policies/{policyID}
-This request is used to update existing policy for a policy group
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/45678451034176</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
-
-#### Request:
-```JSON
-{
-  "id": "mosip.partnermanagement.policy.update",
-  "version": "1.0",
-  "requesttime": "2019-05-15T16:01:20.534Z",
-  "metadata": {},
-  "request": {
-      "name": "Loan Policy",
-      "desc": "Desc about policy",
-      "policies": {
-            "authPolicies": [ 	
-					{"authType": "otp","mandatory": true},
-					{"authType": "demo","mandatory": false},
-					{"authType": "bio","authSubType": "FINGER","mandatory": true},
-					{"authType": "bio","authSubType": "IRIS","mandatory": true},
-					{"authType": "bio","authSubType": "FACE","mandatory": false},
-					{"authType": "kyc","mandatory": false}
-			],
-            "allowedKycAttributes": [  
-					{"attributeName": "fullName","required": true},
-					{"attributeName": "dateOfBirth","required": true},
-					{"attributeName": "gender","required": true},
-					{"attributeName": "phone","required": true},
-					{"attributeName": "email","required": true},
-					{"attributeName": "addressLine1","required": true},
-					{"attributeName": "addressLine2","required": true},
-					{"attributeName": "addressLine3","required": true},
-					{"attributeName": "location1","required": true},
-					{"attributeName": "location2","required": true},
-					{"attributeName": "location3","required": true},
-					{"attributeName": "postalCode","required": false},
-					{"attributeName": "photo","required": true}
-			]
-        }
-    }
-}
-```
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: update existing policy for policy group is successful
-```JSON
-{
-  "id": "mosip.partnermanagement.policy.update",
-  "version": "1.0",
-  "responsetime": "2019-05-15T16:01:20.534Z",
-  "response":{
-        "id": "45678451034176",
-        "name": "Loan Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": "MOSIP",
-        "upd_dtimes": "2019-05-15T16:01:20.534Z"
-	},
-  "errors": null
-}
-```
-
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If policy ID does not exist
-```JSON
-{
-  "id": "mosip.partnermanagement.policy.update",
-  "version": "1.0",
-  "responsetime": "2019-06-14T08:41:17.156Z",
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "PMS_POL_008",
-      "message": "Policy ID does not exist"
-    }
-  ]
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-PMS_POL_001|Policy Manager does not exist|If Policy Manager does not exist
-PMS_POL_002|Mismatch of Policy Manager Credentials|If any mismatch of Policy Manager Credentials
-PMS_POL_004|Policy Name already exists in the policy Group|If Policy Name already exists in the policy Group
-PMS_POL_005|Unsupported KYC attribute in the Policy File|If any unsupported KYC attribute in the Policy File
-PMS_POL_006|Unsupported Authentication Type in the Policy File|If any unsupported Authentication Type in the Policy File
-PMS_POL_007|eKYC attribute missing in the policy file|If any eKYC attribute missing in the policy file
-PMS_POL_008|Policy ID does not exist|If Policy ID does not exist
-PMS_POL_009|No information provided for update|if no information provided for update
-PMS_POL_010|Policy Manager is denied permission to update the policy|if the policy manager is denied permission to update the policy
-PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
-
-### PUT /policies/{policyID}
-This request is used to update the existing policy status.
-
-#### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/45678451034176</div>
-
-#### Resource details
-Resource Details | Description
------------- | -------------
-Response format | JSON
-Requires Authentication | Yes
-
-#### Request Header 
-Name | Required | Description | Comment
------|----------|-------------|--------
-Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
-
-#### Request:
-```JSON
-{
-  "id": "mosip.partnermanagement.policy.update.status",
-  "version": "1.0",
-  "requesttime": "2019-05-15T16:01:20.534Z",
-  "metadata": {},
-  "request": {
-       "status":"Deactive"
-   }
-}
-```
-
-#### Responses:
-##### Success Response:
-###### Status code: '200'
-###### Description: update the existing policy status successful
-```JSON
-{
-  "id": "mosip.partnermanagement.policy.update.status",
-  "version": "1.0",
-  "responsetime": "2019-05-15T16:01:20.534Z",
-  "response":{
-        "message" : "status updated sucessfully"
-	},
-  "errors": null
-}
-```
-
-
-##### Failure Response:
-###### Status code: '200'
-###### Description: If policy ID does not exist
-```JSON
-{
-  "id": "mosip.partnermanagement.policy.update.status",
-  "version": "1.0",
-  "responsetime": "2019-06-14T08:41:17.156Z",
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "PMS_POL_008",
-      "message": "Policy ID does not exist"
-    }
-  ]
-}
-```
-#### Other Failure details
-Error Code | Error Message | Error Description
------|----------|-------------
-PMS_POL_001|Policy Manager does not exist|If Policy Manager does not exist
-PMS_POL_002|Mismatch of Policy Manager Credentials|If any mismatch of Policy Manager Credentials
-PMS_POL_004|Policy Name already exists in the policy Group|If Policy Name already exists in the policy Group
-PMS_POL_008|Policy ID does not exist|If Policy ID does not exist
-PMS_POL_012|Policy Manager is denied permission to update the policy status|if the policy manager is denied permission to update the policy status
-PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
-PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
-
 
 ### GET /policies/{PartnerAPIKey}
 This request will retrieve the partner policy details for given PartnerAPIKey. 
@@ -1214,6 +1265,11 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1230,14 +1286,14 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "id": "32058251034176",
-        "name": "Insurence Policy",
-        "desc": "Desc about policy",
-        "is_active": true,
-        "cr_by": "MOSIP",
-        "cr_dtimes": "2019-05-14T16:01:20.534Z",
-        "up_by": null,
-        "upd_dtimes": null
+		"id": "32058251034176",
+		"name": "Insurence Policy",
+		"desc": "Desc about policy",
+		"is_active": true,
+		"cr_by": "MOSIP",
+		"cr_dtimes": "2019-05-14T16:01:20.534Z",
+		"up_by": null,
+		"upd_dtimes": null,
 		"policies": {
             "authPolicies": [ 	
 					{"authType": "otp","mandatory": true},
@@ -1295,8 +1351,6 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
 
-
-
 ## Partner Management Service
 This service enables partner managers to manage respective partners, manage partner API Key requests, manage PartnerAPIKeys to Policies mappings.
 
@@ -1315,13 +1369,29 @@ This service enables partner managers to manage respective partners, manage part
 This request is used by partner Manager, to update Partner api key to Policy Mappings.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232/fa604-affcd-33201-04770</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |65432345634232
+PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.policy.mapping
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.oldPolicyID|Yes|old Policy ID|54662345634232
+request.newPolicyID|Yes|new Policy ID|45662345639999
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1397,13 +1467,27 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request used to activate/deactivate Auth/E-KYC Partners
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |65432345634232
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.status.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partner that needs to update|Deactive
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1474,13 +1558,28 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request used by the partner Manager, to update Partner api key to Policy Mappings
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232/fa604-affcd-33201-04770</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |65432345634232
+PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.apikeystatus.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partnerAPI that needs to update|Active
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1556,13 +1655,27 @@ This request used by the partner Manager, to approve/reject Partner api key requ
 
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/65432345634232</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+APIKeyReqID |Yes| APIKey Request ID |65432345634232
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.apikey.approvel
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partner API Key that needs to update|Approved
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1712,13 +1825,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request will retrieve particular Auth/E-KYC Partners.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/87652345634232</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| Partner ID|87652345634232
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1779,13 +1897,20 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request will retrieve the Partner API key to Policy Mappings.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/87652345634232/fa604-affcd-33201-04770</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |87652345634232
+PartnerAPIKey|Yes|PartnerAPIKey|fa604-affcd-33201-04770
+
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1838,7 +1963,7 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
 ### GET /pmpartners/PartnerAPIKeyRequests
-This request will retrieve the Partner API key to Policy Mappings.
+This request will retrieve all the Partner API key to Policy Mappings requests.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests</div>
@@ -1864,12 +1989,24 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "partnerID":"87652345634232", 
-		"status":"active", 
-		"organizationName":"telecomJio",
-		"policyName": "Insurence Policy",
-        "policyDesc": "Desc about policy",
-        "apiKeyReqNo":"873276828663"
+       "apikeyRequests" : [
+	     {
+			"partnerID":"87652345634232", 
+			"status":"active", 
+			"organizationName":"telecomJio",
+			"policyName": "Insurence Policy",
+			"policyDesc": "Desc about policy",
+			"apiKeyReqNo":"873276828663"
+		 },
+		 {
+			"partnerID":"67678856342329", 
+			"status":"active", 
+			"organizationName":"airtelInd",
+			"policyName": "Banking Policy",
+			"policyDesc": "Desc about policy",
+			"apiKeyReqNo":"903276828609"
+		 }
+       ]	  
   },
   "errors": null
 }
@@ -1904,20 +2041,959 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
 ### GET /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}
+This request will retrieve the perticular Partner API key to Policy Mappings request.
 
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+APIKeyReqID |Yes| APIKey Request ID|873276828663
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the Partner API key requests for the partner manager.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.requests.reterive",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+			"partnerID":"87652345634232", 
+			"status":"active", 
+			"organizationName":"telecomJio",
+			"policyName": "Insurence Policy",
+			"policyDesc": "Desc about policy",
+			"apiKeyReqNo":"873276828663"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No Partner api key requests for the Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.request.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_015",
+      "message": "No Partner api key requests for the Policy Group"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PMP_001|Partner Manager does not exist|Not a authorised Partner Manager- UserName not available in database
+PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Passoword of the Partner Manager does not match
+PMS_PMP_003|Your password has expired. Please reset your password|Password expired
+PMS_PMP_015|No Partner api key requests for the Policy Group|No Partner api key requests for the Policy Group
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
 ## Partner Service
 This service enables partners to do self registration, submit request for respective authentication policies, sharing of digital certificate for secure communication: 
 
 * [POST /partners](#post-partners)
-* [GET /partners/{partnerID}](#post-partnerspartnerid)
-* [PUT /partners/{partnerID}](#put-partnerspartnerid)
-* [GET /partners/{partnerID}/partnerAPIKeyRequest}](#get-partnerspartneridpartnerapikeyrequest)
 * [POST /partners/{partnerID}/partnerAPIKeyRequest}](#post-partnerspartneridpartnerapikeyrequest)
-* [POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}}](#post-partnerspartneridpartnerapikeyrequestrequestid)
-* [GET /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#get-partnerspartneridpartnerapikeyrequestrequestid)
 * [POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#post-partnerspartneridpartnerapikeyrequestrequestid)
-* [POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#post-partnerspartneridpartnerapikeyrequestrequestid)
-* [GET /partners/digitalcertificate](#get-partnersdigitalcertificate)
-* [POST /partners/digitalcertificate](#get-partnersdigitalcertificate)
+* [POST /partners/digitalcertificate](#post-partnersdigitalcertificate)
+* [PUT /partners/{partnerID}](#put-partnerspartnerid)
 * [PUT /partners/digitalcertificate](#get-partnersdigitalcertificate)
+* [GET /partners/{partnerID}](#post-partnerspartnerid)
+* [GET /partners/{partnerID}/partnerAPIKeyRequest}](#get-partnerspartneridpartnerapikeyrequest)
+* [GET /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}](#get-partnerspartneridpartnerapikeyrequestrequestid)
+* [GET /partners/digitalcertificate](#get-partnersdigitalcertificate)
+
+
+### POST /partners
+This request is used to create Auth/E-KYC Partners.
+
+<div>https://mosip.io/partnermanagement/v1/partners</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
+request.policyGroup|Yes|policy group|Banking
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.create",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "organizationName":"airtelInd", 
+	  "contactNumber":"9886779980", 
+	  "emailID":"airtelInd@gmail.com", 
+	  "address":"INDIA",
+	  "policyGroup":"Banking"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Partner successfully created.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.create",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "partnerID":"6565655443544", 
+	   "status":"active"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.create",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_001",
+      "message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_001|A Partner is already registered with name %d in the policy Group %d|A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+PMS_PRT_002|Policy Group does not exist|Policy Group does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### POST /partners/{partnerID}/partnerAPIKeyRequest
+This request is used to submit Partner api key request.
+
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partnerAPIKeyRequest.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.policyName|Yes|name of the policy|airtelIndPolicy
+request.useCaseDescription|Yes|useCase Description|Need to submit the payment
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+		"policyName":"airtelIndPolicy", 
+		"useCaseDescription":"Need to submit the payment"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: partnerAPIKeyRequest successfully created.
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "apiRequestId":"873276828663",
+       "message":"partnerAPIKeyRequest successfully created"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_001",
+      "message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_001|A Partner is already registered with name %d in the policy Group %d|A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+PMS_PRT_002|Policy Group does not exist|Policy Group does not exist
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+
+### POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}
+This request is used to download Partner API key for the given RequestID
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest/{RequestID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+RequestID |Yes| API RequestID|873276828663
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the partnerAPIKey.
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKey.download",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "partnerAPIKey":"fa604-affcd-33201-04770"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: RequestID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKey.download",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "RequestID does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_006|RequestID does not exist|RequestID does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### POST /partners/digitalcertificate
+This request used to upload partner's digital certificate.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.upload
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.upload",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+                            UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
+                            BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
+                            UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
+                            A1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQswCQYDVQQHDAJDQjEh
+                            MB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMRgwFgYDVQQDDA9SRVNU
+                            IEFQSSBTRVJWRVIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDF0BqJ
+                            htgl5JJZM3zwDNN5l7rWcnN0Gp0A0fKY/rfyuSR/mQJ2W2DkX2ISvvRHaNsVwpVb
+                            9Z1T0Dqa3RxgaGbgdc1AtTAAMzHWiPzCNtU="
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully uploaded partner's digital certificate
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.upload",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "message":"successfully uploaded partner's digital certificate"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner digital certificate is not valid
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_007",
+      "message": "Partner digital certificate is not valid"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_007|Partner digital certificate is not valid|Partner digital certificate is not valid
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### PUT /partners/{partnerID}
+This request is used to update Auth/E-KYC Partners.
+
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.update",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "organizationName":"airtelInd", 
+	  "contactNumber":"9886779980", 
+	  "emailID":"airtelInd@gmail.com", 
+	  "address":"Bangalore,INDIA",
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Partner successfully updated.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.update",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "partnerID":"6565655443544", 
+	   "status":"active"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.update",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_001",
+      "message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_001|A Partner is already registered with name %d in the policy Group %d|A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### PUT /partners/digitalcertificate
+This request used to validate partner's digital certificate.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.validate
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.validate",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+      "partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+                            UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
+                            BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
+                            UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
+                            A1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQswCQYDVQQHDAJDQjEh
+                            MB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMRgwFgYDVQQDDA9SRVNU
+                            IEFQSSBTRVJWRVIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDF0BqJ
+                            htgl5JJZM3zwDNN5l7rWcnN0Gp0A0fKY/rfyuSR/mQJ2W2DkX2ISvvRHaNsVwpVb
+                            9Z1T0Dqa3RxgaGbgdc1AtTAAMzHWiPzCNtU="
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully validated partner's digital certificate
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.upload",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "message":"successfully validated partner's digital certificate"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner digital certificate is not valid
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_007",
+      "message": "Partner digital certificate is not valid"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_007|Partner digital certificate is not valid|Partner digital certificate is not valid
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### GET /partners/{partnerID}
+This request should be able to retrieve Auth/E-KYC Partners.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the Partner details.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "partnerID":"6565655443544", 
+		"status":"active", 
+		"organizationName":"airtelInd", 
+	    "contactNumber":"9886779980", 
+	    "emailID":"airtelInd@gmail.com", 
+	    "address":"INDIA",
+	    "policyGroup":"Banking"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### GET /partners/{partnerID}/partnerAPIKeyRequest
+This request should be able to retrieve policies available for my policy group so that i can place a request for a partner api key.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved all active policies available for my policy group.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive.policies",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "policies": [
+	      {
+			"id": "32058251034176",
+			"name": "Insurence Policy",
+			"desc": "Desc about policy",
+			"is_active": true,
+			"policies": {
+				"authPolicies": [ 	
+					{"authType": "otp","mandatory": true},
+					{"authType": "demo","mandatory": false},
+					{"authType": "bio","authSubType": "FINGER","mandatory": true},
+					{"authType": "bio","authSubType": "IRIS","mandatory": false},
+					{"authType": "bio","authSubType": "FACE","mandatory": false},
+					{"authType": "kyc","mandatory": false}
+				],
+				"allowedKycAttributes": [  
+					{"attributeName": "fullName","required": true},
+					{"attributeName": "dateOfBirth","required": true},
+					{"attributeName": "gender","required": true},
+					{"attributeName": "phone","required": true},
+					{"attributeName": "email","required": true},
+					{"attributeName": "addressLine1","required": true},
+					{"attributeName": "addressLine2","required": true},
+					{"attributeName": "addressLine3","required": true},
+					{"attributeName": "location1","required": true},
+					{"attributeName": "location2","required": true},
+					{"attributeName": "location3","required": true},
+					{"attributeName": "postalCode","required": false},
+					{"attributeName": "photo","required": true}
+				]
+			}
+		  },
+		  { 
+			"id": "45678451034176",
+			"name": "Loan Policy",
+			"desc": "Desc about policy",
+			"is_active": true,
+			"policies": {
+				"authPolicies": [ 	
+					{"authType": "otp","mandatory": true},
+					{"authType": "demo","mandatory": false},
+					{"authType": "bio","authSubType": "FINGER","mandatory": true},
+					{"authType": "bio","authSubType": "IRIS","mandatory": true},
+					{"authType": "bio","authSubType": "FACE","mandatory": false},
+					{"authType": "kyc","mandatory": false}
+				],
+				"allowedKycAttributes": [  
+					{"attributeName": "fullName","required": true},
+					{"attributeName": "dateOfBirth","required": true},
+					{"attributeName": "gender","required": true},
+					{"attributeName": "phone","required": true},
+					{"attributeName": "email","required": true},
+					{"attributeName": "addressLine1","required": true},
+					{"attributeName": "addressLine2","required": true},
+					{"attributeName": "addressLine3","required": true},
+					{"attributeName": "location1","required": true},
+					{"attributeName": "location2","required": true},
+					{"attributeName": "location3","required": true},
+					{"attributeName": "postalCode","required": false},
+					{"attributeName": "photo","required": true}
+				]
+			}
+		  }
+		]
+	},
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No active policy available in the Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.reterive.policies",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_008",
+      "message": "No active policy available in the Policy Group"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_008|No active policy available in the Policy Group|No active policy available in the Policy Group
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### GET /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}
+This request is used to view Partner api key/partner api key request status
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest/{RequestID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+RequestID |Yes| API Key RequestID|873276828663
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully reterived Partner api key/partner api key request status
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.status",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "apiKeyRequestStatus":"approved", 
+		"partnerApiKey":"fa604-affcd-33201-04770",
+		"validityTill":"2019-11-01"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: RequestID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.status",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_006",
+      "message": "RequestID does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_006|RequestID does not exist|RequestID does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+
+### GET /partners/digitalcertificate
+This request used to reterive MOSIP digital certificate.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully reterived mosip digital certificate
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.mosip.certificate.download",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "moispCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+                            UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
+                            BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
+                            UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
+                            A1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQswCQYDVQQHDAJDQjEh
+                            MB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMRgwFgYDVQQDDA9SRVNU
+                            IEFQSSBTRVJWRVIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDF0BqJ
+                            htgl5JJZM3zwDNN5l7rWcnN0Gp0A0fKY/rfyuSR/mQJ2W2DkX2ISvvRHaNsVwpVb
+                            9Z1T0Dqa3RxgaGbgdc1AtTAAMzHWiPzCNtU="
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.mosip.certificate.download",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Passoword of the Admin does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+

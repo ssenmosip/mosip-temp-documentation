@@ -1016,12 +1016,27 @@ sudo firewall-cmd --zone=public --add-port=8161/tcp --permanent
 sudo firewall-cmd --zone=public --add-port=61616/tcp --permanent
 sudo firewall-cmd --reload 
 ```
+**Note:** After Installation of activemq, same needs to be mentioned in RegistrationProcessorAbis_{active_profile}.json
+For e.g : Suppose activemq is configured as tcp://xxx.xxx.xxx.xx:61616, then we for dev need to mention this in RegistrationProcessorAbis_dev.json as
+```
+{
+	"abis": [{
+			"name": "ABIS1",
+			"host": "",
+			"port": "",
+			"brokerUrl": "tcp://xxx.xxx.xxx.xx:61616",
+			"inboundQueueName": "abis1-inbound-address_dev",
+			"outboundQueueName": "abis1-outbound-address_dev",
+			"pingInboundQueueName": "",
+			"pingOutboundQueueName": "",
+			"userName": "admin",
+			"password": "admin",
+		        "typeOfQueue": "ACTIVEMQ"
+		}
+	]
 
-
-
-
-
-
+}
+```
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
@@ -1365,6 +1380,13 @@ docker run --restart always -it -d --network host --privileged=true -e active_pr
 ```
 
 **Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
+
+6. Packet uploader stage in secure zone will fetch file from dmz to upload it into Distributed File System,to connect to 
+   dmz vm either we can login using username and password or using ppk file.
+   If password value is available in config property name 
+   registration.processor.dmz.server.password then uploader will connect using username and password.
+   otherwise it will login using ppk file available in config with property name registration.processor.vm.ppk.
+   PPK generation command ssh-keygen -t rsa -b 4096 -f mykey.
 
 ### 8.2 ID Repository Salt Generator
  
