@@ -578,7 +578,8 @@ configured through admin console.
 
 1. Configurable Parameters
 
-   [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-configuration/blob/0.12.0/config/admin-dev.properties)
+   [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
+
 2. Configurable Processes 
 * (Work in Progress) 
 ### Administrator Services API [**[↑]**](#table-of-contents)
