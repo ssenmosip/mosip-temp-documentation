@@ -126,9 +126,7 @@ MOSIP system has a role based Privileges of a registration officer. [**Please re
    * UIN update
    * UIN de- and re-activation
    * Lost UIN
-   * Send registration packet IDs to server
-   * Sync data from server to client
-   * Sync data from client to server
+   * Sync data
    * Export packets to local folder (Work in Progress)
    * Upload packets through FTP (Work in Progress)
    * Virus scan
@@ -237,7 +235,7 @@ When a registration officer starts a new registration by entering a pre-registra
 
 **(ii) Manual downloads of Pre-registration data**
 
-A registration officer can download the pre-registration data while being online. It is possible to download the demographic data of an individual only and the system does not allow to download the documents, which were uploaded by the applicant. 
+A registration officer can download the pre-registration data while being online. The system allows the registration officer to download the demographic data of an applicant but restricts the registration officer to download the documents that were uploaded by an applicant.
 
 The system also enables a registration officer to view the progress of download.
 
@@ -323,7 +321,7 @@ When a registration officer starts a new registration for a non-pre-registered i
 When the address details of the previous registration and the current registration is same, the system allows the registration officer to copy the same address as previous registration. This feature helps the registration officer to save the time while registering the individual who has the same address as previous registration.
 
 #### G. Scan and upload of POI, POA and POR
-1. The registration officer can input three types of documents- POA (Proof of Address), POI (Proof of Identity) and POR (Proof of Relationship) while registering an individual.  POR is needed only in case of minors.
+1. Registration officer can upload documents based on the configuration of a country during registering an individual, for example, POA (Proof of Address), POI (Proof of Identity), POR (Proof of Relationship), etc.
 1. Document type is configurable by admin based on the country level.
 1. The registration officer collects these documents from the individual and scans them if the uploaded document during pre-registration doesn't meet the required quality.
 1. The following parameters will be met while uploading the documents:
