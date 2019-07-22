@@ -114,6 +114,7 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| TPM 2.0 is required for this service |  
 |**External Connectivity:**| TPM, Web Service |
 
+
 ## Packet Structure :
    The packets are created during individual registration process are structured and secured. The detail of the same can be found in this link. 
    
