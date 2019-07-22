@@ -27,7 +27,7 @@ Search and Install **“ GitHub Flavored Markdown “** form Eclipse Marketplace
 
 # MOSIP WIKI Local Setup
 
-**MOSIP wiki will have architecture, API specs and developer documentation only. Low level design will be under the design [**folder**](/mosip/mosip/tree/DEV/design)**
+**MOSIP wiki will have architecture, API specs and developer documentation only. To access the Low level design documents, follow the steps mentioned in the [**link**](/mosip/mosip-platform/wiki/MOSIP-Platform-Detailed-Design)**
 
 
 **Step1:** Access MOSIP wiki at [**link**](/mosip/mosip-docs/wiki)
