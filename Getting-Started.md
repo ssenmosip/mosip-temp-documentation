@@ -1016,12 +1016,27 @@ sudo firewall-cmd --zone=public --add-port=8161/tcp --permanent
 sudo firewall-cmd --zone=public --add-port=61616/tcp --permanent
 sudo firewall-cmd --reload 
 ```
+**Note:** After Installation of activemq, same needs to be mentioned in RegistrationProcessorAbis_{active_profile}.json
+For e.g : Suppose activemq is configured as tcp://xxx.xxx.xxx.xx:61616, then we for dev need to mention this in RegistrationProcessorAbis_dev.json as
+```
+{
+	"abis": [{
+			"name": "ABIS1",
+			"host": "",
+			"port": "",
+			"brokerUrl": "tcp://xxx.xxx.xxx.xx:61616",
+			"inboundQueueName": "abis1-inbound-address_dev",
+			"outboundQueueName": "abis1-outbound-address_dev",
+			"pingInboundQueueName": "",
+			"pingOutboundQueueName": "",
+			"userName": "admin",
+			"password": "admin",
+		        "typeOfQueue": "ACTIVEMQ"
+		}
+	]
 
-
-
-
-
-
+}
+```
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
