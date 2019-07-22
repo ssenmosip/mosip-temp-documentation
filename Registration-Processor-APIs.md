@@ -795,8 +795,8 @@ Reprint request by UIN:
     "reason": "something",
     "registrationType": "REPRINT",
     "id": "4215839851",
-	"idType": "UIN",
-	"cardType": "UIN"
+    "idType": "UIN",
+    "cardType": "UIN"
   }
 }
 ```
@@ -813,8 +813,8 @@ Reprint request by VID:
     "reason": "something",
     "registrationType": "REPRINT",
     "id": "4215839851",
-	"idType": "VID",
-	"cardType": "MASKED_UIN"
+    "idType": "VID",
+    "cardType": "MASKED_UIN"
   }
 }
 ```
