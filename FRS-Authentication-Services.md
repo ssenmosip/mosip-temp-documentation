@@ -28,6 +28,10 @@
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+
+[link](_files/requirements/requirements_detailing_references/ID-Authentication/Data Definition)
+
+
 1. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 1. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. System validates that total number of face record(s) should not exceed 1
