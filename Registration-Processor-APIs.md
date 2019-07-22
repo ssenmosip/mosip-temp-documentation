@@ -794,9 +794,11 @@ Reprint request by UIN:
     "machineId": "10011",
     "reason": "something",
     "registrationType": "REPRINT",
-    "uin": "4215839851"
+    "id": "4215839851",
+	"idType": "UIN",
+	"cardType": "UIN"
   }
-  }
+}
 ```
 
 Reprint request by VID:
@@ -810,9 +812,11 @@ Reprint request by VID:
     "machineId": "10011",
     "reason": "something",
     "registrationType": "REPRINT",
-    "vid": "123456789"
+    "id": "4215839851",
+	"idType": "VID",
+	"cardType": "MASKED_UIN"
   }
-  }
+}
 ```
 ### Example Response
 
