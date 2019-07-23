@@ -94,7 +94,7 @@
 1. **User ID**: from master_userdetail
 1. **Zone_code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”
 
-**Notes**: While mapping Machine, User, Device to a Center in points 2.6, 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.
+**Note**: While mapping Machine, User, Device to a Center in points 2.6, 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.
 
 ### 2.6 Map the Machine to a Center
 1. **Center ID**: from **master-registration_center**
