@@ -187,10 +187,10 @@ Please refer to [**file**](_files/requirements/MOSIP%20Masterdata%20Types.xlsx) 
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-contents)
 
-Please refer [**Git**](/mosip/mosip-configuration/tree/master/config) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
+Please refer [**Git**](/mosip/mosip-config/blob/master/config/) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
+
 Based on the configuration (turn on or turn off), the system allows a registration officer to capture applicable biometrics, authenticates, and completes the registration. 
 
-[test link](/mosip/mosip-config/blob/master/config/)
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-contents)
 
@@ -317,6 +317,9 @@ When a registration officer starts a new registration for a non-pre-registered i
 1. Registration officer enters the PRID provided by a pre-registered individual. 
 1. The registration officer enters demographic details or edits pre-filled demographic details (details rendered from the provided PRID).
 1. The Registration Client validates the entered demographic data as per the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx).
+
+[test link](_files/requirements/Requirements%20Detailing%20References/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx)
+
 1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation, proceeds to next step.
 #### F. Copy address from the previous registration
@@ -818,7 +821,7 @@ Before the machine is decommissioned, the following checks must be performed:
 
 1. Configurable Parameters
     
-   [**Link to Configurable Parameters of Registration Services**](/mosip/mosip-configuration/blob/0.12.0/config/registration-dev.properties)
+   [**Link to Configurable Parameters of Registration Services**](/mosip/mosip-config/blob/master/config/registration.properties)
 
 2. Configurable Processes 
 * (Work in Progress) 
