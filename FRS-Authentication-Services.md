@@ -28,6 +28,9 @@
 Upon receiving an authentication request, the system evaluates the Individual's photo match with the corresponding photo in the Auth server as per the following steps:
 
 1. The authentication service request should have a defined set of parameters. Please refer to [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition) in Git for more details on required parameters.
+
+[test link](_files/requirements/requirements_detailing_references/ID-Authentication/Data%20Definition)
+
 1. The biometric data is sent in [**Base-64 encoded format**](//en.wikipedia.org/wiki/Base64)
 1. System validates if the time period between the current time stamp and the request time stamp is <= time period. Refer to the features related to [**time stamp validation**](#a-validate-the-timestamp-of-the-authentication-request).
 1. System validates that total number of face record(s) should not exceed 1
@@ -36,11 +39,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. 1:1 mapping is performed by the SDK and match score is provided. The system then proceeds to execute compare against the face threshold.
    * NOTE: Biometric Authentication match score generation is stubbed. The actual integration with SDK will be covered in forthcoming implementation.
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
-1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
-
-[Test link](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
-
-[Test link](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
+1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
