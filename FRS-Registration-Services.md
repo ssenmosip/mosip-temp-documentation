@@ -184,6 +184,8 @@ Upon receiving a request to start a new registration, the system performs the fo
 
 Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
+[test link](_files/requirements/MOSIP%20Masterdata%20Types.xlsx)
+
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-contents)
 
