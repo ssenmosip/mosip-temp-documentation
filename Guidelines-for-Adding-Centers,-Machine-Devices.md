@@ -1,5 +1,5 @@
 ## List of Contents
-- [1. Seed Data to be Changed](#1-tables-names)
+- [1. Seed Data to be Changed](#1-seed-data-to-be-changed-in-csv-format)
 - [2. Steps to Add a Mac-Address Machine](#2-steps-to-add-a-mac-address-machine)
   * [2.1 Create a Registration Center](#21-create-a-registration-center)
   * [2.2 Create a Machine](#22-create-a-machine)
@@ -56,7 +56,7 @@
 1. **Machine ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each machine added. The sequence should start from 10000. Keeping length other than 5 digits will fail validations as the same Machine ID is used to generate the Request ID(Registration ID)
 1. **Machine Name**: Machine Host name
 1. **Machine Mac-Address**: Machine’s Mac-Address
-1. **Serial Number**: `<Random Number>`
+1. **Serial Number**: `<serial number of machine>`
 1. **IP Address**: Leave it blank
 1. **Mspecid**: 1001. These values come from a Machine Spec table. Putting any value other than these will throw an error
 1. **Zone Code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.
@@ -80,8 +80,8 @@
 ### 2.4 Create a Device
 1. **Device ID**: This can be a random ID.
 1. **Device Name**: `<Name of the device>`
-1. **Device Mac-Address**: `<Random mac-address>`
-1. **Serial Number**: `<Random Number>`
+1. **Device Mac-Address**: `<mac-address of device>`
+1. **Serial Number**: `<serial number of device>`
 1. **IP Address**: Leave it blank
 1. **Dspecid**: Can be either 165(fingerprint scanner), 327 (iris scanner), 736(web camera), 801(Document scanner) or 920(Printer). These values come from a Device Spec table. Putting any value other than these will throw an error
 1. **Zone Code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”
