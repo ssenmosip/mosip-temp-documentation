@@ -1,5 +1,5 @@
 ## List of Contents
-- [1. Tables Names](#1-tables-names)
+- [1. Seed Data to be Changed](#1-tables-names)
 - [2. Steps to Add a Mac-Address Machine](#2-steps-to-add-a-mac-address-machine)
   * [2.1 Create a Registration Center](#21-create-a-registration-center)
   * [2.2 Create a Machine](#22-create-a-machine)
@@ -13,7 +13,7 @@
   * [2.10 Map Center-Machine-User](#210-map-center-machine-user)
   * [2.11 Store History of MasterData](#211-store-history-of-masterdata)
 
-## 1. Seed Data (In CSV Format):
+## 1. Seed Data to be Changed (In CSV Format):
 1. Registration Centers: **master-registration_center**
 1. Machines: **master-machine_master**
 1. Users: **master-user_detail**
