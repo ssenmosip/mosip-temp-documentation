@@ -15,15 +15,15 @@
 
 ## 1. Seed Data Source files (in csv format):
 1. Registration Centers: [**master-registration_center**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-registration_center.csv)
-1. Machines: **master-machine_master**
-1. Users: **master-user_detail**
-1. Devices: **master-device_master**
-1. Center-Machine Mapping: **master-reg_center_machine**
-1. Center-Device Mapping: **master-reg_center_device**
-1. Center-User Mapping: **master-reg_center_user**
-1. Center-Machine-Device Mapping: **master-reg_center_user_machine**
-1. Center Machine User Mapping: **master-reg_center_machine_device**
-1. User Zone Mapping: **master-zone_user**
+1. Machines: [**master-machine_master**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-machine_master.csv)
+1. Users: [**master-user_detail**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-user_detail.csv)
+1. Devices: [**master-device_master**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-device_master.csv)
+1. Center-Machine Mapping: [**master-reg_center_machine**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine.csv)
+1. Center-Device Mapping: [**master-reg_center_device**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_device.csv)
+1. Center-User Mapping: [**master-reg_center_user**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user.csv)
+1. Center-Machine-Device Mapping: [**master-reg_center_user_machine**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_machine.csv)
+1. Center Machine User Mapping: [**master-reg_center_machine_device**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device.csv)
+1. User Zone Mapping: [**master-zone_user**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user.csv)
 ## 2. Steps to Add a Mac-Address Machine:
 ### 2.1 Create a Registration Center:
 1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
