@@ -54,7 +54,7 @@ The key solution considerations are
 
 
 **2.1.	Class Diagram**   
-![Class Diagram](_images/idrepo-identity-cd.PNG)   
+![Class Diagram](idrepo-identity-cd.PNG)   
 
 
 **2.2.	REST Services**   
@@ -123,7 +123,7 @@ ID Repo provides default shard implementation where shards are decided based on 
 
 **2.4.	Encrypting/Decrypting Identity**    
 
-Identity stored in UIN DB is encrypted/decrypted outside the DB. Details on the approach of encryption/decryption is available here - [Identity Encryption/Decryption](https://github.com/mosip/mosip/wiki/Security#database-encryption)
+Identity stored in UIN DB is encrypted/decrypted outside the DB. Details on the approach of encryption/decryption is available here - [Identity Encryption/Decryption](https://github.com/mosip/mosip-docs/wiki/Security#database-encryption)
 
 **2.5.	Database Model**
 
