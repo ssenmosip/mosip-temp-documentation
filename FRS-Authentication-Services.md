@@ -38,7 +38,7 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 1. The system proceeds to send Notification SMS and Notification E-mail. Refer to features related to [**Trigger SMS**](#e-trigger-sms-to-the-individuals-mobile-for-every-authentication-request) and [**Trigger E-mail**](#f-trigger-e-mail-to-the-individuals-e-mail-id-for-every-authentication-request-).
 1. Alerts and warning messages for data type violation are sent as per data definition. Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
-[Test link](/_files/requirements/requirements_detailing_references/ID-Authentication/Sprint 10/Consolidated error messages V2.2.xlsx)
+[Test link](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint-10/Consolidated-error-messages-V2.2.xlsx)
 
 
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
