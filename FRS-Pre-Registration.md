@@ -249,7 +249,8 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 
 1. Configurable Parameters
 
-   [**Link to Configurable Parameters of Pre-registration**](/mosip/mosip-configuration/blob/master/config/pre-registration-dev.properties)
+   [**Link to Configurable Parameters of Pre-registration**](/mosip/mosip-config/blob/master/config/pre-registration.properties)
+
 2. Configurable Processes 
 * (Work in Progress)
 
