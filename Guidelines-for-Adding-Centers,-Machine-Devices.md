@@ -80,23 +80,26 @@
 ### 2.5 Map the User to a Zone
 1. **User ID**: from master_userdetail
 1. **Zone_code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”
-### 2.6 Notes: While mapping Machine, User, Device to a Center in points 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.
-### 2.7 Map the Machine to a Center
+
+**Notes**: While mapping Machine, User, Device to a Center in points 2.6, 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.
+
+### 2.6 Map the Machine to a Center
 1. **Center ID**: from **master-registration_center**
 1. **Machine ID**: from **master-machine_master** (newly created machine)
 1. **Lang_code**: eng
 1. **Is_active**: True
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
-### 2.8 Map the User to a Center
+### 2.7 Map the User to a Center
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.9 Map the Device to a Center
+### 2.8 Map the Device to a Center
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.10 Map Center-Machine-Device
+### 2.9 Map Center-Machine-Device
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.11 Map Center-Machine-User
+### 2.10 Map Center-Machine-User
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.12 After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
+### 2.11 Store History of MasterData 
+After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
 1. Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
 1. The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.
 1. Find the table names below for history tables
