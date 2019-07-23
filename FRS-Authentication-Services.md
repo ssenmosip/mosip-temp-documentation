@@ -193,10 +193,7 @@ NOTE:
 1. The address attributes are generalized as location 1, location 2 and location 3 
 1. The SI has to define and map the address specific attributes against addressLine2, addressLine3,  and location specific attributes against location1, location2, location3 of a country. For example: addrLine1 means House No, addrLine2 means Street No, and addrLine3 means Locality; similarly loc1 means Local Administrative Authority, loc2 means Province and loc3 means Region.
 
-Please refer Git for the address based [**Normalization Rules**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
-
-[test](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
-
+Please refer Git for the address based [**Normalization Rules**](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%20FIT-4/Address%20Normalization%20BR.docx)
 
 **C. Verify the Age of the individual so that the individual is authenticated**
 
