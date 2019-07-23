@@ -33,7 +33,7 @@ The test execution module of the Kernel module involving API’s is as depicted 
 ## 1.3 Procedure to check out the test code from the repository
 * Create a workspace in the local system
 * Open git bash in the workspace
-* Enter the command :- git clone [link](/mosip/mosip.git)
+* Enter the command :- git clone [link](/mosip/mosip-docs.git)
 * MOSIP project shall be cloned
 * Import the “automationtests” project into the eclipse.
  
