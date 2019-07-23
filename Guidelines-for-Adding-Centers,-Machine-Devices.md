@@ -115,14 +115,14 @@ After adding all these data in the DB, we would need to create the same records 
 1. Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
 1. The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.
 1. Find the table names below for history tables
-   1. Registration Centers: **master-registration_center_h**
-   1. Machines: **master-machine_master_h**
-   1. Users: **master-user_detail_h**
-   1. Devices: **master-device_master_h**
-   1. Center-Machine Mapping: **master-reg_center_machine_h**
-   1. Center-Device Mapping: **master-reg_center_device_h**
-   1. Center-User Mapping: **master-reg_center_user_h**
-   1. Center-Machine-Device Mapping: **master-reg_center_user_machine_h**
-   1. Center Machine User Mapping: **master-reg_center_machine_device_h**
-   1. User Zone Mapping: **master-zone_user_h**
+   1. Registration Centers: [**master-registration_center_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-registration_center_h.csv)
+   1. Machines: [**master-machine_master_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-machine_master_h.csv)
+   1. Users: [**master-user_detail_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-user_detail_h.csv)
+   1. Devices: [**master-device_master_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-device_master_h.csv)
+   1. Center-Machine Mapping: [**master-reg_center_machine_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_h.csv)
+   1. Center-Device Mapping: [**master-reg_center_device_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_device_h.csv)
+   1. Center-User Mapping: [**master-reg_center_user_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_h.csv)
+   1. Center-Machine-Device Mapping: [**master-reg_center_user_machine_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_user_machine_h.csv)
+   1. Center Machine User Mapping: [**master-reg_center_machine_device_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-reg_center_machine_device_h.csv)
+   1. User Zone Mapping: [**master-zone_user_h**](/mosip/mosip-platform/blob/master/db_scripts/mosip_master/dml/master-zone_user_h.csv)
 
