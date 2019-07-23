@@ -89,9 +89,7 @@ This feature allows the system to maintain the status of all VIDs from the persp
 
 To prevent misuse of VID, an individual can request to revoke his/her VID using Resident Service if the individual feels his/her VID has been compromised. The individual provides the VID as input. The system will then validate the individual's VID, trigger an OTP to individual's registered mobile number and/or email ID, validate the OTP and then authenticate the individual. On successful authentication, the system revokes the provided VID. Based on the VID policy of the Country a new VID will be generated during revocation and provided to the individual on the registered mobile number and/or email ID. If validation fails, the system triggers the appropriate error message.
 
- Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
-
-[test](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx)
+ Please refer Git for more details on the type of [**error messages**](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx)
 
 ### 2.10.4 Auto-restore a VID on Revocation and with Auto-restore Policy [**[↑]**](#table-of-contents)  
 This feature allows for a VID to be auto regenerated and given to an individual after he/she requests for an existing VID to be revoked. The VID regeneration happens based on the VID policy defined by Country (the regeneration policy for the revoked VID should be ‘Auto-restore’).
