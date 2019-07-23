@@ -304,7 +304,7 @@ The workflow of testing or running the test suite of the available API’s And S
 * Good analytical and debugging skill
 ## 4.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [**link**](//github.com/mosip/mosip.git)
+* Clone project from [**link**](//github.com/mosip/mosip-docs.git)
 * Import the automationtests project into the eclipse.
 
 ## 4.4 Procedure to Add new test cases into the API test suite
@@ -368,7 +368,7 @@ The workflow of testing or running the test suite of the available API’s is as
 
 ## 5.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [link](//github.com/mosip/mosip.git)
+* Clone project from [link](//github.com/mosip/mosip-docs.git)
 * Import the automationtests project into the eclipse.
 
 ## 5.4 Procedure to Add new test cases into the API test suite
@@ -467,7 +467,7 @@ The below diagram depicts the overall design of the end to end suite.
 
 ## 6.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [**link**](//github.com/mosip/mosip.git)
+* Clone project from [**link**](//github.com/mosip/mosip-docs.git)
 * Import the e2etestrig project into the eclipse.
 
 ## 6.4 Basic Code Structure Of The E2E Rig
