@@ -221,7 +221,8 @@ Individual can choose to print the Acknowledgement or can Download the Acknowled
 
 The acknowledgement template is language and channel (email, sms, on screen) specific.
 
-[**Reference Templates**](/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration) 
+[**Reference Templates**](/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration)
+[**test**](_files/requirements/templates/Pre-registration)  
 ### 2.5.2 Send Acknowledgement to Email/Phone [**[↑]**](#table-of-contents)
 The system sends an acknowledgement to the  applicant through SMS, Email and on-screen as per the details provided in Demographic details
 
