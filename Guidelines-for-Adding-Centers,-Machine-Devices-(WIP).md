@@ -11,6 +11,7 @@
 1. Center-User Mapping: **master-reg_center_user**
 1. Center-Machine-Device Mapping: **master-reg_center_user_machine**
 1. Center Machine User Mapping: **master-reg_center_machine_device**
+1. User Zone Mapping: **master-zone_user**
 ## 2. Steps to Add a Mac-Address Machine:
 ### 2.1 Create a Registration Center:
 1. **Center ID**: This should be a 5-digit ID and Ideally should be in an incremental sequence for each center added. The sequence should start from 10000. Keeping the lenght other than 5 digits will fail validations as the same Center ID is used to generate the Request ID (Registration ID)
@@ -33,6 +34,7 @@
 1. **Lunch End Time**: _Ending of Lunch Time the Center would have in-between the Working hours_. Is used by Pre-Registration to calculate appointment slots. Should be in format **hh:mm:ss**
 1. **Time Zone**: (GTM+01:00) CENTRAL EUROPEAN TIME
 1. **Holiday Location Code**: Should come from the Location master table. Current values can only be “**KTA**” or “**RBT**” as holidays are only defined for these two location codes.
+1. **Zone Code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.
 1. **Language Code**: Should be the language code for the languages supported by the Country as primary and secondary Language. Currently can be “fra” or “ara”
 1. **Is_Active**: TRUE. If set as false, this Registration will not be shown up in Pre-Registration UI and no appointments will be generated for this Center
 1. **Cr_by**: `<username>` ideally name of the admin
@@ -45,9 +47,10 @@
 1. **Serial Number**: `<Random Number>`
 1. **IP Address**: Leave it blank
 1. **Mspecid**: 1001. These values come from a Machine Spec table. Putting any value other than these will throw an error
+1. **Zone Code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.
 1. **Lang_code**: eng
 1. **Is_active**: True
-1. **cr_by**: `<username>` ideally name of the admin
+1. **cr_by**: `<username>` ideally name of the admin'
 1. **cr_dtimes**: now()
 ### 2.3 Create a User
 1. Create a User in LDAP (User ID/Password)
@@ -64,33 +67,36 @@
    1. **cr_dtimes**: now()
 ### 2.4 Create a Device
 1. **Device ID**: This can be a random ID.
-1. **Device Name**: `<Random name>`
+1. **Device Name**: `<Name of the device>`
 1. **Device Mac-Address**: `<Random mac-address>`
 1. **Serial Number**: `<Random Number>`
 1. **IP Address**: Leave it blank
 1. **Dspecid**: Can be either 165(fingerprint scanner), 327 (iris scanner), 736(web camera), 801(Document scanner) or 920(Printer). These values come from a Device Spec table. Putting any value other than these will throw an error
+1. **Zone Code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”
 1. **Lang_code**: eng
 1. **Is_active**: True
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
-
-### 2.5 Map the Machine to a Center
+### 2.5 Map the User to a Zone
+1. **User ID**: from master_userdetail
+1. **Zone_code**: Should come from a pre-defined list of Administrative Zone codes created in Zone Masterdata. Current values can be “RBT”, “KTA”, “SAL”, “BSN”, “CSB”, ”STT”, ”NDR”, ”BRK”, “JRD”, “SAF“, “YSF“, “TTA“, “TZT”.”
+### 2.6 Notes: While mapping Machine, User, Device to a Center in points 2.7, 2.8, 2.9, 2.10, these resources should belong to the same zone code. For example, while mapping a machine to a Center, both machine and a center should belong to same zone.
+### 2.7 Map the Machine to a Center
 1. **Center ID**: from **master-registration_center**
 1. **Machine ID**: from **master-machine_master** (newly created machine)
 1. **Lang_code**: eng
 1. **Is_active**: True
 1. **cr_by**: `<username>` ideally name of the admin
 1. **cr_dtimes**: now()
-### 2.6 Map the User to a Center
+### 2.8 Map the User to a Center
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.7 Map the Device to a Center
+### 2.9 Map the Device to a Center
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.8 Map Center-Machine-Device
+### 2.10 Map Center-Machine-Device
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.9 Map Center-Machine-User
+### 2.11 Map Center-Machine-User
 Follow the above example in [**point 2.4**](#24-create-a-device).
-### 2.10 Final step (Suggest heading)
-After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
+### 2.12 After adding all these data in the DB, we would need to create the same records in all the History tables for every table mentioned in the “**Tables Names**” section.
 1. Each history table has an extra attribute “effective date” other than the standard attributes mentioned for each table. 
 1. The Effective date should be now().and all the attributes should be same as they are stored in the standard tables.
 1. Find the table names below for history tables
@@ -103,4 +109,5 @@ After adding all these data in the DB, we would need to create the same records 
    1. Center-User Mapping: **master-reg_center_user_h**
    1. Center-Machine-Device Mapping: **master-reg_center_user_machine_h**
    1. Center Machine User Mapping: **master-reg_center_machine_device_h**
+   1. User Zone Mapping: **master-zone_user_h**
 
