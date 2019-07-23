@@ -40,6 +40,8 @@ Upon receiving an authentication request, the system evaluates the Individual's 
 
 [Test link](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint-10/Consolidated-error-messages-V2.2.xlsx)
 
+[Test link](_files/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx)
+
 
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public)
 for more details.
