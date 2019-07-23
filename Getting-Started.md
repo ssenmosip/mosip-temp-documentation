@@ -936,9 +936,9 @@ After these steps, our ceph infrastructure is ready with all the configurations 
 <div>http://docs.ceph.com/docs/mimic/start/quick-start-preflight/</div>
 
 ### 6.5 Steps to Install and configuration LDAP
-[ApacheDs Server installation and config](https://github.com/mosip/mosip/wiki/ApacheDs-Server-installation-and-config)
+[ApacheDs Server installation and config](ApacheDs-Server-installation-and-config)
 
-[Apache Directory Studio user guide](https://github.com/mosip/mosip/wiki/Apache-Directory-Studio-user-guide)
+[Apache Directory Studio user guide](Apache-Directory-Studio-user-guide)
 
 
 ### 6.6 Steps to Install and configuration HDFS
