@@ -13,14 +13,15 @@ A country will have its own hierarchy of system users especially the Registratio
 
 MOSIP system can handle Authorization across core services and restricts access to Web-services as per the roles defined. 
 
-[**Please refer Git for more details on the roles and Privileges of a user**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
+[**Please refer Git for more details on the roles and Privileges of a user**](_files/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
 
 ### List of Configurable Parameters and Processes 
 1. Configurable Parameters
 
-   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-configuration/blob/0.12.0/config/kernel-dev.properties)
+   [**Link to Configurable Parameters of Kernel**](/mosip/mosip-config/blob/master/config/kernel.properties)
 
-   [**Link to Kernel Application Properties**](/mosip/mosip-configuration/blob/0.12.0/config/application-dev.properties)
+   [**Link to Kernel Application Properties**](/mosip/mosip-config/blob/master/config/application.properties)
+
 2. Configurable Processes 
 * (Work in Progress) 
 

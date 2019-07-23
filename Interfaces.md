@@ -1,10 +1,14 @@
-## Specifications
+This page put together all the **interfaces** a running instance MOSIP Platform needs to effectively be a foundational ID system.
+
+## Biometrics related interfaces
 
 * ABIS
     * [ABIS Interface](Automated-Biometric-Identification-System-(ABIS)-Interface)
     * [ABIS APIs](ABIS-APIs)
-* [MOSIP Device Service Specification](MOSIP-Device-Service-Specification)
-* [Biometric Functions API Specification](Biometric-Functions-API-Specification)
+* Biometric SDK
+    * [Biometric Functions API Specification](Biometric-Functions-API-Specification)
+* Devices 
+    * [MOSIP Device Service Specification](MOSIP-Device-Service-Specification)
 
 ---
 ## Low Level Design Documents

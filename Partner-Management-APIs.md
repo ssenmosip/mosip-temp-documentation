@@ -690,6 +690,20 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name|Yes|name of the policy|Insurance Policy
+request.desc|Yes|description of the policy|Desc about policy
+request.policies|Yes|policy file|JSON
+request.policies.authPolicies|Yes|auth details|Array of JSON
+request.policies.allowedKycAttributes|Yes|eKYC details|Array of JSON
+
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -707,28 +721,28 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
        "desc": "Desc about policy",
        "policies": {
             "authPolicies": [ 	
-			{"authType": "otp","mandatory": true},
-			{"authType": "demo","mandatory": false},
-			{"authType": "bio","authSubType": "FINGER","mandatory": true},
-			{"authType": "bio","authSubType": "IRIS","mandatory": false},
-			{"authType": "bio","authSubType": "FACE","mandatory": false},
-			{"authType": "kyc","mandatory": false}
+				{"authType": "otp","mandatory": true},
+				{"authType": "demo","mandatory": false},
+				{"authType": "bio","authSubType": "FINGER","mandatory": true},
+				{"authType": "bio","authSubType": "IRIS","mandatory": false},
+				{"authType": "bio","authSubType": "FACE","mandatory": false},
+				{"authType": "kyc","mandatory": false}
 		    ],
-                    "allowedKycAttributes": [  
-			{"attributeName": "fullName","required": true},
-			{"attributeName": "dateOfBirth","required": true},
-			{"attributeName": "gender","required": true},
-			{"attributeName": "phone","required": true},
-			{"attributeName": "email","required": true},
-			{"attributeName": "addressLine1","required": true},
-			{"attributeName": "addressLine2","required": true},
-			{"attributeName": "addressLine3","required": true},
-			{"attributeName": "location1","required": true},
-			{"attributeName": "location2","required": true},
-			{"attributeName": "location3","required": true},
-			{"attributeName": "postalCode","required": false},
-			{"attributeName": "photo","required": true}
-		 ]
+            "allowedKycAttributes": [  
+				{"attributeName": "fullName","required": true},
+				{"attributeName": "dateOfBirth","required": true},
+				{"attributeName": "gender","required": true},
+				{"attributeName": "phone","required": true},
+				{"attributeName": "email","required": true},
+				{"attributeName": "addressLine1","required": true},
+				{"attributeName": "addressLine2","required": true},
+				{"attributeName": "addressLine3","required": true},
+				{"attributeName": "location1","required": true},
+				{"attributeName": "location2","required": true},
+				{"attributeName": "location3","required": true},
+				{"attributeName": "postalCode","required": false},
+				{"attributeName": "photo","required": true}
+			]
         }
     }
 }
@@ -795,13 +809,31 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request is used to update existing policy for a policy group
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/45678451034176</div>
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+policyID |Yes| policyID |45678451034176
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.name|Yes|name of the policy|Insurance Policy
+request.desc|Yes|description of the policy|Desc about policy
+request.policies|Yes|policy file|JSON
+request.policies.authPolicies|Yes|auth details|Array of JSON
+request.policies.allowedKycAttributes|Yes|eKYC details|Array of JSON
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -907,13 +939,27 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request is used to update the existing policy status.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/45678451034176</div>
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+policyID |Yes| policyID |45678451034176
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.policy.update.status
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the policy that needs to update|Deactive
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1113,13 +1159,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request is used to reterive existing policy for a policy group based on the policy id.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/policies/45678451034176</div>
+<div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+policyID |Yes| policyID |45678451034176
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1214,6 +1265,11 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1313,13 +1369,29 @@ This service enables partner managers to manage respective partners, manage part
 This request is used by partner Manager, to update Partner api key to Policy Mappings.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232/fa604-affcd-33201-04770</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |65432345634232
+PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.policy.mapping
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.oldPolicyID|Yes|old Policy ID|54662345634232
+request.newPolicyID|Yes|new Policy ID|45662345639999
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1395,13 +1467,27 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request used to activate/deactivate Auth/E-KYC Partners
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |65432345634232
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.status.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partner that needs to update|Deactive
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1472,13 +1558,28 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request used by the partner Manager, to update Partner api key to Policy Mappings
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/65432345634232/fa604-affcd-33201-04770</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |65432345634232
+PartnerAPIKey|Yes| PartnerAPIKey | fa604-affcd-33201-04770
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.apikeystatus.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partnerAPI that needs to update|Active
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1554,13 +1655,27 @@ This request used by the partner Manager, to approve/reject Partner api key requ
 
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/65432345634232</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+APIKeyReqID |Yes| APIKey Request ID |65432345634232
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.apikey.approvel
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.status|Yes|status of the partner API Key that needs to update|Approved
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1710,13 +1825,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request will retrieve particular Auth/E-KYC Partners.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/87652345634232</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| Partner ID|87652345634232
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1777,13 +1897,20 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request will retrieve the Partner API key to Policy Mappings.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/87652345634232/fa604-affcd-33201-04770</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partnerID |87652345634232
+PartnerAPIKey|Yes|PartnerAPIKey|fa604-affcd-33201-04770
+
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -1917,13 +2044,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request will retrieve the perticular Partner API key to Policy Mappings request.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/873276828663</div>
+<div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+APIKeyReqID |Yes| APIKey Request ID|873276828663
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2005,6 +2137,19 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
+request.policyGroup|Yes|policy group|Banking
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -2074,13 +2219,28 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 ### POST /partners/{partnerID}/partnerAPIKeyRequest
 This request is used to submit Partner api key request.
 
-<div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partnerAPIKeyRequest.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.policyName|Yes|name of the policy|airtelIndPolicy
+request.useCaseDescription|Yes|useCase Description|Need to submit the payment
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2154,13 +2314,19 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request is used to download Partner API key for the given RequestID
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest/873276828663</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest/{RequestID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+RequestID |Yes| API RequestID|873276828663
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2223,6 +2389,15 @@ Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.upload
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2298,13 +2473,30 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 ### PUT /partners/{partnerID}
 This request is used to update Auth/E-KYC Partners.
 
-<div>https://mosip.io/partnermanagement/v1/partners/6565655443544</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2385,6 +2577,15 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.validate
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
+
 #### Request Header 
 Name | Required | Description | Comment
 -----|----------|-------------|--------
@@ -2461,13 +2662,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request should be able to retrieve Auth/E-KYC Partners.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/partners/6565655443544</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2527,13 +2733,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request should be able to retrieve policies available for my policy group so that i can place a request for a partner api key.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
 
 #### Request Header 
 Name | Required | Description | Comment
@@ -2651,13 +2862,18 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 This request is used to view Partner api key/partner api key request status
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest/873276828663</div>
+<div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest/{RequestID}</div>
 
 #### Resource details
 Resource Details | Description
 ------------ | -------------
 Response format | JSON
 Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+RequestID |Yes| API Key RequestID|873276828663
 
 #### Request Header 
 Name | Required | Description | Comment

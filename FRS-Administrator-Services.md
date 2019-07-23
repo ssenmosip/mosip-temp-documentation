@@ -310,7 +310,7 @@ The portal allows Zonal Admin to map the devices to the registration center by p
 
 If the device is not mapped with the registration center, it cannot be recognized by the system to perform any operation in that center. The system track the device by serial number and other attributes of the device. If the device is already mapped with another registration center, Zonal Admin must un-map the device first and then map to his/her registration center. Once the mapping is completed successfully, the system provides the notification else provides an respective error notification. 
 
-For more details, please refer to https://github.com/mosip/mosip/wiki/FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-
+For more details, please refer to [link](FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-)
 
 #### B. Un-map Device from a Registration Center
 The portal allows Zonal Admin to un-map the devices from the registration center by providing the Device ID and Registration Center ID. The registration center must belong to Zonal Admin’s zone. The system validates the provided data and user’s role. On successful validation, the system un-maps that device from the selected registration center and once the device is un-mapped from the registration center, it is displayed in the list of available devices.
@@ -560,9 +560,9 @@ Using the portal, Zonal Admin will provide the UIN to activate/deactivate based 
 The system admin will set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
 
 For more details, please refer to
- https://github.com/mosip/mosip/wiki/FRS-Admin-Services#113-list-of-template-types---create-
+ [link](FRS-Admin-Services#113-list-of-template-types---create-)
 
-https://github.com/mosip/mosip/wiki/FRS-Admin-Services#19-list-of-rejection-reasons---createread-
+[link](FRS-Admin-Services#19-list-of-rejection-reasons---createread-)
 
 ## 13. ID Definition Setup [**[↑]**](#table-of-contents)
 
@@ -578,7 +578,8 @@ configured through admin console.
 
 1. Configurable Parameters
 
-   [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-configuration/blob/0.12.0/config/admin-dev.properties)
+   [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
+
 2. Configurable Processes 
 * (Work in Progress) 
 ### Administrator Services API [**[↑]**](#table-of-contents)
