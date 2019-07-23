@@ -91,6 +91,8 @@ To prevent misuse of VID, an individual can request to revoke his/her VID using 
 
  Please refer Git for more details on the type of [**error messages**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx).
 
+[Test link](_files/requirements/Requirements%20Detailing%20References/ID-Authentication/Sprint%2011/Consolidated%20error%20messages%20V2.4.xlsx)
+
 ### 2.10.4 Auto-restore a VID on Revocation and with Auto-restore Policy [**[↑]**](#table-of-contents)  
 This feature allows for a VID to be auto regenerated and given to an individual after he/she requests for an existing VID to be revoked. The VID regeneration happens based on the VID policy defined by Country (the regeneration policy for the revoked VID should be ‘Auto-restore’).
 
