@@ -182,15 +182,15 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 
-Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
-
-[test link](_files/requirements/MOSIP%20Masterdata%20Types.xlsx)
+Please refer to [**file**](_files/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-contents)
 
 Please refer [**Git**](/mosip/mosip-configuration/tree/master/config) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
 Based on the configuration (turn on or turn off), the system allows a registration officer to capture applicable biometrics, authenticates, and completes the registration. 
+
+[test link](/mosip/mosip-config/blob/master/config/)
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-contents)
 
