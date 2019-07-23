@@ -140,7 +140,8 @@ This service triggers an SMS Notification upon receiving a request to trigger no
 This utility enables creation of PDF from the content received. It will receive a content in input parameter, convert it into a PDF document, and respond with it to the source.
 
 PDF Generator also supports the feature to generate a Password Protected PDF with an additional input parameter “Password”, which is an optional parameter.
-<br>**NOTE**: If a Password is not received, then PDF Generator will generate the PDF of received content without the password protection.<br>
+
+**NOTE**: If a Password is not received, then PDF Generator will generate the PDF of received content without the password protection.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-pdfgenerator.md)
 
