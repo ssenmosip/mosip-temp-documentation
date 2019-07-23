@@ -117,7 +117,7 @@ If the client machine is online and the supervisor is mapped to the client machi
 
 In MOSIP system, a registration officer can have multiple role. When a registration officer is registered on admin portal, the system allows a registration officer to assign multiple roles.
 
-MOSIP system has a role based Privileges of a registration officer. [**Please refer Git for more details on the roles and Privileges of a registration officer**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
+MOSIP system has a role based Privileges of a registration officer. [**Please refer Git for more details on the roles and Privileges of a registration officer**](_files/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
    * On-board registration officers
