@@ -1,5 +1,18 @@
 # Work in Progress
-
+## List of Contents
+- [1. Tables Names](#1-tables-names)
+- [2. Steps to Add a Mac-Address Machine](#2-steps-to-add-a-mac-address-machine)
+  * [2.1 Create a Registration Center](#21-create-a-registration-center)
+  * [2.2 Create a Machine](#22-create-a-machine)
+  * [2.3 Create a User](#23-create-a-user)
+  * [2.4 Create a Device](#24-create-a-device)
+  * [2.5 Map the User to a Zone](#25-map-the-user-to-a-zone)
+  * [2.6 Map the Machine to a Center](#26-map-the-machine-to-a-center)
+  * [2.7 Map the User to a Center](#27-map-the-user-to-a-center)
+  * [2.8 Map the Device to a Center](#28-map-the-device-to-a-center)
+  * [2.9 Map Center-Machine-Device](#29-map-center-machine-device)
+  * [2.10 Map Center-Machine-User](#210-map-center-machine-user)
+  * [2.11 Store History of MasterData](#211-store-history-of-masterdata)
 
 ## 1. Tables Names:
 1. Registration Centers: **master-registration_center**
