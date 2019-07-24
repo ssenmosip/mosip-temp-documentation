@@ -189,6 +189,12 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 |3.|	mdm_stop.bat        | to stop the MDM service. |
 |4.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
 
+**Network Connectivity Check:**  
+   Registration client verifies the below-configured URL to check whether the system is in online or not.
+   
+|**S.No.**| **Config Key**| **Sample Values and Description**|
+|:------:|-----|-----|
+|1.|	mosip.reg.healthcheck.url=https\://<host:port/domainname>/v1/authmanager/actuator/health | This can be changed based on the environment |  
 
 	
 ## Property File :
