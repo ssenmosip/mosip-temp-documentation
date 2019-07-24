@@ -15,13 +15,13 @@ This service details authentication (yes/no auth) that can be used by Partners t
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all authentication requests sent to this service. The MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - *Auth-Partners* register themselves with MOSIP, under a MISP. Authentication requests are captured by Auth-Partners and sent to MOSIP, via MISP.
 
-* [POST /idauthentication/v1/identity/auth/](#post-idauthenticationv1identityauth) 
+* [POST /idauthentication/v1/auth/](#post-idauthenticationv1identityauth) 
 
-### POST /idauthentication/v1/identity/auth/
+### POST /idauthentication/v1/auth/
 This request will authenticate an Individual, based on provided authentication type(s).
 
 #### Resource URL
-<div>https://mosip.io/idauthentication/v1/identity/auth/:Auth-Partner-ID/:MISP-LicenseKey</div>
+<div>https://mosip.io/idauthentication/v1/auth/:Auth-Partner-ID/:MISP-LicenseKey</div>
 
 #### Resource details
 
@@ -217,13 +217,13 @@ This service details authentication (eKYC auth) that can be used by Partners to 
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP's role is limited to infrastructure provisioning and acting as a gate keeper for all KYC requests sent to this service. The MISP is also responsible for policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - *eKYC-Partners* register themselves with MOSIP, under a MISP. KYC requests are captured by eKYC-Partners and sent to MOSIP, via MISP.
 
-* [POST /idauthentication/v1/identity/kyc/](#post-idauthenticationv1identitykyc) 
+* [POST /idauthentication/v1/kyc/](#post-idauthenticationv1identitykyc) 
 
-### POST /idauthentication/v1/identity/kyc/
+### POST /idauthentication/v1/kyc/
 This request will provide KYC details of Individual, once an Individual is successfully authenticated.
 
 #### Resource URL
-<div>https://mosip.io/idauthentication/v1/identity/kyc/:eKYC-Partner-ID/:MISP-LicenseKey</div>
+<div>https://mosip.io/idauthentication/v1/kyc/:eKYC-Partner-ID/:MISP-LicenseKey</div>
 
 #### Resource details
 
@@ -413,7 +413,7 @@ This service enables Partners to request for an OTP for an Individual. The OTP w
 1. `MISP (MOSIP Infrastructure Service Provider)` - MISP acts as a gate keeper for any OTP requests sent to this service. MISP is also responsible for the policy creation on the MOSIP servers so their partners will follow the set policy.
 2. `Partners` - *Auth-Partners* and *eKYC-Partners* can send OTP Request to MOSIP on behalf of Individual for Authentication and eKYC requests respectively, via MISP.
 
-* [POST /idauthentication/v1/identity/otp/](#post-idauthenticationv1otp) 
+* [POST /idauthentication/v1/otp/](#post-idauthenticationv1otp) 
 
 ### POST /idauthentication/v1/otp/
 This request will send an OTP to the Individual.
@@ -509,13 +509,13 @@ This service details authentication (yes/no auth) that can be used by MOSIP modu
 1. `Registration Client` - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.
 2. `Registration Processor` - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.
 
-* [POST /idauthentication/v1/identity/auth/internal](#post-idauthenticationv1identityauthinternal) 
+* [POST /idauthentication/v1/auth/internal](#post-idauthenticationv1identityauthinternal) 
 
-### POST /idauthentication/v1/identity/auth/internal
+### POST /idauthentication/v1/auth/internal
 This request will authenticate an Operator/Supervisor using Biometric authentication.
 
 #### Resource URL
-<div>https://mosip.io/idauthentication/v1/identity/auth/internal</div>
+<div>https://mosip.io/idauthentication/v1/auth/internal</div>
 
 #### Resource details
 
