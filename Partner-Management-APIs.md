@@ -1444,7 +1444,7 @@ This service enables partner managers to manage respective partners, manage part
 * [GET /pmpartners](#get-pmpartners)
 * [GET /pmpartners/{partnerID}](#get-pmpartnerspartnerid)
 * [GET /pmpartners/{partnerID}/{PartnerAPIKey}](#get-pmpartnerspartneridpartnerapikey)
-* [GET /pmpartners/PartnerAPIKeyRequests](#get-pmpartnerspartnerapikeyrequest)
+* [GET /pmpartners/PartnerAPIKeyRequests](#get-pmpartnerspartnerapikeyrequests)
 * [GET /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}](#get-pmpartnerspartnerapikeyrequestsapikeyreqid)
 
 
