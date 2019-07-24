@@ -8,7 +8,8 @@
   * [3.2 Retrieve the Stored Identity Details by UIN](#32-retrieve-the-stored-identity-details-by-uin-)
   * [3.3 Retrieve the Stored Identity Details by RID](#33-retrieve-the-stored-identity-details-by-rid-)
   * [3.4 Update Identity Data and Documents in Repository](#34-update-identity-data-and-documents-in-repository-)
-    * [3.4.1 De-activate all VIDs mapped to UIN](#341-deactivate-all-vids-mapped-to-uin-)
+    * [3.4.1 De-activate all VIDs mapped to UIN](#341-de-activate-all-vids-mapped-to-uin-)
+    * [3.4.2 Re-activate all VIDs mapped to UIN](#342-re-activate-all-vids-mapped-to-uin-)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [ID Repository API](#id-repository-api-)
 - [Process View](#process-view-)
@@ -89,6 +90,7 @@ Upon receiving a request to update identity details of an individual, the system
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/identity-service.md)
  
 #### 3.4.1 De-activate all VIDs mapped to UIN [**[↑]**](#table-of-contents)
+#### 3.4.2 Re-activate all VIDs mapped to UIN [**[↑]**](#table-of-contents)
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
 1. Configurable Parameters
