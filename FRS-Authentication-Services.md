@@ -1,6 +1,5 @@
 ## Table Of Contents
 
-- [Authentication Services](#authentication-services)
 - [1. Single factor Authentication](#1-single-factor-authentication)
   * [1.1 Biometric Authentication](#11-biometric-authentication-) _(IDA_FR_1.1)_
   * [1.2 Demographic Authentication](#12-demographic-authentication-) _(IDA_FR_1.2)_
@@ -20,7 +19,6 @@
 - [Authentication Services API](#authentication-services-api-)
 - [Process View](#process-view-)
 
-# Authentication Services 
 # 1. Single factor Authentication 
 ## 1.1 Biometric Authentication [**[↑]**](#table-of-contents)
 **A. MOSIP system can evaluate the Individual's photo match with the corresponding photo in the Auth server**
