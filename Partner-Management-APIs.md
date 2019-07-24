@@ -38,12 +38,15 @@ This service is used to authenticate MOSIP Admin and management of MISP(MOSIP In
 * [POST /misps/{mispId}/licenseKey](#post-mispsmispidlicensekey)
 * [PUT /misps/{mispId}](#put-mispsmispid)
 * [PUT /misps/{mispId}/licenseKey](#put-mispsmispidlicensekey)
+* [GET /misps/{mispId}](#get-mispsmispId)
 * [GET /misps/{mispOrgName}](#get-mispsmispOrgName)
 * [GET /misps/{mispId}/licenseKey](#get-mispsmispidlicensekey)
 
 
 ### POST /misps
-This request will send the MOSIP Admin credentials and misp details to get registered
+This request will send the MOSIP Admin credentials and misp details to get registered.
+   - Internally MISP LK get generated with configured timespan of expiry.
+   - MISP LK by default set as 'Active'
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps</div>
@@ -411,6 +414,9 @@ PMS_MSP_004|No information provided for update|No information provided for updat
 PMS_MSP_005|MISP ID does not exist|MISP ID not available in database
 PMS_MSP_009|Failed to update MISP status|Failed to update the MISP status
 PMS_MSP_010|MISP status already in the requested status|MISP status already in the requested status
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /misps/{mispId}/licenseKey
 This request will activate/deactivate MISPs LK (update MISP License Key Status)
@@ -507,6 +513,76 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
 
+
+### GET /misps/{mispId}
+This request is used to retrieve the MISPs details based on the misp id.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/misps/{mispId}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+mispId |Yes| id of the misp|64269837502851
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: sms sent successfully
+```JSON
+{
+  "id": "mosip.partnermanagement.misp.retrieve",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:47:10.838Z",
+  "response": {
+      "id": "64269837502851",
+      "organizationName": "telecom",
+      "contactNumber": "9876998888",
+      "emailID": "prm@telecom.com",
+      "address": "India"
+  },
+  "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: MISP ID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.misp.status.update",
+  "version": "1.0",
+  "responsetime": "2019-06-03T18:03:12.305Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_MSP_005",
+      "message": "MISP ID does not exist"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_MSP_001|MOSIP Admin does not exist|Unauthorized MOSIP Admin- UserName not available in database
+PMS_MSP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
+PMS_MSP_005|MISP ID does not exist|MISP ID not available in database
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
 ### GET /misps/{mispOrgName}
 This request will retrieve the MISPs details
 1. If MISP organization name present, then retrieve all misp details for matching organization name.
@@ -587,7 +663,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 #### Other Failure details
 Error Code | Error Message | Error Description
 -----|----------|-------------
-PMS_MSP_001|MOSIP Admin does not exist|Un-authorized MOSIP Admin- UserName not available in database
+PMS_MSP_001|MOSIP Admin does not exist|Unauthorized MOSIP Admin- UserName not available in database
 PMS_MSP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
 PMS_MSP_011|No MISP found for the organization|No MISP found for the organization
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
@@ -1026,7 +1102,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 This request will retrieve the policies available for my policy group. 
 
 Prerequisite :
-1. User ID creation is integrated with Kernel IAM. user id and password are shared offline once created.
+1. User ID creation is integrated with Kernel IAM. user id and password are shared off-line once created.
 2. Partner Manager IDs are back filled in Policy Group table.
 3. Policy manager and Partner manager are assumed to be same and pre-filled, before doing any operation. 
 
@@ -1828,8 +1904,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /pmpartners/{partnerID}
-This request will retrieve particular Auth/E-KYC Partners.
-
+This request will retrieve particular Auth/E-KYC Partners. pattern validation for partner id taken care internally.
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
 
@@ -2050,7 +2125,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}
-This request will retrieve the perticular Partner API key to Policy Mappings request.
+This request will retrieve the particular Partner API key to Policy Mappings request.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}</div>
@@ -2137,7 +2212,10 @@ This service enables partners to do self registration, submit request for respec
 
 
 ### POST /partners
-This request is used to create Auth/E-KYC Partners.
+This request is used for self registration by partner to create Auth/E-KYC Partners. Which is internally integrated with 
+Kernel IAM which will create the user-id and password for the partner. 
+    - Partner user id stored in the PMS database.
+	- Partner password will be shared via email.
 
 <div>https://mosip.io/partnermanagement/v1/partners</div>
 
