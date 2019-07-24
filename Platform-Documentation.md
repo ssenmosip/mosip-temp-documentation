@@ -115,6 +115,7 @@ Admin will be able to:
  * View status of packets
 
 [Detailed functional specifications of administrator services module](FRS-Administrator-Services) 
+<!--- 
 ### 2.7 Resident Services (WIP)
 
 Resident Services module will provide a host of services for a user which he/she can utilize after generation of his/her UIN. The list of services a user can avail are outlined below:
@@ -145,6 +146,7 @@ Partners send authentication request and receive authentication responses in a s
 Further Certificates are used by Partners for signing the authentication request. Partner Management Services is used for a few of the signature related services.
 
 [Detailed functional specifications of Partner Management module](FRS-Partner-Management)
+--->
 
 ### 2.9 ID Repository
 [Detailed functional specifications of ID Repository](FRS-ID-Repository) 
@@ -161,7 +163,7 @@ Further Certificates are used by Partners for signing the authentication request
 #### 3.5.3 [Registration Services](Registration-Client)
 #### 3.5.4 [Registration Processor](Registration-Processor)
 #### 3.5.5 [Authentication Services](ID-Authentication)
-#### 3.5.6 [Resident Services](Resident-services)
+<!---  #### 3.5.6 [Resident Services](Resident-services) --->
 #### 3.5.7 [Administrator Services](Admin)
 #### 3.5.8 [ID Repository](ID-Repository)
 
@@ -178,9 +180,9 @@ Further Certificates are used by Partners for signing the authentication request
 #### 4.1.9 [Registration Services](FRS-Registration-Services)
 #### 4.1.10 [Registration Processor](FRS-Registration-Processor)
 #### 4.1.11 [Authentication Services](FRS-Authentication-Services)
-#### 4.1.12 [Resident Services](FRS-Resident-Services)
+<!---! #### 4.1.12 [Resident Services](FRS-Resident-Services) --->
 #### 4.1.13 [Administrator Services](FRS-Administrator-Services)
-#### 4.1.14 [Partner Management](FRS-Partner-Management)
+<!--- #### 4.1.14 [Partner Management](FRS-Partner-Management)--->
 #### 4.1.15 [ID Repository](FRS-ID-Repository)
 
 ### 4.2 [Non-Functional Requirement Specifications](Non-Functional-Requirements)
@@ -232,14 +234,14 @@ This module exposes few REST APIs which can be used to create/update/retrieve id
 * [Pre-Registration APIs](Pre-Registration-Services)
 * [Registration Processor APIs](Registration-Processor-APIs)
 * [ID Authentication APIs](ID-Authentication-APIs).
-* [Resident Services APIs (WIP)](Resident-Service-APIs).
-* [Partner Management APIs (WIP)](Partner-Management-APIs)
+<!--- * [Resident Services APIs (WIP)](Resident-Service-APIs).--->
+<!--- * [Partner Management APIs (WIP)](Partner-Management-APIs) --->
 * [ABIS APIs](ABIS-APIs).
 * [Biometric APIs](MOSIP-Biometric-APIs)
 * [OTP Manager API](Kernel-APIs#otp-manager-private)
 
 ### 6.2	Internal APIs
-* [Kernel APIs](Kernel-APIs)
+* [Kernel APIs](Kernel-APIs)---
 * [ID Repository API](ID-Repository-API)
 * [Admin APIs](Admin-APIs)
 * [AuthN & AuthZ APIs](AuthN-&-AuthZ-APIs)
