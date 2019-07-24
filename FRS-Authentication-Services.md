@@ -13,8 +13,11 @@
 - [5. Partners Authentication and Authorisation](#5-partners-authentication-and-authorisation)
     * [5.1 MISP License Authentication](#51-misp-license-authentication-) _(IDA_FR_5.1)_
     * [5.2 Partner Policy Authentication](#52-partner-policy-authentication-) _(IDA_FR_5.2)_
-- [6. Authentication Device Support](#6-authentication-device-support)
-  * [6.1 Registered Devices and Open Devices TBD](#61-registered-devices-and-open-devices-tbd-) _(IDA_FR_6.1)_
+- [6. Lock/Unlock Authentication Types](#6-lockunlock-authentication-types-)
+    * [6.1 Lock Authentication Types](#61-lock-authentication-types)
+    * [6.2 Unlock Authentication Types](#62-unlock-authentication-types)
+- [7. Authentication Device Support](#7-authentication-device-support)
+  * [7.1 Registered Devices and Open Devices TBD](#71-registered-devices-and-open-devices-tbd-) _(IDA_FR_6.1)_
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Authentication Services API](#authentication-services-api-)
 - [Process View](#process-view-)
@@ -532,10 +535,16 @@ The system then validates the following:
 1. Alerts and Warning messages for data type violation are sent as per [**data definition**](/mosip/mosip/tree/master/docs/requirements/Requirements%20Detailing%20References/ID-Authentication/Data%20Definition)
 
 Please refer to the [**Authentication Service API**](ID-Authentication-APIs#users-of-authentication-service--) for more details.
+# 6. Lock/Unlock Authentication Types [**[↑]**](#table-of-contents)
+## 6.1 Lock Authentication Types
+When an individual wants to lock a particular authentication type using resident services, for example, locking demographic and/or biometric authentication, the system locks the requested authentication type after certain validations. After the requested authentication type is locked for the individual, then he/she will not be able to authenticate himself/herself by using locked authentication type. 
+## 6.2 Unlock Authentication Types
+
+When an individual’s particular authentication type is locked and wants to unlock using resident services, for example, unlocking demographic and/or biometric authentication, the system unlocks the requested authentication type after certain validations. After the requested authentication type is unlocked for the individual, then he/she will be able to authenticate himself/herself by using unlocked authentication type. 
 
 
-# 6. Authentication Device Support 
-## 6.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-contents)
+# 7. Authentication Device Support 
+## 7.1 Registered Devices and Open Devices TBD [**[↑]**](#table-of-contents)
 
 Technical story (Architects to contribute)
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
