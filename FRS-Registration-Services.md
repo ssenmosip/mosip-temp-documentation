@@ -98,6 +98,7 @@ The mode of login is configured by admin, if the login is configured as Password
 1. System validates that the password matches with the registration officer’s password stored locally. The local password will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
 1. System validates that the registration officer is not blacklisted. The blacklisted registration officer details will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
 1. System validates that the registration officer has a role of registration officer or supervisor. 
+1. System allows a registration officer to create a new password if he/she has forgotten their password or wants to change for any other specific reason.
 
 **(ii) OTP based login**
 
