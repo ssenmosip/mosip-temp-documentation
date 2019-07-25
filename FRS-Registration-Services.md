@@ -263,12 +263,12 @@ The system has the provision to show if the client machine has internet connecti
 If disk space is insufficient, system displays an error message and data entered by registration officer will be not be saved. Then registration officer will clean up to make sufficient space on the client machine and try the registration again.
 
 Upon receiving a request to create a registration packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the registration packet as follows:
-1. Calculates the size of the registration packet based on the data captured.
+1. The configured size of the potential registration packet includes the following:
    * Data includes demographic, biometric, photographs, OSI authentication, registration metadata, audit data, and acknowledgement scan.
 2. Calculates the disk space, which is available in the configured packet storage location.
 1. Validates if the storage location is sufficient to store the registration packet.
 1. In case of successful validation, responds with success message and proceeds further. 
-1. In case of unsuccessful validation, responds with an appropriate error message.
+1. In case of unsuccessful validation, registration officer will not be able to proceed with registration.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ### 3.3 Virus Scan/Security Scan [**[↑]**](#table-of-contents)
