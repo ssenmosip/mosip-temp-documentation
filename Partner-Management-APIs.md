@@ -23,7 +23,7 @@ If you want to access rest apis, access token is required from authmanager.
 }
 ```
 After hitting api, you will get the Authorization token in the cookie. 
-#
+# Partner Management APIs are categorized into following services
 
 * [MISP Management Service](#misp-management-service)
 * [Policy Management Service](#policy-management-service)
