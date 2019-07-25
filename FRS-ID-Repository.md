@@ -8,8 +8,8 @@
   * [3.2 Retrieve the Stored Identity Details by UIN](#32-retrieve-the-stored-identity-details-by-uin-)
   * [3.3 Retrieve the Stored Identity Details by RID](#33-retrieve-the-stored-identity-details-by-rid-)
   * [3.4 Update Identity Data and Documents in Repository](#34-update-identity-data-and-documents-in-repository-)
-    * [3.4.1 De-activate all VIDs mapped to UIN](#341-de-activate-all-vids-mapped-to-uin-)
-    * [3.4.2 Re-activate all VIDs mapped to UIN](#342-re-activate-all-vids-mapped-to-uin-)
+    * [3.4.1 De-activate UIN and its Associated VIDs](#341-de-activate-uin-and-its-associated-vids-)
+    * [3.4.2 Re-activate UIN and its Associated VIDs](#342-re-activate-uin-and-its-associated-vids-)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [ID Repository API](#id-repository-api-)
 - [Process View](#process-view-)
@@ -89,8 +89,16 @@ Upon receiving a request to update identity details of an individual, the system
 
 [**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/idrepository/identity-service.md)
  
-#### 3.4.1 De-activate all VIDs mapped to UIN [**[↑]**](#table-of-contents)
-#### 3.4.2 Re-activate all VIDs mapped to UIN [**[↑]**](#table-of-contents)
+#### 3.4.1 De-activate UIN and its Associated VIDs [**[↑]**](#table-of-contents)
+This feature is used to de-activate UIN and its associated VIDs. When an individual’s UIN and its associated VIDs is deactivated, then he/she will not be able to authenticate himself/herself by using UIN or VID.
+
+If an individual wants to deactivate his/her UIN and its associated VIDs due to any specific reason, the system deactivates the UIN and its associated VIDs after certain validations are performed in ID Authentication.
+
+#### 3.4.2 Re-activate UIN and its Associated VIDs [**[↑]**](#table-of-contents)
+This feature is used to re-activate UIN and its associated VIDs. When an individual’s UIN and its associated VIDs is reactivated, then he/she will be able to authenticate himself/herself by using UIN or VID.
+
+If an individual wants to reactivate his/her UIN and its associated VIDs due to any specific reason, the system reactivates the UIN and its associated VIDs after certain validations are performed in ID Authentication.
+
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
 1. Configurable Parameters
