@@ -1628,7 +1628,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /pmpartners/{partnerID}/{PartnerAPIKey}
-This request used by the partner Manager, to update Partner api key to Policy Mappings
+Partner Manager would be using this API to activate OR de-activate PartnerAPIKey for given partner.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
@@ -1724,8 +1724,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}
-This request used by the partner Manager, to approve/reject Partner api key requests based on api key request id.
-
+Partner Manager would be using this API to approve OR reject partner API key requests based on API key request id. During approval process of the request unique PartnerAPI Key is generated in Partner Management module, which is mapped to requested policies. Partner API Key would be having default active status, expiry of which would configurable.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests/{APIKeyReqID}</div>
@@ -2203,10 +2202,9 @@ This service enables partners to do self registration, submit request for respec
 
 
 ### POST /partners
-This request is used for self registration by partner to create Auth/E-KYC Partners. Which is internally integrated with 
-Kernel IAM which will create the user-id and password for the partner. 
-    - Partner user id stored in the PMS database.
-	- Partner password will be shared via email.
+This request is used for self registration by partner to create Auth/E-KYC Partners. Partner Management module would be integrating with Kernel IAM module for generation of userid and password for partners. 
+    - User id, as received in response from Kernel IAM module, are stored in partner management database as reference and shared back to partners in response for further communication with MOSIP systems.
+	- Password for any userid would be shared via an off-line process.
 
 <div>https://mosip.io/partnermanagement/v1/partners</div>
 
@@ -2459,6 +2457,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /partners/digitalcertificate
 Partners would be procuring digital certificates from Certification Authority (CA), and upload the same to Partner Management using this API. Partner Management would depend on Kernel to manage partner certificates, validation of partner certificates. Appropriate error messages would be sent back to Partners, in cases where digital certificates expires, certificate validation error happens. Partners would require to re-issue and upload new digital certificates, in case of expiry of digital certificates. References to Partner digital certificate IDs are stored in partner management DBs, actual storage and validation of partner digital certificate would be in Kernel.
+IDA would be using partner provided public keys for encryption of e-kyc response. Partner management module would be using Kernel services for partner key management, encryption/decryption and sharing of keys.
    
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
@@ -3012,7 +3011,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /partners/digitalcertificate
-This request used to retrieve MOSIP digital certificate.
+Partners would be required to download MOSIP digital certificates. Partner would be using MOSIP public key (part of MOSIP digital certificate) and MOSIP digital certificate, for establishing secure communication with MOSIP. Partner management module would depend on Kernel services to manage MOSIP digital certificate, sharing and re-issue of digital certificate post expiry, validation, encryption/decryption activities. 
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
