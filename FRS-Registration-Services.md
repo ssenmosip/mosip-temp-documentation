@@ -297,7 +297,7 @@ Refer to the section related to [**Transliteration**](#62-transliteration-).
 #### C. Register an individual who is less than 5 years old.
 1. MOSIP does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
 1. When a registration officer starts a new registration, the system determines if the registration is for a child using the date of birth.
-   NOTE: The system automatically calculates the age of an applicant using the date of birth. With the age of an applicant, the system provides the default date of birth as configured.
+<br>**NOTE**: The system automatically calculates the age of an applicant using the date of birth. With the age of an applicant, the system provides the default date of birth as configured.
 1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
 1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system ensures parent/guardian is registered first and at least RID is available.
    * A unique RID (request ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
