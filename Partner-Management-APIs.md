@@ -44,9 +44,7 @@ This service is used to authenticate MOSIP Admin and management of MISP(MOSIP In
 
 
 ### POST /misps
-This request will send the MOSIP Admin credentials and misp details to get registered.
-   - Internally MISP LK get generated with configured timespan of expiry.
-   - MISP LK by default set as 'Active'
+MOSIP Admin would be able to create MISP using this API. At the time of creation of MISP, MISP ID and MISP License Key are generated,mapped and shared back in response. Post successful MISP creation, by default MISP is set to active status,  MISP License key is to active status. MISP License key is configurable and set to expire in 3 months, 6 months OR any configurable period.  
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps</div>
@@ -1099,14 +1097,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /policies
-This request will retrieve the policies available for my policy group. 
-
-Prerequisite :
-1. User ID creation is integrated with Kernel IAM. user id and password are shared off-line once created.
-2. Partner Manager IDs are back filled in Policy Group table.
-3. Policy manager and Partner manager are assumed to be same and pre-filled, before doing any operation. 
-
-
+Policy manager would require this service to get details for the policies in the policy group he belongs to. All the policy groups are required to be back filled in the partner management database through an offline process based on country specific requirements. Partner Manager and Policy Manager assigned for the Policy group are also required to be back filled along with creation of the policy group. Partner management would depend on Kernel IAM module services for all user management related activities. User ID and Password are shared using off-line process.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/policies</div>
@@ -1975,7 +1966,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /pmpartners/{partnerID}/{PartnerAPIKey}
-This request will retrieve the Partner API key to Policy Mappings.
+Partner managers would be using this request to retrieve the Partner API key to Policy Mappings. Partner management system would be able to validate Partner API Key pattern, validate expiry for Partner API Key and status details in background, while fetching Policy to Partner API mappings.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
@@ -2467,8 +2458,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /partners/digitalcertificate
-This request used to upload partner's digital certificate.Integrated with kernel component to validate 
-partner's digital certificate.
+Partners would be procuring digital certificates from Certification Authority (CA), and upload the same to Partner Management using this API. Partner Management would depend on Kernel to manage partner certificates, validation of partner certificates. Appropriate error messages would be sent back to Partners, in cases where digital certificates expires, certificate validation error happens. Partners would require to re-issue and upload new digital certificates, in case of expiry of digital certificates. References to Partner digital certificate IDs are stored in partner management DBs, actual storage and validation of partner digital certificate would be in Kernel.
    
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
@@ -2656,7 +2646,8 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /partners/digitalcertificate
-This request used to validate partner's digital certificate.
+As the MOSIP system Partner Management module would integrate with Kernel for validation of partner's digital certificate.
+In case where MOSIP would act as certification authority for partners, MOSIP would be able to sign and resign partner digital certificates. Partner management module would depend on Kernel services for signing and re-signing of partner digital certificates.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
