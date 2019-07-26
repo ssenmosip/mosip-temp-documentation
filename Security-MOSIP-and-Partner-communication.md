@@ -86,10 +86,3 @@ Summary:
 	2. Encryption certificate - Used in the Application layer
 	3. Signature certificate - Used in the Application layer
 	
-
-## Implementation
-
-
-**partner-mosip-communication** [README](../../../security/partner-mosip-communication/README.md)
-
-
