@@ -553,7 +553,7 @@ The E2E code has the following prerequisite
 1. The rig is designed to run for only 5 packets.
 1. The rig should run on a particular version of each module.
 
-
+<!---
 
 ## 2.1 API Testing
 API testing will be carried out in 2 stages, both via Test Automation.
@@ -1243,3 +1243,5 @@ Reviewed by:     	```Avinash.Chandrashekar@mindtree.com, gita.phutane@mindtree.c
 
 
 ***
+
+--->
