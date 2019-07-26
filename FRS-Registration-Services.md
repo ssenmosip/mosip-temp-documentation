@@ -98,6 +98,7 @@ The mode of login is configured by admin, if the login is configured as Password
 1. System validates that the password matches with the registration officer’s password stored locally. The local password will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
 1. System validates that the registration officer is not blacklisted. The blacklisted registration officer details will be fetched from the server during data sync. [**Refer to the section related to Data Sync**](#2-data-sync-).
 1. System validates that the registration officer has a role of registration officer or supervisor. 
+1. System allows a registration officer to create a new password if he/she has forgotten their password or wants to change for any other specific reason.
 
 **(ii) OTP based login**
 
@@ -117,7 +118,7 @@ If the client machine is online and the supervisor is mapped to the client machi
 
 In MOSIP system, a registration officer can have multiple role. When a registration officer is registered on admin portal, the system allows a registration officer to assign multiple roles.
 
-MOSIP system has a role based Privileges of a registration officer. [**Please refer Git for more details on the roles and Privileges of a registration officer**](/mosip/mosip/blob/master/docs/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
+MOSIP system has a role based Privileges of a registration officer. [**Please refer Git for more details on the roles and Privileges of a registration officer**](_files/requirements/MOSIP_Roles%20and%20Responsibility_Matrix_16Jan19.xlsx). 
 1. Both registration officers and supervisors can access the following features. The role to rights mapping is configurable at a country level. The list given below corresponds to the default configuration.
    * Login
    * On-board registration officers
@@ -182,13 +183,15 @@ Upon receiving a request to start a new registration, the system performs the fo
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 
-Please refer to [**Git**](/mosip/mosip/blob/master/docs/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
+Please refer to [**file**](_files/requirements/MOSIP%20Masterdata%20Types.xlsx) for more details on the type of master data that is synced.
 
 
 ### 2.2 Configuration Sync [**[↑]**](#table-of-contents)
 
-Please refer [**Git**](/mosip/mosip-configuration/tree/master/config) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
+Please refer [**Git**](/mosip/mosip-config/blob/master/config/) for a detailed list of parameters that can be configured as ON and OFF by a country while commencing a new registration.
+
 Based on the configuration (turn on or turn off), the system allows a registration officer to capture applicable biometrics, authenticates, and completes the registration. 
+
 
 ### 2.3 Client to Server Sync [**[↑]**](#table-of-contents)
 
@@ -260,12 +263,12 @@ The system has the provision to show if the client machine has internet connecti
 If disk space is insufficient, system displays an error message and data entered by registration officer will be not be saved. Then registration officer will clean up to make sufficient space on the client machine and try the registration again.
 
 Upon receiving a request to create a registration packet at the end of data capture and authentication steps, the system validates the disk space available on the client machine to store the registration packet as follows:
-1. Calculates the size of the registration packet based on the data captured.
+1. The configured size of the potential registration packet includes the following:
    * Data includes demographic, biometric, photographs, OSI authentication, registration metadata, audit data, and acknowledgement scan.
 2. Calculates the disk space, which is available in the configured packet storage location.
 1. Validates if the storage location is sufficient to store the registration packet.
 1. In case of successful validation, responds with success message and proceeds further. 
-1. In case of unsuccessful validation, responds with an appropriate error message.
+1. In case of unsuccessful validation, registration officer will not be able to proceed with registration.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
 ### 3.3 Virus Scan/Security Scan [**[↑]**](#table-of-contents)
@@ -295,6 +298,7 @@ Refer to the section related to [**Transliteration**](#62-transliteration-).
 #### C. Register an individual who is less than 5 years old.
 1. MOSIP does not have an explicit ‘Category’ for registering children less than five years. However, the date of birth will automatically determine the category of the applicant, which can be setup by the country as required.
 1. When a registration officer starts a new registration, the system determines if the registration is for a child using the date of birth.
+<br>**NOTE**: The system automatically calculates the age of an applicant using the date of birth. With the age of an applicant, the system provides the default date of birth as configured.
 1. If the date of birth indicates that the registration is for a child is less than 5 years on the date of registration, and if parent/guardian’s UIN exists. Then the system captures parent/guardian's details: UIN/Name/Biometrics/Proof of relationship. 
 1. If the date of birth indicates that the registration is for a child is less than 5 years and if parent/guardian’s UIN does not exist then the system ensures parent/guardian is registered first and at least RID is available.
    * A unique RID (request ID is generated) on successful completion of registration process. Please refer to [**Wiki**](FRS-Data-Services#4-id-generator-and-validator) for more details.
@@ -314,7 +318,7 @@ When a registration officer starts a new registration for a non-pre-registered i
 
 1. Registration officer enters the PRID provided by a pre-registered individual. 
 1. The registration officer enters demographic details or edits pre-filled demographic details (details rendered from the provided PRID).
-1. The Registration Client validates the entered demographic data as per the [**field definition document**](/mosip/mosip/blob/master/docs/requirements/Requirements%20Detailing%20References/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx).
+1. The Registration Client validates the entered demographic data as per the [**field definition document**](_files/requirements/requirements_detailing_references/Reg.%20Client/MOS-1220%20New%20Registration%20Field%20Definition.docx).
 1. Displays error message(s) on screen in case of validation failure.
 1. On successful validation, proceeds to next step.
 #### F. Copy address from the previous registration
@@ -431,7 +435,7 @@ When an individual approaches the registration officer for UIN update, the follo
 
 #### D. UIN Update of Child
 
-The system can determine the age of an individual from the date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request. Refer below for the process:
+The system automatically calculates the age of an individual using date of birth. When  individual’s age is less than 5 years (child) during UIN update, the registration officer captures UIN, name, and any one biometric (fingerprint or iris) of the parent/guardian and face photo of the individual (child) to complete the UIN update request. Refer below for the process:
 1. If ‘Parent/Guardian details’ is selected for update, then a registration officer will capture the UIN, Name and any one biometric of the Parent/Guardian (fingerprint / iris).
 1. If the Parent/Guardian does not have any fingerprint and any iris, then the registration officer marks all exceptions of the Parent/Guardian and proceed to capture photo of the Parent/Guardian.
 1. A UIN update of a child cannot be initiated without capturing biometrics of the parent. The system displays an error message for such attempts.
@@ -816,7 +820,7 @@ Before the machine is decommissioned, the following checks must be performed:
 
 1. Configurable Parameters
     
-   [**Link to Configurable Parameters of Registration Services**](/mosip/mosip-configuration/blob/0.12.0/config/registration-dev.properties)
+   [**Link to Configurable Parameters of Registration Services**](/mosip/mosip-config/blob/master/config/registration.properties)
 
 2. Configurable Processes 
 * (Work in Progress) 

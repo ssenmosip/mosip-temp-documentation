@@ -189,11 +189,17 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 |3.|	mdm_stop.bat        | to stop the MDM service. |
 |4.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
 
+**Network Connectivity Check:**  
+   Registration client verifies the below-configured URL to check whether the system is in online or not.The application uses this URL to perform the health check before communicating with the external services.
+   
+|**S.No.**| **Config Key**| **Sample Values and Description**|
+|:------:|-----|-----|
+|1.|	mosip.reg.healthcheck.url={URL} | Ex: https\://domainname.com/v1/authmanager/actuator/health |  
 
 	
 ## Property File :
 
-   There are few properties which can be configured at local machine based on the local system requirement.    
+   There are few properties which can be configured at a local machine based on the local system requirement.    
      Eg: TPM - enable / disable flag, artifactory url, environment name.   
 
    Property attributes and the respective sample values are provided below. Based on the comments provided against each attribute, update the required values if needed only.  

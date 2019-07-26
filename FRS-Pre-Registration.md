@@ -221,7 +221,8 @@ Individual can choose to print the Acknowledgement or can Download the Acknowled
 
 The acknowledgement template is language and channel (email, sms, on screen) specific.
 
-[**Reference Templates**](/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration) 
+[**Reference Templates**](/mosip/mosip/tree/master/docs/requirements/Templates/Pre-registration)
+
 ### 2.5.2 Send Acknowledgement to Email/Phone [**[↑]**](#table-of-contents)
 The system sends an acknowledgement to the  applicant through SMS, Email and on-screen as per the details provided in Demographic details
 
@@ -249,7 +250,8 @@ Upon receiving the Registration Center Id, Date Range (Start Date, End Date) for
 
 1. Configurable Parameters
 
-   [**Link to Configurable Parameters of Pre-registration**](/mosip/mosip-configuration/blob/master/config/pre-registration-dev.properties)
+   [**Link to Configurable Parameters of Pre-registration**](/mosip/mosip-config/blob/master/config/pre-registration.properties)
+
 2. Configurable Processes 
 * (Work in Progress)
 

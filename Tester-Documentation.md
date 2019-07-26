@@ -33,7 +33,7 @@ The test execution module of the Kernel module involving API’s is as depicted 
 ## 1.3 Procedure to check out the test code from the repository
 * Create a workspace in the local system
 * Open git bash in the workspace
-* Enter the command :- git clone [link](/mosip/mosip.git)
+* Enter the command :- git clone [link](/mosip/mosip-functional-tests)
 * MOSIP project shall be cloned
 * Import the “automationtests” project into the eclipse.
  
@@ -164,7 +164,7 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
 1. Click on testing
 1. Select class
 1. In VM argument pass 
-   -Denv.user=qa -Denv.endpoint=[link](//qa.mosip.io) -Denv.testLevel=smokeAndRegression
+   -Denv.user=qa -Denv.endpoint="eg:https://testenvname.mosip.io" -Denv.testLevel=smokeAndRegression
 
 ## 2.9 Analyze the test reports
 * Once run is complete, then refresh project and go to target/surefire folder.
@@ -204,7 +204,7 @@ Instruction to checkout code from GitHub using Eclipse.
 
   ![Test](_images/test_rig_automation/reg-client4.jpg) 
  
-* Search the branch name, select it, and then click next. Our latest branch name as [link](/mosip/mosip/tree/0110_Sprint11_Reg_Automation).
+* Search the branch name, select it, and then click next. Our latest branch name as [link](/mosip/mosip-functional-tests).
 
   ![Test](_images/test_rig_automation/reg-client5.jpg) 
  
@@ -304,7 +304,7 @@ The workflow of testing or running the test suite of the available API’s And S
 * Good analytical and debugging skill
 ## 4.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [**link**](//github.com/mosip/mosip.git)
+* Clone project from [**link**](//github.com/mosip/mosip-functional-tests)
 * Import the automationtests project into the eclipse.
 
 ## 4.4 Procedure to Add new test cases into the API test suite
@@ -334,7 +334,7 @@ The workflow of testing or running the test suite of the available API’s And S
 1. To run the automation suite of Reg-Proc, build the project and get the uber jar generated under target. 
 1. Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
 
-   Example: java -Denv.user=qa -Denv.endpoint=[**link**](//qa.mosip.io) -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+   Example: java -Denv.user=qa -Denv.endpoint="eg:https://testenvname.mosip.io" -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
 
    Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
 
@@ -368,7 +368,7 @@ The workflow of testing or running the test suite of the available API’s is as
 
 ## 5.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [link](//github.com/mosip/mosip.git)
+* Clone project from [link](//github.com/mosip/mosip-functional-tests)
 * Import the automationtests project into the eclipse.
 
 ## 5.4 Procedure to Add new test cases into the API test suite
@@ -406,7 +406,7 @@ The workflow of testing or running the test suite of the available API’s is as
 1. To run the automation suite of ID-Authentication, build the project and get the uber jar generated under target. 
 1. Run the jar using the command line “java -Denv.user=<env> -Denv.endpoint=<endpointurl> -Denv.testLevel=<testtype> -jar <jarname>”
 
-   Example: java -Denv.user=qa -Denv.endpoint=[link](//qa.mosip.io) -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
+   Example: java -Denv.user=qa -Denv.endpoint="eg:https://testenvname.mosip.io)" -Denv.testLevel=smokeandregression -jar automationtests-refactor-0.12.10-jar-with-dependencies.jar
 
    Note: env = qa,dev,int | testLevel=smoke,regression,smokeandregression
 
@@ -467,7 +467,7 @@ The below diagram depicts the overall design of the end to end suite.
 
 ## 6.3 Procedure to checkout-out the test code from the repository
 * Launch eclipse with new or existing workspace
-* Clone project from [**link**](//github.com/mosip/mosip.git)
+* Clone project from [**link**](//github.com/mosip/mosip-functional-tests)
 * Import the e2etestrig project into the eclipse.
 
 ## 6.4 Basic Code Structure Of The E2E Rig

@@ -345,7 +345,8 @@ After the Registration Client sends the packet to Registration Processor, it sta
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 1. Configurable Parameters
 
-   [**Link to Configurable Parameters of Registration Processor**](/mosip/mosip-configuration/blob/0.12.0/config/registration-processor-dev.properties)
+   [**Link to Configurable Parameters of Registration Processor**](/mosip/mosip-config/blob/master/config/registration-processor.properties)
+
 2. Configurable Processes 
 * (Work in Progress) 
 ### Registration Processor API [**[↑]**](#table-of-contents)

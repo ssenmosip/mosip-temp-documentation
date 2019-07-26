@@ -936,9 +936,9 @@ After these steps, our ceph infrastructure is ready with all the configurations 
 <div>http://docs.ceph.com/docs/mimic/start/quick-start-preflight/</div>
 
 ### 6.5 Steps to Install and configuration LDAP
-[ApacheDs Server installation and config](https://github.com/mosip/mosip/wiki/ApacheDs-Server-installation-and-config)
+[ApacheDs Server installation and config](ApacheDs-Server-installation-and-config)
 
-[Apache Directory Studio user guide](https://github.com/mosip/mosip/wiki/Apache-Directory-Studio-user-guide)
+[Apache Directory Studio user guide](Apache-Directory-Studio-user-guide)
 
 
 ### 6.6 Steps to Install and configuration HDFS
@@ -1036,6 +1036,23 @@ For e.g : Suppose activemq is configured as tcp://xxx.xxx.xxx.xx:61616, then we 
 	]
 
 }
+```
+ActiveMQ is also being used in registration-processor-printing-stage and the details need to be mentioned in registration-processor-{active_profile}.properties in the configuration repository.
+E.g : For dev profile, the property in registration-processor-dev.properties, the Property corresponding to printing-stage related to activemq would be 
+
+```
+Queue username
+registration.processor.queue.username={username}
+#Queue Password
+registration.processor.queue.password={password}
+#Queue Url
+registration.processor.queue.url={queue_url}
+#Type of the Queue
+registration.processor.queue.typeOfQueue=ACTIVEMQ
+#Print Service address
+registration.processor.queue.address={queue_address}
+#Post Service address
+registration.processor.queue.printpostaladdress={postal_queue_address}
 ```
 ## 7. Configuring MOSIP [**[↑]**](#table-of-content)
 
@@ -1176,7 +1193,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 
 3. **DB Objects (Tables):** All the tables of each application / module will be created in their respective database and schema. appadmin user / role will own these objects and the respective application user / role will have access to perform DML operations on these objects.
 
-4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc.
+4. **Seed Data:** MOSIP platform is designed to provide most of its features to be configured in the system. These configuration are deployed with default setup on config server and few in database. Few of these configuration can be modified / updated by the MOSIP administrator. These configuration include, system configurations, master datasetup, etc. The steps to add new center, machine / device is detailed in [**Guidelines-for-Adding-Centers,-Machine-Devices**](https://github.com/mosip/mosip-docs/wiki/Guidelines-for-Adding-Centers,-Machine-Devices) 
 
 The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](https://github.com/mosip/mosip-platform/tree/master/db_scripts/mosip_master/dml).
 
@@ -1380,6 +1397,13 @@ docker run --restart always -it -d --network host --privileged=true -e active_pr
 ```
 
 **Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
+
+6. Packet uploader stage in secure zone will fetch file from dmz to upload it into Distributed File System,to connect to 
+   dmz vm either we can login using username and password or using ppk file.
+   If password value is available in config property name 
+   registration.processor.dmz.server.password then uploader will connect using username and password.
+   otherwise it will login using ppk file available in config with property name registration.processor.vm.ppk.
+   PPK generation command ssh-keygen -t rsa -b 4096 -f mykey.
 
 ### 8.2 ID Repository Salt Generator
  
