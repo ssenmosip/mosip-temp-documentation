@@ -16,9 +16,9 @@ For securely accessing any API in MOSIP, you must gain auth token from kernel au
   "requesttime": "2018-12-10T06:12:52.994Z",
   "metadata": {},
   "request": {
-     "appId": "admin",
-     "password": "admin",
-     "userName": "admin"
+     "appId": "partnermanagement",
+     "userName": "pmadmin",
+     "password": "pmadmin"     
   }
 }
 ```
