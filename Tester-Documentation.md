@@ -813,6 +813,7 @@ Test data util when run picks the random data from respective tags in master yml
 
 <!---This document covers the automation testing standards, for the RESTful webservice testers.--->
 
+<!---
 # 10. Structuring Tests for API testing
 ## 10.1 Naming Convention
 
