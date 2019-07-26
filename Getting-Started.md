@@ -986,7 +986,7 @@ sudo docker run -tid --ulimit memlock=-1 -p 8088:8088 -v softhsm:/softhsm -e spr
 **NOTE- Replace the values for spring_config_url_env, spring_config_label_env, 
       active_profile_env and registryAddress in the above command accordingly
 
-### 6.8  SMS Gateway configuration 
+### 6.8 SMS Gateway configuration 
 Refer kernel-smsnotification-servive Readme [**here**](https://github.com/mosip/mosip-platform/blob/master/kernel/kernel-smsnotification-service/README.md) 
 
 
