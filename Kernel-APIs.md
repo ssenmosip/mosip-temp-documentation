@@ -1004,8 +1004,8 @@ Requires Authentication | Yes
 #### Request Part Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-centerid|Yes|centerid of registration| -NA- |10002
-machineid|Yes|machineid of registration| -NA- |10032
+centerid|Yes|Centerid of registration| -NA- |10002
+machineid|Yes|Machineid of registration| -NA- |10032
 
 #### Request
 ```JSON
@@ -1048,7 +1048,7 @@ machineid|Yes|machineid of registration| -NA- |10032
 Error Code | Error Message | Error Description
 ------------|----------|-------------
 KER-RIG-002 | Empty input entered | Empty Input Error Code
-KER-RIG-003 | input length is not valid | Input length error code
+KER-RIG-003 | Input length is not valid | Input length error code
 KER-RIG-004 | Timestamp length should be greater than zero | Invalid CenterID or MachineID Timestamp Length
 KER-RIG-005 | Error occured while fetching rid | RID Fetch Exception
 KER-RIG-006 | Error occured while storing rid | RID Update Exception
@@ -1747,7 +1747,7 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 regcenterId|Yes|Registration center id| |
 macaddress|No|MAC address of the machine| | 
-serialnumber|No|serial number of the machine| | 
+serialnumber|No|Serial number of the machine| | 
 lastUpdated|No|Date in UTC ISO format| | 
 keyindex|Yes|Thumbprint of the public key corresponding to this machine| | 
 
