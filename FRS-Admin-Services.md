@@ -1975,8 +1975,15 @@ Refer below for the process:
 1. Responds with the Device Id, Machine ID and Center ID for the mapping of Center, Machine and Device deleted successfully
 1. In case of Exceptions, system triggers relevant error messages. 
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-masterdata.md)
+[**Link to design**](https://github.com/mosip/mosip-platform/wiki/Kernel-Masterdata)
 
+[**test1**](/mosip/mosip-platform/wiki/Kernel-Masterdata)
+
+[**test2**](/mosip-platform/wiki/Kernel-Masterdata)
+
+[**test3**](/wiki/Kernel-Masterdata)
+
+[**test4**](Kernel-Masterdata)
 
 ## 3. MISP Management 
 ### 3.1 MISP - Create/Read/Update/Delete
