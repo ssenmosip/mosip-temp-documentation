@@ -90,9 +90,6 @@ Raises an alert in case of exceptions.
 
 [**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
 
-
-test1
-
 #### 4.1.2 Registration Center ID Generator [**[↑]**](#table-of-contents)
 
 Upon receiving a request to generate Registration Center ID, the system generates it as per default Registration Center ID generation logic
@@ -108,7 +105,7 @@ Refer below for the process:
 1. Responds with the Registration Center ID to the source
 1. Raises an alert in case of exceptions.
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/kernel-RegistrationCenterIDGenerator.jpg)
+[**Link to design**](/mosip/mosip-platform/wiki/Kernel-Idgenerator-regcenterid)
 
 #### 4.1.3 RID Generator [**[↑]**](#table-of-contents)
 
@@ -164,7 +161,7 @@ Refer below for the process:
 4. Responds with the PRID to the source
 1. Raises an alert in case of exceptions. 
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-PRID.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Kernel-Idgenerator-prid)
 
 #### 4.1.6 VID Generator [**[↑]**](#table-of-contents)
 
@@ -189,7 +186,7 @@ Refer below for the process:
 4. Expired VID should not be sent in response.
 
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/VID%20Generator.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Kernel-Idgenerator-vid)
 #### 4.1.7 Token ID Generator [**[↑]**](#table-of-contents)
 
 Upon receiving a request to generate Token ID (with input para meters (TSP ID, UIN), the system generates token ID as per default Token ID generation logic
@@ -206,7 +203,7 @@ Refer below for the process:
 5. Responds with the Token ID to the source
 1. Raises an alert in case of exceptions.
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/TokenID%20Generator.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Kernel-Idgenerator-tokenid)
 
 
 #### 4.1.8 Partner ID Generator [**[↑]**](#table-of-contents)
