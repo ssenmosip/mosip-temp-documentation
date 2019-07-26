@@ -17,9 +17,10 @@ In this document we will also talk about utilities for test data generation, too
 <!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
 
 ## 1.2 Scope
-1. Test Coverage
-
-  * Each of the modules has the following building blocks which are the testable entities, at the module level
+### 1.2.1 Test Coverage
+* Each of the modules has the following building blocks which are the testable entities, at the module level
+* System Integration Testing - This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
+* Test Automation - tools, approach, test code configuration management process, regular usage
 
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
@@ -29,22 +30,17 @@ In this document we will also talk about utilities for test data generation, too
  IDA | REST APIs |  Individual API testing <br> Integration workflow testing | | 
  Kernel | REST APIs |  Individual API testing <br> Integration workflow testing | | 
 
-  * System Integration Testing -
-    This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
-
-* Test Automation - tools, approach, test code configuration management process, regular usage
-
-2. Data Coverage
+### 1.2.2 Data Coverage
 * Data utility tools - approach, usage
-3. Test Management Tools
-4. Defect Management & Lifecycle
+### 1.2.3 Test Management Tools
+### 1.2.4 Defect Management & Lifecycle
 
 # 2 Test Approach
 Each module is tested, both manually and through automation software for effective test coverage.
 
 A progressively evolving test approach is being adopted in both cases. 
 1. Manual Testing starts with module level functional coverage followed by --> integration across modules --> End to end workflow testing
-2. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
+1. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
 * Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
 
 Test Automation User Guides
