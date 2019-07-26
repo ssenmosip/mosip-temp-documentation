@@ -2,12 +2,12 @@
 Pre Registration UI (Developer Enviornment Setup)
 This document will help you in setting up the development environment for Pre-registration UI.
 ## Problem: 
-The problem that we face through the usual local Angular development is that our backend services are deployed for a developer environment on a domain such as https://dev.mosip.io/... So the authentication services generate cookies for the dev.mosip.io domain. So when we connect our localhost code to dev.mosip.io it fails on the authentication stage as cookies generated for some domain can not be used in other domain.
+The problem that we face through the usual local Angular development is that our backend services are deployed for a developer environment on a domain such as https://mosip.io/... So the authentication services generate cookies for the mosip.io domain. So when we connect our localhost code to mosip.io it fails on the authentication stage as cookies generated for some domain can not be used in other domain.
 
 ![Configure Build Triggers](_images/pre_registration/pre-registration-developer-env-setup-fig-01.JPG)
 
 ## Solution:
-The solution involve creating a Virtual Machine behind same proxy/domain (such as dev.mosip.io) and running our development angular code into that machine so that it get hosted on the same domain as the domain of our backend services. Since we wanted to do the development on the local laptop, we can sync our local code with the code of that virtual machines. So whenever we are doing any change in the local system, it will get updated in the VM and in turn will be available on the same domain instantly.
+The solution involve creating a Virtual Machine behind same proxy/domain (such as mosip.io) and running our development angular code into that machine so that it get hosted on the same domain as the domain of our backend services. Since we wanted to do the development on the local laptop, we can sync our local code with the code of that virtual machines. So whenever we are doing any change in the local system, it will get updated in the VM and in turn will be available on the same domain instantly.
 
 ![Configure Build Triggers](_images/pre_registration/pre-registration-developer-env-setup-fig-02.JPG)
 
