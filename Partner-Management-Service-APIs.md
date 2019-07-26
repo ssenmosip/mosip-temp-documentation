@@ -45,6 +45,7 @@ This service would be used by MOSIP admin for MISP(MOSIP Infrastructure Service 
 * [POST /misps/{mispId}/licenseKey](#post-mispsmispidlicensekey)
 * [PUT /misps/{mispId}](#put-mispsmispid)
 * [PUT /misps/{mispId}/licenseKey](#put-mispsmispidlicensekey)
+* [GET /misps](#get-misps)
 * [GET /misps/{mispId}](#get-mispsmispId)
 * [GET /misps/{mispOrgName}](#get-mispsmispOrgName)
 * [GET /misps/{mispId}/licenseKey](#get-mispsmispidlicensekey)
@@ -512,6 +513,82 @@ PMS_MSP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of th
 PMS_MSP_004|No information provided for update|No information provided for update
 PMS_MSP_006|MISP ID/MISP License Key does not exist|MISP ID/MISP License Key not available in database
 PMS_MSP_007|MISP License key not associated to MISP ID|MISP License key not associated to MISP in the input
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### GET /misps
+This API would be used to retrieve the all MISPs details which are registered for the logged in admin.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/misps</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+
+```JSON
+{
+  "id": "mosip.partnermanagement.misp.retrieve",
+  "version": "1.0",
+  "responsetime": "2019-06-03T06:47:10.838Z",
+  "response": {
+    "mispDetails":[
+      {
+	    "id": "64269837502851",
+        "organizationName": "telecom",
+        "contactNumber": "9876998888",
+        "emailID": "prm@telecom.com",
+        "address": "India"
+	  },
+      {
+	    "id": "98869837502654",
+        "organizationName": "airtelInd",
+        "contactNumber": "9488998800",
+        "emailID": "agm@airtelInd.com",
+        "address": "India"
+	  }	
+    ]	  
+  },
+  "errors": null
+}
+```
+##### Failure Response:
+###### Status code: '200'
+###### Description: No MISP details found for the admin
+```JSON
+{
+  "id": "mosip.partnermanagement.misp.status.update",
+  "version": "1.0",
+  "responsetime": "2019-06-03T18:03:12.305Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "PMS_MSP_011",
+      "message": "No MISP details found"
+    }
+  ]
+}
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_MSP_001|MOSIP Admin does not exist|Unauthorized MOSIP Admin- UserName not available in database
+PMS_MSP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
+PMS_MSP_011|No MISP details found|No MISP details found for the admin
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
