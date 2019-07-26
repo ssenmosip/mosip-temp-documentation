@@ -30,7 +30,7 @@ After hitting api, you will get the Authorization token in the cookie.
 * [Partner Management Service](#partner-management-service)
 * [Partner Service](#partner-service)
 
-# MISP Management Service
+## MISP Management Service
 This service is used to authenticate MOSIP Admin and management of MISP(MOSIP Infrastructure Service Provider).
 
 * [POST /misps](#post-misps)
