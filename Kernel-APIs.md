@@ -1,24 +1,24 @@
 
 Security APIs
 - [Key Manager Service](#key-manager-private)
-- [Crypto Manager Service](#crypto-manager)
-- [License Key Service](#license-key-manager)
+- [Crypto Manager Service](#crypto-manager-private)
+- [License Key Service](#license-key-manager-private)
 - [Crypto Signature Service](#crypto-signature-service-private)
 
 Notification APIs
-- [SMS Notification Service](#sms-notification)
-- [Email Notification Service](#email-notification)
+- [SMS Notification Service](#sms-notification-private)
+- [Email Notification Service](#email-notification-private)
 
 ID Generator APIs
-- [UIN Service](#uin)
-- [RID Service](#rid-generator)
-- [Static Token Service](#static-token-generator)
+- [UIN Service](#uin-private)
+- [RID Service](#rid-generator-private)
+- [Static Token Service](#static-token-generator-private)
 
 Common APIs
-- [Audit Service](#audit-manager)
-- [Data Sync Service](#sync-data)
-- [Applicant Types Service](#applicant-type)
-- [OTP Manager Service](#otp-manager)
+- [Audit Service](#audit-manager-private)
+- [Data Sync Service](#sync-data-private)
+- [Applicant Types Service](#applicant-type-private)
+- [OTP Manager Service](#otp-manager-private)
 - [Registration Center APIs](Registration-Center-APIs)
 
 
