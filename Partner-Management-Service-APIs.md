@@ -577,7 +577,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_MSP_011",
+      "errorCode": "PMS_MSP_012",
       "message": "No MISP details found"
     }
   ]
@@ -588,7 +588,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PMS_MSP_001|MOSIP Admin does not exist|Unauthorized MOSIP Admin- UserName not available in database
 PMS_MSP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
-PMS_MSP_011|No MISP details found|No MISP details found
+PMS_MSP_012|No MISP details found|No MISP details found
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
