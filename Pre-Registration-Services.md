@@ -1859,6 +1859,7 @@ PRG_PAM_CORE_012|decryption failes|decryption of document data failed
 PRG_PAM_CORE_010|hashing failed|document data hashing failed
 PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|when the document is not uploaded for the preregistration id
+PRG_PAM_APP_005|No data found for the requested pre-registration id|When the application is deleted and trying to fetch the document of that pre-registration-id
 
 ### GET /documents/{documentId}?preRegistrationId={preRegistrationId}
 This request used to retrieve the document for a particular document id from the File System server.
