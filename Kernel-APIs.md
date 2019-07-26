@@ -1,6 +1,6 @@
 
 Security APIs
-- [Key Manager Service](# Key Manager (Private))
+- [Key Manager Service](#key-manager-private)
 - [Crypto Manager Service](#crypto-manager)
 - [License Key Service](#license-key-manager)
 - [Crypto Signature Service](#crypto-signature-service-private)
