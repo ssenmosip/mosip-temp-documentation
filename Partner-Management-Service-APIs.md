@@ -518,7 +518,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /misps
-This API would be used to retrieve the all MISPs details which are registered for the logged in admin.
+This API would be used to retrieve all MISPs details.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps</div>
@@ -547,28 +547,28 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "responsetime": "2019-06-03T06:47:10.838Z",
   "response": {
     "mispDetails":[
-      {
-	    "id": "64269837502851",
-        "organizationName": "telecom",
-        "contactNumber": "9876998888",
-        "emailID": "prm@telecom.com",
-        "address": "India"
-	  },
-      {
-	    "id": "98869837502654",
-        "organizationName": "airtelInd",
-        "contactNumber": "9488998800",
-        "emailID": "agm@airtelInd.com",
-        "address": "India"
-	  }	
-    ]	  
+        {
+	  "id": "64269837502851",
+          "organizationName": "telecom",
+          "contactNumber": "9876998888",
+          "emailID": "prm@telecom.com",
+          "address": "India"
+        },
+        {
+	  "id": "98869837502654",
+          "organizationName": "airtelInd",
+          "contactNumber": "9488998800",
+          "emailID": "agm@airtelInd.com",
+          "address": "India"
+	}	
+      ]	  
   },
   "errors": null
 }
 ```
 ##### Failure Response:
 ###### Status code: '200'
-###### Description: No MISP details found for the admin
+###### Description: No MISP details found
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.status.update",
@@ -588,7 +588,7 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PMS_MSP_001|MOSIP Admin does not exist|Unauthorized MOSIP Admin- UserName not available in database
 PMS_MSP_002|Mismatch of the MOSIP Admin Credentials|User Name and Password of the Admin does not match
-PMS_MSP_011|No MISP details found|No MISP details found for the admin
+PMS_MSP_011|No MISP details found|No MISP details found
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
