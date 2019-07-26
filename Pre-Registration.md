@@ -16,7 +16,7 @@ Below is the wiki link for pre registration.
 
 [**Process Flow**](Process-view#Pre-registration)
 ## 1. Use case
-![Use case diagram](/mosip/mosip-platform/docs/design/pre-registration/_images/usecase_preregistration.jpg)
+![Use case diagram](_images/design/pre-registration/usecase_preregistration.jpg)
     
    ## 1.1 Fill up demographic details
             Actor- citizen
