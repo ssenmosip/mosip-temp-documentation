@@ -1,12 +1,12 @@
 This section details about the service API in the Partner Management module.
 
 #### Note:
-If you want to access rest apis, access token is required from authmanager.
-1. Authenticate through client-id/Secret or User Id/Password having respective roles assigned.
+For securely accessing any API in MOSIP, you must gain auth token from kernel authmanager
+1. Authenticate through client-id/Secret or User Id/Password having respective roles assigned in IAM.
 2. After successful authentication access token will set as Authorization cookies.
 3. Access API through postman by passing the access token in cookies.
 
-#### Admin Token
+#### Auth Token
  url- https://mosip.io/v1/authmanager/authenticate/useridPwd
 
 ```
@@ -23,6 +23,12 @@ If you want to access rest apis, access token is required from authmanager.
 }
 ```
 After hitting api, you will get the Authorization token in the cookie. 
+
+#### Prerequisite for Partner Management Module:
+1. Digital certificate sharing between MOSIP and Partners
+2. MISP (MOSIP Infrastructure Service Provider) Creation
+3. Master data related to Partner Management - like Policy Groups, Partner Manager mappings to Policy Groups, Policy Manager mappings to Policy Groups, Master policy for the country
+
 # Partner Management APIs are categorized into following services
 
 * [MISP Management Service](#misp-management-service)
@@ -30,7 +36,7 @@ After hitting api, you will get the Authorization token in the cookie.
 * [Partner Management Service](#partner-management-service)
 
 ## MISP Management Service
-This service is used to authenticate MOSIP Admin and management of MISP(MOSIP Infrastructure Service Provider).
+This service would be used by MOSIP admin for MISP(MOSIP Infrastructure Service Provider) management.
 
 * [POST /misps](#post-misps)
 * [POST /misps/{mispId}](#put-mispsmispid)
