@@ -10,7 +10,7 @@ Notification APIs
 - [Email Notification Service](#email-notification-private)
 
 ID Generator APIs
-- [UIN Service](#uin-private)
+- [UIN Service](#uin--external)
 - [RID Service](#rid-generator-private)
 - [Static Token Service](#static-token-generator-private)
 
