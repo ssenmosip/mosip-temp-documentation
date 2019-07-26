@@ -23,11 +23,11 @@ In this document we will also talk about utilities for test data generation, too
 
  Module | Testable Entities | Levels of Testing | Comments |
  -------|-------------------|-----------------|-----------
- Pre-Registration | <li> UI <li> REST APIs | <li> UI Functional Testing <li> Individual API testing <li> API level integration testing | | 
- Registration Client | Java APIs | <li> UI Functional Testing (with simulators and with devices) <li> Individual API testing <li> API level integration testing | | 
- Registration Processor | <li> Java APIs <li> SEDA vert.x stages | <li> Individual API testing <li> Integration workflow testing including the APIs and Vert.x for processing various packet types| | 
- IDA | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
- Kernel | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
+ Pre-Registration | UI <br> REST APIs | UI Functional Testing <br> Individual API testing <br> API level integration testing | | 
+ Registration Client | Java APIs | UI Functional Testing (with simulators and with devices) <br> Individual API testing <br> API level integration testing | | 
+ Registration Processor | Java APIs <br> SEDA vert.x stages | Individual API testing <br> Integration workflow testing including the APIs and Vert.x for processing various packet types| | 
+ IDA | REST APIs |  Individual API testing <br> Integration workflow testing | | 
+ Kernel | REST APIs |  Individual API testing <br> Integration workflow testing | | 
 
   * System Integration Testing -
     This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
