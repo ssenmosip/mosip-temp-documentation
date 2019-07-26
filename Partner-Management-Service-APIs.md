@@ -31,9 +31,11 @@ After hitting api, you will get the Authorization token in the cookie.
 
 ## Partner Management APIs are categorized into following services
 
-* [MISP Management Service](#misp-management-service)
-* [Policy Management Service](#policy-management-service)
-* [Partner Management Service](#partner-management-service)
+* [MISP Management Service](#misp-management-service) - This service would be used by MOSIP Admin for management of MISP(MOSIP Infrastructure Service Provider), management of MISP license keys issued to MISP, activation and deactivation of MISP and MISP license keys, getting details about MISP and MISP license keys
+
+* [Policy Management Service](#policy-management-service) - This service would be used by Policy Manager for management of Policies. Policy manager would be able to create, update and get policy details. 
+
+* [Partner Management Service](#partner-management-service) - This service would be used by Partner Manager for management of partner requests. Partners belonging to specific policy group would be able to raise request for issuance of Partner API Keys. Partner Manager would be able to approve OR reject such partner requests. Before approving the partner request for API keys, partner manager would review the request, generate partner API key and map the API key with the policy(ies). By using this service, partner manager would be able to view partner details for given partner API Key, along with the policy mapping for the API key, and its status (active/deactive)
 
 ## MISP Management Service
 This service would be used by MOSIP admin for MISP(MOSIP Infrastructure Service Provider) management.
