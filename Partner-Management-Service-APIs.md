@@ -29,7 +29,7 @@ After hitting api, you will get the Authorization token in the cookie.
 2. MISP (MOSIP Infrastructure Service Provider) Creation
 3. Master data related to Partner Management - like Policy Groups, Partner Manager mappings to Policy Groups, Policy Manager mappings to Policy Groups, Master policy for the country
 
-# Partner Management APIs are categorized into following services
+## Partner Management APIs are categorized into following services
 
 * [MISP Management Service](#misp-management-service)
 * [Policy Management Service](#policy-management-service)
