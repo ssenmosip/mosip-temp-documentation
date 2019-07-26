@@ -84,21 +84,21 @@ A country decides the channel and data attributes that can be updated for the in
 1. An individual can update his/her deomgraphic information when he/she uses the resident portal.
 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-update-packet)
 
 ## 1.3 De-activate individual’s ID [**[↑]**](#table-of-contents)
 This feature is used to de-activate an individual’s ID. When an individual’s ID is deactivated, then he/she will not be able to authenticate himself/herself by using UIN or VID.
 
 If a country wants to deactivate an individual’s ID due to any specific reason, the system deactivates the individual’s ID after certain validations are performed in Registration Processor.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-activate-deactivate-uin)
 ## 1.4 Re-activate individual’s ID [**[↑]**](#table-of-contents)
 This feature is used to re-activate an individual’s deactivated ID. When the individual is re-activated then he/she will be able to authenticate himself/herself by using UIN or VID.
 
 If a country wants to reactivate an individual’s deactivated ID due to any specific reason, the system reactivates the individual’s deactivated ID after certain validations are performed in Registration Processor.
 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_activate_deactivate_uin.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-activate-deactivate-uin)
 
 ## 1.5 Find an Individual’s ID [**[↑]**](#table-of-contents)
 When an individual forgets their ID information he/she can find it by providing their biometric information in the Registration Center. Registration processor then uses the captured biometrics to find the individual’s ID and sends his/her ID credential to their registered address through the country's configured printing and postal service.
@@ -113,11 +113,11 @@ In Registration Processor, there are various independent stages (such as Packet 
 
 These all stages are connected to each other using a workflow manager to perform various ID lifecycles events for an individual. 
 
-Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand how Orchestration is done in MOSIP.
+Please refer to [**Git**](/mosip/mosip-platform/wiki/Registration-Processor-orchestration_workflow) to understand how Orchestration is done in MOSIP.
 
-[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design for HTTP Integration Stage**](/mosip/mosip-platform/wiki/Registration-Processor-http-integration)
 
-[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design for External System Integration Stage**](/mosip/mosip-platform/wiki/Registration-Processor-external-system-integration)
 
 ## 2.2 Retry Processing (In case of exceptions/failures) [**[↑]**](#table-of-contents)
 
@@ -131,9 +131,9 @@ MOSIP system has the capability to recover and continue packet processing if any
 
 In case of such incidents, the system have a mechanism in place which identifies any packets that are stuck at a particular stage for a long period of time and resume processing at a configured time.
 
-Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/orchestration_workflow.md) to understand orchestration workflow in MOSIP.
+Please refer to [**Git**](/mosip/mosip-platform/wiki/Registration-Processor-orchestration_workflow) to understand orchestration workflow in MOSIP.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_reprocess.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-reprocess)
 
 ## 2.4 Integration (System Integrator can integrate their system with MOSIP) [**[↑]**](#table-of-contents)
 Packet processing is divided broadly into three sections such as pre-processing, processing and post processing. Each section has a set of stages which are orchestrated together to create workflow. System integrator can customize workflow by adding or by removing stages.
@@ -142,11 +142,11 @@ If a country wants to integrate MOSIP with their system to share information to/
 
 Registration processor architecture gives flexibility to customize the workflow to plug-in additional stages and exclude existing stages as per the business need.
 
-Please refer to [**Git**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) for more details in external system integration guide.
+Please refer to [**Git**](/mosip/mosip-platform/wiki/Registration-Processor-External_System_Integration_Guide) for more details in external system integration guide.
 
-[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design for HTTP Integration Stage**](/mosip/mosip-platform/wiki/Registration-Processor-http-integration)
 
-[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design for External System Integration Stage**](/mosip/mosip-platform/wiki/Registration-Processor-external-system-integration)
 
 
 ## 2.5 Multiple Workflows [**[↑]**](#table-of-contents)
@@ -158,7 +158,7 @@ These stages are glued together to form a workflow. Hence, based on the ID lifec
 Having multiple workflow increase reusability of stages, readability of workflow configured for each event and maintainability of each workflow which also involve customizing workflow based on the country’s need.
 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_update_packet.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-update-packet)
 
 ## 2.6 Scalability and Throughput [**[↑]**](#table-of-contents)
 MOSIP is scalable so that it can handle any kind of processing load or request in the future without disturbing the base architecture. MOSIP infrastructure can handle additional processing request based on the requirement of a country. The architecture is designed in such a way that it is flexible to support scalability and holds the request until the end goal is achieved.
@@ -179,7 +179,7 @@ When Registration Processor receives a packet, the system performs various sanit
 1. **Packet Format Check** - The system validates if the packet format is per the configured format.
 1. **Duplicate Check** - The system validates if the request received is not a duplicate request.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_validator.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-packet-validator)
 
 ### 3.1.2 Virus Scan [**[↑]**](#table-of-contents)
 Virus Scanning is an important process, which helps to detect and move the virus infected packets to the quarantine zone. With a good virus scanner integrated in MOSIP will prevent virus interference.
@@ -190,7 +190,7 @@ Virus scanning is performed twice in Registration Processor:
 1. When a packet is received by Registration Processor.
 1. When Registration Processor stores the packet in its internal secure file system.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_virus_scanner.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-virus-scanner)
 
 ### 3.1.3 Machine-Center Mapping [**[↑]**](#table-of-contents)
 When a packet is created in Registration Client, the packet will be created using a registered machine, devices, registration officer, registration supervisor, and registration center.
@@ -203,7 +203,7 @@ To make sure that the packets are created as per the defined rules, the system p
 1. Packet must be created in working days and not in holidays.
 1. The GPS must be captured when a packet is created.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-OSI-validation)
 
 ### 3.1.4 Officer & Supervisor Validation [**[↑]**](#table-of-contents)
 
@@ -214,7 +214,7 @@ When a packet is created in Registration Client, the officer or supervisor will 
 
 In case of Biometric Authentication, Registration Processor authenticates the Officer/Supervisor again after receiving the packet from the Registration Client.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-OSI-validation)
 ## 3.2 Processing [**[↑]**](#table-of-contents)
 ### 3.2.1 Individual Data Validations [**[↑]**](#table-of-contents)
 #### 3.2.1.1 Data Quality Check: Photo, Age, Gender Data Check [**[↑]**](#table-of-contents)
@@ -225,7 +225,7 @@ This validation helps system to identify the mistake, that are performed by the 
 **WIP - This is factored for future releases and is not part of current implementation.**
  
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_receiver_stage.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-packet-receiver-stage)
 #### 3.2.1.2 Biometrics Quality Check [**[↑]**](#table-of-contents)
 The biometrics captured (Face, Fingerprint or Iris) for an individual is used to authenticate the individual. If the quality of the biometric image captured during registration were low, then authentication for the individual using biometrics will not be accurate.
 
@@ -237,7 +237,7 @@ When an individual visits the Registration Center to get an ID or update his/her
 **WIP - This is factored for future releases and is not part of current implementation.**
 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_validator.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-packet-validator)
 ### 3.2.2 Functional Validations [**[↑]**](#table-of-contents)
 #### 3.2.2.1 File & Document Validation [**[↑]**](#table-of-contents)
 
@@ -247,7 +247,7 @@ For Example:
 1. If name is captured, the country can add a validation for Proof of Identity.
 2. If address is captured, the country can add a validation for Proof of Address.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_packet_validator.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-packet-validator)
 
 #### 3.2.2.2 Introducer Validation [**[↑]**](#table-of-contents)
 
@@ -258,7 +258,7 @@ A minor is not mature enough to provide biometrics (like Finger Prints or Iris) 
 When a minor is registered, the Registration Client mandates the capture of the ID and biometrics of the Parent or Guardian, which is used for authenticating the Parent or Guardian in Registration Processor.
 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_OSI_validation.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-OSI-validation)
 
 #### 3.2.2.3 Deduplication – Demographic, Biometrics [**[↑]**](#table-of-contents)
 Deduplication is the process to find a duplicate by comparing the individual’s details (biometric and demographic data) with the data stored in the system.
@@ -274,7 +274,7 @@ Deduplication is the process to find a duplicate by comparing the individual’s
 4. If a manual verifier (experts who know more about biometrics) finds a duplicate, then the system rejects the packet.
 5. If the manual verifier or [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) does not find the duplicate, then the system sends the packet for UIN generation.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_demo_dedupe.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-demo-dedupe)
 
 ### 3.2.3 External System Integration: (Elaborate with examples) [**[↑]**](#table-of-contents)
 #### 3.2.3.1 Data Verification (Pluggable by SI – Not part of MOSIP) [**[↑]**](#table-of-contents)
@@ -283,9 +283,9 @@ Data verification is a process in which the system can verify the data captured 
 
 The System Integrator can plug-in a stage in the workflow, where the stage can communicate with any external system to receive some information and validate it with the information captured at the Registration Center.
 
-[**Link to design for External System Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_external_system_integration.md)
+[**Link to design for External System Integration Stage**](/mosip/mosip-platform/wiki/Registration-Processor-external-system-integration)
 
-[**Link to design for HTTP Integration Stage**](/mosip/mosip/blob/master/docs/design/registration-processor/Approach_for_http_integration.md)
+[**Link to design for HTTP Integration Stage**](/mosip/mosip-platform/wiki/Registration-Processor-http-integration)
 
 #### 3.2.3.2 Data Enrichment [**[↑]**](#table-of-contents)
 
@@ -297,28 +297,28 @@ MOSIP receives some data from the external system in the form of Packet (as per 
 When there are any discrepancies between the data received from external system vs. the data captured during registration, a country may opt to manually verify the data. 
 The System Integrator in such case may build a Manual Verification Module for External System data mismatch. MOSIP will enable the system integrator to integrate the manual verification system with MOSIP platform.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_manual_adjudication.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-manual-adjudication)
 
 #### 3.2.3.4 Manual Adjudication (Pluggable by SI) [**[↑]**](#table-of-contents)
 When Biometric Deduplicates are found in [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface), the System Integrator can plug-in the Manual Adjudication Stage, which would send the biometric and demographic data of the duplicates to a Manual Adjudicator. The Manual Adjudicator now can perform various validations on the duplicate data and inform the MOSIP system if the two records are duplicates or not.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_manual_adjudication.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-manual-adjudication)
 #### 3.2.3.5 ABIS Integration (Incl. ABIS Middleware) [**[↑]**](#table-of-contents)
 The MOSIP System, in-order to perform Biometric Deduplication (validate if there are no biometric duplicates in system), integrates with an ABIS system ([**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface)). 
 
 ABIS Middleware, which is designed by MOSIP and MOSIP Middleware, designed by [**Automated Biometric Identification System**](Automated-Biometric-Identification-System-(ABIS)-Interface) is used to communicate between MOSIP system and ABIS.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_ABIS_Integration.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-ABIS-Integration)
 
 ### 3.2.4 ID Issuance [**[↑]**](#table-of-contents)
 #### 3.2.4.1 Identity Generation (Refer to UIN Generation service) – Incl. UIN Generation and UIN association [**[↑]**](#table-of-contents)
 After all the business validations are completed, the system gets a Unique Identification Number (UIN) from the [**UIN Generation**](UIN-Generation) API and allocates the UIN by sending the new UIN number and the individual's information to [**ID repository**](ID-Repository-API).
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_uin_generator.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-uin-generator)
 #### 3.2.4.2 Store/Update ID Repository (Refer to ID-Auth) [**[↑]**](#table-of-contents)
 After all the business validations are performed for a new ID issuance or updating an individual’s information, this information is sent to [**ID repository**](ID-Repository-API) for storing or updating the information respectively. 
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_uin_generator.md) 
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-uin-generator) 
 #### 3.2.4.3 Data Extractor for ID Authentication [**[↑]**](#table-of-contents)
 The system that extracts the latest copy of an individual’s data after the Individual has registered in MOSIP or has updated their data in MOSIP and sends it to ID Authentication. Now, ID Authentication can use the latest copy of the Individual’s data for Authentication.         
 
@@ -332,7 +332,7 @@ When an individual’s ID is created or an individual’s data is updated, the s
 
 This feature is the post processing integration point for Registration Processor, where a country can generate the PDF of the individual’s ID and sends it to the country’s configured printing and postal service provider. The printing and postal service provider in turn would print the physical ID credential and deliver it to the individual’s registered address.
 
-[**Link to design**](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/Approach_for_printing_stage.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-Processor-printing-stage)
 
 ### 3.4 Packet Processing Status [**[↑]**](#table-of-contents)
 
