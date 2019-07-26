@@ -2838,7 +2838,13 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
         "code": "string",
         "isActive": true,
         "langCode": "string",
-        "name": "string"
+        "name": "string",
+        "createdBy": "string",
+        "createdDateTime": "string",
+        "updatedBy": "string",
+        "updatedDateTime": "string",
+        "isDeleted": "boolean",
+        "deletedDateTime": "string",
  }
     ],
 	"fromRecord" : "number",
