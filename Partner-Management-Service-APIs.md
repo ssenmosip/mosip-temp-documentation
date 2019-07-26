@@ -7,7 +7,7 @@ If you want to access rest apis, access token is required from authmanager.
 3. Access API through postman by passing the access token in cookies.
 
 #### Admin Token
- url- https://dev.mosip.io/v1/authmanager/authenticate/useridPwd
+ url- https://mosip.io/v1/authmanager/authenticate/useridPwd
 
 ```
 {
