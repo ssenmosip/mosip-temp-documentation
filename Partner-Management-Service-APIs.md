@@ -196,7 +196,6 @@ request.address|Optional|MISP address|India
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: sms sent successfully
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.update",
@@ -381,7 +380,6 @@ request.mispStatus|Yes|MISP status|De-Active
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: sms sent successfully
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.status.update",
