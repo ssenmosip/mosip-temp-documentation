@@ -35,13 +35,13 @@ In this document we will also talk about utilities for test data generation, too
 ### 1.2.3 Test Management Tools
 ### 1.2.4 Defect Management & Lifecycle
 
-# 2 Test Approach
+# 2. Test Approach
 Each module is tested, both manually and through automation software for effective test coverage.
 
 A progressively evolving test approach is being adopted in both cases. 
 1. Manual Testing starts with module level functional coverage followed by --> integration across modules --> End to end workflow testing
 1. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
-* Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
+   * Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
 
 Test Automation User Guides
 
