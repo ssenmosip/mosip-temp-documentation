@@ -41,7 +41,7 @@ After hitting api, you will get the Authorization token in the cookie.
 This service would be used by MOSIP admin for MISP(MOSIP Infrastructure Service Provider) management.
 
 * [POST /misps](#post-misps)
-* [POST /misps/{mispId}](#put-mispsmispid)
+* [POST /misps/{mispId}](#post-mispsmispid)
 * [POST /misps/{mispId}/licenseKey](#post-mispsmispidlicensekey)
 * [PUT /misps/{mispId}](#put-mispsmispid)
 * [PUT /misps/{mispId}/licenseKey](#put-mispsmispidlicensekey)
