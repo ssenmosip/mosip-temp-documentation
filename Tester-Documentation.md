@@ -1,10 +1,55 @@
+MOSIP - Test Strategy
 
-**MOSIP - Test Strategy (Work in progress copy)**
+# 1 Introduction
+## 1.1 Overview
+The MOSIP architecture mainly consists of the following functional blocks/modules
+* Pre-Registration - Web application designed in Angular JS
+A resident can provide his demographic details in this web application and book an appointment for his future registration at a registration center
+* Registration Client - A Desktop thick client application developed in JavaFX.
+A resident is registered through the Registration Client software to generate get a unique identification number. The software captures demographic and biometrics information of the residents. It is connected to scanner devices (finger print, iris), camera and printer to capture resident biometrics information
+* Registration Processor - A backend server application developed using SEDA framework
+It processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
+* IDA (ID Authentication) - A backend authentication server developed using spring family. 
+It authenticates the resident based on registered set of biometric and demographic information
 
-Test Automation
-Generic Test Automation Design - API Testing
+Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
 
+In this document we will also talk about utilities for test data generation, tools for test automation and test strategy in general.
 
+<!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
+
+## 1.2 Scope
+1. Test Coverage
+
+  * Each of the modules has the following building blocks which are the testable entities, at the module level
+
+ Module | Testable Entities | Levels of Testing | Comments |
+ -------|-------------------|-----------------|-----------
+ Pre-Registration | <li> UI <li> REST APIs | <li> UI Functional Testing <li> Individual API testing <li> API level integration testing | | 
+ Registration Client | Java APIs | <li> UI Functional Testing (with simulators and with devices) <li> Individual API testing <li> API level integration testing | | 
+ Registration Processor | <li> Java APIs <li> SEDA vert.x stages | <li> Individual API testing <li> Integration workflow testing including the APIs and Vert.x for processing various packet types| | 
+ IDA | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
+ Kernel | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
+
+  * System Integration Testing -
+    This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
+
+* Test Automation - tools, approach, test code configuration management process, regular usage
+
+2. Data Coverage
+* Data utility tools - approach, usage
+3. Test Management Tools
+4. Defect Management & Lifecycle
+
+# 2 Test Approach
+Each module is tested, both manually and through automation software for effective test coverage.
+
+A progressively evolving test approach is being adopted in both cases. 
+1. Manual Testing starts with module level functional coverage followed by --> integration across modules --> End to end workflow testing
+2. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
+* Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
+
+Test Automation User Guides
 
 # 1. Kernel Test Automation Suite - User Guide
 
@@ -514,54 +559,7 @@ The E2E code has the following prerequisite
 1. The rig is designed to run for only 5 packets.
 1. The rig should run on a particular version of each module.
 
-# 1 Introduction
-## 1.1 Overview
-The MOSIP architecture mainly consists of the following functional blocks/modules
-* Pre-Registration - Web application designed in Angular JS
-A resident can provide his demographic details in this web application and book an appointment for his future registration at a registration center
-* Registration Client - A Desktop thick client application developed in JavaFX.
-A resident is registered through the Registration Client software to generate get a unique identification number. The software captures demographic and biometrics information of the residents. It is connected to scanner devices (finger print, iris), camera and printer to capture resident biometrics information
-* Registration Processor - A backend server application developed using SEDA framework
-It processes the client packets and generates UIN based on de-dup information from ABIS (Automated Biometrics Identification System)
-* IDA (ID Authentication) - A backend authentication server developed using spring family. 
-It authenticates the resident based on registered set of biometric and demographic information
 
-Test automation is the key to the success of comprehensive test coverage and test data. However in the context of MOSIP testing, where there are external devices and integration with third party software, test automation cannot be exhaustive and comprehensive test coverage can be achieved by testing driven by manual intervention, along with test automation.
-
-In this document we will also talk about utilities for test data generation, tools for test automation and test strategy in general.
-
-<!---MOSIP SOAPUI tests are developed as an open source framework project. The tests developed using soapui with the following best practices.--->
-
-## 1.2 Scope
-1. Test Coverage
-
-  * Each of the modules has the following building blocks which are the testable entities, at the module level
-
- Module | Testable Entities | Levels of Testing | Comments |
- -------|-------------------|-----------------|-----------
- Pre-Registration | <li> UI <li> REST APIs | <li> UI Functional Testing <li> Individual API testing <li> API level integration testing | | 
- Registration Client | Java APIs | <li> UI Functional Testing (with simulators and with devices) <li> Individual API testing <li> API level integration testing | | 
- Registration Processor | <li> Java APIs <li> SEDA vert.x stages | <li> Individual API testing <li> Integration workflow testing including the APIs and Vert.x for processing various packet types| | 
- IDA | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
- Kernel | REST APIs | <li> Individual API testing <li> Integration workflow testing | | 
-
-  * System Integration Testing -
-    This involves testing functional workflows across the modules, starting from Pre-Reg and ending in IDA
-
-* Test Automation - tools, approach, test code configuration management process, regular usage
-
-2. Data Coverage
-* Data utility tools - approach, usage
-3. Test Management Tools
-4. Defect Management & Lifecycle
-
-# 2 Test Approach
-Each module is tested, both manually and through automation software for effective test coverage.
-
-A progressively evolving test approach is being adopted in both cases. 
-1. Manual Testing starts with module level functional coverage followed by --> integration across modules --> End to end workflow testing
-2. Automation Testing starts with the fundamental building blocks like APIs, and grows up the stack. 
-* Individual API verification is followed by --> API Integration testing --> integration across modules --> End to end workflow testing
 
 ## 2.1 API Testing
 API testing will be carried out in 2 stages, both via Test Automation.
