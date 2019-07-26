@@ -16,7 +16,7 @@ ID Generator APIs
 
 Common APIs
 - [Audit Service](#audit-manager-private)
-- [Data Sync Service](#sync-data-private)
+- [Data Sync Service](#sync-data-public)
 - [Applicant Types Service](#applicant-type-private)
 - [OTP Manager Service](#otp-manager-private)
 - [Registration Center APIs](Registration-Center-APIs)
