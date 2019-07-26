@@ -1,5 +1,5 @@
 ## Table Of Contents
-- [1. Users and Roles](#1-users-and-roles-)
+ [1. Users and Roles](#1-users-and-roles-)
   * [1.1 User Creation](#11-user-creation-) _(PM FR 1.1)_
   * [1.2 Role Mapping](#12-role-mapping-)
     * [1.2.1 MISP](#121-misp-) _(PM_FR_1.2)_
