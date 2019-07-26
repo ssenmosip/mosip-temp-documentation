@@ -540,7 +540,7 @@ If the required biometric quality is not achieved while a registration officer i
 1. If ‘Biometric Exception’ is ‘Yes’, at least one missing biometric must be mandatorily marked.
 1. The registration officer can mark the missing finger(s) and missing iris(es).
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-New)
 
 ### 4.7 Registration Officer and Supervisor Approval [**[↑]**](#table-of-contents)
 
@@ -559,7 +559,7 @@ When a registration officer captures biometric exceptions of an individual, then
 1. Based on country-specific requirements, it is also possible for the registration officer and supervisor to be the same person. In this case, the registration officer and supervisor will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for supervisor authentication of exceptions.
 1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement).
 
-[**Link to design**](/mosip/mosip/tree/master/docs/design/registration/registration-registrationscreen.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Registration-New)
 
 ### 4.8 End of Day Process [**[↑]**](#table-of-contents)
 
