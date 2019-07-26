@@ -1090,7 +1090,7 @@ partnercode|Yes|ID of the partner.| -NA- |9373
 ###### Description: token id generated successfully
 ```JSON
 {
-	"id": "mosip.kernel.tokenid.generate",,
+	"id": "mosip.kernel.tokenid.generate",
 	"version": "1.0",
 	"metadata": {},
 	"responsetime": "2019-04-04T05:03:18.287Z",
