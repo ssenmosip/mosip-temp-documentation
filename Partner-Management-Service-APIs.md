@@ -335,7 +335,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 
 
 ### PUT /misps/{mispId}
-This API would be used update MISP status.
+This API would be used to update MISP status for given MISP ID.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}</div>
@@ -422,7 +422,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /misps/{mispId}/licenseKey
-This API would be used to activate/deactivate MISPs License Key (update MISP License Key Status)
+This API would be used to activate/deactivate MISPs License Key for the MSIP ID.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}/licenseKey</div>
