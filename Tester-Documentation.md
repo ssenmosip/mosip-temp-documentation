@@ -164,7 +164,7 @@ Procedure to execute the [**Reg-automation-service_TestNG.xml**] xml File:
 1. Click on testing
 1. Select class
 1. In VM argument pass 
-   -Denv.user=qa -Denv.endpoint=[link](//qa.mosip.io) -Denv.testLevel=smokeAndRegression
+   -Denv.user=qa -Denv.endpoint=<eg:https://testenvname.mosip.io> -Denv.testLevel=smokeAndRegression
 
 ## 2.9 Analyze the test reports
 * Once run is complete, then refresh project and go to target/surefire folder.
