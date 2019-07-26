@@ -226,7 +226,7 @@ ID Repository module contains the golden record of Identity for an Individual. O
 This module exposes few REST APIs which can be used to create/update/retrieve identity of an individual. Please refer to the [ID Repository API](ID-Repository-API) for more details.
 
 ### 5.8 Integration with External Systems
-[This section](/mosip/mosip/blob/0.12.0/docs/design/registration-processor/External_System_Integration_Guide.md) illustrates the integration specifications of MOSIP with an external system.
+[This section](/mosip/mosip-platform/wiki/Registration-Processor-External_System_Integration_Guide) illustrates the integration specifications of MOSIP with an external system.
 
 ## 6. MOSIP APIs[**[↑]**](#table-of-contents)
 ### 6.1	External APIs
