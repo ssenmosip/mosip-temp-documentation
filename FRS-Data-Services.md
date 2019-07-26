@@ -88,7 +88,7 @@ Responds with the Machine ID to the source.
 
 Raises an alert in case of exceptions. 
 
-[**Link to design**](/mosip/mosip/blob/master/docs/design/kernel/Kernel-idgenerator-MachineID.md)
+[**Link to design**](/mosip/mosip-platform/wiki/Kernel-Idgenerator-machineid)
 
 #### 4.1.2 Registration Center ID Generator [**[↑]**](#table-of-contents)
 
