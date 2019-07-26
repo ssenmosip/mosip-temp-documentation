@@ -143,7 +143,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /misps/{mispId}
-This request to update MISP with the parameters.
+This request would be used to update MISP for given mispID.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}</div>
@@ -239,10 +239,10 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /misps/{mispId}/licenseKey
-This request will validate MISPs LK - 
-   1. Validate LK pattern.
-   2. Validate LK is associated with the requested MISP id.
-   3. Validate LK is Active or not.
+This request would be used for validating MISPs license key- 
+   1. Validate license key pattern.
+   2. Validate license key is associated with the requested MISP id.
+   3. Validate license key is Active or not.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}/licenseKey</div>
@@ -334,7 +334,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 
 
 ### PUT /misps/{mispId}
-This request to update MISP status.
+This API would be used update MISP status.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}</div>
@@ -422,7 +422,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /misps/{mispId}/licenseKey
-This request will activate/deactivate MISPs LK (update MISP License Key Status)
+This API would be used to activate/deactivate MISPs License Key (update MISP License Key Status)
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}/licenseKey</div>
@@ -518,7 +518,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 
 
 ### GET /misps/{mispId}
-This request is used to retrieve the MISPs details based on the misp id.
+This API would be used to retrieve the MISPs details based on given misp id.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}</div>
@@ -543,7 +543,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 #### Responses:
 ##### Success Response:
 ###### Status code: '200'
-###### Description: sms sent successfully
+
 ```JSON
 {
   "id": "mosip.partnermanagement.misp.retrieve",
@@ -587,7 +587,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /misps/{mispOrgName}
-This request will retrieve the MISPs details
+This API would retrieve MISPs details based on given name
 1. If MISP organization name present, then retrieve all misp details for matching organization name.
 2. If MISP organization name not present, then retrieve all misp details. 
 
@@ -674,7 +674,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /misps/{mispId}/licenseKey
-This request download MISPs LK. If LK is expired then generate a new LK and associate with MISP ID and return.
+This API would be used by MISP Admin / MOSIP Admin for download MISPs license key. In case where license key got expired then user would be able to get a new license key. New license key thus generated would be mapped with given MISP ID . Older license keys would be updated with inactive status. 
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}/licenseKey</div>
@@ -743,7 +743,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 
 
 ## Policy Management Service
-This service is used to manage policies.
+This service would be used by Policy Manager to manage policies for his Policy Group.
 
 * [POST /policies](#post-policies)
 * [POST /policies/{policyID}](#post-policiespolicyid)
@@ -753,7 +753,7 @@ This service is used to manage policies.
 * [GET /policies/{PartnerAPIKey}](#get-policiespartnerapikey)
 
 ### POST /policies
-This request is used to create new Policy for policy group
+This API would be used to create new Policy for policy group
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/policies</div>
@@ -1012,7 +1012,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /policies/{policyID}
-This request is used to update the existing policy status.
+This API would be used to update the existing policy status.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
@@ -1235,7 +1235,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /policies/{policyID}
-This request is used to retrieve existing policy for a policy group based on the policy id.
+This API would be used to retrieve existing policy for a policy group based on the policy id.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
@@ -1445,7 +1445,7 @@ This service enables partner managers to manage respective partners, manage part
 
 
 ### POST /pmpartners/{partnerID}/{PartnerAPIKey}
-This request is used by partner Manager, to update Partner api key to Policy Mappings.
+This API would be used by partner Manager, to update Partner api key to Policy Mappings.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}/{PartnerAPIKey}</div>
@@ -1542,7 +1542,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### PUT /pmpartners/{partnerID}
-This request used to activate/deactivate Auth/E-KYC Partners
+This API would be used to activate/deactivate Auth/E-KYC Partners
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
@@ -1820,7 +1820,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /pmpartners
-This request will retrieve all Auth/E-KYC Partners for the particular policy group.
+This API would be used to retrieve all Auth/E-KYC Partners for the policy group.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners</div>
