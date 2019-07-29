@@ -576,7 +576,7 @@ Use below command to open the port 80/443 from RHEL 7.5 VM
 ```
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent 
 $ sudo firewall-cmd --zone=public --add-port=443/tcp --permanent 
-$ sudo firewall-cmd –reload
+$ sudo firewall-cmd --reload 
 ```
 
 #### Generate SSL/TLS for HTTPS - 
