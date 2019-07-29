@@ -424,22 +424,20 @@ Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vi
 ```
 $ sudo vi /etc/yum.repos.d/nginx.repo 
 ```
-Install nginx package using the yum command:
-```
-$ sudo yum update
-$ sudo yum install nginx
-```
 Append following for RHEL 7.5 
 ```
 [nginx]   
 name=nginx repo 
-baseurl=`http://nginx.org/packages/mainline/rhel/7/$basearch/` 
+baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/ 
 gpgcheck=0 
 enabled=1 
 ```
 After updating repo, please run following commands to install and enable nginx -
 ```
-$ sudo yum install nginx 
+$ sudo yum update
+```
+$ sudo yum install nginx
+```
 $ sudo systemctl enable nginx  
 ```
 To start, stop, restart or get status of nginx use the following commands - 
