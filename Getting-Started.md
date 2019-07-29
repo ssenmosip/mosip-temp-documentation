@@ -424,22 +424,20 @@ Create the file named /etc/yum.repos.d/nginx.repo using a text editor such as vi
 ```
 $ sudo vi /etc/yum.repos.d/nginx.repo 
 ```
-Install nginx package using the yum command:
-```
-$ sudo yum update
-$ sudo yum install nginx
-```
 Append following for RHEL 7.5 
 ```
 [nginx]   
 name=nginx repo 
-baseurl=`http://nginx.org/packages/mainline/rhel/7/$basearch/` 
+baseurl=http://nginx.org/packages/mainline/rhel/7/$basearch/ 
 gpgcheck=0 
 enabled=1 
 ```
 After updating repo, please run following commands to install and enable nginx -
 ```
-$ sudo yum install nginx 
+$ sudo yum update
+```
+$ sudo yum install nginx
+```
 $ sudo systemctl enable nginx  
 ```
 To start, stop, restart or get status of nginx use the following commands - 
@@ -578,7 +576,7 @@ Use below command to open the port 80/443 from RHEL 7.5 VM
 ```
 $ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent 
 $ sudo firewall-cmd --zone=public --add-port=443/tcp --permanent 
-$ sudo firewall-cmd –reload
+$ sudo firewall-cmd --reload 
 ```
 
 #### Generate SSL/TLS for HTTPS - 
@@ -615,7 +613,7 @@ You can read more about it https://fedoraproject.org/wiki/EPEL.
 **Troubleshooting:** If you facing getting this issue in nginx <br/> (13: Permission denied) while connecting to upstream:[nginx] <br/>
 Please  run below command - 
 ```
-setsebool -P httpd_can_network_connect 1
+$sudo setsebool -P httpd_can_network_connect 1
 ```
  or refer link -
 https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx<br/>
