@@ -24,7 +24,7 @@ Only in case of Kernel modules, the <MODULE_NAME> is not included. The format is
 
 Following URL is an example for Kernel,
 
-`https://dev.mosip.io/v1/emailnotifier`
+`https://mosip.io/v1/emailnotifier`
 
 The convention is, before <RESOURCE_NAME>, we should have the version number. 
 
@@ -52,20 +52,20 @@ For operations, wherever applicable the operations can be added as part of the U
 
 Use the plural nouns in the resource names if there is CRUD operations. For example, 
 
-`https://dev.mosip.io/pre-registration/v1/individuals`		 Prefer 
+`https://mosip.io/pre-registration/v1/individuals`		 Prefer 
 
-`https://dev.mosip.io/pre-registration/v1/individual`		 Avoid
+`https://mosip.io/pre-registration/v1/individual`		 Avoid
 
 In other cases, use singulars in the nouns. For example, 
 
-`https://dev.mosip.io/pre-registration/v1/OTP`
+`https://mosip.io/pre-registration/v1/OTP`
 
 # 5	Resources – actions in the URL
 The actions are added in the URL, wherever applicable. For example, 
 
-`https://dev.mosip.io/pre-registration/v1/OTP/generator`
+`https://mosip.io/pre-registration/v1/OTP/generator`
 
-`https://dev.mosip.io/pre-registration/v1/OTP/validator`
+`https://mosip.io/pre-registration/v1/OTP/validator`
 
 # 6	Appropriate usage of the HTTP methods
 Use only the intended purpose of the HTTP methods. For example, do not use POST to update a resource or PUT to create a resource. 
@@ -77,22 +77,22 @@ In all the success cases and failure cases, 200 HTTP Status code is returned. Ba
 # 8	Identifying a resource
 When the caller want to identify the resource, the path param is used. For example, 
 
-`https://dev.mosip.io/pre-registration/v1/individuals/id1234`
+`https://mosip.io/pre-registration/v1/individuals/id1234`
 
 # 9	Filtering
 The filter has to be applied via the URL parameters. For example,
 
-`https://dev.mosip.io/pre-registration/v1/individuals/id1234?city=someCityName&pincode=473822`
+`https://mosip.io/pre-registration/v1/individuals/id1234?city=someCityName&pincode=473822`
 
 # 10	Sorting
 In case if the results have to be sorted, it can be mentioned in the URL parameter named sort. For example, 
 
-`https://dev.mosip.io/pre-registration/v1/individuals/1234?sort=firstName`
+`https://mosip.io/pre-registration/v1/individuals/1234?sort=firstName`
 
 # 11	Pagination
 In case of pagination, the page number can be mentioned in the parameter by the name “page”. For example, 
 
-`https://dev.mosip.io/pre-registration/v1/individuals/1234?page=15`
+`https://mosip.io/pre-registration/v1/individuals/1234?page=15`
 
 # 12	Always use SSL
 Always use SSL for the services. No services should be exposed without SSL. 
@@ -100,9 +100,9 @@ Always use SSL for the services. No services should be exposed without SSL.
 # 13	Versioning
 Always version the service. The version have to be mentioned in the URL of the service after the hostname (and port number, if any). For example,   
 
-`https://dev.mosip.io/pre-registration/v1/individuals/1234` --> Except Kernel module
+`https://mosip.io/pre-registration/v1/individuals/1234` --> Except Kernel module
 
-`https://dev.mosip.io/v1/individuals/1234` --> Kernel module
+`https://mosip.io/v1/individuals/1234` --> Kernel module
 
 # 14	Design first approach
 Always go with the design first approach. First, define the Swagger specification and publish to the Swagger UI after getting it reviewed. The coding should be started after the design is completed and the specification is completed in Swagger. 

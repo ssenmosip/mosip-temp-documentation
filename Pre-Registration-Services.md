@@ -1982,6 +1982,7 @@ PRG_PAM_DOC_006|Documents failed to delete|if the document & document details ar
 PRG_PAM_DOC_012|Document table not accessible|access to document table fails
 PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when the user tries to access another user's demographic data
 PRG_PAM_DOC_005|Documents is not found for the requested pre-registration id|If document is not uploaded for the pre-registration id
+PRG_PAM_APP_005|No data found for the requested pre-registration id|When the application is deleted and trying to fetch the document of that pre-registration-id
 
 ### DELETE /documents/{documentId}?preRegistrationId={preRegistrationId}
 This request used to delete the document for a particular document id from database and File System server.
