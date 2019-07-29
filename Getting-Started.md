@@ -613,7 +613,7 @@ You can read more about it https://fedoraproject.org/wiki/EPEL.
 **Troubleshooting:** If you facing getting this issue in nginx <br/> (13: Permission denied) while connecting to upstream:[nginx] <br/>
 Please  run below command - 
 ```
-setsebool -P httpd_can_network_connect 1
+$sudo setsebool -P httpd_can_network_connect 1
 ```
  or refer link -
 https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx<br/>
