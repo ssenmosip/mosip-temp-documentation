@@ -1592,6 +1592,7 @@ PRG_PAM_APP_017|Requested preregistration id does not belong to the user|when th
 
 # Document Service (public)
 This service enables Pre-Registration portal to request for uploading the document for a particular pre-registration.
+If any one upload file greater than specified size which is allowed by ngnix config [Link] (https://github.com/mosip/mosip-docs/wiki/Getting-Started#6-installing-external-dependencies-) it will give 413 Request Entity Too Large error.
 
 * [POST /documents/{preRegistrationId}](#post-documentspreregistrationid)
 * [PUT /documents/{preRegistrationId}](#put-documentspreregistrationid)
