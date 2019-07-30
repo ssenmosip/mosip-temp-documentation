@@ -249,7 +249,6 @@ IDA-MPA-009|Partner is not registered|PartnerID Invalid|
 IDA-MPA-010|MISP and Partner not mapped|MISP and Partner not |
 IDA-MPA-011|License key of MISP is suspended|License key status of MISP is suspended|
 IDA-MPA-012|Partner is deactivated|PartnerID is not active|
-IDA-MPA-013|Partner is unauthorised for eKYC|Partner has no permission for e-KYC|
 IDA-MPA-014|Partner is not assigned with any policy|PartnerID is not mapped to a policy|
 IDA-MPA-015|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentiation Usage is mandatory as per policy (Eg: OTP/Demo/Bio - FMR)|Mandatory Auth Type as per policy of the partner is not available in the auth request|
 IDA-MPA-016|HMAC Validation failed|HMAC value does not match|
@@ -258,8 +257,6 @@ IDA-OTA-003|OTP has expired|OTP expired|Please regenerate OTP and try again afte
 IDA-OTA-004|OTP is invalid|OTP Invalid|Please provide correct OTP value.
 IDA-OTA-005|Input transactionID does not match transactionID of OTP Request|Invalid Transaction ID|
 IDA-OTA-007|UIN is locked for OTP validation due to exceeding no of invalid OTP trials |Validate wrong OTP for exceeding no of retries|
-IDA-OTA-008|OTP Notification Channel not provided.|No OTP Channel is provided in the input|
-IDA-OTA-009|&lt;Notification Channel&gt; not configured for the country|&lt;Notification Channel&gt; not configured (Phone/e-mail/both)|
 IDA-OTA-010|Input Identity Type does not match Identity Type of OTP Request|Invalid Identity Type|
 
 ## eKYC Service (Public)
@@ -508,8 +505,6 @@ IDA-OTA-003|OTP has expired|OTP expired|Please regenerate OTP and try again afte
 IDA-OTA-004|OTP is invalid|OTP Invalid|Please provide correct OTP value.
 IDA-OTA-005|Input transactionID does not match transactionID of OTP Request|Invalid Transaction ID|
 IDA-OTA-007|UIN is locked for OTP validation due to exceeding no of invalid OTP trials |Validate wrong OTP for exceeding no of retries|
-IDA-OTA-008|OTP Notification Channel not provided.|No OTP Channel is provided in the input|
-IDA-OTA-009|&lt;Notification Channel&gt; not configured for the country|&lt;Notification Channel&gt; not configured (Phone/e-mail/both)|
 IDA-OTA-010|Input Identity Type does not match Identity Type of OTP Request|Invalid Identity Type|
 
 ## OTP Request Service (Public)
@@ -640,7 +635,6 @@ IDA-MPA-009|Partner is not registered|PartnerID Invalid|
 IDA-MPA-010|MISP and Partner not mapped|MISP and Partner not |
 IDA-MPA-011|License key of MISP is suspended|License key status of MISP is suspended|
 IDA-MPA-012|Partner is deactivated|PartnerID is not active|
-IDA-MPA-013|Partner is unauthorised for eKYC|Partner has no permission for e-KYC|
 IDA-MPA-014|Partner is not assigned with any policy|PartnerID is not mapped to a policy|
 IDA-MPA-015|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentiation Usage is mandatory as per policy (Eg: OTP/Demo/Bio - FMR)|Mandatory Auth Type as per policy of the partner is not available in the auth request|
 IDA-MPA-016|HMAC Validation failed|HMAC value does not match|
@@ -795,34 +789,21 @@ IDA-BIA-013|Number of FMR should not exceed 10.|Fingers exceeding 10 for Interna
 IDA-MLC-001|Request to be received at MOSIP within&lt;x&gt; hrs/min|Invalid Time stamp|Please send the request within &lt;x&gt; hrs/min
 IDA-MLC-002|Invalid UIN|Invalid UIN|Please retry with the correct UIN.
 IDA-MLC-003|UIN has been deactivated|UIN Deactivated|Your UIN status is not active.
-IDA-MLC-004|Invalid VID|Invalid VID|Please retry with correct VID.
-IDA-MLC-005|%s VID|Expired,Used,Revoked VID|Please regenerate VID and try again
 IDA-MLC-006|Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version|Missing Input parameter- attribute - all the mandatory attributes |
 IDA-MLC-007|Request could not be processed. Please try again|Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response|
 IDA-MLC-008|No authentication type selected|No authentication type selected in the request|
 IDA-MLC-009|Invalid Input parameter- attribute  |Invalid Input parameter- attribute|
-IDA-MLC-010|VID has been deactivated|VID corresponding to a deactivated UIN|
 IDA-MLC-011|Unsupported Authentication Type - &lt;Auth Type&gt; - &lt;SubType&gt; if applicable|Auth Type not supported for a country|Please use other Authentication Types in the request
 IDA-MLC-012|Individual's Consent is not available|Invalid resident consent for eKYC/Auth|
 IDA-MLC-013|Missing  &lt;authtype&gt; auth attribute  |Missing authtype parameter &ndash; when &lt;auth-type&gt; = &lsquo;True&rsquo; and corresponding auth attribute missing (OTP,Demo and Bio)|
 IDA-MLC-014|&lt;Notification Channel&gt; not registered. Individual has to register and try again|&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)|Please register your &lt;Notification Channel&gt; and try again
-IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/VID) not supported for a country|
+IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/USERID) not supported for a country|
 IDA-MLC-016|Transaction ID parameters in the request does not match|transactionID inside the biometric data does not match with other transactionID in auth request|
 IDA-MLC-017|Invalid UserID|Invalid UserID|
-IDA-MLC-018|%s Data not available in database|UIN,VID, User ID not available in database|
+IDA-MLC-018|%s Data not available in database|UIN, User ID not available in database|
 IDA-MPA-001|Digital signature verification failed.|Digital signature verification failed|
 IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
-IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
-IDA-MPA-007|License key does not belong to a registered MISP|License key does not belong to a registered MISP/ License key invalid|
-IDA-MPA-008|License key of MISP has expired|License key expired|
-IDA-MPA-009|Partner is not registered|PartnerID Invalid|
-IDA-MPA-010|MISP and Partner not mapped|MISP and Partner not |
-IDA-MPA-011|License key of MISP is suspended|License key status of MISP is suspended|
-IDA-MPA-012|Partner is deactivated|PartnerID is not active|
-IDA-MPA-013|Partner is unauthorised for eKYC|Partner has no permission for e-KYC|
-IDA-MPA-014|Partner is not assigned with any policy|PartnerID is not mapped to a policy|
-IDA-MPA-015|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentiation Usage is mandatory as per policy (Eg: OTP/Demo/Bio - FMR)|Mandatory Auth Type as per policy of the partner is not available in the auth request|
-IDA-MPA-016|HMAC Validation failed|HMAC value does not match|
-IDA-MPA-017|License key of MISP is blocked|License key status of MISP is blocked|
+
+
