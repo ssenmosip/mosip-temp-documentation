@@ -33,7 +33,7 @@
 ## 1.1 User Creation [**[↑]**](#table-of-contents)
 MOSIP allows the creation of the following roles: Admin, Partner Manager, MISP Admin, Partners and Policy Manager should be created in IAM.  
 
-The system also allows Updation, Retrieval ,Activation and Deactivation of the user
+The system also allows Updation, Retrieval, Activation and Deactivation of the user
  
 ## 1.2 Role Mapping [**[↑]**](#table-of-contents) 
 ### 1.2.1 MISP [**[↑]**](#table-of-contents)
@@ -188,7 +188,7 @@ Upon receiving a request to submit Partner API key request with input parameters
 #### C. View Partner API key status
 Upon receiving a request to view Partner API key status with the input parameters, such as Partner Username, Partner Password/security token, Partner API key Request Number, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Username and Partner Password/security token.
-1. Retrieves the status of the Partner API key Request Number. The status can be ‘In Progress', ‘Approved’ , ‘Rejected’, 'Issued’
+1. Retrieves the status of the Partner API key Request Number. The status can be ‘In Progress', ‘Approved’, ‘Rejected’, 'Issued’
 1. Validates if the status is ‘Issued’ then retrieves the Partner API key corresponding to the Partner API key Request Number.
 1. Responds to the source with the attributes, such as Partner API key Request Status, Partner API key and Partner API key Time Validity (as applicable), and err (as applicable).
 
