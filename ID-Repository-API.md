@@ -221,6 +221,22 @@ request: documents | yes | Documents that are to be uploaded for any ID attribut
 }
 ```
 
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+IDR-IDC-001|Missing Input Parameter - %s|Input Parameter Missing
+IDR-IDC-002|Invalid Input Parameter - %s|Invalid Input Parameter
+IDR-IDC-003|Invalid Request|Invalid Request attribute
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-005|Input Data Validation Failed|Validation on input fails
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
+IDR-IDC-012|Record already exists in DB|Identity with input UIN or RID already exists in DB
+
+
 ### GET /idrepository/v1/identity/UIN/{UIN}?type=bio         
 
 This service will retrieve an ID record from ID repository for a given UIN (Unique Identification Number) and identity type as bio/demo/all. 
@@ -390,6 +406,18 @@ Requires Authentication | Yes
   }
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-007|No Record(s) found|Identity with input UIN does not exist
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
+
 
 ### GET /idrepository/v1/identity/RID/{RID}?type=bio         
 
@@ -561,6 +589,18 @@ Requires Authentication | Yes
 }
 ```
 
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-007|No Record(s) found|Identity with input RID does not exist
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
+
+
 ### PATCH /idrepository/v1/identity      
 This operation will update an existing ID record in the ID repository for a given UIN (Unique Identification Number)
 
@@ -632,6 +672,21 @@ request: documents | N | Documents that are to be uploaded for any ID attribute 
   }
 }
 ```
+
+#### Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+IDR-IDC-001|Missing Input Parameter - %s|Input Parameter Missing
+IDR-IDC-002|Invalid Input Parameter - %s|Invalid Input Parameter
+IDR-IDC-003|Invalid Request|Invalid Request attribute
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-005|Input Data Validation Failed|Validation on input fails
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
+IDR-IDC-012|Record already exists in DB|Identity with input RID already exists in DB
 
 ## VID Services (Private)
 These services can be used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
