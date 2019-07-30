@@ -213,8 +213,6 @@ Error Code|Error Message|Description|Action Message
 IDA-BIA-001| Biometric data &ndash; &lt;Biometric Attribute&gt; did not match|FMR,IIR,FID Mismatch|Please give your biometrics again.
 IDA-BIA-002|Duplicate fingers in request.|Duplicate fingers|Please try again with distinct fingers
 IDA-BIA-003|Number of FMR should not exceed 2.|Fingers exceeding 2|
-IDA-BIA-004|Device not registered with MOSIP|Invalid deviceCode|
-IDA-BIA-005|Device provider not registered with MOSIP|Invalid deviceProviderID|
 IDA-BIA-006|Biometric data &lt;Biometric Attribute&gt; not available in database.|Missing biometric data in MOSIP database |Your Biometric data is not available in MOSIP
 IDA-BIA-007|Duplicate Irises in request.|Duplicate Irises used|Please try again with distinct Irises
 IDA-BIA-008|Number of IIR should not exceed 2.|Irises exceeding 2|
@@ -244,7 +242,6 @@ IDA-MPA-001|Digital signature verification failed.|Digital signature verificatio
 IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
-IDA-MPA-005|OTP Request Usage not allowed as per policy|OTP Trigger Usage not allowed as per policy|
 IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
 IDA-MPA-007|License key does not belong to a registered MISP|License key does not belong to a registered MISP/ License key invalid|
 IDA-MPA-008|License key of MISP has expired|License key expired|
@@ -468,8 +465,6 @@ Error Code|Error Message|Description|Action Message
 IDA-BIA-001| Biometric data &ndash; &lt;Biometric Attribute&gt; did not match|FMR,IIR,FID Mismatch|Please give your biometrics again.
 IDA-BIA-002|Duplicate fingers in request.|Duplicate fingers|Please try again with distinct fingers
 IDA-BIA-003|Number of FMR should not exceed 2.|Fingers exceeding 2|
-IDA-BIA-004|Device not registered with MOSIP|Invalid deviceCode|
-IDA-BIA-005|Device provider not registered with MOSIP|Invalid deviceProviderID|
 IDA-BIA-006|Biometric data &lt;Biometric Attribute&gt; not available in database.|Missing biometric data in MOSIP database |Your Biometric data is not available in MOSIP
 IDA-BIA-007|Duplicate Irises in request.|Duplicate Irises used|Please try again with distinct Irises
 IDA-BIA-008|Number of IIR should not exceed 2.|Irises exceeding 2|
@@ -497,7 +492,6 @@ IDA-MPA-001|Digital signature verification failed.|Digital signature verificatio
 IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
-IDA-MPA-005|OTP Request Usage not allowed as per policy|OTP Trigger Usage not allowed as per policy|
 IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
 IDA-MPA-007|License key does not belong to a registered MISP|License key does not belong to a registered MISP/ License key invalid|
 IDA-MPA-008|License key of MISP has expired|License key expired|
@@ -793,8 +787,6 @@ Error Code|Error Message|Description|Action Message
 IDA-BIA-001| Biometric data &ndash; &lt;Biometric Attribute&gt; did not match|FMR,IIR,FID Mismatch|Please give your biometrics again.
 IDA-BIA-002|Duplicate fingers in request.|Duplicate fingers|Please try again with distinct fingers
 IDA-BIA-003|Number of FMR should not exceed 2.|Fingers exceeding 2|
-IDA-BIA-004|Device not registered with MOSIP|Invalid deviceCode|
-IDA-BIA-005|Device provider not registered with MOSIP|Invalid deviceProviderID|
 IDA-BIA-006|Biometric data &lt;Biometric Attribute&gt; not available in database.|Missing biometric data in MOSIP database |Your Biometric data is not available in MOSIP
 IDA-BIA-007|Duplicate Irises in request.|Duplicate Irises used|Please try again with distinct Irises
 IDA-BIA-008|Number of IIR should not exceed 2.|Irises exceeding 2|
@@ -822,7 +814,6 @@ IDA-MPA-001|Digital signature verification failed.|Digital signature verificatio
 IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
-IDA-MPA-005|OTP Request Usage not allowed as per policy|OTP Trigger Usage not allowed as per policy|
 IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
 IDA-MPA-007|License key does not belong to a registered MISP|License key does not belong to a registered MISP/ License key invalid|
 IDA-MPA-008|License key of MISP has expired|License key expired|
