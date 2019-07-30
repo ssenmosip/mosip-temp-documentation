@@ -2055,11 +2055,11 @@ languagecode|Yes|Language code in Language code in ISO 639-2 format| |
 	"request": {
 		"filters" : [
 			{
-				"columnName": ""
+				"columnName": "",
 				"type": "unique"
 			}
 		],
-		"languageCode": "string",
+		"languageCode": "string"
 	}
 }
 ```
