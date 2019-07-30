@@ -237,6 +237,7 @@ IDR-IDC-011|Authorization Failed|Input role is not authorized to access the serv
 IDR-IDC-012|Record already exists in DB|Identity with input UIN or RID already exists in DB      
 IDR-IDS-003|Failed to encrypt/decrypt message using Kernel Crypto Manager|Error thrown from Kernel Crypto Manager
 IDR-IDS-004|Failed to store/retrieve files in DFS|Error while storing file in DFS
+IDR-IDS-005|Failed to process Id Object using kernel Id Object validator|Error while validating ID Object against Id ObjectValidator
 IDR-IDS-007|Failed to retrieve data from kernel Masterdata|Error while retrieving data from Kernel MasterData
 
 
@@ -708,6 +709,7 @@ IDR-IDS-002|Biometric/Document hash does not match|Error while matching hash of 
 IDR-IDS-003|Failed to encrypt/decrypt message using Kernel Crypto Manager|Error thrown from Kernel Crypto Manager
 IDR-IDS-004|Failed to store/retrieve files in DFS|Error while storing file in DFS
 IDR-IDS-006|File(s) not found in DFS|Requested Biometric/Demographic documents not found in DFS
+IDR-IDS-005|Failed to process Id Object using kernel Id Object validator|Error while validating ID Object against Id ObjectValidator
 IDR-IDS-007|Failed to retrieve data from kernel Masterdata|Error while retrieving data from Kernel MasterData
 
 
