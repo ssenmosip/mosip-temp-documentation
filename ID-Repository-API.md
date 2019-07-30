@@ -235,7 +235,9 @@ IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
 IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
 IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
 IDR-IDC-012|Record already exists in DB|Identity with input UIN or RID already exists in DB      
-
+IDR-IDS-003|Failed to encrypt/decrypt message using Kernel Crypto Manager|Error thrown from Kernel Crypto Manager
+IDR-IDS-004|Failed to store/retrieve files in DFS|Error while storing file in DFS
+IDR-IDS-007|Failed to retrieve data from kernel Masterdata|Error while retrieving data from Kernel MasterData
 
 
 ### GET /idrepository/v1/identity/UIN/{UIN}?type=bio         
@@ -418,6 +420,12 @@ IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
 IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
 IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
 IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service     
+IDR-IDS-001|Identity Element hash does not match|Error while matching Identity hash with hash of decrypted Identity
+IDR-IDS-002|Biometric/Document hash does not match|Error while matching hash of Biometric/Document with hash of decrypted Biometric/Document
+IDR-IDS-003|Failed to encrypt/decrypt message using Kernel Crypto Manager|Error thrown from Kernel Crypto Manager
+IDR-IDS-004|Failed to store/retrieve files in DFS|Error while storing file in DFS
+IDR-IDS-006|File(s) not found in DFS|Requested Biometric/Demographic documents not found in DFS
+IDR-IDS-007|Failed to retrieve data from kernel Masterdata|Error while retrieving data from Kernel MasterData
 
 
 
@@ -601,7 +609,12 @@ IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
 IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
 IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
 IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service    
-
+IDR-IDS-001|Identity Element hash does not match|Error while matching Identity hash with hash of decrypted Identity
+IDR-IDS-002|Biometric/Document hash does not match|Error while matching hash of Biometric/Document with hash of decrypted Biometric/Document
+IDR-IDS-003|Failed to encrypt/decrypt message using Kernel Crypto Manager|Error thrown from Kernel Crypto Manager
+IDR-IDS-004|Failed to store/retrieve files in DFS|Error while storing file in DFS
+IDR-IDS-006|File(s) not found in DFS|Requested Biometric/Demographic documents not found in DFS
+IDR-IDS-007|Failed to retrieve data from kernel Masterdata|Error while retrieving data from Kernel MasterData
 
 
 ### PATCH /idrepository/v1/identity      
@@ -690,7 +703,12 @@ IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
 IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
 IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
 IDR-IDC-012|Record already exists in DB|Identity with input RID already exists in DB      
-
+IDR-IDS-001|Identity Element hash does not match|Error while matching Identity hash with hash of decrypted Identity
+IDR-IDS-002|Biometric/Document hash does not match|Error while matching hash of Biometric/Document with hash of decrypted Biometric/Document
+IDR-IDS-003|Failed to encrypt/decrypt message using Kernel Crypto Manager|Error thrown from Kernel Crypto Manager
+IDR-IDS-004|Failed to store/retrieve files in DFS|Error while storing file in DFS
+IDR-IDS-006|File(s) not found in DFS|Requested Biometric/Demographic documents not found in DFS
+IDR-IDS-007|Failed to retrieve data from kernel Masterdata|Error while retrieving data from Kernel MasterData
 
 
 ## VID Services (Private)
