@@ -236,10 +236,7 @@ IDA-MLC-012|Individual's Consent is not available|Invalid resident consent for e
 IDA-MLC-013|Missing  &lt;authtype&gt; auth attribute  |Missing authtype parameter &ndash; when &lt;auth-type&gt; = &lsquo;True&rsquo; and corresponding auth attribute missing (OTP,Demo and Bio)|
 IDA-MLC-014|&lt;Notification Channel&gt; not registered. Individual has to register and try again|&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)|Please register your &lt;Notification Channel&gt; and try again
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/VID) not supported for a country|
-IDA-MLC-016|Transaction ID parameters in the request does not match|transactionID inside the biometric data does not match with other transactionID in auth request|
-IDA-MLC-018|%s Data not available in database|UIN,VID, User ID not available in database|
-IDA-MPA-001|Digital signature verification failed.|Digital signature verification failed|
-IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
+IDA-MLC-018|%s not available in database|UIN,VID, User ID not available in database|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
 IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
@@ -483,10 +480,7 @@ IDA-MLC-012|Individual's Consent is not available|Invalid resident consent for e
 IDA-MLC-013|Missing  &lt;authtype&gt; auth attribute  |Missing authtype parameter &ndash; when &lt;auth-type&gt; = &lsquo;True&rsquo; and corresponding auth attribute missing (OTP,Demo and Bio)|
 IDA-MLC-014|&lt;Notification Channel&gt; not registered. Individual has to register and try again|&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)|Please register your &lt;Notification Channel&gt; and try again
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/VID) not supported for a country|
-IDA-MLC-016|Transaction ID parameters in the request does not match|transactionID inside the biometric data does not match with other transactionID in auth request|
-IDA-MLC-018|%s Data not available in database|UIN,VID, User ID not available in database|
-IDA-MPA-001|Digital signature verification failed.|Digital signature verification failed|
-IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
+IDA-MLC-018|%s not available in database|UIN,VID, User ID not available in database|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
 IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
@@ -612,23 +606,14 @@ IDA-MLC-004|Invalid VID|Invalid VID|Please retry with correct VID.
 IDA-MLC-005|%s VID|Expired,Used,Revoked VID|Please regenerate VID and try again
 IDA-MLC-006|Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version|Missing Input parameter- attribute - all the mandatory attributes |
 IDA-MLC-007|Request could not be processed. Please try again|Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response|
-IDA-MLC-008|No authentication type selected|No authentication type selected in the request|
 IDA-MLC-009|Invalid Input parameter- attribute  |Invalid Input parameter- attribute|
 IDA-MLC-010|VID has been deactivated|VID corresponding to a deactivated UIN|
-IDA-MLC-011|Unsupported Authentication Type - &lt;Auth Type&gt; - &lt;SubType&gt; if applicable|Auth Type not supported for a country|Please use other Authentication Types in the request
-IDA-MLC-012|Individual's Consent is not available|Invalid resident consent for eKYC/Auth|
-IDA-MLC-013|Missing  &lt;authtype&gt; auth attribute  |Missing authtype parameter &ndash; when &lt;auth-type&gt; = &lsquo;True&rsquo; and corresponding auth attribute missing (OTP,Demo and Bio)|
 IDA-MLC-014|&lt;Notification Channel&gt; not registered. Individual has to register and try again|&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)|Please register your &lt;Notification Channel&gt; and try again
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/VID) not supported for a country|
-IDA-MLC-016|Transaction ID parameters in the request does not match|transactionID inside the biometric data does not match with other transactionID in auth request|
 IDA-MLC-017|Invalid UserID|Invalid UserID|
-IDA-MLC-018|%s Data not available in database|UIN,VID, User ID not available in database|
-IDA-MPA-001|Digital signature verification failed.|Digital signature verification failed|
-IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
-IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
+IDA-MLC-018|%s not available in database|UIN,VID, User ID not available in database|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
 IDA-MPA-005|OTP Request Usage not allowed as per policy|OTP Trigger Usage not allowed as per policy|
-IDA-MPA-006|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentication Usage not allowed as per policy (Eg: OTP/Demo/Bio - FMR)|All Authentication Usages not allowed as per policy|
 IDA-MPA-007|License key does not belong to a registered MISP|License key does not belong to a registered MISP/ License key invalid|
 IDA-MPA-008|License key of MISP has expired|License key expired|
 IDA-MPA-009|Partner is not registered|PartnerID Invalid|
@@ -636,8 +621,6 @@ IDA-MPA-010|MISP and Partner not mapped|MISP and Partner not |
 IDA-MPA-011|License key of MISP is suspended|License key status of MISP is suspended|
 IDA-MPA-012|Partner is deactivated|PartnerID is not active|
 IDA-MPA-014|Partner is not assigned with any policy|PartnerID is not mapped to a policy|
-IDA-MPA-015|&lt;Auth Type&gt; - &lt;Sub Type&gt; (if applicable) Authentiation Usage is mandatory as per policy (Eg: OTP/Demo/Bio - FMR)|Mandatory Auth Type as per policy of the partner is not available in the auth request|
-IDA-MPA-016|HMAC Validation failed|HMAC value does not match|
 IDA-MPA-017|License key of MISP is blocked|License key status of MISP is blocked|
 IDA-OTA-001|Innumerous OTP requests received|OTP Flooding error|
 IDA-OTA-002|Could not generate/send OTP|Could not generate/send OTP|
@@ -798,11 +781,8 @@ IDA-MLC-012|Individual's Consent is not available|Invalid resident consent for e
 IDA-MLC-013|Missing  &lt;authtype&gt; auth attribute  |Missing authtype parameter &ndash; when &lt;auth-type&gt; = &lsquo;True&rsquo; and corresponding auth attribute missing (OTP,Demo and Bio)|
 IDA-MLC-014|&lt;Notification Channel&gt; not registered. Individual has to register and try again|&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)|Please register your &lt;Notification Channel&gt; and try again
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/USERID) not supported for a country|
-IDA-MLC-016|Transaction ID parameters in the request does not match|transactionID inside the biometric data does not match with other transactionID in auth request|
 IDA-MLC-017|Invalid UserID|Invalid UserID|
-IDA-MLC-018|%s Data not available in database|UIN, User ID not available in database|
-IDA-MPA-001|Digital signature verification failed.|Digital signature verification failed|
-IDA-MPA-002|Invalid certificate in digital signature.|Invalid certificate in digital signature|
+IDA-MLC-018|%s not available in database|UIN, User ID not available in database|
 IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
 IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
 
