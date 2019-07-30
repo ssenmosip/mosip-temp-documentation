@@ -689,7 +689,9 @@ IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
 IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
 IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
 IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service
-IDR-IDC-012|Record already exists in DB|Identity with input RID already exists in DB
+IDR-IDC-012|Record already exists in DB|Identity with input RID already exists in DB      
+
+
 
 ## VID Services (Private)
 These services can be used to perform various operations on VID like generate or re-generate VID, update VID status, etc.
@@ -753,7 +755,27 @@ request: UIN| yes | Individual's UIN |  | 981576026435
   }
 }
 ```
+
+##### Failure details
+Error Code | Error Message | Error Description
+-----------|----------|-------------
+IDR-VID-002|Failed to generate VID|Error while generating VID
+IDR-VID-003|Could not generate/regenerate VID as per policy|Error while generating VID based on policy
+IDR-VID-004|Deactivate UIN or Blocked UIN|UIN is either de-activated or blocked
+IDR-VID-005|Failed to retrieve uin data using Identity Service|Error while retrieving UIN details from Identity Service
+IDR-IDC-001|Missing Input Parameter - %s|Input Parameter Missing
+IDR-IDC-002|Invalid Input Parameter - %s|Invalid Input Parameter
+IDR-IDC-003|Invalid Request|Invalid Request attribute
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-005|Input Data Validation Failed|Validation on input fails
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service    
  
+
+
 ### GET /idrepository/v1/vid/{VID}        
 This service will retrieve associated decrypted UIN for a given VID, once VID is successfully validated.
 
@@ -781,6 +803,24 @@ Requires Authentication | Yes
   }
 }
 ```
+
+
+##### Failure details
+Error Code | Error Message | Error Description
+-----------|----------|-------------
+IDR-VID-001|VID is DEACTIVATED or VID is REVOKED|VID is REVOKED,EXPIRED,USED,INVALIDATED or DEACTIVATED
+IDR-VID-004|Deactivate UIN or Blocked UIN|UIN is either de-activated or blocked
+IDR-VID-005|Failed to retrieve uin data using Identity Service|Error while retrieving UIN details from Identity Service
+IDR-VID-006|Uin hash does not match|Error while matching hash of UIN against decrypted UIN 
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-007|No Record(s) found|Input VID does not exist in DB
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service    
+
+
 
 ### PATCH /idrepository/v1/vid/{VID}   
 This service will update status associated with a given VID, if the current status of VID is 'ACTIVE'.
@@ -837,6 +877,25 @@ request: vidStatus | yes | status of VID | | USED or REVOKED or EXPIRED
 }
 ```
 
+
+
+##### Failure details
+Error Code | Error Message | Error Description
+-----------|----------|-------------
+IDR-VID-001|VID is DEACTIVATED or VID is REVOKED|VID is REVOKED,EXPIRED,USED,INVALIDATED or DEACTIVATED
+IDR-VID-004|Deactivate UIN or Blocked UIN|UIN is either de-activated or blocked
+IDR-VID-005|Failed to retrieve uin data using Identity Service|Error while retrieving UIN details from Identity Service
+IDR-VID-006|Uin hash does not match|Error while matching hash of UIN against decrypted UIN 
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-007|No Record(s) found|Input VID does not exist in DB
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service   
+
+
+
 ### POST /idrepository/v1/vid/{VID}/regenerate   
 This service will re-generate VID for a given VID, only if the current status of VID is 'ACTIVE', 'USED', or 'EXPIRED'.
 
@@ -864,3 +923,22 @@ Requires Authentication | Yes
   }
 }
 ```
+
+
+##### Failure details
+Error Code | Error Message | Error Description
+-----------|----------|-------------
+IDR-VID-002|Failed to generate VID|Error while generating VID
+IDR-VID-003|Could not generate/regenerate VID as per policy|Error while generating VID based on policy
+IDR-VID-004|Deactivate UIN or Blocked UIN|UIN is either de-activated or blocked
+IDR-VID-005|Failed to retrieve uin data using Identity Service|Error while retrieving UIN details from Identity Service
+IDR-IDC-001|Missing Input Parameter - %s|Input Parameter Missing
+IDR-IDC-002|Invalid Input Parameter - %s|Invalid Input Parameter
+IDR-IDC-003|Invalid Request|Invalid Request attribute
+IDR-IDC-004|Unknown error occured |An unknown error occurred
+IDR-IDC-005|Input Data Validation Failed|Validation on input fails
+IDR-IDC-006|Error occured while performing DB operations|DB connectivity error
+IDR-IDC-008|4XX - Client Error occured|4XX error from Kernel APIs
+IDR-IDC-009|5XX - Server Error occured|5XX error from Kernel APIs
+IDR-IDC-010|Connection timed out|Connection timed out while invoking REST APIs
+IDR-IDC-011|Authorization Failed|Input role is not authorized to access the service   
