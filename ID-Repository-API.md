@@ -808,8 +808,8 @@ Requires Authentication | Yes
 ##### Failure details
 Error Code | Error Message | Error Description
 -----------|----------|-------------
-IDR-VID-001|VID is DEACTIVATED or VID is REVOKED|VID is REVOKED,EXPIRED,USED,INVALIDATED or DEACTIVATED
-IDR-VID-004|Deactivate UIN or Blocked UIN|UIN is either de-activated or blocked
+IDR-VID-001|VID is <vid-status>|Here status could be REVOKED, EXPIRED, USED, INVALIDATED or DEACTIVATED
+IDR-VID-004|<uin-status> UIN |Here, uin-status could be either de-activated or blocked
 IDR-VID-005|Failed to retrieve uin data using Identity Service|Error while retrieving UIN details from Identity Service
 IDR-VID-006|Uin hash does not match|Error while matching hash of UIN against decrypted UIN 
 IDR-IDC-004|Unknown error occured |An unknown error occurred
