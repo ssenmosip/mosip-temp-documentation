@@ -2203,8 +2203,8 @@ This service enables partners to do self registration, submit request for respec
 
 ### POST /partners
 This request is used for self registration by partner to create Auth/E-KYC Partners. Partner Management module would be integrating with Kernel IAM module for generation of userid and password for partners. 
-    - User id, as received in response from Kernel IAM module, are stored in partner management database as reference and shared back to partners in response for further communication with MOSIP systems.
-	- Password for any userid would be shared via an off-line process.
+* User id, as received in response from Kernel IAM module, are stored in partner management database as reference and shared back to partners in response for further communication with MOSIP systems.
+* Password for any userid would be shared via an off-line process.
 
 <div>https://mosip.io/partnermanagement/v1/partners</div>
 
@@ -2295,7 +2295,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /partners/{partnerID}/partnerAPIKeyRequest
-This request is used to submit Partner api key request.
+This API would be used to submit Partner api key request.
 
 <div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
 
@@ -2388,7 +2388,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}
-This request is used to download Partner API key for the given RequestID
+This API would be used to download Partner API key for the given RequestID
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest/{RequestID}</div>
@@ -2549,7 +2549,7 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 
 ### PUT /partners/{partnerID}
-This request is used to update Auth/E-KYC Partners.
+This API would be used to update Auth/E-KYC Partner's details.
 
 <div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
 
@@ -2739,7 +2739,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /partners/{partnerID}
-This request should be able to retrieve Auth/E-KYC Partners.
+This API would be used to retrieve Auth/E-KYC Partner details.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
@@ -2811,7 +2811,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /partners/{partnerID}/partnerAPIKeyRequest
-This request should be able to retrieve policies available for my policy group so that i can place a request for a partner api key.
+This API would be used to retrieve all API key requests submitted by partner till date.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
@@ -2941,7 +2941,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /partners/{partnerID}/partnerAPIKeyRequest/{RequestID}
-This request is used to view Partner api key/partner api key request status
+This API would be used to view API key request status and API key (in case request is approved).
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/6565655443544/partnerAPIKeyRequest/{RequestID}</div>
