@@ -2324,11 +2324,11 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
-      "organizationName":"airtelInd", 
-	  "contactNumber":"9886779980", 
-	  "emailID":"airtelInd@gmail.com", 
-	  "address":"INDIA",
-	  "policyGroup":"Banking"
+		"organizationName":"airtelInd", 
+		"contactNumber":"9886779980", 
+		"emailID":"airtelInd@gmail.com", 
+		"address":"INDIA",
+		"policyGroup":"Banking"
   }
 }
 ```
@@ -2343,8 +2343,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-       "partnerID":"6565655443544", 
-	   "status":"Active"
+		"partnerID":"6565655443544", 
+		"status":"Active"
   },
   "errors": null
 }
@@ -2361,8 +2361,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_001",
-      "message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+		"errorCode": "PMS_PRT_001",
+		"message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
     }
   ]
 }
@@ -2434,8 +2434,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-       "apiRequestId":"873276828663",
-       "message":"partnerAPIKeyRequest successfully created"
+		"apiRequestId":"873276828663",
+		"message":"partnerAPIKeyRequest successfully created"
   },
   "errors": null
 }
@@ -2452,8 +2452,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_001",
-      "message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+		"errorCode": "PMS_PRT_001",
+		"message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
     }
   ]
 }
@@ -2504,7 +2504,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "partnerAPIKey":"fa604-affcd-33201-04770"
+		"partnerAPIKey":"fa604-affcd-33201-04770"
   },
   "errors": null
 }
@@ -2521,8 +2521,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "APIKeyReqID does not exist"
+		"errorCode": "PMS_PRT_005",
+		"message": "APIKeyReqID does not exist"
     }
   ]
 }
@@ -2540,8 +2540,10 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /partners/digitalcertificate
-Partners would be procuring digital certificates from Certification Authority (CA), and upload the same to Partner Management using this API. Partner Management would depend on Kernel to manage partner certificates, validation of partner certificates. Appropriate error messages would be sent back to Partners, in cases where digital certificates expires, certificate validation error happens. Partners would require to re-issue and upload new digital certificates, in case of expiry of digital certificates. References to Partner digital certificate IDs are stored in partner management DBs, actual storage and validation of partner digital certificate would be in Kernel.
-IDA would be using partner provided public keys for encryption of e-kyc response. Partner management module would be using Kernel services for partner key management, encryption/decryption and sharing of keys.
+Partners would be procuring digital certificates from Certification Authority (CA), and upload the same to Partner Management using this API. 
+* Partner Management would depend on Kernel to manage partner certificates, validation of partner certificates. Appropriate error messages would be sent back to Partners, in cases where digital certificates expires, certificate validation error happens. 
+* Partners would require to re-issue and upload new digital certificates, in case of expiry of digital certificates. References to Partner digital certificate IDs are stored in partner management DBs, actual storage and validation of partner digital certificate would be in Kernel.
+* IDA would be using partner provided public keys for encryption of e-kyc response. Partner management module would be using Kernel services for partner key management, encryption/decryption and sharing of keys.
    
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
@@ -2575,7 +2577,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
-      "partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+		"partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
                             UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
                             BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
                             UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
@@ -2598,7 +2600,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "message":"successfully uploaded partner's digital certificate"
+		"message":"successfully uploaded partner's digital certificate"
   },
   "errors": null
 }
@@ -2615,8 +2617,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_007",
-      "message": "Partner digital certificate is not valid"
+		"errorCode": "PMS_PRT_007",
+		"message": "Partner digital certificate is not valid"
     }
   ]
 }
@@ -2675,10 +2677,10 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
-      "organizationName":"airtelInd", 
-	  "contactNumber":"9886779980", 
-	  "emailID":"airtelInd@gmail.com", 
-	  "address":"Bangalore,INDIA",
+		"organizationName":"airtelInd", 
+		"contactNumber":"9886779980", 
+		"emailID":"airtelInd@gmail.com", 
+		"address":"Bangalore,INDIA",
   }
 }
 ```
@@ -2693,8 +2695,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-       "partnerID":"6565655443544", 
-	   "status":"Active"
+		"partnerID":"6565655443544", 
+		"status":"Active"
   },
   "errors": null
 }
@@ -2711,8 +2713,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_001",
-      "message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+		"errorCode": "PMS_PRT_001",
+		"message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
     }
   ]
 }
@@ -2765,7 +2767,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "requesttime": "2019-05-20T09:48:43.394Z",
   "metadata": {},
   "request": {
-      "partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+		"partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
                             UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
                             BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
                             UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
@@ -2788,7 +2790,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "message":"successfully validated partner's digital certificate"
+		"message":"successfully validated partner's digital certificate"
   },
   "errors": null
 }
@@ -2805,8 +2807,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_007",
-      "message": "Partner digital certificate is not valid"
+		"errorCode": "PMS_PRT_007",
+		"message": "Partner digital certificate is not valid"
     }
   ]
 }
@@ -2855,7 +2857,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "partnerID":"6565655443544", 
+		"partnerID":"6565655443544", 
 		"status":"Active", 
 		"organizationName":"airtelInd", 
 	    "contactNumber":"9886779980", 
@@ -2878,8 +2880,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+		"errorCode": "PMS_PRT_005",
+		"message": "Partner does not exist"
     }
   ]
 }
@@ -2955,8 +2957,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_009",
-      "message": "No API Key Request found"
+		"errorCode": "PMS_PRT_008",
+		"message": "No API Key Request found"
     }
   ]
 }
@@ -2968,7 +2970,7 @@ Error Code | Error Message | Error Description
 PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
 PMS_PRT_004|Your password has expired. Please reset your password|Password expired
 PMS_PRT_005|Partner does not exist|Partner does not exist
-PMS_PRT_009|No API Key Request found|No API Key Request found for the partner
+PMS_PRT_008|No API Key Request found|No API Key Request found for the partner
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
@@ -3006,7 +3008,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "version": "1.0",
   "responsetime": "2019-05-16T16:01:20.534Z",
   "response":{
-        "apiKeyRequestStatus":"approved", 
+		"apiKeyRequestStatus":"approved", 
 		"partnerApiKey":"fa604-affcd-33201-04770",
 		"validityTill":"2019-11-01"
   },
@@ -3025,8 +3027,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_006",
-      "message": "APIKeyReqID does not exist"
+		"errorCode": "PMS_PRT_006",
+		"message": "APIKeyReqID does not exist"
     }
   ]
 }
@@ -3096,8 +3098,8 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
   "response": null,
   "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+		"errorCode": "PMS_PRT_005",
+		"message": "Partner does not exist"
     }
   ]
 }
