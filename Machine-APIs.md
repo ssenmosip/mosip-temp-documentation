@@ -1178,7 +1178,7 @@ name|["contains","equals","startsWith"]
 brand|["contains","equals","startsWith"]
 model|["contains","equals","startsWith"]
 device type name|["contains","equals","startsWith"]
-status|["contains","equals","startsWith"]
+status|["equals"]
 model|["contains","equals","startsWith"]
 
 ### Example Request
