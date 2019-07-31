@@ -1764,12 +1764,10 @@ Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 filters|No|Array of the filter applied. In case of "list" screen, this array will be empty| -NA- |
 columnName|No|The column name in the JSON response| -NA- |
-type|No|The value have to be in ["in","equals","between"]| -NA- |
+type|No|The value have to be in ["contains","startsWith","equals","between"]| -NA- |
 value|No|Value or id selected in the filter by the end user| -NA- |
-fromName|No|If the type is "between", this field represents the JSON name of the from field| -NA- |
-fromValue|No|If the type is "between", this field is the value of the fromName| -NA- |
-toName|No|If the type is "between", this field represents the JSON name of the to field| -NA- |
-toValue|No|If the type is "between", this field is the value of the toName| -NA- |
+fromValue|No|If the type is "between", this field is the start value| -NA- |
+toValue|No|If the type is "between", this field is the end value| -NA- |
 languagecode|Yes|Language code in Language code in ISO 639-2 format| | 
 sort|No|This is an array of the sort field and type| | 
 sortfield| The field on which the sort is applied | | modifiedDate
@@ -1790,11 +1788,9 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 		"filters" : [
 			{
 				"columnName": "",
-				"type": "in",
+				"type": "",
 				"value": "",  
-				"fromName": "",
-				"fromValue": "",  
-				"toName":"",  
+				"fromValue": "",
 				"toValue": "",
 				"languageCode":""
 			}
@@ -1823,31 +1819,50 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
   "responsetime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
   "errors": null,
   "response": {
-  "registrationcenters": [
+  "data": [
 	{
-		"addressLine1": "string",
-		"addressLine2": "string",
-		"addressLine3": "string",
-		"centerEndTime": "HH:mm:ss",
-		"centerStartTime": "HH:mm:ss",
-		"centerTypeCode": "string",
-		"contactPerson": "string",
-		"contactPhone": "string",
-		"holidayLocationCode": "string",
-		"id": "string",
-		"isActive": true,
-		"languageCode": "string",
-		"latitude": "string",
-		"locationCode": "string",
-		"longitude": "string",
-		"lunchEndTime": "HH:mm:ss",
-		"lunchStartTime": "HH:mm:ss",
-		"name": "string",
-		"numberOfKiosks": 0,
-		"perKioskProcessTime": "HH:mm:ss",
-		"timeZone": "string",
-		"workingHours": "string"
-	}
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "addressLine3": "string",
+        "administrativeZone": "string",
+        "administrativeZoneCode": "string",
+        "centerEndTime": "HH:mm:ss",
+        "centerStartTime": "HH:mm:ss",
+        "centerTypeCode": "string",
+        "centerTypeName": "string",
+        "city": "string",
+        "cityCode": "string",
+        "contactPerson": "string",
+        "contactPhone": "string",
+        "createdBy": "string",
+        "devices": "number",
+        "holidayLocation": "string",
+        "holidayLocationCode": "string",
+        "id": "string",
+        "isActive": "boolean",
+        "isDeleted": "boolean",
+        "langCode": "string",
+        "latitude": "string",
+        "locationCode": "string",
+        "longitude": "string",
+        "lunchEndTime": "HH:mm:ss",
+        "lunchStartTime": "HH:mm:ss",
+        "machines": "number",
+        "name": "string",
+        "numberOfKiosks": "number",
+        "perKioskProcessTime": "HH:mm:ss",
+        "postalCode": "string",
+        "province": "string",
+        "provinceCode": "string",
+        "region": "string",
+        "regionCode": "string",
+        "timeZone": "string",
+        "updatedBy": "string",
+        "users": "number",
+        "workingHours": "string",
+        "zone": "string",
+        "zoneCode": "string"
+      }
    ],
 	"fromRecord" : "number",
 	"toRecord":"number",
