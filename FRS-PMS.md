@@ -2635,6 +2635,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 ### PUT /partners/{partnerID}
 This API would be used to update Auth/E-KYC Partner's details.
 
+#### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
 
 #### Resource details
