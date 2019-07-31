@@ -2233,8 +2233,7 @@ Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJ
 			"status":"Active", 
 			"organizationName":"telecomJio",
 			"policyName": "Insurance Policy",
-			"policyDesc": "Desc about policy",
-			"apiKeyReqNo":"873276828663"
+			"policyDesc": "Desc about policy"
   },
   "errors": null
 }
