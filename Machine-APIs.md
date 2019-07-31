@@ -1347,7 +1347,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 Filter Name| Search Values
 -----|----------
 Machine Name|["contains","equals","startsWith"]
-Status|["contains","equals","startsWith"]
+Status|["equals"]
 MAC Address|["contains","equals","startsWith"]
 Serial Number|["contains","equals","startsWith"]
 Map Status|["contains","equals","startsWith"]
