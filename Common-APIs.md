@@ -389,7 +389,7 @@ pageFetch| This is the amount of records to be fetched | 10 | 10
 Filter Name| Search Values
 -----|----------
 name|["contains","equals","startsWith"]
-status|["contains","equals","startsWith"]
+status|["equals"]
 
 ### Example Request
 ```JSON
