@@ -146,7 +146,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /misps/{mispId}
-This request would be used to update MISP for given mispID.
+This API would be used to update MISP for given mispID.
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps/{mispId}</div>
@@ -241,7 +241,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /misps/{mispId}/licenseKey
-This request would be used for validating MISPs license key- 
+This API would be used for validating MISPs license key- 
    1. Validate license key pattern.
    2. Validate license key is associated with the requested MISP id.
    3. Validate license key is Active or not.
@@ -664,7 +664,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /misps/{mispOrgName}
-This API would retrieve MISPs details based on given name
+This API would be used to retrieve MISPs details based on given name
 1. If MISP organization name present, then retrieve all misp details for matching organization name.
 2. If MISP organization name not present, then retrieve all misp details. 
 
@@ -958,7 +958,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### POST /policies/{policyID}
-This request is used to update existing policy for a policy group
+This API would be used to update existing policy for a policy group
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/policies/{policyID}</div>
@@ -1411,7 +1411,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /policies/{PartnerAPIKey}
-This request will retrieve the partner policy details for given PartnerAPIKey. 
+This API would be used to retrieve the partner policy details for given PartnerAPIKey. 
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/policies/fa604-affcd-33201-04770</div>
@@ -1976,7 +1976,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /pmpartners/{partnerID}
-This request will retrieve particular Auth/E-KYC Partner details for given partner id. 
+This API would be used to retrieve the particular Auth/E-KYC Partner details for given partner id. 
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/{partnerID}</div>
@@ -2119,7 +2119,7 @@ PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attr
 PMS_COR_003|Could not process the request|Any Internal Error
 
 ### GET /pmpartners/PartnerAPIKeyRequests
-This API would be used for fetching all Partner API Key requests as received by partner manager
+This API would be used to retrieve all Partner API Key requests as received by partner manager
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/pmpartners/PartnerAPIKeyRequests</div>
