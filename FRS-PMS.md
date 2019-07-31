@@ -2272,14 +2272,14 @@ PMS_COR_003|Could not process the request|Any Internal Error
 This service enables partners to do self registration, submit request for respective authentication policies, sharing of digital certificate for secure communication: 
 
 * [POST /partners](#post-partners)
-* [POST /partners/{partnerID}/partnerAPIKeyRequest}](#post-partnerspartneridpartnerapikeyrequest)
-* [POST /partners/{partnerID}/partnerAPIKeyRequest/{APIKeyReqID}](#post-partnerspartneridpartnerapikeyrequestrequestid)
+* [POST /partners/{partnerID}/partnerAPIKeyRequests}](#post-partnerspartneridpartnerapikeyrequests)
+* [POST /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}](#post-partnerspartneridpartnerapikeyrequestsapikeyreqid)
 * [POST /partners/digitalcertificate](#post-partnersdigitalcertificate)
 * [PUT /partners/{partnerID}](#put-partnerspartnerid)
 * [PUT /partners/digitalcertificate](#put-partnersdigitalcertificate)
 * [GET /partners/{partnerID}](#get-partnerspartnerid)
 * [GET /partners/{partnerID}/partnerAPIKeyRequests}](#get-partnerspartneridpartnerapikeyrequests)
-* [GET /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}](#get-partnerspartneridpartnerapikeyrequestsrequestid)
+* [GET /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}](#get-partnerspartneridpartnerapikeyrequestsapikeyreqid)
 * [GET /partners/digitalcertificate](#get-partnersdigitalcertificate)
 
 
@@ -2377,11 +2377,11 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
 
-### POST /partners/{partnerID}/partnerAPIKeyRequest
+### POST /partners/{partnerID}/partnerAPIKeyRequests
 This API would be used to submit Partner api key request.
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequests</div>
 
 #### Resource details
 Resource Details | Description
@@ -2471,11 +2471,11 @@ PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all manda
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
 
-### POST /partners/{partnerID}/partnerAPIKeyRequest/{APIKeyReqID}
+### POST /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}
 This API would be used to download Partner API key for the given APIKeyReqID
 
 #### Resource URL
-<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequest/{APIKeyReqID}</div>
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}</div>
 
 #### Resource details
 Resource Details | Description
