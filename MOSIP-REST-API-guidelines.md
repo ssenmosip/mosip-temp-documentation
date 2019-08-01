@@ -14,7 +14,7 @@ The syntax of the URL of the RESTful webservice should be as follows for all the
 
 For example, 
 
-`https://dev.mosip.io/pre-registration/v1/document`
+`https://mosip.io/pre-registration/v1/document`
 
 
 Only in case of Kernel modules, the <MODULE_NAME> is not included. The format is as follows, 

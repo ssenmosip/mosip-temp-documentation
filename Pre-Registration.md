@@ -65,9 +65,10 @@ Below is the wiki link for pre registration.
 
 ## 2. Conceptual view
 Technical flow and logical component
-![technical component and flow](/mosip/mosip/blob/master/docs/design/pre-registration/_images/preregd_tech_flow.png)
+![technical component and flow](/mosip/mosip-platform/blob/master/design/pre-registration/_images/preregd_tech_flow.png)
 
-![Logical deployment view](/mosip/mosip/blob/0.8.0/docs/design/pre-registration/_images/deployment_arch.jpg)
+
+![Logical deployment view](/mosip/mosip-platform/blob/master/design/pre-registration/_images/deployment_arch.jpg)
 
 ## 3. Security design consideration
 
