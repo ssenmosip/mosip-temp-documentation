@@ -6,8 +6,8 @@ Steps to generate the first User in MOSIP eco-system, refer below for the proces
 * Preferred User ID and Password should be set for the Individual 'X' and the same User ID should be present as part of Master Data as mentioned below
  
 ### 2. Creating the Relevant Master Data
-* All data to be required as part of ID Object, for example, Gender, Location hierarchy, templates, etc. should be setup in the database through the CSV Utility
-* Master data of user, machine, device and center should be created and uploaded through the CSV Utility _(Note - the user id for the Individual 'X' should be present in Master data of the user)_
+* All data required as part of ID Object, for example, Gender, Location hierarchy, templates, etc. should be setup in the database through the CSV Utility
+* Master data of user, machine, device and centre should be created and uploaded through the CSV Utility _(Note - the user id for the Individual 'X' should be present in Master data of _User_)_
 * All necessary centre-machine-device-user mappings should be completed through the CSV Utility
 
 ### 3. Creating the First User in MOSIP
@@ -20,5 +20,5 @@ Steps to generate the first User in MOSIP eco-system, refer below for the proces
 * The RID created for the Individual 'X' is updated in the LDAP
 
 ### 5. User On-boarding
-* The Individual 'X' can now login to Registration Client with the above Username/Password and register the subsequent  Officers and Supervisors
-* But the User details of the subsequent Officers and Supervisor must be created in LDAP with appropriate roles assigned (as per Step 1) and their RIDs should be mapped in LDAP (as per Step 4) so that they can login to Registration Client
+* The Individual 'X' can now login to Registration Client (From the mapped machine/centre) with the above Username/Password and register the subsequent  Officers and Supervisors
+* The User details of the subsequent Officers and Supervisor must be created in LDAP with appropriate roles assigned (as per Step 1) and their RIDs should be mapped in LDAP (as per Step 4) so that they can login to Registration Client
