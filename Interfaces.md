@@ -14,28 +14,28 @@ This page put together all the **interfaces** a running instance MOSIP Platform 
 ## Low Level Design Documents
 
 1. Transliteration Interface
-    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-transliteration.md
+    * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel/kernel-transliteration.md
 )
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-transliteration-icu4j
 )
 2. Validator API
-    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-idobjectvalidator.md)
+    * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel-idobjectvalidator.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-idobjectvalidator)
 
 3. SMS gateway
 
-    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-smsnotification.md)
+    * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel-smsnotification.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-smsnotification-service)
 
 4. Email Gateway
 
-    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-emailnotification.md)
+    * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel-emailnotification.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-emailnotification-service)
 
 
 5. HSM
 
-    * [Design and Background](/mosip/mosip-platform/blob/master/docs/design/kernel/kernel-keymanager-softhsm.md)
+    * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel-keymanager-softhsm.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-keymanager-softhsm)
 6. Antivirus
 
