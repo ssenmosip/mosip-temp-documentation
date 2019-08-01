@@ -44,8 +44,7 @@ The pre-registration module enables a user to book an appointment for one or man
 ### 2.1.1 Login using Email [**[↑]**](#table-of-contents)
 The Individual can login to the Pre-registration Portal by providing their Email Id. The system validates the email Id, once validated sends an OTP to the email Id as provided. The Individual enters the OTP as received. The system validates the OTP entered and redirects the Individual to fill Demographic form (if first-time) or Dashboard (if existing user).
 
-[**Link to design**](/mosip/mosip-platform/blob/master/design/pre-registration/Pre-registration-login-service.md)
-[**Link to design1**](/mosip/mosip-platform/blob/master/design/pre-registration/pre-registration-login-service.md)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/pre-registration/pre-registration-login-service.md)
 
 
 ### 2.1.2 Login using Phone Number [**[↑]**](#table-of-contents)
