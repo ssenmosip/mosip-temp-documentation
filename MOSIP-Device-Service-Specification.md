@@ -80,7 +80,7 @@ The MOSIP compliant device is expected to perform the following:
    </td>
    <td>> 500 native dpi. Bare minimum recommended. Higher densities are preferred
    </td>
-   <td>
+   <td>> 500 native dpi. Bare minimum recommended. Higher densities are preferred
    </td>
   </tr>
   <tr>
