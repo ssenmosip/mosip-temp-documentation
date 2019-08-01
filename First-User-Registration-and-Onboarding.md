@@ -19,6 +19,6 @@ Steps to generate the first User in MOSIP eco-system, refer below for the proces
 ### 4. Allocating the RID to the User Created in LDAP
 * The RID created for the Individual 'X' is updated in the LDAP
 
-### 5. User On-boarding
+### 5. User Onboarding
 * The Individual 'X' can now login to Registration Client (From the mapped machine/centre) with the above Username/Password and register the subsequent  Officers and Supervisors
 * The User details of the subsequent Officers and Supervisor must be created in LDAP with appropriate roles assigned (as per Step 1) and their RIDs should be mapped in LDAP (as per Step 4) so that they can login to Registration Client
