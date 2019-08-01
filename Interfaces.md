@@ -48,4 +48,4 @@ This page put together all the **interfaces** a running instance MOSIP Platform 
 
 9. [Kernel services](Kernel-APIs)
 
-[All Low-level design documents](/mosip/mosip-platform/tree/master/docs/design)
+[All Low-level design documents](/mosip/mosip-platform/tree/master/design)
