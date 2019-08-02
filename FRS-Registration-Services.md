@@ -60,7 +60,7 @@ The system allows the following to occur for a successful on-boarding of a regis
 1. The system does not allow onboarding officers/supervisors who belong to different center.
 1. Multiple officers can be onboarded but only one supervisor would be allowed to onboard.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-on-board-user)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registrtaion-on-board-user.md)
 
 ### 1.2 Login/Authentication [**[↑]**](#table-of-contents)
 
@@ -138,11 +138,11 @@ MOSIP system has a role based Privileges of a registration officer. [**Please re
 1. A super admin can access all features.
 1. If a registration officer is not authorized to access a feature, the system notifies the registration officer by a message. 
 
-[**Link to design for Login**](/mosip/mosip-platform/wiki/Registration-login)
+[**Link to design for Login**](/mosip/mosip-platform/blob/master/design/registration/registration-login.md)
 
-[**Link to design for Multi-authentication**](/mosip/mosip-platform/wiki/Registration-multi-authentication)
+[**Link to design for Multi-authentication**](/mosip/mosip-platform/blob/master/design/registration/registration-multi-authentication.md)
 
-[**Link to design for authorization**](/mosip/mosip-platform/wiki/Registration-authorization)
+[**Link to design for authorization**](/mosip/mosip-platform/blob/master/design/registration/registration-authorization.md)
 
 ### 1.3 Logout [**[↑]**](#table-of-contents)
 When a registration officer or supervisor opts to logout, the system allows them to do so by provisioning the following:
@@ -159,7 +159,7 @@ When a registration officer or supervisor opts to logout, the system allows them
 5. Upon logout, any unsaved data will be lost. Data will not be automatically saved in the database and will not be retained in memory.
 1. The System also captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-login)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-login.md)
 
 ## 2. Data Sync [**[↑]**](#table-of-contents)
 ### 2.1 Master Data Sync [**[↑]**](#table-of-contents)
@@ -250,13 +250,13 @@ The downloaded pre-registration data overwrites the previously downloaded data f
 
 The downloaded pre-registration data is stored locally in the registered machine as configured.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-sync-job)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-sync-job.md)
 
 ## 3. Health Check [**[↑]**](#table-of-contents)
 ### 3.1 Peripherals Check [**[↑]**](#table-of-contents)
 The system has the provision to show if the client machine has internet connectivity or not. 
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-device-integration)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-device-integration.md)
 
 
 ### 3.2 Disk Space Check [**[↑]**](#table-of-contents)
@@ -280,7 +280,7 @@ Upon receiving a request to perform a virus scan of the registration packets on 
 3. At the end of the scan, displays an alert message (Security scan detected viruses in the following files [List of files]. Please take necessary action or contact the administrator) on screen if a virus is detected.
 1. If the client application is not open at the configured time, the scan will be queued up and runs only when the client application is open.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-virus-scanner)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-virus-scanner.md)
 
 ## 4. Registration Data Services [**[↑]**](#table-of-contents)
 ### 4.1 New Registration [**[↑]**](#table-of-contents)
@@ -400,7 +400,7 @@ When the registration officer scans the individual’s irises either individuall
 When the registration officer opts to start a new registration or UIN update. The system determines the time of the most recent export or upload (automatic uploads and manual uploads) of registration packets.
 If the duration since the last export or upload is not more than the configured limit, then system displays the demographic details page or UIN update page. If the configured limit is exceeded, then system displays an error message.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-New)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-New.md)
 
 ### 4.2 UIN Update [**[↑]**](#table-of-contents)
 When an individual visits the registration center to update their demographic or biometric details, the registration officer captures the updated data as provided by the individual in the system. Refer the following process: 
@@ -441,7 +441,7 @@ The system automatically calculates the age of an individual using date of birth
 1. A UIN update of a child cannot be initiated without capturing biometrics of the parent. The system displays an error message for such attempts.
 
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-update-UIN)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-update-UIN.md)
 
 ### 4.3 Lost UIN [**[↑]**](#table-of-contents)
 
@@ -462,7 +462,7 @@ The registration officer performs the following steps to retrieve a lost UIN of 
 1. The individual will be informed after a Lost UIN gets retrieve. Refer to [**Notification**](FRS-Registration-Processor#331-notification-pluggable-by-si-)
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-lost-UIN)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-lost-UIN.md)
 
 ### 4.4 Acknowledgement and Notifications [**[↑]**](#table-of-contents)
 
@@ -500,7 +500,7 @@ The registration officer performs the following steps to retrieve a lost UIN of 
 #### D. Sending email and SMS acknowledgements to additional recipients
 This feature enables Registration Client to send SMS and email acknowledgements to additional recipient\s (other than the individual’s primary email ID and mobile number).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-acknowledgement-notification)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-acknowledgement-notification.md)
 
 ### 4.5 Biometric Capture (SDK Integration, Extract and Match) (WIP) [**[↑]**](#table-of-contents)
 
@@ -524,7 +524,7 @@ Registration Client performs a local duplicate check for irises and face of an i
 
 Please refer to [**Wiki**](MOSIP-Biometric-APIs) for more details on the MOSIP Biometric APIs.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-MOSIP-bio-device-integration)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-MOSIP-bio-device-integration.md)
 
 ### 4.6 Biometric Exceptions [**[↑]**](#table-of-contents)
 If the required biometric quality is not achieved while a registration officer is capturing biometrics of an individual (e.g., missing finger(s), missing iris(es), etc.), then the system mandates to capture a biometric exception for that individual. Refer the following process:
@@ -540,7 +540,7 @@ If the required biometric quality is not achieved while a registration officer i
 1. If ‘Biometric Exception’ is ‘Yes’, at least one missing biometric must be mandatorily marked.
 1. The registration officer can mark the missing finger(s) and missing iris(es).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-New)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-New.md)
 
 ### 4.7 Registration Officer and Supervisor Approval [**[↑]**](#table-of-contents)
 
@@ -559,7 +559,7 @@ When a registration officer captures biometric exceptions of an individual, then
 1. Based on country-specific requirements, it is also possible for the registration officer and supervisor to be the same person. In this case, the registration officer and supervisor will be required to provide biometrics twice in succession, once as part of the Officer authentication and once for supervisor authentication of exceptions.
 1. Alternatively, if supervisor authentication is turned OFF, system does not show the supervisor authentication option at all and a registration officer may proceed to the next step (acknowledgement).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-New)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-New.md)
 
 ### 4.8 End of Day Process [**[↑]**](#table-of-contents)
 
@@ -600,7 +600,7 @@ During pre-processing of the packet, if the Registration Processor finds an erro
 #### C. Authenticated registrations report (WIP)
 The system allows the supervisor to view a report of approved registrations for the past 15 days.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-eod-process)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-eod-process.md)
 
 ## 5. Geo-location [**[↑]**](#table-of-contents)
 Upon receiving a request to geotag a registration machine, the system performs the following steps:
@@ -616,7 +616,7 @@ Upon receiving a request to geotag a registration machine, the system performs t
    * The latitude and longitude will be stored in the packet when the packet is created.
 5. System captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-device-integration)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-device-integration.md)
 
 ## 6. Language Support [**[↑]**](#table-of-contents)
 The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and demographic details of an individual are also rendered in secondary language for convenience of the registration officer. The default primary and secondary languages are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for registration officer entered text fields.
@@ -650,7 +650,7 @@ The registration officer can then view the preview page.
 The system then enables a registration officer to view the registration confirmation page. The data, which are transliterated and edited earlier are also shown in the secondary language.
 
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-muti-lingual-support)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-muti-lingual-support.md)
 ## 7. Packet Upload [**[↑]**](#table-of-contents)
 ### 7.1 Registration Packet Upload [**[↑]**](#table-of-contents) 
 
@@ -690,7 +690,7 @@ The system then enables a registration officer to view the registration confirma
    * Export to external storage device for subsequent upload as required.
 5. System captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-Packet-Upload)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-packetupload.md)
 
 ### 7.2 Offline upload (Packet Exporter) (Work in Progress) [**[↑]**](#table-of-contents)
 
@@ -712,7 +712,7 @@ System exports registration packet data from client machine to an external devic
 1. For partial or full failure, the system displays error message.
 1. System captures and stores the transaction details for audit purpose (except PII data).
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-Packet-Export)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registrtaion-packet_export.md)
 
 ## 8. Analytics and Audit Logs [**[↑]**](#table-of-contents) 
 System captures and stores details of each transaction during registration process for audit purpose (except PII data). The audit data is stored in the audit database. When the client machine is working in an offline mode, the audit log is synced with the server as when the client machine is online. 
@@ -731,7 +731,7 @@ MOSIP performs the following:
 The system uses a machine and centre specific public key to encrypt. Only the server which has the respective private key, machine id and centre id can decrypt the encrypted packet. The data stored in database and application binaries are encrypted using TPM public key and registration officers will not be able to access directly.
 
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-key-management)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration-key-management.md)
 
 ## 10. Software Version Upgrade [**[↑]**](#table-of-contents)
 
@@ -804,7 +804,7 @@ When a set of audit data is uploaded to the server and the server has acknowledg
 4. Does not delete audit data, if that is yet to be sent to the server.
 1. System captures and stores the transaction details.
 
-[**Link to design**](/mosip/mosip-platform/wiki/Registration-Packet-Deletion-Job)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/registration/registration_packet_deletion_job.md)
 
 ### 11.2 Machine Retirement [**[↑]**](#table-of-contents)
 
