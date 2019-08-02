@@ -1,6 +1,6 @@
 This section details about the service APIs in the Registration center modules
 
-* [Registration Centers API](#registration-centers-master-api)
+* [Registration Centers API](#registration-centers-api)
 
 * [Registration Center - Device Mapping API](#registration-center-device-api)
 
