@@ -54,7 +54,7 @@ This service would be used by MOSIP admin for MISP(MOSIP Infrastructure Service 
 
 
 ### POST /misps
-MOSIP Admin would be able to create MISP using this API. At the time of creation of MISP, MISP ID and MISP License Key are generated,mapped and shared back in response. Post successful MISP creation, by default MISP is set to active status,  MISP License key is to active status. MISP License key is configurable and set to expire in 3 months, 6 months OR any configurable period.  
+MOSIP Admin would be able to create MISP using this API. At the time of creation of MISP, MISP ID and MISP License Key are generated,mapped and shared back in response. Post successful MISP creation, by default MISP is set to active status,  MISP License key is to active status. MISP License key is configurable and set to expire in 3 months, 6 months OR any configurable period.  Kernel ID generator API would be used to generate unique id as mentioned in [Kernel ID Generator](https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-idgenerator-vid)
 
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/misps</div>
