@@ -2546,6 +2546,12 @@ Partners would be procuring digital certificates from Certification Authority (C
 * Partner Management would depend on Kernel to manage partner certificates, validation of partner certificates. Appropriate error messages would be sent back to Partners, in cases where digital certificates expires, certificate validation error happens. 
 * Partners would require to re-issue and upload new digital certificates, in case of expiry of digital certificates. References to Partner digital certificate IDs are stored in partner management DBs, actual storage and validation of partner digital certificate would be in Kernel.
 * IDA would be using partner provided public keys for encryption of e-kyc response. Partner management module would be using Kernel services for partner key management, encryption/decryption and sharing of keys.
+
+Following Kernel services would be utilized for certificate and key management activities:
+* [Kernel Key Manager](https://github.com/mosip/mosip-docs/wiki/Kernel-APIs#key-manager-private)
+* [Kernel Crypto Manager](https://github.com/mosip/mosip-docs/wiki/Kernel-APIs#crypto-manager-private)
+* [Crypto Signature Service](https://github.com/mosip/mosip-docs/wiki/Kernel-APIs#crypto-signature-service-private)
+
    
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
