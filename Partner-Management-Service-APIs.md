@@ -6,8 +6,8 @@ For securely accessing any API in MOSIP, you must gain auth token from kernel au
 2. After successful authentication access token will set as Authorization cookies.
 3. Access API through postman by passing the access token in cookies.
 
-#### Auth Token
- url- https://mosip.io/v1/authmanager/authenticate/useridPwd
+MOSIP common authentication and authorization APIs would be used for authentication and generation of secured auth token 
+ url- https://github.com/mosip/mosip-docs/wiki/AuthN-&-AuthZ-APIs#post-v1authenticateuseridpwd
 
 ```
 {
