@@ -2742,7 +2742,7 @@ PMS_COR_003|Could not process the request|Any Internal Error
 ### PUT /partners/digitalcertificate
 As the MOSIP system Partner Management module would integrate with Kernel for validation of partner's digital certificate.
 In case where MOSIP would act as certification authority for partners, MOSIP would be able to sign and resign partner digital certificates. Partner management module would depend on Kernel services for signing and re-signing of partner digital certificates.
-
+Kernel Signature service would be utilized to validate signature : [Kernel Signature Service](https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-signature-service)
 #### Resource URL
 <div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
 
