@@ -1,4 +1,4 @@
-This page put together all the **interfaces** a running instance MOSIP Platform needs to effectively be a foundational ID system.
+This page puts together all the **interfaces** a running instance MOSIP Platform needs to effectively be a foundational ID system.
 
 ## Biometrics related interfaces
 
@@ -42,7 +42,7 @@ This page put together all the **interfaces** a running instance MOSIP Platform 
     * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel/kernel-virusscanner.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-virusscanner-clamav)
 7. File System 
-    * [Design and Background](/mosip/mosip-platform/tree/master/design/kernel/kernel-fsadapter-ceph)
+    * [Design and Background](/mosip/mosip-platform/blob/master/design/kernel/kernel-filesystemadapter.md)
     * [Implementation](/mosip/mosip-platform/tree/master/kernel/kernel-fsadapter-hdfs)
 8. [QR Code scanner](/mosip/mosip-docs/wiki/Pre-Registration-Services#generate-qr-code-service-public)
 
