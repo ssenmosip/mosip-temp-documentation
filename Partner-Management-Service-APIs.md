@@ -37,6 +37,8 @@ After hitting api, you will get the Authorization token in the cookie.
 
 * [Partner Management Service](#partner-management-service) - This service would be used by Partner Manager for management of partner requests. Partners belonging to specific policy group would be able to raise request for issuance of Partner API Keys. Partner Manager would be able to approve OR reject such partner requests. Before approving the partner request for API keys, partner manager would review the request, generate partner API key and map the API key with the policy(ies). By using this service, partner manager would be able to view partner details for given partner API Key, along with the policy mapping for the API key, and its status (active/deactive)
 
+* [Partner Service](#partner-service) - This service enables partners to do self registration, submit request for respective authentication policies available for the policy group, sharing of digital certificate for secure communication helping individual authentication through partners.
+
 ## MISP Management Service
 This service would be used by MOSIP admin for MISP(MOSIP Infrastructure Service Provider) management.
 
@@ -2264,6 +2266,853 @@ PMS_PMP_001|Partner Manager does not exist|Not a authorized Partner Manager- Use
 PMS_PMP_002|Mismatch of the Partner Manager Credentials|User Name and Password of the Partner Manager does not match
 PMS_PMP_003|Your password has expired. Please reset your password|Password expired
 PMS_PMP_015|No Partner api key requests for the Policy Group|No Partner api key requests for the Policy Group
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+## Partner Service
+This service enables partners to do self registration, submit request for respective authentication policies, sharing of digital certificate for secure communication: 
+
+* [POST /partners](#post-partners)
+* [POST /partners/{partnerID}/partnerAPIKeyRequests}](#post-partnerspartneridpartnerapikeyrequests)
+* [POST /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}](#post-partnerspartneridpartnerapikeyrequestsapikeyreqid)
+* [POST /partners/digitalcertificate](#post-partnersdigitalcertificate)
+* [PUT /partners/{partnerID}](#put-partnerspartnerid)
+* [PUT /partners/digitalcertificate](#put-partnersdigitalcertificate)
+* [GET /partners/{partnerID}](#get-partnerspartnerid)
+* [GET /partners/{partnerID}/partnerAPIKeyRequests}](#get-partnerspartneridpartnerapikeyrequests)
+* [GET /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}](#get-partnerspartneridpartnerapikeyrequestsapikeyreqid)
+* [GET /partners/digitalcertificate](#get-partnersdigitalcertificate)
+
+
+### POST /partners
+This API would be used for self registration by partner to create Auth/E-KYC Partners. Partner Management module would be integrating with Kernel IAM module for generation of userid and password for partners. 
+* User id, as received in response from Kernel IAM module, are stored in partner management database as reference and shared back to partners in response for further communication with MOSIP systems.
+* Password for any userid would be shared via an off-line process.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address.authPolicies|Yes|address of the partner|INDIA
+request.policyGroup|Yes|policy group|Banking
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.create",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+		"organizationName":"airtelInd", 
+		"contactNumber":"9886779980", 
+		"emailID":"airtelInd@gmail.com", 
+		"address":"INDIA",
+		"policyGroup":"Banking"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Partner successfully created.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.create",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"partnerID":"6565655443544", 
+		"status":"Active"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.create",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_001",
+		"message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_001|A Partner is already registered with name %d in the policy Group %d|A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+PMS_PRT_002|Policy Group does not exist|Policy Group does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### POST /partners/{partnerID}/partnerAPIKeyRequests
+This API would be used to submit Partner api key request.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequests</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partnerAPIKeyRequest.create
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.policyName|Yes|name of the policy|airtelIndPolicy
+request.useCaseDescription|Yes|useCase Description|Need to submit the payment
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+		"policyName":"airtelIndPolicy", 
+		"useCaseDescription":"Need to submit the payment"
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: partnerAPIKeyRequest successfully created.
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"apiRequestId":"873276828663",
+		"message":"partnerAPIKeyRequest successfully created"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKeyRequest.create",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_001",
+		"message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_001|A Partner is already registered with name %d in the policy Group %d|A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+PMS_PRT_002|Policy Group does not exist|Policy Group does not exist
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### POST /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}
+This API would be used to download Partner API key for the given APIKeyReqID
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+APIKeyReqID |Yes| API Key RequestID|873276828663
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the partnerAPIKey.
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKey.download",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"partnerAPIKey":"fa604-affcd-33201-04770"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: APIKeyReqID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partnerAPIKey.download",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_005",
+		"message": "APIKeyReqID does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_006|APIKeyReqID does not exist|APIKeyReqID does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### POST /partners/digitalcertificate
+Partners would be procuring digital certificates from Certification Authority (CA), and upload the same to Partner Management using this API. 
+* Partner Management would depend on Kernel to manage partner certificates, validation of partner certificates. Appropriate error messages would be sent back to Partners, in cases where digital certificates expires, certificate validation error happens. 
+* Partners would require to re-issue and upload new digital certificates, in case of expiry of digital certificates. References to Partner digital certificate IDs are stored in partner management DBs, actual storage and validation of partner digital certificate would be in Kernel.
+* IDA would be using partner provided public keys for encryption of e-kyc response. Partner management module would be using Kernel services for partner key management, encryption/decryption and sharing of keys.
+   
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.upload
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.upload",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+		"partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+                            UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
+                            BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
+                            UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
+                            A1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQswCQYDVQQHDAJDQjEh
+                            MB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMRgwFgYDVQQDDA9SRVNU
+                            IEFQSSBTRVJWRVIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDF0BqJ
+                            htgl5JJZM3zwDNN5l7rWcnN0Gp0A0fKY/rfyuSR/mQJ2W2DkX2ISvvRHaNsVwpVb
+                            9Z1T0Dqa3RxgaGbgdc1AtTAAMzHWiPzCNtU="
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully uploaded partner's digital certificate
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.upload",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"message":"successfully uploaded partner's digital certificate"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner digital certificate is not valid
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.retrieve",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_007",
+		"message": "Partner digital certificate is not valid"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_007|Partner digital certificate is not valid|Partner digital certificate is not valid
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+
+### PUT /partners/{partnerID}
+This API would be used to update Auth/E-KYC Partner's details.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.update
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.organizationName|Yes|name of the organization|airtelInd
+request.contactNumber|Yes|contact number for the partner|9886779980
+request.emailID|Yes|email id of the partner|airtelInd@gmail.com
+request.address|Yes|address of the partner|Bangalore,INDIA
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.update",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+		"organizationName":"airtelInd", 
+		"contactNumber":"9886779980", 
+		"emailID":"airtelInd@gmail.com", 
+		"address":"Bangalore,INDIA",
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Partner successfully updated.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.update",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"partnerID":"6565655443544", 
+		"status":"Active"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.update",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_001",
+		"message": "A Partner is already registered with name 'airtelInd' in the policy Group 'Banking'.
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_001|A Partner is already registered with name %d in the policy Group %d|A Partner is already registered with name ”+ Partner Organization Name+ “ in the policy Group +Policy Group
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### PUT /partners/digitalcertificate
+As the MOSIP system Partner Management module would integrate with Kernel for validation of partner's digital certificate.
+In case where MOSIP would act as certification authority for partners, MOSIP would be able to sign and resign partner digital certificates. Partner management module would depend on Kernel services for signing and re-signing of partner digital certificates.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Body Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+id |Yes|id |mosip.partnermanagement.partners.certificate.validate
+version |Yes|version of the application|1.0
+requesttime |Yes|Time of the request|2019-01-16T05:23:08.019Z
+request |Yes|Request for the application|
+request.partnerCertificate|Yes|partner digital certificate|digital certificate
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Request:
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.validate",
+  "version": "1.0",
+  "requesttime": "2019-05-20T09:48:43.394Z",
+  "metadata": {},
+  "request": {
+		"partnerCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+                            UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
+                            BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
+                            UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
+                            A1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQswCQYDVQQHDAJDQjEh
+                            MB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMRgwFgYDVQQDDA9SRVNU
+                            IEFQSSBTRVJWRVIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDF0BqJ
+                            htgl5JJZM3zwDNN5l7rWcnN0Gp0A0fKY/rfyuSR/mQJ2W2DkX2ISvvRHaNsVwpVb
+                            9Z1T0Dqa3RxgaGbgdc1AtTAAMzHWiPzCNtU="
+  }
+}
+```
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully validated partner's digital certificate
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.certificate.upload",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"message":"successfully validated partner's digital certificate"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner digital certificate is not valid
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.retrieve",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_007",
+		"message": "Partner digital certificate is not valid"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_007|Partner digital certificate is not valid|Partner digital certificate is not valid
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### GET /partners/{partnerID}
+This API would be used to retrieve Auth/E-KYC Partner details.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved the Partner details.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.retrieve",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"partnerID":"6565655443544", 
+		"status":"Active", 
+		"organizationName":"airtelInd", 
+	    "contactNumber":"9886779980", 
+	    "emailID":"airtelInd@gmail.com", 
+	    "address":"INDIA",
+	    "policyGroup":"Banking"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.retrieve",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_005",
+		"message": "Partner does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### GET /partners/{partnerID}/partnerAPIKeyRequests
+This API would be used to retrieve all API key requests submitted by partner till date.
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequests</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+partnerID |Yes| partner ID|6565655443544
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved all Active policies available for my policy group.
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.retrieve.apiKeyRequests",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+       "APIkeyRequests":[
+			{
+				"apiKeyReqID":"873276828663",
+				"apiKeyRequestStatus":"approved", 
+				"partnerApiKey":"fa604-affcd-33201-04770",
+				"validityTill":"2019-11-01"
+			},
+			{
+				"apiKeyReqID":"900876828663",
+				"apiKeyRequestStatus":"in-progress"
+			}
+		]
+	},
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: No API Key Request found for the partner
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.retrieve.apiKeyRequests",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_008",
+		"message": "No API Key Request found"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_008|No API Key Request found|No API Key Request found for the partner
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### GET /partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}
+This API would be used to view API key request status and API key (in case request is approved).
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/{partnerID}/partnerAPIKeyRequests/{APIKeyReqID}</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Path Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+APIKeyReqID |Yes| API Key RequestID|873276828663
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved Partner api key/partner api key request status
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.status",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+		"apiKeyRequestStatus":"approved", 
+		"partnerApiKey":"fa604-affcd-33201-04770",
+		"validityTill":"2019-11-01"
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: APIKeyReqID does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.apikey.status",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_006",
+		"message": "APIKeyReqID does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
+PMS_PRT_006|APIKeyReqID does not exist|APIKeyReqID does not exist
+PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
+PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
+PMS_COR_003|Could not process the request|Any Internal Error
+
+### GET /partners/digitalcertificate
+Partners would be required to download MOSIP digital certificates. Partner would be using MOSIP public key (part of MOSIP digital certificate) and MOSIP digital certificate, for establishing secure communication with MOSIP. Partner management module would depend on Kernel services to manage MOSIP digital certificate, sharing and re-issue of digital certificate post expiry, validation, encryption/decryption activities. 
+
+#### Resource URL
+<div>https://mosip.io/partnermanagement/v1/partners/digitalcertificate</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | Yes
+
+#### Request Header 
+Name | Required | Description | Comment
+-----|----------|-------------|--------
+Authorization | Yes | authentication token | Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYXZpLmJhbGFqaUBtaW5kdHJlZS5jb20iLCJtb2JpbGUiOiIiLCJtYWlsIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwicm9sZSI6IklORElWSURVQUwiLCJuYW1lIjoicmF2aS5iYWxhamlAbWluZHRyZWUuY29tIiwiaXNPdHBSZXF1aXJlZCI6dHJ1ZSwiaXNPdHBWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNTYyNTgwMzg0LCJleHAiOjE1NjI1ODYzODR9.eycrDnzPFBnx57wp6v-iXHtFnRxPgOysG3QETnElSswBUH5ojUUCLsn6SeYukIy-rEZ0SOdr9jkLE6A8tNkj4w
+
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: successfully retrieved mosip digital certificate
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.mosip.certificate.download",
+  "version": "1.0",
+  "responsetime": "2019-05-16T16:01:20.534Z",
+  "response":{
+        "moispCertificate":"MIIFtjCCA56gAwIBAgIJAP1p0BePP1CFMA0GCSqGSIb3DQEBCwUAMHAxCzAJBgNV
+                            UUTHNkNaMRcwFQYDVQQIDA5DemVjaCBSZXB1YmxpYzELMAkGA1UEBwwCQ0IxITAf
+                            BgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPUkVTVCBB
+                            UEkgU0VSVkVSMB4XDTE4MTAwNjIxMTQyMVoXDTI4MTAwMzIxMTQyMVowcDELMAkG
+                            A1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQswCQYDVQQHDAJDQjEh
+                            MB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMRgwFgYDVQQDDA9SRVNU
+                            IEFQSSBTRVJWRVIwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDF0BqJ
+                            htgl5JJZM3zwDNN5l7rWcnN0Gp0A0fKY/rfyuSR/mQJ2W2DkX2ISvvRHaNsVwpVb
+                            9Z1T0Dqa3RxgaGbgdc1AtTAAMzHWiPzCNtU="
+  },
+  "errors": null
+}
+```
+
+##### Failure Response:
+###### Status code: '200'
+###### Description: Partner does not exist
+```JSON
+{
+  "id": "mosip.partnermanagement.partners.mosip.certificate.download",
+  "version": "1.0",
+  "responsetime": "2019-06-14T08:41:17.156Z",
+  "response": null,
+  "errors": [
+    {
+		"errorCode": "PMS_PRT_005",
+		"message": "Partner does not exist"
+    }
+  ]
+}
+```
+
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PMS_PRT_003|Mismatch of the Partner Credentials|User Name and Password of the Partner does not match
+PMS_PRT_004|Your password has expired. Please reset your password|Password expired
+PMS_PRT_005|Partner does not exist|Partner does not exist
 PMS_COR_001|Missing Input Parameter - %d|Missing Input Parameter - for all mandatory attributes
 PMS_COR_002|Invalid Input Parameter - %d |Invalid Input Parameter - for all attributes not as per defined data definition
 PMS_COR_003|Could not process the request|Any Internal Error
