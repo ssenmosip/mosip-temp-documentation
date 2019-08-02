@@ -165,7 +165,7 @@ Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#au
 Please refer to the [**Biometric Authentication API**](ID-Authentication-APIs#authentication-service-public) for more details.
 
 
-[**Link to design**](/mosip/mosip-platform/wiki/ID-Authentication-BioAuth-Service)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/authentication/Bio_Auth_Request_REST_Service.md)
 
 ## 1.2 Demographic Authentication [**[↑]**](#table-of-contents)
 
@@ -277,7 +277,7 @@ Please refer to the [**Demographic Authentication API**](ID-Authentication-APIs#
 
 
 
-[**Link to design**](/mosip/mosip-platform/wiki/ID-Authentication-DemoAuth-Service)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/authentication/Demo_Auth_Request_REST_Service.md)
 
 
   
@@ -453,9 +453,9 @@ The authentication service request should have a defined set of parameters. Plea
 1. Please refer Git for more details on the type of [**error messages**](_files/requirements/requirements_detailing_references/ID-Authentication/Sprint%2010/Consolidated%20error%20messages%20V2.2.xlsx).
 
 
-[**Link to design**](/mosip/mosip-platform/wiki/ID-Authentication-OTPAuth-Service)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/authentication/OTP_Auth_Request_REST_Service.md)
 
-[**Link to design**](/mosip/mosip-platform/wiki/ID-Authentication-RequestOTP-Service)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/authentication/OTP_Request_REST_service.md)
 
 # 2. Multi-factor Authentication (WIP) [**[↑]**](#table-of-contents)
 
@@ -492,7 +492,7 @@ The system then validates the following:
 
 Please refer to the [**eKYC API**](ID-Authentication-APIs#ekyc-service-public) for more details.
 
-[**Link to design**](/mosip/mosip-platform/wiki/ID-Authentication-eKYCAuth-Service)
+[**Link to design**](/mosip/mosip-platform/blob/master/design/authentication/eKYC_Auth_Request_REST_service.md)
 
 
 # 5. Partners Authentication and Authorisation
