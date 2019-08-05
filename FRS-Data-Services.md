@@ -124,8 +124,7 @@ Refer below for the process:
 9. Raises an alert in case of exceptions and triggers the messages.
 
 
-[**Link to design**]() _**update the link**_
-
+[**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-ridgenerator.md)
 #### 4.1.4 MISP ID Generator [**[↑]**](#table-of-contents)
 
 Upon receiving a request to generate MISP ID, the system generates it as per default MISP ID generation logic.
@@ -141,7 +140,7 @@ Refer below for the process:
 5. Responds with the MISP ID to the source
 6. Raises an alert in case of exceptions and triggers the messages.
 
-[**Link to design**]() _**update the link**_
+[**Link to design**](/mosip/mosip-platform/blob/master/design/kernel/kernel-idgenerator-mispid.md)
 
 #### 4.1.5 PRID Generator [**[↑]**](#table-of-contents)
 
@@ -218,7 +217,7 @@ Refer below for the process:
 1. Partner ID generation is start from 1000
 1. In case of exceptions, system triggers relevant error messages. 
 
-[**Link to design**]() _**update the link**_
+
 
 #### 4.1.9 MISP License Key Generator [**[↑]**](#table-of-contents)
 Upon receiving a request to generate License Key, the system generates it as per default License Key generation logic and responds with the License Key to the source
@@ -229,10 +228,6 @@ Upon receiving a request to generate License Key, the system generates it as per
    * License Key generated is of length of 8 digits
    * License Key is mapped to expiry (Expiry to be configured by admin).
 2. In case of exceptions, system triggers relevant error messages
-
-[**Link to design**]() _**update the link**_
-
-
 
 ### 4.2 ID Validator [**[↑]**](#table-of-contents)
 #### 4.2.1  UIN Validator [**[↑]**](#table-of-contents)
@@ -291,7 +286,6 @@ RID Validation performs pattern validation on RID and provides three methods to 
 5. Throws an error if an input parameter is empty
 6. In case of exceptions, system triggers relevant error messages.
 
-[**Link to design**]() _**update the link**_
 
 #### 4.2.6 License Key Status Validator [**[↑]**](#table-of-contents)
 
@@ -308,7 +302,7 @@ The system receives a request to check status of the License Key with an input p
    * License Key should be mapped to expiry (Expiry to be configured by admin).
 5. In case of exceptions, system triggers relevant error messages. 
 
-[**Link to design**]() _**update the link**_
+
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
 1. Configurable Parameters
