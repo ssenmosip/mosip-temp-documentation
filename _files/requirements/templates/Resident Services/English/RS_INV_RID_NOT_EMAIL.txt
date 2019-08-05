@@ -2,5 +2,4 @@ Hi $name_eng,
 
 The Request ID (RID) entered is not valid. Please enter a valid RID.
 
-Thanks and Regards,
-MOSIP Team
+Thank You!

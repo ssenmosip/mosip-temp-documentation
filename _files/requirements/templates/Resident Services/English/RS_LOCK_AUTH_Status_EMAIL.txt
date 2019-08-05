@@ -6,5 +6,4 @@ Your request for locking of the below mentioned AUTH type(s) has been successful
 2. $AUTH_2
 3. $AUTH_N
 
-Thanks and Regards,
-MOSIP Team
+Thank You!

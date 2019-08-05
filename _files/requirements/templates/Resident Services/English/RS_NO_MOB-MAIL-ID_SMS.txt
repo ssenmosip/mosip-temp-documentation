@@ -2,5 +2,4 @@ Hi $name_eng,
 
 No Registered Mobile Number or Email ID found for $UIN. Please visit nearest center for your query.
 
-Thanks and Regards,
-MOSIP Team
+Thank You!

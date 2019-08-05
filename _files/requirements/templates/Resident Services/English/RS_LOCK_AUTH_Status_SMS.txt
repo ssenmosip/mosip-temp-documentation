@@ -5,3 +5,5 @@ Your request for locking of the below mentioned AUTH type(s) has been successful
 1. $AUTH_1
 2. $AUTH_2
 3. $AUTH_N
+
+Thank You!

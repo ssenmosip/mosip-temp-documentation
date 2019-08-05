@@ -1,6 +1,5 @@
 Hi $name_eng,
 
-Congratulations your request is processed. The link to download your RID is is $link.
+Congratulations your request is processed. The link to download your RID is $link.
 
-Thanks and Regards,
-MOSIP Team
+Thank You!

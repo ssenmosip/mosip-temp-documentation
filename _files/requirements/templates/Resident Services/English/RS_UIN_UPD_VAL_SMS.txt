@@ -1,3 +1,5 @@
 Hi $name_eng,
 
-ID Validation failed. Please upload correct document type.
+The document you uploaded did not validate correctly against the field you are requesting to be updated. Please upload correct document type.
+
+Thank You!

@@ -2,5 +2,4 @@ Hi $name_eng,
 
 Your UIN update status for Request ID $RID is $status.
 
-Thanks and Regards,
-MOSIP Team
+Thank You!

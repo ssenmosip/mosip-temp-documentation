@@ -1,3 +1,5 @@
 Hi $name_eng,
 
 Your UIN update status for Request ID $RID is $status.
+
+Thank You!
