@@ -94,7 +94,7 @@ Upon receiving a request to generate partner ID, the system performs the followi
 1. MOSIP system can generate partner ID as per the defined logic described below:
    * Partner ID should only be numeric
    * Partner ID generated should be of length of 4 digits
-   * Partner ID length should be configurable. (Note : Partner ID should start with the first no with the defined digits)
+   * Partner ID length should be configurable. (Note: Partner ID should start with the first no with the defined digits)
    * Each new Partner ID should be incremented by 1 for each new request
    * Partner ID generation should start from 1000
    * Each generated ID should be unique
@@ -114,7 +114,7 @@ Upon receiving a request to generate Policy Manager ID, the system performs the 
 1. Generates Policy Manager ID as per default Policy Manger ID generation logic defined below:
    * Policy Manager ID should only be numeric
    * Policy Manager ID generated should be of length of 2 digits (The partner manager will utilize 10 to 50, Policy Manager will utilize 51 to 90.). 
-   * Policy Manager ID length should be configurable. (Note : Policy Manager should start with the first no with the defined digits for a count of 40)
+   * Policy Manager ID length should be configurable. (Note: Policy Manager should start with the first no with the defined digits for a count of 40)
    * Each new Policy Manager ID should be incremented by 1 for each new request
    * Policy Manager ID generation should start from 51 
    * Each generated ID should be unique
@@ -128,7 +128,7 @@ Upon receiving a request to generate Partner Manager ID, the system performs the
 1. Generates Partner Manager ID as per default Partner Manger ID generation logic as defined below:
    * Partner Manager ID should only be numeric
    * Partner Manager ID generated should be of length of 2 digits (The partner manager is assigned one per policy group. The no of policy groups for a country will be only a max of say 40)
-   * Partner Manager ID length should be configurable. (Note : Partner Manager should start with the first no with the defined digits for a count of 50)
+   * Partner Manager ID length should be configurable. (Note: Partner Manager should start with the first no with the defined digits for a count of 50)
    * Each new Partner Manager ID should be incremented by 1 for each new request
    * Partner Manager ID generation should start from 10 for the default length
    * Each generated ID should be unique
@@ -342,7 +342,7 @@ Upon receiving a request to perform data validation on Partner ID with input par
 1. Validates Partner ID as per the Partner ID generation policy defined below:
    * Partner ID must be numeric
    * Partner ID generated must be of length of 4 digits
-   * Partner ID length must be configurable. (Note : Partner ID should start with the first number with the defined digits)
+   * Partner ID length must be configurable. (Note: Partner ID should start with the first number with the defined digits)
    * Each new Partner ID must be incremented by 1 for each new request
    * Partner ID generation must start from 1000
    * Each generated ID must be unique.
