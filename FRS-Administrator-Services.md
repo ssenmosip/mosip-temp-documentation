@@ -80,9 +80,9 @@
 - [Process View](#process-view-)
 ## 1. Login [**[↑]**](#table-of-contents)
 ### 1.1 Login
-The portal allows user to provide the credential to login. Based on country, single factor or multi-factor credentials (For example, Password, OTP, Fingerprint, iris etc.) are configured.  The system validates the provided credentials and the user's role. On successful validation, the system allows user to proceed further. 
-
-If X number (X number is configurable) of unsuccessful attempts are made to login, then user account will be locked and a respective notification will be sent to the user. If the user account is locked, the system allows the relevant user or super admin to unlock the user account. 
+The Admin Portal integrates with the Keycloak IAM to provide Login facility. 
+When an Administrator tries to access the Homepage or any page on the Admin portal through a browser, the portal detects if the Administrator is already logged-in or not. If not, the system re-directs the Administrator to the Keycloak Administrator Interface (UI) which requests the Administrator for his/her Username and Password. After getting the credentials, KeyCloak verifies the Administrator’s credentials and Role. It also validates whether the Administrator is not deactivated.
+After successful validation of the credentials, the system then re-directs the Administrator to the page he/she tries to access initially.
 
 For more details, please refer to [Reset Password](#23-reset-password-).
 
