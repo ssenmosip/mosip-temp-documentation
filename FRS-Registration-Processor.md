@@ -254,6 +254,7 @@ An Introducer in MOSIP is one who introduces someone attempting to register with
 A minor is not mature enough to provide biometrics (like Finger Prints or Iris) as they are under developed during the time of registration, hence, the Parent or Guardian acts as the Introducer to register the minor in MOSIP.
 
 When a minor is registered, the Registration Client mandates the capture of the ID and biometrics of the Parent or Guardian, which is used for authenticating the Parent or Guardian in Registration Processor.
+
 To support the Principle of Inclusion, an Introducer can be any individual whose biometrics are registered in MOSIP.
 
 
