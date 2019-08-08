@@ -249,11 +249,12 @@ For Example:
 
 #### 3.2.2.2 Introducer Validation [**[↑]**](#table-of-contents)
 
-An Introducer in MOSIP is one who introduces someone without any valid document or proof of identity. In the current implementation, Introducer is the Parent or Guardian when a minor (child) comes to the center for registration.
+An Introducer in MOSIP is one who introduces someone attempting to register without any valid document or proof of identity. In the current implementation, in the context of Minor's registration Introducer is the Parent or Guardian of the minor (child) who approaches the center for registration. 
 
 A minor is not mature enough to provide biometrics (like Finger Prints or Iris) as they are under developed during the time of registration, hence, the Parent or Guardian acts as the Introducer to register the minor in MOSIP.
 
 When a minor is registered, the Registration Client mandates the capture of the ID and biometrics of the Parent or Guardian, which is used for authenticating the Parent or Guardian in Registration Processor.
+To support the Principle of Inclusion, an Introducer can be any individual whose biometrics are registered in MOSIP.
 
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/registration-processor/Approach_for_OSI_validation.md)
