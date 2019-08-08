@@ -219,6 +219,7 @@ Another difference between Deactivated and Decommissioned Machine is that a Deac
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-contents)
 Admin portal allows a Zonal Admin to map each Machine to a Center. This mapping specifies as to which Center can the Machine be used in. A Machine can only be mapped to a Center which belongs to the Machines’ Administrative Zone or a child Administrative Zone of the Machines’ Administrative Zone.
+
 A Machine can later be un-mapped from the Center in cases where a Machine is needed to be moved to another Center. In such cases, the Machine will later need to be mapped to the new Center. In case the Machine is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Machine must be changed. 
 
 ### 5.3 Device Management [**[↑]**](#table-of-contents)
@@ -255,9 +256,9 @@ Refer to section on more details of CRUD APIs used in above mentioned features
 
 For more details, please refer to [link](FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-)
 
-### 5.4 User Management [**[↑]**](#table-of-contents)
+### 5.4 User Management(WIP) [**[↑]**](#table-of-contents)
 #### 5.4.1 View User
-The portal allows Zonal Admin to view the list of users by providing the registration center ID. The system validates the provided data, user's role, and provides user’s details (ID, Name, Last Name, Role, Registration Center ID, Date of Birth, Gender, Contact Number, Email ID etc…) already mapped to the specified registration center on successful validation.
+MOSIP uses KeyCloak IAM for managing Users. KeyCloak also provides its native UI for managing Users. These Users include Registration Operators, Supervisors, Registration Admins, Zonal Admins etc. User management includes Viewing, Creating, Editing, Activating, Deactivating and Blacklisting of Users. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage Users under his/her administrative zone only. 
 #### 5.4.2 Create User
 Using the portal, Zonal Admin/Central Admin will register the user (registration officer, supervisor) on portal by providing the following required details of the user:
  * User ID
