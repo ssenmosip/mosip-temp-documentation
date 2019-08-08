@@ -970,14 +970,14 @@ status|["contains","equals","startsWith"]
 
 # Device Spec Search APIs
 
-* [POST /devicespec/search](#post-devicespecsearch)
+* [POST /devicespecifications/search](#post-devicespecsearch)
 
-# POST /devicespec/search
+# POST /devicespecifications/search
 
 This service is for the devices specifications search functionality. All the filter parameters are passed and the device specifications are searched and the matching results are returned.
 
 ### Resource URL
-### `POST /devicespec/search`
+### `POST /devicespecifications/search`
 
 ### Resource details
 
@@ -1206,14 +1206,14 @@ languagecode|Yes|Language code in Language code in ISO 639-2 format| |
 
 # Device Spec Filter values
 
-* [POST /devicespec/filtervalues](#post-devicespecfiltervalues)
+* [POST /devicespecifications/filtervalues](#post-devicespecfiltervalues)
 
-# POST /devicespec/filtervalues
+# POST /devicespecifications/filtervalues
 
 This service returns the filter values which are required in the dropdown entries of the filter screen.  
 
 ### Resource URL
-### `POST /devicespec/filtervalues`
+### `POST /devicespecifications/filtervalues`
 
 ### Resource details
 
