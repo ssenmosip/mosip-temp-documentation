@@ -39,7 +39,7 @@ This service details used by Pre-Registration portal to authenticate user by sen
 * [POST /login/validateOtp](#post-loginvalidateotp)
 * [POST /login/invalidateToken](#post-logininvalidatetoken)
 * [GET /login/config](#get-loginconfig)
-* [GET /login/refreshconfig](#get-refreshconfig)
+* [GET /login/refreshconfig](#get-loginrefreshconfig)
 
 ### POST /login/sendOtp
 This request will send the OTP to the requested user in the preferred channel(sms/email)
