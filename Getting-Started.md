@@ -1348,7 +1348,11 @@ After installing Docker Start the Docker Service
 
 * systemctl status docker
 
-3. **Open the port 8082 , 8083 from the VM:**
+3. **Open the port 8081, 8082 , 8083 from the VM:**
+
+sudo firewall-cmd --zone=public --add-port=8081/tcp --permanent
+
+sudo firewall-cmd --reload 
 
 sudo firewall-cmd --zone=public --add-port=8083/tcp --permanent
 
