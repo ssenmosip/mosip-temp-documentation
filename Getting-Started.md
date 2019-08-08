@@ -96,6 +96,8 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
   4. **REGISTRY_CREDENTIALS**<br/>
   5. **GIT_URL**<br/>
   6. **GIT_CREDENTIALS**<br/>
+
+**NOTE** We are building docker images in each of the JenkinsFile, so docker should be installed and accessible for Jenkins user. Please install Docker version 18.09.3 in your Jenkins instance.
   
 
 
