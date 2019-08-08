@@ -183,7 +183,9 @@ Once a Center is created, a Zonal admin can edit a Center later if required. The
 #### 5.1.4 Activate/Deactivate/Decommission Center
 
 A Zonal admin can Deactivate or Decommission a Center through the Admin Portal.
+
 Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Both Deactivated or Decommissioned Center does not show up in the Pre-Registration UI and thus no appointments can be booked for such Centers. 
+
 Another difference between Deactivated and Decommissioned center is that a Deactivated center can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Center cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Center (if decommissioned by mistake), the Admin must directly update the database through the backend scripts.
 
 ### 5.2 Machine Management [**[↑]**](#table-of-contents)
@@ -196,8 +198,10 @@ Admin portal UI shows the list of Machines in only the country configured Primar
 
 #### 5.2.2 Create Machine
 A Zonal Admin can create a Machine by providing necessary mandatory details. A Machine needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Machine in only primary language but will not allow activation of that Machine until data for that Machine is not updated for all the languages. 
+
 A Machine is created with the following attributes: 
 Machine ID, Machine Name, Mac Address, Serial Number, Machine Spec ID and Administrative Zone the Machine belongs to.
+
 While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Machine Name) needs to be manually input in all the languages. A Machine can be mapped to the Administrative Zone which is at the any Zonal hierarchy.
 
 For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-machine-types---create-) in Admin Service.
@@ -209,15 +213,16 @@ For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-ma
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-contents)
 A Zonal admin can Deactivate or Decommission a Machine through the Admin Portal.
+
 Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Machine. 
 Another difference between Deactivated and Decommissioned Machine is that a Deactivated Machine can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Machine cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Machine (if decommissioned by mistake), the Admin must directly update the database through the backend scripts.
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-contents)
-Admin portal allows a Zonal Admin to map each Machine to a Center. This mapping specifies as to which Center can the Machine be used in. Admin portal allows a Zonal Admin to map each Machine to a Center. A Machine can only be mapped to a Center which belongs to the Machines’ Administrative Zone or a child Administrative Zone of the Machines’ Administrative Zone.
+Admin portal allows a Zonal Admin to map each Machine to a Center. This mapping specifies as to which Center can the Machine be used in. A Machine can only be mapped to a Center which belongs to the Machines’ Administrative Zone or a child Administrative Zone of the Machines’ Administrative Zone.
 A Machine can later be un-mapped from the Center in cases where a Machine is needed to be moved to another Center. In such cases, the Machine will later need to be mapped to the new Center. In case the Machine is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Machine must be changed. 
 
 ### 5.3 Device Management [**[↑]**](#table-of-contents)
-Admin Portal allows an Administrator to manage Devices the Country will use for taking Registration of the Residents. These includes Device for biometric capture (Fingerprint, Iris, Web camera etc.) Device management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Devices. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage only Devices under his/her administrative zone.
+Admin Portal allows an Administrator to manage Devices the Country will use for taking Registration of the Residents. These includes Device for bio-metric capture (Fingerprint, Iris, Web camera etc.) Device management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Devices. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage only Devices under his/her administrative zone.
 
 #### 5.3.1 View Device
 The Admin portal allows Zonal Admin to view the list of all Devices available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Devices but only Active and Inactive Devices. 
@@ -238,11 +243,13 @@ For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-d
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-contents)
 A Zonal admin can Deactivate or Decommission a Device through the Admin Portal.
+
 Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Device. 
 Another difference between Deactivated and Decommissioned Device is that a Deactivated Device can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Device cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Device (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-contents)
-Admin portal allows a Zonal Admin to map each Device to a Center. This mapping specifies as to which Center can the Device be used in. Admin portal allows a Zonal Admin to map each Device to a Center. A Device can only be mapped to a Center which belongs to the Devices’ Administrative Zone or a child Administrative Zone of the Devices’ Administrative Zone.
+Admin portal allows a Zonal Admin to map each Device to a Center. This mapping specifies as to which Center can the Device be used in. A Device can only be mapped to a Center which belongs to the Devices’ Administrative Zone or a child Administrative Zone of the Devices’ Administrative Zone.
+
 A Device can later be un-mapped from the Center in cases where a Device is needed to be moved to another Center. In such cases, the Device will later need to be mapped to the new Center. In case the Device is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Device must be changed.
 Refer to section on more details of CRUD APIs used in above mentioned features
 
