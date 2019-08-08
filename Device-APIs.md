@@ -17,7 +17,7 @@ This section details about the service APIs in the Document modules
 
 * [Device Types - Filter values API](#post-devicetypesfiltervalues)
 
-* [Device Spec - Filter values API](#post-devicespecfiltervalues)
+* [Device Spec - Filter values API](#post-devicespecificationsfiltervalues)
 
 # Devices Master API
 
@@ -1206,7 +1206,7 @@ languagecode|Yes|Language code in Language code in ISO 639-2 format| |
 
 # Device Spec Filter values
 
-* [POST /devicespecifications/filtervalues](#post-devicespecfiltervalues)
+* [POST /devicespecifications/filtervalues](#post-devicespecificationsfiltervalues)
 
 # POST /devicespecifications/filtervalues
 
