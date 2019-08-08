@@ -353,6 +353,39 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_AUTH_012|	Config file not found in the config server|	If config file is missing in the config server
 
+
+### GET /login/refreshconfig
+This request will reload the configuration parameters.
+
+##### Note: When ever there is change in the property file, then this rest end point should be called manually,so that the property get reflected. 
+
+#### Resource URL
+<div>https://mosip.io/preregistration/v1/login/refreshconfig</div>
+
+#### Resource details
+Resource Details | Description
+------------ | -------------
+Response format | JSON
+Requires Authentication | No
+
+#### Responses:
+##### Success Response:
+###### Status code: '200'
+###### Description: Config parameter retrieved sucessfully 
+```JSON
+{
+  "id": "mosip.pre-registration.login.config",
+  "version": "1.0",
+  "responsetime": "2019-08-08T07:43:45.908Z",
+  "response": "success",
+  "errors": null
+} 
+```
+#### Other Failure details
+Error Code | Error Message | Error Description
+-----|----------|-------------
+PRG_AUTH_012|	Config file not found in the config server|	If config file is missing in the config server
+
 # Demographic Service (public)
 This service details used by Pre-Registration portal to maintain the demographic data by providing his/her basic details.
 
