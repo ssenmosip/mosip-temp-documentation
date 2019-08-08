@@ -161,33 +161,28 @@ Default Policy:
 ### 4.2 Country Specific News/Notifications
 ## 5. Resource Management [**[↑]**](#table-of-contents)
 ### 5.1 Center Management 
-#### 5.1.1 View Center
-The portal allows  Zonal Admin to provide the name of the zone or registration center ID to view the active/inactive Registration Center available in the jurisdiction of his/her zone. The system does not fetch the details of de-commissioned registration centers. The system validates the provided data, user's role, and on successful validation, provides the details of registration center else triggers the respective error notification (error notification are configurable and predefined).
+Admin Portal allows an Administrator to manage Registration Centers the Country will have for taking Registrations of the Residents. Center management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Centers. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage only Centers under his/her administrative zone.
 
+#### 5.1.1 View Center
+The Admin portal allows Zonal Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. 
+Admin portal UI shows the list of Registration Centers in only the country configured Primary Language. Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
 
 #### 5.1.2 Create Center
-Using the portal, Zonal Admin will provide all the mandatory data (ID, Name, Type, and Zone). The system validates the provided data and the user's role . On successful validation, the system creates the Registration Center with types (for example, regular, handicapped friendly, mobile etc) else triggers a respective error notification. 
-
- The registration centers are also created though the admin console. For more details, please refer to <Link will be provided for admin console registration center creation> 
+A Zonal Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages. 
+A Center is created with the following attributes: 
+Center name, Center Type, Address, Latitude, Longitude, Location, Contact Phone, Contact Person, Working Hours, No. of Kiosk, Center Start Time, Center End Time, Lunch Start Time, Lunch End Time, Time Zone and Holiday Zone and Administrative Zone the Center belongs to. A Center can only be mapped to the Administrative Zonal at the lowest Zonal hierarchy.
+While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Center Name) needs to be manually input in all the languages.
 	
 For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-contents)
-Using the portal, Zonal Admin will search for the registration center to be updated, open it in edit mode and update the respective data as required.  The system validates the updated data, user's role, and the the date and time stamp. On successful validation, the system updates the data of the registration center and provides an acknowledgement notification about the updates status else triggers a respective error notification. 
+Once a Center is created, a Zonal admin can edit a Center later if required. The Update can include adding the details in another required language that were missed during creation of the Center or changing the details of a Center itself.  
 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 
-#### A. Activate Registration Center
-
-The portal allows Zonal Admin to activate the registration centers, which are already deactivated due to any reasons. When the registration center is created and approved, it is activated automatically. The Zonal Admin selects registration center then all the registration centers of selected zone are displayed. The Zonal Admin can select one deactivated center or multiple deactivated centers at a time and selects Activate option. The system validates User's roles and activates the selected center(s). On successful validation, the system provides a notification else triggers a respective error notification. 
-
-#### B. Deactivate the Registration Center
-
-The portal allows Zonal Admin to deactivate the registration centers, which are already active. The Zonal Admin selects the registration center and the all the registration centers of that zone are displayed. The Zonal Admin can select an active center or multiple active centers at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected center(s), and the system provides a notification else triggers a respective error notification.
-
-#### C. Decommission Registration Center
-
-Decommissioning a center means removing the center from the zone permanently. The portal allows the Zonal Admin to decommission the registration centers. The Zonal Admin can un-map the resources associated with the registration center before decommissioning but he/she can also decommission the center without un-mapping the associated resources. In the situation, the associated resources of the registration center are automatically un-mapped. The system validates user's role and decommissions the selected center(s) and provides a notification on successful validation. Once the center is decommissioned, it cannot be retrieved.
+A Zonal admin can Deactivate or Decommission a Center through the Admin Portal.
+Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Both Deactivated or Decommissioned Center does not show up in the Pre-Registration UI and thus no appointments can be booked for such Centers. 
+Another difference between Deactivated and Decommissioned center is that a Deactivated center can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Center cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Center (if decommissioned by mistake), the Admin must directly update the database through the backend scripts.
 
 ### 5.2 Machine Management [**[↑]**](#table-of-contents)
 #### 5.2.1 View Machine
