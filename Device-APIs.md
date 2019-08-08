@@ -11,7 +11,7 @@ This section details about the service APIs in the Document modules
 
 * [Device Types Search API](#post-devicetypessearch)
 
-* [Device Spec Search API](#post-devicespecsearch)
+* [Device Spec Search API](#post-devicespecificationssearch)
 
 * [Device - Filter values API](#post-devicesfiltervalues)
 
@@ -970,7 +970,7 @@ status|["contains","equals","startsWith"]
 
 # Device Spec Search APIs
 
-* [POST /devicespecifications/search](#post-devicespecsearch)
+* [POST /devicespecifications/search](#post-devicespecificationssearch)
 
 # POST /devicespecifications/search
 
