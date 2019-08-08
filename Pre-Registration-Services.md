@@ -354,7 +354,6 @@ Error Code | Error Message | Error Description
 -----|----------|-------------
 PRG_AUTH_012|	Config file not found in the config server|	If config file is missing in the config server
 
-
 ### GET /login/refreshconfig
 This request will reload the configuration parameters.
 
