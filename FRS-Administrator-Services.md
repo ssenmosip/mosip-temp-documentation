@@ -334,7 +334,7 @@ For more details, please please refer to [**section**](FRS-Admin-Services#26-map
 
 #### B. Un-map User to a Registration Center
 The portal allows Zonal Admin to un-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system un-maps the user to a registration center.Once user is un-mapped, he/she will be displayed in the available list of users.
-#### C. Rn-map User to a Registration Center
+#### C. Re-map User to a Registration Center
 The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users. 
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
