@@ -1,0 +1,5 @@
+Bonjour $ name_eng,
+
+Les données saisies ne sont pas valides. Veuillez réessayer avec les données correctes.
+
+Merci!

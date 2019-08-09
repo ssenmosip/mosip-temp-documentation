@@ -1,0 +1,5 @@
+Bonjour $ name_eng,
+
+Félicitations, votre demande est traitée. Le lien pour télécharger votre e-UIN est $ link.
+
+Merci!
