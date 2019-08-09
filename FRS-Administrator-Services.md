@@ -341,6 +341,14 @@ The portal allows Zonal Admin to re-map users to the registration center by prov
 ### 6.1 View Master Data Types
 The portal allows Zonal Admin to view the master data type. The master data types are configured by admin console. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
 ### 6.2 View Master Data for Each Table (WIP)
+The portal allows the Administrator to view the list of any Masterdata which are required by the country. The Administrator can access these list views by clicking on a type of Masterdata in the Masterdata Types Screen.
+Each List view consumes the same UI template and follows following criteria:
+1.	List view shows data of a Masterdata Type only in the country configured Primary Language. 
+2.	An Administrator can access pagination functionalities on each list screens. Pagination functionality included selecting no. of rows to be displayed on the list view and options to jump to next or previous set of records. 
+3.	An Administrator can sort the data by any column
+4.	An Administrator can also perform certain actions from the list view which includes activating or deactivating a record in Masterdata.
+Besides the list view, an Administrator can also view the details of a Masterdata record from the Masterdata List view. This can be done by clicking on record. The detail view shows all the details of a Masterdata record in multiple languages. The Administrator can access all the actions for a Master record which are available on the List view.
+
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
 #### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
 #### A. Create/Update Document Types
