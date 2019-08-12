@@ -133,7 +133,8 @@ Upon receiving a request to generate Partner Manager ID, the system performs the
  
 # 2. MISP Activities [**[↑]**](#table-of-contents)	 
 ## 2.1 License Key Management [**[↑]**](#table-of-contents)
-Upon Receiving a request to generate License Key, the system performs the following steps:
+#### A. Generate MISP License Key
+Upon receiving a request to generate License Key, the system performs the following steps:
 1. MISP License key will be issued during creation of MISP.
 1. Generates License Key as per default License Key generation logic defined below:
    * License Key Generation should follow a random generation pattern
@@ -142,7 +143,14 @@ Upon Receiving a request to generate License Key, the system performs the follow
    * Each generated key should be unique
 1. The system then responds with the License Key, err (as applicable) to the source 
 1. The system raises an alert in case of exceptions 
+#### B. Regenerate MISP License Key
+Upon receiving a request to regenerate License Key with the input parameter, such as MISP Admin Username, MISP Admin Password/Security token, and MISP License Key, the system performs the following steps:
 
+1. Validates if the MISP License Key is active.
+1. Validates if the status of the MISP License key is expired.
+1. Generates a new license key and associates expiry (configurable) to the License key. The default period is 6 months
+1. Sets the default status of MISP License Key as active.
+1. Responds with the parameter, such as MISP License Key, MISP License key Status, MISP License Key expiry, err (as applicable).
 # 3. Partner Activities [**[↑]**](#table-of-contents)	
 ## 3.1 Registration [**[↑]**](#table-of-contents) 
 #### A. Create Auth/E-KYC Partners
