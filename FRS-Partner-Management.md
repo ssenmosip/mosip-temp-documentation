@@ -114,13 +114,7 @@ For creation of Auth/E-KYC Partners its necessary that Partners Role exists in t
 ### 1.2.3 Policy Manager [**[↑]**](#table-of-contents)
 #### A. Generate Policy Manager ID
 Upon receiving a request to generate Policy Manager ID, the system performs the following steps:
-1. Generates Policy Manager ID as per default Policy Manger ID generation logic defined below:
-   * Policy Manager ID should only be numeric
-   * Policy Manager ID generated should be of length of 2 digits (The partner manager will utilize 10 to 50, Policy Manager will utilize 51 to 90.). 
-   * Policy Manager ID length should be configurable. (Note: Policy Manager should start with the first no with the defined digits for a count of 40)
-   * Each new Policy Manager ID should be incremented by 1 for each new request
-   * Policy Manager ID generation should start from 51 
-   * Each generated ID should be unique
+1. MOSIP Admin will create Policy Manager.
 1. The system then responds with the Policy Manager ID, err (as applicable) to the source 
 1. Raises an alert in case of exceptions 
 
@@ -128,18 +122,11 @@ Upon receiving a request to generate Policy Manager ID, the system performs the 
 
 #### A. Generate Partner Manager ID
 Upon receiving a request to generate Partner Manager ID, the system performs the following steps:
-1. Generates Partner Manager ID as per default Partner Manger ID generation logic as defined below:
-   * Partner Manager ID should only be numeric
-   * Partner Manager ID generated should be of length of 2 digits (The partner manager is assigned one per policy group. The no of policy groups for a country will be only a max of say 40)
-   * Partner Manager ID length should be configurable. (Note: Partner Manager should start with the first no with the defined digits for a count of 50)
-   * Each new Partner Manager ID should be incremented by 1 for each new request
-   * Partner Manager ID generation should start from 10 for the default length
-   * Each generated ID should be unique
+1. MOSIP Admin will create Partner Manager
 1. The system then responds with the Partner Manager ID to the source 
 1. Raises an alert in case of exceptions
 
 ## 1.3 Policy Group Assignment (Regulator) [**[↑]**](#table-of-contents)
-#### A. Define the master data for PM services
 * A Country should define all the policy groups in the Country
 * One Partner Manager should be created in IAM for each of these policy groups
 * In general Partner Manager and Policy Manger should be mapped to any of the policy groups created above
@@ -147,6 +134,7 @@ Upon receiving a request to generate Partner Manager ID, the system performs the
 # 2. MISP Activities [**[↑]**](#table-of-contents)	 
 ## 2.1 License Key Management [**[↑]**](#table-of-contents)
 Upon Receiving a request to generate License Key, the system performs the following steps:
+1. MISP License key will be issued during creation of MISP.
 1. Generates License Key as per default License Key generation logic defined below:
    * License Key Generation should follow a random generation pattern
    * License Key should be alphanumeric
@@ -278,7 +266,25 @@ Upon receiving a request to retrieve the Partner API key with the input paramete
 1. Then the system responds with the parameters, such as status, Partner API key (as applicable), Partner API key status (as applicable), and err (as applicable).
 
 ## 5.2 Partner Policy Assignment [**[↑]**](#table-of-contents)
-#### A. Create “Partner API key to Policy” Mappings
+#### A. Generate Partner API key 
+
+Upon receiving a request to generate Partner API key, the system performs the following steps:
+1. Generates Partner API key as per the defined logic mentioned below:
+   * Partner API key Generation must follow a random generation pattern
+   * Partner API key must be alphanumeric
+   * Partner API key generated must be of length of 6 digits 
+1. Responds with the Partner API key, err (as applicable) to the source.
+1. In case of exceptions, system triggers the relevant error messages.
+
+#### B. Retrieve Auth/E-KYC Policy for policy group to assign relevant policy to partner API key 
+Upon receiving a request to fetch a Policy with the input parameters, such as Partner Manager Username, Partner Manager Password, and Policy Name, the system performs the following steps:
+1. Validates the credentials of the Policy Manager.
+1. Validates if the policy name is available in the database.
+1. Fetches the data based on a complete/partial match of Policy Name and the Policy Group of the Partner Manager
+1. If the input parameter received is null or empty, then the system fetches all the data of the Policies of the Policy Group of the Partner Manager. 
+1. Responds to the source with the attributes, such as Policy ID, Policy Name, Policy Description, Policy Status, and Policy file.
+
+#### C. Create “Partner API key to Policy” Mappings
 
 Upon receiving a request to retrieve Partner API key requests with the input parameters, such as Partner Manager Username, Partner Manager Password/Security token, Partner API key, and policy ID, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
@@ -290,7 +296,7 @@ Upon receiving a request to retrieve Partner API key requests with the input par
 1. Updates the status of the Partner API key request number to ‘Issued’
 1. Sets the status of the Partner API key to ‘active’. 
 1. Then the system responds with the parameters, such as status, err (as applicable).
-#### B. Retrieve “Partner API key to Policy” Mappings
+#### D. Retrieve “Partner API key to Policy” Mappings
 
 Upon receiving a request to retrieve Partner API key requests with the input parameters, such as Partner Manager Username, Partner Manager Password/Security token, and Partner API key, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
@@ -299,30 +305,14 @@ Upon receiving a request to retrieve Partner API key requests with the input par
 1. Fetches the data based on a complete match of Partner API key of the Partner Manager.
 1. If the input parameter received is null or empty, the system fetches the policy of all the Partner API keys of the Policy Group of the Partner Manager. 
 1. Then the system responds with the parameters, such as policy ID, err (as applicable) for the partner API keys retrieved.
-#### C. Generate Partner API key 
 
-Upon receiving a request to generate Partner API key, the system performs the following steps:
-1. Generates Partner API key as per the defined logic mentioned below:
-   * Partner API key Generation must follow a random generation pattern
-   * Partner API key must be alphanumeric
-   * Partner API key generated must be of length of 6 digits 
-1. Responds with the Partner API key, err (as applicable) to the source.
-1. In case of exceptions, system triggers the relevant error messages.
-
-#### D. Activate/deactivate Partner API key based on 'policy group'
+#### E. Activate/deactivate Partner API key based on 'policy group'
 Upon receiving a request to retrieve Partner API key requests with the input parameters, such as Partner Manager Username, Partner Manager Password/Security token, Partner API key, and Partner API key status, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
 1. Validates if the Partner API key is available in the database.
 1. Retrieves the policy group of the partner who is issued the Partner API key.
 1. Validates if the policy group of the Partner Manager is same as that of the Partner
 1. Updates the status of the Partner API key and then responds with the parameters, such as status, err (as applicable).
-#### E. Retrieve Auth/E-KYC Policy for policy group to assign relevant policy to partner API key
-Upon receiving a request to fetch a Policy with the input parameters, such as Partner Manager Username, Partner Manager Password, and Policy Name, the system performs the following steps:
-1. Validates the credentials of the Policy Manager.
-1. Validates if the policy name is available in the database.
-1. Fetches the data based on a complete/partial match of Policy Name and the Policy Group of the Partner Manager
-1. If the input parameter received is null or empty, then the system fetches all the data of the Policies of the Policy Group of the Partner Manager. 
-1. Responds to the source with the attributes, such as Policy ID, Policy Name, Policy Description, Policy Status, and Policy file.
 #### F. Update Partner API key to Policy Mappings 
 Upon receiving a request to retrieve Partner API key requests with the input parameters, such as Partner Manager Username, Partner Manager Password/Security token, Partner API key, old policy ID, and new policy ID, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
@@ -340,50 +330,20 @@ Upon receiving a request to retrieve Partner API key requests with the input par
 1. Responds with the parameters, such as status, err (as applicable).
 
 # 6. Impact on Authentication
-#### A. Validate Partner ID pattern
-Upon receiving a request to perform data validation on Partner ID with input parameter (Partner ID), the system performs the following steps:
-1. Validates Partner ID as per the Partner ID generation policy defined below:
-   * Partner ID must be numeric
-   * Partner ID generated must be of length of 4 digits
-   * Partner ID length must be configurable. (Note: Partner ID should start with the first number with the defined digits)
-   * Each new Partner ID must be incremented by 1 for each new request
-   * Partner ID generation must start from 1000
-   * Each generated ID must be unique.
-1. Responds with the required result (Valid/Invalid).
-1. In case of exceptions, system triggers the relevant error messages.
-#### B. Validate MISP License Key Pattern
-Upon receiving a request to perform data validation on License Key with input parameter (MISP License Key), the system performs the following steps:
-1. Validates License Key as per the License Key generation policy defined below:
-   * License Key Generation must follow a random generation pattern
-   * License Key must be alphanumeric
-   * License Key generated must be of length of 8 digits 
-   * Each generated key must be unique
-1. Responds with the required result (Valid/Invalid).
-1. In case of exceptions, system triggers the relevant error messages.
-#### C. ID Authentication Validates MISP License key
+#### A. ID Authentication Validates MISP License key
 Upon receiving a request from ID Authentication to check the status of MISP License Key with input parameter (MISP License Key), the system performs the following steps:
-1. Validates the length of the MISP License Key.
 1. Validates if the status of the MISP License Key is active.
 1. Retrieves the MISP status corresponding to the MISP License key in the request.
 1. Validates if the status of MISP is active.
 1. Responds with the parameters, such as status, err (as applicable).
-#### D. ID Authentication retrieves policy of a partner with partner-ID and partner API key
+#### B. ID Authentication retrieves policy of a partner with partner-ID and partner API key
 Upon receiving a request from ID Authentication to retrieve the policy with input parameters (Partner ID and Partner API key), the system performs the following steps:
-1. Validates the length and pattern of the Partner ID.
 1. Validates if the status of the Partner ID is active.
 1. Validates the length and pattern of the Partner API Key.
 1. Validates if the status of Partner API Key is active.
 1. Validates if the Partner API key belong to the partner.
 1. Retrieves the policy ID mapped to the Partner API key.
 1. Responds with the parameters, such as policy ID, Policy Name, Policy Description, Policy Status, Policy file, and err (as applicable).
-#### E. Validate Partner API key pattern
-Upon receiving a request to perform data validation on Partner API key with input parameter (Partner API key), the system performs the following steps:
-1. Validates Partner API key as per the License Key generation policy defined below:
-   * Partner API key Generation must follow a random generation pattern
-   * Partner API key must be alphanumeric
-   * Partner API key generated must be of length of 6 digits
-1. Responds with the required result (Valid/Invalid).
-1. In case of exceptions, system triggers the relevant error messages.
 
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
