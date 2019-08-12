@@ -31,13 +31,16 @@
 
 # 1. Users and Roles [**[↑]**](#table-of-contents)	 
 ## 1.1 User Creation [**[↑]**](#table-of-contents)
-MOSIP allows the creation of the following roles: Admin, Partner Manager, MISP Admin, Partners and Policy Manager should be created in IAM.  
+MOSIP allows the creation of the following roles: MISP, Partners, Partner Manager, and Policy Manager.
 
-The system also allows Updation, Retrieval, Activation and Deactivation of the user
+MOSIP Admin will create and manage the roles MISP, Policy Manager and Partner Manager. Partners are created in a 
+self-service mode.
+
+The system also allows Updation, Retrieval, Activation and Deactivation of the user.
  
 ## 1.2 Role Mapping [**[↑]**](#table-of-contents) 
 ### 1.2.1 MISP [**[↑]**](#table-of-contents)
-#### A. Create MISP ID
+#### A. MISP Creation
 Upon receiving a request to create MISP with the parameters, the system performs the following steps:
 1. Validates the credentials of the MOSIP Admin.
 1. The system then validates if the MISP is not registered earlier using the same MISP Organization Name.
@@ -69,7 +72,7 @@ Upon receiving a request from the admin user to update an  MISP, the system perf
 1. Ideally an update MISP request should have the following parameters: MOSIP Admin Username, MOSIP Admin Password, MISP ID, MISP Organization Name, MISP Contact Number, MISP Email ID, MISP Address
 1. The system updates the record based on the MISP ID and based on the requested parameters and responds with a status, err (as applicable)
 
-#### D. Deactivate/suspend MISPs
+#### D. Deactivate/Suspend MISP and MISP License
 
 An Admin user can update MISP License key status
 
@@ -89,7 +92,7 @@ Upon receiving a request from the admin user to update an MISP License key statu
 
 ### 1.2.2 Partner [**[↑]**](#table-of-contents)
 
-#### A. Generate partner ID
+#### A. Partner Creation 
 Upon receiving a request to generate partner ID, the system performs the following steps:
 1. MOSIP system can generate partner ID as per the defined logic described below:
    * Partner ID should only be numeric
