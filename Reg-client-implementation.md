@@ -12,7 +12,7 @@ It doesn't detail about each methods level information since that are covered in
 |:------:|-----|  
 |**Technical Detail:**| Post successful login, session context would be created. That will be used throughout the application at the required places. The user detail and the respective roles are encapsulated inside the context. Without creation of this context object, the packet can't be created. |  
 |**Main Service class and method:**| SessionContext.create(UserDTO userDTO, String loginMethod, boolean isInitialSetUp, boolean isUserNewToMachine, AuthenticationValidatorDTO authenticationValidatorDTO) |  
-|**Input parameter:**| UserDTO – It should contain info of id, name, roles, center-id. loginMethod – possible values are PWD, OTP, FINGERPRINT, FACE, IRIS. isInitialSetUp – true/false, isUserNewToMachine – true/false,  AuthenticationValidatorDTO – should contain id, password, otp|  
+|**Input parameter:**| UserDTO â€“ It should contain info of id, name, roles, center-id. loginMethod â€“ possible values are PWD, OTP, FINGERPRINT, FACE, IRIS. isInitialSetUp â€“ true/false, isUserNewToMachine â€“ true/false,  AuthenticationValidatorDTO â€“ should contain id, password, otp|  
 |**Auth:**| Not required. |  
 |**External Connectivity:**| Service and DB |  
 
@@ -25,10 +25,10 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| SessionContext is required for creating the packet |  
 |**External Connectivity**| DB, File system |  
 
-|**Functionality:**|  PACKET SYNC– Sync all the Approved/ Rejected/ Re-Register Approved packets before Uploading to server |   
+|**Functionality:**|  PACKET SYNCâ€“ Sync all the Approved/ Rejected/ Re-Register Approved packets before Uploading to server |   
 |:------:|-----|  
 |**Main Service class and method:**| PacketSyncServiceImpl.java - packetSync(List<PacketStatusDTO> packetsToBeSynched)|
-|**Input Parameter:**|    packetsToBeSynched – The packet details which needs to be Synched. |  
+|**Input Parameter:**|    packetsToBeSynched â€“ The packet details which needs to be Synched. |  
 |**Auth:**| Authentication token required. |  
 |**External Connectivity:**| Packet Sync service REST call |  
 
@@ -56,10 +56,10 @@ It doesn't detail about each methods level information since that are covered in
 |**Auth:**| Authentication token required while downloading the packets. Based on the SessionContext object the advice would attach the token and invoke the required service call. |  
 |**External Connectivity:**| Pre Reg service REST call |  
 
-|**Functionality:**|  EOD APPROVAL – Approve/Reject all the created packets |   
+|**Functionality:**|  EOD APPROVAL â€“ Approve/Reject all the created packets |   
 |:------:|-----|  
 |**Main Service class and method:**| RegistrationApprovalServiceImpl.java - updateRegistration(String registrationID, String statusComments, String clientStatusCode)|
-|**Input Parameter:**|    registrationID – The registration id of the packet that needs to be updated, statusComments - The comment status that needs to be updated for the given registration id of the packet, clientStatusCode - The status code that needs to be updated for the given registration id of the packet.|
+|**Input Parameter:**|    registrationID â€“ The registration id of the packet that needs to be updated, statusComments - The comment status that needs to be updated for the given registration id of the packet, clientStatusCode - The status code that needs to be updated for the given registration id of the packet.|
 |**Auth:**| NA |  
 |**External Connectivity:**| DB |
 
@@ -73,7 +73,7 @@ It doesn't detail about each methods level information since that are covered in
 |**External Connectivity:**| REST API calls, DB|
 
 
-|**Functionality:**|  MDM Integration – Register Device |   
+|**Functionality:**|  MDM Integration â€“ Register Device |   
 |:------:|-----|  
 |**Technical Detail:**| This method automatically scans all devices by connecting to the MDM service, which is running in a particular port and stores it in device registry. |
 |**Main Service class and method:**| MosipBioDeviceManager - init()|  
@@ -85,7 +85,7 @@ It doesn't detail about each methods level information since that are covered in
 |**Functionality:**|  MDM Integration -Capture bio-metric |   
 |:------:|-----|  
 |**Main Service class and method:**| BioServiceImpl  - getFingerPrintImageAsDTOWithMdm(FingerprintDetailsDTO fpDetailsDTO, String fingerType) |  
-|**Input Parameter:**|    FingerprintDetailsDTO – dto contains the finger print related details, fingerType – Type of the device like Fingerprint/ Iris/Face etc |  
+|**Input Parameter:**|    FingerprintDetailsDTO â€“ dto contains the finger print related details, fingerType â€“ Type of the device like Fingerprint/ Iris/Face etc |  
 |**Auth:**| Not required |  
 |**External Connectivity:**| Capture - MDM service REST call |  
 
@@ -93,7 +93,7 @@ It doesn't detail about each methods level information since that are covered in
 |**Functionality:**|  MDM Integration  - Validate bio-metric against the bio value already captured and stored in Database. |   
 |:------:|-----|  
 |**Main Service class and method:**| BioServiceImpl  - validateFingerPrint(String userId) - based on provided user Id the relevant bio information would be fetched from database and same would be validated against the bio data received from MDM service. |  
-|**Input Parameter:**|   mosipBioDeviceManager – scan(String deviceType)|  
+|**Input Parameter:**|   mosipBioDeviceManager â€“ scan(String deviceType)|  
 |**Auth:**| Not required |  
 |**External Connectivity:**| DB, Capture - MDM service REST call |  
 
@@ -275,5 +275,6 @@ Below find the list of error code and description which are thrown from applicat
 |RegIdObjectValidator			|REG-IOS-001	|Invalid ID Object Schema															|
 |RegIdObjectValidator			|REG-IOS-002	|Invalid ID Object Pattern															|
 |RegIdObjectValidator			|REG-IOS-003	|Invalid Master Data Object Pattern													|
+|RestClientAuthAdvice			|REG-RCA-001	|Generic Exception reported by server, while invoking web-service.    							|
 |RestClientAuthAdvice			|REG-RCA-002	|Exception while generating the signature of resquest body							|
 |RestClientAuthAdvice			|REG-SDU-004	|Response header received from the web-service is not as expected					|	
