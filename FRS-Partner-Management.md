@@ -27,7 +27,7 @@
 * [Partner Management API](#partner-management-api-)
 * [Process View](#process-view-)
 
-[**Introduction of Partner Management**](Partner-Management)
+# [Introduction of Partner Management](Partner-Management)
 
 # 1. Users and Roles [**[↑]**](#table-of-contents)	 
 ## 1.1 User Creation [**[↑]**](#table-of-contents)
