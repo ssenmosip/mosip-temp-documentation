@@ -117,11 +117,12 @@ A HMAC/checksum function is a way to create a compact representation of an arbit
 ## 4. Notification [**[↑]**](#table-of-contents)
 ### 4.1 OTP Notification Services [**[↑]**](#table-of-contents)
 1. OTP Notification Services is a combined service, which receives a request to generate an OTP and responds directly to the User using SMS or Email Notification. 
-1. The service receives a request to generate and send OTP with Notification Type (SMS and/or Email), Template (SMS and/or Email) and Mobile Number (SMS and/or Email). 
+1. The service receives a request to generate and send OTP with User ID, OTP Channel (MOBILE and/or EMAIL), Template Variables, and Template Context (SMS and/or Email). 
 1. It then calls OTP Generator Service to generate an OTP against a Key (Mobile Number or Email). 
 1. It calls the Template Merger Service to merge OTP with the Template (SMS and/or Email). 
 1. It calls SMS and/or Email Notification Service to send the notification as per the template. 
 1. The choice of sending SMS and/or Email depends on the Notification Type Flag received in Input.
+1. The system responds with the error message if a particular User ID does not have an Email or Mobile number registered against it if the otp channel received is Email or Mobile number respectively 
 
 ### 4.2 Email Notification [**[↑]**](#table-of-contents)
 1. This service triggers an Email Notification upon receiving a request to trigger notification with Recipient Email-ID, CC Recipients Email-IDs, Subject, Email Content, and Attachment as input parameter. 
