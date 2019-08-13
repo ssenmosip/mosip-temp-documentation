@@ -68,6 +68,7 @@ Data Access Manager provides a DAO (Data Access Object) interface to do the foll
    * Center-Machine-Device Mapping
    * Center-Machine-User Mapping
    * Center-User Mapping
+   * Sync Job Definition
 4. The Sync Handler service only sends incremental changes based on the Timestamp received by the service.
 1. For configuration, sync handler receives a request to sync configurations and will respond back with Registration Client specific and Global Configurations.
 1. For User, Roles and Respective User-Role mappings, Sync handler receives Center ID and Timestamp and will respond to the Registration Client with Center specific incremental changes.
