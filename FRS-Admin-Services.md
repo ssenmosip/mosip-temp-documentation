@@ -1195,7 +1195,8 @@ Refer below for the process:
 #### C. Fetch Registration Center details based on a Registration Center ID and Language Code.
 
 
-On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Language Code), the system fetches all the Registration Center attributes for the Registration Center ID and Language Code received
+On receiving a request to fetch Registration Center Details with the input parameters (Registration Center ID and Language Code), the system fetches all the Registration Center attributes for the Registration Center ID and Language Code received. The system only fetches active Registration Centers.
+
 
 Refer below for the process:
 1. While fetching the registration center details the system validates if all required input parameters have been received as listed below for each specific request
@@ -1252,7 +1253,7 @@ Refer below for the process:
 
 #### E. Fetch Registration Center details based on a Location Code and a Language Code
 
-Upon receiving a  request to fetch the List of Registration Centers with the input parameter (Location Code and Language Code), the system fetches the list of all the Registration Centers against the Location Code and Language Code received with all the attributes for each Registration Center
+Upon receiving a  request to fetch the List of Registration Centers with the input parameter (Location Code and Language Code), the system fetches the list of all the Registration Centers against the Location Code and Language Code received with all the attributes for each Registration Center. The system only fetches active Registration Centers.
 
 Refer below for the process:
 
@@ -1280,7 +1281,7 @@ Refer below for the process:
 #### F. Fetch Registration Center details based on a Longitude and a Latitude, Proximity Distance and Language Code
 
 
-On receiving a request  to fetch the List of Registration Centers with the input parameter (Longitude and Latitude, Proximity distance and Language Code), the system fetches the  List of Registration Centers against the input parameters received.
+On receiving a request  to fetch the List of Registration Centers with the input parameter (Longitude and Latitude, Proximity distance and Language Code), the system fetches the  List of Registration Centers against the input parameters received. The system only fetches active Registration Centers.
 
 Refer below for the process:
 
@@ -1312,7 +1313,7 @@ Refer below for the process:
 #### G. Fetch the List of Registration Centers based on Location Hierarchy Level, text input and a Language Code
 
 
-Upon receiving a request to fetch the List of Registration centers with input parameters (Location Hierarchy Level, Text Input and a Language Code), the system fetches the List of Registration centers
+Upon receiving a request to fetch the List of Registration centers with input parameters (Location Hierarchy Level, Text Input and a Language Code), the system fetches the List of Registration centers. The system only fetches active Registration Centers.
 
 Refer below for the process:
 
