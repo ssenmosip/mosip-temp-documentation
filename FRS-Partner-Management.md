@@ -93,7 +93,7 @@ Upon receiving a request from the admin user to update an MISP License key statu
 #### A. Partner Creation 
 Upon receiving a request to generate partner ID, the system performs the following steps:
 1. Partner ID will be created based on default logic. 
-1. The no of digits for Partner ID generation will be configurable
+1. The number of digits for Partner ID generation will be configurable
 1. The system then responds with the Partner ID, err (as applicable) to the source 
 1. Raises an alert in case of exceptions 
 
