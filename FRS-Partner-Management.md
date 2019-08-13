@@ -26,7 +26,9 @@
 * [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 * [Partner Management API](#partner-management-api-)
 * [Process View](#process-view-)
-[**More details on Partner Management**](Partner-Management)
+
+[**Introduction of Partner Management**](Partner-Management)
+
 # 1. Users and Roles [**[↑]**](#table-of-contents)	 
 ## 1.1 User Creation [**[↑]**](#table-of-contents)
 MOSIP allows the creation of the following roles: MISP, Partners, Partner Manager, and Policy Manager.
