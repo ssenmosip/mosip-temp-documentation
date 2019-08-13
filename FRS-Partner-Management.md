@@ -19,10 +19,8 @@
     * [4.1.2 List, View, Add, Edit, Activate, Deactivate Policies](#412-list-view-add-edit-activate-deactivate-policies-) _(PM_FR_4.2)_
     * [4.1.3 Filtered by Policy Group (Regulator)](#413-filtered-by-policy-group-regulator-) _(PM_FR_4.3)_
 - [5. Partner Manager Activities](#5-partner-manager-activities-)
-  * [5.1 Partner Management](#51-partner-management-)
-    * [5.1.1 Creation and Publication of Authentication Policies](#511-creation-and-publication-of-authentication-policies-) _(PM_FR_5.1)_
-    * [5.1.2 List, View, Add, Edit, Activate, Deactivate Policies](#512-list-view-add-edit-activate-deactivate-policies-) _(PM_FR_5.2)_
-    * [5.1.3 Filtered by Policy Group (Regulator)](#513-filtered-by-policy-group-regulator-) _(PM_FR_5.3)_
+  * [5.1 Partner Management](#51-partner-management-) _(PM_FR_5.1 & 5.2)_
+    * [5.1.1 Filtered by Policy Group (Regulator)](#511-filtered-by-policy-group-regulator-) _(PM_FR_5.3)_
   * [5.2 Partner Policy Assignment](#52-partner-policy-assignment-) _(PM_FR_5.4)_ 
 - [6. Impact on Authentication](#6-impact-on-authentication)
 * [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
@@ -94,13 +92,8 @@ Upon receiving a request from the admin user to update an MISP License key statu
 
 #### A. Partner Creation 
 Upon receiving a request to generate partner ID, the system performs the following steps:
-1. MOSIP system can generate partner ID as per the defined logic described below:
-   * Partner ID should only be numeric
-   * Partner ID generated should be of length of 4 digits
-   * Partner ID length should be configurable. (Note: Partner ID should start with the first no with the defined digits)
-   * Each new Partner ID should be incremented by 1 for each new request
-   * Partner ID generation should start from 1000
-   * Each generated ID should be unique
+1. Partner ID will be created based on default logic. 
+1. The no of digits for Partner ID generation will be configurable
 1. The system then responds with the Partner ID, err (as applicable) to the source 
 1. Raises an alert in case of exceptions 
 
@@ -240,23 +233,21 @@ Upon receiving a request to update a Policy with input parameters (Policy Manage
 ### 4.1.3 Filtered by Policy Group (Regulator) [**[↑]**](#table-of-contents)
 # 5. Partner Manager Activities [**[↑]**](#table-of-contents)	 
 ## 5.1 Partner Management [**[↑]**](#table-of-contents) 
-### 5.1.1 Creation and Publication of Authentication Policies [**[↑]**](#table-of-contents)
-#### A. Update Partner Status
+#### A. Activate/Deactivate Auth/E-KYC Partners
 Upon receiving a request to update the partner status with the input parameters, such as Partner Manager Username, Partner Manager Password/security token, Partner ID, and Partner Status, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
 1. Validates if Partner ID is valid.
 1. Validates if Partner ID belong to the policy group of the Partner Manager.
 1. After all the validations are performed, the system updates the ‘Partner Status’ for the requested Partner ID and responds with the status message.
   
-### 5.1.2 List, View, Add, Edit, Activate, Deactivate Policies [**[↑]**](#table-of-contents)
-#### A. View Auth/E-KYC Partners
+#### B. View Auth/E-KYC Partners
 Upon receiving a request to retrieve the Partner with the input parameters, such as Partner Manager Username and Partner Manager Password/Security token, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
 1. Retrieves the policy group of the Partner Manager.
 1. Fetches all the partner details of the partners registered in the policy group.
 1. Then the system responds with the parameters, such as PartnerID, Partner status, Partner Organization Name, Partner Contact Number, Partner Email ID, Partner Address, and err (as applicable).
 
-### 5.1.3 Filtered by Policy Group (Regulator) [**[↑]**](#table-of-contents)
+### 5.1.1 Filtered by Policy Group (Regulator) [**[↑]**](#table-of-contents)
 #### A. View  Partner API key requests based on 'policy group'
 Upon receiving a request to retrieve the Partner API key with the input parameters, such as Partner Manager Username and Partner Manager Password/Security token, the system performs the following steps:
 1. Validates the credentials of the partner, such as Partner Manager Username and Partner Manager Password/security token.
