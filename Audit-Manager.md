@@ -38,6 +38,7 @@ Upon receiving a request to store audit logs with the input parameters, the audi
    * Success
    * Failure
 1. Raises an alert in case of an exception 
+The Audit Manager being an asynchronous service, also supports prevention of Audit data loss in cases where Audit service itself is down or the Audit Database is down. Audit Manager does it by putting any storing any audit records which are not stored in DB into a Log file and continuing with capturing Audits.
 
 ## Log Manager
 Log manager provides following functionalities:
