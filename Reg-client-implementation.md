@@ -278,3 +278,5 @@ Below find the list of error code and description which are thrown from applicat
 |RestClientAuthAdvice			|REG-RCA-001	|Generic Exception reported by server, while invoking web-service.    							|
 |RestClientAuthAdvice			|REG-RCA-002	|Exception while generating the signature of resquest body							|
 |RestClientAuthAdvice			|REG-SDU-004	|Response header received from the web-service is not as expected					|	
+|DemographicDetailController            |KER-IDV-102    |PRID should not contain any sequential and repeated block of number for 2 or more than two digits
+|                          
