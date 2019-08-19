@@ -77,6 +77,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"referenceId" : "987654321-89AB-CDEF-0123-456789ABCDEF",
+        "referenceURL" : NULL,
 	"maxResults" : "10",
 	"targetFPIR" : "30",
 	"gallery" : {		
