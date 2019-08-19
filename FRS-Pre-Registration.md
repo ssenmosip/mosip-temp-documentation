@@ -106,7 +106,7 @@ The Pre-Registrations created will be associated with User Id. The Individual ca
 |**Booked**|  Filled demographic details, uploaded documents, and booked appointment|Visit the registration center on the appointment date and time|
 |**Expired**| Appointed date has passed|N/A
 
-If the individual visits the Registration Centre and consumes the appointment, then the application will be removed from the list
+The applications are sorted and displayed by the order of creation of application. The first application created appears first, latest created/modified application appears at the end. If the individual visits the Registration Centre and consumes the appointment, then the application will be removed from the list. If the appointment date has passed, the status changes to "Expired" and is retained on the dashboard for further rebooking/modification as required.
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/pre-registration/pre-registration-demographic-service.md)
 
