@@ -158,7 +158,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
  - IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR
  - This request should not match against referenceID that is not in the reference database
  - If referenceID is not NULL, then, ABIS performs 1:n comparison against all the entries in ABIS using the referenceID
- - If referenceID is NULL and referenceURL is provided, then, ABIS performs 1:n comparision against all the entries in ABIS using the referenceURL
+ - If referenceID is NULL and referenceURL is provided, then, ABIS performs 1:n comparison against all the entries in ABIS using the referenceURL
  - If referenceID and reference URL both are NULL, then, ABIS throws an error (error code 5)
 
 ### DELETE
