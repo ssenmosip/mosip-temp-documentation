@@ -148,19 +148,19 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 ```
 
 ### Behavior of IDENTIFY
-* IDENTIFY request MUST provide a 1:n comparison
-* The input set for comparison can be provided by referenceID
-* The collection against which the input set has to be matched is specified by a set of referenceID's. 
+ - IDENTIFY request MUST provide a 1:n comparison
+ - The input set for comparison can be provided by referenceID
+ - The collection against which the input set has to be matched is specified by a set of referenceID's. 
    If referenceId is provided, atleast one referenceID must be provided in the input. The provided referenceID's must be 
    present in the reference database.
-* If IDENTIFY is against all the entries in ABIS, then gallery attribute MUST not be specified
-* maxResults specify how many results can be returned. By default this will be 10
-* IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR
-* This request should not match against referenceID that is not in the reference database
-* If an ABIS supports only one request for both INSERT and IDENTIFY operation, then, 
-* * The referenceID with referenceURL is sent as part of the request body 
-* * The ABIS internally inserts the biometrics available in the referenceURL in their reference database against the referenceID
-* * The ABIS then does an 1:n comparison 
+ - If IDENTIFY is against all the entries in ABIS, then gallery attribute MUST not be specified
+ - maxResults specify how many results can be returned. By default this will be 10
+ - IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR
+ - This request should not match against referenceID that is not in the reference database
+ - If an ABIS supports only one request for both INSERT and IDENTIFY operation, then, 
+ - - The referenceID with referenceURL is sent as part of the request body 
+ - - The ABIS internally inserts the biometrics available in the referenceURL in their reference database against the referenceID
+ - - The ABIS then does an 1:n comparison 
 
 ### DELETE
 ```
