@@ -160,7 +160,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
  - If an ABIS supports only one request for both INSERT and IDENTIFY operation, then, 
  - - The referenceID with referenceURL is sent as part of the request body 
  - - The ABIS internally inserts the biometrics available in the referenceURL in their reference database against the referenceID
- - - The ABIS then does an 1:n comparison 
+ - - The ABIS then does a 1:n comparison 
 
 ### DELETE
 ```
