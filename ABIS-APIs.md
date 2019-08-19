@@ -158,9 +158,9 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
  - IDENTIFY should give all candidates which match targetFIPR or a better score than the targetFIPR
  - This request should not match against referenceID that is not in the reference database
  - If an ABIS supports only one request for both INSERT and IDENTIFY operation, then, 
- a. The referenceID with referenceURL is sent as part of the request body 
- b. The ABIS internally inserts the biometrics available in the referenceURL in their reference database against the referenceID
- c. The ABIS then does an 1:n comparison 
+* * 1. * The referenceID with referenceURL is sent as part of the request body 
+* * 1. * The ABIS internally inserts the biometrics available in the referenceURL in their reference database against the referenceID
+* * 1. * The ABIS then does an 1:n comparison 
 
 ### DELETE
 ```
