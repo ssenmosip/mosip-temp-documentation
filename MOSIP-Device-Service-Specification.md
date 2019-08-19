@@ -44,26 +44,30 @@ All devices that collect biometric data for MOSIP should operate within the spec
 
 ---
 ## 2. Glossary of Terms
-* Device Provider - An entity that manufactures or imports the devices in their name. This entity should have legal rights to obtain an organization level digital certificate from the respective government.
-* Foundational Trust Provider - An entity that manufactures the foundation trust module.
-Device - A biometric device
-* L1 Certified Device / L1 Device - A device certified as capable of performing encryption on the device inside its trusted zone.
-* L0 Certified Device / L0 Device - A device certified as one where the encryption is done on the host inside its device driver or the MOSIP device service.
-Foundational Trust Provider Certificate - A digital certificate issued to the “Foundational Trust Provider”. This certificate proves that the provider has successfully gone through the required Foundational Trust Provider evaluation. The entity is expected to keep this certificate in secure possession in an HSM. All the individual trust certificates are issued using this certificate as the root. This certificate would be issued  by the respective countries in conjunction with MOSIP.
-* Device Provider Certificate - A digital certificate issued to the “Device Provider”. This certificate proves that the provider has been certified for L0/L1 respective compliance. The entity is expected to keep this certificate in secure possession in an HSM. All the individual trust certificates are issued using this certificate as the root. This certificate is issued by the respective countries in conjunction with MOSIP.
+* Device Provider - An entity that manufactures or imports the devices in their name. This entity should have legal rights to obtain an organization level digital certificate from the respective authority in the country.
+* Foundational Trust Provider - An entity that manufactures the foundational trust module.
+* Device - A hardware capable of capturing biometric information.
+* L1 Certified Device / L1 Device - A device certified as capable of performing encryption in line with this spec in its trusted zone.
+* L0 Certified Device / L0 Device - A device certified as one where the encryption is done on the host machine device driver or the MOSIP device service.
+* Foundational Trust Provider Certificate - A digital certificate issued to the “Foundational Trust Provider”. This certificate proves that the provider has successfully gone through the required Foundational Trust Provider evaluation. The entity is expected to keep this certificate in secure possession in an HSM. All the individual trust certificates are issued using this certificate as the root. This certificate would be issued  by the countries in conjunction with MOSIP.
+* Device Provider Certificate - A digital certificate issued to the “Device Provider”. This certificate proves that the provider has been certified for L0/L1 respective compliance. The entity is expected to keep this certificate in secure possession in an HSM. All the individual trust certificates are issued using this certificate as the root. This certificate is issued by the countries in conjunction with MOSIP.
 * Registration - The process of applying for a Foundational Id.
 * KYC - Know Your Customer. The process of providing consent to perform profile verification and update.
 * Auth - The process of verifying one’s identity.
 * FPS - Frames Per Second
+* Management Server - A server run by the device provider to manage the life cycle of the biometric devices.
+* Device Registration - The process of registering the device with MOSIP servers.
 ---
 ## 3. Device Specification
 
-The MOSIP device specification provides compliance guidelines to devices for them to work with MOSIP. The compliance is based device capability, trust and communication protocols. A MOSIP compliant device would follow the standards established in this document. A certification process will be established against this specification to test and validate the device compliance. The details of each of these are outlined in the subsequent sections.
+The MOSIP device specification provides compliance guidelines to devices for them to work with MOSIP. The compliance is based on device capability, trust and communication protocols. A MOSIP compliant device would follow the standards established in this document. It is expected that the devices are compliant to this specification and tested and validated. The details of each of these are outlined in the subsequent sections.
 **Device Capability:**
 The MOSIP compliant device is expected to perform the following:
 *   Should have the ability to collect one or more biometric
-*   Should have the ability to sign the biometric image or template.
-*   Should have the ability to protect against injection of biometric
+*   Should have the ability to sign the captured biometric image or template.
+*   Should have the ability to protect secret keys
+*   Should have no mechanism to inject the biometric
+
 **Base Specifications for Devices:**
 1. Fingerprint Capture
 <table>
@@ -96,7 +100,7 @@ Number of Minutiae generated by extractor to be in conformance to ISO Specificat
    </td>
   </tr>
   <tr>
-   <td>FRR
+   <td>FRR **
    </td>
    <td>< 2% FRR in respective country
    </td>
@@ -104,7 +108,7 @@ Number of Minutiae generated by extractor to be in conformance to ISO Specificat
    </td>
   </tr>
   <tr>
-   <td>FAR
+   <td>FAR **
    </td>
    <td>0.01%
    </td>
@@ -132,7 +136,7 @@ Number of Minutiae generated by extractor to be in conformance to ISO Specificat
    </td>
    <td>>= 8kv
    </td>
-   <td>> 8kv
+   <td>>= 8kv
    </td>
   </tr>
   <tr>
@@ -162,7 +166,7 @@ Number of Minutiae generated by extractor to be in conformance to ISO Specificat
   <tr>
    <td>Preview
    </td>
-   <td>> 3 FPS Jpeg lossless frames with NFIQ score superimposed
+   <td>> 3 FPS Jpeg lossless frames with NFIQ 2 score superimposed
    </td>
    <td> None
    </td>
@@ -175,15 +179,24 @@ Number of Minutiae generated by extractor to be in conformance to ISO Specificat
    <td>JPEG2000 lossless
    </td>
   </tr>
+  <tr>
+   <td>Quality Score
+   </td>
+   <td>NFIQ 2
+   </td>
+   <td>NFIQ 2
+   </td>
+  </tr>
 </table>
 
 ```
 * Sufficiency to be validated for registration
-** Country to decide based on climate
-*** Country to decide on the availability of this feature
+** MOSIP adapters can change this if needed 
+*** MOSIP adapters to decide on the availability of this feature
 ```
 
 2. IRIS Capture
+
 Refer ISO 19796-6:2011 Part 6 Specifications.
 <table>
   <tr>
@@ -197,7 +210,7 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
   <tr>
    <td>Rotation angle
    </td>
-   <td>Before compression, the Iris image will have to be pre-processed to calculate rotation angle. Refer section 6.3.1 of ISO 19794-6:2011 for rotation angle calculation for rectilinear images.
+   <td>Before compression, the Iris image will have to be pre-processed to calculate rotation angle. Refer section 6.3.1 of ISO 19794-6 for rotation angle calculation for rectilinear images.
    </td>
    <td>
    </td>
@@ -205,7 +218,7 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
   <tr>
    <td>Rotation Uncertainty
    </td>
-   <td>Refer ISO 19794-6:2011
+   <td>Refer ISO 19794-6
    </td>
    <td>
    </td>
@@ -285,7 +298,7 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
   <tr>
    <td>Preview
    </td>
-   <td>> 3 FPS Jpeg lossless frames with NFIQ score superimposed
+   <td>> 3 FPS Jpeg lossless frames with quality score superimposed
    </td>
    <td>Not Applicable
    </td>
@@ -309,10 +322,12 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
 </table>
 
 ```
-* Country to decide based on climate
+* MOSIP adopters to decide and finalize
 ```
 
 3. Face Capture
+
+Refer ISO 19794-5:2011
 
 <table>
   <tr>
@@ -382,9 +397,6 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
 </table>
 
 
-ISO/IEC 19785-3:2015
-[http://docs.oasis-open.org/bioserv/BIAS/v2.0/csprd01/schemas/cbeff_ed2.xsd](http://docs.oasis-open.org/bioserv/BIAS/v2.0/csprd01/schemas/cbeff_ed2.xsd)
-
 We recommend that countries look at ergonomics, accessibility, ease of usage, and common availability of devices while choosing devices for use in registration and authentication scenarios.
 
 ---
@@ -392,51 +404,58 @@ We recommend that countries look at ergonomics, accessibility, ease of usage, an
 ## 4. Device Trust
 
 MOSIP compliant devices provide a trust environment for the devices to be used in registration, KYC and auth scenarios. The trust level is established based on the device support for trusted execution.
-**Foundational Device Trust Module:**
+
+### Foundational Device Trust Module:
+
 The foundational device trust module would be created using a secure microprocessor capable of performing all required biometric processing and secure storage of keys. The foundational device trust would satisfy the below requirements.
-1. The module has the ability to store/generate and process cryptographic keys.
-2. Hardware based generation of asymmetric keys.
+1. The module has the ability to securely generate, store and process cryptographic keys.
+2. Generation of asymmetric keys and symmetric keys in random.
 3. The module has the ability to protect keys from extraction.
 4. The module has to protect the keys from physical tampering, temperature, frequency and voltage related attacks.
-5. The module has the ability to perform a secure boot.
+5. The module has the ability to perform a cryptographically validatable secure boot.
 6. The module has the ability to run trusted applications.
-The foundational device trust is derived from this module is used to enable trust-based computing for biometric capture.
+The foundational device trust derived from this module is used to enable trust-based computing for biometric capture.
 The foundational device trust module provides for a trusted execution environment based on the following.
 1. Secure Boot
     1. Ability to cryptographically verify code before execution.
     2. Ability to check for integrity violation of the module/device
     3. Halt upon failure.
+    4. Ability to securely upgrade and perform forward only upgrades, to thwart downgrade attacks. 
 1. Secure application
     1. Ability to run applications that are trusted.
     2. Protect against downgrading of applications.
+
 **Foundational Trust Module Identity:**
-The foundational module upon its first boot is expected to generate a random asymmetric key pair and provide the public part of the key to obtain a valid certificate. The entire certificate issuance would be in a secured provisioning facility. The certificate issued to the module will have a defined validity period as per the MOSIP certificate policy document.
+
+The foundational module upon its first boot is expected to generate a random asymmetric key pair and provide the public part of the key to obtain a valid certificate. The entire certificate issuance would be in a secured provisioning facility. The certificate issued to the module will have a defined validity period as per the MOSIP certificate policy document defined by the MOSIP adopters.
+
 **Device Identity:**
 
 As MOSIP deals with biometrics it is imperative that all devices that connect to MOSIP are identifiable. MOSIP believes in cryptographic Identity as its basis for trust.
 
-**Physical Id:** An identification mark that shows MOSIP compliance and a readable unique device serial number (12 digit), make and model. The same information has to be available over a 2D QR Code or Barcode.
+**Physical Id:** An identification mark that shows MOSIP compliance and a readable unique device serial number (minimum of 12 digits), make and model. The same information has to be available over a 2D QR Code or Barcode.
 
-**Digital Id:** A digital device Id in MOSIP would be a signed JSON as follows:
+**Digital Id:** A digital device Id in MOSIP would be a signed JSON (RFC 7515) as follows:
 ```
 {
-    “serialNo”: “<serial_no>”,
+    “serialNo”: "Serial number",
 
-    “make”: “<make>”,
+    “make”: "Make of the device",
 
-    “model” : “<Model of the device>”,
+    “model” : "Model of the device",
 
-    “type”: [“Fingerprint”, “Slab Fingerprint”, “Iris”, “Face’’], //More types will be added.
+    “type”: [“Fingerprint”, “Slab Fingerprint”, “Iris Monocular”, "Iris Binocular" , “Face"], //More types will be added.
 
-    “dp”: “<device provider name>”,
+    “dp”: "Device provider name",
 
-    “dpId”: “<device provider Id>”,
+    “dpId”: "Device provider Id",
 
-    “dateTime”: “<datetime>” // ISO format with timezone.  Identity request time
+    “dateTime”: "Datetime in ISO format with timezone.  Identity request time"
 
 }
 ```
-Signed with the JSON Web Signature using the “Foundational Trust Module” Identity key, this data is the fundamental identity of the device.  Every MOSIP compliant device will need the foundational trust module.
+Signed with the JSON Web Signature (RFC 7515) using the “Foundational Trust Module” Identity key, this data is the fundamental identity of the device.  Every MOSIP compliant device will need the foundational trust module.
+
 **Accepted Values**:
 ```
     serialNo - Same as the Physical Id
@@ -450,13 +469,16 @@ Signed with the JSON Web Signature using the “Foundational Trust Module” Ide
     dp - Device provider name, This would be a legal entity in the country,
 
     dpId: Device provider Id issued by MOSIP
-dateTime:  ISO format with timezone.  Identity request time \
+    
+    dateTime:  ISO format with timezone.  Identity request time 
 ```
 ---
 ## 5. Device Service - Communication Interfaces
 
 The section explains the necessary details of the biometric device connectivity, accessibility, discoverability and protocols used to build and communicate with the device.
+
 The device should implement only the following set of APIs.  All the API’s are independent of the physical layer and the operating system, with the invocation being different across operating systems. While the operating system names are defined in this spec a similar technology can be used for unspecified operating systems.
+
 It is expected that the device service ensures that the device is connected  locally to the host.
 
 ### 5.1 Device Discovery:
@@ -464,11 +486,12 @@ It is expected that the device service ensures that the device is connected  loc
 
 Device discovery would be used to identify MOSIP compliant devices in a system by the applications. The protocol is designed as simple plug and play with all the necessary abstraction to the specifics.
 Discovery Request:
+
 **Request:**
 ```
 {
 
-“type”: “<type of the device>”
+“type”: "type of the device"
 
 }
 ```
@@ -481,20 +504,23 @@ Note: “Biometric Device” - is a special type and used in case if you are loo
 **Response:**
 ```
 [
-{
-“type”: “<exact type>”,
-“deviceId”: “<internal Id>”,
-“subType”: “<subtypes of the biometric device>”,
-“deviceStatus”: “<device status>”,
-“certification”: “<certification level>”,
-“serviceVersion”: “<device service version>”,
-“deviceSubId”: “<device sub Id’s>”,
-“callbackId”: “<how to reach to the device>“,
-"error": {
-"errorcode": "101",
-"errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} "
-}
-}
+    {
+    “type”: "exact type",
+    “deviceId”: "internal Id",
+    “subType”: "subtypes of the biometric device",
+    “deviceStatus”: "device status",
+    “certification”: "certification level",
+    “serviceVersion”: "device service version",
+    “deviceSubId”: "device sub Id’s",
+    “callbackId”: "baseurl to reach to the device“,
+    "digitalId": "unsigned digital id object of the device",
+    "purpose": "Auth  or Registration",
+    "error": {
+        "errorcode": "101",
+        "errorinfo": "Invalid JSON Value Type For Discovery.. 
+        }
+    },
+    ...
 ]
 ```
 **Accepted values:**
@@ -520,12 +546,27 @@ deviceId - Internal Id to identify the actual biometric device within the device
 deviceSubId - is the internal Id of the device. For example in case of iris capture, the device can have two modules in a single device, it is possible to address each device with a sub Id so we can identify or command each of it in isolation. Sub Id is a simple index which always starts with 1 and increases sequentially for each sub device present.
 
 callbackId - this differs as per the OS. In case of linux and windows operating systems it is a http url. In the case of android, it is the intent name. In IOS it is the url scheme. The call back url takes precedence over future request as a base url.
+
+digitalId - As per the Digital Id definition. No signature is attached. 
+
+purpose - Purpose of the device in the mosip ecosystem.
+
+errorCode - standaridized error code.
+errorInfo - description of the error that can be displayed to end user. Multi lingual support. 
+
 ```
 Note: The response is an array that we could have a single device enumerating with multiple biometric options.
 
 Note: The service should ensure to respond only if the type parameter matches the type of device or the type parameter is a “Biometric Device”.
 
-**Windows/Linux:**
+
+
+The final JSON is Signed with the JSON Web Signature using the “Foundational Trust Module” Identity key, this data is the fundamental identity of the device.  Every MOSIP compliant device will need the foundational trust module.
+
+
+
+#### Windows/Linux:
+
 All the device API will be based on the HTTP specification. The device always binds to 127.0.0.1 with any of the available ports ranging from 4501 - 4600.  The IP address used for binding has to be 127.0.0.1 and not localhost.
 The applications that require access to MOSIP devices could discover them by sending the http request to the supported port range.
 
@@ -582,34 +623,30 @@ NONE
 **Response:**
 ```
 [
-{
-“type”: <exact type>,
-“subType”: <sub type>,
-“status”: <current status>,
-“deviceInfo”:
-{
-    “deviceId”: <unique Id to identify a biometric capture device>,
-    “deviceSubId”: <an array of sub Ids that are available>
-        “firmware”: <firmware version>,
-        “deviceProviderName”: <device provider name>,
-    “deviceProviderId”: <device provider Id>,
-        “deviceModel”: <device model>,
-        “deviceMake”: <device make>,
-        “deviceExpiry”: <device expiry date>,
-        “certification”:  <certification level>,
-        “timestamp”:  <ISO format time>
-    },
- “deviceInfoSignature”: <signature of the device info element>,
-“serviceVersion”: <version of the service>,
-“callbackId”: <the unique way to call back>,
-“deviceSubId”: <device sub Id’s> ,
-"error": {
-"errorcode": "101",
-"errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} "
-}
-}
+    {
+        “type”: "exact type",
+        “subType”: "subtypes of the biometric device",
+        “status”: "current status",
+        “deviceId”: "internal Id",
+        “deviceStatus”: "device status",
+        “firmware”: "firmware version",
+        “certification”: "certification level",
+        “serviceVersion”: "device service version",
+        “deviceSubId”: "device sub Id’s",
+        “callbackId”: "baseurl to reach to the device“,
+        "digitalId": "unsigned digital id object of the device",
+        "purpose": "Auth  or Registration",
+        "error": {
+            "errorcode": "101",
+            "errorinfo": "Invalid JSON Value "
+        }
+    }
+    ...
 ]
 ```
+
+The final JSON is Signed with the JSON Web Signature using the “Foundational Trust Module” Identity key, this data is the fundamental identity of the device.  Every MOSIP compliant device will need the foundational trust module.
+
 
 **Allowed values:**
 
@@ -620,20 +657,23 @@ subType - subtype is based on the type.
                 Iris - “Single”, “Double”
                Face - Full face
 status - “Ready”, “Busy”, “Not Ready”
-deviceInfo.firmware - Exact version of the firmware
-deviceInfo.deviceProviderName - Device provider name
-deviceInfo.deviceProviderId - Id provided after the registration of the device provider.
-deviceInfo.deviceModel - model of the biometric device,
-deviceInfo.deviceMake - make of the device,
-deviceInfo.deviceExpiry - A date after which the device is considered as too old to use. Both from the usability aspect as well as security, as technology evolves what we consider secure today could potentially become insecure.
+deviceId - Internal Id to identify the actual biometric device within the device service.
+deviceStatus - "Active" or "InActive"
+firmware - Exact version of the firmware
 certification - “L0”, “L1” - Level of certification
 timestamp - ISO format timestamp
 serviceVersion - Version of the current document.
-deviceId - Internal Id to identify the actual biometric device within the device service.
+biometric device within the device service.
 deviceSubId - is the internal id of the device. In case of iris when we have two iris capture modules in a single device, it is possible to address each device with a sub Id so we can identify or command each of it in isolation. This in an index that always starts with 1 and increments sequentially.
+callbackId - base url to communicate
+digitalId - as defined under the digital id section.
+purpose - "Auth" or "Registration"
+error - relevant errors as defined under the "Error section" of this document
+
 ```
 **_Note_**: The response is an array that we could have a single device enumerating with multiple biometric options.
-Note: The service should ensure to respond only if the type parameter matches the type of device or the type parameter is a “Biometric Device”.
+
+**_Note_**: The service should ensure to respond only if the type parameter matches the type of device or the type parameter is a “Biometric Device”.
 
 #### Windows/Linux:
 The applications that require more details of the MOSIP devices could get them by sending the http request to the supported port range.
@@ -658,11 +698,11 @@ Connection: Closed
 Note: the pay loads are json in both the cases and are part of the body.
 
 #### Android:
-All device on an android device should listen to the following intent appId.Info
+On an android device should listen to the following intent appId.Info
 Upon invocation of this intent the devices are expected to respond back with the json response filtered by the respective type.
 
 #### IOS:
-All device on an IOS device would respond to the url schema as follows.
+On an IOS device would respond to the url schema as follows.
 APPIDINFO://<call-back-app-url>?ext=<caller app name>&type=<type as defined in mosip device request>
 If a MOSIP compliant device service app exist then the url would launch the service. The service in return should respond back to the called using the call-back-app-url with the base64 encoded json as the url parameter for the key data.
 
@@ -1076,7 +1116,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
             "bioValue": "<base64 encoded biometric data (raw image)>",
 
-            “bioExtract”: <base64 encoded extracted biometric (ISO format)>”,
+            “bioExtract”: <base64 encoded extracted biometric (ISO format)",
 
             “transactionId”: <transaction Id for the current capture>,
             "registrationId": "1234567890",
@@ -1122,7 +1162,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 
             "bioValue": "<base64 encoded biometric data (raw image)>",
 
-            “bioExtract”: <base64 encoded extracted biometric (ISO format)>”,
+            “bioExtract”: <base64 encoded extracted biometric (ISO format)",
 
             "registrationId": "1234567890",
 
