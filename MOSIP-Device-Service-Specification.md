@@ -1,4 +1,4 @@
-#### June 2019 | Version: 0.8.4 
+#### Aug 2019 | Version: 0.8.5 
 #### Status: Draft 
 
 ## Table of Contents 
@@ -514,6 +514,7 @@ Note: “Biometric Device” - is a special type and used in case if you are loo
     “deviceSubId”: "device sub Id’s",
     “callbackId”: "baseurl to reach to the device“,
     "digitalId": "unsigned digital id object of the device",
+    "specVersion": ["Array of supported MDS specification version"],
     "purpose": "Auth  or Registration",
     "error": {
         "errorcode": "101",
@@ -548,6 +549,8 @@ deviceSubId - is the internal Id of the device. For example in case of iris capt
 callbackId - this differs as per the OS. In case of linux and windows operating systems it is a http url. In the case of android, it is the intent name. In IOS it is the url scheme. The call back url takes precedence over future request as a base url.
 
 digitalId - As per the Digital Id definition. No signature is attached. 
+
+specVersion - Array of supported MDS specification version",
 
 purpose - Purpose of the device in the mosip ecosystem.
 
@@ -636,6 +639,7 @@ NONE
         “callbackId”: "baseurl to reach to the device“,
         "digitalId": "unsigned digital id object of the device",
         "purpose": "Auth  or Registration",
+        "specVersion": ["Array of supported MDS specification version"],
         "error": {
             "errorcode": "101",
             "errorinfo": "Invalid JSON Value "
@@ -668,6 +672,7 @@ deviceSubId - is the internal id of the device. In case of iris when we have two
 callbackId - base url to communicate
 digitalId - as defined under the digital id section.
 purpose - "Auth" or "Registration"
+specVersion: "Array of MDS specification version",
 error - relevant errors as defined under the "Error section" of this document
 
 ```
@@ -717,29 +722,29 @@ Capture Request:
 
 ```
 {
-“env”:  <target environment>,
-"purpose": "Auth  or Registration",
-"version": <expected version of the biometric element>,
-"timeout" : <timeout for capture>,
-“captureTime”: <time of capture request in ISO format including timezone>,
-"domainUri": <uri of the auth server>,
-“transactionId”: <transaction Id for the current capture>,
+    “env”:  "target environment",
+    "purpose": "Auth  or Registration",
+    "specVersion": "expected version of the biometric element",
+    "timeout" : <timeout for capture>,
+    “captureTime”: <time of capture request in ISO format including timezone>,
+    "domainUri": <uri of the auth server>,
+    “transactionId”: <transaction Id for the current capture>,
 
-“bio”: [
-{
-    “type”: <type of the biometric data>,
-			“count”:  <fingerprint/Iris count, in case of face max is set to 1>,
+    “bio”: [
+        {
+            “type”: <type of the biometric data>,
+            “count”:  <fingerprint/Iris count, in case of face max is set to 1>,
 
-			“requestedScore”: <expected quality score that should match to complete a successful capture>,
-			“deviceId”: <internal Id>,
-			“deviceSubId”: <specific device Id>,
-			“previousHash”: <hash of the previous block>
-}
-],
-customOpts:
-{
-			 //max of 50 key value pair. This is so that vendor specific parameters can be sent if necessary. The values cannot be hardcoded and have to be configured by the apps server and should be modifiable upon need by the applications. Vendors are free to include additional parameters and fine-tuning parameters. None of these values should go undocumented by the vendor. No sensitive data should be available in the customOpts.
- }
+            “requestedScore”: <expected quality score that should match to complete a successful capture>,
+            “deviceId”: <internal Id>,
+            “deviceSubId”: <specific device Id>,
+            “previousHash”: <hash of the previous block>
+        }
+    ],
+    customOpts:
+    {
+        //max of 50 key value pair. This is so that vendor specific parameters can be sent if necessary. The values cannot be hardcoded and have to be configured by the apps server and should be modifiable upon need by the applications. Vendors are free to include additional parameters and fine-tuning parameters. None of these values should go undocumented by the vendor. No sensitive data should be available in the customOpts.
+    }
 
 }
 ```
@@ -754,11 +759,13 @@ purpose - Allowed values are Auth| Registration
 
 version - version of the biometric block as specified in the authentication or customer registration specification.
 
-timeout - Max time the app will wait for the capture.
+timeout - Max time the app will wait for the capture. Its expected that the api will respond back before timeout with the best frame. 
 
 captureTime - time of capture in ISO format with timezone.
 
 domainUri - unique uri per auth providers. This can be used to federate across multiple providers or countries or unions.
+
+transactionId - unqiue Id of the transaction. This is an internal Id to the application thats providing the service. Use different id for every successfull auth. So even if the trnsaction fails after auth we expect this number to be unique.
 
 bio.type -  “FIR” , “IIR”, “Face”
 
@@ -770,54 +777,55 @@ bio.deviceId - a unique Id per device service. In case a single device handles b
 
 bio.deviceSubId  - a specific device sub Id.  Should be set to 0 if we don't know any specific device sub Id.
 
+bio.previousHash - For the first capture the previousHash is hash of empty utf8 string. From the second capture the first captures hash is used as input. This is used to chain all the captures across modalities so all captures have happened for the same transaction and during the same time period. 
+
 customOpts - If in case the device vendor has additional parameters that they can take and act accordingly then those values can be sent by the application developers to the device service.
 ```
 
 **Response:**
 
 ```
-"biometrics": [
+[
 
         {
-
+          "specVersion" : "MDS spec version",
           "data": {	//The entire block is base64
 
-            "deviceCode": "",
+            "digitalId" : "Digital Id object as described in this document",
 
-            "deviceProviderId": "",
-
-            "deviceServiceId": "",
-
-            "deviceServiceVersion": "",
+            "deviceServiceVersion": "Service version",
 
             "bioType": "FIR",
 
             "bioSubType": "UNKNOWN",
 
             “purpose”: “Auth  or Registration”,
-            “env”:  <target environment>,
-            "domainUri": <uri of the auth server>,
-            "bioValue": "<encrypted with session key and base64 encoded biometric data>",
 
-            "transactionId": "1234567890",
+            “env”:  "target environment",
 
-            "timestamp": "2019-02-15T10:01:57.086+05:30",
+            "domainUri": "uri of the auth server",
 
-            "requestedScore": "<floating point number to represent the minimum required score for the capture>",
+            "bioValue": "encrypted with session key and base64 encoded biometric data",
 
-            "qualityScore": "<floating point number representing the score for the current capture>"
+            "transactionId": "unique transaction id",
+
+            "timestamp": "ISO format datetime with time zone",
+
+            "requestedScore": "floating point number to represent the minimum required score for the capture",
+
+            "qualityScore": "floating point number representing the score for the current capture"
 
           },
 
           "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
 
-          "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+          "sessionKey": "encrypted with MOSIP public key (dynamically selected based on the uri) and encoded session key biometric",
 
           "error": {
 
         "errorcode": "101",
 
-        "errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} “
+        "errorinfo": "Invalid JSON Value“
 
     },
 
@@ -826,41 +834,40 @@ customOpts - If in case the device vendor has additional parameters that they ca
         },
 
         {
-
+          "specVersion" : "MDS spec version",
           "data": {
 
-            "deviceCode": "",
+            "digitalId": "Digital Id object as described in this document",
 
-            "deviceProviderId": "",
-
-            "deviceServiceId": "",
-
-            "deviceServiceVersion": "",
+            "deviceServiceVersion": "Service version",
 
             "bioType": "FIR",
 
             "bioSubType": "LEFT",
 
             “purpose”: “Auth  or Registration”,
-            “env”:  <target environment>,             
+            
+            “env”:  "target environment", 
+            
+            "domainUri": "uri of the auth server"          
 
-            "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+            "bioValue": "encrypted with session key and base64 encoded biometric data",
 
-            "transactionId": "1234567890",
+            "transactionId": "unique transaction id",
 
-            "timestamp": "2019-02-15T10:01:57.086+05:30"
+            "timestamp": "ISO Format date time with timezone"
 
           },
 
           "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
 
-          "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+          "sessionKey": "encrypted with MOSIP public key and encoded session key biometric",
 
           "error": {
 
         "errorcode": "101",
 
-        "errorinfo": "Invalid JSON Value Type For Discovery.. ex: {type: “Biometric Device” or “Fingerprint” or “Face” or “Iris” or “Vein”} “
+        "errorinfo": "Invalid JSON Value“
 
     },
 
@@ -868,12 +875,14 @@ customOpts - If in case the device vendor has additional parameters that they ca
 
         }
 
-      ]
+]
 ```
 
 **Accepted values:**
 
-To be specified
+data.bioValue - Encrypted and Encoded to base64 biometric value. AES GCM encryption with a random key. The IV for the encryption is set to last 16 digits of the timestamp. ISO formated bioValue. Look at the Authentication document to understand more about the encryption.  
+
+data.sessionKey - Random AES key used for the encryption of the bioValue. The encryption key is encrypted using the public key with RSA OAEP. Sent as bas64
 
 #### Windows/Linux:
 
@@ -922,49 +931,16 @@ If a MOSIP compliant device service app exist then the url would launch the serv
 ### 5.4 Device Stream
 The device would open a stream channel to send the live video streams. This would help when there is an assisted operation to collect biometric.  Please note the stream API’s are available only for registration environment.
 
-Device Stream Request:
+**Device Stream Request:**
 
-Used only for the registration module compatible devices.
+Used only for the registration module compatible devices. This api is visible only for the devices that are registered for the purpose as "Registration".
 
 **Request:**
 
 ```
 {
-
-“env”:  <target environment>,
-
-"purpose": <Auth or Registration>,
-
-"version": <expected version of the biometric element>,
-
- “transactionId”: <transaction Id for the current capture>,
-
-“bio”: [
-
-{
-
-    “type”: <type of the biometric data>,
-
-                                	“count”:  <fingerprint/Iris count, in case of face max is set to 1>,
-
- 			“exception”: [finger or iris to be excluded],
-
-        	        	        	“deviceId”: <internal Id>,
-
-                                	“deviceSubId”: <specific device Id>
-
-}
-
-],
-
-customOpts:
-
-{
-
-                                	 //max of 50 key value pair. This is so that vendor specific parameters can be sent if necessary. The values cannot be hardcoded and have to be configured by the apps server and should be modifiable upon need by the applications. Vendors are free to include additional parameters and fine-tuning parameters. None of these values should go undocumented by the vendor. No sensitive data should be available in the customOpts.
-
- }
-
+    “deviceId”: "internal Id",
+    “deviceSubId”: "device sub Id’s",
 }
 ```
 
@@ -977,6 +953,8 @@ bio.exception: “LF_INDEX”, “LF_MIDDLE”, “LF_RING”, “LF_LITTLE”, 
 **Response:**
 
 Live Video stream with quality of 3 frames per second or more using M-JPEG2000 https://en.wikipedia.org/wiki/Motion_JPEG
+
+**_Note:_** Preview should have the quality markings and segement marking. The preview would also be used to display any error message to the user screen. All error messages should be localizable.
 
 **Accepted values:**
 
@@ -1018,38 +996,34 @@ The API is used by the devices that are compatible for the registration module.
 ```
 {
 
-“env”:  <target environment>,
+“env”:  "target environment",
 
-"version": <expected version of the biometric element>,
+"specVersion": "expected MDS spec version",
 
-"timeout": <timeout for registration capture>,
+"timeout": "timeout for registration capture",
 
-“captureTime”: <time of capture request in ISO format including timezone>,
+“captureTime”: "time of capture request in ISO format including timezone",
 
-“transactionId”: <transaction Id for the current capture>,
-
-“registrationId”: <registration Id for the current capture >,
-
-“purpose”: "Auth  or Registration",
+“registrationId”: "registration Id for the current capture",
 
 “bio”: [
 
   	{
 
-     		“type”: <type of the biometric data>,
+     		“type”: "type of the biometric data",
 
-			“count”:  <fingerprint/Iris count, in case of face max is set to 1>,
+			“count”:  "fingerprint/Iris count, in case of face max is set to 1",
 
-			“exception”: [finger or iris to be excluded],
+			“exception”: ["finger or iris to be excluded"],
 
 
-			“requestedScore”: <expected quality score that should match to complete a successful capture.>,
+			“requestedScore”: "expected quality score that should match to complete a successful capture.",
 
-			“deviceId”: <internal Id>,
+			“deviceId”: "internal Id",
 
-			“deviceSubId”: <specific device Id>,
+			“deviceSubId”: "specific device Id",
 
-			“previousHash”: <hash of the previous block>
+			“previousHash”: "hash of the previous block"
 
   	}
 
@@ -1059,7 +1033,7 @@ customOpts:
 
 {
 
-			 //max of 50 key value pair. This is so that vendor specific parameters can be sent if necessary. The values cannot be hardcoded and have to be configured by the apps server and should be modifiable upon need by the applications. Vendors are free to include additional parameters and fine-tuning parameters. None of these values should go undocumented by the vendor. No sensitive data should be available in the customOpts.
+    //max of 50 key value pair. This is so that vendor specific parameters can be sent if necessary. The values cannot be hardcoded and have to be configured by the apps server and should be modifiable upon need by the applications. Vendors are free to include additional parameters and fine-tuning parameters. None of these values should go undocumented by the vendor. No sensitive data should be available in the customOpts.
 
  }
 
@@ -1098,7 +1072,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
 "biometrics": [
 
         {
-
+          "specVersion" : "MDS Spec version",
           "data": {	//The entire block is base64. One data block for each index or segment
 
             "deviceCode": "",
@@ -1144,7 +1118,7 @@ bio.previousHash - The previous hash for the image captured by this device per r
         },
 
         {
-
+          "specVersion" : "MDS Spec version",
           "data": {
 
             "deviceCode": "",
@@ -1233,34 +1207,35 @@ Type: POST
 
 {
 
-“type”:  <exact type>.
+“type”:  "exact type".
 
-“subType”: <sub type>,
+“subType”: "sub type",
 
-“status”: <current status>,
+“status”: "current status",
 
-“deviceId”: <unique Id to identify a biometric capture device>,
-“deviceProviderName”: <device provider name>,
-“deviceProviderId”: <device provider Id>,
+“deviceId”: "unique Id to identify a biometric capture device",
+
+“deviceProviderName”: "device provider name",
+“deviceProviderId”: "device provider Id",
 "purpose": "Auth  or Registration",
 
 “deviceInfo”:
 
 {
 
-    “deviceSubId”: <an array of sub Ids that are available>
+    “deviceSubId”: "an array of sub Ids that are available"
 
-        “firmware”: <firmware version>,
+        “firmware”: "firmware version",
 
-        “deviceModel”: <device model>,
+        “deviceModel”: "device model",
 
-        “deviceMake”: <device make>,
+        “deviceMake”: "device make",
 
-        “deviceExpiry”: <device expiry date>,
+        “deviceExpiry”: "device expiry date",
 
-        “certification”:  <certification level>,
+        “certification”:  "certification level",
 
-        “timestamp”:  <ISO format time>,
+        “timestamp”:  "ISO format datetime with timezone",
 
     },
 “foundationalTrustProviderId” : <foundation trust provider Id>
@@ -1281,21 +1256,21 @@ Response:
 
 "response": {
 
-    “status”:  <registration status>,
+    “status”:  "registration status",
 
     “error”: {
 
-   	 "code": <error code if registration fails>,
+   	 "code": "error code if registration fails",
 
-   	 "message": <description of the error code>,
+   	 "message": "description of the error code",
 
     }
 
-    "deviceCode": <UUID RFC4122 Version 4 for the device issued by the mosip server>,
+    "deviceCode": "UUID RFC4122 Version 4 for the device issued by the mosip server",
 
-    "timestamp": <timestamp in ISO format>,
+    "timestamp": "timestamp in ISO format",
 
-    "env": <prod/development/stage>
+    "env": "prod/development/stage"
 
     }
 
@@ -1377,4 +1352,22 @@ L0 Certified Device / L0 Device - A device certified as one where the encryption
    <td>L0/L1
    </td>
   </tr>
+</table>
+
+---
+
+## 9. Error Codes
+
+<table>
+<tr> <td>0</td> <td> Success </td> </tr>
+<tr> <td>100</td> <td> Device not registered </td> </tr>
+<tr> <td>101</td> <td> Unable to detect a biometric object </td> </tr>
+<tr> <td>102</td> <td> Technical error during extraction. </td> </tr>
+<tr> <td>103</td> <td> Device tamper detected </td> </tr>
+<tr><td>104</td> <td> Unable to connect to management server </td> </tr>
+<tr><td>105</td> <td> Image orientation error </td> </tr>
+<tr><td>106</td> <td> Device not found </td> </tr>
+<tr><td>107</td> <td> Device public key expired </td> </tr>
+<tr><td>108</td> <td> Domain public key missing </td> </tr>
+<tr> <td>5xx</td> <td> Custom errors. The device provider is free to choose his error code and error messages. </td> </tr>
 </table>
