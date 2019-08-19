@@ -77,7 +77,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
 	"requestId" : "01234567-89AB-CDEF-0123-456789ABCDEF",
 	"timestamp" : "1539777717",
 	"referenceId" : "987654321-89AB-CDEF-0123-456789ABCDEF",
-        "referenceURL" : NULL,
+        "referenceURL" : "https://mosip.io/biometric/45678",
 	"maxResults" : "10",
 	"targetFPIR" : "30",
 	"gallery" : {		
@@ -160,7 +160,7 @@ All the below operations send biometric data in CBEFF format. (Please refer to t
  - If an ABIS supports only one request for both INSERT and IDENTIFY operation, then, 
  - - The referenceID with referenceURL is sent as part of the request body 
  - - The ABIS internally inserts the biometrics available in the referenceURL in their reference database against the referenceID
- - - The ABIS then does a 1:n comparison 
+ - - The ABIS then does a 1:n comparison
 
 ### DELETE
 ```
