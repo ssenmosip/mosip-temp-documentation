@@ -9,8 +9,7 @@ Multi modal biometrics (Fingerprint, Iris, Face...) will be a key component in M
 - All the biometrics data captured for an Individual is stored in a single XML file
 - The biometrics data itself inside the CBEFF file will be in the respective ISO format encoded as base64 binary
 - MOSIP has an util to create, update, search and validate cbeff xml data.
-	Please refer the link for details
-	https://github.com/mosip/mosip-platform-mt/tree/master/kernel/kernel-cbeffutil-api
+	Please refer the [**link**](//github.com/mosip/mosip-platform-mt/tree/master/kernel/kernel-cbeffutil-api) for details
 
 # CBEFF XML
 Please refer to the [**link**](//docs.oasis-open.org/bioserv/BIAS/v2.0/csprd01/schemas/cbeff_ed2.xsd) for the XML schema of CBEFF XML format.
