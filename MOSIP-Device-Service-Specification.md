@@ -274,9 +274,10 @@ Refer ISO 19796-6:2011 Part 6 Specifications.
   <tr>
    <td>Image Quality
    </td>
-   <td>76-100
+   <td>76-100  IREXII - IQCE
    </td>
    <td>
+    76-100  IREXII - IQCE
    </td>
   </tr>
   <tr>
