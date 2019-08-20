@@ -326,13 +326,13 @@ Requires Authentication | No
     "preregistration.timespan.rebook": "1",
     "mosip.id.validation.identity.email": "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$",
     "mosip.id.validation.identity.age": "^(150|1[0-4][0-9]|[1-9]?[0-9])$",
-    "mosip.id.validation.identity.CNIENumber": "^([0-9]{10,30})$",
+    "mosip.id.validation.identity.referenceIdentityNumber": "^([0-9]{10,30})$",
     "mosip.right_to_left_orientation": "ara",
     "mosip.kernel.pin.length": "6",
     "mosip.id.validation.identity.phone": "^([6-9]{1})([0-9]{9})$",
     "preregistration.workflow.booking": "true/false",
     "mosip.preregistration.auto.logout.ping": "30 ",
-    "mosip.id.validation.identity.CNIENumber.length": "30",
+    "mosip.id.validation.identity.referenceIdentityNumber.length": "30",
     "mosip.id.validation.identity.fullName.[*].value": "^(?=.{0,50}$).*",
     "mosip.id.validation.identity.addressLine1.[*].value": "^(?=.{0,50}$).*",
     "mosip.login.mode": "email,mobile",
@@ -423,7 +423,6 @@ request.demographicDetails.identity.city |Yes|city of the applicant| value will 
 request.demographicDetails.identity.phone |Optional|mobile number of the applicant|
 request.demographicDetails.identity.IDSchemaVersion|Optional|id schema version|1
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
-request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
 request.demographicDetails.identity.email |Optional|email Id of the applicant|
 request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
@@ -433,73 +432,73 @@ request.demographicDetails.identity.addressLine2 |Optional|address Line 2 of the
 request.demographicDetails.identity.addressLine3 |Optional|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
-request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
+request.demographicDetails.identity.zone |Yes|zone of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.referenceIdentityNumber|Yes|referenceIdentityNumber Number of the applicant|
 
 #### Request:
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.create",
   "version": "1.0",
-  "requesttime": "2019-05-28T19:46:13.502Z",
   "request": {
-    "langCode": "fra",
+    "langCode": "eng",
     "demographicDetails": {
       "identity": {
         "IDSchemaVersion": 1,
         "fullName": [
           {
-            "language": "fra",
-            "value": "jagadishwari"
+            "language": "eng",
+            "value": "Puja Thakur"
           },
           {
             "language": "ara",
-            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+            "value": "پُجَ تهَكُر"
           }
         ],
-        "dateOfBirth": "1993/01/01",
+        "dateOfBirth": "1996/01/01",
         "gender": [
           {
-            "language": "fra",
-            "value": "FLE"
+            "language": "eng",
+            "value": "MLE"
           },
           {
             "language": "ara",
-            "value": "FLE"
-          }
-        ],
-        "residenceStatus": [
-          {
-            "language": "fra",
-            "value": "FR"
-          },
-          {
-            "language": "ara",
-            "value": "FR"
+            "value": "MLE"
           }
         ],
         "addressLine1": [
           {
-            "language": "fra",
-            "value": "mindtree phase 2, global village"
+            "language": "eng",
+            "value": "Green olive villa"
           },
           {
             "language": "ara",
-            "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
+            "value": "گرِِن ُلِڤِ ڤِللَ"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "eng",
+            "value": "FR"
+          },
+          {
+            "language": "ara",
+            "value": "FR"
           }
         ],
         "addressLine2": [
           {
-            "language": "fra",
-            "value": "Karnataka"
+            "language": "eng",
+            "value": "22 ananda reddy Layout"
           },
           {
             "language": "ara",
-            "value": "كَرنَتَكَ"
+            "value": "٢٢ َنَندَ رِددي لَيُُت"
           }
         ],
         "addressLine3": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": ""
           },
           {
@@ -509,7 +508,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         ],
         "region": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": "RSK"
           },
           {
@@ -519,7 +518,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         ],
         "province": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": "KTA"
           },
           {
@@ -529,7 +528,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         ],
         "city": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": "KNT"
           },
           {
@@ -537,23 +536,24 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
             "value": "KNT"
           }
         ],
-        "localAdministrativeAuthority": [
+        "zone": [
           {
-            "language": "fra",
-            "value": "SATZ"
+            "language": "eng",
+            "value": "BNMR"
           },
           {
             "language": "ara",
-            "value": "SATZ"
+            "value": "BNMR"
           }
         ],
         "postalCode": "14022",
-        "phone":"9680958812",
+        "phone":"9886442073",
         "email": "jagadishwari.selvaraj@mindtree.com",
-        "CNIENumber": "2864123456765432"
+        "referenceIdentityNumber": "12312312312312"
       }
     }
-  }
+  },
+  "requesttime": "2019-08-19T11:18:48.393Z"
 }
 ```
 #### Responses:
@@ -562,126 +562,126 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 ###### Description: Pre-Registration successfully Created
 ```JSON
 {
-    "id": "mosip.pre-registration.demographic.create",
-    "version": "1.0",
-    "responsetime": "2019-06-03T10:01:26.984Z",
-    "response": {
-        "preRegistrationId": "25091083153042",
-        "createdDateTime": "2019-06-03T10:01:26.810Z",
-        "statusCode": "Pending_Appointment",
-        "langCode": "fra",
-        "demographicDetails": {
-            "identity": {
-                "CNIENumber": "2864123456765432",
-                "gender": [
-                    {
-                        "language": "fra",
-                        "value": "FLE"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "FLE"
-                    }
-                ],
-                "city": [
-                    {
-                        "language": "fra",
-                        "value": "KNT"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "KNT"
-                    }
-                ],
-                "postalCode": "14022",
-                "fullName": [
-                    {
-                        "language": "fra",
-                        "value": "jagadishwari"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "جَگَدِسهوَرِ سِلڤَرَج"
-                    }
-                ],
-                "localAdministrativeAuthority": [
-                    {
-                        "language": "fra",
-                        "value": "SATZ"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "SATZ"
-                    }
-                ],
-                "dateOfBirth": "1993/01/01",
-                "IDSchemaVersion": 1,
-                "province": [
-                    {
-                        "language": "fra",
-                        "value": "KTA"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "KTA"
-                    }
-                ],
-                "phone": "9680958812",
-                "addressLine1": [
-                    {
-                        "language": "fra",
-                        "value": "mindtree phase 2, global village"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
-                    }
-                ],
-                "residenceStatus": [
-                    {
-                        "language": "fra",
-                        "value": "FR"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "FR"
-                    }
-                ],
-                "addressLine2": [
-                    {
-                        "language": "fra",
-                        "value": "Karnataka"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "كَرنَتَكَ"
-                    }
-                ],
-                "addressLine3": [
-                    {
-                        "language": "fra",
-                        "value": ""
-                    },
-                    {
-                        "language": "ara",
-                        "value": ""
-                    }
-                ],
-                "region": [
-                    {
-                        "language": "fra",
-                        "value": "RSK"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "RSK"
-                    }
-                ],
-                "email": "jagadishwari.selvaraj@mindtree.com"
-            }
-        }
-    },
-    "errors": null
+  "id": "mosip.pre-registration.demographic.create",
+  "version": "1.0",
+  "responsetime": "2019-08-19T11:18:51.326Z",
+  "response": {
+    "preRegistrationId": "46537143845798",
+    "createdDateTime": "2019-08-19T11:18:51.281Z",
+    "statusCode": "Pending_Appointment",
+    "langCode": "eng",
+    "demographicDetails": {
+      "identity": {
+        "gender": [
+          {
+            "language": "eng",
+            "value": "MLE"
+          },
+          {
+            "language": "ara",
+            "value": "MLE"
+          }
+        ],
+        "city": [
+          {
+            "language": "eng",
+            "value": "KNT"
+          },
+          {
+            "language": "ara",
+            "value": "KNT"
+          }
+        ],
+        "postalCode": "14022",
+        "fullName": [
+          {
+            "language": "eng",
+            "value": "Puja Thakur"
+          },
+          {
+            "language": "ara",
+            "value": "پُجَ تهَكُر"
+          }
+        ],
+        "dateOfBirth": "1996/01/01",
+        "referenceIdentityNumber": "12312312312312",
+        "phone":"9886442073",
+        "email": "jagadishwari.selvaraj@mindtree.com",
+        "IDSchemaVersion": 1,
+        "province": [
+          {
+            "language": "eng",
+            "value": "KTA"
+          },
+          {
+            "language": "ara",
+            "value": "KTA"
+          }
+        ],
+        "zone": [
+          {
+            "language": "eng",
+            "value": "BNMR"
+          },
+          {
+            "language": "ara",
+            "value": "BNMR"
+          }
+        ],
+        "addressLine1": [
+          {
+            "language": "eng",
+            "value": "Green olive villa"
+          },
+          {
+            "language": "ara",
+            "value": "گرِِن ُلِڤِ ڤِللَ"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "eng",
+            "value": "FR"
+          },
+          {
+            "language": "ara",
+            "value": "FR"
+          }
+        ],
+        "addressLine2": [
+          {
+            "language": "eng",
+            "value": "22 ananda reddy Layout"
+          },
+          {
+            "language": "ara",
+            "value": "٢٢ َنَندَ رِددي لَيُُت"
+          }
+        ],
+        "addressLine3": [
+          {
+            "language": "eng",
+            "value": ""
+          },
+          {
+            "language": "ara",
+            "value": ""
+          }
+        ],
+        "region": [
+          {
+            "language": "eng",
+            "value": "RSK"
+          },
+          {
+            "language": "ara",
+            "value": "RSK"
+          }
+        ]
+      }
+    }
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -718,11 +718,11 @@ KER-IOV-005|Missing input parameter - identity/gender|If gender attribute is not
 KER-IOV-005|Missing input parameter - identity/residenceStatus|If residenceStatus attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/addressLine1|If addressLine1 attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/region|If region attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/zone|If zone attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/province|If province attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/city|If city attribute is not found in the identity request
-KER-IOV-005|Missing input parameter - identity/localAdministrativeAuthority|If localAdministrativeAuthority attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribute is not found in the identity request
-KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/referenceIdentityNumber|If referenceIdentityNumber attribute is not found in the identity request
 KER-IOV-004|Invalid input parameter - identity/phone|If phone attribute is found but it's value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/email|If email attribute is found but it's value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/fullName/{*}/language|If language code is empty or invalid in the specified position(*) inside fullName attribute
@@ -739,10 +739,10 @@ KER-IOV-004|Invalid input parameter - identity/province/{*}/language|If language
 KER-IOV-004|Invalid input parameter - identity/province/{*}/value|If value is empty or invalid in the specified position(*) inside province attribute
 KER-IOV-004|Invalid input parameter - identity/city/{*}/language|If language code is empty or invalid in the specified position(*) inside city attribute
 KER-IOV-004|Invalid input parameter - identity/city/{*}/value|If value is empty or invalid in the specified position(*) inside city attribute
-KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/language|If language code is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
-KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/value|If value is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
+KER-IOV-004|Invalid input parameter - identity/zone/{*}/language|If language code is empty or invalid in the specified position(*) inside zone attribute
+KER-IOV-004|Invalid input parameter - identity/zone/{*}/value|If value is empty or invalid in the specified position(*) inside zone attribute
 KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid 
-KER-IOV-004|Invalid input parameter - identity/CNIENumber|If CNIENumber is empty or invalid
+KER-IOV-004|Invalid input parameter - identity/referenceIdentityNumber|If referenceIdentityNumber is empty or invalid
 
 ### PUT /applications/{preRegistrationId}
 This request is used to update pre-registration's demographic details by providing pre-registration id in the path parameter and updated demographic details in request body.
@@ -776,7 +776,6 @@ request.demographicDetails.identity.city |Yes|city of the applicant| value will 
 request.demographicDetails.identity.phone |Optional|mobile number of the applicant|
 request.demographicDetails.identity.IDSchemaVersion|Optional|id schema version|1
 request.demographicDetails.identity.fullName |Yes|full name of the applicant|
-request.demographicDetails.identity.localAdministrativeAuthority |Yes|local Administrative Authority code of the application| value will be derived from the domain metadata
 request.demographicDetails.identity.dateOfBirth |Yes|date of birth of the applicant|
 request.demographicDetails.identity.email |Optional|email Id of the applicant|
 request.demographicDetails.identity.province |Yes|province of the applicant| value will be derived from the domain metadata
@@ -786,73 +785,73 @@ request.demographicDetails.identity.addressLine2 |Optional|address Line 2 of the
 request.demographicDetails.identity.addressLine3 |Optional|address Line 3 of the applicant|
 request.demographicDetails.identity.region |Yes|region of the applicant| value will be derived from the domain metadata
 request.demographicDetails.identity.residenceStatus|Yes|residence status of the applicant| value will be derived from the domain metadata
-request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
+request.demographicDetails.identity.zone |Yes|zone of the applicant| value will be derived from the domain metadata
+request.demographicDetails.identity.referenceIdentityNumber|Yes|referenceIdentityNumber Number of the applicant|
 
 #### Request:
 ```JSON
 {
   "id": "mosip.pre-registration.demographic.update",
   "version": "1.0",
-  "requesttime": "2019-05-28T19:46:13.502Z",
   "request": {
-    "langCode": "fra",
+    "langCode": "eng",
     "demographicDetails": {
       "identity": {
         "IDSchemaVersion": 1,
         "fullName": [
           {
-            "language": "fra",
-            "value": "jagadishwari"
+            "language": "eng",
+            "value": "Puja Thakur"
           },
           {
             "language": "ara",
-            "value": "جَگَدِسهوَرِ سِلڤَرَج"
+            "value": "پُجَ تهَكُر"
           }
         ],
-        "dateOfBirth": "1993/02/18",
+        "dateOfBirth": "1996/01/01",
         "gender": [
           {
-            "language": "fra",
-            "value": "FLE"
+            "language": "eng",
+            "value": "MLE"
           },
           {
             "language": "ara",
-            "value": "FLE"
-          }
-        ],
-        "residenceStatus": [
-          {
-            "language": "fra",
-            "value": "FR"
-          },
-          {
-            "language": "ara",
-            "value": "FR"
+            "value": "MLE"
           }
         ],
         "addressLine1": [
           {
-            "language": "fra",
-            "value": "mindtree phase 2, global village"
+            "language": "eng",
+            "value": "Green olive villa"
           },
           {
             "language": "ara",
-            "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
+            "value": "گرِِن ُلِڤِ ڤِللَ"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "eng",
+            "value": "FR"
+          },
+          {
+            "language": "ara",
+            "value": "FR"
           }
         ],
         "addressLine2": [
           {
-            "language": "fra",
-            "value": "Karnataka"
+            "language": "eng",
+            "value": "22 ananda reddy Layout"
           },
           {
             "language": "ara",
-            "value": "كَرنَتَكَ"
+            "value": "٢٢ َنَندَ رِددي لَيُُت"
           }
         ],
         "addressLine3": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": ""
           },
           {
@@ -862,7 +861,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         ],
         "region": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": "RSK"
           },
           {
@@ -872,7 +871,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         ],
         "province": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": "KTA"
           },
           {
@@ -882,7 +881,7 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
         ],
         "city": [
           {
-            "language": "fra",
+            "language": "eng",
             "value": "KNT"
           },
           {
@@ -890,23 +889,24 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
             "value": "KNT"
           }
         ],
-        "localAdministrativeAuthority": [
+        "zone": [
           {
-            "language": "fra",
-            "value": "SATZ"
+            "language": "eng",
+            "value": "BNMR"
           },
           {
             "language": "ara",
-            "value": "SATZ"
+            "value": "BNMR"
           }
         ],
         "postalCode": "14022",
         "phone":"9886442073",
         "email": "jagadishwari.selvaraj@mindtree.com",
-        "CNIENumber": "2864123456765432"
+        "referenceIdentityNumber": "12312312312312"
       }
     }
-  }
+  },
+  "requesttime": "2019-08-19T11:18:48.393Z"
 }
 ```
 #### Responses:
@@ -915,126 +915,126 @@ request.demographicDetails.identity.CNIENumber|Yes|CNIE Number of the applicant|
 ###### Description: Pre-Registration demographic details successfully updated
 ```JSON
 {
-    "id": "mosip.pre-registration.demographic.update",
-    "version": "1.0",
-    "responsetime": "2019-06-03T10:06:41.523Z",
-    "response": {
-        "preRegistrationId": "25091083153042",
-        "updatedDateTime": "2019-06-03T10:01:26.810Z",
-        "statusCode": "Pending_Appointment",
-        "langCode": "fra",
-        "demographicDetails": {
-            "identity": {
-                "CNIENumber": "2864123456765432",
-                "gender": [
-                    {
-                        "language": "fra",
-                        "value": "FLE"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "FLE"
-                    }
-                ],
-                "city": [
-                    {
-                        "language": "fra",
-                        "value": "KNT"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "KNT"
-                    }
-                ],
-                "postalCode": "14022",
-                "fullName": [
-                    {
-                        "language": "fra",
-                        "value": "jagadishwari"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "جَگَدِسهوَرِ سِلڤَرَج"
-                    }
-                ],
-                "localAdministrativeAuthority": [
-                    {
-                        "language": "fra",
-                        "value": "SATZ"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "SATZ"
-                    }
-                ],
-                "dateOfBirth": "1993/02/18",
-                "IDSchemaVersion": 1,
-                "province": [
-                    {
-                        "language": "fra",
-                        "value": "KTA"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "KTA"
-                    }
-                ],
-                "phone": "9886442073",
-                "addressLine1": [
-                    {
-                        "language": "fra",
-                        "value": "mindtree phase 2, global village"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "مِندترِِ پهَسِ ٢، گلُبَل ڤِللَگِ"
-                    }
-                ],
-                "residenceStatus": [
-                    {
-                        "language": "fra",
-                        "value": "FR"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "FR"
-                    }
-                ],
-                "addressLine2": [
-                    {
-                        "language": "fra",
-                        "value": "Karnataka"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "كَرنَتَكَ"
-                    }
-                ],
-                "addressLine3": [
-                    {
-                        "language": "fra",
-                        "value": ""
-                    },
-                    {
-                        "language": "ara",
-                        "value": ""
-                    }
-                ],
-                "region": [
-                    {
-                        "language": "fra",
-                        "value": "RSK"
-                    },
-                    {
-                        "language": "ara",
-                        "value": "RSK"
-                    }
-                ],
-                "email": "jagadishwari.selvaraj@mindtree.com"
-            }
-        }
-    },
-    "errors": null
+  "id": "mosip.pre-registration.demographic.update",
+  "version": "1.0",
+  "responsetime": "2019-08-19T11:18:51.326Z",
+  "response": {
+    "preRegistrationId": "46537143845798",
+    "createdDateTime": "2019-08-19T11:18:51.281Z",
+    "statusCode": "Pending_Appointment",
+    "langCode": "eng",
+    "demographicDetails": {
+      "identity": {
+        "gender": [
+          {
+            "language": "eng",
+            "value": "MLE"
+          },
+          {
+            "language": "ara",
+            "value": "MLE"
+          }
+        ],
+        "city": [
+          {
+            "language": "eng",
+            "value": "KNT"
+          },
+          {
+            "language": "ara",
+            "value": "KNT"
+          }
+        ],
+        "postalCode": "14022",
+        "fullName": [
+          {
+            "language": "eng",
+            "value": "Puja Thakur"
+          },
+          {
+            "language": "ara",
+            "value": "پُجَ تهَكُر"
+          }
+        ],
+        "dateOfBirth": "1996/01/01",
+        "referenceIdentityNumber": "12312312312312",
+        "IDSchemaVersion": 1,
+        "province": [
+          {
+            "language": "eng",
+            "value": "KTA"
+          },
+          {
+            "language": "ara",
+            "value": "KTA"
+          }
+        ],
+        "zone": [
+          {
+            "language": "eng",
+            "value": "BNMR"
+          },
+          {
+            "language": "ara",
+            "value": "BNMR"
+          }
+        ],
+        "addressLine1": [
+          {
+            "language": "eng",
+            "value": "Green olive villa"
+          },
+          {
+            "language": "ara",
+            "value": "گرِِن ُلِڤِ ڤِللَ"
+          }
+        ],
+        "residenceStatus": [
+          {
+            "language": "eng",
+            "value": "FR"
+          },
+          {
+            "language": "ara",
+            "value": "FR"
+          }
+        ],
+        "addressLine2": [
+          {
+            "language": "eng",
+            "value": "22 ananda reddy Layout"
+          },
+          {
+            "language": "ara",
+            "value": "٢٢ َنَندَ رِددي لَيُُت"
+          }
+        ],
+        "addressLine3": [
+          {
+            "language": "eng",
+            "value": ""
+          },
+          {
+            "language": "ara",
+            "value": ""
+          }
+        ],
+        "region": [
+          {
+            "language": "eng",
+            "value": "RSK"
+          },
+          {
+            "language": "ara",
+            "value": "RSK"
+          }
+        ],
+        "phone": "9886442073",
+        "email": "jagadishwari.selvaraj@mindtree.com"
+      }
+    }
+  },
+  "errors": null
 }
 ```
 ##### Failure Response:
@@ -1072,11 +1072,11 @@ KER-IOV-005|Missing input parameter - identity/gender|If gender attribute is not
 KER-IOV-005|Missing input parameter - identity/residenceStatus|If residenceStatus attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/addressLine1|If addressLine1 attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/region|If region attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/zone|If zone attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/province|If province attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/city|If city attribute is not found in the identity request
-KER-IOV-005|Missing input parameter - identity/localAdministrativeAuthority|If localAdministrativeAuthority attribute is not found in the identity request
 KER-IOV-005|Missing input parameter - identity/postalCode|If postalCode attribute is not found in the identity request
-KER-IOV-005|Missing input parameter - identity/CNIENumber|If CNIENumber attribute is not found in the identity request
+KER-IOV-005|Missing input parameter - identity/referenceIdentityNumber|If referenceIdentityNumber attribute is not found in the identity request
 KER-IOV-004|Invalid input parameter - identity/phone|If phone attribute is found but it's value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/email|If email attribute is found but it's value is empty or invalid
 KER-IOV-004|Invalid input parameter - identity/fullName/{*}/language|If language code is empty or invalid in the specified position(*) inside fullName attribute
@@ -1093,10 +1093,10 @@ KER-IOV-004|Invalid input parameter - identity/province/{*}/language|If language
 KER-IOV-004|Invalid input parameter - identity/province/{*}/value|If value is empty or invalid in the specified position(*) inside province attribute
 KER-IOV-004|Invalid input parameter - identity/city/{*}/language|If language code is empty or invalid in the specified position(*) inside city attribute
 KER-IOV-004|Invalid input parameter - identity/city/{*}/value|If value is empty or invalid in the specified position(*) inside city attribute
-KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/language|If language code is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
-KER-IOV-004|Invalid input parameter - identity/localAdministrativeAuthority/{*}/value|If value is empty or invalid in the specified position(*) inside localAdministrativeAuthority attribute
+KER-IOV-004|Invalid input parameter - identity/zone/{*}/language|If language code is empty or invalid in the specified position(*) inside zone attribute
+KER-IOV-004|Invalid input parameter - identity/zone/{*}/value|If value is empty or invalid in the specified position(*) inside zone attribute
 KER-IOV-004|Invalid input parameter - identity/postalCode|If postalCode is empty or invalid 
-KER-IOV-004|Invalid input parameter - identity/CNIENumber|If CNIENumber is empty or invalid
+KER-IOV-004|Invalid input parameter - identity/referenceIdentityNumber|If referenceIdentityNumber is empty or invalid
 
 ### GET /applications/{preRegistrationId}
 This request is used to retrieve Pre-Registration demographic data by pre-Registration id provided in request path parameter.
@@ -1134,7 +1134,7 @@ preRegistrationId |Yes|Id of the application|32042841521591
         "langCode": "fra",
         "demographicDetails": {
             "identity": {
-                "CNIENumber": "9182345678456",
+                "referenceIdentityNumber": "9182345678456",
                 "gender": [
                     {
                         "language": "fra",
@@ -1166,7 +1166,7 @@ preRegistrationId |Yes|Id of the application|32042841521591
                         "value": "سهَسهَنك "
                     }
                 ],
-                "localAdministrativeAuthority": [
+                "zone": [
                     {
                         "language": "fra",
                         "value": "14022"
