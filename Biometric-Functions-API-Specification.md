@@ -478,7 +478,7 @@ class Score
 {
    float scaledScore; //0 - 100, used for internal classification and efficacy analysis
    long internalScore; // used against threshold specified in config file
-   KeyValuePair[] AnalyticsInfo; // detailed breakdown and other information
+   KeyValuePair[] analyticsInfo; // detailed breakdown and other information
 }
 
 class CompositeScore
@@ -486,26 +486,26 @@ class CompositeScore
    float scaledScore; //0 - 100, used for internal classification and efficacy analysis
    long internalScore; // used against threshold specified in config file
    Score[] individualScores; // List of score for individual matches. Array size matches the input sample array size.
-   KeyValuePair[] AnalyticsInfo; // detailed breakdown and other information
+   KeyValuePair[] analyticsInfo; // detailed breakdown and other information
 }
 
-class BiometricRecord
+class BIR
 {
-   VersionType version;
-   VersionType cbeffVersion;
-   Object[] other;
+   BIRVersion version;
+   BIRVersion cbeffVersion;
    BIRInfo birInfo;
    BDBInfo bdbInfo;
+   byte[] bdb;
+   byte[] sb;
    SBInfo sbInfo;
-   String bdb; // Base64 Binary
-   String sb; // Base64 Binary
+   List<JAXBElement<String>> element;
 }
 
 class BIRInfo
 {
    String creator;
    String index; // UUID with pattern [a-fA-F0-9]{8}\-([a-fA-F0-9]{4}\-){3}[a-fA-F0-9]{12}
-   String payload;
+   byte[] payload;
    Boolean integrity;
    DateTime creationDate;
    DateTime notValidBefore;
@@ -514,9 +514,8 @@ class BIRInfo
 
 class BDBInfo
 {
-   String challengeResponse; // Base64 Binary
+   byte[] challengeResponse;
    String index; // UUID with pattern [a-fA-F0-9]{8}\-([a-fA-F0-9]{4}\-){3}[a-fA-F0-9]{12}
-   RegistryInfo format;
    Boolean encryption;
    DateTime creationDate;
    DateTime notValidBefore;
@@ -530,7 +529,7 @@ class BDBInfo
    RegistryInfo comparisonAlgorithm;
    RegistryInfo compressionAlgorithm;
    PurposeType purpose;
-   QualityType quality;
+   Integer quality;
 }
 
 class RegistryInfo
@@ -541,23 +540,16 @@ class RegistryInfo
 
 class SBInfo
 {
-   RegistryInfo format;
+   RegistryIDType format;
 }
 
-class VersionType
+class BIRVersion 
 {
    int major;
    int minor;
 }
 
-class QualityType
-{
-   RegistryInfo algorithm;
-   Score score;
-   String qualityCalculationFailed;
-}
-
-enum BiometricType
+enum SingleType 
 {
    Scent,
    DNA,
@@ -573,13 +565,10 @@ enum BiometricType
    Gait,
    Keystroke,
    LipMovement,
-   SignatureSign,
-   Palm,
-   BackOfHand,
-   Wrist
+   SignatureSign
 }
 
-enum BiometricSubType
+enum SingleAnySubtypeType
 {
    Left,
    Right,
@@ -609,9 +598,11 @@ enum PurposeType
 
 interface IBioApi
 {
-   Score[] match(BiometricImageRecord sample, BiometricRecord[] gallery, KeyValuePair[] flags);
-   CompositeScore compositeMatch(BiometricRecord[] sampleList, BiometricRecord[] recordList, KeyValuePair[] flags);
-   QualityScore checkQuality(BiometricRecord sample, KeyValuePair[] flags);
-   BiometricRecord extractTemplate(BiometricRecord sample, KeyValuePair[] flags);
-   BiometricRecord[] segment(BiometricRecord sample, KeyValuePair[] flags);
+   Score[] match(BIR sample, BIR[] gallery, KeyValuePair[] flags);
+   CompositeScore compositeMatch(BIR[] sampleList, BIR[] recordList, KeyValuePair[] flags);
+   QualityScore checkQuality(BIR sample, KeyValuePair[] flags);
+   BIR extractTemplate(BIR sample, KeyValuePair[] flags);
+   BIR[] segment(BIR sample, KeyValuePair[] flags);
 }
+
+The above code snippets can be referred to from here - [CBEFF-util](https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-core/src/main/java/io/mosip/kernel/core/cbeffutil) and [Bio API](https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-core/src/main/java/io/mosip/kernel/core/bioapi)
