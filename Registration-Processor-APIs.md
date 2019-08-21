@@ -767,7 +767,7 @@ Packet with registrationId 10003100030000420190625111842 has not been uploaded t
 # 8 Registration Process Request Handler Service
 
 ### Resource URL
-### `POST /registrationprocessor/v1/registrationhandler/reprint`
+### `POST /registrationprocessor/v1/requesthandler/reprint`
 
 ### Resource details
 
@@ -786,19 +786,20 @@ PacketGeneratorRequestDto|Yes|Mandatory information required for reprint to be s
 Reprint request by UIN:
 ```JSON
 {
-  "id": "mosip.packet.generator",
+  "id": "mosip.uincard.reprint",
   "version": "1.0",
-  "requesttime": "2019-07-07T06:12:25.288Z",
+  "requesttime": "2019-08-21T04:46:21.662Z",
   "request": {
-    "centerId": "10031",
-    "machineId": "10011",
-    "reason": "something",
-    "registrationType": "REPRINT",
-    "id": "4215839851",
+    "centerId": "10002",
+    "machineId": "10021",
+    "reason": "Id Type and Card Type is UIN",
+    "registrationType": "RES_REPRINT",
+    "id": "7982160142",
     "idType": "UIN",
-    "cardType": "UIN"
+    "cardType": "VID"
   }
 }
+
 ```
 
 Reprint request by VID:
@@ -823,14 +824,15 @@ Reprint request by VID:
 Success Response:
 ```JSON
 {
-  "id": "mosip.packet.generator",
-  "version": "1.0",
-  "responsetime": "2019-07-07T06:12:25.288Z",
-  "response": {
-    "registrationId": "10031100110005020190313110030",
-    "status": "RECEIVED",
-    "message": "Reprint request received and card will be delivered to registered address."
-  }
+    "id": "mosip.uincard.reprint",
+    "version": "1.0",
+    "responsetime": "2019-08-21T04:59:39.859Z",
+    "response": {
+        "registrationId": "10002100210004820190821045937",
+        "status": "Packet has reached Packet Receiver",
+        "message": "Packet created and uploaded"
+    },
+    "errors": null
 }
 ```
 Error Response:
