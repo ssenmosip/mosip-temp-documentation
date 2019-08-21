@@ -984,13 +984,19 @@ status|["contains","equals","startsWith"]
   "errors": null,
   "response": {
   "data": [
-	{
-	"code": "string",
+	 {
+        "isActive": boolean,
+        "createdBy": "string",
+        "createdDateTime": "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+        "updatedBy": null,
+        "updatedDateTime": null,
+        "isDeleted": null,
+        "deletedDateTime": null,
+        "code": "string",
+        "name": "string",
         "description": "string",
-        "isActive": true,
-        "langCode": "string",
-        "name": "string"
-	}
+        "langCode": "string"
+      }
    ],
 	"fromRecord" : "number",
 	"toRecord":"number",
