@@ -1,5 +1,5 @@
 
-**Draft 2 (4th April, 2019)**
+**Draft 3 (August, 2019)**
 
 MOSIP uses biometrics in the registration and the authentication processes. As part of this it requires specialized processing of the biometrics data for different types of biometrics. This document defines the interface for the Java Library providing the functional support for processing biometrics.
 
