@@ -118,7 +118,7 @@ This is an optional field. If the service is expecting any metadata, they can be
 
 
 15.3. Request payload: 
-The request payload goes here. 
+This is an optional field. The request payload goes here. 
 
 For example, 
 
