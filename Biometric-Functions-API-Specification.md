@@ -604,5 +604,6 @@ interface IBioApi
    BIR extractTemplate(BIR sample, KeyValuePair[] flags);
    BIR[] segment(BIR sample, KeyValuePair[] flags);
 }
+```
 
 The above code snippets can be referred to from here - [CBEFF-util](https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-core/src/main/java/io/mosip/kernel/core/cbeffutil) and [Bio API](https://github.com/mosip/mosip-platform/tree/master/kernel/kernel-core/src/main/java/io/mosip/kernel/core/bioapi)
