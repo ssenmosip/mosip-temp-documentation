@@ -325,18 +325,17 @@ When a registration officer starts a new registration for a non-pre-registered i
 When the address details of the previous registration and the current registration is same, the system allows the registration officer to copy the same address as previous registration. This feature helps the registration officer to save the time while registering the individual who has the same address as previous registration.
 
 #### G. Scan and upload of POI, POA and POR
-1. Registration officer can upload documents based on the configuration of a country during registering an individual, for example, POA (Proof of Address), POI (Proof of Identity), POR (Proof of Relationship), etc.
-1. Document type is configurable by admin based on the country level.
+1. Registration officer can upload documents during registration of an individual, for example, POA (Proof of Address), POI (Proof of Identity), POR (Proof of Relationship), etc.
 1. The registration officer collects these documents from the individual and scans them if the uploaded document during pre-registration doesn't meet the required quality.
 1. The following parameters will be met while uploading the documents:
-   * System lists various document categories as configured by admin
-   * For each document category, system enables selection of the list of valid documents
-   * The system validates if the document is in permissible file format (PDF, PNG, GIF, etc.)
+   * System lists various document categories as applicable
+   * For each document category, system enables selection of one document type from the list of valid documents
+   * The system validates if the document uploaded is in permissible file format (PDF, PNG, GIF, etc.)
    * The system does not allow registration officer to upload more than one document per category
-   * The system performs size check after document upload and revert the registration officer to upload again if the document size is more than 1 MB (document size is configurable)
+   * The system performs size check after document upload and direct the registration officer to upload again, if the document size is more than 1 MB (document size is configurable)
    * The system displays the name of the document adjacent to the Document Category for which the document is uploaded 
-1. The registration officer can delete files uploaded by mistake.
-1. The registration officer can view the uploaded file(s).
+1. The registration officer can delete files uploaded erroneously
+1. The registration officer can view the uploaded file(s)
 
 #### H. Capture an individual's fingerprints as per specification
 Fingerprint capture is configurable (Turn ON or OFF) by the admin at the country level.
