@@ -32,12 +32,12 @@ Requires Authentication | Yes
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
 id|Yes|id of temlate | | 
-descr|Yes|Description of the temlate | | 
-lang_code|Yes|Language code of the temlate | | 
+descr|Yes|Description of the template | | 
+lang_code|Yes|Language code of the template | | 
 isActive |Yes|is active or not| |
 moduleId |Yes| Id of modul | |
 templateTypeCode |Yes| Id of template type | |
-fileFormatCode | Yes | Code of file formate| |
+fileFormatCode | Yes | Code of file format| |
 
 ### Example Request
 ```JSON
@@ -92,12 +92,12 @@ Requires Authentication | Yes
 ### Parameters
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id|Yes|id of temlate | | 
-lang_code|Yes|Language code of the temlate | | 
+id|Yes|id of template | | 
+lang_code|Yes|Language code of the template | | 
 isActive |Yes|is active or not| |
 moduleId |Yes| Id of modul | |
 templateTypeCode |Yes| Id of template type | |
-fileFormatCode | Yes | Code of file formate| |
+fileFormatCode | Yes | Code of file format| |
 
 ### Example Request
 ```JSON
@@ -189,11 +189,11 @@ id|Yes|id of the Template|
 #### Failure details
 Error Code | Error Message | Error Description
 ------------|------------------------------|-------------
-KER-MSD-045 | Error occurred while fetching Templates | Fetch Issue
+KER-MSD-045 | Error occurred while fetching templates | Fetch Issue
 KER-MSD-145 | Exception during inserting data into db | Insertion Issue
 KER-MSD-046 | Template not found. | Data Not Found
-KER-MSD-095 | Error occurred while updating Template | Update Issue
-KER-MSD-096 | Error occurred while deleting Template | Delete Issue
+KER-MSD-095 | Error occurred while updating template | Update Issue
+KER-MSD-096 | Error occurred while deleting template | Delete Issue
 
 # Template Types API
 
