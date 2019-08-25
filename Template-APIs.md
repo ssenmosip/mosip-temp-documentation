@@ -95,7 +95,7 @@ Name | Required | Description | Default Value | Example
 id|Yes|id of template | | 
 lang_code|Yes|Language code of the template | | 
 isActive |Yes|is active or not| |
-moduleId |Yes| Id of modul | |
+moduleId |Yes| Id of module | |
 templateTypeCode |Yes| Id of template type | |
 fileFormatCode | Yes | Code of file format| |
 
