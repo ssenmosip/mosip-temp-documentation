@@ -176,18 +176,16 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 
 **TPM [Trusted Platform Module]:**  
 
-   To enable or disable the TPM functionality, modify the mentioned key in 'props/mosip-application.properties' file.    
+   To enable or disable the TPM functionality, modify the mentioned key in 'registrtaion-services/src/main/spring.properties' file.    
     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.
 
 **MDM [Mosip Device Manager] Service:**  
-   It integrates the Registration application with Bio devices [IRIS/ Finger Print/ Face]. As of now, the bio data are stubbed at this service level until the actual services are ready.   
+   It integrates the Registration application with Bio-devices [IRIS/ Finger Print/ Face]
    
 |**S.No.**| **Config Key**| **Sample Values and Description**|
 |:------:|-----|-----|
 |1.|	mosip.mdm.enabled=N        | Y - Enable , N - Disable |  
-|2.|	mdm_start.bat        | to start the MDM service. |
-|3.|	mdm_stop.bat        | to stop the MDM service. |
-|4.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
+|2.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
 
 **Network Connectivity Check:**  
    Registration client verifies the below-configured URL to check whether the system is in online or not.The application uses this URL to perform the health check before communicating with the external services.
@@ -199,25 +197,19 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 	
 ## Property File :
 
-   There are few properties which can be configured at a local machine based on the local system requirement.    
-     Eg: TPM - enable / disable flag, artifactory url, environment name.   
-
-   Property attributes and the respective sample values are provided below. Based on the comments provided against each attribute, update the required values if needed only.  
+   Property attributes and the respective sample values are provided below. Before building the **registration-services**, the required below properties needs to be changed.
    
-   **File Location:** props/mosip-application.properties  
-     - mosip.reg.env=qa, preqa, demo { environment name. Use the same value in spring profile config.}   
-     - mosip.reg.version=0.12.* {current release version of the application}  
-     - mosip.reg.mdm.server.port=8080 {MDM service running port.}    
+   **File Location:** registration-services/src/main/resources/spring.properties       
      - mosip.reg.logpath=../logs  
      - mosip.reg.packetstorepath={where the registration packet should be stored}. 
-     - mosip.reg.healthcheck.url={Application uses this url to perform the health check before communicating with the external services.}  
-     - mosip.reg.rollback.path={where the application backup should be taken during software update}  
+     - mosip.reg.healthcheck.url={Application uses this url to perform the health check before communicating with the external services. Default value: https://${environment}/v1/authmanager/actuator/health }  
+     - mosip.reg.rollback.path={where the application backup should be taken during software update} [Default: ../BackUp]  
      - mosip.reg.db.key={contains the key to be used to connect to the derby database and decrypt the data}. 
      - mosip.reg.cerpath=/cer//mosip_cer.cer
      - mosip.reg.xml.file.url={JFrog repository url with maven-metadata.xml file.}  
      - mosip.reg.dbpath=db/reg
      - mosip.reg.app.key={contains the key to be used to decrypt the application binaries during run time}.  
-     - mosip.reg.client.tpm.availability={ Y - to enable the TPM, N - to disable the TPM}.   
+     - mosip.reg.client.tpm.availability={ Y - to enable the TPM, N - to disable the TPM, default N}.   
      	
      	
 ## Dependent Services :    
