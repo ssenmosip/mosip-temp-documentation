@@ -23,7 +23,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
    **Following files to be modified before building the application:**    
      -  spring.properties - [registration-services module] - It contains the environment based REST client URL to make different service calls and all the required properties.  
-     -  As part of the Jenkins, the required environment should be passed as run time argument **environment** for the build. Ex: "mvn clean install -Denvironment=<env>"
+     -  As part of the Jenkins, the required environment should be passed as run time argument **environment** for the build. Ex: "mvn clean install -Denvironment=hostname".
      -  Post completion of above-mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
      -  Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, post successful build generation. Which is referred by the reg-client application to download the required jars based on the version.   
      - Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the jar files checksum.   
