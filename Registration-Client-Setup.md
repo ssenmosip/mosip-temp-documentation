@@ -21,9 +21,9 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
      registration-mdm-service - Mosip Device Manager service to integrate with BIO device and render the required data in standard format and that will be consumed by the 'registration-services' module.   
      registration-services - it contains the Java API, which would be called from UI module to render the services to the User and capture the detail from User and store it in db or send to external systems through services.    
 
-   **Following files to be modified before build the application:**  
-     -  mosip-application.properties - [registration-libs module] - Contains the environment variable.  
-     -  spring-<env>.properties - [registration-services module] - It contains the environment based REST client url to make different service calls.  
+   **Following files to be modified before build the application:**    
+     -  spring.properties - [registration-services module] - It contains the environment based REST client url to make different service calls and all the required properties.  
+     - As part of the Jenkins, the reuqired environment shoudl be passed as **mvn clean install -Denvironment=<env>**" 
      -  Post completion of above mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
      -  Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, post successful build generation. Which is referred by the reg-client application to download the required jars based on the version.   
      - Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the jar files checksum.   
@@ -41,8 +41,8 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 **Application Prerequisites:**  
    Before running the 'Registration client' application, following prerequisites to be completed.
 
-   - Before building the 'registration-services' module, all the external [dependent services](#dependent-services-) URLs should be configured in the **environment specific 'spring-<env>.properties'** file.     
-   - [Property file](#property-file-) - **[mosip-application.properties]** should be updated with right environment [env] and other detail.     
+   - Before building the 'registration-services' module, all the external [dependent services](#dependent-services-) URLs should be configured in the **'spring.properties'** file.     
+   - [Property file](#property-file-) - **[spring.properties]** should be updated with right environment [env] and other detail.     
    - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip-docs/wiki/Getting-Started#7-configuring-mosip-).    
    - User, machine, center mapping and all other required table and data setup should exists in MOSIP kernel database along with the profile and desired roles configuration in LDAP server.    [This is required until the Admin module is delivered. Post delivery, all the configuration can be done through Admin module.]   
    - User's machine should have online connectivity to access the JFrog artifactory repository, where the application binaries are available.   
@@ -92,7 +92,6 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    2. Once downloaded then unzip the file into a particular location. It contains the following folder structure.  
       - bin : It contains the client UI and service binaries in encrypted format.
       - lib : It contains the library required for the application to run.  
-      - props : It contains the property file that will be used by application.    
       - cer  : It contains the certificate used to communicate with the MOSIP server.  
       - db : It contains the encrypted derby database.   
       - run.bat : batch file to launch the application.  
@@ -118,7 +117,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    The application refers to the 'maven-metadata.xml' to verifies any new version exists or not. [Which is generated under 
    the '**registration-client**' module post successful Jenkins build.]
    
-   mosip.rollback.path - Make sure that rollback path is provided in this variable, which is available in 'mosip-application.properties' file. 
+   mosip.rollback.path - Make sure that rollback path is provided in this variable, which is available in 'spring.properties' file; as part of the **registration-services** module. 
        
    **Application update:**
    - During the startup of the application, the software check will be validating against the maven-metadata.xml file from artifactory repository. If any diffs found, application prompts the user with 'Update Now' or 'Update Later' options to install immediately or later. Apart from this there is another menu option available in the application to trigger the 'Update' process post login to the application. The update process would update both the application binaries and DB.
@@ -132,7 +131,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 ## Configuration:  
 
-   Application provided with the facility of multiple configurations for different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine through kernel services.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
+   The application provided with the facility of multiple configurations for a different set of parameters. Each attribute level configuration changes should be performed at 'Config' server and same should be sync to the local machine through kernel services.  Here few of the configurations are listed out that provide the facility to enable and disable the biometric. 
 
 Refer the configuration maintained in [QA](https://github.com/mosip/mosip-configuration/blob/master/config/registration-qa.properties) environment. 
 
@@ -188,7 +187,7 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 |2.|	mosip.reg.mdm.server.port=8080        | To run the MDM service in local machine's port.  |
 
 **Network Connectivity Check:**  
-   Registration client verifies the below-configured URL to check whether the system is in online or not.The application uses this URL to perform the health check before communicating with the external services.
+   Registration client verifies the below-configured URL to check whether the system is in online or not. The application uses this URL to perform the health check before communicating with the external services.
    
 |**S.No.**| **Config Key**| **Sample Values and Description**|
 |:------:|-----|-----|
