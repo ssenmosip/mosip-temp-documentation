@@ -21,9 +21,15 @@ It doesn't detail about each methods level information since that are covered in
 |:------:|-----|  
 |**Technical Detail:**| Based on the business need [New Registation / Update UIN/ Lost UIN] this 'RegistrationDTO' object should be populated with the relevant  data and also pass the 'RegistrationMetaDataDTO.RegistrationCategory' as [New/ Update/ Lost].  |
 |**Main Service class and methods**| PacketHandlerService.handle(RegistrationDTO registrationDTO)|  
-|**Input Parameter:**|  The RegistrationDTO object contains the RID, PRID, registration details of the individual and also contains the officer and supervisor details. This object has the following sub-classes: a. DemographicDTO - Details of the Demographic and Documents, b. BiometricDTO - Biometrics (Fingerprints, Irises, Face and Exception Face) of the individual, parent (or guardian), officer and supervisor, c.  RegistrationMetaDataDTO - Meta data related to registration and d. OSIDataDTO - Details of the officer and supervisor who had authenticated the registration.  |  
+|**Input Parameter:**|  The RegistrationDTO object contains the RID, PRID, registration details of the individual and also contains the officer and supervisor details. This object has the following sub-classes: a. DemographicDTO - Details of the Demographic and Documents, b. BiometricDTO - Biometrics (Fingerprints, Irises, Face and Exception Face) of the individual, parent (or guardian), officer and supervisor, c.  RegistrationMetaDataDTO - Metadata related to registration and d. OSIDataDTO - Details of the officer and supervisor who had authenticated the registration.  |  
 |**Auth:**| SessionContext is required for creating the packet |  
 |**External Connectivity**| DB, File system |  
+|**New Registration - Adult**| As part of New registration, individual's Demographic, documents and bio-metric [fingerprint/iris/face] will be captured if an exception of the bio-metrics, exception photo will be captured.| 
+|**New Registration - Chile**| As part of New registration, individual's Demographic, documents and parents anyone bio-metric [fingerprint/iris/face] will be captured along with that Parents/Guardians RID will be captured. if an exception of the parent bio-metrics, exception photo will be captured for the parent| 
+|**UIN Update - Adult**| As part of UIN Update, individual's can have the option to select which one they are going to be updated. For Demographic update --> UIN number, Name and Document are mandatory value. For Bio-metric update --> UIN number, Name and Bio-metric [fingerprint/iris/face] will be captured and relevant documents [as per configuraiton], if any exception then exception photo will be captured|
+|**UIN Update-Child**| As part of UIN Update, individual's can have the option to select which one they are going to be updated. For Demographic update --> UIN Number, Name and Document are mandatory value along with that Parent/Guardian UIN along with anyone parent bio-metric should be captured; if any exception the exception photo of the Parent/Guardian will be captured. For Bio-metric update --> Name and Bio-metric [fingerprint/iris/face] will be captured and relevant documents [as per configuraiton] along with that Parent/Guardian UIN along with anyone parent bio-metric should be captured; if any exception the exception photo of the parent/Guardian will be captured.|
+|**Lost UIN-Adult**| As part of Lost UIN, individual's anyone Bio-metric will be mandatory to find the lost UIN bio-metric [fingerprint/iris/face] will be captured| 
+|**Lost UIN-Child**| As part of Lost UIN, Parent/Guardian  Bio-metric will be mandatory to find the lost UIN of the child bio-metric [fingerprint/iris/face] will be captured if an exception the exception photo of the parent/Guardian will be captured.| 
 
 |**Functionality:**|  PACKET SYNC– Sync all the Approved/ Rejected/ Re-Register Approved packets before Uploading to server |   
 |:------:|-----|  
@@ -278,4 +284,6 @@ Below find the list of error code and description which are thrown from applicat
 |RestClientAuthAdvice			|REG-RCA-001	|Generic Exception reported by server, while invoking web-service.    							|
 |RestClientAuthAdvice			|REG-RCA-002	|Exception while generating the signature of resquest body							|
 |RestClientAuthAdvice			|REG-SDU-004	|Response header received from the web-service is not as expected					|	
-|DemographicDetailController            |KER-IDV-102    |PRID should not contain any sequential and repeated block of number for 2 or more than two digits                     
+|DemographicDetailController            |KER-IDV-102    |PRID should not contain any sequential and repeated block of number for 2 or more than two digits 
+|UpdateUINController                    |KER-IDV-203    |UIN length should be as per configured digit.
+|RegistrationController                 |KER-TRL-002    |Language code not supported                 

@@ -669,11 +669,11 @@ byte[]|Yes|byte array of CBEFF file|
 ```
 
 # 6 Packet Generator Service
-- #### `POST /registrationprocessor/v1/packetgenerator/registrationpacket`
+- #### `POST /registrationprocessor/v1/requesthandler/packetgenerator`
 The residence service portal would call packet generator service to activate or deactivate uin.
 
 #### Resource URL
-https://mosip.io/registrationprocessor/v1/packetgenerator/registrationpacket
+https://mosip.io/registrationprocessor/v1/requesthandler/packetgenerator
 
 #### Resource details
 
