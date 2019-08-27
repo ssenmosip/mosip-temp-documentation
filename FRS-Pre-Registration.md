@@ -184,7 +184,7 @@ The Individual can discard the Pre-Registration by clicking on the Delete icon f
 #### 2.4.3.1 Get Slots Availability [**[↑]**](#table-of-contents)
 The user opts to view the available slots for a selected registration center.
 1. The system displays 7 calendar days (configurable) for the Individual to select a slot in the chosen center
-1. Calendar day\s which are  Holidays for the selected Registration Center are Greyed out or not shown to the user
+1. Calendar day\s which are  Holidays or non-working days for the selected Registration Center are greyed out or not shown to the user
 1. For a Selected Registration Center 8 hours (configurable) are considered as working hours
 1. An Individual can view time slots of 15 minutes (configurable) each for the selected calendar day and view Available slots for every time slot shown in the selected calendar day
 1. The system auto-suggest the closest available timeslot(s) to the chosen applicant(s) and assigns it 
@@ -198,6 +198,9 @@ The user opts to view the available slots for a selected registration center.
 1. Following a successful Appointment Cancellation the system unlocks the time slot of the Registration Center
 
 [**Link to design**](/mosip/mosip-platform/blob/master/design/pre-registration/pre-registration-booking-service.md)
+
+Additionally, in case of any change made by the administrator in terms of updating a working day/Non-holiday day to a non-working day/holiday for a Registration Center or updating the working hours of a Registration Center, the system will automatically cancel the affected appointments and trigger a notification to the mobile number or email id of the associated PRID, notifying regarding cancellation of appointment. 
+[**Link to design**](TBA)
 
 ### 2.4.5 Re-book Appointment [**[↑]**](#table-of-contents)
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment Slots.
