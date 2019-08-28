@@ -796,7 +796,7 @@ Reprint request by UIN:
     "registrationType": "RES_REPRINT",
     "id": "7982160142",
     "idType": "UIN",
-    "cardType": "VID"
+    "cardType": "UIN"
   }
 }
 
