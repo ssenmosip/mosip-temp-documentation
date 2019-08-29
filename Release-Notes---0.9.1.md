@@ -107,7 +107,7 @@ The [code](https://github.com/mosip/mosip-platform) and [automation tests](https
 [**Automation report run on 0.9.0 on QA env**](/mosip/mosip/tree/master/docs/testing/Automation%20Test%20Reports)
 ## Known Issues [**[↑]**](#table-of-contents)
 ![Image](_images/test_rig_automation/image4.jpg) 
-
+To Be updated
 ## Support Process (To Be Determined) [**[↑]**](#table-of-contents)
 Process to be followed for support required, escalation matrix, etc.
 
