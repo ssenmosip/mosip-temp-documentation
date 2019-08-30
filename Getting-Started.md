@@ -1416,9 +1416,9 @@ ID Repository Salt Generator Job is a one-time job which is run to populate salt
 **Salt Generator Deployment steps**
 
   a. Login into the VM.
-     Open the port 8082 from the VM:
+     Open the port 8092 from the VM:
 
-sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8092/tcp --permanent
 
 sudo firewall-cmd --reload
 
@@ -1455,9 +1455,9 @@ ID Authentication Salt Generator Job is a one-time job which is run to populate 
 **Salt Generator Deployment steps**
 
   a. Login into the VM.
-     Open the port 8082 from the VM:
+     Open the port 8092 from the VM:
 
-sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8092/tcp --permanent
 
 sudo firewall-cmd --reload
 
