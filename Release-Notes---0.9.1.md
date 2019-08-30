@@ -115,7 +115,15 @@ To Be updated
 |ID-Authentication|Internal OTP Authentication not working|MOS-28722|
 |ID-Authentication|Incorrect error message is displayed when there is a mismatch in the identity type in OTP Authentication|MOS-28208|
 |ID-Authentication|OTP Generate service with for internal authentication does not validate allowed ID Types|MOS-28663|
-|ID-Authentication|Email content should properly template it for otp and auth email notfication|MOS-28713|
+|ID-Authentication|Email content should properly template it for OTP and auth email notfication|MOS-28713|
+|Registration-Client|Scan pop up gets retained after app gets logout|MOS-27928|
+|Registration-Client|Not all QA property value changes are getting synced using "Sync" in-home screen|MOS-27986|
+|Registration-Client|Exception photo is displayed in preview and acknowledgment screen for non-exception packets|MOS-28007|
+|Registration-Client|File status pop up gets retained after app gets logout|MOS-27986|
+|Registration-Client|Unable to download pre-registration data either by fetching PRID or by bulk download|MOS-28667|
+|Registration-Client|Application fails to displays navigation away alert when a user clicks new registration on ack screen|MOS-28808|
+|Registration-Client|Application fails to alert the user to capture exception photo for low-quality biometric exception scenario|MOS-28807|
+|Registration-Client|Unable to create a packet with low-quality biometric scenario|MOS-28805|
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-contents)
 Process to be followed for support required, escalation matrix, etc.
