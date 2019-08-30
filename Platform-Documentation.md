@@ -273,7 +273,10 @@ Test Rig represents a one click automation to build, deploy and test a software 
 More details on [Test Automation](Tester-Documentation)
 
 ### 9.3 [Developer Documentation](Developer-Documentation)
-### 9.4 [Customization (WIP)](https://github.com/mosip/mosip-docs/wiki/Customization-of-UI---How-to-Guide)
+### 9.4 [Customization (WIP)]
+
+- [UI Customization (WIP)](https://github.com/mosip/mosip-docs/wiki/Customization-of-UI---How-to-Guide)
+
 ## 10.  INFRASTRUCTURE RECOMMENDATIONS[**[↑]**](#table-of-contents)
 ### 10.1 Data Center Architecture (WIP)
 ## 11. List Of Acronyms
