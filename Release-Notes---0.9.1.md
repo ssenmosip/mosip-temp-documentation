@@ -108,6 +108,15 @@ The [code](https://github.com/mosip/mosip-platform) and [automation tests](https
 ## Known Issues [**[↑]**](#table-of-contents)
 ![Image](_images/test_rig_automation/image4.jpg) 
 To Be updated
+
+|Module|Issue Description|Issue ID|
+|----|----|----|
+|ID-Repository|ID tag in response should be mosip.vid.deactivate or reactivate for Deactivate/Reactivate VID Api|MOS-28700|
+|ID-Authentication|Internal OTP Authentication not working|MOS-28722|
+|ID-Authentication|Incorrect error message is displayed when there is a mismatch in the identity type in OTP Authentication|MOS-28208|
+|ID-Authentication|OTP Generate service with for internal authentication does not validate allowed ID Types|MOS-28663|
+|ID-Authentication|Email content should properly template it for otp and auth email notfication|MOS-28713|
+
 ## Support Process (To Be Determined) [**[↑]**](#table-of-contents)
 Process to be followed for support required, escalation matrix, etc.
 
