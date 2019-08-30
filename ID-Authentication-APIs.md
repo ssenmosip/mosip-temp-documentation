@@ -76,7 +76,7 @@ Mandatory fields for different types of authentications-
   "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
   "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
   "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
-  "request": {
+  "request": { // Encrypted with session key and base64 encoded
     "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
     "otp": "123456",
     "demographics": {
@@ -115,7 +115,7 @@ Mandatory fields for different types of authentications-
     },
     "biometrics": [
       {
-        "data": {
+        "data": { // Base64 encoded
           "mosipProcess": "",
           "environment": "",
           "version": "",
@@ -136,7 +136,7 @@ Mandatory fields for different types of authentications-
         "signature": "base64 signature of the data and metaData block"
       },
       {
-        "data": {
+        "data": { // Base64 encoded
           "mosipProcess": "",
           "environment": "",
           "version": "",
@@ -324,12 +324,12 @@ request: transactionID|N| Transaction ID provided by Device Service| |
   "keyIndex": "<thumbprint of the public key certficate used for enryption of sessionKey. This is necessary for key rotaion>",
   "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
   "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
-  "request": {
+  "request": { // Encrypted with session key and base64 encoded
     "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
     "otp": "123456",
     "biometrics": [
       {
-        "data": {
+        "data": { // Base64 encoded
           "mosipProcess": "",
           "environment": "",
           "version": "",
@@ -690,22 +690,28 @@ request: biometrics|N| Biometric data of an Individual| |
   "keyIndex": "<thumbprint of the public key certificate used for encryption of sessionKey. This is necessary for key rotaion>",
   "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
   "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
-  "request": {
+  "request": { // Encrypted with session key and base64 encoded
     "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
     "biometrics": [
       {
-        "data": {
+        "data": { // Base64 encoded
           "bioType": "FMR",
           "bioSubType": "UNKNOWN",
-          "bioValue": "<base64 encoded biometric data>"
-        }
+          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+        },
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+        "signature": "base64 signature of the data and metaData block"
       },
       {
-        "data": {
+        "data": { // Base64 encoded
           "bioType": "IIR",
           "bioSubType": "RIGHT",
-          "bioValue": "<base64 encoded biometric data>"
-        }
+          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
+        },
+        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
+        "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
+        "signature": "base64 signature of the data and metaData block"
       }
     ]
   }
