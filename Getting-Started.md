@@ -85,7 +85,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
       * **ID-Repository**<br/>
       * **ID-Authentication**<br/>
 
-      Each Module's CI/CD Jenkins script can be found under root of these modules. This Jenkins script will be  named Jenkinsfile and is responsible to build and deploy the entire Module to Dev environment<br/>
+      Each Module's CI/CD Jenkins script can be found in https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile. This Jenkins script will be  named Jenkinsfile and is responsible to build and deploy the entire Module to Dev environment<br/>
 
   * For promoting these modules to QA, there is a pipeline named **PromoteToQAJenkinsFile** which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.
 
