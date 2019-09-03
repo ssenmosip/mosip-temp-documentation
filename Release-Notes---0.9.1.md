@@ -116,6 +116,9 @@ To Be updated
 |ID-Authentication|Incorrect error message is displayed when there is a mismatch in the identity type in OTP Authentication|MOS-28208|
 |ID-Authentication|OTP Generate service with for internal authentication does not validate allowed ID Types|MOS-28663|
 |ID-Authentication|Email content should properly template it for OTP and auth email notfication|MOS-28713|
+|ID-Authentication|Valid response should come for internal/authtypes/status api|MOS-28966|
+|ID-Authentication|There should not be "null" value in lock and unlock UIN or VID response|MOS-28965|
+|ID-Authentication|ID Validation should happen for Lock and Unlock  UIN/VID Api|MOS-28964|
 |Registration-Client|Scan pop up gets retained after app gets logout|MOS-27928|
 |Registration-Client|Not all QA property value changes are getting synced using "Sync" in-home screen|MOS-27986|
 |Registration-Client|Exception photo is displayed in preview and acknowledgment screen for non-exception packets|MOS-28007|
