@@ -1243,7 +1243,7 @@ Once the above deployment is done, we will start deploying MOSIP services. For d
 ![Directories](_images/getting_started_images/kubernetes-mosip-services-directory.JPG)
 
 ###  Firstly Deploy Kernel Configuration server
- The script is inside ( scripts/kubernetes/configuration-server/config-server-deployment-and-service.yml ) <br/> 
+ The script is inside ( https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/configuration-server/config-server-deployment-and-service.yml ) <br/> 
 Follow below steps:
 1. Create a ssh key and configure it with your git repository. If you have already configured the ssh key for your repository, you can use that one or else follow [this](//help.github.com/en/articles/connecting-to-github-with-ssh) <br/>  
 2. Create a secret for Config server to connect to GIT repo. This secret contains your **id_rsa key (private key), id_rsa_pub key (public key) and known_hosts** which you generated above. We need this secret because config server connects to your Source code management repository, to get configuration for all the services(If you are using ssh URL for cloning the repo). For generating the required secret give the following command: ( Firstly try to connect to GIT repository from your system using ssh url and the key you created above, so that GIT service provider such as GitHub or GitLab comes in your known hosts file): <br/>
@@ -1303,7 +1303,7 @@ More information can be found [here](https://github.com/mosip/mosip-platform/blo
 
 ### Deploy other components: <br/>
 Inside each of the directory there is a file for each service of MOSIP that is exposed as Web API. We need to deploy these files to get these running. But before doing that we need to change Private Docker Registry Address and Docker Registry Secret, so that on deployment time Kubernetes can fetch docker images from correct source using correct credentials.
-For doing this, follow below steps (for eg. we will use kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
+For doing this, follow below steps (for eg. we will use https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/kernel-deployment/kernel-auditmanager-service-deployment-and-service.yml, but you have to repeat the process for all such files) - <br/>
 I. Open a deployment file. <br/>
 II. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-auditmanager-service` to `<Your Docker Registry>/kernel-auditmanager-service` <br/>
 III. Change `spec->template->spec->imagePullSecrets->name` from `pvt-reg-cred` to `<Your docker registry credentials secret>` <br/>
@@ -1314,7 +1314,7 @@ After above process is completed, you can run `kubectl get services` command to 
 
 **For Pre-Registration-UI**<br/>
 Pre-registration-ui uses a file config.json to configure URLs of backend, which have to be provided as config map in pre-registration-ui-deployment-and-service.yml. For creating the configmap follow below steps:
-1. Edit the file scripts -> kubernetes -> pre-registration-deployment -> pre-registration-ui-configuration.yaml
+1. Edit the file scripts -> https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/kubernetes/pre-registration-deployment/pre-registration-ui-configuration.yaml
 2. Update `https://dev.mosip.io/` value with url of proxy server which points to pre-registration services. (Note: While editing, be careful with escape sequence characters)
 3. Execute command `Kubectl apply -f pre-registration-ui-configuration.yaml`
 
