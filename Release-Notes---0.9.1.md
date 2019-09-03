@@ -124,6 +124,8 @@ To Be updated
 |Registration-Client|Application fails to displays navigation away alert when a user clicks new registration on ack screen|MOS-28808|
 |Registration-Client|Application fails to alert the user to capture exception photo for low-quality biometric exception scenario|MOS-28807|
 |Registration-Client|Unable to create a packet with low-quality biometric scenario|MOS-28805|
+|Registration-Client|Iris count for child packet is displayed as "3" when the user captures low quality biometric|MOS-28958|
+|Registration-Client|User is able to create update packet without capturing biometrics|MOS-28962|
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-contents)
 Process to be followed for support required, escalation matrix, etc.
