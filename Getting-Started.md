@@ -1068,25 +1068,25 @@ For Deployment of configurations server, go to [firstly-deploy-kernel-configurat
 Application specific configuration for all applications and services are placed in MOSIP config server.
 
 **A. Global:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/application.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/application-env.properties)
 
 **B. Kernel:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/kernel.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/kernel-env.properties)
 
 **C. Pre-Registration:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/pre-registration.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/pre-registration-env.properties)
 
 **D. Registartion-Processor:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/registration-processor.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/registration-processor-env.properties)
 
 **E. IDA:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/id-authentication.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/id-authentication-env.properties)
 
 **F. ID-REPO:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/id-repository.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/id-repository-env.properties)
 
 **H. Registration:**
-[**link**](https://github.com/mosip/mosip-config/blob/master/config/registration.properties)
+[**link**](https://github.com/mosip/mosip-config/blob/master/config-templates/registration-env.properties)
 
 
 
