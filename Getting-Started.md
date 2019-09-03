@@ -13,7 +13,7 @@ Knowledge of Linux and Azure with Kubernetes are required to follow the instruct
 MOSIP source code can be obtained via creating a fork of mosip-platform Github repository from the [URL](/mosip/mosip-platform/). To know more about how to fork code from Github follow this [guide](//help.github.com/articles/fork-a-repo/).
 Once Forked, start the process of setting up your CI/CD tools to build and run MOSIP.
 
-**NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-config repository from this [URL](https://github.com/mosip/mosip-config.git). All the configuration files will be stored under config folder under this repository.
+**NOTE** MOSIP configuration has been seperated from the source code. For running the source code, you will be needing a fork of mosip-config repository from this [URL](https://github.com/mosip/mosip-config.git). All the configuration files will be stored under config-templates folder under this repository.
 
 ***
 ## 2. Setup and Configure Jenkins [**[↑]**](#table-of-content)
