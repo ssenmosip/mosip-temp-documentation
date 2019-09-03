@@ -127,6 +127,7 @@ To Be updated
 |Registration-Client|Iris count for child packet is displayed as "3" when the user captures low quality biometric|MOS-28958|
 |Registration-Client|User is able to create update packet without capturing biometrics|MOS-28962|
 |Registration-Client|Scan button gets enabled though user has marked all biometrics as exception |MOS-28967|
+|Registrtaion-Client|Face photo capture is not working as expected |MOS-23698|
 
 ## Support Process (To Be Determined) [**[↑]**](#table-of-contents)
 Process to be followed for support required, escalation matrix, etc.
