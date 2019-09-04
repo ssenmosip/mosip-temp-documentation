@@ -620,9 +620,9 @@ Upon receiving a request to geotag a registration machine, the system performs t
 ## 6. Language Support [**[↑]**](#table-of-contents)
 The Registration Client supports two languages, a primary language in which all pages of the application are rendered, and demographic details of an individual are also rendered in secondary language for convenience of the registration officer. The default primary and secondary languages are driven by an admin (configurable) and can be setup by the admin as required. Transliteration from the primary to secondary language is supported for registration officer entered text fields.
 
-Note: If Primary language is marked as English/any value and Secondary is left NULL by the admin or vice-versa, the Secondary language will be defaulted to English or vice-versa. This might result in  a scenario of both being in the same language, by design.
+Note: If Primary language is marked as English/any value and Secondary language is left NULL by the admin or vice-versa, the Secondary language will be defaulted to English or vice-versa. This might result in  a scenario of both being in the same language, by design.
 
-Similarly, if Primary and Secondary language is marked as Null by the admin, then both will be automatically defaulted to  English, by design.
+Similarly, if both Primary and Secondary language is marked as Null by the admin, then both will be automatically defaulted to  English, by design.
 
 ### 6.1 Translation [**[↑]**](#table-of-contents)
 
