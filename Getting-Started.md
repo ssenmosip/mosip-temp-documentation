@@ -62,11 +62,11 @@ Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Git
     VI. Now since our Jenkinsfile usage this github credentials, update the credentials id in Jenkinsfile. (To know more about look at this [section]())
 
 ### C. Create Pipelines
-Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile. MOSIP currently has 5 Jenkins jobs that take care of CI/CD process for Development Environment. They are - 
+Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in [URL](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile). MOSIP currently has 5 Jenkins jobs that take care of CI/CD process for Development Environment. They are - 
 
 * master-branch-build-all-modules
 
-    Jenkinsfile for master-branch-build-all-modules can be found under https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/jenkinsfile, named **MasterJenkinsfile**<br/><br/>
+    Jenkinsfile for master-branch-build-all-modules can be found under [URL](https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/jenkinsfile), named **MasterJenkinsfile**<br/><br/>
     This Job is used to build MOSIP as a single unit. This Job also acts like a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here is the configuration for Pipeline you might have to explicitly change to use MOSIP provided Jenkinsfile- 
 
     ![Configure Build Triggers](_images/getting_started_images/master-branch-build-all-modules-build-triggers.JPG)
@@ -85,7 +85,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
       * **ID-Repository**<br/>
       * **ID-Authentication**<br/>
 
-      Each Module's CI/CD Jenkins script can be found in https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile. This Jenkins script will be  named Jenkinsfile and is responsible to build and deploy the entire Module to Dev environment<br/>
+      Each Module's CI/CD Jenkins script can be found in [URL](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile). This Jenkins script will be  named Jenkinsfile and is responsible to build and deploy the entire Module to Dev environment<br/>
 
   * For promoting these modules to QA, there is a pipeline named **PromoteToQAJenkinsFile** which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.
 
