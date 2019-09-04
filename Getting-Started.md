@@ -1350,7 +1350,8 @@ After installing Docker Start the Docker Service
 
 * systemctl status docker
 
-3. **Open the port 8081, 8082 , 8083 from the VM:**
+3. **Open the port 8081, 8083 from the VM:** 
+Mosip uses port 8081 for registration-processor-packet-receiver-stage and 8083 for registration-processor-registration-status-service. The port ids need to be updated in ngnix configuration.
 
 sudo firewall-cmd --zone=public --add-port=8081/tcp --permanent
 
@@ -1360,9 +1361,6 @@ sudo firewall-cmd --zone=public --add-port=8083/tcp --permanent
 
 sudo firewall-cmd --reload 
 
-sudo firewall-cmd --zone=public --add-port=8082/tcp --permanent
-
-sudo firewall-cmd --reload 
 
 **Note:** if firewall is not installed in VM, install with “sudo yum install firewall”
 
