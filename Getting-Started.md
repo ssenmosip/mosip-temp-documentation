@@ -66,7 +66,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
 * master-branch-build-all-modules
 
-    Jenkinsfile for master-branch-build-all-modules can be found under [URL](https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/jenkinsfile), named **MasterJenkinsfile**<br/><br/>
+    Jenkinsfile for master-branch-build-all-modules can be found in [URL](https://github.com/mosip/mosip-infra/blob/master/deployment/cloud/jenkinsfile), named **MasterJenkinsfile**<br/><br/>
     This Job is used to build MOSIP as a single unit. This Job also acts like a nightly process to check the build status of MOSIP code in Master Branch. To create this Job you need to create a new Item in Jenkins as a Pipeline Project. Here is the configuration for Pipeline you might have to explicitly change to use MOSIP provided Jenkinsfile- 
 
     ![Configure Build Triggers](_images/getting_started_images/master-branch-build-all-modules-build-triggers.JPG)
