@@ -622,7 +622,7 @@ The Registration Client supports two languages, a primary language in which all 
 
 Note: If Primary language is marked as English/any value and Secondary language is left NULL by the admin or vice-versa, the Secondary language will be defaulted to English or vice-versa. This might result in  a scenario of both being in the same language, by design.
 
-Similarly, if both Primary and Secondary language is marked as Null by the admin, then both will be automatically defaulted to  English, by design.
+Similarly, if both languages - Primary and Secondary are marked as Null by the admin, then both will be automatically defaulted to  English, by design.
 
 ### 6.1 Translation [**[↑]**](#table-of-contents)
 
