@@ -200,7 +200,7 @@ The user opts to view the available slots for a selected registration center.
 [**Link to design**](/mosip/mosip-platform/blob/master/design/pre-registration/pre-registration-booking-service.md)
 
 Additionally, in case of any change made by the administrator in terms of updating a working day/Non-holiday day to a non-working day/holiday for a Registration Center or updating the working hours of a Registration Center, the system will automatically cancel the affected appointments and trigger a notification to the mobile number or email id of the associated PRID, notifying regarding cancellation of appointment. 
-[**Link to design**](TBA)
+[**Link to design**](/mosip/mosip-platform-mt/blob/0.9.1/design/pre-registration/pre-registration-batch-job.md)
 
 ### 2.4.5 Re-book Appointment [**[↑]**](#table-of-contents)
 1. The system provides the user with a default appointment selection: Select Consecutively available Appointment Slots.
