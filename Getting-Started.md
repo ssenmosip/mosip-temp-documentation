@@ -20,7 +20,7 @@ Once Forked, start the process of setting up your CI/CD tools to build and run M
 In this step, we will setup jenkins and configure it. Configuration contains steps like creating credentials, creating pipelines using xml files present in MOSIP source code, connecting Jenkins to recently forked repository and creating webhooks. Lets look at these steps one by one - 
 
 ### A. Installing Jenkins version 2.150.1
-Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. Also the following plugins have to be installed
+Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/book/installing/)), but to use MOSIP supported build pipelines you have to install Jenkins in an Redhat 7.5 environment. The prerequisite for installing Jenkins is you should have java already installed and path for JAVA_HOME is also set. Also the following plugins have to be installed
  list of plugins - 
 * [Github Plugin](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin)
 * [Artifactory Plugin](//wiki.jenkins.io/display/JENKINS/Artifactory+Plugin)
@@ -33,16 +33,13 @@ Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/b
 * [SSH Agent Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin)
 * [Pipeline Utility Steps Plugin](//wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin)
 * [M2 Release Plugin](//wiki.jenkins.io/display/JENKINS/M2+Release+Plugin)
+* [SSH Credentials Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 Once the plugin installation is complete, run this command in Jenkins Script Console - 
 
 `System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")`
 
 This above command modifies Content Security Policy in Jenkins to enable loading of style and javascript for HTML Reports.
-
-
-
-* [SSH Credentials Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
 
 ### B. Setting Up Github for/in Jenkins
 Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Github Repo so that Github can inform Jenkins for push events(look at [Webhooks](//developer.github.com/webhooks/) and [Github hook](//wiki.jenkins.io/display/JENKINS/GitHub+Plugin#GitHubPlugin-GitHubhooktriggerforGITScmpolling)). After hooks are in place, setup Github credentials inside Jenkins, so that on webhook event our pipeline can checkout the code from Github. To set up Github Credentials, follow these steps - 
