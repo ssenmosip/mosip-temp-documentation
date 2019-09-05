@@ -80,9 +80,9 @@
 - [Process View](#process-view-)
 ## 1. Login [**[↑]**](#table-of-contents)
 ### 1.1 Login
-The Admin Portal integrates with the Keycloak IAM to provide Login facility. 
-When an Administrator tries to access the Homepage or any page on the Admin portal through a browser, the portal detects if the Administrator is already logged-in or not. If not, the system re-directs the Administrator to the Keycloak Administrator Interface (UI) which requests the Administrator for his/her Username and Password. After getting the credentials, KeyCloak verifies the Administrator’s credentials and Role. It also validates whether the Administrator is not deactivated.
-After successful validation of the credentials, the system then re-directs the Administrator to the page he/she tries to access initially.
+The Admin Portal integrates with the Key Cloak IAM to store users and provides login functionality. 
+When an Administrator access the Homepage or any page on the Admin portal through a browser, the portal detects if the Administrator is already logged-in or not. If not, the system re-directs the Administrator to the Key Cloak Login User Interface (UI) which requests the Administrator for his/her Username and Password. 
+After getting the credentials, KeyCloak verifies the Administrator’s credentials and Role. It also validates whether the Administrator is not deactivated.After successful validation of the credentials, the system then re-directs the Administrator to the page he/she initially landed on.
 
 For more details, please refer to [Reset Password](#23-reset-password-).
 
