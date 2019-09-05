@@ -84,7 +84,7 @@ The Admin Portal integrates with the Key Cloak IAM to store users and provides l
 When an Administrator access the Homepage or any page on the Admin portal through a browser, the portal detects if the Administrator is already logged-in or not. If not, the system re-directs the Administrator to the Key Cloak Login User Interface (UI) which requests the Administrator for his/her Username and Password. 
 After getting the credentials, KeyCloak verifies the Administrator’s credentials and Role. It also validates whether the Administrator is not deactivated.After successful validation of the credentials, the system then re-directs the Administrator to the page he/she initially landed on.
 
-For more details, please refer to [Reset Password](#22-reset-password-).
+For more details, please refer to [Reset Password](#23-reset-password-).
 
 ### 1.2 Logout
 #### 1.2.1 Manual Logout
