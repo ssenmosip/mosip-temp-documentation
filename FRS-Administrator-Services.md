@@ -1,7 +1,7 @@
 ## Table Of Contents
 - [1. Login](#1-login-) _(ASR_FR_1)_
   * [1.1 Login](#11-login) _(ASR_FR_1.1)_
-  * [1.2 Logout](#121-manual-logout)
+  * [1.2 Logout](#12-logout)
     * [1.2.1 Manual Logout](#121-manual-logout) _(ASR_FR_1.2)_
     * [1.2.2 Auto Logout](#122-auto-logout) _(ASR_FR_1.3)_
 - [2. Account Management](#2-account-management-) _(ASR_FR_2)_
