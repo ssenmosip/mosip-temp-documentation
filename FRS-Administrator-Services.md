@@ -37,6 +37,7 @@
     * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
     * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-) _(ASR_FR_5.18)_
     * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
+  * [5.5 Administrative Zone Management](#55-administrative-zonea-management 
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table (WIP)](#62-view-master-data-for-each-table-wip-) _(ASR_FR_6.2)_
@@ -284,7 +285,7 @@ The portal allows Zonal Admin to un-map users to the registration center by prov
 #### C. Re-map User to a Registration Center
 The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users. 
 
-### 5.1 Administrative Zone Management 
+### 5.5 Administrative Zone Management 
 Administrative Zones are virtual boundaries which a country can define to better manage their resources which are used during registrations. These resources includes Centers, Users, Machines and Devices. These zones can be defined in a hierarchical fashion and a country can allocate resources to such zones based on their requirements. 
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
