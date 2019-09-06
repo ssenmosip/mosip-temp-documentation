@@ -92,44 +92,15 @@ If the user is inactive for X minutes (X is configurable), the system logs out t
 ## 2. Account Management(WIP) [**[↑]**](#table-of-contents)
 Using the portal, user will  manage his/her profile. The  portal users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
-### 2.1 Edit Personal Details
-Procedure to edit the profile follows:
-1. User will provide the valid credential in the relevant portal to login.
-2. The system validates the credentials and allows user to login after successful validation.
-3. The system allows user to proceed further.
-4. The Home Page contains the permitted functionalities of the user.
-5. The portal allows users to perform the profile management activities (updating user’s personal details). On successful submission the updates, the system provides a notification about the updates else provides a respective error notification.
+### 2.1 Edit Personal Details (WIP)
 
-### 2.2 Change Password [**[↑]**](#table-of-contents)
-The portal allows user to change the password. Based on the country, single factor or multi-factor authentication will be configured. User performs the following to change the password:
-1. User selects the option of Change Password.
-1. The system allows user to proceed further.
-1. The user  provides the values in Old Password, New Password, and Confirm New Password.
-1. The system validates and authenticates the provided data and respective user's role as per the [Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-). On successful validation, the password is successfully changed, the system provides a notification to the respective user conveying " Password has been changed successfully" else provides a respective error notification.
+### 2.2 Change Password (WIP) [**[↑]**](#table-of-contents)
 
-### 2.3 Reset Password [**[↑]**](#table-of-contents)
-The portal allows user to reset the password. Based on the country, single factor or multi-factor authentication will be configured.
+### 2.3 Reset Password (WIP) [**[↑]**](#table-of-contents)
 
-To reset the password, the user performs the following:
+### 2.4 Forgot User Name (WIP) [**[↑]**](#table-of-contents)
 
-1. User provides the User Name to reset the password. 
-1. The system checks the User Name and sends an OTP notification to the registered mobile number on successful validation.
-1. User provides the OTP as received.
-1. The system validates the provided OTP and fetches the configured security policy against the Reset Password feature and thus asks the user for credentials as per the security policy. 
-1. The system provides a notification to the user related to the password reset status.
-
-
-### 2.4 Forgot User Name [**[↑]**](#table-of-contents)
-Using the portal, user can retrieve the user name. Based on the country, multi-factor authentication will be configured. User provides the registered mobile number by selecting the Forgot Password. The system validates the provided mobile number and fetches the configured security policy against the Forgot User Name feature and thus provides the user credentials as per the security policy. On successful validation, the system provides the User Name to the registered mobile number through an SMS notification else provides the respective error notification.
-
-### 2.5 Account Unlock
-The portal allows user to unlock his/her locked account.  The user account is locked due to various reason such as multiple time of wrong password entry. Based on the country, multi-factor authentication will be configured. If request has been initiated through admin then only OTP authentication is active.
-
-Procedure to unlock the account:
-
-1. User provides the User Name in the system.
-1. The system validates and authenticates if the mobile number is registered against the respective user name.
-1. 2.3.	On successful validation, the system provides an SMS notification conveying the unlocking of account. 
+### 2.5 Account Unlock (WIP)
 
 ## 3. Security Policy Configuration(WIP)[**[↑]**](#table-of-contents)
 Using the portal, Zonal Admin will be able to set up security policies for each applications, which includes the following:
