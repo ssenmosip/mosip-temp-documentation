@@ -1203,7 +1203,7 @@ B. Continuous deployment
 ### A. One time setup of MOSIP in Kubernetes Cluster
 One time setup on Kubernetes involves following Steps <br/>
 I. Setting Up local system to communicate with Kubernetes cluster this can be done via [**kubectl**](//kubernetes.io/docs/reference/kubectl/overview/).<br/>
-II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/kubernetes/commons) . following are the files -
+II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on this [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/kubernetes/commons) . following are the files -
 
 ![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
 
