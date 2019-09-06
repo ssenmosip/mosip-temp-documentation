@@ -101,7 +101,7 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 
 ### 2.5 Account Unlock (WIP)
 
-## 3. Security Policy Configuration(WIP) [**[↑]**](#table-of-contents)
+## 3. Security Policy Configuration (WIP) [**[↑]**](#table-of-contents)
 
 
 
