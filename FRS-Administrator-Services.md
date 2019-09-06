@@ -84,7 +84,7 @@ The Admin Portal integrates with the Key Cloak IAM to store users and provides l
 When an Administrator access the Homepage or any page on the Admin portal through a browser, the portal detects if the Administrator is already logged-in or not. If not, the system re-directs the Administrator to the Key Cloak Login User Interface (UI) which requests the Administrator for his/her Username and Password. 
 After getting the credentials, KeyCloak verifies the Administrator’s credentials and Role. It also validates whether the Administrator is not deactivated.After successful validation of the credentials, the system then re-directs the Administrator to the page he/she initially landed on.
 
-### 1.2 Logout
+### 1.2 Logout [**[↑]**](#table-of-contents)
 #### 1.2.1 Manual Logout
 If an Administrator wishes to logout of the Admin Portal, he/she can opt to select the Logout option from the profile menu on the Administrator UI. The system logs out the Administrator.
 #### 1.2.2 Auto Logout
@@ -92,7 +92,7 @@ If the user is inactive for X minutes (X is configurable), the system logs out t
 ## 2. Account Management(WIP) [**[↑]**](#table-of-contents)
 Using the portal, user will  manage his/her profile. The  portal users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
-### 2.1 Edit Personal Details (WIP)
+### 2.1 Edit Personal Details (WIP) [**[↑]**](#table-of-contents)
 
 ### 2.2 Change Password (WIP) [**[↑]**](#table-of-contents)
 
@@ -100,29 +100,10 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 
 ### 2.4 Forgot User Name (WIP) [**[↑]**](#table-of-contents)
 
-### 2.5 Account Unlock (WIP)
+### 2.5 Account Unlock (WIP) [**[↑]**](#table-of-contents)
 
-## 3. Security Policy Configuration(WIP)[**[↑]**](#table-of-contents)
-Using the portal, Zonal Admin will be able to set up security policies for each applications, which includes the following:
- * Session Time out policies
- * Password policies
-    * Use of both upper-case and lower-case letters atleast once
-    * Use of at least one numerical digit
-    * Use of at least one of the special characters, such as @, #, $
-    * Restriction on passwords with words found in the User Name and Emaid ID
-    * Should not match last three old passwords
-    * Minimum character length should be 8
- * Multi-factor authentication policies (wherever applicable)
- * Admin Portal will only be accessed through Whitelisted IP Address
- * Authenticates Users accessing the portal
- * At Role Level : Configure Level of Auth
+## 3. Security Policy Configuration(WIP) [**[↑]**](#table-of-contents)
 
-Default Policy:
-
- * What type of Authentication
- * Which would be compulsory in case of multi factor authentication
- * Minimum number of factors of Auth (Non-Bio/Bio)
- * Feature Specific authentication overrides Role Specific Behavior for Reset Password/Forgot User Name)
 
 
 ## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-contents)
