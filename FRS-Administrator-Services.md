@@ -284,6 +284,9 @@ The portal allows Zonal Admin to un-map users to the registration center by prov
 #### C. Re-map User to a Registration Center
 The portal allows Zonal Admin to re-map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system re-maps the user to a registration center.Once user is re-mapped, he/she will be not displayed in the available list of users. 
 
+### 5.1 Administrative Zone Management 
+Administrative Zones are virtual boundaries which a country can define to better manage their resources which are used during registrations. These resources includes Centers, Users, Machines and Devices. These zones can be defined in a hierarchical fashion and a country can allocate resources to such zones based on their requirements. 
+
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
 ### 6.1 View Master Data Types
 The portal allows Zonal Admin to view the master data type. The master data types are configured by admin console. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
