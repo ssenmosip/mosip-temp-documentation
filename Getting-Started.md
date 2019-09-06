@@ -377,7 +377,7 @@ It will ask new password to login to postgresql
 
 ####### example  for sourcing the sql file form command line 
 ```
-$ psql --username=postgres --host=10.240.0.66 --port=9001 --dbname=postgres -f mosip_role_regprcuser.sql
+$ psql --username=postgres --host=<server ip> --port=9001 --dbname=postgres 
 ``` 
 Open the file <br/>
 $ sudo vim /var/lib/pgsql/10/data/pg_hba.conf
