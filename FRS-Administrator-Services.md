@@ -37,7 +37,7 @@
     * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
     * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-) _(ASR_FR_5.18)_
     * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
-  * [5.5 Administrative Zone Management](#55-administrative-zonea-management 
+  * [5.5 Administrative Zone Management](#55-administrative-zone-management-)
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table (WIP)](#62-view-master-data-for-each-table-wip-) _(ASR_FR_6.2)_
