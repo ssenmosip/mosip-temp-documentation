@@ -103,14 +103,12 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 
 ## 3. Security Policy Configuration (WIP) [**[↑]**](#table-of-contents)
 
-
-
 ## 4. Notification (v1.5) (WIP) [**[↑]**](#table-of-contents)
 ### 4.1 Approval Notifications
 ### 4.2 Country Specific News/Notifications
 ## 5. Resource Management [**[↑]**](#table-of-contents)
 ### 5.1 Center Management 
-Admin Portal allows an Administrator to manage Registration Centers the Country will have for taking Registrations of the Residents. Center management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Centers. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage only Centers under his/her administrative zone.
+Admin Portal allows an Administrator to manage Registration Centers the Country will setup for taking Registrations of the Residents. Center management includes functionalities like Viewing, Creating, Editing, Activating, Deactivating and Decommission of Centers. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage only Centers under his/her administrative zone.
 
 #### 5.1.1 View Center
 The Admin portal allows Zonal Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. 
