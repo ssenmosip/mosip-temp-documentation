@@ -86,8 +86,8 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
   * For promoting these modules to QA, there is a pipeline named **PromoteToQAJenkinsFile** which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.
 
-  In each Jenkinsfile you will see some variables starting with **env.** These variables are taken from Jenkins environment variables. You have to setup these environment variables in your jenkins to use these Jenkinsfiles. These Variables include:<br/>
-  1. **NEXT_BRANCH_NAME**<br/>
+  In each Jenkinsfile you will see some variables starting with **params.** These variables are taken from Jenkins environment variables. You have to setup these environment variables in your jenkins to use these Jenkinsfiles. These Variables include:<br/>
+  1. **BRANCH_NAME**<br/>
   2. **REGISTRY_URL**<br/>
   3. **REGISTRY_NAME**<br/>
   4. **REGISTRY_CREDENTIALS**<br/>
