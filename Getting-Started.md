@@ -306,6 +306,7 @@ On a Linux or Mac system, you must have superuser privileges to perform a Postgr
 ##### Download and install PostgreSQL.
 ```
 $ sudo yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-redhat10-10-2.noarch.rpm 
+$ sudo  yum-config-manager --disable pgdg95
 ```
 ##### checking  the postgresql packages  
 ```
