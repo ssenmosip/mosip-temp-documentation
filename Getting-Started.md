@@ -108,7 +108,7 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 Once the setup is complete, please add the following remote repositories to your Jfrog configuration and point them to libs-release virtual repository:
 * [**Maven Central**](//repo.maven.apache.org/maven2/)
 * [**Jcentre**](//jcenter.bintray.com)
-* [**Openimaj**](//http://maven.openimaj.org)
+* [**Openimaj**](http://maven.openimaj.org)
 
 To configure Maven to resolve artifacts through Artifactory you need to modify the settings.xml of Jenkins machine's m2_home to point to JFrog.<br/>
 To generate these settings, go to  Artifact Repository Browser of the Artifacts module, select Set Me Up. In the Set Me Up dialog, set Maven in the Tool field and click "Generate Maven Settings". For more information on artifactory configuration refer [here](//jfrog.com/confluence/display/RTF/Maven+Repository)
