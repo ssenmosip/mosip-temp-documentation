@@ -34,7 +34,7 @@ Jenkins installation is standard(see [How to install Jenkins](//jenkins.io/doc/b
 * [Pipeline Utility Steps Plugin](//wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin)
 * [M2 Release Plugin](//wiki.jenkins.io/display/JENKINS/M2+Release+Plugin)
 * [SSH Credentials Plugin](//wiki.jenkins-ci.org/display/JENKINS/SSH+Credentials+Plugin)
-
+* [Office 365 Plugin](//wiki.jenkins.io/display/JENKINS/Office+365+Connector+Plugin)
 Once the plugin installation is complete, run this command in Jenkins Script Console - 
 
 `System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")`
