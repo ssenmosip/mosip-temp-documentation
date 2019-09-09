@@ -755,7 +755,7 @@ $ sudo firewall-cmd --reload
 ```
 
 ##### Reference link:
-<div>https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
+https://www.golinuxcloud.com/steps-install-configure-clamav-antivirus-centos-linux</div>
 
 
 ### 6.4 Steps to Install and configuration CEPH 
