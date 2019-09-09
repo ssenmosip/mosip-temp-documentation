@@ -1186,7 +1186,7 @@ Database deployment consists of the following 4 categories of objects to be depl
 
 The system configuration and master data is available under the respective application / database related folder. for example, the master data configuration is available in csv file format under [**folder**](https://github.com/mosip/mosip-platform/tree/master/db_scripts/mosip_master/dml).
 
-The scripts to create the above objects are available under [database](https://github.com/mosip/mosip-platform/tree/master/db_scripts). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip-platform/blob/master/db_scripts/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
+The scripts to create the above objects are available under [db_scripts](https://github.com/mosip/mosip-platform/tree/master/db_scripts). To deploy the database objects of each application / module **except registration client**, please refer to [README.MD](https://github.com/mosip/mosip-platform/blob/master/db_scripts/README.MD) file. These scripts will contain the deployment of all the DB object categories. 
 
 **Note: Please skip Registration client related deployment scripts (Apache derby DB specific) as this will be executed as part of registration client software installation.**
 
