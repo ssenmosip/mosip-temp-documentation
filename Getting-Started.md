@@ -284,7 +284,7 @@ For basic authentication, you have to setup a htpasswd file and add a simple use
   * Create Htpasswd_dir directory<br/>
 `mkdir -p ~/htpasswd_dir`<br/>
   * Create htpasswd file with your username and password<br/>
- `docker run --rm --entrypoint htpasswd registry:2 -Bbn <username> "<password>" > ~/htpassword_dir/htpasswd`<br/>
+ `docker run --rm --entrypoint htpasswd registry:2 -Bbn <username> "<password>" > ~/htpasswd_dir/htpasswd`<br/>
   * In the registry-docker-compose-basic-authentication.yml file, replace <YOUR-REALM-NAME> and <YOUR-HTPASSWD-PATH> with 
     specific values.
      
