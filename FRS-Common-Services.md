@@ -28,6 +28,7 @@
     * [6.9 String Utility](#69-string-utility-) _(CMN_FR_6.9)_
     * [6.10 UUID Utility](#610-uuid-utility-) _(CMN_FR_6.10)_
     * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility-) _(CMN_FR_6.11)_
+   * [7. Virus Scaner](#5-virus-scanner-) _(CMN_FR_5)_
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Kernel API](#kernel-api-)
 # Common Services
@@ -235,9 +236,15 @@ MOSIP system provides base exception framework.
 1. Creates wrapper class for methods defined in apache-commons Zip-Unzip util
 1. Raises an alert in case of listed exceptions
 
-
 [**Link to design for Utilities**](/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md)
 
+#### 7 Virus Scanner [**[↑]**](#table-of-contents)
+Virus Scanner utility allows for virus scanning across MOSIP at various places. These includes:
+1. Scanning of Document uploaded in Pre-Registration
+2. Scanning in Registration Client Software
+3. Scanning of Registration packet in Registration Processor
+Currently for Virus Scanner, MOSIP has integrated with Clam Antivirus which currently allows for 290 concurrent license.
+A country can integrate their own Licensed version of anti virus as per their requirement.
 
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
