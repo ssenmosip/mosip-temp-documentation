@@ -355,7 +355,9 @@ $ sudo vi /var/lib/pgsql/10/data/postgresql.conf
 unix_socket_directories = '/var/run/postgresql, /tmp' 
 max_connections = 1000  
 shared_buffers = 2GB  
-
+```
+$ sudo systemctl start postgresql-10
+```
 ##### To change the default password 
 Login to postgrsql
 ```
