@@ -87,18 +87,20 @@ Next step after Jenkins installation is to configure/create Jenkins Jobs. These 
 
   * For promoting these modules to QA, there is a pipeline named **PromoteToQAJenkinsFile** which is located in root directory of mosip source code. This pipeline tags the entire code, runs build process, and once everything is successful, it deploys the entire code to QA environment.
 
-  In each Jenkinsfile you will see some variables starting with **params.** These variables are taken from Jenkins environment variables. You have to setup these environment variables in your jenkins to use these Jenkinsfiles. These Variables include:<br/>
+  In each Jenkinsfile you will see some variables starting with **params.** These variables are passed as parameters into the Jenkins jobs. You have to setup these parameters variables in your jenkins to use these Jenkinsfiles. These Variables include:<br/>
+
+**NOTE**-> To set up parameters for a jenkins job, go inside the jenkins job-> Click Configure->Click on "This project is parameterized" and provide the parameter name and value.
+
   1. **BRANCH_NAME**<br/>
   2. **REGISTRY_URL**<br/>
   3. **REGISTRY_NAME**<br/>
   4. **REGISTRY_CREDENTIALS**<br/>
   5. **GIT_URL**<br/>
   6. **GIT_CREDENTIALS**<br/>
+  7. **BUIILD_OPTION**<br/>
 
 **NOTE** We are building docker images in each of the JenkinsFile, so docker should be installed and accessible for Jenkins user. Please install Docker version 18.09.3 in your Jenkins instance.
   
-
-
 
 ***
 ## 3. Setup and Configure Jfrog Artifactory Version 6.5.2 [**[↑]**](#table-of-content)
