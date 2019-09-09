@@ -57,7 +57,7 @@ Setting up Github for/in Jenkins involves putting the Jenkins Webhook url in Git
         Password=<Your Github Password>
         ID=Some Unique Identifier to refer to this credentials (to autogenerate this, leave this blank)
         Description=<It is optional>
-    VI. Now since our Jenkinsfile usage this github credentials, update the credentials id in Jenkinsfile. (To know more about look at this [section]())
+    VI. Now since our Jenkinsfile usage this github credentials, update the credentials id in the Jenkinsfile. 
 
 ### C. Create Pipelines
 Next step after Jenkins installation is to configure/create Jenkins Jobs. These Jenkins Jobs are written as Jenkins Pipelines and respective Jenkinsfile in [URL](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/jenkinsfile). MOSIP currently has 5 Jenkins jobs that take care of CI/CD process for Development Environment. They are - 
