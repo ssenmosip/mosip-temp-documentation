@@ -238,7 +238,7 @@ MOSIP system provides base exception framework.
 
 [**Link to design for Utilities**](/mosip/mosip/blob/master/docs/design/kernel/kernel-utils.md)
 
-#### 7 Virus Scanner [**[↑]**](#table-of-contents)
+## 7 Virus Scanner [**[↑]**](#table-of-contents)
 Virus Scanner utility allows for virus scanning across MOSIP at various places. These includes:
 1. Scanning of Document uploaded in Pre-Registration
 2. Scanning in Registration Client Software
