@@ -243,6 +243,7 @@ Virus Scanner utility allows for virus scanning across MOSIP at various places. 
 1. Scanning of Document uploaded in Pre-Registration
 2. Scanning in Registration Client Software
 3. Scanning of Registration packet in Registration Processor
+
 Currently for Virus Scanner, MOSIP has integrated with Clam Antivirus which currently allows for 290 concurrent license.
 A country can integrate their own Licensed version of anti virus as per their requirement.
 
