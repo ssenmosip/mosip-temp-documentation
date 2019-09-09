@@ -377,7 +377,7 @@ It will ask new password to login to postgresql
 
 ####### example  for sourcing the sql file form command line 
 ```
-$ psql --username=postgres --host=10.240.0.66 --port=9001 --dbname=postgres -f mosip_role_regprcuser.sql
+$ psql --username=postgres --host=<server ip> --port=9001 --dbname=postgres 
 ``` 
 Open the file <br/>
 $ sudo vim /var/lib/pgsql/10/data/pg_hba.conf
@@ -1203,7 +1203,7 @@ B. Continuous deployment
 ### A. One time setup of MOSIP in Kubernetes Cluster
 One time setup on Kubernetes involves following Steps <br/>
 I. Setting Up local system to communicate with Kubernetes cluster this can be done via [**kubectl**](//kubernetes.io/docs/reference/kubectl/overview/).<br/>
-II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/kubernetes/commons directory. following are the files -
+II. Setting Up the Basic environment for MOSIP to run in Kubernetes Cluster, In this step we will work on this [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/kubernetes/commons) . following are the files -
 
 ![File in commons folder](_images/getting_started_images/kubernetes-commons-files.png)
 
@@ -1211,10 +1211,12 @@ We will now go through each of the file and see what changes we need to perform.
 
 * DeployIngressController.yaml - We need not to change anything here. we can directly run this file. To run this use this command
 `kubectl apply -f DeployIngressController.yaml`
-* DeployServiceIngressService.yaml - 
+* DeployIngress.yaml - 
 This file contains information about routing to different Kubernetes services, So whenever any traffic comes to our Load Balancer IP it will look for this file to route the request. For eg. Let's say if **some.example.com** is mapped to our kubernetes loadbalancer then if a request is for **some.example.com/pre-registration-ui** then this request will be redirect to **pre-registration-ui** on port **80** service. Routes referrring to **ping-server** and **sample-nginx** can be removed as these are for testing purpose.To run this use this command
 `kubectl apply -f DeployIngress.yaml`
 
+* DeployServiceIngressService.yaml - We need not to change anything here. we can directly run this file. To run this use this command
+kubectl apply -f DeployServiceIngressService.yaml
 
 * DeployDefaultBackend.yaml - We need not to change anything here. we can directly run this file. To run this use this command
 `kubectl apply -f DeployDefaultBackend.yaml`
