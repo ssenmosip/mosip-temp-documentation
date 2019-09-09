@@ -28,7 +28,7 @@
     * [6.9 String Utility](#69-string-utility-) _(CMN_FR_6.9)_
     * [6.10 UUID Utility](#610-uuid-utility-) _(CMN_FR_6.10)_
     * [6.11 Zip-Unzip Utility](#611-zip-unzip-utility-) _(CMN_FR_6.11)_
-   * [7. Virus Scaner](#5-virus-scanner-) _(CMN_FR_5)_
+   * [7. Virus Scaner](#7-virus-scanner-) _(CMN_FR_5)_
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Kernel API](#kernel-api-)
 # Common Services
