@@ -751,7 +751,7 @@ $ systemctl restart clamd@scan.service
 Since we are exposing ClamAV on 3310 port, we need to allow incoming traffic through this port. In RHEL 7 run below command to add firewall rule - 
 ```
 $ sudo firewall-cmd --zone=public --add-port=3310/tcp --permanent 
-$ sudo firewall-cmd –reload
+$ sudo firewall-cmd --reload
 ```
 
 ##### Reference link:
@@ -1048,7 +1048,7 @@ registration.processor.queue.printpostaladdress={postal_queue_address}
 
 We are using Spring cloud configuration server in MOSIP for storing and serving distributed configurations across all the applications and environments.
 
-We are storing all applications' configuration in config folder inside our Github Repository [here](https://github.com/mosip/mosip-config.git).
+We are storing all applications' configuration in config-templates folder inside our Github Repository [here](https://github.com/mosip/mosip-config.git).
 
 For getting more details about how to use configuration server with our applications, following developer document can be referred:
 [**MOSIP CONFIGURATION SERVER**](MOSIP-Configuration-Server)
