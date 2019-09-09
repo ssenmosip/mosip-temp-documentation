@@ -275,9 +275,9 @@ To check if the service is running, run:
 ## 5. Setup and Configure Docker Registry [**[↑]**](#table-of-content)
 In this step we will setup and configure a private docker registry, which will be basic authenticated, SSL secured. In our setup we are using azure blobs as storage for our docker images. More options for configuring registry can be found [here](//docs.docker.com/registry/configuration/)
 We are deploying Docker registry as Containerized services. For setting up the registry, [Docker](//docs.docker.com/install/) and [Docker Compose](//docs.docker.com/compose/install/) need to be installed. We have setted up the registry in a machine with Redhat 7.5 installed.<br/>
-Once installation is done, the yaml files which we will be using to setup the registry can be found under scripts/docker-registry folder in the source code.
+Once installation is done, the yaml files which we will be using to setup the registry can be found in thi link [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry)
 We are using Registry image : registry:2.5.1, registry with any other version can be deployed from [here](//hub.docker.com/_/registry). <br/>For routing purpose, we are using HAproxy image dockercloud/haproxy:1.6.2, other options such as ngnix etc. can also be used for the same purpose.<br/>
-We have the following docker-compose files, under scripts/docker-registry folder:<br/>
+We have the following docker-compose files, under this link [link](https://github.com/mosip/mosip-infra/tree/master/deployment/cloud/docker-registry)
 1. **registry-docker-compose.yml:**  For basic registry and haproxy setup.
 2. **registry-docker-compose-basic-authentication.yml:**  For securing the docker registry through base authentication.
 For basic authentication, you have to setup a htpasswd file and add a simple user to it. For generating this htpaswd file:<br/>
