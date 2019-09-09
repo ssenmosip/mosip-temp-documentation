@@ -405,16 +405,10 @@ host    replication     all             127.0.0.1/32            ident <br/>
 host    replication     all             ::1/128                 ident <br/>
 
 ```
-$ sudo vi /var/lib/pgsql/10/data/postgresql.conf <br/>
-listen_addresses = '*'
-port = 9001 
-unix_socket_directories = '/var/run/postgresql, /tmp'
-
-##### Below command to open the port 9001 from RHEL 7.5 VM
+sudo systemctl restart postgresql-10
 ```
-$ sudo firewall-cmd --zone=public --add-port=9001/tcp –permanent <br/>
 ```
-$ sudo firewall-cmd --reload <br/>
+sudo systemctl status postgresql-10
 ```
 Reference link:
 https://www.tecmint.com/install-postgresql-on-centos-rhel-fedora</div> 
