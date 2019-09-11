@@ -1386,7 +1386,7 @@ docker run --restart always -it -d --network host --privileged=true -v /home/ftp
 docker run --restart always -it -d --network host --privileged=true -e active_profile_env="${profile_env}" -e spring_config_label_env="${label_env}" -e spring_config_url_env="${config_url}" -e zone_env=dmz  "${registryAddress}"/registration-processor-common-camel-bridge
 ```
 
-**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ) in the above four commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
+**Note** - Please change the environmental variables(active_profile_env, spring_config_label_env, spring_config_url_env ,registryAddress) in the above commands accordingly whether you are executing manually in your new VM or through Jenkinsfile. 
 
 6. Packet uploader stage in secure zone will fetch file from dmz to upload it into Distributed File System,to connect to 
    dmz vm either we can login using username and password or using ppk file.
