@@ -26,7 +26,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
      -  As part of the Jenkins, the required environment should be passed as run time argument **environment** for the build. Ex: "mvn clean install -Denvironment=hostname".
      -  Post completion of above-mentioned changes, build 'mosip-parent' pom.xml file to build the application.  
      -  Make sure that 'maven-metadata.xml' is generated under the '**registration-client**' module, post successful build generation. Which is referred by the reg-client application to download the required jars based on the version.   
-     - Post-build process 'META-INF.MF' file also should be present in the JFROG repository, which consists of the jar files checksum.   
+     - Post-build process 'META-INF.MF' file also should be present in the Secure JFROG repository, which consists of the jar files checksum.   
 
 ## Prerequisites:  
 
@@ -45,7 +45,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    - [Property file](#property-file-) - **[spring.properties]** should be updated with right environment [env] and other detail.     
    - All **Master data** should be loaded at MOSIP kernel database [Refer MOISP document](https://github.com/mosip/mosip-docs/wiki/Getting-Started#7-configuring-mosip-).    
    - User, machine, center mapping, and all other required table and data setup should exist in MOSIP kernel database along with the profile and desired roles configuration in LDAP server.    [This is required until the Admin module is delivered. Post-delivery, all the configuration can be done through the Admin module.]   
-   - User's machine should have online connectivity to access the JFrog artifactory repository, where the application binaries are available.   
+   - User's machine should have online connectivity to access the Secure JFrog artifactory repository, where the application binaries are available.   
    - If TPM enabled, a logged-in user to windows machine should have permission to get the public key from TPM device.  
    - The initial DB embedded with the setup process should contain all the required tables along with the data for few tables.    
    - Through the sync process, the data would be updated into the local database from the server.  
@@ -88,7 +88,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
 
 **Download - Application Initial Setup file:**  
    
-   1. User login to the JFROG artifactory portal and download the client application initial setup ZIP file [mosip-sw-0.12.*.zip].   
+   1. User login to the Secure JFROG artifactory portal and download the client application initial setup ZIP file [mosip-sw-0.12.*.zip].   
    2. Once downloaded then unzip the file into a particular location. It contains the following folder structure.  
       - bin: It contains the client UI and service binaries in an encrypted format.
       - lib: It contains the library required for the application to run.  
@@ -101,7 +101,7 @@ A Trusted Platform Module (TPM) is a specialized chip on a local machines that s
    
    When the user clicks on the 'run.bat' it does the following :  
    1. Loads the binary repository URL from a property file.  
-   2. Communicate with the  JFrog repository through a secured connection and download the maven-metadata.xml file to identify the latest jar versions.    
+   2. Communicate with the  Secure JFrog repository through a secured connection and download the maven-metadata.xml file to identify the latest jar versions.    
    3. Download the latest build Manifest.mf file from the server, where all the jars (including shared lib) name and checksums are provided.  
    4. Compare the checksum of the local version of jar files with the data present in the latest downloaded Manifest.mf file.    
    5. Identify the list of binary files and Download the required jars.  
@@ -205,7 +205,7 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
      - mosip.reg.rollback.path={where the application backup should be taken during software update} [Default: ../BackUp]  
      - mosip.reg.db.key={contains the key to be used to connect to the derby database and decrypt the data}. 
      - mosip.reg.cerpath=/cer//mosip_cer.cer
-     - mosip.reg.xml.file.url={JFrog repository url with maven-metadata.xml file.}  
+     - mosip.reg.xml.file.url={Secure JFrog repository url with maven-metadata.xml file.}  
      - mosip.reg.dbpath=db/reg
      - mosip.reg.app.key={contains the key to be used to decrypt the application binaries during run time}.  
      - mosip.reg.client.tpm.availability={ Y - to enable the TPM, N - to disable the TPM, default N}.   
