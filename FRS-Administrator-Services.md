@@ -116,7 +116,7 @@ The Admin portal allows Zonal Admin to view the list of all Registration Centers
 Admin portal UI shows the list of Registration Centers in only the country configured Primary Language. Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
 
 #### 5.1.2 Create Center
-A Zonal Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
+A Zonal Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of a Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
  
 A Center is created with the following attributes: 
 Center name, Center Type, Address, Latitude, Longitude, Location, Contact Phone, Contact Person, Working Hours, No. of Kiosk, Center Start Time, Center End Time, Lunch Start Time, Lunch End Time, Time Zone and Holiday Zone and Administrative Zone the Center belongs to. A Center can only be mapped to the Administrative Zonal at the lowest Zonal hierarchy.
