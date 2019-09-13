@@ -18,8 +18,6 @@ This section details about the service APIs in the Registration-Processor module
 
 [9. Registration Transaction Service](#9-registration-transaction-service)
 
-[10. Uincard Reprint Service](#10-uincard-reprint-service)
-
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
 
@@ -767,11 +765,13 @@ Packet with registrationId 10003100030000420190625111842 has not been uploaded t
 ###### Description : response code is always 200 if server receives the request.
 
 # 8 Registration Process Request Handler Service
+- #### `POST /registrationprocessor/v1/requesthandler/reprint`
+The residence service portal would call this api to reprint uin card upon receiving request from the applicant.
 
-### Resource URL
-### `POST /registrationprocessor/v1/requesthandler/reprint`
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/requesthandler/reprint
 
-### Resource details
+#### Resource details
 
 Resource Details | Description
 ------------ | -------------
@@ -780,94 +780,75 @@ Response format | JSON
 Requires Authentication | Yes
 
 ### Parameters
-Name | Required | Description | Default Value | Example
------|----------|-------------|---------------|--------
-PacketGeneratorRequestDto|Yes|Mandatory information required for reprint to be send: UID/VID| |
+Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+id|Yes|reprint id|mosip.uincard.reprint
+version|Yes|the version for sync|1.0
+requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
+request|Yes|the request object|1.0
+cardType|Yes|the type of the card|'UIN' OR 'MASKED_UIN' 
+idType|Yes|type of id provided|'UIN' OR 'VID' 
+id|Yes|the id provided|5647294083
+registrationType|Yes|This indicates the registration type in registration processor. The camel route is decided based on this|RES_REPRINT
+centerId|Yes|center id required to create packet|10003
+machineId|Yes|machine id required to create packet|10003
+reason|No|The reason for reprint| Any string
 
-### Example Request
-Reprint request by UIN:
+#### Request
 ```JSON
 {
   "id": "mosip.uincard.reprint",
-  "version": "1.0",
-  "requesttime": "2019-08-21T04:46:21.662Z",
   "request": {
-    "centerId": "10002",
-    "machineId": "10021",
-    "reason": "Id Type and Card Type is UIN",
-    "registrationType": "RES_REPRINT",
-    "id": "7982160142",
+    "cardType": "UIN",
+    "centerId": "10003",
+    "id": "5647294083",
     "idType": "UIN",
-    "cardType": "UIN"
-  }
-}
-
-```
-
-Reprint request by VID:
-```JSON
-{
-  "id": "mosip.packet.generator",
-  "version": "1.0",
-  "requesttime": "2019-07-07T06:12:25.288Z",
-  "request": {
-    "centerId": "10031",
-    "machineId": "10011",
-    "reason": "something",
-    "registrationType": "REPRINT",
-    "id": "4215839851",
-    "idType": "VID",
-    "cardType": "MASKED_UIN"
-  }
+    "machineId": "10003",
+    "reason": "testing",
+    "registrationType": "RES_REPRINT"
+  },
+  "requesttime": "2019-09-13T11:34:13.827Z",
+  "version": "1.0"
 }
 ```
-### Example Response
+#### Response
+###### Status Code:200
+###### Description : response code is always 200 if server receives the request.
 
-Success Response:
 ```JSON
 {
     "id": "mosip.uincard.reprint",
     "version": "1.0",
-    "responsetime": "2019-08-21T04:59:39.859Z",
+    "responsetime": "2019-09-13T11:54:55.313Z",
     "response": {
-        "registrationId": "10002100210004820190821045937",
+        "registrationId": "10003100030000120190913115453",
         "status": "Packet has reached Packet Receiver",
         "message": "Packet created and uploaded"
     },
     "errors": null
 }
 ```
-Error Response:
 
-```JSON
-{ 
-	"id":"mosip.registration.reprint",			
-	"version":"1.0",	
-	"responsetime":"2007-12-03T10:15:30Z",
-	"metadata" : {
-	},
-	"response" : {
-		"status":"Re Print Error"
-	},
-	"errors":[
-		{
-		"errorCode": "<ERROR_CODE>",
-		"message": "Invalid UIN number"
-		},
-		  {
-		"errorCode" : "<ERROR_CODE>",
-		"message": "Invalid VID number"
-		}
-	]
+Error response
+
+```
+{
+  "id": "mosip.uincard.reprint",
+  "version": "1.0",
+  "responsetime": "2019-09-13T11:49:56.180Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "RPR-PGS-011",
+      "message": "Invalid Input Parameter - requesttime"
+    },
+    {
+      "errorCode": "RPR-RGS-015",
+      "message": "Invalid Request Value - Input Data is Incorrect"
+    }
+  ]
 }
 ```
-
-### Response codes
-200
-
-Description : response code is always 200 if server receives the request.
-
-
 
 # 9 Registration Transaction Service
 This service is used to find all the transactions for a registration id. This service accepts a registration id and returns all transactions associated with it.
@@ -1067,90 +1048,4 @@ Record not found :
 }
 }
 
-```
-
-# 10 Uincard Reprint Service
-- #### `POST /registrationprocessor/v1/requesthandler/reprint`
-The residence service portal would call this api to reprint uin card upon receiving request from the applicant.
-
-#### Resource URL
-https://mosip.io/registrationprocessor/v1/requesthandler/reprint
-
-#### Resource details
-
-Resource Details | Description
------------- | -------------
-Request format | JSON
-Response format | JSON
-Requires Authentication | Yes
-
-### Parameters
-Name | Required | Description | Comment
------|----------|-------------|---------------|
-id|Yes|reprint id|mosip.uincard.reprint
-version|Yes|the version for sync|1.0
-requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
-request|Yes|the request object|1.0
-cardType|Yes|the type of the card|'UIN' OR 'MASKED_UIN' 
-idType|Yes|type of id provided|'UIN' OR 'VID' 
-id|Yes|the id provided|5647294083
-registrationType|Yes|This indicates the registration type in registration processor. The camel route is decided based on this|RES_REPRINT
-centerId|Yes|center id required to create packet|10003
-machineId|Yes|machine id required to create packet|10003
-reason|No|The reason for reprint| Any string
-
-#### Request
-```JSON
-{
-  "id": "mosip.uincard.reprint",
-  "request": {
-    "cardType": "UIN",
-    "centerId": "10003",
-    "id": "5647294083",
-    "idType": "UIN",
-    "machineId": "10003",
-    "reason": "testing",
-    "registrationType": "RES_REPRINT"
-  },
-  "requesttime": "2019-09-13T11:34:13.827Z",
-  "version": "1.0"
-}
-```
-#### Response
-###### Status Code:200
-###### Description : response code is always 200 if server receives the request.
-
-```JSON
-{
-    "id": "mosip.uincard.reprint",
-    "version": "1.0",
-    "responsetime": "2019-09-13T11:54:55.313Z",
-    "response": {
-        "registrationId": "10003100030000120190913115453",
-        "status": "Packet has reached Packet Receiver",
-        "message": "Packet created and uploaded"
-    },
-    "errors": null
-}
-```
-
-Error response
-
-```
-{
-  "id": "mosip.uincard.reprint",
-  "version": "1.0",
-  "responsetime": "2019-09-13T11:49:56.180Z",
-  "response": null,
-  "errors": [
-    {
-      "errorCode": "RPR-PGS-011",
-      "message": "Invalid Input Parameter - requesttime"
-    },
-    {
-      "errorCode": "RPR-RGS-015",
-      "message": "Invalid Request Value - Input Data is Incorrect"
-    }
-  ]
-}
 ```
