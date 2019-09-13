@@ -18,7 +18,7 @@ This section details about the service APIs in the Registration-Processor module
 
 [9. Registration Transaction Service](#9-registration-transaction-service)
 
-[10. Uincard Reprint Service](#9-uincard-reprint-service)
+[10. Uincard Reprint Service](#10-uincard-reprint-service)
 
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
