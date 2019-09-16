@@ -37,51 +37,103 @@ It doesn't detail about each methods level information since that is covered in 
 
 |**Functionality:**| Demographic Screen  |  
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to capture the demographic information of the Resident like Name,Age/DOB , Address, Parent/Gaurdian Details,Email ID and Mobile Number|  
+|**Technical Detail:**| This screen helps to capture the demographic information of the Resident like Name,Age/DOB , Address, Parent/Gaurdian Details,Email ID and Mobile Number|  
 |**FXML and Controller class**| **Registration.fxml, DemographicDetail.fxml**  --> **RegistrationController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|   
 
 
 |**Functionality:**| Fingerprint Capture Screen  |  
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to capture the fingerprint information of the Resident like left slap /Right Slap and two thumbs. Apart from this capture of single fingerprint for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
+|**Technical Detail:**| This screen helps to capture the fingerprint information of the Resident like left slap /Right Slap and two thumbs. Apart from this capture of single fingerprint for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
 |**FXML and Controller class**| **FingerPrintCapture.fxml**  --> **FingerPrintCaptureController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Iris Capture Screen  |  
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to capture the Iris information of the Resident like left Eye /Right eye. Apart from this capture of single iris for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
+|**Technical Detail:**| This screen helps to capture the Iris information of the Resident like left Eye /Right eye. Apart from this capture of single iris for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
 |**FXML and Controller class**| **IrisCapture.fxml**  --> **IrisCaptureController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Face Capture and Camera popup Screen |  
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to capture the Face information of the Resident using the ICFO standard. Apart from this capture of face for the authentication will also be called from here. The operations like capture/reset/close methods are applicable to this screen. The pop for the camera will be also part of this controller.|  
+|**Technical Detail:**| This screen helps to capture the Face information of the Resident using the ICFO standard. Apart from this capture of face for the authentication will also be called from here. The operations like capture/reset/close methods are applicable to this screen. The pop for the camera will be also part of this controller.|  
 |**FXML and Controller class**| **FaceCapture.fxml**  --> **FaceCaptureController.java** and **WebCamera.fxml** --> **WebCameraController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Resident capture information Preview Screen |  
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to preview the captured information of the Resident like Demographic/Bio-metric and Documents scanned. This screen helps to edit the particular section of which we captured.|  
+|**Technical Detail:**| This screen helps to preview the captured information of the Resident like Demographic/Bio-metric and Documents scanned. This screen helps to edit the particular section of which we captured.|  
 |**FXML and Controller class**| **RegistrationPreview.fxml**  --> **RegistrationPreviewController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Officer/Supervisor Authentication Screen | 
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to authenticate the officer/supervisor, after capture the all resident information. The authentication can happen base don the configuration like PWD/OTP/Bio-metric.|  
+|**Technical Detail:**| This screen helps to authenticate the officer/supervisor, after capture the all resident information. The authentication can happen base don the configuration like PWD/OTP/Bio-metric.|  
 |**FXML and Controller class**| **OperatorAuthentication.fxml**  --> **AuthenticationController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Acknowledgment Screen | 
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to provide the acknowledgment information of the information captured of the resident. This helps the operator to print the acknowledgment slip and give to the resident.|  
+|**Technical Detail:**| This screen helps to provide the acknowledgment information of the information captured of the resident. This helps the operator to print the acknowledgment slip and give to the resident.|  
 |**FXML and Controller class**| **AckReceipt.fxml**  --> **AckReceiptController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Document Scan Screen | 
 |:------:|-----|  
-|**Technical Detail:**| Thi screen helps to scan the required documents which required based on the operations like New Registrtaion/UIN update /Lost UIN. This scan/edit/remove operation of the documents mapped to this controller.|  
+|**Technical Detail:**| This screen helps to scan the required documents which required based on the operations like New Registration/UIN update /Lost UIN. This scan/edit/remove operation of the documents mapped to this controller.|  
 |**FXML and Controller class**| **DocumentScan.fxml**  --> **DocumentScanController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+|**Functionality:**| Bio-metric Exception Screen | 
+|:------:|-----|  
+|**Technical Detail:**| This screen helps to mark the bio-metrics which are not available for the resident while capturing the biometric information. By this screen, we can select/deselect the fingers [10] and iris[2]. The operation select/deselect mapped to the controller.|  
+|**FXML and Controller class**| **BiometricException.fxml**  --> **BiometricExceptionController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+|**Functionality:**| Parent/Guardian Bio-metric Screen | 
+|:------:|-----|  
+|**Technical Detail:**| This screen helps to capture the anyone of the parent bio-metric for the child registration/UIN update or Lost UIN. This screen provided with the dropdown by selecting the required bio-metric the same thing should be captured by the operator.  The operation Reset/StarOver/Scan mapped to the controller.|  
+|**FXML and Controller class**| **GuardianBiometrics.fxml**  --> **GuardianBiometricsController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+|**Functionality:**| Officer/Supervisor Onboarding Screen | 
+|:------:|-----|  
+|**Technical Detail:**| This screen helps to Onboard the officer/supervisor to the current machine to create the New Registration/UIN Update and Lost UIN for the residents.|  
+|**FXML and Controller class**| **Onboard.fxml, UserOnboard.fxml**  --> **UserOnboardParentController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+|**Functionality:**| Officer/Supervisor Fingerprint Capture Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps to capture the Officer/Supervisor fingerprint information of the Resident like left slap /Right Slap and two thumbs. Apart from this capture of single fingerprint for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
+|**FXML and Controller class**| **UserOnboardFPCapture.fxml**  --> **FingerPrintCaptureController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+|**Functionality:**| Officer/Supervisor Iris Capture Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps to capture the Officer/Supervisor Iris information of the Resident like left Eye /Right eye. Apart from this capture of single iris for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
+|**FXML and Controller class**| **UserOnboardIrisCapture.fxml**  --> **IrisCaptureController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+|**Functionality:**| Officer/Supervisor Face Capture and Camera popup Screen |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps to capture the Officer/Supervisor Face information of the Resident using the ICFO standard. Apart from this capture of face for the authentication will also be called from here. The operations like capture/reset/close methods are applicable to this screen. The pop for the camera will be also part of this controller.|  
+|**FXML and Controller class**| **UserOnboardWebCamera.fxml**  --> **FaceCaptureController.java** and **WebCamera.fxml** --> **WebCameraController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
+
+
+|**Functionality:**| Pending Approval Screen |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps the supervisor to approve the registration done by the officer. This screen displays the list of the packets with respect to their acknowledgment slip. The operations approve/reject mapped to this controller.|
+|**FXML and Controller class**| **RegistrationPendingApproval.fxml**  --> **RegistrationApprovalController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
+
+|**Functionality:**| Pending Approval Screen - Rejection list Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps the supervisor to reject the registrations done by the officer. This screen displays the list of the packets with respect to their acknowledgment slip. The operations reject mapped to this controller. On selecting the rejection the drop-down will be displayed with a list of reasons to reject the registrations.|
+|**FXML and Controller class**| **RejectionComment.fxml**  --> **RejectionController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
+
+
+
 
 
