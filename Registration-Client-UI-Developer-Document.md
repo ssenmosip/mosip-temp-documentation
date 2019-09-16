@@ -1,7 +1,7 @@
 # Registration Client UI Developer Documentation
 
 *** 
-This document guides the developer to find the traceability between UI and the respective controller components.  The provided technical classes are available in the package of 'registration-client' module. In this module, the required controllers are bind with the FXML screens. 
+This document guides the developer to find the traceability between UI and the respective controller components.  The provided technical classes are available in the package of '**registration-client**' module. In this module, the required controllers are bind with the FXML screens. 
 
 It doesn't detail about each methods level information since that is covered in Javadoc of each component and Design Documents.   
 
@@ -17,205 +17,71 @@ It doesn't detail about each methods level information since that is covered in 
 |**Functionality:**| Officer Information Header Screen  |  
 |:------:|-----|  
 |**Technical Detail:**| After successful login, the Home screen displayed with the officer's information as a header.|  
-|**FXML and Controller class**| **Header.fxml**  --> HeaderController.java. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**FXML and Controller class**| **Header.fxml**  --> **HeaderController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of public methods.|   
 
 
 |**Functionality:**| Main / Home Screen  |  
 |:------:|-----|  
 |**Technical Detail:**| After successful login to the application, the application launches the home screen where the operator can do the new registration/UIN update/ Lost UIN / Pending Approval/ Update operator Bio-metrics operations|  
-|**FXML and Controller class**| **RegistrationOfficerLayout.fxml, RegistrationOfficerPacketLayout.fxml**  --> PacketHandlerController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
+|**FXML and Controller class**| **RegistrationOfficerLayout.fxml, RegistrationOfficerPacketLayout.fxml**  --> **PacketHandlerController.java**. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped ot the Controllers of public methods.|   
 
 
 |**Functionality:**| Registration Header Screen  |  
 |:------:|-----|  
 |**Technical Detail:**| On Click of any registration/UIN update or Lost UIN the screen header loaded with Registration Header screen, which indicates to the operator currently which data are we going to capture. It highlights with bold color.|  
-|**FXML and Controller class**| **RegistrationHeader.fxml**  --> RegistrationHeaderController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers.|   
+|**FXML and Controller class**| **RegistrationHeader.fxml**  --> **RegistrationHeaderController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|   
 
 
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Demographic Screen  |  
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to capture the demographic information of the Resident like Name,Age/DOB , Address, Parent/Gaurdian Details,Email ID and Mobile Number|  
+|**FXML and Controller class**| **Registration.fxml, DemographicDetail.fxml**  --> **RegistrationController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|   
 
 
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Fingerprint Capture Screen  |  
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to capture the fingerprint information of the Resident like left slap /Right Slap and two thumbs. Apart from this capture of single fingerprint for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
+|**FXML and Controller class**| **FingerPrintCapture.fxml**  --> **FingerPrintCaptureController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Iris Capture Screen  |  
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to capture the Iris information of the Resident like left Eye /Right eye. Apart from this capture of single iris for the authentication will also be called from here. The operations like Reset/Star Over and Scan methods are applicable to this screen|  
+|**FXML and Controller class**| **IrisCapture.fxml**  --> **IrisCaptureController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Face Capture and Camera popup Screen |  
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to capture the Face information of the Resident using the ICFO standard. Apart from this capture of face for the authentication will also be called from here. The operations like capture/reset/close methods are applicable to this screen. The pop for the camera will be also part of this controller.|  
+|**FXML and Controller class**| **FaceCapture.fxml**  --> **FaceCaptureController.java** and **WebCamera.fxml** --> **WebCameraController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Resident capture information Preview Screen |  
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to preview the captured information of the Resident like Demographic/Bio-metric and Documents scanned. This screen helps to edit the particular section of which we captured.|  
+|**FXML and Controller class**| **RegistrationPreview.fxml**  --> **RegistrationPreviewController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Officer/Supervisor Authentication Screen | 
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to authenticate the officer/supervisor, after capture the all resident information. The authentication can happen base don the configuration like PWD/OTP/Bio-metric.|  
+|**FXML and Controller class**| **OperatorAuthentication.fxml**  --> **AuthenticationController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Acknowledgment Screen | 
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to provide the acknowledgment information of the information captured of the resident. This helps the operator to print the acknowledgment slip and give to the resident.|  
+|**FXML and Controller class**| **AckReceipt.fxml**  --> **AckReceiptController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
+|**Functionality:**| Document Scan Screen | 
 |:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
+|**Technical Detail:**| Thi screen helps to scan the required documents which required based on the operations like New Registrtaion/UIN update /Lost UIN. This scan/edit/remove operation of the documents mapped to this controller.|  
+|**FXML and Controller class**| **DocumentScan.fxml**  --> **DocumentScanController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
-
-
-|**Functionality:**| Login with UserName and Password/ OTP/ BIO  |  
-|:------:|-----|  
-|**Technical Detail:**| Login screen with User ID will be loaded initially and after successful valudation of the user id the respective authenitcaiton screen [if multi-factor more than one authenticaiton] will be loaded|  
-|**Main Controller class and FXML files:**| RegistrtaionLogin.fxml  --> LoginController.java and Authentication.fxml --> AuthenticationController.java. For each controller always the **initalization()** method will be called from the controller to initialize the screen|  
-|**Input parameter:**| The required buttons,text fields, Radio buttons, On-click events directly mapped ot the Controllers.|   
