@@ -635,7 +635,7 @@ Authentication Transactions Service can be used by Resident Services Portal - MO
 #### Users of Internal Authentication service -
 1. `Resident Services Portal` 
 
-* [GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10](#post-idauthenticationv1internalauth) 
+* [GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10](#get-idauthenticationv1internalauthtransactionsindividualidtypeidtypeindividualididpagestart1pagefetch10) 
 
 ### GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10
 This request will retrieve authentication transaction history for the given UIN/VID for the given pageStart and pageFetch parameters.
