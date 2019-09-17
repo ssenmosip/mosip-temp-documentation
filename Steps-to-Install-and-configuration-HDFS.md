@@ -139,6 +139,7 @@ export HADOOP_COMMON_HOME=$HOME/hadoop
 export HADOOP_HDFS_HOME=$HOME/hadoop
 export YARN_HOME=$HOME/hadoop
 export PATH=$PATH:$HOME/hadoop/bin
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64/jre
 ```
 run following command to apply environment variable changes, using source command
 ```
