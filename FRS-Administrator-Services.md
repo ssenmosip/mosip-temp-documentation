@@ -110,13 +110,14 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 ## 5. Resource Management [**[↑]**](#table-of-contents)
 ### 5.1 Center Management 
 Admin Portal allows an Administrator to manage Registration Centers the Country will setup for taking Registrations of the Residents. Center management includes functionalities like Viewing, Creating, Editing, Activating, Deactivating and Decommission of Centers. An Administrator should have the role of a Zonal Admin/Global Admin to do this. A Zonal Admin/Global Admin can manage only Centers under his/her administrative zone.
+For more details on Administrative zones, Refer [here](#55-administrative-zone-management)
 
 #### 5.1.1 View Center
 The Admin portal allows an Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. 
 Admin portal UI shows the list of Registration Centers in only the country configured Primary Language. Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
 
 #### 5.1.2 Create Center
-An Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of a Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
+An Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
  
 A Center is created with the following attributes: 
 Center name, Center Type, Address, Latitude, Longitude, Location, Contact Phone, Contact Person, Working Hours, No. of Kiosk, Center Start Time, Center End Time, Lunch Start Time, Lunch End Time, Time Zone, Holiday Zone and Administrative Zone the Center belongs to. A Center can only be mapped to the Administrative Zonal at the lowest Zonal hierarchy. While defining centers, An Admin can also define the working days of the week for a Center and any exceptional holidays that might be applicable for a particular Center.  
@@ -131,22 +132,22 @@ All the attributes mentioned in the 'Create Center' section can be updated for a
 
 #### 5.1.4 Activate/Deactivate/Decommission Center
 
-A Zonal admin can Deactivate or Decommission a Center through the Admin Portal.
+An admin can Deactivate or Decommission a Center through the Admin Portal.
 
-Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Both Deactivated or Decommissioned Center does not show up in the Pre-Registration UI and thus no appointments can be booked for such Centers. 
+Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Decommissioning a Center also automatically deactivates the Center. Both Deactivated or Decommissioned Center does not show up in the Pre-Registration UI and thus no appointments can be booked for such Centers. 
 
 Another difference between Deactivated and Decommissioned center is that a Deactivated center can later be Activated later through Admin Portal as required by the country. But a Decommissioned Center cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Center (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 ### 5.2 Machine Management [**[↑]**](#table-of-contents)
-Admin Portal allows an Administrator to manage Machines the Country will use for taking Registration of the Residents. The definition of Machine is the device on which the registration Client is installed. Machine management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Machines. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage only Machines under his/her administrative zone.
+Admin Portal allows an Administrator to manage Machines the Country will use for taking Registration of the Residents. The definition of Machine is the device on which the registration Client is installed. Machine management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Machines. An Administrator should have the role of a Zonal Admin/Global Admin to do this. An Admin can manage only Machines under his/her administrative zone.
 
 #### 5.2.1 View Machine
 
-The Admin portal allows Zonal Admin to view the list of all Machines available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Machines but only Active and Inactive Machines. 
+The Admin portal allows an Admin to view the list of all Machines available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Machines but only Active and Inactive Machines. 
 Admin portal UI shows the list of Machines in only the country configured Primary Language. Besides the list view, an Administrator can also view the detail of a Machine by clinking on a Machine Name in the List view. This Detail view shows all the details of a Machine in all the country configured languages.
 
 #### 5.2.2 Create Machine
-A Zonal Admin can create a Machine by providing necessary mandatory details. A Machine needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Machine in only primary language but will not allow activation of that Machine until data for that Machine is not updated for all the languages. 
+An Admin can create a Machine by providing necessary mandatory details. A Machine needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of the Machine in only primary language but will not allow activation of that Machine until data for that Machine is not updated for all the languages. 
 
 A Machine is created with the following attributes: 
 Machine ID, Machine Name, Mac Address, Serial Number, Machine Spec ID and Administrative Zone the Machine belongs to.
@@ -157,17 +158,17 @@ For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-ma
 
 #### 5.2.3 Update Machine [**[↑]**](#table-of-contents)
 Once a Machine is created, a Zonal admin can edit a Machine later if required. The Update can include adding the details in another required language that were missed during creation of the Machine or changing the details of a Machine itself. 
-
+All the attributes mentioned in the 'Create Machine' section can be updated for a Machine.
 For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-contents)
-A Zonal admin can Deactivate or Decommission a Machine through the Admin Portal.
 
-Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Machine. 
-Another difference between Deactivated and Decommissioned Machine is that a Deactivated Machine can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Machine cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Machine (if decommissioned by mistake), the Admin must directly update the database through the backend scripts.
+A Zonal admin can Deactivate or Decommission a Machine through the Admin Portal. 
+
+Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Machine. Decommissioning a Machine also automatically deactivates the Machine.Another difference between Deactivated and Decommissioned Machine is that a Deactivated Machine can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Machine cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Machine (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-contents)
-Admin portal allows a Zonal Admin to map each Machine to a Center. This mapping specifies as to which Center can the Machine be used in. A Machine can only be mapped to a Center which belongs to the Machines’ Administrative Zone or a child Administrative Zone of the Machines’ Administrative Zone.
+Admin portal allows a Zonal Admin to map Machines to a Center. This mapping specifies as to which Center the Machine will be used in. A Machine can only be mapped to a Center which belongs to the Machines’ Administrative Zone or a child Administrative Zone of the Machines’ Administrative Zone.
 
 A Machine can later be un-mapped from the Center in cases where a Machine is needed to be moved to another Center. In such cases, the Machine will later need to be mapped to the new Center. In case the Machine is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Machine must be changed. 
 
