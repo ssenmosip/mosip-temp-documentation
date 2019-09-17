@@ -175,7 +175,7 @@ Refer the **Global configuration** maintained in [QA](https://github.com/mosip/m
 
 **TPM [Trusted Platform Module]:**  
 
-   To enable or disable the TPM functionality, modify the mentioned key in 'registrtaion-services/src/main/spring.properties' file.    
+   To enable or disable the TPM functionality, modify the mentioned key in 'registrtaion-services/src/main/resources/spring.properties' file.    
     - mosip.client.tpm.registration = { Y - to enable the TPM, N - to disable the TPM}.
 
 **MDM [Mosip Device Manager] Service:**  
