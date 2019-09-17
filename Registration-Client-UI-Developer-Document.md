@@ -78,10 +78,10 @@ It doesn't detail about each methods level information since that is covered in 
 |**FXML and Controller class**| **AckReceipt.fxml**  --> **AckReceiptController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
-|**Functionality:**| Document Scan Screen | 
+|**Functionality:**| Document Scan Screen & Scan Popup screen | 
 |:------:|-----|  
-|**Technical Detail:**| This screen helps to scan the required documents which required based on the operations like New Registration/UIN update /Lost UIN. This scan/edit/remove operation of the documents mapped to this controller.|  
-|**FXML and Controller class**| **DocumentScan.fxml**  --> **DocumentScanController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Technical Detail:**| This screen helps to scan the required documents which required based on the operations like New Registration/UIN update /Lost UIN. This scan/edit/remove operation of the documents mapped to this controller. For each scan button, the relevant scan pop window will be displayed. The operations capture will be part of the ScanPopupViewController.|  
+|**FXML and Controller class**| **DocumentScan.fxml**  --> **DocumentScanController.java** and **Scan.fxml** --> **ScanPopUpViewController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods|
 
 |**Functionality:**| Bio-metric Exception Screen | 
@@ -153,7 +153,11 @@ It doesn't detail about each methods level information since that is covered in 
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
 
 
-
+|**Functionality:**| Sync Data Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps the officer to sync the all required operations manually. Which is available at the Main home screen. |
+|**FXML and Controller class**| **SyncDataProcess.fxml**  --> **SyncDataProcessController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
 
 
 
