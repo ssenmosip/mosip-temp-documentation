@@ -135,9 +135,9 @@ All the attributes mentioned in the 'Create Center' section can be updated for a
 
 An admin can Deactivate or Decommission a Center through the Admin Portal.
 
-Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Decommissioning a Center also automatically deactivates the Center. Both Deactivated or Decommissioned Center does not show up in the Pre-Registration UI and thus no appointments can be booked for such Centers. 
+Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Decommissioning a Center also automatically deactivates the Center. In cases, where a Center has some resources mapped to it (e.g. Machines, Devices or Users), the portal won't allow the Admin to decommission such a Center. 
 
-Another difference between Deactivated and Decommissioned center is that a Deactivated center can later be Activated later through Admin Portal as required by the country. But a Decommissioned Center cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Center (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
+Difference between Deactivated and Decommissioned center is that a Deactivated center can later be Activated later through Admin Portal as required by the country. But a Decommissioned Center cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Center (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 ### 5.2 Machine Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Machines the Country will use for taking Registration of the Residents. The definition of Machine is the device on which the registration Client is installed. Machine management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Machines. An Administrator should have the role of a Zonal Admin/Global Admin to do this. An Admin can manage only Machines under his/her administrative zone.
@@ -168,7 +168,9 @@ For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-ma
 
 An Admin can Deactivate or Decommission a Machine through the Admin Portal. 
 
-Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Machine. Decommissioning a Machine also automatically deactivates the Machine. Another difference between Deactivated and Decommissioned Machine is that a Deactivated Machine can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Machine cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Machine (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
+Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Machine. Decommissioning a Machine also automatically deactivates the Machine. In cases, where a Machine is mapped to any Center, the portal won't allow the Admin to decommission such a Machine. 
+
+Difference between Deactivated and Decommissioned Machine is that a Deactivated Machine can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Machine cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Machine (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-contents)
 Admin portal allows an Admin to map Machines to a Center. This mapping specifies as to which Center the Machine will be used in. A Machine can only be mapped to a Center which belongs under the Machines’ Administrative Zone.
@@ -201,7 +203,9 @@ For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-d
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-contents)
 A Zonal admin can Deactivate or Decommission a Device through the Admin Portal.
 
-Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Device. Decommissioning a Machine also automatically deactivates the Machine. Another difference between Deactivated and Decommissioned Device is that a Deactivated Device can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Device cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Device (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
+Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Device. Decommissioning a Machine also automatically deactivates the Machine. In cases, where a Device is mapped to any Center, the portal won't allow the Admin to decommission such a Device. 
+
+Difference between Deactivated and Decommissioned Device is that a Deactivated Device can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Device cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Device (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-contents)
 Admin portal allows a Zonal Admin to map each Device to a Center. This mapping specifies as to which Center can the Device be used in. A Device can only be mapped to a Center which belongs under the Device’s Administrative Zone.
