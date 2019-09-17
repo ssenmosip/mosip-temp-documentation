@@ -127,11 +127,32 @@ It doesn't detail about each methods level information since that is covered in 
 |**FXML and Controller class**| **RegistrationPendingApproval.fxml**  --> **RegistrationApprovalController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
 
-|**Functionality:**| Pending Approval Screen - Rejection list Screen  |  
+|**Functionality:**| Pending Approval - Rejection list Screen  |  
 |:------:|-----|  
 |**Technical Detail:**| This screen helps the supervisor to reject the registrations done by the officer. This screen displays the list of the packets with respect to their acknowledgment slip. The operations reject mapped to this controller. On selecting the rejection the drop-down will be displayed with a list of reasons to reject the registrations.|
 |**FXML and Controller class**| **RejectionComment.fxml**  --> **RejectionController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
 |**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
+
+|**Functionality:**| Send Notification[SMS/Email] Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps the officer to send the SMS/email to other members. After successful registration of the resident, if the person wants to send the message to more than one person they can send by using this screen. |
+|**FXML and Controller class**| **SendNotification.fxml**  --> **SendNotificationController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
+
+
+|**Functionality:**| UIN - Update Selection Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps the officer to select the required fields to be updated as part of the UIN update screen. W.r.t the selection of the relevant fields and screen will be displayed subsequentially.|
+|**FXML and Controller class**| **UpdateUIN.fxml**  --> **UpdateUINController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
+
+|**Functionality:**| Re-Registration Screen  |  
+|:------:|-----|  
+|**Technical Detail:**| This screen helps the officer to inform/not inform the re-registration status, which comes from the server as response. |
+|**FXML and Controller class**| **ReRegistration.fxml**  --> **ReRegistrationController.java**. For each controller always the **initialization()** method will be called from the controller to initialize the screen|  
+|**Input parameter:**| The required buttons, text fields, Radio buttons, On-click events directly mapped to the Controllers of the public methods.|
+
+
 
 
 
