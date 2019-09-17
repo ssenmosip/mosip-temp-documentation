@@ -216,75 +216,17 @@ Refer to section on more details of CRUD APIs used in above mentioned features
 For more details, please refer to [link](FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-)
 
 ### 5.4 User Management(WIP) [**[↑]**](#table-of-contents)
-#### 5.4.1 View User
-MOSIP uses KeyCloak IAM for managing Users. KeyCloak also provides its native UI for managing Users. These Users include Registration Operators, Supervisors, Registration Admins, Zonal Admins etc. User management includes Viewing, Creating, Editing, Activating, Deactivating and Blacklisting of Users. An Administrator should have the role of a Zonal Admin to do this. A Zonal Admin can manage Users under his/her administrative zone only. 
-#### 5.4.2 Create User
-Using the portal, Zonal Admin/Central Admin will register the user (registration officer, supervisor) on portal by providing the following required details of the user:
- * User ID
- * First Name
- * Date of Birth
- * Gender
- * Contact Number
- * Email ID
- * Address
- * Activation Status
- * Blacklisted Status
- * Created by
- * Created Time Stamp
-1. Zonal Admin will provide the user name as per approved standard of a country.
-1. The system triggers an activation link to the newly created user after the user is successfully created. The activation link will expire after certain times (Expire time is configurable).
-1. Once the user receives the link, he/she can set up the password as mentioned in the following:
 
- **  Procedure to set up User Password for  first time**: This feature to be checked with Aman
+MOSIP uses Keycloak as an IAM (Identity access management tool) for managing Users. These users are internal users of MOSIP including Registration Officers, Registration Supervisors, Zonal Admins, Global Admins etc. 
+User Management includes Viewing, Creating, Editing, Activating, Deactivating and Blacklisting of Users.
 
-1. Once the user receives the link, he/she will generate the password by accessing the link.
-2. User will provide his/her VID/UIN as required by the system.
-3. The system allows the user to provide the registered mobile number and receives an OTP.
-4. User will provide the OTP as received.
-5. System will validate the user’s UIN, perform demographic authentication and check whether the user is child or adult. 
-6. On successful validation, system allows user to generate the password.
-7. User will provide password and confirm the password.
-   The system validates the password based on the password policy (Password policy is configurable).
-8. On successful validation, the system maps the RID with the user in IAM. If the user has multiple VID, the VID, which is 
-   mapped by the system, is considered as the latest VID of user.
-9. User receives the notification along with user name and link to the portal on password generation activities completed 
-   successfully. 
-10. User can start using his/her account by visiting to Reg. Client/Admin portal as applicable and logging in by providing 
-    the user name and password (Multi-factor login supported).
-11. If activation link expires (expiry time configurable), the system resends the link through a batch process.
-
-#### 5.4.3 Update User
-The portal allows its users (Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer) to update the user details. The use will provide the User ID/User Name. The system validates the provided data and user's role. On successful validation, the system allows updating the required user details. When the user saves the updated user details, the system captures the date & time and user’s detail who has updated the user record.
-
-If the user selects the Delete flag at the time of updating user’s record, the delete related information is updated when the user is updated. 
-
-#### 5.4.4 Activate/Deactivate//Whitelist User [**[↑]**](#table-of-contents)
-#### A. Activate User
-
-The portal allows Zonal Admin to activate the user, who is already deactivated due to any reasons. When the user is created and approved, it is activated automatically. The Zonal Admin selects the user then all the users of that zone are displayed. The Zonal Admin can select a deactivated user or multiple deactivated users at a time and selects Activate option. The system validates user's role and activates the selected user(s). On successful validation, the system provides a notification.
-
-#### B. Deactivate User
-
-The portal allows Zonal Admin to deactivate the users, who are already active. The Zonal Admin selects the user and all the users of that zone are displayed. The Zonal Admin can select one active user or multiple active users at a time then selects the Deactivate option. The system validates user’s role, on successful validation, deactivates the selected user(s), and the system provides a notification.
-
-#### C. Blacklist User
-
-The portal allows the Zonal Admin to block or blacklist the user due to some reason (For example, number of failed login attempt). The system does not allows the blocked user to login or perform any kind of operation except raising the request to activate/whitelist.
-
-Procedure to block/blacklist:
-
-1. Zonal Admin has authorization to block or blacklist the users for any reason.
-2. Once blocked/blacklisted, the system does not allow the users to login the system and notification related to 
-   block/blacklist is sent to the respective user.
-3. Due to some reason or If user exceeds numbers of attempt (number of attempt is configurable) to login, the system locks 
-  the account and respective user will contact admin to unlock. 
-4. User contacts Super Admin and requests to unblock/activate the account, the respective user will provide convincing 
-   responses regarding blocking, the super admin will block/deactivate the active account.
-5. Super Admin has authorization to reset the password and bio authentication of the supervisor on request by the 
-  respective user.
-6. The system will also send a link to the registered mobile number or email ID, so that the related user will reset the 
-   password by visiting the link. For more details, please refer to [**Reset Password**](#23-reset-password-) 
-
+#### 5.4.1 View User (WIP) 
+#### 5.4.2 Create User (WIP)
+#### 5.4.3 Update User (WIP)
+#### 5.4.4 Activate/Deactivate//Whitelist User (WIP)
+##### A. Activate User (WIP)
+##### B. Deactivate User (WIP)
+##### C. Blacklist User (WIP)
 #### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-contents)
 #### A. Map User to a Registration Center
 The portal allows Zonal Admin to map users to the registration center by providing the User ID and registration center ID. The registration center must be under the Zonal Admin’s zone. The system validates the user ID, registration center ID and the user's role. On successful validation, the system maps the user to a registration center.
