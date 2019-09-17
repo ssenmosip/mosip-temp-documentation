@@ -130,9 +130,9 @@ tar -xzf hadoop-2.8.1.tar.gz
 mv hadoop-2.8.1 hadoop
 ```
 ### Set Environment Variables in each machine in the cluster
-Add Hadoop binaries to your PATH. Edit ``/home/hadoop/.bashrc`` or ``/home/hadoop/.bash_profiles`` and add the following line:
+Add Hadoop binaries to your PATH. Edit ``/home/hadoop/.bashrc`` or ``/home/hadoop/.bash_profile`` and add the following line:
 ```
-export HADOOP_HOME=$HOME/hadoop [hadoop installation directory]
+export HADOOP_HOME=$HOME/hadoop
 export HADOOP_CONF_DIR=$HOME/hadoop/etc/hadoop
 export HADOOP_MAPRED_HOME=$HOME/hadoop
 export HADOOP_COMMON_HOME=$HOME/hadoop
@@ -144,7 +144,7 @@ run following command to apply environment variable changes, using source comman
 ```
 source /home/hadoop/.bashrc
 or
-source /home/hadoop/.bash_profiles
+source /home/hadoop/.bash_profile
 ```
 ### Configure the Master Node
 Configuration will be done on node-master and replicated to other slave nodes.
