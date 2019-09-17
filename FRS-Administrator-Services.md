@@ -195,20 +195,20 @@ Device ID, Device Name, Mac Address, Serial Number, Device Spec ID and Administr
 While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Device Name) needs to be manually input in all the languages..
 
 #### 5.3.3 Update Device [**[↑]**](#table-of-contents)
-Once a Device is created, a Zonal admin can edit a Device later if required. The Update can include adding the details in another required language that were missed during creation of the Device or changing the details of a Device itself. 
+Once a Device is created, an Admin can edit a Device later if required. The Update can include adding the details in another required language that were missed during creation of the Device or changing the details of a Device itself. 
 All the attributes mentioned in the 'Create Machine' section can be updated for a Machine.
 
 For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-contents)
-A Zonal admin can Deactivate or Decommission a Device through the Admin Portal.
+An Admin can Deactivate or Decommission a Device through the Admin Portal.
 
 Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Device. Decommissioning a Machine also automatically deactivates the Machine. In cases, where a Device is mapped to any Center, the portal won't allow the Admin to decommission such a Device. 
 
 Difference between Deactivated and Decommissioned Device is that a Deactivated Device can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Device cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Device (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
 #### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-contents)
-Admin portal allows a Zonal Admin to map each Device to a Center. This mapping specifies as to which Center can the Device be used in. A Device can only be mapped to a Center which belongs under the Device’s Administrative Zone.
+Admin portal allows an Admin to map each Device to a Center. This mapping specifies as to which Center the Device will be used in. A Device can only be mapped to a Center which belongs under the Device’s Administrative Zone.
 
 A Device can later be un-mapped from the Center in cases where a Device is needed to be moved to another Center. In such cases, the Device will later need to be mapped to the new Center. In case the Device is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Device must be changed.
 Refer to section on more details of CRUD APIs used in above mentioned features
