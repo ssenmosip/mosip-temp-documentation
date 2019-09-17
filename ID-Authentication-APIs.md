@@ -629,20 +629,19 @@ IDA-OTA-008|OTP Notification Channel not provided.|No OTP Channel is provided in
 IDA-OTA-009|&lt;Notification Channel&gt; not configured for the country|&lt;Notification Channel&gt; not configured (Phone/e-mail/both)|
 
 
-## Authentication Service (Internal)
-This service details authentication (yes/no auth) that can be used by MOSIP modules to authenticate an Individual using UserID/VID/UIN. Below are various authentication types supported by this service - Biometric based - Fingerprint, IRIS and Face
+## Authentication Transactions Service (Internal)
+Authentication Transactions Service can be used by Resident Services Portal - MOSIP module to retrieve the authenticate history of an Individual initiated by Partners. Authentications done by MOSIP internal modules for any verifications will not be returned. 
 
 #### Users of Internal Authentication service -
-1. `Registration Client` - Registration Client can authenticate biometrics of Operator or Supervisor while onboarding them.
-2. `Registration Processor` - Registration Processor can authenticate biometrics of Operator or Supervisor while processing registration packets.
+1. `Resident Services Portal` 
 
-* [POST /idauthentication/v1/internal/auth](#post-idauthenticationv1internalauth) 
+* [GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10](#post-idauthenticationv1internalauth) 
 
-### POST /idauthentication/v1/internal/auth
-This request will authenticate an Operator/Supervisor using Biometric authentication.
+### GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10
+This request will retrieve authentication transaction history for the given UIN/VID for the given pageStart and pageFetch parameters.
 
 #### Resource URL
-<div>https://mosip.io/idauthentication/v1/internal/auth</div>
+<div>https://mosip.io/idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10</div>
 
 #### Resource details
 
@@ -651,91 +650,48 @@ Resource Details | Description
 Response format | JSON
 Requires Authentication | Yes
 
-#### Request Body Parameters
+#### Request Query Parameters
+The authentication transaction history can be queried using this REST service for certain count of transactions which can be retrieved for given pageStart number with pageFetch. The default pageStart value is 1. The default pageFetch value is 10. This default pageFetch value will be taken into account only if the pageStart is provided. If both pageStart and pageFetch values are not provided, all the transaction entries for the UIN/VID are returned in the response.
+
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
-id | Y | API Id | | mosip.identity.auth.internal
-version | Y | API version | | v1
-transactionID| Y | Transaction ID of request | | 1234567890
-requestTime| Y |Time when Request was captured| | 2019-02-15T10:01:57.086+05:30
-requestedAuth| Y | Authentication Types requested| | 
-requestedAuth: otp| Y | OTP Authentication Type | false| false
-requestedAuth: demo| Y | Demographic Authentication Type | false| false
-requestedAuth: bio| Y | Biometric Authentication Type | false|false
-individualId| Y | UserID of Operator/Supervisor | | 9830872690593682 
-individualIdType| Y | Allowed Type of Individual ID - USERID, VID, UIN | USERID |
-consentObtained| Y | If consent of Individual is obtained | true
-keyIndex| Y | Thumbprint of public key certificate used for encryption of sessionKey | 
-requestSessionKey| Y | Session Key encrypted using MOSIP Public Key | | 
-requestHMAC| Y | sha256 of request block before encryption and hash is encrypted using requestSessionKey | |
-request| Y | Auth request attributes to be used for authenticating Individual | | 
-request: timestamp| N | Timestamp when request block was captured| | 
-request: biometrics|N| Biometric data of an Individual| |
-
-
-#### Request Body
-```JSON
-{
-  "id": "mosip.identity.auth.internal",
-  "version": "v1",
-  "requestTime": "2019-02-15T10:01:57.086+05:30",
-  "transactionID": "1234567890",
-  "requestedAuth": {
-    "bio": true,
-    "demo": false
-  },
-  "consentObtained": true,
-  "individualId": "9830872690593682",
-  "individualIdType": "USERID",
-  "keyIndex": "<thumbprint of the public key certificate used for encryption of sessionKey. This is necessary for key rotaion>",
-  "requestSessionKey": "<encrypted with MOSIP public key and encoded session key>",
-  "requestHMAC": "<sha256 of the request block before encryption and the hash is encrypted using the requestSessionKey>",
-  "request": { // Encrypted with session key and base64 encoded
-    "timestamp": "2019-02-15T10:01:56.086+05:30 - ISO format timestamp",
-    "biometrics": [
-      {
-        "data": { // Base64 encoded
-          "bioType": "FMR",
-          "bioSubType": "UNKNOWN",
-          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
-        },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
-        "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-        "signature": "base64 signature of the data and metaData block"
-      },
-      {
-        "data": { // Base64 encoded
-          "bioType": "IIR",
-          "bioSubType": "RIGHT",
-          "bioValue": "<encrypted with session key and base64 encoded biometric data>",
-        },
-        "hash": "sha256(sha256 hash of the previous data block + sha256 of the current data block before encryption)",
-        "sessionKey": "<encrypted with MOSIP public key and encoded session key biometric>",
-        "signature": "base64 signature of the data and metaData block"
-      }
-    ]
-  }
-}
-```
+pageStart | N | The page number to start | 1 | 2
+pageFetch | N | The number of entries per page | 10 | 20
 
 #### Responses:
 ##### Success Response:
 ###### Status Code : 200 (OK)
-###### Description : Successfully authenticated an Individual    
+###### Description : Successfully retried authentication transactions    
 
 ```JSON
 {
-  //API Metadata
-  "id": "mosip.identity.auth.internal",
-  "version": "v1",
-  "responseTime": "2019-02-15T07:23:19.590+05:30",
-  //Response Metadata
-  "transactionID": "1234567890",
-  //Auth Response
-  "response": {
-    "authStatus": true
-  },
-  "errors": null
+        //API Metadata
+	"id": "mosip.identity.auth.transactions.read",
+	"responseTime": "2019-07-11T07:30:59.383",
+	"version": "v1",
+	"errors": [],
+        //Response
+	"response": {
+		"authTransactions": [{
+				"transactionID": "1234567890",
+				"requestdatetime": "2019-07-10T07:28:59.383",
+				"authtypeCode": "FINGERPRINT-AUTH",
+				"statusCode": "Y",
+				"statusComment": "Finger Authentication Success",
+				"referenceIdType": "UIN",
+				"entityName": ""
+			},
+			{
+				"transactionID": "1234567891",
+				"requestdatetime": "2019-07-11T07:29:59.383",
+				"authtypeCode": "OTP-REQUEST",
+				"statusCode": "F",
+				"statusComment": "OTP Authentication Failed",
+				"referenceIdType": "UIN",
+				"entityName": ""
+			}
+		]
+	}
 }
 ```
 
@@ -746,20 +702,14 @@ request: biometrics|N| Biometric data of an Individual| |
 ```JSON
 {
   //API Metadata
-  "id": "mosip.identity.auth.internal",
+  "id": "mosip.identity.auth.transactions.read",
   "version": "v1",
   "responseTime": "2019-02-15T07:23:19.590+05:30",
-  //Response Metadata
-  "transactionID": "1234567890",
-  //Auth Response
-  "response": {
-    "authStatus": false
-  },
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid UserId",
-      "actionMessage": "Please retry with the correct UserId"
+      "errorCode": "IDA-MLC-002",
+      "errorMessage": "Invalid UIN",
+      "actionMessage": "Please retry with the correct UIN"
     }
   ]
 }
@@ -767,29 +717,14 @@ request: biometrics|N| Biometric data of an Individual| |
 ##### Failure Details
 Error Code|Error Message|Description|Action Message
 -----------|-------------|-----------|----------------
-IDA-BIA-001| Biometric data &ndash; &lt;Biometric Attribute&gt; did not match|FMR,IIR,FID Mismatch|Please give your biometrics again.
-IDA-BIA-002|Duplicate fingers in request.|Duplicate fingers|Please try again with distinct fingers
-IDA-BIA-003|Number of FMR should not exceed 2.|Fingers exceeding 2|
-IDA-BIA-006|Biometric data &lt;Biometric Attribute&gt; not available in database.|Missing biometric data in MOSIP database |Your Biometric data is not available in MOSIP
-IDA-BIA-007|Duplicate Irises in request.|Duplicate Irises used|Please try again with distinct Irises
-IDA-BIA-008|Number of IIR should not exceed 2.|Irises exceeding 2|
-IDA-BIA-009|Number of FID records should not exceed 1.|Face exceeding 1|
-IDA-BIA-013|Number of FMR should not exceed 10.|Fingers exceeding 10 for Internal Auth|
 IDA-MLC-001|Request to be received at MOSIP within&lt;x&gt; hrs/min|Invalid Time stamp|Please send the request within &lt;x&gt; hrs/min
 IDA-MLC-002|Invalid UIN|Invalid UIN|Please retry with the correct UIN.
 IDA-MLC-003|UIN has been deactivated|UIN Deactivated|Your UIN status is not active.
 IDA-MLC-006|Missing Input parameter- &lt;attribute&gt;  Example: Missing Input parameter- version|Missing Input parameter- attribute - all the mandatory attributes |
-IDA-MLC-007|Request could not be processed. Please try again|Could not process request/Unknown error; Invalid Auth Request; Unable to encrypt eKYC response|
-IDA-MLC-008|No authentication type selected|No authentication type selected in the request|
+IDA-MLC-007|Request could not be processed. Please try again|Could not process request/Unknown error; Invalid Auth Request|
 IDA-MLC-009|Invalid Input parameter- attribute  |Invalid Input parameter- attribute|
-IDA-MLC-011|Unsupported Authentication Type - &lt;Auth Type&gt; - &lt;SubType&gt; if applicable|Auth Type not supported for a country|Please use other Authentication Types in the request
 IDA-MLC-012|Individual's Consent is not available|Invalid resident consent for eKYC/Auth|
-IDA-MLC-013|Missing  &lt;authtype&gt; auth attribute  |Missing authtype parameter &ndash; when &lt;auth-type&gt; = &lsquo;True&rsquo; and corresponding auth attribute missing (OTP,Demo and Bio)|
-IDA-MLC-014|&lt;Notification Channel&gt; not registered. Individual has to register and try again|&lt;Notification Channel&gt; not Registered (Phone/e-mail/both)|Please register your &lt;Notification Channel&gt; and try again
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/USERID) not supported for a country|
 IDA-MLC-017|Invalid UserID|Invalid UserID|
 IDA-MLC-018|%s not available in database|UIN, User ID not available in database|
-IDA-MPA-003|Unable to decrypt Request.|Invalid encryption of session key/request|
-IDA-MPA-004|MOSIP Public key expired. |MOSIP Public key expired|Please reinitiate the request with updated public key
-
 
