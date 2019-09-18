@@ -1272,10 +1272,10 @@ For more information look [here](//cloud.spring.io/spring-cloud-config/single/sp
 `kubectl create secret generic config-server-keystore --from-file=server.keystore=< location-of-your-server.keystore-file-generated-above >`
 <br/>
 <br/>
-7. Change `git_url_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml to your git ssh url of configuration repository
+7. Change `git_url_env` environment variable in kernel-config-server-deployment-and-service.yml to your git ssh url of configuration repository
 <br/>
 <br/>
-8. Change `git_config_folder_env` environment variable in kernel-auditmanager-service-deployment-and-service.yml  to your configuration folder in git repository.
+8. Change `git_config_folder_env` environment variable in kernel-config-server-deployment-and-service.yml  to your configuration folder in git repository.
 <br/>
 <br/>
 9. Change `spec->template->spec->containers->image` from `docker-registry.mosip.io:5000/kernel-config-server` to `< Your Docker Registry >/kernel-config-server` <br/>
