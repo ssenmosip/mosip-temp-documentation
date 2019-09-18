@@ -1053,7 +1053,7 @@ Record not found :
 ```
 # 10 Uincard Service
 - #### `POST /registrationprocessor/v1/print/uincard`
-The residence service portal would call this api to reprint uin card upon receiving request from the applicant.
+The residence service portal would call this api to get uin card upon receiving request from the applicant.
 
 #### Resource URL
 https://mosip.io/registrationprocessor/v1/print/uincard
