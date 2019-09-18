@@ -18,6 +18,8 @@ This section details about the service APIs in the Registration-Processor module
 
 [9. Registration Transaction Service](#9-registration-transaction-service)
 
+[10. Uincard Service](#10-uincard-service)
+
 # 1 Packet Receiver Service
 ## 1.1 Packet-receiver service
 
@@ -1048,4 +1050,69 @@ Record not found :
 }
 }
 
+```
+# 10 Uincard Service
+- #### `POST /registrationprocessor/v1/print/uincard`
+The residence service portal would call this api to reprint uin card upon receiving request from the applicant.
+
+#### Resource URL
+https://mosip.io/registrationprocessor/v1/print/uincard
+
+#### Resource details
+
+Resource Details | Description
+------------ | -------------
+Request format | JSON
+Response format | application/pdf
+Error Response format | JSON
+Requires Authentication | Yes
+
+### Parameters
+Name | Required | Description | Comment
+-----|----------|-------------|---------------|
+id|Yes|reprint id|mosip.uincard.reprint
+version|Yes|the version for sync|1.0
+requesttime|Yes|the requesttime for sync|2019-02-14T12:40:59.768Z
+request|Yes|the request object|1.0
+cardType|Yes|the type of the card|'UIN' OR 'MASKED_UIN'
+idType|Yes|type of id provided|'UIN' OR 'VID' OR 'RID'
+idValue|Yes|the id provided|5647294083
+
+#### Request
+```JSON
+{
+  "id": "mosip.registration.print",
+  "request": {
+    "cardType": "UIN",
+    "idValue": "5647294083",
+    "idType": "UIN"
+  },
+  "requesttime": "2019-09-13T11:34:13.827Z",
+  "version": "1.0"
+}
+```
+#### Response
+###### Status Code:200
+###### Description : response code is always 200 if server receives the request.
+
+Success response :
+```JSON
+// PDF bytes
+```
+
+Error response :
+
+```
+{
+  "id": "mosip.registration.print",
+  "version": "1.0",
+  "responsetime": "2019-09-18T06:28:55.676Z",
+  "errors": [
+    {
+      "errorCode": "RPR-PRT-011",
+      "message": "UIN length should be as per configured digit."
+    }
+  ],
+  "response": null
+}
 ```
