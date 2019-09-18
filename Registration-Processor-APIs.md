@@ -856,7 +856,7 @@ Error response
 This service is used to find all the transactions for a registration id. This service accepts a registration id and returns all transactions associated with it.
 
 ### Resource URL
-### `POST /registrationprocessor/v1/registrationtransaction/search/{rid}`
+### `GET /registrationprocessor/v1/registrationtransaction/search/{langcode}/{rid}`
 
 
 #### Resource details
@@ -869,6 +869,7 @@ Requires Authentication | Yes
 #### Parameters
 Name | Required | Description | Comment |
 -----|----------|-------------|---------------|
+langcode|Yes|The language code|
 registrationId|Yes|The registration id|
 
 #### Request
