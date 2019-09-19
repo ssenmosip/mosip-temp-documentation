@@ -518,7 +518,7 @@ $sudo kadmin
 
 ##### to view the principals in keytab
 ```
- Klist -k -e -t mosip.keytab
+ klist -k -e -t mosip.keytab
 ```
 and so on add all the users to keytab. if you want create the separate keytab file for each application and distribute them
 
