@@ -241,6 +241,8 @@ The portal allows Zonal Admin to re-map users to the registration center by prov
 ### 5.5 Administrative Zone Management 
 Administrative Zones are virtual boundaries which a country can define to better manage their resources which are used during registrations. These resources includes Centers, Users, Machines and Devices. These zones can be defined in a hierarchical fashion and a country can allocate resources to such zones based on their requirements. 
 
+Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Section 5] (#5-resource-management)Resources Management section). Thus these resources when mapped to zone can only be managed by the Admin of that Zone.
+
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
 ### 6.1 View Master Data Types
 The portal allows Zonal Admin to view the master data type. The master data types are configured by admin console. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
