@@ -92,15 +92,15 @@ If the user is inactive for X minutes (X is configurable), the system logs out t
 ## 2. Account Management(WIP) [**[↑]**](#table-of-contents)
 Using the portal, user will  manage his/her profile. The  portal users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
-### 2.1 Edit Personal Details (WIP)
+### 2.1 Edit Personal Details
 
-### 2.2 Change Password (WIP)
+### 2.2 Change Password
 
-### 2.3 Reset Password (WIP)
+### 2.3 Reset Password
 
-### 2.4 Forgot User Name (WIP)
+### 2.4 Forgot User Name
 
-### 2.5 Account Unlock (WIP)
+### 2.5 Account Unlock
 
 ## 3. Security Policy Configuration (WIP) [**[↑]**](#table-of-contents)
 
