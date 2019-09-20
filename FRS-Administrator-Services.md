@@ -40,9 +40,9 @@
   * [5.5 Administrative Zone Management](#55-administrative-zone-management)
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
-  * [6.2 View Master data for each table (WIP)](#62-view-master-data-for-each-table-wip-) _(ASR_FR_6.2)_
+  * [6.2 View Master data for each table](#62-view-master-data-for-each-table-) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-) _(ASR_FR_6.3)_
-    * [6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)](#631-manage-document-type-create-update-activate-deactivate-) _(ASR_FR_6.4)_
+    * [6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)](#631-manage-document-type-create-update-activate/deactivate-) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-category-view-) _(ASR_FR_6.5)_
     * [6.3.3 Manage Document Type to Document Category Mapping (View)](#633-manage-document-type-to-document-category-mapping-view-) _(ASR_FR_6.6)_ 
     * [6.3.4 Manage Location Data (Create, Update, Activate/Deactivate)](#634-manage-location-data-create-update-activate-deactivate-) _(ASR_FR_6.7)_
@@ -247,7 +247,7 @@ Resources under each zone is managed by a Zonal Admin. This is done by assigning
 Admin Portal allows an Administrator to manage Masterdata applicable for a Country. These data includes list of Genders, list of Holidays, Templates etc. This data is used by all the modules across MOSIP which includes Pre-Registration, Registration Client, Registration processor and ID-Authentication. An Administrator should have the role of a Global Admin to manage Masterdata.
 ### 6.1 View Master Data Types
 The portal allows a Global Admin to view the list of Masterdata types. Through this list, the global admin can click on any of them and can view the data for that particular Masterdata table.
-### 6.2 View Master Data for Each Table (WIP)
+### 6.2 View Master Data for Each Table
 The portal allows the Global Admin to view the data of any Masterdata which are applicable to a country. The Administrator can access these list views by clicking on a type of Masterdata in the Masterdata Types Screen.
 Each of these List views consumes the same UI template and allows following features:
 1.	List view shows data of a Masterdata Type only in the country configured Primary Language. 
@@ -258,7 +258,7 @@ Each of these List views consumes the same UI template and allows following feat
 Since not all the attributes for a Masterdata record will be shown on the list view, the Global Admin can them all on the Masterdata detail view page. This view can be accessed by clicking on a record in the list view. The detail view will show all the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
 
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
-#### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
+#### 6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)
 Document types is the list of Documents a country will configure for the users to give during registrations. 
 
 #### A. Create/Update Document Types
@@ -275,7 +275,7 @@ The portal allows Zonal Admin to activation or deactivation of a document type. 
 #### 6.3.2 Manage Document Categories (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the document type to document category mapping by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Document Type to Document Category Mapping and the available document type to document mapping are displayed. The document type to document category mapping are configured through admin console. The system validates the user's role who raised the request to view the document type to document category mapping and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 
-#### 6.3.3 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-contents)
+#### 6.3.3 Manage Document Category to Document Mapping (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-contents)
 #### C. Map Document Type to Document Category
 The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
 
