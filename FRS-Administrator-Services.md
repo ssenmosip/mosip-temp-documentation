@@ -42,20 +42,20 @@
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table-) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-) _(ASR_FR_6.3)_
-    * [6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)](#631-manage-document-type-create-update-activatedeactivate) _(ASR_FR_6.4)_
-    * [6.3.2 Manage Document Categories (View)](#632-manage-document-category-view-) _(ASR_FR_6.5)_
-    * [6.3.3 Manage Document Type to Document Category Mapping (View)](#633-manage-document-type-to-document-category-mapping-view-) _(ASR_FR_6.6)_ 
-    * [6.3.4 Manage Location Data (Create, Update, Activate/Deactivate)](#634-manage-location-data-create-update-activatedeactivate) _(ASR_FR_6.7)_
-    * [6.3.5 Manage Blacklisted Words (Create, Update, Activate/Deactivate)](#635-manage-blacklisted-words-create-update-activatedeactivate) _(ASR_FR_6.8)_
+    * [6.3.1 Manage Document Type (Create, Update, Activate,Deactivate)](#631-manage-document-type-create-update-activate-deactivate) _(ASR_FR_6.4)_
+    * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
+    * [6.3.3 Manage Document Type to Document Category Mapping (View)](#633-manage-document-type-to-document-category-map-unmap-view-) _(ASR_FR_6.6)_ 
+    * [6.3.4 Manage Location Data (Create, Update, Activate,Deactivate)](#634-manage-location-data-create-update-activate-deactivate) _(ASR_FR_6.7)_
+    * [6.3.5 Manage Blacklisted Words (Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.8)_
      * [6.3.6 Manage Registration Center Types (View)](#636-manage-registration-center-types-view-) _(ASR_FR_6.9)_ 
-     * [6.3.7 Manage Machine Types (View)](#637-manage-machine-types-view-) _(ASR_FR_6.10)_ 
+     * [6.3.7 Manage Machine Types (View)](#637-manage-machine-types-view) _(ASR_FR_6.10)_ 
      * [6.3.8 Manage Machine Specifications (View)](#638-manage-machine-specifications-view-) _(ASR_FR_6.11)_ 
-     * [6.3.9 Manage Device Types (View)](#639-manage-device-types-view-) _(ASR_FR_6.12)_ 
+     * [6.3.9 Manage Device Types (View)](#639-manage-device-types-view) _(ASR_FR_6.12)_ 
      * [6.3.10 Manage Device Specifications (View)](#6310-manage-device-specifications-view-) _(ASR_FR_6.13)_ 
-     * [6.3.11 Manage Individual Types (View)](#6311-manage-individual-types-view-) _(ASR_FR_6.14)_ 
-     * [6.3.12 Manage List of Holidays (View)](#6312-manage-list-of-holidays-view-) _(ASR_FR_6.15)_ 
+     * [6.3.11 Manage Individual Types (View)](#6311-manage-individual-types-view) _(ASR_FR_6.14)_ 
+     * [6.3.12 Manage List of Holidays (View)](#6312-manage-list-of-holidays-view) _(ASR_FR_6.15)_ 
      * [6.3.13 Manage List of Templates (View)](#6313-manage-list-of-templates-view-) _(ASR_FR_6.16)_ 
-     * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view-) _(ASR_FR_6.17)_ 
+     * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.17)_ 
      * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.18)_ 
 - [7. Approval Process](#7-approval-process-) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation-)
@@ -258,7 +258,7 @@ Each of these List views consumes the same UI template and allows following feat
 Since not all the attributes for a Masterdata record will be shown on the list view, the Global Admin can them all on the Masterdata detail view page. This view can be accessed by clicking on a record in the list view. The detail view will show all the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
 
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
-#### 6.3.1 Manage Document Type (Create, Update, Activate/Deactivate)
+#### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
 Document types is the list of Documents a country will configure for the users to give during registrations. 
 
 #### A. Create/Update Document Types
@@ -284,7 +284,7 @@ The portal allows Zonal Admin to un-map the document type to the document catego
 #### F. Re-map Document Type to Document Category
 The portal allows Zonal Admin to re-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system re-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
 
-#### 6.3.4 Manage Location Data (Create, Update, Activate/Deactivate) 
+#### 6.3.4 Manage Location Data (Create, Update, Activate, Deactivate) 
 #### A. Create/Update Location Data
 Using the portal, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the user's role. During validation, if system does not find the provided data or the respective user's role, then provides a respective error notification. On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
 
