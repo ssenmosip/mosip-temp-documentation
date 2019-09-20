@@ -192,7 +192,7 @@ An Admin can create a Device by providing necessary mandatory details. A Device 
 A Device is created with the following attributes: 
 Device ID, Device Name, Mac Address, Serial Number, Device Spec ID and Administrative Zone the Device belongs to. A Machine can be mapped to the Administrative Zone which is at the any Zonal hierarchy.
 
-While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Device Name) needs to be manually input in all the languages..
+While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Device Name) needs to be manually input in all the languages.
 
 #### 5.3.3 Update Device [**[↑]**](#table-of-contents)
 Once a Device is created, an Admin can edit a Device later if required. The Update can include adding the details in another required language that were missed during creation of the Device or changing the details of a Device itself. 
@@ -241,7 +241,7 @@ The portal allows Zonal Admin to re-map users to the registration center by prov
 ### 5.5 Administrative Zone Management 
 Administrative Zones are virtual boundaries which a country can define to better manage their resources which are used during registrations. These resources includes Centers, Users, Machines and Devices. These zones can be defined in a hierarchical fashion and a country can allocate resources to such zones based on their requirements. 
 
-Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Section 5] (#5-resource-management)Resources Management section). Thus these resources when mapped to zone can only be managed by the Admin of that Zone.
+Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Resources Management section](#5-resource-management)  Thus these resources when mapped to zone can only be managed by the Admin of that Zone.
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
 ### 6.1 View Master Data Types
