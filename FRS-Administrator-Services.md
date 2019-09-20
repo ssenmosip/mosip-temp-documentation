@@ -244,8 +244,9 @@ Administrative Zones are virtual boundaries which a country can define to better
 Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Resources Management section](#5-resource-management-).  Thus these resources when mapped to an Administrative Zone can only be managed by the Admin of that Zone.
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
+Admin Portal allows an Administrator to manage Masterdata applicable for a Country. These data includes list of Genders, list of Holidays, Templates etc. This data is used by all the modules across MOSIP which includes Pre-Registration, Registration Client, Registration processor, ID Authentication. An Administrator should have the role of a Global Admin to manage Masterdata.
 ### 6.1 View Master Data Types
-The portal allows Zonal Admin to view the master data type. The master data types are configured by admin console. The system validates the user's role who raised the request to view the master data type and provides the master data type on successful validation. During the validation, if system does not validate the user's role, then provides an error notification.
+The portal allows a Global Admin to view the list of Masterdata types. Through this list, the global admin can click on any of them and can view the data for that particular Masterdata table.
 ### 6.2 View Master Data for Each Table (WIP)
 The portal allows the Administrator to view the list of any Masterdata which are required by the country. The Administrator can access these list views by clicking on a type of Masterdata in the Masterdata Types Screen.
 Each List view consumes the same UI template and follows following criteria:
