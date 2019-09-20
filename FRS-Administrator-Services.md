@@ -255,44 +255,31 @@ Each of these List views consumes the same UI template and allows following feat
 3.	The Global Admin can sort the data by any column on the list view
 4.	The List view also allows the Global Admin to directly activate or deactivate a Masterdata record from list view itself
 
-Since not all columns for a Masterdata record will be shown on the list view, the Global Admin can view all the attributes of a Masterdata record on the Masterdata detail view. This view can be accessed by clicking on a record in the list view. The detail view will also show the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
+Since not all the attributes for a Masterdata record will be shown on the list view, the Global Admin can them all on the Masterdata detail view page. This view can be accessed by clicking on a record in the list view. The detail view will show all the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
 
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
 #### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
+Document types is the list of Documents a country will configure for the users to give during registrations. 
+
 #### A. Create/Update Document Types
+Using the portal, the Global Admin can create the document type providing the Document name and description if applicable.  
+A Document type needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Document type in only primary language but will not allow activation of that Document type until data for that Center is not updated for all the languages. A deactivated document type will not show up on the Pre-Registration/Registration Client UI.
+While entering the data, the text fields (e.g., Document Type Name) needs to be manually input in all the languages. After successful creation, a Document type code will be generated.
 
-Using the portal, Zonal Admin will create the document type for his/her zone by providing the document type and document specification. The system validates the provided data and user's role. On successful validation, the system allows the Zonal Admin to create the document type. 
+Admin Portal also allows modification of any detail of a Document type. The modification includes either adding the details in another language that were missed during creation of the Document type or changing the details of a Document Type itself including name, description etc. All the attributes mentioned in the 'Create Center' section can be updated for a Center.
 
-Procedure to create document type follows:
+#### B. Activate/Deactivate Document types
 
+The portal allows Zonal Admin to activation or deactivation of a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
 
-1. Zonal Admin will provide the following required details for the new document type:
- * Document Code
- * Document  Name
- * Language Code
- * Active (Boolean)
- * Created by
- * Created Date and Time
-2. Zonal Admin creates the document type by providing all the required information related to the document type.
-   Zonal Admin will register the document types  by importing CSV/XLS.
-
-#### B. Activate Document types
-
-The portal allows Zonal Admin to activate the document types, which are already deactivated due to any reasons. When the document type is created and approved, it is activated automatically. The Zonal Admin selects the document type then all the document types of that Zone are displayed. The Zonal Admin can select a deactivated document type or multiple deactivated document types at a time and selects Activate option. The system validates user's role and activates the selected document type(s). On successful validation, the system provides a notification.
-
-#### C. Deactivate Document type
-
-The portal allows Zonal Admin to deactivate the document type, which are already active. The Zonal Admin selects the document type and the all the document type of that zone are displayed. The Zonal Admin can select one active document type or multiple active document types at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected document type(s), and the system provides a notification.
-
-#### D. Map Document Type to Document Category
+#### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-contents)
+#### C. Map Document Type to Document Category
 The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
 
 #### E. Un-map Document Type to Document Category
 The portal allows Zonal Admin to un-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system un-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
 #### F. Re-map Document Type to Document Category
 The portal allows Zonal Admin to re-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system re-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
-
-#### 6.3.2 Manage Document Category to Document Mapping (WIP) (Create, Update, Activate/Deactivate) [**[↑]**](#table-of-contents)
 
 #### 6.3.3 Manage Location Data (Create, Update, Activate/Deactivate) 
 #### A. Create/Update Location Data
