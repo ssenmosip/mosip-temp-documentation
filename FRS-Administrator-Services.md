@@ -244,18 +244,18 @@ Administrative Zones are virtual boundaries which a country can define to better
 Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Resources Management section](#5-resource-management-).  Thus these resources when mapped to an Administrative Zone can only be managed by the Admin of that Zone.
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
-Admin Portal allows an Administrator to manage Masterdata applicable for a Country. These data includes list of Genders, list of Holidays, Templates etc. This data is used by all the modules across MOSIP which includes Pre-Registration, Registration Client, Registration processor, ID Authentication. An Administrator should have the role of a Global Admin to manage Masterdata.
+Admin Portal allows an Administrator to manage Masterdata applicable for a Country. These data includes list of Genders, list of Holidays, Templates etc. This data is used by all the modules across MOSIP which includes Pre-Registration, Registration Client, Registration processor and ID-Authentication. An Administrator should have the role of a Global Admin to manage Masterdata.
 ### 6.1 View Master Data Types
 The portal allows a Global Admin to view the list of Masterdata types. Through this list, the global admin can click on any of them and can view the data for that particular Masterdata table.
 ### 6.2 View Master Data for Each Table (WIP)
-The portal allows the Administrator to view the list of any Masterdata which are required by the country. The Administrator can access these list views by clicking on a type of Masterdata in the Masterdata Types Screen.
-Each List view consumes the same UI template and follows following criteria:
+The portal allows the Global Admin to view the data of any Masterdata which are applicable to a country. The Administrator can access these list views by clicking on a type of Masterdata in the Masterdata Types Screen.
+Each of these List views consumes the same UI template and allows following features:
 1.	List view shows data of a Masterdata Type only in the country configured Primary Language. 
-2.	An Administrator can access pagination functionalities on each list screens. Pagination functionality included selecting no. of rows to be displayed on the list view and options to jump to next or previous set of records. 
-3.	An Administrator can sort the data by any column
-4.	An Administrator can also perform certain actions from the list view which includes activating or deactivating a record in Masterdata.
+2.	The Global Admin can access pagination features on each list screens. These includes selecting no. of rows to be displayed on the list view and options to jump to next or previous set of records. 
+3.	The Global Admin can sort the data by any column on the list view
+4.	The List view also allows the Global Admin to directly activate or deactivate a Masterdata record from list view itself
 
-Besides the list view, an Administrator can also view the details of a Masterdata record from the Masterdata List view. This can be done by clicking on record. The detail view shows all the details of a Masterdata record in multiple languages. The Administrator can access all the actions for a Master record which are available on the List view.
+Since not all columns for a Masterdata record will be shown on the list view, the Global Admin can view all the attributes of a Masterdata record on the Masterdata detail view. This view can be accessed by clicking on a record in the list view. The detail view will also show the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
 
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
 #### 6.3.1 Manage Document Types (Create, Update, Activate/Deactivate)
