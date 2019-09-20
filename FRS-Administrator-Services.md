@@ -44,7 +44,7 @@
   * [6.3 Manage Master Data](#63-manage-master-data-) _(ASR_FR_6.3)_
     * [6.3.1 Manage Document Type (Create, Update, Activate,Deactivate)](#631-manage-document-type-create-update-activate-deactivate) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
-    * [6.3.3 Manage Document Type to Document Category Mapping (View)](#633-manage-document-type-to-document-category-map-unmap-view-) _(ASR_FR_6.6)_ 
+    * [6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View)](#633-manage-document-type-to-document-category-mapping-map-unmap-view-) _(ASR_FR_6.6)_ 
     * [6.3.4 Manage Location Data (Create, Update, Activate,Deactivate)](#634-manage-location-data-create-update-activate-deactivate) _(ASR_FR_6.7)_
     * [6.3.5 Manage Blacklisted Words (Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.8)_
      * [6.3.6 Manage Registration Center Types (View)](#636-manage-registration-center-types-view-) _(ASR_FR_6.9)_ 
@@ -275,7 +275,7 @@ The portal allows Zonal Admin to activation or deactivation of a document type. 
 #### 6.3.2 Manage Document Categories (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the document type to document category mapping by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Document Type to Document Category Mapping and the available document type to document mapping are displayed. The document type to document category mapping are configured through admin console. The system validates the user's role who raised the request to view the document type to document category mapping and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
 
-#### 6.3.3 Manage Document Category to Document Mapping (Map, Unmap, View) [**[↑]**](#table-of-contents)
+#### 6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View) [**[↑]**](#table-of-contents)
 #### C. Map Document Type to Document Category
 The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
 
