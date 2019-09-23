@@ -729,14 +729,15 @@ IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the countr
 IDA-MLC-018|%s not available in database|UIN, VID not available in database|
 
 
-## Retrieve Authentication Types Status Service (Internal)
-Retrieve Authentication Types Status Service can be used by Resident Services to retrieve status (locked or unlocked) of Auth Types of an Individual using VID/UIN. 
+## Authentication Types Status Service (Internal)
+Authentication Types Status Service can be used by Resident Services to retrieve or update status (locked or unlocked) of Auth Types of an Individual using VID/UIN. 
 
 #### Users of Retrieve Authentication Types Status Service -
 1. `Resident Services` - Individual can request to lock or unlock one or more authentication types using Resident Services, which in turn calls this service to store or retrieve the auth type status.
   
 
 * [GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID](#get-idauthenticationv1internalauthtypesstatusindividualidtypeidtypeindividualidid) 
+* [PUT /idauthentication/v1/internal/authtypes/status](#put-idauthenticationv1internalauthtypesstatus) 
 
 ### GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID
 This request will retrieve status (locked or unlocked) of Auth Types of an Individual using VID/UIN. 
@@ -835,13 +836,6 @@ IDA-MLC-009|Invalid Input parameter- attribute  |Invalid Input parameter- attrib
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/USERID) not supported for a country|
 IDA-MLC-018|%s not available in database|UIN, VID not available in database|
 
-
-
-## Update Authentication Types Status Service (Internal)
-Update Authentication Types Status Service can be used by Resident Services Portal - MOSIP module to lock or unlock one or more authenticate types for an Individual using VID/UIN. 
-
-#### Users of Update Authentication Types Status Service -
-1. `Resident Services` - Individual can request to lock or unlock one or more authentication types using Resident Services, which in turn calls this service to store or retrieve the auth type status. 
 
 * [PUT /idauthentication/v1/internal/authtypes/status](#put-idauthenticationv1internalauthtypesstatus) 
 
