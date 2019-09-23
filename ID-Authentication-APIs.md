@@ -5,7 +5,7 @@ This section details about the REST services in ID Authentication module.
 * [OTP Request Service](#otp-request-service-public) - This service can be used by Partners to send OTP on behalf of Individual, which can then be used for OTP-based authentication.
 * [Internal Authentication Service](#authentication-service-internal) - This service can be used by MOSIP modules to authenticate Individual using Biometric-based authentication.
 * [Authentication Transactions Service](#authentication-transactions-service-internal) - This service can be used by MOSIP modules to retrieve authentication transactions.
-* [Authentication Type Status Service](authentication-types-status-service-internal) - This service can be used by MOSIP modules to store/update/retrieve status of authentication types.
+* [Authentication Type Status Service](#authentication-types-status-service-internal) - This service can be used by MOSIP modules to store/update/retrieve status of authentication types.
 
 ## Authentication Service (Public)
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
@@ -836,8 +836,6 @@ IDA-MLC-009|Invalid Input parameter- attribute  |Invalid Input parameter- attrib
 IDA-MLC-015| Identity Type - &lt;Identity Type&gt; not configured for the country|ID Type (UIN/USERID) not supported for a country|
 IDA-MLC-018|%s not available in database|UIN, VID not available in database|
 
-
-* [PUT /idauthentication/v1/internal/authtypes/status](#put-idauthenticationv1internalauthtypesstatus) 
 
 ### PUT /idauthentication/v1/internal/authtypes/status
 This request will lock or unlock one or more authenticate types for an Individual using VID/UIN. 
