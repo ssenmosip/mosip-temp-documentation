@@ -371,7 +371,9 @@ The portal shows both Activated or Deactivated Gender types. The list view scree
 Using the portal, A Global Admin can activate or deactivate a UIN based on the request by the UIN holder for any reason. The Admin have to provide a UIN/VID and a valid reason for deactivating the UIN. A standard set of reasons will be defined by the country. While Activation/Deactivation of a UIN, all the VIDs linked that UIN will also be activated/deactivated based on the request. the Admin can choose to send notification to the applicant whose UIN is activated/deactivated. Moreover, the admin can also choose to send notification to an additional recipient by giving the recipient's email id or mobile number or both.
  
 ## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-contents)
-Using the Portal, A Zonal Admin can view the status of a packet 
+A Registration packet generated in Registration Client is sent to Registration Processor for further processing and UIN generation.
+Using the Portal, A Zonal Admin can view the status of a packet by giving the RID of the packet. The packet status will contain all the stages the packet has passed through along with the last stage the packet is in. In case the packet has not been processed or is marked for Re-Send/Re-Register, the admin will be able to view specific comments indicating the reason for that particular status.
+
 ## 10. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
 ### 10.1 i18N
 ### 10.2 Implementation in English (Labels etc)
@@ -385,15 +387,8 @@ For more details, please refer to
 
 [link](FRS-Admin-Services#19-list-of-rejection-reasons---createread-)
 
-## 13. ID Definition Setup [**[↑]**](#table-of-contents)
-
-The system admin will configure ID Definition. The configuration activity allows the country admin to mark attributes that formulate the id for a country. For example, demographic data fields and biometric data capture attributes.This is
-configured through admin console.
-
-
-### 13.1 ID Definition Validator
-## 14. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
-## 15. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
+## 13. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
+## 14. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
 
 ### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
