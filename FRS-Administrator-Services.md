@@ -42,7 +42,7 @@
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-) _(ASR_FR_6.3)_
-    * [6.3.1 Manage Document Type (Create, Update, Activate,Deactivate)](#631-manage-document-type-create-update-activate-deactivate) _(ASR_FR_6.4)_
+    * [6.3.1 Manage Document Type (Create, Update, Activate,Deactivate)](#631-manage-document-type-view-create-update-activate-deactivate) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
     * [6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View)](#633-manage-document-type-to-document-category-mapping-map-unmap-view-) _(ASR_FR_6.6)_ 
     * [6.3.4 Manage Location Data (Create, Update, Activate,Deactivate)](#634-manage-location-data-create-update-activate-deactivate) _(ASR_FR_6.7)_
@@ -264,30 +264,30 @@ Document types is the list of Documents a country will configure for the users t
 #### A. View Document Types
 The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
-#### A. Create/Update Document Types
+#### B. Create/Update Document Types
 Using the portal, the Global Admin can create the document type providing the Document name and description if applicable.  
 A Document type needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Document type in only primary language but will not allow activation of that Document type until data for that Center is not updated for all the languages. A deactivated document type will not show up on the Pre-Registration/Registration Client UI.
 While entering the data, the text fields (e.g., Document Type Name) needs to be manually input in all the languages. After successful creation, a Document type code will be generated.
 
 Admin Portal also allows modification of any detail of a Document type. The modification includes either adding the details in another language that were missed during creation of the Document type or changing the details of a Document Type itself including name, description etc. All the attributes mentioned in the 'Create Center' section can be updated for a Center.
 
-#### B. Activate/Deactivate Document types
+#### C. Activate/Deactivate Document types
 
 The portal allows Zonal Admin to activation or deactivation of a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
 
 #### 6.3.2 Manage Document Categories (View) [**[↑]**](#table-of-contents)
-The portal allows Zonal Admin to view the document type to document category mapping by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Document Type to Document Category Mapping and the available document type to document mapping are displayed. The document type to document category mapping are configured through admin console. The system validates the user's role who raised the request to view the document type to document category mapping and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
+The Global Admin can view list of all the available Document Categories as created by the Country in Masterdata. The portal shows both activated or deactivated Document Categories. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
 #### 6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View) [**[↑]**](#table-of-contents)
-#### C. Map Document Type to Document Category
-The portal allows Zonal Admin to map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user's roles. On successful validation, the system maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the user's role then provides a respective error notification.
 
-#### E. Un-map Document Type to Document Category
-The portal allows Zonal Admin to un-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system un-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
-#### F. Re-map Document Type to Document Category
-The portal allows Zonal Admin to re-map the document type to the document category under his/her zone by providing Document Type Code, Document Category Code, Language Code, Active(Boolean), Created by,   and Created Date & Time. The system validates the provided data and user’s role. On successful validation, the system re-maps the document type with the selected document category and provides a notification. During the validation, if system does not validate the provided data and the allocated privileges of the user’s role, then throws provides an error notification.
+#### A. View mappings of Document Categories and Document Types
+The portal allows an Global Admin to view Document Categories along with its mapped and un-mapped Document Types.
+Form the view screen itself, the Global Admin can map or un-map the Documents from a Document Category.
 
-#### 6.3.4 Manage Location Data (Create, Update, Activate, Deactivate) 
+#### C. Map/Un-map Document Type to Document Category
+The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
+
+#### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) 
 #### A. Create/Update Location Data
 Using the portal, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the user's role. During validation, if system does not find the provided data or the respective user's role, then provides a respective error notification. On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
 
