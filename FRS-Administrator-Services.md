@@ -37,7 +37,7 @@
     * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
     * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-) _(ASR_FR_5.18)_
     * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
-  * [5.5 Administrative Zone Management](#55-administrative-zone-management)
+  * [5.5 Administrative Zone Management](#55-administrative-zone-management) _(ASR_FR_5.20)_
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
   * [6.2 View Master data for each table](#62-view-master-data-for-each-table-) _(ASR_FR_6.2)_
@@ -258,8 +258,11 @@ Each of these List views consumes the same UI template and allows following feat
 Since not all the attributes for a Masterdata record will be shown on the list view, the Global Admin can them all on the Masterdata detail view page. This view can be accessed by clicking on a record in the list view. The detail view will show all the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
 
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
-#### 6.3.1 Manage Document Type (Create, Update, Activate, Deactivate)
+#### 6.3.1 Manage Document Type (View, Create, Update, Activate, Deactivate)
 Document types is the list of Documents a country will configure for the users to give during registrations. 
+
+#### A. View Document Types
+The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table-).
 
 #### A. Create/Update Document Types
 Using the portal, the Global Admin can create the document type providing the Document name and description if applicable.  
