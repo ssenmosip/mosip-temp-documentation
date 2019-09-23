@@ -630,15 +630,16 @@ IDA-OTA-009|&lt;Notification Channel&gt; not configured for the country|&lt;Noti
 
 
 ## Authentication Transactions Service (Internal)
-Authentication Transactions Service can be used by Resident Services Portal - MOSIP module to retrieve the authenticate history of an Individual initiated by Partners. Authentications done by MOSIP internal modules for any verifications will not be returned. 
+Authentication Transactions Service can be used by Resident Services to retrieve authentication history of an Individual initiated by Partners. Authentications done by MOSIP's internal modules for any verification will not be returned. 
 
 #### Users of Authentication Transactions Service -
-1. `Resident Services Portal` 
+1. `Resident Services` - Resident Services will send UIN or VID to retrieve all authentication transactions of an Individual, that are initiated by Partners.
+ 
 
 * [GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10](#get-idauthenticationv1internalauthtransactionsindividualidtypeidtypeindividualididpagestart1pagefetch10) 
 
 ### GET /idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10
-This request will retrieve authentication transaction history for the given UIN/VID for the given pageStart and pageFetch parameters.
+This request will retrieve authentication transactions for the given UIN/VID, alongwith pageStart and pageFetch parameters.
 
 #### Resource URL
 <div>https://mosip.io/idauthentication/v1/internal/authTransactions/individualIdType/:IDType/individualId/:ID?pageStart=1&pageFetch=10</div>
@@ -651,7 +652,7 @@ Response format | JSON
 Requires Authentication | Yes
 
 #### Request Query Parameters
-The authentication transaction history can be queried using this REST service for certain count of transactions which can be retrieved for given pageStart number with pageFetch. The default pageStart value is 1. The default pageFetch value is 10. This default pageFetch value will be taken into account only if the pageStart is provided. If both pageStart and pageFetch values are not provided, all the transaction entries for the UIN/VID are returned in the response.
+The authentication transactions can be queried using this REST service for certain count of transactions which can be retrieved for given pageStart number with pageFetch. The default pageStart value is 1. The default pageFetch value is 10. This default pageFetch value will be taken into account only if the pageStart is provided. If both pageStart and pageFetch values are not provided, all the authentication transactions for the UIN/VID are returned in the response.
 
 Name | Required | Description | Default Value | Example
 -----|----------|-------------|---------------|--------
@@ -727,10 +728,11 @@ IDA-MLC-018|%s not available in database|UIN, VID not available in database|
 
 
 ## Retrieve Authentication Types Status Service (Internal)
-Retrieve Authentication Types Status Service can be used by Resident Services Portal - MOSIP module to retrieve status (locked or unlocked) of Auth Types of an Individual using VID/UIN. 
+Retrieve Authentication Types Status Service can be used by Resident Services to retrieve status (locked or unlocked) of Auth Types of an Individual using VID/UIN. 
 
 #### Users of Retrieve Authentication Types Status Service -
-1. `Resident Services Portal` 
+1. `Resident Services` - Individual can request to lock or unlock one or more authentication types using Resident Services, which in turn calls this service to store or retrieve the auth type status.
+  
 
 * [GET /idauthentication/v1/internal/authtypes/status/individualIdType/:IDType/individualId/:ID](#get-idauthenticationv1internalauthtypesstatusindividualidtypeidtypeindividualidid) 
 
@@ -837,7 +839,7 @@ IDA-MLC-018|%s not available in database|UIN, VID not available in database|
 Update Authentication Types Status Service can be used by Resident Services Portal - MOSIP module to lock or unlock one or more authenticate types for an Individual using VID/UIN. 
 
 #### Users of Update Authentication Types Status Service -
-1. `Resident Services Portal` 
+1. `Resident Services` - Individual can request to lock or unlock one or more authentication types using Resident Services, which in turn calls this service to store or retrieve the auth type status. 
 
 * [PUT /idauthentication/v1/internal/authtypes/status](#put-idauthenticationv1internalauthtypesstatus) 
 
