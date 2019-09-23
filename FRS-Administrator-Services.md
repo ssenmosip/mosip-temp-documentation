@@ -45,8 +45,8 @@
     * [6.3.1 Manage Document Type (View, Create, Update, Activate,Deactivate)](#631-manage-document-type-view-create-update-activate-deactivate) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
     * [6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View)](#633-manage-document-type-to-document-category-mapping-map-unmap-view-) _(ASR_FR_6.6)_ 
-    * [6.3.4 Manage Location Data (Create, Update, Activate,Deactivate)](#634-manage-location-data-view-create-update-activate-deactivate) _(ASR_FR_6.7)_
-    * [6.3.5 Manage Blacklisted Words (Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.8)_
+    * [6.3.4 Manage Location Data (View, Create, Update, Activate,Deactivate)](#634-manage-location-data-view-create-update-activate-deactivate) _(ASR_FR_6.7)_
+    * [6.3.5 Manage Blacklisted Words (View, Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-view-create-update-activate-deactivate) _(ASR_FR_6.8)_
      * [6.3.6 Manage Registration Center Types (View)](#636-manage-registration-center-types-view-) _(ASR_FR_6.9)_ 
      * [6.3.7 Manage Machine Types (View)](#637-manage-machine-types-view) _(ASR_FR_6.10)_ 
      * [6.3.8 Manage Machine Specifications (View)](#638-manage-machine-specifications-view-) _(ASR_FR_6.11)_ 
@@ -273,7 +273,7 @@ Admin Portal also allows modification of any detail of a Document type. The modi
 
 #### C. Activate/Deactivate Document types
 
-The portal allows Zonal Admin to activation or deactivation of a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
+The portal allows Zonal Admin to activate or deactivate a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
 
 #### 6.3.2 Manage Document Categories (View) [**[↑]**](#table-of-contents)
 The Global Admin can view list of all the available Document Categories as created by the Country in Masterdata. The portal shows both activated or deactivated Document Categories. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
@@ -302,25 +302,22 @@ Admin Portal also allows modification of any detail of a Location. The modificat
 
 The portal allows activation or deactivation of a Location. Deactivation of a Location can be done if the country feels the Location is not applicable anymore. Thus, deactivated locations does now show up on the Pre-Registration and Registration Client UI. The Portal won't allow deactivation of a Location if any child of that location is still active. The Admin will have to first deactivate all the child locations before deactivating a parent location. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Location data.
 
-#### 6.3.5 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
+#### 6.3.5 Manage Blacklisted Words (View, Create, Update, Activate, Deactivate)
+
+#### A. View Blacklisted Words
+The Global Admin can view list of all the available Blacklisted words on the Admin UI portal. The portal shows both activated or deactivated Blacklisted words. Blacklisted words in the only Masterdata which is language independent and will show the data in all the languages unlike the rest of the Masterdata tables which will show data only in primary language. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### B. Create/Update Blacklisted Word
 
-Using the portal, only Zonal Admin will create/update the Blacklisted words by providing all the mandatory data and processes it. This is also configured through admin console. The blacklisted words database is created before updating the blacklisted words.  Zonal Admin can add only one word at a time and not more than one .  The system validates the user’s role and allows creating the words in the database after successful validation. When the blacklisted word related information is updated, the system captures the date & time and Zonal Admin detail who has updated the word. If the Zonal Admin selects the Delete flag, the information is updated when the blacklisted word is updated. 
-During validation, if system does not find the provided data or the respective user’s role, then the system provides a respective error notification.   
+Using the portal, the Global Admin can create the Blacklisted Word providing the Word, Description (if applicable) and Language in which the blacklisted word in being added.  
+While entering the data, the text fields (e.g., Word, Description) needs to be manually input in all the languages.
 
-#### C. Activate Blacklisted Word
+Admin Portal also allows modification of any detail of a Blacklisted Word. The modification includes either changing the word altogether or changing the description itself.
 
-The portal allows Zonal Admin to activate the blacklisted Word, which are already deactivated due to any reasons. When the blacklisted Word is created and approved, it is activated automatically. The Zonal Admin selects the blacklisted Word then all the blacklisted Words of that Zone are displayed. The Zonal Admin can select one deactivated blacklisted Word or multiple deactivated blacklisted Words at a time and selects Activate option. The system validates user’s role and activates the selected blacklisted Word(s). On successful validation, the system provides a notification.
+#### C. Activate/Deactivate Blacklisted Word
 
-#### D. Deactivate Blacklisted Word
+The portal allows activation or deactivation of a Blacklisted Word. Deactivation of a Blacklisted Word can be done if the country feels the Blacklisted Word is not applicable anymore. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Blacklisted Word.
 
-The portal allows Zonal Admin to deactivate the blacklisted Word, which are already active . The Zonal Admin selects the blacklisted Word and the all the blacklisted Words of that zone are displayed. The Zonal Admin can select one active blacklisted Word or multiple active blacklisted Words at a time then selects the Deactivate option. The system validates user's roles, on successful validation, deactivates the selected blacklisted Word(s), and the system provides a notification.
-
-#### E. Decommission Blacklisted Word
-
-Decommissioning a blacklisted Word means removing the blacklisted Word from the zone permanently. The portal allows the Zonal Admin to decommission the blacklisted Word. The Zonal Admin can un-map the blacklisted Word associated with the registration center before decommissioning the blacklisted Word, but he/she can also decommission the blacklisted Word  without un-mapping the associated resources. In the situation, the associated resources are automatically un-mapped. The system validates user's role and decommissions the selected blacklisted Word(s). Once the blacklisted Word is decommissioned, it cannot be retrieved. On successful validation, the system provides a notification.
-
- 
 #### 6.3.6 Manage Registration Center Types (View) [**[↑]**](#table-of-contents)
 The portal allows Zonal Admin to view the registration center types by selecting the master data. Once the user selects the master data types, all the r features associated with the master data are displayed. Again the user will select the Registration Center Type and the available registration center types are available to view.  The registration center types are configured through admin console. The system validates the user's role who raised the request to view the registration center types and provides the registration center types on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
 #### 6.3.7 Manage Machine Types (View)
