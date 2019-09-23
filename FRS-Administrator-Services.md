@@ -4,10 +4,10 @@
   * [1.2 Logout](#12-logout)
     * [1.2.1 Manual Logout](#121-manual-logout) _(ASR_FR_1.2)_
     * [1.2.2 Auto Logout](#122-auto-logout) _(ASR_FR_1.3)_
-- [2. Account Management](#2-account-management-) _(ASR_FR_2)_
+- [2. Account Management](#2-account-management-wip) _(ASR_FR_2)_
   * [2.1 Edit Personal Details](#21-edit-personal-details) _(ASR_FR_2.1)_
-  * [2.2 Change Password](#22-change-password-) _(ASR_FR_2.2)_
-  * [2.3 Reset Password](#23-reset-password-) _(ASR_FR_2.4)_
+  * [2.2 Change Password](#22-change-password) _(ASR_FR_2.2)_
+  * [2.3 Reset Password](#23-reset-password) _(ASR_FR_2.4)_
   * [2.5 Account Unlock](#25-account-unlock) _(ASR_FR_2.5)_
 - [3. Security Policy Configuration (WIP)](#3-security-policy-configuration-wip-) _(ASR_FR_3)_
 - [4. Notification V1.5 (WIP)](#4-notification-v15-wip-) _(ASR_FR_4)_
@@ -18,7 +18,7 @@
     * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
     * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activate-deactivate-decommission-center-) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management-)
     * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
     * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
@@ -31,11 +31,11 @@
     * [5.3.3 Update Device](#533-update-device-) _(ASR_FR_5.12)_
     * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device-) _(ASR_FR_5.13)_
     * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
-  * [5.4 User Management](#54-user-management-)
-    * [5.4.1 View User](#541-view-user) _(ASR_FR_5.15)_
-    * [5.4.2 Create User](#542-create-user) _(ASR_FR_5.16)_
-    * [5.4.3 Update User](#543-update-user) _(ASR_FR_5.17)_
-    * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-) _(ASR_FR_5.18)_
+  * [5.4 User Management](#54-user-management-wip-)
+    * [5.4.1 View User](#541-view-user-wip) _(ASR_FR_5.15)_
+    * [5.4.2 Create User](#542-create-user-wip) _(ASR_FR_5.16)_
+    * [5.4.3 Update User](#543-update-user-wip) _(ASR_FR_5.17)_
+    * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-wip) _(ASR_FR_5.18)_
     * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
   * [5.5 Administrative Zone Management](#55-administrative-zone-management) _(ASR_FR_5.20)_
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
@@ -58,19 +58,19 @@
      * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.17)_ 
      * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.18)_ 
 - [7. Approval Process](#7-approval-process-wip-) _(ASR_FR_7)_
-  * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation-)
+  * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation)
     * [7.1.1 Approval of Center](#711-approval-of-center) _(ASR_FR_7.1)_
     * [7.1.2 Approval of Machine](#712-approval-of-machine) _(ASR_FR_7.2)_
     * [7.1.3 Approval of Device](#713-approval-of-device) _(ASR_FR_7.3)_
     * [7.1.4 Approval of User](#714-approval-of-user) _(ASR_FR_7.4)_
   * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation) _(ASR_FR_7.5)_
 - [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-wip-) _(ASR_FR_8)_
-- [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip) _(ASR_FR_9)_
+- [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip-) _(ASR_FR_9)_
 - [10.Multi-language Support (WIP)](#10-multi-language-support-wip-) _(ASR_FR_10)_
     * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
     * [10.2 Implementation in English (Labels etc)](#102-implementation-in-english-labels-etc) _(ASR_FR_10.2)_
     * [10.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_10.3)_
-- [11. Responsive UI](#11-responsive-ui-) _(ASR_FR_11)
+- [11. Responsive UI](#11-responsive-ui-wip-) _(ASR_FR_11)
 - [12. MOSIP Platform Setup (WIP)](#12-mosip-platform-setup-wip-) _(ASR_FR_12)
 - [13. Configuration Setup (WIP)](#13-configuration-setup-wip-) _(ASR_FR_13)
 - [14. Process Flow Setup (WIP)](#14-process-flow-setup-wip-) _(ASR_FR_14)
@@ -87,7 +87,7 @@ After getting the credentials, KeyCloak verifies the Administrator’s credentia
 If an Administrator wishes to logout of the Admin Portal, he/she can opt to select the Logout option from the profile menu on the Administrator UI. The system logs out the Administrator.
 #### 1.2.2 Auto Logout
 If the user is inactive for X minutes (X is configurable), the system logs out the user automatically. In such case, the system will not save any user’s data.
-## 2. Account Management(WIP) [**[↑]**](#table-of-contents)
+## 2. Account Management (WIP) [**[↑]**](#table-of-contents)
 Using the portal, user will  manage his/her profile. The  portal users are Central Admin, Central Approver, Zonal Admin, Zonal Approver, Registration Center Head, Registration Supervisor, and Registration Officer.
 
 ### 2.1 Edit Personal Details
@@ -205,7 +205,7 @@ Deactivation refers to a temporary shut down while Decommission refers to a perm
 
 Difference between Deactivated and Decommissioned Device is that a Deactivated Device can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Device cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Device (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
-#### 5.3.5 Map/Un-map/Re-map Device to a Registration Center [**[↑]**](#table-of-contents)
+#### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-contents)
 Admin portal allows an Admin to map each Device to a Center. This mapping specifies as to which Center the Device will be used in. A Device can only be mapped to a Center which belongs under the Device’s Administrative Zone.
 
 A Device can later be un-mapped from the Center in cases where a Device is needed to be moved to another Center. In such cases, the Device will later need to be mapped to the new Center. In case the Device is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Device must be changed.
