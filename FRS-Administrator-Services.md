@@ -40,7 +40,7 @@
   * [5.5 Administrative Zone Management](#55-administrative-zone-management) _(ASR_FR_5.20)_
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
   * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
-  * [6.2 View Master data for each table](#62-view-master-data-for-each-table-) _(ASR_FR_6.2)_
+  * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-) _(ASR_FR_6.3)_
     * [6.3.1 Manage Document Type (Create, Update, Activate,Deactivate)](#631-manage-document-type-create-update-activate-deactivate) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
@@ -262,7 +262,7 @@ Since not all the attributes for a Masterdata record will be shown on the list v
 Document types is the list of Documents a country will configure for the users to give during registrations. 
 
 #### A. View Document Types
-The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table-).
+The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
 #### A. Create/Update Document Types
 Using the portal, the Global Admin can create the document type providing the Document name and description if applicable.  
