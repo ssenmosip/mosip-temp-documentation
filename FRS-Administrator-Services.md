@@ -288,9 +288,10 @@ Form the view screen itself, the Global Admin can map or un-map the Documents fr
 The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
 
 #### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) 
-The Global Admin can view list of all the Locations created by the country on the Admin UI portal. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+#### A. View Location Data
+The Global Admin can view list of all the Locations created by the country on the Admin UI portal. This list of locations defined shows up on the Pre-Registration and Registration UI while typing the address. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
-#### A. Create/Update Location Data
+#### B. Create/Update Location Data
 Using the portal, Global Admin can create/update the location data by providing location name and the parent hierarchy of that location. A location needs 
 
 A Location needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Location in only primary language but will not allow activation of that Location until data for that Location is not updated for all the languages. A deactivated Location will not show up on the Pre-Registration/Registration Client UI.
@@ -298,7 +299,7 @@ While entering the data, the text fields (e.g., Document Type Name) needs to be 
 
 Admin Portal also allows modification of any detail of a Location. The modification includes either adding the details in another language that were missed during creation of the Location or changing the details of a Location itself including name, parent hierarchy etc.
 
-#### B. Activate/Deactivate Location data
+#### C. Activate/Deactivate Location data
 
 The portal allows activation or deactivation of a Location. Deactivation of a Location can be done if the country feels the Location is not applicable anymore. Thus, deactivated locations does now show up on the Pre-Registration and Registration Client UI. The Portal won't allow deactivation of a Location if any child of that location is still active. The Admin will have to first deactivate all the child locations before deactivating a parent location. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Location data.
 
@@ -319,25 +320,45 @@ Admin Portal also allows modification of any detail of a Blacklisted Word. The m
 The portal allows activation or deactivation of a Blacklisted Word. Deactivation of a Blacklisted Word can be done if the country feels the Blacklisted Word is not applicable anymore. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Blacklisted Word.
 
 #### 6.3.6 Manage Registration Center Types (View) [**[↑]**](#table-of-contents)
-The portal allows Zonal Admin to view the registration center types by selecting the master data. Once the user selects the master data types, all the r features associated with the master data are displayed. Again the user will select the Registration Center Type and the available registration center types are available to view.  The registration center types are configured through admin console. The system validates the user's role who raised the request to view the registration center types and provides the registration center types on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
+Registration Center Type indicates the type of Centers a country can have. Some examples can be Regular, Mobile, temporary etc. The Global Admin can view list of all the available Registration Center Types on the Admin UI portal. A Registration Center while creation, can be assigned to a Center Type as defined by the country.
+The portal shows both activated or deactivated Center Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.7 Manage Machine Types (View)
-The portal allows Zonal Admin to view the machine types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again the user will select the Machine Types and the available machine types are displayed.  The machine types are configured through admin console. The system validates the user's who raised the request to view the machine types and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides an error notification.
+Machine Type indicates the type of Machines a country uses to take registrations. The Global Admin can view list of all the Machine Types on the Admin UI portal. A Machine while creation, can be assigned to a Machine Types as defined by the country.
+The portal shows both activated or deactivated Machine Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.8 Manage Machine Specifications (View) [**[↑]**](#table-of-contents)
-The portal allows Zonal Admin to view the machine specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Machine Specification and the available machine specifications are displayed. The machine specifications are configured through admin console. The system validates user's role who raised the request to view the machine specification and provides the machines types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
+Machine specification indicates the Brand, Make and Model of a Machine a country uses to take registrations. The Global Admin can view list of all the Machine Specifications on the Admin UI portal. A Machine while creation, can be assigned to a Machine Specification as required by the country.
+The portal shows both activated or deactivated Machine Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.9 Manage Device Types (View)
-The portal allows Zonal Admin to view the device types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Types and the available Device Types are displayed.  Device Types are configured through admin console. The system validates the user's role who raised the request to view the device types and provides the device types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
+Device Type indicates the type of Devices a country uses to take registrations. This device types includes Fingerprint scanner, Iris Scanner, Web camera, Document scanner etc. The Global Admin can view list of all the Device Types on the Admin UI portal. A Device while creation, can be assigned to a Device Types as defined by the country.
+The portal shows both activated or deactivated Device Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.10 Manage Device Specifications (View) [**[↑]**](#table-of-contents)
-The portal allows Zonal Admin to view the device specifications by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Device Specification and the available device specifications are displayed. The device specifications are configured through admin console. The system validates the user's who raised the request to view the device specification and provides the device specification on successful validation. During the validation, if system fails to validate and authenticate user's role, then provides a respective error notification.
+Device specification indicates the Brand, Make and Model of a Device a country uses to take registrations. The Global Admin can view list of all the Device Specifications on the Admin UI portal. A Device while creation, can be assigned to a Device Specification as required by the country.
+The portal shows both activated or deactivated Device Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.11 Manage Individual Types (View)
-The portal allows Zonal Admin to view the individual types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Individual Types and the available individual types are displayed. The individual types are configured through admin console. The system validates the user's role who raised the request to view the individual types and provides the individual types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
+Individual Type indicates the category in which a country might want to categorize residents in. Foreigner, Non-Foreigner, Immigrant are some examples of Individual Types. These can be defined by the country in Masterdata are required by them. The Global Admin can view list of all the defined Individual Types on the Admin UI portal.
+The portal shows both activated or deactivated Individual Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.12 Manage List of Holidays (View)
-The portal allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Holidays and the available lists of holidays are displayed. The lists of holidays are configured through admin console. The system validates the user's role who raised the request to view the lists of holidays and provides the lists of holiday on successful validation. During the validation, if system fails to validate and authenticate the user' role, then provides a respective error notification.
+List of Holiday defines all the public holiday a applicable for a country. These holidays are on of the criteria for Pre-Registration to generate appointments. The holidays only define the public holidays and not the week-end days for the country. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
+The portal shows both activated or deactivated Holidays. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-contents)
-The portal allows Zonal Admin to view the list of holidays by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Templates and the available lists of templates are displayed. The lists of templates are configured through admin console. The system validates the user's role who raised the request to view the lists of templates and provides the lists of templates on successful validation. During the validation, if system fails to validate and authenticate the  user's role, then provides a respective error notification.
+List of Templates contains all the notification templates used by MOSIP to send notifications to the Users or Residents. This notification includes OTP notification, Acknowledgment Notifications etc. Even acknowledgement shown on the Pre-Registration UI is defined in the template Masterdata. Each template in the Masterdata has a description defined for it which indicates as to where the template is being used in MOSIP. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
+The portal shows both Activated or Deactivated Templates. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.14 Manage List of Titles (View)
-The portal allows Zonal Admin to view the list of titles by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Lists of Titles and the available lists of titles are displayed. The lists of titles are configured through admin console. The system validates the user's role who raised the request to view the lists of titles and provides the lists of titles on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
+List of Titles contains all the salutations defined by a country in all the country defined languages. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
+The portal shows both Activated or Deactivated Titles. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-contents)
-The portal allows Zonal Admin to view the gender types by selecting the master data types. Once the user selects the master data types, all the features associated with the master data types are displayed. Again, the user will select the Gender Types and the available gender types are displayed. The gender types are configured through admin console. The system validates the user's role who raised the request to view the gender types and provides the gender types on successful validation. During the validation, if system fails to validate and authenticate the user's role, then provides a respective error notification.
+List of Gender Types contains all the Gender types defined by a country. The Global Admin can view list of all the defined Genders on the Admin UI portal.
+The portal shows both Activated or Deactivated Gender types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 ## 7. Approval Process [**[↑]**](#table-of-contents)
 ### 7.1 Approval for Resource Creation
 #### 7.1.1 Approval of Center 
