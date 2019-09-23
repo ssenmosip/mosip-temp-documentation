@@ -213,7 +213,7 @@ Refer to section on more details of CRUD APIs used in above mentioned features
 
 For more details, please refer to [link](FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-)
 
-### 5.4 User Management(WIP) [**[↑]**](#table-of-contents)
+### 5.4 User Management (WIP) [**[↑]**](#table-of-contents)
 
 MOSIP uses Keycloak as an IAM (Identity access management tool) for managing Users. These users are internal users of MOSIP including Registration Officers, Registration Supervisors, Zonal Admins, Global Admins etc. 
 User Management includes Viewing, Creating, Editing, Activating, Deactivating and Blacklisting of Users.
@@ -221,7 +221,7 @@ User Management includes Viewing, Creating, Editing, Activating, Deactivating an
 #### 5.4.1 View User (WIP) 
 #### 5.4.2 Create User (WIP)
 #### 5.4.3 Update User (WIP)
-#### 5.4.4 Activate/Deactivate//Whitelist User (WIP)
+#### 5.4.4 Activate/Deactivate/Blacklist/Whitelist User (WIP)
 ##### A. Activate User (WIP)
 ##### B. Deactivate User (WIP)
 ##### C. Blacklist User (WIP)
