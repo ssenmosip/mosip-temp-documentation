@@ -45,7 +45,7 @@
     * [6.3.1 Manage Document Type (View, Create, Update, Activate,Deactivate)](#631-manage-document-type-view-create-update-activate-deactivate) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
     * [6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View)](#633-manage-document-type-to-document-category-mapping-map-unmap-view-) _(ASR_FR_6.6)_ 
-    * [6.3.4 Manage Location Data (Create, Update, Activate,Deactivate)](#634-manage-location-data-create-update-activate-deactivate) _(ASR_FR_6.7)_
+    * [6.3.4 Manage Location Data (Create, Update, Activate,Deactivate)](#634-manage-location-data-view-create-update-activate-deactivate) _(ASR_FR_6.7)_
     * [6.3.5 Manage Blacklisted Words (Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-create-update-activate-deactivate) _(ASR_FR_6.8)_
      * [6.3.6 Manage Registration Center Types (View)](#636-manage-registration-center-types-view-) _(ASR_FR_6.9)_ 
      * [6.3.7 Manage Machine Types (View)](#637-manage-machine-types-view) _(ASR_FR_6.10)_ 
@@ -269,7 +269,7 @@ Using the portal, the Global Admin can create the document type providing the Do
 A Document type needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Document type in only primary language but will not allow activation of that Document type until data for that Center is not updated for all the languages. A deactivated document type will not show up on the Pre-Registration/Registration Client UI.
 While entering the data, the text fields (e.g., Document Type Name) needs to be manually input in all the languages. After successful creation, a Document type code will be generated.
 
-Admin Portal also allows modification of any detail of a Document type. The modification includes either adding the details in another language that were missed during creation of the Document type or changing the details of a Document Type itself including name, description etc. All the attributes mentioned in the 'Create Center' section can be updated for a Center.
+Admin Portal also allows modification of any detail of a Document type. The modification includes either adding the details in another language that were missed during creation of the Document type or changing the details of a Document Type itself including name, description etc.
 
 #### C. Activate/Deactivate Document types
 
@@ -288,26 +288,19 @@ Form the view screen itself, the Global Admin can map or un-map the Documents fr
 The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
 
 #### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) 
+The Global Admin can view list of all the Locations created by the country on the Admin UI portal. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+
 #### A. Create/Update Location Data
-Using the portal, Zonal Admin will create/update the location data by providing location data and location specification. The system validates the provided data and the user's role. During validation, if system does not find the provided data or the respective user's role, then provides a respective error notification. On successful validation, the system allows the Zonal Admin to create and store the location data in the database. 
+Using the portal, Global Admin can create/update the location data by providing location name and the parent hierarchy of that location. A location needs 
 
-Following are the mandatory location data to be provided by Zonal Admin to create the location data:
- * Location Code
- * Location Name
- * Location Hierarchy Level 
- * Location Hierarchy Level Name
- * Language Code
- * Active (Boolean)
- * Created by
- * Created Date and Time
-#### B. Activate Location data
+A Location needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Location in only primary language but will not allow activation of that Location until data for that Location is not updated for all the languages. A deactivated Location will not show up on the Pre-Registration/Registration Client UI.
+While entering the data, the text fields (e.g., Document Type Name) needs to be manually input in all the languages. After successful creation, a Location code will be generated.
 
-The portal allows Zonal Admin to activate the location data, which are already deactivated due to any reasons. When the location data is created and approved, it is activated automatically. The Zonal Admin selects the location data then all the location data of that Zone are displayed. The Zonal Admin can select one deactivated location data or multiple deactivated location data at a time and selects Activate option. The system validates user's role and activates the selected location data(s). On successful validation, the system provides a notification.
+Admin Portal also allows modification of any detail of a Location. The modification includes either adding the details in another language that were missed during creation of the Location or changing the details of a Location itself including name, parent hierarchy etc.
 
-#### C. Deactivate Location data
+#### B. Activate/Deactivate Location data
 
-The portal allows Zonal Admin to deactivate the location data, which are already active. The Zonal Admin selects the location data and the all the location data of that zone are displayed. The Zonal Admin can select one active location data or multiple active location data at a time then selects the Deactivate option. The system validates user's role, on successful validation, deactivates the selected location data(s), and the system provides a notification.
-
+The portal allows activation or deactivation of a Location. Deactivation of a Location can be done if the country feels the Location is not applicable anymore. Thus, deactivated locations does now show up on the Pre-Registration and Registration Client UI. The Portal won't allow deactivation of a Location if any child of that location is still active. The Admin will have to first deactivate all the child locations before deactivating a parent location. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Location data.
 
 #### 6.3.5 Manage Blacklisted Words (Create, Update, Activate, Deactivate)
 #### B. Create/Update Blacklisted Word
