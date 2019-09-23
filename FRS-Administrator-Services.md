@@ -359,49 +359,19 @@ The portal shows both Activated or Deactivated Titles. The list view screen foll
 List of Gender Types contains all the Gender types defined by a country. The Global Admin can view list of all the defined Genders on the Admin UI portal.
 The portal shows both Activated or Deactivated Gender types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
-## 7. Approval Process [**[↑]**](#table-of-contents)
+## 7. Approval Process (WIP) [**[↑]**](#table-of-contents)
 ### 7.1 Approval for Resource Creation
-#### 7.1.1 Approval of Center 
-Using the portal, Zonal Approver will approve the registered centers. The Zonal Admin who registered the center cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the center is registered and this validation does not applicable for updates. 
-The approver will follow the following procedure:
-1. Once the Zonal Admin creates the center, the record will be available for the approver (approver is configurable) 
-   for the approval.
-1. Approver will approve/reject the center.
-1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
-
-#### 7.1.2 Approval of Machine 
-Using the portal, Zonal Approver will approve the registered machines. The Zonal Admin who registered the machines cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the machine is registered and this validation does not applicable for updates. 
-The approver will follow the following procedure:
-1. Once the Zonal Admin creates the machines, the record will be available for the approver (approver is configurable) for 
-   the approval.
-1. Approver will approve/reject the device.
-1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
-
+#### 7.1.1 Approval of Center
+#### 7.1.2 Approval of Machine
 #### 7.1.3 Approval of Device
-Using the portal, Zonal Approver will approve the registered devices. The Zonal Admin who registered the devices cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when the device is registered and this validation does not applicable for updates. 
-The approver will follow the following procedure:
-1. Once the Zonal Admin creates the devices, the record will be available for the approver (approver is configurable) for 
-   the approval.
-1. Approver will approve/reject the device.
-1. If approver does not approve/reject, the system sends a reminder notification (configurable) for the approval.
-
 #### 7.1.4 Approval of User
-Using the portal, Zonal Approver will approve the created user on the portal. The Zonal Admin who created the users cannot be the approver. The creator and the approver must not be same person. The system validates the creator and approver for the first time when user is created and validation does not applicable for updates. 
-The approver will follow the following procedure:
-1. Once the Zonal Admin creates the users (RO/Supervisor), the record will available for the approver (approver is configurable) for the approval.
-1. Approver will approve the users within schedule time (Time is configurable).
-1. If approver does not approve within the scheduled time, the system sends a reminder notification (configurable) for the approval.
-The following functionalities are under WIP in the and to be updated once confirmed
-a) Change the approver (what happens if we have only one zonal approver for that zone)
-b) Auto-Approve
-c) Reject
-d) Escalation Mail
-e) Reports
+### 7.2 Approval for Master Data Creation
 
-### 7.2 Approval for Master Data Creation (WIP)
-## 8. UIN Activation/Deactivation [**[↑]**](#table-of-contents)
-Using the portal, Zonal Admin will provide the UIN to activate/deactivate based on the request by the UIN holder for any reason. The system validates and provides the status (active/inactive) of UIN after successful validation.  If a UIN is deactivated, the respective VID (If created) will also be deactivated.
+## 8. UIN Activation/Deactivation (WIP) [**[↑]**](#table-of-contents)
+Using the portal, A Global Admin can activate or deactivate a UIN based on the request by the UIN holder for any reason. The Admin have to provide a UIN/VID and a valid reason for deactivating the UIN. A standard set of reasons will be defined by the country. While Activation/Deactivation of a UIN, all the VIDs linked that UIN will also be activated/deactivated based on the request. the Admin can choose to send notification to the applicant whose UIN is activated/deactivated. Moreover, the admin can also choose to send notification to an additional recipient by giving the recipient's email id or mobile number or both.
+ 
 ## 9. Packet Status Check (based on RID) (WIP) [**[↑]**](#table-of-contents)
+Using the Portal, A Zonal Admin can view the status of a packet 
 ## 10. Multi-language Support (WIP) [**[↑]**](#table-of-contents)
 ### 10.1 i18N
 ### 10.2 Implementation in English (Labels etc)
