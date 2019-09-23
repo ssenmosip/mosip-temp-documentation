@@ -57,14 +57,14 @@
      * [6.3.13 Manage List of Templates (View)](#6313-manage-list-of-templates-view-) _(ASR_FR_6.16)_ 
      * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.17)_ 
      * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.18)_ 
-- [7. Approval Process](#7-approval-process-) _(ASR_FR_7)_
+- [7. Approval Process](#7-approval-process-wip-) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation-)
     * [7.1.1 Approval of Center](#711-approval-of-center) _(ASR_FR_7.1)_
     * [7.1.2 Approval of Machine](#712-approval-of-machine) _(ASR_FR_7.2)_
     * [7.1.3 Approval of Device](#713-approval-of-device) _(ASR_FR_7.3)_
     * [7.1.4 Approval of User](#714-approval-of-user) _(ASR_FR_7.4)_
-  * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation-wip) _(ASR_FR_7.5)_
-- [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-) _(ASR_FR_8)_
+  * [7.2 Approval for Master Data Creation (WIP)](#72-approval-for-master-data-creation) _(ASR_FR_7.5)_
+- [8. UIN Activation/Deactivation](#8-uin-activationdeactivation-wip-) _(ASR_FR_8)_
 - [9. Packet Status Check (based on RID)(WIP)](#9-packet-status-check-based-on-rid-wip) _(ASR_FR_9)_
 - [10.Multi-language Support (WIP)](#10-multi-language-support-wip-) _(ASR_FR_10)_
     * [10.1 i18N](#101-i18n) _(ASR_FR_10.1)_
@@ -72,10 +72,8 @@
     * [10.3 Language Specific Setup](#103-language-specific-setup) _(ASR_FR_10.3)_
 - [11. Responsive UI](#11-responsive-ui-) _(ASR_FR_11)
 - [12. MOSIP Platform Setup (WIP)](#12-mosip-platform-setup-wip-) _(ASR_FR_12)
-- [13. ID Definition Setup](#13-id-definition-setup-) _(ASR_FR_13)
-    * [13.1 ID Definition Validator](#131-id-definition-validator) _(ASR_FR_13.1)_
-- [14. Configuration Setup (WIP)](#14-configuration-setup-wip-) _(ASR_FR_14)
-- [15. Process Flow Setup (WIP)](#15-process-flow-setup-wip-) _(ASR_FR_15)
+- [13. Configuration Setup (WIP)](#13-configuration-setup-wip-) _(ASR_FR_13)
+- [14. Process Flow Setup (WIP)](#14-process-flow-setup-wip-) _(ASR_FR_14)
 - [List of Configurable Parameters and Processes](#list-of-configurable-parameters-and-processes-)
 - [Administrator Services API](#administrator-services-api-)
 - [Process View](#process-view-)
