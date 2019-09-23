@@ -4,6 +4,8 @@ This section details about the REST services in ID Authentication module.
 * [eKYC Service](#ekyc-service-public) - This service can be used by Partners to retrieve KYC details of an Individual, after authenticating them using OTP or Biometric-based authentication.
 * [OTP Request Service](#otp-request-service-public) - This service can be used by Partners to send OTP on behalf of Individual, which can then be used for OTP-based authentication.
 * [Internal Authentication Service](#authentication-service-internal) - This service can be used by MOSIP modules to authenticate Individual using Biometric-based authentication.
+* [Authentication Transactions Service](#authentication-transactions-service-internal) - This service can be used by MOSIP modules to retrieve authentication transactions.
+* [Authentication Type Status Service](authentication-types-status-service-internal) - This service can be used by MOSIP modules to store/update/retrieve status of authentication types.
 
 ## Authentication Service (Public)
 This service details authentication (yes/no auth) that can be used by Partners to authenticate an Individual. Below are various authentication types supported by this service - 
