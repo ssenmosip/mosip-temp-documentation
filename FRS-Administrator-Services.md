@@ -121,6 +121,8 @@ The Admin can filter the list of Registration Centers based on following paramet
 
 Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
 
+The Registration Center List View Screen is built using a templatized approach. Please refer [Section 6.2](#62-view-master-data-for-each-table) below for more details.
+
 #### 5.1.2 Create Center
 An Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
  
@@ -161,6 +163,8 @@ The Admin can filter the list of Registration Centers based on following paramet
    6.  Machine Type
 
 Besides the list view, an Administrator can also view the detail of a Machine by clinking on a Machine Name in the List view. This Detail view shows all the details of a Machine in all the country configured languages.
+
+The Machine List View Screen is built using a templatized approach. Please refer [Section 6.2](#62-view-master-data-for-each-table) below for more details.
 
 #### 5.2.2 Create Machine
 An Admin can create a Machine by providing necessary mandatory details. A Machine needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of the Machine in only primary language but will not allow activation of that Machine until data for that Machine is not updated for all the languages. 
@@ -207,6 +211,8 @@ The Admin can filter the list of Registration Centers based on following paramet
    7.  Device Spec ID
 
 Besides the list view, an Administrator can also view the detail of a Device by clinking on a Device Name in the List view. This Detail view shows all the details of a Device in all the country configured languages.
+
+The Device List View Screen is built using a templatized approach. Please refer [Section 6.2](#62-view-master-data-for-each-table) below for more details.
 
 #### 5.3.2 Create Device
 An Admin can create a Device by providing necessary mandatory details. A Device needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Device in only primary language but will not allow activation of that Device until data for that Device is not updated for all the languages. 
