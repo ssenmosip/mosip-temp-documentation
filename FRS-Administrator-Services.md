@@ -130,8 +130,8 @@ A Center is created with the following attributes:
 Center name, Center Type, Address, Latitude, Longitude, Location, Contact Phone, Contact Person, Working Hours, No. of Kiosk, Center Start Time, Center End Time, Lunch Start Time, Lunch End Time, Time Zone, Holiday Zone and Administrative Zone the Center belongs to. A Center can only be mapped to the Administrative Zonal at the lowest Zonal hierarchy. While defining centers, An Admin can also define the working days of the week for a Center and any exceptional holidays that might be applicable for a particular Center.  
 
 While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Center Name) needs to be manually input in all the languages.
-	
-For more details, please refer to [**section**](FRS-Admin-Services#21-registration-center-type---createupdatedelete-) in Admin Service.
+
+For the API used, please refer to [**section**]/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)	
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-contents)
 Once a Center is created, an Admin can edit a Center later if required. The Update can include adding the details in another required language that were missed during creation of the Center or changing the details of a Center itself.  
