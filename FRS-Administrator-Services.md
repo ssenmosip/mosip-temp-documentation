@@ -413,10 +413,7 @@ Using the Portal, A Zonal Admin can view the status of a packet by giving the RI
 ## 12. MOSIP Platform Setup (WIP) [**[↑]**](#table-of-contents)
 The system admin will set up platform data such as list of template types, list of rejection reason etc. through a CSV. 
 
-For more details, please refer to
- [link](FRS-Admin-Services#113-list-of-template-types---create-)
-
-[link](FRS-Admin-Services#19-list-of-rejection-reasons---createread-)
+For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 ## 13. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
 ## 14. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
@@ -427,7 +424,7 @@ For more details, please refer to
 
    [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
 
-2. Configurable Processes  [**[↑]**](#table-of-contents)
+2. Configurable Processes
 * (Work in Progress) 
 ### Administrator Services API
 * (Work in Progress) 
