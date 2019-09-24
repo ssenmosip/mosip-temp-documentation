@@ -7,6 +7,7 @@
 * [3. Registration processor](#3-registration-processor-)
 * [4. ID-Authentication](#4-id-authentication-)
 * [5. ID-Repository](#5-id-repository-)
+* [6. Admin Portal](#6-admin-portal-)
 
 ## 1. Pre-registration [**[↑]**](#table-of-content)
 
