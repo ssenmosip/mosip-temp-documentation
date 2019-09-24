@@ -254,7 +254,7 @@ User Management includes Viewing, Creating, Editing, Activating, Deactivating an
 ##### A. Activate User (WIP)
 ##### B. Deactivate User (WIP)
 ##### C. Blacklist User (WIP)
-#### 5.4.5 Map/Un-map/Re-map User to a Center [**[↑]**](#table-of-contents)
+#### 5.4.5 Map/Un-map/Re-map User to a Center
 #### A. Map/Un-map User to a Registration Center
 Admin portal allows an Admin to map Users to a Center. This mapping specifies as to which Center the User will be used in. A User can only be mapped to a Center which belongs under the User’s Administrative Zone.
 
@@ -263,7 +263,7 @@ A User can later be un-mapped from the Center in cases where a User is needed to
 ### 5.5 Administrative Zone Management [**[↑]**](#table-of-contents)
 Administrative Zones are virtual boundaries which a country can define to better manage their resources which are used during registrations. These resources includes Centers, Users, Machines and Devices. These zones can be defined in a hierarchical fashion and a country can allocate resources to such zones based on their requirements. 
 
-Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Resources Management section](#5-resource-management-).  Thus these resources when mapped to an Administrative Zone can only be managed by the Admin of that Zone.
+Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Resources Management section](#5-resource-management-). Thus these resources when mapped to an Administrative Zone can only be managed by the Admin of that Zone.
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Masterdata applicable for a Country. These data includes list of Genders, list of Holidays, Templates etc. This data is used by all the modules across MOSIP which includes Pre-Registration, Registration Client, Registration processor and ID-Authentication. An Administrator should have the role of a Global Admin to manage Masterdata.
@@ -319,10 +319,10 @@ Form the view screen itself, the Global Admin can map or un-map the Documents fr
 The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
 
 #### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) [**[↑]**](#table-of-contents)
-#### A. View Location Data
+#### A. View Location Data [**[↑]**](#table-of-contents)
 The Global Admin can view list of all the Locations created by the country on the Admin UI portal. This list of locations defined shows up on the Pre-Registration and Registration UI while typing the address. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Locations based on Status (Drop-down) and each Location level (Search Box).
 
-#### B. Create/Update Location Data
+#### B. Create/Update Location Data [**[↑]**](#table-of-contents)
 Using the portal, Global Admin can create/update the location data by providing location name and the parent hierarchy of that location. A location needs 
 
 A Location needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Location in only primary language but will not allow activation of that Location until data for that Location is not updated for all the languages. A deactivated Location will not show up on the Pre-Registration/Registration Client UI.
@@ -330,23 +330,23 @@ While entering the data, the text fields (e.g., Document Type Name) needs to be 
 
 Admin Portal also allows modification of any detail of a Location. The modification includes either adding the details in another language that were missed during creation of the Location or changing the details of a Location itself including name, parent hierarchy etc.
 
-#### C. Activate/Deactivate Location data
+#### C. Activate/Deactivate Location data [**[↑]**](#table-of-contents)
 
 The portal allows activation or deactivation of a Location. Deactivation of a Location can be done if the country feels the Location is not applicable anymore. Thus, deactivated locations does now show up on the Pre-Registration and Registration Client UI. The Portal won't allow deactivation of a Location if any child of that location is still active. The Admin will have to first deactivate all the child locations before deactivating a parent location. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Location data.
 
-#### 6.3.5 Manage Blacklisted Words (View, Create, Update, Activate, Deactivate)
+#### 6.3.5 Manage Blacklisted Words (View, Create, Update, Activate, Deactivate) [**[↑]**](#table-of-contents)
 
-#### A. View Blacklisted Words
+#### A. View Blacklisted Words [**[↑]**](#table-of-contents)
 The Global Admin can view list of all the available Blacklisted words on the Admin UI portal. The portal shows both activated or deactivated Blacklisted words. Blacklisted words in the only Masterdata which is language independent and will show the data in all the languages unlike the rest of the Masterdata tables which will show data only in primary language. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Blacklisted Words based on Status (Drop-down), Word (Search Box) and Language (Drop-Down).
 
-#### B. Create/Update Blacklisted Word
+#### B. Create/Update Blacklisted Word [**[↑]**](#table-of-contents)
 
 Using the portal, the Global Admin can create the Blacklisted Word providing the Word, Description (if applicable) and Language in which the blacklisted word in being added.  
 While entering the data, the text fields (e.g., Word, Description) needs to be manually input in all the languages.
 
 Admin Portal also allows modification of any detail of a Blacklisted Word. The modification includes either changing the word altogether or changing the description itself.
 
-#### C. Activate/Deactivate Blacklisted Word
+#### C. Activate/Deactivate Blacklisted Word [**[↑]**](#table-of-contents)
 
 The portal allows activation or deactivation of a Blacklisted Word. Deactivation of a Blacklisted Word can be done if the country feels the Blacklisted Word is not applicable anymore. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Blacklisted Word.
 
@@ -354,7 +354,7 @@ The portal allows activation or deactivation of a Blacklisted Word. Deactivation
 Registration Center Type indicates the type of Centers a country can have. Some examples can be Regular, Mobile, temporary etc. The Global Admin can view list of all the available Registration Center Types on the Admin UI portal. A Registration Center while creation, can be assigned to a Center Type as defined by the country.
 The portal shows both activated or deactivated Center Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Center Types based on Status (Drop-down).
 
-#### 6.3.7 Manage Machine Types (View)
+#### 6.3.7 Manage Machine Types (View) [**[↑]**](#table-of-contents)
 Machine Type indicates the type of Machines a country uses to take registrations. The Global Admin can view list of all the Machine Types on the Admin UI portal. A Machine while creation, can be assigned to a Machine Types as defined by the country.
 The portal shows both activated or deactivated Machine Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
@@ -362,7 +362,7 @@ The portal shows both activated or deactivated Machine Types. The list view scre
 Machine specification indicates the Brand, Make and Model of a Machine a country uses to take registrations. The Global Admin can view list of all the Machine Specifications on the Admin UI portal. A Machine while creation, can be assigned to a Machine Specification as required by the country.
 The portal shows both activated or deactivated Machine Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Machine Specifications based on Status (Drop-down), Name (Search Box), Brand (Search Box), Model (Search Box), and Machine type (Search Box).
 
-#### 6.3.9 Manage Device Types (View)
+#### 6.3.9 Manage Device Types (View) [**[↑]**](#table-of-contents)
 Device Type indicates the type of Devices a country uses to take registrations. This device types includes Fingerprint scanner, Iris Scanner, Web camera, Document scanner etc. The Global Admin can view list of all the Device Types on the Admin UI portal. A Device while creation, can be assigned to a Device Types as defined by the country.
 The portal shows both activated or deactivated Device Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Device types based on Status (Drop-down) and  Name (Search Box).
 
@@ -370,11 +370,11 @@ The portal shows both activated or deactivated Device Types. The list view scree
 Device specification indicates the Brand, Make and Model of a Device a country uses to take registrations. The Global Admin can view list of all the Device Specifications on the Admin UI portal. A Device while creation, can be assigned to a Device Specification as required by the country.
 The portal shows both activated or deactivated Device Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Device Specifications based on Status (Drop-down), Name (Search Box) and Device type (Search Box).
 
-#### 6.3.11 Manage Individual Types (View)
+#### 6.3.11 Manage Individual Types (View) [**[↑]**](#table-of-contents)
 Individual Type indicates the category in which a country might want to categorize residents in. Foreigner, Non-Foreigner, Immigrant are some examples of Individual Types. These can be defined by the country in Masterdata are required by them. The Global Admin can view list of all the defined Individual Types on the Admin UI portal.
 The portal shows both activated or deactivated Individual Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
 
-#### 6.3.12 Manage List of Holidays (View)
+#### 6.3.12 Manage List of Holidays (View) [**[↑]**](#table-of-contents)
 List of Holiday defines all the public holiday a applicable for a country. These holidays are on of the criteria for Pre-Registration to generate appointments. The holidays only define the public holidays and not the week-end days for the country. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
 The portal shows both activated or deactivated Holidays. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Holidays based on Status (Drop-down), Date Range (Search Box) and Name (Search Box).
 
@@ -382,7 +382,7 @@ The portal shows both activated or deactivated Holidays. The list view screen fo
 List of Templates contains all the notification templates used by MOSIP to send notifications to the Users or Residents. This notification includes OTP notification, Acknowledgment Notifications etc. Even acknowledgement shown on the Pre-Registration UI is defined in the template Masterdata. Each template in the Masterdata has a description defined for it which indicates as to where the template is being used in MOSIP. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
 The portal shows both Activated or Deactivated Templates. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Templates based on Status (Drop-down), Name (Search Box), Module Name (Drop-down) and Module ID (Drop-down).
 
-#### 6.3.14 Manage List of Titles (View)
+#### 6.3.14 Manage List of Titles (View) [**[↑]**](#table-of-contents)
 List of Titles contains all the salutations defined by a country in all the country defined languages. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
 The portal shows both Activated or Deactivated Titles. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Titles based on Status (Drop-down).
 
@@ -427,9 +427,9 @@ For more details, please refer to
 
    [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
 
-2. Configurable Processes 
+2. Configurable Processes  [**[↑]**](#table-of-contents)
 * (Work in Progress) 
-### Administrator Services API [**[↑]**](#table-of-contents)
+### Administrator Services API
 * (Work in Progress) 
 
 
