@@ -60,4 +60,4 @@
 ![ID-Repo-VID-Service](_images/process_views/MOSIP_Process%20Flow%201.19_ID%20Repo-VID%20Service.jpg)
 
 ## 6. Admin Portal [**[↑]**](#table-of-content)
-![Admin Portal Login](_images/process_views/Admin%20Portal%201.%20MOSIP%20ADMIN%20Login.jpg
+![Admin Portal Login](_images/process_views/Admin%20Portal%201.%20MOSIP%20ADMIN%20Login.jpg)
