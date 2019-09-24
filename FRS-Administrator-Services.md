@@ -283,7 +283,7 @@ Since not all the attributes for a Masterdata record will be shown on the list v
 Document types is the list of Documents a country will configure for the users to give during registrations. 
 
 #### A. View Document Types
-The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Document Types based on Document Name(Search box) and Status (Drop-down).
 
 #### B. Create/Update Document Types
 Using the portal, the Global Admin can create the document type providing the Document name and description if applicable.  
@@ -297,20 +297,20 @@ Admin Portal also allows modification of any detail of a Document type. The modi
 The portal allows Zonal Admin to activate or deactivate a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
 
 #### 6.3.2 Manage Document Categories (View) [**[↑]**](#table-of-contents)
-The Global Admin can view list of all the available Document Categories as created by the Country in Masterdata. The portal shows both activated or deactivated Document Categories. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The Global Admin can view list of all the available Document Categories as created by the Country in Masterdata. The portal shows both activated or deactivated Document Categories. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Document Categories based on Status (Drop-down).
 
 #### 6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View) [**[↑]**](#table-of-contents)
 
 #### A. View mappings of Document Categories and Document Types
 The portal allows an Global Admin to view Document Categories along with its mapped and un-mapped Document Types.
-Form the view screen itself, the Global Admin can map or un-map the Documents from a Document Category.
+Form the view screen itself, the Global Admin can map or un-map the Documents from a Document Category. 
 
 #### C. Map/Un-map Document Type to Document Category
 The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
 
 #### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) 
 #### A. View Location Data
-The Global Admin can view list of all the Locations created by the country on the Admin UI portal. This list of locations defined shows up on the Pre-Registration and Registration UI while typing the address. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The Global Admin can view list of all the Locations created by the country on the Admin UI portal. This list of locations defined shows up on the Pre-Registration and Registration UI while typing the address. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Locations based on Status (Drop-down) and each Location level (Search Box).
 
 #### B. Create/Update Location Data
 Using the portal, Global Admin can create/update the location data by providing location name and the parent hierarchy of that location. A location needs 
@@ -327,7 +327,7 @@ The portal allows activation or deactivation of a Location. Deactivation of a Lo
 #### 6.3.5 Manage Blacklisted Words (View, Create, Update, Activate, Deactivate)
 
 #### A. View Blacklisted Words
-The Global Admin can view list of all the available Blacklisted words on the Admin UI portal. The portal shows both activated or deactivated Blacklisted words. Blacklisted words in the only Masterdata which is language independent and will show the data in all the languages unlike the rest of the Masterdata tables which will show data only in primary language. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The Global Admin can view list of all the available Blacklisted words on the Admin UI portal. The portal shows both activated or deactivated Blacklisted words. Blacklisted words in the only Masterdata which is language independent and will show the data in all the languages unlike the rest of the Masterdata tables which will show data only in primary language. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Blacklisted Words based on Status (Drop-down), Word (Search Box) and Language (Drop-Down).
 
 #### B. Create/Update Blacklisted Word
 
@@ -342,7 +342,7 @@ The portal allows activation or deactivation of a Blacklisted Word. Deactivation
 
 #### 6.3.6 Manage Registration Center Types (View) [**[↑]**](#table-of-contents)
 Registration Center Type indicates the type of Centers a country can have. Some examples can be Regular, Mobile, temporary etc. The Global Admin can view list of all the available Registration Center Types on the Admin UI portal. A Registration Center while creation, can be assigned to a Center Type as defined by the country.
-The portal shows both activated or deactivated Center Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both activated or deactivated Center Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Center Types based on Status (Drop-down).
 
 #### 6.3.7 Manage Machine Types (View)
 Machine Type indicates the type of Machines a country uses to take registrations. The Global Admin can view list of all the Machine Types on the Admin UI portal. A Machine while creation, can be assigned to a Machine Types as defined by the country.
@@ -350,15 +350,15 @@ The portal shows both activated or deactivated Machine Types. The list view scre
 
 #### 6.3.8 Manage Machine Specifications (View) [**[↑]**](#table-of-contents)
 Machine specification indicates the Brand, Make and Model of a Machine a country uses to take registrations. The Global Admin can view list of all the Machine Specifications on the Admin UI portal. A Machine while creation, can be assigned to a Machine Specification as required by the country.
-The portal shows both activated or deactivated Machine Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both activated or deactivated Machine Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Machine Specifications based on Status (Drop-down), Name (Search Box), Brand (Search Box), Model (Search Box), and Machine type (Search Box).
 
 #### 6.3.9 Manage Device Types (View)
 Device Type indicates the type of Devices a country uses to take registrations. This device types includes Fingerprint scanner, Iris Scanner, Web camera, Document scanner etc. The Global Admin can view list of all the Device Types on the Admin UI portal. A Device while creation, can be assigned to a Device Types as defined by the country.
-The portal shows both activated or deactivated Device Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both activated or deactivated Device Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Device types based on Status (Drop-down) and  Name (Search Box).
 
 #### 6.3.10 Manage Device Specifications (View) [**[↑]**](#table-of-contents)
 Device specification indicates the Brand, Make and Model of a Device a country uses to take registrations. The Global Admin can view list of all the Device Specifications on the Admin UI portal. A Device while creation, can be assigned to a Device Specification as required by the country.
-The portal shows both activated or deactivated Device Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both activated or deactivated Device Specification. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Device Specifications based on Status (Drop-down), Name (Search Box) and Device type (Search Box).
 
 #### 6.3.11 Manage Individual Types (View)
 Individual Type indicates the category in which a country might want to categorize residents in. Foreigner, Non-Foreigner, Immigrant are some examples of Individual Types. These can be defined by the country in Masterdata are required by them. The Global Admin can view list of all the defined Individual Types on the Admin UI portal.
@@ -370,15 +370,15 @@ The portal shows both activated or deactivated Holidays. The list view screen fo
 
 #### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-contents)
 List of Templates contains all the notification templates used by MOSIP to send notifications to the Users or Residents. This notification includes OTP notification, Acknowledgment Notifications etc. Even acknowledgement shown on the Pre-Registration UI is defined in the template Masterdata. Each template in the Masterdata has a description defined for it which indicates as to where the template is being used in MOSIP. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
-The portal shows both Activated or Deactivated Templates. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both Activated or Deactivated Templates. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Templates based on Status (Drop-down), Name (Search Box), Module Name (Drop-down) and Module ID (Drop-down).
 
 #### 6.3.14 Manage List of Titles (View)
 List of Titles contains all the salutations defined by a country in all the country defined languages. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
-The portal shows both Activated or Deactivated Titles. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both Activated or Deactivated Titles. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Titles based on Status (Drop-down).
 
 #### 6.3.15 Manage Gender Types (View) [**[↑]**](#table-of-contents)
 List of Gender Types contains all the Gender types defined by a country. The Global Admin can view list of all the defined Genders on the Admin UI portal.
-The portal shows both Activated or Deactivated Gender types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both Activated or Deactivated Gender types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). 
 
 ## 7. Approval Process (WIP) [**[↑]**](#table-of-contents)
 ### 7.1 Approval for Resource Creation
