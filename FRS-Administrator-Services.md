@@ -286,6 +286,8 @@ Each of these List views consumes the same UI template and allows following feat
 
 Since not all the attributes for a Masterdata record will be shown on the list view, the Global Admin can them all on the Masterdata detail view page. This view can be accessed by clicking on a record in the list view. The detail view will show all the details of a Masterdata record in all the languages configured by the country. The Global Admin can also activate/deactivate the record from detail view page.
 
+API Link: Please refer to API Spec for a [Registration Center Search API](/mosip/mosip-docs/wiki/Registration-Center-APIs#post-registrationcenterssearch) and [Filter API].
+
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
 #### 6.3.1 Manage Document Type (View, Create, Update, Activate, Deactivate)
 Document types is the list of Documents a country will configure for the users to give during registrations. 
