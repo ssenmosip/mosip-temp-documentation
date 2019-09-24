@@ -7,6 +7,8 @@ Deployment checklist is divided into 2 parts -
  2. `Application Checklist` – This checklist lists the dependent services, configurations, required roles, any explicit permissions, etc. for all the modules.
 
 ***1. Infrastructure Checklist***    
+Below are the list of infrastructure items which should be checked per module, before using them.
+
 <table>
     <thead>
         <tr>
@@ -142,7 +144,9 @@ Deployment checklist is divided into 2 parts -
 </table>
 
 
-***2. Application Checklist***    
+***2. Application Checklist***     
+Below are list of items to be checked for each module to work.    
+
 <table>
     <thead>
         <tr>
