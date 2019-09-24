@@ -14,20 +14,20 @@
   * [4.1 Approval Notifications](#41-approval-notifications) _(ASR_FR_4.1)_
   * [4.2 Country Specific News/Notifications](#42-country-specific-newsnotifications) _(ASR_FR_4.2)_
 - [5. Resource Management](#5-resource-management-) _(ASR_FR_5)_
-  * [5.1 Center Management](#51-center-management)
-    * [5.1.1 View Center](#511-view-center) _(ASR_FR_5.1)_
-    * [5.1.2 Create Center](#512-create-center) _(ASR_FR_5.2)_
+  * [5.1 Center Management](#51-center-management-)
+    * [5.1.1 View Center](#511-view-center-) _(ASR_FR_5.1)_
+    * [5.1.2 Create Center](#512-create-center-) _(ASR_FR_5.2)_
     * [5.1.3 Update Center](#513-update-center-) _(ASR_FR_5.3)_
-    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center) _(ASR_FR_5.4)_
+    * [5.1.4 Activate/Deactivate/Decommission Center](#514-activatedeactivatedecommission-center-) _(ASR_FR_5.4)_
   * [5.2 Machine Management](#52-machine-management-)
-    * [5.2.1 View Machine](#521-view-machine) _(ASR_FR_5.5)_
-    * [5.2.2 Create Machine](#522-create-machine) _(ASR_FR_5.6)_
+    * [5.2.1 View Machine](#521-view-machine-) _(ASR_FR_5.5)_
+    * [5.2.2 Create Machine](#522-create-machine-) _(ASR_FR_5.6)_
     * [5.2.3 Update Machine](#523-update-machine-) _(ASR_FR_5.7)_
     * [5.2.4 Activate/Deactivate/Decommission Machine](#524-activatedeactivatedecommission-machine-) _(ASR_FR_5.8)_
     * [5.2.5 Map/Un-map/Re-map Machine to a Center](#525-mapun-mapre-map-machine-to-a-center-) _(ASR_FR_5.9)_
   * [5.3 Device Management](#53-device-management-)
-    * [5.3.1 View Device](#531-view-device) _(ASR_FR_5.10)_
-    * [5.3.2 Create Device](#532-create-device) _(ASR_FR_5.11)_
+    * [5.3.1 View Device](#531-view-device-) _(ASR_FR_5.10)_
+    * [5.3.2 Create Device](#532-create-device-) _(ASR_FR_5.11)_
     * [5.3.3 Update Device](#533-update-device-) _(ASR_FR_5.12)_
     * [5.3.4 Activate/Deactivate/Decommission Device](#534-activatedeactivatedecommission-device-) _(ASR_FR_5.13)_
     * [5.3.5 Map/Un-map/Re-map Device to a Center](#535-mapun-mapre-map-device-to-a-center-) _(ASR_FR_5.14)_
@@ -36,26 +36,26 @@
     * [5.4.2 Create User](#542-create-user-wip) _(ASR_FR_5.16)_
     * [5.4.3 Update User](#543-update-user-wip) _(ASR_FR_5.17)_
     * [5.4.4 Activate/Deactivate/Blacklist/Whitelist User](#544-activatedeactivateblacklistwhitelist-user-wip) _(ASR_FR_5.18)_
-    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center-) _(ASR_FR_5.19)_
+    * [5.4.5 Map/Un-map/Re-map User to a Center](#545-mapun-mapre-map-user-to-a-center) _(ASR_FR_5.19)_
   * [5.5 Administrative Zone Management](#55-administrative-zone-management) _(ASR_FR_5.20)_
 - [6. Master Data Management](#6-master-data-management-) _(ASR_FR_6)_
-  * [6.1 View Master Data Types](#61-view-master-data-types) _(ASR_FR_6.1)_
-  * [6.2 View Master data for each table](#62-view-master-data-for-each-table) _(ASR_FR_6.2)_
+  * [6.1 View Master Data Types](#61-view-master-data-types-) _(ASR_FR_6.1)_
+  * [6.2 View Master data for each table](#62-view-master-data-for-each-table-) _(ASR_FR_6.2)_
   * [6.3 Manage Master Data](#63-manage-master-data-) _(ASR_FR_6.3)_
-    * [6.3.1 Manage Document Type (View, Create, Update, Activate,Deactivate)](#631-manage-document-type-view-create-update-activate-deactivate) _(ASR_FR_6.4)_
+    * [6.3.1 Manage Document Type (View, Create, Update, Activate,Deactivate)](#631-manage-document-type-view-create-update-activate-deactivate-) _(ASR_FR_6.4)_
     * [6.3.2 Manage Document Categories (View)](#632-manage-document-categories-view-) _(ASR_FR_6.5)_
     * [6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View)](#633-manage-document-type-to-document-category-mapping-map-unmap-view-) _(ASR_FR_6.6)_ 
-    * [6.3.4 Manage Location Data (View, Create, Update, Activate,Deactivate)](#634-manage-location-data-view-create-update-activate-deactivate) _(ASR_FR_6.7)_
-    * [6.3.5 Manage Blacklisted Words (View, Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-view-create-update-activate-deactivate) _(ASR_FR_6.8)_
+    * [6.3.4 Manage Location Data (View, Create, Update, Activate,Deactivate)](#634-manage-location-data-view-create-update-activate-deactivate-) _(ASR_FR_6.7)_
+    * [6.3.5 Manage Blacklisted Words (View, Create, Update, Activate,Deactivate)](#635-manage-blacklisted-words-view-create-update-activate-deactivate-) _(ASR_FR_6.8)_
      * [6.3.6 Manage Registration Center Types (View)](#636-manage-registration-center-types-view-) _(ASR_FR_6.9)_ 
-     * [6.3.7 Manage Machine Types (View)](#637-manage-machine-types-view) _(ASR_FR_6.10)_ 
+     * [6.3.7 Manage Machine Types (View)](#637-manage-machine-types-view-) _(ASR_FR_6.10)_ 
      * [6.3.8 Manage Machine Specifications (View)](#638-manage-machine-specifications-view-) _(ASR_FR_6.11)_ 
-     * [6.3.9 Manage Device Types (View)](#639-manage-device-types-view) _(ASR_FR_6.12)_ 
+     * [6.3.9 Manage Device Types (View)](#639-manage-device-types-view-) _(ASR_FR_6.12)_ 
      * [6.3.10 Manage Device Specifications (View)](#6310-manage-device-specifications-view-) _(ASR_FR_6.13)_ 
-     * [6.3.11 Manage Individual Types (View)](#6311-manage-individual-types-view) _(ASR_FR_6.14)_ 
-     * [6.3.12 Manage List of Holidays (View)](#6312-manage-list-of-holidays-view) _(ASR_FR_6.15)_ 
+     * [6.3.11 Manage Individual Types (View)](#6311-manage-individual-types-view-) _(ASR_FR_6.14)_ 
+     * [6.3.12 Manage List of Holidays (View)](#6312-manage-list-of-holidays-view-) _(ASR_FR_6.15)_ 
      * [6.3.13 Manage List of Templates (View)](#6313-manage-list-of-templates-view-) _(ASR_FR_6.16)_ 
-     * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view) _(ASR_FR_6.17)_ 
+     * [6.3.14 Manage List of Titles (View)](#6314-manage-list-of-titles-view-) _(ASR_FR_6.17)_ 
      * [6.3.15 Manage Gender Types (View)](#6315-manage-gender-types-view-) _(ASR_FR_6.18)_ 
 - [7. Approval Process](#7-approval-process-wip-) _(ASR_FR_7)_
   * [7.1 Approval for Resource Creation](#71-approval-for-resource-creation)
