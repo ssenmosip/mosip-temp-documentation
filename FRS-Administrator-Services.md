@@ -458,9 +458,9 @@ Refer the following links for Administrator APIs
 1. Document Type/Category/Document Category-Type Mapping CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Document-APIs)
 2. Device CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Device-APIs)
 3. Machine CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Machine-APIs)
-4. Location, Blacklisted Words CRUD APIs - [Refer here](mosip/mosip-docs/wiki/Common-APIs)
-5. Administrative Zone APIs - [Refer here](WIP)
-6. Multi Language Validator for Create/Update - [Refer here](WIP)
+4. Location, Blacklisted Words CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Common-APIs)
+5. Administrative Zone APIs - Refer here (TBD)
+6. Multi Language Validator for Create/Update - Refer here (TBD)
 
 ## Process View [**[↑]**](#table-of-contents)
 * (Work in Progress) 
