@@ -112,8 +112,13 @@ Admin Portal allows an Administrator to manage Registration Centers the Country 
 For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
 
 #### 5.1.1 View Center
-The Admin portal allows an Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. 
-Admin portal UI shows the list of Registration Centers in only the country configured Primary Language. Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
+The Admin portal allows an Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. Admin portal UI shows the list of Registration Centers in only the country configured Primary Language.
+The Admin can filter the list of Registration Centers based on following parameters
+   1.  Center Name
+   2.  Center Type
+   3.  Status
+   4.  Location Hierarchy (All Location levels)
+Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
 
 #### 5.1.2 Create Center
 An Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
