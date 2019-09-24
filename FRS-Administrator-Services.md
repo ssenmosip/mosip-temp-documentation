@@ -109,7 +109,7 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 ### 5.1 Center Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Registration Centers the Country will setup for taking Registrations of the Residents. Center management includes functionalities like Viewing, Creating, Editing, Activating, Deactivating and Decommission of Centers. An Administrator should have the role of a Zonal Admin/Global Admin to do this. A Zonal Admin/Global Admin can manage only Centers under his/her administrative zone.
 
-For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
+For more details on Administrative zones, Refer [Here](#55-administrative-zone-management-)
 
 #### 5.1.1 View Center [**[↑]**](#table-of-contents)
 The Admin portal allows an Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. Admin portal UI shows the list of Registration Centers in only the country configured Primary Language.
@@ -148,7 +148,7 @@ Difference between Deactivated and Decommissioned center is that a Deactivated c
 ### 5.2 Machine Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Machines the Country will use for taking Registration of the Residents. The definition of Machine is the device on which the registration Client is installed. Machine management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Machines. An Administrator should have the role of a Zonal Admin/Global Admin to do this. An Admin can manage only Machines under his/her administrative zone.
 
-For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
+For more details on Administrative zones, Refer [Here](#55-administrative-zone-management-)
 
 #### 5.2.1 View Machine [**[↑]**](#table-of-contents)
 
@@ -196,7 +196,7 @@ A Machine can later be un-mapped from the Center in cases where a Machine is nee
 ### 5.3 Device Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Devices the Country will use for taking Registration of the Residents. These includes Device for bio-metric capture (Fingerprint, Iris, Web camera etc.) Device management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Devices. An Administrator should have the role of a Zonal Admin/Global Admin to do this. A Zonal Admin can manage only Devices under his/her administrative zone.
 
-For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
+For more details on Administrative zones, Refer [Here](#55-administrative-zone-management-)
 
 #### 5.3.1 View Device [**[↑]**](#table-of-contents)
 The Admin portal allows an Admin to view the list of all Devices available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Devices but only Active and Inactive Devices. 
