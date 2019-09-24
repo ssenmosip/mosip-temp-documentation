@@ -1,7 +1,7 @@
 # For MOSIP Pilots
 This section talks about the Hardware and Software requirements for MOSIP pilot deployments which is a show-n-tell project.
 
-## For developers
+## For Developers
 * Laptops/Desktops powered with Intel Core i7 Hexa-Core processor preferably 8th generation
 * 32 GB RAM, 
 * 512 GB/1 TB SSD, 
@@ -30,7 +30,7 @@ This section talks about the Hardware and Software requirements for MOSIP pilot 
 * Minimum 12 cores
 * 128 GB RAM
 * 3 TB HDD
-** Note : Get 3 servers each with this configuration 
+Note : Get 3 servers each with this configuration 
 * SAN Storage for backup
 
 
