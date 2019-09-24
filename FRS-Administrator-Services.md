@@ -106,12 +106,12 @@ Using the portal, user will  manage his/her profile. The  portal users are Centr
 ### 4.1 Approval Notifications
 ### 4.2 Country Specific News/Notifications
 ## 5. Resource Management [**[↑]**](#table-of-contents)
-### 5.1 Center Management 
+### 5.1 Center Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Registration Centers the Country will setup for taking Registrations of the Residents. Center management includes functionalities like Viewing, Creating, Editing, Activating, Deactivating and Decommission of Centers. An Administrator should have the role of a Zonal Admin/Global Admin to do this. A Zonal Admin/Global Admin can manage only Centers under his/her administrative zone.
 
 For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
 
-#### 5.1.1 View Center
+#### 5.1.1 View Center [**[↑]**](#table-of-contents)
 The Admin portal allows an Admin to view the list of all Registration Centers available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Registration Centers but only Active and Inactive Centers. Admin portal UI shows the list of Registration Centers in only the country configured Primary Language.
 The Admin can filter the list of Registration Centers based on following parameters
    1.  Center Name
@@ -123,7 +123,7 @@ Besides the list view, an administrator can also view the detail of a Registrati
 
 The Registration Center List View Screen is built using a templatized approach. Please refer [Section 6.2](#62-view-master-data-for-each-table) below for more details.
 
-#### 5.1.2 Create Center
+#### 5.1.2 Create Center [**[↑]**](#table-of-contents)
 An Admin can create a Center by providing necessary mandatory details. A Center needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Center in only primary language but will not allow activation of that Center until data for that Center is not updated for all the languages.
  
 A Center is created with the following attributes: 
@@ -137,7 +137,7 @@ For more details, please refer to [**section**](FRS-Admin-Services#21-registrati
 Once a Center is created, an Admin can edit a Center later if required. The Update can include adding the details in another required language that were missed during creation of the Center or changing the details of a Center itself.  
 All the attributes mentioned in the 'Create Center' section can be updated for a Center.
 
-#### 5.1.4 Activate/Deactivate/Decommission Center
+#### 5.1.4 Activate/Deactivate/Decommission Center [**[↑]**](#table-of-contents)
 
 An admin can Deactivate or Decommission a Center through the Admin Portal.
 
@@ -150,7 +150,7 @@ Admin Portal allows an Administrator to manage Machines the Country will use for
 
 For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
 
-#### 5.2.1 View Machine
+#### 5.2.1 View Machine [**[↑]**](#table-of-contents)
 
 The Admin portal allows an Admin to view the list of all Machines available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Machines but only Active and Inactive Machines. 
 Admin portal UI shows the list of Machines in only the country configured Primary Language. 
@@ -166,7 +166,7 @@ Besides the list view, an Administrator can also view the detail of a Machine by
 
 The Machine List View Screen is built using a templatized approach. Please refer [Section 6.2](#62-view-master-data-for-each-table) below for more details.
 
-#### 5.2.2 Create Machine
+#### 5.2.2 Create Machine [**[↑]**](#table-of-contents)
 An Admin can create a Machine by providing necessary mandatory details. A Machine needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of the Machine in only primary language but will not allow activation of that Machine until data for that Machine is not updated for all the languages. 
 A Machine is created with the following attributes: 
 Machine ID, Machine Name, Mac Address, Serial Number, Machine Spec ID and Administrative Zone the Machine belongs to.
@@ -198,7 +198,7 @@ Admin Portal allows an Administrator to manage Devices the Country will use for 
 
 For more details on Administrative zones, Refer [Here](#55-administrative-zone-management)
 
-#### 5.3.1 View Device
+#### 5.3.1 View Device [**[↑]**](#table-of-contents)
 The Admin portal allows an Admin to view the list of all Devices available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Devices but only Active and Inactive Devices. 
 Admin portal UI shows the list of Devices in only the country configured Primary Language. 
 The Admin can filter the list of Registration Centers based on following parameters
@@ -214,7 +214,7 @@ Besides the list view, an Administrator can also view the detail of a Device by 
 
 The Device List View Screen is built using a templatized approach. Please refer [Section 6.2](#62-view-master-data-for-each-table) below for more details.
 
-#### 5.3.2 Create Device
+#### 5.3.2 Create Device [**[↑]**](#table-of-contents)
 An Admin can create a Device by providing necessary mandatory details. A Device needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Device in only primary language but will not allow activation of that Device until data for that Device is not updated for all the languages. 
 A Device is created with the following attributes: 
 Device ID, Device Name, Mac Address, Serial Number, Device Spec ID and Administrative Zone the Device belongs to. A Machine can be mapped to the Administrative Zone which is at the any Zonal hierarchy.
@@ -260,16 +260,16 @@ Admin portal allows an Admin to map Users to a Center. This mapping specifies as
 
 A User can later be un-mapped from the Center in cases where a User is needed to be moved to another Center. In such cases, the User will later need to be mapped to the new Center. In case the User is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the User must be changed.
 
-### 5.5 Administrative Zone Management 
+### 5.5 Administrative Zone Management [**[↑]**](#table-of-contents)
 Administrative Zones are virtual boundaries which a country can define to better manage their resources which are used during registrations. These resources includes Centers, Users, Machines and Devices. These zones can be defined in a hierarchical fashion and a country can allocate resources to such zones based on their requirements. 
 
 Resources under each zone is managed by a Zonal Admin. This is done by assigning an Administrative zone to the Zonal Admin during user creation. These Zonal Admins can exist at any zonal hierarchy. (For e.g, a Zonal Admin can directly be mapped to the whole country as a Zone or can be mapped to a significantly smaller zone such as a city). Each type of resource (Center, Machines, users (Officer/Supervisor) and devices are mapped to an Administrative Zone as explained in [Resources Management section](#5-resource-management-).  Thus these resources when mapped to an Administrative Zone can only be managed by the Admin of that Zone.
 
 ## 6. Master Data Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Masterdata applicable for a Country. These data includes list of Genders, list of Holidays, Templates etc. This data is used by all the modules across MOSIP which includes Pre-Registration, Registration Client, Registration processor and ID-Authentication. An Administrator should have the role of a Global Admin to manage Masterdata.
-### 6.1 View Master Data Types
+### 6.1 View Master Data Types [**[↑]**](#table-of-contents)
 The portal allows a Global Admin to view the list of Masterdata types. Through this list, the global admin can click on any of them and can view the data for that particular Masterdata table.
-### 6.2 View Master Data for Each Table
+### 6.2 View Master Data for Each Table [**[↑]**](#table-of-contents)
 The portal allows the Global Admin to view the data of any Masterdata which are applicable to a country. The Administrator can access these list views by clicking on a type of Masterdata in the Masterdata Types Screen.
 Each of these List views consumes the same UI template and allows following features:
 1. List view shows data of a Masterdata Type only in the country configured Primary Language. 
@@ -289,20 +289,20 @@ Since not all the attributes for a Masterdata record will be shown on the list v
 API Link: Please refer to API Spec for Registration Center [Search API](/mosip/mosip-docs/wiki/Registration-Center-APIs#post-registrationcenterssearch) and [Filter API](https://github.com/mosip/mosip-docs/wiki/Registration-Center-APIs#registration-center-filter-values) used for View screens and filters. For all other List views, same API spec structure is followed.
 
 ### 6.3 Manage Master Data [**[↑]**](#table-of-contents)
-#### 6.3.1 Manage Document Type (View, Create, Update, Activate, Deactivate)
+#### 6.3.1 Manage Document Type (View, Create, Update, Activate, Deactivate) [**[↑]**](#table-of-contents)
 Document types is the list of Documents a country will configure for the users to give during registrations. 
 
-#### A. View Document Types
+#### A. View Document Types [**[↑]**](#table-of-contents)
 The Global Admin can view list of all the available Document Types on the Admin UI portal. The portal shows both activated or deactivated Document Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Document Types based on Document Name(Search box) and Status (Drop-down).
 
-#### B. Create/Update Document Types
+#### B. Create/Update Document Types [**[↑]**](#table-of-contents)
 Using the portal, the Global Admin can create the document type providing the Document name and description if applicable.  
 A Document type needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of a Document type in only primary language but will not allow activation of that Document type until data for that Center is not updated for all the languages. A deactivated document type will not show up on the Pre-Registration/Registration Client UI.
 While entering the data, the text fields (e.g., Document Type Name) needs to be manually input in all the languages. After successful creation, a Document type code will be generated.
 
 Admin Portal also allows modification of any detail of a Document type. The modification includes either adding the details in another language that were missed during creation of the Document type or changing the details of a Document Type itself including name, description etc.
 
-#### C. Activate/Deactivate Document types
+#### C. Activate/Deactivate Document types [**[↑]**](#table-of-contents)
 
 The portal allows Zonal Admin to activate or deactivate a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
 
@@ -311,14 +311,14 @@ The Global Admin can view list of all the available Document Categories as creat
 
 #### 6.3.3 Manage Document Type to Document Category Mapping (Map, Unmap, View) [**[↑]**](#table-of-contents)
 
-#### A. View mappings of Document Categories and Document Types
+#### A. View mappings of Document Categories and Document Types [**[↑]**](#table-of-contents)
 The portal allows an Global Admin to view Document Categories along with its mapped and un-mapped Document Types.
 Form the view screen itself, the Global Admin can map or un-map the Documents from a Document Category. 
 
-#### C. Map/Un-map Document Type to Document Category
+#### C. Map/Un-map Document Type to Document Category [**[↑]**](#table-of-contents)
 The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
 
-#### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) 
+#### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) [**[↑]**](#table-of-contents)
 #### A. View Location Data
 The Global Admin can view list of all the Locations created by the country on the Admin UI portal. This list of locations defined shows up on the Pre-Registration and Registration UI while typing the address. The portal shows both activated or deactivated Locations Types. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Locations based on Status (Drop-down) and each Location level (Search Box).
 
