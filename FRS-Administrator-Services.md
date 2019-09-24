@@ -137,6 +137,8 @@ For more details on the API used, please refer to [**section**](/mosip/mosip-doc
 Once a Center is created, an Admin can edit a Center later if required. The Update can include adding the details in another required language that were missed during creation of the Center or changing the details of a Center itself.  
 All the attributes mentioned in the 'Create Center' section can be updated for a Center.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### 5.1.4 Activate/Deactivate/Decommission Center [**[↑]**](#table-of-contents)
 
 An admin can Deactivate or Decommission a Center through the Admin Portal.
@@ -144,6 +146,8 @@ An admin can Deactivate or Decommission a Center through the Admin Portal.
 Deactivation refers to a temporary shut down while Decommission refers to a permanent shut down of the Center. Decommissioning a Center also automatically deactivates the Center. In cases, where a Center has some resources mapped to it (e.g. Machines, Devices or Users), the portal won't allow the Admin to decommission such a Center. 
 
 Difference between Deactivated and Decommissioned center is that a Deactivated center can later be Activated later through Admin Portal as required by the country. But a Decommissioned Center cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Center (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 ### 5.2 Machine Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Machines the Country will use for taking Registration of the Residents. The definition of Machine is the device on which the registration Client is installed. Machine management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Machines. An Administrator should have the role of a Zonal Admin/Global Admin to do this. An Admin can manage only Machines under his/her administrative zone.
@@ -173,12 +177,13 @@ Machine ID, Machine Name, Mac Address, Serial Number, Machine Spec ID and Admini
 
 While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Machine Name) needs to be manually input in all the languages. A Machine can be mapped to the Administrative Zone which is at the any Zonal hierarchy.
 
-For more details, please refer to [**section**](FRS-Admin-Services#23-list-of-machine-types---create-) in Admin Service.
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 5.2.3 Update Machine [**[↑]**](#table-of-contents)
 Once a Machine is created, an Admin can edit a Machine later if required. The Update can include adding the details in another required language that were missed during creation of the Machine or changing the details of a Machine itself. 
 All the attributes mentioned in the 'Create Machine' section can be updated for a Machine.
-For more details, please refer to [**section**](FRS-Admin-Services#25-list-of-machines---createreadupdatedelete-) in Admin Service.
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 5.2.4 Activate/Deactivate/Decommission Machine [**[↑]**](#table-of-contents)
 
@@ -188,10 +193,14 @@ Deactivation refers to a temporary shut down while Decommission refers to a perm
 
 Difference between Deactivated and Decommissioned Machine is that a Deactivated Machine can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Machine cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Machine (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### 5.2.5 Map/Un-map/Re-map Machine to a Center [**[↑]**](#table-of-contents)
 Admin portal allows an Admin to map Machines to a Center. This mapping specifies as to which Center the Machine will be used in. A Machine can only be mapped to a Center which belongs under the Machines’ Administrative Zone.
 
 A Machine can later be un-mapped from the Center in cases where a Machine is needed to be moved to another Center. In such cases, the Machine will later need to be mapped to the new Center. In case the Machine is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Machine must be changed. 
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 ### 5.3 Device Management [**[↑]**](#table-of-contents)
 Admin Portal allows an Administrator to manage Devices the Country will use for taking Registration of the Residents. These includes Device for bio-metric capture (Fingerprint, Iris, Web camera etc.) Device management includes Viewing, Creating, Editing, Activating, Deactivating and Decommission of Devices. An Administrator should have the role of a Zonal Admin/Global Admin to do this. A Zonal Admin can manage only Devices under his/her administrative zone.
@@ -221,11 +230,13 @@ Device ID, Device Name, Mac Address, Serial Number, Device Spec ID and Administr
 
 While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Device Name) needs to be manually input in all the languages.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### 5.3.3 Update Device [**[↑]**](#table-of-contents)
 Once a Device is created, an Admin can edit a Device later if required. The Update can include adding the details in another required language that were missed during creation of the Device or changing the details of a Device itself. 
 All the attributes mentioned in the 'Create Machine' section can be updated for a Machine.
 
-For more  details, please refer to [**section**](FRS-Admin-Services#27-list-of-devices---createreadupdatedelete-) in Admin Service.
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 5.3.4 Activate/Deactivate/Decommission Device [**[↑]**](#table-of-contents)
 An Admin can Deactivate or Decommission a Device through the Admin Portal.
@@ -234,13 +245,15 @@ Deactivation refers to a temporary shut down while Decommission refers to a perm
 
 Difference between Deactivated and Decommissioned Device is that a Deactivated Device can later be Activated through Admin Portal after a period as required by the country. But a Decommissioned Device cannot be bought into commission again as decommission refers to a permanent shutdown. To reactivate such a Device (if decommissioned by mistake), the Admin must directly update the database through the back-end scripts.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### 5.3.5 Map/Un-map/Re-map Device to a Center [**[↑]**](#table-of-contents)
 Admin portal allows an Admin to map each Device to a Center. This mapping specifies as to which Center the Device will be used in. A Device can only be mapped to a Center which belongs under the Device’s Administrative Zone.
 
 A Device can later be un-mapped from the Center in cases where a Device is needed to be moved to another Center. In such cases, the Device will later need to be mapped to the new Center. In case the Device is required to be mapped to a Registration Center outside the Administrative Zonal Restriction, the Administrative Zone of the Device must be changed.
-Refer to section on more details of CRUD APIs used in above mentioned features
+Refer to section on more details of CRUD APIs used in above mentioned features.
 
-For more details, please refer to [link](FRS-Admin-Services#211-mappings-of-registration-center-and-device---createreaddelete-)
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 ### 5.4 User Management (WIP) [**[↑]**](#table-of-contents)
 
@@ -302,9 +315,13 @@ While entering the data, the text fields (e.g., Document Type Name) needs to be 
 
 Admin Portal also allows modification of any detail of a Document type. The modification includes either adding the details in another language that were missed during creation of the Document type or changing the details of a Document Type itself including name, description etc.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### C. Activate/Deactivate Document types [**[↑]**](#table-of-contents)
 
 The portal allows Zonal Admin to activate or deactivate a document type. Deactivation of a document type can be done if the country feels the document type is not applicable anymore. Thus, deactivated documents does now show up on the Pre-Registration and Registration Client UI. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Document Types
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 6.3.2 Manage Document Categories (View) [**[↑]**](#table-of-contents)
 The Global Admin can view list of all the available Document Categories as created by the Country in Masterdata. The portal shows both activated or deactivated Document Categories. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Document Categories based on Status (Drop-down).
@@ -313,10 +330,14 @@ The Global Admin can view list of all the available Document Categories as creat
 
 #### A. View mappings of Document Categories and Document Types [**[↑]**](#table-of-contents)
 The portal allows an Global Admin to view Document Categories along with its mapped and un-mapped Document Types.
-Form the view screen itself, the Global Admin can map or un-map the Documents from a Document Category. 
+Form the view screen itself, the Global Admin can map or un-map the Documents from a Document Category.
 
-#### C. Map/Un-map Document Type to Document Category [**[↑]**](#table-of-contents)
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
+#### B. Map/Un-map Document Type to Document Category [**[↑]**](#table-of-contents)
 The portal allows the Global Admin to map the available Document types to a Document category. This feature helps the country define as to which document falls under which category. Each Document can be mapped to multiple categories depending on the country's requirement.
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 6.3.4 Manage Location Data (View, Create, Update, Activate, Deactivate) [**[↑]**](#table-of-contents)
 #### A. View Location Data [**[↑]**](#table-of-contents)
@@ -330,9 +351,13 @@ While entering the data, the text fields (e.g., Document Type Name) needs to be 
 
 Admin Portal also allows modification of any detail of a Location. The modification includes either adding the details in another language that were missed during creation of the Location or changing the details of a Location itself including name, parent hierarchy etc.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### C. Activate/Deactivate Location data [**[↑]**](#table-of-contents)
 
 The portal allows activation or deactivation of a Location. Deactivation of a Location can be done if the country feels the Location is not applicable anymore. Thus, deactivated locations does now show up on the Pre-Registration and Registration Client UI. The Portal won't allow deactivation of a Location if any child of that location is still active. The Admin will have to first deactivate all the child locations before deactivating a parent location. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Location data.
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 6.3.5 Manage Blacklisted Words (View, Create, Update, Activate, Deactivate) [**[↑]**](#table-of-contents)
 
@@ -346,9 +371,13 @@ While entering the data, the text fields (e.g., Word, Description) needs to be m
 
 Admin Portal also allows modification of any detail of a Blacklisted Word. The modification includes either changing the word altogether or changing the description itself.
 
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
+
 #### C. Activate/Deactivate Blacklisted Word [**[↑]**](#table-of-contents)
 
 The portal allows activation or deactivation of a Blacklisted Word. Deactivation of a Blacklisted Word can be done if the country feels the Blacklisted Word is not applicable anymore. The Activation/Deactivation functionality can be accessed from both the list view or the detail view page of Blacklisted Word.
+
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)
 
 #### 6.3.6 Manage Registration Center Types (View) [**[↑]**](#table-of-contents)
 Registration Center Type indicates the type of Centers a country can have. Some examples can be Regular, Mobile, temporary etc. The Global Admin can view list of all the available Registration Center Types on the Admin UI portal. A Registration Center while creation, can be assigned to a Center Type as defined by the country.
