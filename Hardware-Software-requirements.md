@@ -19,15 +19,15 @@ This section talks about the Hardware and Software requirements for MOSIP pilot 
 * Antivirus Software
 
 ### Devices for registration
-* IRIS
-* 4 slab fingerprint scanner
-* Single fingerprint scanner
+* IRIS scanner (eye safety compliance IEC 62471. Standards ISO 60950-1, KCC)
+* 4 Slab fingerprint scanner (550 dpi)
+* Single fingerprint Reader (500 dpi, Image format : ISO 19794-4; ANSI-378, Certification : STQC Level 0 CE, FCC, WEEE. RoHS)
 * High Definition camera
-* Document Scanner
+* Document Scanner 
 * Printer 
 
 ### Server  
-* Minimum 12 cores
+* Minimum 12 cores CPU
 * 128 GB RAM
 * 3 TB HDD
 Note : Get 3 servers each with this configuration 
