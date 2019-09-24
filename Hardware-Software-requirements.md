@@ -26,12 +26,12 @@ This section talks about the Hardware and Software requirements for MOSIP pilot 
 * Document Scanner
 * Printer 
 
-### Server   - 3 nos
+### Server  
 * Minimum 12 cores
 * 128 GB RAM
-
-
-
+* 3 TB HDD
+** Note : Get 3 servers each with this configuration 
+* SAN Storage for backup
 
 
 # For Staging and Production
