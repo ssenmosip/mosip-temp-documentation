@@ -366,7 +366,7 @@ The portal shows both activated or deactivated Individual Types. The list view s
 
 #### 6.3.12 Manage List of Holidays (View)
 List of Holiday defines all the public holiday a applicable for a country. These holidays are on of the criteria for Pre-Registration to generate appointments. The holidays only define the public holidays and not the week-end days for the country. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
-The portal shows both activated or deactivated Holidays. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table).
+The portal shows both activated or deactivated Holidays. The list view screen follows the templatized approach as described in [Section 6.2](#62-view-master-data-for-each-table). The Admin can filter the list of Holidays based on Status (Drop-down), Date Range (Search Box) and Name (Search Box).
 
 #### 6.3.13 Manage List of Templates (View) [**[↑]**](#table-of-contents)
 List of Templates contains all the notification templates used by MOSIP to send notifications to the Users or Residents. This notification includes OTP notification, Acknowledgment Notifications etc. Even acknowledgement shown on the Pre-Registration UI is defined in the template Masterdata. Each template in the Masterdata has a description defined for it which indicates as to where the template is being used in MOSIP. The Global Admin can view list of all the defined Holidays on the Admin UI portal.
