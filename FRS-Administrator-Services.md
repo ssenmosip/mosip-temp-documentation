@@ -453,8 +453,6 @@ For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Servic
 
    [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
 
-2. Configurable Processes
-* (Work in Progress) 
 ### Administrator Services API
 * (Work in Progress) 
 
