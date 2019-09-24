@@ -279,7 +279,7 @@ Each of these List views consumes the same UI template and allows following feat
 
    a. text* - implies "Starts with" search
 
-   b. *text* & *text - implies "Contains in" search
+   b. *text - implies "Contains in" search
 
    c. text - implies exact match search
 
