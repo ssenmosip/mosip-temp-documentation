@@ -118,6 +118,7 @@ The Admin can filter the list of Registration Centers based on following paramet
    2.  Center Type
    3.  Status
    4.  Location Hierarchy (All Location levels)
+
 Besides the list view, an administrator can also view the detail of a Registration Center by clinking on a Center Name in the List view. This Detail view shows all the details of a Registration Center in all the country configured languages.
 
 #### 5.1.2 Create Center
@@ -150,11 +151,19 @@ For more details on Administrative zones, Refer [Here](#55-administrative-zone-m
 #### 5.2.1 View Machine
 
 The Admin portal allows an Admin to view the list of all Machines available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Machines but only Active and Inactive Machines. 
-Admin portal UI shows the list of Machines in only the country configured Primary Language. Besides the list view, an Administrator can also view the detail of a Machine by clinking on a Machine Name in the List view. This Detail view shows all the details of a Machine in all the country configured languages.
+Admin portal UI shows the list of Machines in only the country configured Primary Language. 
+The Admin can filter the list of Registration Centers based on following parameters
+   1.  Machine Name
+   2.  Mac Address
+   3.  Serial Number
+   4.  Status
+   5.  Map Status
+   6.  Machine Type
+
+Besides the list view, an Administrator can also view the detail of a Machine by clinking on a Machine Name in the List view. This Detail view shows all the details of a Machine in all the country configured languages.
 
 #### 5.2.2 Create Machine
 An Admin can create a Machine by providing necessary mandatory details. A Machine needs to be created in both configured Primary and Secondary language. Although the Portal will allow creation of the Machine in only primary language but will not allow activation of that Machine until data for that Machine is not updated for all the languages. 
-
 A Machine is created with the following attributes: 
 Machine ID, Machine Name, Mac Address, Serial Number, Machine Spec ID and Administrative Zone the Machine belongs to.
 
@@ -187,11 +196,20 @@ For more details on Administrative zones, Refer [Here](#55-administrative-zone-m
 
 #### 5.3.1 View Device
 The Admin portal allows an Admin to view the list of all Devices available in the jurisdiction of his/her administrative zone. The system does not fetch the details of Decommissioned Devices but only Active and Inactive Devices. 
-Admin portal UI shows the list of Devices in only the country configured Primary Language. Besides the list view, an Administrator can also view the detail of a Device by clinking on a Device Name in the List view. This Detail view shows all the details of a Device in all the country configured languages.
+Admin portal UI shows the list of Devices in only the country configured Primary Language. 
+The Admin can filter the list of Registration Centers based on following parameters
+   1.  Device Name
+   2.  Mac Address
+   3.  Serial Number
+   4.  Status
+   5.  Map Status
+   6.  Device Type
+   7.  Device Spec ID
+
+Besides the list view, an Administrator can also view the detail of a Device by clinking on a Device Name in the List view. This Detail view shows all the details of a Device in all the country configured languages.
 
 #### 5.3.2 Create Device
 An Admin can create a Device by providing necessary mandatory details. A Device needs to be created in both configured Primary and Secondary languages. Although the Portal will allow creation of the Device in only primary language but will not allow activation of that Device until data for that Device is not updated for all the languages. 
-
 A Device is created with the following attributes: 
 Device ID, Device Name, Mac Address, Serial Number, Device Spec ID and Administrative Zone the Device belongs to. A Machine can be mapped to the Administrative Zone which is at the any Zonal hierarchy.
 
