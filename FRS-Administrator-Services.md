@@ -467,4 +467,4 @@ Refer the following links for Administrator APIs
 
 
 ## Process View [**[↑]**](#table-of-contents)
-* (Work in Progress) 
+* Click here [/mosip/mosip-docs/wiki/Process-view#6-admin-portal-] for Process flows for Admin
