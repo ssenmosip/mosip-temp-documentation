@@ -142,5 +142,143 @@ Deployment checklist is divided into 2 parts -
 </table>
 
 
+***2. Application Checklist***    
+<table>
+    <thead>
+        <tr>
+            <th>Module Name</th>
+            <th>Application Checklist</th>
+            <th>Additional Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=1>Kernel</td>
+            <td rowspan=1>Configurations</td>
+            <td>kernel.properties, application.properties</td>
+        </tr>
+       <tr>
+            <td rowspan=5>Pre-Registration</td>
+            <td rowspan=1>Virus Scanner</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>pre-registration.properties, application.properties</td>
+        </tr>
+        <tr>
+            <td rowspan=1>HDFS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>Kernel Services</td>
+            <td>Authmanager, AuditManager, MasterData, CryptoManager, KeyManager, SmsNotifier, EmailNotifier, Config Server, OTPManager</td>
+        </tr>
+        <tr>
+            <td rowspan=6>Registration</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuthManager, Sync Data Service, Key Manager,  
+Notification Manager, Master Data, User Salt Service,  
+User Detail Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Pre-Registrtaion Services</td>
+            <td>Pre-Registration Sync Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Registration  
+Processor Services</td>
+            <td>Packet Reciever, Packet Sync Status, Packet Status</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Authentication Services</td>
+            <td>Internal Authentication Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Devices and/or MDS</td>
+            <td>Fingerprint/Iris/Webcamera/Printer/Scanner</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>registration.properties, application.properties,  
+spring.properties  
+Required properties for library URL, HealthCheck URL, TPM availability needs to be changed in the file present at -  
+"registrtaion-services/src/main/resources  
+/spring.properties"</td>
+        </tr>
+     <tr>
+            <td rowspan=5>Registration Processor</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuthManager, AuditManager, MasterData,  
+CryptoManager, KeyManager, Signature,  
+RidGenerator, SmsNotifier, EmailNotifier</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Authentication Services</td>
+            <td>Internal Authentication Service</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Repository Services</td>
+            <td>IDRepo Identity and VID Services</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ABIS</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>registration-processor.properties,  
+RegistrationProcessorAbis.json  
+These configurations should be updated with correct hdfs, activemq, virusscanner ip/port, etc.</td>
+        </tr>
+       <tr>
+            <td rowspan=3>ID Repository</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuditManager, CryptoManager, Config Server, AuthManager</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>ID Schema, VID Policy Schema, id-repository.properties</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Job</td>
+            <td>Salt Generator</td>
+        </tr>
+        <tr>
+            <td rowspan=1>LDAP Roles</td>
+            <td>roles=REGISTRATION_PROCESSOR, ID_AUTHENTICATION, REGISTRATION_ADMIN, REGISTRATION_SUPERVISOR, REGISTRATION_OFFICER</td>
+        </tr>
+       <tr>
+            <td rowspan=4>ID Authentication</td>
+            <td rowspan=1>Kernel Services</td>
+            <td>AuditManager, CryptoManager, AuthManager,  
+Config Server, OTPManager, Email Notifier, SMS Notifier, Signature, Master Data, TokenID Generator</td>
+        </tr>
+        <tr>
+            <td rowspan=1>ID Repository Services</td>
+            <td>ID Repo Identity and VID Services</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Configurations</td>
+            <td>ID Auth Mapping, id-authentication.properties</td>
+        </tr>
+        <tr>
+            <td rowspan=1>Job</td>
+            <td>Salt Generator</td>
+        </tr>    
+        <tr>
+            <td rowspan=1>LDAP Roles</td>
+            <td>roles=REGISTRATION_PROCESSOR, ID_AUTHENTICATION, REGISTRATION_ADMIN, REGISTRATION_SUPERVISOR, REGISTRATION_OFFICER</td>
+        </tr>    
+    </tbody>
+</table>
+
+
+
+
 
 
