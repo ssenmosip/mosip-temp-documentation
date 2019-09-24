@@ -131,7 +131,7 @@ Center name, Center Type, Address, Latitude, Longitude, Location, Contact Phone,
 
 While entering data through UI in multiple languages, the dropdown values and numeric values entered in primary language gets automatically captured in all language. But the text fields (e.g., Center Name) needs to be manually input in all the languages.
 
-For the API used, please refer to [**section**]/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)	
+For more details on the API used, please refer to [**section**](/mosip/mosip-docs/wiki/FRS-Admin-Services#table-of-contents)	
 
 #### 5.1.3 Update Center [**[↑]**](#table-of-contents)
 Once a Center is created, an Admin can edit a Center later if required. The Update can include adding the details in another required language that were missed during creation of the Center or changing the details of a Center itself.  
