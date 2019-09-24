@@ -447,15 +447,20 @@ For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Servic
 ## 13. Configuration Setup (WIP) [**[↑]**](#table-of-contents)
 ## 14. Process Flow Setup (WIP) [**[↑]**](#table-of-contents)
 
-### List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
+## List of Configurable Parameters and Processes [**[↑]**](#table-of-contents)
 
 1. Configurable Parameters
 
    [**Link to Configurable Parameters of Administrator Services**](/mosip/mosip-config/blob/master/config/admin.properties)
 
-### Administrator Services API
-* (Work in Progress) 
-
+## Administrator Services API
+Refer the following links for Administrator APIs
+1. Document Type/Category/Document Category-Type Mapping CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Document-APIs)
+2. Device CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Device-APIs)
+3. Machine CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Machine-APIs)
+4. Location, Blacklisted Words CRUD APIs - [Refer here](mosip/mosip-docs/wiki/Common-APIs)
+5. Administrative Zone APIs - [Refer here](WIP)
+6. Multi Language Validator for Create/Update - [Refer here](WIP)
 
 ## Process View [**[↑]**](#table-of-contents)
 * (Work in Progress) 
