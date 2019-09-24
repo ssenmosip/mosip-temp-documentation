@@ -275,7 +275,7 @@ Each of these List views consumes the same UI template and allows following feat
 2.	The Global Admin can access pagination features on each list screens. These includes selecting no. of rows to be displayed on the list view and options to jump to next or previous set of records. 
 3.	The Global Admin can sort the data by any column on the list view
 4.	The List view also allows the Global Admin to directly activate or deactivate a Masterdata record from list view itself
-5.      The List view also supports filtering by multiple attributes. the attribute can either have a drop-down or a search box which an Admin can use to input values for filtering the values. The search box supports wildcard search as listed below -
+5.      The List view also supports filtering by multiple attributes. The attribute can either have a drop-down or a search box which an Admin can use to input values for filtering the values. The search box supports wildcard search as listed below:
       a. text* - implies "Starts with" search
       b. *text* & *text - implies "Contains in" search
       c. text - implies exact match search
