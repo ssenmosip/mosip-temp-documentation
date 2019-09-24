@@ -456,11 +456,15 @@ For more details, please refer to [link](/mosip/mosip-docs/wiki/FRS-Admin-Servic
 ## Administrator Services API
 Refer the following links for Administrator APIs
 1. Document Type/Category/Document Category-Type Mapping CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Document-APIs)
-2. Device CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Device-APIs)
-3. Machine CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Machine-APIs)
-4. Location, Blacklisted Words CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Common-APIs)
-5. Administrative Zone APIs - Refer here (TBD)
-6. Multi Language Validator for Create/Update - Refer here (TBD)
+2. Registration Center CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Registration-Center-APIs)
+3. Device CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Device-APIs)
+4. Machine CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Machine-APIs)
+5. Location, Blacklisted Words CRUD APIs - [Refer here](/mosip/mosip-docs/wiki/Common-APIs)
+6. Masterdata types API - [Refer here](/mosip/mosip-docs/wiki/Admin-APIs#master-data)
+7. Administrative Zone APIs - Refer here (TBD)
+8. Multi Language Validator for Create/Update - Refer here (TBD)
+9. Check Packet Status - Refer here (TBD)
+
 
 ## Process View [**[↑]**](#table-of-contents)
 * (Work in Progress) 
