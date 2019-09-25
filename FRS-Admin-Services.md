@@ -56,18 +56,18 @@ While storing the location hierarchy in the database, the system performs the fo
     * parent_loc_code - character (32) - Optional
     * lang_code - character (3) - Mandatory
     * is_active - boolean - Mandatory
-1. Validate if the Location name received does not already exist in the hierarchy for which the location is getting created
+2. Validate if the Location name received does not already exist in the hierarchy for which the location is getting created
     * If Location name already exist under the hierarchy level, throw an appropriate error
-1. The API should not allow creation of the Location if the data is not received in default language
-1. If the data for the Location is not received in all the configured languages, the API should allow the Location to be created given the Point 3 is satisfied.
-1. The API should activate the Location while creation provided the data for all the configured languages is received during the initial creation
+3. The API should not allow creation of the Location if the data is not received in default language
+4. If the data for the Location is not received in all the configured languages, the API should allow the Location to be created given the Point 3 is satisfied.
+5. The API should activate the Location while creation provided the data for all the configured languages is received during the initial creation
     * If the data for all the configured languages is not received, deactivate the Location while creation
-2. While storing the location, 
+6. While storing the location, 
     * cr_by should be the Username of the user who is accessing this API
     * cr_dtimes should be the date-time at which the user is creating the Location 
-2. Responds with the Location Hierarchy created successfully
-1. The component restricts the bulk creation of Master Data through API. However it could be done through a script as need be depending on the requirement of the country.
-1. In case of exceptions, system triggers error messages as received from the Database
+7. Responds with the Location Hierarchy created successfully
+8. The component restricts the bulk creation of Master Data through API. However it could be done through a script as need be depending on the requirement of the country.
+9. In case of exceptions, system triggers error messages as received from the Database
 
 #### B. Update a Location in Location Master Database
 On receiving a  request to update a Location with the input parameters (code, name, hierarchy_level, hierarchy_level_name, parent_loc_code, lang_code and is_active), the system updates the Location in the Location Database
@@ -83,19 +83,19 @@ The system performs the following steps to update the location in the Master Dat
    * parent_loc_code character (32) - Mandatory
    * lang_code character (3) - Mandatory
    * is_active boolean - Mandatory
-1. Validate if the Location name received does not already exist in the hierarchy of the Location
+2. Validate if the Location name received does not already exist in the hierarchy of the Location
    * If Location name already exist under the hierarchy level, throw an appropriate error
-1. The API should not allow activation of Location if the data for the Location is not present in all the languages which are configured for a country
-2. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
-3. While receiving the request for activation, If the Location is already Active, the API should throw an error message. Refer messages section.
-4. While receiving the request for deactivation, If the Location is already Inactive, the API should throw an error message. Refer messages section
-5. If for a Location data, is_active flag is being sent as “False” and there are active child Locations (also the subsequent child locations) being mapped to received location, do not deactivate the location. Respond with appropriate message. Refer messages section
-6. Deleted record are not be updated
-7. upd_by should be the Username of the user who is accessing this API
-8. upd_dtimes should be the date-time when the Location is being updated
-9. Responds with data not found error if deleted record is received in the request
-10. Responds with appropriate message if the Location is updated successfully
-11. In case of Exceptions, system triggers relevant error messages
+3. The API should not allow activation of Location if the data for the Location is not present in all the languages which are configured for a country
+4. For the code received in the request, replaces all the data received in the request against the data existing in the Location database against the same code.
+5. While receiving the request for activation, If the Location is already Active, the API should throw an error message. Refer messages section.
+6. While receiving the request for deactivation, If the Location is already Inactive, the API should throw an error message. Refer messages section
+7. If for a Location data, is_active flag is being sent as “False” and there are active child Locations (also the subsequent child locations) being mapped to received location, do not deactivate the location. Respond with appropriate message. Refer messages section
+8. Deleted record are not be updated
+9. upd_by should be the Username of the user who is accessing this API
+10. upd_dtimes should be the date-time when the Location is being updated
+11. Responds with data not found error if deleted record is received in the request
+12. Responds with appropriate message if the Location is updated successfully
+13. In case of Exceptions, system triggers relevant error messages
 
 #### C. Check the existence of a Location in Master Database
 Upon receiving a request to validate the Location Name with input parameters (Location Name), the system checks the Location Name in the Master Database
@@ -446,9 +446,11 @@ Refer below for the process:
 2. The API should not allow creation of the Document Type if the data is not received in default language
 3. If the data for the Document Type is not received in all the configured languages, the API should allow the Document Type to be created given the Point 2 is satisfied.
 4. The API should activate the Document Type while creation provided data for all the configured languages is received during the initial creation
-5. If the data for all the configured languages is not received, deactivate the Document Type while creation
-6. Responds with an appropriate message for the Document Type created successfully
-7. In case of Exceptions, system triggers relevant error messages
+5. cr_by should be the Username of the user who is accessing this API
+6. cr_dtimes should be the date-time when the user is creating the Document Type
+7. If the data for all the configured languages is not received, deactivate the Document Type while creation
+8. Responds with an appropriate message for the Document Type created successfully
+9. In case of Exceptions, system triggers relevant error messages
 
 #### B. Update a Document Type in the Document Type Master Database
 
@@ -462,13 +464,15 @@ Refer below for the process:
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Document Type database against the same code
-3. The API should not allow activation of Document Type if the data for the Document Type is not present in all the languages which are configured for a country
-4. While receiving the request for activation, If the Document Type is already Active, the API should throw an error message. Refer messages section.
-5. While receiving the request for deactivation, If the Document Type is already Inactive, the API should throw an error message. Refer messages section.
-6. Deleted record are not be updated
-7. Responds with data not found error if deleted record is received in the request
-8. Responds with the appropriate message for the Document Category updated successfully
-9. In case of Exceptions, system triggers relevant error messages
+3. upd_by should be the Username of the user who is accessing this API
+upd_dtimes should be the date-time when the user updates the Document Type Details
+4. The API should not allow activation of Document Type if the data for the Document Type is not present in all the languages which are configured for a country
+5. While receiving the request for activation, If the Document Type is already Active, the API should throw an error message. Refer messages section.
+6. While receiving the request for deactivation, If the Document Type is already Inactive, the API should throw an error message. Refer messages section.
+7. Deleted record are not be updated
+8. Responds with data not found error if deleted record is received in the request
+9. Responds with the appropriate message for the Document Category updated successfully
+10. In case of Exceptions, system triggers relevant error messages
 
 #### C. Delete a Document Type in the Document Type Master Database
 
@@ -889,15 +893,14 @@ Upon receiving a request to add a Blacklisted Word with the input parameters (co
    * descr - character (256) - Optional
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
-2. Responds with the Device ID and Language Code for the Device created successfully
-1. The component  restricts the bulk creation of Master Database
-1. In case of Exceptions, system triggers error messages as received from the Database. 
+2. cr_by should be the Username of the user who is accessing this API
+3. cr_dtimes should be the date-time when the user is creating the Blacklisted Word 
+2. Responds with the appropriate message for the Device created successfully
+3. The component should restricts the bulk creation of Master Database
+4. In case of Exceptions, system triggers error messages as received from the Database. 
 
 
-#### B. Update and Delete a Blacklisted Word in Blacklisted Word Master Database
-
-
-#### (i) Update
+#### B. Update a Blacklisted Word in Blacklisted Word Master Database
 
 Upon receiving request to update a Blacklisted Word with the input parameters (code, name, descr, lang_code and is_active), the system updates the Blacklisted Word in the Blacklisted Word Database for the code received and performs the following steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
@@ -906,13 +909,14 @@ Upon receiving request to update a Blacklisted Word with the input parameters (c
    * lang_code - character (3) - Mandatory
    * is_active - boolean - Mandatory
 2. For the code received in the request, replaces all the data received in the request against the data existing in the Blacklisted Word database against the same code
-3. Deleted record are not updated
-1. Responds with data not found error if deleted record is received in the request
-1. Responds with the Word and Language Code for the Blacklisted word updated successfully
-1. In case of Exceptions, system triggers relevant error messages as listed below
+3. upd_by should be the Username of the user who is accessing this API
+4. upd_dtimes should be the date-time when the user updates the Blacklisted Word Details
+5. Deleted record are not updated
+6. Responds with data not found error if deleted record is received in the request
+7. Responds with the appropriate message for the Blacklisted word updated successfully
+8. In case of Exceptions, system triggers relevant error messages as listed below
 
-
-#### (ii) Delete
+#### C. Delete a Blacklisted Word in Blacklisted Word Master Database
 
 Upon receiving a request to delete a Blacklisted Word with the input parameters (code), the system updates the is_deleted flag to true in the Blacklisted Word Database against the code received and performs the following steps:
 1. Validates if all required input parameters have been received as listed below for each specific request
