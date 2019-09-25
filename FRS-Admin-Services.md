@@ -33,7 +33,7 @@
     * [2.10 Mappings of Registration Center and Machine - Create/Delete](#210-mappings-of-registration-center-and-machine---createdelete-) _(ADM_FR_2.10)_
     * [2.11 Mappings of Registration Center and Device - Create/Read/Delete](#211-mappings-of-registration-center-and-device---createreaddelete-) _(ADM_FR_2.11)_
     * [2.12 Mappings of Registration Center, Machine and Device - Create/Delete](#212-mappings-of-registration-center-machine-and-device---createdelete-) _(ADM_FR_2.12)_
-    * [2.13 Mappings of Registration Center and User- Create/Delete](#212-mappings-of-registration-center-and-user---createdelete-) _(ADM_FR_2.13)_
+    * [2.13 Mappings of Registration Center and User- Create/Delete](#213-mappings-of-registration-center-and-user---createdelete-) _(ADM_FR_2.13)_
   * [3. MISP Management](#3-MISP-management) 
     * [3.1 MISP - Create/Read/Update/Delete](#31-misp---createreadupdatedelete) _(ADM_FR_3.1)_
       * [3.1.1 License Key Allocation- Create/Read/Update/Delete](#311-license-key-allocation--createreadupdatedelete-) _(ADM_FR_3.2)_ 
