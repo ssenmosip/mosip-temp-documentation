@@ -22,7 +22,7 @@
     * [1.19 User History](#119-user-history-) _(ADM_FR_1.19)_
     * [1.20 Document Type - Category Mapping](#120-document-type-to-category-mapping---mapunmap-) _(ADM_FR_1.20)_
   * [2. Registration Management](#2-registration-management) 
-    * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete-) _(ADM_FR_2.1)_
+    * [2.1 Registration Center Type - Create/Update/Decommission](#21-registration-center-type---createupdatedecommission-) _(ADM_FR_2.1)_
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete-) _(ADM_FR_2.2)_
     * [2.3 List of Machine Types - Create](#23-list-of-machine-types---create-) _(ADM_FR_2.3)_
     * [2.4 List of Machine Specifications - Create/Update/Delete](#24-list-of-machine-specifications---createupdatedelete-) _(ADM_FR_2.4)_
@@ -1180,7 +1180,7 @@ Refer below for the process:
 1. Responds with the Registration Center Type code for the Registration Center Type successfully deleted
 1. In case of Exceptions, system triggers relevant error messages. 
 
-### 2.2 Registration Center - Create/Read/Update/Delete [**[↑]**](#table-of-contents)
+### 2.2 Registration Center - Create/Read/Update/Decommission [**[↑]**](#table-of-contents)
 
 #### A. Create a Registration Center record in Master Database
 
