@@ -1065,8 +1065,8 @@ Refer below for the process:
    * cr_dtimes should be the date-time at which the user is creating the Document Category - Document Type Mapping
 
 3. if the mapping already exist but is in inactive state
-   a. Update the is_acitve flag as “True”
-   b. Updated the upd_by and upd_dtimes values against the mapping
+   * Update the is_acitve flag as “True”
+   *. Updated the upd_by and upd_dtimes values against the mapping
 
 4. If the mapping already exist in active state, throw appropriate error message
 
