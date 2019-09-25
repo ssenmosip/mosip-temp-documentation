@@ -20,7 +20,7 @@
     * [1.17 List of Applications - Create/Read](#117-list-of-applications---createread-) _(ADM_FR_1.17)_
     * [1.18 List of ID Types - Create/Read](#118-list-of-id-types---createread-) _(ADM_FR_1.18)_
     * [1.19 User History](#119-user-history-) _(ADM_FR_1.19)_
-    * [1.20 Document Type - Category Mapping](#120-document-type-to-category-mapping---mapupmap-) _(ADM_FR_1.20)_
+    * [1.20 Document Type - Category Mapping](#120-document-type-to-category-mapping---mapunmap-) _(ADM_FR_1.20)_
   * [2. Registration Management](#2-registration-management) 
     * [2.1 Registration Center Type - Create/Update/Delete](#21-registration-center-type---createupdatedelete-) _(ADM_FR_2.1)_
     * [2.2 Registration Center - Create/Read/Update/Delete](#22-registration-center---createreadupdatedelete-) _(ADM_FR_2.2)_
