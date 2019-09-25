@@ -1058,15 +1058,15 @@ Refer below for the process:
    * doctyp_code - character - 36 - mandatory
    * doccat_code - character - 36 - mandatory
 
-2 If the mapping does not exist
+2. If the mapping does not exist
    * is_active flag should be stored as true when the mapping is created
    * Store the default language code against the mapping
    * cr_by should be the User ID of the user who is accessing this API
    * cr_dtimes should be the date-time at which the user is creating the Document Category - Document Type Mapping
 
-3 if the mapping already exist but is in inactive state
-   * Update the is_acitve flag as “True”
-   * Updated the upd_by and upd_dtimes values against the mapping
+3. if the mapping already exist but is in inactive state
+   a. Update the is_acitve flag as “True”
+   b. Updated the upd_by and upd_dtimes values against the mapping
 
 4. If the mapping already exist in active state, throw appropriate error message
 
@@ -1084,13 +1084,13 @@ Refer below for the process:
    * doctyp_code - character - 36 - mandatory
    * doccat_code - character - 36 - mandatory
 
-2  If the Document Type is already un-mapped from Document Category, throw an appropriate error message
+2.  If the Document Type is already un-mapped from Document Category, throw an appropriate error message
 
-3  upd_by should be the User ID of the user who is accessing this API
+3.  upd_by should be the User ID of the user who is accessing this API
 
-4  upd_dtimes should be the date-time when the Document Category - Document Type Mapping is being updated
+4.  upd_dtimes should be the date-time when the Document Category - Document Type Mapping is being updated
 
-5  Change the Is_active flag to “False” for removing the mapping
+5.  Change the Is_active flag to “False” for removing the mapping
 
 6. Responds with the appropriate message for the mapping being created successfully
 
